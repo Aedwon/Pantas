@@ -5,4 +5,417 @@ meta:
   exams:
   - cse-pro
   - cse-sub
-questions: []
+questions:
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0001
+    type: corruption-definition
+    difficulty: easy
+    stem: |
+      Which statement best defines corruption in public service?
+    choices:
+      - text: Any error made while carrying out a public duty
+        rationale: An honest error alone does not prove misuse of office for private gain.
+      - text: Misuse of public office or public trust for private gain
+        correct: true
+      - text: Any procedure that takes longer than an applicant expects
+        rationale: A delay alone does not show private gain and may have a lawful cause.
+      - text: Any decision that an affected citizen disagrees with
+        rationale: Disagreement does not establish misuse of office or private gain.
+    explanation: |
+      Corruption means using public office or public trust for private gain.
+      A mistake, delay, or unpopular decision alone does not prove corruption.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0002
+    type: public-office-public-trust
+    difficulty: easy
+    stem: |
+      Which action best reflects the principle that public office is a public
+      trust under Article XI, Section 1 of the Constitution?
+    choices:
+      - text: Giving supporters first access to a public service
+        rationale: Public services must serve the public interest, not reward political support.
+      - text: Treating office resources as a reward for winning an election
+        rationale: Holding office does not turn public resources into personal property.
+      - text: Letting a private sponsor decide who receives government aid
+        rationale: A sponsor's wishes cannot replace the duty to serve the public fairly.
+      - text: Using official powers to serve public needs fairly
+        correct: true
+    explanation: |
+      Public office is a public trust. Officials must use their powers for
+      the public. They must not use those powers to reward private supporters.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0003
+    type: social-effect-identification
+    difficulty: easy
+    stem: |
+      A public health worker reserves free medicine for relatives who do not
+      qualify for aid. Eligible patients leave without medicine. Which result
+      most directly shows the social effect of this act?
+    choices:
+      - text: Patients lose fair access to needed care
+        correct: true
+      - text: Public funds buy fewer medical supplies
+        rationale: This describes resource loss, an economic effect, rather than the stated loss of access.
+      - text: Businesses face higher permit costs
+        rationale: This is an economic effect and is not a result described in the case.
+      - text: Elected officials become less answerable to voters
+        rationale: This describes political accountability rather than patients' access to care.
+    explanation: |
+      Social effects concern people's lives and fair access to services.
+      Here, eligible patients lose access to medicine because of favoritism.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0004
+    type: economic-effect-identification
+    difficulty: easy
+    stem: |
+      A business owner stops plans to expand after repeated demands for
+      unofficial payments at a permit office. Which effect is most directly
+      shown by the canceled expansion?
+    choices:
+      - text: Stronger public accountability
+        rationale: Demands for unofficial payments do not make officials more answerable for their actions.
+      - text: Fairer access to government aid
+        rationale: The case concerns a business investment, not the distribution of aid.
+      - text: Discouraged investment because corruption raises business costs
+        correct: true
+      - text: Greater confidence in elections
+        rationale: The case does not show increased trust in elections.
+    explanation: |
+      Bribe demands add costs to doing business. They can discourage honest
+      businesses from investing. This is an economic effect.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0005
+    type: political-effect-identification
+    difficulty: easy
+    stem: |
+      A local official lets people who pay him decide which public concerns
+      his office will address. Residents without money are ignored. Which
+      political effect does this most clearly illustrate?
+    choices:
+      - text: Higher repair costs for public facilities
+        rationale: Repair costs concern resources and are not described in this case.
+      - text: Weaker accountability because payers control public decisions
+        correct: true
+      - text: Greater equality in access to public services
+        rationale: Ignoring residents who cannot pay makes access less equal.
+      - text: Reduced private influence over government priorities
+        rationale: The payers are gaining influence over government priorities.
+    explanation: |
+      Political effects concern public power and accountability. The official
+      serves payers instead of residents. This weakens accountability.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0006
+    type: ombudsman-complaint-role
+    difficulty: easy
+    stem: |
+      An applicant has messages showing that a government employee demanded
+      a payoff. Which body is specifically tasked under RA 6770 to act on
+      complaints against government officers and employees?
+    choices:
+      - text: Commission on Elections
+        rationale: The case concerns an employee's payoff demand, not an election offense.
+      - text: Sandiganbayan
+        rationale: The lesson identifies the Sandiganbayan as a court that tries cases within its legal authority.
+      - text: The employee's private bank
+        rationale: A private bank is not the public body tasked to act on complaints against government employees.
+      - text: Office of the Ombudsman
+        correct: true
+    explanation: |
+      The Ombudsman acts on complaints against government officers and
+      employees. Filing a complaint does not by itself prove guilt.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0007
+    type: sandiganbayan-court-role
+    difficulty: easy
+    stem: |
+      Which institution is the anti-graft court retained by Article XI,
+      Section 4 of the Constitution, with authority to try cases that fall
+      within its legal jurisdiction?
+    choices:
+      - text: Sandiganbayan
+        correct: true
+      - text: Office of the Ombudsman
+        rationale: The Ombudsman acts on complaints and is not the anti-graft court named in this provision.
+      - text: Civil Service Commission
+        rationale: The Civil Service Commission is not the anti-graft court retained by this provision.
+      - text: Commission on Audit
+        rationale: The Commission on Audit is not the court that this constitutional provision retains.
+    explanation: |
+      Article XI, Section 4 retains the Sandiganbayan. It is the anti-graft
+      court. It tries cases that fall within its legal authority.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0008
+    type: impeachment-grounds
+    difficulty: medium
+    stem: |
+      A reviewer says graft cannot be an impeachment ground because only
+      bribery is named in Article XI, Section 2. Which correction is accurate?
+    choices:
+      - text: Neither bribery nor graft and corruption is named in that section
+        rationale: The provision names both bribery and graft and corruption as grounds.
+      - text: Both are grounds, so every public employee must be removed through impeachment
+        rationale: Impeachment applies only to specified high officials, not every public employee.
+      - text: Both bribery and graft and corruption are grounds for impeaching specified high officials
+        correct: true
+      - text: Graft becomes an impeachment ground only when an official also commits plunder
+        rationale: Graft and corruption are named grounds without requiring a separate act of plunder.
+    explanation: |
+      The Constitution names both bribery and graft and corruption as grounds
+      for impeachment. Impeachment applies to specified high officials.
+      Other public workers follow the removal procedures set by law.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0009
+    type: bribery-scenario
+    difficulty: medium
+    stem: |
+      A public officer agrees to accept a supplier's free vacation in exchange
+      for omitting a required inspection. Which fact makes this a direct
+      bribery scenario under Revised Penal Code Article 210?
+    choices:
+      - text: The officer receives a benefit that is not cash
+        rationale: A noncash benefit can be a bribe, but its form alone does not establish direct bribery.
+      - text: The benefit is accepted in exchange for skipping an official duty
+        correct: true
+      - text: The supplier offers the benefit without telling other suppliers
+        rationale: Secrecy alone is not the defining link between the benefit and the omitted duty.
+      - text: The required inspection might delay the supplier's delivery
+        rationale: A possible delivery delay does not establish an exchange involving an official duty.
+    explanation: |
+      The vacation is a benefit offered in exchange for skipping a duty.
+      Accepting that bargain shows direct bribery. A bribe need not be cash.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0010
+    type: ra-3019-clause-match
+    difficulty: medium
+    stem: |
+      A procurement officer requests a personal benefit from a supplier in
+      connection with a government purchase in which the officer must
+      intervene in an official capacity. Which RA 3019 clause specifically
+      addresses this request?
+    choices:
+      - text: Section 3(h), financial interest in a transaction
+        rationale: The stated act is requesting a benefit, not holding a financial interest in the transaction.
+      - text: Section 3(k), disclosure of confidential information
+        rationale: The officer has not disclosed valuable confidential information in the stated facts.
+      - text: Section 3(g), a manifestly and grossly disadvantageous contract
+        rationale: The case does not state that the purchase contract is greatly harmful to the government.
+      - text: Section 3(b), a benefit tied to a transaction requiring official intervention
+        correct: true
+    explanation: |
+      Section 3(b) covers requesting or receiving a benefit connected with
+      a government transaction the officer must officially handle.
+      The request itself matters. The stem does not say the officer owns
+      a business involved in the purchase.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0011
+    type: red-tape-law-identification
+    difficulty: medium
+    stem: |
+      An office reviews the general processing limits of three working days
+      for simple transactions, seven for complex ones, and twenty for highly
+      technical ones. Which law provides these limits, subject to its
+      requirements and lawful exceptions?
+    choices:
+      - text: RA 11032
+        correct: true
+      - text: RA 7080
+        rationale: RA 7080 concerns plunder, not these transaction processing limits.
+      - text: RA 3019
+        rationale: RA 3019 lists graft and corrupt practices, not these general processing limits.
+      - text: RA 6770
+        rationale: RA 6770 concerns the Ombudsman, not these general processing limits.
+    explanation: |
+      RA 11032 sets these general limits. The applicant must submit complete
+      requirements and pay the needed fees. Lawful extensions and special
+      rules may apply, so a delay alone does not prove corruption.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0012
+    type: vote-buying-recognition
+    difficulty: medium
+    stem: |
+      A campaign worker offers groceries to a voter on the condition that
+      the voter support a named candidate. How should the offer be classified
+      under Omnibus Election Code Section 261(a)?
+    choices:
+      - text: A lawful gift because the benefit is food rather than money
+        rationale: Benefits intended to influence voting can involve goods, not just cash.
+      - text: A lawful gift because no public employee receives it
+        rationale: The vote-buying rule concerns benefits intended to influence voters, not only gifts to officials.
+      - text: Vote buying because a benefit is offered to influence voting
+        correct: true
+      - text: Red tape because the offer imposes a condition
+        rationale: Red tape concerns ineffective government procedures, not benefits offered to influence votes.
+    explanation: |
+      The groceries are offered to influence the voter's choice. This is
+      vote buying. The election offense is not limited to cash payments.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0013
+    type: corruption-prevention-measure
+    difficulty: medium
+    stem: |
+      Applicants cannot find an office's official fees or processing rules.
+      A fixer uses this lack of information to claim that extra payments
+      are required. Which measure most directly addresses this weakness?
+    choices:
+      - text: Let the fixer explain the fees to each applicant privately
+        rationale: Relying on the fixer preserves the same lack of reliable public information.
+      - text: Post the official requirements, fees, and processing times where applicants can check them
+        correct: true
+      - text: Keep the fees unpublished so staff can adjust them for each applicant
+        rationale: Hidden fees make invented charges harder to detect.
+      - text: Accept complaints only from applicants who have paid the fixer
+        rationale: Requiring payment to a fixer does not give applicants the information needed to challenge false charges.
+    explanation: |
+      Clear public rules let applicants check what they must submit and pay.
+      They can then spot hidden charges and invented delays. This addresses
+      the lack of information that the fixer uses.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0014
+    type: ra-3019-undue-injury-or-benefit
+    difficulty: hard
+    stem: |
+      A public officer deliberately favors a friend's company and gives it
+      an unwarranted advantage in an official transaction. A colleague argues
+      that Section 3(e) of RA 3019 cannot apply unless the government also
+      proves a financial loss. Which response best follows the lesson?
+    choices:
+      - text: The colleague is right because unwarranted private benefits are outside Section 3(e)
+        rationale: Section 3(e) expressly covers giving unwarranted private benefits through the stated wrongful conduct.
+      - text: The colleague is right unless the officer personally receives part of the contract price
+        rationale: The lesson does not make personal receipt of money a requirement for this unwarranted-benefit case.
+      - text: Section 3(e) applies to every mistake that benefits a private company
+        rationale: An ordinary mistake alone does not establish manifest partiality, evident bad faith, or gross inexcusable negligence.
+      - text: Giving an unwarranted private benefit through manifest partiality is itself covered by Section 3(e)
+        correct: true
+    explanation: |
+      Section 3(e) covers undue injury or unwarranted private benefits through
+      the wrongful conduct it names. Clear favoritism can meet that condition.
+      The unwarranted-benefit ground does not also require proof of public loss.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0015
+    type: ra-3019-financial-interest
+    difficulty: hard
+    stem: |
+      An officer owns shares in a firm and intervenes in an official capacity
+      in a government transaction involving that firm. Which fact most
+      directly brings the situation within RA 3019, Section 3(h)?
+    choices:
+      - text: The officer has a financial interest in a transaction the officer officially handles
+        correct: true
+      - text: The officer must have disclosed confidential information to the firm
+        rationale: Official intervention and share ownership do not establish an information leak, which is a different prohibited act.
+      - text: Every public employee is forbidden to hold any investment
+        rationale: The stated rule concerns a financial interest tied to official intervention or an interest forbidden by law, not all investments.
+      - text: Every transaction involving a private company causes undue injury
+        rationale: Private participation alone does not prove undue injury or the conditions required by Section 3(e).
+    explanation: |
+      Section 3(h) covers a financial interest in a transaction in which
+      the officer officially intervenes. The officer's shares create that
+      interest here. Not every investment is covered by this rule.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0016
+    type: ra-3019-confidential-information
+    difficulty: hard
+    stem: |
+      Before its authorized release, an officer gives a private consultant
+      valuable confidential information acquired through the office. The
+      consultant is not authorized to receive it. Which conclusion is best
+      supported by RA 3019, Section 3(k)?
+    choices:
+      - text: The disclosure is permitted if the consultant has not paid the officer
+        rationale: A cash payment is not required for the confidential-information act described in Section 3(k).
+      - text: The disclosure is permitted because the information will eventually become public
+        rationale: Releasing valuable confidential information before its authorized release can be covered by Section 3(k).
+      - text: The disclosure can be a corrupt practice even without a cash payment
+        correct: true
+      - text: The disclosure is only an example of slow government service
+        rationale: Giving confidential information to an unauthorized person is different from red tape or delay.
+    explanation: |
+      Section 3(k) covers giving valuable confidential office information
+      to an unauthorized person. It also covers releasing such information
+      too early. A cash payment is not needed for the act described here.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0017
+    type: plunder-elements
+    difficulty: hard
+    stem: |
+      An inquiry finds that a public officer has wealth reaching the statutory
+      plunder threshold. Which further finding is needed to support the
+      lesson's description of plunder under RA 7080?
+    choices:
+      - text: The wealth came from lawful earnings accumulated during public service
+        rationale: Lawfully earned wealth does not become ill-gotten merely because it reaches the threshold.
+      - text: The officer amassed ill-gotten wealth through a combination or series of the criminal acts covered by the law
+        correct: true
+      - text: The officer made an honest filing error with no showing of ill-gotten wealth
+        rationale: An honest error does not establish the unlawful wealth or covered criminal acts needed for plunder.
+      - text: The officer's wealth alone proves plunder regardless of its source
+        rationale: The amount alone does not establish that the wealth came from a combination or series of covered criminal acts.
+    explanation: |
+      Reaching the threshold is not enough. The wealth must be ill-gotten.
+      It must come from a combination or series of criminal acts covered
+      by RA 7080. Lawful wealth alone is not plunder.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0018
+    type: gift-versus-bribe
+    difficulty: hard
+    stem: |
+      Which gift most clearly meets the exclusion in RA 6713, Section 3(c),
+      for an unsolicited gift of insignificant value not tied to a favor?
+    choices:
+      - text: An inexpensive token requested by an officer before releasing a permit
+        rationale: A requested token is not unsolicited and is tied to an official action.
+      - text: A small gift sent with a request to move an application ahead of others
+        rationale: Insignificant value does not excuse a gift given in anticipation of a favor.
+      - text: An unsolicited costly appliance from a supplier seeking official approval
+        rationale: The appliance is not of insignificant value and is linked to a pending official transaction.
+      - text: An unsolicited token of insignificant value from a community member with no request or expectation of a favor
+        correct: true
+    explanation: |
+      The exclusion requires an unsolicited gift of insignificant value with
+      no link to a favor. A small price alone is not enough. A requested gift
+      or a gift meant to secure special treatment does not meet these conditions.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0019
+    type: evaluate-corruption-harm
+    difficulty: exam
+    stem: |
+      Favoritism in a public project leaves eligible households without water
+      service. Defective work uses up funds on repairs, and residents lose
+      confidence that officials answer to them. A speaker says only the
+      government treasury is harmed. Which assessment best fits these facts?
+    choices:
+      - text: The claim is unsound because denied service is social harm, wasted repair funds are economic harm, and weakened accountability is political harm
+        correct: true
+      - text: The claim is sound because households and voters suffer no harm unless public money is stolen outright
+        rationale: Denied services and weakened accountability can harm people even without proof that cash was stolen outright.
+      - text: The claim is unsound because denied service is political harm, repair costs are social harm, and weakened accountability is economic harm
+        rationale: This misclassifies all three effects by confusing access to services, resource loss, and public accountability.
+      - text: The claim is sound because an act involving public spending can have only an economic effect
+        rationale: One act can cause social, economic, and political harm at the same time.
+    explanation: |
+      Households lose a needed service. Repair costs waste public funds.
+      Residents also lose trust in public accountability. These are social,
+      economic, and political harms. The treasury is not the only one harmed.
+    approved: false
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0020
+    type: corruption-cause-and-effect
+    difficulty: exam
+    stem: |
+      An official accepts a payoff to overlook defective work on a public
+      market. The market soon needs repairs, and repair costs use funds
+      intended for other public facilities. Which statement best traces
+      how this act can lead to wider harm?
+    choices:
+      - text: The payoff lowers the project's true cost, so repair spending must increase the funds available for other facilities
+        rationale: Paying for avoidable repairs uses resources and leaves less for other planned work.
+      - text: The repairs prove that the original payoff had no economic effect because government workers can correct the defects
+        rationale: Correcting defects still uses public funds and does not erase the cost caused by overlooking poor work.
+      - text: Overlooked defects create repair costs, leaving less for other facilities and potentially reducing public trust in officials
+        correct: true
+      - text: Only the official and contractor can be affected because other residents were not parties to the payoff
+        rationale: Residents can lose public facilities and trust even though they did not take part in the corrupt agreement.
+    explanation: |
+      Overlooking poor work can lead to costly repairs. Those repairs leave
+      less money for other facilities. Residents can lose services and trust
+      in officials. People outside the payoff can also be harmed.
+    approved: false
