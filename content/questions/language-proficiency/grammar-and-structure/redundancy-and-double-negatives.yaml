@@ -115,7 +115,7 @@ questions:
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
-      In a dialect that uses negative concord, what does "They didn't see nothing unusual that night" mean?
+      In a dialect that uses negative concord, what does "I didn't see nothing unusual that night" mean?
     choices:
       - text: "The speaker saw no unusual thing."
         correct: true
@@ -315,21 +315,21 @@ questions:
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
-      The agency warned residents several days before a road closure, rather than only moments before it. Why can "advance warning" be useful here?
+      The agency gave residents "advance warning several days before a road closure." For a shorter version, why can "advance" be removed?
     choices:
-      - text: "It distinguishes early notice from last-minute notice."
+      - text: "The phrase \"several days before a road closure\" already gives the early timing."
         correct: true
       - text: "It must be deleted because every warning contains the same timing detail."
         rationale: |
-          This treats overlapping meanings as proof of an error. Warnings usually come before a danger or event. Check: check whether the added word distinguishes how early.
+          This treats all warnings as having the same timing detail. Warnings can come at different times before an event. Check: identify the words that already give the timing in this sentence.
       - text: "It changes the warning into notice given only after the closure."
         rationale: |
           This reverses the time relation. Warnings and notices can concern events that already happened. Check: use the timing stated in this sentence.
-      - text: "It proves every repeated phrase should be kept in formal writing."
+      - text: "It proves every repeated phrase should be removed in formal writing."
         rationale: |
-          This turns one useful distinction into a blanket rule. The phrase is useful in this context. Check: evaluate each phrase by the meaning it adds.
+          This turns one needless repetition into a blanket rule. Repetition can add needed meaning in other contexts. Check: evaluate each phrase by the meaning it adds.
     explanation: |
-      "Advance" points to the several days of preparation time. It distinguishes that early notice from a last-minute warning.
+      "Several days before a road closure" already tells when residents received the warning. "Advance" repeats that early timing, so it can be removed for a shorter version.
     approved: false
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0017"
     type: "redundancy-identification"
@@ -349,7 +349,7 @@ questions:
         rationale: |
           This makes a qualified description absolute. An expected result may seem certain. Check: preserve the less absolute wording.
     explanation: |
-      "Unexpected" means not expected. Saying it was "not unexpected" gives a qualified positive meaning: it was somewhat expected.
+      "Unexpected" means not expected. "Not unexpected" means the result was not a surprise. It may suggest the result was expected to some degree, but it does not say the result was fully expected.
     approved: false
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0018"
     type: "redundancy-identification"
