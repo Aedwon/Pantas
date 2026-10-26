@@ -182,4 +182,4 @@ Section $14$ protects speedy criminal trials. Section $16$ also covers cases bef
 
 > Section $17$ is not limited to police questioning.
 
-Section $12$ protects rights during investigation for an offense, including silence and counsel. Section $17$ separately protects against forced testimony against oneself.
+Section $12$ protects silence and counsel during **custodial investigation**. This is police questioning of a suspect who is held or whose freedom to act is greatly limited. Under RA 7438, it also includes police invitations to question someone about an offense they are suspected of committing. These safeguards do not apply to every general inquiry. Section $17$ separately protects against forced testimony against oneself.
