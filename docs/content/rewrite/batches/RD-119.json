@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-geometry-measurement"
+ ],
+ "topic": "mathematics/geometry",
+ "rewrites": {
+  "lesson-geometry-measurement": "77ccb498aac94e51001643a5685dfdbfda9cf24a"
+ },
+ "sha256": {
+  "lesson-geometry-measurement": "be81125afad5052631573b97805ce7ba9a0d5bcac9ead07cd1b851fff3d9736e"
+ },
+ "paths": {
+  "lesson-geometry-measurement": "content/lessons/mathematics/geometry/measurement.md"
+ },
+ "id": "RD-119",
+ "type": "read",
+ "created": "2026-10-26T05:54:40+00:00"
+}
