@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 7,
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "## Left open by the earlier read (RD-127)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: This is a General Information lesson, but its teaching prose is in Filipino throughout. The guide requires simple English except for lessons teaching Filipino grammar, vocabulary or reading. This lesson does not fall within that exception.\n   > Ang **pagkamamamayan** (citizenship) ay legal na pagiging kasapi ng isang bansa.\n2. Rule L23 (Major). Problem: The citizenship flow does not give a branch for a person in the pre-1973 group who has not validly elected citizenship. Its yes branch goes straight to valid election and natural-born status. It also leaves the citizen-at-adoption route without an outcome. An artist cannot draw a complete decision flow from these instructions without supplying legal decisions.\n   > <!-- ILLUSTRATION: Daloy ng pagkamamamayan: Ipinanganak bago Enero 17, 1973 sa inang Pilipino at amang dayuhan sa ilalim ng Article IV Section 1(3)? Oo: Wastong pagpili, Natural-born; Kung hindi: Magulang na Pilipino sa kapanganakan ayon sa batas? Oo: Natural-born; Hindi: Suriin ang pagkamamamayan noong pinagtibay ang Konstitusyon o naturalisasyon; Naturalisasyon: Naturalized -->"
+ },
+ "id": "RW-123",
+ "type": "rewrite",
+ "created": "2026-10-26T06:47:25+00:00"
+}
