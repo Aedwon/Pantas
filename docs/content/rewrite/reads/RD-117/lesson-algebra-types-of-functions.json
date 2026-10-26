@@ -1,0 +1,274 @@
+{
+ "batch": "RD-117",
+ "lesson_id": "lesson-algebra-types-of-functions",
+ "path": "content/lessons/mathematics/algebra/types-of-functions.md",
+ "lesson_sha256": "2bebb2d00d492c792f6b83ef7011692e6f9d8f2c43b07448e4c44184eadc1537",
+ "rewrite_commit": "74d7c7983926c306a79538625f624b0b0dc44772",
+ "form": {
+  "packet": "lesson-algebra-types-of-functions",
+  "role": "A",
+  "lesson_sha256": "2bebb2d00d492c792f6b83ef7011692e6f9d8f2c43b07448e4c44184eadc1537",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked function uniqueness, polynomial and power definitions, quadratic vertex/opening, rational cancellation and asymptote degree rules, absolute-value transformations, exponential monotonicity, real logarithm restrictions, and piecewise boundary selection mathematically. The stated facts and plotted coordinates are correct; no external exam claims appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 linear, exponential, polynomial power; #2 vertex (2,-1), minimum -1; #3 x=2 and y=1; #4 y=0; #5 y=x+1; #6 hole (1,2); #7 x=6 or -1; #8 vertex (3,1), downward, vertical stretch 2; #9 vertex (-2,-3), upward, vertical compression 1/2; #10 growth with outputs 1,1.2 and decay with outputs 1,0.4; #11 x=4 and log value 4; #12 14; #13 y=-2|x-2|+3. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The required Core Concept, Examples, Speed Tricks & Shortcuts, and Traps sections are present. All named families are taught. Placeholders supply the family overview and relevant graph examples, including the graph-matching question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions, asymptote explanation, transformations, solutions, and traps for simple prose. Technical names are explained with plain descriptions. The old polynomial-versus-exponential limit discussion is removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Classify, Evaluate, and Solve are each defined before their first commands. Find and describe use their ordinary meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used anywhere in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all thirteen stems for necessary functions, inputs, conditions, and graph data. They ask students to select known methods. Solutions explain the selected operations plainly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported target-exam claims or repeated exam references occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names function recognition and graph connections directly. Definitions, conditions, and solution openings vary; the listed stock AI phrases are absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept provides mx+b and power/polynomial forms for #1; ax^2+bx+c and -b/(2a) for #2; rational denominator restrictions and degree/leading-coefficient rules for #3-4; quotient-plus-remainder division and slant rule for #5; difference of squares and canceled-factor hole rule for #6; |u|=c branches for #7; a|x-h|+k, vertex, shift/stretch/compression/reflection rules for #8-9 and #13; a^x, a^0=1, and base growth/decay conditions for #10; equal-base exponents and log-power equivalence for #11; branch selection and f(x) notation for #12."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked cases include family recognition, quadratic vertex/minimum, vertical/equal-degree horizontal asymptotes, lower-degree horizontal asymptote, slant division, removable hole, absolute-value solving, shift/stretch/reflection/compression, growth versus decay, exponential/log equations, piecewise boundary evaluation, and graph matching. The examples move from recognition to combined graph reasoning without repeating a case solely with new numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each of thirteen solutions: all multistep solutions are numbered. Division subtractions, factoring/cancellation, two-branch solving, exponential matching, graph-point verification, and piecewise evaluations expose the necessary computations. No reasoning step is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Displayed vertex, division, piecewise absolute value, and equation lines are compact. The two-branch equation lines are short enough for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core paragraphs use one to three short sentences. The degree comparison uses a short four-item list; worked steps are numbered."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All nine placeholders are specific single-line drawing instructions: family panels, quadratic, rational vertical/horizontal, slant, hole, two transformed V graphs, and graph matching. Curves, points, domains or asymptotes are named. Text supplies enough information to follow each example without the drawing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Function/domain/f(x), polynomial/power, quadratic/parabola/vertex, degree/leading coefficient, asymptote/hole/slant, quotient/remainder, absolute-value bars, and piecewise boundary meaning are explained before use. Log and exponential base restrictions precede examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Rational cancellation explains why holes differ from vertical asymptotes; division explains slant behavior. Distance explains absolute value and the two branches. The a,h,k parameters explain transformations. Base multiplication explains growth/decay; inverse powers explain logs; input conditions explain piecewise evaluation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked original denominator exclusions, partial versus full cancellation, all rational degree comparisons, allowed exponential/log bases and positive log inputs, a nonzero for quadratic and transformed V, stretch/compression ranges, c=0 and c<0 absolute-value exceptions, and inclusive piecewise boundaries."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-algebra-types-of-functions|L18|0": {
+    "status": "fixed",
+    "quote": "Find the slant asymptote of $f(x)=\\dfrac{x^2+1}{x-1}$.",
+    "note": "Examples 5 and 6 separately work slant division and a removable hole."
+   },
+   "lesson-algebra-types-of-functions|L18|1": {
+    "status": "fixed",
+    "quote": "Describe the graph of $f(x)=-2|x-3|+1$ from the basic graph $y=|x|$.",
+    "note": "Example 8 combines shift, stretch, and reflection; Example 9 adds compression."
+   },
+   "lesson-algebra-types-of-functions|L25|0": {
+    "status": "fixed",
+    "quote": "An **asymptote** is a line a graph gets closer to in a certain direction.",
+    "note": "The rational section defines asymptote, slant line, and removable hole before use."
+   },
+   "lesson-algebra-types-of-functions|L26|0": {
+    "status": "fixed",
+    "quote": "Replacing $x$ with $x-h$ moves the vertex to input $h$.",
+    "note": "The a,h,k form explains horizontal and vertical movement, size changes, and reflection."
+   },
+   "lesson-algebra-types-of-functions|L26|2": {
+    "status": "fixed",
+    "quote": "If a denominator factor cancels completely, its excluded input can leave a **removable discontinuity**, or hole.",
+    "note": "Cancellation explains the hole, and polynomial division explains the slant line."
+   },
+   "lesson-algebra-types-of-functions|L27|0": {
+    "status": "fixed",
+    "quote": "Compare degrees after cancellation to find what happens far to the left and right:",
+    "note": "All four degree cases are taught and original restrictions survive cancellation."
+   },
+   "lesson-algebra-types-of-functions|L02|0": {
+    "status": "fixed",
+    "quote": "A base greater than $1$ gives growth.",
+    "note": "The dense limit comparison is replaced with simple growth and decay statements."
+   },
+   "lesson-algebra-types-of-functions|L03|1": {
+    "status": "fixed",
+    "quote": "**Evaluate** means find the final number value.",
+    "note": "Evaluate is defined near the start before the example command."
+   },
+   "lesson-algebra-types-of-functions|L18|2": {
+    "status": "fixed",
+    "quote": "Classify $f(x)=1.2^x$ and $g(x)=0.4^x$ as growth or decay.",
+    "note": "Example 10 classifies both behaviors and computes outputs at zero and one."
+   },
+   "lesson-algebra-types-of-functions|L19|0": {
+    "status": "fixed",
+    "quote": "1. Write the right side with base $2$.",
+    "note": "The exponential and logarithmic equation example now uses four numbered steps."
+   },
+   "lesson-algebra-types-of-functions|L19|1": {
+    "status": "fixed",
+    "quote": "1. The second rule includes $2$.",
+    "note": "The piecewise example numbers branch selection, evaluation, and addition."
+   },
+   "lesson-algebra-types-of-functions|L25|1": {
+    "status": "fixed",
+    "quote": "**Absolute value**, written $|x|$, means the distance of $x$ from $0$.",
+    "note": "The bars and distance meaning are defined before the two-case formula and equation."
+   },
+   "lesson-algebra-types-of-functions|L26|1": {
+    "status": "fixed",
+    "quote": "Both are the same distance from $0$.",
+    "note": "The positive-target branch split is explained using distance, with zero and negative exceptions."
+   },
+   "lesson-algebra-types-of-functions|L03|0": {
+    "status": "fixed",
+    "quote": "**Classify** means name the group something belongs to.",
+    "note": "Classify receives an explicit meaning before the family-recognition example."
+   },
+   "lesson-algebra-types-of-functions|L18|3": {
+    "status": "fixed",
+    "quote": "A graph is a downward-opening V with vertex $(2,3)$ and passes through $(0,-1)$.",
+    "note": "Example 13 works graph matching using direction, vertex, and a point check."
+   }
+  }
+ }
+}
