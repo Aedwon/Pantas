@@ -192,7 +192,7 @@ questions:
 
       '
   - text: Yes, because all officials with legal training require impeachment for removal.
-    rationale: 'This substitutes qualifications for office categories. Many listed officers are lawyers. Check whether legal training is the statutory test.
+    rationale: 'This substitutes qualifications for office categories. Many listed officers are lawyers. Check whether legal training is the constitutional test.
 
       '
   explanation: 'The judicial category in Section 2 is members of the Supreme Court. Trial-court judges are outside that list.
@@ -249,7 +249,7 @@ questions:
 - id: q-philippine-constitution-accountability-and-impeachment-0011
   type: single_choice
   difficulty: medium
-  stem: 'Levying war against the Republic or adhering to its enemies, giving them aid and comfort, constitutes which impeachment ground?
+  stem: 'In wartime, levying war against the Philippines or siding with its enemies and giving them aid or comfort most directly matches which impeachment ground?
 
     '
   choices:
@@ -267,7 +267,7 @@ questions:
     rationale: 'This chooses a broader accountability label. Treason also betrays trust. Check the specific named offense.
 
       '
-  explanation: 'The described acts are the defining conduct associated with treason. Treason is expressly included in Article XI''s list.
+  explanation: 'The described wartime acts may support a treason accusation. Treason is expressly included in Article XI''s list. Proof and a decision through the proper process are still required.
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0012
@@ -345,7 +345,7 @@ questions:
 - id: q-philippine-constitution-accountability-and-impeachment-0015
   type: single_choice
   difficulty: hard
-  stem: 'Culpable violation of the Constitution as an impeachment ground requires what kind of act?
+  stem: 'Under the lesson''s explanation, culpable violation of the Constitution involves what kind of act?
 
     '
   choices:
@@ -363,7 +363,7 @@ questions:
     rationale: 'This treats an ordinary handling error as culpable constitutional conduct. Officials handle public records. Check whether the facts show a willful constitutional breach.
 
       '
-  explanation: 'The usual explanation of culpable violation is a willful and intentional breach of a constitutional duty. The definition concerns deliberate conduct.
+  explanation: 'The lesson explains culpable violation as a willful and intentional breach of a constitutional duty. This reading separates deliberate disobedience from an honest mistake. The Constitution does not give a complete definition.
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0016
@@ -452,7 +452,7 @@ questions:
   - text: Serving responsibly and leading modest lives
     correct: true
   - text: Treating public accountability as optional until the officer's term has ended
-    rationale: 'This postpones a continuing duty. A term has an end date. Check the words at all times.
+    rationale: 'This postpones a continuing duty. A term has an end date. Check the continuing duty to answer to the people.
 
       '
   - text: Using official efficiency to justify dishonest dealings that favor private interests
