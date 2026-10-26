@@ -70,7 +70,7 @@ These are exceptions to the competitive-examination rule. Merit and fitness stil
 
 A civil service officer or employee may be removed or suspended only for a cause provided by law. **Security of tenure** is this protection against losing a position without a lawful cause. It does not excuse misconduct or prevent lawful discipline.
 
-Civil service officers and employees may not take part, directly or indirectly, in electioneering or a partisan political campaign. **Electioneering** means working to help a candidate or political party win. Voting is different from campaigning for a candidate.
+Civil service officers and employees may not take part, directly or indirectly, in electioneering or a partisan political campaign. Officials holding political offices, such as elected mayors, are an exception. They may campaign within legal limits. **Electioneering** means working to help a candidate or political party win. Voting is different from campaigning for a candidate.
 
 ### Independence and Conflict Rules
 

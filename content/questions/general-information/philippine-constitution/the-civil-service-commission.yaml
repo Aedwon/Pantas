@@ -153,7 +153,7 @@ questions:
 - id: q-philippine-constitution-the-civil-service-commission-0007
   type: single_choice
   difficulty: easy
-  stem: 'Which constitutional subdivision covers the CSC?
+  stem: 'Which constitutional subdivision specifically covers the CSC?
 
     '
   choices:
