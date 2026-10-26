@@ -27,7 +27,7 @@ The law states exceptions to this particular ban. These include traditional smal
 
 These exceptions do not remove duties under other laws. RA $9003$ separately prohibits open burning of solid waste. Check which rule a question asks about.
 
-RA $8749$ called for existing biomedical-waste incinerators to be phased out within $3$ years of its taking effect. During that period, burning was limited to diseased tissue and infectious waste under close DENR monitoring. This was a temporary rule, not continuing permission for all medical-waste burning.
+RA $8749$ called for existing biomedical-waste incinerators to be phased out within $3$ years of its taking effect. During that period, burning was limited to pathological and infectious wastes under close DENR monitoring. This was a temporary rule, not continuing permission for all medical-waste burning.
 
 DENR means the Department of Environment and Natural Resources. The Act calls for safe, environmentally sound non-burn methods of waste treatment. Any treatment must meet the pollution rules that apply; calling equipment “modern” does not prove that its emissions are lawful.
 
@@ -103,7 +103,7 @@ The **Department of Environment and Natural Resources (DENR)** is the main natio
 
 The **Environmental Management Bureau (EMB)** is part of DENR. It handles major pollution-control and environmental-impact work, including the EIS System. DENR's wider work covers natural resources beyond pollution control.
 
-Local governments also have duties under laws such as RA $9003$ and RA $9275$. Under RA $9275$, DENR may gradually transfer some water-quality administration to capable local governments or management boards. National duties do not automatically pass to every barangay.
+Local governments also have duties under laws such as RA $9003$ and RA $9275$. Under RA $9275$, DENR must gradually transfer some water-quality duties to local governments or governing boards once DENR finds they are ready and have the technical skills to carry out those duties. National duties do not automatically pass to every barangay.
 
 ## Examples
 
