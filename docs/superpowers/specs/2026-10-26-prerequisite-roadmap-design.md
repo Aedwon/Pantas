@@ -20,8 +20,11 @@ branch) is never read. Aedwon's direction:
 
 ## Content input (owned by the content work, not engineering)
 
-- Each lesson's frontmatter gains `prerequisites`, a list of `{lesson: <lesson id>, strength: required | helpful}`.
-  Links may cross topics and subjects. `required` means the lesson cannot be understood without the other (the October 1
+- The map lives in one data file, `content/lesson-prerequisites.json` on `content/cse-rewrite-r1` (E8, done October 26
+  for the 90 CSE lessons: 4 required and 60 helpful links). Shape: `lessons: {<lesson id>: [{lesson, strength:
+  required | helpful, reason}]}`. A data file instead of lesson frontmatter keeps the map out of lesson hand-in checks
+  and lets it change without touching lessons. The content export must carry it to the app and the server roadmap.
+  Links may cross topics and subjects. Links to lessons outside the student's exam scope are ignored. `required` means the lesson cannot be understood without the other (the October 1
   rule: real dependency, never authored order). `helpful` means it is easier with it.
 - Wrong-choice rationales may carry an optional `gapLesson: <lesson id>` when the mistake comes from a prerequisite gap
   (for example "added numerators and denominators" points to fractions). Used by the diagnosis (R2).
