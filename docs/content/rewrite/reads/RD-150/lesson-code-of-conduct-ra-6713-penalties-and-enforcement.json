@@ -1,0 +1,400 @@
+{
+ "batch": "RD-150",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+ "lesson_sha256": "500892f1d2f268c80393c7ade7c1a0cc94532f5f1737945155613f2b5d710844",
+ "rewrite_commit": "354d003762468f1e1fb1c7a383a70596586db9bb",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+  "role": "A",
+  "lesson_sha256": "500892f1d2f268c80393c7ade7c1a0cc94532f5f1737945155613f2b5d710844",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked statutory teaching against RA 6713, Sections 7(c), 8(D), 11 and 12: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html. Penalty limits, independent removal, statement-use exception, agency roles and protection duty agree with these provisions.",
+     "Checked the substantial-evidence and reasonable-doubt definitions against Rule 133, Sections 6 and 2: https://lawphil.net/courts/rules/am_19-08-15-sc_2019.html.",
+     "Checked the separate-case principle against Suyat v. Court of Appeals, January 24, 2023: https://lawphil.net/judjuris/juri2023/jan2023/gr_251978-80_2023.html. Example 6 expressly rests on different findings under different proof standards, not automatic guilt from an accusation.",
+     "The agreement-and-decision definition of conspiracy matches the Article 8 definition quoted in the supplied lesson. The missing role definitions are assessed under teaching completeness, not treated as affirmative false definitions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independently answered Example 1: 6 times 30,000 gives a 180,000-peso fine ceiling; suspension up to one year; removal possible after the stated process based on seriousness.",
+     "Example 2: no, the agency provided neither charge notice nor opportunity to answer.",
+     "Example 3: up to five years imprisonment, 5,000-peso fine, or both, with discretionary public-office disqualification.",
+     "Example 4: yes, the agreed and completed confidential-record sale establishes joint criminal participation under the stated rule.",
+     "Example 5: no, awareness without agreement or participation does not establish conspiracy.",
+     "Example 6: on the stated findings, administrative discipline can stand on substantial evidence; criminal acquittal follows from reasonable doubt about the prohibited purpose. Acquittal does not automatically undo that separate administrative finding.",
+     "Example 7: prohibited commercial use; employee can sue with a 25,000-peso ceiling subject to a heavier applicable sanction.",
+     "Example 8: prosecution under the other law with the heavier penalty.",
+     "Example 9: yes, removal can follow the proper administrative case without criminal prosecution.",
+     "Example 10: CSC refers for prosecution and may initiate authorized administrative action; referral does not establish guilt.",
+     "Example 11: Ombudsman.",
+     "Example 12: no universal route; review depends on the deciding body and decision. All twelve answers agree with the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples and Traps to Watch For are present. The General Information exception makes Speed Tricks optional. The brief requires no figures, and none of these text-based cases depends on a diagram. Missing role teaching is separately recorded under L25 and L26."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+      "problem": "The statutory sentence stacks conspiracy, co-principals, accomplices and accessories. Conspiracy is explained afterward, but the three participation roles never receive simple meanings. A Grade 5 reader cannot understand that part of the teaching."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a special tested meaning appears; the examples use everyday questions such as what, may, does, and which.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears. Calling a maximum a ceiling is ordinary explanatory wording, not an extended analogy."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Read all twelve stems for necessary facts and supplied methods. The salary is supplied in Example 1; the process failure in Example 2; the finding of guilt in Example 3; agreement and nonparticipation facts in Examples 4 and 5; disputed evidence and differing findings in Example 6; commercial purpose in Example 7; the relative statutory penalty in Example 8. Examples 9 to 12 give the procedural context needed. None supplies the legal rule the student must select. Solutions use short explanations with the role-term gap separately assessed under L25."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or test-maker introductions. The cases motivate the rules through public-service decisions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino teaching prose, grammar teaching, examples, or quiz items.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino teaching prose, grammar teaching, examples, or quiz items.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino teaching prose, grammar teaching, examples, or quiz items.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino teaching prose, grammar teaching, examples, or quiz items.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino teaching prose, grammar teaching, examples, or quiz items.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target vocabulary word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. No listed stock AI phrase appears. Sentence openings vary across definitions, conditions and worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted Core Concept, Examples and Traps layout. Example 1 uses fine ceiling = six monthly salaries, introduced by the six-month salary limit under General Administrative Penalties. Its multiplication is an application of that stated limit, not an unexplained new subject formula. No other worked example uses a mathematical formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+      "problem": "The brief requires distinct co-principal, accomplice and accessory participation cases. Examples 4 and 5 test agreement versus mere knowledge only. No worked case identifies an accomplice or accessory from acts and timing, and no example distinguishes the three roles. These are distinct requested scenarios, not noun changes."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1 to 7, 9, 10 and 12 use numbered solution steps with no unnumbered lead-in. Examples 8 and 11 are permitted one-step answers. The only key calculation, 6 times 30,000 = 180,000 in Example 1, is displayed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The sole display equation is the short multiplication 6 times 30,000 = 180,000. It fits a phone-width line."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs stay within one to three sentences, including the three-paragraph disputed-disclosure stem. Numbered lists are used for worked steps. There are no decorative bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder or existing figure appears. These verbal legal cases need no load-bearing image.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+      "problem": "Co-principals, accomplices and accessories are necessary legal categories named here without definitions. No supplied prerequisite or later section teaches their meanings. Defining conspiracy and penal liabilities does not explain these three terms."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+      "problem": "The lesson teaches how agreement establishes conspiracy but does not teach what each participation role means or how to distinguish it from the others. The brief expressly requires those concepts, and no prerequisite supplies them."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+      "problem": "No applicability test is given for co-principal, accomplice or accessory status. Agreement alone does not teach how the act performed and its timing determine those categories. The requested elements tests remain missing."
+     }
+    ]
+   },
+   "B08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Under the Revised Penal Code (Article 8), a conspiracy exists when two or more persons agree to commit a crime and decide to commit it.",
+      "problem": "The numeral in Article 8 is outside inline math delimiters. It is a statute identifier, so this is the optional identifier-only formatting issue described by the brief. Monetary amounts and the other visible numeric references use inline math."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B03|0": {
+    "status": "fixed",
+    "quote": "The general sanction depends on the offense's seriousness. Notice and hearing must come first. Court-ordered disqualification is also not automatic.",
+    "note": "Traps to Watch For is present with four warnings and explanations. Speed Tricks is optional under the supplied ruling."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L18|0": {
+    "status": "fixed",
+    "quote": "The fine ceiling is $6$ months' salary. Multiply the monthly salary by $6$.",
+    "note": "Example 1 covers the salary-based fine, one-year suspension, seriousness-based removal and the notice-and-answer condition."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L18|2": {
+    "status": "fixed",
+    "quote": "Section $11$ directs prosecution under the other law because it gives the heavier penalty.",
+    "note": "Example 8 asks which law governs prosecution when another law carries the heavier penalty."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|1": {
+    "status": "fixed",
+    "quote": "Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both.",
+    "note": "Section identifiers, prison duration and the monetary fine are now inside inline math delimiters."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|2": {
+    "status": "fixed",
+    "quote": "The court may assess a penalty of up to ₱$25{,}000$.",
+    "note": "The statement-use fine is wrapped in inline math. The nearby Section 8(D) reference is wrapped as well."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|6": {
+    "status": "fixed",
+    "quote": "The court may impose up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both.",
+    "note": "The rewritten criminal-penalty solution puts the fine amount and prison duration inside inline math."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|7": {
+    "status": "fixed",
+    "quote": "The court may impose up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both.",
+    "note": "The rewritten criminal-penalty solution puts the fine amount and prison duration inside inline math."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L02|0": {
+    "status": "not_fixed",
+    "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+    "note": "Conspiracy and penal liabilities receive meanings, but co-principals, accomplices and accessories remain unexplained legal terms."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L25|0": {
+    "status": "not_fixed",
+    "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+    "note": "Conspiracy and penal liabilities receive meanings, but co-principals, accomplices and accessories remain unexplained legal terms."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L27|0": {
+    "status": "fixed",
+    "quote": "It also bans commercial use, such as selling information for marketing.",
+    "note": "The section names both morals/public-policy purposes and commercial purposes, then states the news-media exception."
+   },
+   "general-information-code-of-conduct-ra-6713#58": {
+    "status": "fixed",
+    "quote": "The proper authority first checks the complaint and supporting facts.",
+    "note": "The lesson now outlines complaint review, notice, an answer, investigation when required and a reasoned decision. It explains substantial evidence."
+   },
+   "general-information-code-of-conduct-ra-6713#63": {
+    "status": "not_fixed",
+    "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+    "note": "The lesson does not define co-principal status or teach an acts-based test for that participation category."
+   },
+   "general-information-code-of-conduct-ra-6713#64": {
+    "status": "not_fixed",
+    "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+    "note": "The lesson does not define accomplice status or teach an acts-based test for that participation category."
+   },
+   "general-information-code-of-conduct-ra-6713#65": {
+    "status": "not_fixed",
+    "quote": "Section $11(c)$ covers private individuals \"who participate in conspiracy as co-principals, accomplices or accessories\" with public officials or employees in a violation of the Code.",
+    "note": "The lesson does not define accessory status or teach an acts-based test for that participation category."
+   },
+   "general-information-code-of-conduct-ra-6713#68": {
+    "status": "fixed",
+    "quote": "This is commercial use without the media exception. Section $8(D)$ prohibits it.",
+    "note": "The prohibited purposes and media exception are explained. Example 7 applies them to a marketing list and identifies the employee action."
+   },
+   "general-information-code-of-conduct-ra-6713#72": {
+    "status": "fixed",
+    "quote": "The log supports the claim that the file was not public. The messages support the claim that it was sent to give an unfair advantage.",
+    "note": "Example 6 connects disputed facts to protected information and prohibited purpose, weighs the competing account and distinguishes available sanctions by proof standard."
+   },
+   "general-information-code-of-conduct-ra-6713#73": {
+    "status": "not_fixed",
+    "quote": "Check the governing rules for who may seek review, where to file, and the deadline.",
+    "note": "Agency roles and basic hearing steps were added. Investigation routing still ends at unspecified proper authorities, and no actual appeal route or procedure is taught."
+   },
+   "general-information-code-of-conduct-ra-6713#74": {
+    "status": "fixed",
+    "quote": "It sends cases requiring prosecution to the proper authorities. It may also start administrative action allowed by law.",
+    "note": "The CSC administration, enforcement and referral role is now taught explicitly and applied in Example 10."
+   },
+   "general-information-code-of-conduct-ra-6713#75": {
+    "status": "fixed",
+    "quote": "The **Ombudsman** must take steps to protect citizens who report acts or failures to act that violate the Code.",
+    "note": "The protection duty is attributed to the Ombudsman and tested in Example 11. The lesson avoids promising blanket immunity."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|0": {
+    "status": "fixed",
+    "quote": "Section $11$ of RA $6713$ gives penalties for Code violations.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|3": {
+    "status": "fixed",
+    "quote": "A court finds an officer guilty of a Section $7$ violation. What maximum criminal penalties does Section $11$ provide?",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|4": {
+    "status": "fixed",
+    "quote": "Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|5": {
+    "status": "fixed",
+    "quote": "Under Section $11(b)$, a violation proved in a proper administrative case is enough cause for removal or dismissal.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|8": {
+    "status": "fixed",
+    "quote": "Section $11$ of RA $6713$ gives penalties for Code violations.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|9": {
+    "status": "fixed",
+    "quote": "Under Section $11(b)$, a violation proved in a proper administrative case is enough cause for removal or dismissal.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|10": {
+    "status": "fixed",
+    "quote": "Section $11$ of RA $6713$ gives penalties for Code violations.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|11": {
+    "status": "fixed",
+    "quote": "Section $11$ of RA $6713$ gives penalties for Code violations.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|12": {
+    "status": "fixed",
+    "quote": "Under Section $11(b)$, a violation proved in a proper administrative case is enough cause for removal or dismissal.",
+    "note": "The corresponding rewritten statute and section references use inline math delimiters. The remaining Article 8 issue is recorded separately under B08."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L18|1": {
+    "status": "fixed",
+    "quote": "The employee may bring an action under Section $11(d)$. The court may assess up to ₱$25{,}000$, subject to the heavier-sanction rule.",
+    "note": "Example 7 supplies a prohibited commercial-use case and works through the remedy and separate fine ceiling."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L19|0": {
+    "status": "fixed",
+    "quote": "The fine ceiling is $6$ months' salary. Multiply the monthly salary by $6$.",
+    "note": "The rewritten multi-step solutions start directly with numbered steps. The old unnumbered solution lead-in is absent."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L19|1": {
+    "status": "fixed",
+    "quote": "The court may impose up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both.",
+    "note": "The rewritten multi-step solutions start directly with numbered steps. The old unnumbered solution lead-in is absent."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L19|2": {
+    "status": "fixed",
+    "quote": "Under Section $11(b)$, a violation proved in a proper administrative case is enough cause for removal or dismissal.",
+    "note": "The rewritten multi-step solutions start directly with numbered steps. The old unnumbered solution lead-in is absent."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L25|1": {
+    "status": "fixed",
+    "quote": "A hearing gives a fair chance to answer and offer evidence.",
+    "note": "The administrative process is now explained through notice, response, supporting evidence, investigation when required and a decision based on evidence."
+   }
+  }
+ }
+}
