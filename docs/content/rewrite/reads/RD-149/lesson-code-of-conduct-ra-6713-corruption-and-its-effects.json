@@ -1,0 +1,218 @@
+{
+ "batch": "RD-149",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "da5aad4855769ecb307461f163a4c594843de7a3fd3d5e80cdfcebf8223a2db8",
+ "rewrite_commit": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "da5aad4855769ecb307461f163a4c594843de7a3fd3d5e80cdfcebf8223a2db8",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Compared the public-trust and impeachment provisions with the supplied Constitution source descriptions; the institution descriptions do not claim unlimited jurisdiction.",
+     "Checked the plunder threshold against the supplied RA 7659 amendment: fifty million pesos, including exactly that amount. No penalty or corruption statistic is taught.",
+     "Compared the RA 3019 contract-gift clauses, private interests, and information disclosure descriptions with the supplied legal-source summaries. The lesson separates RA 6713 Section 7(c) from RA 3019 Section 3(k).",
+     "The supplied material does not independently establish Article 210, the Renales holding, or all processing-deadline exceptions. These factual additions remain unconfirmed from the permitted evidence."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The Supreme Court confirmed this proof rule in Renales v. People.",
+      "problem": "The supplied primary-source brief does not verify this decision or its proof rule. The lesson supplies its own source-check comment, but the prompt contains no decision text or independent verification of that addition. Under B01, this claim remains unconfirmed in this restricted review."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: the money demand is corruption; the corrected typo alone is not. #2: accepting payment to skip an official inspection shows direct bribery. #3: RA 3019 Section 3(b).",
+     "#4: repeated project kickbacks totaling exactly fifty million meet the stated means and amount requirements. #5: social harm from denied aid. #6: excessive payments exhaust funds and leave fewer classrooms.",
+     "#7: political harm from decisions serving payers. #8: lost aid is social, wasted funds economic, lost government trust political. #9: Ombudsman. #10: posted requirements expose invented delays and charges. #11: the claim is false because families and public accountability are also harmed. All match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept covers the definition, specified legal forms, three effects groups, state responses, and weighing effects. All eleven requested example cases and all five trap themes are present.",
+     "The effects map, classroom cause-and-effect chain, and institution roles each have a specific illustration placeholder. No Speed Tricks section is included."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the teaching paragraphs for vocabulary and sentence structure. Legal terms such as manifest partiality, undue injury, kickback, accountability, and Citizen’s Charter receive plain explanations. Sentences generally carry one idea; legal references provide necessary precision."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is defined as judging a claim using reasons. Classify is defined as sorting into groups before the examples use either instruction. Trace in Example 6 uses its everyday cause-and-effect meaning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each stem supplies the case facts needed: an accepted payoff, official responsibility for a contract, repeated kickbacks and their amount, or an explicit result to classify. None provides the legal answer it asks the learner to select. Solutions use short, direct explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or unsupported claims that CSC tests these particular cases. The examples practice classification and evaluation without promising an exam format."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly. No listed stock AI phrases appear. Paragraph openings vary across definitions, conditions, and effects."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout is Core Concept, Examples, and Traps to Watch For. The optional shortcut section is omitted. No example uses a mathematical formula; the fifty-million threshold is a legal condition taught in Core Concept, not a calculation formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples 1–4 to honest mistake versus private gain, direct bribery before the promised omission, contract-related gifts, and plunder at the inclusive threshold.",
+     "Examples 5–8 distinguish social, economic, political, and mixed effects. Examples 9–11 cover complaint handling, preventive transparency, and evaluating a budget-only claim. These are the distinct cases requested by the brief, with no number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [
+     "Examples 4, 6, 8, and 11 use numbered steps. No solution contains a numerical computation needing a display equation."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It shows direct bribery. The inspector accepted money to skip an official duty. That acceptance completes the offense even before the inspector skips the check.",
+      "problem": "Example 2 uses several reasoning steps to identify the duty, establish acceptance, and explain completion before performance. The solution is an unnumbered paragraph. L19 requires numbered steps for a solution with two or more steps. No reasoning step is missing, so this is minor."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this qualitative legal lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student-facing paragraphs contain one to three sentences. The single four-item list organizes the RA 3019 clauses and is used sparingly. Audit comments are not student-facing paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The center-and-three-arms effects map specifies each label and examples. The institution figure separates complaint handling from court trials. The three-box chain specifies nodes and arrow meanings. All are one-line placeholders, and surrounding prose explains the concepts without the pictures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Public trust, public interest, simple living, direct bribery, confidential information, undue injury, unwarranted benefits, each culpable mental state, plunder, ill-gotten wealth, kickback, red tape, fixer, Citizen’s Charter, accountability, impeachment, and SALN receive local meanings before the examples need them. The example classifications are defined before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how office misuse produces private gain; how gifts, interests, confidential disclosures, and kickbacks operate; and how wasted money, denied aid, and purchased decisions produce different harms. State-response roles and transparency are explained through their functions rather than names alone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the distinction between honest mistake and misuse, acceptance versus a mere offer, RA 3019 culpability and separate loss/benefit grounds, plunder’s series and inclusive threshold, processing start and exceptions, restricted court jurisdiction, and gift exceptions. Traps explain overlapping effects, delay without payoff, and noncash benefits. The bribery and procedural additions need the source confirmation recorded under B01."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "The Supreme Court confirmed this proof rule in Renales v. People.",
+    "concern": "This case holding is not independently verified in the supplied primary-source material. The lesson includes a source-check comment, but this restricted review cannot confirm the decision or the scope of its holding. This is an unconfirmed addition, not a demonstrated false statement."
+   }
+  ],
+  "brief_items": {}
+ }
+}
