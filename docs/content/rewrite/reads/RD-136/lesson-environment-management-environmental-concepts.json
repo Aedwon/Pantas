@@ -1,0 +1,266 @@
+{
+ "batch": "RD-136",
+ "lesson_id": "lesson-environment-management-environmental-concepts",
+ "path": "content/lessons/general-information/environment-management/environmental-concepts.md",
+ "lesson_sha256": "8b8e672a34cf537b42fe243aefbfb5894e02a34f6968f487a6ce2c3bd43c9560",
+ "rewrite_commit": "90572e20202de04b8d2c53599bb6d5a17bf6fa15",
+ "form": {
+  "packet": "lesson-environment-management-environmental-concepts",
+  "role": "A",
+  "lesson_sha256": "8b8e672a34cf537b42fe243aefbfb5894e02a34f6968f487a6ce2c3bd43c9560",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "RA $9003$, Section $3$(bb), also counts collecting, sorting, and reusing used packaging as recycling.",
+      "problem": "The statutory definition and claimed scope require source confirmation. No statutory excerpt or source ledger is supplied for this prompt-only review; this legal claim remains unconfirmed."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 segregation at source; #2 reduction as the main aim; #3 reuse; #4 recycling; #5 composting; #6 special waste. These match the worked solutions. The stated legal overlap does not make reuse an incorrect description of #3."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Source segregation, four waste categories, all four diversion methods, six examples, and Traps are present. No figure is needed for a verbal sorting lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Short definitions are paired with familiar scraps, paper, jars, cups, and batteries. The processing and sorting explanations remain understandable in plain English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb needs a special definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The six questions provide concrete waste actions and ask for the practice or category without supplying its definition. Solutions describe the relevant action in simple words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Exam references do not use repeated promotional or test-maker openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary describes the topic directly; no listed stock AI phrase or three identical sentence openings found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples, and Traps to Watch For. Speed Tricks is optional. No example uses a mathematical formula, so no formula introduction is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked cases cover source sorting, reduction, reuse, recycling, composting, and the special handling of batteries. The last case moves from naming actions to choosing a sorting category."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each multi-step solution uses numbered steps; one-step answers need no list. There are no computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have at most three sentences. One four-item category list is a useful, limited use of bullets."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder exists or is needed for these verbal cases.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "The four category terms are defined immediately in the list; reduction, reuse, recycling, and composting are explained before examples. Ordinary examples clarify organic matter and processing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Segregation separates at the source; diversion avoids disposal. The four diversion methods explain what changes and give concrete procedures involving cups, jars, paper, and compost."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Accepted materials and available processes qualify recycling categories; special waste is excluded from ordinary residual waste. Trap #2 explicitly states that statutory recycling can overlap reuse."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-environment-management-environmental-concepts|L25|1": {
+    "status": "fixed",
+    "quote": "**Special waste** includes household hazardous waste, such as paint, thinner, batteries, and spray canisters.",
+    "note": "All four categories have definitions. Special waste includes concrete household examples."
+   },
+   "general-information-environment-management#2": {
+    "status": "fixed",
+    "quote": "Clean used paper is collected and sent to a facility that processes it into recycled paper products.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#3": {
+    "status": "fixed",
+    "quote": "A family washes an empty glass jar and uses it to store dry food.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#4": {
+    "status": "fixed",
+    "quote": "**Compostable waste** is organic material that can break down through composting, such as food scraps and garden waste.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#5": {
+    "status": "fixed",
+    "quote": "**Recyclable waste** is material that can be recovered and processed for useful use, such as clean paper, glass, metal, or other accepted materials.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#6": {
+    "status": "fixed",
+    "quote": "**Non-recyclable waste** is material that cannot be recovered through the available recycling or composting process and is not special waste.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#7": {
+    "status": "fixed",
+    "quote": "**Special waste** includes household hazardous waste, such as paint, thinner, batteries, and spray canisters.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#9": {
+    "status": "fixed",
+    "quote": "An office replaces single-use drinking cups with washable cups that employees can use every day.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#10": {
+    "status": "fixed",
+    "quote": "A family washes an empty glass jar and uses it to store dry food.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "general-information-environment-management#11": {
+    "status": "fixed",
+    "quote": "It is processed so the material can become useful again.",
+    "note": "The definition or worked case now shows the requested sorting or diversion action."
+   },
+   "lesson-environment-management-environmental-concepts|B08|0": {
+    "status": "fixed",
+    "quote": "Republic Act $9003$ requires waste to be separated at the source.",
+    "note": "The statute number in prose is now in inline math."
+   },
+   "lesson-environment-management-environmental-concepts|L18|0": {
+    "status": "fixed",
+    "quote": "The same object gets another useful purpose.",
+    "note": "Reduction, reuse, recycling, and composting now have separate worked scenarios."
+   },
+   "lesson-environment-management-environmental-concepts|L19|0": {
+    "status": "fixed",
+    "quote": "1. The waste is separated where it is produced.",
+    "note": "Solutions now begin directly with numbered steps and have no unnumbered lead-in."
+   },
+   "lesson-environment-management-environmental-concepts|L19|1": {
+    "status": "fixed",
+    "quote": "1. The waste is separated where it is produced.",
+    "note": "Solutions now begin directly with numbered steps and have no unnumbered lead-in."
+   }
+  }
+ }
+}

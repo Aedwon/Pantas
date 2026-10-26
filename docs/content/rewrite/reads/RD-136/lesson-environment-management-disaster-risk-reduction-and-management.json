@@ -1,0 +1,270 @@
+{
+ "batch": "RD-136",
+ "lesson_id": "lesson-environment-management-disaster-risk-reduction-and-management",
+ "path": "content/lessons/general-information/environment-management/disaster-risk-reduction-and-management.md",
+ "lesson_sha256": "6d9f2e6f94f4c2cf036111c7695aae73025d3ca025e3b53ee27901db820be748",
+ "rewrite_commit": "90572e20202de04b8d2c53599bb6d5a17bf6fa15",
+ "form": {
+  "packet": "lesson-environment-management-disaster-risk-reduction-and-management",
+  "role": "A",
+  "lesson_sha256": "6d9f2e6f94f4c2cf036111c7695aae73025d3ca025e3b53ee27901db820be748",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The National DRRM Plan for $2020$ to $2030$ groups response with early recovery.",
+      "problem": "This version-specific plan claim requires a source. The packet supplies no plan excerpt or source evidence to confirm it; prompt-only review cannot establish its accuracy."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 prevention and mitigation; #2 preparedness; #3 response; #4 rehabilitation and recovery; #5 an integrated program spanning before, during, and after disaster. Each matches its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All four required DRRM domains have local definitions and action examples; the broader-than-response comparison appears in #5. Core Concept, Examples, and Traps are present; no required figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions use short sentences and concrete actions: building rules, drills, rescue, and rebuilding. Specialized domain names are followed by plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb needs a special definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All five stems supply the action and timing needed for classification without giving the tested DRRM domain; solutions explain purpose in simple language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Exam references do not use repeated promotional or test-maker openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary describes the topic directly; no listed stock AI phrase or three identical sentence openings found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples, and Traps to Watch For. Speed Tricks is optional. No example uses a mathematical formula, so no formula introduction is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1–#4 classify the four distinct areas; #5 combines them into a broader program. Progression moves from single actions to a multi-area comparison without duplicate cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each multi-step solution uses numbered steps; one-step answers need no list. There are no computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Rescue, evacuation, and emergency aid are response actions. Early recovery can restore essential services, facilities, and livelihoods during response. Long-term rebuilding belongs to rehabilitation and recovery. Look at the action's main purpose.",
+      "problem": "The paragraph under trap #2 has four sentences. Paragraphs may contain only one to three short sentences."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder exists or is needed for these verbal cases.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It focuses on lowering exposure and vulnerability before a disaster.",
+      "problem": "Exposure and vulnerability are needed to understand this explanation but neither term is explained. No prerequisite or later explanation is identified."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Prevention reduces possible damage; preparedness builds readiness; response protects life and meets urgent needs; rehabilitation restores and improves communities. Each has concrete actions and a matching worked case."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson states that hazards need not disappear, areas overlap, recovery can begin during response, and classification follows main purpose rather than timing alone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "Every flagged DRRM is a real acronym expanded in the first definition. Domain definitions use bold; no ALL-CAPS emphasis."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-environment-management-environmental-concepts|L26|0": {
+    "status": "fixed",
+    "quote": "**Disaster prevention and mitigation** means avoiding disaster risk when possible and reducing the harmful effects of hazards.",
+    "note": "All four domains now have definitions, actions, and worked classifications."
+   },
+   "general-information-environment-management#18": {
+    "status": "fixed",
+    "quote": "**Disaster prevention and mitigation** means avoiding disaster risk when possible and reducing the harmful effects of hazards.",
+    "note": "The domain is defined and its action selection is demonstrated in a worked example."
+   },
+   "general-information-environment-management#19": {
+    "status": "fixed",
+    "quote": "**Disaster preparedness** means getting people and systems ready before an emergency.",
+    "note": "The domain is defined and its action selection is demonstrated in a worked example."
+   },
+   "general-information-environment-management#20": {
+    "status": "fixed",
+    "quote": "**Disaster response** means actions taken during or immediately after a disaster to protect life and meet urgent needs.",
+    "note": "The domain is defined and its action selection is demonstrated in a worked example."
+   },
+   "general-information-environment-management#21": {
+    "status": "fixed",
+    "quote": "**Disaster rehabilitation and recovery** means restoring and improving the lives, livelihoods, facilities, and services of affected communities after a disaster.",
+    "note": "The domain is defined and its action selection is demonstrated in a worked example."
+   },
+   "general-information-environment-management#22": {
+    "status": "fixed",
+    "quote": "The program therefore covers several DRRM areas instead of focusing only on post-disaster response.",
+    "note": "Example #5 compares integrated work before, during, and after a disaster."
+   },
+   "general-information-environment-management#47": {
+    "status": "fixed",
+    "quote": "Therefore, it is **disaster prevention and mitigation**.",
+    "note": "A worked action-classification case now supplies the previously missing application."
+   },
+   "general-information-environment-management#48": {
+    "status": "fixed",
+    "quote": "Therefore, it is **disaster preparedness**.",
+    "note": "A worked action-classification case now supplies the previously missing application."
+   },
+   "general-information-environment-management#49": {
+    "status": "fixed",
+    "quote": "Therefore, they are part of **disaster response**.",
+    "note": "A worked action-classification case now supplies the previously missing application."
+   },
+   "general-information-environment-management#50": {
+    "status": "fixed",
+    "quote": "Therefore, it is **disaster rehabilitation and recovery**.",
+    "note": "A worked action-classification case now supplies the previously missing application."
+   },
+   "lesson-environment-management-environmental-concepts|B08|1": {
+    "status": "fixed",
+    "quote": "Republic Act $10121$ supports a broad approach",
+    "note": "The act number in teaching prose is now enclosed in inline math."
+   },
+   "lesson-environment-management-environmental-concepts|L01|0": {
+    "status": "not_fixed",
+    "quote": "DRRM is not only about helping people after a disaster.",
+    "note": "No learning-goal audit record is supplied. Its revision cannot be confirmed from lesson text."
+   }
+  }
+ }
+}
