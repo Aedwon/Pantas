@@ -393,9 +393,10 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    A person under investigation for an offense cannot afford a lawyer.
-    Investigators obtain a written waiver of the rights to silence and
-    counsel while no lawyer is present. Which statement is correct?
+    Police hold a person in custody and question them as a suspect in an
+    offense. The person cannot afford a lawyer. Investigators obtain a
+    written waiver of the rights to silence and counsel while no lawyer
+    is present. Which statement is correct?
   choices:
   - text: The waiver does not meet the requirement that it be made in the presence of counsel
     correct: true
