@@ -1,0 +1,216 @@
+{
+ "batch": "RD-113",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "4eb563b05eed79a1cbadebc72fe4d386c976e9f292b637dbbec1a6af19df99e6",
+ "rewrite_commit": "1f506aad3a859448db71e524ab8bc8f1da384aa0",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "4eb563b05eed79a1cbadebc72fe4d386c976e9f292b637dbbec1a6af19df99e6",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared Article IV citizen groups, natural-born election exception, marriage rule and dual-allegiance distinction with the brief; compared Article V age 18, one-year country residence, six-month local residence, literacy/property prohibition and ballot protections with the brief. RA 9225 oath and separate candidacy renunciation match the supplied statutory summary. No demonstrated factual error found. RA 6809 and RA 9139 are new details whose primary texts are unavailable in this prompt; their source verification remains outside this reader check."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind answers: 1 yes through mother; 2 foreign birthplace does not bar citizenship; 3 yes deemed natural-born after valid election; 4 Ana only; 5 citizenship retained; 6 reacquisition oath plus office qualifications and separate sworn foreign-citizenship renunciation for candidacy; 7 no automatic dual allegiance; 8 yes age 18 and both residence minimums met; 9 eight-month local resident only; 10 neither reading test nor land requirement allowed; 11 ballot secrecy, overseas-voting provision and access for illiterate/disabled voters. Answers match all eleven solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, eleven distinct proposed examples and six traps are present; no unwanted shortcuts section. Both suggested conceptual illustrations have placeholders. Citizenship, naturalization, loss/reacquisition, dual status, voter qualifications and protections are covered."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino explanations as the applicable language standard: short sentences explain citizenship, parent rule, voting and legal processes. The English-only wording of L02 does not require replacing the Filipino prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Questions use everyday Filipino requests; no specialized exam instruction word needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used in the Filipino Core Concept or examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven stems give relevant dates, parent citizenship, completed election, other office qualifications or residence lengths. They ask for legal application without supplying the tested legal rule. Solutions use direct Filipino answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam claims or unsupported CSE-format assertions appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Filipino teaching for sentence length and common wording. Citizenship, natural-born, naturalization, reacquisition and voting each receive short explanations; longer legal conditions are split across sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term is taught; this lesson concerns constitutional law.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven example questions and solutions are in Filipino, with conventional legal names and natural-born terminology retained. No in-lesson quiz is present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino prose is present. Official KWF spelling and usage cannot be confirmed from this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "May mga hindi maaaring mag-apply; kailangan din ang panunumpa at pagpaparehistro.",
+      "problem": "The English verb in mag-apply is Taglish in teaching prose. A simple Filipino verb such as mag-aplay or humiling can express the idea without switching to English."
+     }
+    ]
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No example asks about a target word in bold or an underlined word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly describes the content in Filipino; no stock AI phrases occur. Openings vary across definitions, legal rules and examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples and Traps, with the optional shortcuts section omitted as requested. No example uses a calculation formula; ages and residence lengths are legal thresholds, not mathematical formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples map one-to-one to the eleven proposed cases: Filipino mother, foreign birth, pre-1973 election, natural-born office requirement, marriage, oath/candidacy, dual citizenship, election-day age, contrasting residence, literacy/property, and ballot/overseas/access protections. The pair of parent cases addresses birthplace as a distinct misconception."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 6 and 11 list separate required actions or protections as numbered steps. The remaining examples need only direct legal conclusions; no computation or reasoning step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs have at most three sentences; the sole four-item list is the Constitution’s citizen categories and is a suitable sparing list."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "<!-- ILLUSTRATION: Filipino citizenship flow with labels Magulang na Pilipino sa pagsilang: natural-born; Isinilang bago Enero 17, 1973 sa inang Pilipino at dayuhang ama: wastong pagpili, itinuturing na natural-born; Naturalisasyon: naturalisadong mamamayan -->",
+      "problem": "The flow instructions overlap: a pre-1973 child of a Filipino mother satisfies the first parent branch, which labels the child natural-born without requiring election. The artist needs an explicit earlier date/parent exception branch before the general parent rule."
+     }
+    ]
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions precede use for citizenship, alien, formal election, majority age, natural-born, naturalized, renunciation, repatriation, dual citizenship/allegiance and suffrage. Ages, dates and residence units are ordinary terms. Legal references identify the governing act and section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Parent citizenship versus birthplace, deemed natural-born after election, legal naturalization paths, separate reacquisition/candidacy acts, dual status versus voluntary allegiance, voting minimums and ballot protections are explained with their operation and examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked pre-January-17-1973 election exception, historical majority-age caution, distinct judicial/administrative naturalization paths, marriage subject to legal renunciation, RA 9225 extra office conditions, election-day qualification timing, registration/disqualification limits, and separate overseas rules. The lesson flags other statutory conditions without purporting to give a complete naturalization application guide."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [
+   {
+    "kind": "concept",
+    "method": "code",
+    "priority": "high",
+    "status": "insufficient",
+    "position_quote": "<!-- ILLUSTRATION: Filipino citizenship flow with labels Magulang na Pilipino sa pagsilang: natural-born; Isinilang bago Enero 17, 1973 sa inang Pilipino at dayuhang ama: wastong pagpili, itinuturing na natural-born; Naturalisasyon: naturalisadong mamamayan -->",
+    "description": "Decision flow first checks pre-January-17-1973 birth to a Filipino mother and alien father, requiring valid election, before applying the general Filipino-parent branch.",
+    "why": "Prevents the general parent branch from bypassing the historical election requirement."
+   }
+  ],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
