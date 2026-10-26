@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 6,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "## Left open by the earlier read (RD-068)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The prompt provides no source confirming that the Revised Penal Code family exemption applies to private participants punished under this special-law provision. This load-bearing extension cannot be confirmed from the permitted material; obtain a source check before acceptance.\n   > The family exemption covers an accessory's spouse, parents and other ancestors, children and other descendants, and legitimate, natural, or adopted brothers and sisters.\n\n### Accuracy concerns\n\n1. Check whether the Revised Penal Code accessory-family exemption applies to RA 6713 Section 11(b), which expressly imposes the same penal liabilities on private participants. The supplied brief does not establish that extension.\n   > The exemption can cover her accessory act of hiding the tool.\n\n## Lead decision (Aedwon, 2026-10-26)\n\nRemove every statement that the Revised Penal Code family exemption (Article 20) protects relatives who act as accessories under RA 6713, and remove any worked example or trap built on it. No court has decided whether Article 20 applies to RA 6713 Section 11(c), so the lesson must not teach it. Keep teaching that Section 11(c) makes private individuals who take part as co-principals, accomplices or accessories subject to the same penal liabilities as the officials, tried jointly with them. Cite Section 11(c), not 11(b). If an example needs an accessory, use one with no family relationship to the official."
+ },
+ "id": "RW-082",
+ "type": "rewrite",
+ "created": "2026-10-26T03:20:01+00:00"
+}
