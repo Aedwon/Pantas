@@ -331,7 +331,7 @@ questions:
     | $25,000 - 29,999$ | $\text{₱}27,500$ | 12 |
     | $30,000 - 34,999$ | $\text{₱}32,500$ | 5 |
     
-    Calculate the estimated mean monthly expenditure ($\bar{x}$) of the $60$ families using the class midpoints.
+    For this estimate, use the listed midpoint as the expenditure of each family in that row. Calculate the estimated mean monthly expenditure ($\bar{x}$) of the $60$ families.
   choices:
   - text: '$\text{₱}21,750$'
     correct: true
@@ -359,7 +359,7 @@ questions:
     | 20 | 8 |
     | 25 | 4 |
     
-    If the weighted mean score of the class is $18.25$, what is the value of the unknown frequency $k$?
+    Each frequency is the number of students with that score. To find the total points, multiply each score by its frequency and add the products. If the mean score of the class is $18.25$, what is the value of the unknown frequency $k$?
   choices:
   - text: '$5$'
     correct: true
@@ -485,7 +485,7 @@ questions:
   stem: |
     A scatter plot of time and temperature forms a clear U-shaped curve. Which conclusion is justified?
   choices:
-  - text: 'A nonlinear association is visible.'
+  - text: 'A curved relationship is visible.'
     correct: true
   - text: 'The variables have no relationship.'
     rationale: |
@@ -497,7 +497,7 @@ questions:
     rationale: |
       This focuses only on the right side of the U. That part rises. Inspect the entire pattern.
   explanation: |
-    A U-shaped pattern changes direction. It shows a structured relationship that is curved rather than a single straight trend. Thus a nonlinear association is visible.
+    A U-shaped pattern changes direction. It shows a curved relationship. No straight-line pattern does not always mean no relationship.
   approved: false
 - id: 'q-statistics-and-probability-data-analysis-graphs-0019'
   type: 'error-spotting'
