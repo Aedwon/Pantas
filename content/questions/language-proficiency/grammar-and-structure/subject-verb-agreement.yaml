@@ -361,7 +361,7 @@ questions:
         correct: true
       - text: "Ng"
         rationale: |
-          This uses the nonfocus marker for the eater. It can look right because "ng" also marks people in other verb patterns. Check which person or thing the verb puts in focus.
+          This uses "ng" for the eater, but the eater is the topic with "kumain". "Ng" can mark the actor when something else is the topic. Check the verb form and the topic's role in the action.
       - text: "Sa"
         rationale: |
           This treats the child as a place or recipient. "Sa" can link an action to someone, so it may seem possible. Check whether the noun names the eater or a destination.
@@ -369,7 +369,7 @@ questions:
         rationale: |
           This treats the gap as a link between a noun and its description. "Na" often joins words, so it can look like a general connector. Check whether the gap marks a noun's role in the sentence.
     explanation: |
-      The verb "kumain" makes the eater the focus of this sentence. "Ang" marks "bata," the child who ate the bread.
+      "Ang bata" marks the child as the topic. The child does the eating, so "kumain" uses actor focus.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0019"
     type: "subject-verb-agreement"
@@ -381,7 +381,7 @@ questions:
         correct: true
       - text: "Ang"
         rationale: |
-          This marks the eater as the focus. That seems right if the verb is read like "kumain." Check the verb form before choosing a marker.
+          This marks the eater as the topic. That seems right if the verb is read like "kumain." Check the verb form before choosing a marker.
       - text: "Sa"
         rationale: |
           This treats the eater as a place or recipient. "Sa" can mark people in some constructions, so it may look familiar. Check whether the person did the action or received something.
@@ -389,7 +389,7 @@ questions:
         rationale: |
           This uses a word linker to mark the eater. "Na" is a common connector, so it may seem to fit any gap. Check whether the gap needs a role marker or a link to a description.
     explanation: |
-      The verb "kinain" puts the bread in focus. "Ang tinapay" names that focus, and "ng bata" names the child who ate it.
+      "Ang tinapay" marks the bread as the topic. The bread is the thing eaten, so "kinain" uses object focus. "Ng bata" names the child who did the eating.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0020"
     type: "subject-verb-agreement"
