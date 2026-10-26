@@ -174,7 +174,7 @@ questions:
         correct: true
       - text: '$f$ is polynomial; $g$ is exponential.'
         rationale: |
-          This reverses the family names. Both functions involve powers of $5$. Check whether the variable is the exponent or the base.
+          This reverses the family names. Both formulas use $5$, but in different roles. Check whether the variable is the exponent or the base.
       - text: 'Both functions belong to the exponential family.'
         rationale: |
           This calls both formulas exponential because both contain powers. That shared notation makes the label tempting. Check whether the exponent changes with $x$.
@@ -288,21 +288,21 @@ questions:
     type: which-is-true
     difficulty: medium
     stem: |
-      A student claims that the line $y = 3x - 6$ and the line $y = -\dfrac{1}{3}x + 4$ are perpendicular. Is the student correct, and why?
+      A student claims that $y = 3x - 6$ and $y = -\dfrac{1}{3}x + 4$ are both linear functions. Is the student correct, and why?
     choices:
-      - text: Yes, because the product of their slopes is $-1$.
+      - text: Yes, because both have the form $y=mx+b$.
         correct: true
-      - text: No, because their slopes are not equal.
+      - text: No, because their coefficients of $x$ are not equal.
         rationale: |
-          This tests for equal slopes. Equal slopes are a familiar way to compare lines. Check that perpendicular nonvertical lines have slopes whose product is $-1$.
-      - text: No, because one slope is positive and the other is negative.
+          This assumes linear functions must have the same coefficient of $x$. The coefficient can be any fixed number. Check whether each formula has the form $y=mx+b$.
+      - text: No, because one coefficient of $x$ is positive and the other is negative.
         rationale: |
-          This treats opposite slope signs as evidence against perpendicularity. Opposite signs do make the lines tilt in different directions. Check the product of their slopes.
-      - text: Yes, because their $y$-intercepts sum to zero.
+          This assumes a negative coefficient prevents a function from being linear. In $y=mx+b$, $m$ can be negative. Check the form of each formula.
+      - text: Yes, because their constant terms sum to zero.
         rationale: |
-          This uses the intercepts to test perpendicularity. Both constants help place the lines on a graph. Check the slopes, which determine the angle between the lines.
+          This uses the sum of the constants to classify the functions. The constants are $-6$ and $4$, whose sum is $-2$. Check whether each formula has the form $y=mx+b$.
     explanation: |
-      The slope is the coefficient of $x$ in $y=mx+b$. The slopes are $3$ and $-\dfrac{1}{3}$. Their product is $3\left(-\dfrac{1}{3}\right)=-1$. Nonvertical lines with this slope product are perpendicular.
+      Both functions have the form $y=mx+b$ with fixed numbers $m$ and $b$. The first has $m=3$ and $b=-6$. The second has $m=-\dfrac{1}{3}$ and $b=4$. Both are linear functions with straight nonvertical graphs.
 
   - id: q-algebra-types-of-functions-0016
     type: which-is-true
