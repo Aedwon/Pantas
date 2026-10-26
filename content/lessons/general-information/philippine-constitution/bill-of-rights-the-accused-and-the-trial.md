@@ -8,6 +8,8 @@ estimatedMinutes: 14
 isActive: true
 ---
 
+<!-- SOURCE AUDIT: RW-127; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-26. Goal: apply trial safeguards, distinguish speedy trial from speedy disposition, and recognize suspension and self-incrimination limits. Sources: https://lawphil.net/consti/cons1987.html Article III Sections 12 and 14-17; https://lawphil.net/statutes/repacts/ra1992/ra_7438_1992.html Section 2, invitation rule. The supplied lesson's delay factors and testimonial-evidence distinction are retained. Examples are hypothetical. No prerequisite teaching is needed. -->
+
 ## Core Concept
 
 ### Rights During a Criminal Trial
@@ -182,4 +184,6 @@ Section $14$ protects speedy criminal trials. Section $16$ also covers cases bef
 
 > Section $17$ is not limited to police questioning.
 
-Section $12$ protects silence and counsel during **custodial investigation**. This is police questioning of a suspect who is held or whose freedom to act is greatly limited. Under RA 7438, it also includes police invitations to question someone about an offense they are suspected of committing. These safeguards do not apply to every general inquiry. Section $17$ separately protects against forced testimony against oneself.
+Section $12$ protects silence and counsel during **custodial investigation**. This is police questioning of a suspect who is held or whose freedom to act is greatly limited.
+
+Under RA $7438$, it also includes police invitations to question someone about an offense they are suspected of committing. These safeguards do not apply to every general inquiry. Section $17$ separately protects against forced testimony against oneself.

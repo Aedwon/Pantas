@@ -7,6 +7,9 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 12
 isActive: true
 ---
+
+<!-- SOURCE AUDIT: RW-127; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-26. Goal: distinguish amendment from revision and apply proposal thresholds, initiative limits, and ratification rules. Sources: https://lawphil.net/consti/cons1987.html Article XVII Sections 1-4 and Article V; https://lawphil.net/judjuris/juri2006/oct2006/gr_174153_2006.html Lambino v. COMELEC, quantitative and qualitative tests. No claim is made about current initiative implementing legislation or joint versus separate congressional voting. Prerequisite reminders: The Three Branches and Their Powers, Congress; Citizenship and Suffrage, qualified registered voters. All numerical cases are hypothetical; calendar dates independently computed. -->
+
 ## Core Concept
 
 Article XVII sets rules for changing the Constitution so no group can change it on its own.
@@ -23,17 +26,17 @@ Count and effect both matter. Even a short proposal can be a revision if it chan
 
 Recall from The Three Branches and Their Powers that Congress has a Senate and a House of Representatives.
 
-Article XVII, Section 1(1) allows Congress to propose amendments or revisions with three-fourths of all its Members. Section 1(2) also allows a **constitutional convention**, a body formed to prepare constitutional changes, to propose either kind.
+Article XVII, Section $1(1)$ allows Congress to propose amendments or revisions with three-fourths of all its Members. Section $1(2)$ also allows a **constitutional convention**, a body formed to prepare constitutional changes, to propose either kind.
 
-Under Article XVII, Section 3, Congress can call a convention with two-thirds of all its Members. A majority of all its Members can instead ask voters whether to call one. A majority means more than half.
+Under Article XVII, Section $3$, Congress can call a convention with two-thirds of all its Members. A majority of all its Members can instead ask voters whether to call one. A **majority** means more than half.
 
-Article XVII, Section 2 allows **people's initiative**, a proposal made directly through a voters' petition, for amendments only. Signatures must reach at least $12\%$ of all registered voters nationwide. Every legislative district must also reach at least $3\%$ of its registered voters.
+Article XVII, Section $2$ allows **people's initiative**, a proposal made directly through a voters' petition, for amendments only. Signatures must reach at least $12\%$ of all registered voters nationwide. Every legislative district must also reach at least $3\%$ of its registered voters.
 
-This route was barred within $5$ years after ratification of the $1987$ Constitution. Afterward, it is allowed no more than once every $5$ years. Congress must provide the implementing law; this lesson states the constitutional rules, without deciding whether this route is usable today.
+This route was barred within $5$ years after ratification of the $1987$ Constitution. Afterward, it is allowed no more than once every $5$ years. Congress must provide the implementing law; these are the constitutional rules, without a claim about whether this route is usable today.
 
 ### The People's Final Vote
 
-**Ratification** means the people's approval of the proposed change. A **plebiscite** is a direct vote on a public question. Under Article XVII, Section 4, ratification requires a majority of votes cast, meaning votes actually given on the proposal.
+**Ratification** means the people's approval of the proposed change. A **plebiscite** is a direct vote on a public question. Under Article XVII, Section $4$, ratification requires a majority of votes cast, meaning votes actually given on the proposal.
 
 The plebiscite must be held $60$ to $90$ days after approval by Congress or the convention. For initiative, that period starts when the Commission on Elections, or COMELEC, certifies that the petition is sufficient.
 
@@ -48,23 +51,27 @@ Recall from Citizenship and Suffrage that **suffrage** means the right to vote. 
 Which route uses lawmakers, a special drafting body, or voters signing a petition?
 
 **Solution:**
+
 Congress uses lawmakers. A constitutional convention uses a special drafting body. People's initiative uses voters signing a petition.
 
 ### #2: Compare the Changes
 
-One proposal changes only an office's term length, leaving basic principles intact. Another replaces presidential government with a parliamentary system. Classify each.
+One proposal changes only an office's term length, leaving basic principles intact. Another replaces presidential government with a parliamentary system. Which is an amendment, and which is a revision?
 
 **Solution:**
+
 The first is an amendment. The second is a revision because it changes the basic plan of government.
 
 ### #3: Congress Proposes
 
-For a threshold exercise, assume the relevant membership is $240$. How many votes meet three-fourths?
+For a hypothetical congressional voting body with $240$ Members, how many votes are required to propose a constitutional change?
 
 **Solution:**
+
 $$
 \dfrac{3}{4}\times240=180
 $$
+
 At least $180$ votes are needed. This hypothetical calculation does not decide whether the Houses vote jointly or separately.
 
 ### #4: Calling a Convention
@@ -72,32 +79,51 @@ At least $180$ votes are needed. This hypothetical calculation does not decide w
 Using a hypothetical membership of $240$, compare calling a convention directly with asking voters whether to call one.
 
 **Solution:**
+
 1. The direct call needs two-thirds.
+
 $$
 \dfrac{2}{3}\times240=160
 $$
-2. Asking voters needs more than half, so at least $121$ votes.
+
+2. Asking voters needs a majority, so find half first.
+
+$$
+\dfrac{240}{2}=120
+$$
+
+3. The smallest whole number above half is the required vote.
+
+$$
+120+1=121
+$$
 
 ### #5: Check Both Signature Rules
 
-Assume $1,000,000$ registered voters nationwide and $40,000$ in one district. What minimums apply?
+Assume $1,000,000$ registered voters nationwide and $40,000$ in one district. What minimums apply to an initiative petition?
 
 **Solution:**
+
 1. Find the national minimum.
+
 $$
 0.12\times1{,}000{,}000=120{,}000
 $$
+
 2. Find that district's minimum.
+
 $$
 0.03\times40{,}000=1{,}200
 $$
-Every other district must meet its own minimum too.
+
+Every other district must meet its own minimum too. A large national total cannot replace a missing district minimum.
 
 ### #6: Count the Days
 
 A convention approves a change on January $1$, $2026$. What is the plebiscite window?
 
 **Solution:**
+
 1. Count January $2$ as day $1$. January $31$ is day $30$, and February $28$ is day $58$.
 2. Day $60$ is March $2$. Day $90$ is April $1$. The window includes both dates.
 
@@ -108,14 +134,27 @@ A convention approves a change on January $1$, $2026$. What is the plebiscite wi
 There are $1,000$ registered voters. Of $600$ votes cast on a proposal, $310$ favor it. Is it ratified?
 
 **Solution:**
-1. Half of $600$ is $300$.
-2. Since $310$ exceeds $300$, it is ratified. The count uses votes cast.
+
+1. Find half of the votes cast.
+
+$$
+\dfrac{600}{2}=300
+$$
+
+2. Compare the favorable votes with half.
+
+$$
+310>300
+$$
+
+3. The proposal is ratified. More than half of the votes cast favor it.
 
 ### #8: Initiative Timing
 
-An initiative amendment was ratified $3$ years ago. May another be authorized now under Section 2?
+An initiative amendment was ratified $3$ years ago. May another be authorized now under Article XVII, Section $2$?
 
 **Solution:**
+
 No. Only $3$ years have passed; the rule allows no more than once every $5$ years.
 
 ### #9: Find the Defects
@@ -123,6 +162,7 @@ No. Only $3$ years have passed; the rule allows no more than once every $5$ year
 A convention declares its revision valid without a plebiscite. Separately, an initiative seeks parliamentary government. What fails?
 
 **Solution:**
+
 1. The convention skipped ratification by voters.
 2. The initiative seeks a revision, which that route cannot propose.
 
