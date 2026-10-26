@@ -154,3 +154,341 @@ questions:
   explanation: 'The framework includes prevention and mitigation, preparedness, response, and recovery. Rescue and rebuilding alone leave the pre-disaster phases uncovered.
 
     '
+- id: q-environment-management-environmental-concepts-0023
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A barangay stores emergency food and drinking water before typhoon season.
+    Which DRRM area best describes this action?
+  choices:
+  - text: Disaster response
+    rationale: |
+      Response includes giving supplies to meet urgent needs during an emergency.
+      This action stores supplies before the emergency.
+  - text: Disaster preparedness
+    correct: true
+  - text: Disaster rehabilitation and recovery
+    rationale: |
+      Recovery restores lives and services after the immediate emergency.
+      Storing supplies in advance builds readiness.
+  - text: Disaster prevention and mitigation
+    rationale: |
+      Mitigation reduces possible damage or exposure to hazards.
+      The stored supplies prepare the barangay to meet emergency needs.
+  explanation: |
+    Storing supplies before an emergency is preparedness. Giving those supplies
+    to people during the emergency is response.
+  approved: false
+- id: q-environment-management-environmental-concepts-0024
+  type: single_choice
+  difficulty: easy
+  stem: |
+    During a destructive earthquake, health workers provide first aid to injured
+    residents. What is the main purpose of this DRRM action?
+  choices:
+  - text: To restore livelihoods after the emergency
+    rationale: |
+      Restoring livelihoods helps people earn a living again.
+      First aid treats injuries that need immediate attention.
+  - text: To reduce exposure through land-use rules
+    rationale: |
+      Land-use rules guide where development can occur.
+      Treating injuries does not change where people or buildings are located.
+  - text: To prepare residents for a future emergency
+    rationale: |
+      Preparedness builds readiness before an emergency.
+      These workers are treating people during the current emergency.
+  - text: To protect life and meet urgent medical needs
+    correct: true
+  explanation: |
+    First aid during a disaster meets an urgent medical need. It is response.
+    Helping people restart work after the emergency is recovery.
+  approved: false
+- id: q-environment-management-environmental-concepts-0025
+  type: single_choice
+  difficulty: easy
+  stem: |
+    After emergency relief ends, a municipality helps affected vendors restart
+    their businesses. Which DRRM area best describes this work?
+  choices:
+  - text: Disaster rehabilitation and recovery
+    correct: true
+  - text: Disaster preparedness
+    rationale: |
+      Preparedness gets people ready for an emergency.
+      These vendors are restoring their livelihoods after the emergency.
+  - text: Disaster response
+    rationale: |
+      Response meets urgent needs during or immediately after a disaster.
+      Restarting businesses after emergency relief is livelihood recovery.
+  - text: Disaster prevention and mitigation
+    rationale: |
+      Mitigation lowers exposure or possible harm from hazards.
+      The stated purpose here is to restore lost livelihoods.
+  explanation: |
+    Recovery includes helping people earn a living again after a disaster.
+    Emergency relief meets their immediate needs during response.
+  approved: false
+- id: q-environment-management-environmental-concepts-0026
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A municipality restricts new housing in an area exposed to frequent flooding.
+    Why does this action mainly belong to prevention and mitigation?
+  choices:
+  - text: It trains residents to follow emergency instructions.
+    rationale: |
+      Training builds preparedness. The rule controls where new homes can be built.
+  - text: It restores houses damaged during the latest flood.
+    rationale: |
+      Restoring damaged homes is recovery. The rule concerns new housing before damage occurs.
+  - text: It reduces the exposure of future homes to a hazard.
+    correct: true
+  - text: It provides temporary shelter during an active flood.
+    rationale: |
+      Temporary emergency shelter is response. A land-use rule does not provide that shelter.
+  explanation: |
+    Safer land-use rules can keep new homes away from danger. This reduces
+    exposure. Training residents would build preparedness instead.
+  approved: false
+- id: q-environment-management-environmental-concepts-0027
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A city installs a warning system to alert residents when flooding threatens.
+    Which statement best explains its classification as preparedness?
+  choices:
+  - text: It prevents floodwater from reaching every home.
+    rationale: |
+      A warning system sends information. It does not physically block floodwater.
+  - text: It helps residents get ready to act when danger approaches.
+    correct: true
+  - text: It repairs public services after a flood.
+    rationale: |
+      Repairing damaged services is recovery. The system alerts people before or as danger threatens.
+  - text: It directly supplies food to families during evacuation.
+    rationale: |
+      Supplying food during an emergency is response. Sending a warning is a different action.
+  explanation: |
+    Warning systems help people prepare to act when danger threatens. They build
+    readiness. They do not remove the flood hazard.
+  approved: false
+- id: q-environment-management-environmental-concepts-0028
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A flood-control project reduces expected damage, but flooding remains possible.
+    Which conclusion follows from the lesson?
+  choices:
+  - text: Mitigation can reduce harm even when the hazard remains.
+    correct: true
+  - text: Mitigation succeeds only when the hazard can no longer occur.
+    rationale: |
+      Mitigation aims to reduce possible harm. It does not require the hazard to disappear.
+  - text: A project is preparedness whenever it cannot remove the hazard.
+    rationale: |
+      Preparedness builds readiness. Reducing expected damage through flood-control works is mitigation.
+  - text: The possibility of another flood makes the project a recovery action.
+    rationale: |
+      Recovery restores a community after damage. A remaining hazard does not determine the action's area.
+  explanation: |
+    Mitigation lowers the chance or size of harm. A hazard may still occur.
+    Preparedness focuses on being ready to act.
+  approved: false
+- id: q-environment-management-environmental-concepts-0029
+  type: single_choice
+  difficulty: medium
+  stem: |
+    After a storm, a town plans to rebuild its damaged water system. Which goal
+    best follows the lesson's approach to rehabilitation and recovery?
+  choices:
+  - text: Restore water service while leaving known weaknesses unchanged.
+    rationale: |
+      Restoring service is part of recovery. Recovery should also reduce future risk when rebuilding.
+  - text: Replace the rebuilding project with emergency water deliveries alone.
+    rationale: |
+      Emergency deliveries meet urgent needs. They do not restore the damaged water system.
+  - text: Limit the project to teaching residents how to store water.
+    rationale: |
+      Public information can build readiness. It does not restore the damaged service.
+  - text: Restore water service and make the rebuilt system safer from future hazards.
+    correct: true
+  explanation: |
+    Recovery restores services and should make rebuilding safer. Emergency water
+    deliveries help now, but do not repair the damaged system.
+  approved: false
+- id: q-environment-management-environmental-concepts-0030
+  type: single_choice
+  difficulty: hard
+  stem: |
+    Before typhoon season, a town builds flood-control works and trains staff
+    to manage evacuation centers. How should these actions be classified,
+    respectively, according to their main purposes?
+  choices:
+  - text: Preparedness, then prevention and mitigation
+    rationale: |
+      This reverses the purposes. Flood-control works reduce harm.
+      Training staff builds readiness.
+  - text: Prevention and mitigation, then preparedness
+    correct: true
+  - text: Prevention and mitigation, then response
+    rationale: |
+      The first classification fits. Training staff before an emergency is
+      preparedness, even if their future duties involve response.
+  - text: Recovery, then preparedness
+    rationale: |
+      The training classification fits. The flood-control works reduce future
+      damage and are not described as restoring a damaged facility.
+  explanation: |
+    Flood-control works reduce possible harm. Staff training builds readiness.
+    Training for response duties is still preparedness.
+  approved: false
+- id: q-environment-management-environmental-concepts-0031
+  type: single_choice
+  difficulty: hard
+  stem: |
+    While floodwaters are rising, officials move residents out of threatened
+    homes. An employee calls this preparedness because the homes are not yet
+    damaged. Which assessment best follows the lesson?
+  choices:
+  - text: The employee is correct because response begins only after homes are destroyed.
+    rationale: |
+      Response protects life during an emergency. It does not have to wait for homes to be destroyed.
+  - text: The action is mitigation because moving residents stops the flood hazard.
+    rationale: |
+      Moving people does not stop rising floodwaters. Here it protects them during an immediate emergency.
+  - text: The action is response because it protects residents from immediate danger.
+    correct: true
+  - text: The action is recovery because residents will eventually return home.
+    rationale: |
+      A possible later return does not make the current evacuation recovery.
+      Recovery restores lives and services after the immediate emergency.
+  explanation: |
+    Moving people out of immediate danger is response. Officials do not need to
+    wait for damage. Practicing that move beforehand would be preparedness.
+  approved: false
+- id: q-environment-management-environmental-concepts-0032
+  type: single_choice
+  difficulty: hard
+  stem: |
+    After a disaster, a municipality begins a long-term project to rebuild
+    damaged roads using safer designs. An evaluator labels it only as mitigation
+    because the designs reduce future risk. Which assessment is most appropriate?
+  choices:
+  - text: The project mainly serves recovery and also reduces future risk.
+    correct: true
+  - text: The evaluator is correct because safer designs rule out recovery.
+    rationale: |
+      Recovery should include safer rebuilding. Reducing future risk does not rule out recovery.
+  - text: The project mainly serves response because all work after a disaster is response.
+    rationale: |
+      Response addresses the immediate emergency. Long-term rebuilding after that emergency is recovery.
+  - text: The project mainly serves preparedness because any future benefit means readiness.
+    rationale: |
+      Preparedness builds readiness through plans, training, supplies, and similar work.
+      This project restores damaged roads.
+  explanation: |
+    Rebuilding damaged roads is recovery. Safer designs also reduce future risk.
+    A program can serve more than one DRRM area.
+  approved: false
+- id: q-environment-management-environmental-concepts-0033
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A reviewer classifies every activity completed before a disaster as
+    preparedness. Which pair most clearly shows why that rule is inadequate?
+  choices:
+  - text: Emergency medical treatment and emergency food distribution
+    rationale: |
+      Both meet urgent needs during response. This pair does not distinguish activities before a disaster.
+  - text: Restoring damaged roads and restarting affected businesses
+    rationale: |
+      Both are recovery activities after the immediate emergency.
+      They do not test the reviewer's rule about earlier work.
+  - text: Practicing evacuation routes and training emergency staff
+    rationale: |
+      Both build readiness before an emergency. This pair fits preparedness and does not expose the rule's mistake.
+  - text: Strengthening building standards and preparing emergency plans
+    correct: true
+  explanation: |
+    Both actions can happen before a disaster. Stronger standards reduce damage,
+    while emergency plans build readiness. Timing alone cannot separate them.
+  approved: false
+- id: q-environment-management-environmental-concepts-0034
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A municipal report places emergency water deliveries and permanent repair
+    of damaged water pipes in the same DRRM area because both occur after a
+    typhoon. Which revision best applies the lesson?
+  choices:
+  - text: Classify both as preparedness because clean water helps people face future hazards.
+    rationale: |
+      A possible future benefit does not make both actions preparedness.
+      Deliveries meet urgent needs, while pipe repairs restore a service.
+  - text: Classify urgent deliveries as response and post-emergency repairs as recovery.
+    correct: true
+  - text: Classify urgent deliveries as recovery and post-emergency repairs as response.
+    rationale: |
+      This reverses the purposes. Urgent water supply is response.
+      Restoring damaged pipes after the emergency is recovery.
+  - text: Classify both as mitigation because any water-related activity reduces disaster risk.
+    rationale: |
+      The subject of an activity does not determine its area.
+      Meeting urgent needs and restoring services have different main purposes.
+  explanation: |
+    Use the main purpose of each action. Urgent deliveries meet emergency needs.
+    Repairs after the emergency restore a service. Both can happen after a typhoon.
+  approved: false
+- id: q-environment-management-environmental-concepts-0035
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A local DRRM program has safer land-use rules, a working warning system,
+    trained emergency staff, and a plan to restore damaged livelihoods. An audit
+    finds no arrangements for urgent rescue or emergency medical care. Which
+    DRRM area has the clearest gap?
+  choices:
+  - text: Disaster prevention and mitigation
+    rationale: |
+      Safer land-use rules already address risk reduction.
+      The missing arrangements concern immediate rescue and medical needs.
+  - text: Disaster rehabilitation and recovery
+    rationale: |
+      The livelihood restoration plan addresses recovery.
+      Urgent rescue and medical care serve the immediate emergency.
+  - text: Disaster response
+    correct: true
+  - text: Disaster preparedness through warning systems
+    rationale: |
+      The program already has a working warning system.
+      Warnings do not supply the missing rescue and emergency medical services.
+  explanation: |
+    Rescue and emergency medical care are response actions. Warnings and trained
+    staff build readiness, but the program still needs arrangements for urgent help.
+  approved: false
+- id: q-environment-management-environmental-concepts-0036
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A proposed DRRM reporting rule requires each program to serve only one area.
+    Its sponsor argues that rebuilding cannot count as recovery if it also
+    reduces future risk. Which judgment best follows the lesson?
+  choices:
+  - text: Reject the rule because a program can support several areas, including safer recovery.
+    correct: true
+  - text: Adopt the rule because recovery must restore the exact conditions that existed before damage.
+    rationale: |
+      Recovery should improve safety when rebuilding. It need not recreate earlier weaknesses.
+  - text: Adopt the rule because risk reduction belongs only before a community's first disaster.
+    rationale: |
+      Safer rebuilding can reduce future risk after a disaster.
+      Risk reduction does not end when a community experiences damage.
+  - text: Reject the rule because every recovery program must also conduct rescue operations.
+    rationale: |
+      Programs can support several areas, but each program need not perform every activity.
+      Recovery does not require ongoing rescue operations.
+  explanation: |
+    DRRM areas are connected. Rebuilding can restore a community and reduce
+    future risk. Classify an action by its main purpose when one area is requested.
+  approved: false
