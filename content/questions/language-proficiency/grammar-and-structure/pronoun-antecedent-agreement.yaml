@@ -21,7 +21,7 @@ questions:
         correct: true
       - text: "Hers"
         rationale: |
-          This uses the form that stands alone before a noun. Both "her" and "hers" show possession. Check: check whether a noun follows the blank.
+          This uses the form that stands alone without a following noun. Both "her" and "hers" show possession. Check: check whether a noun follows the blank.
       - text: "Him"
         rationale: |
           This uses an object form rather than a possessive form. It is a familiar personal pronoun. Check: choose the form that can come before "book".
@@ -255,7 +255,7 @@ questions:
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
-      Alin sa mga sumusunod na panghalip ang kabilang sa "ang" set (bilang tagaganap o paksa)?
+      Alin sa mga sumusunod na panghalip ang kabilang sa "ang" set (para sa taong itinatampok sa pangungusap)?
     choices:
       - text: "Siya"
         correct: true
