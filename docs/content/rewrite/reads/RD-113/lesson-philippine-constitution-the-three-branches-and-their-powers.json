@@ -1,0 +1,205 @@
+{
+ "batch": "RD-113",
+ "lesson_id": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+ "path": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+ "lesson_sha256": "b87e88425f8c8ffdffa8cf22b59eb7826a3b44b99c2316d1a2c21df53fe38134",
+ "rewrite_commit": "1f506aad3a859448db71e524ab8bc8f1da384aa0",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "role": "A",
+  "lesson_sha256": "b87e88425f8c8ffdffa8cf22b59eb7826a3b44b99c2316d1a2c21df53fe38134",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the stated constitutional provisions with the provision details supplied in the brief: Senate 24/6/2, House 3/3 and 20 percent, veto 30 days and two-thirds per House, martial law 60 days and report within 48 hours, treaty 16 of 24, Court 15 and divisions 3/5/7, judicial nomination list at least three. No contradiction found in those details. External source text was not supplied, so independent source confirmation remains limited."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind answers: 1 Congress, President, courts; 2 Senate six years/two consecutive and House three years/three consecutive; 3 revenue yes, education not necessarily; 4 House 200 and Senate 16; 5 ambassador; 6 both invalid, initial limit 60 days and no impeachment pardon; 7 16; 8 fifteen, divisions three/five/seven, judicial branch on constitutional conflict; 9 Ana Representative, Ben Representative/Senator, Cara all three; 10 no, fourteen is below fifteen, and lower courts have added qualifications; 11 neither commission because prior candidacy, and too young for Ombudsman; 12 legislative override and judicial review. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, twelve examples using the two permitted merges, shortcuts and traps are present. All four suggested concept diagrams have specific placeholders. Legislative, executive, judicial and officer-qualification facets are present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the explanatory paragraphs on bills, veto, writ, courts and offices. Most terms receive plain explanations; the verbatim judicial-power quotation is followed by two plain-language sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a gloss appears in the questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all twelve stems: the voting problem supplies hypothetical membership, age problems supply ages and other-qualification assumptions, and judicial experience supplies fourteen years and no judgeship. None supplies the tested threshold or method."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated claims about CSE frequency or choice patterns appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson without Filipino teaching text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson without Filipino teaching text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson without Filipino teaching text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson without Filipino teaching text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson without Filipino teaching text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question tests a target word or refers to underlining.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the three powers directly; prose has no listed stock AI phrases and uses varied openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information layout is followed. Example 4 uses two-thirds times House membership and two-thirds times Senate membership, introduced in Legislative power as the override threshold. Example 7 uses two-thirds times 24, introduced in Executive power as treaty concurrence. No mathematics-only requirement to print symbolic formulas in Core Concept applies here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples 1–12 to branch matching, terms, bill origination, veto arithmetic, appointments, combined emergency/pardon case, treaties, combined composition/review case, ages, judicial experience, commissions/Ombudsman, and mixed checks. These cover all fourteen proposed slots through the two authorized merges, without numerical duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "At least $16$ Senators must concur:",
+      "problem": "The treaty solution requires choosing the two-thirds threshold and then multiplying it by 24. It gives the computation but does not number the two steps. No mathematical step is missing, so this is a minor formatting finding."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The three display computations are short products: two-thirds times 300 or 24."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted qualification and power paragraphs: each has one to three sentences. No long bullet lists are used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the four one-line placeholders names nodes, labels and relationships: branch columns, emergency timeline, minimum-age ladder and check arrows. No example depends on a missing visual; prose gives the necessary information."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "So must bills increasing public debt, bills of local application, and private bills.",
+      "problem": "Public debt, bills of local application, and private bills are listed as origination categories without explaining their meanings. A learner cannot classify those bill types from the teaching provided; no supplied prerequisite teaches them."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains making/carrying out/checking law, veto and override operation, actual disputes and judicial review, nomination versus confirmation, and age/citizenship/experience qualifications. It gives functional explanations rather than only naming the three powers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It cannot be used in impeachment cases, and other constitutional limits apply.",
+      "problem": "The lesson acknowledges other pardon limits without stating the election-offense exception requiring COMELEC recommendation. The brief asks for constitutional limits, and an unspecified warning does not teach when the pardon rule applies. This point needs primary-source confirmation because the supplied brief does not quote Article IX-C Section 5."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
