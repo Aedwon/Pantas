@@ -73,7 +73,9 @@ $$A_{\text{remaining}}=A_{\text{outer}}-A_{\text{inner}}$$
 
 If a region is split into pieces that do not overlap, add their areas. If pieces overlap, do not count the shared area twice.
 
-A **scale factor** $k$ is the new length divided by its matching old length. These rules apply when every length is multiplied by the same positive number $k$, so the shape stays the same:
+**Similar figures** have the same shape. Each length in one figure is multiplied by the same positive number to get its matching length in the other figure. Their sizes may differ.
+
+A **scale factor** $k$ is the new length divided by its matching old length. These rules apply to similar figures when every length is multiplied by that same number $k$:
 
 $$P_{\text{new}}=kP_{\text{old}}$$
 
@@ -334,7 +336,7 @@ Two similar rectangles have areas of $20\text{ cm}^2$ and $180\text{ cm}^2$. The
 
 **Solution:**
 
-1. Similar rectangles have the same shape. Their area ratio gives the square of the length scale factor.
+1. The rectangles are similar, so all matching lengths have one scale factor. Their area ratio gives its square.
 
 $$k^2=\dfrac{180}{20}=9$$
 
