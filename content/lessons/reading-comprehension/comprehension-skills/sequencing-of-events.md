@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-**Sequencing** means putting events in the order they happened. A passage may tell a later event first and explain an earlier event afterward. Rebuild the true order from the clues in the text.
+**Sequencing** means putting events in the order they happened. A passage may tell a later event first and explain an earlier event afterward. Use the clues in the text to find what happened first, next, and last.
 
 The order of the sentences is the **written order**. The order in which the events happened is the **event order**. These orders can be different.
 
@@ -19,13 +19,13 @@ The order of the sentences is the **written order**. The order in which the even
 
 In “after the rain stopped, we left,” the rain stopped first. In “before we left, the rain stopped,” the rain also stopped first. Read the whole phrase to connect each time word to the right action.
 
-*Meanwhile* means that events happen at the same time. It does not tell you which of those events began first. A passage may also leave the order of some events unstated.
+*Meanwhile* means that events happen at the same time. It does not tell you which event began first. A passage may also leave the order of some events unstated.
 
-“Before” does not always mean “immediately before.” There may be other events between the pair. Give an exact next event only when the passage makes that link clear.
+“Before” does not always mean “immediately before.” Other events may happen between the pair. Give an exact next event only when the passage makes that link clear.
 
 ### Verb Forms
 
-**Verb tense** shows the time of an action. The **past perfect** uses *had* with a **past participle**, a verb form used after helping verbs such as *has*, *have*, or *had*. Here, this pattern can show an action completed before another past action.
+**Verb tense** shows the time of an action. The **past perfect** uses *had* with a **past participle**. This verb form can show an action completed before another past action.
 
 For many verbs, the past participle ends in *-ed*, as in *walked* and *finished*. Some have special forms: *go* becomes *gone*, *eat* becomes *eaten*, and *write* becomes *written*. In *had written*, the word *written* is the past participle.
 
@@ -39,13 +39,15 @@ A passage may state the effect first and explain the cause later. Do not assume 
 
 ### Mga Hudyat sa Filipino
 
-Sa Filipino, hanapin ang mga salitang nagsasabi ng oras. Ang *una* ay tumutukoy sa simula. Ang *kasunod* at *sa huli* ay tumutulong upang makita ang mga sumunod na pangyayari.
+Sa Filipino, hanapin ang mga salitang nagsasabi ng oras. Ang *una* ay tumutukoy sa simula. Ang *kasunod* at *sa huli* ay tumutulong upang makita ang ayos ng mga pangyayari.
 
 Sa “Bago umalis si Ana, isinara niya ang bintana,” nauna ang pagsara. Sa “Matapos isara ang bintana, umalis si Ana,” nauna rin ang pagsara. Ang *pagkatapos* ay maaari ring magpakita ng sumunod na pangyayari.
 
 Ang *habang* ay nagpapakita ng mga pangyayaring nagaganap sa iisang panahon. Hindi nito laging sinasabi kung alin ang nagsimula muna.
 
 Ang **sanhi** (cause) ay dahilan ng pangyayari. Ang **bunga** (effect) ay resulta nito. Ang *dahil* ay karaniwang nagpapakilala ng sanhi, at ang *kaya* at *dahil dito* ay karaniwang nagpapakilala ng bunga.
+
+Maaaring unahin sa ulat ang bunga bago sabihin ang sanhi. Hanapin din ang mga araw at petsa. Gamitin ang mga ito kasama ng mga hudyat upang maayos ang mga pangyayari.
 
 ## Examples
 
@@ -106,7 +108,7 @@ Here, “concluded” means decided from the information given.
 
 **Solution:**
 
-1. *While* shows that preparing the report and checking the receipts overlapped in time.
+1. *While* shows that preparing the report and checking the receipts happened together for at least part of the time.
 2. The passage does not state which task began first.
 3. Both tasks were finished before the report was sent to the supervisor.
 
@@ -120,8 +122,8 @@ Nang malaman ng mga kawani na naantala ang bus, inalis nila ang puno. Pagkatapos
 
 **Solution:**
 
-1. Ang *dahil* ay nagpapakita na ang malakas na hangin ang sanhi ng pagbagsak ng puno. Walang sinabing lumakas pa ang hangin.
-2. Nauna ang pagbagsak ng puno sa pagsara ng kalsada. Ang *kaya* ay nagpapakita na naantala ang bus dahil sa pagsara.
+1. Ang *dahil* ay nagpapakita na ang malakas na hangin ang sanhi ng pagbagsak ng puno.
+2. Ipinapakita ng *bago* na nauna ang pagbagsak ng puno sa pagsara ng kalsada. Ang *kaya* ay nagpapakita na naantala ang bus dahil sa pagsara.
 3. Naantala na ang bus nang malaman ito ng mga kawani. Pagkatapos nito, inalis nila ang puno.
 4. Ang pag-alis ng puno ay nauna sa muling pagbukas ng kalsada.
 5. Ang ayos ay pagbagsak ng puno, pagsara ng kalsada, pagkaantala ng bus, pag-alis ng puno, muling pagbukas ng kalsada.
@@ -145,7 +147,7 @@ D. Natanggap ang mga kahon.
 1. Unahin ang paghahanda ng silid noong Martes.
 2. Sumunod ang pagtanggap ng mga kahon noong Miyerkules at pagsusuri ng mga aklat noong Huwebes.
 3. Huli ang pamamahagi noong Biyernes. Ang tamang ayos ay B, D, A, C.
-4. Tinutugma ng *bago iyon* at *matapos* ang ayos na ipinapakita ng mga araw.
+4. Ang *bago iyon* ay tumutukoy sa pagsusuri bago ang pamamahagi. Ipinapakita ng *matapos* na naihanda na ang silid bago natanggap ang mga kahon.
 
 ## Reading Strategies
 
@@ -163,19 +165,19 @@ Sa isang ulat, gamitin ang mga araw at hudyat ng oras nang magkasama. Suriin din
 
 > The first event mentioned is not always the first event that happened.
 
-A passage may begin with a result and explain earlier events later. Check the time clues before deciding the sequence.
+A passage may begin with a result and explain earlier events later. Check the time clues before deciding the sequence. Copying the sentence order can put a later event first.
 
 ### #2: Missing Past Perfect
 
 > A past-perfect verb can point to an earlier completed action.
 
-In “she had written the letter before he arrived,” writing came first. The fact that *arrived* is closer to the end of the sentence is not the reason for that order.
+In “she had written the letter before he arrived,” writing came first. Putting the arrival first misses both *had written* and *before*.
 
 ### #3: Reversing Cause and Effect
 
 > A result cannot begin before the cause that produces it.
 
-A passage may mention the result before its cause. Place the start of the cause earlier, even if the cause continues while the result happens.
+A passage may mention the result before its cause. Place the start of the cause earlier, even if the cause continues while the result happens. Otherwise, the answer reverses what made the event happen.
 
 ### #4: Checking Only One Time Word
 
