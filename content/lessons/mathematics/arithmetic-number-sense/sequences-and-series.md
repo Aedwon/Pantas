@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence.
+A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. The dots in a list mean that it continues.
 
 ### Common Sequence Types
 
@@ -61,6 +61,12 @@ Using the arithmetic-term formula gives another form of the same sum:
 
 $$S_n=\dfrac{n}{2}\left[2a_1+(n-1)d\right]$$
 
+If the first term, last term, and nonzero common difference are known, count the steps and add $1$ to include the first term:
+
+$$n=\dfrac{a_n-a_1}{d}+1$$
+
+Use this only when the last term belongs to the sequence. The result must be a positive whole number.
+
 In a geometric sequence, reaching position $n$ takes $n-1$ multiplications by $r$:
 
 $$a_n=a_1r^{n-1}$$
@@ -69,7 +75,9 @@ For a finite geometric series with $r\ne1$:
 
 $$S_n=\dfrac{a_1(1-r^n)}{1-r}$$
 
-To see why this works, multiply the sum by $r$. Subtract this new sum from the original sum. The middle terms cancel, leaving $(1-r)S_n=a_1(1-r^n)$.
+To see why this works, multiply the sum by $r$. Subtract this new sum from the original sum. The middle terms cancel, leaving:
+
+$$(1-r)S_n=a_1(1-r^n)$$
 
 If $r=1$, every term equals $a_1$. Then:
 
@@ -84,6 +92,8 @@ For an infinite geometric series with a nonzero first term, a finite sum exists 
 $$S_\infty=\dfrac{a_1}{1-r}$$
 
 If $|r|\ge1$ and the first term is nonzero, the series **diverges**. This means its running total does not approach a finite sum. If every term is $0$, the sum is simply $0$.
+
+In exam questions, **evaluate** means find the final number answer.
 
 ## Examples
 
@@ -161,7 +171,7 @@ A theater has $20$ seats in the first row, $24$ in the second, and $28$ in the t
 1. Here $a_1=20$, $d=4$, and $n=15$.
 2. Use the arithmetic-series formula that contains $d$.
 
-$$S_{15}=\dfrac{15}{2}\left[2(20)+(15-1)(4)\right]$$
+$$S_{15}=\dfrac{15}{2}\left[2(20)+14(4)\right]$$
 
 3. Work out the value inside the brackets, then multiply.
 
@@ -199,8 +209,6 @@ $$S_6=\dfrac{3(-63)}{-1}=189$$
 
 ### #8: Evaluating an Infinite Geometric Series
 
-"Evaluate" means find the final number answer.
-
 Evaluate the infinite geometric series $18+6+2+\dfrac{2}{3}+\dots$.
 
 **Solution:**
@@ -235,10 +243,17 @@ If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence in that orde
 
 **Solution:**
 
-1. For these three consecutive terms, $z=x+y$.
-2. Replace $x$ and $y$ with the given expressions and add matching terms.
+1. Use the sum-of-two-terms rule.
 
-$$z=(2a+1)+(3a-2)=5a-1$$
+$$z=x+y$$
+
+2. Replace $x$ and $y$ with the given expressions.
+
+$$z=(2a+1)+(3a-2)$$
+
+3. Add the coefficients of $a$ and add the plain numbers.
+
+$$z=(2+3)a+(1-2)=5a-1$$
 
 ### #11: Finite Geometric Series with $r=1$
 
@@ -264,11 +279,7 @@ Does the infinite geometric series $3+6+12+24+\dots$ have a finite sum?
 
 ### Number of Terms in an Arithmetic Sequence
 
-If the first term, last term, and nonzero common difference are known, count the equal steps between the endpoints. Then add $1$ to include the first term.
-
-$$n=\dfrac{\text{Last}-\text{First}}{d}+1$$
-
-Use this only when the last term belongs to the sequence. The result must be a positive whole number.
+Subtract the first term from the last term. Divide by the nonzero common difference, then add $1$ to count the first term. Check that the result is a positive whole number.
 
 ### Middle-Term Average
 

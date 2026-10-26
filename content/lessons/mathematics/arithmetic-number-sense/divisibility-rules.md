@@ -15,27 +15,27 @@ Divisibility rules let you check digits instead of doing full division. For a ne
 
 ### Rules for $2$, $4$, and $8$
 
-A number is divisible by $2$ when its last digit is even: $0$, $2$, $4$, $6$, or $8$.
+For $2$, check whether the last digit is even: $0$, $2$, $4$, $6$, or $8$.
 
-A number is divisible by $4$ when the number formed by its last $2$ digits is divisible by $4$.
+To test divisibility by $4$, use the number formed by the last $2$ digits. If that number is divisible by $4$, the whole number is too.
 
-A number is divisible by $8$ when the number formed by its last $3$ digits is divisible by $8$. If a number has fewer digits than a test needs, test the whole number.
+The test for $8$ uses the number formed by the last $3$ digits. It must be divisible by $8$. If a number has fewer digits than a test needs, test the whole number.
 
 ### Rules for $3$ and $9$
 
-A number is divisible by $3$ when the sum of its digits is divisible by $3$.
+Add the digits to test divisibility by $3$. If their sum is divisible by $3$, so is the original number.
 
-A number is divisible by $9$ when the sum of its digits is divisible by $9$. You may add the digits of the sum again if that makes the test easier.
+For $9$, the digit sum must be divisible by $9$. You may add the digits of the sum again if that makes the test easier.
 
 ### Rules for $5$ and $10$
 
-A number is divisible by $5$ when its last digit is $0$ or $5$.
+A last digit of $0$ or $5$ means the number is divisible by $5$.
 
-A number is divisible by $10$ when its last digit is $0$.
+Only numbers ending in $0$ are divisible by $10$.
 
 ### Rule for $6$
 
-A number is divisible by $6$ when it is divisible by both $2$ and $3$. Passing just one test is not enough.
+Divisibility by $6$ requires passing both the $2$ and $3$ tests. Passing just one test is not enough.
 
 ### Rule for $7$
 
@@ -57,7 +57,7 @@ If $a$ and $b$ are coprime, a number is divisible by $ab$ exactly when it is div
 
 For example, $8$ and $9$ have no common factor greater than $1$. Since $8\times9=72$, passing both tests proves divisibility by $72$.
 
-The factors need not be prime numbers themselves. But they must be coprime for this product test to work.
+The factors need not be prime numbers themselves. But they must be coprime for this product test to work. Shared factors can make the two tests check some of the same factors twice.
 
 ## Mnemonics & Memory Aids
 
@@ -102,7 +102,11 @@ $$2\times3=6$$
 
 $$20-6=14$$
 
-3. Since $14=7\times2$, $203$ is divisible by $7$.
+3. Check whether the result is a multiple of $7$.
+
+$$14=7\times2$$
+
+4. The result passes, so $203$ is divisible by $7$.
 
 ### #4: Finding a Missing Digit
 
@@ -198,7 +202,7 @@ $$X+Y=2+4=6$$
 
 ### Cast Out Nines
 
-When testing divisibility by $3$ or $9$, you may skip groups of digits whose sum is a multiple of $9$. Each skipped group is divisible by both $3$ and $9$. The leftover sum gives the same pass-or-fail result.
+When testing divisibility by $3$ or $9$, you may skip groups of digits whose sum is a multiple of $9$. Each skipped group adds a multiple of both $3$ and $9$ to the total. Removing it does not change whether the digit sum passes either test.
 
 For $945,712$, skip $9$, then $4+5$, then $7+2$. Only $1$ remains.
 
