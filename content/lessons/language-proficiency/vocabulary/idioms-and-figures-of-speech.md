@@ -169,7 +169,7 @@ D) Oxymoron
 
 ### #10: Oxymoron
 
-“The crowd waited in deafening silence.” Which literary device is created by the phrase *deafening silence*?
+“The crowd waited in **deafening silence**.” Which literary device is created by the phrase in bold?
 
 A) Personification  
 B) Simile  
