@@ -200,7 +200,7 @@ questions:
           This adds the denominator exponents instead of subtracting them. Addition correctly combines powers in the numerator. Check that dividing uses a different rule.
       - text: '$\dfrac{x^{12}}{y^5}$'
         rationale: |
-          This multiplies the numerator exponents, giving $x^{12}y^{-2}$, before dividing. Multiplying exponents is valid for nested powers. Check that these are separate multiplied powers.
+          This multiplies the numerator exponents, giving $x^{12}y^{-2}$, then subtracts only the denominator’s $y$ exponent. Multiplying exponents is valid for nested powers. Check that these are separate multiplied powers.
     explanation: |
       Combine like bases in the numerator to get $x^{3+4}y^{2-1}=x^7y$. Divide by $x^2y^3$ to get $x^{7-2}y^{1-3}=x^5y^{-2}$. Rewrite the negative power as $\dfrac{x^5}{y^2}$.
 
@@ -234,7 +234,7 @@ questions:
         correct: true
       - text: '$x = 2$'
         rationale: |
-          This equates $2x-1$ with $x+1$ without changing the bases. Equal powers with the same base allow that step. Check that both bases match first.
+          This equates $2x-1$ with $x+1$ without changing the bases. Equal powers with the same positive base other than $1$ allow that step. Check that both bases match first.
       - text: '$x = -1$'
         rationale: |
           This changes $3(x+1)$ into $3x-3$. The negative constant on the other side can influence the sign. Check that distributing preserves the plus sign.
@@ -339,9 +339,9 @@ questions:
       - text: 'The power rule.'
         rationale: |
           This looks for a coefficient moving into an exponent. That is another common logarithm law. Check whether the work has a coefficient or a power.
-      - text: 'The rule for changing bases.'
+      - text: 'The rule for undoing a logarithm with a power.'
         rationale: |
-          This assumes two logarithms require a base change. Changing bases can help evaluate logarithms. Check that all written bases already match.
+          This assumes a power is undoing a logarithm. A power and a logarithm with the same allowed base undo each other. Check that no such power appears here.
     explanation: |
       The product rule says $\log_{10}(MN)=\log_{10}(M)+\log_{10}(N)$ for positive $M,N$. A sum of logarithms therefore describes a product inside, not an added pair. Applying that rule to $20+30$ is the error.
     approved: false
