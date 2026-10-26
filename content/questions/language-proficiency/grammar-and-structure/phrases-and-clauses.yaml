@@ -135,9 +135,9 @@ questions:
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
-      Using the introductory school convention in this lesson, how is "running quickly through the park" classified?
+      In a formal task requiring a complete sentence, how is "running quickly through the park" classified?
     choices:
-      - text: "Participial phrase"
+      - text: "An incomplete group with a nonfinite verb"
         correct: true
       - text: "Independent finite clause"
         rationale: |
@@ -149,7 +149,7 @@ questions:
         rationale: |
           This classifies the whole group from "through the park" alone. Those final words are a prepositional phrase. Check: include "running quickly" in the analysis.
     explanation: |
-      Under the lesson's introductory school convention, "running quickly through the park" is called a participial phrase. It has an -ing verb form but no finite verb.
+      "Running" does not show tense by itself. "Running quickly through the park" has no finite verb and cannot stand alone as a complete formal sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0008"
     type: "phrase-clause-identification"
@@ -375,21 +375,21 @@ questions:
     type: "phrase-clause-identification"
     difficulty: "hard"
     stem: |
-      In "The fact that the road is closed delayed our delivery," which group is the independent clause?
+      In "The driver who found the road closed delayed our delivery," which group is the independent clause?
     choices:
       - text: "The whole sentence"
         correct: true
-      - text: "That the road is closed"
+      - text: "Who found the road closed"
         rationale: |
-          This selects the embedded dependent clause. The group contains a subject and verb. Check: check what "that" links it to.
-      - text: "The fact that the road is closed"
+          This selects the relative clause. The group contains a subject and verb. Check: check which noun "who found the road closed" describes.
+      - text: "The driver who found the road closed"
         rationale: |
           This stops before the main verb. The opening group is long and contains a smaller clause. Check: find the verb that states what the whole subject did.
       - text: "Delayed our delivery"
         rationale: |
           This takes the main predicate without its subject. The action seems to express the main point. Check: include the subject of "delayed".
     explanation: |
-      The full subject is "The fact that the road is closed." Its main verb is "delayed." The whole sentence is the independent clause, and it contains a smaller dependent clause.
+      The full subject is "The driver who found the road closed." Its main verb is "delayed." The whole sentence is the independent clause. The relative clause "who found the road closed" describes "driver" and is dependent.
     approved: false
   - id: "q-grammar-and-structure-phrases-and-clauses-0020"
     type: "phrase-clause-identification"
