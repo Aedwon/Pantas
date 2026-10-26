@@ -91,3 +91,365 @@ questions:
     explanation: |
       "Kinain" puts the object that was eaten in focus. "Ang mangga" names that object, so the verb has object focus.
     approved: true
+  - id: "q-grammar-and-structure-tenses-and-voice-0012"
+    type: "tense"
+    difficulty: "easy"
+    stem: |
+      Natapos na ang paglilinis ng tanggapan kahapon. Alin ang angkop na
+      pandiwa sa pangungusap na "___ ng tanggapan si Mila kahapon"?
+    choices:
+      - text: "Maglilinis"
+        rationale: |
+          "Maglilinis" presents an action that has not started. The cleaning is already done.
+      - text: "Naglinis"
+        correct: true
+      - text: "Naglilinis"
+        rationale: |
+          "Naglilinis" presents ongoing or repeated cleaning. The stem says the work is finished.
+      - text: "Kalilinis lang"
+        rationale: |
+          This means the cleaning has just ended. The stem describes yesterday's completed work, and this form also needs "ni Mila" instead of "si Mila."
+    explanation: |
+      "Naglinis" shows that the cleaning is finished. It is perpektibo.
+      "Naglilinis" would show cleaning that continues or happens regularly.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0013"
+    type: "tense"
+    difficulty: "easy"
+    stem: |
+      Sinabi ng kawani, "Kadarating lang ng mga dokumento."
+      Anong aspekto ang ipinapakita ng "kadarating"?
+    choices:
+      - text: "Kontemplatibo"
+        rationale: |
+          The documents have already arrived. Their arrival is not a future action.
+      - text: "Imperpektibo"
+        rationale: |
+          The arrival has just ended. The sentence does not present it as still happening.
+      - text: "Perpektibong katatapos"
+        correct: true
+      - text: "Perpektibo na walang pahiwatig na katatapos lamang"
+        rationale: |
+          "Kadarating lang" specifically says the arrival has just happened. This choice misses that detail.
+    explanation: |
+      "Kadarating lang" means the documents have just arrived.
+      The action is perpektibong katatapos, not still ongoing.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0014"
+    type: "tense"
+    difficulty: "easy"
+    stem: |
+      Sa "Nagluto ng pagkain para sa mga bisita si Rosa," alin ang
+      wastong pagtukoy sa paksa at sa pokus ng pandiwa?
+    choices:
+      - text: "Si Rosa ang paksa; pokus sa tagaganap."
+        correct: true
+      - text: "Ang pagkain ang paksa; pokus sa layon."
+        rationale: |
+          The food receives the action, but it is introduced by "ng." "Si Rosa" is the topic here.
+      - text: "Ang mga bisita ang paksa; pokus sa tagatanggap."
+        rationale: |
+          The visitors benefit from the cooking, but "para sa mga bisita" is not the topic of this sentence.
+      - text: "Si Rosa ang paksa; pokus sa tagatanggap."
+        rationale: |
+          Rosa does the cooking. The sentence does not present her as the person receiving its benefit.
+    explanation: |
+      "Si Rosa" is the topic. Rosa does the cooking, so the focus is
+      tagaganap. The visitors benefit, but they are not the topic.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0015"
+    type: "tense"
+    difficulty: "medium"
+    stem: |
+      "Naglilinis ng bulwagan ang mga kawani tuwing Sabado."
+      Bakit imperpektibo ang "naglilinis" sa pangungusap?
+    choices:
+      - text: "Sapagkat natapos na ang lahat ng paglilinis."
+        rationale: |
+          This treats a repeated routine as a single finished action. "Tuwing Sabado" shows repetition.
+      - text: "Sapagkat hindi pa nila nasisimulan ang gawain kahit minsan."
+        rationale: |
+          A regular routine is not an action that has never started. That meaning would call for kontemplatibo.
+      - text: "Sapagkat katatapos lamang nilang maglinis."
+        rationale: |
+          The sentence gives a weekly routine. It does not use a recently completed form such as "kalilinis lang."
+      - text: "Sapagkat nagpapahayag ito ng paulit-ulit na gawain."
+        correct: true
+    explanation: |
+      Imperpektibo can show a repeated action. "Tuwing Sabado" gives
+      the schedule. It does not mean they must be cleaning as we speak.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0016"
+    type: "correct-usage"
+    difficulty: "medium"
+    stem: |
+      Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite
+      si Elena ng ulat." Alin ang nagpapanatili sa oras at aspekto ng kilos?
+    choices:
+      - text: "Nagsumite si Elena ng ulat kahapon."
+        rationale: |
+          This changes the planned submission into a completed action yesterday.
+      - text: "Magsusumite si Elena ng ulat bukas."
+        correct: true
+      - text: "Nagsusumite si Elena ng ulat ngayon."
+        rationale: |
+          This changes the action to ongoing submission now. Both the time clue and the verb form change.
+      - text: "Magsusumite si Elena ng ulat kahapon."
+        rationale: |
+          "Kahapon" changes tomorrow to yesterday. It does not preserve the original time clue.
+    explanation: |
+      "Bukas" can come at the end. Keeping "magsusumite" and "bukas"
+      keeps the planned action and its time the same.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0017"
+    type: "tense"
+    difficulty: "medium"
+    stem: |
+      Sa "Ipinagluto ng kusinero ng lugaw ang mga bata," ano ang pokus
+      ng pandiwa batay sa papel ng paksa?
+    choices:
+      - text: "Tagaganap, dahil ang kusinero ang nagluto."
+        rationale: |
+          The cook does the action, but "ng kusinero" is not the topic. The topic is "ang mga bata."
+      - text: "Layon, dahil ang lugaw ang niluto."
+        rationale: |
+          The porridge is cooked, but it is introduced by "ng." It is not the topic in this sentence.
+      - text: "Tagatanggap, dahil ang mga bata ang nakikinabang sa pagluluto."
+        correct: true
+      - text: "Kagamitan, dahil ang mga bata ang ginamit sa pagluluto."
+        rationale: |
+          The children receive the benefit. They are not tools used to cook.
+    explanation: |
+      "Ang mga bata" is the topic. The cook makes food for them.
+      This is focus on tagatanggap. The cook is the doer, but not the topic.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0018"
+    type: "tense"
+    difficulty: "medium"
+    stem: |
+      "Ipinangsulat ni Teresa ng pangalan ang lapis."
+      Aling parirala ang paksa, at ano ang papel nito sa kilos?
+    choices:
+      - text: "Ni Teresa; siya ang tagaganap."
+        rationale: |
+          Teresa does the writing, but "ni Teresa" is not the topic. Look for the phrase introduced by "ang."
+      - text: "Ng pangalan; ito ang layon."
+        rationale: |
+          The name is written, but "ng pangalan" is not the topic of this sentence.
+      - text: "Ang lapis; ito ang sanhi ng damdamin."
+        rationale: |
+          The pencil is the topic, but it serves as a writing tool. No feeling caused by it is stated.
+      - text: "Ang lapis; ito ang kagamitang ginamit sa pagsulat."
+        correct: true
+    explanation: |
+      "Ang lapis" is the topic. Teresa uses the pencil to write.
+      The focus is kagamitan because the topic is the tool.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0019"
+    type: "tense"
+    difficulty: "medium"
+    stem: |
+      "Ikinatuwa ng mga kawani ang balita tungkol sa tanggapan."
+      Aling pagsusuri sa pokus ang tama?
+    choices:
+      - text: "Pokus sa sanhi, dahil ang balita ang dahilan ng tuwa."
+        correct: true
+      - text: "Pokus sa tagaganap, dahil ang mga kawani ang natuwa."
+        rationale: |
+          This chooses the people who feel happy as the topic. The topic is "ang balita," not "ng mga kawani."
+      - text: "Pokus sa layon, dahil ang balita ang bagay na ginawa ng mga kawani."
+        rationale: |
+          The sentence does not say the workers made the news. The news causes their happiness.
+      - text: "Pokus sa ganapan, dahil binanggit ang tanggapan."
+        rationale: |
+          The office is only mentioned in the description of the news. It is not the topic or a stated place of action.
+    explanation: |
+      "Ang balita" is the topic. The news causes the workers' joy.
+      This is focus on sanhi. Mentioning an office does not make it ganapan.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0020"
+    type: "correct-usage"
+    difficulty: "medium"
+    stem: |
+      Isinulat ng kawani, "Bukas ay magkakain kami matapos maglinis."
+      Kung ang pandiwa ay nasa pangkat na "kumain," anong pagbabago
+      ang kailangan upang maipahayag ang kilos na hindi pa nasisimulan?
+    choices:
+      - text: "Palitan ang magkakain ng kumakain."
+        rationale: |
+          "Kumakain" shows eating that is ongoing or repeated. It does not give the requested contemplated form.
+      - text: "Palitan ang magkakain ng kumain."
+        rationale: |
+          In the lesson's aspect pattern, "kumain" presents completed eating. The stem asks for an action not yet started.
+      - text: "Palitan ang magkakain ng kakain."
+        correct: true
+      - text: "Panatilihin ang magkakain dahil lahat ng kontemplatibo ay may mag-."
+        rationale: |
+          This applies the "maglinis" pattern to "kumain." The lesson says different verb groups do not all use "mag-."
+    explanation: |
+      In the "kumain" group, repeat "ka" and leave out "-um-" to get
+      "kakain." The "maglinis" group uses a different pattern.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0021"
+    type: "tense"
+    difficulty: "hard"
+    stem: |
+      "Nagsusulat pa ng ulat si Luis nang dumating ang pinuno kahapon."
+      Ano ang aspekto ng "nagsusulat," at bakit?
+    choices:
+      - text: "Perpektibo, dahil kahapon naganap ang pangyayari."
+        rationale: |
+          "Kahapon" locates the event in the past. It does not make writing finished at the moment the head arrived.
+      - text: "Imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno."
+        correct: true
+      - text: "Kontemplatibo, dahil hindi pa tapos ang ulat."
+        rationale: |
+          Not finished does not mean not started. Luis was already writing when the head arrived.
+      - text: "Perpektibong katatapos, dahil magkasunod na binanggit ang pagsulat at pagdating."
+        rationale: |
+          Mentioning another event does not show that writing has just ended. "Nagsusulat pa" shows it was continuing.
+    explanation: |
+      Luis was still writing when the head arrived. "Nagsusulat" is
+      imperpektibo. An action can be ongoing at a moment in the past.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0022"
+    type: "tense"
+    difficulty: "hard"
+    stem: |
+      Paghambingin ang "Naglinis ng silid si Noel noong nakaraang linggo"
+      at "Kalilinis lang ni Noel ng silid." Aling pahayag ang tama?
+    choices:
+      - text: "Parehong perpektibong katatapos dahil parehong natapos ang kilos."
+        rationale: |
+          A finished action is not always a just-finished action. The first sentence places the work last week.
+      - text: "Imperpektibo ang una dahil may pahiwatig ng oras."
+        rationale: |
+          Having a time clue does not make an action ongoing. "Naglinis" presents completed cleaning.
+      - text: "Kontemplatibo ang ikalawa dahil may salitang lang."
+        rationale: |
+          "Kalilinis lang" says the work has just ended. It does not describe a future plan.
+      - text: "Perpektibo ang una; perpektibong katatapos ang ikalawa."
+        correct: true
+    explanation: |
+      "Naglinis" presents finished work. "Kalilinis lang" adds that
+      the work has just ended. Completion alone does not mean recent completion.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0023"
+    type: "tense"
+    difficulty: "hard"
+    stem: |
+      Sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at
+      "Pinuntahan ng mga kawani ang bakuran," magkapareho ang paksa.
+      Alin ang wastong pagkakaiba ng pokus?
+    choices:
+      - text: "Ganapan ang una dahil doon nagtanim; direksiyon ang ikalawa dahil iyon ang pinuntahan."
+        correct: true
+      - text: "Parehong ganapan dahil parehong lugar ang bakuran."
+        rationale: |
+          A place can be a destination. In the second sentence, the yard is the place approached, not a stated site of planting.
+      - text: "Direksiyon ang una; ganapan ang ikalawa."
+        rationale: |
+          This reverses the roles. The first yard is the planting site, and the second yard is the destination.
+      - text: "Parehong tagaganap dahil ang mga kawani ang gumawa."
+        rationale: |
+          The workers do the actions, but "ang bakuran" is the topic in both sentences.
+    explanation: |
+      In the first sentence, the yard is where planting takes place.
+      In the second, the yard is the destination. A place name alone
+      cannot tell us which focus applies.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0024"
+    type: "correct-usage"
+    difficulty: "hard"
+    stem: |
+      Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang
+      sopas at manatiling tapos na ang pagluluto. Alin ang tama?
+    choices:
+      - text: "Nagluto si Dina ng sopas."
+        rationale: |
+          Moving the phrases does not make the soup the topic. "Si Dina" remains the topic.
+      - text: "Niluto ng sopas si Dina."
+        rationale: |
+          This reverses the roles. It makes Dina the topic being cooked and the soup the doer.
+      - text: "Niluto ni Dina ang sopas."
+        correct: true
+      - text: "Ipinagluto ni Dina ng sopas ang bata."
+        rationale: |
+          This makes the child the topic and beneficiary. The soup is still introduced by "ng."
+    explanation: |
+      "Niluto ni Dina ang sopas" makes the soup the topic and the thing
+      cooked. The cooking is still completed. This is focus on layon.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0025"
+    type: "tense"
+    difficulty: "exam"
+    stem: |
+      Sa tala ay nakasulat, "Kakakain lang ng mga kawani nang tumawag
+      ang pinuno kahapon. Maglilinis sila ng tanggapan bukas."
+      Alin ang wastong pagsusuri sa mga pandiwang "kakakain" at "maglilinis"?
+    choices:
+      - text: "Perpektibo lamang ang una dahil may kahapon; imperpektibo ang ikalawa dahil inuulit ang li."
+        rationale: |
+          This ignores the recent completion in "kakakain lang." Repeating "li" with "mag-" forms contemplated "maglilinis," not ongoing "naglilinis."
+      - text: "Perpektibong katatapos ang una; kontemplatibo ang ikalawa."
+        correct: true
+      - text: "Imperpektibo ang una; kontemplatibo ang ikalawa."
+        rationale: |
+          Repetition alone does not show an ongoing action. "Kakakain lang" says eating had just ended.
+      - text: "Kontemplatibo ang una; perpektibong katatapos ang ikalawa."
+        rationale: |
+          This reverses the meanings. Eating had just ended, while cleaning was still planned for the next day.
+    explanation: |
+      "Kakakain lang" shows eating that had just ended when the call
+      came. "Maglilinis" shows cleaning that has not started.
+      Read each full form instead of using repetition alone.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0026"
+    type: "tense"
+    difficulty: "exam"
+    stem: |
+      Suriin ang "Ipinagluto ni Mara ng lugaw ang mga bisita" at
+      "Ipinangsulat ni Mara ng mga pangalan ang lapis."
+      Aling pahayag ang wastong naghahambing sa pokus ng dalawang pandiwa?
+    choices:
+      - text: "Parehong tagaganap dahil si Mara ang gumagawa ng mga kilos."
+        rationale: |
+          Mara does both actions, but "ni Mara" is not the topic in either sentence. The topics are the visitors and the pencil.
+      - text: "Layon ang una dahil lugaw ang niluto; layon ang ikalawa dahil pangalan ang isinulat."
+        rationale: |
+          This chooses things introduced by "ng" as the topics. The phrases with "ang" name the actual topics.
+      - text: "Kagamitan ang una dahil ginamit ang mga bisita; tagatanggap ang ikalawa dahil nakinabang ang lapis."
+        rationale: |
+          This reverses the roles. The visitors benefit from the cooking, while the pencil is used as a tool.
+      - text: "Tagatanggap ang una dahil nakinabang ang mga bisita; kagamitan ang ikalawa dahil ginamit ang lapis."
+        correct: true
+    explanation: |
+      The visitors are the topic of the first sentence and receive the
+      benefit. The pencil is the topic of the second and serves as a tool.
+      Mara does both actions, but she is not the topic of either sentence.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0027"
+    type: "tense"
+    difficulty: "exam"
+    stem: |
+      "Naglilinis pa ng bulwagan sina Liza at Omar nang dumating ang
+      pinuno kahapon." Sinabi ng isang kawani na perpektibo ang pandiwa
+      dahil may "kahapon" at pokus sa ganapan dahil may "bulwagan."
+      Aling pagsusuri ang tama?
+    choices:
+      - text: "Imperpektibo at pokus sa tagaganap ang naglilinis."
+        correct: true
+      - text: "Perpektibo at pokus sa ganapan ang naglilinis."
+        rationale: |
+          This uses the past time clue and the place alone. Cleaning was still ongoing, and Liza and Omar are the topic.
+      - text: "Imperpektibo at pokus sa ganapan ang naglilinis."
+        rationale: |
+          The aspect is right, but the focus is wrong. "Ng bulwagan" is not the topic; "sina Liza at Omar" is.
+      - text: "Perpektibo at pokus sa tagaganap ang naglilinis."
+        rationale: |
+          The focus is right, but the aspect is wrong. "Naglilinis pa" shows cleaning that continued when the head arrived.
+    explanation: |
+      Cleaning was still ongoing at that past moment, so the aspect is
+      imperpektibo. "Sina Liza at Omar" is the topic. They do the cleaning,
+      so the focus is tagaganap.
+    approved: false
