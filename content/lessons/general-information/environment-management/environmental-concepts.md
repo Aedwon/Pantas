@@ -32,7 +32,7 @@ Sorting matters because mixed or contaminated materials can become harder to rec
 
 **Reuse** means using a material again for the same or a different purpose without changing its basic physical and chemical form. A glass jar used again as a storage container is reuse.
 
-**Recycling** means processing used material so it can become useful material or a new product. Clean paper collected and processed into recycled paper is an example.
+**Recycling** usually means processing used material so it can become useful material or a new product. Clean paper collected and processed into recycled paper is an example.
 
 **Composting** is the controlled breakdown of organic matter by microorganisms into a soil-like product. Food scraps and garden waste can be separated for composting instead of being sent for final disposal.
 
@@ -100,17 +100,17 @@ A resident has a used household battery. Which sorting action best follows the w
 
 ## Traps to Watch For
 
-### #1: Segregation Is Not Recycling
+### #1: Segregation and Recycling
 
 > Sorting material and processing material are different actions.
 
-Segregation at source separates waste where it is produced. Recycling processes recovered material so it can be used again.
+Segregation at source separates waste where it is produced. Recycling usually processes recovered material so it can be used again.
 
-### #2: Reuse Is Not Recycling
+### #2: Reuse and Recycling Can Overlap
 
 > Reuse keeps the item in use without first turning it into new material.
 
-Using a jar again is reuse. Processing waste material into another product is recycling.
+Using a jar again is reuse. Processing waste material into another product is recycling. RA $9003$, Section $3$(bb), also counts collecting, sorting, and reusing used packaging as recycling. This can include a packaging jar without turning it into new material.
 
 ### #3: Special Waste Is Not Ordinary Trash
 
