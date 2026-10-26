@@ -15,7 +15,7 @@ A **logarithm** asks which exponent gives a number. For $b>0$, $b\ne1$, and $x>0
 
 $$\log_b(x)=y\quad\Longleftrightarrow\quad b^y=x$$
 
-So $\log_2(8)=3$ because $2^3=8$.
+The **argument** is the expression inside the logarithm. In $\log_2(8)$, the base is $2$ and the argument is $8$. Its value is $3$ because $2^3=8$.
 
 **Simplify** means rewrite an expression in a shorter equivalent form. **Evaluate** means find the final number answer.
 
@@ -171,7 +171,7 @@ Solve $\log_2(x-1)=3$.
 
 **Solution:**
 
-1. The argument must be positive.
+1. The argument $x-1$ must be positive.
 
 $$x-1>0\quad\Rightarrow\quad x>1$$
 

@@ -11,7 +11,7 @@ isActive: true
 
 A **function** gives one output for each allowed input. The **domain** is the set of allowed inputs. The notation $f(x)$ means the output of function $f$ at input $x$.
 
-**Classify** means name the group something belongs to. **Evaluate** means find the final number value.
+**Classify** means name the group something belongs to. **Evaluate** means find the final number value. **Solve** means find all values that make an equation true.
 
 **Linear:** $f(x)=mx+b$. Here $m$ and $b$ are fixed numbers. Its graph is a straight nonvertical line.
 
@@ -86,7 +86,13 @@ A negative $a$ also reflects the V across the $x$-axis before the vertical shift
 
 An **exponential function** has the form $f(x)=a^x$ for $a>0$ and $a\ne1$. The variable is in the exponent. Each increase of $1$ in $x$ multiplies the output by $a$.
 
-If $a>1$, the outputs grow as $x$ increases. If $0<a<1$, they shrink toward $0$. Equal powers of the same allowed base have equal exponents.
+For a nonzero base, a zero exponent gives $1$:
+
+$$a^0=1\qquad(a\ne0)$$
+
+To see why, divide a nonzero number by itself. Subtracting the matching exponents gives $a^1/a^1=a^{1-1}=a^0$, while the division gives $1$.
+
+If $a>1$, the outputs grow as $x$ increases. If $0<a<1$, they shrink toward $0$. Equal powers of the same allowed base have equal exponents because different exponents give different outputs.
 
 A **logarithmic function** has the form $f(x)=\log_a x$ for $a>0$, $a\ne1$, and $x>0$. A logarithm asks which exponent gives the input:
 
@@ -159,15 +165,19 @@ Find the slant asymptote of $f(x)=\dfrac{x^2+1}{x-1}$.
 
 **Solution:**
 
-1. The numerator degree is exactly $1$ greater. Division gives this identity:
+1. The numerator degree is exactly $1$ greater. Divide $x^2$ by $x$ to get $x$. Subtract the product $x(x-1)$ from the numerator.
 
-$$x^2+1=(x-1)(x+1)+2$$
+$$(x^2+1)-(x^2-x)=x+1$$
 
-2. Divide each part by $x-1$.
+2. Divide $x$ by $x$ to get $1$. Subtract the product $1(x-1)$ from what remains.
+
+$$(x+1)-(x-1)=2$$
+
+3. The quotient is $x+1$ and the remainder is $2$.
 
 $$f(x)=x+1+\dfrac{2}{x-1}$$
 
-3. Far to the left or right, the fraction gets close to $0$. The slant asymptote is $y=x+1$.
+4. Far to the left or right, the fraction gets close to $0$. The slant asymptote is $y=x+1$.
 
 <!-- ILLUSTRATION: coordinate graph of y=(x^2+1)/(x-1) with dashed slant asymptote y=x+1 and vertical asymptote x=1, label points (0,-1), (2,5), and both axes -->
 
@@ -246,11 +256,11 @@ Classify $f(x)=1.2^x$ and $g(x)=0.4^x$ as growth or decay. Find each function's 
 
 **Solution:**
 
-1. The base $1.2>1$ gives growth.
+1. The base $1.2>1$ gives growth. Use the zero-exponent rule for the first value.
 
 $$f(0)=1,\qquad f(1)=1.2$$
 
-2. The base satisfies $0<0.4<1$, so it gives decay.
+2. The base satisfies $0<0.4<1$, so it gives decay. Its zero power also equals $1$.
 
 $$g(0)=1,\qquad g(1)=0.4$$
 
