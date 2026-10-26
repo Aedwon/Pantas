@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+  "lesson-philippine-constitution-bill-of-rights",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "db4e3f72a318026635d24166c781e23d6f0ffe61",
+  "lesson-philippine-constitution-bill-of-rights": "db4e3f72a318026635d24166c781e23d6f0ffe61",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "db4e3f72a318026635d24166c781e23d6f0ffe61"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "2156221a0b99efac8d3a3644d6cc77b8e9b36bee4df3ef79a174b286833742cb",
+  "lesson-philippine-constitution-bill-of-rights": "1afb838cde280486f4662c288c2ee46f6d3fc9743964b0f3656700573ff07d04",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "da00cbfccd6957cd5bf4c010ae3af512f5adc9343614a0efb12454f557d0e7dc"
+ },
+ "paths": {
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "content/lessons/general-information/philippine-constitution/bill-of-rights-the-accused-and-the-trial.md",
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md"
+ },
+ "id": "RD-152",
+ "type": "read",
+ "created": "2026-10-26T13:52:55+00:00"
+}
