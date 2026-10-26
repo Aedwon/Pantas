@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-earth-science-astronomy-weather-and-climate"
+ ],
+ "topic": "science/earth-science-astronomy",
+ "rewrites": {
+  "lesson-earth-science-astronomy-weather-and-climate": "1da264401c6d22c3e4798f7beb1189b521a35723"
+ },
+ "sha256": {
+  "lesson-earth-science-astronomy-weather-and-climate": "1982f516300332b9fb13a606196de76c5896d63ea0b4bdd8a55e21f52c4078da"
+ },
+ "paths": {
+  "lesson-earth-science-astronomy-weather-and-climate": "content/lessons/science/earth-science-astronomy/weather-and-climate.md"
+ },
+ "id": "RD-109",
+ "type": "read",
+ "created": "2026-10-26T04:52:49+00:00"
+}
