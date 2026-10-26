@@ -1,0 +1,285 @@
+{
+ "batch": "RD-104",
+ "lesson_id": "lesson-clerical-ability-numeric-and-chronological-filing",
+ "path": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md",
+ "lesson_sha256": "d81aa1ca3260bd3131b20dbb3c003ca9025969ff1a916a133ce814afa70b605b",
+ "rewrite_commit": "fe2ea2522e3d5f0e7acad33678e75cbb7be5a496",
+ "form": {
+  "packet": "lesson-clerical-ability-numeric-and-chronological-filing",
+  "role": "A",
+  "lesson_sha256": "d81aa1ca3260bd3131b20dbb3c003ca9025969ff1a916a133ce814afa70b605b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked numeric ordering, leading zeros, decimal padding, complete-date comparison, and the YYYY-MM-DD component meanings. These agree with ordinary number and calendar ordering.",
+     "Checked code and terminal-digit claims against the explicit rules supplied in the lesson. The text correctly limits these procedures to the stated filing system. No external source claims or specific exam-format claims appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: 0389, 0395, 0401, 0452.",
+     "Solved #2: November 5, 2023; January 20, 2024; March 15, 2024; February 10, 2025.",
+     "Solved #3: July 21, 2024; July 8, 2024; June 30, 2024.",
+     "Solved #4: 2023-12-19.",
+     "Solved #5: 12.008.",
+     "Solved #6: 12.1, because subcode 1 precedes 5 and 8.",
+     "Solved #7: A-10, because the first differing digits are 1 and 2.",
+     "Solved #8: AB-5-7, because the last number parts are 7 and 12.",
+     "Solved #9: 01-99-02, 05-10-03, 98-10-03, 12-44-03. All nine answers match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present, as required for Reasoning. The brief requests no figures.",
+     "The lesson includes ordinary numeric filing, both chronological directions, fixed-format dates, decimals, dotted integer subcodes, string order, hyphenated number parts, and terminal-digit filing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching and solutions for simple language. Technical terms such as filing key, leading zeros, integer subcode, and character string receive short local definitions.",
+     "The earlier abstract wording about lexicographic order and hierarchical identifiers is absent. Directions use concrete actions such as comparing years, parts, or characters."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Instructions use everyday arrange, place, and which comes first. No exam-specific instruction verb needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogies appear in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All nine examples ask a filing question before showing the solution. Numbers, dates, directions, and special filing conventions are supplied as needed.",
+     "Examples #6 through #9 state system-specific comparison rules to remove ambiguity. They leave the actual comparison and answer to the student. Solutions use simple language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam references or unsupported exam-motivation claims appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English filing lesson with no Filipino teaching, examples, or grammar terms.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English filing lesson with no Filipino teaching, examples, or grammar terms.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English filing lesson with no Filipino teaching, examples, or grammar terms.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English filing lesson with no Filipino teaching, examples, or grammar terms.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English filing lesson with no Filipino teaching, examples, or grammar terms.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for listed stock phrases. None appear. Sentence openings vary across definitions, procedures, and solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson uses the reduced Reasoning layout: Core Concept, Examples, Traps to Watch For. It has no unnecessary mnemonic or shortcut section.",
+     "No example uses a calculation formula. The less-than ordering in #1 is introduced in Consecutive Numeric Filing. Decimal equalities and comparison in #5 apply the Core Concept rule that ending zeros do not change decimal value. The subcode inequality in #6 applies the Core Concept whole-number comparison rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped #1 to ascending whole-number filing with leading zeros; #2 to dates across years and months; #3 to reverse dates with same-month day comparison; #4 to year-first notation.",
+     "Mapped #5 to decimal values; #6 to dotted whole-number subcodes; #7 to single-character order; #8 to hyphenated whole-number parts; #9 to terminal-digit filing with ties at both later groups.",
+     "The sequence moves from ordinary numbers and dates to special code systems. Decimal and dotted-code examples deliberately produce different answers under different rules. Reverse chronology has its own worked case."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All nine solutions use numbered steps, with no missing comparison needed to reach an answer.",
+     "Examples #1, #5, and #6 display the key numeric ordering or decimal equalities. Date and code examples explain their comparisons in the numbered steps and do not require additional computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The four-number comparison and the separate decimal equalities and inequalities are short enough for a phone display."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. There are no bullet lists. Longer worked solutions are organized as numbered steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders. These number, date, and code comparisons do not depend on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Numeric filing, chronological filing, filing key, ascending and descending order, less-than, and leading zeros are defined before use in examples.",
+     "Core Concept explains year/month/day positions and digits in YYYY-MM-DD, then integer subcodes, character strings, and terminal-digit groups before their worked applications. No prerequisite teaching is assumed for these terms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Numeric filing teaches comparison of full values and decimal places. Chronological filing teaches year, month, then day comparison and both filing directions.",
+     "Reference Codes teaches how to compare separate whole-number parts and how to use the first differing character. Terminal-Digit Filing teaches rightmost, middle, then leftmost comparisons with tie handling. Each method is applied in an example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that leading zeros preserve ordinary numeric value, while decimal padding is limited to ending zeros.",
+     "Complete-date ordering is distinguished from direction and ambiguous slash-date formats. Code comparison depends on the stated rule, including character order and shorter-string handling.",
+     "Terminal-digit filing requires an explicit task rule, specifies the order of remaining groups, and compares the next group only on a tie."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-clerical-ability-numeric-and-chronological-filing|L05|0": {
+    "status": "fixed",
+    "quote": "A filing system treats each part of a dotted code as a separate integer subcode and files in ascending order. Which code comes first: $12.05$, $12.1$, or $12.008$?",
+    "note": "The dotted-code passage now asks a question and gives its answer in a separate numbered solution."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|B08|0": {
+    "status": "fixed",
+    "quote": "Arrange March $15$, $2024$; January $20$, $2024$; November $5$, $2023$; and February $10$, $2025$ from oldest to newest.",
+    "note": "Every date number in this revised question uses inline math."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|B08|1": {
+    "status": "fixed",
+    "quote": "Compare the next subcodes as whole numbers: $5$, $1$, and $8$.",
+    "note": "Dotted codes and the prose subcode numbers now use math delimiters instead of code spans or bare numbers."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L02|0": {
+    "status": "fixed",
+    "quote": "The format keeps the date parts in the same places.",
+    "note": "The long lexicographic-order sentence has been replaced with short explanations of date parts and filing direction."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L02|1": {
+    "status": "fixed",
+    "quote": "A period or hyphen inside a code may separate parts.",
+    "note": "The abstract identifier sentence is replaced with plain wording and local definitions of the two comparison methods."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L19|0": {
+    "status": "fixed",
+    "quote": "1. Add ending zeros so all entries show the same number of decimal places.",
+    "note": "The decimal example now has numbered steps and displayed decimal equalities and ordering."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L25|0": {
+    "status": "fixed",
+    "quote": "Compare complete dates in this format from left to right.",
+    "note": "The unexplained term lexicographic is removed. The lesson teaches the left-to-right procedure after identifying date components."
+   },
+   "reasoning-clerical-ability#21": {
+    "status": "fixed",
+    "quote": "The fixed date format **YYYY-MM-DD** puts the year first, the month second, and the day last.",
+    "note": "The lesson identifies all components, explains their digit widths, and applies the notation in Example #4."
+   },
+   "reasoning-clerical-ability#24": {
+    "status": "fixed",
+    "quote": "The first pair that differs decides the order.",
+    "note": "The local character comparison procedure is taught and applied to A-10 and A-2 in Example #7."
+   },
+   "reasoning-clerical-ability#25": {
+    "status": "fixed",
+    "quote": "If the rule compares each number part as a whole number, compare the first part, then the second, and so on.",
+    "note": "Hyphenated whole-number parts receive a local procedure and a worked tied-prefix comparison in Example #8."
+   },
+   "reasoning-clerical-ability#26": {
+    "status": "fixed",
+    "quote": "Move to the next group only when the groups you just checked match.",
+    "note": "Terminal-digit filing is taught locally and Example #9 applies rightmost, middle, and leftmost tie comparisons."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L03|0": {
+    "status": "not_fixed",
+    "quote": "Arrange $0452$, $0389$, $0401$, and $0395$ from smallest to largest.",
+    "note": "Arrange remains unglossed. The brief explicitly treats it as an everyday word that needs no gloss."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L17|0": {
+    "status": "fixed",
+    "quote": "First find which part the task asks you to use.",
+    "note": "The lesson uses the reduced Reasoning layout and has no Speed Tricks & Shortcuts section."
+   },
+   "lesson-clerical-ability-numeric-and-chronological-filing|L18|0": {
+    "status": "fixed",
+    "quote": "Place these records in reverse chronological order: July $8$, $2024$; July $21$, $2024$; and June $30$, $2024$.",
+    "note": "Reverse chronological order now has a separate worked example with month and day comparisons."
+   }
+  }
+ }
+}
