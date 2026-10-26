@@ -1,0 +1,232 @@
+{
+ "batch": "RD-122",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "56e0c9174e3ff84e1f652e6709476704c24f83d65596dea2e559997b7b5a43d3",
+ "rewrite_commit": "a42fc76a97efbcb7b8b75049148615612faa64d5",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "56e0c9174e3ff84e1f652e6709476704c24f83d65596dea2e559997b7b5a43d3",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Checked the four Article IV citizen groups, natural-born election exception, marriage rule, dual-citizenship distinction, and Article V age/residence and ballot protections against the supplied brief.",
+     "Checked statute references and route distinctions: CA 473 court naturalization, RA 9139 separate administrative route, RA 9225 oath and separate candidacy renunciation, RA 8171 repatriation, and RA 8189 sections 9/10/11. The prompt supplies no full statutory text to independently establish the added details; no contradiction identified other than the alien definition below."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "An **alien** is a citizen of another country.",
+      "problem": "This definition excludes stateless noncitizens. Alien means a person who is not a citizen of the country concerned; foreign citizenship is not necessary. The narrower definition is presented as universal, so it gives an incorrect meaning for a central citizenship term."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 yes through the Filipino mother; 2 no birthplace bar; 3 natural-born by proper election; 4 Ana only; 5 no loss by marriage alone; 6 reacquisition oath, then qualifications and separate personal sworn foreign-citizenship renunciation for candidacy.",
+     "7 no dual allegiance proved by citizenship from two laws; 8 yes, 18 on election day with 2 years national and 8 months local residence; 9 first only, since 3 months fails local minimum; 10 neither reading nor property requirement permitted; 11 secrecy, overseas voting, and procedures protecting voters unable to read. All agree with the worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples and Traps are present, with no Speed Tricks as requested. All four citizenship groups, natural-born status, loss/reacquisition, marriage, dual allegiance, voting qualifications and ballot safeguards are taught.",
+     "Examples 1 through 11 match all eleven requested slots. Citizenship-flow and voter-checklist placeholders supply both proposed figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Citizenship, elect, majority, natural-born, naturalized, renunciation, repatriation, dual citizenship and suffrage receive short explanations. Legal route paragraphs use short sentences and warn that additional conditions apply."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No instruction verb with a special exam meaning occurs in the questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no teaching analogies; the maximum of one is respected."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven questions provide the relevant parentage, date, prior citizenship, registration, residence or office facts. They test rule selection without giving the legal answer in the stem. Answers use direct explanations rather than dense legal quotations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or unsupported claims about exam frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Citizenship** means legal membership in a country. Some rights and public offices depend on it.",
+      "problem": "This lesson is designated Filipino, but its teaching prose is in English. It must teach in simple Filipino at the Grade 5 standard."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the definitions and all eleven examples. No hard Filipino grammar term appears that requires an English gloss on first use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Both parents were Filipino citizens when their child was born abroad. Does the birthplace prevent Philippine citizenship?",
+      "problem": "This example is in English. All eleven example questions and their solutions use English, but examples in this Filipino lesson must be in Filipino."
+     }
+    ]
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson is designated Filipino. Filipino spelling and usage require a separate check against Komisyon sa Wikang Filipino sources.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "To **elect citizenship** means to formally choose it under law. A private wish to be Filipino is not enough.",
+      "problem": "The explanation continues in English beyond a short term gloss. This Filipino lesson requires Filipino teaching prose, with English limited to allowed glosses or common terms."
+     }
+    ]
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning of a target word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly. Teaching uses varied openings and none of the listed stock phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information reduced layout is followed: Core Concept, Examples, Traps. No mathematics formula appears in any worked example, so there is no formula to introduce earlier."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped all requested distinct cases: mother/alien father, birth abroad, pre-1973 election, naturalized office candidate, marriage, reacquisition/candidacy, dual allegiance, election-day age, separate local residence, reading/property bans and ballot protections. The sequence moves from single-rule citizenship answers to combined voting safeguards."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Example 6 numbers reacquisition and candidacy separately. Example 11 numbers each constitutional duty. Other examples are direct legal decisions with short reasons and no omitted numerical calculations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations or calculations requiring one.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Every prose paragraph stays within three sentences. The only bullet list names the four constitutional citizen groups. Worked multistep answers use numbered lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The citizenship-flow placeholder identifies the historical election branch, current parent branch, and naturalization fallback. The checklist names four minimums and separately reminds students about registration and disqualifications. Both are single-line specifications and the text explains the rules without figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "All central citizenship and voting terms are introduced with meanings: citizenship, alien, elect, majority, natural-born, naturalized, renunciation, repatriation, dual citizenship/allegiance and suffrage. The alien definition has a correctness finding under B01; the term is not left unexplained."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Parentage and birthplace rules explain how citizenship follows at birth. Election and naturalization are distinguished. Reacquisition and candidacy are separated. Voting teaching explains each minimum, registration, legal disqualification, secrecy and overseas rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Historical election is separated from the current parent rule. Naturalization routes and their limits are distinguished. RA 9225 eligibility and separate renunciation are stated. Voting minimums are measured at election day; registration and disqualifications remain necessary; overseas location alone is insufficient."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B10": {
+    "verdict": "pass",
+    "checked": [
+     "Both flagged occurrences of retention concern the legal keeping of citizenship under RA 9225. They do not expose a spaced-repetition term or study-system implementation; these are subject-matter uses under the script-candidate exception."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "An **alien** is a citizen of another country.",
+    "concern": "An alien can be stateless. The definition should cover noncitizens, including those who have no citizenship."
+   }
+  ],
+  "brief_items": {}
+ }
+}
