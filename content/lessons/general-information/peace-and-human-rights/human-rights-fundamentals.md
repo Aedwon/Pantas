@@ -46,7 +46,7 @@ Section $7$ protects information on matters of public concern. Citizens may acce
 
 Section $8$ protects the right to form unions, associations, or groups for lawful purposes. Section $9$ requires **just compensation**, fair payment, when government takes private property for public use.
 
-Section $10$ bars laws that weaken duties under contracts. A **contract** is an agreement that creates legal duties. Section $11$ says poverty must not block access to courts or adequate legal help.
+Section $10$ bars laws that weaken duties under contracts. A **contract** is an agreement that creates legal duties. But a valid law to protect public health, safety, morals, or general welfare may still affect those duties. Section $11$ says poverty must not block access to courts or adequate legal help.
 
 ### Investigation and Trial
 
@@ -70,7 +70,7 @@ The last rule concerns answers that could expose a person to criminal punishment
 
 ### Detention, Punishment, and Later Laws
 
-Section $18$ bars detention solely for political beliefs. It also bars forced service, except as punishment after a lawful criminal conviction.
+Section $18$ bars detention solely for political beliefs. It also bars **involuntary servitude**, forced labor, except as punishment after a lawful criminal conviction. Article II, Section $4$ separately allows citizens to be required by law to perform personal, military, or civil service to defend the State.
 
 Section $19$ bars excessive fines and cruel, degrading, or inhuman punishment. It also protects prisoners from abusive treatment and inhuman prison conditions.
 
@@ -96,7 +96,7 @@ Each measure must go no further and last no longer than the emergency requires. 
 
 The state must immediately tell other ICCPR states which duties are affected and why, through the United Nations Secretary-General. It must also report when the suspension ends.
 
-Some protections cannot be suspended under Article $4$. They include the right to life and the ban on torture. An emergency never permits **arbitrary killing**, taking life without a lawful basis.
+Some protections cannot be suspended under Article $4$. They include the right to life and the ban on torture. An emergency never permits **arbitrary killing**. This includes unlawful or unjust killing and denial of fair legal steps. It also includes unneeded force or force too great for the threat. A killing may still be arbitrary even if a national law allows it.
 
 ### The Commission on Human Rights
 
@@ -286,12 +286,12 @@ Section $22$ bars ex post facto punishment. A later criminal law cannot punish t
 
 ### #19: Matching Other Protections
 
-Match each situation to a protection: court access denied solely for poverty; detention solely for political beliefs; forced service without a criminal conviction; cruel prison punishment; legislative punishment without trial.
+Match each situation to a protection: court access denied solely for poverty; detention solely for political beliefs; forced labor for an official's private business without a criminal conviction; cruel prison punishment; legislative punishment without trial.
 
 **Solution:**
 
 1. Denial solely for poverty involves Section $11$.
-2. Detention solely for political beliefs and the forced service involve Section $18$.
+2. Detention solely for political beliefs and the forced labor involve Section $18$.
 3. Cruel prison punishment involves Section $19$.
 4. Legislative punishment without trial is a bill of attainder under Section $22$.
 
