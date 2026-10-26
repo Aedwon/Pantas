@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "819a2d0d746fba97298443380853bf9cc1dfecdf",
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "819a2d0d746fba97298443380853bf9cc1dfecdf"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "b02c3beb86f0a49f80703c5a442b6bd2071f80de6412f3bbabe73b10d343fc37",
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "5594ffa0ec2795efeffaecfdd23698cc68e416dea7631d1a24acb3c66f98534d"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md",
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md"
+ },
+ "id": "RD-112",
+ "type": "read",
+ "created": "2026-10-26T05:44:29+00:00"
+}
