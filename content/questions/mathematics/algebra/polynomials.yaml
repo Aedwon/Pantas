@@ -291,7 +291,7 @@ questions:
     type: direct-computation
     difficulty: medium
     stem: |
-      Factor $6x^2 - 7x - 3$ using the AC method.
+      Factor $6x^2 - 7x - 3$ by splitting the middle term.
     choices:
       - text: '$(3x+1)(2x-3)$'
         correct: true
