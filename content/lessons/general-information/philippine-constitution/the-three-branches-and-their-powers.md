@@ -56,7 +56,7 @@ Section $16$ requires Commission on Appointments consent for department heads, a
 
 As Commander-in-Chief, the President heads the armed forces. **Martial law** places an area under emergency military authority, subject to constitutional limits. Section $18$ allows it only during invasion or rebellion when public safety requires it.
 
-The President may also suspend the **privilege of the writ of habeas corpus** under those conditions. The writ normally lets a court require that a detained person be brought before it to check the detention.
+The President may also suspend the **privilege of the writ of habeas corpus** under those conditions. The writ normally lets a court require that a detained person be brought before it to check the detention. The suspension applies only to people charged in court with rebellion or offenses that are part of or directly connected with invasion (Article VII, Section $18$).
 
 Either measure has an initial limit of $60$ days. The President must report to Congress within $48$ hours. Congress may revoke it by at least a majority of all its Members, voting jointly.
 
