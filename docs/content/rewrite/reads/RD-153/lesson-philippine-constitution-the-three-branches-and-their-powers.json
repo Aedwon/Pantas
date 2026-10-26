@@ -1,0 +1,207 @@
+{
+ "batch": "RD-153",
+ "lesson_id": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+ "path": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+ "lesson_sha256": "547d2d166ba4a5725a4ba958e879068c24cec9ac5ca78d98f56562acee4871cc",
+ "rewrite_commit": "b0255da6fa9e31e7b09401563b06a9e5c868bc1d",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "role": "A",
+  "lesson_sha256": "547d2d166ba4a5725a4ba958e879068c24cec9ac5ca78d98f56562acee4871cc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared legislative thresholds, executive powers and office qualifications with the constitutional rules supplied in the brief. The exact judicial-power paragraph is reproduced and then explained.",
+     "Checked 24 Senators, six/two versus three/three terms, House statutory-size qualification, party-list denominator, 30-day veto, 60-day emergency limit, 48-hour report and judicial appointment exception. External legal verification was excluded by the assignment."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 Congress, President, courts; #2 Senate six years/two consecutive, House three years/three consecutive; #3 revenue yes, education not necessarily; #4 200 House and 16 Senate votes; #5 ambassador only.",
+     "#6 all stated measures invalid for the given reasons; #7 sixteen; #8 fifteen Members, divisions three/five/seven, judiciary on constitutional conflict; #9 Ana Representative, Ben Representative/Senator, Cara all three; #10 insufficient Supreme Court experience, lower courts have additional rules; #11 candidacy bars both commissions, too young for Ombudsman; #12 override and judicial review. Solutions agree."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required sections and the four suggested instructional figures have placeholders. Twelve examples implement the expressly allowed mergers of emergency/clemency and composition/review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It also covers other officers whose appointments the Constitution vests in the President, subject to its specific appointment rules.",
+      "problem": "The long legal quotation is required by the brief and explained afterward, but the surrounding qualification and appointment teaching also remains dense. In particular the statutory appointment catchall is not Grade-5-simple prose."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special tested meaning is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Read all twelve stems: hypothetical chamber sizes, age measurement date, other qualifications, judicial experience and immediately preceding candidacy are supplied. Questions test branch powers rather than giving their rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-motivation openers occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or a marked word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the content; no listed stock phrases or three identical sentence openings occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information may retain a genuine shortcut section. Two-thirds thresholds are taught in Legislative and Executive power before examples #4 and #7 multiply membership by two-thirds. This is not a Mathematics lesson requiring a separate formula inventory."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Either House or its committees may hold inquiries to help make laws.",
+      "problem": "No worked example applies legislative inquiry safeguards, the budget-increase prohibition, or the war-declaration threshold. These are distinct legislative powers expressly within the brief, unlike changing numbers in an existing case."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered steps; override computations 2/3 times 300 and 2/3 times 24 and treaty computation 2/3 times 24 are displayed. No necessary arithmetic step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "All three displays are short single-line fraction multiplications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs stay within three sentences; lists group qualifications or statutory categories."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Four one-line placeholders specify branch columns, a 48-hour/60-day timeline, an office-age ladder and labeled checks-and-balances arrows. Surrounding prose states the same concepts independently."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Bill, originate, veto, override, all Members, consecutive, martial law, habeas corpus, impeachment, pardon, amnesty, concurrence, treaty, en banc, Bar, CPA and auditing are defined before examples need them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each branch has both a power description and an application; judicial review follows the exact judicial-power quotation with a simple explanation. Appointment, qualification and confirmation distinctions are developed rather than merely listed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The suspension applies only to people charged in court with rebellion or offenses that are part of or directly connected with invasion (Article VII, Section $18$).",
+      "problem": "The suspension discussion omits the Section 18 requirement to charge an arrested or detained person within three days or release them. This is a directly relevant limit on the emergency power being taught."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
