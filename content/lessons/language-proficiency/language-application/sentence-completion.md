@@ -33,13 +33,17 @@ Past perfect uses *had* plus a **past participle** to make an earlier past actio
 
 In *She had left when I arrived*, leaving happened before the arrival. Do not add *had* to every past verb. If you only report a finished event, simple past may be enough.
 
-Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Use *enjoy reading*, with an *-ing* form. Learn these patterns with the first verb.
+Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Use *enjoy reading*, with an *-ing* form.
+
+Learn these patterns with the first verb. A pattern that fits *want* may not fit *enjoy*.
 
 ### Articles, Prepositions, and Lists
 
 A **countable noun** names something you can count as separate items, such as one form or several forms. Use *a* or *an* for one such item when it is not already identified. Use *a* before a consonant sound, as in *a university*, and *an* before a vowel sound, as in *an hour*.
 
-Use **the** when the context identifies which person or thing is meant. For example: *I received a form. The form was blank.* The second mention points to the form already introduced.
+Use **the** when the context identifies which person or thing is meant. For example: *I received a form. The form was blank.*
+
+The second mention points to the form already introduced.
 
 **Prepositions**, such as *in, on, at, to,* and *for*, show links between words. Some are part of a fixed phrase: *interested in* or *responsible for*. Check both the phrase and the intended meaning.
 
@@ -66,8 +70,11 @@ May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking t
 Choose the best completion: "Although the forecast predicted heavy rain, the outdoor event was surprisingly ______."
 
 (A) postponed
+
 (B) successful
+
 (C) canceled
+
 (D) rescheduled
 
 **Solution:**
@@ -80,8 +87,11 @@ Choose the best completion: "Although the forecast predicted heavy rain, the out
 Choose the best completion: "Because the bridge was severely damaged, engineers deemed it ______ for public use."
 
 (A) suitable
+
 (B) essential
+
 (C) unsafe
+
 (D) convenient
 
 **Solution:**
@@ -94,8 +104,11 @@ Choose the best completion: "Because the bridge was severely damaged, engineers 
 Choose the best pair: "Despite her ______ preparation, she felt ______ before the presentation."
 
 (A) thorough, relaxed
+
 (B) thorough, nervous
+
 (C) careless, nervous
+
 (D) rushed, unprepared
 
 **Solution:**
@@ -109,8 +122,11 @@ Choose the best pair: "Despite her ______ preparation, she felt ______ before th
 Choose the best completion: "Yesterday, the committee ______ the proposal after months of review."
 
 (A) approve
+
 (B) approving
+
 (C) approved
+
 (D) approval
 
 **Solution:**
@@ -124,8 +140,11 @@ Choose the best completion: "Yesterday, the committee ______ the proposal after 
 Choose the best completion: "Every morning, the clerks ______ the request log."
 
 (A) checks
+
 (B) check
+
 (C) checking
+
 (D) is checking
 
 **Solution:**
@@ -137,23 +156,28 @@ Choose the best completion: "Every morning, the clerks ______ the request log."
 
 Choose the best forms: "By the time the desk opened, I ______ the form. When the clerk called my name, I ______ the instructions and stopped halfway through."
 
-For the first blank: (finished / had finished / finish / am finishing).
+For the first blank: (had finished / had finishing / have finished / am finishing).
 
 For the second blank: (had read / was reading / will read / read tomorrow).
 
 **Solution:**
 
-1. Finishing happened before the desk opened. **Had finished** makes that order clear.
-2. The reading was still in progress when the clerk called. Use **was reading**.
-3. The completed earlier action and the ongoing action need different forms.
+1. Finishing happened before the desk opened. **Had finished** shows an action completed before that past point.
+2. The past perfect needs *had* plus the past participle *finished*.
+3. The reading was still in progress when the clerk called. Use **was reading**.
+
+Simple past can also show an earlier action when the order is already clear. It is not offered for the first blank here. Choose from the forms given, then check the whole timeline.
 
 ### #7: Form After a Verb
 
 Choose the correct pair: "Mina wants ______ early, but she enjoys ______ with her coworkers."
 
 (A) leaving, to talk
+
 (B) to leave, talking
+
 (C) leave, talking
+
 (D) to leave, talk
 
 **Solution:**
@@ -167,8 +191,11 @@ Choose the correct pair: "Mina wants ______ early, but she enjoys ______ with he
 Choose the best completion: "The panel found ______ evidence that the records had been changed."
 
 (A) strong
+
 (B) heavy
+
 (C) tall
+
 (D) loud
 
 **Solution:**
@@ -181,8 +208,11 @@ Choose the best completion: "The panel found ______ evidence that the records ha
 Choose the best completion: "The applicant is interested ______ the training program."
 
 (A) at
+
 (B) in
+
 (C) on
+
 (D) by
 
 **Solution:**
@@ -194,8 +224,11 @@ The expression is **interested in**, so choose **(B)**.
 Choose the correct pair: "A courier brought an envelope to my desk. I opened ______ envelope and found ______ unsigned form inside."
 
 (A) an, a
+
 (B) the, an
+
 (C) a, the
+
 (D) the, a
 
 **Solution:**
@@ -209,8 +242,11 @@ Choose the correct pair: "A courier brought an envelope to my desk. I opened ___
 Choose the best completion: "The position requires answering calls, preparing reports, and ______ records."
 
 (A) file
+
 (B) filing
+
 (C) filed
+
 (D) to file
 
 **Solution:**
@@ -223,8 +259,11 @@ Choose the best completion: "The position requires answering calls, preparing re
 Choose the best completion: "Some office supplies can be reused. ______, a folder in good condition can hold a new set of papers."
 
 (A) For example
+
 (B) In contrast
+
 (C) Nevertheless
+
 (D) Instead
 
 **Solution:**
@@ -237,8 +276,11 @@ Choose the best completion: "Some office supplies can be reused. ______, a folde
 Choose the best completion: "Please keep an ______ on the reception desk while I help the visitor."
 
 (A) ear
+
 (B) eye
+
 (C) arm
+
 (D) elbow
 
 **Solution:**
@@ -250,8 +292,11 @@ The idiom **keep an eye on** means watch or look after. Choose **(B)**.
 Piliin ang wastong sagot: "Kahapon, ______ ni Lino ang kanyang aplikasyon sa tanggapan."
 
 (A) ipapasa
+
 (B) ipinasa
+
 (C) ipinapasa bukas
+
 (D) ipapasa kahapon
 
 **Solution:**
@@ -264,8 +309,11 @@ Piliin ang wastong sagot: "Kahapon, ______ ni Lino ang kanyang aplikasyon sa tan
 Piliin ang angkop na salita: "Malakas ang ulan, ______ ipinagpaliban ang programa."
 
 (A) ngunit
+
 (B) kaya
+
 (C) habang
+
 (D) kung
 
 **Solution:**
@@ -278,8 +326,11 @@ Piliin ang angkop na salita: "Malakas ang ulan, ______ ipinagpaliban ang program
 Piliin ang angkop na salita: "Malaking ______ ang ibinigay ng guro sa paghahanda ng mga mag-aaral."
 
 (A) tulong
+
 (B) ulan
+
 (C) pinto
+
 (D) lakad
 
 **Solution:**
@@ -289,9 +340,9 @@ Piliin ang angkop na salita: "Malaking ______ ang ibinigay ng guro sa paghahanda
 
 ## Speed Tricks & Shortcuts
 
-Predict the meaning and word form before reading the choices. This keeps an attractive but unsuitable word from deciding your answer.
+Predict the meaning and word form before reading the choices. This helps you set aside a word that sounds good but does not fit.
 
-Use the strongest clue first. A verb pattern, known article reference, or clear time link can quickly narrow the choices.
+Use the strongest clue first. A verb pattern, a reference to a known object, or a clear time clue can narrow the choices.
 
 For several blanks, check the whole pair or group. Every answer must fit the same sentence.
 

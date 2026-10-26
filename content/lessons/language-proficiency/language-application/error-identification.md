@@ -168,7 +168,15 @@ Choose the correct word: "The supervisor gave a (clarity / clearly / clear / cla
 
 ### #10: Modal Meanings
 
-Complete each sentence with the modal that fits the stated meaning: "Rosa (can / must) swim well" describes ability. "You (may / must) leave now" gives permission. "Under the rule, staff (must / might) wear IDs" states a requirement. "It (might / must) rain" states only a possibility.
+Complete each sentence with the modal that fits the stated meaning.
+
+"Rosa (can / must) swim well" describes ability.
+
+"You (may / must) leave now" gives permission.
+
+"Under the rule, staff (must / might) wear IDs" states a requirement.
+
+"It (might / must) rain" states only a possibility.
 
 **Solution:**
 
@@ -181,8 +189,11 @@ Complete each sentence with the modal that fits the stated meaning: "Rosa (can /
 Classify each sentence as simple, compound, complex, or compound-complex. Here, **classify** means name the sentence type.
 
 (A) The guard opened the gate.
+
 (B) The guard opened the gate, and the visitors entered.
+
 (C) When the guard opened the gate, the visitors entered.
+
 (D) When the guard opened the gate, the visitors entered, and the clerk greeted them.
 
 **Solution:**
@@ -206,8 +217,11 @@ Choose a clear correction: "Rushing to catch the bus, the umbrella was left behi
 Choose the word closest in meaning to the word in bold: "The instruction was **unclear**, so the applicants asked for help."
 
 (A) confusing
+
 (B) certain
+
 (C) complete
+
 (D) direct
 
 **Solution:**
@@ -220,8 +234,11 @@ Choose the word closest in meaning to the word in bold: "The instruction was **u
 Choose the word opposite in meaning to the word in bold: "The clerk gave a **brief** reply."
 
 (A) short
+
 (B) lengthy
+
 (C) polite
+
 (D) spoken
 
 **Solution:**
@@ -245,8 +262,11 @@ A word can also keep its spelling but change meaning. In *a river bank* and *a b
 Piliin ang wastong pangungusap.
 
 (A) Bukas ay pumunta ako sa opisina.
+
 (B) Bukas ay pupunta ako sa opisina.
+
 (C) Bukas ay pumunta ako kahapon.
+
 (D) Bukas ay pumupunta ako kahapon.
 
 **Solution:**
@@ -269,8 +289,11 @@ Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / 
 Aling salita ang nagpapahayag ng posibilidad sa patlang? "______ umulan mamaya rito, kaya magdala ka ng payong."
 
 (A) Kahapon
+
 (B) Baka
+
 (C) Dito
+
 (D) Tiyak na
 
 **Solution:**
@@ -284,8 +307,11 @@ Aling salita ang nagpapahayag ng posibilidad sa patlang? "______ umulan mamaya r
 Alin ang tambalang pangungusap?
 
 (A) Nag-aral si Mara.
+
 (B) Nag-aral si Mara at natulog ang kapatid niya.
+
 (C) Dahil nag-aral si Mara, naunawaan niya ang aralin.
+
 (D) Sa tahimik na silid.
 
 **Solution:**
@@ -299,8 +325,11 @@ Alin ang tambalang pangungusap?
 Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang mga empleyado sa magandang balita"?
 
 (A) masaya
+
 (B) malungkot
+
 (C) galit
+
 (D) pagod
 
 **Solution:**
