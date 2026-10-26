@@ -73,9 +73,9 @@ For example, sound can help you hear the parts of *occurrence*. It cannot tell y
 
 Ang **Ortograpiyang Pambansa** ng Komisyon sa Wikang Filipino ay gabay sa pagsulat ng Filipino. Kasama rito ang mga salitang hiniram sa ibang wika.
 
-Maaaring may higit sa isang tinatanggap na baybay. Inililista ng gabay ang **kwento** at **kuwento** bilang mga anyo mula sa Espanyol na *cuento*.
+Sa isang larawan sa gabay, magkakasamang ipinakita ang *cuento*, *kwento*, at *kuwento*. Ipinapakita nito ang pagbabago sa baybay ng salitang mula sa Espanyol.
 
-Huwag ituring na mali ang isang anyo dahil lamang mas pamilyar ang isa. Sundin ang tinatanggap na baybay, hindi ang pinaikling anyo sa mensahe sa telepono.
+Ang paglitaw ng isang anyo sa talakay ay hindi sapat na patunay na iyon ang dapat gamitin sa lahat ng sulatin. Tingnan ang tuntunin at ang hinihingi ng tanong. Huwag gawing batayan ang pinaikling baybay sa mensahe sa telepono.
 
 ## Examples
 
@@ -91,7 +91,7 @@ D) seize
 **Solution:**
 
 1. The standard spelling is **conceive**, with *ei* after *c*.
-2. Choice **B** reverses those vowels. Answer: **B**.
+2. Choice **B** reverses those vowels. *Seize* is a standard spelling that does not fit the rhyme. Answer: **B**.
 
 ### #2: Dropping a Silent E
 
@@ -203,24 +203,24 @@ D) ocurrence
 
 **Solution:**
 
-1. Say the word in beats that sound like *uh-kur-uns*. The middle beat is stressed. This helps separate the sounds, but it does not settle every letter.
+1. Say the word in beats that sound like *uh-kur-uns*. The middle beat is stressed. This separates the sounds, but it does not settle every letter.
 2. Recall the base *occur*, with double *c*. Its *cc* stands for the *k* sound here.
-3. The final syllable of *occur* is stressed. Its final *r* doubles in **occurrence**.
+3. The final syllable of *occur* is stressed. Its final *r* doubles before *-ence* in **occurrence**.
 4. Recall the ending *-ence*. Its weak vowel can sound like the vowel in *-ance*, so sound alone cannot choose the spelling. Answer: **A**.
 
-### #10: Dalawang Tinatanggap na Baybay
+### #10: Pagbasa ng Halimbawa sa Gabay
 
-Aling pahayag ang tumutugma sa halimbawa ng KWF para sa Espanyol na *cuento*?
+Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?
 
-A) Kuwento lamang ang tinatanggap na baybay.  
-B) Parehong nakalista ang kwento at kuwento.  
-C) Cuento lamang ang maaaring gamitin sa Filipino.  
-D) Laging kailangang may u bago ang w sa hiram na salita.
+A) kwento at kuwento  
+B) kwentu at kuwento  
+C) kwento at kuwentu  
+D) kwentu at kuwentu
 
 **Solution:**
 
-1. Inililista ng gabay ang **kwento** at **kuwento**.
-2. Parehong ibinigay ang mga anyong ito. Sagot: **B**.
+1. Ipinakita sa larawan ang *cuento*, *kwento*, at *kuwento*.
+2. Ang pares na tumutugma sa larawan ay **kwento at kuwento**. Sagot: **A**.
 
 ### #11: Limits of Doubling
 
@@ -244,7 +244,7 @@ Compare related forms such as *begin/beginning* and *refer/referred*. Say the ba
 
 Break a long word into spoken parts. Use a known base to check letters that are hard to hear. Check the ending separately.
 
-Sa Filipino, gamitin ang tinatanggap na baybay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.
+Sa Filipino, basahin ang paliwanag sa gabay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.
 
 ## Traps to Watch For
 
@@ -278,8 +278,8 @@ Learn **truly** and **argument** as common exceptions. Keeping the *e* would pro
 
 The weak ending of *occurrence* does not clearly reveal *-ence*. Use sound to divide the word, then recall its standard letters.
 
-### #6: Pagtanggi sa Tinatanggap na Anyo
+### #6: Pagbuo ng Tuntunin mula sa Larawan
 
-> Parehong nakalista sa halimbawa ng KWF ang kwento at kuwento.
+> Basahin ang paliwanag, hindi lamang ang mga anyong ipinakita.
 
-Huwag piliing mali ang isa dahil lamang ang isa ang nakasanayan. Tingnan ang pamantayang hinihingi ng tanong.
+Maaaring ipakita sa gabay ang pagbabago ng baybay. Hindi nito agad sinasabing ang bawat anyo ay angkop sa lahat ng gamit. Sundin ang tuntuning hinihingi ng tanong.

@@ -43,11 +43,19 @@ Grammar matters too. A replacement must fit how the word is used. *Decide* names
 
 **Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual. An official notice and a chat with friends may call for different wording.
 
+First ask who will read the sentence and why it was written. Then compare words with the needed meaning. Choose the one that also fits that setting.
+
 ### Word Parts as Clues
 
 A **prefix** is a word part added at the beginning of a word. For example, *un-* can mean *not*, as in *unfair*. Use the prefix as a clue, then check the whole word in the sentence.
 
-Not every opening group of letters is a prefix. *Uncle* does not mean "not cle." Word parts help only when they belong to the word and give a meaning that fits.
+Not every opening group of letters is a prefix. *Uncle* does not mean “not cle.” Word parts help only when they belong to the word and give a meaning that fits.
+
+### Kahulugan sa Pangungusap
+
+Ang **kasingkahulugan** (synonym) ay salitang may pareho o malapit na kahulugan. Ang **kasalungat** (antonym) ay salitang may kabaligtarang kahulugan. Basahin ang buong pangungusap upang malaman kung aling kahulugan ang gamit.
+
+Maaaring hindi literal ang gamit ng salita. Kapag *gumuho ang mga pangarap*, hindi ito tulad ng pagguho ng gusali. Ibig sabihin, nasira ang mga pangarap.
 
 ## Examples
 
@@ -79,7 +87,7 @@ D) isolate
 1. **Mitigate** means to make something less severe.
 2. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
 
-### #3: Filipino Synonym
+### #3: Kasingkahulugan sa Pangungusap
 
 Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang nakadiin?
 
@@ -93,7 +101,7 @@ D) nagsimula
 1. Hindi gusali ang gumuho sa pangungusap. Nasira ang kaniyang mga pangarap dahil sa pagkabigo.
 2. Ang pinakamalapit na kahulugan ay **nasira**. Ang sagot ay **B**.
 
-### #4: Filipino Antonym
+### #4: Kasalungat na Kahulugan
 
 Alin ang kasalungat ng salitang nakadiin na **maralita**?
 
@@ -125,7 +133,7 @@ D) vault
 
 Which word or phrase best completes this formal notice?
 
-"The examination will _____ at $8{:}00$ a.m."
+“The examination will _____ at $8{:}00$ a.m.”
 
 A) commence  
 B) kick off  
@@ -134,8 +142,8 @@ D) fire up
 
 **Solution:**
 
-1. The missing word must mean *begin* and fit an official notice.
-2. **Commence** has that meaning and is formal. The answer is **A**.
+1. The notice tells people when an examination begins. It needs wording that fits an official message.
+2. **Commence** means begin and is formal. The answer is **A**.
 
 ### #7: Keeping a Positive Tone
 
@@ -265,15 +273,15 @@ D) decisive
 
 ## Speed Tricks & Shortcuts
 
-**Read the task first.** Check whether it asks for a similar meaning or an opposite. Then read the whole sentence.
+Read the task first. Check whether it asks for a similar meaning or an opposite. Then read the whole sentence.
 
-**Try a simple replacement.** Put the choice in place of the target word. Check meaning, grammar, feeling, strength, and formality.
+Try a simple replacement. Put the choice in place of the target word. Check meaning, grammar, feeling, strength, and formality.
 
-**Check nearby words.** They can show which meaning fits and which word pairing sounds natural.
+Check nearby words. They can show which meaning fits and which word pairing sounds natural.
 
-**For opposites, check the relationship.** Are there middle levels, only two allowed states, or two people in opposite roles? Do not use a two-state rule when middle levels are possible.
+For opposites, check the relationship. Are there middle levels, only two allowed states, or two people in opposite roles? Do not use a two-state rule when middle levels are possible.
 
-**Check prefix clues against context.** A word part can suggest a meaning. The full word must still fit the sentence.
+Check prefix clues against context. A word part can suggest a meaning. The full word must still fit the sentence.
 
 ## Traps to Watch For
 
@@ -285,7 +293,7 @@ A stronger word may change a mild feeling into a strong one. A casual phrase may
 
 ### #2: Treating Every Opposite as a Two-State Choice
 
-> "Not hot" does not have to mean "cold."
+> “Not hot” does not have to mean “cold.”
 
 Warm and cool are possible middle levels. Use the two-state rule only when the meaning or stated system allows just two states.
 
