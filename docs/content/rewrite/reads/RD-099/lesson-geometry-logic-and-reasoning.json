@@ -1,0 +1,247 @@
+{
+ "batch": "RD-099",
+ "lesson_id": "lesson-geometry-logic-and-reasoning",
+ "path": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+ "lesson_sha256": "693028a992f7defa00df8c5d9ea1692d70e5214e33cddb91b1439a3e744811cc",
+ "rewrite_commit": "cc8697bab5c56662e8fa1e3472baea6281ecee17",
+ "form": {
+  "packet": "lesson-geometry-logic-and-reasoning",
+  "role": "A",
+  "lesson_sha256": "693028a992f7defa00df8c5d9ea1692d70e5214e33cddb91b1439a3e744811cc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Verified conditional/contrapositive equivalence and converse/inverse equivalence by the true-hypothesis, false-conclusion test. Only-if correctly puts its following clause in the conclusion.",
+     "Detachment requires p implies q and p; hypothetical syllogism requires p implies q and q implies r. Biconditional requires both directions. These match the conditional-and-hypothesis structure in the supplied OpenStax brief.",
+     "Checked elementary facts: multiples of 6 are multiples of 3; squares have four sides and are rectangles; 2 is prime and even; 9 is not prime. No unsupported exam-frequency claims remain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: hypothesis divisible by 6; conclusion divisible by 3.",
+     "Solved #2: converse wet implies raining; inverse not raining implies not wet; contrapositive not wet implies not raining.",
+     "Solved #3: sprinkler wets ground without rain, a valid counterexample.",
+     "Solved #4: C. A and D reverse the implication; B is the inverse.",
+     "Solved #5: Rico receives a tracking number by chaining then detachment.",
+     "Solved #6: true in both directions because even integers are exactly integer multiples of 2. All answers match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, genuine flip-and-negate memory aid, Examples, Speed Tricks & Shortcuts, and Traps are present. Six examples cover the brief; both optional explanatory diagrams have specific placeholders. No load-bearing figure is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read definitions, all six solutions, shortcuts, and five traps. Technical words receive short meanings. Removed filler is absent; sentences directly teach statements or reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Identify, write, check, and find are everyday commands. No unexplained exam-specific instruction verb is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy remains in Examples or elsewhere; flip and negate is a direct method reminder."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each stem gives its conditional, claim, or premises. #5 explicitly tells the reader to accept its premises. #4 supplies four complete statements. Solutions explain reasoning in short sentences without embedding a method in the question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or stock test-maker openings; equivalent-statement and counterexample advice provides task-focused motivation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks the student to interpret a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary plainly names rewriting, testing claims, and drawing conclusions. No listed stock AI phrase occurs; sentence openings vary across definitions and solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept introduces p implies q and the hypothesis/conclusion used in #1; converse q implies p, inverse not p implies not q, and contrapositive not q implies not p used in #2 and #4.",
+     "Core Concept defines the true-hypothesis/false-conclusion counterexample pattern used in #3; Drawing Conclusions displays detachment and hypothetical syllogism before #5. Biconditionals teaches both implications before #6. The arithmetic 6=3 times 2 in #1 is an explanatory divisibility fact, not a newly introduced solving formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped #1 parts, #2 three transformations, #3 counterexample, #4 equivalence including an only-if distractor, #5 chained inference plus detachment, and #6 both-direction proof. These are distinct cases and progress from recognition to proof; the two requested weak-tier additions are included."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All six multistep solutions use numbered lists. Logical transformations and conclusions have no omitted steps. The short 6=3 times 2 fact in #1 is a permitted short inline side result."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The two-premise detachment line is short; syllogism premises and conclusion are split into separate displays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs contain at most three short sentences. The single three-item list directly compares converse, inverse, and contrapositive."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The #5 placeholder specifies three named nodes, arrows, and Rico at the start. #6 specifies two named statements with arrows both ways. Both are drawable in one line; all premises and reasoning remain readable without images."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Conditional, hypothesis, conclusion, negation, truth value, equivalence, counterexample, and biconditional receive local meanings before use. Drawing Conclusions defines deduction, arrow, and therefore before displaying inference patterns. No prerequisite reuse is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Transformation instructions explain swapping and negating; equivalence explains agreement in all cases. Counterexamples explain what falsifies a conditional. Biconditionals explain both directions; detachment and chaining describe how premises yield conclusions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "True conditional plus true hypothesis is required for detachment; conclusion alone is excluded. Chains require matching middle statements and fact p for an actual result. Biconditionals need both directions true. Counterexamples require a true hypothesis and false conclusion."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-geometry-logic-and-reasoning|L17|0": {
+    "status": "fixed",
+    "quote": "The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals:",
+    "note": "The general chaining pattern is now taught in Core Concept before Example 5."
+   },
+   "lesson-geometry-logic-and-reasoning|B01|0": {
+    "status": "fixed",
+    "quote": "The **Law of Detachment** needs a true conditional and its true hypothesis:",
+    "note": "The definition now states the exact two required premises."
+   },
+   "lesson-geometry-logic-and-reasoning|B02|0": {
+    "status": "fixed",
+    "quote": "Consider a sprinkler watering the ground on a day with no rain.",
+    "note": "The counterexample now wets the ground itself without rain."
+   },
+   "lesson-geometry-logic-and-reasoning|L02|0": {
+    "status": "fixed",
+    "quote": "A conditional and its contrapositive always have the same **truth value**: they are true or false together.",
+    "note": "The filler introduction is gone; the passage directly teaches equivalence."
+   },
+   "lesson-geometry-logic-and-reasoning|L04|0": {
+    "status": "fixed",
+    "quote": "Use the Law of Syllogism. If an application is complete, then a tracking number is assigned.",
+    "note": "The domino analogy is removed from the worked chain."
+   },
+   "lesson-geometry-logic-and-reasoning|L27|0": {
+    "status": "fixed",
+    "quote": "If \"If $p$, then $q$\" is true and $p$ is true, you may conclude $q$.",
+    "note": "The conditional and its hypothesis must both be true."
+   },
+   "lesson-geometry-logic-and-reasoning|L03|0": {
+    "status": "not_fixed",
+    "quote": "Identify the hypothesis and conclusion:",
+    "note": "Identify remains unglossed. It is an everyday verb, so the optional requested change is unnecessary."
+   },
+   "lesson-geometry-logic-and-reasoning|L19|0": {
+    "status": "fixed",
+    "quote": "1. The first conclusion matches the second hypothesis: the application is sent for review.",
+    "note": "The chain reasoning begins inside the numbered solution; no reasoning lead-in remains."
+   }
+  }
+ }
+}

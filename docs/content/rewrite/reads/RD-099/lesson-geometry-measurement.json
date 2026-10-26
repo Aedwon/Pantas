@@ -1,0 +1,314 @@
+{
+ "batch": "RD-099",
+ "lesson_id": "lesson-geometry-measurement",
+ "path": "content/lessons/mathematics/geometry/measurement.md",
+ "lesson_sha256": "61d17ebc5a3c82e8f85d66fc3b573ac2f69e7e158a4edcf08522dc6570b0eac4",
+ "rewrite_commit": "cc8697bab5c56662e8fa1e3472baea6281ecee17",
+ "form": {
+  "packet": "lesson-geometry-measurement",
+  "role": "A",
+  "lesson_sha256": "61d17ebc5a3c82e8f85d66fc3b573ac2f69e7e158a4edcf08522dc6570b0eac4",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all flat-figure formulas and cube, rectangular prism, right cylinder, cone, sphere, and pyramid formulas against their standard geometric definitions; all are correct.",
+     "Pythagorean relation is restricted to right triangles and the cone relation to a right circular cone. One-third comparisons require matching base and perpendicular height.",
+     "Unit conversion 1 m=100 cm, positive uniform scale factors, perimeter k, area and surface area k squared, and volume k cubed are correct. Region subtraction is restricted to containment and addition to nonoverlap. Unsupported exam absolutes are removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 width 5 cm, area 40 cm squared; #2 parallelogram 48 cm squared, triangle 24 cm squared; #3 50 cm squared; #4 (100-25 pi) cm squared.",
+     "Independent answers: #5 4 m squared; #6 volume 60 cm cubed and surface area 94 cm squared; #7 volume 90 pi cm cubed and surface area 78 pi cm squared; #8 volume 96 pi cm cubed and slant height 10 cm.",
+     "Independent answers: #9 volume 36 pi cm cubed and surface area 36 pi cm squared; #10 72 cm cubed; #11 volume 216 cm cubed and surface area 216 cm squared; #12 54 cm. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, twelve worked Examples, Speed Tricks & Shortcuts, and five Traps are present. Every geometry example has its own specific placeholder; height choice, measured and inverse scaling, sphere, and pyramid cases required by the brief are included."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the concept sections and twelve solutions. Definitions use short sentences and concrete descriptions; no long introduction or filler appears. Technical geometric vocabulary is used for the subject."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Find and choose are everyday commands. The special answer instruction in terms of pi is explained before the examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Stacking base areas and unrolling a cylinder describe geometric construction directly. No tutor analogy occurs outside Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve stems specify dimensions, units, shape, and requested quantity. Exact pi is requested for curved-solid answers. The mixed-unit region states nonoverlap and inverse scaling states similarity; questions do not supply the tested formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or unsupported claims about choices. Strategies focus on selecting measurements and checking scale conditions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches mathematics in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches mathematics in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches mathematics in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches mathematics in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches mathematics in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt refers to a target vocabulary word whose formatting must be checked.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly describes measurements and scale factors. No banned stock phrase occurs. Definitions and numbered explanations have varied openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Flat-figure Core Concept supplies rectangle P=2(l+w) and A=lw for #1; parallelogram A=bh and triangle A=bh/2 for #2; trapezoid A=(b1+b2)h/2 for #3; square A=s squared, radius d/2, circle A=pi r squared, and Combined Regions subtraction for #4.",
+     "Rectangle area, same-unit requirement, 1 m=100 cm, and nonoverlap addition prepare #5. Solids supplies rectangular prism V=lwh and SA=2(lw+lh+wh) for #6 and cylinder V=pi r squared h and SA=2 pi r squared+2 pi rh for #7.",
+     "Cone V=pi r squared h/3 and ell squared=r squared+h squared appear in Core Concept before #8. Sphere V=4 pi r cubed/3 and SA=4 pi r squared prepare #9. Rectangle base area and pyramid V=Bh/3 prepare #10.",
+     "Cube V=e cubed and SA=6e squared plus k=new/old, Vnew=k cubed Vold, and surface-area scaling k squared prepare #11. Area scaling k squared, positive-square-root reversal, and perimeter scaling k prepare #12."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover reverse perimeter, slanted-side rejection in two flat shapes, trapezoid, contained-region subtraction, mixed-unit composite addition, box, cylinder, cone, sphere, pyramid, forward solid scaling, and reverse area-to-perimeter scaling. They progress from basic measurements to combined and inverse tasks without near-duplicate solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multistep computation is numbered and its key arithmetic displayed. Radius conversion, three box-face areas, cone volume, and inverse scale extraction are all explicit. The postscript after #9 adds a unit observation without hiding a solving step."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned all example displays and Core Concept equations; long evaluations are split, including cone, sphere, pyramid, and box calculations. Each display is short enough for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences. Two compact formula lists group six flat shapes and six solids; remaining prose is in short paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Shape gallery specifies labels and perpendicular markers. All twelve example placeholders specify the needed dimensions, geometry, or shaded region. #5 describes how the rectangles attach. Questions and solutions give enough information to solve without the figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Perimeter, area, volume, surface area, base, perpendicular height, radius, diameter, pi, symbols, slant height, and scale factor are locally explained. Inscribed is explained in its question by touching all sides."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Two similar rectangles have areas of $20\\text{ cm}^2$ and $180\\text{ cm}^2$.",
+      "problem": "Similar is needed to understand why an area ratio determines a length ratio. Its meaning is first given in the solution, after the question requires it. Core Concept describes uniform scaling but never identifies similar figures as figures with this relationship. No prerequisite or later-explanation signpost supplies that term before use."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Measurements explain what is counted and which unit power applies. Cylinder volume uses stacked base areas; cylinder surface area uses an unrolled rectangle and two ends. Cone slant height explains the right triangle and Pythagorean relationship. Scaling explains powers through the number of length dimensions; combined regions explains addition versus subtraction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked perpendicular heights, same length units, closed-cylinder ends, right-cone geometry, matching cone/cylinder and pyramid/prism comparisons, positive roots, containment/nonoverlap, and uniform positive scale factor conditions. All relevant restrictions are stated."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "The flagged right-angle mark is a geometric symbol, not a score. No score is called marks and no questions are called cards."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-geometry-measurement|L18|0": {
+    "status": "fixed",
+    "quote": "Use the perpendicular height, $4$ cm.",
+    "note": "Example 2 explicitly rejects the slanted side and works parallelogram and triangle areas."
+   },
+   "lesson-geometry-measurement|L18|1": {
+    "status": "fixed",
+    "quote": "A cube has an edge of $2$ cm. A larger cube has an edge of $6$ cm.",
+    "note": "Example 11 applies measured scaling; Example 12 works backward from an area ratio."
+   },
+   "lesson-geometry-measurement|L18|3": {
+    "status": "fixed",
+    "quote": "A sphere has a radius of $3$ cm.",
+    "note": "Both sphere and pyramid now have separate worked examples."
+   },
+   "lesson-geometry-measurement|B01|0": {
+    "status": "fixed",
+    "quote": "summary: \"Find perimeter, area, surface area, and volume, and use scale factors.\"",
+    "note": "The unsupported statement about every exam is removed."
+   },
+   "lesson-geometry-measurement|B01|1": {
+    "status": "fixed",
+    "quote": "Using $\\pi r^2h$ for a cone gives a volume $3$ times too large.",
+    "note": "The mathematical warning remains without a claim about answer choices."
+   },
+   "lesson-geometry-measurement|B01|2": {
+    "status": "fixed",
+    "quote": "If a region is split into pieces that do not overlap, add their areas.",
+    "note": "Subtraction is no longer universal; adding nonoverlapping pieces is taught and worked."
+   },
+   "lesson-geometry-measurement|L17|0": {
+    "status": "fixed",
+    "quote": "$$a^2+b^2=c^2$$",
+    "note": "The Pythagorean formula is now in Core Concept before the cone example."
+   },
+   "lesson-geometry-measurement|L25|1": {
+    "status": "fixed",
+    "quote": "The **slant height** $\\ell$ of a right circular cone runs along its surface from the tip to the base edge.",
+    "note": "Slant height is defined before the cone question uses it."
+   },
+   "lesson-geometry-measurement|L26|0": {
+    "status": "fixed",
+    "quote": "Its radius, perpendicular height, and slant height form a right triangle.",
+    "note": "The right triangle and general Pythagorean relationship explain the cone calculation."
+   },
+   "lesson-geometry-measurement|L26|1": {
+    "status": "fixed",
+    "quote": "Area has two length dimensions, so it gets $k\\times k=k^2$.",
+    "note": "The text explains how dimension counts produce the scale-factor powers."
+   },
+   "lesson-geometry-measurement|L27|0": {
+    "status": "fixed",
+    "quote": "When a smaller region lies fully inside a larger one, subtract to find the area outside the smaller region:",
+    "note": "The subtraction shortcut now states containment and the requested remaining region."
+   },
+   "lesson-geometry-measurement|L27|1": {
+    "status": "fixed",
+    "quote": "A cone has one third the volume of a cylinder with the same base radius and perpendicular height.",
+    "note": "The comparison now specifies matching base radius and perpendicular height."
+   },
+   "lesson-geometry-measurement|L03|0": {
+    "status": "not_fixed",
+    "quote": "Find its area.",
+    "note": "Find remains an everyday command with no gloss. The optional change is unnecessary."
+   },
+   "lesson-geometry-measurement|L04|0": {
+    "status": "fixed",
+    "quote": "For a closed cylinder, surface area includes both circular ends.",
+    "note": "The edited explanation directly describes cylinder parts and has no example analogy."
+   },
+   "lesson-geometry-measurement|L18|2": {
+    "status": "fixed",
+    "quote": "$$150\\text{ cm}=1.5\\text{ m}$$",
+    "note": "Example 5 now converts mixed units before calculating area."
+   },
+   "lesson-geometry-measurement|L19|0": {
+    "status": "fixed",
+    "quote": "$$r=\\dfrac{10}{2}=5\\text{ cm}$$",
+    "note": "The diameter-to-radius computation is now a separate display."
+   },
+   "lesson-geometry-measurement|L19|1": {
+    "status": "fixed",
+    "quote": "$$5\\times4=20\\text{ cm}^2$$",
+    "note": "All three box-face calculations now appear in separate displays."
+   },
+   "lesson-geometry-measurement|L19|2": {
+    "status": "fixed",
+    "quote": "$$V=\\dfrac{1}{3}\\pi(6)^2(8)$$",
+    "note": "The cone-volume substitution and result are now displayed."
+   },
+   "lesson-geometry-measurement|L25|0": {
+    "status": "fixed",
+    "quote": "A circle is inscribed in a square with side $10$ cm, touching all its sides.",
+    "note": "The same sentence explains inscribed through touching every side; no unexplained meaning is required."
+   }
+  }
+ }
+}
