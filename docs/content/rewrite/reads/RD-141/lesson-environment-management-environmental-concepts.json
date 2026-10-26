@@ -1,0 +1,263 @@
+{
+ "batch": "RD-141",
+ "lesson_id": "lesson-environment-management-environmental-concepts",
+ "path": "content/lessons/general-information/environment-management/environmental-concepts.md",
+ "lesson_sha256": "cee453aa5958db70614f88635ad39c6d74ac9888799b9de21c8c9c781d8b3fcc",
+ "rewrite_commit": "5552316f131684f51c0516b23a4a533eb5e9912c",
+ "form": {
+  "packet": "lesson-environment-management-environmental-concepts",
+  "role": "A",
+  "lesson_sha256": "cee453aa5958db70614f88635ad39c6d74ac9888799b9de21c8c9c781d8b3fcc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked source segregation, the four waste categories, battery/electronics handling, reduction, reuse, processing-based recycling, composting, and the broader legal packaging definition against the supplied account. No conflicting factual claim is evident."
+    ],
+    "note": "Prompt-only review as assigned. Cited source contents were not supplied, so this is not independent verification of those documents.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 segregation at source; #2 leaves compostable, accepted paper recyclable, ordinary rejected wrapper non-recyclable, battery special; #3 reduction; #4 reuse; #5 recycling; #6 composting; #7 no demonstrated diversion. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. All four category meanings and all requested recovery/reduction cases appear. None depends on a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the sorting and recovery teaching: category definitions use concrete paper, wrapper, battery, and leaf examples. The legal overlap is explained in short sentences without dense legal clauses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No instruction word with a special exam meaning appears; the questions use everyday wording.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The seven stems supply relevant material condition and recycler acceptance where necessary. They test sorting or recovery decisions without supplying the target definition. Solutions use simple cause-and-action statements."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claim about a particular exam or repeated exam-motivation opener appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or a highlighted vocabulary item.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the actual scope. Teaching avoids the listed stock phrases and does not start three consecutive sentences the same way."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout includes its three required sections. No shortcut section is needed. There are no formulas in the worked examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage: source sorting #1; four-category sorting #2; prevention of waste #3; reuse enabled by separation #4; completed recycling #5; composting #6; sorting without actual diversion #7. The final case checks the main limitation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multistep solution uses a numbered list. Single-step law matches are complete sentences; no computation or reasoning step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. The body uses numbered solution lists and no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent examples to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "The four category labels are immediately followed by meanings and examples before students sort anything. Composting explains biological breakdown; diversion, reduction, reuse, and recycling are explained before examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching shows how separation protects paper and reusable containers, how reduction avoids waste, and how processing or controlled breakdown recovers material. It explains the broader legal packaging definition instead of merely naming it."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Accepted materials depend on the receiving facility; ordinary rejected wrappers are distinguished from special waste. Chemical containers must not be reused for food. Sorting without recovery is not proof of diversion, and legal recycling may overlap reuse."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-environment-management-environmental-concepts|L25|1": {
+    "status": "fixed",
+    "quote": "**Special waste** needs separate handling.",
+    "note": "All four categories now have meanings and concrete sorting guidance."
+   },
+   "general-information-environment-management#2": {
+    "status": "fixed",
+    "quote": "Keep accepted paper dry and separate, then send it to a collector or facility that recovers it.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#3": {
+    "status": "fixed",
+    "quote": "Keep a sound storage container apart from dirty waste, clean it for suitable use, and use it again.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#4": {
+    "status": "fixed",
+    "quote": "**Compostable waste** can break down through composting.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#5": {
+    "status": "fixed",
+    "quote": "**Recyclable waste** can be recovered for useful use.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#6": {
+    "status": "fixed",
+    "quote": "**Non-recyclable waste** cannot be recovered through the available recycling process.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#7": {
+    "status": "fixed",
+    "quote": "**Special waste** needs separate handling.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#9": {
+    "status": "fixed",
+    "quote": "An office stops ordering unnecessary disposable stirrers for its pantry.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#10": {
+    "status": "fixed",
+    "quote": "Using them again is **reuse**. Keeping them separate made that reuse easier.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "general-information-environment-management#11": {
+    "status": "fixed",
+    "quote": "Processing it into new paper products is **recycling**.",
+    "note": "Checked the definition and its practical procedure or worked scenario in the rewritten lesson."
+   },
+   "lesson-environment-management-environmental-concepts|B08|0": {
+    "status": "fixed",
+    "quote": "Republic Act $9003$ requires this practice.",
+    "note": "The statute number is now enclosed in inline math."
+   },
+   "lesson-environment-management-environmental-concepts|L18|0": {
+    "status": "fixed",
+    "quote": "The method is **reduction**.",
+    "note": "Worked examples now demonstrate reduction, reuse, recycling, and composting."
+   },
+   "lesson-environment-management-environmental-concepts|L19|0": {
+    "status": "fixed",
+    "quote": "1. The household separates materials where the waste is made.",
+    "note": "The solution starts directly with a numbered step; no loose instruction remains."
+   },
+   "lesson-environment-management-environmental-concepts|L19|1": {
+    "status": "fixed",
+    "quote": "1. The organic waste breaks down through a controlled process.",
+    "note": "The composting solution places all its reasoning in numbered steps."
+   }
+  }
+ }
+}
