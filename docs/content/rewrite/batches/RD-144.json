@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-accountability-and-impeachment",
+  "lesson-philippine-constitution-citizenship-and-suffrage",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "5208c3fba320683aebdb02a5388506f36d09c66f",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "8c725ee9f0f2f71751f5c4820fdc64323472761f",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "9bbfbbad0996d373e82bb3d227cfd1cc90092931"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "d50c75ca3e749b682192d363cbb2915b25ebed86b82c6553a76baf7d419e233c",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "c0873a8c7b493f3c7d0d61afcbb38449aa998f119b38bd1e5aeed24e666d5dc9",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "cee49491d3bee5a6432df819cd9f4d805b426cafcf1fb187fbd53a8f5bbe01b5"
+ },
+ "paths": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "id": "RD-144",
+ "type": "read",
+ "created": "2026-10-26T13:08:51+00:00"
+}

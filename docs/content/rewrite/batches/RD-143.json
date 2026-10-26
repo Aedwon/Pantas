@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "354d003762468f1e1fb1c7a383a70596586db9bb"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "1908d22f5deead7596c20f055f6b1ce7edd68a0c98c9f0b1a556332520b039c8",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "4d58d587aa19645b6063f3927bf5b6a1936cf9c944244f9dac663ecdb3b5d0d9"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md"
+ },
+ "id": "RD-143",
+ "type": "read",
+ "created": "2026-10-26T13:08:51+00:00"
+}
