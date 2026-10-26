@@ -202,7 +202,7 @@ questions:
         rationale: |
           This subtracts twenty-five kilometers per hour instead of twenty-five percent. The number twenty-five comes directly from the stem. Check that the change is a percentage, not a speed amount.
     explanation: |
-      The new speed is $40(0.75)=30$ km/h. For the same trip distance, speed times time stays constant. Thus $40(45)=30t$. Divide by $30$ to get $t=60$ minutes.
+      The new speed is $40(0.75)=30$ km/h. Convert $45$ minutes to $0.75$ hours to match the speed units. For the same trip distance, speed times time stays constant. Thus $40(0.75)=30t$. Divide by $30$ to get $t=1$ hour, or $60$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0011
     type: word-problem
