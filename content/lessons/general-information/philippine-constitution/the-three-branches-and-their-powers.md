@@ -52,13 +52,13 @@ The Vice-President becomes President upon the President's death, permanent disab
 
 The President controls executive departments, bureaus, and offices and ensures laws are carried out (Section $17$). The President submits the budget within $30$ days from the opening of each regular congressional session (Section $22$).
 
-Section $16$ requires Commission on Appointments consent for department heads, ambassadors, other public ministers and consuls, and military officers from colonel or naval captain upward. It also covers other officers whose appointments the Constitution vests in the President. Other appointments follow their own rules.
+Section $16$ requires Commission on Appointments consent for department heads, ambassadors, other public ministers and consuls, and military officers from colonel or naval captain upward. It also covers other officers whose appointments the Constitution vests in the President, subject to its specific appointment rules. Other appointments follow their own rules.
 
 As Commander-in-Chief, the President heads the armed forces. **Martial law** places an area under emergency military authority, subject to constitutional limits. Section $18$ allows it only during invasion or rebellion when public safety requires it.
 
 The President may also suspend the **privilege of the writ of habeas corpus** under those conditions. The writ normally lets a court require that a detained person be brought before it to check the detention.
 
-Either measure has an initial limit of $60$ days. The President must report to Congress within $48$ hours. Congress may revoke it by a majority of all its Members, voting jointly.
+Either measure has an initial limit of $60$ days. The President must report to Congress within $48$ hours. Congress may revoke it by at least a majority of all its Members, voting jointly.
 
 At the President's initiative, Congress may extend it if invasion or rebellion persists and public safety requires it. Any citizen may ask the Supreme Court to review the factual basis. Martial law does not suspend the Constitution, replace functioning civil courts, or automatically suspend the writ's privilege.
 
@@ -176,13 +176,16 @@ The ambassador does. The Justice follows the Judicial and Bar Council process wi
 
 ### #6: Emergency Powers and Clemency
 
-During rebellion, the President proclaims martial law for $90$ days without an extension, pardons an impeachment conviction, and grants an election-offense pardon without COMELEC's favorable recommendation. Are these valid?
+During rebellion, the President proclaims martial law for $90$ days without an extension. The President also pardons an impeachment conviction and grants an election-offense pardon without COMELEC's favorable recommendation. Are these valid?
+
+Separately, the President grants amnesty for rebellion without the concurrence of a majority of all Members of Congress. Is the amnesty valid?
 
 **Solution:**
 
 1. The initial martial law period cannot exceed $60$ days. A report is due within $48$ hours; Congress may revoke and the Supreme Court may review the factual basis.
 2. A pardon cannot cover impeachment.
-3. The election-offense pardon lacks the required COMELEC recommendation. Amnesty is separate and needs congressional concurrence, plus COMELEC's favorable recommendation if it covers election offenses.
+3. The election-offense pardon lacks the required COMELEC recommendation.
+4. The amnesty is invalid without the required congressional concurrence under Article VII, Section $19$. The President cannot grant it alone.
 
 ### #7: Treaty Concurrence
 

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-philippine-constitution-citizenship-and-suffrage"
 title: "Articles IV and V: Citizenship and Suffrage"
-summary: "Learn who is a Filipino citizen, who is a natural-born citizen, and who may vote under Articles IV and V of the 1987 Constitution."
+summary: "Alamin kung sino ang mamamayang Pilipino, sino ang natural-born, at sino ang maaaring bumoto ayon sa Artikulo IV at V ng Saligang Batas."
 subject: "subject-general-information"
 topic: "topic-philippine-constitution"
 estimatedMinutes: 12
@@ -9,196 +9,200 @@ isActive: true
 ---
 ## Core Concept
 
-### Who is a citizen
+### Sino ang mamamayang Pilipino
 
-**Citizenship** means legal membership in a country. Some rights and public offices depend on it.
+Ang **pagkamamamayan** (citizenship) ay pagiging kasapi ng isang bansa ayon sa batas. Nakasalalay dito ang ilang karapatan at pagiging kuwalipikado sa mga puwesto sa pamahalaan.
 
-Article IV, Section $1$ lists four groups of Filipino citizens:
+Sa Artikulo IV, Seksiyon $1$, ito ang mga mamamayang Pilipino:
 
-- Citizens when the Constitution was adopted.
-- Those whose father or mother is a Filipino citizen.
-- Those born before January $17$, $1973$, to Filipino mothers who elect Philippine citizenship upon reaching the age of majority.
-- Those naturalized under law.
+- Mga mamamayang Pilipino nang pinagtibay ang Saligang Batas.
+- Mga taong Pilipino ang ama o ina.
+- Mga ipinanganak bago Enero $17$, $1973$, sa inang Pilipino na pumili ng pagkamamamayang Pilipino pagsapit sa hustong gulang.
+- Mga naging Pilipino sa pamamagitan ng naturalisasyon ayon sa batas.
 
-An **alien** is a citizen of another country. To **elect citizenship** means to formally choose it under law. A private wish to be Filipino is not enough.
+Ang **dayuhan** (alien) ay taong hindi mamamayan ng bansang tinutukoy. Maaaring mamamayan siya ng ibang bansa o wala siyang pagkamamamayan sa alinmang bansa.
 
-The **age of majority** is the age of legal adulthood. Republic Act $6809$ lowered the general age from $21$ to $18$. For an older case, use the law in force when the person reached adulthood.
+Ang **pagpili ng pagkamamamayan** (election of citizenship) ay pormal na pagpili ayon sa batas. Hindi sapat ang pagnanais lamang na maging Pilipino.
 
-Under the current parent rule, the father or mother must be Filipino when the child is born. Birth abroad does not prevent citizenship. Birth in the Philippines alone does not grant it.
+Ang **hustong gulang** (age of majority) ay edad ng pagiging nasa sapat na gulang ayon sa batas. Ginawang $18$ mula $21$ ng Republic Act $6809$ ang pangkalahatang edad na ito. Para sa lumang kaso, tingnan ang batas na umiiral nang sumapit sa hustong gulang ang tao.
 
-### Natural-born and naturalized
+Sa kasalukuyang tuntunin sa magulang, dapat Pilipino ang ama o ina nang ipanganak ang bata. Hindi hadlang ang pagsilang sa ibang bansa. Hindi rin sapat ang pagsilang sa Pilipinas lamang.
 
-A **natural-born citizen** is Filipino from birth without an act needed to acquire or complete citizenship. Article IV, Section $2$ also treats those who properly elect under Section $1(3)$ as natural-born.
+### Natural-born at naturalisado
 
-A **naturalized citizen** becomes Filipino through a legal process. Naturalization does not make that person natural-born. The President, Senators, Representatives, and Civil Service Commission members must be natural-born.
+Ang **natural-born citizen** ay Pilipino mula sa pagsilang na walang kailangang gawin upang makuha o mabuo ang pagkamamamayan. Itinuturing ding natural-born ng Artikulo IV, Seksiyon $2$ ang mga wastong pumili sa ilalim ng Seksiyon $1(3)$.
 
-Commonwealth Act $473$, Section $2$ sets a court process. Its usual minimums include age $21$ at the hearing and $10$ years of continuous residence. Section $3$ reduces residence to $5$ years for listed cases; other conditions still apply.
+Ang **naturalisadong mamamayan** (naturalized citizen) ay naging Pilipino sa prosesong itinakda ng batas. Hindi siya nagiging natural-born dahil sa naturalisasyon. Kailangang natural-born ang Pangulo, Senador, Kinatawan, at mga kasapi ng Civil Service Commission.
 
-These are not the rules for every route. Republic Act $9139$ provides an administrative route for qualified aliens born and living here since birth. It requires at least age $18$ at filing, plus its other conditions.
+Sa prosesong dumaraan sa hukuman, itinatakda ng Commonwealth Act $473$, Seksiyon $2$ ang karaniwang minimum na edad na $21$ sa pagdinig at $10$ taong tuloy-tuloy na paninirahan. Ibinababa ng Seksiyon $3$ sa $5$ taon ang paninirahan para sa mga nakalistang kaso. May iba pang kondisyon at pagbabawal.
 
-### Keeping and regaining citizenship
+Hindi iisa ang proseso ng naturalisasyon. May hiwalay na prosesong administratibo sa Republic Act $9139$ para sa kuwalipikadong dayuhang dito ipinanganak at nanirahan mula pagsilang. Hindi bababa sa $18$ ang edad sa paghahain, at dapat matugunan ang iba pang kondisyon.
 
-Under Article IV, Section $4$, marrying an alien does not by itself remove citizenship. A citizen keeps it unless an act or failure to act amounts to **renunciation**, or giving it up, under law.
+### Pagpapanatili at pagbawi ng pagkamamamayan
 
-Section $3$ leaves loss and reacquisition to law. Republic Act $9225$, Section $3$ lets natural-born Filipinos who lost citizenship through foreign naturalization regain it by the required oath of allegiance. It also provides for retention under its conditions.
+Ayon sa Artikulo IV, Seksiyon $4$, hindi awtomatikong nawawala ang pagkamamamayan kapag nagpakasal sa dayuhan. Mananatili ito maliban kung may ginawa o hindi ginawa na itinuturing ng batas na pagtalikod dito.
 
-For elective office, Section $5(2)$ adds requirements. The person must meet the office's qualifications and personally make a sworn renunciation of all foreign citizenship when filing the certificate of candidacy. The reacquisition oath alone is insufficient.
+Ipinauubaya ng Seksiyon $3$ sa batas ang pagkawala at muling pagkuha ng pagkamamamayan. Sa Republic Act $9225$, Seksiyon $3$, maaaring mabawi ng natural-born na Pilipino ang nawalang pagkamamamayan dahil sa naturalisasyon sa ibang bansa. Kailangan ang itinakdang panunumpa ng katapatan sa Pilipinas.
 
-**Repatriation** means restoration of Philippine citizenship. Republic Act $8171$ covers Filipino women who lost it through marriage to aliens and natural-born Filipinos who lost it from political or economic necessity, including their minor children. It has exclusions and requires an oath and registration in the proper civil registry and Bureau of Immigration.
+May tuntunin din ang batas sa pagpapanatili ng pagkamamamayan sa ilalim ng mga kondisyon nito. Para tumakbo sa halalan, may dagdag na hakbang ang Seksiyon $5(2)$: personal at sinumpaang pagtalikod sa lahat ng dayuhang pagkamamamayan sa paghahain ng kandidatura. Dapat ding matugunan ang mga kuwalipikasyon ng puwesto.
 
-**Dual citizenship** means citizenship in two countries. Different national laws may give it from birth. Republic Act $9225$ also allows retention or reacquisition under its rules.
+Ang **repatriasyon** (repatriation) ay pagpapanumbalik ng pagkamamamayang Pilipino. Saklaw ng Republic Act $8171$ ang mga babaeng nawalan nito dahil sa pag-aasawa sa dayuhan. Saklaw din nito ang natural-born na nawalan nito dahil sa pangangailangang pampolitika o pangkabuhayan, kasama ang kanilang menor de edad na mga anak.
 
-**Dual allegiance** involves voluntary acts of loyalty to two states. Article IV, Section $5$ calls it harmful to the national interest and directs that law address it. Two citizenships alone do not prove dual allegiance.
+May mga hindi pinapayagang mag-aplay sa batas na ito. Kailangan ang panunumpa at pagpapatala sa tamang tanggapan ng rehistrong sibil at sa Bureau of Immigration.
 
-<!-- ILLUSTRATION: decision flow first asks Born before January 17, 1973 to a Filipino mother and alien father, with citizenship requiring election? Yes leads to Proper election under Article IV Section 1(3), then Deemed natural-born; No leads to Filipino parent at birth under the applicable rule? Yes: Natural-born; No: check citizenship at adoption or naturalization under law, with naturalization ending Naturalized citizen -->
+Ang **dalawahang pagkamamamayan** (dual citizenship) ay pagiging mamamayan ng dalawang bansa. Maaari itong magmula sa magkaibang batas ng mga bansa. Pinapayagan din ng Republic Act $9225$ ang pagpapanatili o pagbawi ayon sa mga kondisyon nito.
 
-### Who may vote
+Ang **dalawahang katapatan** (dual allegiance) ay kusang katapatan sa dalawang bansa. Itinuturing itong laban sa pambansang interes sa Artikulo IV, Seksiyon $5$, at dapat tugunan ng batas. Hindi sapat ang dalawang pagkamamamayan lamang upang patunayan ito.
 
-**Suffrage** is the right to vote. Article V, Section $1$ requires Filipino citizenship, age of at least $18$, and no legal disqualification. The voter must have lived in the Philippines for at least $1$ year and in the voting place for at least $6$ months immediately before the election.
+<!-- ILLUSTRATION: Filipino citizenship flow in Filipino: special case Ipinanganak bago Enero 17, 1973 sa inang Pilipino at amang dayuhan, kailangan ang pagpili? Oo leads to Wastong pagpili then Natural-born; otherwise Pilipino ang magulang sa pagsilang ayon sa naaangkop na batas? Oo leads to Natural-born; Hindi leads to Suriin ang pagkamamamayan sa pagpapatibay o naturalisasyon; naturalisasyon leads to Naturalisadong mamamayan -->
 
-Republic Act $8189$, Section $9$ measures age and residence by election day. Registration may happen before these are complete if they will be complete that day. Section $10$ still requires voter registration.
+### Sino ang maaaring bumoto
 
-Section $11$ lists disqualifications, including certain final criminal judgments, and rules for restoring voting rights. An accusation alone is not a final judgment.
+Ang **karapatang bumoto** (suffrage) ay saklaw ng Artikulo V, Seksiyon $1$. Dapat Pilipino, hindi bababa sa $18$ taong gulang, at walang pagbabawal sa ilalim ng batas. Kailangan ang hindi bababa sa $1$ taong paninirahan sa Pilipinas at $6$ na buwan sa lugar ng pagboto bago ang halalan.
 
-No literacy, property, or other substantive requirement may be added. A voter need not pass a reading test or own land.
+Sa Republic Act $8189$, Seksiyon $9$, araw ng halalan ang batayan ng edad at haba ng paninirahan. Maaaring magparehistro bago makumpleto ang mga ito kung kumpleto na sa araw ng halalan. Kailangan pa rin ang pagpaparehistro sa ilalim ng Seksiyon $10$.
 
-<!-- ILLUSTRATION: voter checklist labeled Filipino citizen, At least 18 on election day, 1 year in the Philippines, 6 months in voting place; footer Also check registration and legal disqualifications -->
+Nasa Seksiyon $11$ ang mga pagbabawal, kabilang ang ilang pinal na hatol sa kasong kriminal. May mga tuntunin din sa pagbabalik ng karapatang bumoto. Ang paratang lamang ay hindi pinal na hatol.
 
-### Protecting the vote
+Hindi maaaring gawing kondisyon ang kakayahang bumasa o pagmamay-ari ng lupa. Bawal din ang ibang dagdag na kondisyong tulad nito.
 
-Article V, Section $2$ requires Congress to protect ballot secrecy and sanctity. This means keeping choices private and protecting the vote from interference. Congress must provide absentee voting for qualified Filipinos abroad.
+<!-- ILLUSTRATION: Filipino voter checklist: Pilipino; Hindi bababa sa 18 sa araw ng halalan; 1 taon sa Pilipinas; 6 na buwan sa lugar ng pagboto; footer Suriin din ang pagpaparehistro at mga pagbabawal sa batas -->
 
-It must also design a procedure for voters with disabilities and voters unable to read to vote without help. Until then, existing laws and Commission on Elections rules must protect ballot secrecy. These voters cannot simply be barred.
+### Pagprotekta sa boto
 
-Republic Act $9189$, amended by Republic Act $10590$, governs overseas voting. Being abroad alone is not enough; its qualification and registration rules apply.
+Inaatasan ng Artikulo V, Seksiyon $2$ ang Kongreso na panatilihing lihim at ligtas sa panghihimasok ang balota. Dapat din itong maglaan ng pagboto para sa kuwalipikadong Pilipino sa ibang bansa.
+
+Dapat magdisenyo ng paraan upang makaboto nang walang tulong ang may kapansanan o hindi marunong bumasa. Habang wala pa iyon, dapat silang payagang bumoto ayon sa umiiral na batas at tuntunin ng COMELEC na nag-iingat sa lihim ng balota.
+
+Republic Act $9189$, na binago ng Republic Act $10590$, ang namamahala sa pagboto sa ibang bansa. May sariling kuwalipikasyon at pagpaparehistro ito. Hindi sapat na nasa ibang bansa lamang ang tao.
 
 ## Examples
 
-### #1: Filipino Mother
+### #1: Inang Pilipino
 
-Born in $2005$, a child has a Filipino mother and an alien father. Is the child Filipino from birth?
-
-**Solution:**
-
-Yes, under Article IV, Section $1(2)$, because the mother was Filipino at the child's birth.
-
-### #2: Birth Abroad
-
-Both parents were Filipino citizens when their child was born abroad. Does the birthplace prevent Philippine citizenship?
+Ipinanganak noong $2005$ ang batang may inang Pilipino at amang dayuhan. Pilipino ba siya mula pagsilang?
 
 **Solution:**
 
-No. The child qualifies through the parents' citizenship.
+Oo. Pilipino ang ina sa pagsilang niya, kaya saklaw siya ng Artikulo IV, Seksiyon $1(2)$.
 
-### #3: Election of Citizenship
+### #2: Pagsilang sa Ibang Bansa
 
-Lina was born in $1970$ to a Filipino mother and alien father. She properly elected Philippine citizenship upon reaching majority. Is she natural-born?
-
-**Solution:**
-
-Yes. Article IV, Section $2$ treats proper election under Section $1(3)$ as natural-born citizenship.
-
-### #4: Running for Senator
-
-Ana is natural-born. Ben is naturalized. Both meet all other Senate qualifications. Who meets the citizenship requirement?
+Parehong Pilipino ang mga magulang nang isilang ang anak sa ibang bansa. Hadlang ba ang lugar ng pagsilang?
 
 **Solution:**
 
-Ana does. A Senator must be natural-born.
+Hindi. Pilipino ang anak dahil sa pagkamamamayan ng mga magulang.
 
-### #5: Marriage to an Alien
+### #3: Pormal na Pagpili
 
-A Filipino marries an alien without any act or omission that renounces citizenship under law. Is citizenship lost?
-
-**Solution:**
-
-No. Marriage alone does not remove it under Article IV, Section $4$.
-
-### #6: Reacquisition and Candidacy
-
-A natural-born Filipino lost citizenship through foreign naturalization. What separate steps does Republic Act $9225$ require for reacquisition and elective office?
+Ipinanganak si Lina noong $1970$ sa inang Pilipino at amang dayuhan. Wasto siyang pumili ng pagkamamamayang Pilipino sa hustong gulang. Natural-born ba siya?
 
 **Solution:**
 
-1. Take the required oath under Section $3$ to reacquire citizenship.
-2. Meet the office's qualifications and personally make the sworn renunciation of all foreign citizenship at candidacy filing under Section $5(2)$.
+Oo. Itinuturing siyang natural-born ng Artikulo IV, Seksiyon $2$, dahil sa wastong pagpili sa ilalim ng Seksiyon $1(3)$.
 
-### #7: Two Countries' Laws
+### #4: Pagiging Senador
 
-A child is Filipino through a parent and also a foreign citizen under the birthplace's law. Does this alone prove dual allegiance?
-
-**Solution:**
-
-No. Two laws can grant citizenship without voluntary acts of loyalty to two states.
-
-### #8: Age on Election Day
-
-A registered Filipino turns $18$ on election day. By then, residence is $2$ years in the country and $8$ months in the voting place. With no disqualification, does the voter qualify?
+Natural-born si Ana at naturalisado si Ben. Pareho nilang natutugunan ang ibang kuwalipikasyon sa Senado. Sino ang pasado sa tuntunin sa pagkamamamayan?
 
 **Solution:**
 
-Yes. Age and both residence periods meet the minimums by election day.
+Si Ana. Kailangang natural-born ang Senador.
 
-### #9: Separate Residence Tests
+### #5: Kasal sa Dayuhan
 
-Two adult Filipinos have each lived in the country for $10$ years. One has lived in the voting place for $8$ months; the other, $3$ months. Who meets both residence tests?
-
-**Solution:**
-
-Only the first. Long residence in the country does not replace the separate $6$-month local requirement.
-
-### #10: Reading and Property
-
-May a law require voters to pass a reading test or own land?
+Nagpakasal ang isang Pilipino sa dayuhan. Wala siyang ginawa o hindi ginawa na pagtalikod ayon sa batas. Nawala ba ang pagkamamamayan niya?
 
 **Solution:**
 
-No. Article V, Section $1$ forbids these requirements.
+Hindi. Hindi sapat ang kasal lamang ayon sa Artikulo IV, Seksiyon $4$.
 
-### #11: Ballot Protection
+### #6: Pagbawi at Kandidatura
 
-A proposal would reveal each voter's choices, end overseas voting, and bar voters unable to read. Which constitutional duties does it violate?
+Nawalan ng pagkamamamayan ang natural-born na Pilipino dahil naging naturalisado sa ibang bansa. Anong magkahiwalay na hakbang ang kailangan sa Republic Act $9225$ para mabawi ito at tumakbo sa halalan?
 
 **Solution:**
 
-1. Protect ballot secrecy.
-2. Provide absentee voting for qualified Filipinos abroad.
-3. Provide voting procedures for voters with disabilities or unable to read, with the stated interim protection.
+1. Gawin ang itinakdang panunumpa sa Seksiyon $3$ upang mabawi ang pagkamamamayan.
+2. Tugunan ang kuwalipikasyon ng puwesto at personal na manumpa ng pagtalikod sa lahat ng dayuhang pagkamamamayan sa paghahain ng kandidatura, ayon sa Seksiyon $5(2)$.
+
+### #7: Dalawang Batas
+
+Pilipino ang bata dahil sa magulang. Mamamayan din siya ng bansang sinilangan ayon sa batas doon. Patunay ba ito lamang ng dalawahang katapatan?
+
+**Solution:**
+
+Hindi. Maaaring magbigay ng pagkamamamayan ang dalawang batas nang walang kusang pagkilos ng bata para manumpa sa dalawang bansa.
+
+### #8: Edad sa Araw ng Halalan
+
+Magiging $18$ ang rehistradong Pilipino sa araw ng halalan. Sa araw na iyon, $2$ taon na siyang residente ng Pilipinas at $8$ buwan sa lugar ng pagboto. Wala siyang pagbabawal sa batas. Maaari ba siyang bumoto?
+
+**Solution:**
+
+Oo. Kumpleto sa araw ng halalan ang minimum na edad at parehong haba ng paninirahan.
+
+### #9: Magkahiwalay na Paninirahan
+
+Parehong $10$ taon nang residente ng Pilipinas ang dalawang nasa hustong gulang. Ang una ay $8$ buwan na sa lugar ng pagboto, ang ikalawa ay $3$ buwan pa lamang. Sino ang pasado sa parehong tuntunin sa paninirahan?
+
+**Solution:**
+
+Ang una lamang. Hindi napapalitan ng matagal na paninirahan sa bansa ang hiwalay na minimum na $6$ na buwan sa lugar ng pagboto.
+
+### #10: Pagbasa at Lupa
+
+Maaari bang hingin ng batas na pumasa sa pagsusulit sa pagbasa o magkaroon ng lupa ang botante?
+
+**Solution:**
+
+Hindi. Ipinagbabawal ang mga kondisyong ito ng Artikulo V, Seksiyon $1$.
+
+### #11: Lihim at Malayang Boto
+
+Isang panukala ang maglalantad ng pinili ng bawat botante, mag-aalis ng pagboto sa ibang bansa, at magbabawal sa hindi marunong bumasa. Anong mga tungkulin sa Saligang Batas ang nilalabag nito?
+
+**Solution:**
+
+1. Panatilihing lihim ang balota.
+2. Maglaan ng pagboto para sa kuwalipikadong Pilipino sa ibang bansa.
+3. Maglaan ng paraan para sa may kapansanan at hindi marunong bumasa, kasama ang pansamantalang proteksiyon habang wala pa ang paraang walang tulong.
 
 ## Traps to Watch For
 
-### #1: Birthplace Alone
+### #1: Lugar Lamang ng Pagsilang
 
-> Being born in the Philippines alone does not grant citizenship.
+> Hindi sapat ang pagsilang sa Pilipinas upang maging Pilipino.
 
-Check the parents' citizenship and the applicable law. Birth abroad does not prevent natural-born status.
+Suriin ang magulang at ang naaangkop na batas. Hindi rin hadlang ang pagsilang sa ibang bansa.
 
-### #2: Election for Every Child
+### #2: Pagpili para sa Lahat
 
-> The election rule is the special case in Article IV, Section $1(3)$.
+> Natatanging kaso ang nasa Artikulo IV, Seksiyon $1(3)$.
 
-Do not require every child of a Filipino mother to elect citizenship. Check the date and legal circumstances.
+Huwag hingan ng pagpili ang lahat ng anak ng inang Pilipino. Suriin ang petsa at kalagayan sa batas.
 
-### #3: Marriage and Naturalization
+### #3: Kasal at Naturalisasyon
 
-> Marriage alone does not remove citizenship; naturalization does not create natural-born status.
+> Hindi inaalis ng kasal lamang ang pagkamamamayan.
 
-These events have different legal effects. Match the rule to the event.
+Hindi rin ginagawang natural-born ng naturalisasyon ang tao. Magkaiba ang epekto ng dalawang pangyayari.
 
-### #4: Citizenship and Allegiance
+### #4: Dalawang Pagkamamamayan
 
-> Dual citizenship alone does not prove dual allegiance.
+> Hindi awtomatikong dalawahang katapatan ang dalawahang pagkamamamayan.
 
-Also remember the separate sworn renunciation for elective office under Republic Act $9225$.
+Tandaan din ang hiwalay na sinumpaang pagtalikod para sa kandidatura sa Republic Act $9225$.
 
-### #5: Minimum Requirements
+### #5: Mga Minimum sa Pagboto
 
-> Age and both residence periods are separate minimums.
+> Hiwalay na minimum ang edad at dalawang haba ng paninirahan.
 
-Turning $18$ on election day meets the age rule. Reading ability and land ownership cannot be added.
+Pasado sa edad ang magiging $18$ sa araw ng halalan. Hindi kailangan ang lupa o pagsusulit sa pagbasa.
 
-### #6: Overseas Voting
+### #6: Pagboto sa Ibang Bansa
 
-> The Constitution requires overseas voting, and law sets its rules.
+> Inaatas ito ng Saligang Batas, at itinatakda ng batas ang mga tuntunin.
 
-Check qualification, registration, and disqualifications. Location abroad alone does not establish eligibility.
+Suriin ang kuwalipikasyon, pagpaparehistro, at mga pagbabawal. Hindi sapat ang pagiging nasa ibang bansa lamang.
