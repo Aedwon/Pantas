@@ -93,6 +93,8 @@ $$S_\infty=\dfrac{a_1}{1-r}$$
 
 If $|r|\ge1$ and the first term is nonzero, the series **diverges**. This means its running total does not approach a finite sum. If every term is $0$, the sum is simply $0$.
 
+A **coefficient** is the number multiplying a variable. In $2a$, the coefficient of $a$ is $2$. To add terms with the same variable part, add their coefficients: $2a+3a=(2+3)a$.
+
 In exam questions, **evaluate** means find the final number answer.
 
 ## Examples
@@ -162,7 +164,23 @@ What is the $25^{\text{th}}$ term of the arithmetic sequence $4,7,10,13,\dots$?
 
 $$a_{25}=4+(25-1)(3)=76$$
 
-### #5: Arithmetic Series in a Word Problem
+### #5: Counting Arithmetic Terms
+
+How many terms are in the arithmetic sequence $7,11,15,\dots,83$?
+
+**Solution:**
+
+1. The first term is $7$, the last term is $83$, and the common difference is $4$. Divide the total increase by the common difference to count the steps.
+
+$$\dfrac{83-7}{4}=19$$
+
+2. Add $1$ to include the first term.
+
+$$n=19+1=20$$
+
+3. The sequence has $20$ terms.
+
+### #6: Arithmetic Series in a Word Problem
 
 A theater has $20$ seats in the first row, $24$ in the second, and $28$ in the third. Each row has $4$ more seats than the row before it. If there are $15$ rows, what is the total number of seats?
 
@@ -179,7 +197,7 @@ $$S_{15}=\dfrac{15}{2}(96)=720$$
 
 4. The theater has $720$ seats.
 
-### #6: Geometric Sequence with Alternating Signs
+### #7: Geometric Sequence with Alternating Signs
 
 Find the $8^{\text{th}}$ term of the geometric sequence $3,-6,12,-24,\dots$.
 
@@ -190,7 +208,7 @@ Find the $8^{\text{th}}$ term of the geometric sequence $3,-6,12,-24,\dots$.
 
 $$a_8=3(-2)^7=-384$$
 
-### #7: Finite Geometric Series
+### #8: Finite Geometric Series
 
 Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\dots$.
 
@@ -207,7 +225,7 @@ $$S_6=\dfrac{3(-63)}{-1}=189$$
 
 4. The sum is $189$.
 
-### #8: Evaluating an Infinite Geometric Series
+### #9: Evaluating an Infinite Geometric Series
 
 Evaluate the infinite geometric series $18+6+2+\dfrac{2}{3}+\dots$.
 
@@ -222,7 +240,7 @@ $$S_\infty=\dfrac{18}{1-\frac{1}{3}}$$
 
 $$S_\infty=18\times\dfrac{3}{2}=27$$
 
-### #9: Finding a Term in a Harmonic Sequence
+### #10: Finding a Term in a Harmonic Sequence
 
 Find the $6^{\text{th}}$ term of the harmonic sequence $\dfrac{1}{2},\dfrac{1}{5},\dfrac{1}{8},\dots$.
 
@@ -237,7 +255,7 @@ $$a_6=2+(6-1)(3)=17$$
 
 $$\dfrac{1}{17}$$
 
-### #10: Fibonacci-Type Sequence with Variables
+### #11: Fibonacci-Type Sequence with Variables
 
 If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence in that order, $x=2a+1$, and $y=3a-2$, what is $z$ in terms of $a$?
 
@@ -255,7 +273,7 @@ $$z=(2a+1)+(3a-2)$$
 
 $$z=(2+3)a+(1-2)=5a-1$$
 
-### #11: Finite Geometric Series with $r=1$
+### #12: Finite Geometric Series with $r=1$
 
 A geometric series has $8$ terms, and every term is $5$. What is the sum?
 
@@ -266,7 +284,7 @@ A geometric series has $8$ terms, and every term is $5$. What is the sum?
 
 $$S_8=8(5)=40$$
 
-### #12: An Infinite Geometric Series That Diverges
+### #13: An Infinite Geometric Series That Diverges
 
 Does the infinite geometric series $3+6+12+24+\dots$ have a finite sum?
 
