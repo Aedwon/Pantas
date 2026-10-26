@@ -35,6 +35,8 @@ A passage can serve several purposes. Choose the main purpose by asking what mos
 
 Check the narrator's own words. A character saying “I” in dialogue does not make the narration first person. Classify the passage you have, since a short extract may not show everything a narrator knows.
 
+Here, **classify** means name the group a passage belongs to.
+
 ### Argument Viewpoint and Bias
 
 A writer's **viewpoint** is the position taken on an issue. It differs from the voice telling a story. To **infer** a viewpoint means to work it out from clues instead of a direct statement.
@@ -93,7 +95,9 @@ What is the author's main purpose?
 
 ### #2: Weighing Mixed Purposes
 
-“Water enters the town through a treatment plant. Filters remove small particles before the water reaches storage tanks. Pipes then carry it to homes. The town website has a written description of this route. Residents may visit the plant during its open house.”
+“Water enters the town through a treatment plant. Filters remove small particles before the water reaches storage tanks. Pipes then carry it to homes.
+
+“The town website has a written description of this route. Residents may visit the plant during its open house.”
 
 Which purpose is dominant: explaining a process or persuading residents to visit?
 
@@ -164,7 +168,9 @@ Which narrative point of view is shown in this passage?
 
 ### #8: Objective Narration
 
-“Nico tapped the desk. Bea closed a folder. ‘Are we ready?’ she asked. Nico nodded.”
+“Nico tapped the desk. Bea closed a folder.
+
+“‘Are we ready?’ she asked. Nico nodded.”
 
 Which narrative point of view is shown?
 
@@ -176,7 +182,9 @@ Which narrative point of view is shown?
 
 ### #9: Comparing Positions Fairly
 
-“Supporters of the new schedule say it gives workers more freedom. Critics say changing hours makes child-care planning harder. A trial could show whether the benefit outweighs that problem. The office should test the schedule before adopting it.”
+“Supporters of the new schedule say it gives workers more freedom. Critics say changing hours makes child-care planning harder.
+
+“A trial could show whether the benefit outweighs that problem. The office should test the schedule before adopting it.”
 
 How does the writer's viewpoint differ from full support or rejection?
 
@@ -216,7 +224,9 @@ What does the expression in bold refer to, and what pattern organizes the passag
 
 ### #12: Reading Sentence Cues Together
 
-“The list of approved requests is ready. Ana said that the director might sign it today. If the director signs it, staff will begin checking names, preparing notices, and sending replies. Only Ana has seen the list. The notices have not been sent.”
+“The list of approved requests is ready. Ana said that the director might sign it today.
+
+“If the director signs it, staff will begin checking names, preparing notices, and sending replies. Only Ana has seen the list. The notices have not been sent.”
 
 Does the passage establish that everyone has been notified?
 

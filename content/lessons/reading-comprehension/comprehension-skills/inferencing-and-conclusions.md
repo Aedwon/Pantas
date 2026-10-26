@@ -64,6 +64,7 @@ Ang magandang resulta sa isang pagkakataon ay hindi patunay na palaging magiging
 What can reasonably be inferred about Maria?
 
 **Solution:**
+
 1. Checking the time and entrance suggests that she is waiting for someone or something.
 2. Repeated checking and foot tapping suggest unease or impatience.
 3. Maria is likely waiting and feeling impatient or anxious. The passage does not establish whom she expects.
@@ -75,6 +76,7 @@ What can reasonably be inferred about Maria?
 Which conclusion is best supported: workers are concerned about their hours, the store will close permanently, or the manager plans to dismiss workers?
 
 **Solution:**
+
 1. The announcement changes the store's schedule.
 2. The workers' questions focus on their weekly hours.
 3. The best-supported conclusion is that workers are concerned about how the change will affect their hours.
@@ -86,6 +88,7 @@ Which conclusion is best supported: workers are concerned about their hours, the
 Is the claim that the student is lazy justified by the information given?
 
 **Solution:**
+
 1. The passage establishes that the assignment was late.
 2. It gives no reason and no pattern of past behavior.
 3. The claim is not justified. The student's motive or character cannot be established from this detail alone.
@@ -97,6 +100,7 @@ Is the claim that the student is lazy justified by the information given?
 Which inference is most strongly supported?
 
 **Solution:**
+
 1. The textbooks and unfinished document suggest study or writing.
 2. The late hour and coffee cups add support for work extending into the night.
 3. Someone has likely been studying or working late. The passage does not prove that the person stayed awake all night or has an exam tomorrow.
@@ -108,6 +112,7 @@ Which inference is most strongly supported?
 Which unstated idea is necessary for this reasoning?
 
 **Solution:**
+
 1. The rule applies to employees who finish the course.
 2. Lino finished the course, but his employee status is not stated.
 3. The necessary assumption is that Lino is an employee.
@@ -130,6 +135,7 @@ Wednesday: ■■■
 Which day had the most visitors, and how many more visitors came that day than on Wednesday?
 
 **Solution:**
+
 1. Read the labeled bars using the legend. Tuesday has $6$ squares, and Wednesday has $3$.
 2. Convert the squares to visitors.
 
@@ -160,9 +166,21 @@ Wednesday: ■■■
 On which morning does the note establish that an extra window opened?
 
 **Solution:**
-1. Count each bar's squares and use the legend. Monday shows $20$ visitors, Tuesday $30$, and Wednesday $15$.
-2. The note requires more than $25$ visitors. Only Tuesday meets that condition.
-3. The note and chart together establish that an extra window opened on Tuesday. The graph alone would not show that staffing decision.
+
+1. Count Monday's $4$ squares and use the legend.
+
+$$4\times5=20$$
+
+2. Convert Tuesday's $6$ squares to visitors.
+
+$$6\times5=30$$
+
+3. Convert Wednesday's $3$ squares to visitors.
+
+$$3\times5=15$$
+
+4. The note requires more than $25$ visitors. Only Tuesday meets that condition.
+5. The note and chart together establish that an extra window opened on Tuesday. The graph alone would not show that staffing decision.
 
 ### #8: Hinuha mula sa Kilos
 
@@ -171,6 +189,7 @@ On which morning does the note establish that an extra window opened?
 Ano ang pinakamakatuwirang hinuha?
 
 **Solution:**
+
 1. Inihanda ni Nena ang silid at mga papel.
 2. Tiningnan niya ang oras habang wala pa ang iba.
 3. Malamang na naghahanda siya para sa isang gawain o pagpupulong at naghihintay ng mga kalahok. Hindi pa tiyak ang mismong uri ng gawain.
@@ -182,17 +201,21 @@ Ano ang pinakamakatuwirang hinuha?
 Ano ang hindi tuwirang pangunahing diwa ng talata?
 
 **Solution:**
+
 1. Ang mga detalye ay tungkol sa sariling lalagyan, pag-iwas sa supot, at mas kaunting basurang plastik.
 2. Parehong may ginagawang pagbabago ang mga residente at tindahan.
 3. Ang pangunahing diwa ay kumikilos ang komunidad upang bawasan ang paggamit at basura ng plastik. Hindi lamang diskuwento ang paksa ng buong talata.
 
 ### #10: Paghatol na May Sapat na Batayan
 
-“Sinubukan ng isang tanggapan ang bagong sistema ng pila noong Lunes. Mas maikli ang oras ng paghihintay kaysa noong nakaraang Lunes. Ngunit mas kaunti rin ang dumating na kliyente. Wala pang tala para sa ibang araw.”
+“Sinubukan ng isang tanggapan ang bagong sistema ng pila noong Lunes. Mas maikli ang oras ng paghihintay kaysa noong nakaraang Lunes.
+
+“Ngunit mas kaunti rin ang dumating na kliyente. Wala pang tala para sa ibang araw.”
 
 Makatuwiran bang sabihing napatunayang laging mas mabilis ang bagong sistema? Ipaliwanag ang pasya batay sa talata.
 
 **Solution:**
+
 1. Mas maikli ang paghihintay sa araw ng pagsubok.
 2. Mas kaunti rin ang kliyente. Maaaring nakaapekto ito sa oras ng paghihintay.
 3. Isang araw lamang ang may tala para sa bagong sistema.
