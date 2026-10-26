@@ -1,0 +1,197 @@
+{
+ "batch": "RD-161",
+ "lesson_id": "lesson-philippine-constitution-amending-and-revising-the-constitution",
+ "path": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md",
+ "lesson_sha256": "6022ca39f5193dbb5ef892ae7b6c7f3f0b7932c2c5abaf2e8d7aad753157ace0",
+ "rewrite_commit": "af68c3c2861c7e7f386afe6d91c12bd08000908a",
+ "form": {
+  "packet": "lesson-philippine-constitution-amending-and-revising-the-constitution",
+  "role": "A",
+  "lesson_sha256": "6022ca39f5193dbb5ef892ae7b6c7f3f0b7932c2c5abaf2e8d7aad753157ace0",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared Article XVII route/threshold assignments with the supplied outline: Congress three-fourths; convention call two-thirds or majority referral; initiative 12 percent nationwide and 3 percent per district, amendments only, five-year restriction; ratification majority of votes cast with 60-90 days from the correct triggering event.",
+     "Checked that Lambino is identified as the source of the two amendment/revision tests. Recomputed 2026 calendar dates and all hypothetical arithmetic. The lesson makes no unsupported claim about joint/separate voting or current initiative legislation. Review is limited to the supplied material, without fetching legal sources."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1: Congress / convention / initiative respectively; 2: amendment / revision respectively; 3: 180 votes; 4: 160 for direct call, 121 for referral; 5: 120,000 nationally, 1,200 in the specified district, plus every other district minimum; 6: March 2 through April 1, 2026 inclusive; 7: yes, 310 exceeds 300; 8: no, only three years elapsed; 9: missing plebiscite and initiative attempting revision. These match all solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All requested proposal, test, signature, time, electorate, and ratification teaching is present, with all nine specified examples and six traps. The route and timeline placeholders cover the helpful visual cases; the optional threshold circles are not needed to make the text usable."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the core and solutions for simple language. Amendment, revision, both tests, convention, majority, initiative, district, ratification, plebiscite, and votes cast have immediate plain meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a definition appears in the questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy is used in the teaching or examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The hypothetical congressional size avoids asserting an actual membership or resolving voting-house ambiguity. Signature counts, year/date, votes cast, and prior initiative timing are supplied. Stems test the relevant rules without giving the percentages needed to answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam claims or test-maker introductions appear. The questions themselves supply the application context."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a singled-out target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked summary and teaching for stock AI phrases and three repeated sentence openings. Summary describes the content plainly; no listed stock phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples, and Traps with no forced shortcut. Example calculations use three-fourths of all Members, two-thirds of all Members, more than half, 12 percent national signatures, 3 percent district signatures, and majority of votes cast, all introduced in Core Concept as verbal mathematical rules. The formula-before-example requirement is specifically imposed on Mathematics and quantitative Science, not this subject."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Nine examples cover route recognition, structural versus limited change, proposal threshold, both convention thresholds, simultaneous signature bases, actual calendar window, votes-cast denominator, five-year interval, and the two invalid-route defects. Recall precedes arithmetic and combined defect checking."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4-7 and 9 use numbered steps for their multiple checks. Examples 1-2 state direct route/classification answers; Example 3 uses one displayed multiplication and its conclusion; Example 8 is a direct interval comparison. No reasoning step is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the displays: each contains only one compact multiplication, half-total calculation, increment, or inequality. None is a long line likely to overflow a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student-facing paragraphs contain at most three sentences. Solutions use numbered lists only where separate checks or computations are needed; no bulky bullet lists occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The route placeholder names all three routes, initiative restriction, plebiscite, majority, and valid result. The timeline supplies approval date, day zero, both correct boundary dates, and shaded inclusive window. Both are specific single-line instructions supported by surrounding prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Amendment/revision and the two tests are defined before use. Convention, majority, initiative, district, ratification, plebiscite, votes cast, COMELEC, suffrage, and registered voters receive definitions or immediate reminders before the examples. Congress is recalled from the identified prerequisite."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains both scope and structural-effect tests, distinguishes proposing from ratifying, assigns each congressional threshold its job, explains national versus district signature bases, and identifies the different start events for the vote window. Worked arithmetic shows application."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked initiative amendment-only and five-year limits, every-district requirement, all-Members bases, majority of votes actually cast, inclusive 60-90-day window, certification versus approval trigger, suffrage reminder, and the explicit limits concerning current legislation and joint/separate voting."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
