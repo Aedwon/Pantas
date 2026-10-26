@@ -273,25 +273,25 @@ questions:
 - id: q-philippine-constitution-the-civil-service-commission-0012
   type: single_choice
   difficulty: hard
-  stem: 'Are members of the Civil Service Commission subject to impeachment under Article XI?
+  stem: 'An official threatens to delay the CSC''s approved annual funding to make it change a decision. Does fiscal autonomy protect the CSC against this pressure?
 
     '
   choices:
-  - text: Yes, as Constitutional Commissioners
+  - text: Yes, approved annual funding must be released automatically and regularly.
     correct: true
-  - text: No, subject only to private civil arbitration lawsuits
-    rationale: 'This substitutes private dispute resolution for public accountability. Both can settle disputes. Check the constitutional officer list.
+  - text: No, funding may be delayed until the CSC changes its decision.
+    rationale: 'This allows funding delays to control a decision. Check the requirement for automatic and regular release.
 
       '
-  - text: No, exempt from all public administrative proceedings
-    rationale: 'This treats independence as immunity. CSC is independent. Check its constitutional accountability.
+  - text: No, fiscal autonomy protects only the salaries of Commission members.
+    rationale: 'This confuses fiscal autonomy with salary protection. Fiscal autonomy covers the Commission''s approved funds.
 
       '
-  - text: No, removable only by a local provincial governor
-    rationale: 'This gives local authority control over a national commission. Governors oversee local offices. Check the national constitutional institution.
+  - text: No, automatic release applies only when the official agrees with the CSC.
+    rationale: 'This adds a condition based on agreement with a decision. Approved annual funding must be released automatically and regularly.
 
       '
-  explanation: 'Article XI, Section 2 includes members of the Constitutional Commissions among impeachable officers. CSC members belong to that category.
+  explanation: 'Fiscal autonomy protects the CSC''s control over its approved funds. Its approved annual funding must be released automatically and regularly. Delaying it to pressure the CSC conflicts with this safeguard.
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0013
