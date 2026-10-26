@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-verbal-logic-assumptions-and-conclusions"
+ ],
+ "topic": "reasoning/verbal-logic",
+ "rewrites": {
+  "lesson-verbal-logic-assumptions-and-conclusions": "fb224cf1c5367d62e7fa494aac86277d458b3bde"
+ },
+ "sha256": {
+  "lesson-verbal-logic-assumptions-and-conclusions": "2f67f3c9df40d7ef835fe42c9f775d5cd65322de43674d1276fcfbf7f89fa6f8"
+ },
+ "paths": {
+  "lesson-verbal-logic-assumptions-and-conclusions": "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md"
+ },
+ "id": "RD-107",
+ "type": "read",
+ "created": "2026-10-26T04:50:41+00:00"
+}
