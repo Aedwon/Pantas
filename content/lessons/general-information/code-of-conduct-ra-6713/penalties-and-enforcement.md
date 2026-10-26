@@ -23,13 +23,11 @@ The proper authority first checks the complaint and supporting facts. If a charg
 
 The authority must consider the evidence and explain its decision. The chance to answer may include written submissions under the applicable rules. It does not always require the same courtroom steps as a criminal trial.
 
-Administrative guilt requires **substantial evidence**. This is relevant evidence that a reasonable person could accept as enough to support the finding. An unsupported accusation is not enough.
+An unsupported accusation is not enough.
 
 ### Criminal Penalties and Separate Cases
 
 A **criminal case** asks a court to decide whether someone committed a crime. **Prosecution** means bringing and pursuing that case.
-
-Criminal guilt requires proof **beyond reasonable doubt**: proof that leaves no reasonable doubt about guilt in the mind of a fair judge. This is a stricter test than substantial evidence.
 
 Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also order **disqualification**, which bars the person from holding public office. That added penalty is up to the court.
 
@@ -44,6 +42,8 @@ Under Section $11(b)$, a Code violation proved in a proper administrative case i
 ### Private People Who Take Part
 
 Section $11(c)$ covers private individuals "who participate in conspiracy as co-principals, accomplices or accessories" with public officials or employees in a violation of the Code. The three roles below describe how a private person can take part.
+
+Under the Revised Penal Code (Article 8), a conspiracy exists when two or more persons agree to commit a crime and decide to commit it.
 
 They face the same **penal liabilities** as the public workers. This means criminal responsibility and penalties under this provision. They are tried together with the public workers.
 
@@ -69,13 +69,13 @@ Under Section $11(d)$, the official or employee concerned may bring an action ag
 
 The **Civil Service Commission (CSC)** has primary responsibility for administering and enforcing the Code. It sends cases requiring prosecution to the proper authorities. It may also start administrative action allowed by law.
 
-The agency's disciplining authority, the CSC, or the Ombudsman may investigate a complaint, depending on their legal powers. The CSC does not alone decide every case. A referral does not establish guilt.
+The CSC does not alone decide every case. A referral does not establish guilt.
 
 Each House of Congress keeps its power to discipline its members for disorderly behavior. The **Ombudsman** must take steps to protect citizens who report acts or failures to act that violate the Code.
 
 That duty does not promise every reporter a fixed benefit or immunity from every legal claim. The steps needed depend on the report and applicable rules.
 
-An **appeal** asks a higher body to review a decision. Some agency cases may go to the CSC, and a final CSC decision may be subject to court review. The route depends on the deciding body and kind of decision.
+An **appeal** asks a higher body to review a decision. The route depends on the deciding body and kind of decision.
 
 RA $6713$ gives no single appeal path for all cases. Check the governing rules for who may seek review, where to file, and the deadline.
 
@@ -141,7 +141,7 @@ An unrelated private person did not plan, assist, or carry out an officer's offe
 
 1. The person knows of the offense and takes part only afterward.
 2. Destroying the tool to prevent discovery is an accessory act described in Article $19$ of the Revised Penal Code.
-3. Section $11(c)$ also requires participation in a conspiracy with the officer. The facts do not show this. The same penal liabilities and joint trial cannot be assumed.
+3. Section $11(c)$ also requires participation in a conspiracy with the officer. The facts do not show that the person and officer agreed to commit the crime and decided to commit it. The same penal liabilities and joint trial cannot be assumed.
 
 ### #7: Disputed Disclosure
 
@@ -152,7 +152,7 @@ An officer denies wrongdoing after sending a file to a business owner. Records s
 1. The records and messages support the information and purpose conditions of Section $7$'s disclosure ban.
 2. The officer must have a fair chance to answer. A complaint alone proves no violation.
 3. A proved Section $7$ crime can bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both, with possible disqualification.
-4. Administrative discipline is separately possible under its own process and level of proof. The court must apply proof beyond reasonable doubt in the criminal case.
+4. Administrative discipline is separately possible under its own process and level of proof.
 
 ### #8: Marketing From a SALN
 
@@ -224,7 +224,7 @@ A proper administrative case can support removal. It still needs evidence and a 
 
 > Check knowledge, agreement, acts, and the importance of the help.
 
-Earlier direct participation can make a person a principal. An accessory must knowingly take a covered part only afterward. Mere knowledge does not establish participation.
+Earlier direct participation can make a person a principal. An accessory must knowingly take a covered part only afterward. Mere knowledge does not establish participation. For Section $11(c)$, the private person and public worker must agree to commit a crime and decide to commit it.
 
 ### #4: Mixing Fine Ceilings
 
