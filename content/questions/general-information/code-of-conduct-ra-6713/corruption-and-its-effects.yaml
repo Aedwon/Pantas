@@ -168,11 +168,11 @@ questions:
     difficulty: medium
     stem: |
       A public officer agrees to accept a supplier's free vacation in exchange
-      for omitting a required inspection. Which fact makes this a direct
-      bribery scenario under Revised Penal Code Article 210?
+      for omitting a required inspection. Which fact makes this a
+      bribery scenario?
     choices:
       - text: The officer receives a benefit that is not cash
-        rationale: A noncash benefit can be a bribe, but its form alone does not establish direct bribery.
+        rationale: A noncash benefit can be a bribe, but its form alone does not establish bribery.
       - text: The benefit is accepted in exchange for skipping an official duty
         correct: true
       - text: The supplier offers the benefit without telling other suppliers
@@ -181,7 +181,7 @@ questions:
         rationale: A possible delivery delay does not establish an exchange involving an official duty.
     explanation: |
       The vacation is a benefit offered in exchange for skipping a duty.
-      Accepting that bargain shows direct bribery. A bribe need not be cash.
+      Accepting that bargain shows bribery. A bribe need not be cash.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0010
     type: ra-3019-clause-match
@@ -224,9 +224,10 @@ questions:
       - text: RA 6770
         rationale: RA 6770 concerns the Ombudsman, not these general processing limits.
     explanation: |
-      RA 11032 sets these general limits. The applicant must submit complete
-      requirements and pay the needed fees. Lawful extensions and special
-      rules may apply, so a delay alone does not prove corruption.
+      RA 11032 sets these general limits. Processing starts when requirements
+      are complete and any applicable fee is paid. If no fee applies, complete
+      requirements start the period. Lawful extensions and special rules may
+      apply, so a delay alone does not prove corruption.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0012
     type: vote-buying-recognition
