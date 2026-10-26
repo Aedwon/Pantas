@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-accountability-and-impeachment",
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "5208c3fba320683aebdb02a5388506f36d09c66f",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "8c725ee9f0f2f71751f5c4820fdc64323472761f"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "90fe72025829c4014aed4a911336cdffdd0d37d868c6660ffe943510c17de69c",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "a99044e628f17bb1343502b62b0955521179e82dc4a4ae9652e5a8212087d857"
+ },
+ "paths": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "id": "RD-146",
+ "type": "read",
+ "created": "2026-10-26T13:23:46+00:00"
+}
