@@ -7,84 +7,75 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 12
 isActive: true
 ---
-<!-- Audit: RW-120; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: assignment-supplied verification for Constitution Article XI Sections 1, 2, 3, 4, 17; RA 7080 Sections 1(d) and 2; RA 7659 Section 12; RA 11032 Sections 4 and 9; RA 6713 Sections 3(c), 7(c), 7(d); RA 6770 Section 13; BP 881 Section 261(a). Earlier supplied lesson records RA 3019 Section 3(b), (e), (g), (h), (k) checked at https://lawphil.net/statutes/repacts/ra1960/ra_3019_1960.html on 2026-10-26. Source conflict: RD-121 attributes a private-benefit/public-prejudice purpose condition to Section 3(k), but that condition is in RA 6713 Section 7(c); the recorded RA 3019 text does not state it. The lesson distinguishes the provisions and includes the purpose condition under the correct law. RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative possible cause-and-effect explanations, not measured claims. All case facts are hypothetical. RD-123 correction: payment starts the processing clock only when a fee applies; complete fee-free requests also have processing deadlines. -->
+<!-- Audit: RW-126. Branch: content/cse-rewrite-r1, supplied, not inspected. Standards base: f1062e06, supplied. Access date: 2026-10-26. Goal: Recognize forms of corruption and explain their social, economic, and political effects. No prerequisite teaching assumed. Source ledger: supplied primary-source verification for Constitution Article XI Sections 1, 2, 3, 4, 17; RA 7080 Sections 1(d), 2; RA 7659 Section 12; RA 11032 Sections 4, 9; RA 6713 Sections 3(c), 7(c), 7(d); RA 6770 Section 13; BP 881 Section 261(a). RA 3019 Section 3(b), (e), (g), (h), (k) checked at https://lawphil.net/statutes/repacts/ra1960/ra_3019_1960.html. Direct-bribery duty-omission case checked against Revised Penal Code Article 210 at https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/28/20426. Processing conditions checked at https://lawphil.net/statutes/repacts/ra2018/ra_11032_2018.html. RA 7659's fifty-million threshold supersedes RA 7080's original threshold. No plunder penalty or case-specific injury proof rule taught. Section 3(k) of RA 3019 and Section 7(c) of RA 6713 are distinguished. Effects are possible qualitative chains, not statistics. Examples are hypothetical. -->
 ## Core Concept
 
-### What corruption is
+### What Corruption Is
 
 **Corruption** means misusing public office or public trust for private gain. Article XI, Section $1$ of the Constitution says public office is a public trust. Officials must serve people and answer for their actions.
 
 Public interest means putting people's needs before personal gain. Simple living means living modestly. Corruption breaks these standards, but an honest mistake alone does not prove corruption.
 
-### Forms
+### Forms of Corruption
 
-**Direct bribery**, under the Revised Penal Code, Article $210$, is an offense by a public officer. The officer agrees to act for a benefit, accepts an offer or promise, or receives a gift or present in exchange for an act tied to official duties. The deal must be to commit a crime, do an unjust act, or skip a required duty.
+**Direct bribery** involves an exchange tied to official duties. Under Revised Penal Code Article $210$, one form occurs when an officer receives or is promised a gift to skip a required duty. An offer that the officer rejects does not show the officer accepted a bribe.
 
-The officer's agreement, acceptance, or receipt completes the officer's offense. The officer need not carry out the agreed act first. An offer alone does not make the officer guilty if the officer does not agree or accept it.
+**Graft and corrupt practices** include these acts under RA $3019$, Section $3$:
 
-**Graft and corrupt practices** include acts under RA $3019$, Section $3$:
+- Section $3(b)$: seeking or receiving benefits connected with a government contract or transaction the officer must handle under law.
+- Section $3(e)$: causing undue injury to a party, including the government, or giving a private party unwarranted benefits while doing official duties. This must involve manifest partiality, evident bad faith, or gross inexcusable negligence.
+- Section $3(h)$: holding a financial interest in a transaction the officer officially handles, or an interest forbidden by law.
+- Section $3(k)$: giving valuable confidential information gained through office to unauthorized people, or releasing it before its authorized release date.
 
-- Section $3(b)$: seeking or receiving benefits tied to a government contract or transaction the officer must handle under law.
-- Section $3(e)$ covers causing actual loss or giving a private party a benefit with no proper basis. The act must happen while doing official duties. It must involve clear favoritism, clearly dishonest intent, or extreme carelessness with no excuse.
-- Section $3(h)$: holding a money interest in a transaction the officer officially handles, or an interest forbidden by law.
-- Section $3(k)$: sharing valuable confidential information gained through office with unauthorized people, or releasing it before its authorized release date.
-
-**Confidential information** is information kept from public release. RA $6713$, Section $7(c)$ also prohibits disclosing or misusing such office information to benefit private interests or harm the public interest. This purpose condition belongs to that provision.
-
-<!-- Source check, 2026-10-26: Renales v. People, G.R. Nos. 231530-33, June 16, 2021, on RA 3019 Section 3(e): https://lawphil.net/judjuris/juri2021/jun2021/gr_231530-33_2021.html. The Court requires undue injury to be specified, quantified, and proved beyond reasonable doubt. -->
-In Section $3(e)$, **undue injury** means actual loss or damage. For this ground under RA $3019$, Section $3(e)$, the loss and its amount must be stated and proved beyond reasonable doubt. This means proof that leaves no reasonable doubt about guilt in the mind of a fair judge.
-
-The Supreme Court confirmed this proof rule in Renales v. People. Wrongdoing alone does not prove this loss.
-
-**Unwarranted benefits** are advantages with no proper basis. This separate ground does not require proof of that loss. The clause covers loss to any party, including the government, or such benefits given to a private party.
+**Undue injury** means actual loss or damage. **Unwarranted benefits** are advantages with no proper basis. These are separate grounds under Section $3(e)$.
 
 **Manifest partiality** means clear favoritism. **Evident bad faith** means clearly dishonest intent. **Gross inexcusable negligence** means extreme carelessness with no excuse.
 
-Section $3(g)$ covers clearly and greatly harmful government contracts even without private profit. Each clause has conditions. A bad result alone does not prove every condition.
+Section $3(g)$ also covers clearly and greatly harmful government contracts even without private profit. Each clause has conditions. A bad result alone does not prove every condition.
 
-**Plunder** means a public officer gathers ill-gotten wealth through a combination or series of acts covered by RA $7080$. Ill-gotten means unlawfully gained. Section $1(d)$ includes misuse of public funds and taking kickbacks from government projects.
+**Confidential information** is information kept from public release. RA $6713$, Section $7(c)$ separately bans disclosing or misusing protected office information for private benefit, unfair advantage, or harm to the public interest. Check this purpose condition when applying that rule.
 
-A **kickback** is a payment returned to an officer for arranging a deal. Section $2$, amended by RA $7659$, Section $12$, sets the total threshold at at least ₱$50$ million. Lawfully earned wealth does not qualify.
+**Plunder** involves a public officer gathering ill-gotten wealth through a combination or series of acts covered by RA $7080$. Ill-gotten means unlawfully gained. Section $1(d)$ includes misuse of public funds and project kickbacks.
+
+A **kickback** is a payment returned to an officer for arranging a deal. Section $2$, amended by RA $7659$, Section $12$, sets the threshold at at least ₱$50$ million. Lawfully earned wealth does not qualify.
 
 **Red tape** means ineffective rules or processes that cause poor service. A **fixer** uses access to government workers to speed transactions for money or another benefit.
 
-Under Section $9$ of RA $9485$, as amended by RA $11032$, processing generally takes at most $3$ working days for simple requests and $7$ for complex ones. Highly technical requests generally have a $20$-working-day limit.
+Under Section $9$ of RA $9485$, as amended by RA $11032$, the general limits are $3$ working days for simple requests, $7$ for complex ones, and $20$ for highly technical ones. Complete requirements and payment of any applicable fee start processing. Fee-free requests still have deadlines.
 
-Processing starts when the requirements are complete and any applicable fee is paid. If no fee applies, complete requirements start the processing period. A fee-free request still has a deadline.
+One extension of the same length is allowed under stated conditions. It must appear in the Citizen's Charter, the office's posted service guide. Before the deadline, written notice must state the reason and final release date, with the applicant signing as proof of notice.
 
-An extension is allowed once for the same length and must appear in the Citizen's Charter, the office's posted service guide. Before time runs out, written notice must give the reason and final release date. The applicant signs as proof of notice.
+Specified disasters or system failures can pause the clock. Requests needing local council approval have a separate $45$-working-day period, extendible by $20$ working days. Delay alone does not prove a payoff.
 
-Time limits pause when uncontrollable events or disasters damage records or cause processing-system failure. Requests needing local council approval have a separate $45$-working-day period, extendible by $20$ working days. Delay alone does not prove a payoff.
-
-### Effects
+### Social, Economic, and Political Effects
 
 **Social effects** concern people's lives and fair access to help. Aid given to friends can leave needy families without food. Poor households may suffer more because they cannot buy another service.
 
-**Economic effects** concern money, work, and resources. Inflated prices leave less money for useful projects. Poor construction needs repairs, while payoffs and needless steps raise business costs and can discourage honest firms and investors.
+**Economic effects** concern money, work, and resources. Inflated prices leave less money for useful projects. Poor construction needs repairs, while payoffs and needless steps raise costs and can discourage honest businesses and investors.
 
-**Political effects** concern public power and accountability. Accountability means answering for one's actions. Officials who serve payers instead of voters weaken fair decision-making and trust in government.
+**Political effects** concern public power and accountability. Accountability means answering for one's actions. Officials who serve payers instead of voters weaken fair decisions and trust in government.
 
 Vote buying and selling are election offenses under Omnibus Election Code Section $261(a)$. Benefits are used to influence voting. This can weaken trust that elections express voters' free choices.
 
 <!-- ILLUSTRATION: Center "Corruption" with arms "Social: unfair access, lost trust", "Economic: wasted funds, higher costs", and "Political: weaker accountability, lost election trust". -->
 
-### How the State responds
+### How the State Responds
 
 The **Ombudsman** acts on complaints against government workers under RA $6770$, Section $13$. The **Sandiganbayan** is the anti-graft court retained by Article XI, Section $4$. It tries cases within its legal authority.
 
-**Impeachment** is a process for removing specified high officials. The House brings charges, and the Senate tries them. Article XI, Section $2$ includes bribery and graft and corruption as grounds; Section $3$ sets out the process.
+**Impeachment** is a process for removing specified high officials. The House brings charges, and the Senate tries them. Article XI, Section $2$ lists bribery and graft and corruption as grounds; Section $3$ sets out the process.
 
 A **SALN**, or Statement of Assets, Liabilities, and Net Worth, reports wealth and debts. Article XI, Section $17$ requires sworn declarations. These records help make wealth open to checks.
 
-RA $6713$, Section $7(d)$ sets gift restrictions. Section $3(c)$ excludes unsolicited gifts of insignificant value not given for a favor. The Duties and Prohibited Acts lesson covers the gift rules and their exceptions.
+RA $6713$, Section $7(d)$ sets gift restrictions. Section $3(c)$ excludes unsolicited gifts of insignificant value not given for a favor. Small value alone is not enough to satisfy this exception.
 
 <!-- ILLUSTRATION: "Complaint" points to "Ombudsman: acts on complaints"; separate box "Sandiganbayan: tries cases within its legal authority". -->
 
-### Weighing the effects
+### Weighing the Effects
 
 “Evaluate” means judge a claim using reasons. Separate the act from its results. One act can cause social, economic, and political harm at once.
 
-“Classify” means sort into groups. To classify an effect, look at the main harm described: harm to people's lives, harm to resources, or harm to public accountability.
+“Classify” means sort into groups. Look at the main harm named: harm to people's lives, resources, or public accountability.
 
 ## Examples
 
@@ -97,10 +88,11 @@ The demand uses office for private gain. The typo alone does not show that misus
 
 ### #2: Naming the Form
 
-An inspector accepts money in exchange for skipping a required inspection. The inspector has not skipped it yet. What form of corruption does this show?
+An inspector accepts money in exchange for skipping a required inspection. What form of corruption does this show?
 
 **Solution:**
-It shows direct bribery. The inspector accepted money to skip an official duty. That acceptance completes the offense even before the inspector skips the check.
+1. The inspection is a required official duty.
+2. The inspector accepts payment to skip it. This shows direct bribery under Article $210$.
 
 ### #3: Contract Gift
 
@@ -111,11 +103,11 @@ Section $3(b)$ covers the benefit tied to that official transaction.
 
 ### #4: Plunder Threshold
 
-A public officer repeatedly takes kickbacks from government projects and gathers exactly ₱$50$ million. Do the stated means and amount fit the plunder rule?
+A public officer repeatedly takes project kickbacks and gathers exactly ₱$50$ million. Do the stated means and amount fit the plunder rule?
 
 **Solution:**
 1. Repeated project kickbacks are a series of covered acts.
-2. Exactly ₱$50$ million meets the threshold. These stated facts fit the means and amount requirements.
+2. Exactly ₱$50$ million meets the threshold. The stated means and amount fit those requirements.
 
 ### #5: Social Harm
 
@@ -159,7 +151,7 @@ The Ombudsman can act on it. A complaint alone does not establish guilt.
 
 ### #10: Preventing Payoffs
 
-An office posts its requirements, fees, and processing times. How can this reduce corruption?
+An office posts requirements, fees, and processing times. How can this reduce corruption?
 
 **Solution:**
 People can compare demands with the posted process and spot hidden charges or invented delays.
@@ -170,7 +162,7 @@ A speaker says corruption harms only the government budget. Is the claim sound?
 
 **Solution:**
 1. Lost funds harm the budget.
-2. Denied services also harm families, and bought decisions weaken accountability.
+2. Denied services harm families, and bought decisions weaken accountability.
 3. The claim leaves out social and political harm. It is too narrow.
 
 ## Traps to Watch For
@@ -185,7 +177,7 @@ Small value alone does not make a gift allowed. A gift exchanged for a favor fai
 
 > Choose by the main harm named in the question.
 
-Lost classrooms affect both resources and education. The question's focus guides the classification.
+Lost classrooms affect resources and education. The question's focus guides the classification.
 
 ### #3: Every Delay Proves Corruption
 
@@ -197,10 +189,10 @@ Bad procedures may be red tape. Demanding payment to escape them adds corruption
 
 > Benefits and misuse take other forms.
 
-Favoritism and information leaks can fall under RA $3019$. Check the relevant clause's conditions. For RA $6713$, Section $7(c)$, check whether the disclosure or misuse benefits private interests or harms the public interest.
+Favoritism and information leaks can fall under RA $3019$. Check the clause's conditions. For RA $6713$, Section $7(c)$, also check the prohibited purpose.
 
 ### #5: Nobody Loses
 
 > Ask who loses public services or fair treatment.
 
-A private payoff can leave other people without needed help. The harm reaches beyond the people making the deal.
+A private payoff can leave others without needed help. The harm reaches beyond the people making the deal.
