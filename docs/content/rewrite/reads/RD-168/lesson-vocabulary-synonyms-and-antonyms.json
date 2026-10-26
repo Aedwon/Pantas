@@ -1,0 +1,370 @@
+{
+ "batch": "RD-168",
+ "lesson_id": "lesson-vocabulary-synonyms-and-antonyms",
+ "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+ "lesson_sha256": "14753c1b0773ea8613fc27c50a856bd536aaa1265e4180319f7a1f6e1c8e04a8",
+ "rewrite_commit": "d1a5012dce2a14506321bbbc60fc860c171060af",
+ "form": {
+  "packet": "lesson-vocabulary-synonyms-and-antonyms",
+  "role": "A",
+  "lesson_sha256": "14753c1b0773ea8613fc27c50a856bd536aaa1265e4180319f7a1f6e1c8e04a8",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked synonym/antonym definitions, intermediate temperature levels, the restricted alive/dead system, seller/buyer roles, fast/bank senses, connotation, intensity, register, collocation, and prefix limitations. No factual error found. Official Filipino usage remains subject to L11; external sources were neither supplied nor consulted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 B fleeting; 2 A aggravate; 3 B nasira; 4 B mayaman; 5 B shore; 6 A commence; 7 B slender; 8 C irritated; 9 C heavy rain; 10 A bought from Mara; 11 D dead; 12 D exact temperature not given; 13 A not finished; 14 B excessive praise for approval; 15 C choose. Each matches the solution. Naglaho no longer competes with nasira."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For appear. Brief-required sense, tone, intensity, formality, collocation, and opposite-role cases are included. These verbal examples need no figure; no external outline was available."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions use short sentences with concrete word contrasts. Solutions explain difficult target vocabulary in common words. The choice-position trap no longer uses evidence-based or item-writer jargon."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Choose and select are everyday instructions. No exam-specific command such as infer or evaluate appears without a definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy occurs. The former exact-twins heading has been replaced."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All fifteen examples include complete questions and necessary context. Example 14 explicitly asks for the target meaning. Solutions explain meanings and choices simply. Example 11 supplies its necessary system restriction rather than an antonym definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported exam-content assertions or repeated exam-name introductions appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino subsection and examples 3–4 use simple Filipino to teach meanings, including the nonliteral use of gumuho."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Kasingkahulugan and kasalungat receive short English glosses on first use only."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 3 and 4 have Filipino prompts, choices, and numbered explanations. The other examples appropriately teach English vocabulary in English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF checking cannot be completed from this prompt alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino prose remains Filipino. Parenthetical synonym/antonym glosses are allowed first-use glosses rather than Taglish explanation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "English target-word prompts say word in bold and bold their targets. Filipino examples 3 and 4 use salitang nakadiin with bold gumuho/maralita. Completion and role questions do not point to a marked target word."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly names selection criteria. Sentence openings vary, and no listed stock AI construction occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The retained Speed Tricks & Shortcuts section fits this language lesson. No example uses a mathematical formula, so there are no formulas to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover direct synonym/antonym 1–2, Filipino meanings 3–4, active sense 5, register 6, connotation 7, intensity 8, collocation 9, converse roles 10, complementary states 11, gradable negation 12, prefix/context 13, difficult contextual word 14, and grammar 15. Initial direct items develop into contextual selection and distinct limits; no case is merely a noun substitution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All fifteen solutions place Solution separately and use numbered reasoning steps. The word-meaning, relationship, and grammar inferences are shown. There is no numerical computation needing display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, shortcut, and trap paragraphs have at most three short sentences. No excessive bullet lists occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No placeholders occur. These word questions do not require figures.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Synonym, antonym, collocation, opposite types, connotation, intensity, register, and prefix are defined before use. Filipino terms receive glosses. The final solution immediately explains verb as naming an action."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Collocation is explained through heavy rain, complementary opposition through the allowed states, and converse opposition through Ana/Ben roles. Contrasting words explain feeling, strength, and formality. Worked examples apply each selection concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Synonym replacement is limited by context and grammar. Complementary negation requires only two allowed states; gradable opposites have middle levels. Prefix clues require real meaningful parts and a contextual check. Examples and traps reinforce these limits."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-synonyms-and-antonyms|L18|0": {
+    "status": "fixed",
+    "quote": "### #6: Matching Formality",
+    "note": "Examples 6–9 separately work register, positive tone, intensity, and common word pairing."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L18|2": {
+    "status": "fixed",
+    "quote": "The words *of the river* show that **bank** refers to land beside water.",
+    "note": "Example 5 selects the river sense over money-related senses of bank."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L02|0": {
+    "status": "fixed",
+    "quote": "Words with close meanings can differ in strength.",
+    "note": "The dense sentence is replaced by short statements and individually explained terms."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L02|1": {
+    "status": "fixed",
+    "quote": "The assistant praises even bad ideas because he wants the manager to like him.",
+    "note": "The sycophantic solution now explains the behavior in simple words."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L02|2": {
+    "status": "fixed",
+    "quote": "Compare the meanings and use the sentence.",
+    "note": "The trap gives direct advice without abstract evidence-based or item-writer language."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L05|0": {
+    "status": "fixed",
+    "quote": "Which meaning best fits the word in bold?",
+    "note": "Example 14 now has a complete instruction asking for the target meaning."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L05|1": {
+    "status": "fixed",
+    "quote": "The assistant praises even bad ideas because he wants the manager to like him.",
+    "note": "The difficult obsequious-flattery explanation is replaced with simple behavior."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L08|0": {
+    "status": "fixed",
+    "quote": "Hindi gusali ang gumuho sa pangungusap.",
+    "note": "The gumuho explanation now uses simple Filipino throughout."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L10|0": {
+    "status": "fixed",
+    "quote": "Alin ang pinakamalapit na kahulugan ng salitang nakadiin?",
+    "note": "The Filipino synonym prompt is now entirely in Filipino."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L10|1": {
+    "status": "fixed",
+    "quote": "Alin ang kasalungat ng salitang nakadiin na **maralita**?",
+    "note": "The Filipino antonym prompt now asks its question in Filipino."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L14|2": {
+    "status": "fixed",
+    "quote": "Alin ang pinakamalapit na kahulugan ng salitang nakadiin?",
+    "note": "The prompt now refers explicitly to the bold target using Filipino wording."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L14|4": {
+    "status": "fixed",
+    "quote": "Which meaning best fits the word in bold?",
+    "note": "The sycophantic prompt now explicitly refers to the word in bold."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L19|0": {
+    "status": "fixed",
+    "quote": "1. **Ephemeral** means lasting for a very short time.",
+    "note": "The synonym meaning and answer now use two numbered steps."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L19|1": {
+    "status": "fixed",
+    "quote": "1. **Mitigate** means to make something less severe.",
+    "note": "The antonym meaning and opposite comparison are now numbered steps."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L19|2": {
+    "status": "fixed",
+    "quote": "1. Hindi gusali ang gumuho sa pangungusap.",
+    "note": "The contextual Filipino solution now has numbered explanation steps."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L19|3": {
+    "status": "fixed",
+    "quote": "1. Ang **maralita** ay tumutukoy sa taong mahirap.",
+    "note": "The solution now explains the meaning and opposite in numbered steps."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L19|4": {
+    "status": "fixed",
+    "quote": "1. The assistant praises even bad ideas because he wants the manager to like him.",
+    "note": "The behavior-based solution now has two numbered reasoning steps."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L25|0": {
+    "status": "fixed",
+    "quote": "A **collocation** is a group of words that people commonly use together.",
+    "note": "Collocation is defined before students need it as a selection criterion."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L25|1": {
+    "status": "fixed",
+    "quote": "**Gradable opposites** have levels between them.",
+    "note": "All three opposite types now have plain meanings and concrete explanations."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L26|0": {
+    "status": "fixed",
+    "quote": "If Ana sells a book to Ben, Ben buys the book from Ana.",
+    "note": "Reversed participant roles are demonstrated. The complementary system also explains elimination of one of two allowed states."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L26|1": {
+    "status": "fixed",
+    "quote": "English uses *heavy rain*, not *strong rain*.",
+    "note": "The definition and contrast explain why close meanings do not ensure natural pairings."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|lead-add|0": {
+    "status": "fixed",
+    "quote": "A) natupad  \nB) nasira  \nC) lumakas  \nD) nagsimula",
+    "note": "Naglaho is removed. Only nasira fits failed dreams among these choices. Official Filipino usage still needs source checking."
+   },
+   "language-proficiency-vocabulary#83": {
+    "status": "fixed",
+    "quote": "Ruling out *alive* leaves **dead**.",
+    "note": "The two-state explanation is applied in example 11 under a stated system restriction."
+   },
+   "language-proficiency-vocabulary#84": {
+    "status": "fixed",
+    "quote": "Mara sold the book, so Leo **bought the book from Mara**.",
+    "note": "The reverse participant roles are taught and worked in example 10."
+   },
+   "language-proficiency-vocabulary#86": {
+    "status": "fixed",
+    "quote": "**Commence** means begin and is formal.",
+    "note": "Register is defined with formal, neutral, and casual contrasts, then applied to an official notice."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L03|0": {
+    "status": "not_fixed",
+    "quote": "Choose the word closest in meaning to the word in bold: **ephemeral**.",
+    "note": "Choose remains unglossed. This optional item was appropriately left alone because the instruction is ordinary."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L03|1": {
+    "status": "not_fixed",
+    "quote": "Select the word most nearly opposite to the word in bold: **mitigate**.",
+    "note": "Select remains unglossed. The guide does not require explanations of ordinary instructions."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L04|0": {
+    "status": "fixed",
+    "quote": "Close meanings do not make words fit every sentence.",
+    "note": "The exact-twins wording has been removed from the trap."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L14|0": {
+    "status": "fixed",
+    "quote": "Choose the word closest in meaning to the word in bold: **ephemeral**.",
+    "note": "The direct synonym question now explicitly says word in bold."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L14|1": {
+    "status": "fixed",
+    "quote": "Select the word most nearly opposite to the word in bold: **mitigate**.",
+    "note": "The direct antonym question now explicitly says word in bold."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L14|3": {
+    "status": "fixed",
+    "quote": "Alin ang kasalungat ng salitang nakadiin na **maralita**?",
+    "note": "The Filipino antonym question explicitly identifies its bold target."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L18|1": {
+    "status": "fixed",
+    "quote": "The record allows only *alive* or *dead*.",
+    "note": "Examples 10–12 separately apply converse roles, complementary states, and gradable opposition."
+   },
+   "lesson-vocabulary-synonyms-and-antonyms|L18|3": {
+    "status": "fixed",
+    "quote": "The missing final page confirms that meaning.",
+    "note": "Example 13 uses the prefix clue and checks the result against the missing-page context."
+   }
+  }
+ }
+}
