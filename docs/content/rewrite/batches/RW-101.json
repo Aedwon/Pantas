@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-verbal-logic-assumptions-and-conclusions"
+ ],
+ "topic": "reasoning/verbal-logic",
+ "round": 2,
+ "paths": {
+  "lesson-verbal-logic-assumptions-and-conclusions": "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md"
+ },
+ "extra_brief": {
+  "lesson-verbal-logic-assumptions-and-conclusions": "## Left open by the earlier read (RD-030)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-verbal-logic-assumptions-and-conclusions|L19|0`: Example 2 gives its worked solution as a prose paragraph instead of numbered solution steps. Examples 3 and 4 also use unnumbered prose, so the required numbered-step solution format is not followed consistently. Reason: Short verbal explanations read fine as prose; numbering is optional.\n   Reader's note: Example 3 is now numbered, but short verbal solutions such as Example 4 still use prose rather than numbered steps. This optional item was not fully changed."
+ },
+ "id": "RW-101",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:15+00:00"
+}

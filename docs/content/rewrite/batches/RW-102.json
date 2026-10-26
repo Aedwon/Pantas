@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-biology-ecology"
+ ],
+ "topic": "science/biology",
+ "round": 3,
+ "paths": {
+  "lesson-biology-ecology": "content/lessons/science/biology/ecology.md"
+ },
+ "extra_brief": {
+  "lesson-biology-ecology": "## Left open by the earlier read (RD-067)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L15 (Minor). Problem: All seven strategy paragraphs begin with \"For\". This repeats the same sentence opening more than three times in a row and breaks the required variation.\n   > For food-web arrows, read each arrow as **energy moves to** the consumer.\n\n### Brief items not fixed\n\n1. Item `lesson-biology-ecology|L03|0`: The exam verbs \"Arrange\" and \"identify\" first appear here without the required one-line explanations of what the student must do. Reason: 'Arrange' and 'identify' are plain everyday words, not real exam verbs needing a gloss.\n   Reader's note: Optional glosses were not added. Arrange and identify remain ordinary instruction words.\n2. Item `lesson-biology-ecology|L03|1`: The exam verb \"estimate\" first appears here without a one-line explanation of what the instruction means. Reason: 'Estimate' is plain and the example itself shows what to do; a gloss is optional.\n   Reader's note: The optional estimate gloss was not added; the worked calculation demonstrates the task."
+ },
+ "id": "RW-102",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:15+00:00"
+}

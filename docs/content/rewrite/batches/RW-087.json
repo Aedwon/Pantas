@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives",
+  "lesson-grammar-and-structure-sentence-structure"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 5,
+ "paths": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+  "lesson-grammar-and-structure-sentence-structure": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md"
+ },
+ "extra_brief": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "## Left open by the earlier read (RD-051)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|0`: Example #2's solution is plain prose instead of the required numbered solution-step list. Reason: Example 2 is a one-line answer, so numbered steps add little.\n   Reader's note: Example #2 remains a permitted single-sentence answer; the requested optional numbering was not added.\n2. Item `lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|1`: Example #3's solution is plain prose instead of the required numbered solution-step list. Reason: Example 3 is a one-line answer, so numbered steps add little.\n   Reader's note: Example #3 remains a permitted single-sentence answer; the optional numbered format was not added.",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "## Left open by the earlier read (RD-051)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: Example #6 places four sentences in one paragraph. L22a permits only one to three short sentences per paragraph.\n   > Mara read the notice aloud. At Ben's request, she repeated it. Ben still could not hear. Does \"again\" add meaning in his next request, \"Please repeat it again\"?",
+  "lesson-grammar-and-structure-sentence-structure": "## Left open by the earlier read (RD-052)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L09 (Minor). Problem: The technical Filipino clause labels sugnay na makapag-iisa and sugnay na di-makapag-iisa receive no English gloss at first use. Glossing sugnay as clause alone does not gloss the two clause types.\n   > Buo ang diwa nito, kaya ito ay sugnay na makapag-iisa."
+ },
+ "id": "RW-087",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-earth-science-astronomy-weather-and-climate"
+ ],
+ "topic": "science/earth-science-astronomy",
+ "round": 2,
+ "paths": {
+  "lesson-earth-science-astronomy-weather-and-climate": "content/lessons/science/earth-science-astronomy/weather-and-climate.md"
+ },
+ "extra_brief": {
+  "lesson-earth-science-astronomy-weather-and-climate": "## Left open by the earlier read (RD-008)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Accuracy concerns\n\n1. PAGASA states tropical depression as up to 61 km/h; the lower bound of 39 km/h should be checked against the PAGASA source.\n   > Tropical depression: $39$ to $61$ km/h."
+ },
+ "id": "RW-103",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:15+00:00"
+}

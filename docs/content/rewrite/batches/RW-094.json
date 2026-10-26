@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-statistics-and-probability-basic-probability",
+  "lesson-statistics-and-probability-data-analysis-graphs",
+  "lesson-statistics-and-probability-measures-of-central-tendency"
+ ],
+ "topic": "mathematics/statistics-and-probability",
+ "round": 2,
+ "paths": {
+  "lesson-statistics-and-probability-basic-probability": "content/lessons/mathematics/statistics-and-probability/basic-probability.md",
+  "lesson-statistics-and-probability-data-analysis-graphs": "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
+  "lesson-statistics-and-probability-measures-of-central-tendency": "content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md"
+ },
+ "extra_brief": {
+  "lesson-statistics-and-probability-basic-probability": "## Left open by the earlier read (RD-029)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L21 (Minor). Problem: This is a long, unbroken display equation with text on both sides of several operators, making it too wide for a typical phone content area.\n   > $$P(A\\text{ or }B)=P(A)+P(B)-P(A\\text{ and }B)$$",
+  "lesson-statistics-and-probability-data-analysis-graphs": "## Left open by the earlier read (RD-029)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L21 (Minor). Problem: This unbroken display formula is too wide for a typical phone content area because both the fraction and the surrounding text are long.\n   > $$\\text{percent change}=\\dfrac{\\text{new value}-\\text{original value}}{\\text{original value}}\\times100\\%$$\n\n### Brief items not fixed\n\n1. Item `lesson-statistics-and-probability-data-analysis-graphs|L18|1`: The lesson explains truncated-axis risk only as teaching and a trap. It has no worked example comparing the same numerical values on different scales, so the visual-scale portion of the learning goal lacks a distinct worked scenario. Reason: The truncated-axis point is taught and trapped; a worked scale-comparison example is optional.\n   Reader's note: The lesson still teaches and traps truncated-axis risk but has no worked example comparing the same values on different axis scales.",
+  "lesson-statistics-and-probability-measures-of-central-tendency": "## Left open by the earlier read (RD-029)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L21 (Minor). Problem: This weighted-mean display is a long, unbroken expression with several text labels and is too wide for a typical phone content area.\n   > $$\\text{weighted mean}=\\dfrac{\\text{sum of }(\\text{value}\\times\\text{weight})}{\\text{sum of weights}}$$\n2. Rule L21 (Minor). Problem: This worked-example display chains a long five-value numerator and two equalities on one line, making it too wide for a typical phone content area.\n   > $$\\dfrac{20+22+25+26+300}{5}=\\dfrac{393}{5}=78.6$$"
+ },
+ "id": "RW-094",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

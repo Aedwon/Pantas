@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-authors-purpose-tone-pov",
+  "lesson-comprehension-skills-fact-vs-opinion",
+  "lesson-comprehension-skills-inferencing-and-conclusions"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "round": 5,
+ "paths": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+  "lesson-comprehension-skills-fact-vs-opinion": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md"
+ },
+ "extra_brief": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "## Left open by the earlier read (RD-077)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: Example #2 puts five sentences in one paragraph. The formatting rule allows only one to three short sentences per paragraph. Example #12 also puts five sentences in one quoted paragraph.\n   > Water enters the town through a treatment plant. Filters remove small particles before the water reaches storage tanks. Pipes then carry it to homes. The town website has a written description of this route. Residents may visit the plant during its open house.",
+  "lesson-comprehension-skills-fact-vs-opinion": "## Left open by the earlier read (RD-004)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L03 (Minor). Problem: “Classify” is an exam instruction word, but its meaning is not explained on first use.\n   > Classify each statement as a factual claim or an opinion.",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "## Left open by the earlier read (RD-061)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: Example 7 gives all three scale conversions inline without displayed key computations. The steps are understandable, so this is a minor formatting failure rather than missing reasoning.\n   > 1. Count each bar's squares and use the legend. Monday shows $20$ visitors, Tuesday $30$, and Wednesday $15$."
+ },
+ "id": "RW-095",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

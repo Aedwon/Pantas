@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-environment-management-species-resources-and-environmental-decisions"
+ ],
+ "topic": "general-information/environment-management",
+ "round": 4,
+ "paths": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md"
+ },
+ "extra_brief": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "## Left open by the earlier read (RD-070)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: L22a limits a paragraph to one to three short sentences. The Example 1 question paragraph contains four sentences.\n   > A threatened native bird nests in a forest patch. A viewing trail can cross the nesting area or take a slightly longer route around it. Both routes are safe and lawful. Which better protects the bird while allowing visitors?"
+ },
+ "id": "RW-085",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-geometry-logic-and-reasoning",
+  "lesson-geometry-measurement"
+ ],
+ "topic": "mathematics/geometry",
+ "round": 3,
+ "paths": {
+  "lesson-geometry-logic-and-reasoning": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+  "lesson-geometry-measurement": "content/lessons/mathematics/geometry/measurement.md"
+ },
+ "extra_brief": {
+  "lesson-geometry-logic-and-reasoning": "## Left open by the earlier read (RD-060)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-geometry-logic-and-reasoning|L03|0`: The exam verb \"Identify\" appears as an instruction without the required one-line explanation of what the student should do. Reason: \"Identify\" is plain, and the solution immediately shows what to do.\n   Reader's note: Identify remains without a gloss. This is allowed because it is an everyday instruction, as the brief itself explains.",
+  "lesson-geometry-measurement": "## Left open by the earlier read (RD-041)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-geometry-measurement|L03|0`: The command verb \"Find\" is used in the first worked question without the required one-line explanation on first use. Reason: \"Find\" is an everyday verb; a gloss is unnecessary.\n   Reader's note: Optional item left alone: 'Find' is still not glossed, which is acceptable for an everyday verb."
+ },
+ "id": "RW-093",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

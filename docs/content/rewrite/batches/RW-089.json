@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-vocabulary-context-clues",
+  "lesson-vocabulary-idioms-and-figures-of-speech",
+  "lesson-vocabulary-spelling-rules"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 4,
+ "paths": {
+  "lesson-vocabulary-context-clues": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md"
+ },
+ "extra_brief": {
+  "lesson-vocabulary-context-clues": "## Left open by the earlier read (RD-022)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-context-clues|L18|0`: Synonym or near-synonym clues are taught as a distinct clue type, but there is no worked example devoted to recognizing or using that scenario. Reason: Synonym clue is close to the restatement example; a separate example adds little.\n   Reader's note: No dedicated synonym example was added; the brief permits overlap with restatement.\n2. Item `lesson-vocabulary-context-clues|L18|1`: The learning goal includes checking a candidate against grammar and context, but no worked example explicitly demonstrates the substitution-and-grammar check. Reason: Plug-back-in is a check that a solution step can show; a dedicated example is not required.\n   Reader's note: The check remains advice; no worked solution substitutes a candidate and checks its grammar.",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "## Left open by the earlier read (RD-022)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-idioms-and-figures-of-speech|L18|0`: The lesson states the literal-use edge case but never works a paired literal-context example, so the idiomatic-versus-literal scenario is not fully covered by a worked example. Reason: A literal-use pair is nice to have; the trap already states it.\n   Reader's note: The trap states the distinction; no paired literal-context worked example was added.\n2. Item `lesson-vocabulary-idioms-and-figures-of-speech|L18|2`: The Filipino section names pagtutulad, pagwawangis, and pagbibigay-katauhan/personipikasyon, but none receives a worked Filipino application example, leaving distinct Filipino-device scenarios uncovered. Reason: Filipino device terms are listed as a glossary; one worked pagtutulad item would help but is optional.\n   Reader's note: The Filipino labels remain a glossary without new Filipino simile, metaphor, or personification applications.",
+  "lesson-vocabulary-spelling-rules": "## Left open by the earlier read (RD-054)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-spelling-rules|L03|0`: The exam verb \"Choose\" first appears here without the required one-line explanation of what the student should do. Reason: Choose is a plain instruction word, not an exam verb needing a gloss.\n   Reader's note: Choose remains unglossed. The optional change is absent and this everyday command needs no definition."
+ },
+ "id": "RW-089",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

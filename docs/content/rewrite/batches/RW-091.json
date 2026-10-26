@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-algebra-exponents-and-logarithms",
+  "lesson-algebra-types-of-functions",
+  "lesson-algebra-word-problems"
+ ],
+ "topic": "mathematics/algebra",
+ "round": 4,
+ "paths": {
+  "lesson-algebra-exponents-and-logarithms": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md",
+  "lesson-algebra-word-problems": "content/lessons/mathematics/algebra/word-problems.md"
+ },
+ "extra_brief": {
+  "lesson-algebra-exponents-and-logarithms": "## Left open by the earlier read (RD-026)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-algebra-exponents-and-logarithms|L03|3`: The exam verb \"Solve\" appears without the required one-line explanation on its first use. Reason: Solve is plain English a Grade 5 student already knows.\n   Reader's note: The optional item remains unchanged: “Solve” is not given its own one-line definition, although it is ordinary language here.\n2. Item `lesson-algebra-exponents-and-logarithms|L18|1`: The logarithm examples cover direct evaluation and log-law manipulation but do not work a logarithmic equation with an unknown argument, a distinct inverse-log scenario identified in the Level 3 record. Reason: Example 3 already finds a log value via the exponential form; a solve-for-the-argument case is optional.\n   Reader's note: The optional unknown-argument logarithm case is still not worked; the lesson only evaluates a known logarithm value.",
+  "lesson-algebra-types-of-functions": "## Left open by the earlier read (RD-057)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: Minor: the computation that determines the hole height is kept inline. L19 requires key computations in a multistep worked solution to be display equations.\n   > The simpler line gives $1+1=2$.",
+  "lesson-algebra-word-problems": "## Left open by the earlier read (RD-057)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-algebra-word-problems|L03|0`: The exam command verb \"Find\" is used in the digit-problem prompt without the required one-line explanation on first use. Reason: Find is plain English and needs no exam-verb definition.\n   Reader's note: Find remains without a definition. This optional change is unnecessary under the everyday-word exception."
+ },
+ "id": "RW-091",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

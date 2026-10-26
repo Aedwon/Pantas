@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+  "lesson-grammar-and-structure-parallelism",
+  "lesson-grammar-and-structure-parts-of-speech"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 3,
+ "paths": {
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": "content/lessons/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.md",
+  "lesson-grammar-and-structure-parallelism": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+  "lesson-grammar-and-structure-parts-of-speech": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md"
+ },
+ "extra_brief": {
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": "## Left open by the earlier read (RD-050)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L09 (Minor). Problem: Aspekto first appears in this heading without its English gloss. The gloss arrives in the next paragraph, so the first-use problem in the brief remains.\n   > ### Aspekto ng Pandiwa\n\n### Brief items not fixed\n\n1. Item `lesson-grammar-and-structure-tenses-and-voice|L09|0`: Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause.\n   Reader's note: The heading still uses aspekto before the paragraph gives its English gloss.",
+  "lesson-grammar-and-structure-parallelism": "## Left open by the earlier read (RD-020)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-grammar-and-structure-parallelism|L03|0`: The exam verbs \"Identify\" and \"fix\" appear in the first worked prompt without the required one-line explanation of what the student should do. Reason: \"Identify and fix\" is plain, self-explaining exam wording.\n   Reader's note: No definition was added. This optional item is unchanged; the current rule exempts ordinary instructions.",
+  "lesson-grammar-and-structure-parts-of-speech": "## Left open by the earlier read (RD-050)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-grammar-and-structure-parts-of-speech|L03|0`: The exam verb \"identify\" is used as a command without the required one-line explanation of what the student must do. Reason: \"Identify\" is clear in context.\n   Reader's note: Identify remains unexplained. This optional edit was not made; the current standard exempts everyday identify."
+ },
+ "id": "RW-086",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

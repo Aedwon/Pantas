@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 5,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "## Left open by the earlier read (RD-080)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: This example question is a single four-sentence paragraph. The formatting rule limits paragraphs to one to three short sentences. Split the paragraph or combine its facts clearly.\n   > A request needs a review of old files. Within $15$ working days, the office explains the review underway and why more time is needed. The citizen later claims there was no response because the review remains unfinished. What evidence matters?",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "## Left open by the earlier read (RD-080)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: This example question is a single four-sentence paragraph. The formatting rule limits paragraphs to one to three short sentences. Split the paragraph or combine its facts clearly.\n   > A visitor gives a worker a single low-value souvenir without being asked. No official favor is expected or being rewarded. The surrounding facts support treating its value as insignificant. Which exception fits?"
+ },
+ "id": "RW-084",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification",
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "round": 4,
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md",
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "extra_brief": {
+  "lesson-language-application-error-identification": "## Left open by the earlier read (RD-053)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: The modal question is one four-sentence paragraph. L22a limits paragraphs to one to three short sentences. Split the four contexts into separate paragraphs.\n   > Complete each sentence with the modal that fits the stated meaning: \"Rosa (can / must) swim well\" describes ability. \"You (may / must) leave now\" gives permission. \"Under the rule, staff (must / might) wear IDs\" states a requirement. \"It (might / must) rain\" states only a possibility.",
+  "lesson-language-application-sentence-completion": "## Left open by the earlier read (RD-019)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: This paragraph has four sentences, over the limit of three.\n   > Learn these patterns with the first verb.\n\n### Accuracy concerns\n\n1. The lesson itself says simple past may be enough when before or after makes the order clear, so 'finished' could be argued for the first blank.\n   > Choose the best forms: \"By the time the desk opened, I ______ the form."
+ },
+ "id": "RW-088",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

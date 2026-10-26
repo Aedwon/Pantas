@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "round": 6,
+ "paths": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+ },
+ "extra_brief": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "## Left open by the earlier read (RD-028)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-logical-verbal-reasoning-number-and-letter-sequences|L19|3`: Example #4 uses numbered steps, but its key conversions and difference computations remain inline instead of being shown as display equations. Reason: Short inline steps are readable; display equations are optional here.\n   Reader's note: Conversions and differences remain inline. The final addition is displayed; the optional request for displayed conversions was not made.",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "## Left open by the earlier read (RD-078)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L03|0`: The exam verb \"Build\" is used in the first worked question without the required one-line explanation of what the verb asks the student to do. Reason: \"Build the table\" is plain enough without a gloss.\n   Reader's note: Build remains without a gloss. The optional brief ruling treats this as ordinary wording, so this is not a rule finding.\n2. Item `lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L17|0`: This content appears under a Speed Tricks & Shortcuts section, but the subject-fit rule for Reasoning requires the reduced Core Concept → Examples → Traps layout and says to drop Speed Tricks. Reason: Approved ruling (Oct 25): keep Speed Tricks only if it holds a real shortcut.\n   Reader's note: The shortcut section remains. It contains genuine early-exit rules and is allowed by the updated subject-fit standard."
+ },
+ "id": "RW-099",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:15+00:00"
+}

@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-figure-grouping",
+  "lesson-spatial-abstract-reasoning-figure-matrices"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "round": 2,
+ "paths": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md"
+ },
+ "extra_brief": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "## Left open by the earlier read (RD-031)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-spatial-abstract-reasoning-figure-grouping|L18|1`: The lesson warns about misleading size or orientation but gives no worked example where visual salience conflicts with the real grouping rule, leaving this stated edge case unpracticed. Reason: The trap is explained in words; a separate worked example is optional.\n   Reader's note: The warning remains only in the traps. There is still no worked example where a visually salient size or orientation difference conflicts with the actual grouping rule.\n2. Item `lesson-spatial-abstract-reasoning-figure-grouping|L18|2`: The examples only confirm rules that work immediately. None shows a candidate rule failing and being revised, or two plausible all-member rules competing, so validation is not practiced at target difficulty. Reason: Showing a rule fail and be revised is nice to have but not required coverage.\n   Reader's note: The lesson gives the strategy in prose, but no worked example shows one candidate rule failing or two plausible rules competing before the correct rule is selected.",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "## Left open by the earlier read (RD-031)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-spatial-abstract-reasoning-figure-matrices|L19|0`: The key numerical progression is kept inside the prose as inline math. L19 requires key computations in worked solutions to be shown as display equations between or after numbered steps. Reason: A short side result such as the dot count may stay inline; a display line adds little.\n   Reader's note: The numerical progression is still shown inline inside the worked solution rather than as a display equation, so this optional brief item was left unchanged."
+ },
+ "id": "RW-100",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:15+00:00"
+}

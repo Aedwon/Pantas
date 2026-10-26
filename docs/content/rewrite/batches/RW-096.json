@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-sequencing-of-events"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "round": 4,
+ "paths": {
+  "lesson-comprehension-skills-sequencing-of-events": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
+ },
+ "extra_brief": {
+  "lesson-comprehension-skills-sequencing-of-events": "## Left open by the earlier read (RD-077)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: The passage in example #7 is one paragraph with four sentences. L22a permits only one to three short sentences per paragraph.\n   > Isinara ang kalsada kaya naantala ang biyahe ng bus. Bago isinara ang kalsada, bumagsak ang malaking puno dahil sa malakas na hangin. Nang malaman ng mga kawani na naantala ang bus, inalis nila ang puno. Pagkatapos alisin ang puno, muling binuksan ang kalsada."
+ },
+ "id": "RW-096",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}

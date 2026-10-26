@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-text-types-visual-media"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "round": 2,
+ "paths": {
+  "lesson-text-types-visual-media": "content/lessons/reading-comprehension/text-types/visual-media.md"
+ },
+ "extra_brief": {
+  "lesson-text-types-visual-media": "## Left open by the earlier read (RD-042)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-text-types-visual-media|L18|1`: Several distinct cartoon techniques are introduced, but the worked cartoon example covers only the labeled boulder scenario; caricature, analogy, juxtaposition, and irony receive no worked application. Reason: One cartoon example cannot show every technique; add a second example only if space allows.\n   Reader's note: Optional item: caricature, exaggeration and juxtaposition are defined but have no worked cartoon example; only labels, irony and analogy are applied."
+ },
+ "id": "RW-097",
+ "type": "rewrite",
+ "created": "2026-10-26T04:22:14+00:00"
+}
