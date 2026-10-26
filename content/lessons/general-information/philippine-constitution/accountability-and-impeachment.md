@@ -61,8 +61,6 @@ In the regular route, the complaint goes through committee review and House acti
 
 There is also a direct route. A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. The Constitution says Senate trial shall proceed **forthwith**.
 
-The Supreme Court reads this as within a reasonable time, based on the facts of each case. This includes time for needed trial preparations. The Senate must not cause undue delay.
-
 The Senate alone tries and decides impeachment cases. Conviction requires agreement by at least $\dfrac{2}{3}$ of all Senators. When the President is tried, the Chief Justice presides but does not vote.
 
 Impeachment judgment is limited to removal and disqualification from public office. It does not itself impose a prison sentence. A convicted officer may still face prosecution, trial, and punishment under law.
@@ -190,7 +188,7 @@ At least $\dfrac{1}{3}$ of all House Members file a verified impeachment complai
 
 1. The filing meets the constitutional threshold for the direct route.
 2. The verified complaint itself becomes the Articles of Impeachment.
-3. Senate trial must proceed forthwith. The Court allows a reasonable time, including needed trial preparations, based on the facts of each case.
+3. Senate trial must proceed forthwith.
 
 ### #12: Trial and Conviction
 
