@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification",
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "rewrites": {
+  "lesson-language-application-error-identification": "1c1fee6472f639663891cb7433b7d8f1cd108bf7",
+  "lesson-language-application-sentence-completion": "1c1fee6472f639663891cb7433b7d8f1cd108bf7"
+ },
+ "sha256": {
+  "lesson-language-application-error-identification": "b789104d3b2b0c39c3bd831af391236b286ef60ece900cf3c5a568ea55192f2a",
+  "lesson-language-application-sentence-completion": "5e4b6e0e93eed5910f2d95b847b59a73b9d3835eea847ea806b8fcae12005e18"
+ },
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md",
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "id": "RD-094",
+ "type": "read",
+ "created": "2026-10-26T04:29:59+00:00"
+}
