@@ -1,0 +1,224 @@
+{
+ "batch": "RD-123",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "e86d12b0a53956a6da8bd693d331495a4605da21cded3bf1c7f19dc598fd0b1a",
+ "rewrite_commit": "81564501e3d2025711895378eb2b8f05f3f6340b",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "e86d12b0a53956a6da8bd693d331495a4605da21cded3bf1c7f19dc598fd0b1a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Compared the fifty-million plunder threshold with the supplied RA 7659 amendment and confirmed that no penalty is taught.",
+     "Checked the named Constitution provisions, RA 3019 clause descriptions, and complaint/court distinction against the supplied source descriptions."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Processing starts with complete requirements and payment.",
+      "problem": "This makes payment a universal starting condition. The processing-time rule requires payment only when a fee applies. A complete fee-free request does not need a payment before its processing clock can start."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 the money demand; #2 bribery; #3 Section 3(b); #4 repeated kickbacks totaling exactly fifty million meet the stated means and threshold.",
+     "Independent answers: #5 social harm; #6 excessive costs leave funds for fewer classrooms; #7 political harm; #8 social, economic, political, respectively.",
+     "Independent answers: #9 Ombudsman; #10 posted rules let people detect invented demands; #11 the claim is unsound because services and accountability also suffer. All match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept defines corruption and the requested legal forms, groups effects into social/economic/political, explains State responses, and distinguishes acts from results.",
+     "All eleven outlined example cases and all five outlined traps are present. The three suggested diagrams have specific placeholders. No Speed Tricks section is present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all student-facing paragraphs and solutions for sentence length and difficult vocabulary. Legal terms such as manifest partiality and undue injury receive short plain definitions; the prose uses short explanations and concrete consequences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate and classify receive one-line definitions before the examples. Find, name, and trace are used in their ordinary senses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all eleven stems for necessary case facts and answer clues. The contract case supplies the officer's legal role; the plunder case supplies both the repeated acts and amount.",
+     "The remaining cases ask recognition, classification, complaint routing, prevention, and evaluation using facts stated in their stems. Their solutions give plain reasons without importing missing case facts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson makes no specific claim about CSE content or answer choices and has no repeated exam-related opener."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino teaching. Filipino institution names do not make it a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino teaching. Filipino institution names do not make it a Filipino-language lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino teaching. Filipino institution names do not make it a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino teaching. Filipino institution names do not make it a Filipino-language lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino teaching. Filipino institution names do not make it a Filipino-language lesson.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or a word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for the listed stock phrases, repeated sentence openings, and formulaic transitions. None creates a breach."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout uses Core Concept, Examples, and Traps to Watch For. No optional shortcut section is forced in.",
+     "No worked example uses a mathematical formula. Example 4 applies the plunder amount threshold already introduced in Forms; this is a legal condition, not a new calculation formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped #1 to honest mistake versus misuse, #2 to bribery, #3 to the contract-gift clause, and #4 to repeated acts plus the inclusive plunder threshold.",
+     "Mapped #5–7 to the three effect groups, #8 to mixed classification, #9 to complaints, #10 to transparent prevention, and #11 to evaluation of a budget-only claim.",
+     "The progression moves from recognition to combined reasoning. Each example changes the task or harm being classified; no distinct case required by the brief is absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4, 6, 8, and 11 use numbered steps. Other solutions answer their single classification or explanation task directly. There are no key numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to check for width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student-facing paragraphs have at most three short sentences. The four-item list serves the RA 3019 clauses and is the only substantive bullet list. The audit comment is not rendered teaching prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The effects-map placeholder gives a central node, three labeled arms, and two effects per arm.",
+     "The classroom chain specifies three labeled boxes and labeled arrows. The complaint diagram distinguishes the Ombudsman from the court.",
+     "Each placeholder is one line and drawable without inventing its content. The surrounding text already explains each relationship."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Corruption, bribery, confidential information, undue injury, unwarranted benefits, the three Section 3(e) fault terms, plunder, ill-gotten wealth, and kickback are defined before example use.",
+     "Red tape, fixer, Citizen's Charter, accountability, the three effect groups, Ombudsman, Sandiganbayan, impeachment, and SALN receive local explanations. No supplied prerequisite text is needed to follow the examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Private gain is connected to misuse of office and contrasted with an honest mistake. The legal forms are explained through acts and applicable roles, rather than names alone.",
+     "The three effects are taught through concrete causal chains. The State-response section separates receiving complaints from trying cases; the transparency example explains how posted rules expose improper demands."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [
+     "Checked the plunder series/combination and inclusive amount conditions, the RA 3019 fault conditions, and the warning that a bad outcome alone does not establish an offense.",
+     "Checked the gift-exception reminder, permitted processing extensions, pause conditions, local-council exception, and warning that delay alone does not prove a payoff."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Processing starts with complete requirements and payment.",
+      "problem": "The processing-start condition omits that payment applies only when applicable. Students need that limit to avoid treating fee-free requests as outside the stated processing deadlines."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Processing starts with complete requirements and payment.",
+    "concern": "Payment is stated without the applicable-fee condition. Fee-free transactions also have processing deadlines once their requirements are complete."
+   }
+  ],
+  "brief_items": {}
+ }
+}
