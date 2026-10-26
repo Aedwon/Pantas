@@ -168,7 +168,7 @@ questions:
     type: direct-computation
     difficulty: medium
     stem: |
-      Three arithmetic means are inserted between $4$ and $28$. What is the second inserted mean?
+      Three arithmetic means are inserted between $4$ and $28$ so that all five terms form an arithmetic sequence. What is the second inserted mean?
     choices:
       - text: '$16$'
         correct: true
