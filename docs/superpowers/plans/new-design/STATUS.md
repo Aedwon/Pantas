@@ -74,9 +74,9 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | E1b | Copy-prompt page | Claude | reported done on audit branch439603ca |
 | E2 | CSE lesson Level4 audit | ChatGPT + Aedwon | done Oct 25: 78 lessons, triaged; audit branch `level4/paste/results/` |
 | E3 | CSE question Level5 audit | ChatGPT + Aedwon | moved after the lesson rewrite (Oct 25); now plan `pwa-launch/E4-E7-cse-content-rewrite.md` P4 |
-| E4 | Lesson rewrite | ChatGPT web chat via relay + Claude | plan `pwa-launch/E4-E7-cse-content-rewrite.md` approved Oct 25; preparation done on `content/cse-rewrite-r1`; pilot after the engineering run frees the ChatGPT accounts |
-| E5 | Question rewrite and verification | ChatGPT | after findings; tag corrections and malformed ratio/proportion YAML included |
-| E6 | Lesson figures (SVG, style D) and question figure data | Claude Sonnet + Codex | per the E4-E7 plan P3; app display is row B9 |
+| E4 | Lesson rewrite | Codex (overnight loop) + Claude lead | done Oct 26 on `content/cse-rewrite-r1`: 90 lessons (78 scope + split parts + 4 new) rewritten and read; 79 clean, 11 minor-only, 0 Blocker/Major; rulings in `docs/content/audit/cse-rewrite-ledger.md` |
+| E5 | Question rewrite and verification | Codex + Claude lead | done Oct 26: 243 new questions (all CSE files at 20+), two blind solves (1,343 questions; 1 key fixed: ng/nang), 94 figure questions checked (2 fixed, 11 need visual review), 54 files synced to rewritten lessons; reports in `docs/content/audit/` and scratchpad |
+| E6 | Lesson figures (SVG, style D) and question figure data | Claude Sonnet (drawing) + Codex (briefs, review) | 86 figures drawn from Codex briefs; 58 reviewed and committed; 28 in 6 lessons wait for one Sonnet fix round (paused by Aedwon Oct 26 for the beta signup site); visual media keeps its 3 PNGs; gallery artifact for Aedwon's review |
 | E7 | Content QA and build/upload | Aedwon + Claude | pending; server content replaces bundled web corpus |
 | L1 | Web Firestore/Storage rules review | Claude | pending after W6 snapshot and final server handoff |
 | L2 | Web App Check enforcement | Claude | pending |
