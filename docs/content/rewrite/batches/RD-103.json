@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-text-types-visual-media"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "rewrites": {
+  "lesson-text-types-visual-media": "8a0b12d9172624c1b9301393031b6587c27e0b5f"
+ },
+ "sha256": {
+  "lesson-text-types-visual-media": "8f0407001b549103194e5bda5b48effa5f52231e4cc918d2a6ae56e3d418dfc0"
+ },
+ "paths": {
+  "lesson-text-types-visual-media": "content/lessons/reading-comprehension/text-types/visual-media.md"
+ },
+ "id": "RD-103",
+ "type": "read",
+ "created": "2026-10-26T04:45:23+00:00"
+}
