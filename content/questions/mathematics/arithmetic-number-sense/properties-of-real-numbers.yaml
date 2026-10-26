@@ -140,7 +140,7 @@ questions:
           This drops the negative sign on the b product. The coefficient magnitude is correct. Check the sign of the outside multiplier.
       - text: '$-23ab$'
         rationale: |
-          This combines unlike terms into a single product term. All coefficients can be added. Check that only like terms combine.
+          This combines unlike terms into a single product term. The variable parts are different. Check that only like terms combine.
     explanation: |
       Distribute to get $-6a-12b-5a$. Combine the $a$ terms: $(-6-5)a=-11a$. The result is $-11a-12b$.
 
@@ -228,21 +228,21 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      Which of the following standard sets of numbers is not closed under subtraction?
+      Which of the following equalities is false in general for real numbers $a$, $b$, and $c$?
     choices:
-      - text: 'Natural numbers $\mathbb{N} = \{1, 2, 3, \ldots\}$'
+      - text: '$a-(b-c)=(a-b)-c$'
         correct: true
-      - text: 'Integers $\mathbb{Z}$'
+      - text: '$a+(b+c)=(a+b)+c$'
         rationale: |
-          This treats negative subtraction results as outside the integers. Negative results do leave the positive natural numbers. Check that integers include negative numbers.
-      - text: 'Rational numbers $\mathbb{Q}$'
+          This equality uses the associative property of addition. Changing the grouping keeps the sum unchanged.
+      - text: '$a(bc)=(ab)c$'
         rationale: |
-          This assumes a difference of fractions may stop being rational. Fractions can have different denominators. Check the common-denominator form of a difference.
-      - text: 'Real numbers $\mathbb{R}$'
+          This equality uses the associative property of multiplication. Changing the grouping keeps the product unchanged.
+      - text: '$a(b-c)=ab-ac$'
         rationale: |
-          This assumes real subtraction can produce a nonreal result. Some operations on real inputs can leave the reals. Check that subtracting real numbers stays real.
+          This equality uses the distributive property. The outside factor multiplies both terms in the difference.
     explanation: |
-      A set is closed under subtraction when subtracting any two of its members stays within the set. The natural numbers here are positive integers. Subtracting $5$ from $3$ gives $-2$, outside that set. This shows it is not closed under subtraction.
+      Subtraction is not associative in general. For example, $8-(4-2)=6$, but $(8-4)-2=2$. Changing the grouping can change the result. The other equalities use valid properties of addition and multiplication.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0013
     type: direct-computation
