@@ -8,7 +8,7 @@ estimatedMinutes: 12
 isActive: true
 ---
 
-<!-- SOURCE AUDIT: RW-127; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-26. Goal: distinguish amendment from revision and apply proposal thresholds, initiative limits, and ratification rules. Sources: https://lawphil.net/consti/cons1987.html Article XVII Sections 1-4 and Article V; https://lawphil.net/judjuris/juri2006/oct2006/gr_174153_2006.html Lambino v. COMELEC, quantitative and qualitative tests. No claim is made about current initiative implementing legislation or joint versus separate congressional voting. Prerequisite reminders: The Three Branches and Their Powers, Congress; Citizenship and Suffrage, qualified registered voters. All numerical cases are hypothetical; calendar dates independently computed. -->
+<!-- SOURCE AUDIT: RW-136; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-27. Goal: distinguish amendment from revision and apply proposal thresholds, initiative limits, and ratification rules. Sources: https://lawphil.net/consti/cons1987.html Article XVII Sections 1-4, Article VI Section 5, and Article V; https://lawphil.net/judjuris/juri2006/oct2006/gr_174153_2006.html Lambino v. COMELEC, quantitative and qualitative tests. No claim about current initiative implementing legislation or joint versus separate congressional voting. Prerequisite reminders: The Three Branches and Their Powers, Congress; Citizenship and Suffrage, voting qualifications. No source conflict. Numerical cases are hypothetical; calendar dates recomputed. -->
 
 ## Core Concept
 
@@ -30,7 +30,9 @@ Article XVII, Section $1(1)$ allows Congress to propose amendments or revisions 
 
 Under Article XVII, Section $3$, Congress can call a convention with two-thirds of all its Members. A majority of all its Members can instead ask voters whether to call one. A **majority** means more than half.
 
-Article XVII, Section $2$ allows **people's initiative**, a proposal made directly through a voters' petition, for amendments only. Signatures must reach at least $12\%$ of all registered voters nationwide. Every legislative district must also reach at least $3\%$ of its registered voters.
+Article XVII, Section $2$ allows **people's initiative**, a proposal made directly through a voters' petition, for amendments only. Signatures must reach at least $12\%$ of all registered voters nationwide.
+
+A **legislative district** is an area whose voters elect a district representative to the House. Each district must supply signatures from at least $3\%$ of its own registered voters. This separate minimum ensures that every district is represented in the petition.
 
 This route was barred within $5$ years after ratification of the $1987$ Constitution. Afterward, it is allowed no more than once every $5$ years. Congress must provide the implementing law; these are the constitutional rules, without a claim about whether this route is usable today.
 
@@ -116,7 +118,7 @@ $$
 0.03\times40{,}000=1{,}200
 $$
 
-Every other district must meet its own minimum too. A large national total cannot replace a missing district minimum.
+3. Check every other district's minimum too. A large national total cannot replace a missing district minimum.
 
 ### #6: Count the Days
 

@@ -8,7 +8,7 @@ estimatedMinutes: 15
 isActive: true
 ---
 
-<!-- SOURCE AUDIT: RW-127; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-26. Goal: locate Article III protections, apply basic rules for Sections 1-8, and recognize conditions that prevent decisions from section labels alone. Sources: https://lawphil.net/consti/cons1987.html Article III Sections 1-22; https://lawphil.net/statutes/repacts/ra1992/ra_7438_1992.html Section 2, invitations. Retained source record supplied with the lesson: G.R. 248680, November 2024, https://lawphil.net/judjuris/juri2024/nov2024/pdf/gr_248680_2024.pdf (classification); G.R. 229781, https://lawphil.net/judjuris/juri2017/oct2017/pdf/gr_229781_2017.pdf (arrest warrants); G.R. 226993, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/67731 (search warrants); Rules of Court Rules 113 Section 5, 117 Section 7, and 126 Sections 4-5 and 13, https://lawphil.net/courts/rules/rc_110-127_crim.html; People v. Yanson, G.R. 238453, https://elibrary.judiciary.gov.ph/assets/pdf/philrep/2019/G.R.%20No.%20238453.pdf (consent); Adoma v. People, G.R. 240126, https://lawphil.net/judjuris/juri2023/apr2023/pdf/gr_240126_2023.pdf (hot pursuit). No conflict recorded. Examples are hypothetical. No prerequisite needed; Article III, Part 4 develops detention, punishment, and double jeopardy. -->
+<!-- SOURCE AUDIT: RW-136; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-27. Goal: locate Article III protections, apply basic rules for Sections 1-8, and recognize conditions that prevent decisions from section labels alone. Sources: https://lawphil.net/consti/cons1987.html Article III Sections 1-22. Retained supplied source record: https://lawphil.net/statutes/repacts/ra1992/ra_7438_1992.html Section 2, invitations; G.R. 248680, November 2024, https://lawphil.net/judjuris/juri2024/nov2024/pdf/gr_248680_2024.pdf (classification); G.R. 229781, https://lawphil.net/judjuris/juri2017/oct2017/pdf/gr_229781_2017.pdf (arrest warrants); G.R. 226993, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/67731 (search warrants); Rules of Court Rules 113 Section 5, 117 Section 7, and 126 Sections 4-5 and 13, https://lawphil.net/courts/rules/rc_110-127_crim.html; People v. Yanson, G.R. 238453, https://elibrary.judiciary.gov.ph/assets/pdf/philrep/2019/G.R.%20No.%20238453.pdf (consent); Adoma v. People, G.R. 240126, https://lawphil.net/judjuris/juri2023/apr2023/pdf/gr_240126_2023.pdf (hot pursuit). No conflict recorded. Examples are hypothetical. No prerequisite needed; Article III, Part 4 develops detention, punishment, and double jeopardy. -->
 
 ## Core Concept
 
@@ -120,9 +120,11 @@ Section $19$ bans excessive fines and cruel, degrading, or inhuman punishment. S
 
 Section $20$ bars imprisonment for debt or nonpayment of a **poll tax**, a tax charged per person. This does not excuse a separate crime merely because money is involved.
 
-Section $21$ protects against **double jeopardy**, being put at risk of punishment again for the same offense after a protected end to the first case. The first case must have a valid charge in a court with authority to hear it. The accused must have been arraigned and entered a valid plea.
+Section $21$ protects against **double jeopardy**, being put at risk of punishment again for the same offense after a protected end to the first case. **Arraignment** is the formal reading of the charge to the accused. A **plea** is the accused's formal answer to that charge, such as guilty or not guilty.
 
-**Arraignment** is the formal reading of the charge, when the accused answers with a plea. The case must end in conviction, acquittal, or dismissal or termination without the accused's express consent. An **acquittal** is a judgment of not guilty.
+The first case must have a valid charge in a court with authority to hear it. The accused must have been arraigned and entered a valid plea.
+
+The case must end in conviction, acquittal, or dismissal or termination without the accused's express consent. An **acquittal** is a judgment of not guilty.
 
 The rule also covers certain included offenses, whose required parts are contained in another charge. A new charge's name alone does not settle the issue. Article III, Part $4$ explains these cases and exceptions in more detail.
 

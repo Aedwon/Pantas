@@ -7,6 +7,9 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 12
 isActive: true
 ---
+
+<!-- SOURCE AUDIT: RW-136; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-27. Goal: apply citizenship routes, distinguish natural-born status, and check voting qualifications and protections. Sources: https://lawphil.net/consti/cons1987.html Articles IV and V, Article VI Sections 3 and 6, Article VII Section 2, Article IX-B Section 1; https://lawphil.net/statutes/repacts/ra2003/ra_9225_2003.html Sections 3 and 5; https://lawphil.net/statutes/repacts/ra1995/ra_8171_1995.html Sections 1-2; https://lawphil.net/statutes/comacts/ca_473_1939.html Sections 2-4; https://lawphil.net/statutes/repacts/ra2001/ra_9139_2001.html Section 3; https://lawphil.net/statutes/repacts/ra1996/ra_8189_1996.html Sections 9-11; https://lawphil.net/statutes/repacts/ra2013/ra_10590_2013.html amending RA 9189; retained supplied source RA 6809 Section 1 on general majority age. No source conflict. No prerequisite needed. Examples are hypothetical. Flow checks paternal citizenship before the historical maternal-election route. -->
+
 ## Core Concept
 
 ### Who is a citizen?
@@ -24,6 +27,8 @@ Article IV, Section $1$, names four groups of Filipino citizens:
 
 Check the parent's citizenship at the child's birth. Birth abroad does not prevent Philippine citizenship. Birth in the Philippines alone does not grant it.
 
+For the historical election rule, check the father too. A child already Filipino through a Filipino father does not need to elect citizenship. The special rule concerns those who need election through their Filipino mother under Section $1(3)$.
+
 ### Natural-born and naturalized
 
 Under Article IV, Section $2$, a **natural-born citizen** is Filipino from birth without an act to acquire or complete citizenship. Those who elect under Section $1(3)$ are also deemed natural-born.
@@ -32,11 +37,11 @@ Under Article IV, Section $2$, a **natural-born citizen** is Filipino from birth
 
 The President, Senators, Representatives, and Civil Service Commission members must be natural-born. Citizenship alone does not meet that requirement.
 
-Commonwealth Act $473$, Section $2$, generally requires age $21$ at the hearing and $10$ continuous years of residence. Section $3$ reduces residence to $5$ years for listed cases. Other conditions and disqualifications apply.
+Commonwealth Act $473$, Section $2$, generally requires age $21$ at the hearing and $10$ continuous years of residence in the Philippines. Section $3$ reduces residence to $5$ years for listed cases. Other conditions and disqualifications apply.
 
-RA $9139$ provides a separate administrative process for aliens born and residing here since birth. It requires age $18$ at filing and other qualifications. Do not apply one process's age rule to every naturalization case.
+RA $9139$ provides a separate administrative process for aliens born in the Philippines and residing there since birth. It requires age $18$ at filing and other qualifications. Do not apply one process's age rule to every naturalization case.
 
-<!-- ILLUSTRATION: Citizenship flow for status at acquisition, before any later loss: Already a citizen when the Constitution was adopted? Yes: Citizen, natural-born status needs separate checking; No: Covered by Article IV Section 1(3), born before January 17, 1973 to a mother who was a Filipino citizen when the child was born? Yes: Validly elected upon majority? Yes: Natural-born citizen; No: Citizenship not established through this route, check another legal basis; No to Section 1(3): Was either parent a Filipino citizen when the child was born? Yes: Natural-born citizen; No: Naturalized under law? Yes: Naturalized citizen; No: Citizenship not established by these routes. -->
+<!-- ILLUSTRATION: Citizenship flow before any later loss: Filipino father at birth? Yes: Natural-born citizen, no election needed; No: Filipino mother at birth? Yes: Born before January 17, 1973 and covered by Article IV Section 1(3)? Yes: Validly elected citizenship upon majority? Yes: Deemed natural-born; No: Citizenship not established through this route; No to historical election group: Natural-born citizen; Neither parent Filipino: Check citizenship when the Constitution was adopted or naturalization under law; label these exits Citizen, natural-born status needs separate checking and Naturalized citizen respectively. -->
 
 ### Keeping and regaining citizenship
 
@@ -62,11 +67,11 @@ Article IV, Section $5$, calls dual allegiance harmful to the national interest 
 - Residence in the Philippines for $1$ year.
 - Residence in the place of voting for $6$ months immediately before the election.
 
-RA $8189$, Section $9$, allows registration before reaching these minimums if they will be met on election day. Section $10$ requires registration to vote.
+RA $8189$, Section $9$, allows registration before reaching these minimums if they will be met on election day. Section $10$ requires registration to vote. A **registered voter** has an approved entry in the official voting records.
 
 Section $11$ lists legal disqualifications, including certain final criminal judgments. A charge alone is not a final judgment. The law also provides ways to restore voting rights.
 
-No literacy, property, or other substantive requirement may be added. Literacy means the ability to read and write.
+No literacy, property, or other substantive requirement may be added. **Literacy** means the ability to read and write.
 
 <!-- ILLUSTRATION: Domestic voter checklist with four boxes labeled Filipino citizen, At least 18 on election day, At least 1 year in the Philippines, At least 6 months in the voting place; show Pass only if all boxes pass, Fail if any fails; footer: Also check registration and legal disqualifications. -->
 
@@ -78,7 +83,7 @@ Congress must provide **absentee voting** for qualified Filipinos abroad. Absent
 
 RA $9189$, as amended by RA $10590$, sets overseas voting rules, including registration and qualifications.
 
-Congress must also design voting without assistance for voters with disabilities and those who cannot read. Until then, voting follows existing laws and COMELEC rules that protect ballot secrecy.
+Congress must also design voting without assistance for voters with disabilities and those who cannot read. Until then, voting follows existing laws and COMELEC rules that protect ballot secrecy. **COMELEC** is the Commission on Elections.
 
 ## Examples
 
@@ -88,15 +93,15 @@ A child was born in $2005$. The mother was a Filipino citizen when the child was
 
 **Solution:**
 
-Yes, under Article IV, Section $1(2)$, because the mother was Filipino at birth.
+Yes, under Article IV, Section $1(2)$, because the mother was Filipino when the child was born.
 
 ### #2: Birth Abroad
 
-Both parents were Filipino when their child was born abroad. Does birthplace prevent Philippine citizenship?
+Both parents were Filipino when their child was born abroad in $1970$. Must the child elect Philippine citizenship because of the birth date?
 
 **Solution:**
 
-No. The child is Filipino through the parents.
+No. The child was already Filipino through the father. Birth abroad does not prevent that citizenship.
 
 ### #3: Election of Citizenship
 
@@ -133,7 +138,7 @@ A natural-born Filipino lost citizenship through foreign naturalization. What se
 
 ### #7: Two Citizenships
 
-A child is Filipino through a parent who was a Filipino citizen when the child was born. The child is also a foreign citizen through birthplace. Does this alone establish dual allegiance?
+A child is Filipino through a parent who was Filipino when the child was born. The child is also a foreign citizen through birthplace. Does this alone establish dual allegiance?
 
 **Solution:**
 
@@ -189,9 +194,9 @@ Birth here alone does not make a child Filipino.
 
 ### #2: Election for Everyone
 
-> The special election rule covers the group in Section $1(3)$.
+> Check whether the child was already Filipino through the father.
 
-Do not require every child of a Filipino mother to elect citizenship. Check the birth date and legal basis.
+A pre-$1973$ birth to a Filipino mother does not always require election. A child with a Filipino father may already be Filipino without that step.
 
 ### #3: Marriage
 
@@ -209,11 +214,7 @@ An office requiring natural-born status needs more than citizenship alone.
 
 > Dual citizenship alone is not dual allegiance.
 
-RA $9225$ allows retention under conditions. Under Section $5(2)$, candidates covered by this law must make a separate sworn renunciation of foreign citizenship.
-
-In Cordora v. COMELEC, the Court applied Local Government Code Section $40(d)$ to a dual citizen by birth. Filing the certificate of candidacy with its oath of allegiance was enough for Philippine candidacy. This rule concerns someone who never lost Philippine citizenship through foreign naturalization.
-
-For this purpose, filing the certificate counts as giving up foreign citizenship under Philippine law. It does not decide citizenship status under the other country's law. Other office qualifications still apply.
+Do not treat citizenship by birth as proof of divided loyalty. Candidates covered by RA $9225$ must still make its separate sworn renunciation of foreign citizenship.
 
 ### #6: Voting Minimums
 
