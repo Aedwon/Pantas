@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-environment-management-disaster-risk-reduction-and-management",
+  "lesson-environment-management-environmental-concepts",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "rewrites": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "5552316f131684f51c0516b23a4a533eb5e9912c",
+  "lesson-environment-management-environmental-concepts": "5552316f131684f51c0516b23a4a533eb5e9912c",
+  "lesson-environment-management-the-environmental-laws": "5552316f131684f51c0516b23a4a533eb5e9912c"
+ },
+ "sha256": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "bc1af70f60b3f286ccc4bbd255d6f005f8b21a9baaf437eb7cd8c8e975db018f",
+  "lesson-environment-management-environmental-concepts": "cee453aa5958db70614f88635ad39c6d74ac9888799b9de21c8c9c781d8b3fcc",
+  "lesson-environment-management-the-environmental-laws": "9bd117d088885acf3446dffa763b5f2cf539323b02a3c98a8bb285fda7a816f5"
+ },
+ "paths": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "content/lessons/general-information/environment-management/disaster-risk-reduction-and-management.md",
+  "lesson-environment-management-environmental-concepts": "content/lessons/general-information/environment-management/environmental-concepts.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "id": "RD-141",
+ "type": "read",
+ "created": "2026-10-26T12:51:08+00:00"
+}
