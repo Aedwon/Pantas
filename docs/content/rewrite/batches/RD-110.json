@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "lesson-philippine-constitution-citizenship-and-suffrage",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "c0dbc6c4fcb7f22e91ff0c7efaf837a5389ba399",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "c0dbc6c4fcb7f22e91ff0c7efaf837a5389ba399",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "8a0d38d108c6e296250c63656d367d15d7a9ce07"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "19ddc12a12f0faf6ecbad853bc00353fa957a489d152d9b6f00f53e3528a0401",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "cb03c9e0913b3e52d359a7fd717223d1942000f9dea4f5816590dc9db4d269eb",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "7e9ee84cd1072df9646e3b26b3aaa90d001a34c0a882a0481afce88567b05c94"
+ },
+ "paths": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md"
+ },
+ "id": "RD-110",
+ "type": "read",
+ "created": "2026-10-26T05:05:28+00:00"
+}
