@@ -103,3 +103,424 @@ questions:
   explanation: 'Section 16 covers cases before judicial, quasi-judicial, and administrative bodies.
 
     '
+- id: q-philippine-constitution-bill-of-rights-0020
+  type: single_choice
+  difficulty: easy
+  stem: |
+    To prepare a defense, an accused person asks what crime is charged and
+    what acts supposedly constitute it. Which right supports this request?
+  choices:
+  - text: The right to a public trial
+    rationale: |
+      A public trial allows public observation. It does not describe the
+      information the accused must receive about the charge.
+  - text: The right to know the nature and cause of the accusation
+    correct: true
+  - text: The right to meet witnesses face to face
+    rationale: |
+      This right lets the defense test testimony from witnesses. The request
+      concerns the charge itself.
+  - text: The right to speedy disposition of cases
+    rationale: |
+      Speedy disposition protects against unreasonable delay. The request
+      concerns knowing what must be answered.
+  explanation: |
+    The accused must know the crime charged and the acts behind it. This
+    information helps the accused prepare a defense.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0021
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A court lets the prosecution present its case but refuses to let either
+    the accused or the defense lawyer answer the charge. Which right is
+    most directly denied?
+  choices:
+  - text: The right to have the trial open to public observation
+    rationale: |
+      The facts concern who may present a defense. They do not say that the
+      public was excluded from observing the trial.
+  - text: The right to obtain defense witnesses through court orders
+    rationale: |
+      Compulsory process concerns obtaining witnesses and evidence. Here,
+      the court refuses to hear the accused and the lawyer.
+  - text: The right to be heard personally and through counsel
+    correct: true
+  - text: The right to have a case resolved without unreasonable delay
+    rationale: |
+      This protects against delay. A court can deny a chance to answer even
+      when it acts quickly.
+  explanation: |
+    The accused must have a chance to answer the charge personally and
+    through a lawyer. Hearing only the prosecution denies that chance.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0022
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A records officer will not willingly attend a criminal trial with records
+    needed by the defense. Which safeguard lets the accused seek a court
+    order requiring the officer to attend and bring the records?
+  choices:
+  - text: Compulsory process
+    correct: true
+  - text: Presumption of innocence
+    rationale: |
+      The presumption sets the accused's starting legal status. It does not
+      describe the power to require a witness to bring evidence.
+  - text: Protection against compelled self-incrimination
+    rationale: |
+      This protects a person from forced testimony against oneself. It does
+      not provide the defense with an order for a witness and records.
+  - text: The right to a public trial
+    rationale: |
+      A public trial allows observation. It does not require a reluctant
+      defense witness to attend.
+  explanation: |
+    Compulsory process lets the defense use court orders to obtain needed
+    witnesses and evidence. A witness need not be willing to attend.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0023
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A clerk says that the right to a public criminal trial forbids every
+    restriction on public attendance. Which response best follows the lesson?
+  choices:
+  - text: Public attendance depends entirely on the prosecution's preference
+    rationale: |
+      The prosecution's preference is not a legal basis for closing a
+      hearing. Public observation is a protected trial safeguard.
+  - text: A trial is public whenever the accused receives a copy of the charge
+    rationale: |
+      Receiving the charge protects the right to know the accusation. It
+      does not make the hearing open to public observation.
+  - text: Only the announcement of the judgment must be open to the public
+    rationale: |
+      The public-trial right concerns the trial itself. It is not limited
+      to the announcement of its result.
+  - text: A trial is open to public observation subject to lawful limits
+    correct: true
+  explanation: |
+    Public trials allow people to observe the proceedings. Lawful limits
+    may apply. Closing a hearing without a valid legal reason raises a
+    public-trial issue.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0024
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A judge openly promises to favor the prosecution. The hearing remains
+    open to observers and proceeds without delay. Which trial requirement
+    is most directly affected by the judge's promise?
+  choices:
+  - text: Public observation
+    rationale: |
+      Observers are allowed to attend. The stated problem is the judge's
+      favoritism, not access to the hearing.
+  - text: Impartiality
+    correct: true
+  - text: Speed
+    rationale: |
+      The facts state that the trial proceeds without delay. Prompt action
+      does not resolve the judge's favoritism.
+  - text: Notice of the accusation
+    rationale: |
+      This concerns telling the accused the charge and the acts behind it.
+      The judge's promise concerns taking sides.
+  explanation: |
+    An impartial judge does not favor either side. A hearing can be public
+    and prompt while still failing this requirement.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0025
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A prosecution witness testifies in court. The defense is allowed to
+    listen but is barred from questioning the witness without a valid
+    reason. Which safeguard is most directly affected?
+  choices:
+  - text: The right to meet witnesses face to face and test their testimony
+    correct: true
+  - text: The right to compel a defense witness to attend
+    rationale: |
+      Compulsory process helps bring defense witnesses to court. This
+      witness is already testifying for the prosecution.
+  - text: The right against being forced to testify against oneself
+    rationale: |
+      The accused is not being forced to give an incriminating answer.
+      The problem is the inability to question another witness.
+  - text: The right to have an administrative case resolved promptly
+    rationale: |
+      The facts concern questioning a witness in a criminal trial. They
+      do not concern delay in an administrative case.
+  explanation: |
+    Meeting witnesses face to face lets the defense question them and test
+    their statements. Merely listening does not provide that chance.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0026
+  type: single_choice
+  difficulty: medium
+  stem: |
+    After arraignment, an accused person misses a trial hearing without a
+    valid excuse. The court learns that proper notice of the hearing was
+    never given. May it rely on the rule allowing trial in the accused's absence?
+  choices:
+  - text: Yes, because arraignment removes the need for notice of trial
+    rationale: |
+      Arraignment does not replace proper notice. The rule requires both
+      prior arraignment and proper notification.
+  - text: Yes, because an absence without a valid excuse is the only condition
+    rationale: |
+      Lack of a valid excuse is only part of the rule. Proper notification
+      and prior arraignment are also required.
+  - text: No, because the accused was not properly notified
+    correct: true
+  - text: No, because trial can never proceed when the accused is absent
+    rationale: |
+      Trial may proceed after arraignment if the accused was properly
+      notified and has no valid reason for being absent.
+  explanation: |
+    The rule requires proper notice as well as arraignment and an
+    unjustified absence. Missing notice prevents reliance on this rule.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0027
+  type: single_choice
+  difficulty: medium
+  stem: |
+    An accused person enters a plea at arraignment, receives proper notice
+    of trial, and then stays away without a valid reason. Which statement
+    correctly describes the effect of the absence?
+  choices:
+  - text: It requires the court to dismiss the charge
+    rationale: |
+      An unjustified absence does not require dismissal. The rule permits
+      the trial to continue when its conditions are met.
+  - text: It proves the accused committed the crime
+    rationale: |
+      Permission to proceed without the accused is not proof of guilt.
+      The prosecution must still prove its case.
+  - text: It requires the court to wait until the accused chooses to return
+    rationale: |
+      The rule allows trial to continue after arraignment when proper
+      notice was given and the absence is unjustified.
+  - text: It allows trial to proceed without making the absence proof of guilt
+    correct: true
+  explanation: |
+    All the conditions for trial in the accused's absence are present.
+    The trial may proceed. The prosecution still has to prove guilt.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0028
+  type: single_choice
+  difficulty: hard
+  stem: |
+    An armed rebellion is occurring. Officials propose suspending the
+    privilege of the writ of habeas corpus solely to reduce paperwork.
+    They do not claim that public safety requires suspension. Which
+    assessment follows the constitutional rule taught in the lesson?
+  choices:
+  - text: Rebellion alone makes the proposed ground sufficient
+    rationale: |
+      Rebellion satisfies only part of the rule. Public safety must also
+      require suspension.
+  - text: The proposed ground is insufficient because public safety must require suspension
+    correct: true
+  - text: Suspension is allowed only if invasion and rebellion occur together
+    rationale: |
+      The rule requires invasion or rebellion. It does not require both
+      events to occur together.
+  - text: Reducing official paperwork independently permits suspension
+    rationale: |
+      Administrative convenience is not a substitute for the required
+      public-safety ground.
+  explanation: |
+    Rebellion alone is not enough. Public safety must also require
+    suspension. Reducing paperwork does not meet that requirement.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0029
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A severe storm leads officials to declare an emergency. There is no
+    invasion or rebellion. Officials argue that the emergency label alone
+    permits suspension of the privilege of the writ of habeas corpus.
+    What is the strongest response under the lesson?
+  choices:
+  - text: Public safety concerns eliminate the need for invasion or rebellion
+    rationale: |
+      Public safety is an additional requirement. It does not replace
+      the requirement of invasion or rebellion.
+  - text: Any emergency declaration automatically suspends the privilege
+    rationale: |
+      Calling a situation an emergency does not establish the grounds
+      required for suspension.
+  - text: An emergency label does not replace the required invasion or rebellion
+    correct: true
+  - text: Suspension is unavailable even during invasion or rebellion when public safety requires it
+    rationale: |
+      The Constitution permits suspension when invasion or rebellion
+      exists and public safety requires it.
+  explanation: |
+    Suspension requires invasion or rebellion and a public-safety need.
+    A storm emergency alone does not satisfy this rule.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0030
+  type: single_choice
+  difficulty: hard
+  stem: |
+    An accused person claims that a trial postponement violated the right
+    to a speedy trial. Which approach best follows the lesson?
+  choices:
+  - text: Examine the delay's length, reasons, requests for a timely trial, and harm to the accused
+    correct: true
+  - text: Treat any postponement as a violation without examining its reason
+    rationale: |
+      A postponement may have a sound reason. The right protects against
+      unreasonable delay, not every change in the trial schedule.
+  - text: Decide solely from how much time passed
+    rationale: |
+      Length matters, but it is not the only consideration. Reasons,
+      requests to proceed, and harm also matter.
+  - text: Reject the claim whenever the court eventually resumes the trial
+    rationale: |
+      Resuming the trial does not explain or justify the earlier delay.
+      Its reasons and effects still need examination.
+  explanation: |
+    A speedy-trial claim depends on the circumstances. Check how long the
+    delay lasted, why it happened, requests to proceed, and harm caused.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0031
+  type: single_choice
+  difficulty: hard
+  stem: |
+    An oversight office is reviewing delays in a criminal trial and in an
+    employee disciplinary case before a government agency. Which statement
+    correctly matches the protections emphasized in the lesson?
+  choices:
+  - text: Speedy trial governs both because every government case is a criminal trial
+    rationale: |
+      An employee disciplinary case is not necessarily a criminal trial.
+      Speedy disposition reaches cases before administrative bodies.
+  - text: Neither protection reaches the agency because it is outside the courts
+    rationale: |
+      Speedy disposition includes administrative bodies. Being outside
+      the courts does not exclude the agency's case.
+  - text: Speedy disposition reaches the agency only after a criminal charge is filed
+    rationale: |
+      The protection covers administrative cases themselves. It does not
+      depend on the filing of a separate criminal charge.
+  - text: Speedy trial concerns the criminal trial, while speedy disposition also reaches the agency case
+    correct: true
+  explanation: |
+    Speedy trial concerns criminal trials. Speedy disposition is broader.
+    It also protects cases before administrative and quasi-judicial bodies.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0032
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A government body outside the courts hears facts and decides disputes
+    under the law. A party complains that its case has stalled without a
+    sound reason. The body replies that the right to speedy disposition
+    applies only to courts. Which assessment is most accurate?
+  choices:
+  - text: The reply is correct because only judges can be bound by this right
+    rationale: |
+      Speedy disposition also covers quasi-judicial and administrative
+      bodies. The protection is not limited to judges.
+  - text: The reply is wrong, and the reasons and circumstances of the delay must be examined
+    correct: true
+  - text: The reply is wrong, so every postponed hearing automatically violates the right
+    rationale: |
+      Coverage does not make every delay unlawful. The reasons and
+      circumstances still have to be checked.
+  - text: The reply is correct unless the party is an accused person in a criminal trial
+    rationale: |
+      Speedy disposition protects parties in covered cases. It is not
+      limited to accused persons in criminal trials.
+  explanation: |
+    The described body acts as a quasi-judicial body. Speedy disposition
+    applies to its cases. The delay still needs assessment on its facts.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0033
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A witness in an administrative hearing has not been charged with a
+    crime. An official compels the witness to answer a question that could
+    show the witness's own criminal guilt. Which statement best applies
+    the protection against compelled self-incrimination?
+  choices:
+  - text: It is unavailable because the witness has not been criminally charged
+    rationale: |
+      The protection applies to persons. It is not limited to someone
+      already charged with a crime.
+  - text: It is unavailable because the questioning is outside police investigation
+    rationale: |
+      The protection against forced testimony against oneself is not
+      limited to police questioning.
+  - text: It applies because the witness is compelled to give an answer that could show personal guilt
+    correct: true
+  - text: It allows the witness to refuse every kind of evidence regardless of its nature
+    rationale: |
+      The protection concerns compelled testimony against oneself. It
+      does not create a blanket right to refuse all evidence.
+  explanation: |
+    A person need not be on criminal trial to have this protection. The
+    forced answer could show the witness's own guilt, so it is protected.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0034
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official forces a person to write an account admitting a crime.
+    The official argues that any written document is physical evidence,
+    so the protection against compelled self-incrimination cannot apply.
+    Which response best identifies the error?
+  choices:
+  - text: The account reveals what the person knows and is a compelled statement against that person
+    correct: true
+  - text: Every written document is protected even if it contains no statement against its author
+    rationale: |
+      A document's written form alone does not establish self-incrimination.
+      The forced admission matters because it can show the writer's guilt.
+  - text: Only spoken statements can be testimonial evidence
+    rationale: |
+      A written admission can reveal what a person knows. Testimonial
+      evidence is not limited to speech.
+  - text: Compulsion makes every demand for physical evidence a violation of this protection
+    rationale: |
+      Compulsion alone does not make all evidence testimonial. This right
+      is not a blanket protection against producing physical evidence.
+  explanation: |
+    A forced written admission is testimonial evidence. It reveals the
+    person's knowledge and can show guilt. Being written on paper does
+    not remove that protection.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0035
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Assume that the privilege of the writ of habeas corpus has been validly
+    suspended during an invasion because public safety requires it. A
+    detention officer concludes that every detention is therefore lawful.
+    Which assessment best follows the lesson?
+  choices:
+  - text: The conclusion is correct because suspension supplies a legal basis for every detention
+    rationale: |
+      Suspension does not itself make every detention lawful. The officer
+      treats suspension as unlimited authority to detain.
+  - text: The conclusion is wrong because invasion can never support suspension
+    rationale: |
+      Invasion can support suspension when public safety requires it.
+      The stem assumes those requirements have been met.
+  - text: The conclusion is correct because public safety cancels all trial safeguards
+    rationale: |
+      The suspension rule does not cancel all trial rights. It concerns
+      the privilege of a particular writ.
+  - text: The conclusion is wrong because valid suspension does not make every detention lawful
+    correct: true
+  explanation: |
+    Valid suspension does not give detention officers unlimited power.
+    It does not establish that every person is being held lawfully.
+  approved: false
