@@ -1,0 +1,298 @@
+{
+ "batch": "RD-120",
+ "lesson_id": "lesson-text-types-visual-media",
+ "path": "content/lessons/reading-comprehension/text-types/visual-media.md",
+ "lesson_sha256": "a502c44015c7be1893b7ffec278c50206c34bd50540870a06523df1e0ee6dad9",
+ "rewrite_commit": "5c1baff8dc35247d2a346a4229f8da74f66970ec",
+ "form": {
+  "packet": "lesson-text-types-visual-media",
+  "role": "A",
+  "lesson_sha256": "a502c44015c7be1893b7ffec278c50206c34bd50540870a06523df1e0ee6dad9",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the circle facts: a full turn is 360 degrees; radii join the center to the edge; equal-radius sector area increases with angle.",
+     "Checked bar baselines, line changes, table coordinates, and contextual cartoon meanings. These are standard mathematical or interpretive facts; no unsupported exam-format claims appear. Source verification is limited to the supplied prompt."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers from the supplied question stimuli, including figure specifications: #1 outside forces can undo careful work; #2 the depicted tax burden threatens citizens; #3 fast-service promise conflicts with slow service; #4 much talk and little work.",
+     "#5 February is second; order April, February, March, January. #6 No: shown lengths are 5 and 1, but 85/81 is about 1.05. #7 Tuesday to Wednesday falls; Monday to Thursday increases by 15. #8 180/360 times 120 equals 60 online requests. #9 27 minus 18 equals 9 more requests. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. All nine figure-dependent examples have their own specific illustration placeholder.",
+     "The brief explicitly leaves completed drawings to E6. At this rewrite stage, the required placeholders cover the comic, three cartoons, bar ranking, truncated bars, line chart, pie chart, and table."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions, explanations, strategies, and solutions for simple language. Technical words such as juxtaposition, caricature, radius, and truncated axis receive short meanings. The abstract analytical-purpose sentence is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Interpret is defined on its first use: to explain what visual details show or suggest. No other unexplained exam-specific instruction word is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "The snail comparison and other cartoon comparisons teach analogy as the subject matter. They are not extra tutor analogies used to explain an unrelated concept. No competing teaching analogies occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the nine examples now asks an explicit question before its solution. Each supplies its particular scene or data through a figure specification without giving a solution method in the stem. Solutions use plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam references or claims occur. The lesson motivates visual reading through concrete tasks involving evidence, ranking, change, shares, and table entries."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches visual reading in English and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches visual reading in English and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches visual reading in English and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches visual reading in English and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches visual reading in English and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to underlining.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary plainly describes the coverage. Checked sentence openings and the listed stock phrases; no prohibited phrase or three consecutive identical sentence openings appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Strategies is an allowed reading-comprehension section. Shown length = value minus axis start and value ratio = first/second appear in Core Concept before #6.",
+     "Change = later minus earlier appears before #7 and also supports the subtraction in #9. Share = sector angle/360 degrees and part amount = share times total appear before #8. No new formula first appears in a solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped distinct cases: comic sequence #1; labeled threat #2; irony and analogy #3; caricature, exaggeration, and juxtaposition #4; extracted bar ranking #5; truncated-axis comparison #6; line fall and net change #7; pie angle and amount #8; row-column extraction and text transfer #9.",
+     "The examples move from direct visual messages to comparisons and computations. No pair merely repeats the same method with changed numbers or nouns. The added cases cover all four required CSE facets."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All nine solutions use numbered steps. #6 displays both baseline subtractions and the actual value comparison; #7 displays net change; #8 displays sector share and amount; #9 displays the difference. No solving step is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Inspected every display: the baseline, ratio, change, share, and amount formulas and all worked calculations are short single-line expressions suitable for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs and numbered explanation blocks each contain at most three short sentences. The former four-sentence bar/line paragraph is separated into several focused paragraphs. No excessive bullet lists appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All nine placeholders are single-line drawing instructions with labels, expressions, axes, scales, values, or table entries as needed. Each artist can draw its question without guessing data.",
+     "These are visual-media questions, so load-bearing figures are allowed. The comic sequence and each cartoon retain enough scene context or a clear question alongside their specific figure instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions precede use for visual media, interpret, panel, editorial cartoon, symbolism, labels, exaggeration, caricature, analogy, juxtaposition, irony, legend, unit, axis, scale, bar chart, truncated axis, line chart, pie chart, radius/radii, sectors, table, row, and column.",
+     "Chart units are specified in the figure instructions, and share is explained as part of a whole before its formula. No prerequisite lesson is needed or claimed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Comic reading explains sequence and supported conclusions. Cartoon teaching explains how labels, symbols, features, comparisons, and ironic gaps create meaning.",
+     "Chart teaching explains how bar lengths, point positions, sector angles/areas, and table coordinates convey quantities. The examples apply each process rather than only naming it."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Bar ranking is conditioned on greater values running upward. Total-amount bars normally start at zero; truncated bars are distinguished from actual value ratios.",
+     "Line charts may start above zero; labels govern change. Sector area comparisons require equal radii, separate pies require angles or stated shares, and color indicates quantity only when the legend says so. Cartoon conclusions remain limited to depicted evidence."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-text-types-visual-media|L05|0": {
+    "status": "fixed",
+    "quote": "Which message is best supported by the full sequence?",
+    "note": "All nine examples now state a task before the solution."
+   },
+   "lesson-text-types-visual-media|L18|0": {
+    "status": "fixed",
+    "quote": "Requests fell from Tuesday to Wednesday.",
+    "note": "The line example reads plotted values, finds a fall, computes net change, and checks the nonzero start."
+   },
+   "lesson-text-types-visual-media|L19|0": {
+    "status": "fixed",
+    "quote": "On the left chart, the visible lengths start at $80$.",
+    "note": "The solution numbers its steps and displays both lengths and the actual ratio."
+   },
+   "lesson-text-types-visual-media|B08|0": {
+    "status": "fixed",
+    "quote": "Read the bar tops as January $50$, February $70$, March $60$, and April $90$ thousand pesos.",
+    "note": "Sales numbers in teaching prose are now inside inline math."
+   },
+   "lesson-text-types-visual-media|B08|1": {
+    "status": "fixed",
+    "quote": "On the left chart, the visible lengths start at $80$.",
+    "note": "Axis values are in math in prose; the other values appear in display math or drawing specifications."
+   },
+   "lesson-text-types-visual-media|B08|2": {
+    "status": "fixed",
+    "quote": "The visible lengths have a ratio of $5:1$.",
+    "note": "The baseline and ratio in the revised explanation use math delimiters."
+   },
+   "lesson-text-types-visual-media|L02|0": {
+    "status": "fixed",
+    "quote": "Check its labels instead of judging change from steepness alone.",
+    "note": "The abstract sentence has been replaced with direct reading advice."
+   },
+   "lesson-text-types-visual-media|L22a|0": {
+    "status": "fixed",
+    "quote": "A line chart can start above zero to show small changes clearly.",
+    "note": "The bar and line explanations are separate paragraphs within the sentence limit."
+   },
+   "lesson-text-types-visual-media|L25|0": {
+    "status": "fixed",
+    "quote": "**Juxtaposition** places things side by side so their difference or connection is clear.",
+    "note": "Analogy, juxtaposition, irony, and exaggeration now each have meanings before the examples."
+   },
+   "lesson-text-types-visual-media|lead-add|0": {
+    "status": "fixed",
+    "quote": "Read the whole visual before deciding its message.",
+    "note": "Read the entire supplied lesson; no stray chat citation strings remain."
+   },
+   "reading-comprehension-text-types#83": {
+    "status": "fixed",
+    "quote": "Compare the values from greatest to least: April, February, March, January.",
+    "note": "Example 5 extracts bar heights using tick spacing and provides a full ranking and second place."
+   },
+   "reading-comprehension-text-types#87": {
+    "status": "fixed",
+    "quote": "Requests increased by $15$ overall.",
+    "note": "Example 7 supplies a plotted trend, a falling interval, and a displayed net-change computation."
+   },
+   "reading-comprehension-text-types#88": {
+    "status": "fixed",
+    "quote": "The online sector also takes up half the circle's area.",
+    "note": "Example 8 reads a sector angle, computes its share and amount, and connects it to area."
+   },
+   "reading-comprehension-text-types#90": {
+    "status": "fixed",
+    "quote": "Find row B. Its morning entry is $18$, and its afternoon entry is $27$.",
+    "note": "Example 9 locates table entries and transfers their computed comparison to a sentence."
+   },
+   "lesson-text-types-visual-media|L01|0": {
+    "status": "fixed",
+    "quote": "First separate what you can see from what you conclude.",
+    "note": "The opening explicitly distinguishes visible details from supported conclusions."
+   },
+   "lesson-text-types-visual-media|L03|0": {
+    "status": "fixed",
+    "quote": "To **interpret** a visual means to explain what its details show or suggest.",
+    "note": "Interpret receives a plain definition on its first occurrence."
+   },
+   "lesson-text-types-visual-media|L18|1": {
+    "status": "fixed",
+    "quote": "Placing the scenes side by side creates juxtaposition.",
+    "note": "Examples 3 and 4 add worked irony, analogy, caricature, exaggeration, and juxtaposition cases."
+   },
+   "lesson-text-types-visual-media|L26|0": {
+    "status": "fixed",
+    "quote": "A larger sector angle then covers more area and shows a larger share.",
+    "note": "Angle and area now have a reading explanation and worked application; color is limited by its legend."
+   }
+  }
+ }
+}
