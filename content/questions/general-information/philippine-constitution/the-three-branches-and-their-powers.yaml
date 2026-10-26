@@ -5,4 +5,401 @@ meta:
   exams:
   - cse-pro
   - cse-sub
-questions: []
+questions:
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0001
+  type: senate-composition-and-terms
+  difficulty: easy
+  stem: |
+    Which description correctly states the Senate's composition and regular term limits?
+  choices:
+  - text: "24 senators elected by district, serving six-year terms with two consecutive terms allowed"
+    rationale: Senators are elected nationwide, not by district.
+  - text: "24 senators elected nationwide, serving six-year terms with two consecutive terms allowed"
+    correct: true
+  - text: "24 senators elected nationwide, serving three-year terms with three consecutive terms allowed"
+    rationale: Three-year terms and a three-term consecutive limit apply to Representatives.
+  - text: "24 senators elected nationwide, serving six-year terms with only two terms allowed in a lifetime"
+    rationale: The limit concerns consecutive terms, not a lifetime total.
+  explanation: |
+    Article VI, Sections 2 and 4 provide for 24 senators elected nationwide.
+    Each term lasts six years. A senator may serve two consecutive terms.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0002
+  type: house-composition-and-terms
+  difficulty: easy
+  stem: |
+    Which statement follows Article VI's rules on the House of Representatives?
+  choices:
+  - text: Its membership can never exceed 250, even if a law provides otherwise.
+    rationale: The Constitution expressly allows a law to set a different House size.
+  - text: Party-list seats equal 20 percent of district seats alone.
+    rationale: The 20 percent share uses total House membership, including party-list seats.
+  - text: Representatives serve six-year terms with two consecutive terms allowed.
+    rationale: These are the Senate's term rules. Representatives serve three-year terms.
+  - text: Representatives serve three-year terms with at most three consecutive terms.
+    correct: true
+  explanation: |
+    Article VI, Section 7 sets three-year terms and a three-consecutive-term limit.
+    The House size is at most 250 unless law provides otherwise.
+    Party-list seats form 20 percent of the total House.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0003
+  type: bill-origination
+  difficulty: easy
+  stem: |
+    A proposed law would impose a new national tax. Which procedure follows the Constitution?
+  choices:
+  - text: The bill starts in the House, and the Senate may propose amendments.
+    correct: true
+  - text: The bill starts in the Senate because it concerns national revenue.
+    rationale: Revenue bills must originate in the House, even when the tax is national.
+  - text: The bill starts in the House, and the Senate must accept it without amendments.
+    rationale: House origination does not remove the Senate's power to propose or agree to amendments.
+  - text: The President enacts the tax without a bill because collecting revenue is an executive task.
+    rationale: Carrying out tax laws does not give the President Congress's lawmaking power.
+  explanation: |
+    Article VI, Section 24 requires revenue bills to start in the House.
+    The Senate may propose or agree to amendments.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0004
+  type: presidential-succession-and-term-limits
+  difficulty: easy
+  stem: |
+    The President dies with five years remaining in the term. The Vice-President
+    succeeds and serves all five years. Which statement is correct?
+  choices:
+  - text: The Senate President becomes President immediately upon the death.
+    rationale: The Vice-President succeeds when the President dies and the Vice-Presidency is occupied.
+  - text: The successor may later be elected President because the five years were only an inherited term.
+    rationale: A successor who serves more than four years as President cannot later be elected President.
+  - text: The Vice-President becomes President and cannot later be elected President after serving those five years.
+    correct: true
+  - text: The Vice-President only acts as President until Congress selects a permanent President.
+    rationale: Upon the President's death, the Vice-President becomes President for the unexpired term.
+  explanation: |
+    Article VII, Section 8 makes the Vice-President the successor.
+    Section 4 bars a later presidential election after more than four years as successor.
+    The Vice-President's two-successive-term rule does not change this limit.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0005
+  type: pardon-versus-amnesty
+  difficulty: easy
+  stem: |
+    Which statement correctly distinguishes presidential pardon from amnesty?
+  choices:
+  - text: A pardon may remove the result of impeachment if the Senate agrees.
+    rationale: The President's pardon power excludes impeachment cases.
+  - text: A pardon follows conviction by final judgment, while amnesty needs concurrence of a majority of all Members of Congress.
+    correct: true
+  - text: A pardon may be granted before conviction by final judgment, while amnesty needs no congressional concurrence.
+    rationale: This removes both the final-judgment requirement for pardon and the congressional requirement for amnesty.
+  - text: Amnesty requires concurrence of two-thirds of all Senators, with no House participation.
+    rationale: Two-thirds of all Senators is the treaty rule. Amnesty requires a majority of all Members of Congress.
+  explanation: |
+    Article VII, Section 19 places pardon after conviction by final judgment.
+    Pardon cannot cover impeachment. Amnesty requires congressional concurrence.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0006
+  type: elected-office-qualification
+  difficulty: medium
+  stem: |
+    On election day, Lea is 25, natural-born, able to read and write, and a
+    registered voter in the district she seeks to represent. She has lived
+    there for eight months immediately before election day. Which finding is correct?
+  choices:
+  - text: She meets the district residence rule because voter registration replaces it.
+    rationale: District voter registration and district residence are separate requirements.
+  - text: She fails the age rule because district representatives must be at least 35.
+    rationale: The minimum age for a Representative is 25. The age of 35 applies to Senators.
+  - text: She meets the district residence rule because only six months are required.
+    rationale: A district Representative needs at least one year of district residence immediately before election day.
+  - text: She fails the district residence rule because one year is required.
+    correct: true
+  explanation: |
+    Article VI, Section 6 requires one year of residence in the district.
+    Eight months is too short. Lea meets the stated age requirement.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0007
+  type: elected-office-qualification
+  difficulty: medium
+  stem: |
+    Mario is a naturalized Philippine citizen seeking a Senate seat. On election
+    day, he is 40, can read and write, is a registered voter, and has lived in
+    the Philippines continuously for ten years. Which requirement does he fail?
+  choices:
+  - text: Natural-born citizenship
+    correct: true
+  - text: Minimum age
+    rationale: A Senator must be at least 35 on election day. Mario is 40.
+  - text: Philippine residence
+    rationale: Ten continuous years covers the Senate's two-year Philippine residence requirement.
+  - text: Voter registration
+    rationale: The stem expressly states that Mario is a registered voter.
+  explanation: |
+    Article VI, Section 3 requires Senators to be natural-born citizens.
+    Naturalization does not meet that requirement. Age and long residence cannot replace it.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0008
+  type: elected-office-qualification
+  difficulty: medium
+  stem: |
+    Rosa seeks the Vice-Presidency. On election day, she is 40, natural-born,
+    a registered voter, and able to read and write. Her Philippine residence
+    covers only the nine years immediately before election day. Which assessment is correct?
+  choices:
+  - text: She meets the residence requirement because the Vice-President needs only two years.
+    rationale: Two years is the Senate residence rule, not the Vice-Presidential rule.
+  - text: She fails the age requirement because she must already be 40 when filing her candidacy.
+    rationale: The Constitution measures the elected office's minimum age on election day.
+  - text: She fails the residence requirement because the Vice-President needs ten years.
+    correct: true
+  - text: She meets the residence requirement because it applies only to presidential candidates.
+    rationale: Article VII gives the Vice-President the same qualifications as the President.
+  explanation: |
+    Article VII, Sections 2 and 3 require ten years of Philippine residence.
+    The period must immediately precede election day. Nine years falls short.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0009
+  type: appointment-and-judicial-tenure
+  difficulty: medium
+  stem: |
+    Which statement correctly describes appointment and tenure under the Constitution?
+  choices:
+  - text: Both ambassadors and judges need Commission on Appointments consent.
+    rationale: Ambassadors need consent, but judicial appointments do not need that confirmation.
+  - text: Judges serve a fixed seven-year term and may then seek reappointment.
+    rationale: Judges serve during good behavior until age 70 or incapacity, not for a fixed seven-year term.
+  - text: The Judicial and Bar Council appoints judges directly from its own list.
+    rationale: The Council recommends nominees. The President makes the appointment.
+  - text: An ambassador needs Commission on Appointments consent; a judge is appointed by the President from at least three JBC nominees.
+    correct: true
+  explanation: |
+    Article VII, Section 16 covers consent for ambassadors.
+    Article VIII, Section 9 uses a JBC list of at least three nominees per vacancy.
+    Judges need no confirmation. Section 11 sets tenure during good behavior until 70 or incapacity.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0010
+  type: supreme-court-qualification
+  difficulty: medium
+  stem: |
+    Which candidate meets the stated age, citizenship, and experience requirements
+    for a Supreme Court seat? Assume each meets all other requirements.
+  choices:
+  - text: A natural-born citizen, age 39, with 16 years of Philippine law practice
+    rationale: Supreme Court Members must be at least 40.
+  - text: A natural-born citizen, age 42, with 15 years of Philippine law practice
+    correct: true
+  - text: A naturalized citizen, age 45, with 20 years of Philippine law practice
+    rationale: Supreme Court Members must be natural-born citizens.
+  - text: A natural-born citizen, age 41, with 12 years of Philippine law practice and no judicial service
+    rationale: Twelve years falls short of the required 15 years as a lower-court judge or practicing lawyer in the Philippines.
+  explanation: |
+    Article VIII, Section 7 requires natural-born citizenship and a minimum age of 40.
+    It also requires at least 15 years of the specified Philippine legal experience.
+    Only the 42-year-old candidate meets all three stated requirements.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0011
+  type: comelec-qualification
+  difficulty: hard
+  stem: |
+    A proposed seven-member COMELEC includes four lawyers with at least ten
+    years of law practice. The proposed Chair is one of the other three members
+    and is not a lawyer. All seven meet the other constitutional qualifications.
+    What is the defect in this proposed composition?
+  choices:
+  - text: The Chair must belong to the qualified lawyer majority.
+    correct: true
+  - text: COMELEC should have only three members.
+    rationale: COMELEC has a Chair and six Commissioners. Three members is COA's composition.
+  - text: Every COMELEC member must have ten years of law practice.
+    rationale: The lawyer requirement applies to a majority, including the Chair, not every member.
+  - text: Four qualified lawyers cannot form a majority of seven members.
+    rationale: Four is a majority of seven. The defect is that the Chair is outside that majority.
+  explanation: |
+    Article IX-C, Section 1 requires a lawyer majority with ten years of practice.
+    That majority must include the Chair. Four lawyers alone do not satisfy the Chair requirement.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0012
+  type: coa-qualification
+  difficulty: hard
+  stem: |
+    Two serving COA members are CPAs and are not lawyers. A vacancy is to be
+    filled. Which candidate satisfies the professional requirement without making
+    all three members belong to the same profession? Assume all other qualifications are met.
+  choices:
+  - text: A CPA with twelve years of auditing experience who is not a lawyer
+    rationale: This candidate has enough auditing experience but would make all three members CPAs of the same profession.
+  - text: A lawyer with nine years of law practice who is not a CPA
+    rationale: The legal qualification requires at least ten years of practice.
+  - text: A lawyer with eleven years of law practice who is not a CPA
+    correct: true
+  - text: A finance graduate with fifteen years of bookkeeping experience who is neither a CPA nor a lawyer
+    rationale: A finance degree and bookkeeping experience do not replace the required CPA or lawyer qualification.
+  explanation: |
+    Article IX-D, Section 1 allows qualified CPAs or lawyers.
+    Lawyers need ten years of practice. All COA members cannot belong to the same profession.
+    The lawyer with eleven years meets both professional rules in this case.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0013
+  type: ombudsman-qualification-and-term
+  difficulty: hard
+  stem: |
+    A natural-born lawyer, age 45, has twelve years of Philippine law practice
+    and proven honesty and independence. She ran in the election immediately
+    before her proposed appointment as Ombudsman. Which statement is correct?
+  choices:
+  - text: She may be appointed because only losing candidates are barred from this office.
+    rationale: The Ombudsman qualification bars candidates in the immediately preceding election, not only those who lost.
+  - text: She may be appointed because legal experience cancels the candidacy restriction.
+    rationale: Meeting the experience requirement does not remove the separate bar on prior candidacy.
+  - text: She is barred solely because the Ombudsman must be at least 50.
+    rationale: The minimum age is 40. Her prior candidacy is the stated disqualification.
+  - text: Her prior candidacy bars appointment despite her age and experience.
+    correct: true
+  explanation: |
+    Article XI, Section 8 bars candidates in the immediately preceding election.
+    She meets the stated age and experience rules but fails this separate rule.
+    Section 11 sets a seven-year term without reappointment for the Ombudsman.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0014
+  type: supreme-court-composition-and-review
+  difficulty: hard
+  stem: |
+    The Supreme Court hears a proper case challenging a law's constitutionality.
+    Which statement correctly identifies the Court's composition and how it must hear this case?
+  choices:
+  - text: The Court has 15 Members and hears the constitutional challenge en banc.
+    correct: true
+  - text: The Court has 14 Members and hears the constitutional challenge en banc.
+    rationale: There are 14 Associate Justices plus the Chief Justice, for 15 Members in total.
+  - text: The Court has 15 Members and must hear the constitutional challenge in a three-member division.
+    rationale: Constitutional challenges to laws must be heard en banc, although divisions may hear other cases.
+  - text: The Court has 15 Members but must ask Congress to decide whether the law violates the Constitution.
+    rationale: Courts exercise judicial review in proper cases. Congress does not decide the constitutional challenge for the Court.
+  explanation: |
+    Article VIII, Section 4 provides for a Chief Justice and 14 Associate Justices.
+    Cases involving a law's constitutionality are heard en banc, meaning by the full Court.
+    Divisions may have three, five, or seven Members for other cases.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0015
+  type: martial-law-limits
+  difficulty: hard
+  stem: |
+    Rebellion exists and public safety requires martial law. Without any
+    congressional extension, which pair gives the maximum initial period and
+    the President's deadline to report to Congress?
+  choices:
+  - text: "30 days initially; report within 48 hours"
+    rationale: The maximum initial period is 60 days, not 30 days.
+  - text: "60 days initially; report within 48 hours"
+    correct: true
+  - text: "60 days initially; report within 30 days"
+    rationale: The report is due within 48 hours. Thirty days is not the reporting deadline.
+  - text: "90 days initially; report within 48 hours"
+    rationale: A 90-day initial period exceeds the 60-day limit without a valid extension.
+  explanation: |
+    Article VII, Section 18 limits the initial period to 60 days.
+    The President must report to Congress within 48 hours.
+    These limits also apply to suspension of the writ's privilege.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0016
+  type: martial-law-checks
+  difficulty: hard
+  stem: |
+    After martial law is proclaimed, a citizen questions its factual basis.
+    Congress also considers revocation. Which statement correctly describes these checks?
+  choices:
+  - text: Only Congress may review the factual basis, and courts must wait until martial law ends.
+    rationale: Any citizen may bring the factual basis before the Supreme Court for review.
+  - text: Congress may revoke only through separate two-thirds votes in each House.
+    rationale: Revocation uses a majority of all Members of Congress voting jointly, not separate two-thirds votes.
+  - text: The Supreme Court may review the factual basis, and Congress may revoke by a majority of all its Members voting jointly.
+    correct: true
+  - text: The President may reject a congressional revocation by veto.
+    rationale: Article VII, Section 18 expressly prevents the President from setting aside Congress's revocation.
+  explanation: |
+    Article VII, Section 18 gives Congress the power to revoke by a joint majority vote.
+    Any citizen may ask the Supreme Court to review the factual basis.
+    Martial law does not suspend the Constitution or automatically suspend the writ's privilege.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0017
+  type: treaty-concurrence
+  difficulty: exam
+  stem: |
+    The Senate has 24 Members. At a treaty concurrence vote, 18 are present
+    and 15 vote in favor. Has the constitutional concurrence requirement been met?
+  choices:
+  - text: Yes, because 15 is more than half of the full Senate.
+    rationale: A simple majority of all Senators is less than the required two-thirds.
+  - text: Yes, because 15 exceeds two-thirds of the 18 Senators present.
+    rationale: The rule counts all Senators, not only those present.
+  - text: No, because every Senator must vote in favor.
+    rationale: The Constitution requires two-thirds concurrence, not unanimity.
+  - text: No, because at least 16 of the 24 Senators must concur.
+    correct: true
+  explanation: |
+    Article VII, Section 21 requires at least two-thirds of all Senators.
+    Two-thirds of 24 is 16. Fifteen votes fall short even when fewer Senators attend.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0018
+  type: veto-and-override
+  difficulty: exam
+  stem: |
+    The President communicates a veto within 30 days of receiving a bill.
+    Assume the House has 300 Members and the Senate has 24. The override
+    receives 201 House votes and 15 Senate votes. What is the result?
+  choices:
+  - text: The override fails because the Senate needs at least 16 votes.
+    correct: true
+  - text: The override succeeds because the two Houses together supplied more than two-thirds of their combined membership.
+    rationale: Each House must separately reach two-thirds of all its Members. Their votes cannot be pooled.
+  - text: The override fails because the House needs at least 225 votes.
+    rationale: Two-thirds of 300 is 200, not 225. The House has enough votes.
+  - text: The override succeeds because a timely veto needs only a simple majority to reverse.
+    rationale: A veto override requires two-thirds of all Members of each House, not a simple majority.
+  explanation: |
+    Article VI, Section 27 requires 200 House votes and 16 Senate votes here.
+    The House reaches its threshold. The Senate does not, so the veto stands.
+    Without a veto communicated within 30 days, the bill becomes law as if signed.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0019
+  type: state-of-war-vote
+  difficulty: exam
+  stem: |
+    The President directs the armed forces during an invasion. Congress then
+    considers declaring the existence of a state of war. Which allocation of powers is correct?
+  choices:
+  - text: The President commands the armed forces and alone declares the existence of a state of war.
+    rationale: Commander-in-Chief authority does not include Congress's exclusive power to declare a state of war.
+  - text: The President commands the armed forces; Congress declares a state of war by two-thirds votes in joint session, voting separately.
+    correct: true
+  - text: Congress commands the armed forces; the President declares a state of war after Senate concurrence.
+    rationale: This reverses military command and the war-declaration power. Senate treaty concurrence is a different rule.
+  - text: The President commands the armed forces; Congress declares a state of war by pooling both Houses' votes for one majority.
+    rationale: The war rule requires two-thirds votes with the Houses voting separately, not a pooled majority.
+  explanation: |
+    Article VII, Section 18 makes the President Commander-in-Chief.
+    Article VI, Section 23 reserves the declaration of a state of war to Congress.
+    The Houses meet jointly but vote separately under the two-thirds rule.
+  approved: false
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0020
+  type: legislative-inquiry-and-budget-rules
+  difficulty: exam
+  stem: |
+    A Senate committee studies a proposed tax law through an inquiry.
+    Congress also reviews the President's recommended budget for government
+    operations. Which statement follows Article VI, Sections 21, 24, and 25?
+  choices:
+  - text: The committee may disregard witnesses' rights because its inquiry supports lawmaking.
+    rationale: An inquiry in aid of legislation must still respect the rights of people who appear or are affected.
+  - text: A revenue bill may originate in the Senate if a Senate committee conducted the inquiry.
+    rationale: A Senate inquiry does not remove the requirement that revenue bills originate in the House.
+  - text: The inquiry must follow duly published rules and respect rights; Congress cannot increase the recommended appropriations for government operations.
+    correct: true
+  - text: Congress may increase those recommended appropriations whenever each House approves by a simple majority.
+    rationale: Article VI, Section 25 bars that increase. A simple majority does not remove the restriction.
+  explanation: |
+    Legislative inquiries must follow published rules and respect people's rights.
+    Revenue bills must start in the House. A Senate inquiry does not change this.
+    Congress cannot increase the recommended appropriations for government operations specified in the budget.
+  approved: false
