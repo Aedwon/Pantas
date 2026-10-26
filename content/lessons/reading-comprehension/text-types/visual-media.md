@@ -61,7 +61,11 @@ $$
 
 A positive result means an increase. A negative result means a decrease. The size of a decrease is the earlier value minus the later value.
 
-A **pie chart** divides a circle into sectors, or slices, showing parts of one whole. A full circle has $360$ degrees. With equal radii, larger sectors have larger angles and areas, so they show larger shares.
+A **pie chart** divides a circle into sectors, or slices, showing parts of one whole. A full circle has $360$ degrees.
+
+A **radius** is a line segment from the center of a circle to its edge. Its length tells how far the edge is from the center. The plural of radius is **radii**.
+
+Sectors in the same pie chart have equal radii. A larger sector angle then covers more area and shows a larger share. Compare angles or stated shares when separate pie charts have different sizes.
 
 $$
 \text{Share}=\dfrac{\text{sector angle}}{360^\circ}
