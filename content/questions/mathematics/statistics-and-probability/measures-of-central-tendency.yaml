@@ -91,9 +91,9 @@ questions:
   - text: 'The median is heavily altered by extremely high or extremely low outlier values.'
     rationale: |
       This treats median like mean. Extreme values can pull the mean. Check that median depends on ordered positions.
-  - text: 'The median can only be calculated for nominal qualitative data.'
+  - text: 'The median can only be calculated for color names.'
     rationale: |
-      This uses unordered labels as numerical ranks. Qualitative categories can have modes. Check whether meaningful ordering exists.
+      This treats color names as numbers that can be sorted from smallest to largest. Use the mode to find the most common color.
   - text: 'If a dataset has an even number of values, the median is the difference between the two middle values.'
     rationale: |
       This subtracts the middle pair. Both values are needed. Average them instead.
@@ -263,7 +263,7 @@ questions:
       This treats the target GWA as the missing grade. The target is given directly. Account for the other course grades.
   - text: '$1.83$'
     rationale: |
-      This weights every course equally. A plain target average gives about 1.83. Use all course units.
+      This gives too large a Chemistry grade. It makes the weighted total $27.15$, above the required $26.25$.
   explanation: |
     The total units are $15$, so the target weighted total is $15(1.75)=26.25$. Known courses contribute $3(2)+4(1.5)+3(2)=18$. Thus $5x=26.25-18=8.25$, giving $x=1.65$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0014'
@@ -289,40 +289,40 @@ questions:
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
-    Which of the following statements regarding measures of central tendency across different data types and distribution shapes is correct?
+    For the data set $2,2,3,4,39$, which statement about its measures of central tendency is correct?
   choices:
-  - text: 'In a positively (right) skewed distribution, the mean is generally greater than the median, which is greater than the mode ($\text{Mean} > \text{Median} > \text{Mode}$).'
+  - text: 'The mean is $10$, the median is $3$, and the mode is $2$.'
     correct: true
-  - text: 'For ordinal qualitative data (such as satisfaction ranks), the arithmetic mean is always preferred over the median.'
+  - text: 'The mean always gives a better typical center than the median when there is a strong outlier.'
     rationale: |
-      This treats ranks as equal numerical gaps. Ranking categories have an order. Check whether arithmetic differences are meaningful.
-  - text: 'The mode is the only measure of central tendency that can be calculated for quantitative ratio-scale data.'
+      This ignores the outlier. The value $39$ pulls the mean above the other four values. The median better shows a typical value here.
+  - text: 'The mode is the only measure of central tendency that can be calculated for numerical data.'
     rationale: |
       This excludes mean and median from numerical data. A mode can use such data. Check that numerical values also support sums and ordering.
-  - text: 'Adding a constant $k$ to every observation in a dataset increases the mean by $k$ but leaves the median unchanged.'
+  - text: 'The median is $2$ because $2$ appears most often.'
     rationale: |
-      This shifts only the mean. The mean formula visibly uses every value. Check that all sorted values shift too.
+      This gives the mode as the median. The values are already sorted. The middle value is $3$.
   explanation: |
-    For a common single-peaked right-skewed pattern, large values pull the mean toward the long right tail. The median lies between that pulled mean and the peak, where the mode lies. This gives the stated usual ordering. It is a pattern, not a guaranteed rule for every right-skewed data set.
+    The mean is $\dfrac{2+2+3+4+39}{5}=10$. The middle value is $3$, so the median is $3$. The value $2$ appears twice, more than any other value, so the mode is $2$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0016'
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
-    A teacher adds $5$ bonus points to every student's score on a statistics test, and then increases the revised scores by $10\%$. If the original score dataset had mean $\bar{x}$, median $M$, and mode $m$, which statement correctly describes the transformed measures of central tendency?
+    Five students score $10,20,20,30,40$ points on a statistics test. A teacher adds $5$ bonus points to each score, then increases each revised score by $10\%$. Which statement gives the mean, median, and mode of the final scores?
   choices:
-  - text: 'Each measure becomes $1.10$ times itself plus $5.50$.'
+  - text: 'The mean is $31.90$, the median is $27.50$, and the mode is $27.50$.'
     correct: true
-  - text: 'Only the mean is transformed to $1.10\bar{x} + 5.50$, while the median and mode only increase by $5$.'
+  - text: 'The mean is $31.90$, the median is $25$, and the mode is $25$.'
     rationale: |
-      This scales only the mean. Averages often have visible algebra. Check that every individual score is scaled.
-  - text: 'The mean increases by $10\%$, but the median and mode remain completely unchanged.'
+      This skips the percent increase for the middle and most frequent scores. Each revised score must increase by $10\%$.
+  - text: 'The mean is $26.40$, the median is $20$, and the mode is $20$.'
     rationale: |
-      This ignores the added points and changes only the mean. The percent step is prominent. Apply both steps to each central value.
-  - text: 'The new mean is $1.10\bar{x} + 5.00$ because percentage scaling does not apply to added constant values.'
+      This increases only the original mean by $10\%$. Apply both steps to every score before finding the three measures.
+  - text: 'The mean is $31.40$, the median is $27$, and the mode is $27$.'
     rationale: |
-      This scales before adding five. Both steps are stated. Keep the stated order.
+      This increases the original scores by $10\%$ before adding five. Add the bonus points first.
   explanation: |
-    Each score becomes $1.10(x+5)=1.10x+5.50$. Adding a constant shifts every central value, and positive scaling preserves order and frequencies. The mean, median, and each mode all receive this same change.
+    After adding $5$, the scores are $15,25,25,35,45$. Increasing each by $10\%$ gives $16.50,27.50,27.50,38.50,49.50$. Their total is $159.50$, so the mean is $\dfrac{159.50}{5}=31.90$. The middle value is $27.50$. It also appears most often, so the median and mode are both $27.50$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0017'
   type: 'word-problem'
   difficulty: 'medium'
