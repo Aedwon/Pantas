@@ -35,7 +35,7 @@ questions:
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
-      Using the school clause-counting convention in this lesson, classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
+      Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
     choices:
       - text: "Compound"
         correct: true
@@ -47,9 +47,9 @@ questions:
           This treats "but" as a subordinating word. The two statements contrast. Check: check whether both clauses can stand alone.
       - text: "Compound-complex"
         rationale: |
-          This treats "to travel abroad" as an added finite dependent clause. The phrase names another action. Check: use the school clause-counting convention requested here.
+          This treats "to travel abroad" as an added dependent clause. The phrase names another action. Check: look for a clause with its own subject and verb.
     explanation: |
-      "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." In the school convention used here, the sentence is compound.
+      "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0003"
     type: "sentence-structure-classification"
@@ -115,7 +115,7 @@ questions:
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
-      Using the school clause-counting convention in this lesson, classify this sentence: "The rain stopped, so we went outside to play."
+      Classify this sentence: "The rain stopped, so we went outside to play."
     choices:
       - text: "Compound"
         correct: true
@@ -127,9 +127,9 @@ questions:
           This treats "so" as a subordinating connector. It links the second event to a reason. Check: check whether each main statement can stand alone.
       - text: "Compound-complex"
         rationale: |
-          This counts "to play" as a separate finite subordinate clause. It names an extra activity. Check: apply the stated school clause-counting convention.
+          This counts "to play" as a separate dependent clause. It names an extra activity. Check: look for a clause with its own subject and verb.
     explanation: |
-      "The rain stopped" and "we went outside to play" are independent clauses joined by "so." In the stated school convention, the sentence is compound.
+      "The rain stopped" and "we went outside to play" are independent clauses joined by "so." There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0007"
     type: "sentence-structure-classification"
@@ -301,7 +301,7 @@ questions:
         correct: true
       - text: "Simple"
         rationale: |
-          This ignores the two conditional clauses. There is only one main action. Check: count the clauses introduced by "if" and "when".
+          This ignores the two dependent clauses. There is only one main action. Check: count the clauses introduced by "if" and "when".
       - text: "Compound"
         rationale: |
           This treats every clause as independent. Several clauses appear in the sentence. Check: check the subordinate connectors.
@@ -375,21 +375,21 @@ questions:
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
-      Classify "The nurse who checked the records called the patient."
+      Classify "The nurse, while she checked the records, called the patient."
     choices:
       - text: "Complex"
         correct: true
       - text: "Simple"
         rationale: |
-          This overlooks the relative clause inside the subject. There is one main action of calling. Check: include "who checked the records" in the count.
+          This overlooks the dependent clause within the sentence. There is one main action of calling. Check: include "while she checked the records" in the count.
       - text: "Compound"
         rationale: |
-          This treats the relative clause as an independent statement. Checking and calling are both actions. Check: check how "who" links its clause to "nurse".
+          This treats the dependent clause as an independent statement. Checking and calling are both actions. Check: include "while" in the stand-alone test.
       - text: "Compound-complex"
         rationale: |
           This counts the embedded clause as another main clause. The sentence contains two action words. Check: count independent clauses separately from dependent ones.
     explanation: |
-      "Who checked the records" is a dependent clause describing the nurse. The main clause is "The nurse called the patient." One of each makes the sentence complex.
+      "While she checked the records" is a dependent clause giving time. The main clause is "The nurse called the patient." One of each makes the sentence complex.
     approved: false
   - id: "q-grammar-and-structure-sentence-structure-0020"
     type: "sentence-structure-classification"
