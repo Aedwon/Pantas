@@ -315,8 +315,8 @@ questions:
     rationale: Revocation uses a majority of all Members of Congress voting jointly, not separate two-thirds votes.
   - text: The Supreme Court may review the factual basis, and Congress may revoke by a majority of all its Members voting jointly.
     correct: true
-  - text: The President may reject a congressional revocation by veto.
-    rationale: Article VII, Section 18 expressly prevents the President from setting aside Congress's revocation.
+  - text: Martial law replaces functioning civil courts.
+    rationale: Martial law does not replace functioning civil courts.
   explanation: |
     Article VII, Section 18 gives Congress the power to revoke by a joint majority vote.
     Any citizen may ask the Supreme Court to review the factual basis.
