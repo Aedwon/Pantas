@@ -87,7 +87,7 @@ Over land or cooler water, the storm loses much of its heat and moisture supply.
 
 PAGASA groups tropical cyclones by their **maximum sustained winds**, the strongest winds averaged over a set time near the center. These are different from brief bursts called gusts. The unit km/h means kilometers per hour.
 
-- Tropical depression: $39$ to $61$ km/h.
+- Tropical depression: $61$ km/h or less.
 - Tropical storm: $62$ to $88$ km/h.
 - Severe tropical storm: $89$ to $117$ km/h.
 - Typhoon: $118$ to $184$ km/h.
@@ -211,7 +211,7 @@ No tropical cyclone is nearby. A weather report describes a belt where winds fro
 An organized tropical cyclone moves from warm water onto a large land area. Why do its winds usually weaken?
 
 **Solution:**
-1. Over warm water, evaporation supplies moisture. Rising air condenses, releasing heat that helps sustain the storm.
+1. Over warm water, evaporation supplies moisture. Rising air cools, and its water vapor condenses. This releases heat that helps sustain the storm.
 2. Over land, that warm ocean supply is cut off. Winds usually weaken, although heavy rain and floods can continue.
 
 ### #9: Typhoon or Habagat?
@@ -256,7 +256,7 @@ A town's drains fill with waste, and nearby homes flood during heavy rain. Offic
 2. Replacing coal power with solar power cuts greenhouse gas releases. This is climate mitigation.
 3. The actions serve different needs. Solar power does not clear blocked drains, and drain clearing does not reduce the town's coal use.
 
-## Speed Tricks & Shortcuts
+## Exam Strategies
 
 For weather and climate questions, check the time span. A day's conditions describe weather. A pattern across many years describes climate.
 
