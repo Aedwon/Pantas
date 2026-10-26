@@ -1,0 +1,201 @@
+{
+ "batch": "RD-151",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "f2a29e0d34bdd2a716835a8af9742ce294084653d02e136ce9c386629e22f7b2",
+ "rewrite_commit": "72c2d6ba3399291955cbe6e4b23c65576e428e76",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "f2a29e0d34bdd2a716835a8af9742ce294084653d02e136ce9c386629e22f7b2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared public-trust and impeachment provisions, RA 3019 clause descriptions, the amended fifty-million plunder threshold, processing limits, gift exception, and vote-buying reference with the supplied legal-source notes. No contradiction identified.",
+     "The original seventy-five-million plunder threshold is correctly superseded; no unverified plunder penalty or corruption statistic is printed. Added legal conditions have audit citations; external source confirmation is outside the prompt-only review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 demand for money, not typo; #2 direct bribery; #3 Section 3(b); #4 repeated kickbacks and exactly fifty million fit the specified means and amount.",
+     "#5 social harm; #6 excess payments reduce remaining classroom funds; #7 weaker political accountability; #8 social, economic, political respectively.",
+     "#9 Ombudsman; #10 posted rules expose hidden charges and fabricated delays; #11 claim is unsound because denied services and bought decisions add social and political harm. All agree with the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required sections and the eleven outlined examples are present. Forms, three effect groups, State responses, and weighing effects are taught. The three helpful figures have specific placeholders; no example requires an unseen figure to be solvable."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Legal phrases such as undue injury, manifest partiality, bad faith, gross negligence, ill-gotten wealth, accountability, and impeachment receive plain definitions. Most prose uses short concrete sentences and cause-and-effect examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate and classify are explicitly explained in Weighing the Effects before the examples use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Example stems supply official duty, transaction connection, kickback pattern, amount, and observable harms. They ask students to select the taught rule or classification; solutions explain it simply without requiring missing case details."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson makes no unsupported claim that the CSE tests these curriculum-support topics."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary plainly describes forms and harms. Listed stock phrases are absent; definitions, factual statements, and cause-and-effect sentences have varied openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout has Core Concept, Examples, and Traps; no Speed Tricks section is needed. Examples use no computational formulas, and the plunder threshold is taught in Core Concept before Example 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1-4 cover honest error versus misuse, direct bribery, contract benefit, and plunder means/threshold. Examples 5-8 cover separate and mixed effects.",
+     "Examples 9-11 cover complaint routing, transparent procedures, and evaluation of a budget-only claim. These match the eleven requested cases and move from identifying acts to explaining mixed consequences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 2, 4, 6, 8, and 11 have numbered reasoning steps. Other answers are single-step judgments or explanations; no calculation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this conceptual lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student paragraphs stay within three sentences. The single four-item list groups statutory clauses; worked solutions use numbered lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The effects-map placeholder names its center, three branches, and examples. The agency placeholder separates complaint handling from trial. The classroom chain specifies all boxes and arrow labels. Surrounding prose remains understandable without images."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Corruption, direct bribery, graft conditions, confidential information, plunder, kickback, red tape, fixer, accountability, SALN, impeachment, and Citizen's Charter receive meanings before examples require them. The lesson supplies its own reminders of public interest, simple living, and the gift exception."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson connects office misuse to private gain, spells out selected statutory forms, explains the amended plunder threshold, and traces social, economic, and political harms. It explains how complaint handling, sworn wealth disclosure, and posted processes support accountability."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The teaching limits bribery to an accepted exchange rather than a rejected offer; distinguishes the grounds and fault conditions of RA 3019; and separates the purpose requirement of RA 6713 information misuse.",
+     "Plunder needs covered acts and the fifty-million threshold. Processing teaching includes completeness, applicable fees, extension notice, pauses, and separate council timing. Gift teaching requires unsolicited insignificant value and no favor. Delays and honest mistakes alone are not treated as proof of corruption."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
