@@ -1,0 +1,277 @@
+{
+ "batch": "RD-106",
+ "lesson_id": "lesson-spatial-abstract-reasoning-figure-matrices",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+ "lesson_sha256": "9f3e888d97fbfaadedbe5853cfe168dfded690fe1d5d78c01bcb9667eed1bd9c",
+ "rewrite_commit": "f7f472debaf0bde575625d91aa46ceba50aa1eda",
+ "form": {
+  "packet": "lesson-spatial-abstract-reasoning-figure-matrices",
+  "role": "A",
+  "lesson_sha256": "9f3e888d97fbfaadedbe5853cfe168dfded690fe1d5d78c01bcb9667eed1bd9c",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked row/column grid dimensions, clockwise quarter turns, and the effect of a 90-degree clockwise turn on a square corner and side.",
+     "Verified union-like keeping-all and intersection-like keeping-shared line rules against the completed rows. Unsupported majority and frequency claims are removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: square with thick right side and dot near top-right corner. #2: circle with 5 dots, by adding 1 across rows and down columns.",
+     "Solved #3: large black square. #4: square with both diagonals, an X. #5: square retaining only the top-left to bottom-right diagonal. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required reduced-layout sections are present. All five visual examples have their own detailed grid placeholder; Core Concept also supplies a two-feature grid illustration."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the grid definitions, turn explanation, combination definitions, five solutions, and traps. Technical ideas are expressed as short instructions and concrete movements; the old nested rotation sentence is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verbs require a gloss here.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used in this lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The five stems give cell contents, mark positions, size, shading, and line directions as required. They ask for the missing figure without providing the tested rule. Solutions use plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no exam mentions or frequency claims requiring varied motivation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary plainly names row, column, and combination rules. No listed stock AI phrase appears; prose varies between definitions, checks, examples, and warnings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Uses Core Concept, Examples, and Traps to Watch For only. No formula is used. Dot-count arrows in #2 show repeated increases; Core Concept teaches checking dots across rows and columns, not a new formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples progress from visible 2-by-2 rotation (#1) to 3-by-3 dot increase (#2), independent size and shading rules (#3), keeping all details (#4), and retaining shared lines (#5). The latter two are distinct combination cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All five solutions use numbered steps without skipped transformations. Example 2 displays each key dot progression, including the last-column check; the other solutions require feature comparisons rather than numerical computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Each display equation is a short three-number arrow chain, such as 3 to 4 to 5; none is wide."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A $3 \\times 3$ matrix shows circles with dot counts. Row $1$ has $1$, $2$, and $3$ dots. Row $2$ has $2$, $3$, and $4$ dots. Row $3$ has $3$, $4$, and a blank. How many dots should the blank cell have?",
+      "problem": "L22a allows one to three short sentences per paragraph. The Example 2 stem contains five sentences in one paragraph and needs paragraph breaks."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the six single-line placeholders: the rotation grid marks the whole square, the count grid supplies every known dot count, size/shading grid distinguishes white outlines, and both combination grids specify line directions and positions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Matrix, cell, row, column, rotation, clockwise, and quarter turn receive meanings before use. Combination rules are defined by which features stay. Diagonal directions are identified by their start and end corners."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Explains testing feature changes across rows and columns, requiring both rules to fit, moving all marks with a rotation, and building a cell by keeping all or only shared features. Examples demonstrate each operation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Completed rows or columns determine which combination applies. Proposed rules must fit all relevant completed cases; the lesson explicitly disclaims a complete taxonomy and distinguishes shared lines from crossing points."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-spatial-abstract-reasoning-figure-matrices|L02|0": {
+    "status": "fixed",
+    "quote": "Its top side moves to the right side. Its top-left corner moves to the top-right corner.",
+    "note": "The rotation solution now uses short sentences and concrete side and corner movements."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B01|0": {
+    "status": "fixed",
+    "quote": "These are checks to try, not a complete list of possible rules.",
+    "note": "The unsupported claim about most matrices is replaced by a clear limitation."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B01|1": {
+    "status": "fixed",
+    "quote": "Use a completed row or column to find which rule applies.",
+    "note": "Combination remains a useful check without an unsupported frequency claim."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|0": {
+    "status": "fixed",
+    "quote": "Row $1$ has $1$, $2$, and $3$ dots.",
+    "note": "Every numbered row reference in the dot-count stem is now inside math delimiters."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|1": {
+    "status": "fixed",
+    "quote": "Apply the same increase to row $3$.",
+    "note": "The row number is wrapped and the unwrapped quoted plus-one expression is gone."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L18|0": {
+    "status": "fixed",
+    "quote": "The blank should show a square with only the diagonal from top-left to bottom-right.",
+    "note": "Example 5 now works the shared-features combination as a distinct case."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L25|0": {
+    "status": "fixed",
+    "quote": "Another keeps only features found in both cells at the same position.",
+    "note": "The combination alternatives are defined in plain words before examples use them."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L26|0": {
+    "status": "fixed",
+    "quote": "a line stays only if both starting figures have it.",
+    "note": "Core Concept explains shared-feature retention and Example 5 applies it."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|lead-add|0": {
+    "status": "fixed",
+    "quote": "The blank should show a square with a thick right side and a dot near its top-right corner.",
+    "note": "The square now has marks whose changed positions make the rotation visible."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|2": {
+    "status": "fixed",
+    "quote": "Some rules keep all features. Others keep only shared features.",
+    "note": "The former unwrapped Example 3 reference has been removed from the revised traps."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|3": {
+    "status": "fixed",
+    "quote": "A triangle and a marked square can both turn $90^\\circ$ clockwise.",
+    "note": "The old unwrapped Example 1 reference is gone; the turn value uses math delimiters."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L17|0": {
+    "status": "fixed",
+    "quote": "Use a completed row or column to find which rule applies.",
+    "note": "Combination advice is in Core Concept; there is no extra Speed Tricks section."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L19|0": {
+    "status": "fixed",
+    "quote": "$$3 \\to 4 \\to 5$$",
+    "note": "The key progression is now a display equation between numbered solution steps."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L22a|0": {
+    "status": "fixed",
+    "quote": "A **figure matrix** is a grid of figures with one missing cell.",
+    "note": "The opening paragraph now uses three short sentences with simple definitions."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L27|0": {
+    "status": "fixed",
+    "quote": "Use a completed row or column to find which rule applies.",
+    "note": "The lesson explicitly says how to select between all-feature and shared-feature rules."
+   }
+  }
+ }
+}

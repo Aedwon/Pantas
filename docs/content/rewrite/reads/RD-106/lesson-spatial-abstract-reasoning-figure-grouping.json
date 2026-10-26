@@ -1,0 +1,255 @@
+{
+ "batch": "RD-106",
+ "lesson_id": "lesson-spatial-abstract-reasoning-figure-grouping",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+ "lesson_sha256": "e9db08ca79aa83c9543cd2ae2d4ed91b633aca987b4ef8f4452a0d348d241f8a",
+ "rewrite_commit": "f7f472debaf0bde575625d91aa46ceba50aa1eda",
+ "form": {
+  "packet": "lesson-spatial-abstract-reasoning-figure-grouping",
+  "role": "A",
+  "lesson_sha256": "e9db08ca79aa83c9543cd2ae2d4ed91b633aca987b4ef8f4452a0d348d241f8a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked quadrilateral and triangle side counts, reflection symmetry of the named shapes, and straight versus curved outlines.",
+     "One, two, and three distinct center chords make 2, 4, and 6 regions. Two parallel interior chords make 3; intersecting off-center chords can make 4. No exam-frequency claim remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: triangle, the only 3-sided figure. #2: blob, the only figure without a reflection axis. #3: circle, the only curved outline.",
+     "Solved #4: fourth circle, the only odd region count (3). #5: hexagon, the only outline containing 2 dots. #6: E, the only figure containing 2 dots; size separates two figures and fails."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. Each of the six visual questions has its own specific illustration placeholder. All five listed feature categories receive worked treatment."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions, six solutions, and five traps for simple language. The former abstract checklist lead-in is now a short instruction; the region caveat uses short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verbs require a gloss here.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All six stems ask which figure does not belong and specify the figures or internal details needed to solve. The descriptions provide the visual givens without naming the grouping rule; numbered solutions explain the comparison plainly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No specific-exam claims or repeated exam openers occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary describes finding a shared rule. No listed stock phrase occurs; definitions, instructions, and trap explanations vary their sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Uses the reduced reasoning layout: Core Concept, Examples, Traps to Watch For. No example uses an algebraic or numerical formula, so no formula introduction is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover sides (#1), symmetry (#2), curved versus straight outlines (#3), regions (#4), internal dots (#5), and rejecting a salient size rule in favor of dot count (#6). The last case adds rule validation instead of merely changing nouns."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the six solutions has numbered steps with no omitted comparison. These are counts and classifications, not multistep computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Five figures are labeled A to E. A is a small square with one dot. B is a large circle with one dot. C is a small triangle with one dot. D is a large pentagon with one dot. E is a small hexagon with two dots. Which figure does not belong?",
+      "problem": "L22a limits paragraphs to one to three short sentences. This example stem is one paragraph with seven sentences; split it into shorter paragraphs."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all seven one-line placeholders against their surrounding text. The symmetry image explicitly requires an equilateral triangle and an axis-free blob; region chords are parallel and separate; #6 specifies equal size groups and dots."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Figure grouping and odd-one-out are defined at the start. Symmetry, enclosed regions, and orientation receive meanings before use. Even counts are explained as complete pairs when used in #4; odd 3 contrasts with these pairs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept explains how to compare one feature at a time and test every group member. Each named feature is demonstrated, and #6 shows rejecting a failed candidate rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Exactly one exception is required. The lesson states that size and orientation can distract, off-center placement alone does not imply odd regions, and competing equally clear rules may leave a question unsettled."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-spatial-abstract-reasoning-figure-grouping|L18|0": {
+    "status": "fixed",
+    "quote": "The triangle, square, and pentagon use only straight line segments.",
+    "note": "Example 3 now works the straight-versus-curved grouping case."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|B01|0": {
+    "status": "fixed",
+    "quote": "Missing the center alone does not cause an odd count.",
+    "note": "The false causal claim is removed and a crossing-chord counterexample is given."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L02|0": {
+    "status": "fixed",
+    "quote": "Check simple features one at a time:",
+    "note": "The abstract checklist introduction is replaced with plain language."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L27|1": {
+    "status": "fixed",
+    "quote": "Two off-center lines that cross inside a circle can make $4$ regions.",
+    "note": "The explanation now makes the arrangement condition explicit."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L17|0": {
+    "status": "fixed",
+    "quote": "Test a possible rule against every figure before choosing.",
+    "note": "The strategy is in Core Concept and the extra Speed Tricks section is removed."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L18|1": {
+    "status": "fixed",
+    "quote": "The large figures stand out, but both follow the dot rule.",
+    "note": "Example 6 now works a case where visual size conflicts with the grouping feature."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L18|2": {
+    "status": "fixed",
+    "quote": "Try size first. A, C, and E are small. B and D are large.",
+    "note": "Example 6 tests size, rejects it, and then validates dot count."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L22a|0": {
+    "status": "fixed",
+    "quote": "**Figure grouping** questions show several figures. Most figures follow one rule.",
+    "note": "The opening paragraph now has three short sentences without a semicolon."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L23|0": {
+    "status": "fixed",
+    "quote": "an equilateral triangle, and an irregular lopsided blob with no line of reflection symmetry",
+    "note": "The symmetry placeholder now explicitly constrains both disputed shapes."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L25|0": {
+    "status": "fixed",
+    "quote": "**Orientation** means which way a figure points or faces.",
+    "note": "Orientation is now defined before the trap needs it."
+   },
+   "lesson-spatial-abstract-reasoning-figure-grouping|L27|0": {
+    "status": "fixed",
+    "quote": "Sometimes more than one simple rule gives a different answer, so the figures alone may not settle the question.",
+    "note": "The competing-rules limitation is stated in Core Concept and revisited in a trap."
+   }
+  }
+ }
+}
