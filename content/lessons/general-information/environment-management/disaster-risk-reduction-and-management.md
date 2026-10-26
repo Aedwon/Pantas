@@ -25,21 +25,21 @@ Examples include safer land-use rules, stronger building standards, flood-contro
 
 Preparedness includes training, drills, emergency plans, stockpiling supplies, public information, and warning or forecasting systems. The key idea is readiness.
 
-### Disaster Response
+### Disaster Response and Early Recovery
 
 **Disaster response** means actions taken during or immediately after a disaster to protect life and meet urgent needs. Search and rescue, evacuation, emergency shelter, food, water, and medical help are response actions.
 
-Response is about the immediate emergency. Long-term rebuilding belongs to rehabilitation and recovery.
+Response focuses on urgent needs. The National DRRM Plan for $2020$ to $2030$ groups response with early recovery. This includes restoring essential services, key facilities, and livelihoods. Recovery can begin while response is still going on.
 
 ### Disaster Rehabilitation and Recovery
 
-**Disaster rehabilitation and recovery** means restoring and improving the lives, livelihoods, facilities, and services of affected communities after the immediate emergency. Recovery should also reduce future disaster risk when rebuilding.
+**Disaster rehabilitation and recovery** means restoring and improving the lives, livelihoods, facilities, and services of affected communities after a disaster. Recovery should also reduce future disaster risk when rebuilding.
 
 This can include repairing roads, restoring water service, helping livelihoods restart, and rebuilding damaged facilities more safely. The goal is not only to return to normal, but to recover in a safer way.
 
 ### How the Four Areas Work Together
 
-The four areas are connected. Prevention and mitigation reduce risk, preparedness builds readiness, response deals with urgent needs, and rehabilitation and recovery restore communities afterward.
+The four areas are connected and can overlap. Prevention and mitigation reduce risk. Preparedness builds readiness. Response and early recovery meet urgent needs and restore essential services. Rehabilitation and recovery support lasting recovery.
 
 A single program can support more than one area. In an exam question, choose the area that best matches the action's main purpose.
 
@@ -105,9 +105,9 @@ A safer building standard mainly reduces possible harm, so it fits prevention an
 
 ### #2: Response vs. Recovery
 
-> Urgent relief and long-term rebuilding belong to different areas.
+> Recovery can begin during response.
 
-Rescue, evacuation, and emergency aid are response actions. Restoring livelihoods, roads, and facilities after the emergency belongs to rehabilitation and recovery.
+Rescue, evacuation, and emergency aid are response actions. Early recovery can restore essential services, facilities, and livelihoods during response. Long-term rebuilding belongs to rehabilitation and recovery. Look at the action's main purpose.
 
 ### #3: DRRM Starts Before Disaster
 

@@ -112,10 +112,10 @@ questions:
 
     '
   choices:
-  - text: Restoring damaged community services
+  - text: Rebuilding damaged community services through a long-term project
     correct: true
   - text: Giving the first rescue assistance during the active emergency
-    rationale: 'This selects response. Both help affected communities. Check whether services are being restored after damage.
+    rationale: 'This selects response. Both help affected communities. First rescue assistance meets urgent needs. The long-term project rebuilds damaged services.
 
       '
   - text: Teaching an evacuation procedure before a storm is forecast
@@ -126,7 +126,7 @@ questions:
     rationale: 'This selects prevention or mitigation. It also supports resilience. Check whether the action restores an existing loss.
 
       '
-  explanation: 'Rehabilitation and recovery rebuild or restore conditions and services after a disaster''s damage.
+  explanation: 'Long-term rebuilding of damaged services belongs to rehabilitation and recovery. Early recovery can also restore essential services during response.
 
     '
 - id: q-environment-management-environmental-concepts-0022
@@ -169,7 +169,7 @@ questions:
     correct: true
   - text: Disaster rehabilitation and recovery
     rationale: |
-      Recovery restores lives and services after the immediate emergency.
+      Recovery restores lives and services after a disaster. It can begin during response.
       Storing supplies in advance builds readiness.
   - text: Disaster prevention and mitigation
     rationale: |
@@ -362,7 +362,7 @@ questions:
   - text: The action is recovery because residents will eventually return home.
     rationale: |
       A possible later return does not make the current evacuation recovery.
-      Recovery restores lives and services after the immediate emergency.
+      Recovery restores lives and services after a disaster. It can begin during response.
   explanation: |
     Moving people out of immediate danger is response. Officials do not need to
     wait for damage. Practicing that move beforehand would be preparedness.
@@ -382,7 +382,7 @@ questions:
       Recovery should include safer rebuilding. Reducing future risk does not rule out recovery.
   - text: The project mainly serves response because all work after a disaster is response.
     rationale: |
-      Response addresses the immediate emergency. Long-term rebuilding after that emergency is recovery.
+      Response focuses on urgent needs and can include early recovery. This long-term rebuilding project is recovery.
   - text: The project mainly serves preparedness because any future benefit means readiness.
     rationale: |
       Preparedness builds readiness through plans, training, supplies, and similar work.
@@ -403,7 +403,7 @@ questions:
       Both meet urgent needs during response. This pair does not distinguish activities before a disaster.
   - text: Restoring damaged roads and restarting affected businesses
     rationale: |
-      Both are recovery activities after the immediate emergency.
+      Both can support recovery after a disaster, including early recovery during response.
       They do not test the reviewer's rule about earlier work.
   - text: Practicing evacuation routes and training emergency staff
     rationale: |
