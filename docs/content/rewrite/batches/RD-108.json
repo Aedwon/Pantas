@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-biology-ecology"
+ ],
+ "topic": "science/biology",
+ "rewrites": {
+  "lesson-biology-ecology": "1ae9d70edf2bdb61e67919ee396bb771fb5bff4d"
+ },
+ "sha256": {
+  "lesson-biology-ecology": "35111a7b46295246bf0f9ae98796cce82a0f223353de5aec2caff4c3301c2d57"
+ },
+ "paths": {
+  "lesson-biology-ecology": "content/lessons/science/biology/ecology.md"
+ },
+ "id": "RD-108",
+ "type": "read",
+ "created": "2026-10-26T04:51:37+00:00"
+}
