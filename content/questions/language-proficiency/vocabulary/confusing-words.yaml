@@ -242,10 +242,10 @@ questions:
       Umalis siya ______ alas-singko ng hapon. Alin ang wastong pananda bago ang tiyak na oras?
     choices:
       - text: "Ng"
-        correct: true
-      - text: "Nang"
         rationale: |
-          This treats a clock-time phrase like a clause introduced by "when." Both describe time, so the choice may look right. Check whether a full event clause or just a clock time follows.
+          This uses a marker for a noun object or possessor to introduce the time of an action. "Ng" sounds like "nang," so the forms may seem interchangeable. Check whether the phrase names an object or owner, or tells when the person left.
+      - text: "Nang"
+        correct: true
       - text: "Na"
         rationale: |
           This uses a linker before a time expression. "Na" is common between related words. Check whether the gap links a description or marks the time of the action.
@@ -253,7 +253,7 @@ questions:
         rationale: |
           This expresses having something before a clock time. The time may seem like information added to the sentence. Check whether the gap means possession or tells when the person left.
     explanation: |
-      "Ng" marks this clock-time expression. The completed phrase is "umalis siya ng alas-singko ng hapon."
+      "Nang" means "noong" when it introduces the time of an action, including a time of day. The completed sentence is "Umalis siya nang alas-singko ng hapon."
     approved: true
 
   - id: q-vocabulary-confusing-words-0013
