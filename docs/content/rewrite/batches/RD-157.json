@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-geometry-logic-and-reasoning"
+ ],
+ "topic": "mathematics/geometry",
+ "rewrites": {
+  "lesson-geometry-logic-and-reasoning": "de9849762e740821ba179a300a73420acc2e9629"
+ },
+ "sha256": {
+  "lesson-geometry-logic-and-reasoning": "4cc23ee0c28a627ee0f94025e70e1044dcc7a3b210e084e5627ea87d816ef10d"
+ },
+ "paths": {
+  "lesson-geometry-logic-and-reasoning": "content/lessons/mathematics/geometry/logic-and-reasoning.md"
+ },
+ "id": "RD-157",
+ "type": "read",
+ "created": "2026-10-26T14:01:11+00:00"
+}
