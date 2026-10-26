@@ -1,0 +1,250 @@
+{
+ "batch": "RD-092",
+ "lesson_id": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.md",
+ "lesson_sha256": "e53280d7adee03e315ed7f64d0b6d3af23b7ca49f3f8b5559186429a78573192",
+ "rewrite_commit": "0ed219a4e9d5f6b8d3923fa05813994a42685984",
+ "form": {
+  "packet": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+  "role": "A",
+  "lesson_sha256": "e53280d7adee03e315ed7f64d0b6d3af23b7ca49f3f8b5559186429a78573192",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the four aspect meanings against the supplied brief and the actual sentence contexts: completed, ongoing/habitual, contemplated, and recently completed. Checked maglinis/kumain forms and the seven topic-role focus examples for internal consistency. No contrary factual claim is apparent. Official spelling and source-ledger verification are outside this prompt-only review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 perpektibo; #2 imperpektibo; #3 kontemplatibo; #4 perpektibong katatapos; #5 maglilinis, kakain; #6 Bukas, then Magsusumite si Liza ng ulat bukas; #7 imperpektibo; #8 imperpektibo; #9 tagaganap, layon; #10 ganapan, direksiyon; #11 tagatanggap, kagamitan, sanhi. Each matches its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The supplied brief requires no figures; none of these verbal questions needs one. No independent outline was supplied for comparison."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The dense English linguistic sentence from the brief is absent. Teaching uses short Filipino statements, concrete verbs, and familiar sentence examples; technical labels receive meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The prompts use everyday commands such as find, choose, name, rewrite, or their Filipino equivalents. None introduces an unexplained exam-specific instruction meaning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the eleven questions supplies the complete sentence or verb pair to analyze. The prompts ask for aspect, focus, form selection, or time-phrase movement without giving away the classification. Solutions explain the relevant meaning in simple Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-opening formulas in this lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Aspect, formation, time clues, and focus are explained in Filipino through short statements and familiar actions such as cleaning, cooking, and traveling."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Body first definitions gloss pandiwa, aspekto, perpektibo, imperpektibo, kontemplatibo, perpektibong katatapos, ugat, panlapi, pantig, pang-abay na pamanahon, pokus, paksa, and the seven focus roles. The glosses are not repeatedly inserted in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven example questions and their sample sentences are Filipino. There are no separate quiz items; the required Solution label does not change the example language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from the supplied material alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino teaching uses English only for first-use grammar glosses and the standard section/solution labels. The common formatting word bold in prompts is understandable and is not mixed English teaching prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Aspect targets in #1–4 and #7–8 are bold and called salitang nasa bold. Focus questions classify whole sentences; #5–6 ask for sentence completion or movement rather than a marked target word."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the actual lesson skills. No listed stock AI phrase appears, and sentence openings vary across the explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The language lesson uses the permitted section layout. Its examples use grammatical patterns, not mathematical formulas; there is no example formula requiring earlier introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked cases cover all four aspects (#1–4), different formation families (#5), time-word choice and placement (#6), past ongoing action (#7), habitual action (#8), and all seven focus roles (#9–11). The order moves from direct identification to distinctions between roles."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven solutions use numbered steps. Form changes, aspect reasoning, and topic-role checks are stated with no missing operation. No numerical computation needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs stay within one to three sentences. Examples use numbered solution lists; there are no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions in this verbal grammar lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept defines verb, aspect, roots, affixes, syllables, time adverbs, focus, topic, and each focus role before examples require them. Familiar time words receive meanings. No prerequisite explanation is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The formation section shows how to build and choose forms in two verb families. Focus teaching finds the topic and asks its role. Worked examples explain why each aspect and focus applies, including habitual and past ongoing uses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Formation guidance is limited to the named verb groups. The lesson warns against using one pattern for all verbs, distinguishes completed from recently completed action, explains why kahapon does not force perfective aspect, and separates location from destination."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-tenses-and-voice|L02|1": {
+    "status": "fixed",
+    "quote": "Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan.",
+    "note": "The advanced English morphology sentence is replaced by a short Filipino definition."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L09|0": {
+    "status": "fixed",
+    "quote": "Ipinapakita ng **aspekto** (aspect) kung tapos na, nagpapatuloy, gagawin pa, o katatapos lamang ang kilos.",
+    "note": "The first teaching definition supplies the English gloss and the four meanings; no preceding body heading introduces an unglossed term."
+   },
+   "language-proficiency-grammar-and-structure#88": {
+    "status": "fixed",
+    "quote": "Ang *nag-* sa pangkat na *maglinis* ay nagpapakita ng natapos na kilos.",
+    "note": "Completed aspect now has a form-selection method and a reasoned application in Example 1."
+   },
+   "language-proficiency-grammar-and-structure#89": {
+    "status": "fixed",
+    "quote": "Nagsimula na ang pagsusulat ngunit hindi pa tapos.",
+    "note": "Ongoing aspect is explained by unfinished action; Examples 2, 7, and 8 also distinguish ongoing past and habitual uses."
+   },
+   "language-proficiency-grammar-and-structure#90": {
+    "status": "fixed",
+    "quote": "Sa *kumain*, alisin ang *-um-* at ulitin ang *ka*: *kakain*.",
+    "note": "Contemplated action is tied to not-yet-started meaning, and Example 5 applies the formation method."
+   },
+   "language-proficiency-grammar-and-structure#91": {
+    "status": "fixed",
+    "quote": "Ang anyo ng pandiwa at *lang* ay nagsasabing katatapos lamang nito.",
+    "note": "Recently completed action is distinguished from ordinary completion and justified in Example 4."
+   },
+   "language-proficiency-grammar-and-structure#92": {
+    "status": "fixed",
+    "quote": "Huwag ilipat ang hulma ng *maglinis* sa *kumain*: hindi *magkakain* ang katumbas ng *kakain* sa pangkat na ito.",
+    "note": "Two verb families receive explicit formation rules and a paired worked application."
+   },
+   "language-proficiency-grammar-and-structure#93": {
+    "status": "fixed",
+    "quote": "Hanapin ito at itanong kung ano ang papel nito sa kilos.",
+    "note": "The method identifies the topic and its role; Examples 9–11 reason through all seven focus types."
+   },
+   "language-proficiency-grammar-and-structure#104": {
+    "status": "fixed",
+    "quote": "Kapag nasa hulihan ang pahiwatig: “Magsusumite si Liza ng ulat bukas.” Hindi nagbago ang oras ng kilos.",
+    "note": "Time-adverb meanings, placement, selection, and interaction with aspect are taught and worked."
+   }
+  }
+ }
+}

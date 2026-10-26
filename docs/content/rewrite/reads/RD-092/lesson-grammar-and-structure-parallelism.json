@@ -1,0 +1,230 @@
+{
+ "batch": "RD-092",
+ "lesson_id": "lesson-grammar-and-structure-parallelism",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+ "lesson_sha256": "ad9faf0f253c836508e59b0cd924e0cbdac01eb3cad4052e6cb3f3d70071630c",
+ "rewrite_commit": "0ed219a4e9d5f6b8d3923fa05813994a42685984",
+ "form": {
+  "packet": "lesson-grammar-and-structure-parallelism",
+  "role": "A",
+  "lesson_sha256": "ad9faf0f253c836508e59b0cd924e0cbdac01eb3cad4052e6cb3f3d70071630c",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that likes can independently take swimming and to hike, unlike the original enjoy example. Shared to correctly governs coordinated base verbs. The repaired lists, correlative adjective pair, and activity comparison are grammatical. No specialized external factual claim requires confirmation here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 replace jumping higher with to jump higher; #2 The festival was not only fun but also educational; #3 B; #4 Reading a book is more relaxing than watching television. All match the supplied worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The supplied brief requires no figures; none of these verbal questions needs one. No independent outline was supplied for comparison."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions use short sentences and concrete lists. Correlative conjunctions and base verb form are immediately explained with simple examples; the dense passage identified by the brief has been split."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The prompts use everyday commands such as find, choose, name, rewrite, or their Filipino equivalents. None introduces an unexplained exam-specific instruction meaning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All four stems provide the sentence or alternatives being judged. They request repair or selection without providing the repair method. The solutions explain the mismatching parts in simple words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-opening formulas in this lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching or Filipino example text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching or Filipino example text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching or Filipino example text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching or Filipino example text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching or Filipino example text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The prompts ask students to repair or choose whole sentences. None refers to a specific marked target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the actual lesson skills. No listed stock AI phrase appears, and sentence openings vary across the explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The language lesson uses the permitted section layout. Its examples use grammatical patterns, not mathematical formulas; there is no example formula requiring earlier introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover list repair (#1), paired conjunction repair (#2), shared-infinitive selection (#3), and comparison repair (#4). The correlative pairs taught use the same joined-part test, so changing the pair alone would not add a distinct reasoning case."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the four worked solutions has a numbered list separating diagnosis, change, and answer. Example 3 explicitly explains the shared to; there are no missing computations or equation displays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs stay within one to three sentences. Examples use numbered solution lists; there are no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions in this verbal grammar lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Parallelism and correlative conjunctions receive definitions before examples. Base verb form is defined through install, update, and troubleshoot. The second solution explains describing words directly and does not depend on unexplained adjective or full-clause labels."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept demonstrates matching and mismatching forms, explains paired joining words, and shows how a single to serves several base verbs. Solutions apply those checks to repair and selection tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept and shortcuts explicitly say matching form need not mean matching visible endings. Both shared and repeated to are allowed. Comparisons and correlative pairs are checked by the parts doing the same job."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-parallelism|B01|0": {
+    "status": "fixed",
+    "quote": "Each form can follow *likes* by itself, but the list does not match.",
+    "note": "The example now uses likes, which permits each complement separately."
+   },
+   "lesson-grammar-and-structure-parallelism|L27|0": {
+    "status": "fixed",
+    "quote": "Matching form does not always mean matching visible endings.",
+    "note": "The condition for shared words is stated and the single to is explained."
+   },
+   "lesson-grammar-and-structure-parallelism|L02|0": {
+    "status": "fixed",
+    "quote": "**Correlative conjunctions** are joining words used in pairs.",
+    "note": "The dense pair explanation is split into short statements and examples."
+   },
+   "lesson-grammar-and-structure-parallelism|L03|0": {
+    "status": "fixed",
+    "quote": "Find the part that breaks parallel structure and rewrite the sentence correctly:",
+    "note": "The old Identify and fix wording is replaced with explicit plain commands; these everyday words do not require a special exam gloss."
+   },
+   "lesson-grammar-and-structure-parallelism|L25|0": {
+    "status": "fixed",
+    "quote": "Keep the describing words in both joined parts.",
+    "note": "The solution uses plain descriptions instead of unexplained adjective and full clause labels."
+   },
+   "lesson-grammar-and-structure-parallelism|L25|1": {
+    "status": "fixed",
+    "quote": "A **base verb form** is the plain form of a verb, such as *install, update,* or *troubleshoot*.",
+    "note": "The base verb term is now defined before the worked selection."
+   },
+   "lesson-grammar-and-structure-parallelism|L26|0": {
+    "status": "fixed",
+    "quote": "The single *to* in *how to install* applies to the whole list.",
+    "note": "Shared infinitive marking is explained in Core Concept and applied again in Example 3."
+   }
+  }
+ }
+}
