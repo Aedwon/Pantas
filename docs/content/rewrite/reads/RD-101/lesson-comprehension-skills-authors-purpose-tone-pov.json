@@ -1,0 +1,264 @@
+{
+ "batch": "RD-101",
+ "lesson_id": "lesson-comprehension-skills-authors-purpose-tone-pov",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+ "lesson_sha256": "f409fe5943a7466bdcc484c915d0eef9a7b2e117a19f643c8c4673f7daca9d34",
+ "rewrite_commit": "e3702680cbc1e8b368b984ca0e3d107f53023515",
+ "form": {
+  "packet": "lesson-comprehension-skills-authors-purpose-tone-pov",
+  "role": "A",
+  "lesson_sha256": "f409fe5943a7466bdcc484c915d0eef9a7b2e117a19f643c8c4673f7daca9d34",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked purpose versus tone, all five narrative perspectives, argument viewpoint versus bias, pronoun reference, development patterns, and the sentence-cue definitions. Their descriptions are consistent with their examples.",
+     "Active/passive voice, reported speech, simple-present agreement, parallel forms, modals, modifier placement, and conditionals are described with relevant limits. The sample passages are hypothetical rather than external factual claims needing source verification."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 persuade; #2 explain water movement/treatment, with a secondary invitation; #3 cautious skepticism; #4 first person; #5 second person; #6 third person omniscient; #7 third person limited; #8 third person objective. All match.",
+     "#9 support a trial before adopting or rejecting the schedule; #10 insulting framing, a selected favorable sample generalized to everyone, and omission of known complaints; #11 lost work time, organized as problem/solution with cause and comparison; #12 no notification is established, and the text expressly says notices are unsent. All match their solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The required core, worked examples, reading strategies, and traps are present. The rewrite adds mixed purpose, first/second person, cohesion/patterns, sustained argument position, bias diagnosis, and the requested sentence families. The supplied brief requires no figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Hard terms including diction, syntax, referential cohesion, parallelism, and modals receive short plain meanings and concrete sentences. The explanations use ordinary actions such as finding what words refer to and checking whose thoughts are shown."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Infer receives a direct definition when introduced under Argument Viewpoint and Bias. Classify is explained immediately after its first instruction in the narrative discussion and before examples. Other questions use ordinary task language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No explanatory analogy is used. The story extracts and office sentences illustrate concepts directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve examples have explicit exam-style questions and complete extracts. The purpose, tone, narrator, argument, reference, and sentence-cue questions ask students to select or apply knowledge rather than giving the tested definitions in their stems."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no claims about particular exams and no repeated test-maker openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The teaching and worked examples are in English, with no Filipino text to assess.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The teaching and worked examples are in English, with no Filipino text to assess.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The teaching and worked examples are in English, with no Filipino text to assess.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The teaching and worked examples are in English, with no Filipino text to assess.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The teaching and worked examples are in English, with no Filipino text to assess.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Example 11 bolds This burden and asks about the expression in bold. This correctly identifies a multiword target phrase without pretending it is underlined. No other question isolates a target word."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly lists the reading skills. The teaching varies sentence openings and contains none of the prohibited stock phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Strategies is an allowed subject adaptation. No mathematical formula is used by any example; the formula prerequisite clause does not apply to these verbal reading cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases progress from direct persuasion and mixed purpose to competing tone cues; all five narrator types have worked extracts. Later cases distinguish a qualified argument position from bias, combine paragraph jobs with references and development patterns, and connect sentence cues to a justified conclusion. These cover the supplied brief without repeating the same reasoning with new nouns."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve solutions show a Solution label and numbered steps. Example 12 explicitly follows agreement, reference, reported possibility, the condition, parallel tasks, the limiting modifier, and the passive statement before the final conclusion. No calculation requires display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations appear in this verbal reading lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core paragraphs use one to three short sentences. The one five-item list efficiently separates narrator types. Quoted passages are short paragraphs rather than long teaching blocks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders; the supplied passages and sentence contrasts teach the verbal distinctions without figures.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Purpose, tone, diction, imagery, syntax, emphasis, context, narrator perspectives, viewpoint, infer, bias, loaded words, cohesion, pattern labels, subject, voice, reported speech, agreement, parallelism, modals, modifier, and conditional are explained before the worked questions need them. Classify has an adjacent gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how to weigh dominant purpose, combine tone cues, identify narrator access, collect argument clues, and demonstrate unfair presentation. It also teaches reference matching and paragraph jobs with examples, and shows how each requested sentence family changes interpretation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Limits include a final request not deciding dominant purpose, dialogue pronouns not deciding narration, classifying only the extract shown, a viewpoint not proving bias, a short passage not needing every detail, nearest nouns not always being references, passive voice not identifying a doer, reported claims not proving truth, and conditions not asserting their fulfillment."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L05|0": {
+    "status": "fixed",
+    "quote": "What is the author's main purpose?",
+    "note": "Every worked extract now has an explicit question, including the original persuasion case."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|0": {
+    "status": "fixed",
+    "quote": "Which purpose is dominant: explaining a process or persuading residents to visit?",
+    "note": "Example 2 weighs the mostly explanatory content against the smaller invitation."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|1": {
+    "status": "fixed",
+    "quote": "The narrator uses *I* to tell personal fears and hopes.",
+    "note": "Example 4 now works a first-person passage and explains participation."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|2": {
+    "status": "fixed",
+    "quote": "The narration makes *you* the person doing the actions.",
+    "note": "Example 5 now works second-person narration rather than merely naming it."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L19|0": {
+    "status": "fixed",
+    "quote": "The writer asks readers to vote a certain way.",
+    "note": "All examples now include Solution labels and numbered reasoning, including three steps for persuasion."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L02|0": {
+    "status": "fixed",
+    "quote": "**Diction** means word choice.",
+    "note": "The academic tone terms now have short meanings and concrete uses, replacing the unexplained list."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L25|0": {
+    "status": "fixed",
+    "quote": "**Syntax** means how words and sentence parts are arranged.",
+    "note": "Diction, imagery, syntax, emphasis, and context are explained before students apply tone clues."
+   },
+   "reading-comprehension-comprehension-skills#38": {
+    "status": "fixed",
+    "quote": "Problem and solution is the main pattern. Cause and effect explains the delay, while comparison helps defend the proposed response.",
+    "note": "Core teaching gives reference matching and pattern meanings. Example 11 resolves a reference and compares the functions of several patterns within a passage."
+   },
+   "reading-comprehension-comprehension-skills#40": {
+    "status": "fixed",
+    "quote": "The writer supports testing the plan.",
+    "note": "Argument viewpoint is separated from narrator perspective. Example 9 weighs support and concern across paragraphs and identifies a qualified position."
+   },
+   "reading-comprehension-comprehension-skills#41": {
+    "status": "fixed",
+    "quote": "Unfair wording, selection, and omission all support the bias judgment.",
+    "note": "Core teaching distinguishes viewpoint from bias. Example 10 diagnoses loaded framing, an unrepresentative selected sample, and omitted known complaints."
+   },
+   "reading-comprehension-comprehension-skills#54": {
+    "status": "fixed",
+    "quote": "The *if* sentence makes later work depend on signing. The matching *-ing* forms list those later tasks.",
+    "note": "Core teaching covers complete sentences, active/passive voice, reported speech, agreement, parallelism, modals, modifiers, and conditionals. Example 12 applies these cues together."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|B08|0": {
+    "status": "fixed",
+    "quote": "Vote yes on Proposition $12$ to protect our local parks for future generations.",
+    "note": "The proposition number now has inline math delimiters even inside the quotation."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|3": {
+    "status": "fixed",
+    "quote": "The writer recognizes a possible benefit.",
+    "note": "Example 3 weighs a positive benefit against doubts about costs and timing. The three-sentence passage now contains competing cues and supports a qualified tone."
+   }
+  }
+ }
+}

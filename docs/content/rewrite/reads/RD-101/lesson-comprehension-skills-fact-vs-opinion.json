@@ -1,0 +1,282 @@
+{
+ "batch": "RD-101",
+ "lesson_id": "lesson-comprehension-skills-fact-vs-opinion",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+ "lesson_sha256": "d0bf44d09d3bef74b500e97b350ea6c69cf93f8b4aa3240971a5b9c76cf9aefe",
+ "rewrite_commit": "e3702680cbc1e8b368b984ca0e3d107f53023515",
+ "form": {
+  "packet": "lesson-comprehension-skills-fact-vs-opinion",
+  "role": "A",
+  "lesson_sha256": "d0bf44d09d3bef74b500e97b350ea6c69cf93f8b4aa3240971a5b9c76cf9aefe",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the distinctions between checkable claim type, truth, evidential support, value judgment, and uncertain future projection. These distinctions are consistent throughout.",
+     "The agency, library, hall, teams, and match records are hypothetical examples. No precise external historical or scientific fact is asserted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 (a) factual claim, (b) opinion; #2 factual claim despite absent supporting records; #3 cost is factual-type and waste is a value judgment.",
+     "#4 projection; #5 false factual claim because the record gives three wins rather than five; #6 publication in June is the checkable statement about the forecast. Each matches its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. All brief-required distinctions, explicit example questions, and the false/unsupported factual-claim cases are present. No required figure is identified in the supplied brief."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions use check as true or false, what someone thinks, and what may happen. Assumption is explained in a short sentence. The solutions explain classification in ordinary language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Classify is defined before the first example asks students to classify. Other task words ask directly what kind of claim a statement is."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere; the concrete sample statements are examples, not analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All six examples contain explicit classification questions. The supplied statements and match record give the information needed; none supplies the classification method as a problem-specific given."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No exam-specific claims or repeated exam-motivation openers appear in this text."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language material.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language material.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language material.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language material.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language material.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about the meaning or use of a target word; students classify whole statements or clauses.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. Teaching openings vary, and none of the listed stock AI phrases appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Strategies is an allowed reading-comprehension title. This is a verbal classification lesson; no worked example uses a mathematical formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage: #1 ordinary fact/opinion, #2 unsupported measurable comparison, #3 mixed statement, #4 projection, #5 false factual claim, #6 factual report of a forecast. The later examples add distinct evidence/type and future/report distinctions beyond the basic pair."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked example has a Solution label and numbered reasoning. I followed each step; none of the reasoning needed for the stated answers is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs stay within one to three short sentences. The short classification lists serve the concepts; there are no long bullet sequences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders; these verbal examples do not require a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Factual claim, opinion/value judgment, classify, projection/forecast, and assumption receive meanings before the examples require them. No unexplained model terminology remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept explains how records distinguish checkable claims, how values produce opinions, how mixed sentences split, and how a future forecast differs from a published report of one. The examples apply each distinction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The text explicitly limits judgment-word and future-word clues with often and whole-sentence reading. It separates claim type from truth and proof, and warns that numerical wording alone does not establish fact."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-fact-vs-opinion|L18|0": {
+    "status": "fixed",
+    "quote": "The record shows that the claim is false.",
+    "note": "Example 5 classifies a false statement as factual-type; example 2 separately classifies a statement without given evidence."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B02|0": {
+    "status": "fixed",
+    "quote": "The passage does not show the records, but missing evidence does not change the claim type.",
+    "note": "The measurable team comparison stays factual-type even when no supporting records are supplied."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|0": {
+    "status": "fixed",
+    "quote": "The agency published a projection of $10$ million people by $2030$.",
+    "note": "Both numerals in the report of a projection now have inline math delimiters."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|1": {
+    "status": "fixed",
+    "quote": "The population will reach $10$ million by $2030$.",
+    "note": "Both the projected count and the year are now in inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|2": {
+    "status": "fixed",
+    "quote": "A population of $10$ million would be terrible.",
+    "note": "The numeral in the opinion example is enclosed in inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|3": {
+    "status": "fixed",
+    "quote": "The school library closes in the afternoon.",
+    "note": "The island-count sentence is replaced by a checkable schedule claim without numerals."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|4": {
+    "status": "fixed",
+    "quote": "The new hall cost two billion pesos to build and was a waste of public money.",
+    "note": "The cost is spelled out, so there is no bare prose numeral in the mixed statement."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|5": {
+    "status": "fixed",
+    "quote": "Based on current assumptions, the population is projected to reach $10$ million by $2030$.",
+    "note": "The projection example encloses both numerals in inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L02|0": {
+    "status": "fixed",
+    "quote": "A **factual claim** is a statement you can check as true or false by using records, measurements, observation, or other evidence.",
+    "note": "The abstract truth-or-falsity and in-principle phrasing has been replaced with a direct check-as-true-or-false definition."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L02|1": {
+    "status": "fixed",
+    "quote": "A **projection or forecast** says what may happen in the future based on information available now.",
+    "note": "The definition now uses plain words instead of model-based and implicit assumptions."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L05|0": {
+    "status": "fixed",
+    "quote": "Classify each statement as a factual claim or an opinion.",
+    "note": "Each of the six examples has an explicit question or classification instruction."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L25|0": {
+    "status": "fixed",
+    "quote": "An **assumption** is something an estimate treats as true while making the forecast.",
+    "note": "Assumption is explained before its use in the projection example; model-based wording has been removed."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|6": {
+    "status": "fixed",
+    "quote": "The population will reach $10$ million by $2030$.",
+    "note": "The year is enclosed in inline math in both concept statements and the worked projection."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L01|0": {
+    "status": "fixed",
+    "quote": "Keep claim type separate from evidence.",
+    "note": "The underlying evidence/type confusion is corrected. No audit goal is supplied, so this does not assert that a goal record was created."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L18|1": {
+    "status": "fixed",
+    "quote": "The forecast was published in June",
+    "note": "Example 6 now works the factual report of publication separately from the future prediction."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L19|1": {
+    "status": "fixed",
+    "quote": "The statement compares something that can be counted and measured.",
+    "note": "Example 2 has a Solution label and three numbered reasoning steps."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L19|2": {
+    "status": "fixed",
+    "quote": "“Cost two billion pesos to build” is a factual claim because records can check the cost.",
+    "note": "Example 3 now classifies its two clauses in separate numbered solution steps."
+   }
+  }
+ }
+}

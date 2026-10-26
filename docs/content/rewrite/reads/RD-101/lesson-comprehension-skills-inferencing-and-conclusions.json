@@ -1,0 +1,250 @@
+{
+ "batch": "RD-101",
+ "lesson_id": "lesson-comprehension-skills-inferencing-and-conclusions",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
+ "lesson_sha256": "8e4f358a66eea1efc53bbd7231ada2de0eb3d53509441344d76edab28eba43b1",
+ "rewrite_commit": "e3702680cbc1e8b368b984ca0e3d107f53023515",
+ "form": {
+  "packet": "lesson-comprehension-skills-inferencing-and-conclusions",
+  "role": "A",
+  "lesson_sha256": "8e4f358a66eea1efc53bbd7231ada2de0eb3d53509441344d76edab28eba43b1",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked inference versus speculation, evidential strength, premises/conclusions, and the necessary-assumption denial test. The test is correctly limited to the stated reasoning rather than whether a conclusion could be true for another reason.",
+     "The graph values follow the stated five-visitors-per-square scale. The Filipino passages distinguish supported inference, whole-paragraph main idea, and a judgment limited by one trial and a possible alternative cause. No specific external factual claim requires verification here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 Maria likely waits uneasily or impatiently; #2 workers are concerned about weekly hours; #3 lateness alone does not justify laziness; #4 someone likely studied or worked late; #5 Lino must be an employee for the stated employee rule to establish his badge entitlement. Each agrees with its solution.",
+     "#6 Tuesday has 30 visitors versus Wednesday 15, a difference of 15; #7 Tuesday alone exceeds 25, so the note establishes an extra window then. Both solutions calculate these correctly.",
+     "#8 Nena is likely preparing an activity or meeting and waiting for participants; #9 community action is reducing plastic use/waste; #10 the evidence does not establish always faster service, given one trial and fewer clients. The Filipino solutions match these readings without asserting certainty beyond the text."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps are present. Necessary assumptions, actual labeled square charts with explicit scales, and Filipino inference/main-idea/evaluation cases are supplied. Both visual questions have their own specific graph placeholder and readable chart data."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The English definitions use idea, clues, reason, and fact. The harder premise and necessary-assumption terms are immediately explained, and the worked solutions connect concrete details in short statements. The abstract explicit-form definition is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Infer is defined in the opening paragraph. Conclusion and evidence are explained before best-supported and justified judgments are requested. No unexplained technical instruction verb is needed by the English questions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used to teach inference. The badge rule and behavior extracts are direct reasoning examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the ten worked cases includes an explicit question. The behavior, office, and Filipino extracts provide their necessary clues. The badge task supplies premises without revealing the missing assumption. Charts supply counts through symbols and scale, and the staffing case adds the needed threshold note."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No particular exam content or format claim is made, and there are no repeated exam openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino core section explains hinuha, pangunahing diwa, and paghatol in short Filipino sentences. Examples 8 through 10 and the final trap use concrete situations and simple reasoning rather than switching the explanation to English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "The first definitions give hinuha (inference), pangunahing diwa (main idea), and paghatol (evaluation). These glosses are not repeatedly attached to later uses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino worked passages, questions, and numbered explanations in examples 8, 9, and 10 are in Filipino. No quiz is included; the separate English examples belong to the English portion of this mixed lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be verified from this supplied packet alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino teaching paragraphs and solution explanations use Filipino wording. Parenthetical English terms are the required first-use glosses. The repeated Solution label follows the supplied common worked-example format."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question tests an isolated target word. Emphasis on lagi occurs in explanation, not in a target-word question stem.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary plainly names text, arguments, and visual data. Teaching openings vary, and the listed stock AI phrases do not occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The Reading Strategies title fits reading comprehension. The formula-before-example requirement is assigned to mathematics and quantitative science, not this reading lesson. Even so, Core Concept teaches counting symbols and multiplying by five before examples 6 and 7 use that conversion; their differences are ordinary count comparisons."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover behavior inference, selecting supported claims, rejecting an unsupported character judgment, combining clues, testing a necessary assumption, chart comparison, combining a chart with a threshold note, and Filipino inference/main idea/evaluation. Chart-only and chart-plus-note cases require distinct reasoning. The progression adds argument, visual, and qualified-judgment demands beyond the opening behavior case."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All ten examples have Solution labels and numbered reasoning. Examples 6 and 7 display their multiplications and subtraction separately. The other solutions expose the relevant clues and limits before concluding; no essential reasoning step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Each display equation in examples 6 and 7 is a single short multiplication or subtraction, such as 6 times 5 equals 30 and 30 minus 15 equals 15. These are narrow enough for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "The teaching paragraphs contain one to three short sentences, with no extended bullet lists. Example extracts and numbered explanations remain in short blocks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Each of examples 6 and 7 includes a one-line graph specification with title, axis label, zero origin, step size, and all three day values. Example 7 adds its own threshold marker. The visible labeled square charts and scale statements independently supply the data needed to solve."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Inference, infer, conclusion, evidence, premise, necessary assumption, legend, unit, and scale are explained before use. Filipino hinuha, pangunahing diwa, and paghatol receive meanings before their examples. The specialized trading-volume scenario is replaced with an ordinary work-hours scenario."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept explains connecting clues, matching claim strength, separating reasons from an argument conclusion, and denying a proposed assumption while keeping facts fixed. It teaches chart-symbol conversion and connecting a written limit to values. Filipino teaching explains combining details and restricting judgments to the evidence."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson warns against invented causes, possible-but-unsupported claims, mechanically choosing weak wording, confusing a true conclusion with a sound stated argument, treating helpful details as necessary, inferring causes from counts, and generalizing from one result. The assumption example applies denial to the employee-only rule without claiming Lino could never get a badge another way."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-inferencing-and-conclusions|L02|0": {
+    "status": "fixed",
+    "quote": "An **inference** is an idea you work out from clues.",
+    "note": "The opening replaces abstract textual-information language with a short clue-based definition."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L05|0": {
+    "status": "fixed",
+    "quote": "What can reasonably be inferred about Maria?",
+    "note": "Examples 1, 3, and 4 now ask explicit questions, as do all newly added examples."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L19|0": {
+    "status": "fixed",
+    "quote": "The workers' questions focus on their weekly hours.",
+    "note": "The replacement second example has a Solution label and three numbered reasoning steps. The remaining examples use the same required structure."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|B08|0": {
+    "status": "fixed",
+    "quote": "After the manager announced that the store would close earlier each night, several workers immediately asked how their weekly hours would change.",
+    "note": "The finance passage with the bare percentage was removed. Its replacement has no prose numerals to delimit."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|B08|1": {
+    "status": "fixed",
+    "quote": "The kitchen light was still on at $3$ a.m.",
+    "note": "The time numeral is now enclosed in inline math in the retained late-work example."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L25|0": {
+    "status": "fixed",
+    "quote": "The workers' questions focus on their weekly hours.",
+    "note": "The trading-volume passage was replaced with the ordinary work-hours scenario, so the unexplained finance term is no longer needed."
+   },
+   "reading-comprehension-comprehension-skills#45": {
+    "status": "fixed",
+    "quote": "Imagine that Lino is not an employee. The stated rule would no longer establish his right to a badge, so the argument needs that assumption.",
+    "note": "Premise and conclusion are defined. The badge example identifies the unstated employee condition and denies it to test necessity for the stated reasoning."
+   },
+   "reading-comprehension-comprehension-skills#59": {
+    "status": "fixed",
+    "quote": "Tuesday had the most visitors, with $15$ more than Wednesday.",
+    "note": "Examples 6 and 7 contain actual labeled square charts, scale interpretation, calculations, and a written threshold note connected to the visual values. Each also includes a graph placeholder."
+   }
+  }
+ }
+}
