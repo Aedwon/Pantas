@@ -1,0 +1,212 @@
+{
+ "batch": "RD-152",
+ "lesson_id": "lesson-philippine-constitution-amending-and-revising-the-constitution",
+ "path": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md",
+ "lesson_sha256": "da00cbfccd6957cd5bf4c010ae3af512f5adc9343614a0efb12454f557d0e7dc",
+ "rewrite_commit": "db4e3f72a318026635d24166c781e23d6f0ffe61",
+ "form": {
+  "packet": "lesson-philippine-constitution-amending-and-revising-the-constitution",
+  "role": "A",
+  "lesson_sha256": "da00cbfccd6957cd5bf4c010ae3af512f5adc9343614a0efb12454f557d0e7dc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Article XVII proposal thresholds: Congress three-fourths of all Members; convention called by two-thirds or its calling submitted to voters by a majority; initiative only amendments, with 12% nationwide and 3% in every district. These match the rules supplied in the brief.",
+     "Checked the initial five-year bar and subsequent five-year interval, implementing-law qualification, majority of votes cast, and 60-90-day windows with the correct approval/certification triggers against the supplied outline.",
+     "Checked the amendment/revision distinction and both Lambino tests against the case-law account supplied in the brief. The lesson correctly avoids a claim about present implementing legislation and avoids resolving joint/separate House voting."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers #1-3: Congress/lawmakers, convention/special drafting body, initiative/petitioners; limited term change is an amendment and parliamentary conversion a revision; 3/4 of 240 is 180. These match the solutions.",
+     "Independent answers #4-5: two-thirds of 240 is 160; a majority of 240 is 121; 12% of 1,000,000 is 120,000 and 3% of 40,000 is 1,200. Each other district still needs its own minimum. These match the solutions.",
+     "Independently counted #6: Jan 2-31 gives 30 days, February 2026 adds 28, March 2 is day 60, and April 1 is day 90. The inclusive March 2-April 1 window is correct.",
+     "Independent answers #7-9: 310 of 600 exceeds 300, so ratified; three years is too soon for another initiative; no plebiscite invalidates the convention's claim and a revision is outside initiative. These match the supplied answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The required Core Concept, Examples, and Traps sections are present. All nine outlined example types appear, including the two conditions in signature totals and both defects in the final example.",
+     "The flow and timeline suggestions have specific placeholders. The brief describes figures as helpful, not mandatory; the missing optional threshold circles do not omit a required exam figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson defines amendment, revision, both Court tests, convention, initiative, majority, ratification, plebiscite, suffrage, and registered voters with short explanations. Arithmetic solutions use direct instructions and short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use ordinary requests such as which, what, and may; no exam-specific instruction word needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "The teaching uses direct definitions and hypothetical legal cases, with no analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The nine questions ask direct constitutional matching, classification, threshold, date, and validity tasks. Hypothetical membership, voter totals, approval date, and votes cast are explicitly supplied.",
+     "The calculations do not disclose the tested thresholds in their stems. Example 2 supplies the relevant structural effect so classification is determinate; the solutions use plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam mentions or claims about how often a topic appears on an exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a target word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly; the prose avoids the listed stock phrases and varies explanatory sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout is followed. Core Concept states three-fourths, two-thirds, majority as more than half, 12%, 3%, and the 60-90-day period before examples apply them.",
+     "Example calculations use fraction times membership, half plus one for the even total, percentage times voters, calendar day counting, and comparison with half of votes cast. The formula-before-example restriction is for Mathematics and quantitative Science, not a requirement to add an arithmetic-formula section to this General Information lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Each requested distinct case maps to its own example: three proposal bodies #1; amendment/revision #2; congressional threshold #3; convention alternatives #4; national/district signatures #5; calendar window #6; votes-cast majority #7; initiative interval #8; proposal invalidity #9.",
+     "The sequence starts with route recognition and reaches arithmetic, a calendar count, and combined invalidity analysis. The initial five-year bar and different clock triggers are also taught directly; the brief does not require near-duplicate examples for each trigger."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4-7 and 9 number their multi-step reasoning, with the percentage and vote computations displayed. Examples 1-3 and 8 are direct matching, classification, one multiplication, or one interval comparison, so they need no artificial multi-step list.",
+     "The unnumbered reminder after Example 5 does not hide a calculation; both required minimums are already computed. No required step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The longest displayed percentage computation is 0.12 times 1,000,000 equals 120,000; the remaining fraction and comparison displays are shorter and fit a phone-width line."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Visible teaching paragraphs contain one to three sentences, and there are no long bullet catalogues."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The flow placeholder names all three proposal routes, the amendment-only limit, plebiscite, and majority approval. Its surrounding text teaches every stage.",
+     "The timeline placeholder specifies the approval date/day 0 and exact day 60/day 90 endpoints with a shaded permitted window. Example 6 independently describes the dates without needing the drawing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Every legislative district must also reach at least $3\\%$ of its registered voters.",
+      "problem": "Legislative district is necessary to understand the second signature requirement, but it is never explained. The identified prerequisite reminder only says Congress has two Houses. No supplied prerequisite teaching explains what a district is or why its voters form a separate minimum. Add a short meaning before this condition."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Amendment and revision are explained by scope and structural effect, with both Court tests. The lesson explains the three proposal routes, the separate calling/submission votes, initiative signatures, and final ratification.",
+     "Examples explain how to apply each threshold and why national signatures do not replace district signatures. Ratification distinguishes actual votes on the proposal from the registered-voter total."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked initiative is limited to amendments, has both nationwide and every-district minimums, and has the initial and recurring five-year bars. The text leaves current usability unresolved as required.",
+     "Checked all-Member bases, separate convention thresholds, majority rather than half, votes cast rather than registration, and approval versus COMELEC sufficiency as the two time triggers. Both endpoints of the plebiscite window are included."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}

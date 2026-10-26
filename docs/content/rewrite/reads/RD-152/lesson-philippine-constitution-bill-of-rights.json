@@ -1,0 +1,290 @@
+{
+ "batch": "RD-152",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+ "lesson_sha256": "1afb838cde280486f4662c288c2ee46f6d3fc9743964b0f3656700573ff07d04",
+ "rewrite_commit": "db4e3f72a318026635d24166c781e23d6f0ffe61",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights",
+  "role": "A",
+  "lesson_sha256": "1afb838cde280486f4662c288c2ee46f6d3fc9743964b0f3656700573ff07d04",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Article III section map from 1 through 22: due process/equality; search/privacy; expression; religion; abode/travel; information/association; taking/contracts/access; custody/bail/trial; suspension/delay/testimony; detention/punishment/debt/double jeopardy/retroactive penal laws and legislative punishment. No section is assigned the wrong protection.",
+     "Checked search versus arrest warrant personal-determination distinction, immediacy and personal knowledge for hot pursuit, voluntary consent, and exclusion for Section 2/3 violations against the rules described in the supplied source audit. The audit identifies the relevant primary legal sources, but the packet does not supply their full texts.",
+     "Checked the constitutional bail exception requires both reclusion perpetua and strong evidence; habeas suspension does not remove bail; abode and travel have distinct restriction rules; double jeopardy includes valid charge, competent court, plea, and protected termination. No definite wrong fact is apparent from the supplied material."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers #1-6: 22 sections; due process; equal protection; specific description of objects to seize; no mandatory personal questioning for every arrest warrant; no, an observed theft supports warrantless arrest. Each matches its solution.",
+     "Independent answers #7-12: no separate warrant required for the stated search incident to lawful arrest; hot pursuit; no hot pursuit for a month-old unverified tip; silence under armed pressure is not free consent; unlawfully obtained letters are inadmissible even administratively; speech/expression and press. Each matches its solution.",
+     "Independent answers #13-18: assembly and petition; religious-test prohibition; non-establishment and free exercise; abode court-order rule versus statutory public-health travel ground; Sections 7 and 8; no, lawful confidentiality must be checked. Each matches its solution.",
+     "Independent answers #19-24: Sections 17 and 21; yes, both constitutional bail-exception conditions hold; no second prosecution after the stated acquittal; bill of attainder; ex post facto law; no imprisonment solely for the loan debt. Each matches its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The required General Information sections are present. All 13 added facets in Sections 1-8 are taught, and the section catalogue through Section 22 is retained.",
+     "No figure is required by the brief or by any of the verbal constitutional cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Checked definitions and short explanations across the section catalogue: warrants, probable cause, oath, consent, redress, abode, bail, habeas corpus, testimony, servitude, poll tax, double jeopardy, ex post facto laws, and bills of attainder. Most paragraphs use two or three short sentences. Legal names are retained with plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use ordinary requests such as which, what, and may; no exam-specific instruction word needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "The teaching uses direct definitions and hypothetical legal cases, with no analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The first example now directly asks the section count. All other examples directly ask constitutional identification or application questions. Necessary facts include lawful arrest, immediacy, observation, coercion, public-health grounds, and a completed acquittal; the solutions explain their legal relevance without a review-student framing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam mentions or claims about how often a topic appears on an exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a target word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly; the prose avoids the listed stock phrases and varies explanatory sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For match the General Information layout. There are no calculation formulas in the 24 examples; section numbers are locations, not formulas requiring prior introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage maps Sections 1-8 to #2-18: due process/equality, warrant specificity and procedures, lawful arrest/search, valid/invalid hot pursuit, coercive consent, exclusion, expression/press, assembly/petition, religious tests/establishment/worship, abode/travel, information/association, and access limits.",
+     "Catalogue tasks remain in #1 and #19; later protections receive condition-based cases in #20-24. The former broad lookup/debt-only coverage is expanded. The detailed detention and punishment cases are expressly left to Part 4, so they are not demanded again here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1 and 22 are one-step direct answers. Each remaining solution uses a numbered list with the relevant reasoning and final answer included. There is no unnumbered instruction before a multi-step solution and no omitted calculation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this section-location and legal-application lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Visible teaching paragraphs contain one to three sentences, and there are no long bullet catalogues."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no figure placeholders; no question relies on a diagram or visual source.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The accused must have been arraigned and entered a valid plea.",
+      "problem": "Arraignment and plea are needed to understand this double-jeopardy condition before either is explained. The next paragraph defines arraignment but only says the accused answers with a plea; it never explains what a plea is. No prerequisite is identified for this term. Explain that it is the accused's formal answer, such as guilty or not guilty, before using the condition."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Due process has notice, opportunity, and lawful-basis checks; equal protection has the grouping tests. Search/privacy teaching explains warrants, probable cause, exceptions, and exclusion.",
+     "Expression, religion, abode/travel, information, and association receive meanings and application checks, not just section labels. The remaining catalogue explains the basic protection and directs detailed punishment and included-offense teaching to Part 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked distinctions and limits for due process hearings, lawful classifications, search/arrest warrants, immediate hot pursuit, clear free consent, privacy exceptions, peaceful assembly, religion, residence/travel, record access, and lawful associations.",
+     "Checked custody waiver conditions, both bail-exception requirements, invasion/rebellion plus public safety, suspension versus bail, criminal punishment exception to forced work, debt versus a separate crime, and prerequisites of double jeopardy. More detailed Part 4 material is clearly identified."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-bill-of-rights|B08|0": {
+    "status": "fixed",
+    "quote": "Article III of the $1987$ Constitution is the **Bill of Rights**. Its $22$ sections protect people against unlawful government action.",
+    "note": "Checked visible prose section numbers, ranges, years, and statute numbers; numeric values use inline math. Roman article labels are constitutional names."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L05|0": {
+    "status": "fixed",
+    "quote": "How many sections make up Article III of the $1987$ Constitution?",
+    "note": "The count question is direct, and Example 2 now presents a government-action case instead of a meta question."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L19|0": {
+    "status": "fixed",
+    "quote": "1. The case concerns the government's basis and steps for taking property.",
+    "note": "Multi-step solutions start inside their numbered list. The count answer is a permissible single-step sentence."
+   },
+   "general-information-philippine-constitution#18": {
+    "status": "fixed",
+    "quote": "For a question about the steps taken, ask whether the person had notice and a real chance to answer.",
+    "note": "Adds an explicit notice/opportunity analysis and lawful-basis check, then applies them in Example 2."
+   },
+   "general-information-philippine-constitution#19": {
+    "status": "fixed",
+    "quote": "The grouping must fit the law's purpose, apply beyond present conditions, and treat everyone in the same group alike.",
+    "note": "Adds the lawful-classification tests and applies an unrelated grouping in Example 3."
+   },
+   "general-information-philippine-constitution#20": {
+    "status": "fixed",
+    "quote": "The **exclusionary rule** keeps evidence obtained in violation of Section $2$ or $3$ from being used for any purpose in any proceeding.",
+    "note": "Adds probable cause, judicial determination, warrant specificity, conditional exceptions, and the exclusionary rule with worked cases."
+   },
+   "general-information-philippine-constitution#21": {
+    "status": "fixed",
+    "quote": "It also allows an exception when public safety or order requires it, as provided by law.",
+    "note": "Specifies lawful court order and the law-based public safety/order exception rather than only naming unspecified limits."
+   },
+   "general-information-philippine-constitution#22": {
+    "status": "fixed",
+    "quote": "Look for government action that blocks or punishes the sharing of ideas, including criticism of officials.",
+    "note": "Defines expression and gives a method and newspaper-criticism application in Example 12."
+   },
+   "general-information-philippine-constitution#23": {
+    "status": "fixed",
+    "quote": "A ban on a report simply because it criticizes an official raises a press-freedom issue.",
+    "note": "Explains protected reporting and applies a ban on newspaper criticism."
+   },
+   "general-information-philippine-constitution#24": {
+    "status": "fixed",
+    "quote": "Check that the gathering is peaceful and that the restriction concerns the gathering.",
+    "note": "Defines the protected activity, states its peaceful condition, and applies a gathering case."
+   },
+   "general-information-philippine-constitution#25": {
+    "status": "fixed",
+    "quote": "The right to ask does not promise that the request will be granted.",
+    "note": "Explains petitioning for government action, its limit, and the residents' worked case."
+   },
+   "general-information-philippine-constitution#26": {
+    "status": "fixed",
+    "quote": "No **religious test** may be required to exercise civil or political rights.",
+    "note": "Adds non-establishment, free exercise, and religious-test teaching with separate worked cases."
+   },
+   "general-information-philippine-constitution#27": {
+    "status": "fixed",
+    "quote": "Within limits set by law, it may be restricted only upon a lawful court order.",
+    "note": "States the abode restriction rule and separates it from travel grounds in Example 16."
+   },
+   "general-information-philippine-constitution#28": {
+    "status": "fixed",
+    "quote": "It may be restricted for national security, public safety, or public health, as provided by law.",
+    "note": "Gives all three constitutional travel grounds and a public-health application."
+   },
+   "general-information-philippine-constitution#29": {
+    "status": "fixed",
+    "quote": "Citizens may access official records and papers about official acts, deals, and decisions.",
+    "note": "Develops covered records and policy data, citizen access, and lawful confidentiality checks with Examples 17 and 18."
+   },
+   "general-information-philippine-constitution#30": {
+    "status": "fixed",
+    "quote": "The purpose must not be contrary to law.",
+    "note": "Defines associations, includes public/private employees, and applies the lawful-purpose condition."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L18|0": {
+    "status": "fixed",
+    "quote": "Check whether the claimed law actually protects that material. Neither the right's name nor the office's claim settles that question alone.",
+    "note": "The expanded set includes a worked limits-of-catalogue case for record access and many distinct section applications."
+   }
+  }
+ }
+}
