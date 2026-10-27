@@ -2375,3 +2375,127 @@ A  tools/svg_fixtures/pass/basic.svg
 A  tools/svg_fixtures/pass/use-shared.svg
 ?? docs/superpowers/plans/pwa-launch/evidence/staging-candidate-r1.md
 ```
+
+## October 27: full verification after access and payments hardening merges
+
+Assignment: the current lead brief supplies the bounded verification plan. No implementation or product redesign. This section supersedes earlier automated results for this candidate. Earlier release/device limitations remain separate.
+
+- Candidate: `b8b3e8b03882688491b2ced22d5d6168f7d46131`, branch `web/staging-candidate-r1`. Initial working tree clean.
+- Policy: `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` read using `git show origin/main:<file>` at `64e5757674ccca9eb42e1b63d22df84f788de470`. No fetch or pull.
+- Environment: Flutter 3.44.6, Dart 3.12.2, Node v26.10.0, npm 11.19.1, OpenJDK 21 for Functions. Package declares Node 22; this local run used Node 26.
+- Completed UTC: 2026-10-27T04:38:51.237650+00:00
+- Full raw command logs and exit files: `/tmp/pantas-r1-verification/`.
+- No source fixes, dependency changes, generated package rebuild, staging, commit, push, merge, deployment, device launch, or visual acceptance. Only this evidence file remains changed.
+
+### Commands and actual summaries
+
+`flutter test`, exit 0:
+
+```text
+11:38 +4880: All tests passed!
+```
+
+`flutter analyze lib test tool`, exit 0:
+
+```text
+Analyzing 3 items...
+No issues found! (ran in 29.2s)
+```
+
+`dart format --output=none --set-exit-if-changed lib test tool`, exit 0:
+
+```text
+Formatted 1562 files (0 changed) in 3.37 seconds.
+```
+
+`dart run tool/check_layering.dart`, exit 0:
+
+```text
+Running build hooks...Running build hooks...check_layering: OK
+```
+
+`dart run tool/check_no_ai_attribution.dart`, exit 0:
+
+```text
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+```
+
+`server_dart/build.sh --check`, exit 0:
+
+```text
+generated JS is current
+```
+
+`cd functions && npx tsc --noEmit`, exit 0:
+
+```text
+(no output)
+```
+
+`cd functions && PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test`, exit 0:
+
+```text
+ℹ tests 195
+ℹ suites 0
+ℹ pass 195
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2302.299542
+ℹ tests 280
+ℹ suites 0
+ℹ pass 280
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103675.345583
+✔  Script exited successfully (code 0)
+```
+
+`flutter build web --release -t lib/main_staging.dart`, exit 0:
+
+```text
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Expected to find fonts for (MaterialIcons, Phosphor, packages/cupertino_icons/CupertinoIcons), but found (MaterialIcons, Phosphor). This usually means you are referring to font families in an IconData class but not including them in the assets section of your pubspec.yaml, are missing the package that would include them, or are missing "uses-material-design: true".
+Compiling lib/main_staging.dart for the Web...                     63.8s
+✓ Built build/web
+```
+
+`flutter build apk --debug --flavor dev -t lib/main_dev.dart`, exit 0:
+
+```text
+Caught exception: Could not start the FSEvents stream: /opt/homebrew/share/flutter/packages/flutter_tools/gradle
+Running Gradle task 'assembleDevDebug'...                          31.8s
+✓ Built build/app/outputs/flutter-apk/app-dev-debug.apk
+```
+
+### Inputs, isolation, and limits
+
+Functions used `CI=true` and `XDG_CONFIG_HOME=/tmp/pantas-r1-verification/cli`. Auth 39099, Firestore 38089, Storage 39199, hub 34449, logging 34509; UI disabled. Ports were checked free before starting. The temporary `firebase.json` emulator configuration was restored byte-for-byte after npm test. The suite CLI also reported its Firestore UI websocket on 9153. No unrelated emulator was stopped.
+
+No native-assets failure occurred. The full Flutter suite passed on its first run; no isolated rerun was necessary.
+
+Nonfatal output: web build reported a missing Cupertino icon font. Android reported that it could not start an FSEvents stream, then completed successfully. Functions emitted metadata lookup warnings. These did not fail their commands. No live payment, production credentials, physical device, protected native-package acceptance, or visual behavior was verified. The exact requested build commands used no additional content key defines.
+
+SHA-256 of material inputs and built artifacts:
+
+```text
+7be9c689fc705b9ff04e0fb012e6421798ca11f7f110f7c72f2c8ec92567ff31  assets/seed/content.db
+4f42eef66dfd25ff043399f906f6a9ed16d32bfbf14f8cb0aaf749ad2266080c  android/app/google-services.json
+540b53f067c49661e33832baf81f54cdee2e556d19c9ea3fb6ae2cfb1f79ae13  pubspec.lock
+c1251b2d66505df7c298497a080c158d755a175674b65f973dc8ca8b6c80786d  functions/package-lock.json
+d5b21c923d6fb1ac541b4b3d2328e4d107be5141324069d702f4bd8320611e96  build/web/main.dart.js
+7e34d5c7be6b967946100623c3de52e23523ab10722fb49e1cdabb5c7971a212  build/app/outputs/flutter-apk/app-dev-debug.apk
+```
+
+Local seed and google-services.json stayed ignored and were never staged. No credential values were displayed.
+
+Post-evidence attribution recheck: exit 0, `check_no_ai_attribution: OK`. `git diff --check`: exit 0, no output.
+
+Final `git status --short`:
+
+```text
+ M docs/superpowers/plans/pwa-launch/evidence/staging-candidate-r1.md
+```
