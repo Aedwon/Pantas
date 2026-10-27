@@ -1,3 +1,5 @@
+import {createHmac} from 'node:crypto';
+import {defineSecret} from 'firebase-functions/params';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
@@ -6,6 +8,28 @@ import {allowAtMost} from './_limits.js';
 import {claimsFromInputs, entitlementWrite, readEntitlementInputs, type EntitlementInputs} from './entitlementInputs.js';
 import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
+
+export const trialIdentityKey = defineSecret('TRIAL_IDENTITY_HMAC_KEY');
+
+/** Only Firebase-verified token identities are used, never caller data. */
+export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db: Firestore) {
+  const key = trialIdentityKey.value();
+  if (!key) throw new HttpsError('failed-precondition', 'Trial eligibility is unavailable.');
+  const provider = auth?.token.firebase?.sign_in_provider;
+  const identities = auth?.token.firebase?.identities as Record<string, unknown> | undefined;
+  const providerUids = provider ? identities?.[provider] : undefined;
+  if (!provider || provider === 'anonymous' || provider === 'custom' ||
+      !Array.isArray(providerUids) || providerUids.length === 0) {
+    throw new HttpsError('failed-precondition', 'A verified sign-in identity is required.');
+  }
+  const values = providerUids.filter((value): value is string => typeof value === 'string' && value.length > 0)
+    .map(value => JSON.stringify(['provider', provider, value]));
+  if (auth?.token.email_verified === true && typeof auth.token.email === 'string') {
+    values.push(JSON.stringify(['email', auth.token.email.toLowerCase()]));
+  }
+  if (values.length === 0) throw new HttpsError('failed-precondition', 'A verified sign-in identity is required.');
+  return [...new Set(values)].map(value => db.doc(`trialUsedIdentities/${createHmac('sha256', key).update(value).digest('hex')}`));
+}
 
 export type TrialDeps = {db: Firestore; auth: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
   allow?: (uid: string) => Promise<boolean>; now?: () => number};
@@ -21,10 +45,12 @@ function neverHadPro(inputs: EntitlementInputs): boolean {
 /** Read-only eligibility. The creation transaction checks again before granting. */
 export async function trialEligible(auth: Parameters<typeof assertNamedUser>[0], db: Firestore): Promise<boolean> {
   if (!auth || auth.token.firebase?.sign_in_provider === 'anonymous') return false;
+  const identities = identityMarkers(auth, db);
   return db.runTransaction(async transaction => {
+    const used = await transaction.getAll(...identities);
     const marker = await transaction.get(db.doc(`users/${auth.uid}/server/trial`));
     const inputs = await readEntitlementInputs(transaction, db, auth.uid);
-    return !marker.exists && neverHadPro(inputs);
+    return !marker.exists && used.every(row => !row.exists) && neverHadPro(inputs);
   });
 }
 
@@ -40,11 +66,13 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
   if (!await (deps.allow ?? (id => allowAtMost(id, 'webTrial', 5, 60 * 60_000)))(uid)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
+  const identities = identityMarkers(auth, deps.db);
   const trial = deps.db.doc(`users/${uid}/server/trial`);
   const result = await deps.db.runTransaction(async transaction => {
+    const used = await transaction.getAll(...identities);
     const marker = await transaction.get(trial);
     const inputs = await readEntitlementInputs(transaction, deps.db, uid);
-    if (marker.exists) throw new HttpsError('failed-precondition', 'The free trial was already used.');
+    if (marker.exists || used.some(row => row.exists)) throw new HttpsError('failed-precondition', 'The free trial was already used.');
     if (!neverHadPro(inputs)) {
       throw new HttpsError('failed-precondition', 'The free trial is only for accounts that never had Pro.');
     }
@@ -52,6 +80,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
       startsAt: now, endsAt: now + TRIAL_DAYS * DAY_MS, state: 'active', createdAt: now};
     const grants = new Map(inputs.grants).set('trial', grant);
     transaction.set(trial, {usedAt: now, grantId: 'trial'});
+    for (const ref of identities) transaction.set(ref, {used: true});
     transaction.set(deps.db.doc(`users/${uid}/grants/trial`), grant);
     transaction.set(inputs.record.ref, {...entitlementWrite(inputs, claimsFromInputs(inputs, now, grants))}, {merge: true});
     transaction.create(deps.db.collection('audit_logs').doc(), {uid, event: 'webTrialStarted',
@@ -65,5 +94,5 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
 }
 
 export const startWebTrial = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: true, consumeAppCheckToken: true},
+  {region: 'asia-southeast1', enforceAppCheck: true, consumeAppCheckToken: true, secrets: [trialIdentityKey]},
   request => startTrial(request.auth, {db: getFirestore(), auth: getAuth()}));

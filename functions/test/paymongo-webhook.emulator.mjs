@@ -21,7 +21,7 @@ const PRICE = {pantas_cs_weekly: 4900, pantas_cs_monthly: 14900, pantas_cs_yearl
 
 function setup(uid, product, {now = ph('2026-10-20T10:00:00+08:00'), sessionId = 'cs_1', paymentId = `pay_${uid}`, amount} = {}) {
   const auth = fakeAuth();
-  const client = fakeClient({[sessionId]: session({id: sessionId, uid, product, paymentId, amount: amount ?? PRICE[product]})});
+  const client = fakeClient({[sessionId]: session({id: sessionId, uid, product, paymentId, amount: amount ?? PRICE[product], paidAt: now})});
   const deps = {db, auth, client, signingSecret: SECRET, livemode: false, catalog, now: () => now};
   return {auth, client, deps, now};
 }
@@ -106,12 +106,12 @@ test('metadata that differs between the event and the PayMongo re-read is refuse
   await reset(uid);
   const {deps} = setup(uid, 'pantas_cs_weekly');
   // Event claims another product; session says weekly.
-  assert.equal(await send(paidEvent({uid, product: 'pantas_cs_yearly'}), deps), 200);
+  assert.equal(await send(paidEvent({uid, product: 'pantas_cs_yearly'}), deps), 500);
   // Event claims another account.
-  assert.equal(await send(paidEvent({id: 'evt_2', uid: 'someone-else', product: 'pantas_cs_weekly'}), deps), 200);
+  assert.equal(await send(paidEvent({id: 'evt_2', uid: 'someone-else', product: 'pantas_cs_weekly'}), deps), 500);
   // Session has no metadata at all.
   const empty = {...deps, client: fakeClient({cs_1: session({uid, product: 'x', amount: 4900, metadata: {}})})};
-  assert.equal(await send(paidEvent({id: 'evt_3', uid, product: 'pantas_cs_weekly'}), empty), 200);
+  assert.equal(await send(paidEvent({id: 'evt_3', uid, product: 'pantas_cs_weekly'}), empty), 500);
   assert.deepEqual(await grants(uid), []);
   assert.deepEqual(await grants('someone-else'), []);
   assert.equal((await entitlement(uid)), undefined);
@@ -122,11 +122,11 @@ test('the paid amount must equal the products.json price', async () => {
   await reset(uid);
   for (const [i, amount] of [4800, 14900, 0].entries()) {
     const {deps} = setup(uid, 'pantas_cs_weekly', {amount, sessionId: `cs_a${i}`, paymentId: `pay_a${i}`});
-    assert.equal(await send(paidEvent({id: `evt_a${i}`, sessionId: `cs_a${i}`, uid, product: 'pantas_cs_weekly'}), deps), 200);
+    assert.equal(await send(paidEvent({id: `evt_a${i}`, sessionId: `cs_a${i}`, uid, product: 'pantas_cs_weekly'}), deps), 500);
   }
   const wrongCurrency = {...setup(uid, 'pantas_cs_weekly').deps, client: fakeClient({cs_1: {...session({uid, product: 'pantas_cs_weekly', amount: 4900}),
     payments: [{id: 'pay_c', amount: 4900, currency: 'USD', status: 'paid'}]}})};
-  assert.equal(await send(paidEvent({id: 'evt_c', uid, product: 'pantas_cs_weekly'}), wrongCurrency), 200);
+  assert.equal(await send(paidEvent({id: 'evt_c', uid, product: 'pantas_cs_weekly'}), wrongCurrency), 500);
   assert.deepEqual(await grants(uid), []);
   const audits = (await db.collection('audit_logs').where('uid', '==', uid).get()).docs.map(d => d.get('event'));
   assert.ok(audits.filter(e => e === 'paymongoAmountMismatch').length >= 4);
@@ -137,7 +137,7 @@ test('unknown and non-web products are refused', async () => {
   await reset(uid);
   for (const [i, product] of ['pantas_made_up', 'pantas_pro_monthly', 'promo_student'].entries()) {
     const {deps} = setup(uid, product, {amount: 14900, sessionId: `cs_u${i}`, paymentId: `pay_u${i}`});
-    assert.equal(await send(paidEvent({id: `evt_u${i}`, sessionId: `cs_u${i}`, uid, product}), deps), 200);
+    assert.equal(await send(paidEvent({id: `evt_u${i}`, sessionId: `cs_u${i}`, uid, product}), deps), 500);
   }
   assert.deepEqual(await grants(uid), []);
 });
@@ -160,7 +160,7 @@ test('an unknown or deleted account is not granted', async () => {
   await reset(uid);
   const {deps} = setup(uid, 'pantas_cs_weekly');
   const gone = {...deps, auth: {...deps.auth, getUser: async () => {throw Object.assign(new Error('gone'), {code: 'auth/user-not-found'});}}};
-  assert.equal(await send(paidEvent({uid, product: 'pantas_cs_weekly'}), gone), 200);
+  assert.equal(await send(paidEvent({uid, product: 'pantas_cs_weekly'}), gone), 500);
   assert.deepEqual(await grants(uid), []);
 });
 
@@ -218,7 +218,7 @@ test('a paid pass with no published sitting keeps the evidence and grants nothin
   const uid = 'pm-pass-none';
   await reset(uid);
   const {deps} = setup(uid, 'pantas_pass_cse_pro');
-  assert.equal(await send(paidEvent({uid, product: 'pantas_pass_cse_pro'}), {...deps, catalog: []}), 200);
+  assert.equal(await send(paidEvent({uid, product: 'pantas_pass_cse_pro'}), {...deps, catalog: []}), 500);
   assert.deepEqual(await grants(uid), []);
   const audits = (await db.collection('audit_logs').where('uid', '==', uid).get()).docs.map(d => d.get('event'));
   assert.deepEqual(audits, ['paymongoPassNoPublishedSitting']);
@@ -308,6 +308,8 @@ test('the per-account rate limit stops a flood with 429', async () => {
   await db.doc(`webhookRateLimits/${uid}_${minute}`).set({uid, count: 30});
   assert.equal(await send(paidEvent({uid, product: 'pantas_cs_weekly'}), deps), 429);
   assert.deepEqual(await grants(uid), []);
+  assert.equal((await db.doc('paymongoFollowUps/pay_pm-rate').get()).get('status'), 'pending');
+  assert.equal((await db.doc(`webhookEvents/evt_1/users/${uid}`).get()).exists, false);
 });
 
 const refundOf = (id, paymentId, amount = 14900, refundId = `ref_${id}`) => resourceEvent({id, type: 'refund.succeeded', resource: 'refund',
@@ -601,4 +603,59 @@ test('a refund against an ended grant only records the refund', async () => {
   assert.equal(g.endsAt, g0.endsAt);
   assert.deepEqual(g.refunds, {ref_a: 7450});
   assert.equal(g.state, 'active');
+});
+
+for (const scenario of ['won', 'lost', 'partial-before', 'partial-after', 'full-after', 'other-revoke', 'other-before', 'wrong-dispute', 'expired']) {
+  test(`dispute resolution: ${scenario}`, async () => {
+    const uid = `pm-resolution-${scenario}`;
+    await reset(uid);
+    const {deps, auth, now} = setup(uid, 'pantas_cs_monthly');
+    const paymentId = `pay_${uid}`;
+    const event = (type, status, id = type) => resourceEvent({id: `${uid}-${id}`, type,
+      resource: 'dispute', resourceId: `dp_${uid}`, attributes: {payment_id: paymentId, status}});
+    const refund = () => send(resourceEvent({id: `${uid}-refund`, type: 'refund.succeeded',
+      resource: 'refund', resourceId: `ref_${uid}`, attributes: {payment_id: paymentId,
+        status: 'succeeded', amount: scenario === 'full-after' ? 14900 : 7450}}), deps);
+    assert.equal(await send(paidEvent({id: `${uid}-paid`, uid, product: 'pantas_cs_monthly'}), deps), 200);
+    if (scenario === 'partial-before') assert.equal(await refund(), 200);
+    const original = (await grants(uid))[0];
+    if (scenario === 'other-before') await db.doc(`users/${uid}/grants/${paymentId}`).update({state: 'revoked', revokedReason: 'admin'});
+    assert.equal(await send(event('dispute.created', 'under_review'), deps), 200);
+    if (scenario.endsWith('after')) assert.equal(await refund(), 200);
+    if (scenario === 'other-revoke') await db.doc(`users/${uid}/grants/${paymentId}`).update({revokedReason: 'admin'});
+    if (scenario === 'expired') deps.now = () => ph('2026-12-01T10:00:00+08:00');
+    const resolution = event('dispute.resolved', scenario === 'lost' ? 'lost' : 'won');
+    if (scenario === 'wrong-dispute') resolution.data.attributes.data.id = 'dp_unrelated';
+    assert.equal(await send(resolution, deps), 200);
+    const restored = (await grants(uid))[0];
+    const shouldRestore = scenario === 'won' || scenario === 'expired';
+    assert.equal(restored.state, shouldRestore ? 'active' : 'revoked');
+    assert.ok(restored.endsAt <= original.endsAt);
+    if (shouldRestore) {
+      assert.equal(restored.endsAt, original.endsAt);
+      assert.equal(auth.current().pro, scenario !== 'expired');
+    }
+    const beforeRetry = await entitlement(uid);
+    assert.equal(await send(resolution, deps), 200);
+    if (scenario !== 'wrong-dispute') assert.equal(await send(event('dispute.resolved', 'won', 'another-resolution'), deps), 200);
+    assert.deepEqual(await grants(uid), [restored]);
+    assert.equal((await entitlement(uid)).version, beforeRetry.version);
+  });
+}
+
+test('a win restores a grant born revoked by an earlier dispute', async () => {
+  const uid = 'pm-early-dispute-win';
+  await reset(uid);
+  const {deps, auth} = setup(uid, 'pantas_cs_monthly');
+  const dispute = type => resourceEvent({id: `${uid}-${type}`, type, resource: 'dispute',
+    resourceId: 'dp_early_win', attributes: {payment_id: `pay_${uid}`, status: type === 'dispute.resolved' ? 'won' : 'under_review'}});
+  assert.equal(await send(dispute('dispute.created'), deps), 200);
+  assert.equal(await send(paidEvent({id: `${uid}-paid`, uid, product: 'pantas_cs_monthly'}), deps), 200);
+  const [before] = await grants(uid);
+  assert.equal(before.state, 'revoked');
+  assert.equal(await send(dispute('dispute.resolved'), deps), 200);
+  const [after] = await grants(uid);
+  assert.equal(after.state, 'active');
+  assert.equal(after.endsAt, ph('2026-11-20T10:00:00+08:00'));
+  assert.equal(auth.current().pro, true);
 });

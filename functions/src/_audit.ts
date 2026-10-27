@@ -34,7 +34,7 @@ export function assertNamedUser(
   auth:
     | {
         uid: string;
-        token: { firebase?: { sign_in_provider?: string }; auth_time?: number };
+        token: { firebase?: { sign_in_provider?: string; identities?: Record<string, unknown> }; auth_time?: number; email?: string; email_verified?: boolean };
       }
     | undefined,
 ): string {

@@ -5,12 +5,14 @@ import { HttpsError, onCall } from 'firebase-functions/v2/https';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
 import { retirePublicId } from './publicId.js';
 import { clearPassOwnership } from './revenuecatPasses.js';
+import { identityMarkers, trialIdentityKey } from './webTrial.js';
 
 export const deleteAccount = onCall(
   {
     region: 'asia-southeast1',
     enforceAppCheck: true,
     consumeAppCheckToken: true,
+    secrets: [trialIdentityKey],
   },
   async (request) => {
     const uid = assertNamedUser(request.auth);
@@ -26,13 +28,23 @@ export const deleteAccount = onCall(
       );
     }
 
+    // Older trials have only an account-local record. Preserve eligibility before
+    // deleting that record, including when an earlier deletion attempt is retried.
+    if ((await userRef.collection('server').doc('trial').get()).exists) {
+      const batch = db.batch();
+      for (const marker of identityMarkers(request.auth, db)) batch.set(marker, {used: true});
+      await batch.commit();
+    }
     await writeAuditLog({ uid, event: 'accountDeleted' });
     await retirePublicId(db, uid);
     await db.recursiveDelete(userRef);
     await clearPassOwnership(db, uid);
     // The payment-to-account index is account data; the grant ledger went with the user tree.
-    const payments = await db.collection('paymongoPayments').where('uid', '==', uid).get();
-    await Promise.all(payments.docs.map((doc) => doc.ref.delete()));
+    for (const collection of ['paymongoPayments', 'paymongoOrders', 'paymongoCheckouts', 'paymongoFollowUps']) {
+      const payments = await db.collection(collection).where('uid', '==', uid).get();
+      await Promise.all(payments.docs.map((doc) => doc.ref.delete()));
+    }
+    // trialUsedIdentities contains only keyed hashes and deliberately survives deletion.
 
     // Purge hosted Wrapped cards: top-level docs + their storage objects
     // (landing-page spec §5.2).

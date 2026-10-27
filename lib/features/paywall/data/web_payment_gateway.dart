@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
@@ -31,11 +30,29 @@ Entitlement entitlementFromGrants(
 }) {
   final subscriptions = <_Held>[];
   final passes = <String, DateTime>{};
-  for (final row in rows) {
+  final ordered = rows.where((row) => row['startsAt'] is int).toList()
+    ..sort(
+      (a, b) => (a['startsAt']! as int).compareTo(b['startsAt']! as int),
+    );
+  for (final row in ordered) {
+    final starts = row['startsAt'];
     final productId = row['product'];
     final end = row['endsAt'];
     if (row['state'] != 'active' || productId is! String || end is! int) {
       continue;
+    }
+    if (starts is! int) continue;
+    final startsAt = DateTime.fromMillisecondsSinceEpoch(starts, isUtc: true);
+    if (startsAt.isAfter(at)) {
+      final tier = productForId(productId)?.tier;
+      if (productForId(productId)?.kind != ProductKind.subscription ||
+          !subscriptions.any(
+            (held) =>
+                productForId(held.productId)!.tier == tier &&
+                !startsAt.isAfter(held.endsAt),
+          )) {
+        continue;
+      }
     }
     final endsAt = DateTime.fromMillisecondsSinceEpoch(end, isUtc: true);
     if (!endsAt.isAfter(at)) continue;
@@ -501,14 +518,17 @@ Future<Object?> callFirebaseFunction(
   return result.data;
 }
 
-/// The real [WebGrantReader]. It throws when Firebase is not ready, so the
+/// The real [WebGrantReader] reads combined native and web coverage. The
 /// caller keeps the last confirmed entitlement instead of reading "none".
 Future<List<Map<String, dynamic>>> readGrantsFromFirestore(String uid) async {
-  if (Firebase.apps.isEmpty) throw StateError('Firebase is not initialized.');
-  final snapshot = await FirebaseFirestore.instance
-      .collection('users/$uid/grants')
-      .get(const GetOptions(source: Source.server));
-  return [for (final doc in snapshot.docs) doc.data()];
+  final reply = await callFirebaseFunction('getWebEntitlement', {'uid': uid});
+  if (reply is! Map || reply['grants'] is! List) {
+    throw StateError('The server returned no entitlement.');
+  }
+  return [
+    for (final row in reply['grants']! as List)
+      if (row is Map) Map<String, dynamic>.from(row),
+  ];
 }
 
 /// The real [WebUrlOpener]: checkout replaces this tab, so the return URL

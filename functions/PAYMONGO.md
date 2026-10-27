@@ -37,8 +37,8 @@ handles every candidate and the webhook should subscribe to all of them.
    (events page and the go-live checklist).
 
 What the code does:
-- Handles `refund.succeeded`, `payment.refunded`, `payment.refund.updated` and `dispute.created`.
-  `dispute.resolved` is acknowledged and ignored. Subscribe the webhook to all four handled names
+- Handles `refund.succeeded`, `payment.refunded`, `payment.refund.updated`, `dispute.created` and `dispute.resolved`.
+  `dispute.resolved` restores a won dispute only when the grant has no refunds or independent revocation. It keeps the saved dates and is idempotent. Subscribe the webhook to all five handled names
   plus `checkout_session.payment.paid`.
 - Payment id: `data.id` when `data.type` is `payment` (or the id starts with `pay_`), otherwise
   `attributes.payment_id`, otherwise `attributes.payment.id`.
@@ -94,8 +94,9 @@ Refund resource: https://docs.paymongo.com/reference/refund-resource.md.
    (comma separated) once the account has them. A disabled type may make the create call fail.
 6. **`Idempotency-Key` on checkout creation.** Recommended for POSTs by the go-live checklist, but
    not confirmed for this endpoint. Not sent.
-7. **Dispute outcome.** `dispute.resolved` with status `won` is ignored. A revoked grant stays
-   revoked. Decide whether a won dispute should restore access.
+7. **Dispute outcome.** October 27 decision: a won dispute restores its revoked grant at the saved expiry.
+   Full or partial refunds and independent revocations prevent restoration. Lost disputes stay revoked.
+   Dispute identity is saved when revoking and checked on resolution. Real test-mode payload verification remains required.
 8. **Return URLs.** `success_url` and `cancel_url` are `<origin>/pro?checkout=success` and
    `?checkout=cancelled`, where origin is `PANTAS_WEB_ORIGIN` (default `https://pantas.study`).
    Lane C3 owns the real routes and may change these.
@@ -106,4 +107,4 @@ Secrets: `PAYMONGO_SECRET_KEY`, `PAYMONGO_WEBHOOK_SECRET`. Test mode vs live mod
 secret key prefix (`sk_live_` means live). An event whose `livemode` differs from that mode is
 acknowledged and ignored. The webhook URL to register is the `paymongoWebhook` function
 (region asia-southeast1) with the event types `checkout_session.payment.paid`, `refund.succeeded`,
-`payment.refunded`, `payment.refund.updated` and `dispute.created`.
+`payment.refunded`, `payment.refund.updated`, `dispute.created` and `dispute.resolved`.

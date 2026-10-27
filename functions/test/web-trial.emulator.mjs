@@ -10,7 +10,7 @@ import {fakeAuth} from './_paymongo-helpers.mjs';
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
 const NOW = Date.parse('2026-10-20T10:00:00+08:00');
-const named = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com'}}});
+const named = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com', identities: {'google.com': [uid]}}}});
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const reset = uid => db.recursiveDelete(db.doc(`users/${uid}`));
 const code = async promise => {try {await promise; return 'ok';} catch (e) {assert.equal(typeof e.code, 'string', String(e)); return e.code;}};
@@ -75,7 +75,7 @@ test('trial attempts are rate limited per account', async () => {
   assert.equal(await code(startTrial(named('tr-rate'), {...deps(), allow: async () => false})), 'resource-exhausted');
 });
 
-const client = (calls = []) => ({calls, createCheckoutSession: async input => {calls.push(input); return {id: 'cs_new', checkoutUrl: 'https://checkout.paymongo.com/abc'};}});
+const client = (calls = []) => ({calls, getCheckoutSession: async id => ({id, status: 'active', payments: []}), createCheckoutSession: async input => {calls.push(input); return {id: 'cs_new', checkoutUrl: 'https://checkout.paymongo.com/abc'};}});
 const checkoutDeps = (c, extra = {}) => ({client: c, db, origin: 'https://pantas.study', methods: ['card', 'gcash'], allow: async () => true,
   catalog: [{id: 'exam_cse_pro', publishedSittings: [{firstDay: '2027-03-14', lastDay: '2027-03-14', sourceUrl: 'https://x.test'}]}], now: () => NOW, ...extra});
 
@@ -123,7 +123,7 @@ test('the real rate limiter (users/{uid}/limits) allows 10 checkouts per window'
   const d = {...checkoutDeps(client(calls)), allow: undefined};
   for (let i = 0; i < 10; i++) await createCheckout(named(uid), {product: 'pantas_cs_weekly'}, d);
   assert.equal(await code(createCheckout(named(uid), {product: 'pantas_cs_weekly'}, d)), 'resource-exhausted');
-  assert.equal(calls.length, 10);
+  assert.equal(calls.length, 1);
 });
 
 

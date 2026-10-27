@@ -1,13 +1,14 @@
 import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {getFirestore} from 'firebase-admin/firestore';
 import {createCheckout} from '../lib/paymongoCheckout.js';
 
 test('checkout returns its unique reference in both return URLs and the client response', async () => {
   const calls = [];
-  const deps = {db: {}, origin: 'https://pantas.study', methods: ['card'],
+  const deps = {db: getFirestore(), origin: 'https://pantas.study', methods: ['card'],
     allow: async () => true,
-    client: {createCheckoutSession: async input => {
+    client: {getCheckoutSession: async id => ({id, status: 'expired', payments: []}), createCheckoutSession: async input => {
       calls.push(input);
       return {id: `cs_${calls.length}`, checkoutUrl: 'https://checkout.paymongo.com/test'};
     }}};
