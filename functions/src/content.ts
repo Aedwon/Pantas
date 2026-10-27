@@ -1,7 +1,8 @@
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
-import {hasLiveProClaim} from './_pro.js';
+import {mockCoverage} from './mockAccess.js';
+import {examCatalog} from './revenuecatPasses.js';
 
 /**
  * Per-account daily budget, counted in requested ids (not calls), so batching does not dodge it.
@@ -47,12 +48,19 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
   if (!await allow(auth.uid, unique.length)) {
     throw new HttpsError('resource-exhausted', 'Daily content limit reached. Try again tomorrow.');
   }
-  const pro = hasLiveProClaim(auth.token as {pro?: unknown; proUntil?: unknown}, now);
-  const suffix = pro ? 'p' : 'f';
+  const coverage = await deps.db.runTransaction(tx => mockCoverage(tx, deps.db, auth.uid, now));
+  const pro = examCatalog.some(exam => coverage.coversExam(exam.id));
   const items: Record<string, Entry> = {};
   await Promise.all(unique.map(async (id) => {
     const snapshot = await deps.db.doc(`content/${kind}/items/${id}`).get();
     if (!snapshot.exists) { items[id] = {status: 'missing'}; return; }
+    const set = kind === 'questions'
+      ? JSON.parse(String(snapshot.get('payload'))) as {meta?: {exams?: unknown}; passages?: unknown[]; questions: {id: string; choices?: Record<string, unknown>[]}[]}
+      : undefined;
+    const exams = set?.meta?.exams;
+    const paid = kind === 'questions' ? Array.isArray(exams) && exams.some(exam =>
+      typeof exam === 'string' && coverage.coversExam(`exam_${exam.replaceAll('-', '_')}`)) : pro;
+    const suffix = paid ? 'p' : 'f';
     // The returned version names the tier it was built for, so a Free copy never satisfies a Pro caller.
     const version = `${String(snapshot.get('version'))}.${suffix}`;
     if (known[id] === version) { items[id] = {status: 'unchanged', version}; return; }
@@ -66,8 +74,8 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
       items[id] = {status: 'ok', version, data: {id, title, summary, subject, topic, estimatedMinutes, body}};
       return;
     }
-    const set = JSON.parse(String(snapshot.get('payload'))) as {meta: unknown; passages?: unknown[]; questions: {id: string; choices?: Record<string, unknown>[]}[]};
-    if (pro) {
+    if (!set) return;
+    if (paid) {
       const proSnapshot = await deps.db.doc(`contentPro/${id}`).get();
       if (proSnapshot.exists) {
         const notes = JSON.parse(String(proSnapshot.get('payload'))) as Record<string, (string | null)[]>;

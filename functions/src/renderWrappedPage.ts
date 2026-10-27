@@ -34,7 +34,10 @@ export const renderWrappedPage = onRequest(
       .doc(shareId)
       .get();
     const data = snapshot.data();
-    if (!snapshot.exists || data == null || data.revoked === true) {
+    if (!snapshot.exists || data == null || data.revoked === true
+        || typeof data.ownerUid !== 'string' || data.ownerUid.length < 1
+        || data.ownerUid.length > 128 || /[/\\]/.test(data.ownerUid)
+        || data.ownerUid === '.' || data.ownerUid === '..') {
       res.status(200).set(htmlHeaders).send(genericPageHtml(ctaHref));
       return;
     }
@@ -43,7 +46,7 @@ export const renderWrappedPage = onRequest(
       try {
         const [bytes] = await getStorage()
           .bucket()
-          .file(String(data.storagePath))
+          .file(`wrapped/${data.ownerUid}/${shareId}.png`)
           .download();
         res
           .status(200)

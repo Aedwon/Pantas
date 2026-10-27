@@ -339,6 +339,9 @@ service cloud.firestore {
       allow read: if false;
       allow create: if isSignedIn()
           && request.resource.data.ownerUid == request.auth.uid
+          && shareId.matches('^[0-9a-f]{32}$')
+          && request.resource.data.storagePath ==
+              'wrapped/' + request.auth.uid + '/' + shareId + '.png'
           && request.resource.data.revoked == false;
       allow update: if isSignedIn()
           && resource.data.ownerUid == request.auth.uid
