@@ -9,7 +9,7 @@ import {claimsForRevenueCatAnswer, type RevenueCatAccessSource} from './revenuec
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import type {RevenueCatPurchase} from './revenuecatSubscriber.js';
 import type {LedgerPass} from './revenuecatCoverage.js';
-import {ledgerGrants, type Grant} from './grants.js';
+import {ledgerGrants, shortenedEnd, type Grant} from './grants.js';
 
 export interface Sitting {firstDay: string; lastDay: string; sourceUrl: string}
 export interface CatalogExam {id: string; publishedSittings: Sitting[]}
@@ -98,53 +98,63 @@ export async function recomputePassRecords(db: Firestore, catalog: CatalogExam[]
   moves: Record<string, string> = {}): Promise<number> {
   let last;
   let changed = 0;
-  while (true) {
-    let query = db.collectionGroup('passes').orderBy(FieldPath.documentId()).limit(500);
-    if (last) query = query.startAfter(last);
-    const page = await query.get();
-    for (const doc of page.docs) {
-      const user = doc.ref.parent.parent;
-      if (user?.parent.id !== 'users') continue;
-      const updated = await db.runTransaction(async transaction => {
-        const [fresh, record] = await transaction.getAll(doc.ref, db.doc(`users/${user.id}/server/entitlement`));
-        if (!fresh.exists || fresh.get('state') !== 'active') return false;
-        const pass = fresh.data() as Pass;
-        if (binding(pass.product) !== pass.examId) return false;
-        // firstDay identifies the saved sitting. Changing that identifier needs
-        // an explicit admin move, never an inference from the next future date.
-        const target = moves[`${pass.examId}:${pass.sitting.firstDay}`] ?? pass.sitting.firstDay;
-        const sitting = catalog.find(exam => exam.id === pass.examId)?.publishedSittings
-          .find(candidate => candidate.firstDay === target && candidate.sourceUrl.length > 0);
-        const endsAt = sitting ? endOfSitting(sitting) : pass.endsAt;
-        if (!Number.isFinite(endsAt) || endsAt <= pass.endsAt) return false;
-        const all = await transaction.get(user.collection('passes'));
-        const grantRows = await transaction.get(user.collection('grants'));
-        const rows = all.docs.map(row => row.id === fresh.id
-          ? {...pass, endsAt, sitting:sitting!} : row.data() as Pass);
-        const facts = record.get('facts') as {sources?: RevenueCatAccessSource[];
-          coverageContext?: {appId:string; firebaseProjectId:string; sandboxTester:boolean}} | undefined;
-        if (!record.exists || !facts?.coverageContext) throw new Error('Missing entitlement reconciliation context');
-        const claims = claimsForRevenueCatAnswer(facts.sources ?? [], {
-          ...facts.coverageContext, at:Date.now(), passes:livePasses(rows),
-          grants:ledgerGrants(grantRows.docs.map(row => row.data() as Grant))});
-        transaction.update(doc.ref, {endsAt,sitting});
-        transaction.set(db.doc(`passOwners/${receiptKey(pass.transactionId)}`),
-          {endsAt,sitting}, {merge:true});
-        transaction.update(record.ref, {...claims,claimsPending:true,updatedAt:FieldValue.serverTimestamp(),version:Number(record.get('version'))+1});
-        transaction.create(db.collection('audit_logs').doc(), {
-          uid:user.id,event:'passEndMoved',timestamp:FieldValue.serverTimestamp(),
-          metadata:{transactionId:pass.transactionId,from:pass.endsAt,to:endsAt},
+  for (const collection of ['passes', 'grants']) {
+    last = undefined;
+    while (true) {
+      let query = db.collectionGroup(collection).orderBy(FieldPath.documentId()).limit(500);
+      if (last) query = query.startAfter(last);
+      const page = await query.get();
+      for (const doc of page.docs) {
+        const user = doc.ref.parent.parent;
+        if (user?.parent.id !== 'users') continue;
+        const updated = await db.runTransaction(async transaction => {
+          const [fresh, record] = await transaction.getAll(doc.ref, db.doc(`users/${user.id}/server/entitlement`));
+          if (!fresh.exists || fresh.get('state') !== 'active') return false;
+          const web = collection === 'grants';
+          const grant = fresh.data() as Grant;
+          if (web && (grant.source !== 'paymongo' || !grant.sitting || grant.unusedDuplicateOf)) return false;
+          const pass = fresh.data() as Pass;
+          if (binding(pass.product) !== pass.examId) return false;
+          // firstDay identifies the saved sitting. Changing that identifier needs
+          // an explicit admin move, never an inference from the next future date.
+          const target = moves[`${pass.examId}:${pass.sitting.firstDay}`] ?? pass.sitting.firstDay;
+          const sitting = catalog.find(exam => exam.id === pass.examId)?.publishedSittings
+            .find(candidate => candidate.firstDay === target && candidate.sourceUrl.length > 0);
+          const fullEndsAt = sitting ? endOfSitting(sitting) : (web ? grant.fullEndsAt ?? pass.endsAt : pass.endsAt);
+          if (!Number.isFinite(fullEndsAt) || fullEndsAt <= (web ? grant.fullEndsAt ?? pass.endsAt : pass.endsAt)) return false;
+          const refunds = Object.values(grant.refunds ?? {}).reduce((a, b) => a + b, 0);
+          const endsAt = web && refunds > 0 && grant.paidAmount
+            ? shortenedEnd(grant.startsAt, fullEndsAt, refunds, grant.paidAmount) : fullEndsAt;
+          const all = await transaction.get(user.collection('passes'));
+          const grantRows = await transaction.get(user.collection('grants'));
+          const rows = all.docs.map(row => !web && row.id === fresh.id
+            ? {...pass, endsAt, sitting:sitting!} : row.data() as Pass);
+          const facts = record.get('facts') as {sources?: RevenueCatAccessSource[];
+            coverageContext?: {appId:string; firebaseProjectId:string; sandboxTester:boolean}} | undefined;
+          if (!web && (!record.exists || !facts?.coverageContext)) throw new Error('Missing entitlement reconciliation context');
+          const claims = claimsForRevenueCatAnswer(facts?.sources ?? [], {
+            ...(facts?.coverageContext ?? {appId: '', firebaseProjectId: process.env.GCLOUD_PROJECT ?? '', sandboxTester: false}), at:Date.now(), passes:livePasses(rows),
+            grants:ledgerGrants(grantRows.docs.map(row => web && row.id === fresh.id ? {...grant, endsAt} : row.data() as Grant))});
+          transaction.update(doc.ref, {endsAt,sitting, ...(web ? {fullEndsAt} : {})});
+          if (!web) transaction.set(db.doc(`passOwners/${receiptKey(pass.transactionId)}`),
+            {endsAt,sitting}, {merge:true});
+          transaction.update(record.ref, {...claims,claimsPending:true,updatedAt:FieldValue.serverTimestamp(),version:Number(record.get('version'))+1});
+          transaction.create(db.collection('audit_logs').doc(), {
+            uid:user.id,event:'passEndMoved',timestamp:FieldValue.serverTimestamp(),
+            metadata:{transactionId:web ? grant.paymentId : pass.transactionId,from:pass.endsAt,to:endsAt},
+          });
+          return true;
         });
-        return true;
-      });
-      if (updated) {
-        changed++;
-        await copyEntitlementClaims(db,auth,user.id);
+        if (updated) {
+          changed++;
+          await copyEntitlementClaims(db,auth,user.id);
+        }
       }
+      if (page.size < 500) break;
+      last = page.docs.at(-1);
     }
-    if (page.size < 500) return changed;
-    last = page.docs.at(-1);
   }
+  return changed;
 }
 
 export async function clearPassOwnership(db: Firestore, uid: string): Promise<void> {

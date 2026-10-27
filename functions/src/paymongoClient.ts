@@ -4,9 +4,9 @@ export interface CheckoutSessionInput {
   uid: string; product: string; name: string; amountCentavos: number;
   successUrl: string; cancelUrl: string; paymentMethodTypes: string[]; referenceNumber: string;
 }
-export interface PaymongoPayment {id: string; amount: number; currency: string; status: string}
+export interface PaymongoPayment {id: string; amount: number; currency: string; status: string; paidAt?: number}
 export interface PaymongoCheckoutSession {
-  id: string; metadata: Record<string, string>; payments: PaymongoPayment[];
+  id: string; status?: string; metadata: Record<string, string>; payments: PaymongoPayment[];
 }
 export interface PaymongoRefund {id: string; amount: number; status: string; paymentId: string}
 export interface PaymongoClient {
@@ -34,7 +34,7 @@ export function httpPaymongoClient(secretKey: string, fetchImpl: Fetch = fetch a
           payment_method_types: input.paymentMethodTypes,
           success_url: input.successUrl, cancel_url: input.cancelUrl,
           reference_number: input.referenceNumber,
-          metadata: {uid: input.uid, product: input.product},
+          metadata: {uid: input.uid, product: input.product, reference: input.referenceNumber},
         }}})});
       if (!response.ok) throw new Error(`PayMongo checkout create failed: ${response.status}`);
       const data = obj(obj(await response.json()).data);
@@ -67,9 +67,9 @@ export function httpPaymongoClient(secretKey: string, fetchImpl: Fetch = fetch a
       const payments = (top.length > 0 ? top : Array.isArray(nested) ? nested : []).map(p => {
         const payment = obj(p), a = obj(payment.attributes);
         return {id: String(payment.id ?? ''), amount: Number(a.amount), currency: String(a.currency ?? ''),
-          status: String(a.status ?? '')};
+          status: String(a.status ?? ''), ...(typeof a.paid_at === 'number' ? {paidAt: a.paid_at * 1000} : {})};
       });
-      return {id, metadata, payments};
+      return {id, status: String(attributes.status ?? ''), metadata, payments};
     },
   };
 }

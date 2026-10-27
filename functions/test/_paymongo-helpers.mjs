@@ -1,6 +1,9 @@
 import {createHmac} from 'node:crypto';
 import {handlePaymongoWebhook} from '../lib/paymongoWebhook.js';
 
+// Local emulator fixture only. Production requires the provisioned Functions secret.
+process.env.TRIAL_IDENTITY_HMAC_KEY = 'payments-emulator-only-hmac-key';
+
 export const SECRET = 'whsec_test';
 export const ph = iso => Date.parse(iso);
 
@@ -25,7 +28,7 @@ export function resourceEvent({id, type, resource, resourceId = 'x_1', livemode 
 export function fakeClient(sessions, refunds = {}) {
   const calls = [];
   const refundCalls = [];
-  return {calls, refundCalls, getRefund: async id => {
+  return {sessions, calls, refundCalls, getRefund: async id => {
     refundCalls.push(id);
     const r = refunds[id];
     if (!r) throw new Error('PayMongo refund read failed');
@@ -38,8 +41,8 @@ export function fakeClient(sessions, refunds = {}) {
   }};
 }
 
-export const session = ({id = 'cs_1', uid, product, paymentId = 'pay_1', amount, status = 'paid', metadata}) =>
-  ({id, metadata: metadata ?? {uid, product}, payments: [{id: paymentId, amount, currency: 'PHP', status}]});
+export const session = ({id = 'cs_1', uid, product, paymentId = 'pay_1', amount, status = 'paid', paidAt = Date.parse('2026-10-20T10:00:00+08:00'), metadata}) =>
+  ({id, metadata: metadata ?? {uid, product}, payments: [{id: paymentId, amount, currency: 'PHP', status, paidAt}]});
 
 export function fakeAuth() {
   let claims = {other: 'kept'};
@@ -47,7 +50,17 @@ export function fakeAuth() {
     setCustomUserClaims: async (_, value) => {claims = value;}, current: () => claims};
 }
 
-export function send(body, deps, options = {}) {
+export async function send(body, deps, options = {}) {
+  if (deps.client.sessions && body.data.attributes.type === 'checkout_session.payment.paid') {
+    const id = body.data.attributes.data.id;
+    const session = deps.client.sessions[id];
+    if (session) {
+      // Each fake client is a distinct checkout; use unique fixture sessions across accounts.
+      const actual = deps.db.doc(`paymongoCheckouts/${id}`);
+      await actual.set({uid: session.metadata.uid ?? '', product: session.metadata.product ?? '', createdAt: 1,
+        ...(deps.catalog?.[0]?.publishedSittings?.[0] ? {sitting: deps.catalog[0].publishedSittings[0]} : {})});
+    }
+  }
   const {raw, header} = signed(body, {now: deps.now(), ...options});
   return handlePaymongoWebhook(raw, header, deps);
 }

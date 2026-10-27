@@ -1,7 +1,7 @@
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {assertNamedUser} from './_audit.js';
 import type {RevenueCatAccessSource} from './revenuecatPolicy.js';
-import {trialEligible} from './webTrial.js';
+import {trialEligible, trialIdentityKey} from './webTrial.js';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {priceCentavos, webProduct, webProductIds, type Prepaid} from './paymongoPolicy.js';
@@ -69,5 +69,5 @@ async function googlePlayRenews(db: Firestore, uid: string, at: number): Promise
     typeof source.productId === 'string');
 }
 
-export const listWebPlans = onCall({region: 'asia-southeast1', enforceAppCheck: true},
+export const listWebPlans = onCall({region: 'asia-southeast1', enforceAppCheck: true, secrets: [trialIdentityKey]},
   request => listPlans(request.auth));

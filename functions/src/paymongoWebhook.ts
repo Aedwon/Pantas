@@ -4,8 +4,8 @@ import {defineSecret} from 'firebase-functions/params';
 import {onRequest} from 'firebase-functions/v2/https';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {isUnresolvedFirebaseIdentityError, requireExactRevenueCatRawBody} from './revenuecatPolicy.js';
-import {examCatalog, type CatalogExam} from './revenuecatPasses.js';
-import {commitPaymongoGrant, revokePaymongoPayment} from './paymongoGrants.js';
+import {examCatalog, type CatalogExam, type Sitting} from './revenuecatPasses.js';
+import {commitPaymongoGrant, resolvePaymongoDispute, revokePaymongoPayment} from './paymongoGrants.js';
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {normalizePaymongoEvent, priceCentavos, verifyPaymongoSignature, webProduct} from './paymongoPolicy.js';
 
@@ -29,6 +29,14 @@ async function audit(db: Firestore, uid: string | null, event: string, metadata:
   await db.collection('audit_logs').add({uid, event, timestamp: FieldValue.serverTimestamp(), metadata});
 }
 
+async function unfulfilled(db: Firestore, eventId: string, sessionId: string, reason: string,
+  uid?: string, paymentId?: string): Promise<number> {
+  await db.doc(`paymongoFollowUps/${encodeURIComponent(paymentId ?? sessionId)}`).set({
+    eventId, sessionId, reason, status: 'pending', ...(uid ? {uid} : {}), ...(paymentId ? {paymentId} : {}),
+  });
+  return 500;
+}
+
 /** 401 bad signature, 400 malformed, 200 handled or ignored, 429/500 so PayMongo retries. */
 export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
   deps: PaymongoWebhookDeps): Promise<number> {
@@ -43,6 +51,16 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
   if (event.livemode !== deps.livemode) return 200;
   const attributes = obj(event.data.attributes);
   try {
+    if (event.type === 'dispute.resolved') {
+      const paymentId = paymentIdOf(event.data);
+      const disputeId = text(event.data.id);
+      if (!paymentId || !disputeId) return 500;
+      if (attributes.status !== 'won' && attributes.status !== 'lost') return 500;
+      const uid = await resolvePaymongoDispute(deps.db, {eventId: event.id, paymentId,
+        disputeId, won: attributes.status === 'won'}, now());
+      if (uid) await copyIfPending(deps, uid);
+      return 200;
+    }
     if (REVOKING.has(event.type)) return await handleRevoke(event, attributes, deps, now);
     if (event.type !== PAID) return 200;
     const sessionId = text(event.data.id);
@@ -54,38 +72,58 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
     if (!uid || !productId || uid.includes('/') || uid.length > 128 ||
         claimed.uid !== uid || claimed.product !== productId) {
       await audit(deps.db, null, 'paymongoMetadataMismatch', {eventId: event.id, sessionId});
-      return 200;
+      return unfulfilled(deps.db, event.id, sessionId, 'metadataMismatch');
     }
     const product = webProduct(productId);
     if (!product) {
       await audit(deps.db, uid, 'paymongoUnknownProduct', {eventId: event.id, sessionId, productId});
-      return 200;
+      return unfulfilled(deps.db, event.id, sessionId, 'unknownProduct', uid);
     }
     const paid = session.payments.filter(p => p.status === 'paid');
     // PayMongo may report the payment a moment after the event: retry rather than lose it.
-    if (paid.length === 0) return 500;
+    if (paid.length === 0) return unfulfilled(deps.db, event.id, sessionId, 'paymentNotYetPaid', uid);
     if (paid.length !== 1 || !paid[0].id || paid[0].currency !== 'PHP' || paid[0].amount !== priceCentavos(product)) {
       await audit(deps.db, uid, 'paymongoAmountMismatch', {eventId: event.id, sessionId, productId,
         payments: paid.map(p => ({id: p.id, amount: p.amount, currency: p.currency}))});
-      return 200;
+      return unfulfilled(deps.db, event.id, sessionId, 'amountMismatch', uid, paid[0]?.id);
+    }
+    const reference = session.metadata.reference;
+    const checkout = await deps.db.doc(reference && /^[0-9a-f-]{36}$/.test(reference)
+      ? `paymongoOrders/${reference}` : `paymongoCheckouts/${sessionId}`).get();
+    const paidAt = paid[0].paidAt;
+    const bound = checkout.exists && checkout.get('uid') === uid && checkout.get('product') === productId &&
+      (!checkout.get('sessionId') || checkout.get('sessionId') === sessionId);
+    if (!bound || !Number.isSafeInteger(paidAt) || paidAt! <= 0 || paidAt! > now() || paidAt! < Math.floor(Number(checkout.get('createdAt')) / 1000) * 1000) {
+      await deps.db.doc(`paymongoFollowUps/${encodeURIComponent(paid[0].id)}`).set({uid, sessionId,
+        paymentId: paid[0].id, eventId: event.id, reason: 'unverifiedCheckoutOrPaymentTime', status: 'pending'});
+      return 500;
     }
     try { await deps.auth.getUser(uid); }
     catch (error) {
       if (!isUnresolvedFirebaseIdentityError(error)) throw error;
       await audit(deps.db, uid, 'paymongoPaidUnknownAccount', {eventId: event.id, sessionId, paymentId: paid[0].id});
-      return 200;
+      return unfulfilled(deps.db, event.id, sessionId, 'unknownAccount', uid, paid[0].id);
     }
     const duplicate = await deps.db.doc(`webhookEvents/${event.id}/users/${uid}`).get();
     if (!duplicate.exists) {
-      if (!await withinRate(deps.db, uid, now())) return 429;
+      if (!await withinRate(deps.db, uid, now())) {
+        await unfulfilled(deps.db, event.id, sessionId, 'rateLimited', uid, paid[0].id);
+        return 429;
+      }
       const outcome = await commitPaymongoGrant(deps.db, {uid, eventId: event.id, sessionId,
-        paymentId: paid[0].id, paidAmount: paid[0].amount, product}, now(), deps.catalog ?? examCatalog);
-      if (outcome === 'noSitting') console.error('PayMongo pass paid without a published sitting', {uid, sessionId});
+        paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt!, sitting: checkout.get('sitting') as Sitting | undefined}, now(), deps.catalog ?? examCatalog);
+      if (outcome === 'noSitting') return 500;
     }
+    const sessionFollowUp = deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`);
+    if ((await sessionFollowUp.get()).exists) await sessionFollowUp.update({status: 'resolved'});
     await copyIfPending(deps, uid);
     return 200;
   } catch (error) {
     console.error('PayMongo reconciliation failed', {eventId: event.id, error});
+    const sessionId = text(event.data.id);
+    if (event.type === PAID && event.data.type === 'checkout_session' && sessionId) {
+      return unfulfilled(deps.db, event.id, sessionId, 'reconciliationFailed');
+    }
     return 500;
   }
 }
@@ -136,7 +174,7 @@ async function handleRevoke(event: {id: string; type: string; data: Record<strin
   }
   let outcome;
   if (event.type === 'dispute.created') {
-    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true}, now());
+    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true, disputeId: text(event.data.id) ?? undefined}, now());
   } else {
     const entries = refundsIn(event.type, event.data);
     if (entries.length === 0) {
