@@ -16,13 +16,13 @@ Lesson: `content/lessons/general-information/philippine-constitution/the-three-b
 ## 02-timeline-day-0-proclamation-or.svg
 
 - File: `content/illustrations/general-information/philippine-constitution/the-three-branches-and-their-powers/02-timeline-day-0-proclamation-or.svg`
-- Marker: timeline Day 0: proclamation or suspension; Within 48 hours: report to Congress; Day 60: initial limit; notes Congress may revoke and Supreme Court may review
-- Purpose: Show the reporting deadline, initial duration limit, and oversight of the President’s emergency measures.
-- Layout: At the top of a 360-unit-wide figure, place the shared heading naming the two measures. Below it, draw a vertical timeline with three dots: Day 0 at the top, Within 48 hours in the middle, and Day 60 at the bottom. Put each event label to the right of its dot. Below the timeline, place two separate oversight notes; neither note attaches to a particular day. Use unequal spacing or a visibly schematic line so the intervals do not appear proportional.
-- Labels (verbatim): "Martial law"; "privilege of the writ / of habeas corpus"; "Day 0 / proclamation or suspension"; "Within 48 hours / report to Congress"; "Day 60 / initial limit"; "Congress may revoke"; "Supreme Court may review"
-- Focus (warm accent): The “Day 60 / initial limit” milestone.
-- Must not show: Do not portray 60 days as an absolute limit that prevents a lawful extension, or imply congressional revocation and Supreme Court review must wait until Day 60. Do not add the emergency-powers exercise scenarios or their verdicts.
-- Suggested height: 400
+- Marker: timeline Day 0: proclamation or suspension; Within 48 hours: report to Congress; Day 60: initial limit; separate note Detained under suspension: charge in court within 3 days or release; notes Congress may revoke and Supreme Court may review
+- Purpose: Show the reporting deadline and initial limit for the emergency measures, the separate detention deadline under suspension, and congressional and judicial oversight.
+- Layout: Use a 360-unit-wide figure. Name the two measures above a schematic vertical timeline. Place three milestones down the line: Day 0, Within 48 hours, and Day 60, each with its event label beside it. Below the timeline, place the detention rule in a separate ruled section. Its three-day period belongs to the person's arrest or detention under suspension. Do not connect it to Day 0 or position it as a fourth timeline milestone. Place Congress may revoke and Supreme Court may review below as separate notes without date connectors.
+- Labels (verbatim): "Martial law"; "privilege of the writ / of habeas corpus"; "Day 0: / proclamation or suspension"; "Within 48 hours: / report to Congress"; "Day 60: / initial limit"; "Detained under suspension: / charge in court within / 3 days or release"; "Congress may revoke"; "Supreme Court may review"
+- Focus (warm accent): The separate “charge in court within / 3 days or release” rule.
+- Must not show: Do not start the detention deadline at proclamation or suspension. Do not apply this detention rule to everyone detained during martial law. Do not imply that martial law automatically suspends the writ's privilege, suspends the Constitution, or replaces functioning civil courts. Do not portray either measure as available without invasion or rebellion when public safety requires it. Do not show 60 days as an absolute limit that bars a lawful extension or imply extension is automatic. Do not make congressional revocation or Supreme Court review wait until Day 60. Do not add example scenarios or verdicts.
+- Suggested height: 480
 
 ## 03-minimum-age-ladder-25-representative.svg
 
@@ -38,10 +38,10 @@ Lesson: `content/lessons/general-information/philippine-constitution/the-three-b
 ## 04-congress-president-courts-connected-by.svg
 
 - File: `content/illustrations/general-information/philippine-constitution/the-three-branches-and-their-powers/04-congress-president-courts-connected-by.svg`
-- Marker: Congress, President, Courts connected by arrows President to Congress: veto; Congress to President: override and appointment confirmation; Congress to impeachable officers: impeachment; Courts to Congress and President: judicial review
-- Purpose: Show how veto, veto override, appointment consent, impeachment, and judicial review limit government power.
-- Layout: Within a 360-unit width, place Congress at upper left and President at upper right. Draw two separate curved arrows between them: President to Congress labeled veto, and Congress to President labeled with veto override and the qualified appointment-consent text. Put impeachable officers below Congress, connected by a downward impeachment arrow. Place Courts at the bottom; one upward line labeled judicial review forks into arrowheads ending at Congress and President. Keep all arrow labels clear of nodes. Use four nodes and four grouped arrow labels.
-- Labels (verbatim): "Congress"; "President"; "Courts"; "impeachable officers"; "veto"; "veto override / and consent to listed / appointments through the / Commission on Appointments"; "impeachment"; "judicial review"
-- Focus (warm accent): The forked “judicial review” arrow from Courts.
-- Must not show: Do not imply all presidential appointments require confirmation; judges do not. Do not show impeachment targeting every public officer or imply Congress removes officers through a single undifferentiated vote. Do not add vote calculations or exercise verdicts.
-- Suggested height: 480
+- Marker: Congress, President, Courts connected by arrows President to Congress: veto; Congress to President: override; Commission on Appointments to presidential appointments: consent; Congress to impeachable officers: impeachment; Courts to Congress and President: judicial review
+- Purpose: Show the separate actors and directions for veto, override, appointment consent, impeachment, and judicial review.
+- Layout: Use a 360-unit-wide figure. Place Congress at upper left and President at upper right. Draw separate arrows from President to Congress labeled veto and from Congress to President labeled override. Within the Congress group, identify House and Senate. Place impeachable officers below it. Draw a House-to-officers arrow labeled charges and a Senate-to-officers arrow labeled trial. Group these two arrows under impeachment. In a separate row, place Commission on Appointments and presidential appointments, with an arrow from the commission to the appointments labeled consent for listed offices. Place Courts at the bottom. Route a judicial review connector along the outer margins, with separate arrowheads ending at Congress and President. Keep the appointment-consent connector separate from the override arrow.
+- Labels (verbatim): "Congress"; "President"; "Courts"; "veto"; "override"; "House"; "Senate"; "impeachable officers"; "impeachment"; "charges"; "trial"; "Commission on Appointments"; "presidential appointments"; "consent for listed offices"; "judicial review"
+- Focus (warm accent): The consent for listed offices arrow from Commission on Appointments to presidential appointments.
+- Must not show: Do not assign appointment consent to Congress as a whole or combine it with veto override. Do not imply that all presidential appointments require consent. Judges and the Vice-President appointed to the Cabinet do not need it. Do not show the House holding the impeachment trial or the Senate bringing the charges. Do not imply that impeachment applies to every public officer or that charges alone remove an officer. Do not portray judicial review as available without a proper case or based only on disagreement with policy. Do not add vote calculations or example verdicts.
+- Suggested height: 680
