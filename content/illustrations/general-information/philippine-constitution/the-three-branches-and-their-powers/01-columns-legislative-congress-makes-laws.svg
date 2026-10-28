@@ -1,33 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300">
 <title>Three columns: Legislative Congress makes laws, Executive President carries out laws, Judicial Supreme Court and lower courts settle legal disputes and check government acts</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
 </defs>
 <rect width="360" height="300" rx="14" fill="url(#bg)"/>
-<rect x="12" y="16" width="108" height="268" rx="10" fill="#2C6A98" fill-opacity="0.28"/>
-<rect x="12" y="16" width="108" height="268" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
+<rect x="12" y="16" width="108" height="268" rx="10" fill="#010101" fill-opacity="0.28"/>
+<rect x="12" y="16" width="108" height="268" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
 <rect x="18" y="26" width="96" height="38" rx="8" fill="url(#teal)"/>
-<text x="66" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="66">Legislative</tspan></text>
-<text x="66" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="66">Congress</tspan></text>
-<line x1="22" y1="165" x2="110" y2="165" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<rect x="18" y="178" width="96" height="32" rx="8" fill="#FFC857"/>
-<text x="66" y="199" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#0E2747"><tspan x="66">makes laws</tspan></text>
-<text x="66" y="238" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="66">except through</tspan><tspan x="66" dy="1.2em">initiative and</tspan><tspan x="66" dy="1.2em">referendum</tspan></text>
-<rect x="126" y="16" width="108" height="268" rx="10" fill="#2C6A98" fill-opacity="0.28"/>
-<rect x="126" y="16" width="108" height="268" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="66" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="66">Legislative</tspan></text>
+<text x="66" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="66">Congress</tspan></text>
+<line x1="22" y1="165" x2="110" y2="165" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<rect x="18" y="178" width="96" height="32" rx="8" fill="#050505" fill-opacity="0.45"/>
+<text x="66" y="199" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="66">makes laws</tspan></text>
+<text x="66" y="238" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202"><tspan x="66">except through</tspan><tspan x="66" dy="1.2em">initiative and</tspan><tspan x="66" dy="1.2em">referendum</tspan></text>
+<rect x="126" y="16" width="108" height="268" rx="10" fill="#010101" fill-opacity="0.28"/>
+<rect x="126" y="16" width="108" height="268" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
 <rect x="132" y="26" width="96" height="38" rx="8" fill="url(#sky)"/>
-<text x="180" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="180">Executive</tspan></text>
-<text x="180" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">President</tspan></text>
-<line x1="136" y1="165" x2="224" y2="165" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<text x="180" y="197" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="180">carries out</tspan><tspan x="180" dy="1.2em">laws</tspan></text>
-<rect x="240" y="16" width="108" height="268" rx="10" fill="#2C6A98" fill-opacity="0.28"/>
-<rect x="240" y="16" width="108" height="268" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="180" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">Executive</tspan></text>
+<text x="180" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="180">President</tspan></text>
+<line x1="136" y1="165" x2="224" y2="165" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<text x="180" y="197" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202"><tspan x="180">carries out</tspan><tspan x="180" dy="1.2em">laws</tspan></text>
+<rect x="240" y="16" width="108" height="268" rx="10" fill="#010101" fill-opacity="0.28"/>
+<rect x="240" y="16" width="108" height="268" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
 <rect x="246" y="26" width="96" height="38" rx="8" fill="url(#sky)"/>
-<text x="294" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="294">Judicial</tspan></text>
-<text x="294" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="294">Supreme</tspan><tspan x="294" dy="1.2em">Court and</tspan><tspan x="294" dy="1.2em">lower courts</tspan></text>
-<line x1="250" y1="165" x2="338" y2="165" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<text x="294" y="197" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="294">settle legal</tspan><tspan x="294" dy="1.2em">disputes and</tspan><tspan x="294" dy="1.2em">check</tspan><tspan x="294" dy="1.2em">government</tspan><tspan x="294" dy="1.2em">acts</tspan></text>
+<text x="294" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="294">Judicial</tspan></text>
+<text x="294" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="294">Supreme</tspan><tspan x="294" dy="1.2em">Court and</tspan><tspan x="294" dy="1.2em">lower courts</tspan></text>
+<line x1="250" y1="165" x2="338" y2="165" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<text x="294" y="197" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202"><tspan x="294">settle legal</tspan><tspan x="294" dy="1.2em">disputes and</tspan><tspan x="294" dy="1.2em">check</tspan><tspan x="294" dy="1.2em">government</tspan><tspan x="294" dy="1.2em">acts</tspan></text>
 </svg>

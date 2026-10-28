@@ -1,40 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
 <title>Table of quarterly office expenses with the Operations row and Quarter 3 column meeting at 27</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
 </defs>
 <rect width="360" height="260" rx="14" fill="url(#bg)"/>
-<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF"><tspan x="180">Quarterly Office Expenses,</tspan><tspan x="180" dy="1.2em">in thousands of pesos</tspan></text>
-<rect x="16" y="76" width="328" height="160" rx="8" fill="#FFFFFF" fill-opacity="0.06"/>
-<path d="M16 84 Q16 76 24 76 H336 Q344 76 344 84 V116 H16 Z" fill="#6FD0FF" fill-opacity="0.2"/>
-<line x1="16" y1="116" x2="344" y2="116" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<line x1="16" y1="156" x2="344" y2="156" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<line x1="16" y1="196" x2="344" y2="196" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<line x1="128" y1="76" x2="128" y2="236" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
-<rect x="16" y="156" width="274" height="40" rx="0" fill="#FFFFFF" fill-opacity="0.08" stroke="#B7CBDD" stroke-width="1.2" stroke-opacity="0.7"/>
-<rect x="236" y="76" width="54" height="120" rx="0" fill="#FFFFFF" fill-opacity="0.08" stroke="#B7CBDD" stroke-width="1.2" stroke-opacity="0.7"/>
-<text x="155" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF"><tspan x="155">Quarter</tspan><tspan x="155" dy="1.2em">1</tspan></text>
-<text x="209" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF"><tspan x="209">Quarter</tspan><tspan x="209" dy="1.2em">2</tspan></text>
-<text x="263" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF"><tspan x="263">Quarter</tspan><tspan x="263" dy="1.2em">3</tspan></text>
-<text x="317" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF"><tspan x="317">Quarter</tspan><tspan x="317" dy="1.2em">4</tspan></text>
-<text x="18" y="141" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="18">Administration</tspan></text>
-<text x="155" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="155">12</tspan></text>
-<text x="209" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="209">15</tspan></text>
-<text x="263" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="263">18</tspan></text>
-<text x="317" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="317">11</tspan></text>
-<text x="18" y="181" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="18">Operations</tspan></text>
-<text x="155" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="155">20</tspan></text>
-<text x="209" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="209">24</tspan></text>
-<text x="263" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="263">27</tspan></text>
-<text x="317" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="317">23</tspan></text>
-<text x="18" y="221" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="18">Training</tspan></text>
-<text x="155" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="155">8</tspan></text>
-<text x="209" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="209">10</tspan></text>
-<text x="263" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="263">9</tspan></text>
-<text x="317" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#FFFFFF"><tspan x="317">12</tspan></text>
-<rect x="238" y="158" width="50" height="36" rx="6" fill="#FFC857"/>
-<text x="263" y="182" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#0E2747"><tspan x="263">27</tspan></text>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180">Quarterly Office Expenses,</tspan><tspan x="180" dy="1.2em">in thousands of pesos</tspan></text>
+<rect x="16" y="76" width="328" height="160" rx="8" fill="#010101" fill-opacity="0.06"/>
+<path d="M16 84 Q16 76 24 76 H336 Q344 76 344 84 V116 H16 Z" fill="#010101" fill-opacity="0.2"/>
+<line x1="16" y1="116" x2="344" y2="116" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<line x1="16" y1="156" x2="344" y2="156" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<line x1="16" y1="196" x2="344" y2="196" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<line x1="128" y1="76" x2="128" y2="236" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<rect x="16" y="156" width="274" height="40" rx="0" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="236" y="76" width="54" height="120" rx="0" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="155" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="155">Quarter</tspan><tspan x="155" dy="1.2em">1</tspan></text>
+<text x="209" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="209">Quarter</tspan><tspan x="209" dy="1.2em">2</tspan></text>
+<text x="263" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="263">Quarter</tspan><tspan x="263" dy="1.2em">3</tspan></text>
+<text x="317" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="317">Quarter</tspan><tspan x="317" dy="1.2em">4</tspan></text>
+<text x="18" y="141" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="18">Administration</tspan></text>
+<text x="155" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="155">12</tspan></text>
+<text x="209" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="209">15</tspan></text>
+<text x="263" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="263">18</tspan></text>
+<text x="317" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="317">11</tspan></text>
+<text x="18" y="181" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="18">Operations</tspan></text>
+<text x="155" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="155">20</tspan></text>
+<text x="209" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="209">24</tspan></text>
+<text x="263" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="263">27</tspan></text>
+<text x="317" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="317">23</tspan></text>
+<text x="18" y="221" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="18">Training</tspan></text>
+<text x="155" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="155">8</tspan></text>
+<text x="209" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="209">10</tspan></text>
+<text x="263" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="263">9</tspan></text>
+<text x="317" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#010101"><tspan x="317">12</tspan></text>
+<rect x="238" y="158" width="50" height="36" rx="6" fill="#050505" fill-opacity="0.45"/>
+<text x="263" y="182" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="263">27</tspan></text>
 </svg>

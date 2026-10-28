@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
 <title>One arrow from the hypothesis, an applicant may enter the records room, down to the conclusion, the applicant has a visitor pass</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
 </defs>
 <rect width="360" height="260" rx="14" fill="url(#bg)"/>
-<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">hypothesis</text>
-<rect x="32" y="42" width="296" height="56" rx="10" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="66" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="180">an applicant may enter</tspan><tspan x="180" dy="1.2em">the records room</tspan></text>
-<line x1="180" y1="104" x2="180" y2="141" stroke="#FFC857" stroke-width="3.5" stroke-linecap="round"/><polygon points="180,154 171,140 189,140" fill="#FFC857"/>
-<text x="180" y="180" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">conclusion</text>
-<rect x="32" y="190" width="296" height="48" rx="10" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="219" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">the applicant has a visitor pass</text>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">hypothesis</text>
+<rect x="32" y="42" width="296" height="56" rx="10" fill="url(#o)" stroke="#020202" stroke-width="2"/>
+<text x="180" y="66" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">an applicant may enter</tspan><tspan x="180" dy="1.2em">the records room</tspan></text>
+<line x1="180" y1="104" x2="180" y2="141" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/><polygon points="180,154 171,140 189,140" fill="#050505" fill-opacity="0.45"/>
+<text x="180" y="180" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">conclusion</text>
+<rect x="32" y="190" width="296" height="48" rx="10" fill="url(#i)" stroke="#020202" stroke-width="2"/>
+<text x="180" y="219" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101">the applicant has a visitor pass</text>
 </svg>

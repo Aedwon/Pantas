@@ -1,37 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 396" width="360" height="396">
 <title>Two simplified maps: in summer air moves from ocean toward warmer Asian land; in winter it moves from cooler land toward the ocean</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
-<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
-<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
-<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.05"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#020202"/></linearGradient>
 <clipPath id="m1"><rect x="16" y="16" width="328" height="150" rx="10"/></clipPath><clipPath id="m2"><rect x="16" y="178" width="328" height="150" rx="10"/></clipPath>
 </defs>
 <rect width="360" height="396" rx="14" fill="url(#bg)"/>
 <g clip-path="url(#m1)">
 <rect x="16" y="16" width="328" height="150" fill="url(#sea)"/>
 <polygon points="16,16 262,16 256,44 236,70 214,92 170,108 110,118 16,122" fill="url(#land)"/>
-<polygon points="16,16 262,16 256,44 236,70 214,92 170,108 110,118 16,122" fill="none" stroke="#7BD3B5" stroke-width="2" stroke-linejoin="round" stroke-opacity="0.6"/>
+<polygon points="16,16 262,16 256,44 236,70 214,92 170,108 110,118 16,122" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round" stroke-opacity="0.6"/>
 </g>
-<rect x="16" y="16" width="328" height="150" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="334" y="42" text-anchor="end" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">Summer</text>
-<text x="118" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Asian land</text>
-<text x="118" y="74" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFC857">Warmer, lower pressure</text>
-<polygon points="327.0,134.8 236.4,82.5 239.4,77.4 220.0,80.0 227.4,98.1 230.4,92.9 321.0,145.2" fill="#B8F0FF"/>
-<polygon points="270.8,143.0 146.6,94.1 148.8,88.5 130.0,94.0 140.0,110.8 142.2,105.3 266.4,154.2" fill="#B8F0FF"/>
+<rect x="16" y="16" width="328" height="150" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="334" y="42" text-anchor="end" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">Summer</text>
+<text x="118" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Asian land</text>
+<text x="118" y="74" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#050505">Warmer, lower pressure</text>
+<polygon points="327.0,134.8 236.4,82.5 239.4,77.4 220.0,80.0 227.4,98.1 230.4,92.9 321.0,145.2" fill="#010101" fill-opacity="0.05"/>
+<polygon points="270.8,143.0 146.6,94.1 148.8,88.5 130.0,94.0 140.0,110.8 142.2,105.3 266.4,154.2" fill="#010101" fill-opacity="0.05"/>
 <g clip-path="url(#m2)">
 <rect x="16" y="178" width="328" height="150" fill="url(#sea)"/>
 <polygon points="16,178 262,178 256,206 236,232 214,254 170,270 110,280 16,284" fill="url(#land)"/>
-<polygon points="16,178 262,178 256,206 236,232 214,254 170,270 110,280 16,284" fill="none" stroke="#7BD3B5" stroke-width="2" stroke-linejoin="round" stroke-opacity="0.6"/>
+<polygon points="16,178 262,178 256,206 236,232 214,254 170,270 110,280 16,284" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round" stroke-opacity="0.6"/>
 </g>
-<rect x="16" y="178" width="328" height="150" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="334" y="204" text-anchor="end" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">Winter</text>
-<text x="118" y="212" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Asian land</text>
-<text x="118" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#D6E6F5">Cooler, higher pressure</text>
-<polygon points="217.0,247.2 307.6,299.5 304.6,304.6 324.0,302.0 316.6,283.9 313.6,289.1 223.0,236.8" fill="#B8F0FF"/>
-<polygon points="127.8,261.6 252.0,310.5 249.8,316.1 268.6,310.6 258.6,293.8 256.4,299.3 132.2,250.4" fill="#B8F0FF"/>
-<text x="180" y="356" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#D6E6F5"><tspan x="180">Seasonal heating changes</tspan><tspan x="180" dy="1.2em">pressure and reverses winds.</tspan></text>
+<rect x="16" y="178" width="328" height="150" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="334" y="204" text-anchor="end" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">Winter</text>
+<text x="118" y="212" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Asian land</text>
+<text x="118" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202">Cooler, higher pressure</text>
+<polygon points="217.0,247.2 307.6,299.5 304.6,304.6 324.0,302.0 316.6,283.9 313.6,289.1 223.0,236.8" fill="#010101" fill-opacity="0.05"/>
+<polygon points="127.8,261.6 252.0,310.5 249.8,316.1 268.6,310.6 258.6,293.8 256.4,299.3 132.2,250.4" fill="#010101" fill-opacity="0.05"/>
+<text x="180" y="356" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202"><tspan x="180">Seasonal heating changes</tspan><tspan x="180" dy="1.2em">pressure and reverses winds.</tspan></text>
 </svg>

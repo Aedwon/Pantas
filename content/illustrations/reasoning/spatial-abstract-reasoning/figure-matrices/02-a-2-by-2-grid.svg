@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 328" width="360" height="328">
 <title>Two by two grid: a triangle turns 90 degrees clockwise; a square with a thick top edge sits below; bottom-right cell is empty</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
 </defs>
 <rect width="360" height="328" rx="14" fill="url(#bg)"/>
-<rect x="42" y="26" width="136" height="136" rx="8" fill="#F2F7FB"/>
-<rect x="182" y="26" width="136" height="136" rx="8" fill="#F2F7FB"/>
-<rect x="42" y="166" width="136" height="136" rx="8" fill="#F2F7FB"/>
-<rect x="182" y="166" width="136" height="136" rx="8" fill="#F2F7FB"/>
-<polygon points="110,62 147,126 73,126" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="110" cy="82" r="5" fill="#0E2747"/>
+<rect x="42" y="26" width="136" height="136" rx="8" fill="#010101" fill-opacity="0.05"/>
+<rect x="182" y="26" width="136" height="136" rx="8" fill="#010101" fill-opacity="0.05"/>
+<rect x="42" y="166" width="136" height="136" rx="8" fill="#010101" fill-opacity="0.05"/>
+<rect x="182" y="166" width="136" height="136" rx="8" fill="#010101" fill-opacity="0.05"/>
+<polygon points="110,62 147,126 73,126" fill="none" stroke="#020202" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="110" cy="82" r="5" fill="#010101"/>
 <g transform="rotate(90 250 94)">
-<polygon points="250,62 287,126 213,126" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="250" cy="82" r="5" fill="#0E2747"/>
+<polygon points="250,62 287,126 213,126" fill="none" stroke="#020202" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="250" cy="82" r="5" fill="#010101"/>
 </g>
-<rect x="77" y="201" width="66" height="66" rx="0" fill="none" stroke="#0E2747" stroke-width="2.5"/>
-<line x1="77" y1="201" x2="143" y2="201" stroke="#FF7A45" stroke-width="6" stroke-linecap="butt"/>
-<circle cx="87" cy="211" r="5" fill="#0E2747"/>
+<rect x="77" y="201" width="66" height="66" rx="0" fill="none" stroke="#020202" stroke-width="2.5"/>
+<line x1="77" y1="201" x2="143" y2="201" stroke="#050505" stroke-width="6" stroke-linecap="butt"/>
+<circle cx="87" cy="211" r="5" fill="#010101"/>
 </svg>

@@ -1,55 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360">
 <title>Day and night coastal panels showing a sea breeze by day and a land breeze at night</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
-<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
-<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
-<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.05"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#020202"/></linearGradient>
 <clipPath id="c1"><rect x="16" y="16" width="328" height="156" rx="10"/></clipPath><clipPath id="c2"><rect x="16" y="188" width="328" height="156" rx="10"/></clipPath>
 </defs>
 <rect width="360" height="360" rx="14" fill="url(#bg)"/>
 <g clip-path="url(#c1)">
-<rect x="16" y="16" width="328" height="156" fill="#2C6A98"/>
+<rect x="16" y="16" width="328" height="156" fill="#010101" fill-opacity="0.12"/>
 <rect x="16" y="114" width="154" height="58" fill="url(#sea)"/>
 <rect x="170" y="114" width="174" height="58" fill="url(#land)"/>
-<path d="M26 126 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8FD3FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
+<path d="M26 126 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
 </g>
-<rect x="16" y="16" width="328" height="156" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="30" y="44" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">Day</text>
-<circle cx="96" cy="38" r="7" fill="#F2F7FB"/>
-<line x1="106" y1="38" x2="110" y2="38" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="103.1" y1="45.1" x2="105.9" y2="47.9" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="96" y1="48" x2="96" y2="52" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="88.9" y1="45.1" x2="86.1" y2="47.9" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="86" y1="38" x2="82" y2="38" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="88.9" y1="30.9" x2="86.1" y2="28.1" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="96" y1="28" x2="96" y2="24" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<line x1="103.1" y1="30.9" x2="105.9" y2="28.1" stroke="#F2F7FB" stroke-width="2" stroke-linecap="round"/>
-<text x="92" y="152" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">sea</text>
-<text x="258" y="152" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">land</text>
-<line x1="52" y1="100" x2="224.1" y2="100" stroke="#B8F0FF" stroke-width="3.5"/>
-<polygon points="234,100 223,105.5 223,94.5" fill="#B8F0FF"/>
-<text x="143" y="86" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Sea breeze</text>
-<line x1="292" y1="104" x2="292" y2="64.6" stroke="#FFC857" stroke-width="5"/>
-<polygon points="292,52 299,66 285,66" fill="#FFC857"/>
+<rect x="16" y="16" width="328" height="156" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="30" y="44" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">Day</text>
+<circle cx="96" cy="38" r="7" fill="#010101" fill-opacity="0.05"/>
+<line x1="106" y1="38" x2="110" y2="38" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="103.1" y1="45.1" x2="105.9" y2="47.9" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="96" y1="48" x2="96" y2="52" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="88.9" y1="45.1" x2="86.1" y2="47.9" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="86" y1="38" x2="82" y2="38" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="88.9" y1="30.9" x2="86.1" y2="28.1" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="96" y1="28" x2="96" y2="24" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="103.1" y1="30.9" x2="105.9" y2="28.1" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="92" y="152" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">sea</text>
+<text x="258" y="152" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">land</text>
+<line x1="52" y1="100" x2="224.1" y2="100" stroke="#020202" stroke-width="3.5"/>
+<polygon points="234,100 223,105.5 223,94.5" fill="#010101" fill-opacity="0.05"/>
+<text x="143" y="86" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Sea breeze</text>
+<line x1="292" y1="104" x2="292" y2="64.6" stroke="#050505" stroke-width="5"/>
+<polygon points="292,52 299,66 285,66" fill="#050505" fill-opacity="0.45"/>
 <g clip-path="url(#c2)">
-<rect x="16" y="188" width="328" height="156" fill="#0A1E38"/>
+<rect x="16" y="188" width="328" height="156" fill="#030303"/>
 <rect x="16" y="286" width="154" height="58" fill="url(#sea)"/>
 <rect x="170" y="286" width="174" height="58" fill="url(#land)"/>
-<path d="M26 298 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8FD3FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
+<path d="M26 298 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
 </g>
-<rect x="16" y="188" width="328" height="156" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="30" y="216" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">Night</text>
-<circle cx="108" cy="210" r="9" fill="#F2F7FB"/>
-<circle cx="113" cy="207" r="8" fill="#0A1E38"/>
-<text x="92" y="324" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">sea</text>
-<text x="258" y="324" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">land</text>
-<line x1="304" y1="272" x2="129.9" y2="272" stroke="#B8F0FF" stroke-width="3.5"/>
-<polygon points="120,272 131,266.5 131,277.5" fill="#B8F0FF"/>
-<text x="212" y="258" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Land breeze</text>
-<line x1="76" y1="276" x2="76" y2="236.6" stroke="#B8F0FF" stroke-width="5"/>
-<polygon points="76,224 83,238 69,238" fill="#B8F0FF"/>
+<rect x="16" y="188" width="328" height="156" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="30" y="216" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">Night</text>
+<circle cx="108" cy="210" r="9" fill="#010101" fill-opacity="0.05"/>
+<circle cx="113" cy="207" r="8" fill="#030303"/>
+<text x="92" y="324" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">sea</text>
+<text x="258" y="324" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">land</text>
+<line x1="304" y1="272" x2="129.9" y2="272" stroke="#020202" stroke-width="3.5"/>
+<polygon points="120,272 131,266.5 131,277.5" fill="#010101" fill-opacity="0.05"/>
+<text x="212" y="258" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Land breeze</text>
+<line x1="76" y1="276" x2="76" y2="236.6" stroke="#020202" stroke-width="5"/>
+<polygon points="76,224 83,238 69,238" fill="#010101" fill-opacity="0.05"/>
 </svg>

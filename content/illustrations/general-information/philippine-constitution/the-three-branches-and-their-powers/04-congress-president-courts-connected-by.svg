@@ -1,54 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 486" width="360" height="486">
 <title>Checks between Congress, President and Courts: veto, override, impeachment charges and trial, Commission on Appointments consent for listed offices, and judicial review</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
 </defs>
 <rect width="360" height="486" rx="14" fill="url(#bg)"/>
-<rect x="36" y="16" width="142" height="88" rx="10" fill="#2C6A98" fill-opacity="0.28"/>
-<rect x="36" y="16" width="142" height="88" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="107" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF"><tspan x="107" y="38">Congress</tspan></text>
+<rect x="36" y="16" width="142" height="88" rx="10" fill="#010101" fill-opacity="0.28"/>
+<rect x="36" y="16" width="142" height="88" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="107" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="107" y="38">Congress</tspan></text>
 <rect x="44" y="54" width="60" height="34" rx="8" fill="url(#teal)"/>
-<text x="74" y="76" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="74" y="76">House</tspan></text>
+<text x="74" y="76" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="74" y="76">House</tspan></text>
 <rect x="110" y="54" width="60" height="34" rx="8" fill="url(#teal)"/>
-<text x="140" y="76" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="140" y="76">Senate</tspan></text>
+<text x="140" y="76" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="140" y="76">Senate</tspan></text>
 <rect x="232" y="16" width="92" height="44" rx="10" fill="url(#sky)"/>
-<text x="278" y="43" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF"><tspan x="278" y="43">President</tspan></text>
-<line x1="232" y1="38" x2="186" y2="38" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="178,38 186,33.5 186,42.5" fill="#D6E6F5"/>
-<text x="205" y="31" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="205" y="31">veto</tspan></text>
-<path d="M178 84 H278 V68" fill="none" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round"/>
-<polygon points="278,60 273.5,68 282.5,68" fill="#D6E6F5"/>
-<text x="228" y="102" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="228" y="102">override</tspan></text>
-<line x1="74" y1="88" x2="74" y2="122" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="74" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="74" y="142">charges</tspan></text>
-<line x1="74" y1="158" x2="74" y2="188" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="74,196 69.5,188 78.5,188" fill="#D6E6F5"/>
-<line x1="140" y1="88" x2="140" y2="122" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="140" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="140" y="142">trial</tspan></text>
-<line x1="140" y1="158" x2="140" y2="188" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="140,196 135.5,188 144.5,188" fill="#D6E6F5"/>
-<path d="M178 118 H186 V188 H178" fill="none" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round"/>
-<line x1="186" y1="153" x2="190" y2="153" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="butt"/>
-<text x="200" y="158" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="200" y="158">impeachment</tspan></text>
-<rect x="36" y="196" width="142" height="46" rx="8" fill="#143B63" stroke="#6FD0FF" stroke-width="2"/>
-<text x="107" y="215" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="107" y="215">impeachable</tspan><tspan x="107" y="232">officers</tspan></text>
-<line x1="36" y1="262" x2="324" y2="262" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="butt"/>
+<text x="278" y="43" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="278" y="43">President</tspan></text>
+<line x1="232" y1="38" x2="186" y2="38" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="178,38 186,33.5 186,42.5" fill="#020202"/>
+<text x="205" y="31" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="205" y="31">veto</tspan></text>
+<path d="M178 84 H278 V68" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round"/>
+<polygon points="278,60 273.5,68 282.5,68" fill="#020202"/>
+<text x="228" y="102" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="228" y="102">override</tspan></text>
+<line x1="74" y1="88" x2="74" y2="122" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<text x="74" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="74" y="142">charges</tspan></text>
+<line x1="74" y1="158" x2="74" y2="188" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="74,196 69.5,188 78.5,188" fill="#020202"/>
+<line x1="140" y1="88" x2="140" y2="122" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<text x="140" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="140" y="142">trial</tspan></text>
+<line x1="140" y1="158" x2="140" y2="188" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="140,196 135.5,188 144.5,188" fill="#020202"/>
+<path d="M178 118 H186 V188 H178" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round"/>
+<line x1="186" y1="153" x2="190" y2="153" stroke="#020202" stroke-width="1.5" stroke-linecap="butt"/>
+<text x="200" y="158" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="200" y="158">impeachment</tspan></text>
+<rect x="36" y="196" width="142" height="46" rx="8" fill="#030303" stroke="#020202" stroke-width="2"/>
+<text x="107" y="215" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="107" y="215">impeachable</tspan><tspan x="107" y="232">officers</tspan></text>
+<line x1="36" y1="262" x2="324" y2="262" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="butt"/>
 <rect x="36" y="322" width="116" height="46" rx="8" fill="url(#teal)"/>
-<text x="94" y="341" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="94" y="341">Commission on</tspan><tspan x="94" y="358">Appointments</tspan></text>
+<text x="94" y="341" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="94" y="341">Commission on</tspan><tspan x="94" y="358">Appointments</tspan></text>
 <rect x="208" y="322" width="116" height="46" rx="8" fill="url(#sky)"/>
-<text x="266" y="341" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="266" y="341">presidential</tspan><tspan x="266" y="358">appointments</tspan></text>
-<path d="M94 322 V298 H266 V314" fill="none" stroke="#FFC857" stroke-width="3" stroke-linecap="butt" stroke-linejoin="round"/>
-<polygon points="266,322 260.5,313 271.5,313" fill="#FFC857"/>
-<text x="180" y="288" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFC857"><tspan x="180" y="288">consent for listed offices</tspan></text>
-<line x1="36" y1="388" x2="324" y2="388" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="butt"/>
-<rect x="130" y="424" width="100" height="46" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="2"/>
-<text x="180" y="453" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF"><tspan x="180" y="453">Courts</tspan></text>
-<text x="180" y="414" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="180" y="414">judicial review</tspan></text>
-<path d="M130 447 H20 V60 H28" fill="none" stroke="#B7CBDD" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="round"/>
-<polygon points="36,60 27,55 27,65" fill="#B7CBDD"/>
-<path d="M230 447 H340 V38 H332" fill="none" stroke="#B7CBDD" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="round"/>
-<polygon points="324,38 333,33 333,43" fill="#B7CBDD"/>
+<text x="266" y="341" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="266" y="341">presidential</tspan><tspan x="266" y="358">appointments</tspan></text>
+<path d="M94 322 V298 H266 V314" fill="none" stroke="#050505" stroke-width="3" stroke-linecap="butt" stroke-linejoin="round"/>
+<polygon points="266,322 260.5,313 271.5,313" fill="#050505" fill-opacity="0.45"/>
+<text x="180" y="288" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#050505"><tspan x="180" y="288">consent for listed offices</tspan></text>
+<line x1="36" y1="388" x2="324" y2="388" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="butt"/>
+<rect x="130" y="424" width="100" height="46" rx="10" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="2"/>
+<text x="180" y="453" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180" y="453">Courts</tspan></text>
+<text x="180" y="414" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="180" y="414">judicial review</tspan></text>
+<path d="M130 447 H20 V60 H28" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="round"/>
+<polygon points="36,60 27,55 27,65" fill="#020202"/>
+<path d="M230 447 H340 V38 H332" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="round"/>
+<polygon points="324,38 333,33 333,43" fill="#020202"/>
 </svg>

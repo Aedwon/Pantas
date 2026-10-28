@@ -1,47 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 466" width="360" height="466">
 <title>Side view of a tropical cyclone over warm ocean with rising moist air and a cloud where condensation releases heat, and a top view inset with counterclockwise winds</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
-<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
-<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
-<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.05"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#020202"/></linearGradient>
 <clipPath id="s1"><rect x="16" y="16" width="328" height="284" rx="10"/></clipPath>
 </defs>
 <rect width="360" height="466" rx="14" fill="url(#bg)"/>
 <g clip-path="url(#s1)">
-<rect x="16" y="16" width="328" height="284" fill="#1B4A78"/>
+<rect x="16" y="16" width="328" height="284" fill="#010101" fill-opacity="0.05"/>
 <rect x="16" y="232" width="328" height="68" fill="url(#sea)"/>
-<path d="M26 252 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8FD3FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
-<path d="M26 280 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8FD3FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
+<path d="M26 252 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
+<path d="M26 280 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5"/>
 </g>
-<rect x="16" y="16" width="328" height="284" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
+<rect x="16" y="16" width="328" height="284" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
 <path transform="translate(-565.6 -141.6) scale(1.2)" d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="url(#wm)"/>
-<text x="180" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#0E2747"><tspan x="180">Condensation</tspan><tspan x="180" dy="1.2em">releases heat</tspan></text>
-<line x1="180" y1="228" x2="180" y2="141.7" stroke="#B8F0FF" stroke-width="4"/>
-<polygon points="180,130 186.5,143 173.5,143" fill="#B8F0FF"/>
-<text x="194" y="164" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Moist air rises</text>
-<path d="M96 224 Q150 230 168 206" fill="none" stroke="#9ADFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="168,206 165.8,218.1 157,211.5" fill="#9ADFFF"/>
-<path d="M264 224 Q210 230 192 206" fill="none" stroke="#9ADFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="192,206 203,211.5 194.2,218.1" fill="#9ADFFF"/>
-<text x="26" y="152" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="26">Air spirals toward</tspan><tspan x="26" dy="1.2em">low pressure</tspan></text>
-<line x1="322" y1="232" x2="322" y2="207.9" stroke="#B8F0FF" stroke-width="3.5"/>
-<polygon points="322,198 327.5,209 316.5,209" fill="#B8F0FF"/>
-<text x="338" y="190" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Water vapor rises</text>
-<rect x="16" y="312" width="328" height="138" rx="10" fill="#0E2747" fill-opacity="0.55" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<path d="M186 366 L183.4 361.1 L180.3 356.7 L176.8 353 L173 349.9 L169 347.6 L164.9 345.9 L160.8 344.8 L156.8 344.5 L153.1 344.7 L149.6 345.5 L146.5 346.7 L143.7 348.4" fill="none" stroke="#9ADFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="143.7,348.4 150.4,339.4 154.9,348.4" fill="#9ADFFF"/>
-<path d="M140 320 L135.1 322.6 L130.7 325.7 L127 329.2 L123.9 333 L121.6 337 L119.9 341.1 L118.8 345.2 L118.5 349.2 L118.7 352.9 L119.5 356.4 L120.7 359.5 L122.4 362.3" fill="none" stroke="#9ADFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="122.4,362.3 113.4,355.6 122.4,351.1" fill="#9ADFFF"/>
-<path d="M94 366 L96.6 370.9 L99.7 375.3 L103.2 379 L107 382.1 L111 384.4 L115.1 386.1 L119.2 387.2 L123.2 387.5 L126.9 387.3 L130.4 386.5 L133.5 385.3 L136.3 383.6" fill="none" stroke="#9ADFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="136.3,383.6 129.6,392.6 125.1,383.6" fill="#9ADFFF"/>
-<path d="M140 412 L144.9 409.4 L149.3 406.3 L153 402.8 L156.1 399 L158.4 395 L160.1 390.9 L161.2 386.8 L161.5 382.8 L161.3 379.1 L160.5 375.6 L159.3 372.5 L157.6 369.7" fill="none" stroke="#9ADFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="157.6,369.7 166.6,376.4 157.6,380.9" fill="#9ADFFF"/>
-<circle cx="140" cy="366" r="5" fill="#F2F7FB"/>
-<line x1="146" y1="368" x2="204" y2="372" stroke="#D6E6F5" stroke-width="1.5"/>
-<text x="210" y="368" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="210">Low-pressure</tspan><tspan x="210" dy="1.2em">center</tspan></text>
-<text x="180" y="438" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">north of the equator</text>
+<text x="180" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">Condensation</tspan><tspan x="180" dy="1.2em">releases heat</tspan></text>
+<line x1="180" y1="228" x2="180" y2="141.7" stroke="#020202" stroke-width="4"/>
+<polygon points="180,130 186.5,143 173.5,143" fill="#010101" fill-opacity="0.05"/>
+<text x="194" y="164" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Moist air rises</text>
+<path d="M96 224 Q150 230 168 206" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="168,206 165.8,218.1 157,211.5" fill="#010101" fill-opacity="0.05"/>
+<path d="M264 224 Q210 230 192 206" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="192,206 203,211.5 194.2,218.1" fill="#010101" fill-opacity="0.05"/>
+<text x="26" y="152" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="26">Air spirals toward</tspan><tspan x="26" dy="1.2em">low pressure</tspan></text>
+<line x1="322" y1="232" x2="322" y2="207.9" stroke="#020202" stroke-width="3.5"/>
+<polygon points="322,198 327.5,209 316.5,209" fill="#010101" fill-opacity="0.05"/>
+<text x="338" y="190" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Water vapor rises</text>
+<rect x="16" y="312" width="328" height="138" rx="10" fill="#030303" fill-opacity="0.55" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<path d="M186 366 L183.4 361.1 L180.3 356.7 L176.8 353 L173 349.9 L169 347.6 L164.9 345.9 L160.8 344.8 L156.8 344.5 L153.1 344.7 L149.6 345.5 L146.5 346.7 L143.7 348.4" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="143.7,348.4 150.4,339.4 154.9,348.4" fill="#010101" fill-opacity="0.05"/>
+<path d="M140 320 L135.1 322.6 L130.7 325.7 L127 329.2 L123.9 333 L121.6 337 L119.9 341.1 L118.8 345.2 L118.5 349.2 L118.7 352.9 L119.5 356.4 L120.7 359.5 L122.4 362.3" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="122.4,362.3 113.4,355.6 122.4,351.1" fill="#010101" fill-opacity="0.05"/>
+<path d="M94 366 L96.6 370.9 L99.7 375.3 L103.2 379 L107 382.1 L111 384.4 L115.1 386.1 L119.2 387.2 L123.2 387.5 L126.9 387.3 L130.4 386.5 L133.5 385.3 L136.3 383.6" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="136.3,383.6 129.6,392.6 125.1,383.6" fill="#010101" fill-opacity="0.05"/>
+<path d="M140 412 L144.9 409.4 L149.3 406.3 L153 402.8 L156.1 399 L158.4 395 L160.1 390.9 L161.2 386.8 L161.5 382.8 L161.3 379.1 L160.5 375.6 L159.3 372.5 L157.6 369.7" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="157.6,369.7 166.6,376.4 157.6,380.9" fill="#010101" fill-opacity="0.05"/>
+<circle cx="140" cy="366" r="5" fill="#010101"/>
+<line x1="146" y1="368" x2="204" y2="372" stroke="#020202" stroke-width="1.5"/>
+<text x="210" y="368" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="210">Low-pressure</tspan><tspan x="210" dy="1.2em">center</tspan></text>
+<text x="180" y="438" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">north of the equator</text>
 </svg>

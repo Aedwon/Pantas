@@ -43,24 +43,31 @@ source. Do not open the lesson or any other file; everything you need is in the 
 Approved by Aedwon on October 25, 2026. The references are `fig1-D.svg` (monsoon) and `fig2-D.svg` (Venn
 diagram) in this folder; they are drawn at 800 wide, so scale their sizes by 0.45 for a 360-wide figure.
 
-- **Panel.** Every figure sits on its own rounded panel that fills the canvas:
-  `<rect width="360" height="H" rx="14" fill="url(#bg)"/>`, with a vertical linear gradient from `#0E2747`
-  (top) to `#143B63` (bottom). The panel carries its own background, so the figure looks the same on the light
-  lesson page (`#FAF8F3`) and the dark one (`#15171A`). Do not use the app's theme tokens or `currentColor`.
-- **Palette.** Cool colors for structure, one warm accent for the thing that matters most.
+- **Colors follow the app theme (Aedwon, Oct 29, option C).** Figures use the app's reserved theme color
+  tokens, which the renderer swaps for the active light or dark theme (`docs/content/lesson-svg-authoring.md`,
+  "Theme colors without CSS"). Panel: `<rect width="360" height="H" rx="14" fill="url(#bg)"/>` with both
+  gradient stops `#030303` (paper). Tokens: `#010101` ink (main text, foreground marks, dots), `#020202`
+  secondary ink (connectors, outlines, axis lines, secondary text), `#030303` paper (cut-outs such as punched
+  holes), `#050505` accent (the one focus; app teal), `#060606` error (only when the meaning is wrong).
+  Shapes are tints of a token through `fill-opacity` (or `stop-opacity` in gradients): structure `#050505`
+  at 0.22, secondary shapes `#010101` at 0.12, light tiles `#010101` at 0.05, focus fill `#050505` at 0.45.
+  Lines never fade: strokes are a token at full strength unless they are grid or divider lines.
+  No gold or warm colors (gold means Pro in the app).
 
-  | Role | Colors |
+  | Role | Value |
   |---|---|
-  | Panel | `#0E2747` to `#143B63` |
-  | Primary shapes (teal) | radial gradient `#2FB5B0` to `#17697F`; flat `#3FA28C`, `#7BD3B5` |
-  | Secondary shapes (sky blue) | radial gradient `#6FD0FF` to `#2468C8`; flat `#5CC8FF`, `#2A86C1`, `#2C6A98` |
-  | Light fills and highlights | `#9ADFFF`, `#B8F0FF`, `#F2F7FB` |
-  | Warm accent (use for one focus only) | `#FFC857`, `#FFB347`, `#FF7A45`, `#FFD27A` |
-  | Main text | `#FFFFFF` |
-  | Secondary text | `#D6E6F5`, `#B7CBDD` |
-  | Divider lines | `#6FD0FF` at `stroke-opacity="0.4"` |
-  | Wrong or warning (only when the meaning needs it) | `#FF7A45` |
+  | Panel | `#030303` |
+  | Main text, foreground marks | `#010101` |
+  | Secondary text, connectors, outlines | `#020202` |
+  | Structure shapes | `#050505` at fill-opacity 0.22 |
+  | Secondary shapes | `#010101` at 0.12 |
+  | Light tiles, cards | `#010101` at 0.05 |
+  | Focus (one per figure) | `#050505` stroke, fill at 0.45 |
+  | Wrong (only when meaning needs it) | `#060606` |
 
+  Exception: when the lesson names black and white shapes (figure series, some matrices), draw the whole
+  figure in fixed colors so black stays black in dark mode: white panel `#FFFFFF`, tiles `#F5F5F7`, black
+  `#1D1D1F`, white `#FFFFFF`, outlines `#8A8A8E`, text `#1D1D1F`, focus `#0B7A68` with fill `#E4F1EE`.
 - **Depth.** Flat shapes with gentle gradients (radial gradients centered slightly up and left, `cx="0.4"
   cy="0.3"`). A thin white arc at `stroke-opacity="0.35"` can suggest a highlight. No drop shadows, blurs or
   glows from filters; filters are not allowed.
@@ -72,8 +79,7 @@ diagram) in this folder; they are drawn at 800 wide, so scale their sizes by 0.4
   numbers, operators and words in `font-family="KaTeX_Main, serif"`, both `font-weight="400"`, matching the
   lessons' KaTeX math. Use `−`, `≥`, `≤`, `²` and spaced operators (`y = x² − 4x + 3`). Single capital labels
   (A, B, O) stay in Geist. Sizes: title 16 to 18 bold (`font-weight="700"`),
-  labels 14 to 15 semibold (`600`), notes 14 regular (`400`). Never below 14. Labels are white on dark shapes;
-  use `#0E2747` text only on light fills such as `#F2F7FB` or the warm accent. Center labels with
+  labels 14 to 15 semibold (`600`), notes 14 regular (`400`). Never below 14. Text is `#010101` (ink) or `#020202` (secondary ink); a focus label may use `#050505`. Center labels with
   `text-anchor="middle"`. Break long labels into lines with `tspan` (`x` repeated, `dy="1.2em"`); keep lines
   under about 28 characters at 14 units. Leave at least 6 units between any text and a shape edge.
 - **Title.** Optional. Use a short title (2 to 6 words) only when the figure needs one to be understood; the

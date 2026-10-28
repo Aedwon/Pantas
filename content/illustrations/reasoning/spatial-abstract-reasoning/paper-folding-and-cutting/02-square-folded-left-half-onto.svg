@@ -1,37 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 436" width="360" height="436">
 <title>An isosceles triangular notch on a folded edge opens into one diamond-shaped opening with four equal sides</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
-<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
-<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
-<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.05"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#020202"/></linearGradient>
 
 </defs>
 <rect width="360" height="436" rx="14" fill="url(#bg)"/>
-<rect x="156" y="16" width="48" height="48" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
-<line x1="180" y1="16" x2="180" y2="64" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
-<path d="M166 46 Q180 26 194 46" fill="none" stroke="#2468C8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="194,46 185.9,42.3 192.1,37.3" fill="#2468C8"/>
-<line x1="180" y1="70" x2="180" y2="85.9" stroke="#B8F0FF" stroke-width="2.5"/>
-<polygon points="180,94 175.5,85 184.5,85" fill="#B8F0FF"/>
-<rect x="150" y="100" width="60" height="120" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
-<line x1="150" y1="100" x2="150" y2="220" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
-<polygon points="150,138 178,160 150,182" fill="#0E2747" stroke="#FFC857" stroke-width="2.5" stroke-linejoin="round"/>
-<line x1="166.8" y1="145.5" x2="161.2" y2="152.5" stroke="#FFC857" stroke-width="2.2"/>
-<line x1="161.2" y1="167.5" x2="166.8" y2="174.5" stroke="#FFC857" stroke-width="2.2"/>
-<line x1="180" y1="226" x2="180" y2="241.9" stroke="#B8F0FF" stroke-width="2.5"/>
-<polygon points="180,250 175.5,241 184.5,241" fill="#B8F0FF"/>
-<rect x="120" y="256" width="120" height="120" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
-<line x1="180" y1="256" x2="180" y2="294" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
-<line x1="180" y1="338" x2="180" y2="376" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
-<polygon points="180,294 208,316 180,338 152,316" fill="#0E2747" stroke="#FFC857" stroke-width="2.5" stroke-linejoin="round"/>
-<line x1="196.8" y1="301.5" x2="191.2" y2="308.5" stroke="#FFC857" stroke-width="2.2"/>
-<line x1="196.8" y1="330.5" x2="191.2" y2="323.5" stroke="#FFC857" stroke-width="2.2"/>
-<line x1="163.2" y1="330.5" x2="168.8" y2="323.5" stroke="#FFC857" stroke-width="2.2"/>
-<line x1="163.2" y1="301.5" x2="168.8" y2="308.5" stroke="#FFC857" stroke-width="2.2"/>
-<text x="180" y="398" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">one diamond-shaped opening</text>
-<text x="180" y="418" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">4 equal sides</text>
+<rect x="156" y="16" width="48" height="48" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5"/>
+<line x1="180" y1="16" x2="180" y2="64" stroke="#020202" stroke-width="1.5" stroke-dasharray="4 3"/>
+<path d="M166 46 Q180 26 194 46" fill="none" stroke="#020202" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="194,46 185.9,42.3 192.1,37.3" fill="#010101" fill-opacity="0.12"/>
+<line x1="180" y1="70" x2="180" y2="85.9" stroke="#020202" stroke-width="2.5"/>
+<polygon points="180,94 175.5,85 184.5,85" fill="#010101" fill-opacity="0.05"/>
+<rect x="150" y="100" width="60" height="120" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5"/>
+<line x1="150" y1="100" x2="150" y2="220" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
+<polygon points="150,138 178,160 150,182" fill="#030303" stroke="#050505" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="166.8" y1="145.5" x2="161.2" y2="152.5" stroke="#050505" stroke-width="2.2"/>
+<line x1="161.2" y1="167.5" x2="166.8" y2="174.5" stroke="#050505" stroke-width="2.2"/>
+<line x1="180" y1="226" x2="180" y2="241.9" stroke="#020202" stroke-width="2.5"/>
+<polygon points="180,250 175.5,241 184.5,241" fill="#010101" fill-opacity="0.05"/>
+<rect x="120" y="256" width="120" height="120" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5"/>
+<line x1="180" y1="256" x2="180" y2="294" stroke="#020202" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="180" y1="338" x2="180" y2="376" stroke="#020202" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="180,294 208,316 180,338 152,316" fill="#030303" stroke="#050505" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="196.8" y1="301.5" x2="191.2" y2="308.5" stroke="#050505" stroke-width="2.2"/>
+<line x1="196.8" y1="330.5" x2="191.2" y2="323.5" stroke="#050505" stroke-width="2.2"/>
+<line x1="163.2" y1="330.5" x2="168.8" y2="323.5" stroke="#050505" stroke-width="2.2"/>
+<line x1="163.2" y1="301.5" x2="168.8" y2="308.5" stroke="#050505" stroke-width="2.2"/>
+<text x="180" y="398" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101">one diamond-shaped opening</text>
+<text x="180" y="418" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">4 equal sides</text>
 </svg>

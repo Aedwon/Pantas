@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
 <title>Sphere with center O and a radius of 3 cm drawn from the center to the surface</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
-<radialGradient id="sp" cx="0.35" cy="0.3" r="0.85"><stop offset="0" stop-color="#9DBCD8"/><stop offset="1" stop-color="#2C6A98"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#050505" stop-opacity="0.7"/><stop offset="1" stop-color="#050505" stop-opacity="0"/></radialGradient>
+<radialGradient id="sp" cx="0.35" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
 </defs>
 <rect width="360" height="280" rx="14" fill="url(#bg)"/>
-<circle cx="180" cy="140" r="105" fill="url(#sp)" stroke="#B8F0FF" stroke-width="2"/>
-<line x1="180" y1="140" x2="285" y2="140" stroke="#FFC857" stroke-width="3.5" stroke-linecap="round"/>
-<circle cx="180" cy="140" r="5" fill="#FFFFFF"/>
-<text x="180" y="166" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">O</text>
-<text x="232" y="130" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">3 cm</text>
+<circle cx="180" cy="140" r="105" fill="url(#sp)" stroke="#020202" stroke-width="2"/>
+<line x1="180" y1="140" x2="285" y2="140" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="180" cy="140" r="5" fill="#010101"/>
+<text x="180" y="166" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">O</text>
+<text x="232" y="130" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">3 cm</text>
 </svg>

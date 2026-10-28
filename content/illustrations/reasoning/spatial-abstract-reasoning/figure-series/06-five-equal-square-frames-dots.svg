@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
 <title>Four frames with a dot in successive corners, followed by a blank frame</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#E4F1EE"/><stop offset="1" stop-color="#E4F1EE"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#8A8A8E"/><stop offset="1" stop-color="#8A8A8E"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#E4F1EE"/><stop offset="1" stop-color="#E4F1EE"/></radialGradient>
 </defs>
 <rect width="360" height="200" rx="14" fill="url(#bg)"/>
-<rect x="26" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
-<circle cx="36" cy="84" r="5" fill="#0A1A2E"/>
-<rect x="90" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
-<circle cx="132" cy="84" r="5" fill="#0A1A2E"/>
-<rect x="154" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
-<circle cx="196" cy="116" r="5" fill="#0A1A2E"/>
-<rect x="218" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
-<circle cx="228" cy="116" r="5" fill="#0A1A2E"/>
-<rect x="282" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#FFC857" stroke-width="3"/>
+<rect x="26" y="74" width="52" height="52" rx="6" fill="#F5F5F7" stroke="#8A8A8E" stroke-width="2"/>
+<circle cx="36" cy="84" r="5" fill="#1D1D1F"/>
+<rect x="90" y="74" width="52" height="52" rx="6" fill="#F5F5F7" stroke="#8A8A8E" stroke-width="2"/>
+<circle cx="132" cy="84" r="5" fill="#1D1D1F"/>
+<rect x="154" y="74" width="52" height="52" rx="6" fill="#F5F5F7" stroke="#8A8A8E" stroke-width="2"/>
+<circle cx="196" cy="116" r="5" fill="#1D1D1F"/>
+<rect x="218" y="74" width="52" height="52" rx="6" fill="#F5F5F7" stroke="#8A8A8E" stroke-width="2"/>
+<circle cx="228" cy="116" r="5" fill="#1D1D1F"/>
+<rect x="282" y="74" width="52" height="52" rx="6" fill="#F5F5F7" stroke="#0B7A68" stroke-width="3"/>
 </svg>

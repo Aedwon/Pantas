@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300">
 <title>Nested circles: Mammals inside Warm-blooded, with a point labeled whale inside Mammals</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#050505" stop-opacity="0.7"/><stop offset="1" stop-color="#050505" stop-opacity="0"/></radialGradient>
 </defs>
 <rect width="360" height="300" rx="14" fill="url(#bg)"/>
-<circle cx="180" cy="155" r="125" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
-<circle cx="180" cy="185" r="82" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="58" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Warm-blooded</text>
-<text x="180" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Mammals</text>
-<circle cx="180" cy="200" r="18" fill="url(#g)"/><circle cx="180" cy="200" r="7" fill="#FFC857" stroke="#FFFFFF" stroke-width="1.5"/>
-<text x="180" y="230" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">whale</text>
+<circle cx="180" cy="155" r="125" fill="url(#o)" stroke="#020202" stroke-width="2"/>
+<circle cx="180" cy="185" r="82" fill="url(#i)" stroke="#020202" stroke-width="2"/>
+<text x="180" y="58" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">Warm-blooded</text>
+<text x="180" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">Mammals</text>
+<circle cx="180" cy="200" r="18" fill="url(#g)"/><circle cx="180" cy="200" r="7" fill="#050505" fill-opacity="0.45" stroke="#010101" stroke-width="1.5"/>
+<text x="180" y="230" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101">whale</text>
 </svg>

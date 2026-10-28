@@ -1,66 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 627" width="360" height="627">
 <title>Flow for checking citizenship: Filipino father at birth, then Filipino mother, birth before January 17, 1973 and Section 1(3), valid election, or separate checks for citizenship at adoption or naturalization</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
-<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
-<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
-<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.22"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#010101" stop-opacity="0.12"/><stop offset="1" stop-color="#010101" stop-opacity="0.12"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
 </defs>
 <rect width="360" height="627" rx="14" fill="url(#bg)"/>
-<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF"><tspan x="180" y="34">Citizenship flow</tspan><tspan x="180" y="53">before any later loss</tspan></text>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180" y="34">Citizenship flow</tspan><tspan x="180" y="53">before any later loss</tspan></text>
 <rect x="184" y="66" width="160" height="63" rx="8" fill="url(#teal)"/>
-<text x="264.0" y="85.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="264.0" y="85.5">Natural-born</tspan><tspan x="264.0" y="102.5">citizen, no</tspan><tspan x="264.0" y="119.5">election needed</tspan></text>
-<rect x="16" y="74" width="132" height="46" rx="8" fill="#1A4975" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="82.0" y="93.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="82.0" y="93.5">Filipino father</tspan><tspan x="82.0" y="110.5">at birth?</tspan></text>
-<line x1="148" y1="97" x2="176" y2="97" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="184,97 176,92.5 176,101.5" fill="#D6E6F5"/>
-<text x="166" y="91" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="166" y="91">Yes</tspan></text>
-<line x1="30" y1="120" x2="30" y2="134" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="30,142 25.5,134 34.5,134" fill="#D6E6F5"/>
-<text x="38" y="136" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="38" y="136">No</tspan></text>
-<rect x="16" y="142" width="132" height="46" rx="8" fill="#1A4975" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="82.0" y="161.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="82.0" y="161.5">Filipino mother</tspan><tspan x="82.0" y="178.5">at birth?</tspan></text>
-<line x1="148" y1="165" x2="176" y2="165" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="184,165 176,160.5 176,169.5" fill="#D6E6F5"/>
-<text x="166" y="159" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="166" y="159">Yes</tspan></text>
-<rect x="184" y="142" width="160" height="99" rx="8" fill="#1A4975" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="264.0" y="171.0" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="264.0" y="171.0">Born before January</tspan><tspan x="264.0" y="188.0">17, 1973 and</tspan><tspan x="264.0" y="205.0">covered by Article</tspan><tspan x="264.0" y="222.0">IV Section 1(3)?</tspan></text>
-<text x="38" y="204" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="38" y="204">No</tspan></text>
+<text x="264.0" y="85.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="264.0" y="85.5">Natural-born</tspan><tspan x="264.0" y="102.5">citizen, no</tspan><tspan x="264.0" y="119.5">election needed</tspan></text>
+<rect x="16" y="74" width="132" height="46" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="82.0" y="93.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="82.0" y="93.5">Filipino father</tspan><tspan x="82.0" y="110.5">at birth?</tspan></text>
+<line x1="148" y1="97" x2="176" y2="97" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="184,97 176,92.5 176,101.5" fill="#020202"/>
+<text x="166" y="91" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="166" y="91">Yes</tspan></text>
+<line x1="30" y1="120" x2="30" y2="134" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="30,142 25.5,134 34.5,134" fill="#020202"/>
+<text x="38" y="136" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="38" y="136">No</tspan></text>
+<rect x="16" y="142" width="132" height="46" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="82.0" y="161.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="82.0" y="161.5">Filipino mother</tspan><tspan x="82.0" y="178.5">at birth?</tspan></text>
+<line x1="148" y1="165" x2="176" y2="165" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="184,165 176,160.5 176,169.5" fill="#020202"/>
+<text x="166" y="159" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="166" y="159">Yes</tspan></text>
+<rect x="184" y="142" width="160" height="99" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="264.0" y="171.0" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="264.0" y="171.0">Born before January</tspan><tspan x="264.0" y="188.0">17, 1973 and</tspan><tspan x="264.0" y="205.0">covered by Article</tspan><tspan x="264.0" y="222.0">IV Section 1(3)?</tspan></text>
+<text x="38" y="204" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="38" y="204">No</tspan></text>
 <rect x="42" y="210" width="106" height="46" rx="8" fill="url(#teal)"/>
-<text x="95.0" y="229.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="95.0" y="229.5">Natural-born</tspan><tspan x="95.0" y="246.5">citizen</tspan></text>
-<line x1="184" y1="233" x2="156" y2="233" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="148,233 156,228.5 156,237.5" fill="#D6E6F5"/>
-<text x="166" y="227" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="166" y="227">No</tspan></text>
-<line x1="264" y1="241" x2="264" y2="255" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="264,263 259.5,255 268.5,255" fill="#D6E6F5"/>
-<text x="272" y="257" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="272" y="257">Yes</tspan></text>
-<rect x="184" y="263" width="160" height="63" rx="8" fill="#1A4975" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="264.0" y="282.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="264.0" y="282.5">Validly elected</tspan><tspan x="264.0" y="299.5">citizenship upon</tspan><tspan x="264.0" y="316.5">majority?</tspan></text>
+<text x="95.0" y="229.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="95.0" y="229.5">Natural-born</tspan><tspan x="95.0" y="246.5">citizen</tspan></text>
+<line x1="184" y1="233" x2="156" y2="233" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="148,233 156,228.5 156,237.5" fill="#020202"/>
+<text x="166" y="227" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="166" y="227">No</tspan></text>
+<line x1="264" y1="241" x2="264" y2="255" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="264,263 259.5,255 268.5,255" fill="#020202"/>
+<text x="272" y="257" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="272" y="257">Yes</tspan></text>
+<rect x="184" y="263" width="160" height="63" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="264.0" y="282.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="264.0" y="282.5">Validly elected</tspan><tspan x="264.0" y="299.5">citizenship upon</tspan><tspan x="264.0" y="316.5">majority?</tspan></text>
 <rect x="42" y="272" width="106" height="46" rx="8" fill="url(#warm)"/>
-<text x="95.0" y="291.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#0E2747"><tspan x="95.0" y="291.5">Deemed</tspan><tspan x="95.0" y="308.5">natural-born</tspan></text>
-<line x1="184" y1="295" x2="156" y2="295" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="148,295 156,290.5 156,299.5" fill="#D6E6F5"/>
-<text x="166" y="289" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="166" y="289">Yes</tspan></text>
-<line x1="264" y1="326" x2="264" y2="340" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="264,348 259.5,340 268.5,340" fill="#D6E6F5"/>
-<text x="272" y="342" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan x="272" y="342">No</tspan></text>
-<rect x="184" y="348" width="160" height="63" rx="8" fill="#2C6A98"/>
-<text x="264.0" y="367.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="264.0" y="367.5">Citizenship not</tspan><tspan x="264.0" y="384.5">established through</tspan><tspan x="264.0" y="401.5">this route</tspan></text>
-<line x1="30" y1="188" x2="30" y2="423" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="30,431 25.5,423 34.5,423" fill="#D6E6F5"/>
-<rect x="16" y="431" width="328" height="180" rx="10" fill="#2C6A98" fill-opacity="0.28"/>
-<rect x="16" y="431" width="328" height="180" rx="10" fill="none" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="180" y="449" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="180" y="449">Check citizenship when the Constitution</tspan><tspan x="180" y="466">was adopted or naturalization under law</tspan></text>
-<rect x="20" y="482" width="135.5" height="63" rx="8" fill="#1A4975" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="87.75" y="501.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="87.75" y="501.5">citizenship when</tspan><tspan x="87.75" y="518.5">the Constitution</tspan><tspan x="87.75" y="535.5">was adopted</tspan></text>
-<line x1="155.5" y1="513.5" x2="157.5" y2="513.5" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="165.5,513.5 157.5,509.0 157.5,518.0" fill="#D6E6F5"/>
-<rect x="165.5" y="482" width="174" height="63" rx="8" fill="#2C6A98"/>
-<text x="252.5" y="501.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="252.5" y="501.5">Citizen, natural-born</tspan><tspan x="252.5" y="518.5">status needs</tspan><tspan x="252.5" y="535.5">separate checking</tspan></text>
-<rect x="20" y="557" width="120" height="46" rx="8" fill="#1A4975" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
-<text x="80.0" y="576.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="80.0" y="576.5">naturalization</tspan><tspan x="80.0" y="593.5">under law</tspan></text>
-<line x1="140" y1="580" x2="152" y2="580" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<polygon points="160,580 152,575.5 152,584.5" fill="#D6E6F5"/>
-<rect x="160" y="565" width="160" height="30" rx="8" fill="#2C6A98"/>
-<text x="240.0" y="585.0" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="240.0" y="585.0">Naturalized citizen</tspan></text>
+<text x="95.0" y="291.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="95.0" y="291.5">Deemed</tspan><tspan x="95.0" y="308.5">natural-born</tspan></text>
+<line x1="184" y1="295" x2="156" y2="295" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="148,295 156,290.5 156,299.5" fill="#020202"/>
+<text x="166" y="289" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="166" y="289">Yes</tspan></text>
+<line x1="264" y1="326" x2="264" y2="340" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="264,348 259.5,340 268.5,340" fill="#020202"/>
+<text x="272" y="342" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan x="272" y="342">No</tspan></text>
+<rect x="184" y="348" width="160" height="63" rx="8" fill="#010101" fill-opacity="0.12"/>
+<text x="264.0" y="367.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="264.0" y="367.5">Citizenship not</tspan><tspan x="264.0" y="384.5">established through</tspan><tspan x="264.0" y="401.5">this route</tspan></text>
+<line x1="30" y1="188" x2="30" y2="423" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="30,431 25.5,423 34.5,423" fill="#020202"/>
+<rect x="16" y="431" width="328" height="180" rx="10" fill="#010101" fill-opacity="0.28"/>
+<rect x="16" y="431" width="328" height="180" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="180" y="449" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="180" y="449">Check citizenship when the Constitution</tspan><tspan x="180" y="466">was adopted or naturalization under law</tspan></text>
+<rect x="20" y="482" width="135.5" height="63" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="87.75" y="501.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="87.75" y="501.5">citizenship when</tspan><tspan x="87.75" y="518.5">the Constitution</tspan><tspan x="87.75" y="535.5">was adopted</tspan></text>
+<line x1="155.5" y1="513.5" x2="157.5" y2="513.5" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="165.5,513.5 157.5,509.0 157.5,518.0" fill="#020202"/>
+<rect x="165.5" y="482" width="174" height="63" rx="8" fill="#010101" fill-opacity="0.12"/>
+<text x="252.5" y="501.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="252.5" y="501.5">Citizen, natural-born</tspan><tspan x="252.5" y="518.5">status needs</tspan><tspan x="252.5" y="535.5">separate checking</tspan></text>
+<rect x="20" y="557" width="120" height="46" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="80.0" y="576.5" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="80.0" y="576.5">naturalization</tspan><tspan x="80.0" y="593.5">under law</tspan></text>
+<line x1="140" y1="580" x2="152" y2="580" stroke="#020202" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="160,580 152,575.5 152,584.5" fill="#020202"/>
+<rect x="160" y="565" width="160" height="30" rx="8" fill="#010101" fill-opacity="0.12"/>
+<text x="240.0" y="585.0" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="240.0" y="585.0">Naturalized citizen</tspan></text>
 </svg>

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
 <title>A row of four plain outline shapes: circle, square, equilateral triangle, lopsided blob</title>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
 </defs>
 <rect width="360" height="200" rx="14" fill="url(#bg)"/>
-<line x1="150" y1="40" x2="210" y2="40" stroke="#FFC857" stroke-width="4" stroke-linecap="round"/>
-<circle cx="45" cy="110" r="28" fill="none" stroke="#F2F7FB" stroke-width="2.5"/>
-<rect x="109" y="84" width="52" height="52" rx="0" fill="none" stroke="#F2F7FB" stroke-width="2.5"/>
-<polygon points="225,84.9 254,135.1 196,135.1" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
-<path d="M298 83 C316 78 337 86 342 104 C345 118 334 124 330 131 C326 140 318 134 311 139 C298 143 287 132 286 118 C285 108 290 100 291 94 C292 88 294 85 298 83 Z" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="150" y1="40" x2="210" y2="40" stroke="#050505" stroke-width="4" stroke-linecap="round"/>
+<circle cx="45" cy="110" r="28" fill="none" stroke="#020202" stroke-width="2.5"/>
+<rect x="109" y="84" width="52" height="52" rx="0" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="225,84.9 254,135.1 196,135.1" fill="none" stroke="#020202" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M298 83 C316 78 337 86 342 104 C345 118 334 124 330 131 C326 140 318 134 311 139 C298 143 287 132 286 118 C285 108 290 100 291 94 C292 88 294 85 298 83 Z" fill="none" stroke="#020202" stroke-width="2.5" stroke-linejoin="round"/>
 </svg>
