@@ -1851,3 +1851,37 @@ Not yet approved: deleting branches `cse-inbox/RD-003` and `cse-inbox/RD-006`.
 - Final: 86 clean, 4 minor-only, 0 Blocker or Major. Aedwon asked why the minors were not cleared; each fresh read
   surfaces new minor notes, and minor items do not block under the checklist. The overnight /goal was cleared by
   Aedwon.
+
+## 2026-10-26/27 Payments and access hardening (recovered from the engineering transcript)
+
+Recorded October 29 by the engineering lead from transcript 51c348da (policy main 64e57576); these
+were not in the repository before.
+
+- An Astra payments audit (Codex account b, read-only) found 3 high and 5 medium issues. Sol fixed
+  the five that needed no product choice: paid notes checked against the exam, share links bound to
+  their owner, Manila-midnight sitting binding, web coverage for Google Play subscribers, and web
+  passes extended when the exam date moves later.
+- Aedwon's exact comment on the other three:
+
+  > for issue 3, find a way to prevent them from abusing this exploit  for issue 5, double charges
+  > usually mean 1 is activated, 1 is unactivated (queued for next month) so we can only refund the
+  > unactivated one  for issue 8, what do you recommend
+
+  Issue 3 (trial reuse after account deletion): the server keeps a one-way code made from the
+  Google sign-in after deletion; no name, email or other personal data. The privacy policy needs one
+  sentence about it; Aedwon writes the wording (pending). Issue 5 (double charge): a second checkout
+  reuses the open one; a duplicate pass payment that still gets through is flagged for a refund that
+  Aedwon issues; duplicate monthly or yearly payments add prepaid time.
+- Issue 8, Aedwon's exact comment:
+
+  > Yes, restore access on a won dispute unless the payment was refunded or revoked for another reason.
+
+  Never longer than the original expiry.
+- Result: `web/access-hardening-r1` 3e0a8e79 and `web/payments-hardening-r1` 440c4f0f, merged with
+  B7c deferred libraries (`web/deferred-libs-r1`), W4h review fixes (`web/new-design-w4h-r2`),
+  `integration/new-design-r1` and `web/pwa-staging-r1` into `web/staging-candidate-r1` 6078de3c
+  (pushed). Full verification on October 27 (evidence `pwa-launch/evidence/staging-candidate-r1.md`
+  there): Flutter 4880 pass, analyze, format, layering and attribution clean, Functions 195 plain
+  and 280 emulator pass, web release and Android debug builds pass. Not deployed.
+- Open: the Astra re-audit of the payments fixes never ran (all three Codex accounts hit their
+  limits; the retry loop stopped October 27 19:45). Aedwon then paused engineering for content.
