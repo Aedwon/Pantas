@@ -1933,3 +1933,21 @@ its local transcript and showed Aedwon a gallery of the 86 figures (58 committed
   Known minor gaps: visual-media 07 label about 4 units from tick labels, citizenship 01 pill 3
   units from a card (rule is 6). Not yet verified in the app: the lesson SVG renderer must resolve
   Geist and the KaTeX families (handed to the engineering lead).
+
+## 2026-10-29 Lesson SVG fonts: engineering resumed for one fix
+
+The content lead's figures now name fonts: `Geist, sans-serif` for text, `KaTeX_Main, serif` and
+`KaTeX_Math, serif` in tspans for math (approved by Aedwon earlier; figures static). Engineering
+lead finding: B9 (SVG renderer) is already integrated (`integration/new-design-r1` fefe36a0), but
+flutter_svg passes the raw font-family string to Flutter, so these names match no font and text
+falls back to the default; the KaTeX fonts also need the `packages/flutter_math_fork/` prefix.
+Options offered: minimal fix now (map the three names in the renderer, checker allows only them,
+about 1 to 2 hours), or the payments re-audit first. Aedwon's exact reply:
+
+> Yes, minimal fix
+
+Decision: engineering resumes for this fix only; other paused engineering stays paused. Low-impact
+change (renderer font mapping, checker and authoring note; no data, money or account effect), so no
+separate spec or plan. Implementor Codex gpt-6.1-sol low on `web/lesson-svg-r1`, lead-reviewed, then
+merged into `integration/new-design-r1` and `web/staging-candidate-r1`. Main application code stays
+frozen.
