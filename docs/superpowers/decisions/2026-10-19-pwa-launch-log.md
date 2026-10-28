@@ -1951,3 +1951,14 @@ change (renderer font mapping, checker and authoring note; no data, money or acc
 separate spec or plan. Implementor Codex gpt-6.1-sol low on `web/lesson-svg-r1`, lead-reviewed, then
 merged into `integration/new-design-r1` and `web/staging-candidate-r1`. Main application code stays
 frozen.
+
+Result (October 29): `web/lesson-svg-r1` 19764200 (Sol, lead-reviewed): the renderer maps the three
+font-family values to `Geist`, `packages/flutter_math_fork/KaTeX_Main` and `.../KaTeX_Math` in every
+lesson SVG loader; the checker rejects any other value; authoring note updated. All 94 figures on
+`content/cse-rewrite-r1` pass the tightened checker. Merged into `integration/new-design-r1`
+a3386e42 and `web/staging-candidate-r1` f176a763 (both pushed, remote SHAs verified). Checks on the
+staging candidate: analyze, format, layering and attribution clean; web release build passes; full
+`flutter test` had two failures in tool tests (`content_seed_writer_test`, `import_questions/cli_test`),
+both pass when rerun alone and touch no SVG code (known intermittent). Integration: analyze clean,
+743 component and tool tests pass. Not verified: how the fonts look on a phone (Aedwon's visual
+check), Android and iOS builds for this change. Engineering is paused again.
