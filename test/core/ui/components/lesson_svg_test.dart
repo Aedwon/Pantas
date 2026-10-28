@@ -23,6 +23,43 @@ Map<String, dynamic> image(String url) => {
     };
 
 void main() {
+  test('lesson SVG font families resolve to bundled fonts', () {
+    for (final (family, resolved) in [
+      ('Geist, sans-serif', 'Geist'),
+      ('KaTeX_Main, serif', 'packages/flutter_math_fork/KaTeX_Main'),
+      ('KaTeX_Math, serif', 'packages/flutter_math_fork/KaTeX_Math'),
+      ("Unknown, 'Geist', serif", 'Geist'),
+    ]) {
+      expect(
+        resolveLessonSvgFonts('<text font-family="$family"/>'),
+        '<text font-family="$resolved"/>',
+      );
+    }
+    expect(
+      resolveLessonSvgFonts('''<text font-family=' "KaTeX_Main" , serif '/>'''),
+      "<text font-family='packages/flutter_math_fork/KaTeX_Main'/>",
+    );
+    const unchanged = '<text font-family="Unknown, serif" font-size="12" '
+        'data-font-family="Geist, sans-serif">Geist, sans-serif</text>';
+    expect(resolveLessonSvgFonts(unchanged), unchanged);
+  });
+
+  test('data URL with Geist text and KaTeX tspan renders', () async {
+    const source =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"> '
+        '<text x="10" y="30" font-family="Geist, sans-serif">Area '
+        '<tspan font-family="KaTeX_Main, serif">=</tspan> '
+        '<tspan font-family="KaTeX_Math, serif">x</tspan> '
+        '</text></svg>';
+    final picture = await vg.loadPicture(
+      lessonSvgLoader(svgUrl(source), PantasColors.light),
+      null,
+    );
+    final raster = await picture.picture.toImage(200, 100);
+    raster.dispose();
+    picture.picture.dispose();
+  });
+
   for (final colors in [PantasColors.light, PantasColors.dark]) {
     test(
         'SVG palette follows active theme '
