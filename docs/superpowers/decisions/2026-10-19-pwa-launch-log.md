@@ -1992,3 +1992,23 @@ visual companion before implementation. Payments re-audit postponed by Aedwon ("
 later"). Content inputs found on `content/cse-rewrite-r1`: `content/lesson-prerequisites.json` (90
 lessons, 64 links, 4 required) and `content/question-gap-tags.json` (80 questions; wrong choices keyed
 by choice text, not a `gapLesson` field in the rationale as the spec says; engineering reads the file).
+
+## 2026-10-29 Figure colors: follow the app theme
+
+- Aedwon asked why the figures are mostly blue and whether that fits the app. Finding: style D
+  (chosen Oct 25: "hmm i think the quality bar should reach modern flat with deph. let's go with
+  that.") uses a navy panel and gold accent; the app (Direction B, Clarity) uses neutral grays, teal
+  `#0B7A68` and black in dark mode, shows figures in a `#FAFAF7` frame, and reserves gold for Pro.
+  Verdict: partly fits. Recommendation: recolor to the app palette.
+- Aedwon's exact comment: "Yes, color trial". A trial page showed five figures as now, B (fixed app
+  light colors) and C (theme tokens, light and dark). The lead recommended C, with the risk that it
+  depends on the renderer's token mapping, untested in the app. Aedwon's exact comment:
+  "C, follows theme".
+- Applied to all 94 SVGs by the trial's script. Rendering all 94 in both modes found cases the
+  trial did not cover, fixed with added rules: outline-only shapes faded (lines now full-strength
+  tokens), the old orange focus became error red (now accent), panel-navy fills meant holes in
+  paper-folding but dark dots in matrices and cartoons (per-figure rule), small light dots faded.
+  Deviation from the trial, decided by the lead for answer correctness: the 9 figures whose lessons
+  name black and white shapes (figure series, matrices 04) stay in fixed light colors, since a
+  theme swap would turn a "black circle" light in dark mode. Shown in the gallery for Aedwon's check.
+- Result: `content/cse-rewrite-r1` (pushed). Style rules rewritten. Not yet seen in the app.
