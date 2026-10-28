@@ -1962,3 +1962,18 @@ staging candidate: analyze, format, layering and attribution clean; web release 
 both pass when rerun alone and touch no SVG code (known intermittent). Integration: analyze clean,
 743 component and tool tests pass. Not verified: how the fonts look on a phone (Aedwon's visual
 check), Android and iOS builds for this change. Engineering is paused again.
+
+## 2026-10-29 Figure accuracy follow-up
+
+- Aedwon asked: "have necessary checks been done to ensure accuracy of the figures?" The lead
+  answered not fully: second-round fixes and the font conversion were not independently re-reviewed,
+  reviews read SVG source rather than rendered images, and a new check of all 96 brief markers
+  against the current lessons found 3 stale figures (citizenship 01, three-branches 02 and 04),
+  drawn before the lessons were corrected. Recommended: redo the 3, a final Codex review of
+  everything changed, and an Astra audit of the constitution figures.
+- Aedwon's exact comment: "hmm okay do the fixes first. then tell me, why are the figures mostly
+  blue, does this fit in the app?"
+- Result: `content/cse-rewrite-r1` 304d05c2. Codex rewrote the 3 briefs from the current lessons,
+  Sonnet redrew, Codex traced every connector (accuracy OK), layout fixed in one more round.
+  Citizenship 01 is 627 tall, over the 560 cap (full flow does not fit at 14-unit text). Not yet
+  done, waiting on Aedwon: the wider final Codex review and the Astra audit.
