@@ -92,8 +92,13 @@ stylesheets. `currentColor` is the SVG paint keyword, not a CSS stylesheet.
 
 Use svg, g, defs, path, rect, circle, ellipse, line, polygon, polyline, text,
 tspan, linearGradient, radialGradient, stop, clipPath, use, symbol, title, desc.
-Use local `#id` references only. Convert labels to paths if they need an exact
-font; font availability differs by platform. Keep a useful alt description.
+Use local `#id` references only. Use only these font-family values:
+- `Geist, sans-serif` for text.
+- `KaTeX_Main, serif` for upright math.
+- `KaTeX_Math, serif` for italic math variables.
+
+The lesson renderer resolves these to the app's bundled fonts.
+Keep a useful alt description.
 
 No filters (including blur/shadow), masks, raster images, scripts, event handlers,
 foreignObject, CSS, animation/SMIL, external references, entities or doctypes.
