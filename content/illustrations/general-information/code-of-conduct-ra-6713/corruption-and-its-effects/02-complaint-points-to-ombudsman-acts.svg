@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="360" height="340">
+<title>A complaint points to the Ombudsman, which acts on complaints; the Sandiganbayan is a separate box that tries cases within its legal authority</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="340" rx="14" fill="url(#bg)"/>
+<rect x="125" y="24" width="110" height="44" rx="10" fill="#17697F" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="180" y="51.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Complaint</text>
+<line x1="180" y1="70" x2="180" y2="99" stroke="#B8F0FF" stroke-width="3"/>
+<polygon points="180,108 175,98 185,98" fill="#B8F0FF"/>
+<rect x="70" y="112" width="220" height="72" rx="10" fill="url(#wm)" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="180" y="144" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#0E2747"><tspan x="180">Ombudsman:</tspan><tspan x="180" dy="1.2em">acts on complaints</tspan></text>
+<rect x="50" y="236" width="260" height="80" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="180" y="263.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">Sandiganbayan:</tspan><tspan x="180" dy="1.2em">tries cases within</tspan><tspan x="180" dy="1.2em">its legal authority</tspan></text>
+</svg>

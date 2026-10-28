@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360">
+<title>Flat pie chart titled Ways Requests Were Sent with Online 180 degrees, In person 120 degrees and Mail 60 degrees, and the note Total: 120 requests</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="360" rx="14" fill="url(#bg)"/>
+<text x="180" y="32" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Ways Requests Were Sent</tspan></text>
+<path d="M180 150 L242 150 A62 62 0 0 1 118 150 Z" fill="#2A86C1" stroke="#0E2747" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180 150 L118 150 A62 62 0 0 1 211 96.3 Z" fill="#3FA28C" stroke="#0E2747" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180 150 L211 96.3 A62 62 0 0 1 242 150 Z" fill="#9ADFFF" stroke="#0E2747" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="180" y1="196.5" x2="180" y2="232" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<circle cx="180" cy="196.5" r="3" fill="#FFFFFF" stroke="#0E2747" stroke-width="1"/>
+<text x="180" y="252" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">Online</tspan><tspan x="180" dy="1.2em">180 degrees</tspan></text>
+<line x1="156.7" y1="109.7" x2="110" y2="90" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<circle cx="156.7" cy="109.7" r="3" fill="#FFFFFF" stroke="#0E2747" stroke-width="1"/>
+<text x="108" y="86" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="108">In person</tspan><tspan x="108" dy="1.2em">120 degrees</tspan></text>
+<line x1="220.3" y1="126.8" x2="254" y2="108" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<circle cx="220.3" cy="126.8" r="3" fill="#FFFFFF" stroke="#0E2747" stroke-width="1"/>
+<text x="260" y="104" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="260">Mail</tspan><tspan x="260" dy="1.2em">60 degrees</tspan></text>
+<rect x="90" y="298" width="180" height="38" rx="10" fill="#FFC857" fill-opacity="0.18"/>
+<rect x="90" y="298" width="180" height="38" rx="10" fill="none" stroke="#FFC857" stroke-width="2"/>
+<text x="180" y="323" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFC857"><tspan x="180">Total: 120 requests</tspan></text>
+</svg>

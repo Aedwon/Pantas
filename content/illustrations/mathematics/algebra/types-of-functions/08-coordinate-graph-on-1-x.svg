@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="360" height="320">
+<title>Graph of a downward-opening V with vertex (2, 3) passing through (0, -1)</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="320" rx="14" fill="url(#bg)"/>
+<text x="180" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"></text>
+<rect x="48" y="40" width="256" height="238" rx="6" fill="#1A4670" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="48" y1="40" x2="48" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="90.7" y1="40" x2="90.7" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="133.3" y1="40" x2="133.3" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="176" y1="40" x2="176" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="218.7" y1="40" x2="218.7" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="261.3" y1="40" x2="261.3" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="304" y1="40" x2="304" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="278" x2="304" y2="278" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="248.2" x2="304" y2="248.2" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="218.5" x2="304" y2="218.5" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="188.8" x2="304" y2="188.8" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="159" x2="304" y2="159" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="129.2" x2="304" y2="129.2" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="99.5" x2="304" y2="99.5" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="69.8" x2="304" y2="69.8" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="40" x2="304" y2="40" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="159" x2="304" y2="159" stroke="#B7CBDD" stroke-width="1.5"/>
+<text x="312" y="164" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<line x1="90.7" y1="40" x2="90.7" y2="278" stroke="#B7CBDD" stroke-width="1.5"/>
+<text x="90.7" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+<path d="M48 248.2 L176 69.8 L304 248.2" fill="none" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="176" cy="69.8" r="5.5" fill="#FFC857"/>
+<circle cx="90.7" cy="188.8" r="4.5" fill="#F2F7FB"/>
+<text x="176" y="57.8" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2, 3)</tspan></text>
+<line x1="94.7" y1="192.8" x2="110.7" y2="210.8" stroke="#D6E6F5" stroke-width="1.5"/>
+<text x="114.7" y="218.8" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(0, −1)</tspan></text>
+</svg>

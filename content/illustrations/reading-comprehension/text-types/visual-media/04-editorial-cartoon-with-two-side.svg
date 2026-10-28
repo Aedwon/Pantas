@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="360" height="320">
+<title>Editorial cartoon with two scenes of the same fictional Official: on the left a huge mouth speaks into many microphones beside a Public promises sign, on the right tiny hands stand beside a big pile of untouched requests and a Public work sign</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="320" rx="14" fill="url(#bg)"/>
+<line x1="180" y1="16" x2="180" y2="304" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<line x1="16" y1="290" x2="168" y2="290" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<rect x="30" y="254" width="28" height="28" rx="4" fill="#17697F"/>
+<rect x="62" y="254" width="28" height="28" rx="4" fill="#17697F"/>
+<ellipse cx="42" cy="285" rx="16" ry="5" fill="#F2F7FB"/><ellipse cx="78" cy="285" rx="16" ry="5" fill="#F2F7FB"/>
+<rect x="16" y="166" width="16" height="80" rx="7" fill="#2C6A98"/>
+<rect x="92" y="166" width="16" height="80" rx="7" fill="#2C6A98"/>
+<circle cx="24" cy="250" r="7" fill="#B8F0FF"/>
+<circle cx="100" cy="250" r="7" fill="#B8F0FF"/>
+<path d="M24 170 Q24 162 34 162 H86 Q96 162 96 170 V256 H24 Z" fill="#2A86C1"/>
+<polygon points="46,162 74,162 60,192" fill="#F2F7FB"/>
+<polygon points="57,170 63,170 65,200 60,208 55,200" fill="#7BD3B5"/>
+<rect x="53" y="150" width="14" height="16" rx="0" fill="#B8F0FF"/>
+<ellipse cx="60" cy="126" rx="28" ry="32" fill="#B8F0FF"/>
+<path d="M33 118 C33 94 87 94 87 118 C75 106 45 106 33 118 Z" fill="#2C6A98"/>
+<circle cx="50" cy="114" r="6.5" fill="#F2F7FB" stroke="#0E2747" stroke-width="1.5"/>
+<circle cx="50" cy="114" r="2" fill="#0E2747"/>
+<circle cx="70" cy="114" r="6.5" fill="#F2F7FB" stroke="#0E2747" stroke-width="1.5"/>
+<circle cx="70" cy="114" r="2" fill="#0E2747"/>
+<line x1="54" y1="114" x2="66" y2="114" stroke="#0E2747" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<line x1="46" y1="104" x2="54" y2="106" stroke="#0E2747" stroke-width="2" stroke-linecap="round" fill="none"/>
+<line x1="66" y1="106" x2="74" y2="104" stroke="#0E2747" stroke-width="2" stroke-linecap="round" fill="none"/>
+<path d="M50 127 Q60 122 70 127 Q60 131 50 127 Z" fill="#2C6A98"/>
+<ellipse cx="60" cy="143" rx="24" ry="13" fill="#0E2747" stroke="#FFC857" stroke-width="3"/>
+<ellipse cx="60" cy="150" rx="12" ry="4.5" fill="#FF7A45"/>
+<text x="100" y="104" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="100">Official</tspan></text>
+<line x1="192" y1="290" x2="344" y2="290" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<rect x="210" y="254" width="28" height="28" rx="4" fill="#17697F"/>
+<rect x="242" y="254" width="28" height="28" rx="4" fill="#17697F"/>
+<ellipse cx="222" cy="285" rx="16" ry="5" fill="#F2F7FB"/><ellipse cx="258" cy="285" rx="16" ry="5" fill="#F2F7FB"/>
+<rect x="192" y="166" width="16" height="80" rx="7" fill="#2C6A98"/>
+<rect x="272" y="166" width="16" height="80" rx="7" fill="#2C6A98"/>
+<circle cx="200" cy="250" r="3" fill="#B8F0FF"/>
+<circle cx="280" cy="250" r="3" fill="#B8F0FF"/>
+<path d="M204 170 Q204 162 214 162 H266 Q276 162 276 170 V256 H204 Z" fill="#2A86C1"/>
+<polygon points="226,162 254,162 240,192" fill="#F2F7FB"/>
+<polygon points="237,170 243,170 245,200 240,208 235,200" fill="#7BD3B5"/>
+<rect x="233" y="150" width="14" height="16" rx="0" fill="#B8F0FF"/>
+<ellipse cx="240" cy="126" rx="28" ry="32" fill="#B8F0FF"/>
+<path d="M213 118 C213 94 267 94 267 118 C255 106 225 106 213 118 Z" fill="#2C6A98"/>
+<circle cx="230" cy="114" r="6.5" fill="#F2F7FB" stroke="#0E2747" stroke-width="1.5"/>
+<circle cx="230" cy="114" r="2" fill="#0E2747"/>
+<circle cx="250" cy="114" r="6.5" fill="#F2F7FB" stroke="#0E2747" stroke-width="1.5"/>
+<circle cx="250" cy="114" r="2" fill="#0E2747"/>
+<line x1="234" y1="114" x2="246" y2="114" stroke="#0E2747" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<line x1="226" y1="104" x2="234" y2="106" stroke="#0E2747" stroke-width="2" stroke-linecap="round" fill="none"/>
+<line x1="246" y1="106" x2="254" y2="104" stroke="#0E2747" stroke-width="2" stroke-linecap="round" fill="none"/>
+<path d="M230 127 Q240 122 250 127 Q240 131 230 127 Z" fill="#2C6A98"/>
+<line x1="232" y1="143" x2="248" y2="143" stroke="#0E2747" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<text x="280" y="104" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="280">Official</tspan></text>
+<line x1="100" y1="124" x2="166" y2="124" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
+<rect x="94" y="117" width="14" height="14" rx="5" fill="#9ADFFF" stroke="#F2F7FB" stroke-width="1.5"/>
+<line x1="100" y1="142" x2="166" y2="142" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
+<rect x="94" y="135" width="14" height="14" rx="5" fill="#9ADFFF" stroke="#F2F7FB" stroke-width="1.5"/>
+<line x1="100" y1="160" x2="166" y2="160" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
+<rect x="94" y="153" width="14" height="14" rx="5" fill="#9ADFFF" stroke="#F2F7FB" stroke-width="1.5"/>
+<line x1="100" y1="178" x2="166" y2="178" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
+<rect x="94" y="171" width="14" height="14" rx="5" fill="#9ADFFF" stroke="#F2F7FB" stroke-width="1.5"/>
+<line x1="166" y1="124" x2="166" y2="178" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
+<rect x="293" y="278" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="292" y="267" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="288" y="256" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="293" y="245" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="287" y="234" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="291" y="223" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="293" y="212" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="293" y="201" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="289" y="190" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="292" y="179" width="50" height="11" rx="2" fill="#F2F7FB" stroke="#B7CBDD" stroke-width="1.2"/>
+<rect x="20" y="18" width="140" height="32" rx="7" fill="#F2F7FB"/>
+<text x="90" y="39" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#0E2747"><tspan x="90">Public promises</tspan></text>
+<rect x="200" y="18" width="140" height="32" rx="7" fill="#F2F7FB"/>
+<text x="270" y="39" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#0E2747"><tspan x="270">Public work</tspan></text>
+</svg>

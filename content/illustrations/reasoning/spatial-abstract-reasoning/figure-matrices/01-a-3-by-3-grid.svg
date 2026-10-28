@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 352" width="360" height="352">
+<title>Three by three grid of triangles with dots; the bottom-right cell is empty</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="352" rx="14" fill="url(#bg)"/>
+<rect x="26" y="22" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="130" y="22" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="234" y="22" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="26" y="126" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="130" y="126" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="234" y="126" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="26" y="230" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="130" y="230" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="234" y="230" width="100" height="100" rx="8" fill="#F2F7FB" stroke="#FF7A45" stroke-width="4"/>
+<g transform="rotate(0 76 72)">
+<polygon points="76,49 103,95 49,95" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="76" cy="79" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(0 180 72)">
+<polygon points="180,49 207,95 153,95" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="172" cy="82" r="4.5" fill="#0E2747"/>
+<circle cx="188" cy="82" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(0 284 72)">
+<polygon points="284,49 311,95 257,95" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="274" cy="85" r="4.5" fill="#0E2747"/>
+<circle cx="294" cy="85" r="4.5" fill="#0E2747"/>
+<circle cx="284" cy="70" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(90 76 176)">
+<polygon points="76,153 103,199 49,199" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="76" cy="183" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(90 180 176)">
+<polygon points="180,153 207,199 153,199" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="172" cy="186" r="4.5" fill="#0E2747"/>
+<circle cx="188" cy="186" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(90 284 176)">
+<polygon points="284,153 311,199 257,199" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="274" cy="189" r="4.5" fill="#0E2747"/>
+<circle cx="294" cy="189" r="4.5" fill="#0E2747"/>
+<circle cx="284" cy="174" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(180 76 280)">
+<polygon points="76,257 103,303 49,303" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="76" cy="287" r="4.5" fill="#0E2747"/>
+</g>
+<g transform="rotate(180 180 280)">
+<polygon points="180,257 207,303 153,303" fill="none" stroke="#0E2747" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="172" cy="290" r="4.5" fill="#0E2747"/>
+<circle cx="188" cy="290" r="4.5" fill="#0E2747"/>
+</g>
+</svg>

@@ -4,40 +4,40 @@
 <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
 </defs>
 <rect width="360" height="330" rx="14" fill="url(#bg)"/>
-<text x="180" y="30" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Help Desk Visitors</text>
-<text x="180" y="50" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="180">Each square represents</tspan><tspan x="180" dy="16">5 visitors.</tspan></text>
-<text x="92" y="159" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Monday</text>
+<text x="180" y="30" text-anchor="middle" font-family="Geist, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Help Desk Visitors</text>
+<text x="180" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="180">Each square represents</tspan><tspan x="180" dy="16">5 visitors.</tspan></text>
+<text x="92" y="159" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Monday</text>
 <rect x="100" y="134" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="140" y="134" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="180" y="134" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="220" y="134" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
-<text x="92" y="205" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Tuesday</text>
+<text x="92" y="205" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Tuesday</text>
 <rect x="100" y="180" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="140" y="180" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="180" y="180" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="220" y="180" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="260" y="180" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="300" y="180" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
-<text x="92" y="251" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Wednesday</text>
+<text x="92" y="251" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Wednesday</text>
 <rect x="100" y="226" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="140" y="226" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <rect x="180" y="226" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
 <line x1="100" y1="274" x2="340" y2="274" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
 <line x1="100" y1="274" x2="100" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="100" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">0</text>
+<text x="100" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">0</tspan></text>
 <line x1="140" y1="274" x2="140" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="140" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">5</text>
+<text x="140" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">5</tspan></text>
 <line x1="180" y1="274" x2="180" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="180" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">10</text>
+<text x="180" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">10</tspan></text>
 <line x1="220" y1="274" x2="220" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="220" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">15</text>
+<text x="220" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">15</tspan></text>
 <line x1="260" y1="274" x2="260" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="260" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">20</text>
+<text x="260" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">20</tspan></text>
 <line x1="300" y1="274" x2="300" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="300" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">25</text>
+<text x="300" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">25</tspan></text>
 <line x1="340" y1="274" x2="340" y2="280" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
-<text x="340" y="296" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">30</text>
-<text x="220" y="318" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">Visitors</text>
-<text x="270" y="100" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857"><tspan x="270">Extra window opens</tspan><tspan x="270" dy="16">above 25</tspan></text>
+<text x="340" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Main, serif" font-weight="400">30</tspan></text>
+<text x="220" y="318" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">Visitors</text>
+<text x="270" y="100" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFC857"><tspan x="270">Extra window opens</tspan><tspan x="270" dy="16">above 25</tspan></text>
 <line x1="300" y1="122" x2="300" y2="270" stroke="#FFC857" stroke-width="3" stroke-linecap="butt"/>
 </svg>

@@ -15,6 +15,6 @@
 <polygon points="298,112 340,70 340,178 298,220" fill="#2C6A98" stroke="#B8F0FF" stroke-width="2" stroke-linejoin="round"/>
 <line x1="80" y1="220" x2="116" y2="220" stroke="#FFC857" stroke-width="5" stroke-linecap="round"/>
 <line x1="190" y1="220" x2="298" y2="220" stroke="#FFC857" stroke-width="5" stroke-linecap="round"/>
-<text x="98" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFC857">2 cm</text>
-<text x="244" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFC857">6 cm</text>
+<text x="98" y="246" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFC857">2 cm</text>
+<text x="244" y="246" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFC857">6 cm</text>
 </svg>

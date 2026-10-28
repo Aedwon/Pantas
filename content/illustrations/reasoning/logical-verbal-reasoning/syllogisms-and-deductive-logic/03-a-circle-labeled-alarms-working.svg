@@ -8,10 +8,10 @@
 </defs>
 <rect width="360" height="420" rx="14" fill="url(#bg)"/>
 <circle cx="180" cy="165" r="135" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="62" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="180">Alarms that ring</tspan><tspan x="180" dy="1.2em">during a fire</tspan></text>
+<text x="180" y="62" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="180">Alarms that ring</tspan><tspan x="180" dy="1.2em">during a fire</tspan></text>
 <circle cx="180" cy="195" r="95" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="191" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="180">Alarms working properly</tspan><tspan x="180" dy="1.2em">under these conditions</tspan></text>
+<text x="180" y="191" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="180">Alarms working properly</tspan><tspan x="180" dy="1.2em">under these conditions</tspan></text>
 <circle cx="180" cy="347" r="36" fill="url(#g)"/>
 <path d="M166 358 C166 336 172 328 180 328 C188 328 194 336 194 358 Z" fill="#FFC857"/><rect x="161" y="358" width="38" height="6" rx="3" fill="#FFC857"/><circle cx="180" cy="370" r="4" fill="#FFC857"/><line x1="180" y1="320" x2="180" y2="328" stroke="#FFC857" stroke-width="3" stroke-linecap="round"/>
-<text x="180" y="398" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">tested alarm</text>
+<text x="180" y="398" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">tested alarm</text>
 </svg>

@@ -4,7 +4,7 @@
 <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
 </defs>
 <rect width="360" height="420" rx="14" fill="url(#bg)"/>
-<text x="180" y="38" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">y=2x-3</text>
+<text x="180" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 3</tspan></text>
 <line x1="36" y1="76" x2="36" y2="364" stroke="#6FD0FF" stroke-width="1" stroke-linecap="butt" stroke-opacity="0.3"/>
 <line x1="36" y1="76" x2="324" y2="76" stroke="#6FD0FF" stroke-width="1" stroke-linecap="butt" stroke-opacity="0.3"/>
 <line x1="84" y1="76" x2="84" y2="364" stroke="#6FD0FF" stroke-width="1" stroke-linecap="butt" stroke-opacity="0.3"/>
@@ -23,8 +23,8 @@
 <polygon points="324,172 315,167 315,177" fill="#D6E6F5"/>
 <line x1="132" y1="364" x2="132" y2="84" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
 <polygon points="132,76 127,85 137,85" fill="#D6E6F5"/>
-<text x="338" y="177" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">x</text>
-<text x="132" y="68" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">y</text>
+<text x="338" y="177" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<text x="132" y="68" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
 <line x1="108" y1="364" x2="247.5" y2="84.9" stroke="#5CC8FF" stroke-width="3" stroke-linecap="butt"/>
 <polygon points="252,76 252,87.2 243.1,82.7" fill="#5CC8FF"/>
 <polygon points="108,364 116.9,357.3 108,352.8" fill="#5CC8FF"/>
@@ -35,9 +35,9 @@
 <circle cx="132" cy="316" r="5" fill="#FFFFFF" stroke="#0E2747" stroke-width="1.5"/>
 <circle cx="180" cy="220" r="5" fill="#FFFFFF" stroke="#0E2747" stroke-width="1.5"/>
 <circle cx="228" cy="124" r="5" fill="#FFFFFF" stroke="#0E2747" stroke-width="1.5"/>
-<text x="120" y="310" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">(0,-3)</text>
-<text x="194" y="238" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">(1,-1)</text>
-<text x="240" y="140" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">(2,1)</text>
-<text x="156" y="336" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFC857">1</text>
-<text x="192" y="273" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFC857">2</text>
+<text x="120" y="310" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(0, −3)</tspan></text>
+<text x="194" y="238" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(1, −1)</tspan></text>
+<text x="240" y="140" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2, 1)</tspan></text>
+<text x="156" y="336" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFC857"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+<text x="192" y="273" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFC857"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
 </svg>

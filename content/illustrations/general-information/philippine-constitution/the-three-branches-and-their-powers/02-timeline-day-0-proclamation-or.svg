@@ -7,8 +7,8 @@
 <radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
 </defs>
 <rect width="360" height="400" rx="14" fill="url(#bg)"/>
-<text x="180" y="36" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Martial law</tspan></text>
-<text x="180" y="60" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">privilege of the writ</tspan><tspan x="180" dy="1.2em">of habeas corpus</tspan></text>
+<text x="180" y="36" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Martial law</tspan></text>
+<text x="180" y="60" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">privilege of the writ</tspan><tspan x="180" dy="1.2em">of habeas corpus</tspan></text>
 <line x1="40" y1="98" x2="320" y2="98" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
 <line x1="60" y1="112" x2="60" y2="184" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
 <line x1="60" y1="230" x2="60" y2="262" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
@@ -17,16 +17,16 @@
 <line x1="60" y1="184" x2="60" y2="198" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
 <line x1="60" y1="214" x2="60" y2="230" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
 <circle cx="60" cy="116" r="8" fill="#7BD3B5"/>
-<text x="84" y="113" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="84">Day 0</tspan></text>
-<text x="84" y="131" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="84">proclamation or suspension</tspan></text>
+<text x="84" y="113" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="84">Day 0</tspan></text>
+<text x="84" y="131" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="84">proclamation or suspension</tspan></text>
 <circle cx="60" cy="160" r="8" fill="#7BD3B5"/>
-<text x="84" y="157" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="84">Within 48 hours</tspan></text>
-<text x="84" y="175" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="84">report to Congress</tspan></text>
+<text x="84" y="157" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="84">Within 48 hours</tspan></text>
+<text x="84" y="175" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="84">report to Congress</tspan></text>
 <circle cx="60" cy="262" r="10" fill="#FFC857"/>
-<text x="84" y="259" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFC857"><tspan x="84">Day 60</tspan></text>
-<text x="84" y="277" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFC857"><tspan x="84">initial limit</tspan></text>
+<text x="84" y="259" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFC857"><tspan x="84">Day 60</tspan></text>
+<text x="84" y="277" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFC857"><tspan x="84">initial limit</tspan></text>
 <rect x="16" y="306" width="328" height="34" rx="8" fill="#2C6A98" fill-opacity="0.4" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="328" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">Congress may revoke</tspan></text>
+<text x="180" y="328" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">Congress may revoke</tspan></text>
 <rect x="16" y="348" width="328" height="34" rx="8" fill="#2C6A98" fill-opacity="0.4" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="370" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">Supreme Court may review</tspan></text>
+<text x="180" y="370" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="180">Supreme Court may review</tspan></text>
 </svg>

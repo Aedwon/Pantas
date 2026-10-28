@@ -16,11 +16,11 @@
 <line x1="70" y1="180" x2="90" y2="180" stroke="#9ADFFF" stroke-width="2.5" stroke-linecap="round"/>
 <line x1="70" y1="242" x2="90" y2="242" stroke="#9ADFFF" stroke-width="2.5" stroke-linecap="round"/>
 <rect x="110" y="16" width="140" height="48" rx="10" fill="url(#wm)"/>
-<text x="180" y="46" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#0E2747">Main idea</text>
+<text x="180" y="46" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#0E2747">Main idea</text>
 <rect x="90" y="96" width="180" height="44" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="123.2" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
+<text x="180" y="123.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
 <rect x="90" y="158" width="180" height="44" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="185.2" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
+<text x="180" y="185.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
 <rect x="90" y="220" width="180" height="44" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="247.2" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
+<text x="180" y="247.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
 </svg>

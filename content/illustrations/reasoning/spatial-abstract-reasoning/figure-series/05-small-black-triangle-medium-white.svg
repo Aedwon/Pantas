@@ -16,14 +16,14 @@
 <rect x="268" y="44" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#FFC857" stroke-width="3"/>
 <rect x="28" y="148" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
 <polygon points="60,159.2 36,200.8 84,200.8" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
-<text x="60" y="236" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="60">A.</tspan></text>
+<text x="60" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="60">A.</tspan></text>
 <rect x="108" y="148" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
 <polygon points="140,159.2 116,200.8 164,200.8" fill="#0A1A2E" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
-<text x="140" y="236" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="140">B.</tspan></text>
+<text x="140" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="140">B.</tspan></text>
 <rect x="188" y="148" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
 <polygon points="220,164.4 202,195.6 238,195.6" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
-<text x="220" y="236" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="220">C.</tspan></text>
+<text x="220" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="220">C.</tspan></text>
 <rect x="268" y="148" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
 <polygon points="300,174.8 294,185.2 306,185.2" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
-<text x="300" y="236" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="300">D.</tspan></text>
+<text x="300" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="300">D.</tspan></text>
 </svg>

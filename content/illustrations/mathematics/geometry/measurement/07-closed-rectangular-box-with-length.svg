@@ -10,7 +10,7 @@
 <polygon points="70,122 190,122 190,194 70,194" fill="#FFE3A8" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
 <polygon points="70,122 190,122 246,88 126,88" fill="#FFF3D6" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
 <polygon points="190,122 246,88 246,160 190,194" fill="#F0CC85" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
-<text x="130" y="218" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">5 cm</text>
-<text x="228" y="198" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">4 cm</text>
-<text x="256" y="130" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">3 cm</text>
+<text x="130" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">5 cm</text>
+<text x="228" y="198" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">4 cm</text>
+<text x="256" y="130" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">3 cm</text>
 </svg>

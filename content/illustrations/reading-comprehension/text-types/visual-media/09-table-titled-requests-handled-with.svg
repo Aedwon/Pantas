@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+<title>Table titled Requests Handled with centers A, B and C and morning and afternoon columns</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="280" rx="14" fill="url(#bg)"/>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Requests Handled</tspan></text>
+<rect x="16" y="56" width="328" height="158" rx="8" fill="#FFFFFF" fill-opacity="0.06"/>
+<path d="M16 64 Q16 56 24 56 H336 Q344 56 344 64 V94 H16 Z" fill="#6FD0FF" fill-opacity="0.2"/>
+<line x1="16" y1="94" x2="344" y2="94" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<line x1="16" y1="134" x2="344" y2="134" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<line x1="16" y1="174" x2="344" y2="174" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<line x1="136" y1="56" x2="136" y2="214" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<line x1="240" y1="56" x2="240" y2="214" stroke="#6FD0FF" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.4"/>
+<text x="76" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="76">Center</tspan></text>
+<text x="188" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="188">Morning</tspan></text>
+<text x="292" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="292">Afternoon</tspan></text>
+<text x="76" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="76">A</tspan></text>
+<text x="188" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="188">24</tspan></text>
+<text x="292" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="292">30</tspan></text>
+<rect x="62" y="140" width="28" height="28" rx="8" fill="#FFC857"/>
+<text x="76" y="160" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#0E2747"><tspan x="76">B</tspan></text>
+<text x="188" y="160" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="188">18</tspan></text>
+<text x="292" y="160" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="292">27</tspan></text>
+<text x="76" y="200" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="76">C</tspan></text>
+<text x="188" y="200" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="188">32</tspan></text>
+<text x="292" y="200" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan x="292">28</tspan></text>
+<text x="180" y="238" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="180">All entries are numbers</tspan><tspan x="180" dy="1.2em">of requests</tspan></text>
+</svg>

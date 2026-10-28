@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 316" width="360" height="316">
+<title>Folding a square twice, then opening the horizontal fold first and the vertical fold second</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="316" rx="14" fill="url(#bg)"/>
+<rect x="16" y="16" width="56" height="56" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="44" y1="16" x2="44" y2="72" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="16" y1="44" x2="72" y2="44" stroke="#7FA9C8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="152" y="16" width="56" height="56" fill="none" stroke="#6FD0FF" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+<rect x="180" y="16" width="28" height="56" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="180" y1="16" x2="180" y2="72" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<rect x="288" y="16" width="56" height="56" fill="none" stroke="#6FD0FF" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+<rect x="316" y="16" width="28" height="28" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="316" y1="16" x2="316" y2="44" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="316" y1="44" x2="344" y2="44" stroke="#FFC857" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="80" y1="44" x2="136.8" y2="44" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="144,44 136,48 136,40" fill="#B8F0FF"/>
+<line x1="216" y1="44" x2="272.8" y2="44" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="280,44 272,48 272,40" fill="#B8F0FF"/>
+<circle cx="332.8" cy="25.8" r="3" fill="#0E2747" stroke="#2468C8" stroke-width="1.6"/>
+<rect x="280" y="132" width="64" height="128" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="280" y1="132" x2="280" y2="260" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="280" y1="196" x2="344" y2="196" stroke="#FFC857" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="318.4" cy="154.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="318.4" cy="237.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<rect x="16" y="132" width="128" height="128" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="80" y1="132" x2="80" y2="260" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="16" y1="196" x2="144" y2="196" stroke="#FFC857" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="118.4" cy="154.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="118.4" cy="237.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="41.6" cy="154.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="41.6" cy="237.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<line x1="312" y1="80" x2="312" y2="115.9" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="312,124 307.5,115 316.5,115" fill="#B8F0FF"/>
+<text x="302" y="102" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="302">Open the horizontal</tspan><tspan x="302" dy="1.2em">fold first.</tspan></text>
+<line x1="270" y1="196" x2="160.1" y2="196" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="152,196 161,191.5 161,200.5" fill="#B8F0FF"/>
+<text x="212" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="212">Open the</tspan><tspan x="212" dy="1.2em">vertical fold.</tspan></text>
+<text x="180" y="292" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Open the last fold first.</text>
+</svg>

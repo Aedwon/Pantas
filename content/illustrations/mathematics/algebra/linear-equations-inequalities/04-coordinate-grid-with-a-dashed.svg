@@ -22,10 +22,10 @@
 <line x1="96" y1="344" x2="96" y2="72" stroke="#D6E6F5" stroke-width="2" stroke-linecap="butt"/>
 <polygon points="96,64 91,73 101,73" fill="#D6E6F5"/>
 <line x1="40" y1="64" x2="320" y2="344" stroke="#F2F7FB" stroke-width="3" stroke-linecap="butt" stroke-dasharray="9 7"/>
-<text x="334" y="293" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">x</text>
-<text x="96" y="54" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">y</text>
-<text x="106" y="108" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">(0,3)</text>
-<text x="270" y="274" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">(3,0)</text>
+<text x="334" y="293" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<text x="96" y="54" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+<text x="106" y="108" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(0, 3)</tspan></text>
+<text x="270" y="274" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(3, 0)</tspan></text>
 <circle cx="96" cy="288" r="5" fill="#FFFFFF" stroke="#0E2747" stroke-width="1.5"/>
-<text x="86" y="310" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">(0,0)</text>
+<text x="86" y="310" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan font-family="KaTeX_Main, serif" font-weight="400">(0, 0)</tspan></text>
 </svg>

@@ -7,25 +7,25 @@
 <radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
 </defs>
 <rect width="360" height="370" rx="14" fill="url(#bg)"/>
-<text x="180" y="34" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Requests Handled</tspan></text>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Requests Handled</tspan></text>
 <line x1="75" y1="73" x2="75" y2="295" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
 <line x1="75" y1="295" x2="335" y2="295" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
 <line x1="63" y1="295" x2="75" y2="295" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
-<text x="58" y="300" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">0</tspan></text>
+<text x="58" y="300" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">0</tspan></text>
 <line x1="63" y1="240" x2="75" y2="240" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
-<text x="58" y="245" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">10</tspan></text>
+<text x="58" y="245" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">10</tspan></text>
 <line x1="63" y1="185" x2="75" y2="185" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
-<text x="58" y="190" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">20</tspan></text>
+<text x="58" y="190" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">20</tspan></text>
 <line x1="63" y1="130" x2="75" y2="130" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
-<text x="58" y="135" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">30</tspan></text>
+<text x="58" y="135" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">30</tspan></text>
 <line x1="63" y1="75" x2="75" y2="75" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
-<text x="58" y="80" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">40</tspan></text>
+<text x="58" y="80" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">40</tspan></text>
 <line x1="68" y1="267.5" x2="75" y2="267.5" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
 <line x1="68" y1="212.5" x2="75" y2="212.5" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
 <line x1="68" y1="157.5" x2="75" y2="157.5" stroke="#FFC857" stroke-width="3" stroke-linecap="butt" fill="none"/>
 <line x1="68" y1="102.5" x2="75" y2="102.5" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
 <rect x="170" y="157.5" width="70" height="137.5" rx="4" fill="#2A86C1"/>
-<text x="26" y="185" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" transform="rotate(-90 26 185)"><tspan x="26">Requests</tspan></text>
-<text x="205" y="318" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="205">A</tspan></text>
-<text x="205" y="346" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="205">Office</tspan></text>
+<text x="26" y="185" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" transform="rotate(-90 26 185)"><tspan x="26">Requests</tspan></text>
+<text x="205" y="318" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="205">A</tspan></text>
+<text x="205" y="346" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="205">Office</tspan></text>
 </svg>

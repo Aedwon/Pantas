@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 376" width="360" height="376">
+<title>A quarter-circle cut at the corner where both folds meet opens into one circle at the center of the square</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="376" rx="14" fill="url(#bg)"/>
+<rect x="16" y="16" width="56" height="56" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="44" y1="16" x2="44" y2="72" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="16" y1="44" x2="72" y2="44" stroke="#7FA9C8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="152" y="16" width="56" height="56" fill="none" stroke="#6FD0FF" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+<rect x="180" y="16" width="28" height="56" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="180" y1="16" x2="180" y2="72" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<rect x="288" y="16" width="56" height="56" fill="none" stroke="#6FD0FF" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+<rect x="316" y="16" width="28" height="28" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="316" y1="16" x2="316" y2="44" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="316" y1="44" x2="344" y2="44" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="80" y1="44" x2="136.8" y2="44" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="144,44 136,48 136,40" fill="#B8F0FF"/>
+<line x1="216" y1="44" x2="272.8" y2="44" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="280,44 272,48 272,40" fill="#B8F0FF"/>
+<rect x="287.5" y="100.5" width="56" height="56" rx="2" fill="#C9DDEE" stroke="#9ADFFF" stroke-width="1.2"/>
+<rect x="285" y="103" width="56" height="56" rx="2" fill="#C9DDEE" stroke="#9ADFFF" stroke-width="1.2"/>
+<rect x="282.5" y="105.5" width="56" height="56" rx="2" fill="#C9DDEE" stroke="#9ADFFF" stroke-width="1.2"/>
+<rect x="280" y="108" width="56" height="56" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="280" y1="108" x2="280" y2="164" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="280" y1="164" x2="336" y2="164" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="312" y1="80" x2="312" y2="92.8" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="312,100 308,92 316,92" fill="#B8F0FF"/>
+<line x1="308" y1="170" x2="308" y2="205.9" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="308,214 303.5,205 312.5,205" fill="#B8F0FF"/>
+<text x="298" y="188" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="298">Open the horizontal</tspan><tspan x="298" dy="1.2em">fold.</tspan></text>
+<line x1="268" y1="276" x2="144.1" y2="276" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="136,276 145,271.5 145,280.5" fill="#B8F0FF"/>
+<text x="202" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="202">Open the vertical</tspan><tspan x="202" dy="1.2em">fold.</tspan></text>
+<path d="M280 164 L280 142 A22 22 0 0 1 302 164 Z" fill="#0E2747" stroke="#FFC857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="280" y="220" width="56" height="112" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="280" y1="220" x2="280" y2="254" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="280" y1="298" x2="280" y2="332" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="302" y1="276" x2="336" y2="276" stroke="#2A86C1" stroke-width="2" stroke-dasharray="4 3"/>
+<path d="M280 254 A22 22 0 0 1 280 298 Z" fill="#0E2747" stroke="#9ADFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="16" y="220" width="112" height="112" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="72" y1="220" x2="72" y2="254" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="72" y1="298" x2="72" y2="332" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="16" y1="276" x2="50" y2="276" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="94" y1="276" x2="128" y2="276" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="72" cy="276" r="22" fill="#0E2747" stroke="#9ADFFF" stroke-width="2"/>
+<text x="16" y="354" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">one circular opening</text>
+</svg>

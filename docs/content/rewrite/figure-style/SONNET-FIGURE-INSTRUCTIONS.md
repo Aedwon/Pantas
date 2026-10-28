@@ -67,7 +67,11 @@ diagram) in this folder; they are drawn at 800 wide, so scale their sizes by 0.4
 - **Shapes.** Rounded rectangles (`rx` 6 to 10) for boxes, circles for sets and nodes, simple paths for arrows.
   Strokes 1.5 to 2.5 units; arrows 2 to 3 units with a filled triangular head drawn as a `polygon` or `path`
   (no `marker` elements).
-- **Text.** `font-family="Source Sans 3, Arial, sans-serif"`. Sizes: title 16 to 18 bold (`font-weight="700"`),
+- **Text.** `font-family="Geist, sans-serif"`, the app's font (Aedwon, Oct 29). Math (variables, equations,
+  inequalities, coordinates, axis numbers) uses `tspan` runs: italic variables in `font-family="KaTeX_Math, serif"`,
+  numbers, operators and words in `font-family="KaTeX_Main, serif"`, both `font-weight="400"`, matching the
+  lessons' KaTeX math. Use `−`, `≥`, `≤`, `²` and spaced operators (`y = x² − 4x + 3`). Single capital labels
+  (A, B, O) stay in Geist. Sizes: title 16 to 18 bold (`font-weight="700"`),
   labels 14 to 15 semibold (`600`), notes 14 regular (`400`). Never below 14. Labels are white on dark shapes;
   use `#0E2747` text only on light fills such as `#F2F7FB` or the warm accent. Center labels with
   `text-anchor="middle"`. Break long labels into lines with `tspan` (`x` repeated, `dy="1.2em"`); keep lines
@@ -75,7 +79,7 @@ diagram) in this folder; they are drawn at 800 wide, so scale their sizes by 0.4
 - **Title.** Optional. Use a short title (2 to 6 words) only when the figure needs one to be understood; the
   lesson text around it usually supplies context.
 - **Filipino and symbols.** Write Filipino words exactly as in the lesson. Write `₱` for pesos, real minus
-  signs as `−` only if the lesson uses them, and math as plain text (`3x + 6 = 21`), not LaTeX.
+  signs as `−` only if the lesson uses them, and math typeset with the KaTeX `tspan` runs above, not LaTeX.
 
 ## 5. Technical rules the app enforces
 

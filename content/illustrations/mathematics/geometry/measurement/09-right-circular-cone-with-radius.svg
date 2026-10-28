@@ -14,7 +14,7 @@
 <line x1="180" y1="50" x2="280" y2="262" stroke="#FFC857" stroke-width="4.5" stroke-linecap="round"/>
 <circle cx="180" cy="262" r="3.5" fill="#FFFFFF"/>
 <path d="M190 262 L190 252 L180 252" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="171" y="160" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">8 cm</text>
-<text x="232" y="250" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">6 cm</text>
-<text x="244" y="150" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="20" font-weight="700" fill="#FFC857">ℓ</text>
+<text x="171" y="160" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">8 cm</text>
+<text x="232" y="250" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">6 cm</text>
+<text x="244" y="150" text-anchor="start" font-family="Geist, sans-serif" font-size="20" font-weight="700" fill="#FFC857">ℓ</text>
 </svg>

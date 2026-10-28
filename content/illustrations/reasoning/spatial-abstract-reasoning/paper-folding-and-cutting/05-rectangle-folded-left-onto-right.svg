@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 490" width="360" height="490">
+<title>A rectangle folded three times and punched through eight layers, then opened in reverse order to show eight separate holes</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="490" rx="14" fill="url(#bg)"/>
+<rect x="16" y="16" width="72" height="48" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="52" y1="16" x2="52" y2="64" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="16" y1="40" x2="88" y2="40" stroke="#7FA9C8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="128" y="16" width="72" height="48" fill="none" stroke="#6FD0FF" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+<rect x="164" y="16" width="36" height="48" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="164" y1="16" x2="164" y2="64" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="164" y1="40" x2="200" y2="40" stroke="#7FA9C8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="240" y="16" width="72" height="48" fill="none" stroke="#6FD0FF" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+<rect x="276" y="16" width="36" height="24" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="276" y1="16" x2="276" y2="40" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="276" y1="40" x2="312" y2="40" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="294" y1="16" x2="294" y2="40" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="94" y1="40" x2="114.8" y2="40" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="122,40 114,44 114,36" fill="#B8F0FF"/>
+<line x1="206" y1="40" x2="226.8" y2="40" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="234,40 226,44 226,36" fill="#B8F0FF"/>
+<text x="98" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">left onto right</text>
+<text x="230" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">bottom onto top</text>
+<line x1="304" y1="70" x2="304" y2="113.9" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="304,122 299.5,113 308.5,113" fill="#B8F0FF"/>
+<text x="294" y="108" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">left onto right again</text>
+<rect x="296" y="128" width="48" height="64" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="296" y1="128" x2="296" y2="192" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="296" y1="192" x2="344" y2="192" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="313.3" cy="152.3" r="5" fill="#0E2747" stroke="#FFC857" stroke-width="2.5"/>
+<text x="344" y="212" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">8 layers</text>
+<line x1="291" y1="160" x2="271.2" y2="160" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="264,160 272,156 272,164" fill="#B8F0FF"/>
+<rect x="160" y="128" width="96" height="64" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="208" y1="128" x2="208" y2="192" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="160" y1="192" x2="256" y2="192" stroke="#5CC8FF" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="190.7" cy="152.3" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="225.3" cy="152.3" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<line x1="154" y1="160" x2="139.2" y2="160" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="132,160 140,156 140,164" fill="#B8F0FF"/>
+<rect x="30" y="128" width="96" height="128" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="78" y1="128" x2="78" y2="256" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="30" y1="192" x2="126" y2="192" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="60.7" cy="152.3" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="60.7" cy="231.7" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="95.3" cy="152.3" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="95.3" cy="231.7" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<line x1="78" y1="262" x2="78" y2="277.9" stroke="#B8F0FF" stroke-width="2.5"/>
+<polygon points="78,286 73.5,277 82.5,277" fill="#B8F0FF"/>
+<rect x="60" y="292" width="240" height="160" rx="2" fill="#F2F7FB" stroke="#9ADFFF" stroke-width="1.5"/>
+<line x1="120" y1="292" x2="120" y2="452" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="180" y1="292" x2="180" y2="452" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="240" y1="292" x2="240" y2="452" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="60" y1="372" x2="300" y2="372" stroke="#2A86C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="98.4" cy="322.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="98.4" cy="421.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="141.6" cy="322.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="141.6" cy="421.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="218.4" cy="322.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="218.4" cy="421.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="261.6" cy="322.4" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<circle cx="261.6" cy="421.6" r="5" fill="#0E2747" stroke="#2468C8" stroke-width="1.2"/>
+<text x="180" y="474" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">8 separate holes</text>
+</svg>

@@ -13,9 +13,9 @@
 <line x1="230" y1="114" x2="230" y2="142" stroke="#FFC857" stroke-width="3.5" stroke-linecap="butt" fill="none"/>
 <line x1="330" y1="114" x2="330" y2="142" stroke="#FFC857" stroke-width="3.5" stroke-linecap="butt" fill="none"/>
 <line x1="30" y1="114" x2="30" y2="86" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
-<text x="16" y="60" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="16">January 1, 2026</tspan><tspan x="16" dy="1.2em">approval (day 0)</tspan></text>
+<text x="16" y="60" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="16">January 1, 2026</tspan><tspan x="16" dy="1.2em">approval (day 0)</tspan></text>
 <line x1="330" y1="114" x2="330" y2="86" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
-<text x="344" y="60" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan x="344">April 1 (day 90)</tspan></text>
+<text x="344" y="60" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan x="344">April 1 (day 90)</tspan></text>
 <line x1="230" y1="142" x2="230" y2="164" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
-<text x="230" y="182" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan x="230">March 2 (day 60)</tspan></text>
+<text x="230" y="182" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan x="230">March 2 (day 60)</tspan></text>
 </svg>

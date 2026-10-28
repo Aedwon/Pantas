@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="360" height="320">
+<title>Graph of y = x^2 - 4x + 3 with its lowest point at (2, -1)</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="320" rx="14" fill="url(#bg)"/>
+<text x="180" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">² − 4</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + 3</tspan></text>
+<rect x="48" y="56" width="256" height="242" rx="6" fill="#1A4670" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="90.7" y1="56" x2="90.7" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="133.3" y1="56" x2="133.3" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="176" y1="56" x2="176" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="218.7" y1="56" x2="218.7" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="261.3" y1="56" x2="261.3" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="304" y1="56" x2="304" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="298" x2="304" y2="298" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="276" x2="304" y2="276" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="254" x2="304" y2="254" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="232" x2="304" y2="232" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="210" x2="304" y2="210" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="188" x2="304" y2="188" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="166" x2="304" y2="166" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="144" x2="304" y2="144" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="122" x2="304" y2="122" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="100" x2="304" y2="100" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="78" x2="304" y2="78" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="56" x2="304" y2="56" stroke="#6FD0FF" stroke-width="1" stroke-opacity="0.15"/>
+<line x1="48" y1="254" x2="304" y2="254" stroke="#B7CBDD" stroke-width="1.5"/>
+<text x="312" y="259" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<line x1="90.7" y1="56" x2="90.7" y2="298" stroke="#B7CBDD" stroke-width="1.5"/>
+<text x="90.7" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+<path d="M48 78 L50.1 84.5 L52.3 91 L54.4 97.3 L56.5 103.5 L58.7 109.6 L60.8 115.6 L62.9 121.5 L65.1 127.3 L67.2 132.9 L69.3 138.5 L71.5 143.9 L73.6 149.3 L75.7 154.5 L77.9 159.6 L80 164.6 L82.1 169.5 L84.3 174.3 L86.4 179 L88.5 183.5 L90.7 188 L92.8 192.3 L94.9 196.6 L97.1 200.7 L99.2 204.7 L101.3 208.6 L103.5 212.4 L105.6 216.1 L107.7 219.7 L109.9 223.1 L112 226.5 L114.1 229.7 L116.3 232.9 L118.4 235.9 L120.5 238.8 L122.7 241.6 L124.8 244.3 L126.9 246.9 L129.1 249.4 L131.2 251.7 L133.3 254 L135.5 256.1 L137.6 258.2 L139.7 260.1 L141.9 261.9 L144 263.6 L146.1 265.2 L148.3 266.7 L150.4 268.1 L152.5 269.3 L154.7 270.5 L156.8 271.5 L158.9 272.5 L161.1 273.3 L163.2 274 L165.3 274.6 L167.5 275.1 L169.6 275.5 L171.7 275.8 L173.9 275.9 L176 276 L178.1 275.9 L180.3 275.8 L182.4 275.5 L184.5 275.1 L186.7 274.6 L188.8 274 L190.9 273.3 L193.1 272.5 L195.2 271.5 L197.3 270.5 L199.5 269.3 L201.6 268.1 L203.7 266.7 L205.9 265.2 L208 263.6 L210.1 261.9 L212.3 260.1 L214.4 258.2 L216.5 256.1 L218.7 254 L220.8 251.7 L222.9 249.4 L225.1 246.9 L227.2 244.3 L229.3 241.6 L231.5 238.8 L233.6 235.9 L235.7 232.9 L237.9 229.7 L240 226.5 L242.1 223.1 L244.3 219.7 L246.4 216.1 L248.5 212.4 L250.7 208.6 L252.8 204.7 L254.9 200.7 L257.1 196.6 L259.2 192.3 L261.3 188 L263.5 183.5 L265.6 179 L267.7 174.3 L269.9 169.5 L272 164.6 L274.1 159.6 L276.3 154.5 L278.4 149.3 L280.5 143.9 L282.7 138.5 L284.8 132.9 L286.9 127.3 L289.1 121.5 L291.2 115.6 L293.3 109.6 L295.5 103.5 L297.6 97.3 L299.7 91 L301.9 84.5 L304 78" fill="none" stroke="#5CC8FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="176" cy="276" r="5.5" fill="#FFC857"/>
+<line x1="181" y1="279" x2="206" y2="293" stroke="#D6E6F5" stroke-width="1.5"/>
+<text x="210" y="298" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2, −1)</tspan></text>
+</svg>

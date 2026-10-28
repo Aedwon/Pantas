@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360">
+<title>Vertical bar chart titled Monthly Sales with bars for January 50, February 70, March 60 and April 90 on a 0 to 100 scale</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="360" rx="14" fill="url(#bg)"/>
+<text x="180" y="32" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Monthly Sales</tspan></text>
+<line x1="62" y1="300" x2="68" y2="300" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="305" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">0</tspan></text>
+<line x1="68" y1="276" x2="344" y2="276" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="276" x2="68" y2="276" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="281" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">10</tspan></text>
+<line x1="68" y1="252" x2="344" y2="252" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="252" x2="68" y2="252" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="257" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">20</tspan></text>
+<line x1="68" y1="228" x2="344" y2="228" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="228" x2="68" y2="228" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="233" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">30</tspan></text>
+<line x1="68" y1="204" x2="344" y2="204" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="204" x2="68" y2="204" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="209" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">40</tspan></text>
+<line x1="68" y1="180" x2="344" y2="180" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="180" x2="68" y2="180" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="185" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">50</tspan></text>
+<line x1="68" y1="156" x2="344" y2="156" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="156" x2="68" y2="156" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="161" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">60</tspan></text>
+<line x1="68" y1="132" x2="344" y2="132" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="132" x2="68" y2="132" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="137" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">70</tspan></text>
+<line x1="68" y1="108" x2="344" y2="108" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="108" x2="68" y2="108" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="113" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">80</tspan></text>
+<line x1="68" y1="84" x2="344" y2="84" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="84" x2="68" y2="84" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="89" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">90</tspan></text>
+<line x1="68" y1="60" x2="344" y2="60" stroke="#6FD0FF" stroke-width="1" stroke-linecap="round" fill="none" stroke-opacity="0.2"/>
+<line x1="62" y1="60" x2="68" y2="60" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="58" y="65" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="58">100</tspan></text>
+<line x1="68" y1="60" x2="68" y2="300" stroke="#B7CBDD" stroke-width="2" stroke-linecap="round" fill="none"/>
+<line x1="68" y1="300" x2="344" y2="300" stroke="#B7CBDD" stroke-width="2" stroke-linecap="round" fill="none"/>
+<text x="28" y="180" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFC857" transform="rotate(-90 28 180)"><tspan x="28">Sales (thousands of pesos)</tspan></text>
+<rect x="79.5" y="180" width="46" height="120" rx="4" fill="#2A86C1"/>
+<text x="102.5" y="322" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="102.5">January</tspan></text>
+<rect x="148.5" y="132" width="46" height="168" rx="4" fill="#2A86C1"/>
+<text x="171.5" y="322" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="171.5">February</tspan></text>
+<rect x="217.5" y="156" width="46" height="144" rx="4" fill="#2A86C1"/>
+<text x="240.5" y="322" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="240.5">March</tspan></text>
+<rect x="286.5" y="84" width="46" height="216" rx="4" fill="#2A86C1"/>
+<text x="309.5" y="322" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="309.5">April</tspan></text>
+</svg>

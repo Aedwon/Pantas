@@ -8,10 +8,10 @@
 </defs>
 <rect width="360" height="340" rx="14" fill="url(#bg)"/>
 <circle cx="180" cy="175" r="135" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="86" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Students who pass</text>
+<text x="180" y="86" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Students who pass</text>
 <circle cx="180" cy="160" r="62" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
-<text x="180" y="156" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF"><tspan x="180">Students who</tspan><tspan x="180" dy="1.2em">study hard</tspan></text>
+<text x="180" y="156" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF"><tspan x="180">Students who</tspan><tspan x="180" dy="1.2em">study hard</tspan></text>
 <circle cx="180" cy="245" r="18" fill="url(#g)"/><circle cx="180" cy="245" r="7" fill="#FFC857" stroke="#FFFFFF" stroke-width="1.5"/>
-<text x="180" y="272" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Maria</text>
-<text x="180" y="290" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">Possible placement</text>
+<text x="180" y="272" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Maria</text>
+<text x="180" y="290" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5">Possible placement</text>
 </svg>
