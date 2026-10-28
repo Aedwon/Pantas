@@ -12,6 +12,53 @@ bool isLessonSvg(String url) {
       (uri?.scheme == 'data' && uri?.data?.mimeType == 'image/svg+xml');
 }
 
+/// Resolves SVG fallback lists to the bundled Flutter font family names.
+String resolveLessonSvgFonts(String svg) {
+  const families = {
+    'Geist': 'Geist',
+    'KaTeX_Main': 'packages/flutter_math_fork/KaTeX_Main',
+    'KaTeX_Math': 'packages/flutter_math_fork/KaTeX_Math',
+  };
+  return svg.replaceAllMapped(
+    RegExp(r'''(?<=\s)font-family\s*=\s*(["'])(.*?)\1'''),
+    (match) {
+      for (final name in match[2]!.split(',')) {
+        final family =
+            name.trim().replaceAll(RegExp(r'''^["']|["']$'''), '').trim();
+        final resolved = families[family];
+        if (resolved != null) {
+          return 'font-family=${match[1]}$resolved${match[1]}';
+        }
+      }
+      return match[0]!;
+    },
+  );
+}
+
+mixin _LessonSvgFonts<T> on SvgLoader<T> {
+  @override
+  String provideSvg(T? message) =>
+      resolveLessonSvgFonts(super.provideSvg(message));
+}
+
+class _LessonSvgBytesLoader extends SvgBytesLoader with _LessonSvgFonts<void> {
+  const _LessonSvgBytesLoader(super.bytes, {super.theme, super.colorMapper});
+}
+
+class _LessonSvgNetworkLoader extends SvgNetworkLoader
+    with _LessonSvgFonts<Uint8List> {
+  const _LessonSvgNetworkLoader(super.url, {super.theme, super.colorMapper});
+}
+
+class _LessonSvgAssetLoader extends SvgAssetLoader
+    with _LessonSvgFonts<ByteData> {
+  const _LessonSvgAssetLoader(
+    super.assetName, {
+    super.theme,
+    super.colorMapper,
+  });
+}
+
 /// Reserved authoring tokens. See docs/content/lesson-svg-authoring.md.
 @immutable
 class LessonSvgColors extends ColorMapper {
@@ -78,7 +125,7 @@ BytesLoader lessonSvgLoader(String url, PantasColors colors) {
   if (uri == null || uri.scheme == 'data') {
     // Malformed input gets empty bytes: the SVG parser rejects them and the
     // picture shows its error state. Callers normally check the URL first.
-    return SvgBytesLoader(
+    return _LessonSvgBytesLoader(
       lessonDataUrlBytes(url) ?? Uint8List(0),
       theme: theme,
       colorMapper: mapper,
@@ -86,10 +133,10 @@ BytesLoader lessonSvgLoader(String url, PantasColors colors) {
   }
   if (uri.scheme == 'https' || uri.scheme == 'http') {
     return kIsWeb
-        ? SvgNetworkLoader(url, theme: theme, colorMapper: mapper)
+        ? _LessonSvgNetworkLoader(url, theme: theme, colorMapper: mapper)
         : _CachedLessonSvgLoader(url, theme: theme, colorMapper: mapper);
   }
-  return SvgAssetLoader(
+  return _LessonSvgAssetLoader(
     url.startsWith('asset:') ? url.substring(6) : url,
     theme: theme,
     colorMapper: mapper,
@@ -109,7 +156,8 @@ class _CachedLessonSvgLoader extends SvgLoader<Uint8List> {
   }
 
   @override
-  String provideSvg(Uint8List? message) => utf8.decode(message!);
+  String provideSvg(Uint8List? message) =>
+      resolveLessonSvgFonts(utf8.decode(message!));
 
   @override
   int get hashCode => Object.hash(url, theme, colorMapper);

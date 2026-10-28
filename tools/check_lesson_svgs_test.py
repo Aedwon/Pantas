@@ -15,6 +15,13 @@ class SvgContract(unittest.TestCase):
         for file in Path('tools/svg_fixtures/pass').glob('*.svg'):
             check.validate(file)
 
+    def test_font_families(self):
+        check.validate(Path('tools/svg_fixtures/pass/fonts.svg'))
+        for name in ['font-unknown.svg', 'font-bare.svg', 'font-tspan.svg']:
+            with self.subTest(name=name):
+                with self.assertRaisesRegex(ValueError, 'unsupported font-family'):
+                    check.validate(Path('tools/svg_fixtures/fail') / name)
+
     def test_use_cycles_are_reported_with_their_path(self):
         for name, expected in [('use-cycle.svg', 'a -> b -> a'), ('use-self.svg', 'a -> a')]:
             with self.subTest(name=name):

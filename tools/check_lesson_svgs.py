@@ -31,6 +31,7 @@ SPECIAL = {
     'stop': set('id offset stop-color stop-opacity'.split()),
     'title': {'id'}, 'desc': {'id'},
 }
+FONT_FAMILIES = {'Geist, sans-serif', 'KaTeX_Main, serif', 'KaTeX_Math, serif'}
 SVG_NS = 'http://www.w3.org/2000/svg'
 # The path rule for a lesson figure, relative to content/illustrations. The seed and
 # the content upload apply the same rule.
@@ -68,6 +69,8 @@ def validate(file):
             name = raw.removeprefix('{http://www.w3.org/1999/xlink}')
             if name not in allowed:
                 raise ValueError(f'unsupported attribute {raw} on <{tag}> (CSS and event handlers are forbidden)')
+            if name == 'font-family' and value not in FONT_FAMILIES:
+                raise ValueError(f'unsupported font-family: {value!r}; allowed values: {", ".join(sorted(FONT_FAMILIES))}')
             if name == 'href' and not re.fullmatch(r'#[A-Za-z_][\w.-]*', value.strip()):
                 raise ValueError(f'external reference: {value}')
             for reference in re.findall(r'url\s*\((.*?)\)', value, re.I):
