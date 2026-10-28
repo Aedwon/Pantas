@@ -1885,3 +1885,51 @@ were not in the repository before.
   and 280 emulator pass, web release and Android debug builds pass. Not deployed.
 - Open: the Astra re-audit of the payments fixes never ran (all three Codex accounts hit their
   limits; the retry loop stopped October 27 19:45). Aedwon then paused engineering for content.
+
+## 2026-10-29 CSE figures resumed: fonts, fixes, the last eight figures
+
+Context: a new Claude content lead (Aedwon's other account) picked up the content conversation from
+its local transcript and showed Aedwon a gallery of the 86 figures (58 committed, 28 held).
+
+- Fonts. Aedwon's exact comment:
+
+  > okay firstly, the font, why is that the choice? doesn't Pantas have a font already?
+  > then also a different font (or matching what font is used in lessons) for the math things
+
+  Finding: the app uses Geist for all text and KaTeX for lesson math. The figure style rule said
+  Source Sans 3 with an Arial fallback and embedded no font, so most devices showed Arial. The lead
+  also admitted the gallery page itself used fonts it picked instead of Geist; fixed. Proposal:
+  Geist for figure text, KaTeX_Math italic variables and KaTeX_Main upright numbers and operators
+  for figure math, with true minus, ≥ and superscripts. Aedwon's exact comment:
+
+  > okay but for a few figures only not all of them. if it looks good to me only then can you mass apply
+
+  A five-figure trial page (current beside proposed) followed. Aedwon's exact comment:
+
+  > lgtm, apply and make the remaining corrections and illustrations. you're at 27% usage used so
+  > there's plenty for Sonnet
+
+  This also lifted the October 26 figure pause. Applied to all figures by the same script as the
+  trial. Three cases the trial did not cover were corrected by a follow-up pass: words such as "for"
+  upright, `2^x` as a raised exponent, single capital labels (A to E, O) in Geist.
+- Illustrations. The 59-row `docs/content/illustrations/worklist.tsv` turned out stale: science
+  lessons now use app-drawn FIGURE specs. Only 8 lesson markers lacked art (visual-media 3 to 9;
+  logic-and-reasoning marker 1, added by rewrite RW-140 after the briefs). Options offered: SVG via
+  the figure pipeline (recommended), SVG without briefs (faster, riskier), PNG via the Illustration
+  Studio. Aedwon chose "SVG, figure pipeline (Recommended)".
+- Animation. The figure style rule forbids animation, but on October 24 Aedwon asked for "svg
+  everything with animations please". Options: static for now (recommended; checker and renderer
+  lack support and app code is frozen) or add animation (engineering change). Aedwon chose
+  "Static for now (Recommended)".
+- Old visual-media pictures were numbered out of lesson order, and one was an outdated duplicate of
+  the boulder cartoon. Options: renumber and delete the old one (recommended) or renumber and archive
+  it. Aedwon chose "Renumber, delete old (Recommended)".
+- Correction: the lead first reported 9 flagged held figures; there were 12 (three review notes
+  named files without their folder).
+- Result: `content/cse-rewrite-r1` c408899c (pushed). 94 SVGs plus 2 PNGs cover all 100 lesson
+  markers. Held figures: Sonnet fix round, Codex review (6 of 12 passed), second Sonnet round on 11
+  (including 5 new visual-media figures with margin issues). New figures: Codex brief for
+  logic-and-reasoning 01, Sonnet drawing, Codex review. Checker 94/94 pass, every file parses.
+  Known minor gaps: visual-media 07 label about 4 units from tick labels, citizenship 01 pill 3
+  units from a card (rule is 6). Not yet verified in the app: the lesson SVG renderer must resolve
+  Geist and the KaTeX families (handed to the engineering lead).
