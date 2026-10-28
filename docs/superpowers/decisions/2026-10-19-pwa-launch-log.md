@@ -2011,4 +2011,5 @@ by choice text, not a `gapLesson` field in the rationale as the spec says; engin
   Deviation from the trial, decided by the lead for answer correctness: the 9 figures whose lessons
   name black and white shapes (figure series, matrices 04) stay in fixed light colors, since a
   theme swap would turn a "black circle" light in dark mode. Shown in the gallery for Aedwon's check.
-- Result: `content/cse-rewrite-r1` (pushed). Style rules rewritten. Not yet seen in the app.
+- Aedwon confirmed the deviation. Exact comment: "Keep fixed light".
+- Result: `content/cse-rewrite-r1` 1a56f521 (pushed). Style rules rewritten. Not yet seen in the app.
