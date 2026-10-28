@@ -1977,3 +1977,18 @@ check), Android and iOS builds for this change. Engineering is paused again.
   Sonnet redrew, Codex traced every connector (accuracy OK), layout fixed in one more round.
   Citizenship 01 is 627 tall, over the 560 cap (full flow does not fit at 14-unit text). Not yet
   done, waiting on Aedwon: the wider final Codex review and the Astra audit.
+
+## 2026-10-29 Roadmap R1 and R2 approved as specified
+
+Aedwon asked whether the recent roadmap change was written down; the lead pointed to the October 26
+spec and said two kickoff choices were open: complexity (spec recommends balanced) and no cap on how
+far Free users advance (spec recommends no cap). Aedwon's exact reply:
+
+> okay proceed as in the spec
+
+Decisions: R1 and R2 at balanced complexity; no cap on how far Free users advance. Engineering
+resumes for R1 and R2 only. The R2 debrief line still needs its final board approved through the
+visual companion before implementation. Payments re-audit postponed by Aedwon ("let's do this
+later"). Content inputs found on `content/cse-rewrite-r1`: `content/lesson-prerequisites.json` (90
+lessons, 64 links, 4 required) and `content/question-gap-tags.json` (80 questions; wrong choices keyed
+by choice text, not a `gapLesson` field in the rationale as the spec says; engineering reads the file).
