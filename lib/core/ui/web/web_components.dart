@@ -282,6 +282,8 @@ class WebRow extends StatelessWidget {
   const WebRow({
     required this.title,
     this.subtitle,
+    this.titleColor,
+    this.titleSuffix,
     this.value,
     this.leading,
     this.trailing,
@@ -294,6 +296,8 @@ class WebRow extends StatelessWidget {
   });
   final String title;
   final String? subtitle;
+  final Color? titleColor;
+  final Widget? titleSuffix;
   final String? value;
   final Widget? leading;
   final Widget? trailing;
@@ -354,12 +358,29 @@ class WebRow extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text(
-                              title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: t.style(17),
-                            ),
+                            if (titleSuffix == null)
+                              Text(
+                                title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: t.style(17, color: titleColor),
+                              )
+                            else
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      title,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: t.style(17, color: titleColor),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  titleSuffix!,
+                                ],
+                              ),
                             if (subtitle != null)
                               Text(
                                 subtitle!,

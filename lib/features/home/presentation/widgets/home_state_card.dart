@@ -1,7 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The situations that replace the Today checklist (D-63, D-65).
 enum HomeState { assessment, noContent, nothingDue, reviewOnly, dayOff, passed }
@@ -15,8 +20,10 @@ class HomeStateCard extends StatelessWidget {
     this.onSecondary,
     this.examDateLabel,
     this.hasExamDate = true,
+    this.web = kIsWeb,
     super.key,
   });
+  final bool web;
   final HomeState state;
   final String examName;
   final String examShortName;
@@ -67,6 +74,56 @@ class HomeStateCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
+      return CallbackShortcuts(
+        bindings: {
+          if (state == HomeState.assessment && onPrimary != null)
+            const SingleActivator(LogicalKeyboardKey.enter): onPrimary!,
+        },
+        child: Focus(
+          autofocus: state == HomeState.assessment,
+          child: WebCard(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(_title, style: context.webTokens.h3),
+                if (state != HomeState.nothingDue || hasExamDate) ...[
+                  const SizedBox(height: 6),
+                  Text(_detail, style: context.webTokens.sub),
+                ],
+                if (onPrimary != null && _action != null ||
+                    state == HomeState.passed && onSecondary != null) ...[
+                  const SizedBox(height: 18),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      if (onPrimary != null && _action != null)
+                        WebButton(
+                          label: _action!,
+                          keyHint:
+                              state == HomeState.assessment ? 'Enter' : null,
+                          onPressed: onPrimary,
+                          variant: state == HomeState.assessment
+                              ? WebButtonVariant.primary
+                              : WebButtonVariant.secondary,
+                        ),
+                      if (state == HomeState.passed && onSecondary != null)
+                        WebButton(
+                          label: 'Switch Exams',
+                          onPressed: onSecondary,
+                          variant: WebButtonVariant.white,
+                        ),
+                    ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     final detail = Text(
       _detail,
       style: context.type.subhead.copyWith(

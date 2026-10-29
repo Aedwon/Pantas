@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/home_today.dart';
@@ -24,6 +25,7 @@ import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 import 'package:pantas/features/home/presentation/widgets/home_notice_strip.dart';
 import 'package:pantas/features/home/presentation/widgets/home_performance_section.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class HomeTab extends ConsumerWidget {
@@ -136,6 +138,28 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
     // local result row. Its authoritative Today state owns this choice.
     final page =
         ref.watch(studyUsesServerProvider) ? todayScreen() : nativeHome();
+    if (context.wideWeb) {
+      return HomeWebOverlay(
+        page: page,
+        label: 'Exam date',
+        dialogWidth: _dateSheet == HomeNoticeKind.monthOnly ? 440 : 560,
+        open: _dateSheet != null,
+        onDismiss: _closeDate,
+        child: SingleChildScrollView(
+          child: HomeExamDateSheet(
+            today: now,
+            initial: _dateSheet == HomeNoticeKind.monthOnly
+                ? settings?.examDate
+                : null,
+            requireDay: _dateSheet == HomeNoticeKind.monthOnly,
+            saving: _saving,
+            failed: _failed,
+            onCancel: _closeDate,
+            onSave: (date) => unawaited(_saveDate(date)),
+          ),
+        ),
+      );
+    }
     return PantasSheet(
       page: page,
       label: 'Exam date',
@@ -172,6 +196,38 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
     final showPerformance = view != null &&
         view.kind != HomeTodayKind.noContent &&
         view.kind != HomeTodayKind.assessment;
+    if (context.wideWeb) {
+      return HomeWebLayout(
+        header: HomeMasthead(
+          examId: widget.examId,
+          now: now,
+          dayNote: data == null ? null : homeDayNoteLabel(data),
+          greeting: data?.extras.note == HomeDayNote.welcomeBack
+              ? 'Welcome back'
+              : null,
+        ),
+        today: today,
+        notice: !notices ||
+                view?.kind == HomeTodayKind.noContent ||
+                view?.kind == HomeTodayKind.assessment
+            ? null
+            : HomeNoticeStrip(
+                onDate: _openDate,
+                onRoute: (route) => unawaited(context.push<void>(route)),
+              ),
+        performance: showPerformance
+            ? const HomePerformanceSection()
+            : data == null
+                ? const HomeWebLoading(performance: true)
+                : null,
+        onRecord: showPerformance
+            ? () => unawaited(context.push<void>('/record'))
+            : null,
+        onTendencies: showPerformance
+            ? () => unawaited(context.push<void>('/tendencies'))
+            : null,
+      );
+    }
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 104),
       children: [

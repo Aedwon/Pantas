@@ -16,6 +16,8 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -28,9 +30,18 @@ import 'package:pantas/features/home/presentation/practice_launcher.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_day.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:uuid/uuid.dart';
+
+String? homeDayNoteLabel(HomeTodayData data) => switch (data.extras.note) {
+      HomeDayNote.carried => 'Unfinished items are added to today.',
+      HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
+      HomeDayNote.mockMoved =>
+        'Your ${data.examShortName} simulation moved to today.',
+      null => null,
+    };
 
 /// Owns one Home request, including its retries and every asynchronous launch.
 /// Closing the page invalidates the original captured account/exam boundary.
@@ -236,8 +247,26 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         final today = data == null
             ? snapshot.hasError
                 ? errorFor('plan', _retry, error: snapshot.error)
-                : loadingFor(const AsyncLoading<HomeTodayData>())
+                : context.wideWeb
+                    ? const HomeWebLoading(more: true)
+                    : loadingFor(const AsyncLoading<HomeTodayData>())
             : _checklist(data);
+        if (context.wideWeb) {
+          return HomeWebOverlay(
+            page: widget.pageBuilder(today, data),
+            label: _sheet == 'lessons'
+                ? 'Lessons'
+                : _sheet == 'lesson'
+                    ? _lesson?.title ?? 'Lesson'
+                    : _sheet == 'reviews'
+                        ? 'Reviews'
+                        : 'New questions',
+            open: _sheet != null && data != null,
+            drawer: true,
+            onDismiss: _dismiss,
+            child: data == null ? const SizedBox.shrink() : _contents(data),
+          );
+        }
         return PantasSheet(
           page: widget.pageBuilder(today, data),
           label: _sheet == 'lessons'
@@ -299,14 +328,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     }
   }
 
-  String? _noteText(HomeTodayData data) => switch (data.extras.note) {
-        HomeDayNote.carried => 'Unfinished items are added to today.',
-        HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
-        HomeDayNote.mockMoved =>
-          'Your ${data.examShortName} simulation moved to today.',
-        null => null,
-      };
-
   Widget _checklist(HomeTodayData data) {
     final snapshot = data.today.snapshot;
     final view = homeTodayViewFor(
@@ -316,7 +337,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       canAdvance: data.canAdvance,
       examDate: snapshot.digest.examDate,
     );
-    final note = _noteText(data);
+    final note = homeDayNoteLabel(data);
     final body = switch (view.kind) {
       HomeTodayKind.checklist => _list(data, view),
       HomeTodayKind.examDay => HomeExamDay(
@@ -349,7 +370,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (note != null) ...[
+        if (note != null && !context.wideWeb) ...[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: Text(
@@ -442,19 +463,33 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
-  Widget _lessonRow(HomeTodayData data, HomeTodayLesson lesson) => ListRow(
-        title: lesson.title,
-        value: lesson.read ? null : '${lesson.minutes} min',
-        variant: ListRowVariant.value,
-        contentPadding: const EdgeInsets.symmetric(vertical: 9),
-        minimumHeight: 0,
-        titleColor: lesson.read ? context.colors.secondaryLabel : null,
-        leading: lesson.read
-            ? const CheckMark()
-            : ProgressRing(fraction: lesson.fraction ?? 0),
-        onTap: () => unawaited(_openLesson(data, lesson)),
-      );
+  Widget _lessonRow(HomeTodayData data, HomeTodayLesson lesson) =>
+      context.wideWeb
+          ? WebRow(
+              title: lesson.title,
+              titleColor: lesson.read ? context.colors.secondaryLabel : null,
+              value: lesson.read ? null : '${lesson.minutes} min',
+              leading: lesson.read
+                  ? const CheckMark()
+                  : ProgressRing(fraction: lesson.fraction ?? 0),
+              compact: true,
+              onPressed: () => unawaited(_openLesson(data, lesson)),
+            )
+          : ListRow(
+              title: lesson.title,
+              value: lesson.read ? null : '${lesson.minutes} min',
+              variant: ListRowVariant.value,
+              contentPadding: const EdgeInsets.symmetric(vertical: 9),
+              minimumHeight: 0,
+              titleColor: lesson.read ? context.colors.secondaryLabel : null,
+              leading: lesson.read
+                  ? const CheckMark()
+                  : ProgressRing(fraction: lesson.fraction ?? 0),
+              onTap: () => unawaited(_openLesson(data, lesson)),
+            );
   Widget _contents(HomeTodayData data) {
+    final sheet =
+        context.wideWeb ? HomeWebQuestionsSheet.new : TodayQuestionsSheet.new;
     final work = data.questionWork;
     final reviews = _sheet == 'reviews';
     final lessons = _sheet == 'lesson' || _sheet == 'lessons';
@@ -463,31 +498,59 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         : data.lessons.firstWhereOrNull((l) => !l.read);
     if (lessons) {
       final shown = _sheet == 'lesson' ? [_lesson!] : data.lessons;
-      return TodayQuestionsSheet(
+      return sheet(
         title: _sheet == 'lesson' ? _lesson!.title : 'Lessons',
         done: data.lessons.where((l) => l.read).length,
         total: data.lessons.length,
-        rows: [
-          for (final group
-              in groupBy(shown, (lesson) => lesson.subject).entries) ...[
-            if (_sheet == 'lessons')
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 2),
-                  child: Text(
-                    group.key.toUpperCase(),
-                    style: context.type.sectionHeader.copyWith(
-                      fontSize: 12,
-                      letterSpacing: .48,
-                      color: context.colors.secondaryLabel,
+        rows: context.wideWeb && _sheet == 'lessons'
+            ? [
+                for (final group
+                    in groupBy(shown, (lesson) => lesson.subject).entries)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8, bottom: 9),
+                          child: WebText(
+                            group.key,
+                            kind: WebTextKind.eyebrow,
+                          ),
+                        ),
+                        WebCard(
+                          child: Column(
+                            children: [
+                              for (final lesson in group.value)
+                                _lessonRow(data, lesson),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
-              ),
-            for (final lesson in group.value) _lessonRow(data, lesson),
-          ],
-        ],
+              ]
+            : [
+                for (final group
+                    in groupBy(shown, (lesson) => lesson.subject).entries) ...[
+                  if (_sheet == 'lessons')
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12, bottom: 2),
+                        child: Text(
+                          group.key.toUpperCase(),
+                          style: context.type.sectionHeader.copyWith(
+                            fontSize: 12,
+                            letterSpacing: .48,
+                            color: context.colors.secondaryLabel,
+                          ),
+                        ),
+                      ),
+                    ),
+                  for (final lesson in group.value) _lessonRow(data, lesson),
+                ],
+              ],
         startLabel: _sheet == 'lesson'
             ? (next?.fraction ?? 0) > 0
                 ? 'Resume Lesson'
@@ -497,7 +560,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       );
     }
     if (work == null) return const SizedBox.shrink();
-    return TodayQuestionsSheet(
+    return sheet(
       title: reviews ? 'Reviews' : 'New questions',
       done: reviews ? work.reviewsDone : work.newDone,
       total: reviews ? work.reviewsTotal : work.newTotal,
@@ -547,16 +610,25 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
-  Widget _questionRow(String title, int done, int total) => ListRow(
-        title: title,
-        value: '$total',
-        variant: ListRowVariant.value,
-        leading: done == total
-            ? const CheckMark()
-            : ProgressRing(fraction: total == 0 ? 0 : done / total),
-        contentPadding: const EdgeInsets.symmetric(vertical: 9),
-        minimumHeight: 0,
-        valueStyle:
-            context.type.subhead.copyWith(color: context.colors.secondaryLabel),
-      );
+  Widget _questionRow(String title, int done, int total) => context.wideWeb
+      ? WebRow(
+          title: title,
+          value: '$total',
+          compact: true,
+          leading: done == total
+              ? const CheckMark()
+              : ProgressRing(fraction: total == 0 ? 0 : done / total),
+        )
+      : ListRow(
+          title: title,
+          value: '$total',
+          variant: ListRowVariant.value,
+          leading: done == total
+              ? const CheckMark()
+              : ProgressRing(fraction: total == 0 ? 0 : done / total),
+          contentPadding: const EdgeInsets.symmetric(vertical: 9),
+          minimumHeight: 0,
+          valueStyle: context.type.subhead
+              .copyWith(color: context.colors.secondaryLabel),
+        );
 }

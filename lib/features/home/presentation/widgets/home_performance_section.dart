@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/presentation/widgets/home_performance_card.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 
 /// YOUR PERFORMANCE on Home. No answers or no read means no card, with
 /// nothing explaining why (D-110).
@@ -24,7 +26,11 @@ class HomePerformanceSection extends ConsumerWidget {
       );
     }
     final view = state.unwrapPrevious().asData?.value;
-    if (view == null) return const SizedBox.shrink();
+    if (view == null) {
+      return context.wideWeb
+          ? const HomeWebLoading(performance: true)
+          : const SizedBox.shrink();
+    }
     final pro = ref.watch(currentStudyCoverageProvider);
     return HomePerformanceCard(
       rows: view.subjects,

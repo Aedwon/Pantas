@@ -10,7 +10,9 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
+import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
@@ -174,6 +176,42 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
     final notice = ref.watch(homeNoticeProvider).valueOrNull;
     if (notice == null) {
       return const SizedBox.shrink();
+    }
+    if (context.wideWeb) {
+      return HomeWebNotice(
+        title: notice.title,
+        icon: switch (notice.kind) {
+          HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.welcome => PantasIcons.pro,
+          HomeNoticeKind.service =>
+            const IconData(0xe2ce, fontFamily: 'Phosphor'),
+          HomeNoticeKind.noDate ||
+          HomeNoticeKind.monthOnly =>
+            PantasIcons.addDate,
+        },
+        iconColor: notice.kind == HomeNoticeKind.welcome
+            ? context.colors.accent
+            : null,
+        detail: notice.detail,
+        expanded: _expanded,
+        onToggle: notice.detail == null
+            ? null
+            : () => setState(() => _expanded = !_expanded),
+        onClose: () => unawaited(_dismiss(notice)),
+        primaryLabel: notice.kind == HomeNoticeKind.monthOnly
+            ? (_pickedDay == null ? 'Pick the Day' : 'Save')
+            : notice.primaryLabel,
+        editor: notice.kind == HomeNoticeKind.monthOnly ? _days(notice) : null,
+        onPrimary: notice.kind == HomeNoticeKind.monthOnly
+            ? _saving
+                ? null
+                : _pickedDay == null
+                    ? () => widget.onDate(notice.kind)
+                    : () => unawaited(_saveDay())
+            : () => _primary(notice),
+        secondaryLabel: notice.secondaryLabel,
+        onSecondary: () => unawaited(_dismiss(notice)),
+      );
     }
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
