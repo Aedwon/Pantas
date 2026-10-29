@@ -11,6 +11,7 @@ class MockHourglass extends StatelessWidget {
     required this.remainingFraction,
     required this.sandColor,
     required this.outlineColor,
+    this.size = const Size(width, height),
     this.streamOffset = 0,
     this.streamOpacity = 0,
     super.key,
@@ -20,6 +21,7 @@ class MockHourglass extends StatelessWidget {
   final double remainingFraction;
   final Color sandColor;
   final Color outlineColor;
+  final Size size;
 
   /// The board's stroke-dashoffset for the falling grains.
   final double streamOffset;
@@ -31,7 +33,7 @@ class MockHourglass extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CustomPaint(
         key: const ValueKey('pause-hourglass'),
-        size: const Size(width, height),
+        size: size,
         painter: HourglassPainter(
           remainingFraction: remainingFraction,
           sandColor: sandColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -13,6 +14,10 @@ import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_question.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_review_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
@@ -78,36 +83,83 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
         ? filtered[index]
         : null;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_viewerIndex == null ? 'Results' : 'All questions'),
-        actions: [
-          if (viewed != null && savedFlags.hasValue)
-            IconButton(
-              tooltip: savedFlags.requireValue.contains(viewed.question.id)
-                  ? 'Unflag question'
-                  : 'Flag question',
-              icon: Icon(
-                PantasIcons.flag,
-                size: 21,
-                color: savedFlags.requireValue.contains(viewed.question.id)
-                    ? context.colors.accent
-                    : context.colors.secondaryLabel,
+    void back() {
+      if (_viewerIndex == null) {
+        Navigator.maybePop(context);
+      } else {
+        setState(() {
+          _viewerIndex = null;
+          _noteOpen = false;
+        });
+      }
+    }
+
+    final wide = context.wideWeb;
+    final page = Scaffold(
+      appBar: wide
+          ? PreferredSize(
+              preferredSize: const Size.fromHeight(64),
+              child: WebTopBar(
+                leading: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextButton.icon(
+                      onPressed: back,
+                      icon: const Icon(Icons.chevron_left),
+                      label: Text(
+                        _viewerIndex == null ? 'Results' : 'All questions',
+                      ),
+                    ),
+                    const WebKeyHint('Esc'),
+                  ],
+                ),
+                trailing: viewed == null
+                    ? null
+                    : WebButton(
+                        label: savedFlags.valueOrNull
+                                    ?.contains(viewed.question.id) ??
+                                false
+                            ? 'Flagged'
+                            : 'Flag',
+                        keyHint: 'F',
+                        variant: WebButtonVariant.tertiary,
+                        onPressed: savedFlags.hasValue
+                            ? () => _toggleFlag(viewed.question.id)
+                            : null,
+                      ),
               ),
-              onPressed: () => _toggleFlag(viewed.question.id),
+            )
+          : AppBar(
+              title: Text(_viewerIndex == null ? 'Results' : 'All questions'),
+              actions: [
+                if (viewed != null && savedFlags.hasValue)
+                  IconButton(
+                    tooltip:
+                        savedFlags.requireValue.contains(viewed.question.id)
+                            ? 'Unflag question'
+                            : 'Flag question',
+                    icon: Icon(
+                      PantasIcons.flag,
+                      size: 21,
+                      color:
+                          savedFlags.requireValue.contains(viewed.question.id)
+                              ? context.colors.accent
+                              : context.colors.secondaryLabel,
+                    ),
+                    onPressed: () => _toggleFlag(viewed.question.id),
+                  ),
+              ],
+              leading: _viewerIndex == null
+                  ? null
+                  : IconButton(
+                      icon: Icon(PantasIcons.back),
+                      tooltip: 'Back to questions',
+                      onPressed: () => setState(() {
+                        _viewerIndex = null;
+                        _noteOpen = false;
+                      }),
+                    ),
             ),
-        ],
-        leading: _viewerIndex == null
-            ? null
-            : IconButton(
-                icon: Icon(PantasIcons.back),
-                tooltip: 'Back to questions',
-                onPressed: () => setState(() {
-                  _viewerIndex = null;
-                  _noteOpen = false;
-                }),
-              ),
-      ),
       body: reviewAsync.when(
         skipLoadingOnRefresh: false,
         skipLoadingOnReload: false,
@@ -130,13 +182,13 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
               onPrevious: viewerIndex > 0
                   ? () => setState(() {
                         _viewerIndex = viewerIndex - 1;
-                        _noteOpen = false;
+                        _noteOpen = wide && widget.proIsActive;
                       })
                   : null,
               onNext: viewerIndex + 1 < filtered.length
                   ? () => setState(() {
                         _viewerIndex = viewerIndex + 1;
-                        _noteOpen = false;
+                        _noteOpen = wide && widget.proIsActive;
                       })
                   : null,
               onBlankReason: (reason, note) => _saveBlankReason(
@@ -165,13 +217,13 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
             onFilter: (filter) => setState(() {
               _filter = filter;
               _viewerIndex = null;
-              _noteOpen = false;
+              _noteOpen = wide && widget.proIsActive;
             }),
             onOpen: (entry) {
               final shown = FilterReviewEntries.call(entries, _filter);
               setState(() {
                 _viewerIndex = shown.indexOf(entry);
-                _noteOpen = false;
+                _noteOpen = wide && widget.proIsActive;
               });
             },
             onFinishNotes: () {
@@ -200,6 +252,16 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           error: err,
         ),
       ),
+    );
+    if (!wide) return page;
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.escape): back,
+        if (viewed != null && savedFlags.hasValue)
+          const SingleActivator(LogicalKeyboardKey.keyF): () =>
+              _toggleFlag(viewed.question.id),
+      },
+      child: Focus(autofocus: true, child: page),
     );
   }
 
@@ -350,6 +412,153 @@ class _ReviewListBody extends StatelessWidget {
 
     for (final entry in filtered) {
       groups.putIfAbsent(entry.subjectName, () => []).add(entry);
+    }
+
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      return SingleChildScrollView(
+        key: const ValueKey('web-mock-review'),
+        padding: const EdgeInsets.fromLTRB(40, 24, 40, 56),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 760),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('All questions', style: t.h1),
+                const SizedBox(height: 24),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: SizedBox(
+                    width: 460,
+                    child: WebSegmentedControl(
+                      labels: [
+                        'All ${counts.all}',
+                        'Wrong ${counts.wrong}',
+                        'Flagged ${counts.flagged}',
+                      ],
+                      selected: ReviewFilter.values.indexOf(filter),
+                      onChanged: (index) =>
+                          onFilter(ReviewFilter.values[index]),
+                    ),
+                  ),
+                ),
+                if (proIsActive && filter == ReviewFilter.wrong) ...[
+                  const SizedBox(height: 20),
+                  WebCard(
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Tell Pantas why you got each one wrong. The '
+                            'better your notes, the more every review '
+                            'helps.',
+                            style: t.sub,
+                          ),
+                        ),
+                        const SizedBox(width: 24),
+                        WebButton(
+                          label: 'Finish the Notes',
+                          variant: WebButtonVariant.secondary,
+                          onPressed: onFinishNotes,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                if (showFlagOffer) ...[
+                  const SizedBox(height: 20),
+                  WebCard(
+                    padding: const EdgeInsets.all(20),
+                    child: Wrap(
+                      spacing: 16,
+                      runSpacing: 16,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text(
+                          'You flagged $markedCount questions while the '
+                          'clock was running. Do you want to save them?',
+                          style: t.sub,
+                        ),
+                        WebButton(
+                          label: 'No Thanks',
+                          variant: WebButtonVariant.tertiary,
+                          onPressed: onDismissFlags,
+                        ),
+                        WebButton(
+                          label: 'Save All $markedCount',
+                          onPressed: onKeepFlags,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 24),
+                for (final group in groups.entries) ...[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            group.key,
+                            style: t.style(
+                              17,
+                              weight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        Text(groupLabel(group.value), style: t.sub),
+                      ],
+                    ),
+                  ),
+                  WebCard(
+                    child: Column(
+                      children: [
+                        for (final entry in group.value)
+                          WebRow(
+                            title: entry.label,
+                            subtitle: entry.isAnswered ? null : 'Left blank',
+                            titleStyle: t.style(16),
+                            leading: Container(
+                              width: filter == ReviewFilter.wrong ? 34 : 30,
+                              height: filter == ReviewFilter.wrong ? null : 30,
+                              alignment: filter == ReviewFilter.wrong
+                                  ? Alignment.centerLeft
+                                  : Alignment.center,
+                              decoration: filter == ReviewFilter.wrong
+                                  ? null
+                                  : BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: entry.isCorrect
+                                          ? t.colors.accentTint
+                                          : t.colors.wrongTint,
+                                    ),
+                              child: Text(
+                                '${entry.number}',
+                                style: t.style(
+                                  filter == ReviewFilter.wrong ? 15 : 12,
+                                  weight: FontWeight.w600,
+                                  color: entry.isCorrect
+                                      ? t.colors.accent
+                                      : t.colors.wrongText,
+                                ),
+                              ),
+                            ),
+                            onPressed: () => onOpen(entry),
+                            divider: entry != group.value.last,
+                          ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                ],
+              ],
+            ),
+          ),
+        ),
+      );
     }
 
     return SingleChildScrollView(
@@ -629,6 +838,88 @@ class _QuestionViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final entry = entries[index];
+    if (context.wideWeb) {
+      return CallbackShortcuts(
+        bindings: {
+          if (onPrevious != null)
+            const SingleActivator(LogicalKeyboardKey.arrowLeft): onPrevious!,
+          if (onNext != null)
+            const SingleActivator(LogicalKeyboardKey.arrowRight): onNext!,
+        },
+        child: Focus(
+          autofocus: true,
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(40, 32, 40, 140),
+                child: WebQuizQuestion(
+                  question: entry.question,
+                  subject: entry.subjectName,
+                  passage: entry.passage,
+                  chosenId: entry.chosenChoiceId,
+                  checked: true,
+                  pro: proIsActive,
+                  notes: noteOpen && proIsActive && !entry.isCorrect
+                      ? _ReasonPanel(
+                          key: ValueKey(entry.question.id),
+                          savedAnswer: savedAnswer,
+                          isBlank: !entry.isAnswered,
+                          onBlankReason: onBlankReason,
+                          onMissReason: onMissReason,
+                          onCancel: onNote,
+                        )
+                      : proIsActive && !entry.isCorrect
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: IconButton(
+                                onPressed: onNote,
+                                icon: Icon(PantasIcons.addNote),
+                                tooltip: 'Add note',
+                              ),
+                            )
+                          : null,
+                ),
+              ),
+              Positioned(
+                left: 24,
+                right: 24,
+                bottom: 28,
+                child: Center(
+                  child: WebBottomBar(
+                    compact: true,
+                    state:
+                        entry.isCorrect ? WebBarState.right : WebBarState.wrong,
+                    counter: '${index + 1} of ${entries.length}',
+                    leading: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          tooltip: 'Previous question',
+                          onPressed: onPrevious,
+                          icon: const Icon(Icons.chevron_left),
+                        ),
+                        const WebKeyHint('←'),
+                      ],
+                    ),
+                    action: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const WebKeyHint('→'),
+                        IconButton(
+                          tooltip: 'Next question',
+                          onPressed: onNext,
+                          icon: const Icon(Icons.chevron_right),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       child: Column(
@@ -728,7 +1019,9 @@ class _ReasonPanel extends StatefulWidget {
     required this.onMissReason,
     super.key,
     this.savedAnswer,
+    this.onCancel,
   });
+  final VoidCallback? onCancel;
   final bool isBlank;
   final MockAnswer? savedAnswer;
   final Future<void> Function(BlankReason reason, String? note) onBlankReason;
@@ -739,8 +1032,10 @@ class _ReasonPanel extends StatefulWidget {
 }
 
 class _ReasonPanelState extends State<_ReasonPanel> {
+  final _shortcutFocus = FocusNode();
   late final TextEditingController _controller;
   late bool _typing;
+  int? _selected;
   bool _saving = false;
   Future<void> Function()? _retry;
 
@@ -766,16 +1061,46 @@ class _ReasonPanelState extends State<_ReasonPanel> {
         TextEditingController(text: widget.savedAnswer?.reasonNote ?? '');
     _typing = widget.savedAnswer?.blankReason == BlankReason.other ||
         widget.savedAnswer?.missReason == MissReason.other;
+    final saved = widget.savedAnswer;
+    if (saved != null) {
+      _selected = widget.isBlank
+          ? switch (saved.blankReason) {
+              BlankReason.ranOutOfTime => 0,
+              BlankReason.skippedToReturn => 1,
+              BlankReason.didNotKnow => 2,
+              BlankReason.other => 3,
+              null => null
+            }
+          : switch (saved.missReason) {
+              MissReason.misread => 0,
+              MissReason.slipped => 1,
+              MissReason.unknown => 2,
+              MissReason.other => 3,
+              null => null
+            };
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (context.wideWeb) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _shortcutFocus.requestFocus();
+      });
+    }
   }
 
   @override
   void dispose() {
+    _shortcutFocus.dispose();
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) return _wide(context);
     final title =
         widget.isBlank ? 'Why did you leave it blank?' : 'Why did you miss it?';
     return Container(
@@ -861,6 +1186,159 @@ class _ReasonPanelState extends State<_ReasonPanel> {
             ),
           ],
         ],
+      ),
+    );
+  }
+
+  Widget _wide(BuildContext context) {
+    final t = context.webTokens;
+    final labels = widget.isBlank
+        ? [
+            'I ran out of time',
+            'I skipped it to come back later',
+            "I didn't know it",
+            'Type my own',
+          ]
+        : [
+            'I misread it',
+            'I knew it, I just slipped',
+            "I didn't know it",
+            'Type my own',
+          ];
+    void choose(int index) {
+      if (!_saving) {
+        setState(() {
+          _selected = index;
+          _typing = index == 3;
+        });
+      }
+    }
+
+    void commit() {
+      final selected = _selected;
+      if (selected == null || _saving) return;
+      final note = _typing ? _controller.text.trim() : null;
+      if (_typing && note!.isEmpty) return;
+      if (widget.isBlank) {
+        const reasons = [
+          BlankReason.ranOutOfTime,
+          BlankReason.skippedToReturn,
+          BlankReason.didNotKnow,
+          BlankReason.other,
+        ];
+        _save(() => widget.onBlankReason(reasons[selected], note));
+      } else {
+        const reasons = [
+          MissReason.misread,
+          MissReason.slipped,
+          MissReason.unknown,
+          MissReason.other,
+        ];
+        _save(() => widget.onMissReason(reasons[selected], note));
+      }
+    }
+
+    return CallbackShortcuts(
+      bindings: {
+        for (final (i, key) in [
+          LogicalKeyboardKey.digit1,
+          LogicalKeyboardKey.digit2,
+          LogicalKeyboardKey.digit3,
+          LogicalKeyboardKey.digit4,
+        ].indexed)
+          SingleActivator(key): () {
+            if (FocusManager.instance.primaryFocus?.context?.widget
+                is EditableText) {
+              return;
+            }
+            choose(i);
+          },
+      },
+      child: Focus(
+        focusNode: _shortcutFocus,
+        autofocus: true,
+        child: WebCard(
+          radius: 20,
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                widget.isBlank
+                    ? 'Why did you leave it blank?'
+                    : 'Why did you miss it?',
+                style: t.style(17, weight: FontWeight.w600),
+              ),
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final (i, label) in labels.indexed)
+                    TextButton(
+                      onPressed: _saving ? null : () => choose(i),
+                      style: TextButton.styleFrom(
+                        backgroundColor: _selected == i
+                            ? t.colors.accentTint
+                            : t.colors.fill,
+                        foregroundColor:
+                            _selected == i ? t.tintText : t.colors.label,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 10,
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          WebKeyHint('${i + 1}'),
+                          const SizedBox(width: 8),
+                          Flexible(
+                            child: Text(label, style: t.style(14)),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+              if (_typing) ...[
+                const SizedBox(height: 14),
+                TextField(
+                  controller: _controller,
+                  maxLines: 3,
+                  onChanged: (_) => setState(() {}),
+                  decoration: const InputDecoration(
+                    hintText: 'In your own words',
+                  ),
+                ),
+              ],
+              if (_retry != null) saveFailureLine(() => _save(_retry!)),
+              const SizedBox(height: 14),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  WebButton(
+                    label: 'Not Now',
+                    variant: WebButtonVariant.tertiary,
+                    onPressed: _saving ? null : widget.onCancel,
+                  ),
+                  const SizedBox(width: 8),
+                  WebButton(
+                    label: 'Add Note',
+                    busy: _saving,
+                    onPressed: _selected == null ||
+                            (_typing && _controller.text.trim().isEmpty)
+                        ? null
+                        : commit,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

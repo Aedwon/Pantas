@@ -376,6 +376,11 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     );
     return MockSessionPage(
       state: state,
+      examTitle: switch (paper.examId) {
+        'exam_cse_pro' => 'CSE Professional simulation',
+        'exam_cse_sub' => 'CSE Subprofessional simulation',
+        _ => 'Mock exam',
+      },
       remainingInPart: session.remaining,
       partLength: paper.limit,
       partPosition: session.cursor + 1,

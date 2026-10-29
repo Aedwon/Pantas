@@ -2,12 +2,17 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 
 /// MK_PauseA and the pause half of MK_PauseFlow.
 ///
@@ -86,7 +91,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final still = MediaQuery.disableAnimationsOf(context);
+    final still = context.wideWeb || MediaQuery.disableAnimationsOf(context);
     if (still == _still) return;
     final first = _still == null;
     _still = still;
@@ -125,7 +130,8 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
       showDialog<void>(
         context: context,
         barrierColor: context.colors.shadow.withValues(alpha: .34),
-        builder: (dialogContext) => CenteredDialog(
+        builder: (dialogContext) =>
+            (context.wideWeb ? webMockConfirmation : CenteredDialog.new)(
           title: 'Discard this mock?',
           message: "Your $n $answers deleted, and this attempt won't appear "
               "in your record. It also doesn't use up a mock attempt.",
@@ -209,8 +215,142 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         '${secs.toString().padLeft(2, '0')}';
   }
 
+  Widget _wide(BuildContext context) {
+    final t = context.webTokens;
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.enter): widget.onResume,
+        const SingleActivator(LogicalKeyboardKey.keyP): widget.onResume,
+      },
+      child: Focus(
+        autofocus: true,
+        child: PopScope(
+          canPop: false,
+          child: Scaffold(
+            body: Center(
+              child: SingleChildScrollView(
+                key: const ValueKey('web-mock-paused'),
+                padding: const EdgeInsets.all(40),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        MockHourglass(
+                          size: const Size(152, 200),
+                          sandColor: t.colors.accent,
+                          outlineColor: t.colors.label,
+                          remainingFraction:
+                              widget.partLength.inMilliseconds <= 0
+                                  ? 0
+                                  : widget.remaining.inMilliseconds /
+                                      widget.partLength.inMilliseconds,
+                        ),
+                        const SizedBox(height: 22),
+                        Text('Paused', style: t.h1),
+                        const SizedBox(height: 2),
+                        Text(
+                          _clock(),
+                          style: t.style(30, weight: FontWeight.w700),
+                        ),
+                        Text(
+                          widget.partNames.length > 1
+                              ? 'left in this part'
+                              : 'left',
+                          style: t.sub,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 72),
+                    SizedBox(
+                      width: 420,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          if (widget.partNames.length > 1) ...[
+                            WebCard(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 22,
+                              ),
+                              child: Column(
+                                children: [
+                                  for (final (i, name)
+                                      in widget.partNames.indexed) ...[
+                                    if (i > 0) const SizedBox(height: 16),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          i < widget.currentPartIndex
+                                              ? Icons.check_circle
+                                              : Icons.circle_outlined,
+                                          size: 26,
+                                          color: i == widget.currentPartIndex
+                                              ? t.colors.label
+                                              : t.colors.tertiaryLabel,
+                                        ),
+                                        const SizedBox(width: 12),
+                                        Expanded(
+                                          child: Text(
+                                            'Part ${i + 1} · $name',
+                                            style: t.style(
+                                              17,
+                                              weight:
+                                                  i == widget.currentPartIndex
+                                                      ? FontWeight.w600
+                                                      : FontWeight.w400,
+                                              color:
+                                                  i == widget.currentPartIndex
+                                                      ? t.colors.label
+                                                      : t.colors.secondaryLabel,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                          ],
+                          Wrap(
+                            alignment: WrapAlignment.end,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            spacing: 12,
+                            runSpacing: 12,
+                            children: [
+                              WebButton(
+                                label: 'Discard This Mock',
+                                variant: WebButtonVariant.tertiary,
+                                onPressed: _confirmDiscard,
+                              ),
+                              WebButton(
+                                label: 'Resume',
+                                large: true,
+                                keyHint: 'Enter',
+                                onPressed: widget.onResume,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) return _wide(context);
     final c = context.colors;
     final fraction = widget.partLength.inMilliseconds <= 0
         ? 0.0

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
@@ -8,6 +9,9 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_motion.dart';
 
@@ -69,6 +73,7 @@ class MockResultsPage extends StatelessWidget {
     final caption = examId == 'exam_upcat'
         ? '${results.scoreRaw} correct, minus $deductionLabel wrong'
         : '${results.scoreRaw} of ${results.scoreTotal} correct answers';
+    if (context.wideWeb) return _wide(context, caption);
     final body = Scaffold(
       backgroundColor: context.colors.background,
       bottomNavigationBar: fromRecord
@@ -240,6 +245,259 @@ class MockResultsPage extends StatelessWidget {
         : body;
   }
 
+  Widget _wide(BuildContext context, String caption) {
+    final t = context.webTokens;
+    final until =
+        reviewUntil == null ? null : PantasDates.withWeekday(reviewUntil!);
+    final total = results.scoreTotal;
+    return CallbackShortcuts(
+      bindings: {
+        if (onDone != null)
+          const SingleActivator(LogicalKeyboardKey.enter): onDone!,
+        if (onDone != null)
+          const SingleActivator(LogicalKeyboardKey.escape): onDone!,
+      },
+      child: Focus(
+        autofocus: true,
+        child: Scaffold(
+          body: Column(
+            children: [
+              WebTopBar(
+                leading: fromRecord
+                    ? TextButton.icon(
+                        onPressed: onDone,
+                        icon: const Icon(Icons.chevron_left),
+                        label: const Text('Your record'),
+                      )
+                    : IconButton(
+                        tooltip: 'Close',
+                        onPressed: onDone,
+                        icon: const Icon(Icons.close, size: 22),
+                      ),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(40, 16, 40, 56),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 1040),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Wrap(
+                                      spacing: 12,
+                                      crossAxisAlignment:
+                                          WrapCrossAlignment.center,
+                                      children: [
+                                        Text(
+                                          blueprintName,
+                                          style: t.style(
+                                            34,
+                                            weight: FontWeight.w700,
+                                            height: 1.15,
+                                            spacing: -.748,
+                                          ),
+                                        ),
+                                        if (forfeited)
+                                          Text(
+                                            'Not finished',
+                                            style: t.sm,
+                                          ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      dateFormatted,
+                                      style: t.style(
+                                        17,
+                                        color: t.colors.secondaryLabel,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              if (!fromRecord)
+                                WebButton(
+                                  label: 'Done',
+                                  large: true,
+                                  keyHint: 'Enter',
+                                  onPressed: onDone,
+                                ),
+                            ],
+                          ),
+                          const SizedBox(height: 28),
+                          WebCard(
+                            key: const ValueKey('web-mock-score'),
+                            radius: 20,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 10,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      24,
+                                      36,
+                                      24,
+                                      30,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        MediaQuery(
+                                          data: MediaQuery.of(
+                                            context,
+                                          ).copyWith(
+                                            disableAnimations: true,
+                                          ),
+                                          child: HalfRingGauge.mock(
+                                            web: true,
+                                            fraction: results.percent / 100,
+                                            label: caption,
+                                          ),
+                                        ),
+                                        if (forfeited && forfeitedPart != null)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              top: 20,
+                                            ),
+                                            child: Text(
+                                              'With strict mode enabled, '
+                                              'you left the app '
+                                              'during Part $forfeitedPart, '
+                                              'so the mock ended '
+                                              'there. Everything you answered '
+                                              'before then is '
+                                              'scored.',
+                                              style: t.sub,
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 13,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      30,
+                                      14,
+                                      30,
+                                      20,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        for (var i = 0;
+                                            i < results.sections.length;
+                                            i++)
+                                          _Breakdown(
+                                            section: results.sections[i],
+                                            divider:
+                                                i < results.sections.length - 1,
+                                          ),
+                                        const SizedBox(
+                                          height: 14,
+                                        ),
+                                        if (canReview) ...[
+                                          WebTextLink(
+                                            label: 'See all questions',
+                                            onPressed: onReviewTap ?? () {},
+                                          ),
+                                          if (!proIsActive &&
+                                              reviewUntil != null)
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                top: 6,
+                                              ),
+                                              child: Text(
+                                                fromRecord
+                                                    ? 'Open until '
+                                                        '${until!}'
+                                                    : 'On Free, you can go '
+                                                        'through these '
+                                                        'until your next mock '
+                                                        'opens on '
+                                                        '${until!}.',
+                                                style: t.sm,
+                                              ),
+                                            ),
+                                        ] else if (proPaused)
+                                          const ProPausedLine()
+                                        else ...[
+                                          Text(
+                                            'Go through all $total '
+                                            'questions again with Pro.',
+                                            style: t.sub,
+                                          ),
+                                          const SizedBox(
+                                            height: 12,
+                                          ),
+                                          WebButton(
+                                            label: 'See Pro',
+                                            variant: WebButtonVariant.secondary,
+                                            onPressed: onSeePro,
+                                          ),
+                                        ],
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          if (!forfeited && pastResults.isNotEmpty) ...[
+                            const SizedBox(height: 28),
+                            Text('VERSUS PAST RESULTS', style: t.eb),
+                            const SizedBox(height: 9),
+                            WebCard(
+                              radius: 20,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      20,
+                                      20,
+                                      20,
+                                      8,
+                                    ),
+                                    child: MockPastChart(
+                                      points: pastResults,
+                                      currentPercent: results.percent,
+                                      currentLabel:
+                                          fromRecord ? dateFormatted : 'Today',
+                                    ),
+                                  ),
+                                  if (onFullRecord != null)
+                                    WebRow(
+                                      title: 'See full record',
+                                      titleColor: t.colors.accent,
+                                      onPressed: onFullRecord,
+                                      divider: false,
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _reviewControls(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -379,7 +637,9 @@ class _Breakdown extends StatelessWidget {
       style: context.type.body,
     );
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+      padding: context.wideWeb
+          ? const EdgeInsets.symmetric(vertical: 15)
+          : const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
       decoration: BoxDecoration(
         border: divider
             ? Border(

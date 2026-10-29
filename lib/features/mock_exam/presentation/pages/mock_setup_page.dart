@@ -1,12 +1,16 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 
@@ -47,6 +51,8 @@ class _MockSetupPageState extends State<MockSetupPage> {
     final actualTotal = widget.actualQuestionCount;
     final type = context.type;
     final colors = context.colors;
+
+    if (context.wideWeb) return _wide(context, plannedTotal, isSectional);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Mock exam')),
@@ -142,6 +148,197 @@ class _MockSetupPageState extends State<MockSetupPage> {
               style: type.footnote.copyWith(color: colors.secondaryLabel),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _wide(BuildContext context, int total, bool sectional) {
+    final t = context.webTokens;
+    final blueprint = widget.parsedBlueprint.blueprint;
+    final table = WebCard(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            child: Row(
+              children: [
+                Expanded(child: Text('SECTION', style: t.eb)),
+                SizedBox(
+                  width: 90,
+                  child: Text('ITEMS', textAlign: TextAlign.right, style: t.eb),
+                ),
+                if (sectional)
+                  SizedBox(
+                    width: 90,
+                    child:
+                        Text('TIME', textAlign: TextAlign.right, style: t.eb),
+                  ),
+              ],
+            ),
+          ),
+          for (final section in widget.parsedBlueprint.sections)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: t.colors.separator, width: .5),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Expanded(child: Text(section.name, style: t.style(17))),
+                  SizedBox(
+                    width: 90,
+                    child: _SetupTable(
+                      sections: const [],
+                      isSectional: sectional,
+                      total: total,
+                      durationMinutes: blueprint.durationMinutes,
+                    )._figure(
+                      context,
+                      section.questionCountFigure,
+                      section.questionCount,
+                    ),
+                  ),
+                  if (sectional)
+                    SizedBox(
+                      width: 90,
+                      child: _SetupTable(
+                        sections: const [],
+                        isSectional: sectional,
+                        total: total,
+                        durationMinutes: blueprint.durationMinutes,
+                      )._figure(
+                        context,
+                        section.sectionalMinutesFigure,
+                        section.sectionalMinutes,
+                        suffix: ' min',
+                      ),
+                    ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+    final rules = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        table,
+        const SizedBox(height: 16),
+        Text(_paperRule(blueprint), style: t.sub),
+        if (blueprint.unscoredItems != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              'The real exam also has ${blueprint.unscoredItems} personal-information items. They are not scored, so this mock leaves them out.',
+              style: t.sub,
+            ),
+          ),
+        if (widget.actualQuestionCount != null &&
+            widget.actualQuestionCount! < total)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              'This mock has ${widget.actualQuestionCount} questions instead of $total.',
+              style: t.sub,
+            ),
+          ),
+      ],
+    );
+    final controls = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        WebCard(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Strict mode',
+                      style: t.style(17, weight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      _strictMode
+                          ? 'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.'
+                          : 'Closest to the real exam. Turn it on when you can take the whole mock without interruptions.',
+                      style: t.sub,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              PantasSwitch(
+                value: _strictMode,
+                label: 'Strict mode for this mock',
+                onChanged: (value) => setState(() => _strictMode = value),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        WebButton(
+          label: 'Start the Mock Exam',
+          large: true,
+          keyHint: 'Enter',
+          onPressed: () => widget.onStart(_strictMode),
+        ),
+        const SizedBox(height: 8),
+        Text('The clock starts when you click.', style: t.sm),
+      ],
+    );
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.enter): () =>
+            widget.onStart(_strictMode),
+      },
+      child: Focus(
+        autofocus: true,
+        child: Scaffold(
+          body: ListView(
+            key: const ValueKey('web-mock-setup'),
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: () => Navigator.maybePop(context),
+                  icon: const Icon(Icons.chevron_left),
+                  label: const Text('Quiz'),
+                ),
+              ),
+              Text(_simulationTitle(blueprint), style: t.h1),
+              const SizedBox(height: 6),
+              Text(
+                '$total total items · ${_duration(blueprint.durationMinutes)}',
+                style: t.style(17, color: t.colors.secondaryLabel),
+              ),
+              const SizedBox(height: 28),
+              LayoutBuilder(
+                builder: (context, constraints) => constraints.maxWidth < 820
+                    ? Column(
+                        children: [
+                          rules,
+                          const SizedBox(height: 24),
+                          controls,
+                        ],
+                      )
+                    : Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(flex: 14, child: rules),
+                          const SizedBox(width: 24),
+                          Expanded(flex: 10, child: controls),
+                        ],
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );

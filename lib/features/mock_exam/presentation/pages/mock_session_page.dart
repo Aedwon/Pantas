@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
@@ -13,11 +14,17 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_question.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 
 /// A part that has not opened yet, as the question grid lists it.
 @immutable
@@ -59,6 +66,7 @@ class MockSessionPage extends StatefulWidget {
     this.oneBlock = false,
     this.onSubmitExam,
     this.partLength,
+    this.examTitle = 'Mock exam',
     super.key,
   });
 
@@ -66,6 +74,7 @@ class MockSessionPage extends StatefulWidget {
 
   /// What is left of the open part. The exam's own clock is not shown:
   /// what governs the student is the part they are in.
+  final String examTitle;
   final Duration remainingInPart;
   final Duration? partLength;
 
@@ -109,10 +118,12 @@ class MockSessionPage extends StatefulWidget {
 }
 
 class _MockSessionPageState extends State<MockSessionPage> {
+  final _proctorSound = MockProctorSound();
   late Duration _previousRemaining;
   int? _proctorToastMinutes;
   Timer? _toastTimer;
   var _gridOpen = false;
+  var _widePanelOpen = true;
   var _gridJump = 0;
 
   @override
@@ -130,11 +141,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
         after: widget.remainingInPart,
       );
       if (threshold != null) {
+        if (context.wideWeb) _proctorSound.play();
         _toastTimer?.cancel();
         setState(() {
           _proctorToastMinutes = threshold;
         });
-        _toastTimer = Timer(proctorToastDisplayDuration, () {
+        _toastTimer = Timer(
+            context.wideWeb
+                ? const Duration(milliseconds: 2500)
+                : proctorToastDisplayDuration, () {
           if (mounted) {
             setState(() {
               _proctorToastMinutes = null;
@@ -149,6 +164,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
   @override
   void dispose() {
     _toastTimer?.cancel();
+    _proctorSound.dispose();
     super.dispose();
   }
 
@@ -158,12 +174,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
       return;
     }
     var skipWarning = false;
+    final dialog = context.wideWeb ? webMockConfirmation : CenteredDialog.new;
     unawaited(
       showDialog<void>(
         context: context,
         barrierColor: context.colors.shadow.withValues(alpha: .34),
         builder: (dialogContext) => StatefulBuilder(
-          builder: (context, update) => CenteredDialog(
+          builder: (context, update) => dialog(
             title: "Real exams don't pause.",
             message: 'Use this only when you really have to. The clock stops, '
                 "but you won't get this during the real exam.",
@@ -212,9 +229,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 ),
               ),
             ),
+            inlineActions: true,
             primaryLabel: 'Pause',
             secondaryLabel: 'Keep Going',
-            inlineActions: true,
             onCancel: () => Navigator.pop(dialogContext),
             onConfirm: () {
               Navigator.pop(dialogContext);
@@ -265,7 +282,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
       showDialog<void>(
         context: context,
         barrierColor: context.colors.shadow.withValues(alpha: .34),
-        builder: (dialogContext) => CenteredDialog(
+        builder: (dialogContext) =>
+            (context.wideWeb ? webMockConfirmation : CenteredDialog.new)(
           title: widget.oneBlock ? 'Submit the exam?' : 'End Part $part now?',
           message: widget.oneBlock
               ? 'You have $left left and $blank questions blank. Once you '
@@ -275,7 +293,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                   "doesn't carry over.",
           primaryLabel: widget.oneBlock ? 'Submit' : 'End Part $part',
           secondaryLabel: 'Keep Working',
-          destructive: !widget.oneBlock,
+          destructive: !context.wideWeb && !widget.oneBlock,
           inlineActions: true,
           onCancel: () => Navigator.pop(dialogContext),
           onConfirm: () {
@@ -321,6 +339,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
             ),
           ),
         );
+    if (context.wideWeb) {
+      return _wide(
+        context,
+        next,
+        strictLine: widget.state.strictMode && last && !widget.oneBlock,
+      );
+    }
     final scale = MediaQuery.textScalerOf(context).scale(17);
     return PopScope(
       canPop: false,
@@ -389,7 +414,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
             top: false,
             child: LayoutBuilder(
               builder: (context, constraints) {
-                final counter = '${widget.partPosition} of ${widget.partTotal}';
+                final counter = '${widget.partPosition} '
+                    'of ${widget.partTotal}';
                 final counterMetrics = TextPainter(
                   text: TextSpan(
                     text: counter,
@@ -559,6 +585,426 @@ class _MockSessionPageState extends State<MockSessionPage> {
                   ],
                 );
               },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _wide(
+    BuildContext context,
+    VoidCallback? next, {
+    required bool strictLine,
+  }) {
+    final t = context.webTokens;
+    final part = widget.currentPartNumber;
+    final c = t.colors;
+    final urgency = urgencyFor(widget.remainingInPart);
+    final clockColor = switch (urgency) {
+      ClockUrgency.ample => c.label,
+      ClockUrgency.closing => c.warningText,
+      ClockUrgency.last => c.wrongText
+    };
+    final ids = _idsInPart.toList();
+    final count = ids.where(_isAnswered).length;
+    Widget grid(List<String> questionIds, {bool enabled = true}) => Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final (i, id) in questionIds.indexed)
+              Semantics(
+                selected: id == widget.state.currentQuestionId,
+                child: SizedBox.square(
+                  dimension: 36,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned.fill(
+                        child: TextButton(
+                          onPressed:
+                              enabled ? () => _goToPartQuestion(i + 1) : null,
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            foregroundColor:
+                                enabled ? c.label : c.tertiaryLabel,
+                            backgroundColor: enabled && _isAnswered(id)
+                                ? c.separator
+                                : c.surface,
+                            shape: CircleBorder(
+                              side: BorderSide(
+                                color: id == widget.state.currentQuestionId
+                                    ? c.label
+                                    : enabled
+                                        ? t.strongDivider
+                                        : c.separator,
+                                width: id == widget.state.currentQuestionId
+                                    ? 2.5
+                                    : 1.5,
+                              ),
+                            ),
+                            textStyle: t.style(13, weight: FontWeight.w600),
+                          ),
+                          child: Text('${i + 1}'),
+                        ),
+                      ),
+                      if (widget.state.flags.contains(id))
+                        Positioned(
+                          top: -2,
+                          right: -2,
+                          child: Container(
+                            width: 11,
+                            height: 11,
+                            decoration: BoxDecoration(
+                              color: c.accent,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: c.surface,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        );
+    final panel = Container(
+      key: const ValueKey('web-mock-panel'),
+      width: 300,
+      decoration: BoxDecoration(
+        color: c.surface,
+        border: Border(right: BorderSide(color: c.separator)),
+      ),
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 120),
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'Questions',
+                  style: t.style(17, weight: FontWeight.w600),
+                ),
+              ),
+              IconButton(
+                tooltip: 'Hide the question list',
+                onPressed: () => setState(() => _widePanelOpen = false),
+                icon: const Icon(Icons.view_sidebar_outlined, size: 20),
+              ),
+            ],
+          ),
+          if (_gridSummary() != null) Text(_gridSummary()!, style: t.sm),
+          const SizedBox(height: 24),
+          Text(
+            widget.oneBlock
+                ? 'WHOLE PAPER'
+                : 'PART $part · '
+                    '${widget.partName.toUpperCase()}',
+            style: t.eb,
+          ),
+          const SizedBox(height: 6),
+          Text(
+            widget.oneBlock
+                ? '$count of ${widget.partTotal} answered'
+                : '$count of ${widget.partTotal}',
+            style: t.sm,
+          ),
+          const SizedBox(height: 14),
+          grid(ids),
+          for (final part in widget.upcomingParts) ...[
+            const SizedBox(height: 28),
+            Text(
+              'PART ${part.number} · ${part.name.toUpperCase()}',
+              style: t.eb,
+            ),
+            const SizedBox(height: 6),
+            Text('Opens when this part starts.', style: t.sm),
+            const SizedBox(height: 14),
+            Opacity(
+              opacity: .4,
+              child: grid(
+                [
+                  for (var i = 0; i < part.count; i++)
+                    'upcoming-${part.number}-$i',
+                ],
+                enabled: false,
+              ),
+            ),
+          ],
+          if (widget.oneBlock && !widget.state.strictMode) ...[
+            const SizedBox(height: 24),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: WebButton(
+                  label: 'Submit the Exam',
+                  onPressed: () => _confirmEndPartEarly(context),
+                ),
+              ),
+            ),
+          ],
+          const SizedBox(height: 24),
+          Text('●  Answered    ○  Blank    ⚑  Flagged', style: t.sm),
+        ],
+      ),
+    );
+    final question = _QuestionBody(
+      questionId: widget.state.currentQuestionId,
+      subject: widget.oneBlock
+          ? widget.questionSubjects[widget.state.currentQuestionId] ??
+              widget.partName
+          : 'Part $part · ${widget.partName}',
+      selectedIndex:
+          widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
+      onAnswer: widget.onAnswer,
+    );
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.keyF): widget.onToggleFlag,
+        if (!widget.state.strictMode)
+          const SingleActivator(LogicalKeyboardKey.keyP): _onPausePressed,
+        if (widget.canGoPrevious)
+          const SingleActivator(LogicalKeyboardKey.arrowLeft):
+              widget.onPrevious,
+        if (next != null)
+          const SingleActivator(LogicalKeyboardKey.arrowRight): next,
+      },
+      child: Listener(
+        onPointerDown: (_) => _proctorSound.prime(),
+        child: Focus(
+          autofocus: true,
+          onKeyEvent: (_, event) {
+            if (event is KeyDownEvent) _proctorSound.prime();
+            return KeyEventResult.ignored;
+          },
+          child: PopScope(
+            canPop: false,
+            child: Scaffold(
+              body: Column(
+                children: [
+                  SizedBox(
+                    height: 72,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(widget.examTitle, style: t.sm),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                _formatRemaining(widget.remainingInPart),
+                                style: t.style(
+                                  30,
+                                  weight: FontWeight.w700,
+                                  height: 1.1,
+                                  color: clockColor,
+                                ),
+                              ),
+                              Text(
+                                _proctorToastMinutes != null
+                                    ? proctorCopyFor(
+                                        _proctorToastMinutes!,
+                                      )
+                                    : widget.oneBlock
+                                        ? 'left'
+                                        : 'left in Part '
+                                            '$part',
+                                style: t.style(
+                                  12,
+                                  color: _proctorToastMinutes != null
+                                      ? clockColor
+                                      : c.tertiaryLabel,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: widget.state.strictMode
+                                  ? const SizedBox.shrink()
+                                  : WebButton(
+                                      label: 'Pause',
+                                      keyHint: 'P',
+                                      variant: WebButtonVariant.tertiary,
+                                      onPressed: _onPausePressed,
+                                    ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                    child: LinearProgressIndicator(
+                      value: widget.effectivePartLength.inMilliseconds <= 0
+                          ? 0
+                          : (widget.remainingInPart.inMilliseconds /
+                                  widget.effectivePartLength.inMilliseconds)
+                              .clamp(0, 1),
+                      backgroundColor: c.separator,
+                      color: clockColor,
+                    ),
+                  ),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            if (_widePanelOpen) panel,
+                            Expanded(
+                              child: Stack(
+                                children: [
+                                  ListView(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      40,
+                                      56,
+                                      40,
+                                      150,
+                                    ),
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.topCenter,
+                                        child: ConstrainedBox(
+                                          constraints: const BoxConstraints(
+                                            maxWidth: 680,
+                                          ),
+                                          child: Stack(
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              question,
+                                              Positioned(
+                                                top: -12,
+                                                right: 0,
+                                                child: Align(
+                                                  alignment:
+                                                      Alignment.centerRight,
+                                                  child: WebButton(
+                                                    key: const ValueKey(
+                                                      'web-mock-flag',
+                                                    ),
+                                                    label: widget.state.flags
+                                                            .contains(
+                                                      widget.state
+                                                          .currentQuestionId,
+                                                    )
+                                                        ? 'Flagged'
+                                                        : 'Flag',
+                                                    keyHint: 'F',
+                                                    variant: WebButtonVariant
+                                                        .tertiary,
+                                                    onPressed:
+                                                        widget.onToggleFlag,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Positioned(
+                                    left: 24,
+                                    right: 24,
+                                    bottom: 28,
+                                    child: Column(
+                                      children: [
+                                        if (strictLine)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              bottom: 12,
+                                            ),
+                                            child: Text(
+                                              'Part $part runs '
+                                              'to the end of its time. '
+                                              'Strict mode is on.',
+                                              style: t.sm,
+                                            ),
+                                          ),
+                                        WebBottomBar(
+                                          compact: true,
+                                          counter: '${widget.partPosition} '
+                                              'of ${widget.partTotal}',
+                                          leading: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              IconButton(
+                                                tooltip: 'Previous question',
+                                                onPressed: widget.canGoPrevious
+                                                    ? widget.onPrevious
+                                                    : null,
+                                                icon: const Icon(
+                                                  Icons.chevron_left,
+                                                ),
+                                              ),
+                                              const WebKeyHint('←'),
+                                            ],
+                                          ),
+                                          action: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              const WebKeyHint('→'),
+                                              IconButton(
+                                                tooltip: widget.partPosition ==
+                                                        widget.partTotal
+                                                    ? widget.oneBlock
+                                                        ? 'Submit the exam'
+                                                        : 'End part'
+                                                    : 'Next question',
+                                                onPressed: next,
+                                                icon: const Icon(
+                                                  Icons.chevron_right,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        if (!_widePanelOpen)
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: SizedBox(
+                              width: 34,
+                              height: 76,
+                              child: Material(
+                                color: c.surface,
+                                borderRadius: const BorderRadius.horizontal(
+                                  right: Radius.circular(14),
+                                ),
+                                child: IconButton(
+                                  tooltip: 'Show the question list',
+                                  onPressed: () =>
+                                      setState(() => _widePanelOpen = true),
+                                  icon: const Icon(
+                                    Icons.view_sidebar_outlined,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -785,6 +1231,21 @@ class _QuestionBody extends ConsumerWidget {
           );
         }
 
+        if (context.wideWeb) {
+          final choices = hydrated.question.choices;
+          return WebQuizQuestion(
+            question: hydrated.question,
+            subject: subject,
+            passage: hydrated.passage,
+            chosenId: selectedIndex != null &&
+                    selectedIndex! >= 0 &&
+                    selectedIndex! < choices.length
+                ? choices[selectedIndex!].id
+                : null,
+            onPick: (id) =>
+                onAnswer(choices.indexWhere((choice) => choice.id == id)),
+          );
+        }
         return QuestionCard(
           key: ValueKey(hydrated.question.id),
           subject: subject,

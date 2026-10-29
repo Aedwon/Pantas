@@ -1,10 +1,14 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class PartTransitionPage extends StatefulWidget {
   const PartTransitionPage({
@@ -42,7 +46,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final still = MediaQuery.disableAnimationsOf(context);
+    final still = context.wideWeb || MediaQuery.disableAnimationsOf(context);
     if (_still == still) return;
     final first = _still == null;
     _still = still;
@@ -74,6 +78,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
     final answered = widget.answeredQuestions.where((value) => value).length;
     final closedIndex = widget.nextPartIndex - 1;
     final blank = widget.answeredQuestions.length - answered;
+    if (context.wideWeb) return _wide(context, answered, blank);
     final rowHeight = math
         .max(50, MediaQuery.textScalerOf(context).scale(17) * 1.35 + 4)
         .toDouble();
@@ -347,6 +352,166 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _wide(BuildContext context, int answered, int blank) {
+    final t = context.webTokens;
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.enter): widget.onStartNext,
+      },
+      child: Focus(
+        autofocus: true,
+        child: PopScope(
+          canPop: false,
+          child: Scaffold(
+            body: Center(
+              child: SingleChildScrollView(
+                key: const ValueKey('web-mock-between'),
+                padding: const EdgeInsets.all(40),
+                child: SizedBox(
+                  width: 800,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.endedEarly
+                            ? 'Part ${widget.nextPartIndex} ended.'
+                            : 'Time is up.',
+                        style: t.h1,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Part ${widget.nextPartIndex} · '
+                        '${widget.partNames[widget.nextPartIndex - 1]}',
+                        style: t.style(
+                          17,
+                          color: t.colors.secondaryLabel,
+                        ),
+                      ),
+                      const SizedBox(height: 28),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: WebCard(
+                              padding: const EdgeInsets.all(
+                                24,
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '$answered answered · $blank blank',
+                                    style: t.sub,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Wrap(
+                                    spacing: 8,
+                                    runSpacing: 8,
+                                    children: [
+                                      for (var i = 0;
+                                          i < widget.answeredQuestions.length;
+                                          i++)
+                                        SizedBox.square(
+                                          dimension: 18,
+                                          child: DecoratedBox(
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: widget.answeredQuestions[i]
+                                                  ? t.colors.separator
+                                                  : null,
+                                              border: widget
+                                                      .answeredQuestions[i]
+                                                  ? null
+                                                  : Border.all(
+                                                      color: t.strongDivider,
+                                                      width: 1.5,
+                                                    ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 28),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                for (final (i, name)
+                                    in widget.partNames.indexed)
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 14,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          i < widget.nextPartIndex
+                                              ? Icons.check_circle
+                                              : Icons.circle_outlined,
+                                          size: 22,
+                                          color: i <= widget.nextPartIndex
+                                              ? t.colors.accent
+                                              : t.colors.tertiaryLabel,
+                                        ),
+                                        const SizedBox(
+                                          width: 12,
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            'Part ${i + 1} · $name',
+                                            style: t.style(
+                                              17,
+                                              weight: i == widget.nextPartIndex
+                                                  ? FontWeight.w600
+                                                  : FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                        if (i == widget.nextPartIndex)
+                                          Text(
+                                            'Next →',
+                                            style: t.sm,
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 28),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'The clock starts when you click.',
+                            style: t.sm,
+                          ),
+                          const SizedBox(width: 20),
+                          WebButton(
+                            label: 'Start Part ${widget.nextPartIndex + 1}',
+                            keyHint: 'Enter',
+                            onPressed: widget.onStartNext,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ),

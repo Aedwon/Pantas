@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/web/web_debrief_loading.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
@@ -67,7 +69,9 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
         EntitlementState.paused;
     if (access.isLoading) {
       _interruptFinale();
-      return Scaffold(body: loadingFor(access));
+      return Scaffold(
+        body: context.wideWeb ? const WebDebriefLoading() : loadingFor(access),
+      );
     }
     if (access.hasError) {
       _interruptFinale();
@@ -89,7 +93,9 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
       skipLoadingOnReload: false,
       loading: () {
         _interruptFinale();
-        return Scaffold(body: loadingFor(entry));
+        return Scaffold(
+          body: context.wideWeb ? const WebDebriefLoading() : loadingFor(entry),
+        );
       },
       error: (error, stack) {
         _interruptFinale();
@@ -143,7 +149,8 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
               onReviewTap: () => context.push('/mock/review/$attemptId'),
             );
         final input = finaleInput;
-        if (!_finaleInterrupted &&
+        if (!context.wideWeb &&
+            !_finaleInterrupted &&
             fresh &&
             !fromRecord &&
             input != null &&
