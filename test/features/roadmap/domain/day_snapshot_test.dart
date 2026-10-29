@@ -42,6 +42,7 @@ void main() {
     List<String> reviews = const ['r1'],
     List<String> fresh = const ['n1', 'n2', 'n3'],
     Set<String> advanced = const {},
+    Map<String, PlanReason> reasons = const {},
     RoadmapDigest? using,
     List<String> head = const ['t_alg', 't_geo'],
   }) =>
@@ -53,6 +54,7 @@ void main() {
           newQuestionIds: fresh,
           isMockDay: false,
           advancedIds: advanced,
+          reasons: reasons,
         ),
         digest: using ?? digest(),
         topicOrderHead: head,
@@ -91,6 +93,68 @@ void main() {
     test('survives a JSON round trip', () {
       final original = snapshot(advanced: {'n3'});
       expect(DaySnapshot.fromJson(original.toJson()), original);
+    });
+
+    test('persists every reason kind with optional dependent lesson', () {
+      final reasons = {
+        for (final kind in PlanReasonKind.values)
+          kind.name: PlanReason(
+            kind: kind,
+            forLessonId: kind == PlanReasonKind.prerequisite ? 'target' : null,
+          ),
+      };
+      final original = snapshot(reasons: reasons);
+      expect(DaySnapshot.fromJson(original.toJson()).plan.reasons, reasons);
+    });
+
+    test('old snapshot without reasons loads empty', () {
+      final json = snapshot().toJson();
+      (json['plan']! as Map<String, Object?>).remove('reasons');
+      expect(DaySnapshot.fromJson(json).plan.reasons, isEmpty);
+    });
+
+    test('remaining keeps reasons while subtracting completed items', () {
+      const reasons = {
+        'l1': PlanReason(kind: PlanReasonKind.nextUp),
+        'r1': PlanReason(kind: PlanReasonKind.followUp, forLessonId: 'l2'),
+      };
+      final left = DaySnapshots.remaining(
+        snapshot(reasons: reasons),
+        done(read: {'l1'}),
+      );
+      expect(left.reasons, reasons);
+    });
+
+    test('advance merges reasons only for added items and keeps existing ones',
+        () {
+      const original = PlanReason(kind: PlanReasonKind.nextUp);
+      const added =
+          PlanReason(kind: PlanReasonKind.prerequisite, forLessonId: 'l4');
+      final advanced = DaySnapshots.advance(
+        snapshot(reasons: {'l1': original}),
+        DayPlan(
+          day: oct1,
+          lessonIds: const ['l1', 'l3'],
+          reviewQuestionIds: const ['r2', 'r9'],
+          newQuestionIds: const ['n4'],
+          isMockDay: false,
+          advancedIds: const {},
+          reasons: const {
+            'l1': added,
+            'l3': added,
+            'r2': added,
+            'r9': added,
+            'n4': added,
+          },
+        ),
+        reviews: ['r2'],
+      );
+      expect(advanced.plan.reasons, {
+        'l1': original,
+        'l3': added,
+        'r2': added,
+        'n4': added,
+      });
     });
 
     test('compares the first three topics and keeps the whole order', () {
