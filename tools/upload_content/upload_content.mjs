@@ -48,7 +48,7 @@ if (!process.env.FIRESTORE_EMULATOR_HOST && !live && !dryRun && !outDir) {
   process.exit(2);
 }
 
-const {blueprintItem, catalogItems, lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const {blueprintItem, catalogItems, gapItem, lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -111,11 +111,13 @@ function loadStructure() {
   }
   const exported = JSON.parse(readFileSync(file, 'utf8'));
   return {exam: exported.exam, subject: exported.subject, topic: exported.topic,
-    mockBlueprint: exported.mockBlueprint, diagnosticSet: exported.diagnosticSet};
+    mockBlueprint: exported.mockBlueprint, diagnosticSet: exported.diagnosticSet,
+    lessonLink: exported.lessonLink ?? [], gapTag: exported.gapTag ?? []};
 }
 const structure = invalid.length > 0 && !skipInvalid ? null : loadStructure();
-const catalog = structure ? catalogItems({structure, lessons: lessonFronts, sets: setSources}) : [];
+const catalog = structure ? catalogItems({structure, links: structure.lessonLink, lessons: lessonFronts, sets: setSources}) : [];
 items.push(...catalog);
+if (structure) items.push(gapItem(structure.gapTag));
 
 const ids = new Set();
 for (const item of items) {
@@ -132,6 +134,7 @@ console.log(`lessons: ${items.filter(i => i.kind === 'lessons').length}`);
 console.log(`question sets: ${items.filter(i => i.kind === 'questions').length}`);
 console.log(`mock blueprints: ${items.filter(i => i.kind === 'mocks').length}`);
 console.log(`catalog documents: ${catalog.length}`);
+console.log(`gap documents: ${items.filter(i => i.kind === 'gaps').length}`);
 console.log(`pro documents: ${pros.length}`);
 
 if (outDir) {

@@ -6,7 +6,9 @@ import {readdirSync, statSync} from 'node:fs';
 import {createRequire} from 'node:module';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
-import {blueprintItem, catalogItems, lessonItem, questionSetItems, planWrites} from '../lib/contentUpload.js';
+import {blueprintItem, catalogItems, lessonItem, questionSetItems, planWrites, writeContent} from '../lib/contentUpload.js';
+import * as upload from '../lib/contentUpload.js';
+import {serveContent} from '../lib/content.js';
 import * as endpoints from '../lib/index.js';
 
 const source = name => readFileSync(new URL(`../src/${name}`, import.meta.url), 'utf8');
@@ -68,7 +70,7 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   mkdirSync(join(root, 'questions/s/t'), {recursive: true});
   mkdirSync(join(root, 'mock'), {recursive: true});
   writeFileSync(join(root, 'mock/e.yaml'), 'exam: exam_cse_pro\nname: P\ndurationMinutes: 60\nsections:\n  - id: s1\n    name: One\n    questionCount: 2\n    suggestedMinutes: 60\n    topicIds: [topic_cse_pro_t]\n    topicWeights: {topic_cse_pro_t: 1}\n');
-  writeFileSync(join(root, 'lessons/s/t/a.md'), '---\n_id: "lesson-a"\ntitle: "A"\n---\n## Hi\n');
+  writeFileSync(join(root, 'lessons/s/t/a.md'), '---\n_id: "lesson-a"\ntitle: "A"\ntopic: "topic-t"\n---\n## Hi\n');
   writeFileSync(join(root, 'questions/s/t/u.yaml'),
     'meta:\n  subject: s\n  topic: t\n  subtopic: u\n  exams: [cse-pro]\nquestions:\n  - id: q1\n    stem: x\n    choices:\n      - text: a\n        correct: true\n      - text: b\n        rationale: no\n');
   const tool = new URL('../../tools/upload_content/upload_content.mjs', import.meta.url).pathname;
@@ -81,6 +83,22 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   assert.match(dry.stdout, /mock blueprints: 1/);
   assert.match(dry.stdout, /pro documents: 1/);
   assert.match(dry.stdout, /dry run/i);
+  const exported = join(root, 'export.json');
+  writeFileSync(exported, JSON.stringify({
+    exam: [{_id: 'exam_cse_pro'}], subject: [{_id: 'subject', exam: {_ref: 'exam_cse_pro'}}],
+    topic: [{_id: 'topic_upcat_t', subject: {_ref: 'subject'}}],
+    lessonLink: [{lesson: 'lesson-a', requires: 'lesson-p', strength: 'helpful'}],
+    gapTag: [{question: 'q1', choice: 'q1_b', prerequisite: 'lesson-p'}],
+  }));
+  const withExport = spawnSync('node', [tool, '--root', root, '--dry-run', '--export', exported], {env, encoding: 'utf8'});
+  assert.equal(withExport.status, 0, withExport.stderr);
+  assert.match(withExport.stdout, /gap documents: 1/);
+  const output = join(root, 'out');
+  const files = spawnSync('node', [tool, '--root', root, '--export', exported, '--out-dir', output], {env, encoding: 'utf8'});
+  assert.equal(files.status, 0, files.stderr);
+  const catalog = JSON.parse(readFileSync(join(output, 'catalog/exam_cse_pro.json'), 'utf8'));
+  assert.deepEqual(catalog.lessons[0].prerequisites, [{lesson: 'lesson-p', strength: 'helpful'}]);
+  assert.equal(readdirSync(output).includes('gaps'), false);
   const live = spawnSync('node', [tool, '--root', root], {env, encoding: 'utf8'});
   assert.notEqual(live.status, 0);
   assert.match(live.stderr, /--live/);
@@ -266,4 +284,67 @@ test('every catalog document built from the real content tree is under 1 MiB and
   assert.ok(listed.size > 0 && listed.size <= questionCount);
   const sample = sets[0].source.questions[0];
   assert.equal(items.some(i => i.data.payload.includes(String(sample.stem).slice(0, 40))), false);
+});
+
+const links = [{lesson: 'lesson-biology-cells', requires: 'lesson-algebra-eq', strength: 'required'}];
+const tags = [{question: 'bio-1', choice: 'bio-1_b', prerequisite: 'lesson-algebra-eq'}];
+
+test('catalog links carry only lesson and strength and change the version', () => {
+  const items = catalogItems({...catalogInput, links});
+  const lesson = parsed(items).exam_upcat.lessons.find(l => l.id === links[0].lesson);
+  assert.deepEqual(lesson.prerequisites, [{lesson: 'lesson-algebra-eq', strength: 'required'}]);
+  assert.notEqual(items.find(i => i.id === 'exam_upcat').data.version,
+    catalogItems(catalogInput).find(i => i.id === 'exam_upcat').data.version);
+  assert.equal(parsed(items).exam_upcat.parts, undefined);
+});
+
+test('gap document groups choices by question and has a stable content digest', () => {
+  const item = upload.gapItem(tags);
+  assert.equal(item.kind, 'gaps');
+  assert.equal(item.id, 'tags');
+  assert.deepEqual(JSON.parse(item.data.payload), {'bio-1': {'bio-1_b': 'lesson-algebra-eq'}});
+  assert.equal(upload.gapItem([...tags].reverse()).data.version, item.data.version);
+  assert.notEqual(upload.gapItem([]).data.version, item.data.version);
+});
+
+function memoryDb() {
+  const stored = new Map();
+  const scans = [];
+  let writes = 0;
+  return {stored, scans, get writes() { return writes; },
+    collection(path) { scans.push(path); return {select() { return {async get() {
+      return {docs: [...stored].filter(([key]) => key.startsWith(path + '/')).map(([key, data]) =>
+        ({id: key.slice(path.length + 1), get: field => data[field]}))};
+    }}}}; },
+    doc(path) { return {path, async get() { const data = stored.get(path); return {exists: !!data, get: key => data?.[key], data: () => data}; }}; },
+    batch() { return {delete(ref) { stored.delete(ref.path); }, set(ref, data) { stored.set(ref.path, data); writes++; }, async commit() {}}; },
+  };
+}
+
+test('writeContent scans gaps and writes the one gap document only when changed', async () => {
+  const db = memoryDb();
+  const item = upload.gapItem(tags);
+  assert.deepEqual((await writeContent(db, [item], [], {})).counts, {create: 1, update: 0, unchanged: 0});
+  assert.ok(db.scans.includes('content/gaps/items'));
+  assert.deepEqual((await writeContent(db, [item], [], {})).counts, {create: 0, update: 0, unchanged: 1});
+  assert.equal(db.writes, 1);
+});
+
+test('Free served payloads of every kind contain no gap tags and gaps is rejected', async () => {
+  const db = memoryDb();
+  db.runTransaction = async callback => callback({get: async ref => ref.get ? ref.get() : {docs: [], empty: true}, getAll: async (...refs) => Promise.all(refs.map(ref => ref.get()))});
+  const items = [lessonItem({_id: 'lesson-free'}, 'body'),
+    questionSetItems(catalogInput.sets[0].source, catalogInput.sets[0].relativePath).item,
+    ...catalogItems({...catalogInput, links}), upload.gapItem(tags)];
+  await writeContent(db, items, [], {});
+  const auth = {uid: 'free-gap-test', token: {}};
+  const deps = {db, allow: async () => true};
+  await assert.rejects(serveContent(auth, {kind: 'gaps', ids: ['tags']}, deps), {code: 'invalid-argument'});
+  for (const kind of ['lessons', 'questions', 'catalog']) {
+    const response = await serveContent(auth, {kind, ids: items.filter(i => i.kind === kind).map(i => i.id)}, deps);
+    assert.equal(response.tier, 'free');
+    const text = JSON.stringify(response);
+    for (const tag of tags) assert.equal(text.includes(tag.choice), false);
+    assert.equal(text.includes('NOTE-SECRET'), false);
+  }
 });
