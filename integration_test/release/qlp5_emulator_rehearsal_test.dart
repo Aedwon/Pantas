@@ -95,18 +95,6 @@ void main() {
       ],
     );
 
-    // Skip the lesson nudge as test setup. The Android integration-test
-    // viewport can place its secondary action outside the hit-testable root;
-    // QLP-5 route timing should cover the ordinary prepared Start path.
-    await harness.providerContainer
-        .read(quizNudgeRepositoryProvider)
-        .markDismissed();
-    harness.providerContainer.invalidate(quizNudgeDismissedProvider);
-    expect(
-      await harness.providerContainer.read(quizNudgeDismissedProvider.future),
-      isTrue,
-    );
-
     contentQueryCount = 0;
     final timingsCallback = collector.recordFrameTimings;
     WidgetsBinding.instance.addTimingsCallback(timingsCallback);
