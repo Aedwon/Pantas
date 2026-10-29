@@ -8,10 +8,12 @@ class SearchFieldBar extends ConsumerWidget {
     required this.onCancel,
     this.onEditingChanged,
     this.entryAnimation = false,
+    this.autofocus = false,
     super.key,
   });
 
   final bool entryAnimation;
+  final bool autofocus;
   final VoidCallback onCancel;
   final ValueChanged<bool>? onEditingChanged;
 
@@ -20,6 +22,7 @@ class SearchFieldBar extends ConsumerWidget {
         type: MaterialType.transparency,
         child: SearchField(
           title: 'Study',
+          autofocus: autofocus,
           fieldEntryDelay:
               entryAnimation ? const Duration(milliseconds: 100) : null,
           titleInset: 4,

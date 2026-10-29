@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 class SegmentedSwitch extends StatelessWidget {
   const SegmentedSwitch({
@@ -38,6 +40,13 @@ class SegmentedSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (bookmarks) return _bookmarks(context);
+    if (context.wideWeb) {
+      return WebSegmentedControl(
+        labels: labels,
+        selected: selected,
+        onChanged: onChanged,
+      );
+    }
     final colors = context.colors;
     final large = MediaQuery.textScalerOf(context).scale(14) > 20;
     return Stack(

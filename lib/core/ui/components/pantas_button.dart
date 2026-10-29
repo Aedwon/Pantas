@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum PantasButtonVariant { primary, secondary, tertiary, destructive, neutral }
 
@@ -82,6 +84,21 @@ class _PantasButtonState extends State<PantasButton> {
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb && !widget._filterChip) {
+      return WebButton(
+        label: widget.label,
+        onPressed: widget.onPressed,
+        busy: widget.busy,
+        large: widget.height == 50,
+        variant: switch (widget.variant) {
+          PantasButtonVariant.primary => WebButtonVariant.primary,
+          PantasButtonVariant.secondary => WebButtonVariant.secondary,
+          PantasButtonVariant.tertiary => WebButtonVariant.tertiary,
+          PantasButtonVariant.destructive => WebButtonVariant.danger,
+          PantasButtonVariant.neutral => WebButtonVariant.white,
+        },
+      );
+    }
     final onPressed = widget.onPressed;
     final busy = widget.busy;
     final variant = widget.variant;

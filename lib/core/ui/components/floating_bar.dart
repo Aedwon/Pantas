@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum FloatingBarState { neutral, right, wrong }
 
@@ -44,6 +46,18 @@ class FloatingBar extends StatelessWidget {
   static const contentBottomInset = 102.0;
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb && content == null) {
+      return WebBottomBar(
+        counter: counter,
+        leading: left,
+        action: right,
+        state: switch (state) {
+          FloatingBarState.neutral => WebBarState.neutral,
+          FloatingBarState.right => WebBarState.right,
+          FloatingBarState.wrong => WebBarState.wrong,
+        },
+      );
+    }
     final c = context.colors;
     final color = switch (state) {
       FloatingBarState.neutral => c.surface,

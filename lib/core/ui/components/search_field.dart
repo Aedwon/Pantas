@@ -14,6 +14,7 @@ class SearchField extends StatefulWidget {
     this.onEditingChanged,
     this.titleInset = 0,
     this.fieldEntryDelay,
+    this.autofocus = false,
     super.key,
   });
   final ValueChanged<String> onChanged;
@@ -23,6 +24,7 @@ class SearchField extends StatefulWidget {
   final ValueChanged<bool>? onEditingChanged;
   final double titleInset;
   final Duration? fieldEntryDelay;
+  final bool autofocus;
   @override
   State<SearchField> createState() => _SearchFieldState();
 }
@@ -36,6 +38,13 @@ class _SearchFieldState extends State<SearchField> {
   void initState() {
     super.initState();
     _focus.addListener(_focusChanged);
+    if (widget.autofocus) _focus.requestFocus();
+  }
+
+  @override
+  void didUpdateWidget(covariant SearchField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.autofocus && !oldWidget.autofocus) _focus.requestFocus();
   }
 
   void _focusChanged() {

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
@@ -53,7 +54,7 @@ class RecordScreen extends ConsumerWidget {
       onMock: (id) => unawaited(
         context.push<void>('/mock/results/${Uri.encodeComponent(id)}'),
       ),
-      wrappedRow: ref.watch(wrappedRecordRowProvider),
+      wrappedRow: context.wideWeb ? null : ref.watch(wrappedRecordRowProvider),
     );
   }
 }

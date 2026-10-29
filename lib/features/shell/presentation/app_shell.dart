@@ -7,6 +7,7 @@ import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 class AppShell extends ConsumerWidget {
   const AppShell({required this.navigationShell, super.key});
@@ -17,25 +18,27 @@ class AppShell extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         extendBody: true,
         body: navigationShell,
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-          child: SafeArea(
-            top: false,
-            child: AppNavBar(
-              currentIndex: navigationShell.currentIndex,
-              onTap: (i) {
-                ref.read(telemetryProvider).log(
-                  TelemetryEvent.tabOpened,
-                  properties: {'tab': _labels[i]},
-                );
-                navigationShell.goBranch(
-                  i,
-                  initialLocation: i == navigationShell.currentIndex,
-                );
-              },
-            ),
-          ),
-        ),
+        bottomNavigationBar: context.wideWeb
+            ? null
+            : Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                child: SafeArea(
+                  top: false,
+                  child: AppNavBar(
+                    currentIndex: navigationShell.currentIndex,
+                    onTap: (i) {
+                      ref.read(telemetryProvider).log(
+                        TelemetryEvent.tabOpened,
+                        properties: {'tab': _labels[i]},
+                      );
+                      navigationShell.goBranch(
+                        i,
+                        initialLocation: i == navigationShell.currentIndex,
+                      );
+                    },
+                  ),
+                ),
+              ),
       );
 }
 

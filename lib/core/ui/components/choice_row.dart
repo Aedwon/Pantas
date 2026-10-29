@@ -4,6 +4,9 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum ChoiceRowState { plain, picked, right, wrong, dimmed }
 
@@ -21,6 +24,29 @@ class ChoiceRow extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return WebAnswerOption(
+        letter: letter,
+        onPressed: onTap,
+        state: switch (state) {
+          ChoiceRowState.plain => WebOptionState.normal,
+          ChoiceRowState.picked => WebOptionState.selected,
+          ChoiceRowState.right => WebOptionState.right,
+          ChoiceRowState.wrong => WebOptionState.wrong,
+          ChoiceRowState.dimmed => WebOptionState.dimmed,
+        },
+        child: MathText(
+          text,
+          style: context.webTokens.style(
+            18,
+            height: 1.4,
+            weight: state == ChoiceRowState.right
+                ? FontWeight.w600
+                : FontWeight.w400,
+          ),
+        ),
+      );
+    }
     final c = context.colors;
     final right = state == ChoiceRowState.right;
     final wrong = state == ChoiceRowState.wrong;

@@ -4,6 +4,7 @@ import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
+import 'package:pantas/core/ui/web/web_layout_theme.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
@@ -33,13 +34,15 @@ class App extends ConsumerWidget {
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
       routerConfig: router,
-      builder: (context, child) => AppErrorRecovery(
-        child: SyncReconciliationGate(
-          child: NotificationTapRouter(
-            gateway: gateway,
-            router: router,
-            now: DateTime.now,
-            child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => WebLayoutTheme(
+        child: AppErrorRecovery(
+          child: SyncReconciliationGate(
+            child: NotificationTapRouter(
+              gateway: gateway,
+              router: router,
+              now: DateTime.now,
+              child: child ?? const SizedBox.shrink(),
+            ),
           ),
         ),
       ),

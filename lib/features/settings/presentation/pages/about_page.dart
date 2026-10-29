@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/settings/presentation/feedback_intent.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
@@ -90,7 +91,7 @@ class AboutPage extends ConsumerWidget {
                     .setHelpImproveApp(enabled: !settings.helpImproveApp),
               ),
             ),
-            if (sharedLinksRow != null) sharedLinksRow!,
+            if (!context.wideWeb && sharedLinksRow != null) sharedLinksRow!,
             ListRow(
               title: 'Contact our data protection officer',
               onTap: () => unawaited(

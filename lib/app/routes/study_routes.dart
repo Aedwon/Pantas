@@ -12,8 +12,18 @@ import 'package:go_router/go_router.dart';
 List<RouteBase> studyRoutes(Ref ref) => [
       GoRoute(
         path: '/study',
-        builder: (_, state) => StudyTabHome(
+        builder: (context, state) => StudyTabHome(
           openTopicId: state.uri.queryParameters['topicId'],
+          searchOnOpen: state.uri.queryParameters['search'] == '1',
+          onSearchCancelled: state.uri.queryParameters['search'] == '1'
+              ? () {
+                  final query =
+                      Map<String, String>.of(state.uri.queryParameters)
+                        ..remove('search');
+                  context
+                      .go(state.uri.replace(queryParameters: query).toString());
+                }
+              : null,
         ),
       ),
       GoRoute(

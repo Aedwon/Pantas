@@ -1,12 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
-ThemeData buildLightTheme() =>
-    _buildTheme(PantasColors.light, Brightness.light);
+ThemeData buildLightTheme({bool web = kIsWeb}) => _buildTheme(
+      web ? const WebTokens(Brightness.light).colors : PantasColors.light,
+      Brightness.light,
+    );
 
-ThemeData buildDarkTheme() => _buildTheme(PantasColors.dark, Brightness.dark);
+ThemeData buildDarkTheme({bool web = kIsWeb}) => _buildTheme(
+      web ? const WebTokens(Brightness.dark).colors : PantasColors.dark,
+      Brightness.dark,
+    );
 
 ThemeData _buildTheme(PantasColors colors, Brightness brightness) {
   final scheme = ColorScheme.fromSeed(

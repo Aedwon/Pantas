@@ -1,5 +1,9 @@
 // ignore_for_file: directives_ordering
 
+import 'package:flutter/foundation.dart';
+import 'package:pantas/app/web_route_shell.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/router_refresh_listenable.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
@@ -45,6 +49,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       final atUpdateRequired = state.matchedLocation == '/update-required';
       if (blocked && !atUpdateRequired) return '/update-required';
       if (!blocked && atUpdateRequired) return '/home';
+      if (context.wideWeb && state.uri.path.startsWith('/wrapped/')) {
+        return '/record';
+      }
 
       final passedAsync = ref.read(passedAgeGateProvider);
       final focusAsync = ref.read(activeExamFocusProvider);
@@ -79,7 +86,7 @@ List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
   final studyRoot = _tabRoot(study, '/study');
   final quizRoot = _tabRoot(quiz, '/quiz');
   final settingsRoot = _tabRoot(settings, '/settings');
-  return [
+  final routes = <RouteBase>[
     StatefulShellRoute.indexedStack(
       builder: (context, state, shell) => AppShell(navigationShell: shell),
       branches: [
@@ -98,6 +105,14 @@ List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
     ...wrappedRoutes(ref),
     ...statesRoutes(ref),
     ...devRoutes(includeDebugGallery: includeDebugGallery),
+  ];
+  if (!kIsWeb) return routes;
+  return [
+    ShellRoute(
+      builder: (context, state, child) =>
+          WebRouteShell(path: state.uri.path, child: child),
+      routes: routes,
+    ),
   ];
 }
 

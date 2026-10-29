@@ -24,9 +24,16 @@ import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class StudyTabHome extends ConsumerStatefulWidget {
-  const StudyTabHome({this.openTopicId, super.key});
+  const StudyTabHome({
+    this.openTopicId,
+    this.searchOnOpen = false,
+    this.onSearchCancelled,
+    super.key,
+  });
 
   final TopicId? openTopicId;
+  final bool searchOnOpen;
+  final VoidCallback? onSearchCancelled;
 
   @override
   ConsumerState<StudyTabHome> createState() => _StudyTabHomeState();
@@ -239,8 +246,13 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SearchFieldBar(
-                  entryAnimation: true,
-                  onCancel: () => setState(() => _searching = false),
+                  // Skip the focus-blocking entry animation for route requests.
+                  entryAnimation: !widget.searchOnOpen,
+                  autofocus: widget.searchOnOpen,
+                  onCancel: () {
+                    setState(() => _searching = false);
+                    widget.onSearchCancelled?.call();
+                  },
                   onEditingChanged: (editing) =>
                       setState(() => _searching = editing),
                 ),
