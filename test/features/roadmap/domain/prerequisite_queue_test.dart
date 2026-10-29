@@ -107,9 +107,30 @@ void main() {
     expect(result.today.newQuestionIds.first, 'c_q1');
     expect(
       result.today.reasons['c_q0'],
-      const PlanReason(kind: PlanReasonKind.prerequisite, forLessonId: 'a'),
+      const PlanReason(kind: PlanReasonKind.followUp, forLessonId: 'b'),
     );
     expect(result.weeksAhead.expand((w) => w.topicIds), contains('t'));
+  });
+  test('structural detour without misses keeps prerequisite reason', () {
+    final result = plan(
+      lessons: [lesson('a', 0), lesson('b', 1, read: true)],
+      links: {
+        'a': [link('b')],
+      },
+      history: [
+        QuestionHistory(
+          id: 'b_q0',
+          answered: 5,
+          recent: const [true, true, true],
+        ),
+      ],
+      recall: {'b_q0': 0.2},
+      seen: {'b_q0'},
+    );
+    expect(
+      result.today.reasons['b_q0'],
+      const PlanReason(kind: PlanReasonKind.prerequisite, forLessonId: 'a'),
+    );
   });
   test('solid deep prerequisite leaves the nearer weak prerequisite first', () {
     final result = plan(

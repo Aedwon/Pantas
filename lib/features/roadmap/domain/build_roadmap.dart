@@ -1,6 +1,7 @@
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/features/roadmap/domain/day_selection.dart';
+import 'package:pantas/features/roadmap/domain/follow_up.dart';
 import 'package:pantas/features/roadmap/domain/lesson_links.dart';
 import 'package:pantas/features/roadmap/domain/lesson_mastery.dart';
 import 'package:pantas/features/roadmap/domain/lesson_queue.dart';
@@ -86,6 +87,7 @@ abstract final class BuildRoadmap {
     final selection = DaySelector.select(
       lessonTopicOrder: order.order,
       lessonQueue: queue,
+      followUps: FollowUp(inputs).fromHistory(inputs),
       history: inputs.history,
       recall: inputs.recall,
       scores: inputs.scores,

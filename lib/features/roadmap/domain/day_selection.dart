@@ -36,6 +36,7 @@ abstract final class DaySelector {
     required int lessonsToday,
     required int newToday,
     LessonQueue? lessonQueue,
+    Map<LessonId, LessonId> followUps = const {},
     List<QuestionHistory> history = const [],
     Map<QuestionId, double> recall = const {},
     Map<TopicId, RoadmapTopicScore> scores = const {},
@@ -57,30 +58,45 @@ abstract final class DaySelector {
           lessonTopicOrder: lessonTopicOrder,
           lessons: lessons,
         );
-    final todayLessons = queue.lessons
+    final followUpLessons = queue.lessons.where(
+      (lesson) => followUps.containsKey(lesson.id),
+    );
+    final todayLessons = [
+      ...followUpLessons,
+      ...queue.lessons.where((lesson) => !followUps.containsKey(lesson.id)),
+    ]
         .where((lesson) => !queue.withheld.contains(lesson.id))
         .take(lessonsToday)
         .map((lesson) => lesson.id)
         .toList();
     final reasons = <String, PlanReason>{};
     for (final id in todayLessons) {
-      final dependent = queue.prerequisiteFor[id];
+      final followUp = followUps[id];
+      final dependent = followUp ?? queue.prerequisiteFor[id];
       final score = scores[lessonsById[id]!.topicId];
       reasons[id] = PlanReason(
-        kind: dependent != null
-            ? PlanReasonKind.prerequisite
-            : score != null &&
-                    score.isMeasured &&
-                    score.correct / score.answered < 0.70
-                ? PlanReasonKind.weakTopic
-                : PlanReasonKind.nextUp,
+        kind: followUp != null
+            ? PlanReasonKind.followUp
+            : dependent != null
+                ? PlanReasonKind.prerequisite
+                : score != null &&
+                        score.isMeasured &&
+                        score.correct / score.answered < 0.70
+                    ? PlanReasonKind.weakTopic
+                    : PlanReasonKind.nextUp,
         forLessonId: dependent,
       );
     }
     final histories = {for (final row in history) row.id: row};
     final detours = <RoadmapQuestion>[];
     if (includeDetours) {
-      for (final entry in queue.weakFor.entries.take(2)) {
+      final practiceFor = <LessonId, LessonId>{
+        for (final entry in followUps.entries)
+          if (lessonsById[entry.key]?.readAt != null) entry.key: entry.value,
+        for (final entry in queue.weakFor.entries)
+          entry.key: followUps[entry.key] ?? entry.value,
+      };
+      for (final entry in practiceFor.entries.take(2)) {
         final practice =
             questions.where((q) => q.lessonId == entry.key).toList()
               ..sort((a, b) {
@@ -98,7 +114,9 @@ abstract final class DaySelector {
         for (final question in practice.take(5)) {
           detours.add(question);
           reasons[question.id] = PlanReason(
-            kind: PlanReasonKind.prerequisite,
+            kind: followUps.containsKey(entry.key)
+                ? PlanReasonKind.followUp
+                : PlanReasonKind.prerequisite,
             forLessonId: entry.value,
           );
         }
