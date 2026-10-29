@@ -67,19 +67,19 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
 }
 
 /** For tests: content changes between cases. */
-export const clearExamContentCache = (): void => cache.clear();
+export const clearExamContentCache = (): void => { cache.clear(); gapCache = undefined; };
 
 export type StudyContent = {
   revision: string;
   subjects: {id: string; name: string; ordering: number}[];
   topics: {id: string; name: string; subjectId: string; ordering: number}[];
-  lessons: {id: string; topicId: string; title: string; ordering: number}[];
+  lessons: {id: string; topicId: string; title: string; ordering: number; prerequisites: {lesson: string; strength: 'required' | 'helpful'}[]}[];
   questions: {id: string; setId: string; topicId: string; lessonId: string | null; passageId: string | null}[];
 };
 type CatalogReference = string | {_ref: string};
 type CatalogSubject = {_id: string; name: string; ordering?: number; exam?: CatalogReference};
 type CatalogTopic = {_id: string; name: string; subject: CatalogReference; ordering?: number};
-type CatalogLesson = {id: string; topic: CatalogReference; title: string; ordering?: number};
+type CatalogLesson = {id: string; topic: CatalogReference; title: string; ordering?: number; prerequisites?: {lesson: string; strength: 'required' | 'helpful'}[]};
 type CatalogSet = {id: string; topic: CatalogReference; lesson?: CatalogReference | null; exams: string[];
   questions: {id: string; passage?: CatalogReference | null}[]};
 type CatalogDocument = {subjects?: CatalogSubject[]; topics?: CatalogTopic[]; lessons?: CatalogLesson[];
@@ -162,9 +162,32 @@ export async function loadStudyContent(db: Firestore, examId: string,
   const subjectOrder=new Map(subjects.map((s,i)=>[s.id,i]));
   const topics=[...requestedTopics].map(id=>allTopics.get(id)!).map(t=>({id:t._id,name:t.name,subjectId:refId(t.subject),ordering:t.ordering??0}))
     .sort((a,b)=>(subjectOrder.get(a.subjectId)!-subjectOrder.get(b.subjectId)!)||a.ordering-b.ordering||a.id.localeCompare(b.id));
-  const lessons=[...allLessons.values()].map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0})).sort((a,b)=>a.ordering-b.ordering||a.id.localeCompare(b.id));
+  const lessons=[...allLessons.values()].map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0,prerequisites:l.prerequisites??[]})).sort((a,b)=>a.ordering-b.ordering||a.id.localeCompare(b.id));
   const questions=sets.flatMap(s=>s.questions.map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
     lessonId:s.lesson==null?null:refId(s.lesson),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');
   return {revision:versions.sort().join('|'),subjects,topics,lessons,questions};
+}
+
+let gapCache: {at: number; value: Record<string, string>} | undefined;
+/** Gap tags stay server-only. One document, cached for five minutes like exam content. */
+export async function loadGapTags(db: Firestore, now: number): Promise<Record<string, string>> {
+  if (gapCache && now >= gapCache.at && now - gapCache.at < TTL_MS) return gapCache.value;
+  const doc = await db.doc('content/gaps/items/tags').get();
+  const value: Record<string, string> = {};
+  if (doc.exists) {
+    let raw: unknown;
+    try { raw = JSON.parse(String(doc.get('payload'))); }
+    catch { throw contentUnavailable('The prerequisite content could not be read.'); }
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw contentUnavailable('Invalid prerequisite content.');
+    for (const choices of Object.values(raw)) {
+      if (!choices || typeof choices !== 'object' || Array.isArray(choices)) throw contentUnavailable('Invalid prerequisite content.');
+      for (const [choice, lesson] of Object.entries(choices)) {
+        if (typeof lesson !== 'string') throw contentUnavailable('Invalid prerequisite content.');
+        value[choice] = lesson;
+      }
+    }
+  }
+  gapCache = {at: now, value};
+  return value;
 }

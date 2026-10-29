@@ -3,7 +3,7 @@ import {FieldPath, getFirestore, type Firestore} from 'firebase-admin/firestore'
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
-import {loadExamContent, loadStudyContent} from './_examContent.js';
+import {loadExamContent, loadStudyContent, loadGapTags} from './_examContent.js';
 import {phDay, phStamp} from './_phDate.js';
 import {hasLiveProClaim} from './_pro.js';
 import {examCatalog} from './revenuecatPasses.js';
@@ -123,8 +123,7 @@ export async function build(db: Firestore, uid: string, settings: ExamSettings, 
     examId: settings.examId,
     examDate: settings.examDate,
     topics: content.topics.filter(t => !settings.excludedTopicIds?.includes(t.id)).map((topic, authoredIndex) => ({id: topic.id, authoredIndex, name: topic.name})),
-    // Left out so the engine uses the app's own list of prerequisites.
-    prerequisites: null,
+    lessonLinks: {}, history: [], recall: {}, gapTags: {},
     lessons: content.lessons.filter(l => !settings.excludedTopicIds?.includes(l.topicId) && !settings.excludedLessonIds?.includes(l.id)).map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: null})),
     questions: content.questions.filter(q => !settings.excludedTopicIds?.includes(q.topicId)).map(q => ({id: q.id, topicId: q.topicId, lessonId: 'lessonId' in q ? q.lessonId : null, passageId: q.passageId})),
     seenQuestionIds: answers.seenQuestionIds,
@@ -289,15 +288,20 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
   const sameDate = prior?.digest ? JSON.parse(prior.digest).examDate === examDateKey(config) : false;
   const stateRows = reviews.docs.map(d => JSON.parse(String(d.get('stateJson'))));
   const endOfToday = Date.parse(today + 'T00:00:00+08:00') + 86400000;
-  const dueStates = stateRows.filter(s => topicOf.has(s.questionId) && Date.parse(s.due) < endOfToday);
-  const due = dueStates.length ? JSON.parse(core().dueReviews(JSON.stringify({now, states: dueStates}))) as
+  const scopedStates = stateRows.filter(s => topicOf.has(s.questionId));
+  const recallRows = scopedStates.length ? JSON.parse(core().dueReviews(JSON.stringify({now, states: scopedStates}))) as
     {id: string; due: number; retrievability: number}[] : [];
+  const due = recallRows.filter(r => r.due < endOfToday);
+  const scopedLessons = new Set(content.lessons.map(l => l.id));
+  const lessonLinks = Object.fromEntries(content.lessons.map(l => [l.id, l.prerequisites.filter(p => scopedLessons.has(p.lesson))]));
+  const gapTags = Object.fromEntries(Object.entries(await loadGapTags(db, now)).filter(([, lesson]) => scopedLessons.has(lesson)));
   const relevantMocks = mocks.docs.filter(d => d.get('examId') === examId);
   const lastMock = relevantMocks.reduce<number | null>((a,d) => Math.max(a ?? 0, Number(d.get('submittedAt'))), null);
   const pro = access.coversExam(examId);
   const inputs = {
     today, examId, examDate: config.examDate, studyDays: config.studyDays, treatTodayAsStudyDay: false,
-    topics: content.topics.map((t, i) => ({id: t.id, name: t.name, authoredIndex: i})), prerequisites: null,
+    topics: content.topics.map((t, i) => ({id: t.id, name: t.name, authoredIndex: i})),
+    lessonLinks, history: answerView.history, recall: Object.fromEntries(recallRows.map(r => [r.id, r.retrievability])), gapTags,
     lessons: content.lessons.map(l => ({...l, readAt: reads.docs.find(d => d.get('lessonId') === l.id)?.get('readAt') == null
       ? null : phStamp(Number(reads.docs.find(d => d.get('lessonId') === l.id)!.get('readAt')))})),
     questions: content.questions, seenQuestionIds: answerView.seenQuestionIds,

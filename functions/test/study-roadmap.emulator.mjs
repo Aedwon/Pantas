@@ -437,3 +437,42 @@ test('authored sibling exclusions preserve work sharing one legacy topic slug',a
  assert.equal(roadmap.today.lessonIds.includes(lessons[0].id),false);
  assert.ok(roadmap.today.lessonIds.includes(lessons[6].id));
 });
+
+// Missing catalog links, totals history, tags or non-due recall must change this result.
+test('R1 uses scoped links, recent answers, gap tags and non-due recall for both tiers',async()=>{
+ const uid='b4-r1';await seed(uid);
+ const ref=db.doc('content/catalog/items/'+EXAM),catalog=JSON.parse((await ref.get()).get('payload'));
+ catalog.lessons[0].prerequisites=[{lesson:'lesson-cse-6',strength:'helpful'},{lesson:'outside-scope',strength:'required'}];
+ await ref.update({version:'b4-links',payload:JSON.stringify(catalog)});
+ await db.doc('content/gaps/items/tags').set({payload:JSON.stringify({'cse-0-0':{'cse-0-0_b':'lesson-cse-6'}})});
+ clearExamContentCache();
+ const {addSession}=await import('../lib/_answerTotals.js');const totals=emptyTotals();
+ for(let i=0;i<5;i++)addSession(totals,[{questionId:'cse-1-0',chosen:'cse-1-0_a',correct:true,answeredAt:NOW}]);
+ addSession(totals,[{questionId:'cse-0-0',chosen:'cse-0-0_b',correct:false,answeredAt:NOW}]);
+ await db.doc('users/'+uid+'/server/answerTotals').set(toDoc(totals));
+ await db.doc('users/'+uid+'/server/lessonReads/items/lesson-cse-6').set({lessonId:'lesson-cse-6',readAt:NOW-DAY});
+ const [state]=JSON.parse(core().scheduleReviews(JSON.stringify({now:NOW-20*DAY,reviews:[{questionId:'cse-1-0',questionVersion:1,correct:false,previous:null}]})));
+ state.due=new Date(NOW+DAY).toISOString();
+ await db.doc('users/'+uid+'/server/reviews/items/cse-1-0').set({questionId:'cse-1-0',due:NOW+DAY,stateJson:JSON.stringify(state)});
+ const free=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.deepEqual(free.today.reasons['cse-1-0'],{kind:'followUp',forLesson:'lesson-cse-0'});
+ assert.equal(free.today.reviewQuestionIds.includes('cse-1-0'),true,'non-due recall makes the prerequisite weak');
+ assert.equal('comingUp'in free,false);assert.equal('history'in free,false);
+ await trial(uid);const pro=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.deepEqual(pro.today,free.today);assert.ok(pro.comingUp);assert.ok(pro.history);
+});
+
+test('Free can finish and advance three times without a tier cap',async()=>{
+ const uid='b4-free-advance';await seed(uid);
+ const {addSession,fromDoc}=await import('../lib/_answerTotals.js');
+ let view=await readStudyRoadmap(auth(uid),body(uid),deps());
+ for(let i=0;i<3;i++){
+  for(const lessonId of view.today.lessonIds)await db.doc('users/'+uid+'/server/lessonReads/items/'+lessonId).set({lessonId,readAt:NOW});
+  const ref=db.doc('users/'+uid+'/server/answerTotals'),totals=fromDoc((await ref.get()).data());
+  addSession(totals,[...view.today.newQuestionIds,...view.today.reviewQuestionIds].map(questionId=>({questionId,chosen:questionId+'_a',correct:true,answeredAt:NOW})));
+  await ref.set(toDoc(totals));view=await readStudyRoadmap(auth(uid),body(uid),deps());
+  assert.equal(view.originalDone,true);assert.equal(view.canAdvance,true);
+  view=await advanceStudyRoadmap(auth(uid),{...body(uid),requestId:'b4-free-advance-'+i,expectedDay:view.today.day,expectedRevision:view.revision},deps());
+  assert.equal(view.tier,'free');assert.ok(view.today.advancedIds.length>0);
+ }
+});
