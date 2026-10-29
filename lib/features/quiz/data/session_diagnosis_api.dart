@@ -3,9 +3,9 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 
-/// Reply of `getSessionDiagnosis`: `{status: 'ready' | 'pending',
-/// tracedCount, detail?: {traced, withinLesson}}`.
-/// The server sends `detail` to Pro accounts only.
+/// Reply of `getSessionDiagnosis`: `{status: 'ok' | 'pending', tier,
+/// tracedCount}`; Pro replies add `traced` and `withinLesson`. Free results
+/// keep only the count, even if a reply includes detail.
 final class SessionDiagnosisData {
   const SessionDiagnosisData._(this.tracedCount, this.detail);
 
@@ -15,19 +15,19 @@ final class SessionDiagnosisData {
   static SessionDiagnosisData? decode(Map<String, Object?> json) {
     if (json['status'] == 'pending') return null;
     final count = json['tracedCount'];
-    final detail = json['detail'];
-    if (json['status'] != 'ready' ||
+    final tier = json['tier'];
+    if (json['status'] != 'ok' ||
         count is! int ||
         count < 0 ||
-        (detail != null && detail is! Map)) {
+        (tier != 'free' && tier != 'pro')) {
       throw const FormatException('Invalid diagnosis response');
     }
     return SessionDiagnosisData._(
       count,
-      detail is Map
+      tier == 'pro'
           ? Map<String, Object?>.unmodifiable({
-              'traced': _groups(detail['traced']),
-              'withinLesson': _groups(detail['withinLesson']),
+              'traced': _groups(json['traced']),
+              'withinLesson': _groups(json['withinLesson']),
             })
           : null,
     );

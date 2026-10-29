@@ -7,7 +7,8 @@ import 'package:pantas/features/quiz/data/session_diagnosis_api.dart';
 void main() {
   test('Free payload keeps only the count', () {
     final result = SessionDiagnosisData.decode({
-      'status': 'ready',
+      'status': 'ok',
+      'tier': 'free',
       'tracedCount': 3,
     });
     expect(result!.tracedCount, 3);
@@ -16,32 +17,31 @@ void main() {
 
   test('Pro payload parses traced and within-lesson detail', () {
     final result = SessionDiagnosisData.decode({
-      'status': 'ready',
+      'status': 'ok',
+      'tier': 'pro',
       'tracedCount': 1,
-      'detail': {
-        'traced': [
-          {
-            'prerequisite': 'fractions',
-            'forLesson': 'percent',
-            'via': 'gapTag',
-            'questions': [
-              {
-                'questionId': 'q1',
-                'position': 2,
-                'mistake': 'Check the bottom.',
-              },
-            ],
-          },
-        ],
-        'withinLesson': [
-          {
-            'lesson': 'percent',
-            'questions': [
-              {'questionId': 'q2', 'position': 3},
-            ],
-          },
-        ],
-      },
+      'traced': [
+        {
+          'prerequisite': 'fractions',
+          'forLesson': 'percent',
+          'via': 'gapTag',
+          'questions': [
+            {
+              'questionId': 'q1',
+              'position': 2,
+              'mistake': 'Check the bottom.',
+            },
+          ],
+        },
+      ],
+      'withinLesson': [
+        {
+          'lesson': 'percent',
+          'questions': [
+            {'questionId': 'q2', 'position': 3},
+          ],
+        },
+      ],
     });
     expect(result!.tracedCount, 1);
     expect(result.detail!['traced'], hasLength(1));
@@ -79,9 +79,10 @@ void main() {
     expect(waits, [const Duration(seconds: 3)]);
   });
 
-  test('fields outside detail are ignored', () {
+  test('Free ignores unexpected protected detail', () {
     final result = SessionDiagnosisData.decode({
-      'status': 'ready',
+      'status': 'ok',
+      'tier': 'free',
       'tracedCount': 1,
       'traced': [
         {'questionId': 'private'},
@@ -100,7 +101,7 @@ void main() {
         api: StudyApi(
           (name, data) async => ++calls == 1
               ? {'status': 'pending'}
-              : {'status': 'ready', 'tracedCount': 2},
+              : {'status': 'ok', 'tier': 'free', 'tracedCount': 2},
         ),
         uid: 'owner',
         examId: 'cse',
