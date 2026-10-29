@@ -2013,3 +2013,16 @@ by choice text, not a `gapLesson` field in the rationale as the spec says; engin
   theme swap would turn a "black circle" light in dark mode. Shown in the gallery for Aedwon's check.
 - Aedwon confirmed the deviation. Exact comment: "Keep fixed light".
 - Result: `content/cse-rewrite-r1` 1a56f521 (pushed). Style rules rewritten. Not yet seen in the app.
+
+## 2026-10-29 Domain names in the app
+
+- Finding: the app and functions still use `pantas.app` (Wrapped share links, the Wrapped landing
+  page origin, and the privacy contacts `dpo@pantas.app` and `contact@pantas.app`). D8 chose
+  `pantas.study`.
+- Aedwon's exact comment: "all applicable to pantas.study, but the main app is on app.pantas.study
+  , this makes sense right?"
+- Decision: the marketing site (Hosting target `site`, which serves the `/wrapped/**` rewrite) is
+  `pantas.study`; the app (Hosting target `app`) is `app.pantas.study`. Share links become
+  `https://pantas.study/wrapped/<id>`. Contacts become `dpo@pantas.study` and
+  `contact@pantas.study`; Aedwon creates both mailboxes before launch. Applied on
+  `web/staging-candidate-r1` under the low-impact exception.
