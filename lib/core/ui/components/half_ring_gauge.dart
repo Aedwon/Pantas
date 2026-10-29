@@ -48,9 +48,9 @@ class HalfRingGauge extends StatefulWidget {
     required int total,
     this.assessment = false,
     this.labelOpacity = 1,
+    this.web = false,
     super.key,
-  })  : web = false,
-        assert(
+  })  : assert(
           correct >= 0 && total >= correct,
           'Correct count must be between zero and total.',
         ),
@@ -156,6 +156,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     final type = context.type;
     final quiz = widget.correct != null;
     final large = quiz || widget.mockSize;
+    final wideQuiz = quiz && widget.web;
     if (_painter == null ||
         _painter!.fraction != _fill ||
         _painter!.fill != colors.accent ||
@@ -185,25 +186,31 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: large
-                ? 264
-                : widget.web
-                    ? 224
-                    : 220,
-            height: large
-                ? 128
-                : widget.web
-                    ? 118
-                    : 112,
+            width: wideQuiz
+                ? 320
+                : large
+                    ? 264
+                    : widget.web
+                        ? 224
+                        : 220,
+            height: wideQuiz
+                ? 150
+                : large
+                    ? 128
+                    : widget.web
+                        ? 118
+                        : 112,
             child: Stack(
               children: [
                 CustomPaint(
                   key: const ValueKey('half-ring-paint'),
-                  size: large
-                      ? const Size(264, 128)
-                      : widget.web
-                          ? const Size(224, 118)
-                          : const Size(220, 112),
+                  size: wideQuiz
+                      ? const Size(320, 150)
+                      : large
+                          ? const Size(264, 128)
+                          : widget.web
+                              ? const Size(224, 118)
+                              : const Size(220, 112),
                   painter: _painter,
                 ),
                 Positioned(
@@ -296,10 +303,16 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 
   Widget _rollingCount(BuildContext context, PantasType type) {
     final style = type.largeTitle
-        .copyWith(fontSize: 60, height: 1, letterSpacing: -1.8)
+        .copyWith(
+          fontSize: widget.web ? 76 : 60,
+          height: 1,
+          letterSpacing: -1.8,
+        )
         .tabular;
     final scaler = MediaQuery.textScalerOf(context);
-    final extent = 64 * scaler.scale(60) / 60;
+    final fontSize = widget.web ? 76.0 : 60.0;
+    final countHeight = widget.web ? 80.0 : 64.0;
+    final extent = countHeight * scaler.scale(fontSize) / fontSize;
     final measure = TextPainter(
       text: TextSpan(
         text: '${math.max(widget.correct!, _count.value.ceil())}',
@@ -311,7 +324,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     final width = measure.width;
     measure.dispose();
     return SizedBox(
-      height: 64,
+      height: countHeight,
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: AnimatedBuilder(
@@ -368,7 +381,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                   '/${widget.total}',
                   style: type.emphasized
                       .copyWith(
-                        fontSize: 24,
+                        fontSize: widget.web ? 28 : 24,
                         height: 1.35,
                         color: context.colors.secondaryLabel,
                       )
@@ -411,11 +424,13 @@ class _GaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final rect = mockSize
-        ? const Rect.fromLTWH(24, 10, 216, 216)
-        : web
-            ? const Rect.fromLTWH(18, 14, 188, 188)
-            : const Rect.fromLTWH(18, 10, 184, 184);
+    final rect = mockSize && web
+        ? const Rect.fromLTWH(22, 12, 276, 276)
+        : mockSize
+            ? const Rect.fromLTWH(24, 10, 216, 216)
+            : web
+                ? const Rect.fromLTWH(18, 14, 188, 188)
+                : const Rect.fromLTWH(18, 10, 184, 184);
     canvas.drawArc(rect, math.pi, math.pi, false, trackPaint);
     if (fraction.value > 0) {
       canvas.drawArc(rect, math.pi, math.pi * fraction.value, false, fillPaint);

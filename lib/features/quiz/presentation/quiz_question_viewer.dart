@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
@@ -16,7 +17,11 @@ import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
+import 'package:pantas/features/quiz/presentation/web_quiz_question.dart';
 
 class QuizQuestionViewer extends StatefulWidget {
   const QuizQuestionViewer({
@@ -57,6 +62,17 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
   late bool _notes = widget.openNotes && widget.pro;
   final Map<String, AttemptItem> _updates = {};
   final Set<String> _reported = {};
+  String? _reportStatus;
+  Timer? _reportTimer;
+  final Set<String> _dismissedNotes = {};
+  final FocusNode _webFocus = FocusNode();
+  @override
+  void dispose() {
+    _reportTimer?.cancel();
+    _webFocus.dispose();
+    super.dispose();
+  }
+
   int _editorEpoch = 0;
   int _saveSerial = 0;
   String? _savedQuestion;
@@ -91,12 +107,22 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
       _saveSerial++;
       _savedQuestion = tag != null || note != null ? questionId : null;
       _notes = false;
+      _webFocus.requestFocus();
     });
   }
 
   Future<void> _report(String id) async {
     final saved = await widget.onReport(id);
-    if (mounted && (saved ?? false)) setState(() => _reported.add(id));
+    if (mounted && (saved ?? false)) {
+      _reportTimer?.cancel();
+      setState(() {
+        _reported.add(id);
+        _reportStatus = id;
+      });
+      _reportTimer = Timer(const Duration(seconds: 4), () {
+        if (mounted) setState(() => _reportStatus = null);
+      });
+    }
   }
 
   @override
@@ -112,9 +138,201 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
     final wrong = !(item?.isCorrect ?? true);
     final canNote = wrong && widget.pro;
     final notes = _notes && canNote;
+    final passage = widget.passages[question.passageId];
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      final editor = canNote
+          ? QuizNoteEditor(
+              key: ValueKey(
+                'web-note-${question.id}-$_saveSerial-$_editorEpoch',
+              ),
+              tag: item?.mistakeTag,
+              note: item?.mistakeNote,
+              framed: false,
+              onCancel: () => setState(() {
+                _notes = false;
+                _dismissedNotes.add(question.id);
+                _webFocus.requestFocus();
+              }),
+              onSave: (tag, note) => _save(question.id, tag, note),
+            )
+          : null;
+      void previous() {
+        if (_index > 0) _move(_index - 1);
+      }
+
+      void next() {
+        if (_index + 1 < widget.questions.length) _move(_index + 1);
+      }
+
+      return CallbackShortcuts(
+        bindings: {
+          const SingleActivator(LogicalKeyboardKey.escape): widget.onBack,
+          const SingleActivator(LogicalKeyboardKey.arrowLeft): previous,
+          const SingleActivator(LogicalKeyboardKey.arrowRight): next,
+        },
+        child: Focus(
+          focusNode: _webFocus,
+          autofocus: true,
+          child: Scaffold(
+            backgroundColor: t.colors.background,
+            body: Column(
+              children: [
+                SizedBox(
+                  height: 64,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: [
+                        TextButton.icon(
+                          onPressed: widget.onBack,
+                          icon: Icon(PantasIcons.back, size: 20),
+                          label: Text(widget.backLabel),
+                        ),
+                        const SizedBox(width: 10),
+                        const WebKeyHint('Esc'),
+                        const Spacer(),
+                        if (_reportStatus == question.id)
+                          Text(
+                            "Saved. It sends when you're back online.",
+                            style: t.sm,
+                          ),
+                        IconButton(
+                          tooltip: 'Report a question',
+                          onPressed: () => unawaited(_report(question.id)),
+                          icon: IconTheme(
+                            data: IconThemeData(
+                              color: _reported.contains(question.id)
+                                  ? t.colors.accent
+                                  : t.colors.secondaryLabel,
+                            ),
+                            child: PantasIcons.report,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: SingleChildScrollView(
+                          padding: const EdgeInsets.fromLTRB(40, 56, 40, 140),
+                          child: question.passageId != null && passage == null
+                              ? errorFor(
+                                  'question',
+                                  widget.onReload ?? widget.onBack,
+                                )
+                              : WebQuizQuestion(
+                                  question: question,
+                                  subject:
+                                      widget.subjectNames[question.topicId] ??
+                                          '',
+                                  chosenId: item?.chosenChoiceId,
+                                  checked: true,
+                                  pro: widget.pro,
+                                  proPaused: widget.proPaused,
+                                  passage: passage,
+                                  passagePosition: passage == null
+                                      ? null
+                                      : (
+                                          ordinal: widget.questions
+                                              .take(_index + 1)
+                                              .where(
+                                                (q) =>
+                                                    q.passageId ==
+                                                    question.passageId,
+                                              )
+                                              .length,
+                                          total: widget.questions
+                                              .where(
+                                                (q) =>
+                                                    q.passageId ==
+                                                    question.passageId,
+                                              )
+                                              .length,
+                                        ),
+                                  notes: canNote &&
+                                          (_notes ||
+                                              (_savedQuestion != question.id &&
+                                                  !_dismissedNotes
+                                                      .contains(question.id)))
+                                      ? editor
+                                      : null,
+                                ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 24,
+                        right: 24,
+                        bottom: 28,
+                        child: Center(
+                          child: IntrinsicWidth(
+                            child: WebBottomBar(
+                              compact: true,
+                              counter:
+                                  '${_index + 1} of ${widget.questions.length}',
+                              state:
+                                  wrong ? WebBarState.wrong : WebBarState.right,
+                              leading: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    tooltip: 'Previous question',
+                                    onPressed: _index > 0 ? previous : null,
+                                    icon: Icon(
+                                      PantasIcons.back,
+                                      size: 18,
+                                    ),
+                                  ),
+                                  const WebKeyHint('←'),
+                                ],
+                              ),
+                              action: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const WebKeyHint('→'),
+                                  if (canNote &&
+                                      (_savedQuestion == question.id ||
+                                          _dismissedNotes
+                                              .contains(question.id)))
+                                    IconButton(
+                                      tooltip: 'Edit Note',
+                                      onPressed: () => setState(() {
+                                        _notes = true;
+                                        _editorEpoch++;
+                                      }),
+                                      icon: Icon(PantasIcons.addNote),
+                                    ),
+                                  IconButton(
+                                    tooltip: 'Next question',
+                                    onPressed:
+                                        _index + 1 < widget.questions.length
+                                            ? next
+                                            : null,
+                                    icon: Icon(
+                                      PantasIcons.next,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     final colors = context.colors;
     final large = MediaQuery.textScalerOf(context).scale(16) > 24;
-    final passage = widget.passages[question.passageId];
     final barState = item == null
         ? FloatingBarState.neutral
         : wrong

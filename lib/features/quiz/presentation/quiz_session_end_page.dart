@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
+import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/review_prompt/domain/review_eligibility.dart';
 
@@ -182,6 +184,25 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
       for (var i = 0; i < total; i++)
         if (!widget.mistakesOnly || !data.attempt.items[i].isCorrect) i,
     ];
+    if (context.wideWeb) {
+      void back() {
+        if (context.canPop()) {
+          context.pop();
+        } else {
+          context.pushReplacement('/quiz/debrief/${widget.attemptId}');
+        }
+      }
+
+      return WebQuizQuestionList(
+        session: data.session,
+        attempt: data.attempt,
+        subjectNames: data.subjectNames,
+        mistakesOnly: widget.mistakesOnly,
+        onBack: back,
+        onQuestion: (index) => unawaited(_question(index)),
+      );
+    }
+
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -298,7 +319,11 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             return errorFor('questions', _reload);
           }
           final data = snapshot.data;
-          if (data == null) return loadingFor(const AsyncLoading<void>());
+          if (data == null) {
+            return context.wideWeb
+                ? const WebDebriefLoading()
+                : loadingFor(const AsyncLoading<void>());
+          }
           if (widget.all) return _list(data);
           final misses = [
             for (var i = 0; i < data.attempt.items.length; i++)

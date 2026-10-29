@@ -657,6 +657,7 @@ class WebBottomBar extends StatelessWidget {
     this.hint,
     this.state = WebBarState.neutral,
     this.wide = false,
+    this.compact = false,
     super.key,
   });
   final String counter;
@@ -666,6 +667,7 @@ class WebBottomBar extends StatelessWidget {
   final String? hint;
   final WebBarState state;
   final bool wide;
+  final bool compact;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -699,6 +701,7 @@ class WebBottomBar extends StatelessWidget {
           ],
         ),
         child: Row(
+          mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
           children: [
             if (leading != null) leading!,
             TextButton(
@@ -713,15 +716,16 @@ class WebBottomBar extends StatelessWidget {
               ),
               child: Text(counter),
             ),
-            Expanded(
-              child: Text(
-                hint ?? '',
-                textAlign: TextAlign.center,
-                style: t.sm.copyWith(
-                  color: t.dark ? c.secondaryLabel : c.tertiaryLabel,
+            if (!compact || hint != null)
+              Expanded(
+                child: Text(
+                  hint ?? '',
+                  textAlign: TextAlign.center,
+                  style: t.sm.copyWith(
+                    color: t.dark ? c.secondaryLabel : c.tertiaryLabel,
+                  ),
                 ),
               ),
-            ),
             action,
           ],
         ),

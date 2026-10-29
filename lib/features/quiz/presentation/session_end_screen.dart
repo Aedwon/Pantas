@@ -12,7 +12,9 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 
 class SessionEndBody extends StatefulWidget {
   const SessionEndBody({
@@ -194,6 +196,24 @@ class _SessionEndBodyState extends State<SessionEndBody>
     }
     final next =
         widget.onNext != null && batch != null && batch.ordinal < batch.total;
+    if (context.wideWeb) {
+      return WebSessionResults(
+        session: widget.session,
+        attempt: attempt,
+        subjectNames: widget.subjectNames,
+        pro: widget.proIsActive,
+        proPaused: widget.proPaused,
+        source: source,
+        onDone: widget.onDone,
+        onQuestion: widget.onQuestion,
+        onAll: widget.onAll,
+        onMistakes: widget.onMistakes,
+        onNotes: widget.onNotes,
+        onNext: next ? () => unawaited(_next()) : null,
+        nextBusy: _nextBusy,
+        failure: _nextFailed ? saveFailureLine(() => unawaited(_next())) : null,
+      );
+    }
     return SafeArea(
       child: Stack(
         children: [

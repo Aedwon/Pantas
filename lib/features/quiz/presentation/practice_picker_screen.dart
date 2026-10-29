@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -15,6 +16,9 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
@@ -36,6 +40,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
   int _value = 10;
   Map<String, int> _adjustments = {};
   bool _lengthOpen = false;
+  final Set<String> _webOpenTopics = {};
   bool _adjusting = false;
   bool _starting = false;
   String? _initializedExam;
@@ -307,6 +312,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           ],
         ),
     ];
+    if (context.wideWeb) return _web(index, summary, pace, pickedLabel);
     final page = Stack(
       children: [
         PantasPage(
@@ -366,6 +372,369 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         open: _lengthOpen,
         onDismiss: () => setState(() => _lengthOpen = false),
         child: _length(index, summary, pace),
+      ),
+    );
+  }
+
+  Widget _web(
+    PracticeIndex index,
+    PracticeSummary summary,
+    int? pace,
+    String pickedLabel,
+  ) {
+    final t = context.webTokens;
+    void selection(PracticeSelection next) => _change(() {
+          _selection = next;
+          _adjustments = {};
+          _value = _snap(_value, next.units(index).length, pace);
+        });
+    final tree = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final subject in index.subjects) ...[
+          WebText(subject.name, kind: WebTextKind.eyebrow),
+          WebCard(
+            child: Column(
+              children: [
+                for (final topic in subject.topics) ...[
+                  WebRow(
+                    title: topic.name,
+                    dimmed: !topic.hasQuestions,
+                    subtitle: topic.hasQuestions ? null : 'No questions yet',
+                    leading: Checkbox(
+                      tristate: true,
+                      value: switch (_selection.topicState(topic)) {
+                        PracticeCheckState.off => false,
+                        PracticeCheckState.on => true,
+                        PracticeCheckState.partial => null,
+                      },
+                      onChanged: topic.hasQuestions
+                          ? (_) => selection(_selection.toggleTopic(topic))
+                          : null,
+                    ),
+                    trailing: topic.canUnfold
+                        ? IconButton(
+                            tooltip: 'Lessons in ${topic.name}',
+                            onPressed: () => setState(() {
+                              if (!_webOpenTopics.remove(topic.id)) {
+                                _webOpenTopics.add(topic.id);
+                              }
+                            }),
+                            icon: Icon(
+                              _webOpenTopics.contains(topic.id)
+                                  ? Icons.keyboard_arrow_up
+                                  : Icons.keyboard_arrow_down,
+                              size: 18,
+                            ),
+                          )
+                        : null,
+                    onPressed: () => selection(_selection.toggleTopic(topic)),
+                  ),
+                  if (_webOpenTopics.contains(topic.id))
+                    for (final lesson in topic.lessons)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 36),
+                        child: WebRow(
+                          title: lesson.title,
+                          compact: true,
+                          titleStyle: t.style(16),
+                          dimmed: lesson.questionCount == 0,
+                          leading: Checkbox(
+                            value: _selection.lessonSelected(lesson.id),
+                            onChanged: lesson.questionCount == 0
+                                ? null
+                                : (_) => selection(
+                                      _selection.toggleLesson(topic, lesson),
+                                    ),
+                          ),
+                          trailing: !lesson.isRead
+                              ? Text('Unread', style: t.sm)
+                              : null,
+                          onPressed: () =>
+                              selection(_selection.toggleLesson(topic, lesson)),
+                        ),
+                      ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+        ],
+      ],
+    );
+    final rows = <({String title, String? meta, Set<String> keys})>[];
+    for (final topic in index.allTopics) {
+      final selected =
+          topic.lessons.where((l) => _selection.lessonSelected(l.id)).toList();
+      if (selected.length > 1 &&
+          _selection.topicState(topic) == PracticeCheckState.on) {
+        rows.add(
+          (
+            title: topic.name,
+            meta: '${selected.length} lessons',
+            keys: {for (final l in selected) 'lesson:${l.id}'}
+          ),
+        );
+      } else {
+        for (final lesson in selected) {
+          rows.add(
+            (
+              title: lesson.title,
+              meta: summary.availableByUnit['lesson:${lesson.id}'] ==
+                          summary.countsByUnit['lesson:${lesson.id}'] &&
+                      lesson.questionCount < _value &&
+                      _mode == PracticeUnitMode.questions
+                  ? 'Only ${lesson.questionCount} questions so far'
+                  : null,
+              keys: {'lesson:${lesson.id}'}
+            ),
+          );
+        }
+      }
+    }
+    final canStart = !summary.isEmpty &&
+        summary.totalQuestions >= summary.unitCount &&
+        !_starting;
+    void start() {
+      if (canStart) unawaited(_start(index, summary));
+    }
+
+    final timeLabel = _underMinute(summary)
+        ? 'under 1 min'
+        : _time(summary.estimatedMinutes ?? 0);
+    final panel = WebCard(
+      padding: const EdgeInsets.all(22),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Expanded(child: Text('Your quiz', style: t.h3)),
+              if (!summary.isEmpty) _clearButton(),
+            ],
+          ),
+          const SizedBox(height: 18),
+          if (summary.isEmpty) ...[
+            Text(
+              'Nothing picked yet',
+              style: t.style(17, weight: FontWeight.w600),
+            ),
+            const SizedBox(height: 6),
+            Text('Pick a topic or a lesson', style: t.sub),
+          ] else ...[
+            Text(pickedLabel, style: t.sub),
+            const SizedBox(height: 14),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text(
+                  '${_mode == PracticeUnitMode.minutes ? '~' : ''}'
+                  '${summary.totalQuestions}',
+                  style: t.big,
+                ),
+                const SizedBox(width: 6),
+                Text('questions', style: t.sub),
+                const Spacer(),
+                Text(
+                  '${_mode == PracticeUnitMode.questions ? '~' : ''}$timeLabel',
+                  style: t.sub,
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            Text('How long?', style: t.style(17, weight: FontWeight.w600)),
+            const SizedBox(height: 12),
+            WebSegmentedControl(
+              labels: const ['Questions per lesson', 'Total time'],
+              selected: _mode.index,
+              onChanged: (i) {
+                if (i == _mode.index) return;
+                _change(
+                  () {
+                    _conversionTarget ??= summary.totalQuestions;
+                    _mode = PracticeUnitMode.values[i];
+                    _value = BuildPracticeSummary.closestValue(
+                          units: _selection.units(index),
+                          index: index,
+                          totalQuestions: _conversionTarget!,
+                          values: _values,
+                          mode: _mode,
+                          averageResponseMs: pace,
+                        ) ??
+                        _snap(_value, summary.unitCount, pace);
+                    _adjustments = {};
+                  },
+                  modeOnly: true,
+                );
+              },
+            ),
+            const SizedBox(height: 10),
+            Text(
+              _mode == PracticeUnitMode.questions
+                  ? 'You set the questions. Time follows.'
+                  : 'You set the time. Questions follow.',
+              style: t.sm,
+            ),
+            const SizedBox(height: 14),
+            Wrap(
+              spacing: 6,
+              runSpacing: 8,
+              children: [
+                for (final value in _mode == PracticeUnitMode.questions
+                    ? const [3, 4, 5, 6, 8, 10, 15, 20, 30, 50]
+                    : _values)
+                  SizedBox(
+                    width: 48,
+                    height: 40,
+                    child: TextButton(
+                      onPressed: _invalid(summary.unitCount, pace)
+                              .contains(_values.indexOf(value))
+                          ? null
+                          : () => _change(() {
+                                _value = value;
+                                _adjustments = {};
+                              }),
+                      style: TextButton.styleFrom(
+                        backgroundColor: _value == value
+                            ? t.colors.accentTint
+                            : t.colors.background,
+                        side: BorderSide(
+                          color: _value == value
+                              ? t.colors.accent
+                              : Colors.transparent,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        '$value',
+                        style: t.style(15, color: t.colors.label).copyWith(
+                              decoration: _invalid(summary.unitCount, pace)
+                                      .contains(_values.indexOf(value))
+                                  ? TextDecoration.lineThrough
+                                  : null,
+                            ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 22),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Split by lesson',
+                    style: t.style(15, weight: FontWeight.w600),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    if (_adjusting) {
+                      _change(() {
+                        _adjustments = {};
+                        _adjusting = false;
+                      });
+                    } else {
+                      setState(() => _adjusting = true);
+                    }
+                  },
+                  child: Text(_adjusting ? 'Reset' : 'Adjust'),
+                ),
+              ],
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 280),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    for (final row in rows)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 9),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(row.title, style: t.style(15)),
+                                  if (row.meta != null)
+                                    Text(row.meta!, style: t.sm),
+                                ],
+                              ),
+                            ),
+                            if (_adjusting)
+                              _step(summary, row.keys, -1, row.title),
+                            Text('${_count(summary, row.keys)}', style: t.sub),
+                            if (_adjusting)
+                              _step(summary, row.keys, 1, row.title),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+          if (_failure != null) ...[
+            const SizedBox(height: 14),
+            if (_launchFailed)
+              StateView(message: _failure!, onRetry: start)
+            else
+              saveFailureLine(_save),
+          ],
+          const SizedBox(height: 22),
+          Align(
+            alignment: Alignment.centerRight,
+            child: WebButton(
+              label: 'Start',
+              keyHint: 'Enter',
+              onPressed: canStart ? start : null,
+              busy: _starting,
+            ),
+          ),
+        ],
+      ),
+    );
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.enter): start,
+        const SingleActivator(LogicalKeyboardKey.escape): () =>
+            unawaited(_back()),
+      },
+      child: Focus(
+        autofocus: true,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: () => unawaited(_back()),
+                  icon: Icon(PantasIcons.back, size: 20),
+                  label: const Text('Quiz'),
+                ),
+              ),
+              const WebText('Customize your own', kind: WebTextKind.h1),
+              const SizedBox(height: 26),
+              LayoutBuilder(
+                builder: (context, constraints) => constraints.maxWidth < 850
+                    ? Column(children: [tree, panel])
+                    : Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(child: tree),
+                          const SizedBox(width: 28),
+                          SizedBox(width: 440, child: panel),
+                        ],
+                      ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

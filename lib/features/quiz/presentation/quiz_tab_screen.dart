@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -20,6 +21,9 @@ import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -128,103 +132,109 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         _dismissQuestions();
       }
     });
-    final page = PantasPage(
-      title: 'Quiz',
-      bottomInset: 104,
-      children: [
-        focus.when(
-          loading: () => loadingFor(focus),
-          error: (error, _) => errorFor(
-            'practice',
-            () => ref.invalidate(activeExamFocusProvider),
-            error: error,
-          ),
-          data: (value) {
-            final exam = value.exam;
-            if (exam == null) return chooseExamFallback(context);
-            final session = ref.watch(sessionPanelProvider(exam.id));
-            final counts = ref.watch(quizPracticeCountsProvider(exam.id));
-            final paused = session.valueOrNull is SessionPanelInProgress;
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _entry(
-                  100,
-                  session.when(
-                    loading: () => loadingFor(session),
-                    error: (error, _) => errorFor(
-                      'practice',
-                      () => ref.invalidate(sessionPanelProvider(exam.id)),
-                      error: error,
-                    ),
-                    data: (state) => _today(exam.id, state),
-                  ),
+    final page = context.wideWeb
+        ? _web(focus)
+        : PantasPage(
+            title: 'Quiz',
+            bottomInset: 104,
+            children: [
+              focus.when(
+                loading: () => loadingFor(focus),
+                error: (error, _) => errorFor(
+                  'practice',
+                  () => ref.invalidate(activeExamFocusProvider),
+                  error: error,
                 ),
-                if (widget.mockPanel != null) ...[
-                  const SizedBox(height: 24),
-                  _entry(190, widget.mockPanel!),
-                ],
-                const SizedBox(height: 24),
-                _entry(
-                  280,
-                  counts.when(
-                    loading: () => loadingFor(counts),
-                    error: (error, _) => errorFor(
-                      'questions',
-                      () => ref.invalidate(quizPracticeCountsProvider(exam.id)),
-                      error: error,
-                    ),
-                    data: (counts) => GroupedSection(
-                      header: 'More ways to practice',
-                      children: [
-                        _practiceRow(
-                          'Your past mistakes',
-                          counts.mistakes,
-                          icon: PantasIcons.close,
-                          empty: 'Nothing to fix yet',
-                          onTap: () =>
-                              unawaited(_open('/quiz/retake/${exam.id}')),
+                data: (value) {
+                  final exam = value.exam;
+                  if (exam == null) return chooseExamFallback(context);
+                  final session = ref.watch(sessionPanelProvider(exam.id));
+                  final counts = ref.watch(quizPracticeCountsProvider(exam.id));
+                  final paused = session.valueOrNull is SessionPanelInProgress;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _entry(
+                        100,
+                        session.when(
+                          loading: () => loadingFor(session),
+                          error: (error, _) => errorFor(
+                            'practice',
+                            () => ref.invalidate(sessionPanelProvider(exam.id)),
+                            error: error,
+                          ),
+                          data: (state) => _today(exam.id, state),
                         ),
-                        Opacity(
-                          opacity: paused ? .45 : 1,
-                          child: ListRow(
-                            title: 'Customize your own',
-                            variant: paused
-                                ? ListRowVariant.value
-                                : ListRowVariant.navigation,
-                            icon: PantasIcons.practice,
-                            iconColor:
-                                paused ? context.colors.secondaryLabel : null,
-                            subtitle: paused
-                                ? 'Finish or discard your '
-                                    'paused quiz first'
-                                : null,
-                            onTap: paused
-                                ? null
-                                : () => unawaited(
-                                      _open('/quiz/practice/${exam.id}'),
-                                    ),
-                            divider: true,
+                      ),
+                      if (widget.mockPanel != null) ...[
+                        const SizedBox(height: 24),
+                        _entry(190, widget.mockPanel!),
+                      ],
+                      const SizedBox(height: 24),
+                      _entry(
+                        280,
+                        counts.when(
+                          loading: () => loadingFor(counts),
+                          error: (error, _) => errorFor(
+                            'questions',
+                            () => ref.invalidate(
+                              quizPracticeCountsProvider(exam.id),
+                            ),
+                            error: error,
+                          ),
+                          data: (counts) => GroupedSection(
+                            header: 'More ways to practice',
+                            children: [
+                              _practiceRow(
+                                'Your past mistakes',
+                                counts.mistakes,
+                                icon: PantasIcons.close,
+                                empty: 'Nothing to fix yet',
+                                onTap: () =>
+                                    unawaited(_open('/quiz/retake/${exam.id}')),
+                              ),
+                              Opacity(
+                                opacity: paused ? .45 : 1,
+                                child: ListRow(
+                                  title: 'Customize your own',
+                                  variant: paused
+                                      ? ListRowVariant.value
+                                      : ListRowVariant.navigation,
+                                  icon: PantasIcons.practice,
+                                  iconColor: paused
+                                      ? context.colors.secondaryLabel
+                                      : null,
+                                  subtitle: paused
+                                      ? 'Finish or discard your '
+                                          'paused quiz first'
+                                      : null,
+                                  onTap: paused
+                                      ? null
+                                      : () => unawaited(
+                                            _open('/quiz/practice/${exam.id}'),
+                                          ),
+                                  divider: true,
+                                ),
+                              ),
+                              _practiceRow(
+                                'Flagged questions',
+                                counts.flags,
+                                icon: PantasIcons.flag,
+                                empty: 'Flag a question to come back to it',
+                                onTap: () => unawaited(
+                                  _open('/quiz/flagged/${exam.id}'),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        _practiceRow(
-                          'Flagged questions',
-                          counts.flags,
-                          icon: PantasIcons.flag,
-                          empty: 'Flag a question to come back to it',
-                          onTap: () =>
-                              unawaited(_open('/quiz/flagged/${exam.id}')),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
-      ],
-    );
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          );
     final examId = focus.unwrapPrevious().asData?.value.exam?.id;
     return PantasSheet(
       page: page,
@@ -238,6 +248,332 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       child: _questionSheet != null && examId != null
           ? _questionsSheet(examId)
           : const SizedBox.shrink(),
+    );
+  }
+
+  Widget _web(AsyncValue<ActiveExamFocus> focus) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const WebText('Quiz', kind: WebTextKind.h1),
+          const SizedBox(height: 26),
+          focus.when(
+            loading: () => loadingFor(focus),
+            error: (error, _) => errorFor(
+              'practice',
+              () => ref.invalidate(activeExamFocusProvider),
+              error: error,
+            ),
+            data: (value) {
+              final exam = value.exam;
+              if (exam == null) return chooseExamFallback(context);
+              final session = ref.watch(sessionPanelProvider(exam.id));
+              final counts = ref.watch(quizPracticeCountsProvider(exam.id));
+              final paused = session.valueOrNull is SessionPanelInProgress;
+              final left = Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const WebText('Today', kind: WebTextKind.eyebrow),
+                  session.when(
+                    loading: () => loadingFor(session),
+                    error: (error, _) => errorFor(
+                      'practice',
+                      () => ref.invalidate(sessionPanelProvider(exam.id)),
+                      error: error,
+                    ),
+                    data: (state) => _webToday(exam.id, state),
+                  ),
+                  const SizedBox(height: 28),
+                  const WebText(
+                    'More ways to practice',
+                    kind: WebTextKind.eyebrow,
+                  ),
+                  counts.when(
+                    loading: () => loadingFor(counts),
+                    error: (error, _) => errorFor(
+                      'questions',
+                      () => ref.invalidate(quizPracticeCountsProvider(exam.id)),
+                      error: error,
+                    ),
+                    data: (n) => WebCard(
+                      child: Column(
+                        children: [
+                          WebRow(
+                            title: 'Your past mistakes',
+                            value: n.mistakes == 0 ? null : '${n.mistakes}',
+                            subtitle:
+                                n.mistakes == 0 ? 'Nothing to fix yet' : null,
+                            dimmed: n.mistakes == 0,
+                            leading: Icon(
+                              PantasIcons.close,
+                              color: context.webTokens.colors.accent,
+                              size: 22,
+                            ),
+                            trailing: const Icon(Icons.chevron_right, size: 16),
+                            onPressed: () => unawaited(
+                              _open('/quiz/retake/${exam.id}'),
+                            ),
+                          ),
+                          WebRow(
+                            title: 'Customize your own',
+                            dimmed: paused,
+                            subtitle: paused
+                                ? 'Finish or discard your paused quiz first'
+                                : null,
+                            leading: Icon(
+                              PantasIcons.practice,
+                              color: context.webTokens.colors.accent,
+                              size: 22,
+                            ),
+                            trailing: const Icon(Icons.chevron_right, size: 16),
+                            onPressed: () => unawaited(
+                              _open('/quiz/practice/${exam.id}'),
+                            ),
+                          ),
+                          WebRow(
+                            title: 'Flagged questions',
+                            value: n.flags == 0 ? null : '${n.flags}',
+                            subtitle: n.flags == 0
+                                ? 'Flag a question to come back to it'
+                                : null,
+                            dimmed: n.flags == 0,
+                            divider: false,
+                            leading: Icon(
+                              PantasIcons.flag,
+                              color: context.webTokens.colors.accent,
+                              size: 22,
+                            ),
+                            trailing: const Icon(Icons.chevron_right, size: 16),
+                            onPressed: () => unawaited(
+                              _open('/quiz/flagged/${exam.id}'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
+              return LayoutBuilder(
+                builder: (context, constraints) => constraints.maxWidth < 780
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          left,
+                          const SizedBox(height: 28),
+                          if (widget.mockPanel != null) widget.mockPanel!,
+                        ],
+                      )
+                    : Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(child: left),
+                          const SizedBox(width: 28),
+                          Expanded(
+                            child: widget.mockPanel ?? const SizedBox.shrink(),
+                          ),
+                        ],
+                      ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _webToday(String examId, SessionPanelState state) {
+    final t = context.webTokens;
+    if (state is SessionPanelNeedsAssessment) {
+      if (state.questionCount == 0) return assessmentNotReady();
+      void start() => unawaited(_open('/assessment/$examId'));
+      return CallbackShortcuts(
+        bindings: {const SingleActivator(LogicalKeyboardKey.enter): start},
+        child: Focus(
+          autofocus: true,
+          child: WebCard(
+            padding: const EdgeInsets.all(22),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('First, a short assessment', style: t.h2),
+                const SizedBox(height: 10),
+                Text(
+                  'We check your strengths and weak spots first, '
+                  'so your plan is built around you.',
+                  style: t.sub,
+                ),
+                const SizedBox(height: 18),
+                WebButton(
+                  label: 'Start Assessment',
+                  keyHint: 'Enter',
+                  onPressed: start,
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    final counts = ref.watch(quizTodayCountsProvider(examId));
+    void start() {
+      if (state is SessionPanelInProgress) {
+        unawaited(_open('/quiz/resume/$examId'));
+      } else {
+        unawaited(_startQuestions(examId, TodayQuestionKind.reviews));
+      }
+    }
+
+    return counts.when(
+      loading: () => loadingFor(counts),
+      error: (error, _) => errorFor(
+        'questions',
+        () => ref.invalidate(quizTodayCountsProvider(examId)),
+        error: error,
+      ),
+      data: (n) {
+        final progress =
+            state is SessionPanelInProgress ? state.reviewSession : null;
+        final canStart = state is SessionPanelInProgress ||
+            state is SessionPanelAvailable && n.reviewsTotal > n.reviewsDone;
+        return CallbackShortcuts(
+          bindings: {
+            if (canStart)
+              const SingleActivator(LogicalKeyboardKey.enter): start,
+          },
+          child: Focus(
+            autofocus: true,
+            child: WebCard(
+              child: Column(
+                children: [
+                  WebRow(
+                    title: 'Reviews',
+                    subtitle: progress == null
+                        ? 'Questions due today'
+                        : 'Session ${progress.ordinal} of ${progress.total}',
+                    value: '${progress?.done ?? n.reviewsDone} of '
+                        '${progress?.questions ?? n.reviewsTotal}',
+                    leading: ProgressRing(
+                      fraction: n.reviewsTotal == 0
+                          ? 0
+                          : n.reviewsDone / n.reviewsTotal,
+                    ),
+                    onPressed: () =>
+                        _showQuestions(examId, TodayQuestionKind.reviews),
+                  ),
+                  WebRow(
+                    title: 'New questions',
+                    subtitle: "From today's lessons",
+                    value: '${n.newDone} of ${n.newTotal}',
+                    divider: false,
+                    leading: ProgressRing(
+                      fraction: n.newTotal == 0 ? 0 : n.newDone / n.newTotal,
+                    ),
+                    onPressed: () => _showQuestions(
+                      examId,
+                      TodayQuestionKind.newQuestions,
+                    ),
+                  ),
+                  if (state is SessionPanelCaughtUp ||
+                      state is SessionPanelInProgress ||
+                      canStart)
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(
+                            color: t.colors.separator,
+                            width: .5,
+                          ),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          if (state is SessionPanelCaughtUp)
+                            Text("That's all for today.", style: t.sub),
+                          if (state is SessionPanelInProgress) ...[
+                            Text(
+                              'You paused. Every answer was saved.',
+                              style: t.sub,
+                            ),
+                            const SizedBox(height: 14),
+                          ],
+                          if (canStart)
+                            Wrap(
+                              alignment: WrapAlignment.end,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              spacing: 12,
+                              children: [
+                                if (state is SessionPanelInProgress)
+                                  TextButton(
+                                    onPressed: _discarding
+                                        ? null
+                                        : () => unawaited(
+                                              _discard(examId),
+                                            ),
+                                    child: const Text(
+                                      'Discard this session',
+                                    ),
+                                  ),
+                                if (state is SessionPanelAvailable)
+                                  Consumer(
+                                    builder: (context, ref, _) {
+                                      final work = ref
+                                          .watch(
+                                            todayQuestionWorkProvider(examId),
+                                          )
+                                          .valueOrNull;
+                                      if (work == null) {
+                                        return const SizedBox.shrink();
+                                      }
+                                      final sizes = work.reviewSizes;
+                                      final current = sizes.indexed
+                                          .where(
+                                            (entry) =>
+                                                work.reviewProgress[entry.$1] <
+                                                entry.$2,
+                                          )
+                                          .firstOrNull;
+                                      if (current == null) {
+                                        return const SizedBox.shrink();
+                                      }
+                                      return Text(
+                                        'Reviews · Session ${current.$1 + 1} '
+                                        'of ${sizes.length}',
+                                        style: t.sm,
+                                      );
+                                    },
+                                  ),
+                                WebButton(
+                                  label: state is SessionPanelInProgress
+                                      ? 'Resume'
+                                      : 'Continue Reviews',
+                                  keyHint: 'Enter',
+                                  busy: _startingQuestions,
+                                  onPressed: start,
+                                ),
+                              ],
+                            ),
+                          if (_saveFailed)
+                            saveFailureLine(
+                              () => unawaited(_discard(examId)),
+                            ),
+                          if (_questionFailed)
+                            StateView(
+                              message: 'Could not start your quiz.',
+                              onRetry: start,
+                            ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 

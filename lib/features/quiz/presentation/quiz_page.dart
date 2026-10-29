@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -24,6 +25,9 @@ import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
@@ -33,6 +37,7 @@ import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/features/quiz/presentation/web_quiz_question.dart';
 
 enum QuizPageMode { quick, today, drill, retake, inline, resume, practice }
 
@@ -392,6 +397,35 @@ class _QuestionContent extends ConsumerWidget {
             : null);
     final correct = question.correctChoice;
     final picked = question.choices.where((c) => c.id == chosen).firstOrNull;
+    if (context.wideWeb) {
+      return WebQuizQuestion(
+        question: question,
+        subject:
+            ref.watch(_questionTopicProvider(question.topicId)).valueOrNull ??
+                '',
+        chosenId: chosen,
+        checked: outcome != null,
+        pro: proIsActive,
+        proPaused: proPaused,
+        passage: passage,
+        passagePosition: passage == null || running is! QuizRunning
+            ? null
+            : (
+                ordinal: running.session.questions
+                    .take(running.session.currentIndex + 1)
+                    .where((q) => q.passageId == question.passageId)
+                    .length,
+                total: running.session.questions
+                    .where((q) => q.passageId == question.passageId)
+                    .length,
+              ),
+        onPick: outcome != null || running is! QuizRunning || running.checking
+            ? null
+            : (id) => ref
+                .read(quizControllerProvider.notifier)
+                .pick(chosenChoiceId: id),
+      );
+    }
     return LessonTextScale(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -482,12 +516,15 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Timer? _toastRemove;
   final ScrollController _questionScroll = ScrollController();
   final Set<String> _reported = {};
+  String? _reportStatus;
+  Timer? _reportTimer;
 
   @override
   void dispose() {
     _toastDelay?.cancel();
     _toastHide?.cancel();
     _toastRemove?.cancel();
+    _reportTimer?.cancel();
     _questionScroll.dispose();
     super.dispose();
   }
@@ -540,6 +577,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final lookingBack = _viewIndex != null && index != session.currentIndex;
     final flagged =
         ref.watch(flaggedIdsProvider).valueOrNull ?? const <String>{};
+    if (context.wideWeb) {
+      return _webPage(state, index, flagged, pro: pro, paused: paused);
+    }
     final page = Scaffold(
       backgroundColor: context.colors.background,
       body: SafeArea(
@@ -784,6 +824,360 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     );
   }
 
+  Widget _webPage(
+    QuizRunning state,
+    int index,
+    Set<String> flagged, {
+    required bool pro,
+    required bool paused,
+  }) {
+    final t = context.webTokens;
+    final session = state.session;
+    final current = session.currentIndex;
+    final question = session.questions[index];
+    final outcome =
+        index < session.outcomes.length ? session.outcomes[index] : null;
+    final lookingBack = _viewIndex != null && index != session.currentIndex;
+    final batch = session.reviewBatch;
+    final source = batch != null
+        ? 'Reviews · Session ${batch.ordinal} of ${batch.total}'
+        : session.origin == SessionOrigin.newQuestions
+            ? "New questions · From today's lessons"
+            : 'Quiz';
+    final label = lookingBack
+        ? 'Back to ${session.currentIndex + 1}'
+        : outcome == null
+            ? 'Check'
+            : session.isComplete
+                ? 'Finish'
+                : 'Next';
+    void action() {
+      if (state.checking) return;
+      if (lookingBack) {
+        _lookAt(null);
+      } else if (outcome == null) {
+        if (state.selectedChoiceId != null) unawaited(_check());
+      } else {
+        unawaited(_next());
+      }
+    }
+
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.escape): () {
+          if (_gridOpen) {
+            setState(() => _gridOpen = false);
+          } else {
+            unawaited(_confirmLeave());
+          }
+        },
+        const SingleActivator(LogicalKeyboardKey.enter): action,
+        const SingleActivator(LogicalKeyboardKey.keyF): () {
+          if (!_flagBusy) unawaited(_toggleFlag(question.id));
+        },
+        const SingleActivator(LogicalKeyboardKey.keyG): () {
+          if (!state.checking) setState(() => _gridOpen = !_gridOpen);
+        },
+      },
+      child: Focus(
+        autofocus: true,
+        child: PopScope(
+          canPop: _allowPop,
+          onPopInvokedWithResult: (didPop, _) {
+            if (!didPop) unawaited(_confirmLeave());
+          },
+          child: Scaffold(
+            backgroundColor: t.colors.background,
+            body: Column(
+              children: [
+                SizedBox(
+                  height: 64,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          tooltip: 'Leave session',
+                          onPressed: () => unawaited(_confirmLeave()),
+                          icon: Icon(PantasIcons.close, size: 22),
+                        ),
+                        const WebKeyHint('Esc'),
+                        Expanded(
+                          child: Text(
+                            source,
+                            textAlign: TextAlign.center,
+                            style: t.style(
+                              14,
+                              color: t.colors.tertiaryLabel,
+                            ),
+                          ),
+                        ),
+                        if (_reportStatus == question.id)
+                          Text(
+                            "Saved. It sends when you're back online.",
+                            style: t.sm,
+                          ),
+                        IconButton(
+                          tooltip: 'Report a question',
+                          onPressed: () async {
+                            final saved = await openQuestionReport(
+                              context,
+                              question.id,
+                              queue: ReportQueue(
+                                ref.read(appDatabaseProvider),
+                              ),
+                            );
+                            if ((saved ?? false) && mounted) {
+                              _reportTimer?.cancel();
+                              setState(() {
+                                _reported.add(question.id);
+                                _reportStatus = question.id;
+                              });
+                              _reportTimer = Timer(
+                                const Duration(seconds: 4),
+                                () {
+                                  if (mounted) {
+                                    setState(() => _reportStatus = null);
+                                  }
+                                },
+                              );
+                            }
+                          },
+                          icon: IconTheme(
+                            data: IconThemeData(
+                              color: _reported.contains(question.id)
+                                  ? t.colors.accent
+                                  : t.colors.secondaryLabel,
+                            ),
+                            child: PantasIcons.report,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: SingleChildScrollView(
+                          controller: _questionScroll,
+                          padding: EdgeInsets.fromLTRB(
+                            40,
+                            question.passageId == null ? 56 : 24,
+                            40,
+                            140,
+                          ),
+                          child: Column(
+                            children: [
+                              _PreparedQuestionStage(
+                                proIsActive: pro,
+                                proPaused: paused,
+                                viewIndex: _viewIndex,
+                              ),
+                              if (_retryWrite != null)
+                                saveFailureLine(
+                                  () => unawaited(_retryWrite!()),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      if (_gridOpen)
+                        Positioned.fill(
+                          child: GestureDetector(
+                            onTap: () => setState(() => _gridOpen = false),
+                            behavior: HitTestBehavior.translucent,
+                          ),
+                        ),
+                      if (_gridOpen)
+                        Positioned(
+                          bottom: 104,
+                          left: (MediaQuery.sizeOf(context).width - 376) / 2,
+                          width: 376,
+                          child: WebCard(
+                            radius: 14,
+                            padding: const EdgeInsets.all(18),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Questions',
+                                      style: t.style(
+                                        17,
+                                        weight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Text(
+                                        '${session.outcomes.length} of '
+                                        '${session.questions.length} answered',
+                                        style: t.sm,
+                                        textAlign: TextAlign.right,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 14),
+                                ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxHeight: 360,
+                                  ),
+                                  child: SingleChildScrollView(
+                                    child: Wrap(
+                                      spacing: 8,
+                                      runSpacing: 8,
+                                      children: [
+                                        for (var n = 0;
+                                            n < session.questions.length;
+                                            n++)
+                                          SizedBox(
+                                            width: 61,
+                                            height: 44,
+                                            child: TextButton(
+                                              key: ValueKey(
+                                                'web-grid-question-$n',
+                                              ),
+                                              onPressed: n <=
+                                                      session.outcomes.length
+                                                  ? () {
+                                                      _lookAt(
+                                                        n == current ? null : n,
+                                                      );
+                                                      setState(
+                                                        () => _gridOpen = false,
+                                                      );
+                                                    }
+                                                  : null,
+                                              style: TextButton.styleFrom(
+                                                backgroundColor: n <
+                                                        session.outcomes.length
+                                                    ? session.outcomes[n]
+                                                            .isCorrect
+                                                        ? t.colors.accentTint
+                                                        : t.colors.wrongTint
+                                                    : t.colors.surface,
+                                                foregroundColor:
+                                                    n < session.outcomes.length
+                                                        ? session.outcomes[n]
+                                                                .isCorrect
+                                                            ? t.colors.accent
+                                                            : t.colors.wrongText
+                                                        : t.colors.label,
+                                                side: BorderSide(
+                                                  color: n == index
+                                                      ? t.colors.label
+                                                      : t.colors.separator,
+                                                  width: n == index ? 2 : 1,
+                                                ),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    12,
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Text('${n + 1}'),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 14),
+                                Text(
+                                  'Click any answered question '
+                                  'to go back to it.',
+                                  style: t.sm,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      Positioned(
+                        bottom: 28,
+                        left: 24,
+                        right: 24,
+                        child: Center(
+                          child: IntrinsicWidth(
+                            child: WebBottomBar(
+                              compact: true,
+                              counter:
+                                  '${index + 1} of ${session.questions.length}',
+                              onCounterPressed: state.checking
+                                  ? null
+                                  : () => setState(
+                                        () => _gridOpen = !_gridOpen,
+                                      ),
+                              state: outcome == null
+                                  ? WebBarState.neutral
+                                  : outcome.isCorrect
+                                      ? WebBarState.right
+                                      : WebBarState.wrong,
+                              action: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    tooltip: flagged.contains(question.id)
+                                        ? 'Remove flag'
+                                        : 'Flag question',
+                                    onPressed: _flagBusy
+                                        ? null
+                                        : () => unawaited(
+                                              _toggleFlag(question.id),
+                                            ),
+                                    icon: _flag(
+                                      question.id,
+                                      flagged.contains(question.id),
+                                    ),
+                                  ),
+                                  const WebKeyHint('F'),
+                                  const SizedBox(width: 8),
+                                  WebButton(
+                                    label: label,
+                                    pill: true,
+                                    keyHint: 'Enter',
+                                    busy: state.checking,
+                                    onPressed: state.checking ||
+                                            (!lookingBack &&
+                                                outcome == null &&
+                                                state.selectedChoiceId == null)
+                                        ? null
+                                        : action,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (_toastMessage != null)
+                        Positioned(
+                          bottom: 108,
+                          left: 240,
+                          right: 240,
+                          child: Toast(
+                            message: _toastMessage!,
+                            visible: _toastVisible,
+                            onUndo: _undoFlag == null
+                                ? null
+                                : () => unawaited(_toggleFlag(_undoFlag!)),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _counter(int index, int total, {required bool enabled}) {
     void open() => setState(() => _gridOpen = true);
     return Semantics(
@@ -912,16 +1306,60 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final leave = await showDialog<bool>(
       context: context,
       barrierColor: context.colors.shadow.withValues(alpha: .34),
-      builder: (dialogContext) => CenteredDialog(
-        title: 'Leave this session?',
-        message:
-            "Every answer you've given is already saved. You can pick this "
-            'up from the Quiz tab whenever you like.',
-        primaryLabel: 'Keep Going',
-        secondaryLabel: 'Leave',
-        onConfirm: () => Navigator.of(dialogContext).pop(false),
-        onCancel: () => Navigator.of(dialogContext).pop(true),
-      ),
+      builder: (dialogContext) => context.wideWeb
+          ? Dialog(
+              backgroundColor: Colors.transparent,
+              child: SizedBox(
+                width: 440,
+                child: WebCard(
+                  radius: 22,
+                  padding: const EdgeInsets.all(26),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const WebText(
+                        'Leave this session?',
+                        kind: WebTextKind.h3,
+                      ),
+                      const SizedBox(height: 18),
+                      const WebText(
+                          "Every answer you've given is already saved. "
+                          'You can pick this up from the Quiz tab '
+                          'whenever you like.'),
+                      const SizedBox(height: 18),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          WebButton(
+                            label: 'Leave',
+                            variant: WebButtonVariant.tertiary,
+                            onPressed: () =>
+                                Navigator.of(dialogContext).pop(true),
+                          ),
+                          const SizedBox(width: 8),
+                          WebButton(
+                            label: 'Keep Going',
+                            onPressed: () =>
+                                Navigator.of(dialogContext).pop(false),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          : CenteredDialog(
+              title: 'Leave this session?',
+              message: "Every answer you've given is already saved. "
+                  'You can pick this '
+                  'up from the Quiz tab whenever you like.',
+              primaryLabel: 'Keep Going',
+              secondaryLabel: 'Leave',
+              onConfirm: () => Navigator.of(dialogContext).pop(false),
+              onCancel: () => Navigator.of(dialogContext).pop(true),
+            ),
     );
     _leaveOpen = false;
     if ((leave ?? false) && mounted) {

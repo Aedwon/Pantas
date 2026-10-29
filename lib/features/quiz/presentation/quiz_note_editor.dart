@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
@@ -8,6 +9,9 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class QuizNoteEditor extends StatefulWidget {
   const QuizNoteEditor({
@@ -32,6 +36,15 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   late final TextEditingController _text =
       TextEditingController(text: widget.note);
   final FocusNode _focus = FocusNode();
+  final FocusNode _shortcutFocus = FocusNode();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && context.wideWeb) _shortcutFocus.requestFocus();
+    });
+  }
+
   int _selectionSerial = 0;
   int _actionSerial = 0;
   bool _actionReady = false;
@@ -91,11 +104,169 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   void dispose() {
     _text.dispose();
     _focus.dispose();
+    _shortcutFocus.dispose();
     super.dispose();
+  }
+
+  Widget _web(BuildContext context) {
+    final t = context.webTokens;
+    const reasons = [
+      (MistakeTag.misread, 'I misread it'),
+      (MistakeTag.slipped, 'I knew it, I just slipped'),
+      (MistakeTag.unknown, "I didn't know it"),
+      (MistakeTag.other, 'Type my own'),
+    ];
+    return CallbackShortcuts(
+      bindings: {
+        for (var i = 0; i < reasons.length; i++)
+          SingleActivator(
+            [
+              LogicalKeyboardKey.digit1,
+              LogicalKeyboardKey.digit2,
+              LogicalKeyboardKey.digit3,
+              LogicalKeyboardKey.digit4,
+            ][i],
+          ): () {
+            if (FocusManager.instance.primaryFocus?.context?.widget
+                is EditableText) {
+              return;
+            }
+            _choose(reasons[i].$1);
+          },
+      },
+      child: Focus(
+        focusNode: _shortcutFocus,
+        autofocus: true,
+        child: WebCard(
+          radius: 20,
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Why did you miss it?',
+                      style: t.style(17, weight: FontWeight.w600),
+                    ),
+                  ),
+                  if (_existing)
+                    TextButton(
+                      onPressed:
+                          _busy ? null : () => unawaited(_write(null, null)),
+                      child: const Text('Remove'),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final (i, reason) in reasons.indexed)
+                    SizedBox(
+                      width: 196,
+                      child: Semantics(
+                        checked: _tag == reason.$1,
+                        inMutuallyExclusiveGroup: true,
+                        child: TextButton(
+                          onPressed: _busy ? null : () => _choose(reason.$1),
+                          style: TextButton.styleFrom(
+                            minimumSize: const Size(0, 48),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 8,
+                            ),
+                            backgroundColor: _tag == reason.$1
+                                ? t.colors.accentTint
+                                : t.colors.background,
+                            foregroundColor: t.colors.label,
+                            side: BorderSide(
+                              color: _tag == reason.$1
+                                  ? t.colors.accent
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              WebKeyHint('${i + 1}'),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(reason.$2, style: t.style(15)),
+                              ),
+                              if (widget.tag == reason.$1)
+                                Text('Your note', style: t.style(11)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              if (_tag == MistakeTag.other) ...[
+                const SizedBox(height: 14),
+                Text('In your own words', style: t.sm),
+                const SizedBox(height: 8),
+                TextField(
+                  controller: _text,
+                  focusNode: _focus,
+                  enabled: !_busy,
+                  minLines: 2,
+                  maxLines: 4,
+                  decoration: const InputDecoration(
+                    hintText: 'In your own words',
+                    border: OutlineInputBorder(),
+                  ),
+                  onChanged: (_) => setState(() {}),
+                ),
+              ],
+              if (_failed)
+                saveFailureLine(() {
+                  final retry = _retry;
+                  if (retry != null) unawaited(_write(retry.$1, retry.$2));
+                }),
+              const SizedBox(height: 14),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  WebButton(
+                    label: _existing ? 'Cancel' : 'Not Now',
+                    variant: WebButtonVariant.tertiary,
+                    onPressed: _busy ? null : widget.onCancel,
+                  ),
+                  const SizedBox(width: 8),
+                  WebButton(
+                    label: _existing ? 'Update' : 'Add Note',
+                    busy: _busy,
+                    onPressed: _valid && !_busy
+                        ? () => unawaited(
+                              _write(
+                                _tag,
+                                _tag == MistakeTag.other
+                                    ? _text.text.trim()
+                                    : null,
+                              ),
+                            )
+                        : null,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) return _web(context);
     final colors = context.colors;
     final type = context.type;
     final reduced = MediaQuery.disableAnimationsOf(context);

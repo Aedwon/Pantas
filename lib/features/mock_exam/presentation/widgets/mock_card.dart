@@ -6,6 +6,9 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum MockCardState {
   neverTaken,
@@ -150,6 +153,125 @@ class MockCard extends StatelessWidget {
       MockCardState.customUnset => action('Set one up', onSetUp),
       MockCardState.quizPaused || MockCardState.unavailable => null,
     };
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      final (label, callback) = switch (state) {
+        MockCardState.neverTaken ||
+        MockCardState.ready ||
+        MockCardState.customReady =>
+          ('Take the Exam', onTake),
+        MockCardState.waiting => ('View Last Results', onViewResults),
+        MockCardState.inProgress => ('Resume', onResume),
+        MockCardState.customUnset => ('Set One Up', onSetUp),
+        _ => ('Take the Exam', null),
+      };
+      Widget history(String value, String caption) => Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                color: t.colors.background,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    value,
+                    style: t.style(
+                      34,
+                      weight: FontWeight.w700,
+                      height: 1,
+                      spacing: -1.02,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    caption,
+                    style: t.style(14, color: t.colors.secondaryLabel),
+                  ),
+                ],
+              ),
+            ),
+          );
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const WebText('Mock exam', kind: WebTextKind.eyebrow),
+          WebCard(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 22),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        model.name,
+                        style: t.style(
+                          24,
+                          weight: FontWeight.w700,
+                          spacing: -.384,
+                        ),
+                      ),
+                    ),
+                    if (duration != null) ...[
+                      const SizedBox(width: 12),
+                      Text(_duration(duration), style: t.sub),
+                    ],
+                  ],
+                ),
+                if ((state == MockCardState.ready ||
+                        state == MockCardState.waiting) &&
+                    (model.lastPercent != null ||
+                        model.lastAttemptAt != null)) ...[
+                  const SizedBox(height: 22),
+                  Row(
+                    children: [
+                      if (model.lastPercent != null)
+                        history('${model.lastPercent!.round()}%', 'Last score'),
+                      if (model.lastPercent != null &&
+                          model.lastAttemptAt != null)
+                        const SizedBox(width: 12),
+                      if (model.lastAttemptAt != null)
+                        history(
+                          PantasDates.short(model.lastAttemptAt!),
+                          'Last attempt',
+                        ),
+                    ],
+                  ),
+                ],
+                if (body != null) ...[
+                  const SizedBox(height: 22),
+                  Text(body, style: t.sub),
+                ],
+                if (state != MockCardState.quizPaused &&
+                    state != MockCardState.unavailable) ...[
+                  const SizedBox(height: 22),
+                  if (model.proPaused)
+                    const ProPausedLine()
+                  else
+                    Text(rule, style: t.sub),
+                ],
+                const SizedBox(height: 22),
+                WebButton(
+                  label: label,
+                  onPressed: callback,
+                  variant: WebButtonVariant.secondary,
+                ),
+                if (state == MockCardState.customReady && onChangeSetup != null)
+                  WebButton(
+                    label: 'Change the Setup',
+                    onPressed: onChangeSetup,
+                    variant: WebButtonVariant.tertiary,
+                  ),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
     final children = <Widget>[
       header,
       if (body != null)
