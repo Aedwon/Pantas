@@ -1311,8 +1311,10 @@ void main() {
       final baseJobs = base['jobs'] as YamlMap;
       expect(currentJobs.containsKey('ci'), isTrue);
       expect(currentJobs.containsKey('integration'), isFalse);
+      // R1 later added the lesson links asset to the content build step.
       expect(
-        jsonEncode(_yamlValue(currentJobs['ci'])),
+        jsonEncode(_yamlValue(currentJobs['ci']))
+            .replaceFirst(' --assets-out assets/seed', ''),
         jsonEncode(_yamlValue(baseJobs['ci'])),
       );
     });

@@ -12,6 +12,25 @@ enum RoadmapState {
   allCovered,
 }
 
+enum PlanReasonKind { prerequisite, followUp, weakTopic, nextUp }
+
+@immutable
+final class PlanReason {
+  const PlanReason({required this.kind, this.forLessonId});
+
+  final PlanReasonKind kind;
+  final LessonId? forLessonId;
+
+  @override
+  bool operator ==(Object other) =>
+      other is PlanReason &&
+      kind == other.kind &&
+      forLessonId == other.forLessonId;
+
+  @override
+  int get hashCode => Object.hash(kind, forLessonId);
+}
+
 @immutable
 final class DayPlan {
   DayPlan({
@@ -22,10 +41,12 @@ final class DayPlan {
     required this.isMockDay,
     required Set<String> advancedIds,
     this.isRestDay = false,
+    Map<String, PlanReason> reasons = const {},
   })  : lessonIds = List.unmodifiable(lessonIds),
         reviewQuestionIds = List.unmodifiable(reviewQuestionIds),
         newQuestionIds = List.unmodifiable(newQuestionIds),
-        advancedIds = Set.unmodifiable(advancedIds);
+        advancedIds = Set.unmodifiable(advancedIds),
+        reasons = Map.unmodifiable(reasons);
 
   final DateTime day;
   final List<LessonId> lessonIds;
@@ -34,6 +55,7 @@ final class DayPlan {
   final bool isMockDay;
   final bool isRestDay;
   final Set<String> advancedIds;
+  final Map<String, PlanReason> reasons;
 
   int get questionCount => reviewQuestionIds.length + newQuestionIds.length;
 
@@ -48,7 +70,8 @@ final class DayPlan {
       _equality.equals(newQuestionIds, other.newQuestionIds) &&
       isMockDay == other.isMockDay &&
       isRestDay == other.isRestDay &&
-      _equality.equals(advancedIds, other.advancedIds);
+      _equality.equals(advancedIds, other.advancedIds) &&
+      _equality.equals(reasons, other.reasons);
 
   @override
   int get hashCode => Object.hash(
@@ -59,6 +82,7 @@ final class DayPlan {
         isMockDay,
         isRestDay,
         _equality.hash(advancedIds),
+        _equality.hash(reasons),
       );
 }
 

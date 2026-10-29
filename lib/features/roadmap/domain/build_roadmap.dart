@@ -1,10 +1,15 @@
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/features/roadmap/domain/day_selection.dart';
+import 'package:pantas/features/roadmap/domain/follow_up.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
+import 'package:pantas/features/roadmap/domain/lesson_mastery.dart';
+import 'package:pantas/features/roadmap/domain/lesson_queue.dart';
 import 'package:pantas/features/roadmap/domain/mock_day.dart';
 import 'package:pantas/features/roadmap/domain/planning_window.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
+import 'package:pantas/features/roadmap/domain/topic_links.dart';
 import 'package:pantas/features/roadmap/domain/topic_order.dart';
 import 'package:pantas/features/roadmap/domain/week_preview.dart';
 
@@ -35,11 +40,29 @@ abstract final class BuildRoadmap {
       studyDays: inputs.studyDays,
       treatTodayAsStudyDay: inputs.treatTodayAsStudyDay,
     );
+    final graph = LessonGraph.build(
+      inputs.lessonLinks,
+      inputs.lessons.map((lesson) => lesson.id),
+    );
     final order = TopicOrder.compute(
       topics: inputs.topics,
       scores: inputs.scores,
-      prerequisites: inputs.prerequisites,
+      prerequisites:
+          TopicLinks.mergeLegacy(TopicLinks.derive(graph, inputs.lessons)),
       lessons: inputs.lessons,
+    );
+
+    final mastery = Mastery.compute(
+      lessons: inputs.lessons,
+      questions: inputs.questions,
+      history: inputs.history,
+      recall: inputs.recall,
+    );
+    final queue = LessonQueue.build(
+      lessonTopicOrder: order.order,
+      lessons: inputs.lessons,
+      graph: graph,
+      mastery: mastery,
     );
 
     final lessonsLeft =
@@ -63,6 +86,12 @@ abstract final class BuildRoadmap {
         : window.studyDaysBeforeExam;
     final selection = DaySelector.select(
       lessonTopicOrder: order.order,
+      lessonQueue: queue,
+      followUps: FollowUp(inputs).fromHistory(inputs),
+      history: inputs.history,
+      recall: inputs.recall,
+      scores: inputs.scores,
+      includeDetours: !reviewsOnly && isStudyDay,
       rankedTopics: order.ranked,
       lessons: inputs.lessons,
       questions: inputs.questions,
@@ -109,6 +138,7 @@ abstract final class BuildRoadmap {
         isMockDay: isStudyDay && mockDay != null && mockDay == today,
         isRestDay: !isStudyDay,
         advancedIds: const {},
+        reasons: selection.reasons,
       ),
       examDay: examDay,
       reviewOnlyFrom: window.reviewOnlyFrom,
@@ -119,6 +149,7 @@ abstract final class BuildRoadmap {
               today: today,
               reviewOnlyFrom: window.reviewOnlyFrom,
               lessonTopicOrder: order.order,
+              lessonQueue: queue,
               lessons: inputs.lessons,
               scheduledToday: selection.lessonIds.toSet(),
               studyDays: inputs.studyDays,
@@ -126,7 +157,7 @@ abstract final class BuildRoadmap {
       topicOrder: order.order,
       changes: const [],
       backlogCapped: selection.backlogCapped,
-      cycleDetected: order.cycleDetected,
+      cycleDetected: order.cycleDetected || graph.cycleDetected,
     );
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
+import 'package:pantas/features/roadmap/domain/lesson_queue.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 import 'package:pantas/features/roadmap/domain/week_preview.dart';
 
@@ -61,6 +63,53 @@ void main() {
     );
     expect(weeks.every((w) => w.weekStart.weekday == DateTime.sunday), isTrue);
     expect(weeks.every((w) => w.topicIds.single == 't'), isTrue);
+  });
+  test('future day rebuilds the prerequisite queue used by the week', () {
+    const linkedLessons = [
+      RoadmapLesson(id: 'a', topicId: 't', ordering: 0),
+      RoadmapLesson(id: 'b', topicId: 'u', ordering: 0),
+      RoadmapLesson(id: 'c', topicId: 'u', ordering: 1),
+    ];
+    const links = {
+      'a': [LessonLink(lessonId: 'c', strength: LinkStrength.required)],
+    };
+    final queue = LessonQueue.build(
+      lessonTopicOrder: ['t', 'u'],
+      lessons: linkedLessons,
+      graph: LessonGraph.build(links, linkedLessons.map((l) => l.id)),
+    );
+    final date = DateTime(2026, 10);
+    final ids = WeekPreviews.plannedLessonsForDay(
+      today: today,
+      date: date,
+      reviewOnlyFrom: stop,
+      lessonTopicOrder: ['t', 'u'],
+      lessons: linkedLessons,
+      scheduledToday: {},
+      lessonLinks: links,
+    );
+    expect(ids, ['c']);
+    expect(
+      ids,
+      WeekPreviews.plannedLessonsForDay(
+        today: today,
+        date: date,
+        reviewOnlyFrom: stop,
+        lessonTopicOrder: ['t', 'u'],
+        lessons: linkedLessons,
+        scheduledToday: {},
+        lessonQueue: queue,
+      ),
+    );
+    final weeks = WeekPreviews.build(
+      today: today,
+      reviewOnlyFrom: stop,
+      lessonTopicOrder: ['t', 'u'],
+      lessons: linkedLessons,
+      scheduledToday: {},
+      lessonQueue: queue,
+    );
+    expect(weeks.first.topicIds, ['u', 't']);
   });
   test('missing review boundary does not invent future lessons', () {
     expect(

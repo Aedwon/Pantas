@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/home/application/server_today.dart';
 import 'package:pantas/features/home/domain/study_models.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 void main() {
   Map<String, Object?> reply({bool pro = false}) => {
@@ -80,6 +82,31 @@ void main() {
       ],
     };
     final model = StudyRoadmap.decode(r, examId: 'cse');
+    expect(model.today.reasons, isEmpty);
+    plan['reasons'] = {
+      for (final kind in PlanReasonKind.values)
+        kind.name: {
+          'kind': kind.name,
+          if (kind == PlanReasonKind.prerequisite) 'forLesson': 'l2',
+        },
+    };
+    final decoded = StudyRoadmap.decode(r, examId: 'cse');
+    final today = serverToday(decoded, examDate: '');
+    final expected = {
+      for (final kind in PlanReasonKind.values)
+        kind.name: PlanReason(
+          kind: kind,
+          forLessonId: kind == PlanReasonKind.prerequisite ? 'l2' : null,
+        ),
+    };
+    expect(today.snapshot.plan.reasons, expected);
+    expect(today.remaining.reasons, expected);
+    (plan['reasons']! as Map<String, Object?>)['q9'] = {'kind': 'futureKind'};
+    expect(
+      StudyRoadmap.decode(r, examId: 'cse').today.reasons,
+      expected,
+      reason: 'a kind this build does not know is skipped',
+    );
     expect(model.today.lessonIds, ['l1']);
     expect(model.remaining.reviewQuestionIds, ['q1']);
     expect(model.weekDays.single['state'], 'unknown');

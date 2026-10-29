@@ -1,4 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -18,9 +22,11 @@ import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/roadmap/application/lesson_links_loader.dart';
 import 'package:pantas/features/roadmap/application/roadmap_inputs_reader.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -74,7 +80,41 @@ class _DelayedInputsReader extends RoadmapInputsReader {
   }
 }
 
+class _LinksBundle extends CachingAssetBundle {
+  _LinksBundle(this.source);
+  final String? source;
+
+  @override
+  Future<ByteData> load(String key) async {
+    expect(key, 'assets/seed/lesson_links.json');
+    if (source == null) throw FlutterError('Missing asset');
+    return ByteData.sublistView(Uint8List.fromList(utf8.encode(source!)));
+  }
+}
+
 void main() {
+  test('lesson links loader reads strengths and accepts absent or empty assets',
+      () async {
+    expect(await loadLessonLinks(_LinksBundle(null)), isEmpty);
+    expect(await loadLessonLinks(_LinksBundle('')), isEmpty);
+    expect(await loadLessonLinks(_LinksBundle('{}')), isEmpty);
+    expect(
+      await loadLessonLinks(
+        _LinksBundle(
+          '{"target":[{"lesson":"base","strength":"required"},'
+          '{"lesson":"other","strength":"helpful"}]}',
+        ),
+      ),
+      {
+        'target': [
+          const LessonLink(lessonId: 'base', strength: LinkStrength.required),
+          const LessonLink(lessonId: 'other', strength: LinkStrength.helpful),
+        ],
+      },
+    );
+  });
+
+  var assetLinks = <String, List<LessonLink>>{};
   late AppDatabase db;
   late ContentDatabase contentDb;
   late _SpyContent content;
@@ -106,6 +146,7 @@ void main() {
     content = _SpyContent(contentDb, onQuery: () => queries++);
     now = DateTime(2026, 9, 30, 8);
     builds = 0;
+    assetLinks = {};
     examDay = DateTime(2026, 12, 7);
     studyDays = StudyDays.all;
     builtInputs.clear();
@@ -146,6 +187,7 @@ void main() {
 
     container = ProviderContainer(
       overrides: [
+        lessonLinksProvider.overrideWith((ref) async => assetLinks),
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
         contentRepositoryProvider.overrideWithValue(content),
@@ -489,6 +531,70 @@ void main() {
               ],
             ),
           );
+
+  test('reader passes asset links into the controller inputs', () async {
+    final links = {
+      't1_l1': [
+        const LessonLink(lessonId: 't1_l0', strength: LinkStrength.required),
+      ],
+    };
+    assetLinks = links;
+    await controller().today('e1');
+    expect(builtInputs.single.lessonLinks, links);
+    expect(builtInputs.single.gapTags, isEmpty);
+  });
+
+  test('reader keeps finish-ordered history and only the last three outcomes',
+      () async {
+    const q = 't1_l0_q0';
+    await answer('latest', now, {q: false, 't1_l0_q1': true});
+    await answer('oldest', now.subtract(const Duration(days: 4)), {q: true});
+    await answer('third', now.subtract(const Duration(days: 2)), {q: false});
+    await answer('second', now.subtract(const Duration(days: 3)), {q: true});
+    await answer('fourth', now.subtract(const Duration(days: 1)), {q: true});
+    await answer('outside', now, {'outside': false});
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    final history = inputs.history.singleWhere((row) => row.id == q);
+    expect(history.answered, 5);
+    expect(history.recent, [false, true, false]);
+    expect(history.lastWrongChoiceId, 'b');
+    expect(
+      inputs.history.singleWhere((r) => r.id == 't1_l0_q1').lastWrongChoiceId,
+      isNull,
+    );
+    expect(inputs.history.map((row) => row.id), isNot(contains('outside')));
+    expect(inputs.gapTags, isEmpty);
+    await answer('corrected', now.add(const Duration(minutes: 1)), {q: true});
+    final corrected =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(
+      corrected.history.singleWhere((row) => row.id == q).lastWrongChoiceId,
+      isNull,
+    );
+  });
+
+  test('reader includes recall for non-due states without adding due reviews',
+      () async {
+    final state = ReviewState.seed(
+      questionId: 't1_l0_q0',
+      questionVersion: 1,
+      now: now.subtract(const Duration(days: 2)),
+    ).copyWith(due: now.add(const Duration(days: 5)), stability: 10);
+    await container.read(reviewStateRepositoryProvider).upsert(state);
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(questionId: 'outside', questionVersion: 1, now: now),
+        );
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(inputs.recall, {
+      state.questionId:
+          container.read(fsrsSchedulerProvider).retrievability(state, now),
+    });
+    expect(inputs.dueReviews, isEmpty);
+    expect(content.hydrations, 0);
+    expect(content.fullLessons, 0);
+  });
 
   test('topic scores come from answers, fresh on each build', () async {
     await answer('a1', now, {

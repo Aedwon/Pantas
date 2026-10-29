@@ -114,6 +114,23 @@ final class DaySnapshot {
         isMockDay: plan['mockDay']! as bool,
         isRestDay: plan['restDay'] as bool? ?? false,
         advancedIds: (plan['advanced']! as List).cast<String>().toSet(),
+        reasons: {
+          for (final entry
+              in (plan['reasons'] as Map<String, Object?>? ?? const {}).entries)
+            if (PlanReasonKind.values
+                    .where(
+                      (kind) =>
+                          kind.name ==
+                          (entry.value! as Map<String, Object?>)['kind'],
+                    )
+                    .firstOrNull
+                case final kind?)
+              entry.key: PlanReason(
+                kind: kind,
+                forLessonId: (entry.value! as Map<String, Object?>)['forLesson']
+                    as String?,
+              ),
+        },
       ),
       digest: RoadmapDigest.parse(json['digest']! as String),
       topicOrderHead: (json['head']! as List).cast<String>(),
@@ -154,6 +171,15 @@ final class DaySnapshot {
           'mockDay': plan.isMockDay,
           'restDay': plan.isRestDay,
           'advanced': plan.advancedIds.toList()..sort(),
+          if (plan.reasons.isNotEmpty)
+            'reasons': {
+              for (final entry in plan.reasons.entries)
+                entry.key: {
+                  'kind': entry.value.kind.name,
+                  if (entry.value.forLessonId != null)
+                    'forLesson': entry.value.forLessonId,
+                },
+            },
         },
         'digest': digest.encode(),
         'head': topicOrder,
@@ -220,6 +246,7 @@ abstract final class DaySnapshots {
       isMockDay: plan.isMockDay,
       isRestDay: plan.isRestDay,
       advancedIds: plan.advancedIds,
+      reasons: plan.reasons,
     );
   }
 
@@ -270,20 +297,29 @@ abstract final class DaySnapshots {
     final fresh = [...plan.newQuestionIds];
     final due = [...plan.reviewQuestionIds];
     final advanced = {...plan.advancedIds};
+    final reasons = {...plan.reasons};
+    void addReason(String id) {
+      final reason = tomorrow.reasons[id];
+      if (reason != null) reasons[id] = reason;
+    }
+
     for (final id in tomorrow.lessonIds) {
       if (lessons.contains(id)) continue;
       lessons.add(id);
       advanced.add(id);
+      addReason(id);
     }
     for (final id in tomorrow.newQuestionIds) {
       if (fresh.contains(id)) continue;
       fresh.add(id);
       advanced.add(id);
+      addReason(id);
     }
     for (final id in reviews) {
       if (due.contains(id)) continue;
       due.add(id);
       advanced.add(id);
+      addReason(id);
     }
     return DaySnapshot(
       plan: DayPlan(
@@ -294,6 +330,7 @@ abstract final class DaySnapshots {
         isMockDay: plan.isMockDay,
         isRestDay: plan.isRestDay,
         advancedIds: advanced,
+        reasons: reasons,
       ),
       digest: today.digest,
       topicOrderHead: today.topicOrder,

@@ -83,6 +83,30 @@ void main() {
     expect(await days.read('exam_cse', day), isNull);
   });
 
+  test('stored day retains recommendation reasons', () async {
+    final day = DateTime(2026, 9, 30);
+    final base = snapshot(day);
+    const reasons = {
+      'l1': PlanReason(kind: PlanReasonKind.prerequisite, forLessonId: 'l2'),
+      'r1': PlanReason(kind: PlanReasonKind.followUp, forLessonId: 'l2'),
+    };
+    final withReasons = DaySnapshot(
+      plan: DayPlan(
+        day: day,
+        lessonIds: base.plan.lessonIds,
+        reviewQuestionIds: base.plan.reviewQuestionIds,
+        newQuestionIds: base.plan.newQuestionIds,
+        isMockDay: false,
+        advancedIds: const {},
+        reasons: reasons,
+      ),
+      digest: base.digest,
+      topicOrderHead: base.topicOrder,
+    );
+    await days.write('exam_upcat', withReasons, day);
+    expect((await days.read('exam_upcat', day))!.plan.reasons, reasons);
+  });
+
   test('latestBefore finds the most recent earlier day across a gap', () async {
     await days.write(
       'exam_upcat',

@@ -3,6 +3,8 @@ import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
+import 'package:pantas/features/roadmap/domain/lesson_mastery.dart';
 
 @immutable
 final class RoadmapTopic {
@@ -157,7 +159,6 @@ final class RoadmapInputs {
     required this.examId,
     required this.examDate,
     required List<RoadmapTopic> topics,
-    required Map<TopicId, List<TopicId>> prerequisites,
     required List<RoadmapLesson> lessons,
     required List<RoadmapQuestion> questions,
     required Set<QuestionId> seenQuestionIds,
@@ -167,14 +168,21 @@ final class RoadmapInputs {
     required this.mock,
     required this.assessmentCompleted,
     required this.contentRevision,
+    LessonLinks lessonLinks = const {},
+    List<QuestionHistory> history = const [],
+    Map<QuestionId, double> recall = const {},
+    Map<String, LessonId> gapTags = const {},
     this.anchoredReviewOnlyFrom,
     this.studyDays = StudyDays.all,
     this.treatTodayAsStudyDay = false,
   })  : topics = List.unmodifiable(topics),
-        prerequisites = Map.unmodifiable({
-          for (final entry in prerequisites.entries)
-            entry.key: List<TopicId>.unmodifiable(entry.value),
+        lessonLinks = Map.unmodifiable({
+          for (final entry in lessonLinks.entries)
+            entry.key: List<LessonLink>.unmodifiable(entry.value),
         }),
+        history = List.unmodifiable(history),
+        recall = Map.unmodifiable(recall),
+        gapTags = Map.unmodifiable(gapTags),
         lessons = List.unmodifiable(lessons),
         questions = List.unmodifiable(questions),
         seenQuestionIds = Set.unmodifiable(seenQuestionIds),
@@ -188,7 +196,10 @@ final class RoadmapInputs {
   final ExamId examId;
   final ExamDate? examDate;
   final List<RoadmapTopic> topics;
-  final Map<TopicId, List<TopicId>> prerequisites;
+  final LessonLinks lessonLinks;
+  final List<QuestionHistory> history;
+  final Map<QuestionId, double> recall;
+  final Map<String, LessonId> gapTags;
   final List<RoadmapLesson> lessons;
   final List<RoadmapQuestion> questions;
   final Set<QuestionId> seenQuestionIds;
@@ -215,7 +226,10 @@ final class RoadmapInputs {
       examId == other.examId &&
       examDate == other.examDate &&
       _equality.equals(topics, other.topics) &&
-      _equality.equals(prerequisites, other.prerequisites) &&
+      _equality.equals(lessonLinks, other.lessonLinks) &&
+      _equality.equals(history, other.history) &&
+      _equality.equals(recall, other.recall) &&
+      _equality.equals(gapTags, other.gapTags) &&
       _equality.equals(lessons, other.lessons) &&
       _equality.equals(questions, other.questions) &&
       _equality.equals(seenQuestionIds, other.seenQuestionIds) &&
@@ -228,14 +242,17 @@ final class RoadmapInputs {
       anchoredReviewOnlyFrom == other.anchoredReviewOnlyFrom;
 
   @override
-  int get hashCode => Object.hash(
+  int get hashCode => Object.hashAll([
         today,
         studyDays,
         treatTodayAsStudyDay,
         examId,
         examDate,
         _equality.hash(topics),
-        _equality.hash(prerequisites),
+        _equality.hash(lessonLinks),
+        _equality.hash(history),
+        _equality.hash(recall),
+        _equality.hash(gapTags),
         _equality.hash(lessons),
         _equality.hash(questions),
         _equality.hash(seenQuestionIds),
@@ -245,5 +262,5 @@ final class RoadmapInputs {
         mock,
         assessmentCompleted,
         contentRevision,
-      );
+      ]);
 }

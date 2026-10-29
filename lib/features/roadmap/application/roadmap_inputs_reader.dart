@@ -14,16 +14,12 @@ import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
-import 'package:pantas/features/roadmap/data/topic_prerequisites.dart';
+import 'package:pantas/features/roadmap/application/lesson_links_loader.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
+import 'package:pantas/features/roadmap/domain/lesson_mastery.dart';
+import 'package:pantas/features/roadmap/domain/mastery_thresholds.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
-
-/// The prerequisite links the plan orders by. A provider so tests can use
-/// their own topics.
-final topicPrerequisitesProvider = Provider<Map<TopicId, List<TopicId>>>(
-  (_) => topicPrerequisites,
-);
 
 /// Reads what the plan is built from. Metadata only: question and lesson
 /// rows without stems, choices, explanations, figures or lesson bodies
@@ -132,9 +128,14 @@ class RoadmapInputsReader {
     final scopedQuestionIds = {for (final q in questions) q.id};
     final endOfToday = DateTime(day.year, day.month, day.day + 1);
 
-    final scores = await _scores(examId, {
+    final performance = await _performance(examId, {
       for (final q in questions) q.id: q.topicId,
     });
+    final recall = {
+      for (final state in states)
+        if (scopedQuestionIds.contains(state.questionId))
+          state.questionId: scheduler.retrievability(state, now),
+    };
     final settings = await _ref.read(userSettingsProvider.future);
     final mockRepo = _ref.read(mockAttemptRepoProvider);
     final lastMock = await mockRepo.lastCooldownAttempt(
@@ -159,7 +160,6 @@ class RoadmapInputsReader {
             name: scope.topics[i].name,
           ),
       ],
-      prerequisites: _ref.read(topicPrerequisitesProvider),
       lessons: [
         for (final topicId in topicIds)
           for (final lesson in lessonMeta[topicId] ?? const <LessonMeta>[])
@@ -180,10 +180,13 @@ class RoadmapInputsReader {
             RoadmapReview(
               id: state.questionId,
               due: state.due,
-              retrievability: scheduler.retrievability(state, now),
+              retrievability: recall[state.questionId]!,
             ),
       ],
-      scores: scores,
+      scores: performance.scores,
+      history: performance.history,
+      recall: recall,
+      lessonLinks: await _ref.read(lessonLinksProvider.future),
       answeredPerActiveDay: await _ref
           .read(attemptsRepositoryProvider)
           .answeredPerActiveDay(examId: examId),
@@ -204,32 +207,61 @@ class RoadmapInputsReader {
   /// Correct and answered per topic over every completed attempt, the same
   /// counting as the Progress table's topic rows, from answer records and
   /// question metadata only (QLP-1: no question or lesson bodies).
-  Future<Map<TopicId, RoadmapTopicScore>> _scores(
+  Future<
+      ({
+        Map<TopicId, RoadmapTopicScore> scores,
+        List<QuestionHistory> history
+      })> _performance(
     ExamId examId,
     Map<QuestionId, TopicId> topicOf,
   ) async {
     final db = _ref.read(appDatabaseProvider);
     final rows = await (db.select(db.attemptsLocal)
-          ..where((a) => a.examId.equals(examId) & a.completedAt.isNotNull()))
+          ..where((a) => a.examId.equals(examId) & a.completedAt.isNotNull())
+          ..orderBy([
+            (a) => OrderingTerm.asc(a.completedAt),
+            (a) => OrderingTerm.asc(a.id),
+          ]))
         .get();
     final correct = <TopicId, int>{};
     final answered = <TopicId, int>{};
+    final counts = <QuestionId, int>{};
+    final recent = <QuestionId, List<bool>>{};
+    final wrong = <QuestionId, String?>{};
     for (final row in rows) {
       for (final item in const AttemptItemReader().read(row.itemsJson)) {
         final topicId = topicOf[item.questionId];
         if (topicId == null) continue;
+        final id = item.questionId;
+        counts[id] = (counts[id] ?? 0) + 1;
+        final outcomes = (recent[id] ??= [])..add(item.isCorrect);
+        if (outcomes.length > MasteryThresholds.recentWindow) {
+          outcomes.removeAt(0);
+        }
+        wrong[id] = item.isCorrect ? null : item.chosenChoiceId;
         answered[topicId] = (answered[topicId] ?? 0) + 1;
         if (item.isCorrect) correct[topicId] = (correct[topicId] ?? 0) + 1;
       }
     }
-    return {
-      for (final entry in answered.entries)
-        entry.key: RoadmapTopicScore(
-          id: entry.key,
-          correct: correct[entry.key] ?? 0,
-          answered: entry.value,
-        ),
-    };
+    return (
+      scores: {
+        for (final entry in answered.entries)
+          entry.key: RoadmapTopicScore(
+            id: entry.key,
+            correct: correct[entry.key] ?? 0,
+            answered: entry.value,
+          ),
+      },
+      history: [
+        for (final id in counts.keys.toList()..sort())
+          QuestionHistory(
+            id: id,
+            answered: counts[id]!,
+            recent: recent[id]!,
+            lastWrongChoiceId: wrong[id],
+          ),
+      ]
+    );
   }
 
   Future<String> _contentRevision() async =>

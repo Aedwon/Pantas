@@ -115,6 +115,8 @@ flutter:
       platforms: [android, ios, linux, macos, windows]
     - path: assets/seed/content.manifest.sig
       platforms: [android, ios, linux, macos, windows]
+    - path: assets/seed/lesson_links.json
+      platforms: [android, ios, linux, macos, windows]
   fonts:
     - family: Geist
       fonts:

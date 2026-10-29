@@ -45,6 +45,9 @@ List<String> _ids(Object? value) {
   return List.unmodifiable(ids);
 }
 
+PlanReasonKind? _reasonKind(Object? name) =>
+    PlanReasonKind.values.where((kind) => kind.name == name).firstOrNull;
+
 DayPlan decodeStudyDayPlan(Object? value) {
   final map = studyMap(value);
   if (map['isMockDay'] is! bool || map['isRestDay'] is! bool) {
@@ -58,6 +61,20 @@ DayPlan decodeStudyDayPlan(Object? value) {
     isMockDay: map['isMockDay']! as bool,
     isRestDay: map['isRestDay']! as bool,
     advancedIds: _ids(map['advancedIds']).toSet(),
+    reasons: {
+      for (final entry in (map['reasons'] == null
+              ? <String, Object?>{}
+              : studyMap(map['reasons']))
+          .entries)
+        // Skip kinds a newer server sends that this build does not know.
+        if (_reasonKind(studyMap(entry.value)['kind']) case final kind?)
+          entry.key: PlanReason(
+            kind: kind,
+            forLessonId: studyMap(entry.value)['forLesson'] == null
+                ? null
+                : studyString(studyMap(entry.value)['forLesson']),
+          ),
+    },
   );
 }
 

@@ -28,7 +28,7 @@ jobs:
         # the bundled-database test has nothing to open. Built from the corpus.
         run: |
           mkdir -p build
-          dart run tools/build_content_export/build_content_export.dart build/export.json
+          dart run tools/build_content_export/build_content_export.dart build/export.json --assets-out assets/seed
           dart run tools/build_content_seed/seed_writer.dart \
             build/export.json \
             assets/seed/content.db
