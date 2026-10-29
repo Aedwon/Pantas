@@ -27,6 +27,7 @@ Json planToJson(DayPlan p) => {
       'isMockDay': p.isMockDay,
       'isRestDay': p.isRestDay,
       'advancedIds': p.advancedIds.toList()..sort(),
+      if (p.reasons.isNotEmpty) 'reasons': reasonsToJson(p.reasons),
     };
 Json changeToJson(RoadmapChange c) => {
       'cause': c.cause.name,
@@ -61,6 +62,7 @@ Json roadmapStateFromJson(Json j) {
       reviewOnlyFrom: roadmap.reviewOnlyFrom,
       lessonTopicOrder: roadmap.topicOrder,
       lessons: inputs.lessons,
+      lessonLinks: inputs.lessonLinks,
       scheduledToday: (j['scheduledToday']! as List).cast<String>().toSet(),
       studyDays: inputs.studyDays,
     );

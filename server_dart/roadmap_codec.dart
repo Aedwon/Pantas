@@ -6,7 +6,8 @@
 // DateTime.now(); the caller passes `today`.
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/time/study_days.dart';
-import 'package:pantas/features/roadmap/data/topic_prerequisites.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
+import 'package:pantas/features/roadmap/domain/lesson_mastery.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 
@@ -46,15 +47,33 @@ RoadmapInputs inputsFromJson(Map<String, Object?> j) {
         name: m['name']! as String,
       ),
     ),
-    // Left out of the JSON, the links are the app's own list, so the server
-    // never holds a second copy.
-    prerequisites: j['prerequisites'] == null
-        ? topicPrerequisites
-        : {
-            for (final e
-                in (j['prerequisites']! as Map<String, Object?>).entries)
-              e.key: [for (final p in e.value! as List<Object?>) p! as String],
-          },
+    lessonLinks: {
+      for (final e
+          in (j['lessonLinks'] as Map<String, Object?>? ?? const {}).entries)
+        e.key: _list(
+          e.value,
+          (m) => LessonLink(
+            lessonId: m['lesson']! as String,
+            strength: LinkStrength.values.byName(m['strength']! as String),
+          ),
+        ),
+    },
+    history: _list(
+      j['history'] ?? const <Object?>[],
+      (m) => QuestionHistory(
+        id: m['id']! as String,
+        answered: m['answered']! as int,
+        recent: (m['recent']! as List<Object?>).cast<bool>(),
+        lastWrongChoiceId: m['lastWrongChoiceId'] as String?,
+      ),
+    ),
+    recall: {
+      for (final e
+          in (j['recall'] as Map<String, Object?>? ?? const {}).entries)
+        e.key: (e.value! as num).toDouble(),
+    },
+    gapTags: (j['gapTags'] as Map<String, Object?>? ?? const {})
+        .cast<String, String>(),
     lessons: _list(
       j['lessons'],
       (m) => RoadmapLesson(
@@ -128,7 +147,36 @@ Map<String, Object?> inputsToJson(RoadmapInputs i) => {
         for (final t in i.topics)
           {'id': t.id, 'authoredIndex': t.authoredIndex, 'name': t.name},
       ],
-      'prerequisites': i.prerequisites,
+      'lessonLinks': {
+        for (final id in i.lessonLinks.keys.toList()..sort())
+          id: [
+            for (final link in i.lessonLinks[id]!.toList()
+              ..sort((a, b) {
+                final id = a.lessonId.compareTo(b.lessonId);
+                return id != 0
+                    ? id
+                    : a.strength.index.compareTo(b.strength.index);
+              }))
+              {'lesson': link.lessonId, 'strength': link.strength.name},
+          ],
+      },
+      'history': [
+        for (final row
+            in i.history.toList()..sort((a, b) => a.id.compareTo(b.id)))
+          {
+            'id': row.id,
+            'answered': row.answered,
+            'recent': row.recent,
+            if (row.lastWrongChoiceId != null)
+              'lastWrongChoiceId': row.lastWrongChoiceId,
+          },
+      ],
+      'recall': {
+        for (final id in i.recall.keys.toList()..sort()) id: i.recall[id],
+      },
+      'gapTags': {
+        for (final id in i.gapTags.keys.toList()..sort()) id: i.gapTags[id],
+      },
       'lessons': [
         for (final l in i.lessons)
           {
@@ -157,8 +205,11 @@ Map<String, Object?> inputsToJson(RoadmapInputs i) => {
           },
       ],
       'scores': {
-        for (final e in i.scores.entries)
-          e.key: {'correct': e.value.correct, 'answered': e.value.answered},
+        for (final id in i.scores.keys.toList()..sort())
+          id: {
+            'correct': i.scores[id]!.correct,
+            'answered': i.scores[id]!.answered,
+          },
       },
       'answeredPerActiveDay': i.answeredPerActiveDay,
       'mock': {
@@ -189,6 +240,8 @@ Map<String, Object?> roadmapToJson(Roadmap r) => {
         'isMockDay': r.today.isMockDay,
         'isRestDay': r.today.isRestDay,
         'advancedIds': r.today.advancedIds.toList()..sort(),
+        if (r.today.reasons.isNotEmpty)
+          'reasons': reasonsToJson(r.today.reasons),
       },
       'examDay': _d(r.examDay),
       'reviewOnlyFrom': _d(r.reviewOnlyFrom),
@@ -212,4 +265,13 @@ Map<String, Object?> roadmapToJson(Roadmap r) => {
       ],
       'backlogCapped': r.backlogCapped,
       'cycleDetected': r.cycleDetected,
+    };
+
+Map<String, Object?> reasonsToJson(Map<String, PlanReason> reasons) => {
+      for (final id in reasons.keys.toList()..sort())
+        id: {
+          'kind': reasons[id]!.kind.name,
+          if (reasons[id]!.forLessonId != null)
+            'forLesson': reasons[id]!.forLessonId,
+        },
     };

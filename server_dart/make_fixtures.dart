@@ -5,6 +5,7 @@ import 'dart:io';
 
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 
 import 'roadmap_codec.dart';
@@ -71,12 +72,23 @@ RoadmapInputs rich({
     examDate:
         noExam ? null : (examDate ?? ExamDate.onDay(DateTime(2026, 12, 7))),
     topics: topics,
-    prerequisites: prerequisites ??
-        {
-          _id('t', 1): [_id('t', 0)],
-          _id('t', 2): [_id('t', 0), _id('t', 1)],
-          _id('t', 4): [_id('t', 3)],
-        },
+    lessonLinks: {
+      for (final entry in (prerequisites ??
+              {
+                _id('t', 1): [_id('t', 0)],
+                _id('t', 2): [_id('t', 0), _id('t', 1)],
+                _id('t', 4): [_id('t', 3)],
+              })
+          .entries)
+        _id('l', int.parse(entry.key.substring(1)) * lessonsPerTopic): [
+          for (final topic in entry.value)
+            LessonLink(
+              lessonId:
+                  _id('l', int.parse(topic.substring(1)) * lessonsPerTopic),
+              strength: LinkStrength.required,
+            ),
+        ],
+    },
     lessons: lessons,
     questions: questions,
     seenQuestionIds: seen,
@@ -155,7 +167,12 @@ void main() {
   };
   final out = {
     for (final e in scenarios.entries) e.key: inputsToJson(e.value),
+    ..._r1Scenarios(tue),
   };
+  File('server_dart/fixtures/diagnosis_scenarios.json').writeAsStringSync(
+    jsonEncode(_diagnosisScenarios(out['r1_weak_chain']!)),
+  );
+  stdout.writeln('wrote diagnosis scenarios');
   File('server_dart/fixtures/roadmap_scenarios.json')
       .writeAsStringSync(jsonEncode(out));
   stdout.writeln('wrote ${out.length} scenarios');
@@ -224,6 +241,169 @@ Map<String, Object?> _mockScenarios() {
       'passageSetsByTopic': null,
       'recentlySampledQuestionIds': <String>[],
       'seed': 7,
+    },
+  };
+}
+
+Map<String, Map<String, Object?>> _r1Scenarios(DateTime today) {
+  final base = <String, Object?>{
+    ...inputsToJson(rich(today: today)),
+    'topics': [
+      {'id': 't', 'authoredIndex': 0, 'name': 'Topic'},
+    ],
+    'lessons': [
+      for (final (index, id) in ['target', 'middle', 'base', 'empty'].indexed)
+        {
+          'id': id,
+          'topicId': 't',
+          'ordering': index,
+          'readAt': id == 'target' ? null : '2026-09-01T08:00:00',
+        },
+    ],
+    'questions': [
+      for (final id in ['target', 'middle', 'base'])
+        {'id': 'q-$id', 'topicId': 't', 'lessonId': id},
+    ],
+    'seenQuestionIds': ['q-base', 'q-middle'],
+    'dueReviews': <Object?>[],
+    'scores': <String, Object?>{},
+    'lessonLinks': {
+      'target': [
+        {'lesson': 'middle', 'strength': 'required'},
+      ],
+      'middle': [
+        {'lesson': 'base', 'strength': 'required'},
+      ],
+    },
+    'history': [
+      for (final id in ['base', 'middle'])
+        {
+          'id': 'q-$id',
+          'answered': 5,
+          'recent': [false, false, true],
+        },
+    ],
+    'recall': {'q-base': 0.4, 'q-middle': 0.5},
+    'gapTags': {'q-target_b': 'middle'},
+  };
+  const upcat = {
+    'topic_upcat_algebra': ['topic_upcat_arithmetic_number_sense'],
+    'topic_upcat_trigonometry': ['topic_upcat_geometry'],
+    'topic_upcat_precalculus_basic_calculus': ['topic_upcat_algebra'],
+    'topic_upcat_language_application': ['topic_upcat_grammar_and_structure'],
+  };
+  final topics = {...upcat.keys, ...upcat.values.expand((ids) => ids)}.toList()
+    ..sort();
+  final optional = Map<String, Object?>.of(base)
+    ..remove('lessonLinks')
+    ..remove('history')
+    ..remove('recall')
+    ..remove('gapTags');
+  final raw = {
+    'r1_weak_chain': base,
+    'r1_tag_follow_up': {
+      ...base,
+      'history': [
+        ...(base['history']! as List<Object?>),
+        {
+          'id': 'q-target',
+          'answered': 1,
+          'recent': [false],
+          'lastWrongChoiceId': 'q-target_b',
+        },
+      ],
+    },
+    'r1_cycle': {
+      ...base,
+      'lessonLinks': {
+        ...(base['lessonLinks']! as Map<String, Object?>),
+        'base': [
+          {'lesson': 'target', 'strength': 'required'},
+        ],
+      },
+    },
+    'r1_no_question_lesson': {
+      ...base,
+      'lessonLinks': {
+        'target': [
+          {'lesson': 'empty', 'strength': 'required'},
+        ],
+      },
+    },
+    'r1_optional_defaults': optional,
+    'r1_upcat_equivalent': {
+      ...base,
+      'topics': [
+        for (final (index, id) in topics.indexed)
+          {'id': id, 'authoredIndex': index, 'name': id},
+      ],
+      'lessons': [
+        for (final (index, id) in topics.indexed)
+          {'id': 'lesson-$id', 'topicId': id, 'ordering': index},
+      ],
+      'questions': <Object?>[],
+      'history': <Object?>[],
+      'recall': <String, Object?>{},
+      'gapTags': <String, Object?>{},
+      'lessonLinks': {
+        for (final entry in upcat.entries)
+          'lesson-${entry.key}': [
+            for (final id in entry.value)
+              {'lesson': 'lesson-$id', 'strength': 'required'},
+          ],
+      },
+    },
+  };
+  return {
+    for (final entry in raw.entries)
+      entry.key: entry.key == 'r1_optional_defaults'
+          ? entry.value
+          : inputsToJson(inputsFromJson(entry.value)),
+  };
+}
+
+Map<String, Object?> _diagnosisScenarios(Map<String, Object?> inputs) {
+  final base = <String, Object?>{
+    'inputs': inputs,
+    'session': {
+      'sessionId': 'session-r1',
+      'answers': [
+        {'questionId': 'q-target', 'chosen': 'q-target_b', 'correct': false},
+        {'questionId': 'q-base', 'chosen': null, 'correct': false},
+        {'questionId': 'q-base', 'chosen': 'q-base_b', 'correct': false},
+        {'questionId': 'q-middle', 'chosen': 'q-middle_a', 'correct': true},
+        {'questionId': 'q-middle', 'chosen': 'q-middle_b', 'correct': false},
+        {'questionId': 'unknown', 'chosen': 'unknown_b', 'correct': false},
+      ],
+    },
+    'notes': {
+      'q-target_b': 'Check the base.',
+      'q-middle_b': 'Review the base.',
+    },
+  };
+  return {
+    'free': {...base, 'includeDetail': false},
+    'pro': {...base, 'includeDetail': true},
+    'empty': {
+      ...base,
+      'session': {'sessionId': 'empty', 'answers': <Object?>[]},
+      'includeDetail': true,
+    },
+    'solid': {
+      ...base,
+      'inputs': {
+        ...inputs,
+        'history': [
+          for (final id in ['base', 'middle'])
+            {
+              'id': 'q-$id',
+              'answered': 5,
+              'recent': [true, true, true],
+            },
+        ],
+        'recall': {'q-base': 0.9, 'q-middle': 0.9},
+      },
+      'includeDetail': true,
     },
   };
 }

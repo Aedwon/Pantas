@@ -8,11 +8,21 @@ import 'dart:js_interop';
 
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 
+import 'diagnosis_codec.dart';
 import 'insights_codec.dart';
 import 'mock_codec.dart';
 import 'review_codec.dart';
 import 'roadmap_codec.dart';
 import 'roadmap_state_codec.dart';
+
+@JS('pantasSessionDiagnosis')
+external set _pantasSessionDiagnosis(JSFunction f);
+
+String sessionDiagnosisJson(String json) => jsonEncode(
+      sessionDiagnosisFromJson(
+        (jsonDecode(json) as Map).cast<String, Object?>(),
+      ),
+    );
 
 @JS('pantasRoadmapState')
 external set _pantasRoadmapState(JSFunction f);
@@ -58,6 +68,8 @@ String sampleMockJson(String inputJson) => jsonEncode(
     );
 
 void main() {
+  _pantasSessionDiagnosis =
+      ((JSString json) => sessionDiagnosisJson(json.toDart).toJS).toJS;
   _pantasRoadmapState =
       ((JSString json) => roadmapStateJson(json.toDart).toJS).toJS;
   _pantasStudyInsights =

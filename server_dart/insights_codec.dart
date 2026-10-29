@@ -234,7 +234,7 @@ Row studyInsightsFromJson(Row input) {
               },
         [
           if (pressure == null || pressure.practiceTotal == 0) 'practice',
-          if (pressure == null || pressure.mockTotal == 0) 'mock'
+          if (pressure == null || pressure.mockTotal == 0) 'mock',
         ],
       ),
       'stamina': finding(
@@ -268,7 +268,7 @@ Row studyInsightsFromJson(Row input) {
               workflow.readLessonCount > 0 &&
               workflow.practicedTopicCount > 0 &&
               workflow.readThenQuizCount + workflow.quizFirstCount == 0)
-            'matchedTopic'
+            'matchedTopic',
         ],
       ),
       'speed': finding(
@@ -289,7 +289,7 @@ Row studyInsightsFromJson(Row input) {
               },
         [
           if (speed == null || speed.correctCount == 0) 'correct',
-          if (speed == null || speed.incorrectCount == 0) 'incorrect'
+          if (speed == null || speed.incorrectCount == 0) 'incorrect',
         ],
       ),
       'memory': finding(

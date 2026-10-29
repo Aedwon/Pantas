@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 
+import 'diagnosis_codec.dart';
 import 'insights_codec.dart';
 import 'mock_codec.dart';
 import 'review_codec.dart';
@@ -47,5 +48,13 @@ void main() {
         e.key: studyInsightsFromJson(e.value! as Map<String, Object?>),
     }),
   );
-  stdout.writeln('wrote ${roadmap.length} roadmap and ${mock.length} mock');
+  final diagnosis = {
+    for (final e in _read('diagnosis_scenarios.json').entries)
+      e.key: sessionDiagnosisFromJson(e.value! as Map<String, Object?>),
+  };
+  File('server_dart/fixtures/diagnosis_expected.json')
+      .writeAsStringSync(jsonEncode(diagnosis));
+  stdout
+    ..writeln('wrote ${diagnosis.length} diagnosis')
+    ..writeln('wrote ${roadmap.length} roadmap and ${mock.length} mock');
 }
