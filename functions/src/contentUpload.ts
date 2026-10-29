@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 import type {Firestore} from 'firebase-admin/firestore';
 
-export type ContentKind = 'lessons' | 'questions' | 'mocks' | 'catalog';
+export type ContentKind = 'lessons' | 'questions' | 'mocks' | 'catalog' | 'gaps';
 export type ContentItem = {kind: ContentKind; id: string; data: Record<string, unknown> & {version: string}};
 export type ProItem = {id: string; data: Record<string, unknown> & {version: string}};
 export type PlanCounts = {create: number; update: number; unchanged: number};
@@ -97,7 +97,22 @@ export function questionSetItems(source: QuestionSource, relativePath: string): 
 
 type Doc = Record<string, unknown>;
 export type CatalogStructure = {exam?: Doc[]; subject?: Doc[]; topic?: Doc[]; mockBlueprint?: Doc[]; diagnosticSet?: Doc[]};
-export type CatalogInput = {structure: CatalogStructure; lessons: Doc[]; sets: {source: QuestionSource; relativePath: string}[]};
+export type LessonLink = {lesson: string; requires: string; strength: 'required' | 'helpful'};
+export type GapTag = {question: string; choice: string; prerequisite: string};
+
+/** Server-only attribution data. Never included in a served catalog or question set. */
+export function gapItem(tags: GapTag[]): ContentItem {
+  const grouped = new Map<string, Record<string, string>>();
+  for (const tag of tags) {
+    const choices = grouped.get(tag.question) ?? {};
+    choices[tag.choice] = tag.prerequisite;
+    grouped.set(tag.question, choices);
+  }
+  const payload = canonical(Object.fromEntries(grouped));
+  return {kind: 'gaps', id: 'tags', data: {kind: 'gaps', id: 'tags', payload, version: digest(payload)}};
+}
+
+export type CatalogInput = {links?: LessonLink[]; structure: CatalogStructure; lessons: Doc[]; sets: {source: QuestionSource; relativePath: string}[]};
 /** A catalog document is split above this many bytes of JSON; Firestore allows 1 MiB per document. */
 export const CATALOG_SPLIT_BYTES = 700_000;
 export const CATALOG_HARD_LIMIT_BYTES = 1_000_000;
@@ -125,7 +140,10 @@ export function catalogItems(input: CatalogInput, options: {splitAbove?: number;
     nextOrdering.set(topic, fallback);
     return {id, topic: `topic_upcat_${underscore(topic)}`, subtopic: `subtopic_${id.replace(`lesson-${topic}-`, '')}`,
       title: front.title, summary: front.summary, estimatedMinutes: front.estimatedMinutes,
-      ordering: typeof front.ordering === 'number' ? front.ordering : fallback};
+      ordering: typeof front.ordering === 'number' ? front.ordering : fallback,
+      ...((input.links ?? []).some(link => link.lesson === id) ? {prerequisites: (input.links ?? [])
+        .filter(link => link.lesson === id).map(link => ({lesson: link.requires, strength: link.strength}))
+        .sort((a, b) => a.lesson.localeCompare(b.lesson))} : {})};
   });
 
   const sets = input.sets.map(({source, relativePath}) => {
@@ -207,7 +225,7 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
   options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number}> {
   const existing = new Map<string, string>();
-  for (const kind of ['lessons', 'questions', 'mocks', 'catalog'] as const) {
+  for (const kind of ['lessons', 'questions', 'mocks', 'catalog', 'gaps'] as const) {
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
     for (const doc of snapshot.docs) existing.set(`${kind}/${doc.id}`, String(doc.get('version')));
   }
