@@ -2026,3 +2026,18 @@ by choice text, not a `gapLesson` field in the rationale as the spec says; engin
   `https://pantas.study/wrapped/<id>`. Contacts become `dpo@pantas.study` and
   `contact@pantas.study`; Aedwon creates both mailboxes before launch. Applied on
   `web/staging-candidate-r1` under the low-impact exception.
+
+## 2026-10-30 Web layout from the design handoff
+
+- Aedwon added the web design handoff (`web-design/pantas-handoff/`, HANDOFF.md plus 305 boards,
+  1440 wide, light and dark) and asked for it to be built. Exact words: "i also added a web view
+  design in design/ for you to implement. there will be some screens not applicable so skip them."
+  and "i will be sleeping, so I hope you can babysit this end-to-end."
+- Reading: this lifts the application-code freeze for the web layout work. The handoff's hard rules
+  are settled decisions (Wrapped deferred, fixed content schema, no full-width buttons, text-link
+  secondary navigation, results layout, fine print under its button, red only for destructive or
+  wrong, reader top bar, mock flag and list toggle, UPCAT scoring). Board screens that need content
+  or features the app lacks are not built without Aedwon. Per WORKFLOW, Aedwon does the visual
+  checking; the lead does not capture screenshots.
+- Complexity: the lead chose balanced in Aedwon's absence (he asked for unattended work). Scope and
+  any decision the boards leave open are listed in the spec for his morning review.
