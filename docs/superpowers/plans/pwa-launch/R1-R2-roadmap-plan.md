@@ -355,3 +355,8 @@ Branch A result: all of A1 to A7 on `roadmap/prerequisite-engine-r1`, merged int
 and home suites (702) after it. The real-data export run waits on the content branch (an uncredited
 PNG and a missing asset map entry in the visual-media lesson). Also fixed: the QLP-5 rehearsal still
 dismissed the removed quiz nudge, which broke full analysis.
+
+### Rulings during branch B (October 29, Claude lead)
+
+20. B3: the diagnosis lists questions in answer order (position), not by id; groups are sorted by id.
+21. B4: the session-observation test's totals version moved from 2 to 3 with B1.
