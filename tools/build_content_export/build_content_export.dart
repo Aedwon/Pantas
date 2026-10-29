@@ -639,6 +639,8 @@ Object? _convertYaml(Object? node) {
 }
 
 Map<String, dynamic> _roadmapInput(String path, String key) {
+  // Code branches carry no roadmap inputs until content merges them in.
+  if (!File(path).existsSync()) return const {};
   final Object? value;
   try {
     value = jsonDecode(File(path).readAsStringSync());

@@ -14,9 +14,11 @@ void main() {
     file.writeAsStringSync(jsonEncode(value));
   }
 
-  Future<ProcessResult> run({bool assets = false}) {
-    write('content/lesson-prerequisites.json', links);
-    write('content/question-gap-tags.json', tags);
+  Future<ProcessResult> run({bool assets = false, bool inputs = true}) {
+    if (inputs) {
+      write('content/lesson-prerequisites.json', links);
+      write('content/question-gap-tags.json', tags);
+    }
     return Process.run('dart', [
       'run',
       'tools/build_content_export/build_content_export.dart',
@@ -130,6 +132,11 @@ questions:
       result.stdout,
       contains('skipped 1 tagged figure-pending questions'),
     );
+  });
+  test('exports no links or tags when the input files are absent', () async {
+    final result = await run(inputs: false);
+    expect(result.exitCode, 0, reason: '${result.stderr}');
+    expect(result.stdout, contains('0 links and 0 tags'));
   });
   for (final kind in ['links', 'tags']) {
     test('rejects missing $kind shape', () async {
