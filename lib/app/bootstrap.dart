@@ -39,6 +39,7 @@ import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
 import 'package:pantas/features/review_prompt/data/review_prompt_store.dart';
+import 'package:pantas/features/roadmap/application/lesson_links_loader.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 const _contentBootstrapKeyId = 'content-bootstrap-v1';
@@ -265,6 +266,11 @@ Future<void> _bootstrap(
         ...authOverrides,
         ...mockEntitlementOverrides,
         ...telemetryConsentOverrides,
+        // Web plans on the server and bundles no links.
+        if (!kIsWeb)
+          lessonLinksProvider.overrideWithValue(
+            await loadLessonLinks(rootBundle),
+          ),
         // Install the Firebase telemetry sink only when live Firebase instances
         // are available. User consent still gates anything reaching the sink.
         telemetrySinkProvider.overrideWithValue(

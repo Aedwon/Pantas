@@ -5,9 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/features/roadmap/domain/lesson_links.dart';
 
-final lessonLinksProvider = FutureProvider<LessonLinks>(
-  (_) => loadLessonLinks(rootBundle),
-);
+/// Bootstrap loads the bundled links once at startup on native builds. Until
+/// then, and in tests and on web, there are none, so nothing waits on asset
+/// I/O while a screen builds.
+final lessonLinksProvider = Provider<LessonLinks>((_) => const {});
 
 Future<LessonLinks> loadLessonLinks(AssetBundle bundle) async {
   final String source;

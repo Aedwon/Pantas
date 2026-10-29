@@ -186,7 +186,7 @@ class RoadmapInputsReader {
       scores: performance.scores,
       history: performance.history,
       recall: recall,
-      lessonLinks: await _ref.read(lessonLinksProvider.future),
+      lessonLinks: _ref.read(lessonLinksProvider),
       answeredPerActiveDay: await _ref
           .read(attemptsRepositoryProvider)
           .answeredPerActiveDay(examId: examId),

@@ -187,7 +187,7 @@ void main() {
 
     container = ProviderContainer(
       overrides: [
-        lessonLinksProvider.overrideWith((ref) async => assetLinks),
+        lessonLinksProvider.overrideWith((ref) => assetLinks),
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
         contentRepositoryProvider.overrideWithValue(content),
