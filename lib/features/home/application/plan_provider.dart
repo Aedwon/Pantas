@@ -328,6 +328,7 @@ final planDayViewProvider =
       reviewOnlyFrom: current.snapshot.reviewOnlyFrom,
       lessonTopicOrder: current.snapshot.topicOrder,
       lessons: inputs.lessons,
+      lessonLinks: inputs.lessonLinks,
       scheduledToday: current.snapshot.plan.lessonIds.toSet(),
       studyDays: inputs.studyDays,
     );

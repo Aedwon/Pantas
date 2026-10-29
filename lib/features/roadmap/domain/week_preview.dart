@@ -1,6 +1,8 @@
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
+import 'package:pantas/features/roadmap/domain/lesson_queue.dart';
 import 'package:pantas/features/roadmap/domain/planning_window.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
@@ -15,6 +17,7 @@ abstract final class WeekPreviews {
     required List<RoadmapLesson> lessons,
     required Set<LessonId> scheduledToday,
     StudyDays studyDays = StudyDays.all,
+    LessonQueue? lessonQueue,
   }) {
     final byId = {for (final lesson in lessons) lesson.id: lesson};
     final weeks = <DateTime, List<TopicId>>{};
@@ -25,6 +28,7 @@ abstract final class WeekPreviews {
       lessons: lessons,
       scheduledToday: scheduledToday,
       studyDays: studyDays,
+      lessonQueue: lessonQueue,
     )) {
       final day = entry.key;
       final start = DateTime(day.year, day.month, day.day - day.weekday % 7);
@@ -48,6 +52,8 @@ abstract final class WeekPreviews {
     required List<RoadmapLesson> lessons,
     required Set<LessonId> scheduledToday,
     StudyDays studyDays = StudyDays.all,
+    LessonQueue? lessonQueue,
+    LessonLinks lessonLinks = const {},
   }) {
     final target = localDay(date);
     if (!target.isAfter(localDay(today))) return const [];
@@ -58,6 +64,12 @@ abstract final class WeekPreviews {
       lessons: lessons,
       scheduledToday: scheduledToday,
       studyDays: studyDays,
+      lessonQueue: lessonQueue ??
+          LessonQueue.build(
+            lessonTopicOrder: lessonTopicOrder,
+            lessons: lessons,
+            graph: LessonGraph.build(lessonLinks, lessons.map((l) => l.id)),
+          ),
     )) {
       if (entry.key == target) return entry.value;
       if (entry.key.isAfter(target)) break;
@@ -72,20 +84,17 @@ abstract final class WeekPreviews {
     required List<RoadmapLesson> lessons,
     required Set<LessonId> scheduledToday,
     required StudyDays studyDays,
+    LessonQueue? lessonQueue,
   }) sync* {
     if (reviewOnlyFrom == null) return;
-    final byTopic = <TopicId, List<RoadmapLesson>>{};
-    for (final lesson in lessons) {
-      if (lesson.readAt != null || scheduledToday.contains(lesson.id)) continue;
-      (byTopic[lesson.topicId] ??= []).add(lesson);
-    }
-    for (final list in byTopic.values) {
-      list.sort((a, b) {
-        final c = a.ordering.compareTo(b.ordering);
-        return c != 0 ? c : a.id.compareTo(b.id);
-      });
-    }
-    final queue = [for (final id in lessonTopicOrder) ...?byTopic[id]];
+    final shared = lessonQueue ??
+        LessonQueue.build(
+          lessonTopicOrder: lessonTopicOrder,
+          lessons: lessons,
+        );
+    final queue = shared.lessons
+        .where((lesson) => !scheduledToday.contains(lesson.id))
+        .toList();
     var day = localDay(today);
     final stop = localDay(reviewOnlyFrom);
     var next = 0;
