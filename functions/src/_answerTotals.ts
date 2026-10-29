@@ -53,12 +53,17 @@ export type TotalsRow = {index: number; answered: number; correct: number;
   /** Earliest actual completion time of this question, in ms. */
   firstCompletedAt: number | null;
   /** Bit k is set when it was completed on `anchorDay` minus k days, for k below MASK_DAYS. */
-  mask: number};
+  mask: number;
+  /** Last three outcomes with a leading 1 bit; zero means no history. */
+  recent: number;
+  /** Latest wrong choice letter, or empty when correct or unrecognized. */
+  lw: string};
 /** What a session says about itself. Only an attributed session has it; a legacy batch does not. */
 export type SessionTimes = {startedAt: number; finishedAt: number};
 
 /** What the roadmap needs from the answers, for the questions the exam currently has. */
 export type AnswerView = {
+  history: {id: string; answered: number; recent: boolean[]; lastWrongChoiceId: string | null}[];
   scores: Record<string, {correct: number; answered: number}>;
   seenQuestionIds: string[];
   answeredPerActiveDay: number[];
@@ -97,10 +102,16 @@ export function addSession(totals: Totals, answers: Answer[], session?: SessionT
     if (!row) {
       const bytes = Buffer.byteLength(JSON.stringify(answer.questionId));
       if (totals.questions.size >= MAX_QUESTIONS || totals.idBytes + bytes > MAX_ID_BYTES) continue;
-      row = {index: totals.questions.size, answered: 0, correct: 0, firstCompletedAt: null, mask: 0};
+      row = {index: totals.questions.size, answered: 0, correct: 0, firstCompletedAt: null, mask: 0, recent: 0, lw: ''};
       totals.questions.set(answer.questionId, row);
       totals.idBytes += bytes;
     }
+    // Live history follows ingest order; a late retry lands last.
+    row.recent = row.recent < 8 ? ((row.recent || 1) << 1) | Number(answer.correct) :
+      8 | ((row.recent << 1) & 7) | Number(answer.correct);
+    const prefix = `${answer.questionId}_`;
+    const letter = answer.chosen?.startsWith(prefix) ? answer.chosen.slice(prefix.length) : '';
+    row.lw = !answer.correct && /^[a-f]$/.test(letter) ? letter : '';
     row.answered += 1;
     if (answer.correct) row.correct += 1;
     // A time that was never stored makes no count and no completion; one is never invented for it.
@@ -152,6 +163,7 @@ export function prune(totals: Totals): void {
 /** The roadmap's answer inputs, counting only questions in `topicOf` (question id to topic id). */
 export function viewOf(totals: Totals, topicOf: Map<string, string>): AnswerView {
   const scores: AnswerView['scores'] = {};
+  const history: AnswerView['history'] = [];
   const seen: string[] = [];
   const scopedByIndex: boolean[] = [];
   for (const [id, row] of totals.questions) {
@@ -159,6 +171,10 @@ export function viewOf(totals: Totals, topicOf: Map<string, string>): AnswerView
     scopedByIndex[row.index] = topic !== undefined;
     if (topic === undefined) continue;
     seen.push(id);
+    const recent: boolean[] = [];
+    for (let bits = row.recent; bits > 1; bits >>= 1) recent.unshift((bits & 1) === 1);
+    if (row.answered > 0) history.push({id, answered: row.answered, recent,
+      lastWrongChoiceId: row.lw ? `${id}_${row.lw}` : null});
     const score = (scores[topic] ??= {correct: 0, answered: 0});
     score.answered += row.answered;
     score.correct += row.correct;
@@ -169,19 +185,19 @@ export function viewOf(totals: Totals, topicOf: Map<string, string>): AnswerView
     for (const [index, count] of counts) if (scopedByIndex[index]) sum += count;
     if (sum > 0) perDay.push(sum);
   }
-  return {scores, seenQuestionIds: seen.sort(), answeredPerActiveDay: perDay, anyAnswers: totals.answers > 0, sessions: totals.sessions};
+  return {history, scores, seenQuestionIds: seen.sort(), answeredPerActiveDay: perDay, anyAnswers: totals.answers > 0, sessions: totals.sessions};
 }
 
 export function toDoc(totals: Totals): Record<string, unknown> {
   return {
-    version: 2, sessions: totals.sessions, answers: totals.answers, prunedDays: totals.prunedDays, anchorDay: totals.anchorDay,
-    questionsJson: JSON.stringify([...totals.questions].map(([id, row]) => [id, row.answered, row.correct, row.firstCompletedAt, row.mask])),
+    version: 3, sessions: totals.sessions, answers: totals.answers, prunedDays: totals.prunedDays, anchorDay: totals.anchorDay,
+    questionsJson: JSON.stringify([...totals.questions].map(([id, row]) => [id, row.answered, row.correct, row.firstCompletedAt, row.mask, row.recent, row.lw])),
     daysJson: JSON.stringify([...totals.days].sort(([a], [b]) => (a < b ? -1 : 1)).map(([day, counts]) => [day, [...counts]])),
   };
 }
 
-/** A stored document written before version 2 has no completion data and is rebuilt from the sessions. */
-export const needsBackfill = (data: Record<string, unknown> | undefined): boolean => data?.version !== 2;
+/** A stored document written before version 3 has no recent history and is rebuilt from the sessions. */
+export const needsBackfill = (data: Record<string, unknown> | undefined): boolean => data?.version !== 3;
 
 export function fromDoc(data: Record<string, unknown> | undefined): Totals {
   const totals = emptyTotals();
@@ -189,9 +205,9 @@ export function fromDoc(data: Record<string, unknown> | undefined): Totals {
   totals.answers = Number(data?.answers ?? 0);
   totals.prunedDays = Number(data?.prunedDays ?? 0);
   totals.anchorDay = typeof data?.anchorDay === 'string' ? data.anchorDay : null;
-  for (const [id, answered, correct, firstCompletedAt, mask] of JSON.parse(String(data?.questionsJson ?? '[]')) as
-      [string, number, number, number | null | undefined, number | undefined][]) {
-    totals.questions.set(id, {index: totals.questions.size, answered, correct, firstCompletedAt: firstCompletedAt ?? null, mask: mask ?? 0});
+  for (const [id, answered, correct, firstCompletedAt, mask, recent, lw] of JSON.parse(String(data?.questionsJson ?? '[]')) as
+      [string, number, number, number | null | undefined, number | undefined, number | undefined, string | undefined][]) {
+    totals.questions.set(id, {index: totals.questions.size, answered, correct, firstCompletedAt: firstCompletedAt ?? null, mask: mask ?? 0, recent: recent ?? 0, lw: lw ?? ''});
     totals.idBytes += Buffer.byteLength(JSON.stringify(id));
   }
   for (const [day, counts] of JSON.parse(String(data?.daysJson ?? '[]')) as [string, [number, number][]][]) {
@@ -211,11 +227,12 @@ export function sessionTimesOf(row: {get(field: string): unknown}): SessionTimes
 
 /**
  * Builds the totals from the stored sessions, for an account with no totals document or one from
- * before version 2. Each stored session is counted once, exactly as its own ingest counted it.
+ * before version 3. Each stored session is counted once, exactly as its own ingest counted it.
  */
 export async function backfill(tx: Transaction, db: Firestore, uid: string): Promise<Totals> {
   const totals = emptyTotals();
   const rows = (await tx.get(db.collection(`users/${uid}/server/answers/items`).select('answers', 'examId', 'origin', 'startedAt', 'finishedAt'))).docs;
+  rows.sort((a, b) => Number(a.get('finishedAt') ?? 0) - Number(b.get('finishedAt') ?? 0));
   for (const doc of rows) addSession(totals, doc.get('answers') as Answer[], sessionTimesOf(doc));
   prune(totals);
   return totals;

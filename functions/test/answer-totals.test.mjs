@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {MAX_DAYS, MAX_DAY_PAIRS, MAX_ID_BYTES, MAX_QUESTIONS, addSession, completedOn, emptyTotals, firstCompletedBefore, fromDoc, needsBackfill, prune, toDoc, viewOf} from '../lib/_answerTotals.js';
+import {MAX_DAYS, MAX_DAY_PAIRS, MAX_ID_BYTES, MAX_QUESTIONS, addSession, backfill, loadTotals, completedOn, emptyTotals, firstCompletedBefore, fromDoc, needsBackfill, prune, toDoc, viewOf} from '../lib/_answerTotals.js';
 import {phDay} from '../lib/_phDate.js';
 
 /** The full scan `build()` used before running totals existed, copied here as the reference. */
@@ -19,7 +19,7 @@ function legacy(sessions, topicOf) {
   return {scores, seenQuestionIds: [...new Set(scoped.map(a => a.questionId))].sort(),
     answeredPerActiveDay: [...perDay.values()], anyAnswers: answers.length > 0, sessions: sessions.length};
 }
-const norm = view => ({...view, answeredPerActiveDay: [...view.answeredPerActiveDay].sort((a, b) => a - b)});
+const norm = ({history, ...view}) => ({...view, answeredPerActiveDay: [...view.answeredPerActiveDay].sort((a, b) => a - b)});
 const viaTotals = (sessions, topicOf, roundTrip = true) => {
   let totals = emptyTotals();
   for (const session of sessions) {
@@ -207,11 +207,11 @@ test('v2: seen-by-end-of-day uses actual first completion, including a session r
   assert.deepEqual([...firstCompletedBefore(totals, T0 + 4 * 86_400_000)].sort(), ['a0', 'a1']);
 });
 
-test('v2: the stored document round-trips, and a v1 document is recognized for backfill', () => {
+test('v3: the stored document round-trips, and a v1 document is recognized for backfill', () => {
   const totals = emptyTotals();
   addSession(totals, [bare('a0'), bare('b0', false)], crossing);
   const doc = toDoc(totals);
-  assert.equal(doc.version, 2);
+  assert.equal(doc.version, 3);
   assert.equal(needsBackfill(doc), false);
   const back = fromDoc(doc);
   assert.deepEqual([...back.questions], [...totals.questions]);
@@ -220,7 +220,7 @@ test('v2: the stored document round-trips, and a v1 document is recognized for b
   assert.equal(needsBackfill(undefined), true);
 });
 
-test('v2: the stored document stays under 1 MiB at the real worst case, mask and first completion included', () => {
+test('v3: the stored document stays under 1 MiB at the real worst case, mask and first completion included', () => {
   const T = Date.parse('2026-11-01T00:00:00+08:00');
   for (const idLength of [24, 128, 'control']) {
     const totals = emptyTotals();
@@ -230,7 +230,7 @@ test('v2: the stored document stays under 1 MiB at the real worst case, mask and
         {startedAt: T + n * 86_400_000, finishedAt: T + n * 86_400_000 + 1000});
     }
     // Every retained row completed on all 14 retained days, with the widest counts.
-    for (const row of totals.questions.values()) { row.mask = 0x3fff; row.answered = 999_999; row.correct = 999_999; }
+    for (const row of totals.questions.values()) { row.mask = 0x3fff; row.answered = 999_999; row.correct = 999_999; row.recent = 15; row.lw = 'f'; }
     const indexes = [...totals.questions.values()].map(row => row.index).reverse();
     for (let day = 0; day < MAX_DAYS; day += 1) {
       const map = new Map();
@@ -244,7 +244,7 @@ test('v2: the stored document stays under 1 MiB at the real worst case, mask and
     // number as 8; 1 KiB of margin covers the document name and overhead.
     const bytes = Object.entries(doc).reduce((sum, [name, value]) =>
       sum + Buffer.byteLength(name) + 1 + (typeof value === 'string' ? Buffer.byteLength(value) + 1 : 8), 0) + 1024;
-    console.log(`v2 worst case, ${totals.questions.size} rows of ${idLength}-byte ids: ${bytes} bytes`);
+    console.log(`v3 worst case, ${totals.questions.size} rows of ${idLength}-byte ids: ${bytes} bytes`);
     assert.ok(bytes < 1_048_576 - 100_000, `worst case is ${bytes} bytes`);
   }
 });
@@ -258,4 +258,67 @@ test('ingest answer validation rejects control characters and non-content ids', 
     }
     assert.equal(checkAnswers([ans('q.Valid_1-2', T0)], T0, attributed)[0].questionId, 'q.Valid_1-2');
   }
+});
+
+test('v3: chosen accepts 71 and 130 characters but rejects 131', async () => {
+  const {checkAnswers} = await import('../lib/_answers.js');
+  for (const attributed of [false, true]) {
+    for (const length of [71, 130]) {
+      const questionId = 'q'.repeat(length - 2);
+      const answer = {...ans(questionId, T0), chosen: `${questionId}_a`};
+      assert.deepEqual(checkAnswers([answer], T0, attributed), [answer]);
+    }
+    assert.throws(() => checkAnswers([{...ans('q1', T0), chosen: 'x'.repeat(131)}], T0, attributed),
+      {code: 'invalid-argument'});
+  }
+});
+
+test('v3: recent keeps three outcomes and only the latest valid wrong choice', () => {
+  const totals = emptyTotals();
+  const add = (correct, chosen) => addSession(totals, [{...ans('a0', T0, correct), chosen}]);
+  add(false, 'a0_f');
+  assert.equal(totals.questions.get('a0').recent, 2);
+  assert.equal(totals.questions.get('a0').lw, 'f');
+  add(true, 'a0_a');
+  assert.equal(totals.questions.get('a0').lw, '');
+  add(false, 'a0_b');
+  add(false, 'other_c');
+  assert.deepEqual(viewOf(fromDoc(toDoc(totals)), topics).history,
+    [{id: 'a0', answered: 4, recent: [true, false, false], lastWrongChoiceId: null}]);
+  for (const chosen of [null, 'a0_g', 'a0_aa', 'a0_A', 'a0_']) {
+    add(false, chosen);
+    assert.equal(totals.questions.get('a0').lw, '');
+  }
+  add(false, 'a0_c');
+  assert.equal(viewOf(totals, topics).history[0].lastWrongChoiceId, 'a0_c');
+  assert.deepEqual(viewOf(totals, new Map()).history, []);
+});
+
+test('v3: v2 loads without history and backfills in finish order once', async () => {
+  const v2 = {version: 2, sessions: 1, answers: 1, anchorDay: '2026-11-01',
+    questionsJson: JSON.stringify([['a0', 1, 0, T0, 1]]), daysJson: '[]'};
+  assert.equal(needsBackfill(v2), true);
+  assert.deepEqual(viewOf(fromDoc(v2), topics).history,
+    [{id: 'a0', answered: 1, recent: [], lastWrongChoiceId: null}]);
+  const session = (finishedAt, correct, chosen) => ({
+    get: key => ({examId: 'cse', origin: 'quiz', startedAt: T0, finishedAt,
+      answers: [{questionId: 'a0', correct, chosen}]}[key]),
+  });
+  const rows = [session(T0 + 30, false, 'a0_c'), session(T0 + 10, false, 'a0_b'),
+    session(T0 + 20, true, 'a0_a')];
+  const db = {collection: () => ({select: () => ({})})};
+  const totals = await backfill({get: async () => ({docs: rows})}, db, 'u');
+  assert.deepEqual(viewOf(totals, topics).history,
+    [{id: 'a0', answered: 3, recent: [false, true, false], lastWrongChoiceId: 'a0_c'}]);
+  let saved;
+  const snapshot = data => ({exists: true, data: () => data});
+  const ref = {get: async () => snapshot(saved ?? v2)};
+  const loadingDb = { ...db, doc: () => ref, runTransaction: async callback => callback({
+    get: async target => target === ref ? snapshot(v2) : {docs: rows},
+    set: (_, data) => { saved = data; },
+  })};
+  await loadTotals(loadingDb, 'u');
+  assert.equal(saved.version, 3);
+  loadingDb.runTransaction = () => { throw new Error('normal read scanned sessions'); };
+  assert.deepEqual(viewOf(await loadTotals(loadingDb, 'u'), topics).history, viewOf(totals, topics).history);
 });
