@@ -159,7 +159,6 @@ class RoadmapInputsReader {
             name: scope.topics[i].name,
           ),
       ],
-      prerequisites: _ref.read(topicPrerequisitesProvider),
       lessons: [
         for (final topicId in topicIds)
           for (final lesson in lessonMeta[topicId] ?? const <LessonMeta>[])

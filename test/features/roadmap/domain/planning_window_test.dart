@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
 import 'package:pantas/features/roadmap/domain/planning_window.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
@@ -176,6 +177,31 @@ void main() {
   });
 
   group('immutable value types', () {
+    test('day plan reasons own their map and participate in equality', () {
+      final reasons = <String, PlanReason>{
+        'l': const PlanReason(
+          kind: PlanReasonKind.prerequisite,
+          forLessonId: 'next',
+        ),
+      };
+      DayPlan plan(Map<String, PlanReason> value) => DayPlan(
+            day: DateTime(2026),
+            lessonIds: const [],
+            reviewQuestionIds: const [],
+            newQuestionIds: const [],
+            isMockDay: false,
+            advancedIds: const {},
+            reasons: value,
+          );
+      final first = plan(reasons);
+      final equal = plan(Map.of(reasons));
+      reasons.clear();
+      expect(first, equal);
+      expect(first.hashCode, equal.hashCode);
+      expect(first == plan(const {}), isFalse);
+      expect(first.reasons.clear, throwsUnsupportedError);
+    });
+
     test('scores require at least three answers to be measured', () {
       expect(
         const RoadmapTopicScore(id: 'topic', correct: 2, answered: 2)
@@ -228,37 +254,51 @@ void main() {
       expect(plan.advancedIds.clear, throwsUnsupportedError);
     });
 
-    test('inputs copy nested prerequisites and compare maps and sets by value',
+    test('inputs copy nested lessonLinks and compare maps and sets by value',
         () {
-      final prerequisites = <String, List<String>>{
-        'topic2': ['topic1'],
-        'topic3': ['topic1'],
+      final lessonLinks = <String, List<LessonLink>>{
+        'topic2': [
+          const LessonLink(lessonId: 'topic1', strength: LinkStrength.required),
+        ],
+        'topic3': [
+          const LessonLink(lessonId: 'topic1', strength: LinkStrength.required),
+        ],
       };
       final seen = <String>{'q1', 'q2'};
-      final first = _inputs(prerequisites: prerequisites, seen: seen);
+      final first = _inputs(lessonLinks: lessonLinks, seen: seen);
       final equal = _inputs(
-        prerequisites: {
-          'topic3': ['topic1'],
-          'topic2': ['topic1'],
+        lessonLinks: {
+          'topic3': [
+            const LessonLink(
+              lessonId: 'topic1',
+              strength: LinkStrength.required,
+            ),
+          ],
+          'topic2': [
+            const LessonLink(
+              lessonId: 'topic1',
+              strength: LinkStrength.required,
+            ),
+          ],
         },
         seen: {'q2', 'q1'},
       );
       final hash = first.hashCode;
 
-      prerequisites['topic2']!.clear();
-      prerequisites.clear();
+      lessonLinks['topic2']!.clear();
+      lessonLinks.clear();
       seen.clear();
 
       expect(first, equal);
       expect(first.hashCode, equal.hashCode);
       expect(first.hashCode, hash);
       expect(
-        first == _inputs(prerequisites: const {}, seen: const {}),
+        first == _inputs(lessonLinks: const {}, seen: const {}),
         isFalse,
       );
-      expect(first.prerequisites.clear, throwsUnsupportedError);
+      expect(first.lessonLinks.clear, throwsUnsupportedError);
       expect(
-        first.prerequisites['topic2']!.clear,
+        first.lessonLinks['topic2']!.clear,
         throwsUnsupportedError,
       );
       expect(first.topics.clear, throwsUnsupportedError);
@@ -373,7 +413,7 @@ void main() {
 }
 
 RoadmapInputs _inputs({
-  required Map<String, List<String>> prerequisites,
+  required Map<String, List<LessonLink>> lessonLinks,
   required Set<String> seen,
 }) =>
     RoadmapInputs(
@@ -383,7 +423,7 @@ RoadmapInputs _inputs({
       topics: const [
         RoadmapTopic(id: 'topic1', authoredIndex: 0, name: 'Topic 1'),
       ],
-      prerequisites: prerequisites,
+      lessonLinks: lessonLinks,
       lessons: [
         RoadmapLesson(
           id: 'lesson',

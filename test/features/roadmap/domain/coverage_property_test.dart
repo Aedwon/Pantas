@@ -65,7 +65,6 @@ void main() {
             examId: 'e',
             examDate: exam,
             topics: topics,
-            prerequisites: const {},
             lessons: [
               for (final lesson in lessons)
                 RoadmapLesson(

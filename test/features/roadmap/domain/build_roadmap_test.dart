@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 
@@ -28,7 +29,6 @@ void main() {
         studyDays: studyDays,
         examDate: examDateMissing ? null : (examDate ?? dec7),
         topics: const [RoadmapTopic(id: 't', authoredIndex: 0, name: 'T')],
-        prerequisites: const {},
         lessons: [
           for (var i = 0; i < lessonCount; i++)
             RoadmapLesson(
@@ -53,6 +53,79 @@ void main() {
         contentRevision: 'rev2',
         anchoredReviewOnlyFrom: anchor,
       );
+
+  RoadmapInputs linkedInputs(LessonLinks links, {bool upcat = false}) =>
+      RoadmapInputs(
+        today: sept30,
+        examId: 'exam',
+        examDate: dec7,
+        topics: [
+          RoadmapTopic(
+            id: upcat ? 'topic_upcat_algebra' : 'target',
+            authoredIndex: 0,
+            name: 'Target',
+          ),
+          RoadmapTopic(
+            id: upcat ? 'topic_upcat_arithmetic_number_sense' : 'base',
+            authoredIndex: 1,
+            name: 'Base',
+          ),
+        ],
+        lessons: [
+          RoadmapLesson(
+            id: 'target',
+            topicId: upcat ? 'topic_upcat_algebra' : 'target',
+            ordering: 0,
+          ),
+          RoadmapLesson(
+            id: 'base',
+            topicId: upcat ? 'topic_upcat_arithmetic_number_sense' : 'base',
+            ordering: 0,
+          ),
+        ],
+        lessonLinks: links,
+        questions: const [],
+        seenQuestionIds: const {},
+        dueReviews: const [],
+        scores: const {},
+        answeredPerActiveDay: const [],
+        mock: const RoadmapMockFacts(examHasMock: false, proIsActive: false),
+        assessmentCompleted: true,
+        contentRevision: 'test',
+      );
+
+  test('build uses derived topic links', () {
+    final result = BuildRoadmap.call(
+      linkedInputs({
+        'target': [
+          const LessonLink(lessonId: 'base', strength: LinkStrength.required),
+        ],
+      }),
+    );
+    expect(result.topicOrder, ['base', 'target']);
+  });
+
+  test('build retains UPCAT ordering without lesson links', () {
+    final result = BuildRoadmap.call(linkedInputs(const {}, upcat: true));
+    expect(result.topicOrder, [
+      'topic_upcat_arithmetic_number_sense',
+      'topic_upcat_algebra',
+    ]);
+  });
+
+  test('build reports lesson cycles including helpful links', () {
+    final result = BuildRoadmap.call(
+      linkedInputs({
+        'target': [
+          const LessonLink(lessonId: 'base', strength: LinkStrength.required),
+        ],
+        'base': [
+          const LessonLink(lessonId: 'target', strength: LinkStrength.helpful),
+        ],
+      }),
+    );
+    expect(result.cycleDetected, isTrue);
+  });
 
   test('exam-day warm-up uses at most ten actual easiest ordered due reviews',
       () {

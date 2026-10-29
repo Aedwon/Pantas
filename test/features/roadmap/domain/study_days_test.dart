@@ -32,7 +32,6 @@ RoadmapInputs inputs({
       studyDays: studyDays,
       treatTodayAsStudyDay: treatTodayAsStudyDay,
       topics: const [RoadmapTopic(id: 't', authoredIndex: 0, name: 'T')],
-      prerequisites: const {},
       lessons: [
         for (var i = 0; i < lessonCount; i++)
           RoadmapLesson(id: 'l$i', topicId: 't', ordering: i),
@@ -267,7 +266,6 @@ void main() {
             examDate: ExamDate.onDay(examDay),
             studyDays: days,
             topics: const [RoadmapTopic(id: 't', authoredIndex: 0, name: 'T')],
-            prerequisites: const {},
             lessons: [
               for (final l in lessons)
                 RoadmapLesson(
