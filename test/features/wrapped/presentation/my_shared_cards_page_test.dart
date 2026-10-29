@@ -81,7 +81,7 @@ void main() {
 
     expect(find.text('Day 7 Streak'), findsOneWidget);
     expect(
-      find.text('pantas.app/wrapped/hostedshareid0000000000000000abcd'),
+      find.text('pantas.study/wrapped/hostedshareid0000000000000000abcd'),
       findsOneWidget,
     );
 

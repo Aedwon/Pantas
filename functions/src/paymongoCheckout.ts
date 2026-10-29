@@ -95,6 +95,6 @@ export const createPaymongoCheckout = onCall(
   {region: 'asia-southeast1', enforceAppCheck: true, consumeAppCheckToken: true, secrets: [secretKey]},
   request => createCheckout(request.auth, request.data, {
     client: httpPaymongoClient(secretKey.value()), db: getFirestore(),
-    origin: process.env.PANTAS_WEB_ORIGIN ?? 'https://pantas.study',
+    origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
     methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
   }));

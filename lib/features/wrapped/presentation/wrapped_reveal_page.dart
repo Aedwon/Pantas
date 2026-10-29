@@ -109,7 +109,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
               ),
               const SizedBox(height: 8),
               Text(
-                'pantas.app/wrapped',
+                'pantas.study/wrapped',
                 style: styles.footnote.copyWith(color: colors.secondaryLabel),
               ),
             ],

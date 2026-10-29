@@ -2,7 +2,7 @@
 
 A gamified, learning-focused Flutter mobile reviewer for Philippine exam preparation. Launch scope: Civil Service Examination (Professional level) and UPCAT, expanding to cover six major Philippine exams. 
 
-Learn more and view your personalized Wrapped cards at [pantas.app](https://pantas.app).
+Learn more and view your personalized Wrapped cards at [pantas.study](https://pantas.study).
 
 ## Status
 

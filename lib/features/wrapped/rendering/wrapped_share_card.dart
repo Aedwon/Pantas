@@ -81,7 +81,7 @@ class WrappedShareCard extends StatelessWidget {
               ],
               const Spacer(),
               const Text(
-                'pantas.app/wrapped',
+                'pantas.study/wrapped',
                 style: TextStyle(color: _inkMuted),
               ),
               const SizedBox(height: 8),

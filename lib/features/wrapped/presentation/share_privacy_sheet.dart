@@ -34,7 +34,7 @@ class SharePrivacySheet extends StatelessWidget {
   /// Disclosure shown before publishing a card to a public link
   /// (landing-page spec §3.1, decision #2).
   static const String hostingDisclosure =
-      'Sharing publishes this card to a pantas.app link anyone can view.';
+      'Sharing publishes this card to a pantas.study link anyone can view.';
 
   @override
   Widget build(BuildContext context) {

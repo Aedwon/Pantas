@@ -98,7 +98,7 @@ Refund resource: https://docs.paymongo.com/reference/refund-resource.md.
    Full or partial refunds and independent revocations prevent restoration. Lost disputes stay revoked.
    Dispute identity is saved when revoking and checked on resolution. Real test-mode payload verification remains required.
 8. **Return URLs.** `success_url` and `cancel_url` are `<origin>/pro?checkout=success` and
-   `?checkout=cancelled`, where origin is `PANTAS_WEB_ORIGIN` (default `https://pantas.study`).
+   `?checkout=cancelled`, where origin is `PANTAS_APP_ORIGIN` (default `https://app.pantas.study`, the app host; `PANTAS_WEB_ORIGIN` is the marketing site used by the Wrapped page).
    Lane C3 owns the real routes and may change these.
 
 ## Configuration

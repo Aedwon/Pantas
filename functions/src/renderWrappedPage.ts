@@ -9,12 +9,12 @@ const PLAY_URL =
   'https://play.google.com/store/apps/details?id=app.pantas';
 const APP_STORE_URL =
   process.env.PANTAS_APP_STORE_URL ?? 'https://apps.apple.com/app/pantas';
-const SITE_ORIGIN = process.env.PANTAS_WEB_ORIGIN ?? 'https://pantas.app';
+const SITE_ORIGIN = process.env.PANTAS_WEB_ORIGIN ?? 'https://pantas.study';
 
 const SHARE_ID_PATTERN = /^[0-9a-f]{32}$/;
 
 /**
- * Server-renders the `pantas.app/wrapped/<shareId>` landing page with
+ * Server-renders the `pantas.study/wrapped/<shareId>` landing page with
  * per-share Open Graph tags, serves the card image, and falls back to a
  * generic marketing page for unknown / revoked links (landing-page spec §4).
  */

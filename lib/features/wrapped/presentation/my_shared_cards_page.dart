@@ -36,7 +36,7 @@ class MySharedCardsPage extends ConsumerWidget {
                 Text('No shared cards yet', style: styles.sectionHero),
                 const SizedBox(height: 6),
                 Text(
-                  'Share a Wrapped card to create a public pantas.app link.',
+                  'Share a Wrapped card to create a public pantas.study link.',
                   style: styles.subhead.copyWith(color: colors.secondaryLabel),
                 ),
               ],
@@ -84,7 +84,7 @@ class _SharedCardRow extends ConsumerWidget {
                 Text(card.title, style: styles.subhead),
                 const SizedBox(height: 1),
                 Text(
-                  'pantas.app/wrapped/${card.shareId}',
+                  'pantas.study/wrapped/${card.shareId}',
                   style: styles.subhead.copyWith(color: colors.secondaryLabel),
                 ),
               ],
