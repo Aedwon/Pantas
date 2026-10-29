@@ -329,3 +329,29 @@ Technical rulings within the approved spec. None changes product behavior a stud
     for the YAML fix; their fixture tests do not.
 12. Execution: Codex gpt-6.1-sol low through `codex-pick`, one task per run, lead review after each.
     A1 runs first; A4, A5 and A6 may follow in parallel worktrees once A1 lands, A2 and A3 in order.
+
+### Rulings during branch A (October 29, Claude lead)
+
+13. A1: `RoadmapInputs.prerequisites` is removed as planned; its copy and equality test now covers
+    `lessonLinks` with the same checks.
+14. A2: the native future-day preview (`WeekPreviews.plannedLessonsForDay`, called from
+    `plan_provider.dart`) uses the same lesson queue as today and the week preview, with the reader's
+    lesson links.
+15. A3: a miss the debrief traces always gets a plan fix, so the fix applies to any lesson with
+    answers, read or not. When a traced follow-up and a structural detour cover the same practice item,
+    the reason is `followUp` for the lesson whose misses were traced; a detour with no traced miss
+    keeps `prerequisite`.
+16. A4: a reason kind the client does not know is skipped, so a newer server cannot break the plan.
+17. A6: missing `content/lesson-prerequisites.json` or `content/question-gap-tags.json` means no links
+    and no tags. CI builds the content asset on code branches, which carry neither file.
+18. A5: the links asset is built like `content.db` (`--assets-out assets/seed`, gitignored) and is
+    loaded once at startup on native builds; web and tests get none. Loading it while a screen built
+    hung widget tests.
+19. A7: the diagnosis reply follows task B4: `{status: 'ok' | 'pending', tier, tracedCount}`, with Pro
+    adding `traced` and `withinLesson` at the top level (the A7 line's `detail?` wording is superseded).
+
+Branch A result: all of A1 to A7 on `roadmap/prerequisite-engine-r1`, merged into
+`integration/new-design-r1`. Full Flutter suite 5137 passing before the startup-load fix; roadmap, app
+and home suites (702) after it. The real-data export run waits on the content branch (an uncredited
+PNG and a missing asset map entry in the visual-media lesson). Also fixed: the QLP-5 rehearsal still
+dismissed the removed quiz nudge, which broke full analysis.
