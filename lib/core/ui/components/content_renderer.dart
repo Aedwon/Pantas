@@ -8,6 +8,8 @@ import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 // Credits use secondaryLabel under the Task8b contrast ruling.
 
@@ -99,7 +101,7 @@ class ContentRenderer extends StatelessWidget {
   }) {
     final name = string(block['style']);
     final base = style ?? context.type.body.copyWith(height: 1.55);
-    final type = switch (name) {
+    final phoneType = switch (name) {
       'h1' => context.type.pageTitle.copyWith(height: 1.15),
       'h2' => context.type.sectionHero
           .copyWith(fontSize: 22, height: 1.25, letterSpacing: -.264),
@@ -108,12 +110,33 @@ class ContentRenderer extends StatelessWidget {
       'blockquote' => base.copyWith(fontWeight: FontWeight.w500),
       _ => base,
     };
+    final wide = readerFigures && context.wideWeb;
+    final core = name == 'h2' &&
+        maps(block['children'])
+                .map((run) => string(run['text']))
+                .join()
+                .toLowerCase() ==
+            'core concept';
+    final type = !wide
+        ? phoneType
+        : core
+            ? context.webTokens.eb
+            : name == 'h2'
+                ? context.webTokens.style(
+                    24,
+                    weight: FontWeight.w700,
+                    spacing: -.384,
+                    height: 1.3,
+                  )
+                : phoneType;
     final spans = <InlineSpan>[];
     final spoken = StringBuffer();
     var hasMath = false;
     var validSpeech = true;
     for (final run in maps(block['children'])) {
-      final source = string(run['text']);
+      final source = core && wide
+          ? string(run['text']).toUpperCase()
+          : string(run['text']);
       final marks = run['marks'] is List<Object?>
           ? (run['marks']! as List<Object?>).whereType<String>().toSet()
           : <String>{};
@@ -647,7 +670,13 @@ class _FigureFrame extends StatelessWidget {
                   : null,
               child: Stack(
                 children: [
-                  ColoredBox(
+                  Container(
+                    width: reader && context.wideWeb ? double.infinity : null,
+                    padding: reader && context.wideWeb
+                        ? const EdgeInsets.all(22)
+                        : null,
+                    alignment:
+                        reader && context.wideWeb ? Alignment.center : null,
                     color: followTheme
                         ? context.colors.surface
                         : reader
@@ -683,15 +712,23 @@ class _FigureFrame extends StatelessWidget {
                             width: 30,
                             height: 30,
                             decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color:
-                                  context.colors.shadow.withValues(alpha: .5),
+                              shape: context.wideWeb
+                                  ? BoxShape.rectangle
+                                  : BoxShape.circle,
+                              borderRadius: context.wideWeb
+                                  ? BorderRadius.circular(9)
+                                  : null,
+                              color: context.wideWeb
+                                  ? context.colors.background
+                                  : context.colors.shadow.withValues(alpha: .5),
                             ),
                             alignment: Alignment.center,
                             child: Icon(
                               PantasIcons.expandFigure,
                               size: 16,
-                              color: context.colors.onFigureViewer,
+                              color: context.wideWeb
+                                  ? context.colors.secondaryLabel
+                                  : context.colors.onFigureViewer,
                             ),
                           ),
                         ),
@@ -706,7 +743,11 @@ class _FigureFrame extends StatelessWidget {
             Text(
               credit,
               style: context.type.caption.copyWith(
-                fontSize: reader ? 11 : null,
+                fontSize: reader
+                    ? context.wideWeb
+                        ? 13
+                        : 11
+                    : null,
                 fontWeight: FontWeight.w400,
                 color: context.colors.secondaryLabel,
               ),
@@ -716,7 +757,7 @@ class _FigureFrame extends StatelessWidget {
       );
 }
 
-class _FigureViewer extends StatelessWidget {
+class _FigureViewer extends StatefulWidget {
   const _FigureViewer({
     required this.figure,
     required this.credit,
@@ -728,85 +769,190 @@ class _FigureViewer extends StatelessWidget {
   final Animation<double> arrival;
   final bool followTheme;
   @override
-  Widget build(BuildContext context) => CallbackShortcuts(
-        bindings: {
-          const SingleActivator(LogicalKeyboardKey.escape): () =>
-              Navigator.of(context).pop(),
-        },
+  State<_FigureViewer> createState() => _FigureViewerState();
+}
+
+class _FigureViewerState extends State<_FigureViewer> {
+  final _zoom = TransformationController();
+  Widget get figure => widget.figure;
+  String get credit => widget.credit;
+  Animation<double> get arrival => widget.arrival;
+  bool get followTheme => widget.followTheme;
+  void _scale(double factor) {
+    final current = _zoom.value.getMaxScaleOnAxis();
+    final next = (current * factor).clamp(1.0, 5.0);
+    _zoom.value = _zoom.value.clone()
+      ..scaleByDouble(next / current, next / current, 1, 1);
+  }
+
+  @override
+  void dispose() {
+    _zoom.dispose();
+    super.dispose();
+  }
+
+  Widget _wideViewer(BuildContext context) => Focus(
+        autofocus: true,
         child: Material(
-          color: context.colors.figureViewerBackground,
-          child: SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: SizedBox.square(
-                      dimension: 44,
-                      child: IconButton(
-                        tooltip: 'Close figure',
-                        onPressed: () => Navigator.of(context).pop(),
-                        icon: Icon(
-                          PantasIcons.close,
-                          size: 22,
-                          color: context.colors.onFigureViewer,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: InteractiveViewer(
-                      minScale: 1,
-                      maxScale: 5,
-                      child: AnimatedBuilder(
-                        animation: arrival,
-                        child: SizedBox(
-                          width: MediaQuery.sizeOf(context).width,
-                          child: ColoredBox(
+          key: const ValueKey('web-figure-scrim'),
+          color: context.webTokens.figureScrim,
+          child: Stack(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: InteractiveViewer(
+                        transformationController: _zoom,
+                        minScale: 1,
+                        maxScale: 5,
+                        child: Container(
+                          key: const ValueKey('web-figure-card'),
+                          padding: const EdgeInsets.all(40),
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.sizeOf(context).width - 96,
+                            maxHeight: MediaQuery.sizeOf(context).height - 180,
+                          ),
+                          decoration: BoxDecoration(
                             color: followTheme
                                 ? context.colors.surface
                                 : context.colors.readerFigureBackground,
-                            child: (followTheme
-                                ? figure
-                                : Theme(
-                                    data: buildLightTheme(),
-                                    child: figure,
-                                  )),
+                            borderRadius: BorderRadius.circular(18),
+                            border:
+                                Border.all(color: context.webTokens.cardEdge),
                           ),
-                        ),
-                        builder: (context, child) => Transform.scale(
-                          key: const ValueKey('reader-viewer-scale'),
-                          scale: .92 +
-                              .08 *
-                                  const Cubic(.25, .9, .3, 1)
-                                      .transform(arrival.value),
-                          child: child,
+                          child: followTheme
+                              ? figure
+                              : Theme(data: buildLightTheme(), child: figure),
                         ),
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    Text(
+                      '${credit.isEmpty ? '' : '$credit · '}'
+                      'Scroll or + − to zoom · Esc to close',
+                      textAlign: TextAlign.center,
+                      style: context.webTokens
+                          .style(14, color: context.webTokens.figureCaption),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 18,
+                right: 18,
+                child: IconButton(
+                  tooltip: 'Close figure',
+                  style: IconButton.styleFrom(
+                    backgroundColor:
+                        context.colors.onFigureViewer.withValues(alpha: .12),
+                  ),
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: Icon(
+                    PantasIcons.close,
+                    color: context.colors.onFigureViewer,
+                    size: 20,
                   ),
                 ),
-                if (credit.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      credit,
-                      textAlign: TextAlign.center,
-                      style: context.type.caption.copyWith(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w400,
-                        color:
-                            context.colors.onFigureViewer.withValues(alpha: .6),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
+      );
+
+  @override
+  Widget build(BuildContext context) => CallbackShortcuts(
+        bindings: {
+          if (context.wideWeb)
+            const SingleActivator(LogicalKeyboardKey.equal): () => _scale(1.25),
+          if (context.wideWeb)
+            const SingleActivator(LogicalKeyboardKey.equal, shift: true): () =>
+                _scale(1.25),
+          if (context.wideWeb)
+            const SingleActivator(LogicalKeyboardKey.minus): () => _scale(.8),
+          const SingleActivator(LogicalKeyboardKey.escape): () =>
+              Navigator.of(context).pop(),
+        },
+        child: context.wideWeb
+            ? _wideViewer(context)
+            : Material(
+                color: context.colors.figureViewerBackground,
+                child: SafeArea(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: SizedBox.square(
+                            dimension: 44,
+                            child: IconButton(
+                              tooltip: 'Close figure',
+                              onPressed: () => Navigator.of(context).pop(),
+                              icon: Icon(
+                                PantasIcons.close,
+                                size: 22,
+                                color: context.colors.onFigureViewer,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Center(
+                          child: InteractiveViewer(
+                            transformationController: _zoom,
+                            minScale: 1,
+                            maxScale: 5,
+                            child: AnimatedBuilder(
+                              animation: arrival,
+                              child: SizedBox(
+                                width: MediaQuery.sizeOf(context).width,
+                                child: ColoredBox(
+                                  color: followTheme
+                                      ? context.colors.surface
+                                      : context.colors.readerFigureBackground,
+                                  child: (followTheme
+                                      ? figure
+                                      : Theme(
+                                          data: buildLightTheme(),
+                                          child: figure,
+                                        )),
+                                ),
+                              ),
+                              builder: (context, child) => Transform.scale(
+                                key: const ValueKey(
+                                  'reader-viewer-scale',
+                                ),
+                                scale: .92 +
+                                    .08 *
+                                        const Cubic(.25, .9, .3, 1)
+                                            .transform(arrival.value),
+                                child: child,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (credit.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(
+                            credit,
+                            textAlign: TextAlign.center,
+                            style: context.type.caption.copyWith(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400,
+                              color: context.colors.onFigureViewer
+                                  .withValues(alpha: .6),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
       );
 }
 

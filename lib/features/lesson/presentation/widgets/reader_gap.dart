@@ -3,6 +3,9 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class ReaderGap extends StatelessWidget {
@@ -38,6 +41,33 @@ class ReaderGap extends StatelessWidget {
         ),
       ],
     );
+    if (context.wideWeb) {
+      return Container(
+        margin: const EdgeInsets.only(top: 36),
+        padding: const EdgeInsets.only(top: 28),
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: context.webTokens.strongDivider,
+              width: .5,
+            ),
+          ),
+        ),
+        child: Row(
+          children: [
+            if (isRead) readLine,
+            const Spacer(),
+            if (examId != null)
+              WebButton(
+                label: 'Quiz yourself, 5 questions',
+                variant: WebButtonVariant.white,
+                onPressed: () =>
+                    startLessonQuiz(context, lessonId, examId: examId!),
+              ),
+          ],
+        ),
+      );
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -58,12 +88,23 @@ class ReaderGap extends StatelessWidget {
           SizedBox(height: MediaQuery.textScalerOf(context).scale(15) * 1.35),
         if (examId != null) ...[
           const SizedBox(height: 18),
-          PantasButton(
-            label: 'Quiz yourself, 5 questions',
-            variant: PantasButtonVariant.neutral,
-            onPressed: () =>
-                startLessonQuiz(context, lessonId, examId: examId!),
-          ),
+          if (context.wideWeb)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: WebButton(
+                label: 'Quiz yourself, 5 questions',
+                variant: WebButtonVariant.white,
+                onPressed: () =>
+                    startLessonQuiz(context, lessonId, examId: examId!),
+              ),
+            )
+          else
+            PantasButton(
+              label: 'Quiz yourself, 5 questions',
+              variant: PantasButtonVariant.neutral,
+              onPressed: () =>
+                  startLessonQuiz(context, lessonId, examId: examId!),
+            ),
         ],
       ],
     );

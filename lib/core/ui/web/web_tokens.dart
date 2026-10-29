@@ -40,6 +40,8 @@ class WebTokens {
 
   Color get accentHover => dark ? colors.accentFill : const Color(0xFF086A5A);
   Color get tintText => dark ? const Color(0xFF7FD8C6) : colors.accent;
+  Color get figureScrim => const Color.fromRGBO(10, 10, 12, .88);
+  Color get figureCaption => const Color(0xFFD1D1D6);
   Color get cardEdge => dark ? const Color(0xFF2C2C2C) : Colors.transparent;
   Color get strongDivider =>
       dark ? const Color(0xFF3D3D3D) : const Color(0xFFD1D1D6);

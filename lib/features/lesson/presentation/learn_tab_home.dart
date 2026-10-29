@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_section.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/features/lesson/presentation/widgets/search_results.dart'
 import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_study_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class StudyTabHome extends ConsumerStatefulWidget {
@@ -182,6 +184,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return WebStudyLayout(
+        searchOnOpen: widget.searchOnOpen,
+        onSearchCancelled: widget.onSearchCancelled,
+      );
+    }
     final asyncMap = ref.watch(studyMapProvider);
 
     return asyncMap.when(

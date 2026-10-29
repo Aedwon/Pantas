@@ -258,10 +258,12 @@ class WebCard extends StatelessWidget {
   const WebCard({
     required this.child,
     this.padding = EdgeInsets.zero,
+    this.radius = 18,
     super.key,
   });
   final Widget child;
   final EdgeInsetsGeometry padding;
+  final double radius;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -269,7 +271,7 @@ class WebCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: t.colors.surface,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(radius),
         border: t.dark ? Border.all(color: t.cardEdge) : null,
       ),
       padding: padding,
@@ -282,6 +284,8 @@ class WebRow extends StatelessWidget {
   const WebRow({
     required this.title,
     this.subtitle,
+    this.titleStyle,
+    this.horizontalPadding = 20,
     this.titleColor,
     this.titleSuffix,
     this.value,
@@ -296,6 +300,8 @@ class WebRow extends StatelessWidget {
   });
   final String title;
   final String? subtitle;
+  final TextStyle? titleStyle;
+  final double horizontalPadding;
   final Color? titleColor;
   final Widget? titleSuffix;
   final String? value;
@@ -319,8 +325,8 @@ class WebRow extends StatelessWidget {
             animationDuration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
                 : const Duration(milliseconds: 150),
-            padding: const WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: 20),
+            padding: WidgetStatePropertyAll(
+              EdgeInsets.symmetric(horizontal: horizontalPadding),
             ),
             minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 0)),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -363,7 +369,8 @@ class WebRow extends StatelessWidget {
                                 title,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: t.style(17, color: titleColor),
+                                style: titleStyle ??
+                                    t.style(17, color: titleColor),
                               )
                             else
                               Row(
@@ -374,7 +381,8 @@ class WebRow extends StatelessWidget {
                                       title,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: t.style(17, color: titleColor),
+                                      style: titleStyle ??
+                                          t.style(17, color: titleColor),
                                     ),
                                   ),
                                   const SizedBox(width: 6),

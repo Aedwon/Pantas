@@ -4,8 +4,10 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_ending_layout.dart';
 
 /// Shared layout for the active ending and its inert preview.
 class EndingContent extends StatelessWidget {
@@ -13,15 +15,31 @@ class EndingContent extends StatelessWidget {
     required this.ending,
     required this.onLesson,
     required this.onHome,
+    this.nextTopic,
+    this.nextDetail,
+    this.onNext,
     super.key,
   });
 
+  final StudyTopic? nextTopic;
+  final String? nextDetail;
+  final VoidCallback? onNext;
   final LessonEnding ending;
   final void Function(LessonId) onLesson;
   final VoidCallback onHome;
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return WebEndingLayout(
+        ending: ending,
+        onLesson: onLesson,
+        onHome: onHome,
+        nextTopic: nextTopic,
+        nextDetail: nextDetail,
+        onNext: onNext,
+      );
+    }
     if (ending is DayFinished) {
       return Column(
         children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 
 // QV_Flag's toast uses the same inverted pair in both themes.
 
@@ -8,10 +9,12 @@ class Toast extends StatelessWidget {
   const Toast({
     required this.message,
     this.onUndo,
+    this.keyHint,
     this.visible = true,
     super.key,
   });
   final String message;
+  final String? keyHint;
   final VoidCallback? onUndo;
   final bool visible;
   @override
@@ -68,6 +71,10 @@ class Toast extends StatelessWidget {
                     ),
                   ),
                 ),
+                if (keyHint != null) ...[
+                  const SizedBox(width: 14),
+                  WebKeyHint(keyHint!, onButton: true),
+                ],
                 if (onUndo != null)
                   TextButton(
                     onPressed: onUndo,

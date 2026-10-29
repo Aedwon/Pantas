@@ -5,6 +5,13 @@ import 'package:flutter/widgets.dart';
 bool isWideWebLayout({required double width, bool web = kIsWeb}) =>
     web && width >= 1024;
 
+/// Overrides only the platform input for native widget tests.
+@visibleForTesting
+bool? debugWebPlatformOverride;
+
 extension WebLayoutContext on BuildContext {
-  bool get wideWeb => isWideWebLayout(width: MediaQuery.sizeOf(this).width);
+  bool get wideWeb => isWideWebLayout(
+        width: MediaQuery.sizeOf(this).width,
+        web: debugWebPlatformOverride ?? kIsWeb,
+      );
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth_state.dart';
@@ -10,6 +11,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -17,6 +19,8 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -29,6 +33,7 @@ import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 /// The reader.
@@ -516,45 +521,76 @@ class _ReaderFallback extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) => SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Material(
-              color: context.colors.surface,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(44, 44),
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
-                  ),
-                  onPressed: () => origin.leave(context),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
+  Widget build(BuildContext context) => context.wideWeb
+      ? CallbackShortcuts(
+          bindings: {
+            const SingleActivator(LogicalKeyboardKey.escape): () =>
+                origin.leave(context),
+          },
+          child: Focus(
+            autofocus: true,
+            child: Column(
+              children: [
+                WebTopBar(
+                  leading: Row(
                     children: [
-                      Icon(
-                        PantasIcons.back,
-                        size: 24,
-                        color: context.colors.accent,
+                      WebButton(
+                        label: origin.backLabel(context),
+                        variant: WebButtonVariant.tertiary,
+                        onPressed: () => origin.leave(context),
                       ),
-                      const SizedBox(width: 2),
-                      Text(
-                        origin.backLabel(context),
-                        style: context.type.body
-                            .copyWith(color: context.colors.accent),
-                      ),
+                      const WebKeyHint('Esc'),
                     ],
                   ),
                 ),
-              ),
+                Expanded(
+                  child: Center(child: SizedBox(width: 680, child: child)),
+                ),
+              ],
             ),
-            Expanded(child: child),
-          ],
-        ),
-      );
+          ),
+        )
+      : SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Material(
+                color: context.colors.surface,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size(44, 44),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 4,
+                        vertical: 6,
+                      ),
+                    ),
+                    onPressed: () => origin.leave(context),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          PantasIcons.back,
+                          size: 24,
+                          color: context.colors.accent,
+                        ),
+                        const SizedBox(width: 2),
+                        Text(
+                          origin.backLabel(context),
+                          style: context.type.body
+                              .copyWith(color: context.colors.accent),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(child: child),
+            ],
+          ),
+        );
 }
 
 class _ReaderBody extends ConsumerStatefulWidget {
@@ -1030,6 +1066,109 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
           onLesson: widget.onAdvance,
           onHome: () => context.go('/home'),
         );
+    if (context.wideWeb) {
+      final day = widget.dayContext;
+      final map = day == null ? null : ref.watch(studyMapProvider).valueOrNull;
+      final dayLessons = day == null || map == null
+          ? null
+          : [
+              for (final id in day.lessonIds)
+                for (final subject in map.subjects)
+                  for (final topic in subject.topics)
+                    for (final lesson in topic.lessons)
+                      if (lesson.id == id) lesson,
+            ];
+      void advance() {
+        if (widget.onPull == null) return;
+        widget.onPullStart();
+        widget.onPull!();
+      }
+
+      return WebReaderLayout(
+        reader: reader,
+        controller: _scrollController,
+        scrollOffset: _scrollOffset,
+        progress: _progress,
+        onBack: () => widget.origin.leave(context),
+        backLabel: widget.origin.backLabel(context),
+        onBookmark: () =>
+            unawaited(_saveBookmark(reader, !reader.isBookmarked, activation)),
+        onLesson: widget.onAdvance,
+        onNext: ending == null &&
+                (widget.destinationTitle != null ||
+                    widget.endingTarget != null) &&
+                widget.onPull != null
+            ? advance
+            : null,
+        onMenuChanged: (open) {
+          _contentsCovering = open;
+          _updateVisibility();
+        },
+        position: day == null ? null : day.index + 1,
+        total: day?.lessonIds.length,
+        lessons: dayLessons,
+        menuTitle: day == null ? null : PantasDates.relativeDay(day.date),
+        resumed: widget.resume,
+        ending: ending == null
+            ? null
+            : EndingContent(
+                ending: ending,
+                onLesson: widget.onAdvance,
+                onHome: () => context.go('/home'),
+                nextTopic: reader.nextTopic,
+                nextDetail: next?.lesson.summary,
+                onNext: widget.onPull == null ? null : advance,
+              ),
+        footer: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (_resumeFailed)
+              errorFor(
+                'reading position',
+                () => unawaited(_resumePosition(reader, activation)),
+              ),
+            if (failedPosition != null)
+              saveFailureLine(
+                () => unawaited(
+                  _savePosition(
+                    failedPosition.reader,
+                    failedPosition.offset,
+                    failedPosition.fraction,
+                    activation: failedPosition.activation,
+                    positionIntent: failedPosition.intent,
+                    retry: true,
+                  ),
+                ),
+              ),
+            if (_activityFailed || _bookmarkRetry != null)
+              saveFailureLine(
+                () => unawaited(_retryActivity(reader, activation)),
+              ),
+            ReaderGap(
+              isRead: reader.isRead,
+              examId: reader.examId,
+              lessonId: reader.lesson.id,
+            ),
+            if (widget.nextFailed)
+              WebButton(label: 'Try Again', onPressed: widget.onRetryNext),
+            if (widget.destinationTitle != null || widget.endingTarget != null)
+              WebReaderNext(
+                label: widget.endingTarget is DayFinished
+                    ? "That's everything on today's list"
+                    : widget.endingTarget != null
+                        ? 'Topic'
+                        : 'Next in ${reader.topicName}',
+                title: widget.endingTarget is DayFinished
+                    ? 'Finish today'
+                    : widget.destinationTitle ?? reader.topicName,
+                detail:
+                    next == null ? null : '${next.lesson.estimatedMinutes} min',
+                onPressed: widget.onPull == null ? null : advance,
+              ),
+          ],
+        ),
+      );
+    }
     return PantasSheet(
       label: 'Contents',
       readerContents: true,
