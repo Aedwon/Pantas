@@ -11,7 +11,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/answer_row.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/application/quiz_performance_probe.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -141,7 +141,7 @@ void main() {
         final state = harness.providerContainer.read(quizControllerProvider);
         return state is QuizRunning &&
             state.questionShownAt != null &&
-            _hasEnabledAnswerRow();
+            _hasEnabledChoiceRow();
       },
       'first complete answerable Today frame',
     );
@@ -193,7 +193,7 @@ void main() {
         return state is QuizRunning &&
             state.session.currentIndex == firstIndex + 1 &&
             state.questionShownAt != null &&
-            _hasEnabledAnswerRow();
+            _hasEnabledChoiceRow();
       },
       'prepared Next answerable frame',
     );
@@ -303,10 +303,10 @@ Future<void> _pumpUntil(
   }
 }
 
-bool _hasEnabledAnswerRow() => find
+bool _hasEnabledChoiceRow() => find
     .byWidgetPredicate(
-      (widget) => widget is AnswerRow && widget.onTap != null,
-      description: 'enabled AnswerRow',
+      (widget) => widget is ChoiceRow && widget.onTap != null,
+      description: 'enabled ChoiceRow',
     )
     .evaluate()
     .isNotEmpty;
@@ -314,8 +314,8 @@ bool _hasEnabledAnswerRow() => find
 Future<void> _answerVisibleQuestion(WidgetTester tester) async {
   for (final label in <String>['3', '9', '2']) {
     final rowFinder = find.byWidgetPredicate(
-      (widget) => widget is AnswerRow && widget.text == label,
-      description: 'AnswerRow with text $label',
+      (widget) => widget is ChoiceRow && widget.text == label,
+      description: 'ChoiceRow with text $label',
     );
     if (rowFinder.evaluate().isNotEmpty) {
       expect(rowFinder, findsOneWidget);
