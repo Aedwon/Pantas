@@ -33,7 +33,7 @@ export function checkAnswers(value: unknown, now: number, attributed = false): A
     if (!row || typeof row !== 'object') throw bad('Each answer must be an object.');
     const {questionId, chosen, correct} = row;
     if (typeof questionId !== 'string' || !ID_PATTERN.test(questionId) || questionId.length > MAX_ID_LENGTH) throw bad('Bad question id.');
-    if (chosen !== null && (typeof chosen !== 'string' || chosen.length > 64)) throw bad('Bad chosen option.');
+    if (chosen !== null && (typeof chosen !== 'string' || chosen.length > MAX_ID_LENGTH + 2)) throw bad('Bad chosen option.');
     if (typeof correct !== 'boolean') throw bad('Correctness must be true or false.');
     if (row.responseMs !== undefined && (!Number.isSafeInteger(row.responseMs) || (row.responseMs as number) < 0 ||
         (row.responseMs as number) > DAY_MS)) throw bad('Bad answer time.');
