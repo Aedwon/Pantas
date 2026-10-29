@@ -427,8 +427,13 @@ class WebSegmentedControl extends StatelessWidget {
     required this.labels,
     required this.selected,
     required this.onChanged,
+    this.suffixes,
     super.key,
   })  : assert(labels.length > 1, 'At least two segments are required.'),
+        assert(
+          suffixes == null || suffixes.length == labels.length,
+          'Suffixes must match labels.',
+        ),
         assert(
           selected >= 0 && selected < labels.length,
           'Selected segment must exist.',
@@ -436,6 +441,7 @@ class WebSegmentedControl extends StatelessWidget {
   final List<String> labels;
   final int selected;
   final ValueChanged<int> onChanged;
+  final List<Widget?>? suffixes;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -485,7 +491,19 @@ class WebSegmentedControl extends StatelessWidget {
                         ),
                       ),
                     ),
-                    child: Text(labels[i]),
+                    child: suffixes?[i] == null
+                        ? Text(labels[i])
+                        : Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(child: Text(labels[i])),
+                              if (suffixes?[i] != null) ...[
+                                const SizedBox(width: 6),
+                                suffixes![i]!,
+                              ],
+                            ],
+                          ),
                   ),
                 ),
               ),

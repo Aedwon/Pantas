@@ -10,7 +10,9 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
+import 'package:pantas/features/home/presentation/widgets/web_performance_layout.dart';
 
 export 'package:pantas/features/home/application/performance/performance_view.dart'
     show PerformanceViewData;
@@ -90,6 +92,33 @@ class _PerformancePageState extends State<PerformancePage> {
       SortCycleOrder.strongest => 'STRONGEST FIRST',
       SortCycleOrder.alphabetical => 'A TO Z'
     };
+    if (context.wideWeb) {
+      return WebPerformanceLayout(
+        data: widget.data,
+        rows: rows,
+        level: level,
+        sort: _sort,
+        subject: _subject,
+        pro: widget.pro,
+        paused: widget.paused,
+        onBack: widget.onBack,
+        onTopic: widget.onTopic,
+        onLesson: widget.onLesson,
+        onPro: widget.onPro,
+        onLevel: (value) => setState(() {
+          _level = value;
+          _publish();
+        }),
+        onSort: (value) => setState(() {
+          _sort = value;
+          _publish();
+        }),
+        onSubject: (value) => setState(() {
+          _subject = value;
+          _publish();
+        }),
+      );
+    }
     final page = PantasPage(
       title: 'Your performance',
       backLabel: 'Home',

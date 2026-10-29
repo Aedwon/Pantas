@@ -428,22 +428,6 @@ class MockResultsPage extends StatelessWidget {
                                                 style: t.sm,
                                               ),
                                             ),
-                                        ] else if (proPaused)
-                                          const ProPausedLine()
-                                        else ...[
-                                          Text(
-                                            'Go through all $total '
-                                            'questions again with Pro.',
-                                            style: t.sub,
-                                          ),
-                                          const SizedBox(
-                                            height: 12,
-                                          ),
-                                          WebButton(
-                                            label: 'See Pro',
-                                            variant: WebButtonVariant.secondary,
-                                            onPressed: onSeePro,
-                                          ),
                                         ],
                                       ],
                                     ),
@@ -452,6 +436,41 @@ class MockResultsPage extends StatelessWidget {
                               ],
                             ),
                           ),
+                          if (!canReview) ...[
+                            const SizedBox(height: 28),
+                            WebCard(
+                              radius: 16,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 18,
+                              ),
+                              child: proPaused
+                                  ? const ProPausedLine()
+                                  : Row(
+                                      children: [
+                                        Icon(
+                                          Icons.auto_stories_outlined,
+                                          color: t.colors.accent,
+                                          size: 28,
+                                        ),
+                                        const SizedBox(width: 16),
+                                        Expanded(
+                                          child: Text(
+                                            'Go through all $total questions '
+                                            'again with Pro.',
+                                            style: t.style(16),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 16),
+                                        WebButton(
+                                          label: 'See Pro',
+                                          variant: WebButtonVariant.secondary,
+                                          onPressed: onSeePro,
+                                        ),
+                                      ],
+                                    ),
+                            ),
+                          ],
                           if (!forfeited && pastResults.isNotEmpty) ...[
                             const SizedBox(height: 28),
                             Text('VERSUS PAST RESULTS', style: t.eb),
@@ -704,6 +723,7 @@ class MockPastChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
         height: 132,
+        width: context.wideWeb ? double.infinity : null,
         child: CustomPaint(
           painter: _PastPainter(
             time: time,
