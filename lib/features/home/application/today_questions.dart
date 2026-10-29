@@ -115,6 +115,7 @@ class TodayQuestionLauncher {
     final orderedReviewIds = SittingPlanner.next(
       remaining: DayPlan(
         day: today.remaining.day,
+        reasons: today.remaining.reasons,
         lessonIds: const [],
         reviewQuestionIds: today.remaining.reviewQuestionIds,
         newQuestionIds: const [],
@@ -163,6 +164,7 @@ class TodayQuestionLauncher {
     final ids = SittingPlanner.next(
       remaining: DayPlan(
         day: today.remaining.day,
+        reasons: today.remaining.reasons,
         lessonIds: today.remaining.lessonIds,
         reviewQuestionIds: const [],
         newQuestionIds: today.remaining.newQuestionIds,
