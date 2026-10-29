@@ -108,6 +108,7 @@ flutter:
     - assets/fonts/phosphor/LICENSE
     - content/exams/catalog.json
     - assets/seed/content.db
+    - assets/seed/lesson_links.json
     - assets/seed/content.manifest.json
     - assets/seed/content.manifest.sig
   fonts:

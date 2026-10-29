@@ -62,6 +62,7 @@ coverage/
 
 # Generated content seed
 assets/seed/content.db
+assets/seed/lesson_links.json
 assets/seed/content.manifest.json
 assets/seed/content.manifest.sig
 
