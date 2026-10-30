@@ -68,6 +68,10 @@ Future<void> pumpWide(
   await tester.pumpWidget(
     MaterialApp(
       theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(disableAnimations: true),
+        child: child!,
+      ),
       home: child,
     ),
   );

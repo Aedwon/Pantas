@@ -14,6 +14,8 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_motion.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_finale_tracks.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_finale.dart';
 
 class MockResultsPage extends StatelessWidget {
   const MockResultsPage({
@@ -247,6 +249,19 @@ class MockResultsPage extends StatelessWidget {
 
   Widget _wide(BuildContext context, String caption) {
     final t = context.webTokens;
+    final time = finaleClock?.value;
+    final arc = time == null
+        ? 1.0
+        : ((395.8 - sampleWebFinale('k-arc', time).value) / 270.7)
+            .clamp(0.0, 1.0);
+    final odometer = time == null
+        ? 1.0
+        : (sampleWebFinale('k-odo', time).offset.dy / -2944).clamp(0.0, 1.0);
+    double? barAccuracy(int i) => time == null
+        ? null
+        : results.sections[i].accuracy *
+            sampleWebFinale('k-bar${i.clamp(0, 3)}', time).value /
+            100;
     final until =
         reviewUntil == null ? null : PantasDates.withWeekday(reviewUntil!);
     final total = results.scoreTotal;
@@ -284,156 +299,201 @@ class MockResultsPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Wrap(
-                                      spacing: 12,
-                                      crossAxisAlignment:
-                                          WrapCrossAlignment.center,
-                                      children: [
-                                        Text(
-                                          blueprintName,
-                                          style: t.style(
-                                            34,
-                                            weight: FontWeight.w700,
-                                            height: 1.15,
-                                            spacing: -.748,
-                                          ),
-                                        ),
-                                        if (forfeited)
-                                          Text(
-                                            'Not finished',
-                                            style: t.sm,
-                                          ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      dateFormatted,
-                                      style: t.style(
-                                        17,
-                                        color: t.colors.secondaryLabel,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              if (!fromRecord)
-                                WebButton(
-                                  label: 'Done',
-                                  large: true,
-                                  keyHint: 'Enter',
-                                  onPressed: onDone,
-                                ),
-                            ],
-                          ),
-                          const SizedBox(height: 28),
-                          WebCard(
-                            key: const ValueKey('web-mock-score'),
-                            radius: 20,
+                          WebFinaleEffect(
+                            milliseconds: time,
+                            track: 'k-rh',
                             child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Expanded(
-                                  flex: 10,
-                                  child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      24,
-                                      36,
-                                      24,
-                                      30,
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        MediaQuery(
-                                          data: MediaQuery.of(
-                                            context,
-                                          ).copyWith(
-                                            disableAnimations: true,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Wrap(
+                                        spacing: 12,
+                                        crossAxisAlignment:
+                                            WrapCrossAlignment.center,
+                                        children: [
+                                          Text(
+                                            blueprintName,
+                                            style: t.style(
+                                              34,
+                                              weight: FontWeight.w700,
+                                              height: 1.15,
+                                              spacing: -.748,
+                                            ),
                                           ),
-                                          child: HalfRingGauge.mock(
-                                            web: true,
-                                            fraction: results.percent / 100,
-                                            label: caption,
-                                          ),
+                                          if (forfeited)
+                                            Text(
+                                              'Not finished',
+                                              style: t.sm,
+                                            ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        dateFormatted,
+                                        style: t.style(
+                                          17,
+                                          color: t.colors.secondaryLabel,
                                         ),
-                                        if (forfeited && forfeitedPart != null)
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              top: 20,
-                                            ),
-                                            child: Text(
-                                              'With strict mode enabled, '
-                                              'you left the app '
-                                              'during Part $forfeitedPart, '
-                                              'so the mock ended '
-                                              'there. Everything you answered '
-                                              'before then is '
-                                              'scored.',
-                                              style: t.sub,
-                                            ),
-                                          ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 13,
-                                  child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      30,
-                                      14,
-                                      30,
-                                      20,
+                                if (!fromRecord)
+                                  WebFinaleEffect(
+                                    milliseconds: time,
+                                    track: 'k-rdone',
+                                    child: WebButton(
+                                      label: 'Done',
+                                      large: true,
+                                      keyHint: 'Enter',
+                                      onPressed: onDone,
                                     ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        for (var i = 0;
-                                            i < results.sections.length;
-                                            i++)
-                                          _Breakdown(
-                                            section: results.sections[i],
-                                            divider:
-                                                i < results.sections.length - 1,
+                                  ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 28),
+                          WebFinaleEffect(
+                            milliseconds: time,
+                            track: 'k-rsc',
+                            child: WebCard(
+                              key: const ValueKey('web-mock-score'),
+                              radius: 20,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 10,
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        24,
+                                        36,
+                                        24,
+                                        30,
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          MediaQuery(
+                                            data: MediaQuery.of(
+                                              context,
+                                            ).copyWith(
+                                              disableAnimations: true,
+                                            ),
+                                            child: HalfRingGauge.mock(
+                                              web: true,
+                                              fraction:
+                                                  results.percent / 100 * arc,
+                                              displayedFraction:
+                                                  results.percent /
+                                                      100 *
+                                                      odometer,
+                                              numberOpacity: time == null
+                                                  ? 1
+                                                  : sampleWebFinale(
+                                                      'k-rnum',
+                                                      time,
+                                                    ).opacity,
+                                              labelOpacity: time == null
+                                                  ? 1
+                                                  : sampleWebFinale(
+                                                      'k-rsub',
+                                                      time,
+                                                    ).opacity,
+                                              label: caption,
+                                            ),
                                           ),
-                                        const SizedBox(
-                                          height: 14,
-                                        ),
-                                        if (canReview) ...[
-                                          WebTextLink(
-                                            label: 'See all questions',
-                                            onPressed: onReviewTap ?? () {},
-                                          ),
-                                          if (!proIsActive &&
-                                              reviewUntil != null)
+                                          if (forfeited &&
+                                              forfeitedPart != null)
                                             Padding(
                                               padding: const EdgeInsets.only(
-                                                top: 6,
+                                                top: 20,
                                               ),
                                               child: Text(
-                                                fromRecord
-                                                    ? 'Open until '
-                                                        '${until!}'
-                                                    : 'On Free, you can go '
-                                                        'through these '
-                                                        'until your next mock '
-                                                        'opens on '
-                                                        '${until!}.',
-                                                style: t.sm,
+                                                'With strict mode enabled, '
+                                                'you left the app '
+                                                'during Part $forfeitedPart, '
+                                                'so the mock ended '
+                                                'there. Everything you '
+                                                'answered '
+                                                'before then is '
+                                                'scored.',
+                                                style: t.sub,
                                               ),
                                             ),
                                         ],
-                                      ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Expanded(
+                                    flex: 13,
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        30,
+                                        14,
+                                        30,
+                                        20,
+                                      ),
+                                      child: WebFinaleEffect(
+                                        milliseconds: time,
+                                        track: 'k-rbk',
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            for (var i = 0;
+                                                i < results.sections.length;
+                                                i++)
+                                              _Breakdown(
+                                                section: results.sections[i],
+                                                animatedAccuracy:
+                                                    barAccuracy(i),
+                                                divider: i <
+                                                    results.sections.length - 1,
+                                              ),
+                                            const SizedBox(
+                                              height: 14,
+                                            ),
+                                            if (canReview) ...[
+                                              WebFinaleEffect(
+                                                milliseconds: time,
+                                                track: 'k-rall',
+                                                child: WebTextLink(
+                                                  label: 'See all questions',
+                                                  onPressed:
+                                                      onReviewTap ?? () {},
+                                                ),
+                                              ),
+                                              if (!proIsActive &&
+                                                  reviewUntil != null)
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    top: 6,
+                                                  ),
+                                                  child: Text(
+                                                    fromRecord
+                                                        ? 'Open until '
+                                                            '${until!}'
+                                                        : 'On Free, you can go '
+                                                            'through these '
+                                                            'until your next '
+                                                            'mock '
+                                                            'opens on '
+                                                            '${until!}.',
+                                                    style: t.sm,
+                                                  ),
+                                                ),
+                                            ],
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           if (!canReview) ...[
@@ -473,33 +533,44 @@ class MockResultsPage extends StatelessWidget {
                           ],
                           if (!forfeited && pastResults.isNotEmpty) ...[
                             const SizedBox(height: 28),
-                            Text('VERSUS PAST RESULTS', style: t.eb),
-                            const SizedBox(height: 9),
-                            WebCard(
-                              radius: 20,
+                            WebFinaleEffect(
+                              milliseconds: time,
+                              track: 'k-rpast',
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      20,
-                                      20,
-                                      20,
-                                      8,
-                                    ),
-                                    child: MockPastChart(
-                                      points: pastResults,
-                                      currentPercent: results.percent,
-                                      currentLabel:
-                                          fromRecord ? dateFormatted : 'Today',
+                                  Text('VERSUS PAST RESULTS', style: t.eb),
+                                  const SizedBox(height: 9),
+                                  WebCard(
+                                    radius: 20,
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                            20,
+                                            20,
+                                            20,
+                                            8,
+                                          ),
+                                          child: MockPastChart(
+                                            points: pastResults,
+                                            time: time,
+                                            currentPercent: results.percent,
+                                            currentLabel: fromRecord
+                                                ? dateFormatted
+                                                : 'Today',
+                                          ),
+                                        ),
+                                        if (onFullRecord != null)
+                                          WebRow(
+                                            title: 'See full record',
+                                            titleColor: t.colors.accent,
+                                            onPressed: onFullRecord,
+                                            divider: false,
+                                          ),
+                                      ],
                                     ),
                                   ),
-                                  if (onFullRecord != null)
-                                    WebRow(
-                                      title: 'See full record',
-                                      titleColor: t.colors.accent,
-                                      onPressed: onFullRecord,
-                                      divider: false,
-                                    ),
                                 ],
                               ),
                             ),
@@ -727,6 +798,7 @@ class MockPastChart extends StatelessWidget {
         child: CustomPaint(
           painter: _PastPainter(
             time: time,
+            web: context.wideWeb,
             points: [
               ...points.skip(points.length > 2 ? points.length - 2 : 0),
               MockPastPoint(percent: currentPercent, label: currentLabel),
@@ -748,6 +820,7 @@ class _PastPainter extends CustomPainter {
     required this.previous,
     required this.separator,
     this.time,
+    this.web = false,
   });
   final List<MockPastPoint> points;
   final Color label;
@@ -755,6 +828,7 @@ class _PastPainter extends CustomPainter {
   final Color previous;
   final Color separator;
   final double? time;
+  final bool web;
   void text(
     Canvas c,
     String value,
@@ -811,12 +885,14 @@ class _PastPainter extends CustomPainter {
               ? Offset.lerp(
                   last,
                   point,
-                  cseFinaleInterval(
-                    time!,
-                    8750.055,
-                    9300,
-                    const Cubic(.5, 0, .3, 1),
-                  ),
+                  web
+                      ? 1 - sampleWebFinale('k-tline', time!).value / 340.1
+                      : cseFinaleInterval(
+                          time!,
+                          8750.055,
+                          9300,
+                          const Cubic(.5, 0, .3, 1),
+                        ),
                 )!
               : point,
           Paint()
@@ -824,14 +900,18 @@ class _PastPainter extends CustomPainter {
             ..strokeWidth = current ? 2.5 : 2,
         );
       }
-      final pop =
-          current && time != null ? sampleCseFinaleEffect(568, time!) : null;
+      final webPop = web && current && time != null
+          ? sampleWebFinale('k-tdot', time!)
+          : null;
+      final pop = !web && current && time != null
+          ? sampleCseFinaleEffect(568, time!)
+          : null;
       canvas.drawCircle(
         point,
-        (current ? 7 : 5) * (pop?.scaleX ?? 1),
+        (current ? 7 : 5) * (webPop?.sx ?? pop?.scaleX ?? 1),
         Paint()
           ..color = (current ? accent : previous)
-              .withValues(alpha: pop?.opacity ?? 1),
+              .withValues(alpha: webPop?.opacity ?? pop?.opacity ?? 1),
       );
       text(
         canvas,
@@ -840,7 +920,9 @@ class _PastPainter extends CustomPainter {
         color: (current ? accent : label).withValues(
           alpha: time == null || !current
               ? 1
-              : sampleCseFinaleEffect(569, time!).opacity,
+              : web
+                  ? sampleWebFinale('k-tday', time!).opacity
+                  : sampleCseFinaleEffect(569, time!).opacity,
         ),
       );
       if (current) {
@@ -849,10 +931,20 @@ class _PastPainter extends CustomPainter {
           '${points[i].percent.toStringAsFixed(1)}%',
           Offset(
             x,
-            y - 23 + (time == null ? 0 : sampleCseFinaleEffect(571, time!).y),
+            y -
+                23 +
+                (time == null
+                    ? 0
+                    : web
+                        ? sampleWebFinale('k-tval', time!).offset.dy
+                        : sampleCseFinaleEffect(571, time!).y),
           ),
           color: accent.withValues(
-            alpha: time == null ? 1 : sampleCseFinaleEffect(571, time!).opacity,
+            alpha: time == null
+                ? 1
+                : web
+                    ? sampleWebFinale('k-tval', time!).opacity
+                    : sampleCseFinaleEffect(571, time!).opacity,
           ),
           strong: true,
           rightAligned: time != null,

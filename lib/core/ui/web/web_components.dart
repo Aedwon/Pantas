@@ -548,8 +548,14 @@ class WebAnswerOption extends StatelessWidget {
     required this.child,
     this.state = WebOptionState.normal,
     this.onPressed,
+    this.revealProgress = 1,
+    this.revealFromSelected = false,
+    this.badgeProgress = 1,
     super.key,
   });
+  final bool revealFromSelected;
+  final double revealProgress;
+  final double badgeProgress;
   final String letter;
   final Widget child;
   final WebOptionState state;
@@ -563,7 +569,13 @@ class WebAnswerOption extends StatelessWidget {
     final selected = state == WebOptionState.selected;
     final filled = selected || right || wrong;
     final active = state == WebOptionState.normal || selected;
-    final border = wrong ? c.destructive : c.accent;
+    final border = right || wrong
+        ? Color.lerp(
+            revealFromSelected ? c.accent : Colors.transparent,
+            wrong ? c.destructive : c.accent,
+            revealProgress,
+          )!
+        : c.accent;
     return Opacity(
       opacity: state == WebOptionState.dimmed ? .42 : 1,
       child: Semantics(
@@ -587,9 +599,9 @@ class WebAnswerOption extends StatelessWidget {
             ),
             backgroundColor: WidgetStatePropertyAll(
               right
-                  ? c.accentTint
+                  ? Color.lerp(c.surface, c.accentTint, revealProgress)
                   : wrong
-                      ? c.wrongTint
+                      ? Color.lerp(c.surface, c.wrongTint, revealProgress)
                       : c.surface,
             ),
             foregroundColor: WidgetStatePropertyAll(c.label),
@@ -626,17 +638,33 @@ class WebAnswerOption extends StatelessWidget {
                 height: 32,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: filled ? (wrong ? c.destructive : c.accentFill) : null,
+                  color: right || wrong
+                      ? Color.lerp(
+                          revealFromSelected ? c.accentFill : c.surface,
+                          wrong ? c.destructive : c.accentFill,
+                          badgeProgress,
+                        )
+                      : filled
+                          ? c.accentFill
+                          : null,
                   border: filled
                       ? null
                       : Border.all(color: t.strongDivider, width: 1.5),
                 ),
                 alignment: Alignment.center,
                 child: right || wrong
-                    ? Icon(
-                        right ? Icons.check : Icons.close,
-                        size: 18,
-                        color: Colors.white,
+                    ? Opacity(
+                        opacity: badgeProgress,
+                        child: Transform.scale(
+                          scale: badgeProgress < .6
+                              ? .4 + .75 * badgeProgress / .6
+                              : 1.15 - .15 * (badgeProgress - .6) / .4,
+                          child: Icon(
+                            right ? Icons.check : Icons.close,
+                            size: 18,
+                            color: Colors.white,
+                          ),
+                        ),
                       )
                     : Text(
                         letter,

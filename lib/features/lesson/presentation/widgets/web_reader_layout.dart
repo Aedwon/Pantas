@@ -525,11 +525,19 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                       },
                     ),
               ),
-              if (_showBar || _menuOpen || ending != null)
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: AnimatedSlide(
+                  key: const ValueKey('web-reader-focus-slide'),
+                  duration: MediaQuery.disableAnimationsOf(context)
+                      ? Duration.zero
+                      : Duration(milliseconds: _showBar ? 420 : 700),
+                  curve: const Cubic(.32, .72, 0, 1),
+                  offset: _showBar || _menuOpen || ending != null
+                      ? Offset.zero
+                      : const Offset(0, -1),
                   child: Material(
                     color: t.colors.background,
                     child: SizedBox(
@@ -594,7 +602,12 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                     ),
                   ),
                 ),
-              Positioned(
+              ),
+              AnimatedPositioned(
+                duration: MediaQuery.disableAnimationsOf(context)
+                    ? Duration.zero
+                    : Duration(milliseconds: _showBar ? 420 : 700),
+                curve: const Cubic(.32, .72, 0, 1),
                 top: _showBar || _menuOpen || ending != null ? 58 : 0,
                 left: 0,
                 right: 0,

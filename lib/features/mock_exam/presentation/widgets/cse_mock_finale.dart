@@ -2,10 +2,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_motion.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_tracks.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_finale.dart';
 
 /// A single submission clock, shared by the booklet and actual results.
 class CseMockFinale extends StatefulWidget {
@@ -39,7 +41,9 @@ class _CseMockFinaleState extends State<CseMockFinale>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (MediaQuery.disableAnimationsOf(context) || _motion.questions.isEmpty) {
+    if (context.wideWeb ||
+        MediaQuery.disableAnimationsOf(context) ||
+        _motion.questions.isEmpty) {
       _controller
         ..stop()
         ..value = 1;
@@ -57,48 +61,54 @@ class _CseMockFinaleState extends State<CseMockFinale>
   }
 
   @override
-  Widget build(BuildContext context) => LayoutBuilder(
-        builder: (context, size) {
-          final scale = size.maxWidth / 390;
-          return FittedBox(
-            fit: BoxFit.fill,
-            child: SizedBox(
-              width: 390,
-              height: size.maxHeight / scale,
-              child: AnimatedBuilder(
-                animation: _clock,
-                builder: (context, _) => Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    AbsorbPointer(
-                      absorbing: _clock.value < 5850,
-                      child: widget.resultsBuilder(context, _clock),
-                    ),
-                    if (_clock.value < 6450)
-                      IgnorePointer(
-                        child: Semantics(
-                          label: '${_motion.questions.length} questions. '
-                              'Checking your answers.',
-                          child: CustomPaint(
-                            key: const ValueKey('cse-finale-scene'),
-                            painter: _CseScene(
-                              context: context,
-                              motion: _motion,
-                              input: widget.input,
-                              milliseconds: _clock.value,
-                              name: widget.blueprintName,
-                              date: widget.dateFormatted,
+  Widget build(BuildContext context) => context.wideWeb
+      ? WebMockFinale(
+          input: widget.input,
+          name: widget.blueprintName,
+          resultsBuilder: widget.resultsBuilder,
+        )
+      : LayoutBuilder(
+          builder: (context, size) {
+            final scale = size.maxWidth / 390;
+            return FittedBox(
+              fit: BoxFit.fill,
+              child: SizedBox(
+                width: 390,
+                height: size.maxHeight / scale,
+                child: AnimatedBuilder(
+                  animation: _clock,
+                  builder: (context, _) => Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      AbsorbPointer(
+                        absorbing: _clock.value < 5850,
+                        child: widget.resultsBuilder(context, _clock),
+                      ),
+                      if (_clock.value < 6450)
+                        IgnorePointer(
+                          child: Semantics(
+                            label: '${_motion.questions.length} questions. '
+                                'Checking your answers.',
+                            child: CustomPaint(
+                              key: const ValueKey('cse-finale-scene'),
+                              painter: _CseScene(
+                                context: context,
+                                motion: _motion,
+                                input: widget.input,
+                                milliseconds: _clock.value,
+                                name: widget.blueprintName,
+                                date: widget.dateFormatted,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          );
-        },
-      );
+            );
+          },
+        );
 }
 
 /// The same measured title block positions the live gauge and its impact.

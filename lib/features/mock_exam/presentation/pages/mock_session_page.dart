@@ -25,6 +25,7 @@ import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_panel_tab.dart';
 
 /// A part that has not opened yet, as the question grid lists it.
 @immutable
@@ -860,7 +861,27 @@ class _MockSessionPageState extends State<MockSessionPage> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            if (_widePanelOpen) panel,
+                            TweenAnimationBuilder<double>(
+                              tween: Tween(end: _widePanelOpen ? 1 : 0),
+                              duration: MediaQuery.disableAnimationsOf(context)
+                                  ? Duration.zero
+                                  : const Duration(milliseconds: 460),
+                              curve: const Cubic(.32, .72, 0, 1),
+                              builder: (context, value, _) => SizedBox(
+                                width: 300 * value,
+                                child: ClipRect(
+                                  child: OverflowBox(
+                                    alignment: Alignment.centerLeft,
+                                    minWidth: 300,
+                                    maxWidth: 300,
+                                    child: Transform.translate(
+                                      offset: Offset(-300 * (1 - value), 0),
+                                      child: value == 0 ? null : panel,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                             Expanded(
                               child: Stack(
                                 children: [
@@ -977,29 +998,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                             ),
                           ],
                         ),
-                        if (!_widePanelOpen)
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: SizedBox(
-                              width: 34,
-                              height: 76,
-                              child: Material(
-                                color: c.surface,
-                                borderRadius: const BorderRadius.horizontal(
-                                  right: Radius.circular(14),
-                                ),
-                                child: IconButton(
-                                  tooltip: 'Show the question list',
-                                  onPressed: () =>
-                                      setState(() => _widePanelOpen = true),
-                                  icon: const Icon(
-                                    Icons.view_sidebar_outlined,
-                                    size: 20,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                        WebMockPanelTab(
+                          hidden: !_widePanelOpen,
+                          onPressed: () =>
+                              setState(() => _widePanelOpen = true),
+                        ),
                       ],
                     ),
                   ),

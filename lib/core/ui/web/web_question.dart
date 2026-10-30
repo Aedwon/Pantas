@@ -10,7 +10,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The question, passage and checked answer share one desktop stage.
-class WebQuizQuestion extends StatelessWidget {
+class WebQuizQuestion extends StatefulWidget {
   const WebQuizQuestion({
     required this.question,
     required this.subject,
@@ -36,75 +36,142 @@ class WebQuizQuestion extends StatelessWidget {
   final Widget? notes;
 
   @override
-  Widget build(BuildContext context) {
+  State<WebQuizQuestion> createState() => _WebQuizQuestionState();
+}
+
+class _WebQuizQuestionState extends State<WebQuizQuestion>
+    with SingleTickerProviderStateMixin {
+  late final _reveal = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1840),
+    value: widget.checked ? 1 : 0,
+  );
+
+  @override
+  void didUpdateWidget(WebQuizQuestion oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.question.id != widget.question.id || !widget.checked) {
+      _reveal.value = widget.checked ? 1 : 0;
+    } else if (!oldWidget.checked) {
+      if (MediaQuery.disableAnimationsOf(context)) {
+        _reveal.value = 1;
+      } else {
+        _reveal.forward(from: 0);
+      }
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context) && widget.checked) {
+      _reveal.value = 1;
+    }
+  }
+
+  @override
+  void dispose() {
+    _reveal.dispose();
+    super.dispose();
+  }
+
+  double _phase(double start, double end) => const Cubic(.32, .72, 0, 1)
+      .transform(((_reveal.value * 1840 - start) / (end - start)).clamp(0, 1));
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _reveal,
+        builder: (context, _) => _build(context),
+      );
+
+  Widget _build(BuildContext context) {
     final t = context.webTokens;
-    final correct = question.correctChoice;
-    final picked = question.choices.where((c) => c.id == chosenId).firstOrNull;
-    final wrong = checked && chosenId != correct.id;
+    final correct = widget.question.correctChoice;
+    final picked = widget.question.choices
+        .where((c) => c.id == widget.chosenId)
+        .firstOrNull;
+    final wrong = widget.checked && widget.chosenId != correct.id;
     final column = SizedBox(
       key: const ValueKey('web-question-column'),
-      width: checked
-          ? 600
-          : passage != null
+      width: widget.checked
+          ? 720 - 120 * _phase(240, 1200)
+          : widget.passage != null
               ? 520
               : 720,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (passage != null) const SizedBox(height: 22),
+          if (widget.passage != null) const SizedBox(height: 22),
           Text(
-            passagePosition == null
-                ? subject.toUpperCase()
-                : '${subject.toUpperCase()} · ${passagePosition!.ordinal} '
-                    'OF ${passagePosition!.total} ON THIS PASSAGE',
+            widget.passagePosition == null
+                ? widget.subject.toUpperCase()
+                : '${widget.subject.toUpperCase()} · '
+                    '${widget.passagePosition!.ordinal} '
+                    'OF ${widget.passagePosition!.total} ON THIS PASSAGE',
             style: t.eb,
           ),
           const SizedBox(height: 10),
           DefaultTextStyle(
-            style: passage != null
+            style: widget.passage != null
                 ? t.qtext.copyWith(fontSize: 25, height: 1.38)
                 : t.qtext,
             child: ContentRenderer(
-              text: question.stem,
-              style: passage != null
+              text: widget.question.stem,
+              style: widget.passage != null
                   ? t.qtext.copyWith(fontSize: 25, height: 1.38)
                   : t.qtext,
             ),
           ),
           const SizedBox(height: 28),
-          if (question.figureSpecJson != null) ...[
+          if (widget.question.figureSpecJson != null) ...[
             WebCard(
               padding: const EdgeInsets.all(20),
               child: Theme(
                 data: buildLightTheme(web: true),
                 child: ColoredBox(
                   color: Colors.white,
-                  child: QuestionFigure(specJson: question.figureSpecJson),
+                  child:
+                      QuestionFigure(specJson: widget.question.figureSpecJson),
                 ),
               ),
             ),
             const SizedBox(height: 28),
           ],
-          for (final (index, choice) in question.choices.indexed) ...[
+          for (final (index, choice) in widget.question.choices.indexed) ...[
             if (index > 0) const SizedBox(height: 12),
             WebAnswerOption(
               letter: choice.label,
-              state: checked
+              revealFromSelected: choice.id == widget.chosenId,
+              revealProgress: widget.checked
+                  ? _phase(
+                      wrong && choice.id == correct.id ? 240 : 80,
+                      wrong && choice.id == correct.id ? 640 : 480,
+                    )
+                  : 1,
+              badgeProgress: widget.checked
+                  ? _phase(
+                      wrong && choice.id == correct.id ? 240 : 80,
+                      wrong && choice.id == correct.id ? 800 : 640,
+                    )
+                  : 1,
+              state: widget.checked
                   ? choice.id == correct.id
                       ? WebOptionState.right
-                      : choice.id == chosenId
+                      : choice.id == widget.chosenId
                           ? WebOptionState.wrong
                           : WebOptionState.dimmed
-                  : choice.id == chosenId
+                  : choice.id == widget.chosenId
                       ? WebOptionState.selected
                       : WebOptionState.normal,
-              onPressed: onPick == null ? null : () => onPick!(choice.id),
+              onPressed: widget.onPick == null
+                  ? null
+                  : () => widget.onPick!(choice.id),
               child: MathText(
                 choice.text,
                 style: t.style(
                   18,
                   height: 1.4,
-                  weight: checked && choice.id == correct.id
+                  weight: widget.checked && choice.id == correct.id
                       ? FontWeight.w600
                       : FontWeight.w400,
                 ),
@@ -114,50 +181,60 @@ class WebQuizQuestion extends StatelessWidget {
         ],
       ),
     );
-    final explanation = SizedBox(
-      key: const ValueKey('web-answer-column'),
-      width: 440,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          WebCard(
-            radius: 20,
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              children: [
-                _answer(
-                  context,
-                  correct.label,
-                  'correct answer',
-                  question.explanation,
-                  false,
+    final explanation = Opacity(
+      key: const ValueKey('web-answer-reveal'),
+      opacity: widget.checked ? _phase(880, 1840) : 0,
+      child: Transform.translate(
+        offset: Offset(24 * (1 - _phase(880, 1840)), 0),
+        child: SizedBox(
+          key: const ValueKey('web-answer-column'),
+          width: 440,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              WebCard(
+                radius: 20,
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  children: [
+                    _answer(
+                      context,
+                      correct.label,
+                      'correct answer',
+                      widget.question.explanation,
+                      false,
+                    ),
+                    if (wrong && widget.pro && picked?.rationale != null) ...[
+                      const SizedBox(height: 18),
+                      Divider(height: 1, color: t.colors.separator),
+                      const SizedBox(height: 18),
+                      _answer(
+                        context,
+                        picked!.label,
+                        'your pick',
+                        picked.rationale!,
+                        true,
+                      ),
+                    ],
+                  ],
                 ),
-                if (wrong && pro && picked?.rationale != null) ...[
-                  const SizedBox(height: 18),
-                  Divider(height: 1, color: t.colors.separator),
-                  const SizedBox(height: 18),
-                  _answer(
-                    context,
-                    picked!.label,
-                    'your pick',
-                    picked.rationale!,
-                    true,
-                  ),
-                ],
+              ),
+              if (wrong && widget.proPaused) ...[
+                const SizedBox(height: 14),
+                const ProPausedLine(),
               ],
-            ),
+              if (widget.notes != null) ...[
+                const SizedBox(height: 14),
+                widget.notes!,
+              ],
+            ],
           ),
-          if (wrong && proPaused) ...[
-            const SizedBox(height: 14),
-            const ProPausedLine(),
-          ],
-          if (notes != null) ...[const SizedBox(height: 14), notes!],
-        ],
+        ),
       ),
     );
     return LayoutBuilder(
       builder: (context, constraints) {
-        final splitPassage = passage != null;
+        final splitPassage = widget.passage != null;
         final left = splitPassage
             ? SizedBox(
                 width: 600,
@@ -178,7 +255,7 @@ class WebQuizQuestion extends StatelessWidget {
                           child: DefaultTextStyle(
                             style: t.style(17, height: 1.7),
                             child: MathText(
-                              passage!.body,
+                              widget.passage!.body,
                               style: t.style(17, height: 1.7),
                             ),
                           ),
@@ -195,13 +272,16 @@ class WebQuizQuestion extends StatelessWidget {
                 child: Column(
                   children: [
                     column,
-                    if (checked) ...[const SizedBox(height: 28), explanation],
+                    if (widget.checked) ...[
+                      const SizedBox(height: 28),
+                      explanation,
+                    ],
                   ],
                 ),
               )
             : explanation;
-        if (!checked && !splitPassage) return Center(child: column);
-        final leftWidth = splitPassage ? 600.0 : 600.0;
+        if (!widget.checked && !splitPassage) return Center(child: column);
+        const leftWidth = 600.0;
         final rightWidth = splitPassage ? 520.0 : 440.0;
         if (constraints.maxWidth < leftWidth + rightWidth + 40) {
           // The canvas wraps at smaller desktop widths.
@@ -210,7 +290,17 @@ class WebQuizQuestion extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [left, const SizedBox(width: 40), right],
+          children: [
+            left,
+            SizedBox(width: splitPassage ? 40 : 40 * _phase(240, 1200)),
+            ClipRect(
+              child: Align(
+                alignment: Alignment.topLeft,
+                widthFactor: splitPassage ? 1 : _phase(240, 1200),
+                child: right,
+              ),
+            ),
+          ],
         );
       },
     );

@@ -94,7 +94,15 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
       }
       widget.onCounted();
       setState(() => _counted = true);
-      if (context.wideWeb) return;
+      if (context.wideWeb) {
+        _controller.duration = const Duration(milliseconds: 6400);
+        if (MediaQuery.disableAnimationsOf(context)) {
+          _controller.value = 1;
+        } else {
+          await _controller.forward();
+        }
+        return;
+      }
       if (MediaQuery.disableAnimationsOf(context)) {
         _controller.value = 1;
       } else {
@@ -117,6 +125,284 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
     super.dispose();
   }
 
+  Widget _wideTransfer(BuildContext context, String previousName) {
+    final t = context.webTokens;
+    final c = t.colors;
+    final extra =
+        (MediaQuery.textScalerOf(context).scale(16) / 16 - 1).clamp(0.0, 3.0) *
+            180;
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, _) {
+        final ms = (_controller.value * 6400).clamp(0.0, 6100.0);
+        double at(double a, double b, [Curve curve = Curves.ease]) =>
+            curve.transform(((ms - a) / (b - a)).clamp(0.0, 1.0));
+        final group = at(750, 1200, const Cubic(.3, .9, .3, 1));
+        final drain = at(1450, 3050, const Cubic(.45, 0, .25, 1));
+        final labels = at(3300, 3600);
+        final check = at(3350, 3650, const Cubic(.3, 1.5, .5, 1));
+        final prompt = 1 - at(700, 1000);
+        final done = at(3800, 4150);
+        Widget vessel(String name, {required bool old}) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 104,
+                  height: 168,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    color:
+                        old ? Color.lerp(c.fill, c.accentTint, drain) : c.fill,
+                    borderRadius: BorderRadius.circular(34),
+                    border: Border.all(color: c.separator, width: 1.5),
+                  ),
+                  child: Stack(
+                    children: [
+                      Transform.translate(
+                        key: ValueKey(
+                          old ? 'web-transfer-old' : 'web-transfer-new',
+                        ),
+                        offset:
+                            Offset(0, 168 * 1.1 * (old ? drain : 1 - drain)),
+                        child: const SizedBox.expand(
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [Color(0xFF14937D), Color(0xFF0B7A68)],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (!old)
+                        Center(
+                          child: Opacity(
+                            opacity: check.clamp(0, 1),
+                            child: Transform.scale(
+                              scale: .4 + .6 * check,
+                              child: const Icon(
+                                Icons.check,
+                                color: Colors.white,
+                                size: 40,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  name,
+                  style: t.style(
+                    15,
+                    weight: FontWeight.w600,
+                    color: Color.lerp(
+                      old ? c.accent : c.secondaryLabel,
+                      old ? c.secondaryLabel : c.accent,
+                      labels,
+                    ),
+                  ),
+                ),
+              ],
+            );
+        Widget fade(double value, double y, Widget child) => IgnorePointer(
+              ignoring: value < 1,
+              child: Opacity(
+                opacity: value,
+                child: Transform.translate(
+                  offset: Offset(0, y * (1 - value)),
+                  child: child,
+                ),
+              ),
+            );
+        return WebCard(
+          radius: 22,
+          child: SizedBox(
+            height: 524 + extra,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 34,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: Transform.translate(
+                      offset: Offset(0, 58 * group),
+                      child: Transform.scale(
+                        scale: 1 + .12 * group,
+                        child: SizedBox(
+                          width: 278,
+                          height: 202,
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              Positioned(
+                                left: 98,
+                                top: 134,
+                                width: 82,
+                                height: 12,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(6),
+                                  child: ColoredBox(
+                                    color: c.fill,
+                                    child: Transform.translate(
+                                      offset: Offset(
+                                        82 *
+                                            (-1.01 +
+                                                1.01 *
+                                                    at(
+                                                      1250,
+                                                      1550,
+                                                      const Cubic(
+                                                        .45,
+                                                        0,
+                                                        .25,
+                                                        1,
+                                                      ),
+                                                    ) +
+                                                1.01 *
+                                                    at(
+                                                      3050,
+                                                      3350,
+                                                      const Cubic(
+                                                        .45,
+                                                        0,
+                                                        .25,
+                                                        1,
+                                                      ),
+                                                    )),
+                                        0,
+                                      ),
+                                      child: ColoredBox(color: c.accentFill),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 0,
+                                top: 0,
+                                child: vessel(previousName, old: true),
+                              ),
+                              Positioned(
+                                left: 174,
+                                top: 0,
+                                child: vessel(widget.exam, old: false),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 266,
+                  left: 40,
+                  right: 40,
+                  child: fade(
+                    prompt,
+                    10,
+                    Column(
+                      children: [
+                        Text("You're not starting from zero", style: t.h3),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Some content on $previousName '
+                          'is on ${widget.exam} too. '
+                          'Count them and continue where you are.',
+                          textAlign: TextAlign.center,
+                          style: t.style(
+                            16,
+                            height: 1.45,
+                            color: c.secondaryLabel,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 338 + extra,
+                  left: 40,
+                  right: 40,
+                  child: fade(
+                    at(3650, 4000),
+                    8,
+                    Column(
+                      children: [
+                        Text('You pick up where you are', style: t.h3),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Your $previousName answers '
+                          'stay on $previousName too.',
+                          textAlign: TextAlign.center,
+                          style: t.sub,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 400 + extra,
+                  left: 0,
+                  right: 0,
+                  child: fade(
+                    prompt,
+                    10,
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        WebButton(
+                          label: 'Start My Numbers Fresh',
+                          variant: WebButtonVariant.tertiary,
+                          onPressed:
+                              _saving ? null : () => _choose(count: false),
+                        ),
+                        WebButton(
+                          label: 'Count Them',
+                          busy: _saving && !_counted,
+                          onPressed:
+                              _saving ? null : () => _choose(count: true),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 400 + extra,
+                  left: 0,
+                  right: 0,
+                  child: fade(
+                    done,
+                    8,
+                    Center(
+                      child: WebButton(
+                        label: 'Done',
+                        onPressed: () => Navigator.of(context).pop(true),
+                      ),
+                    ),
+                  ),
+                ),
+                if (_failed)
+                  Positioned(
+                    bottom: 0,
+                    left: 24,
+                    right: 24,
+                    child: saveFailureLine(() => _choose(count: _lastDecision)),
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   double phase(double start, double end) =>
       ((_controller.value * 5400 - start) / (end - start)).clamp(0, 1);
   @override
@@ -124,39 +410,6 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
     final c = context.colors;
     final previousName = widget.previous ?? 'your exam';
     if (context.wideWeb) {
-      final t = context.webTokens;
-      Widget vessel(String name, {required bool old}) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 90,
-                height: 170,
-                decoration: BoxDecoration(
-                  color: old
-                      ? _counted
-                          ? c.accentTint
-                          : c.accentFill
-                      : _counted
-                          ? c.accentFill
-                          : c.surface,
-                  borderRadius: BorderRadius.circular(22),
-                  border: Border.all(color: c.label, width: 2),
-                ),
-                child: !old && _counted
-                    ? const Icon(Icons.check, size: 36, color: Colors.white)
-                    : null,
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                width: 150,
-                child: Text(
-                  name,
-                  textAlign: TextAlign.center,
-                  style: t.style(15, weight: FontWeight.w600),
-                ),
-              ),
-            ],
-          );
       return Stack(
         fit: StackFit.expand,
         children: [
@@ -169,85 +422,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
               insetPadding: const EdgeInsets.all(24),
               child: SizedBox(
                 width: 560,
-                child: WebCard(
-                  radius: 22,
-                  padding: const EdgeInsets.all(32),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            vessel(widget.previous ?? '', old: true),
-                            Container(
-                              width: 80,
-                              height: 10,
-                              margin: const EdgeInsets.only(bottom: 40),
-                              decoration: BoxDecoration(
-                                color: c.separator,
-                                borderRadius: BorderRadius.circular(99),
-                              ),
-                            ),
-                            vessel(widget.exam, old: false),
-                          ],
-                        ),
-                        const SizedBox(height: 26),
-                        Text(
-                          _counted
-                              ? 'You pick up where you are'
-                              : "You're not starting from zero",
-                          textAlign: TextAlign.center,
-                          style: t.h3,
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          _counted
-                              ? 'Your $previousName answers '
-                                  'stay on $previousName too.'
-                              : 'Some content on $previousName '
-                                  'is on ${widget.exam} too. '
-                                  'Count them and continue where you are.',
-                          textAlign: TextAlign.center,
-                          style: t.style(
-                            16,
-                            height: 1.45,
-                            color: c.secondaryLabel,
-                          ),
-                        ),
-                        const SizedBox(height: 26),
-                        if (_failed)
-                          saveFailureLine(() => _choose(count: _lastDecision)),
-                        if (_counted)
-                          WebButton(
-                            label: 'Done',
-                            onPressed: () => Navigator.of(context).pop(true),
-                          )
-                        else
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            spacing: 8,
-                            runSpacing: 8,
-                            children: [
-                              WebButton(
-                                label: 'Start My Numbers Fresh',
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: _saving
-                                    ? null
-                                    : () => _choose(count: false),
-                              ),
-                              WebButton(
-                                label: 'Count Them',
-                                busy: _saving,
-                                onPressed:
-                                    _saving ? null : () => _choose(count: true),
-                              ),
-                            ],
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
+                child: _wideTransfer(context, previousName),
               ),
             ),
           ),

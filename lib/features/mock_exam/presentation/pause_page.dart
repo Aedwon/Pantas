@@ -70,6 +70,12 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     vsync: this,
     duration: const Duration(milliseconds: PausePage.wobbleMilliseconds),
   );
+  late final _blink = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1800),
+  );
+  Timer? _blinkDelay;
+  Timer? _tipDelay;
   bool? _still;
   var _leaving = false;
 
@@ -80,7 +86,12 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
       if (status == AnimationStatus.completed &&
           !_leaving &&
           !(_still ?? false)) {
-        _wobble.repeat();
+        if (context.wideWeb) {
+          _blinkDelay = Timer(const Duration(milliseconds: 500), _blink.repeat);
+          _tipDelay = Timer(const Duration(seconds: 3), _wobble.repeat);
+        } else {
+          _wobble.repeat();
+        }
       }
     });
     _exit.addStatusListener((status) {
@@ -91,12 +102,22 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final still = context.wideWeb || MediaQuery.disableAnimationsOf(context);
+    final still = MediaQuery.disableAnimationsOf(context);
+    _entry.duration = Duration(
+      milliseconds: context.wideWeb ? 3900 : PausePage.entryMilliseconds,
+    );
+    _wobble.duration = const Duration(milliseconds: 6000);
+    _exit.duration = Duration(
+      milliseconds: context.wideWeb ? 2050 : PausePage.exitMilliseconds,
+    );
     if (still == _still) return;
     final first = _still == null;
     _still = still;
     if (still) {
       _wobble.stop();
+      _blink.stop();
+      _blinkDelay?.cancel();
+      _tipDelay?.cancel();
       _entry.value = 1;
     } else if (first) {
       _entry.forward();
@@ -107,6 +128,9 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
   void dispose() {
     _entry.dispose();
     _exit.dispose();
+    _blinkDelay?.cancel();
+    _tipDelay?.cancel();
+    _blink.dispose();
     _wobble.dispose();
     super.dispose();
   }
@@ -119,6 +143,9 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     }
     setState(() => _leaving = true);
     _wobble.stop();
+    _blink.stop();
+    _blinkDelay?.cancel();
+    _tipDelay?.cancel();
     _entry.value = 1;
     _exit.forward();
   }
@@ -205,8 +232,8 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     return 0;
   }
 
-  String _clock() {
-    final seconds = widget.remaining.inSeconds.clamp(0, 1 << 31);
+  String _clock([int elapsed = 0]) {
+    final seconds = (widget.remaining.inSeconds - elapsed).clamp(0, 1 << 31);
     final hours = seconds ~/ 3600;
     final minutes = (seconds ~/ 60) % 60;
     final secs = seconds % 60;
@@ -217,10 +244,22 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
 
   Widget _wide(BuildContext context) {
     final t = context.webTokens;
+    final currentPart = widget.currentPartIndex;
+    final entry = _entry.value * 3900;
+    final exit = _exit.value * 2050;
+    final glide =
+        _leaving ? 1 - _ease(exit, 100, 850) : _ease(entry, 2244, 3300);
+    final reveal =
+        _leaving ? 1 - _ease(exit, 0, 250) : _ease(entry, 2800, 3350);
+    final paused = _still ?? false ? 1.0 : _ease(entry, 1550, 2050);
+    final resting = _wobble.value * 6000;
+    final blink = (_still ?? false) || _leaving
+        ? 1.0
+        : 1 - .7 * (1 - math.cos(_blink.value * 2 * math.pi)) / 2;
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): widget.onResume,
-        const SingleActivator(LogicalKeyboardKey.keyP): widget.onResume,
+        const SingleActivator(LogicalKeyboardKey.enter): _resume,
+        const SingleActivator(LogicalKeyboardKey.keyP): _resume,
       },
       child: Focus(
         autofocus: true,
@@ -234,108 +273,167 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        MockHourglass(
-                          size: const Size(152, 200),
-                          sandColor: t.colors.accent,
-                          outlineColor: t.colors.label,
-                          remainingFraction:
-                              widget.partLength.inMilliseconds <= 0
-                                  ? 0
-                                  : widget.remaining.inMilliseconds /
-                                      widget.partLength.inMilliseconds,
-                        ),
-                        const SizedBox(height: 22),
-                        Text('Paused', style: t.h1),
-                        const SizedBox(height: 2),
-                        Text(
-                          _clock(),
-                          style: t.style(30, weight: FontWeight.w700),
-                        ),
-                        Text(
-                          widget.partNames.length > 1
-                              ? 'left in this part'
-                              : 'left',
-                          style: t.sub,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 72),
-                    SizedBox(
-                      width: 420,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          if (widget.partNames.length > 1) ...[
-                            WebCard(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 24,
-                                vertical: 22,
-                              ),
-                              child: Column(
-                                children: [
-                                  for (final (i, name)
-                                      in widget.partNames.indexed) ...[
-                                    if (i > 0) const SizedBox(height: 16),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          i < widget.currentPartIndex
-                                              ? Icons.check_circle
-                                              : Icons.circle_outlined,
-                                          size: 26,
-                                          color: i == widget.currentPartIndex
-                                              ? t.colors.label
-                                              : t.colors.tertiaryLabel,
-                                        ),
-                                        const SizedBox(width: 12),
-                                        Expanded(
-                                          child: Text(
-                                            'Part ${i + 1} · $name',
-                                            style: t.style(
-                                              17,
-                                              weight:
-                                                  i == widget.currentPartIndex
-                                                      ? FontWeight.w600
-                                                      : FontWeight.w400,
-                                              color:
-                                                  i == widget.currentPartIndex
-                                                      ? t.colors.label
-                                                      : t.colors.secondaryLabel,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                          ],
-                          Wrap(
-                            alignment: WrapAlignment.end,
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            spacing: 12,
-                            runSpacing: 12,
+                    Transform.translate(
+                      offset: Offset(
+                        246 * (1 - glide),
+                        28 * (1 - glide) - 56 * (1 - _ease(entry, 0, 594)),
+                      ),
+                      child: Transform.scale(
+                        scale: 1.4 - .4 * glide,
+                        child: Opacity(
+                          opacity: _leaving
+                              ? 1 - _ease(exit, 1550, 2050)
+                              : _ease(entry, 0, 594),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              WebButton(
-                                label: 'Discard This Mock',
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: _confirmDiscard,
+                              Transform.rotate(
+                                angle: (_still ?? false
+                                        ? 0
+                                        : _tipDegrees(
+                                            resting,
+                                          )) *
+                                    math.pi /
+                                    180,
+                                child: MockHourglass(
+                                  size: const Size(152, 200),
+                                  sandColor: t.colors.accent,
+                                  outlineColor: t.colors.label,
+                                  remainingFraction:
+                                      widget.partLength.inMilliseconds <= 0
+                                          ? 0
+                                          : widget.remaining.inMilliseconds /
+                                              widget.partLength.inMilliseconds,
+                                  streamOpacity: _still ?? false
+                                      ? 0
+                                      : _leaving
+                                          ? _ease(exit, 500, 900)
+                                          : 1 - _ease(entry, 1050, 1500),
+                                  streamOffset:
+                                      -(_leaving ? exit : entry) / 420 * 11.2,
+                                ),
                               ),
-                              WebButton(
-                                label: 'Resume',
-                                large: true,
-                                keyHint: 'Enter',
-                                onPressed: widget.onResume,
+                              const SizedBox(height: 22),
+                              Opacity(
+                                opacity: paused,
+                                child: SizedBox(
+                                  height: 60 * paused,
+                                  child: Text('Paused', style: t.h1),
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Opacity(
+                                opacity: blink,
+                                child: Text(
+                                  _clock(
+                                    (_still ?? false)
+                                        ? 0
+                                        : _leaving
+                                            ? 1 +
+                                                ((exit - 650).clamp(0, 2050) /
+                                                        1000)
+                                                    .floor()
+                                            : (entry.clamp(0, 1450) / 1000)
+                                                .floor(),
+                                  ),
+                                  style: t.style(30, weight: FontWeight.w700),
+                                ),
+                              ),
+                              Text(
+                                widget.partNames.length > 1
+                                    ? 'left in this part'
+                                    : 'left',
+                                style: t.sub,
                               ),
                             ],
                           ),
-                        ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 72),
+                    Opacity(
+                      key: const ValueKey('web-pause-content'),
+                      opacity: reveal,
+                      child: IgnorePointer(
+                        ignoring: reveal < 1,
+                        child: Transform.translate(
+                          offset: Offset(0, 12 * (1 - reveal)),
+                          child: SizedBox(
+                            width: 420,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                if (widget.partNames.length > 1) ...[
+                                  WebCard(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 24,
+                                      vertical: 22,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        for (final (i, name)
+                                            in widget.partNames.indexed) ...[
+                                          if (i > 0) const SizedBox(height: 16),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                i < widget.currentPartIndex
+                                                    ? Icons.check_circle
+                                                    : Icons.circle_outlined,
+                                                size: 26,
+                                                color: i ==
+                                                        widget.currentPartIndex
+                                                    ? t.colors.label
+                                                    : t.colors.tertiaryLabel,
+                                              ),
+                                              const SizedBox(width: 12),
+                                              Expanded(
+                                                child: Text(
+                                                  'Part ${i + 1} · $name',
+                                                  style: t.style(
+                                                    17,
+                                                    weight: i == currentPart
+                                                        ? FontWeight.w600
+                                                        : FontWeight.w400,
+                                                    color: i == currentPart
+                                                        ? t.colors.label
+                                                        : t.colors
+                                                            .secondaryLabel,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 20),
+                                ],
+                                Wrap(
+                                  alignment: WrapAlignment.end,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  spacing: 12,
+                                  runSpacing: 12,
+                                  children: [
+                                    WebButton(
+                                      label: 'Discard This Mock',
+                                      variant: WebButtonVariant.tertiary,
+                                      onPressed: _confirmDiscard,
+                                    ),
+                                    WebButton(
+                                      label: 'Resume',
+                                      large: true,
+                                      keyHint: 'Enter',
+                                      onPressed: _resume,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -350,7 +448,12 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    if (context.wideWeb) return _wide(context);
+    if (context.wideWeb) {
+      return AnimatedBuilder(
+        animation: Listenable.merge([_entry, _exit, _wobble, _blink]),
+        builder: (context, _) => _wide(context),
+      );
+    }
     final c = context.colors;
     final fraction = widget.partLength.inMilliseconds <= 0
         ? 0.0
@@ -452,7 +555,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
       canPop: false,
       child: Scaffold(
         body: AnimatedBuilder(
-          animation: Listenable.merge([_entry, _exit, _wobble]),
+          animation: Listenable.merge([_entry, _exit, _wobble, _blink]),
           builder: (context, _) {
             final entry = _entry.value * PausePage.entryMilliseconds;
             final exit = _exit.value * PausePage.exitMilliseconds;

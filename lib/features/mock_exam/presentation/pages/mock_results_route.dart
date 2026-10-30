@@ -149,8 +149,7 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
               onReviewTap: () => context.push('/mock/review/$attemptId'),
             );
         final input = finaleInput;
-        if (!context.wideWeb &&
-            !_finaleInterrupted &&
+        if (!_finaleInterrupted &&
             fresh &&
             !fromRecord &&
             input != null &&
