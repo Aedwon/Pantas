@@ -266,21 +266,32 @@ class WebCard extends StatelessWidget {
     required this.child,
     this.padding = EdgeInsets.zero,
     this.radius = 18,
+    this.selected = false,
     super.key,
   });
   final Widget child;
   final EdgeInsetsGeometry padding;
   final double radius;
+
+  /// Picked card (board OB_Picker): accent tint and a 2 px accent outline.
+  final bool selected;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     return Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: t.colors.surface,
+        color: selected ? t.colors.accentTint : t.colors.surface,
         borderRadius: BorderRadius.circular(radius),
-        border: t.dark ? Border.all(color: t.cardEdge) : null,
+        border: t.dark && !selected ? Border.all(color: t.cardEdge) : null,
       ),
+      // Drawn on top, like the board's inset outline, so content does not shift.
+      foregroundDecoration: selected
+          ? BoxDecoration(
+              borderRadius: BorderRadius.circular(radius),
+              border: Border.all(color: t.colors.accent, width: 2),
+            )
+          : null,
       padding: padding,
       child: child,
     );
