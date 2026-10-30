@@ -45,7 +45,12 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    (overshoot); re-check Terms, Name and DateKnown pairs; AgeBlocked and CustomCover still not reached.
    Aedwon, Oct 31: "how about remove the check inside lol just outlined". Done (staging b14a5515):
    web exam cards show no radio and no check; the picked card gets a 2 px accent outline drawn on
-   top (no shift) and the accent tint. Phone picker unchanged. Still pending Aedwon: picker bottom bar.
+   top (no shift) and the accent tint. Aedwon then: "just design it like the board but remove the
+   check inside". Done (staging 143fa7b4): board card exactly (tint #E4F1EE light / accentTint dark,
+   2 px outline, 64 px min height, padding 11/14/11/16, no hover fill), no check. Phone picker
+   unchanged. The bottom bar is on the board too, so it stays.
+   Local run note: after stopping, wait until port 8080 is free (the Firestore emulator exits
+   slowly) before starting again.
    Codex sandbox note: `codex-pick exec -s workspace-write` cannot write git metadata of a worktree
    (fetch and commit fail even with `--add-dir .git`). Prefetch policy into `build/policy-*.md` and
    tell Codex not to fetch or commit; the lead commits. Flutter tests also cannot run in that sandbox;
