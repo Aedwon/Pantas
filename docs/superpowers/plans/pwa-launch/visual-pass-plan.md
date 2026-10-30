@@ -43,7 +43,9 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    pass (853). Re-captured: search field, "isn't listed" icon, Coming soon pills, plain day cells and
    Back arrow now match. Remaining: app step content now sits about 3 to 5 px LOWER than the board
    (overshoot); re-check Terms, Name and DateKnown pairs; AgeBlocked and CustomCover still not reached.
-   Pending Aedwon: exam card radio vs check badge, picker bottom bar.
+   Aedwon, Oct 31: "how about remove the check inside lol just outlined". Done (staging b14a5515):
+   web exam cards show no radio and no check; the picked card gets a 2 px accent outline drawn on
+   top (no shift) and the accent tint. Phone picker unchanged. Still pending Aedwon: picker bottom bar.
    Codex sandbox note: `codex-pick exec -s workspace-write` cannot write git metadata of a worktree
    (fetch and commit fail even with `--add-dir .git`). Prefetch policy into `build/policy-*.md` and
    tell Codex not to fetch or commit; the lead commits. Flutter tests also cannot run in that sandbox;
