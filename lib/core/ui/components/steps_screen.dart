@@ -35,7 +35,7 @@ class StepsScreen extends StatelessWidget {
   final String? subtitle;
   final String? buttonLabel;
   final VoidCallback? onContinue;
-  Widget mark(BuildContext context, int index) {
+  Widget mark(BuildContext context, int index, {bool loadingRestore = false}) {
     final c = context.colors;
     return switch (steps[index].state) {
       WorkStepState.pending => Container(
@@ -47,7 +47,7 @@ class StepsScreen extends StatelessWidget {
           ),
         ),
       WorkStepState.active => SizedBox.square(
-          dimension: 18,
+          dimension: loadingRestore ? 16 : 18,
           child: CircularProgressIndicator(
             strokeWidth: 2,
             color: c.accent,
@@ -59,8 +59,8 @@ class StepsScreen extends StatelessWidget {
           builder: (context, value, child) => child!,
           child: Container(
             key: ValueKey('step-done-$index'),
-            width: 22,
-            height: 22,
+            width: loadingRestore ? 26 : 22,
+            height: loadingRestore ? 26 : 22,
             decoration:
                 BoxDecoration(color: c.accentFill, shape: BoxShape.circle),
             child: Icon(
@@ -75,6 +75,9 @@ class StepsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loadingRestore = context.wideWeb &&
+        title == 'Restoring your progress' &&
+        steps.any((step) => step.state != WorkStepState.done);
     final rows = <Widget>[];
     for (var i = 0; i < steps.length; i++) {
       rows.add(
@@ -117,6 +120,57 @@ class StepsScreen extends StatelessWidget {
     }
     if (context.wideWeb) {
       final t = context.webTokens;
+      if (loadingRestore) {
+        return Scaffold(
+          backgroundColor: t.colors.background,
+          body: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(40),
+              child: SizedBox(
+                width: 520,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(title, style: t.h2),
+                    if (subtitle != null) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        subtitle!,
+                        style: t.style(
+                          17,
+                          height: 1.45,
+                          color: t.colors.secondaryLabel,
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: 20),
+                    WebCard(
+                      child: Column(
+                        children: [
+                          for (var i = 0; i < steps.length; i++)
+                            WebRow(
+                              title: steps[i].label,
+                              subtitle: steps[i].detail,
+                              leading: SizedBox.square(
+                                dimension: 26,
+                                child: Center(
+                                  child: mark(context, i, loadingRestore: true),
+                                ),
+                              ),
+                              compact: true,
+                              divider: i < steps.length - 1,
+                            ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      }
       return Scaffold(
         backgroundColor: t.colors.background,
         body: Center(

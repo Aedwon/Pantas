@@ -33,14 +33,13 @@ class OnboardingWebCalendar extends StatelessWidget {
             : DateFormat('MMMM 1', 'en_US').format(selected);
     final first = month == null ? 0 : DateTime(value.year, month).weekday % 7;
     final last = month == null ? 0 : DateTime(value.year, month + 1, 0).day;
-    Widget grid(List<Widget> children, int columns, {double height = 40}) =>
-        GridView.count(
+    Widget grid(List<Widget> children, int columns) => GridView.count(
           crossAxisCount: columns,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           mainAxisSpacing: 6,
           crossAxisSpacing: 6,
-          childAspectRatio: columns == 3 ? 1.75 : 1.1,
+          mainAxisExtent: columns == 3 ? 42 : 46,
           children: children,
         );
     Widget choice(
@@ -62,7 +61,8 @@ class OnboardingWebCalendar extends StatelessWidget {
               foregroundColor: picked ? Colors.white : t.colors.label,
               disabledForegroundColor: t.disabledText,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius:
+                    BorderRadius.circular(semantics == null ? 12 : 10),
                 side: BorderSide(
                   color:
                       isToday && !picked ? t.colors.accent : Colors.transparent,
@@ -77,15 +77,20 @@ class OnboardingWebCalendar extends StatelessWidget {
                     'Today',
                     style: t.style(
                       9,
+                      weight: FontWeight.w700,
                       color: picked ? Colors.white : t.colors.accent,
                       height: 1,
                     ),
                   ),
                 Text(
                   label,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
+                  style: TextStyle(
+                    fontSize: semantics == null ? 16 : 15,
+                    fontWeight: picked || isToday
+                        ? FontWeight.w700
+                        : semantics == null
+                            ? FontWeight.w400
+                            : FontWeight.w500,
                   ),
                 ),
               ],

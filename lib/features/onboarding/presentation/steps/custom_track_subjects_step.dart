@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 final corpusSubjectsWithTopicsProvider =
@@ -177,10 +178,31 @@ class _CustomTrackSubjectsStepState
                         SizedBox(
                           width: (constraints.maxWidth - 10) / 2,
                           child: WebCard(
+                            radius: 14,
                             child: Material(
                               color: Colors.transparent,
                               child: CheckboxListTile(
-                                title: Text(name),
+                                contentPadding:
+                                    const EdgeInsets.only(left: 8, right: 16),
+                                // The 40px control centers a 24px painted box.
+                                // Its 8px inset plus the 6px gap gives 14px.
+                                checkboxScaleFactor: 24 / Checkbox.width,
+                                horizontalTitleGap: 6,
+                                minLeadingWidth: 0,
+                                title: Text(
+                                  name,
+                                  style: context.webTokens.style(16),
+                                ),
+                                checkboxShape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                    7 * Checkbox.width / 24,
+                                  ),
+                                ),
+                                side: BorderSide(
+                                  color:
+                                      context.webTokens.colors.controlOutline,
+                                  width: 1.5 * Checkbox.width / 24,
+                                ),
                                 value: _selected.contains(name),
                                 controlAffinity:
                                     ListTileControlAffinity.leading,

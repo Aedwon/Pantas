@@ -62,9 +62,10 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
     required String label,
     required VoidCallback onChanged,
     required Widget child,
+    bool wholeRow = false,
   }) {
     final t = context.webTokens;
-    return Padding(
+    final row = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
       child: Row(
         children: [
@@ -103,6 +104,9 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
         ],
       ),
     );
+    return wholeRow
+        ? InkWell(onTap: _saving ? null : onChanged, child: row)
+        : row;
   }
 
   @override
@@ -136,12 +140,14 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
       children: [
         if (context.wideWeb)
           WebCard(
+            radius: 16,
             child: Material(
               color: Colors.transparent,
               child: Column(
                 children: [
                   _webConsentRow(
                     value: _acceptedUsage,
+                    wholeRow: true,
                     label:
                         'Help improve Pantas by sharing anonymous usage data',
                     onChanged: () =>

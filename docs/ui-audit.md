@@ -1610,3 +1610,10 @@ August put `cse-pro` on 38 files.
 General Information and the six topics, or the content is explicitly parked.
 **The generators already exit 65 when it happens; nothing reads that exit
 code**, which is why it ran for days unseen.
+
+
+## October 30, 2026: onboarding wide web second pass
+
+The onboarding wide layouts were audited against the web handoff. Corrected birth-year height, consent-row clicking/card radius, subject controls, and calendar cell sizing. Added L_Restore loading presentation using the shared web components. Existing phone paths and tests were retained. New widget tests exercise light/dark at 1440.
+
+OB_Restoring and L_Restore have shared presentations but no live restore-progress route/caller. No operation stages or counts were fabricated. This remains a lead integration decision. CSE scope and the app's existing sign-in behavior remain. Automated verification and the full board inventory are in `docs/superpowers/plans/pwa-launch/evidence/web-layout-onboarding-r2.md`. Visual acceptance is pending Aedwon's review. No screenshots or browser operations were performed.

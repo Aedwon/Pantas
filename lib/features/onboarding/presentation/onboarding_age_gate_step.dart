@@ -192,6 +192,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
             alignment: Alignment.centerLeft,
             child: SizedBox(
               width: 240,
+              height: 64,
               child: CallbackShortcuts(
                 bindings: {
                   const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
