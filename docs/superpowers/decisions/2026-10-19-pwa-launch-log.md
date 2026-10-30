@@ -2132,3 +2132,21 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   shipping cold start) brought up to the current app on `web/release-e2e-r2` (4f7936b4) and merged
   into staging (ddd9acad; full Flutter suite 5709 passing). They compile and pass the runner's
   contract tests; running them needs an Android emulator (`docs/release-e2e.md`).
+
+## 2026-10-30 Beta: dates, project, free Pro switch
+
+- Context: Firebase billing failed with OR_BACR2_59 on two accounts; a later attempt reached a $50
+  authorization hold Aedwon cannot cover until next week. Aedwon has announced the beta: "emailed them
+  that beta would be ready by Nov 7 and starts at Nov 9". Card expected next week.
+- Beta is free (Aedwon: "beta is free. maybe for beta can you add a temporary setting that lets them
+  turn on Free and Pro?"). Duration: "i did say 7 days is the duration, so Nov 16?" Decision: beta
+  runs Nov 9 to 15; the beta Pro switch ends at 00:00 Nov 16 (Asia/Manila), then the row disappears
+  and testers are ordinary Free users with their progress kept. PayMongo stays in test mode for beta.
+- Project: beta signups already live in pantas-prod Firestore `betaApplications` (written by the
+  pantas-web Cloudflare Worker at pantas.study). Decision (lead recommendation, Aedwon asked where it
+  runs): the beta runs on pantas-prod, app at app.pantas.study; pantas-staging stays for testing. Both
+  projects need Blaze; one billing account covers both.
+- Switch design: a Settings row asks the server for a temporary beta grant, so Pro content stays
+  server-gated; works only while beta mode is on and before the end time. UI preview first.
+- Emulators: the lead advised against running the beta from the Mac on emulators (Aedwon asked); the
+  emulators are used this week only for his local visual check.
