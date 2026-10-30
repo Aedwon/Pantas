@@ -9,9 +9,13 @@ COMMON=(-m gpt-6.1-sol -c 'model_reasoning_effort="low"' -s workspace-write
   --add-dir /opt/homebrew --add-dir ~/.pub-cache --add-dir ~/.dart-tool --add-dir ~/.flutter
   --add-dir ~/development --add-dir /private/tmp --add-dir ~/.cache --add-dir ~/.npm
   ${ORCH_EXTRA_DIRS:+--add-dir "$ORCH_EXTRA_DIRS"} --skip-git-repo-check)
+# Build and fix write to the worktree and need the Flutter, pub and npm caches and network for
+# dependency fetches. Review only reads, so it runs read-only with no network.
+REVIEW=(-m gpt-6.1-sol -c 'model_reasoning_effort="low"' -s read-only -C "$W" ${ORCH_EXTRA_DIRS:+--add-dir "$ORCH_EXTRA_DIRS"} --skip-git-repo-check)
 step() { # $1 stage, $2 prompt
   [ -s "$D/$n.$1.out" ] && grep -q "^STAGE-DONE" "$D/$n.$1.out" && return 0
-  codex-pick exec "${COMMON[@]}" -o "$D/$n.$1.out" "$2" </dev/null > "$D/$n.$1.log" 2>&1; rc=$?
+  if [ "$1" = review ]; then ARGS=("${REVIEW[@]}"); else ARGS=("${COMMON[@]}"); fi
+  codex-pick exec "${ARGS[@]}" -o "$D/$n.$1.out" "$2" </dev/null > "$D/$n.$1.log" 2>&1; rc=$?
   if [ $rc -eq 75 ]; then grep -i "reset" "$D/$n.$1.log" | tail -1 > "$D/CODEX_FULL"; echo "codex full at $1"; exit 75; fi
   echo "$1 exit $rc"
 }
