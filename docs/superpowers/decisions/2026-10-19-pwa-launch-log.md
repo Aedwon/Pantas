@@ -2117,3 +2117,14 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   The welcome screen (B7a) awaits his answer.
 - B7a Welcome screen (same preview, the OB_Welcome board plus the proposed "Starting…" state): Aedwon's
   exact comment: "welcome screens lgtm". Approved as drawn, including "Get Started" from the board.
+
+## 2026-10-30 Returning-visitor splash (B5) and loading skeletons
+
+- Preview `docs/superpowers/plans/pwa-launch/boards/b5-splash-v1.html`: A logo only (recommended),
+  B logo plus wordmark, C logo with a slim activity line. Aedwon's exact comment: "logo plus wordmark
+  looks clean. also ensure the skeleton loading is near-accurate with the screen content".
+- Decisions: option B. The splash uses the app background (#F5F5F7 light, #151515 dark), the lead's
+  stated default, which he did not change. Geist Bold is preloaded from the bundled fonts so the
+  wordmark does not flash in a fallback font.
+- Loading skeletons on every screen (phone and web tiers, light and dark) must closely match the
+  layout of the content they stand in for: same sections, order, card sizes and row counts.
