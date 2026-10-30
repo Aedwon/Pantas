@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
@@ -12,6 +11,7 @@ import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/settings.dart';
 
+import 'support/fixture_quiz_journey.dart';
 import 'support/release_harness.dart';
 import 'support/test_content_fixture.dart';
 import 'support/test_content_seed.dart';
@@ -37,15 +37,11 @@ void main() {
       );
       await installation.dispose();
 
-      final fixedNow = DateTime(2026, 9, 6, 9);
+      final fixedNow = DateTime.utc(2026, 9, 6, 9);
       final harness = ReleaseHarness(
         openContentDatabase: installation.openInstalledContent,
         additionalOverrides: <Override>[
-          authStateProvider.overrideWith(
-            (_) => Stream.value(
-              const AuthState.anonymous(uid: 'release-e2e-anonymous'),
-            ),
-          ),
+          releaseTestCatalogOverride,
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
           ),
@@ -64,7 +60,7 @@ void main() {
 
       await _waitForFinder(
         tester,
-        find.text('Get started'),
+        find.text('Get Started'),
         'onboarding welcome Get started',
       );
       await completeOnboardingThroughUi(tester);
@@ -91,14 +87,11 @@ void main() {
       await settings.updateThemePreference(ThemePreference.dark);
       expect(await settings.readThemePreference(), ThemePreference.dark);
 
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.text('Settings').last);
       await tester.pumpAndSettle();
-      expect(find.text('Settings'), findsOneWidget);
+      expect(find.text('Settings'), findsWidgets);
 
-      await tester.scrollUntilVisible(find.text('Account'), 200);
-      await tester.pumpAndSettle();
-      expect(find.text('Account'), findsOneWidget);
-      await tester.tap(find.text('Account'));
+      await tester.tap(find.text('Release Tester'));
       await tester.pumpAndSettle();
       expect(find.text('Delete my data'), findsOneWidget);
 
@@ -113,7 +106,7 @@ void main() {
         findsOneWidget,
       );
 
-      await tester.tap(find.text('Yes, delete my data'));
+      await tester.tap(find.text('Delete My Data'));
       await tester.pump();
       await _waitForLocalDeletion(harness);
       await tester.pumpAndSettle();
@@ -201,22 +194,21 @@ Future<void> _bookmarkFixtureLesson(
 }
 
 Future<void> _completeFixtureQuickQuiz(WidgetTester tester) async {
-  expect(find.text('Build your study plan'), findsOneWidget);
-  await tester.tap(find.text('Try a quick quiz'));
-  await tester.pumpAndSettle();
+  await startReleaseFixtureQuiz(tester);
 
   for (var answered = 0; answered < 3; answered += 1) {
     await _answerVisibleFixtureQuestion(tester);
     await tester.pumpAndSettle();
 
-    final done = find.text('Done').evaluate().isNotEmpty;
+    await tapReleaseControl(tester, find.text('Check'));
+    final done = find.text('Finish').evaluate().isNotEmpty;
     final next = find.text('Next').evaluate().isNotEmpty;
     expect(done || next, isTrue);
-    await tester.tap(done ? find.text('Done') : find.text('Next'));
+    await tester.tap(done ? find.text('Finish') : find.text('Next'));
     await tester.pumpAndSettle();
   }
 
-  expect(find.text('To come back to'), findsOneWidget);
+  expect(find.text('Session finished.'), findsOneWidget);
 }
 
 Future<void> _answerVisibleFixtureQuestion(WidgetTester tester) async {
@@ -258,14 +250,20 @@ Future<void> _startFixtureMock(
   await tester.tap(find.text('Quiz'));
   await tester.pumpAndSettle();
 
-  await _waitForFinder(tester, find.text('Take the exam'), 'mock take button');
-  await tester.tap(find.text('Take the exam'));
+  await tester.scrollUntilVisible(
+    find.text('Take the Exam'),
+    200,
+    scrollable: find.byType(Scrollable).first,
+  );
+  await _waitForFinder(tester, find.text('Take the Exam'), 'mock take button');
+  await tapReleaseControl(tester, find.text('Take the Exam'));
   await tester.pumpAndSettle();
   expect(find.text('Release E2E Mock Blueprint'), findsOneWidget);
-  expect(find.text('Start mock'), findsOneWidget);
+  expect(find.text('Start the Mock Exam'), findsOneWidget);
 
-  await tester.tap(find.text('Start mock'));
+  await tester.tap(find.text('Start the Mock Exam'));
   await tester.pump();
+  await tapReleaseControl(tester, find.text('Start the Paper'));
 }
 
 Future<void> _waitForMockProgress(

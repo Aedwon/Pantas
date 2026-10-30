@@ -56,6 +56,7 @@ void main() {
       );
       for (final question in questions) {
         expect(question['topic'], {'_ref': ReleaseTestContentIds.topic});
+        expect(question['lesson'], {'_ref': ReleaseTestContentIds.lesson});
         expect(question['examIds'], <Object>[
           {'_ref': ReleaseTestContentIds.exam},
         ]);

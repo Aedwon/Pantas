@@ -1,16 +1,18 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/content_database_opener.dart' as content_db;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/database_opener.dart' as app_db;
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 
 typedef ReleaseAppDatabaseOpener = Future<AppDatabase> Function();
 typedef ReleaseContentDatabaseOpener = Future<ContentDatabase> Function();
@@ -58,6 +60,11 @@ final class ReleaseHarness {
         overrides: <Override>[
           appDatabaseProvider.overrideWithValue(appDatabase),
           contentDatabaseProvider.overrideWithValue(contentDatabase),
+          authStateProvider.overrideWith(
+            (_) => Stream.value(
+              const AuthState.anonymous(uid: 'release-e2e-anonymous'),
+            ),
+          ),
           ..._additionalOverrides,
         ],
       );
@@ -114,39 +121,78 @@ final class ReleaseHarness {
   }
 }
 
+Future<void> tapReleaseControl(WidgetTester tester, Finder target) async {
+  await waitUntil(
+    () async {
+      await tester.pump(const Duration(milliseconds: 50));
+      return target.evaluate().length == 1;
+    },
+    deadline: DateTime.now().add(const Duration(seconds: 10)),
+    diagnostics: () => 'waiting for $target',
+    delay: tester.pump,
+  );
+  await tester.ensureVisible(target);
+  await tester.pumpAndSettle();
+  await tester.tap(target);
+  await tester.pumpAndSettle();
+}
+
 Future<void> completeOnboardingThroughUi(
   WidgetTester tester, {
-  String examName = 'Release E2E Exam',
+  String examId = 'release-e2e-exam',
   String studentName = 'Release Tester',
 }) async {
-  await tester.tap(find.text('Get started'));
-  await tester.pumpAndSettle();
+  Finder within(String step, Finder target) => find.descendant(
+        of: find.byKey(ValueKey<String>(step)),
+        matching: target,
+      );
+  Future<void> tap(String step, String label) =>
+      tapReleaseControl(tester, within(step, find.text(label)));
 
-  await tester.drag(
-    find.byType(CupertinoPicker),
-    const Offset(0, -40),
+  await tap('welcome', 'Get Started');
+  // The birth-year wheel starts at age 14. Continue through the real age gate.
+  await tap('ageGate', 'Continue');
+  await tapReleaseControl(
+    tester,
+    within(
+      'consent',
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is ListRow &&
+            widget.title ==
+                'I agree to the Terms of Service and Privacy Policy.',
+      ),
+    ),
   );
+  await tap('consent', 'Continue');
+  final exam = within('picker', find.byKey(ValueKey('exam-$examId')));
+  await waitUntil(
+    () async {
+      await tester.pump();
+      return exam.evaluate().isNotEmpty;
+    },
+    deadline: DateTime.now().add(const Duration(seconds: 10)),
+    diagnostics: () => 'waiting for exam $examId',
+    delay: tester.pump,
+  );
+  await tapReleaseControl(tester, exam);
+  await tap('picker', 'Continue');
+  // Published dates may show a confirmation first. Choose an unknown date.
   await tester.pumpAndSettle();
-  await tester.tap(find.text('Continue'));
-  await tester.pumpAndSettle();
-
-  await tester.tap(find.textContaining('I agree to the'));
+  final differentDate = within('examDate', find.text('Different Date'));
+  if (differentDate.evaluate().isNotEmpty) {
+    await tapReleaseControl(tester, differentDate);
+  }
+  await tap('examDate', "I don't know");
+  await tapReleaseControl(
+    tester,
+    within('studyDays', find.byKey(const ValueKey('study-day-1'))),
+  );
+  await tap('studyDays', 'Continue');
+  final name = within('name', find.byType(TextField));
+  await tester.enterText(name, studentName);
   await tester.pump();
-  await tester.tap(find.text('Continue'));
-  await tester.pumpAndSettle();
-
-  await tester.tap(find.text(examName));
-  await tester.pump();
-  await tester.tap(find.text('Continue'));
-  await tester.pumpAndSettle();
-
-  await tester.tap(find.text("I don't know yet"));
-  await tester.pumpAndSettle();
-
-  await tester.enterText(find.byType(TextField), studentName);
-  await tester.pump();
-  await tester.tap(find.text('Done'));
-  await tester.pumpAndSettle();
+  await tap('name', 'Done');
 }
 
 Future<void> waitUntil(
