@@ -2151,3 +2151,13 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Emulators: the lead advised against running the beta from the Mac on emulators (Aedwon asked); the
   emulators are used this week only for his local visual check.
 - Beta Pro switch preview (`docs/superpowers/plans/pwa-launch/boards/beta-pro-switch-v1.html`, row directly below Pantas Pro): Aedwon, "yeah lgtm". Prod Hosting site is `pantas-prod` (the only site, checked with the CLI).
+
+## 2026-10-30 CSE content export readiness for the beta
+
+- Engineering asked (via Aedwon) for four content fixes so the export and upload dry run pass by
+  Nov 3. Two visual-media cartoons (PNG) had no source credit. Options: credit them (no known source
+  or license) or replace them with original SVGs from the existing briefs (recommended; also fixes the
+  lesson size). Aedwon's exact comment: "Replace with SVGs".
+- Result: `content/cse-rewrite-r1` 85961bca, status at be6ab491 (pushed). Both checks pass with
+  engineering's tools from `web/staging-candidate-r1` ea0aa5bf: 64 links and 116 tags (engineering
+  expected 115), no invalid sources. `assets.json` was not generated; the export passes without it.
