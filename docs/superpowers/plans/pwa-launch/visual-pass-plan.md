@@ -3,6 +3,44 @@
 Owner: Claude lead. Started Oct 31. Handoff file: any lead (another account) continues from the
 progress table below. Update it after every screen or batch.
 
+## HANDOFF for the next orchestrator (read this first)
+
+State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at 96%):
+
+1. Policy: fetch `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/orchestrator.md` from origin/main.
+   Reply rules for Aedwon: short, plain, no em dashes, American spelling.
+2. Goal: make the web app match the approved Claude Design boards (Aedwon's request quoted in
+   "Why"). Area order and state: the progress table below. Only onboarding has started.
+3. Setup that already works:
+   - Boards: `/Users/aedwon/Documents/Projects/Pantas/web-design/pantas-handoff/web/project/*.dc.html`
+     (untracked). `support.js` (Claude Design runtime) is now next to them, so templated boards render.
+   - App: from `/Users/aedwon/Documents/Projects/Pantas-wt-staging-candidate-r1` run
+     `tools/local/run_web_local.sh` (no `--lan`) in the background; ready when
+     http://localhost:7357 answers and emulators finish (about 1 to 2 minutes). Aedwon's own
+     "Pantas Local Test" run uses the same ports: only one at a time. Stop with `pkill -f run_web_local`.
+   - Capture scripts in `build/visual-pass/` of that worktree (gitignored): `capture.mjs` (helpers;
+     its DARK_RULES board patch is invented, do not use it), `ob_pairs.mjs` (first 6 steps),
+     `ob_pairs3.mjs` (latest: state boards, verification print of each app screen's labels,
+     real runtime). Output `shots/ob/<BOARD>-pair.png` (board left, app right, top 640 px).
+   - App driving: `http://localhost:7357/?localAccount=free`, click `#pw-start`, click
+     `flt-semantics-placeholder` to enable semantics, then click elements by aria-label.
+4. Open script problems (latest run):
+   - "My exam isn't listed" click does not open the custom flow (CustomName and CustomCover shots
+     show the picker). Find its real semantics label.
+   - Date day click: day cells are labeled by bare numbers ("10", "11"); check OB_DateMonth and
+     OB_DateDay shots actually show a month and day picked.
+   - AgeBlocked (ArrowUp x4 from 2012) and Days (click Mon..Sat) and Name: not yet visually checked.
+   - Always check the printed labels or the image before comparing a pair.
+5. Next steps: finish onboarding comparisons (pairs not yet viewed are listed in the findings
+   below), then write the full difference list into `docs/ui-audit.md` "Visual pass" on branch
+   `web/visual-check-fixes-r1` (worktree `Pantas-wt-vc-fixes-r1`), fix (Codex Sol via `codex-pick`
+   if it has room, otherwise yourself), re-capture to confirm, fast-forward staging, then the next
+   area. Show Aedwon side-by-side images for anything that needs his judgment.
+6. Not done and out of scope here: dark mode and 1180/390 comparisons (boards are light 1440;
+   check the board map for which families have phone boards), Gemini runs (quota until about Nov 5).
+7. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
+   Aedwon asked to track usage per step; note it in the findings.
+
 ## Why
 
 Aedwon, Oct 31: "ui looks terrible. some parts do not look like what was presented to me in Claude
@@ -145,6 +183,8 @@ Second run (`ob_pairs2.mjs`, pairs cropped to the top 640 px to save image cost)
   needs a day picked before Continue works (Name shot shows Days); the "isn't listed" click did not
   open the custom flow; date month and day labels are dumped to `shots/ob/date*-labels.txt` for
   the month and day click patterns. Check every `-app.png` shows the intended screen before comparing.
+- Pairs captured by `ob_pairs3.mjs` but not viewed yet: OB_AgeBlocked, OB_Days, OB_Name,
+  OB_DatePick, OB_DateMonth, OB_DateDay, OB_Terms (re-captured with the real runtime).
 - OB_Days (app only, board unreadable): the app's day chips and "Every Day" plus disabled Continue
   row are present; compare once the board renders.
 
