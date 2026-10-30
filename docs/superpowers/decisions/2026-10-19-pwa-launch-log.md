@@ -2041,3 +2041,18 @@ by choice text, not a `gapLesson` field in the rationale as the spec says; engin
   checking; the lead does not capture screenshots.
 - Complexity: the lead chose balanced in Aedwon's absence (he asked for unattended work). Scope and
   any decision the boards leave open are listed in the spec for his morning review.
+
+## 2026-10-30 Tablet layouts, keyboard hints and Home cards
+
+- Breakpoints (lead recommendation, Aedwon: "ok your reco sounds good to me. apply"): under 600 px
+  phone layout; 600 to 1023 px phone layout in a centered column about 640 px wide; 1024 to 1279 px
+  desktop content with the phone bottom navigation at its phone width (358 px, centered); 1280 px and
+  up the full desktop layout with the sidebar.
+- Tablet landscape preview (`tablet-landscape.html`, bar at 358 px): Aedwon, "looks good to me!".
+  He asked for a shorter bar first ("it's too wide. make it shorter").
+- Search is desktop only. Aedwon: "search is a desktop feature only. they can search in Study though".
+- Keyboard hints (.kc labels): hidden by default on touch-first devices; shown from the start on
+  devices with a fine pointer; shown on any device after the first hardware key press, for that visit.
+  Shortcuts always work. Aedwon approved the recommendation (quote above).
+- Home: "Your record" and "Your tendencies" each get their own white card (dark: card token).
+  Aedwon: "Your record and Your tendencies should have their own white background btw".
