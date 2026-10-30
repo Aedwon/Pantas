@@ -13,6 +13,8 @@ export interface Grant {
   examId?: string;
   sitting?: Sitting;
   unusedDuplicateOf?: string;
+  /** Set when a payment can never give access (for example paid after its sitting ended). */
+  unusableReason?: string;
   revokedReason?: string;
   disputeId?: string;
   disputeResolved?: boolean;

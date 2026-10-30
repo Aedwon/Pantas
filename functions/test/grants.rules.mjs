@@ -15,6 +15,7 @@ before(async () => {
     await setDoc(doc(db, 'users/grant-rules/server/trial'), {usedAt: 1, grantId: 'trial'});
     await setDoc(doc(db, 'paymongoPayments/pay_1'), {uid: 'grant-rules'});
     await setDoc(doc(db, 'paymongoRevocations/pay_1'), {reason: 'refund.succeeded'});
+    await setDoc(doc(db, 'paymongoSittingMoves/exam_cse_pro:2027-03-14'), {to: '2027-03-21'});
   });
 });
 after(async () => env.cleanup());
@@ -46,5 +47,8 @@ test('the trial record, payment index and webhook ledgers stay server-only', asy
   await assertFails(getDoc(doc(own, 'paymongoRevocations/pay_1')));
   await assertFails(setDoc(doc(own, 'paymongoRevocations/pay_9'), {reason: 'x'}));
   await assertFails(deleteDoc(doc(own, 'paymongoRevocations/pay_1')));
+  await assertFails(getDoc(doc(own, 'paymongoSittingMoves/exam_cse_pro:2027-03-14')));
+  await assertFails(setDoc(doc(own, 'paymongoSittingMoves/exam_cse_pro:2027-03-15'), {to: '2027-03-22'}));
+  await assertFails(deleteDoc(doc(own, 'paymongoSittingMoves/exam_cse_pro:2027-03-14')));
   await assertFails(getDoc(doc(own, 'webhookEvents/evt_1/users/grant-rules')));
 });

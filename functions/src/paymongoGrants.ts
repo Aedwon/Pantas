@@ -74,13 +74,45 @@ function replanBehind(grants: ReadonlyMap<string, Grant>, changedId: string, thr
     cursor = Math.max(cursor, g.endsAt);
   }
   for (const [id, g] of movers) {
-    const prepaid = webProduct(g.product)?.prepaid;
-    const fullEnd = prepaid && prepaid.unit !== 'sitting' ? addPrepaid(cursor, prepaid)
-      : cursor + (fullEndOf(g) - g.startsAt);
-    const paid = g.paidAmount ?? (webProduct(g.product)?.webPricePhp ?? 0) * 100;
-    const endsAt = shortenedEnd(cursor, fullEnd, refundedTotal(g), paid);
-    out.set(id, {...g, startsAt: cursor, endsAt, ...(g.fullEndsAt !== undefined || g.refunds ? {fullEndsAt: fullEnd} : {})});
-    cursor = endsAt;
+    const moved = startAt(g, cursor);
+    out.set(id, moved);
+    cursor = moved.endsAt;
+  }
+  return out;
+}
+
+/** The same paid length (and refunded share) starting at a new time. */
+function startAt(g: Grant, start: number): Grant {
+  const prepaid = webProduct(g.product)?.prepaid;
+  const fullEnd = prepaid && prepaid.unit !== 'sitting' ? addPrepaid(start, prepaid)
+    : start + (fullEndOf(g) - g.startsAt);
+  const paid = g.paidAmount ?? (webProduct(g.product)?.webPricePhp ?? 0) * 100;
+  const endsAt = shortenedEnd(start, fullEnd, refundedTotal(g), paid);
+  return {...g, startsAt: start, endsAt, ...(g.fullEndsAt !== undefined || g.refunds ? {fullEndsAt: fullEnd} : {})};
+}
+
+/**
+ * After native (store or promotional) coverage changes, web grants that were queued behind
+ * coverage that no longer exists start earlier, in order: no later than the end of whatever
+ * coverage is still live, and never later than before. Each keeps its paid length.
+ */
+export function reanchorQueued(grants: ReadonlyMap<string, Grant>, native: readonly Grant[],
+  now: number): Map<string, Grant> {
+  const out = new Map(grants);
+  const movers = [...out].filter(([, g]) => g.state === 'active' && stackable(g) &&
+    g.startsAt > now && g.endsAt > g.startsAt).sort((a, b) => a[1].startsAt - b[1].startsAt);
+  const waiting = new Set(movers.map(([id]) => id));
+  for (const [id, g] of movers) {
+    const rank = TIER_ORDER.indexOf(g.tier);
+    let cursor = now;
+    for (const row of native) if (TIER_ORDER.indexOf(row.tier) >= rank) cursor = Math.max(cursor, row.endsAt);
+    for (const [otherId, other] of out) {
+      if (otherId === id || waiting.has(otherId) || other.state !== 'active' ||
+          TIER_ORDER.indexOf(other.tier) < rank) continue;
+      cursor = Math.max(cursor, other.endsAt);
+    }
+    if (cursor < g.startsAt) out.set(id, startAt(g, cursor));
+    waiting.delete(id);
   }
   return out;
 }
@@ -88,7 +120,9 @@ function replanBehind(grants: ReadonlyMap<string, Grant>, changedId: string, thr
 export const replanAfterRevoke = (grants: ReadonlyMap<string, Grant>, revokedId: string, now: number) =>
   replanBehind(grants, revokedId, grants.get(revokedId)?.endsAt ?? Infinity, now);
 
-export type GrantOutcome = 'granted' | 'duplicate' | 'noSitting' | 'bornRevoked' | 'unusedDuplicate';
+export type GrantOutcome = 'granted' | 'duplicate' | 'noSitting' | 'bornRevoked' | 'unusedDuplicate' | 'paidAfterSitting';
+
+type Resolutions = Record<string, 'won' | 'lost'>;
 
 export async function commitPaymongoGrant(db: Firestore, input: {uid: string; eventId: string;
   sessionId: string; paymentId: string; paidAmount: number; product: WebProduct; paidAt: number; sitting?: Sitting}, now: number,
@@ -104,27 +138,52 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
     const version = Number(inputs.record.get('version') ?? 0);
     if (dedupe.exists) return 'duplicate';
     if (paid.exists) {transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return 'duplicate';}
+    // A postponement saved after this checkout bound its sitting moves the payment too.
+    let sitting = input.sitting;
+    for (let hop = 0; sitting && product.examId && hop < 8; hop++) {
+      const move = await transaction.get(db.doc(`paymongoSittingMoves/${product.examId}:${sitting.firstDay}`));
+      const target = move.exists ? catalog.find(e => e.id === product.examId)?.publishedSittings
+        .find(s => s.firstDay === move.get('to') && s.sourceUrl.length > 0) : undefined;
+      if (!target || target.firstDay === sitting.firstDay) break;
+      sitting = target;
+    }
+    const sittingEnd = sitting ? endOfSitting(sitting) : undefined;
+    // Paid after the sitting ended: the pass can never be used and the money goes back.
+    const late = product.prepaid.unit === 'sitting' && sittingEnd !== undefined && input.paidAt > sittingEnd;
     const plan = product.prepaid.unit === 'sitting'
-      ? (input.sitting ? {startsAt: input.paidAt, endsAt: endOfSitting(input.sitting)} : null)
+      ? (sittingEnd !== undefined ? {startsAt: Math.min(input.paidAt, sittingEnd), endsAt: sittingEnd} : null)
       : planGrant(product, [...inputs.grants.values(), ...nativeCoverageRows(inputs, input.paidAt)], input.paidAt, catalog);
-    const binding = {paidAt: input.paidAt, ...(input.sitting ? {sitting: input.sitting, examId: product.examId!} : {})};
+    const binding = {paidAt: input.paidAt, ...(sitting ? {sitting, examId: product.examId!} : {})};
     const followUp = db.doc(`paymongoFollowUps/${grantDocId(paymentId)}`);
     const priorFollowUp = await transaction.get(followUp);
-    const duplicatePass = product.kind === 'pass' && input.sitting ?
+    const duplicatePass = product.kind === 'pass' && sitting ?
       [...inputs.grants, ...nativeCoverageRows(inputs, input.paidAt).map((g, i): [string, Grant] => [`native_${i}`, g])].find(([, g]) => g.product === product.id && g.state === 'active' &&
-        (g.sitting?.firstDay === input.sitting!.firstDay ||
+        (g.sitting?.firstDay === sitting!.firstDay ||
           (plan !== null && g.startsAt <= input.paidAt && g.endsAt >= plan.endsAt))) : undefined;
     // A refund or dispute that arrived first is carried in the tombstone: the grant is born
-    // revoked (dispute or refunds covering the payment) or already shortened.
+    // revoked (live dispute or refunds covering the payment) or already shortened. A dispute
+    // already won is ignored; one already lost stays revoked and resolved.
     const early = revokedEarly.exists ? revokedEarly.data() as {refunds?: Record<string, number>;
-      disputed?: boolean; reason?: string; disputeId?: string} : undefined;
+      disputed?: boolean; reason?: string; disputeId?: string; resolutions?: Resolutions} : undefined;
     const earlyRefunds = Object.values(early?.refunds ?? {}).reduce((a, b) => a + b, 0);
-    if (early && (early.disputed || earlyRefunds >= input.paidAmount)) {
+    const outcome = early?.disputeId ? early.resolutions?.[early.disputeId] : undefined;
+    const disputeLive = early?.disputed === true && outcome !== 'won';
+    const refundOwed = !!(duplicatePass || late) && earlyRefunds < input.paidAmount;
+    const unusable = duplicatePass ? {reason: 'unusedDuplicatePass'}
+      : late ? {reason: 'paidAfterSitting'} : undefined;
+    const flagRefund = () => transaction.set(followUp, {uid, paymentId, product: product.id, sessionId: input.sessionId,
+      reason: unusable!.reason, status: 'pending', refundRequired: true,
+      ...(duplicatePass ? {activeGrantId: duplicatePass[0]} : {})});
+    if (early && (disputeLive || earlyRefunds >= input.paidAmount)) {
       const grant: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
         startsAt: plan?.startsAt ?? now, endsAt: plan?.endsAt ?? now, paymentId, paidAmount: input.paidAmount,
-        refunds: early.refunds ?? {}, state: 'revoked', createdAt: now};
+        refunds: early.refunds ?? {}, state: 'revoked', createdAt: now,
+        ...(refundOwed && duplicatePass ? {unusedDuplicateOf: duplicatePass[0]} : {}),
+        ...(refundOwed && late ? {unusableReason: 'paidAfterSitting'} : {})};
       transaction.set(grantRef, {...grant, revokedAt: now, revokedReason: early.reason ?? 'revoked',
-        ...(early.disputeId ? {disputeId: early.disputeId} : {})});
+        ...(early.disputeId ? {disputeId: early.disputeId} : {}),
+        ...(early.disputed && outcome === 'lost' ? {disputeResolved: true} : {})});
+      if (refundOwed) flagRefund();
       transaction.set(payment, {uid, grantId: grantDocId(paymentId), sessionId: input.sessionId, createdAt: now});
       transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
       transaction.create(db.collection('audit_logs').doc(), {uid, event: 'paymongoGrantBornRevoked',
@@ -138,21 +197,24 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
         timestamp: FieldValue.serverTimestamp(), metadata: {paymentId, product: product.id}});
       return 'noSitting';
     }
-    if (duplicatePass) {
+    if (unusable) {
       const unused: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
-        startsAt: input.paidAt, endsAt: input.paidAt, paymentId, paidAmount: input.paidAmount,
-        state: 'revoked', createdAt: now, unusedDuplicateOf: duplicatePass[0]};
+        startsAt: Math.min(input.paidAt, plan.endsAt), endsAt: Math.min(input.paidAt, plan.endsAt), paymentId,
+        paidAmount: input.paidAmount, state: 'revoked', createdAt: now,
+        ...(duplicatePass ? {unusedDuplicateOf: duplicatePass[0]} : {unusableReason: unusable.reason})};
       transaction.set(grantRef, unused);
       transaction.set(payment, {uid, grantId: grantDocId(paymentId), sessionId: input.sessionId, createdAt: now});
-      transaction.set(followUp, {uid, paymentId, product: product.id, sessionId: input.sessionId,
-        reason: 'unusedDuplicatePass', status: 'pending', refundRequired: true, activeGrantId: duplicatePass[0]});
+      flagRefund();
       transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
-      return 'unusedDuplicate';
+      if (late) transaction.create(db.collection('audit_logs').doc(), {uid, event: 'paymongoPaidAfterSitting',
+        timestamp: FieldValue.serverTimestamp(), metadata: {paymentId, product: product.id}});
+      return late && !duplicatePass ? 'paidAfterSitting' : 'unusedDuplicate';
     }
     if (priorFollowUp.exists) transaction.update(followUp, {status: 'resolved'});
     const grant: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
       startsAt: plan.startsAt, endsAt: plan.endsAt, paymentId, paidAmount: input.paidAmount,
-      refunds: {}, fullEndsAt: plan.endsAt, state: 'active', createdAt: now};
+      refunds: {}, fullEndsAt: plan.endsAt, state: 'active', createdAt: now,
+      ...(early?.disputed && outcome === 'won' ? {disputeId: early.disputeId, disputeResolved: true} : {})};
     if (early && earlyRefunds > 0) {
       grant.refunds = early.refunds ?? {};
       grant.endsAt = shortenedEnd(plan.startsAt, plan.endsAt, earlyRefunds, input.paidAmount);
@@ -190,19 +252,30 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       const existing = await transaction.get(tombstone);
       const refunds = {...(existing.get('refunds') as Record<string, number> | undefined)};
       for (const r of input.refunds ?? []) if (!(r.id in refunds)) refunds[r.id] = r.amount;
+      const resolutions = existing.get('resolutions') as Resolutions | undefined;
       transaction.set(tombstone, {reason: existing.get('reason') ?? input.reason, eventId: existing.get('eventId') ?? eventId,
-        createdAt: existing.get('createdAt') ?? now, refunds,
-        ...(input.disputeId ? {disputeId: input.disputeId} : {}), disputed: existing.get('disputed') === true || input.dispute === true});
+        createdAt: existing.get('createdAt') ?? now, refunds, ...(resolutions ? {resolutions} : {}),
+        ...(input.disputeId ?? existing.get('disputeId') ? {disputeId: input.disputeId ?? existing.get('disputeId')} : {}),
+        disputed: existing.get('disputed') === true || input.dispute === true});
       return {outcome: 'unmatched' as const};
     }
     const revokeEventRef = db.doc(`webhookEvents/${eventId}/users/${uid}`);
     const dedupe = await transaction.get(revokeEventRef);
+    // A resolution that arrived before this dispute.created is applied now.
+    const recorded = input.dispute && input.disputeId
+      ? ((await transaction.get(tombstone)).get('resolutions') as Resolutions | undefined)?.[input.disputeId] : undefined;
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const id = grantDocId(paymentId);
     const grant = inputs.grants.get(id);
     const version = Number(inputs.record.get('version') ?? 0);
     if (dedupe.exists) return {outcome: 'duplicate' as const, uid};
     if (!grant || (grant.state !== 'active' && input.dispute)) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
+    if (recorded === 'won') {
+      // Already won: the grant is never revoked. Only the dispute is noted on it.
+      transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeId: input.disputeId, disputeResolved: true});
+      transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
+      return {outcome: 'duplicate' as const, uid};
+    }
     let next: Grant = input.dispute ? {...grant, state: 'revoked'} : grant;
     for (const r of input.refunds ?? []) next = applyRefund(next, r.id, r.amount, now);
     if (next === grant) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
@@ -212,7 +285,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     const ref = (gid: string) => db.doc(`users/${uid}/grants/${gid}`);
     transaction.update(ref(id), {state: next.state, endsAt: next.endsAt, refunds: next.refunds ?? {},
       ...(next.fullEndsAt !== undefined ? {fullEndsAt: next.fullEndsAt} : {}),
-      ...(input.dispute && input.disputeId ? {disputeId: input.disputeId, disputeResolved: false} : {}),
+      ...(input.dispute && input.disputeId ? {disputeId: input.disputeId, disputeResolved: recorded === 'lost'} : {}),
       ...(next.state === 'revoked' ? {revokedAt: now, revokedReason: grant.revokedReason ?? input.reason} : {})});
     for (const [otherId, other] of replanned) {
       const before = inputs.grants.get(otherId);
@@ -227,19 +300,28 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
   });
 }
 
-/** A win restores only this dispute's revocation, without buying any extra time. */
+/**
+ * A win restores only this dispute's revocation, without buying any extra time. A resolution
+ * that arrives before the payment is known, or before its dispute.created, is recorded in the
+ * payment's tombstone so the later event applies the final outcome.
+ */
 export async function resolvePaymongoDispute(db: Firestore, input: {eventId: string;
   paymentId: string; disputeId: string; won: boolean}, now: number): Promise<string | undefined> {
   return db.runTransaction(async transaction => {
-    const paid = await transaction.get(db.doc(`paymongoPayments/${grantDocId(input.paymentId)}`));
+    const tombstone = db.doc(`paymongoRevocations/${grantDocId(input.paymentId)}`);
+    const [paid, existing] = await transaction.getAll(db.doc(`paymongoPayments/${grantDocId(input.paymentId)}`), tombstone);
     const uid = paid.get('uid') as string | undefined;
-    if (!uid) return undefined;
+    const record = () => transaction.set(tombstone, {createdAt: existing.get('createdAt') ?? now,
+      resolutions: {...(existing.get('resolutions') as Resolutions | undefined),
+        [input.disputeId]: input.won ? 'won' : 'lost'}}, {merge: true});
+    if (!uid) {record(); return undefined;}
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const id = grantDocId(input.paymentId);
     const grant = inputs.grants.get(id);
+    if (grant?.state === 'active' && grant.disputeId !== input.disputeId) {record(); return uid;}
     if (!grant || grant.state !== 'revoked' || grant.revokedReason !== 'dispute.created' ||
         grant.disputeId !== input.disputeId || grant.disputeResolved) return uid;
-    const restore = input.won && refundedTotal(grant) === 0 && !grant.unusedDuplicateOf;
+    const restore = input.won && refundedTotal(grant) === 0 && !grant.unusedDuplicateOf && !grant.unusableReason;
     const next: Grant = {...grant, disputeResolved: true, ...(restore ? {state: 'active'} : {})};
     transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true,
       ...(restore ? {state: 'active', revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});

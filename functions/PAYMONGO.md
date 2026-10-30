@@ -64,6 +64,14 @@ What the code does:
   writes an audit row (`paymongoRefundAmountUnverified`) and returns 500.
 - The tombstone carries the refund map and a dispute flag, so a grant created later is born
   shortened, or revoked when the refunds cover the payment or a dispute was recorded.
+- A `dispute.resolved` that arrives before the paid event or before `dispute.created` is saved in the same
+  tombstone by dispute id. The later event applies it: a win keeps or creates an active grant with the original
+  dates, a loss leaves it revoked. A pass bought twice, or paid after its sitting ended, never becomes active
+  again after a win and carries `refundRequired` in its follow-up.
+- A sitting postponement is saved in `paymongoSittingMoves/{examId}:{oldFirstDay}` so a paid event processed
+  later maps to the new sitting.
+- When a RevenueCat answer removes native coverage, queued web grants start no later than now and keep their length.
+  RevenueCat promotional entitlements count as native coverage.
 - Revoking a grant moves later stacked grants of the same account and tier that have not started
   earlier, in the same transaction, keeping each length. A grant covers only
   `[startsAt, endsAt)`.

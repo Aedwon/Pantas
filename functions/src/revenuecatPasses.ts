@@ -82,6 +82,7 @@ export async function preparePassReconciliation(transaction: Transaction, db: Fi
   }
   return {
     passes: livePasses(rows.values()),
+    rows: [...rows.values()],
     apply: () => {
       for (const [id,row] of rows) transaction.set(own.doc(id), row);
       for (const [id,owner] of owners) transaction.set(db.doc(`passOwners/${id}`), owner);
@@ -98,6 +99,15 @@ export async function recomputePassRecords(db: Firestore, catalog: CatalogExam[]
   moves: Record<string, string> = {}): Promise<number> {
   let last;
   let changed = 0;
+  // Keep each move so a payment whose grant has not been created yet maps to the new sitting.
+  for (const [key, to] of Object.entries(moves)) {
+    const [examId, from] = key.split(':');
+    const published = catalog.find(exam => exam.id === examId)?.publishedSittings
+      .some(sitting => sitting.firstDay === to && sitting.sourceUrl.length > 0);
+    if (published && from !== to) {
+      await db.doc(`paymongoSittingMoves/${examId}:${from}`).set({examId, from, to, movedAt: Date.now()});
+    }
+  }
   for (const collection of ['passes', 'grants']) {
     last = undefined;
     while (true) {

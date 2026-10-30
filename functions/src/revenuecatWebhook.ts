@@ -8,7 +8,9 @@ import { claimsForRevenueCatAnswer, normalizeRevenueCatEvent, requireExactRevenu
   verifyRevenueCatSignature, isUnresolvedFirebaseIdentityError, type RevenueCatAccessSource } from './revenuecatPolicy.js';
 import { readRevenueCatCustomer, readRevenueCatPurchases, type RevenueCatPurchase } from './revenuecatSubscriber.js';
 import {ledgerGrants, type Grant} from './grants.js';
-import {preparePassReconciliation, examCatalog, type CatalogExam} from './revenuecatPasses.js';
+import {nativeRowsFor} from './entitlementInputs.js';
+import {reanchorQueued} from './paymongoGrants.js';
+import {preparePassReconciliation, examCatalog, type CatalogExam, type Pass} from './revenuecatPasses.js';
 export { verifyRevenueCatSignature } from './revenuecatPolicy.js';
 
 const apiSecret = defineSecret('REVENUECAT_SECRET_API_KEY');
@@ -65,13 +67,28 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
         const options = {...context,at:answerAt};
         const claim = async (transaction: import('firebase-admin/firestore').Transaction) => {
           // PayMongo and trial grants live beside RevenueCat; a store answer must keep them.
-          const grants = ledgerGrants((await transaction.get(deps.db.collection(`users/${uid}/grants`)))
-            .docs.map(doc => doc.data() as Grant));
-          if (!deps.readPurchases) return {claims:claimsForRevenueCatAnswer(sources,{...options,grants}),apply:()=>{}};
-          const prepared = await preparePassReconciliation(transaction,deps.db,uid,
-            allowedPurchases,deps.catalog ?? examCatalog,answerAt);
-          return {claims:claimsForRevenueCatAnswer(sources,{...options,passes:prepared.passes,grants}),
-            apply:prepared.apply};
+          const grantDocs = (await transaction.get(deps.db.collection(`users/${uid}/grants`))).docs;
+          const stored = new Map(grantDocs.map(doc => [doc.id, doc.data() as Grant]));
+          const prepared = deps.readPurchases ? await preparePassReconciliation(transaction,deps.db,uid,
+            allowedPurchases,deps.catalog ?? examCatalog,answerAt) : undefined;
+          const passRows = prepared ? prepared.rows
+            : (await transaction.get(deps.db.collection(`users/${uid}/passes`))).docs.map(doc => doc.data() as Pass);
+          // Web time queued behind native coverage that is now gone starts no later than now.
+          const native = nativeRowsFor({sources, coverageContext: context}, passRows, answerAt);
+          const grants = reanchorQueued(stored, native, answerAt);
+          const apply = () => {
+            prepared?.apply();
+            for (const [id, g] of grants) {
+              const before = stored.get(id);
+              if (before && (before.startsAt !== g.startsAt || before.endsAt !== g.endsAt)) {
+                transaction.update(deps.db.doc(`users/${uid}/grants/${id}`), {startsAt: g.startsAt, endsAt: g.endsAt,
+                  ...(g.fullEndsAt !== undefined ? {fullEndsAt: g.fullEndsAt} : {})});
+              }
+            }
+          };
+          const ledger = ledgerGrants(grants.values());
+          if (!prepared) return {claims:claimsForRevenueCatAnswer(sources,{...options,grants:ledger}),apply};
+          return {claims:claimsForRevenueCatAnswer(sources,{...options,passes:prepared.passes,grants:ledger}),apply};
         };
         if (sandboxTester && (sources.some(s => s.environment === 'sandbox') ||
             allowedPurchases.some(p => p.environment === 'sandbox' && p.status === 'owned'))) {
