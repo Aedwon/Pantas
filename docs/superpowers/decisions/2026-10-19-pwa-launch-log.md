@@ -2128,3 +2128,7 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   wordmark does not flash in a fallback font.
 - Loading skeletons on every screen (phone and web tiers, light and dark) must closely match the
   layout of the content they stand in for: same sections, order, card sizes and row counts.
+- Release end-to-end scenarios (sync round trip, conflict isolation, mock resume, quiz state,
+  shipping cold start) brought up to the current app on `web/release-e2e-r2` (4f7936b4) and merged
+  into staging (ddd9acad; full Flutter suite 5709 passing). They compile and pass the runner's
+  contract tests; running them needs an Android emulator (`docs/release-e2e.md`).
