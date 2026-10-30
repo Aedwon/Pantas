@@ -2161,3 +2161,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Result: `content/cse-rewrite-r1` 85961bca, status at be6ab491 (pushed). Both checks pass with
   engineering's tools from `web/staging-candidate-r1` ea0aa5bf: 64 links and 116 tags (engineering
   expected 115), no invalid sources. `assets.json` was not generated; the export passes without it.
+- Oct 30: the content lead fixed the export blockers on `content/cse-rewrite-r1` be6ab491. Lead re-ran both checks from staging ea0aa5bf: export reports 64 links and 116 tags (one tag more than the earlier count); upload dry run has no invalid sources (170 lessons, 170 question sets, 1 gap document). The R1 real-data check passes. assets.json is not needed by the current export.
