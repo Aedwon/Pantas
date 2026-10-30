@@ -15,6 +15,7 @@ class SearchField extends StatefulWidget {
     this.titleInset = 0,
     this.fieldEntryDelay,
     this.autofocus = false,
+    this.outlined = false,
     super.key,
   });
   final ValueChanged<String> onChanged;
@@ -25,6 +26,7 @@ class SearchField extends StatefulWidget {
   final double titleInset;
   final Duration? fieldEntryDelay;
   final bool autofocus;
+  final bool outlined;
   @override
   State<SearchField> createState() => _SearchFieldState();
 }
@@ -70,11 +72,14 @@ class _SearchFieldState extends State<SearchField> {
         : const Duration(milliseconds: 300);
     final field = Container(
       key: const ValueKey('search-fill'),
-      constraints: const BoxConstraints(minHeight: 38),
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      constraints: BoxConstraints(minHeight: widget.outlined ? 44 : 38),
+      padding: EdgeInsets.symmetric(horizontal: widget.outlined ? 14 : 10),
       decoration: BoxDecoration(
-        color: context.colors.fill,
-        borderRadius: BorderRadius.circular(11),
+        color: widget.outlined ? context.colors.surface : context.colors.fill,
+        border: widget.outlined
+            ? Border.all(color: context.colors.separator)
+            : null,
+        borderRadius: BorderRadius.circular(widget.outlined ? 12 : 11),
       ),
       child: Row(
         children: [
@@ -89,11 +94,15 @@ class _SearchFieldState extends State<SearchField> {
               controller: _text,
               focusNode: _focus,
               onChanged: widget.onChanged,
-              style: context.type.body,
+              style: widget.outlined
+                  ? context.type.body.copyWith(fontSize: 16)
+                  : context.type.body,
               decoration: InputDecoration(
                 hintText: widget.hint,
-                hintStyle: context.type.body
-                    .copyWith(color: context.colors.searchPlaceholder),
+                hintStyle: context.type.body.copyWith(
+                  fontSize: widget.outlined ? 16 : null,
+                  color: context.colors.searchPlaceholder,
+                ),
                 border: InputBorder.none,
                 isDense: true,
                 contentPadding: const EdgeInsets.symmetric(vertical: 7),

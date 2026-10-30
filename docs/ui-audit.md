@@ -2092,3 +2092,81 @@ Items 1 to 4: implemented and automated checks passed. Independent lead review,
 visual acceptance, commits, integration, and publication remain pending.
 No unresolved stop conditions were encountered. No additional live defect was
 established. Raw local command logs are in `/tmp/vc-*.log`.
+
+## Visual pass: onboarding
+
+2026-10-31. Assignment: `build/vp-ob-brief.md`. Policy: origin/main
+`401262ce`, supplied in `build/policy-*.md`. Branch:
+`web/visual-check-fixes-r1`. Changes remain uncommitted for lead review.
+
+Implemented from the approved 1440-wide OB board styles:
+
+1. Shared step position and Back: use standard desktop density for the 36 px
+   Back control, preserving the board's 40 px top padding and 28 px heading gap.
+   The compact desktop density could reduce the control's height. Replace the
+   Material chevron with the board's 20 px SVG and 2.2 px rounded stroke.
+2. Terms: use standard density for consent rows with 16 px vertical padding and
+   24 px controls, giving 56 px rows. Keep the board's 28 px subtitle-to-card
+   gap. The brief describes a dark disabled label, but explicitly gives board
+   CSS precedence. `OB_Terms` defines `.cta.off` as background `#EDEDF0` and
+   label `#AEAEB2`, with a 12 px radius. Existing web disabled colors and radius
+   already match. They were preserved without adding opacity.
+3. Exam picker: white outlined 44 px search field, 16 px search text, dark
+   14 px filter labels with 500 weight (600 for the selected filter), and pill
+   filter shapes. Add the board's 22 px outlined plus-in-circle and dark custom
+   exam title. Move Coming soon from a third text line into a right-side gray
+   pill with 11 px, 600-weight text and 2 px by 7 px padding. Reuse the existing
+   radio row's trailing slot. Radio controls and the bottom Continue bar remain
+   unchanged as instructed.
+4. Known date: month label is 13 px, weight 700, secondary gray, with .78 px
+   letter spacing. Add the requested 8 px space between the date action buttons.
+5. Date picker: ordinary day cells are transparent. Selected days retain teal.
+   Preserve month tile fills. Use the board's plain 36 px calendar outline with
+   a 1.5 px stroke, and 15 px help text with 1.45 line height. Home currently
+   uses a separate `HomeWebDatePicker`, whose unselected days already use
+   transparent backgrounds. No Home or phone change was needed.
+6. Name and custom exam name: use a 56 px web field with 19 px text. Remove the
+   web input's in-field label, which rendered smaller than entered text. Keep
+   the external label. Phone field dimensions remain unchanged. Age already
+   uses its own board-matching 240 by 64 px field and 28 px text.
+
+Tests updated in `web_onboarding_second_pass_test.dart` for web name field
+height and text, outlined search, heading position, consent row height, and
+unselected/selected calendar fills, in both light and dark themes.
+
+Verification status: **not accepted**, required Flutter checks are blocked.
+The installed Flutter SDK cannot write its cache under this sandbox, so checks
+used a copy at `/private/tmp/pantas-vp-flutter`. No fetch or commit was run.
+
+- Repository-wide `dart --suppress-analytics analyze`, with
+  `ANALYZER_STATE_LOCATION_OVERRIDE=/private/tmp/pantas-vp-analyzer`:
+  `No issues found!` Exit 0. Output: `build/vp-ob-analysis-final.log`.
+- `flutter analyze --no-pub`: attempted, blocked by the analyzer child process
+  writing `/Users/aedwon/.dart-tool/dart-flutter-telemetry-session.json`.
+  Output: `build/vp-ob-analyze.log`. Direct Dart analysis above completed.
+- Focused Flutter tests: onboarding presentation tests and Home date sheet tests
+  attempted. No test body ran. Test loading failed because binding the required
+  `127.0.0.1` server socket is denied (`Operation not permitted`). Output:
+  `build/vp-ob-tests-final.log`, summary `00:00 +0 -19: Some tests failed.`
+  The initial regression run was blocked for the same reason. Red/green testing
+  has not been established.
+- `dart run tool/check_layering.dart`: `check_layering: OK`.
+- `dart run tool/check_no_ai_attribution.dart`: `check_no_ai_attribution: OK`.
+- Formatting and `git diff --check`: checked on the final patch.
+
+No app screenshots were captured. The lead must run the focused Flutter tests,
+run Flutter analysis, and compare the running 1440-wide app to the boards before
+visual acceptance. In particular, confirm the shared top offset and Terms card
+spacing against the new capture. No claim of visual acceptance is made here.
+
+Files touched:
+
+- `lib/core/ui/components/search_field.dart`
+- `lib/features/onboarding/presentation/exam_picker_screen.dart`
+- `lib/features/onboarding/presentation/onboarding_consent_step.dart`
+- `lib/features/onboarding/presentation/onboarding_exam_date_step.dart`
+- `lib/features/onboarding/presentation/onboarding_name_field.dart`
+- `lib/features/onboarding/presentation/onboarding_web_calendar.dart`
+- `lib/features/onboarding/presentation/onboarding_web_page.dart`
+- `test/features/onboarding/presentation/web_onboarding_second_pass_test.dart`
+- `docs/ui-audit.md`

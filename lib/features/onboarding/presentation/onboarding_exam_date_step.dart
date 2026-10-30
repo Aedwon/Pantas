@@ -199,8 +199,14 @@ class _OnboardingExamDateStepState
                     children: [
                       Text(
                         DateFormat('MMM', 'en_US').format(known).toUpperCase(),
-                        style: context.type.caption
-                            .copyWith(fontWeight: FontWeight.w700),
+                        style: context.type.caption.copyWith(
+                          fontSize: context.wideWeb ? 13 : null,
+                          fontWeight: FontWeight.w700,
+                          color: context.wideWeb
+                              ? context.webTokens.colors.secondaryLabel
+                              : null,
+                          letterSpacing: context.wideWeb ? .78 : null,
+                        ),
                       ),
                       Text(
                         '${known.day}',

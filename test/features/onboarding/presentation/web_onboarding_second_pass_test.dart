@@ -11,6 +11,7 @@ import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
+import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -18,6 +19,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_calendar.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
@@ -182,6 +184,43 @@ void main() {
       expect(completed, 1);
     });
 
+    testWidgets('name input uses board height and typed text size $dark',
+        (tester) async {
+      final controller = TextEditingController();
+      addTearDown(controller.dispose);
+      await pump(
+        tester,
+        OnboardingNameField(
+          controller: controller,
+          label: 'Name',
+          onChanged: (_) {},
+        ),
+      );
+      expect(tester.getSize(find.byType(TextField)).height, 56);
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).decoration!.labelText,
+        isNull,
+      );
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).style!.fontSize,
+        19,
+      );
+    });
+
+    testWidgets('outlined exam search uses a white bordered field $dark',
+        (tester) async {
+      await pump(tester, SearchField(outlined: true, onChanged: (_) {}));
+      final fill =
+          tester.widget<Container>(find.byKey(const ValueKey('search-fill')));
+      final decoration = fill.decoration! as BoxDecoration;
+      expect(decoration.color, dark ? const Color(0xFF1F1F1F) : Colors.white);
+      expect(decoration.border, isNotNull);
+      expect(
+        tester.getSize(find.byKey(const ValueKey('search-fill'))).height,
+        44,
+      );
+    });
+
     testWidgets('usage consent label toggles the row $dark', (tester) async {
       await pump(tester, OnboardingConsentStep(onCompleted: () {}));
       const label = 'Help improve Pantas by sharing anonymous usage data';
@@ -191,6 +230,8 @@ void main() {
         find.byWidgetPredicate((w) => w is CheckboxRow && w.title == label),
       );
       expect(row.selected, isTrue);
+      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 168);
+      expect(tester.getSize(find.byType(CheckboxRow).first).height, 56);
       expect(tester.takeException(), isNull);
     });
 
@@ -309,6 +350,15 @@ void main() {
         42,
       );
       expect(tester.getSize(find.widgetWithText(TextButton, '1')).height, 46);
+      final day =
+          tester.widget<TextButton>(find.widgetWithText(TextButton, '5'));
+      expect(day.style!.backgroundColor!.resolve({}), Colors.transparent);
+      final picked =
+          tester.widget<TextButton>(find.widgetWithText(TextButton, '4'));
+      expect(
+        picked.style!.backgroundColor!.resolve({}),
+        isNot(Colors.transparent),
+      );
       expect(
         tester.widget<Text>(find.text('Oct').first).style!.fontWeight,
         FontWeight.w700,

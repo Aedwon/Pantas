@@ -31,8 +31,10 @@ class OnboardingNameField extends StatelessWidget {
         letterSpacing: -.228,
       ),
       decoration: InputDecoration(
-        hintText: context.wideWeb ? null : label,
-        labelText: context.wideWeb ? label : null,
+        hintText: label,
+        constraints:
+            context.wideWeb ? const BoxConstraints.tightFor(height: 56) : null,
+        isDense: context.wideWeb,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
         filled: true,
@@ -42,8 +44,10 @@ class OnboardingNameField extends StatelessWidget {
           fontWeight: FontWeight.w500,
           color: context.colors.tertiaryLabel,
         ),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: context.wideWeb ? 18 : 16,
+          vertical: context.wideWeb ? 16 : 13,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide(color: context.colors.accent, width: 1.5),
