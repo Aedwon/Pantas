@@ -21,6 +21,7 @@ class WebSessionResults extends StatelessWidget {
     required this.onMistakes,
     required this.onNotes,
     this.source,
+    this.debriefCards,
     this.proPaused = false,
     this.onNext,
     this.nextBusy = false,
@@ -33,6 +34,7 @@ class WebSessionResults extends StatelessWidget {
   final bool pro;
   final bool proPaused;
   final String? source;
+  final Widget? debriefCards;
   final VoidCallback onDone;
   final ValueChanged<int> onQuestion;
   final VoidCallback onAll;
@@ -165,6 +167,10 @@ class WebSessionResults extends StatelessWidget {
                       ],
                     ),
                   ),
+                  if (debriefCards != null) ...[
+                    const SizedBox(height: 32),
+                    debriefCards!,
+                  ],
                   if (misses.isNotEmpty) ...[
                     const SizedBox(height: 32),
                     WebText(

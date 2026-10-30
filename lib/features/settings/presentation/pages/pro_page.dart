@@ -864,6 +864,17 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       backLabel: upgrade ? 'Exam' : 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
+        if (widget.checkoutReturnUri?.queryParameters['benefit'] == 'diagnosis')
+          Padding(
+            padding: const EdgeInsets.only(bottom: 24),
+            child: Semantics(
+              header: true,
+              child: Text(
+                'See which lesson your misses trace to',
+                style: context.type.sectionHero,
+              ),
+            ),
+          ),
         if (context.wideWeb && !upgrade) ...[
           WebProHero(
             heading: owned

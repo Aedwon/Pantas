@@ -17,10 +17,13 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/quiz/application/session_debrief_provider.dart';
+import 'package:pantas/features/quiz/data/session_diagnosis_api.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
+import 'package:pantas/features/quiz/presentation/session_debrief_cards.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
 import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
@@ -58,6 +61,8 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
   late Future<CompletedQuizData> _future;
   ProviderSubscription<AsyncValue<CompletedQuizData>>? _subscription;
   bool _rated = false;
+  bool _diagnosisDismissed = false;
+  bool _recommendationBusy = false;
   CompletedQuizRequest get _request => (
         boundary: _boundary,
         attemptId: widget.attemptId,
@@ -298,6 +303,91 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
     );
   }
 
+  Future<void> _recommendation(DebriefRecommendation next) async {
+    if (!_current() || _recommendationBusy) return;
+    if (next.questionIds.isEmpty) {
+      await context.push<void>('/lesson/${Uri.encodeComponent(next.lessonId)}');
+      return;
+    }
+    _recommendationBusy = true;
+    try {
+      final controller = ref.read(quizControllerProvider.notifier);
+      final ownerGuard = await controller.captureLaunchGuard(examId: _exam!);
+      Future<bool> guard() async => _current() && await ownerGuard();
+      await controller.startPracticeFromQuestionIds(
+        examId: _exam!,
+        questionIds: next.questionIds,
+        canPersist: guard,
+      );
+      if (!await guard()) return;
+      final state = ref.read(quizControllerProvider);
+      if (state is! QuizRunning || state.session.examId != _exam) {
+        throw StateError('Practice is unavailable');
+      }
+      if (!mounted) return;
+      await context.push<void>(
+        '/quiz/practice/$_exam/run',
+        extra: (customSessionId: state.session.sessionId),
+      );
+    } on Object {
+      if (mounted && _current()) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not start your quiz.')),
+        );
+      }
+    } finally {
+      _recommendationBusy = false;
+    }
+  }
+
+  Widget? _debrief(
+    CompletedQuizData data, {
+    required bool pro,
+    required bool paused,
+  }) {
+    final plan =
+        ref.watch(sessionDebriefPlanProvider(data.session.examId)).valueOrNull;
+    final diagnosis = paused
+        ? null
+        : ref
+            .watch(sessionDiagnosisProvider(data.session.sessionId))
+            .valueOrNull;
+    final eligible = !_diagnosisDismissed &&
+        !paused &&
+        (diagnosis?.tracedCount ?? 0) > 0 &&
+        (!pro || plan != null);
+    final claimed = eligible &&
+        (ref
+                .watch(sessionDebriefClaimProvider(data.session.sessionId))
+                .valueOrNull ??
+            false);
+    if (plan?.next == null && !claimed) return null;
+    return SessionDebriefCards(
+      plan: plan,
+      diagnosis: diagnosis,
+      pro: pro,
+      paused: paused,
+      wide: context.wideWeb,
+      showDiagnosis: claimed,
+      onDismiss: () => setState(() => _diagnosisDismissed = true),
+      onPaywall: () {
+        if (_current()) {
+          unawaited(context.push<void>('/settings/pro?benefit=diagnosis'));
+        }
+      },
+      onLesson: (id) {
+        if (_current()) {
+          unawaited(context.push<void>('/lesson/${Uri.encodeComponent(id)}'));
+        }
+      },
+      onMistakes: () => unawaited(_all(mistakes: true)),
+      onRecommendation: () {
+        final next = plan?.next;
+        if (next != null) unawaited(_recommendation(next));
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     ref
@@ -334,6 +424,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             attempt: data.attempt,
             subjectNames: data.subjectNames,
             sourceLine: data.sourceLine,
+            debriefCards: _debrief(data, pro: pro, paused: paused),
             proIsActive: pro,
             proPaused: paused,
             onDone: () => _done(data),

@@ -28,6 +28,7 @@ class SessionEndBody extends StatefulWidget {
     required this.onMistakes,
     required this.onNotes,
     this.sourceLine,
+    this.debriefCards,
     this.proPaused = false,
     this.onNext,
     super.key,
@@ -38,6 +39,7 @@ class SessionEndBody extends StatefulWidget {
   final bool proIsActive;
   final bool proPaused;
   final String? sourceLine;
+  final Widget? debriefCards;
   final VoidCallback onDone;
   final ValueChanged<int> onQuestion;
   final VoidCallback onAll;
@@ -202,6 +204,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
         attempt: attempt,
         subjectNames: widget.subjectNames,
         pro: widget.proIsActive,
+        debriefCards: widget.debriefCards,
         proPaused: widget.proPaused,
         source: source,
         onDone: widget.onDone,
@@ -259,6 +262,10 @@ class _SessionEndBodyState extends State<SessionEndBody>
                   ],
                 ),
               ),
+              if (widget.debriefCards != null) ...[
+                const SizedBox(height: 22),
+                widget.debriefCards!,
+              ],
               if (misses.isNotEmpty) ...[
                 const SizedBox(height: 22),
                 _appear(
