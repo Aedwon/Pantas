@@ -7,6 +7,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -64,49 +65,14 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
     required Widget child,
     bool wholeRow = false,
   }) {
-    final t = context.webTokens;
-    final row = Padding(
+    return CheckboxRow(
+      interactiveContent: true,
+      title: label,
+      selected: value,
+      onTap: _saving ? null : onChanged,
+      content: child,
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-      child: Row(
-        children: [
-          Semantics(
-            label: label,
-            checked: value,
-            child: SizedBox.square(
-              dimension: 24,
-              child: TextButton(
-                key: ValueKey(label),
-                onPressed: _saving ? null : onChanged,
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  backgroundColor:
-                      value ? t.colors.accentFill : Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7),
-                    side: value
-                        ? BorderSide.none
-                        : BorderSide(
-                            color: t.colors.controlOutline,
-                            width: 1.5,
-                          ),
-                  ),
-                ),
-                child: value
-                    ? const Icon(Icons.check, size: 15, color: Colors.white)
-                    : const SizedBox.shrink(),
-              ),
-            ),
-          ),
-          const SizedBox(width: 14),
-          Expanded(child: child),
-        ],
-      ),
     );
-    return wholeRow
-        ? InkWell(onTap: _saving ? null : onChanged, child: row)
-        : row;
   }
 
   @override

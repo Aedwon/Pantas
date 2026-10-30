@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -45,7 +46,6 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
     });
   }
 
-  int _selectionSerial = 0;
   int _actionSerial = 0;
   bool _actionReady = false;
   bool _busy = false;
@@ -80,7 +80,6 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
     if (_busy) return;
     setState(() {
       _tag = tag;
-      _selectionSerial++;
       _trackAction();
       _failed = false;
       _retry = null;
@@ -168,42 +167,24 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                   for (final (i, reason) in reasons.indexed)
                     SizedBox(
                       width: 196,
-                      child: Semantics(
-                        checked: _tag == reason.$1,
-                        inMutuallyExclusiveGroup: true,
-                        child: TextButton(
-                          onPressed: _busy ? null : () => _choose(reason.$1),
-                          style: TextButton.styleFrom(
-                            minimumSize: const Size(0, 48),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 8,
+                      child: RadioRow(
+                        title: reason.$2,
+                        selected: _tag == reason.$1,
+                        onTap: _busy ? null : () => _choose(reason.$1),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
+                        content: Row(
+                          children: [
+                            WebKeyHint('${i + 1}'),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Text(reason.$2, style: t.style(15)),
                             ),
-                            backgroundColor: _tag == reason.$1
-                                ? t.colors.accentTint
-                                : t.colors.background,
-                            foregroundColor: t.colors.label,
-                            side: BorderSide(
-                              color: _tag == reason.$1
-                                  ? t.colors.accent
-                                  : Colors.transparent,
-                              width: 2,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              WebKeyHint('${i + 1}'),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(reason.$2, style: t.style(15)),
-                              ),
-                              if (widget.tag == reason.$1)
-                                Text('Your note', style: t.style(11)),
-                            ],
-                          ),
+                            if (widget.tag == reason.$1)
+                              Text('Your note', style: t.style(11)),
+                          ],
                         ),
                       ),
                     ),
@@ -304,82 +285,11 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               (MistakeTag.unknown, "I didn't know"),
               (MistakeTag.other, 'Type my own'),
             ])
-              Semantics(
-                label: label,
-                checked: _tag == tag,
-                inMutuallyExclusiveGroup: true,
-                enabled: !_busy,
+              RadioRow(
+                title: label,
+                selected: _tag == tag,
                 onTap: _busy ? null : () => _choose(tag),
-                child: ExcludeSemantics(
-                  child: InkWell(
-                    onTap: _busy ? null : () => _choose(tag),
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(minHeight: 46),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 22,
-                              height: 22,
-                              padding: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: _tag == tag
-                                      ? colors.accent
-                                      : colors.controlOutline,
-                                  width: 1.5,
-                                ),
-                              ),
-                              child: _tag == tag
-                                  ? TweenAnimationBuilder<double>(
-                                      key: ValueKey((tag, _selectionSerial)),
-                                      tween: Tween(begin: 0, end: 1),
-                                      duration: reduced
-                                          ? Duration.zero
-                                          : const Duration(milliseconds: 380),
-                                      builder: (context, progress, child) {
-                                        final first = (progress * 380 / 220)
-                                            .clamp(0.0, 1.0);
-                                        final last =
-                                            ((progress * 380 - 220) / 160)
-                                                .clamp(0.0, 1.0);
-                                        const curve = Cubic(.3, 1.4, .5, 1);
-                                        final scale = progress <= 220 / 380
-                                            ? .5 + .65 * curve.transform(first)
-                                            : 1.15 -
-                                                .15 * curve.transform(last);
-                                        return Opacity(
-                                          opacity: first,
-                                          child: Transform.scale(
-                                            scale: scale,
-                                            child: child,
-                                          ),
-                                        );
-                                      },
-                                      child: DecoratedBox(
-                                        decoration: BoxDecoration(
-                                          color: colors.accent,
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                    )
-                                  : null,
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(
-                                label,
-                                style: type.body.copyWith(fontSize: 16),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 8),
               ),
             if (_tag == MistakeTag.other) ...[
               const SizedBox(height: 8),

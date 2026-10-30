@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -37,6 +38,7 @@ class HomeTab extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncFocus = ref.watch(activeExamFocusProvider);
+    firstScreenReady(context, ref, ready: asyncFocus.hasError, path: '/home');
 
     return Scaffold(
       body: SafeArea(

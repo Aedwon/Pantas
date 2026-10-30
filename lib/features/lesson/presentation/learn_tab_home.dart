@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -197,6 +198,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
       );
     }
     final asyncMap = ref.watch(studyMapProvider);
+    firstScreenReady(context, ref, ready: !asyncMap.isLoading, path: '/study');
 
     return asyncMap.when(
       loading: () =>

@@ -50,7 +50,7 @@ test('a returning visitor sees the splash from the first paint', () => {
   assert.equal(t.splash.isShown(), true);
   assert.ok(t.classes.has('ps-on'));
   assert.equal(t.removed(), false);
-  assert.equal(t.frameListeners.length, 1);
+  assert.equal(typeof t.splash.ready, 'function');
 });
 
 test('a first-time visitor never sees the splash and its markup is removed', () => {
@@ -70,9 +70,9 @@ test('Geist Bold is preloaded for a returning visitor only', () => {
   assert.equal(t.links[0].href, 'assets/assets/fonts/Geist-Bold.ttf');
 });
 
-test('the first frame fades the splash out, then removes it', () => {
+test('ready data fades the splash out, then removes it', () => {
   const t = setup();
-  t.frameListeners[0]();
+  t.splash.ready();
   assert.ok(t.classes.has('ps-out'));
   assert.equal(t.removed(), false);
   const fade = t.timers.find((x) => x.ms === FADE_MS);
@@ -85,18 +85,18 @@ test('the first frame fades the splash out, then removes it', () => {
 
 test('reduced motion removes the splash at once, with no fade', () => {
   const t = setup({ reduced: true });
-  t.frameListeners[0]();
+  t.splash.ready();
   assert.equal(t.removed(), true);
   assert.ok(!t.classes.has('ps-on'));
   assert.ok(!t.classes.has('ps-out'));
   assert.ok(!t.timers.some((x) => x.ms === FADE_MS));
 });
 
-test('a repeated first-frame signal does nothing more', () => {
+test('a repeated ready signal does nothing more', () => {
   const t = setup();
-  t.frameListeners[0]();
+  t.splash.ready();
   const count = t.timers.length;
-  t.frameListeners[0]();
+  t.splash.ready();
   assert.equal(t.timers.length, count);
 });
 
@@ -120,4 +120,25 @@ test('the service worker stores the splash script', () => {
   const sw = readFileSync(new URL('../../web/pantas_sw.js', import.meta.url), 'utf8');
   const precache = sw.slice(sw.indexOf('const PRECACHE'), sw.indexOf('];', sw.indexOf('const PRECACHE')));
   assert.ok(precache.includes("'pantas_splash.js'"));
+});
+
+test('the first frame leaves the splash while data is pending', () => {
+  const t = setup();
+  t.frameListeners.forEach((fn) => fn());
+  assert.equal(t.removed(), false);
+  assert.ok(!t.classes.has('ps-out'));
+});
+test('the hard limit is eight seconds and removes the splash without another fade', () => {
+  const t = setup();
+  assert.equal(GIVE_UP_MS, 8000);
+  t.timers.find((x) => x.ms === 8000).fn();
+  assert.equal(t.removed(), true);
+});
+
+test('the hard limit also ends a fade that started just before the limit', () => {
+  const t = setup();
+  t.splash.ready();
+  assert.equal(t.removed(), false);
+  t.timers.find((x) => x.ms === GIVE_UP_MS).fn();
+  assert.equal(t.removed(), true);
 });

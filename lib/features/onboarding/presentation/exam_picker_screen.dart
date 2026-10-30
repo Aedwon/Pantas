@@ -9,6 +9,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
@@ -16,6 +17,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -193,6 +195,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   @override
   Widget build(BuildContext context) {
     final catalog = ref.watch(examPickerCatalogProvider);
+    firstScreenReady(context, ref, ready: !catalog.isLoading);
     final active = _settings
         ? ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id
         : null;
@@ -332,92 +335,44 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                   ))
                                     SizedBox(
                                       width: (constraints.maxWidth - 20) / 3,
-                                      child: Semantics(
-                                        selected: selected == entry.id,
-                                        child: Opacity(
-                                          opacity: widget.selectable(
-                                            entry,
-                                          )
-                                              ? 1
-                                              : .5,
-                                          child: WebCard(
-                                            radius: 14,
-                                            child: TextButton(
-                                              key: ValueKey(
-                                                'exam-${entry.id}',
-                                              ),
-                                              onPressed: _saving ||
-                                                      !widget.selectable(
-                                                        entry,
-                                                      )
-                                                  ? null
-                                                  : () => _pick(
-                                                        entry,
-                                                        active,
-                                                      ),
-                                              style: TextButton.styleFrom(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                  horizontal: 14,
-                                                  vertical: 12,
-                                                ),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    14,
-                                                  ),
-                                                  side: BorderSide(
-                                                    width: 2,
-                                                    color: selected == entry.id
-                                                        ? t.colors.accent
-                                                        : Colors.transparent,
-                                                  ),
+                                      child: WebCard(
+                                        radius: 14,
+                                        child: RadioRow(
+                                          key: ValueKey('exam-${entry.id}'),
+                                          title: entry.shortName,
+                                          selected: selected == entry.id,
+                                          onTap: _saving ||
+                                                  !widget.selectable(entry)
+                                              ? null
+                                              : () => _pick(entry, active),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 14,
+                                            vertical: 12,
+                                          ),
+                                          content: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                entry.shortName,
+                                                style: t.style(
+                                                  16,
+                                                  weight: FontWeight.w600,
                                                 ),
                                               ),
-                                              child: Row(
-                                                children: [
-                                                  Expanded(
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          entry.shortName,
-                                                          style: t.style(
-                                                            16,
-                                                            weight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          _organizations[
-                                                                  entry.id] ??
-                                                              entry.name,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                          style: t.sm,
-                                                        ),
-                                                        if (!widget.selectable(
-                                                          entry,
-                                                        ))
-                                                          Text(
-                                                            'Coming soon',
-                                                            style: t.sm,
-                                                          ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  if (selected == entry.id)
-                                                    Icon(
-                                                      Icons.check_circle,
-                                                      color: t.colors.accent,
-                                                      size: 20,
-                                                    ),
-                                                ],
+                                              Text(
+                                                _organizations[entry.id] ??
+                                                    entry.name,
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: t.sm,
                                               ),
-                                            ),
+                                              if (!widget.selectable(entry))
+                                                Text(
+                                                  'Coming soon',
+                                                  style: t.sm,
+                                                ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -584,40 +539,44 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                         for (final entry in visible.where(
                                           (entry) => entry.group == group.$1,
                                         ))
-                                          WebRow(
-                                            key: ValueKey(
-                                              'exam-${entry.id}',
-                                            ),
+                                          RadioRow(
+                                            key: ValueKey('exam-${entry.id}'),
                                             title: entry.shortName,
-                                            titleStyle: t.style(
-                                              16,
-                                              weight: selected == entry.id
-                                                  ? FontWeight.w600
-                                                  : FontWeight.w400,
-                                            ),
-                                            subtitle:
-                                                _organizations[entry.id] ??
-                                                    entry.name,
-                                            horizontalPadding: 12,
-                                            compact: true,
-                                            divider: false,
                                             selected: selected == entry.id,
-                                            dimmed: !widget.selectable(entry),
+                                            onTap: _saving ||
+                                                    !widget.selectable(entry)
+                                                ? null
+                                                : () => _pick(entry, active),
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 12,
+                                              vertical: 10,
+                                            ),
+                                            content: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  entry.shortName,
+                                                  style: t.style(
+                                                    16,
+                                                    weight: selected == entry.id
+                                                        ? FontWeight.w600
+                                                        : FontWeight.w400,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  _organizations[entry.id] ??
+                                                      entry.name,
+                                                  style: t.sm,
+                                                ),
+                                              ],
+                                            ),
                                             trailing: !widget.selectable(entry)
                                                 ? Text(
                                                     'Coming soon',
                                                     style: t.sm,
                                                   )
-                                                : selected == entry.id
-                                                    ? Icon(
-                                                        Icons.check,
-                                                        size: 18,
-                                                        color: t.colors.accent,
-                                                      )
-                                                    : null,
-                                            onPressed: _saving
-                                                ? null
-                                                : () => _pick(entry, active),
+                                                : null,
                                           ),
                                       ],
                                     ),

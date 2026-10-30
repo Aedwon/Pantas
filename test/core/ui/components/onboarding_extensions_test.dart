@@ -1,4 +1,5 @@
 import 'dart:ui' show CheckedState;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,6 +7,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -75,14 +77,14 @@ void main() {
             .isChecked,
         CheckedState.isTrue,
       );
-      final mark = find.byKey(const ValueKey('checkbox-mark'));
+      final mark = find.byKey(const ValueKey('selection-mark'));
       final transform =
           find.descendant(of: mark, matching: find.byType(Transform));
-      expect(tester.widget<Transform>(transform).transform.storage[0], .4);
-      await tester.pump(const Duration(milliseconds: 300));
+      expect(tester.widget<Transform>(transform).transform.storage[0], .5);
+      await tester.pump(const Duration(milliseconds: 110));
       expect(
         tester.widget<Transform>(transform).transform.storage[0],
-        closeTo(1.12, .001),
+        closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .002),
       );
       await tester.pump(const Duration(milliseconds: 200));
       expect(tester.widget<Transform>(transform).transform.storage[0], 1);
@@ -127,18 +129,23 @@ void main() {
     );
     final colors = tester.element(find.byType(ListRow)).colors;
     expect(
-      find.byKey(const ValueKey('checkbox-mark')),
+      find.byKey(const ValueKey('selection-mark')),
       paints
         ..path(
           color: colors.onAccent,
-          strokeWidth: 3,
+          strokeWidth: 2,
           style: PaintingStyle.stroke,
         ),
     );
     expectContrast(colors.onAccent, colors.accentFill, minimum: 3);
     expect(
-      tester.getSize(find.byKey(const ValueKey('checkbox-check'))),
-      const Size(15, 15),
+      tester.getSize(
+        find.descendant(
+          of: find.byKey(const ValueKey('selection-mark')),
+          matching: find.byType(CustomPaint),
+        ),
+      ),
+      const Size(16, 16),
     );
   });
 
@@ -263,9 +270,9 @@ void main() {
           disableAnimations: true,
         );
         final mark = tester
-            .widget<Container>(find.byKey(const ValueKey('checkbox-mark')));
+            .widget<Container>(find.byKey(const ValueKey('selection-mark')));
         expect(
-          tester.getSize(find.byKey(const ValueKey('checkbox-mark'))),
+          tester.getSize(find.byKey(const ValueKey('selection-mark'))),
           const Size(24, 24),
         );
         final decoration = mark.decoration! as BoxDecoration;

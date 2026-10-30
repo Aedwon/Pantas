@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
@@ -79,7 +80,10 @@ void main() {
       await tester.ensureVisible(find.text("Don't show this again"));
       await tester.tap(find.text("Don't show this again"));
       await tester.pump();
-      expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isTrue);
+      expect(
+        tester.widget<CheckboxRow>(find.byType(CheckboxRow)).selected,
+        isTrue,
+      );
       expect(tester.takeException(), isNull);
     });
     testWidgets(

@@ -5,6 +5,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -55,7 +56,10 @@ void main() {
     final repo = container.read(customTrackRepositoryProvider);
     expect(await repo.excludedLessonIds('e'), {'l1'});
     expect(await repo.excludedTopicIds('e'), isEmpty);
-    expect(find.byKey(const ValueKey('scope-partial-t')), findsOneWidget);
+    expect(
+      find.byWidgetPredicate((w) => w is CheckboxRow && w.mixed),
+      findsOneWidget,
+    );
     await tester.tap(find.byKey(const ValueKey('scope-select-l2')));
     await tester.pumpAndSettle();
     expect(await repo.excludedLessonIds('e'), {'l1'});

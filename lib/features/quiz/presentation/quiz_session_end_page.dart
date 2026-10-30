@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -406,6 +407,11 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
       body: FutureBuilder<CompletedQuizData>(
         future: _future,
         builder: (context, snapshot) {
+          firstScreenReady(
+            context,
+            ref,
+            ready: snapshot.connectionState == ConnectionState.done,
+          );
           if (snapshot.hasError || !_current()) {
             return errorFor('questions', _reload);
           }

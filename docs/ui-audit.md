@@ -1897,3 +1897,198 @@ Files changed: `lib/features/home/presentation/home_today_screen.dart`,
 `lib/features/home/presentation/widgets/home_masthead.dart`,
 `test/features/home/presentation/home_tab_test.dart`, and this audit.
 No changes to selection controls, content, seeds, scripts, or Functions.
+
+## October 31, 2026: visual-check fixes, round 1
+
+Automated work only. Aedwon owns visual acceptance. The assignment brief is the
+spec and plan. Policy read from origin/main at
+`703a335c836231c9a843fc9b10f3e970449933e1`.
+
+Selection-control inventory before implementation:
+
+- Shared ListRow: checkbox, check, radio, exam choice. SettingsRow adapts its
+  check and radio variants separately on web.
+- Onboarding: consent choices, custom subjects, exam picker (phone and web).
+- ScopePicker: topic and lesson checkboxes, including partial topic selection.
+  Used by custom practice, exam scope, and custom mock setup.
+- Custom practice: native topic and lesson checkboxes outside ScopePicker.
+- Settings: appearance theme radio choices and practice ordering radio choices.
+- Lesson bookmarks: multi-selection in editing mode, on phone and web.
+- Quiz mistake notes: mutually exclusive reason choices, on phone and web.
+- Mock session: pause-warning checkbox. Mock review: mistake-reason radio choices.
+
+Lettered answer buttons and their correct/wrong outcome indicators, completion
+checks, switches, segments, day buttons, and filter chips are separate controls.
+They do not use checkbox/radio roles. Their answer, completion, toggle, and
+segmented-selection behavior remains as specified for those components.
+
+Changed selection screens: onboarding consent, exam picker, custom-track subjects,
+custom practice, custom mock setup, exam scope (topic and lesson selection),
+appearance, practice order, lesson bookmarks in editing mode, quiz mistake notes,
+mock mistake notes, and the mock pause warning. Shared ListRow and SettingsRow
+selection variants now use the same CheckboxRow or RadioRow on phones and web.
+
+The shared controls use the board's 24 px size, 7 px checkbox radius, circular
+radio, 1.5 px outline, selected green fill and check. Both share the check
+animation, disabled opacity, keyboard focus, web hover without ink, and one phone
+press background. Completion indicators and answer outcomes remain separate.
+
+### Round 1 verification and handoff
+
+Candidate: `web/visual-check-fixes-r1`, based on
+`0ad7883bfd4684bbcabc79a0317d50c3af0d6ce4`. No fetch, commit, push, branch
+switch, deployment, or live application-service calls. The lead owns commits,
+independent review, and acceptance. No visual acceptance is claimed.
+
+All four items are implemented. The resumed work already contained implementation
+and regression tests. This run reviewed those changes, formatted them, corrected
+analyzer findings, and updated tests that still expected replaced selection widgets.
+The original test-first sequence from the interrupted run cannot be established
+from this resumption's evidence.
+
+Regression sensitivity was checked in item order. Temporarily disabling recovery,
+suppressing the ready signal, skipping duplicate validation, and restoring the old
+ListRow each made the corresponding regression tests fail with exit 1. Every
+source file was restored afterward. The original splash script also failed the
+current JS tests in a temporary fixture. These checks demonstrate test sensitivity;
+they do not replace evidence of the original test-first sequence.
+
+The first broad run finished with `+4734 -5: Some tests failed.` All five failures
+were tests looking for replaced controls: two color tests, two mock pause tests,
+and one practice-picker test. Their checks now use the shared controls and retain
+contrast, selected-state, and large-text checks. The three corrected test files
+then finished with `+54: All tests passed!`.
+
+Changed source/test/tool/web content identity, SHA-256 (sorted path, NUL,
+file bytes, NUL; this documentation excluded):
+`9f4ed0d6a26b0ec459387e96389ee3791c9073dfeeb626ae322d0ae67a20c33b`.
+
+Files touched in the complete resumed patch (81):
+
+```text
+docs/ui-audit.md
+lib/app/router.dart
+lib/app/routes/deferred_route.dart
+lib/app/routes/quiz_routes.dart
+lib/app/routes/settings_routes_web.dart
+lib/app/routes/states_routes.dart
+lib/core/platform/first_screen_ready.dart
+lib/core/platform/first_screen_ready_stub.dart
+lib/core/platform/first_screen_ready_web.dart
+lib/core/ui/components/check_mark.dart
+lib/core/ui/components/list_row.dart
+lib/core/ui/components/scope_picker.dart
+lib/core/ui/components/selection_row.dart
+lib/core/ui/web/web_layout.dart
+lib/features/assessment/presentation/assessment_page.dart
+lib/features/assessment/presentation/assessment_results_page.dart
+lib/features/home/application/study_delivery.dart
+lib/features/home/application/study_remote_providers.dart
+lib/features/home/data/study_api.dart
+lib/features/home/presentation/home_tab.dart
+lib/features/home/presentation/home_today_screen.dart
+lib/features/home/presentation/performance_screen.dart
+lib/features/home/presentation/plan_screen.dart
+lib/features/home/presentation/record_screen.dart
+lib/features/home/presentation/tendencies_screen.dart
+lib/features/lesson/presentation/learn_tab_home.dart
+lib/features/lesson/presentation/lesson_page.dart
+lib/features/lesson/presentation/pages/topic_ending_page.dart
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart
+lib/features/mock_exam/presentation/pages/custom_mock_setup_route.dart
+lib/features/mock_exam/presentation/pages/mock_results_route.dart
+lib/features/mock_exam/presentation/pages/mock_review_page.dart
+lib/features/mock_exam/presentation/pages/mock_session_page.dart
+lib/features/mock_exam/presentation/pages/mock_setup_route.dart
+lib/features/mock_exam/presentation/pages/mock_start_route.dart
+lib/features/onboarding/presentation/exam_picker_screen.dart
+lib/features/onboarding/presentation/onboarding_consent_step.dart
+lib/features/onboarding/presentation/onboarding_page.dart
+lib/features/onboarding/presentation/steps/custom_track_subjects_step.dart
+lib/features/quiz/presentation/pages/flagged_list_page.dart
+lib/features/quiz/presentation/practice_picker_screen.dart
+lib/features/quiz/presentation/quiz_note_editor.dart
+lib/features/quiz/presentation/quiz_page.dart
+lib/features/quiz/presentation/quiz_review_page.dart
+lib/features/quiz/presentation/quiz_session_end_page.dart
+lib/features/quiz/presentation/quiz_tab_screen.dart
+lib/features/settings/presentation/pages/appearance_page.dart
+lib/features/settings/presentation/pages/pro_page.dart
+lib/features/settings/presentation/pages/whats_included_page.dart
+lib/features/settings/presentation/widgets/settings_row.dart
+lib/features/wrapped/presentation/wrapped_reveal_page.dart
+test/app/deferred_route_test.dart
+test/app/router_redirect_test.dart
+test/core/platform/first_screen_ready_test.dart
+test/core/ui/components/audit_color_tokens_test.dart
+test/core/ui/components/audit_scope_board_test.dart
+test/core/ui/components/exam_picker_extensions_test.dart
+test/core/ui/components/inputs_completion_test.dart
+test/core/ui/components/onboarding_extensions_test.dart
+test/core/ui/components/selection_row_states_test.dart
+test/core/ui/components/selection_row_unification_test.dart
+test/features/home/application/study_remote_providers_test.dart
+test/features/home/data/study_api_test.dart
+test/features/home/presentation/deep_link_ready_test.dart
+test/features/home/presentation/home_today_screen_test.dart
+test/features/home/presentation/performance_screen_test.dart
+test/features/home/presentation/plan_screen_test.dart
+test/features/lesson/presentation/bookmarks_sheet_test.dart
+test/features/mock_exam/presentation/approved_details_accessibility_test.dart
+test/features/onboarding/presentation/exam_picker_screen_test.dart
+test/features/onboarding/presentation/onboarding_consent_step_test.dart
+test/features/onboarding/presentation/onboarding_error_reporting_test.dart
+test/features/onboarding/presentation/web_onboarding_second_pass_test.dart
+test/features/onboarding/presentation/web_onboarding_states_test.dart
+test/features/quiz/presentation/practice_picker_screen_test.dart
+test/features/quiz/presentation/quiz_note_editor_test.dart
+test/features/settings/presentation/w4f_lesson_scope_test.dart
+test/tools/build_content_export_links_test.dart
+test/web/pantas_splash.test.mjs
+tools/build_content_export/build_content_export.dart
+web/pantas_splash.js
+```
+
+Final automated verification, October 31, 2026. Flutter 3.44.6, Dart 3.12.2,
+Node v26.10.0. All commands below completed with exit 0.
+
+```text
+flutter analyze
+No issues found! (ran in 16.6s)
+
+dart format --output=none --set-exit-if-changed lib test
+Formatted 1709 files (0 changed) in 2.27 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+flutter test test/app test/core test/tools test/features/home test/features/assessment test/features/lesson test/features/mock_exam test/features/onboarding test/features/quiz test/features/settings test/features/wrapped
+06:20 +4739: All tests passed!
+
+node --test test/web/
+ℹ tests 21
+ℹ pass 21
+ℹ fail 0
+
+flutter build web --release
+Compiling lib/main.dart for the Web...                             52.9s
+✓ Built build/web
+
+git diff --check
+(no output)
+```
+
+The release build warned that CupertinoIcons was referenced without its font
+asset. It still built successfully. No fonts changed in this patch. The build
+used the same application source as the final tests; subsequent edits affected
+only tests and this audit. Temporary regression mutations were restored byte for
+byte. No generated files were hand-edited. No protected content package was
+rebuilt. No emulator, browser, device, or visual check was performed.
+
+Items 1 to 4: implemented and automated checks passed. Independent lead review,
+visual acceptance, commits, integration, and publication remain pending.
+No unresolved stop conditions were encountered. No additional live defect was
+established. Raw local command logs are in `/tmp/vc-*.log`.

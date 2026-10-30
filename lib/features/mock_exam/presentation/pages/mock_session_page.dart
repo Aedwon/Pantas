@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -11,6 +12,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -188,47 +190,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 "but you won't get this during the real exam.",
             content: Padding(
               padding: const EdgeInsets.only(top: 8, bottom: 2),
-              child: MergeSemantics(
-                child: InkWell(
-                  onTap: () => update(() => skipWarning = !skipWarning),
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(minHeight: 44),
-                    child: Row(
-                      children: [
-                        SizedBox.square(
-                          dimension: 22,
-                          child: Checkbox(
-                            value: skipWarning,
-                            onChanged: (value) => update(
-                              () => skipWarning = value ?? false,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            side: BorderSide(
-                              color: context.colors.controlOutline,
-                              width: 1.5,
-                            ),
-                            activeColor: context.colors.accentFill,
-                            checkColor: context.colors.onAccent,
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            visualDensity: VisualDensity.compact,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            "Don't show this again",
-                            style: context.type.subhead.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              child: CheckboxRow(
+                title: "Don't show this again",
+                selected: skipWarning,
+                padding: EdgeInsets.zero,
+                onTap: () => update(() => skipWarning = !skipWarning),
               ),
             ),
             inlineActions: true,
@@ -1232,6 +1198,7 @@ class _QuestionBody extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final hydratedAsync = ref.watch(hydratedMockQuestionProvider(questionId));
 
+    firstScreenReady(context, ref, ready: !hydratedAsync.isLoading);
     return hydratedAsync.when(
       data: (hydrated) {
         if (hydrated == null) {

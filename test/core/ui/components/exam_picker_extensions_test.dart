@@ -49,7 +49,8 @@ void main() {
           tester.getSize(find.byType(PantasButton)).height,
           scale == 1 ? 32 : 38,
         );
-        final style = tester.widget<TextButton>(find.byType(TextButton)).style!;
+        final style =
+            tester.widget<TextButton>(find.byType(TextButton).first).style!;
         expectContrast(
           label.style!.color!,
           style.backgroundColor!.resolve({})!,
@@ -66,13 +67,13 @@ void main() {
         expect(title.style!.letterSpacing, -.204);
         expect(subtitle.style!.fontSize, 13);
         expect(subtitle.style!.height, 1.35);
-        final mark = find.byKey(const ValueKey('exam-check'));
+        final mark = find.byKey(const ValueKey('selection-mark'));
         expect(
           mark,
           paints
             ..path(
-              color: colors.accent,
-              strokeWidth: (Paint()..strokeWidth = 2.4).strokeWidth,
+              color: colors.onAccent,
+              strokeWidth: 2,
               style: PaintingStyle.stroke,
             ),
         );
@@ -80,8 +81,8 @@ void main() {
         expect(title.maxLines, 1);
         expect(title.overflow, TextOverflow.ellipsis);
         expect(
-          tester.getSize(find.byKey(const ValueKey('exam-check'))),
-          const Size(18, 18),
+          tester.getSize(find.byKey(const ValueKey('selection-mark'))),
+          const Size(24, 24),
         );
         final line = tester.widget<DecoratedBox>(
           find.byKey(const ValueKey('exam-row-divider')),

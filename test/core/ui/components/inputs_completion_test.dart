@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,6 +7,7 @@ import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -174,7 +176,7 @@ void main() {
       );
       await pumpAccessibilitySurface(tester, picker, brightness: brightness);
       expect(
-        find.byKey(const ValueKey('scope-partial-algebra')),
+        find.byWidgetPredicate((w) => w is CheckboxRow && w.mixed),
         findsOneWidget,
       );
       expect(find.text('No questions yet'), findsOneWidget);

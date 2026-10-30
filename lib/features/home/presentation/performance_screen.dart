@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
@@ -29,13 +30,26 @@ void _back(BuildContext context) =>
 /// `/performance`: Your performance, reached from Home's card. The title and
 /// back stay on a load failure, with Try Again (DT_Error).
 class PerformanceScreen extends ConsumerWidget {
-  const PerformanceScreen({this.initialLevel, super.key});
+  const PerformanceScreen({
+    this.initialLevel,
+    this.reportReady = true,
+    super.key,
+  });
+  final bool reportReady;
   final int? initialLevel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(performanceViewProvider);
     final order = ref.watch(tableOrderProvider);
+    firstScreenReady(
+      context,
+      ref,
+      ready: reportReady &&
+          (data.hasError ||
+              order.hasError ||
+              (!data.isLoading && !order.isLoading)),
+    );
     final pro = ref.watch(currentStudyCoverageProvider);
     final paused = ref.watch(entitlementProvider).valueOrNull?.state ==
         EntitlementState.paused;
@@ -177,12 +191,15 @@ class TopicScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     if (!ref.watch(currentStudyCoverageProvider)) {
-      return const PerformanceScreen(initialLevel: 1);
+      return PerformanceScreen(
+        initialLevel: 1,
+        reportReady: !ref.watch(studyCoverageLoadingProvider),
+      );
     }
     if (context.wideWeb && !inDrawer) {
       return Stack(
         children: [
-          const PerformanceScreen(initialLevel: 1),
+          const PerformanceScreen(initialLevel: 1, reportReady: false),
           ModalBarrier(
             color: Colors.black.withValues(alpha: .28),
             onDismiss: () => _back(context),
@@ -199,6 +216,7 @@ class TopicScreen extends ConsumerWidget {
       );
     }
     final detail = ref.watch(topicDetailProvider(topicId));
+    firstScreenReady(context, ref, ready: !detail.isLoading);
     final data = detail.unwrapPrevious().asData?.value;
     if (data == null) {
       return PantasPage(

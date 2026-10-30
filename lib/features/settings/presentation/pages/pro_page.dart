@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -557,6 +558,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             ? ref.watch(unfilteredPaywallOfferingProvider)
             : ref.watch(paywallOfferingProvider))
         .unwrapPrevious();
+    firstScreenReady(context, ref, ready: !offering.isLoading);
     final paused = entitlement.state == EntitlementState.paused;
     final packages = (offering.valueOrNull?.recognizedPackages
             .where(

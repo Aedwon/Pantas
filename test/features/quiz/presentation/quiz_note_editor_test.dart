@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
 
@@ -188,35 +190,21 @@ void main() {
     expect(tester.widget<PantasButton>(update).onPressed, isNull);
   });
 
-  testWidgets('selected reason dot follows the approved pop timing',
+  testWidgets('selected reason uses the shared check animation',
       (tester) async {
     await tester
         .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
-    final colors = tester.element(find.byType(QuizNoteEditor)).colors;
     await tester.tap(find.text('I misread'));
     await tester.pump();
-    double scale() {
-      final dot = find.byWidgetPredicate(
-        (w) =>
-            w is DecoratedBox &&
-            w.decoration is BoxDecoration &&
-            (w.decoration as BoxDecoration).shape == BoxShape.circle &&
-            (w.decoration as BoxDecoration).color == colors.accent,
-      );
-      final box = tester.renderObject<RenderBox>(dot);
-      final parent =
-          tester.renderObject<RenderBox>(find.byType(QuizNoteEditor));
-      return MatrixUtils.transformRect(
-            box.getTransformTo(parent),
-            Offset.zero & box.size,
-          ).width /
-          box.size.width;
-    }
-
+    final mark = find.descendant(
+      of: find.widgetWithText(RadioRow, 'I misread'),
+      matching: find.byKey(const ValueKey('selection-scale')),
+    );
+    double scale() => tester.widget<Transform>(mark).transform.storage[0];
     expect(scale(), closeTo(.5, .001));
-    await tester.pump(const Duration(milliseconds: 220));
-    expect(scale(), closeTo(1.15, .001));
-    await tester.pump(const Duration(milliseconds: 160));
+    await tester.pump(const Duration(milliseconds: 110));
+    expect(scale(), closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .001));
+    await tester.pump(const Duration(milliseconds: 110));
     expect(scale(), closeTo(1, .001));
   });
 

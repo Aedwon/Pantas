@@ -79,6 +79,114 @@ void main() {
   });
   tearDown(() => root.deleteSync(recursive: true));
 
+  void sourceFixtures({
+    bool duplicateQuestions = false,
+    bool duplicateLessons = false,
+  }) {
+    write('tools/lesson_author/outline.json', {
+      'subjects': [
+        {
+          'slug': 's',
+          'name': 'Subject',
+          'topics': [
+            {'slug': 'test', 'name': 'Test'},
+          ],
+        }
+      ],
+    });
+    for (final file in ['one', if (duplicateQuestions) 'two']) {
+      write('content/questions/$file.yaml', {
+        'meta': {
+          'topic': 'test',
+          'subtopic': 'sub',
+          'exams': ['upcat'],
+        },
+        'questions': [
+          for (final id in ['duplicate-q', 'duplicate-q2'])
+            {
+              'id': id,
+              'stem': 'Question',
+              'explanation': 'Explanation',
+              'choices': [
+                {'text': 'Yes', 'correct': true},
+                {'text': 'No', 'correct': false},
+              ],
+            },
+        ],
+      });
+    }
+    for (final file in ['one', if (duplicateLessons) 'two']) {
+      final lesson = File('${root.path}/content/lessons/s/$file.md');
+      lesson.parent.createSync(recursive: true);
+      lesson.writeAsStringSync('---\n'
+          '_id: lesson-test-sub\ntopic: topic-test\ntitle: Test\n'
+          'summary: Test\nestimatedMinutes: 1\n---\nBody.\n');
+    }
+  }
+
+  for (final kind in ['question', 'lesson', 'both']) {
+    test('duplicate $kind IDs exit 65 and list every source', () async {
+      sourceFixtures(
+        duplicateQuestions: kind != 'lesson',
+        duplicateLessons: kind != 'question',
+      );
+      final result = await run();
+      expect(result.exitCode, 65, reason: '${result.stdout} ${result.stderr}');
+      final errors = '${result.stderr}';
+      if (kind != 'lesson') {
+        for (final id in ['duplicate-q', 'duplicate-q2']) {
+          expect(errors, contains(id));
+        }
+        expect(errors, contains('content/questions/one.yaml'));
+        expect(errors, contains('content/questions/two.yaml'));
+      }
+      if (kind != 'question') {
+        expect(errors, contains('lesson-test-sub'));
+        expect(errors, contains('content/lessons/s/one.md'));
+        expect(errors, contains('content/lessons/s/two.md'));
+      }
+      expect(File('${root.path}/export.json').existsSync(), false);
+    });
+  }
+
+  test('duplicate questions in one file are rejected even when figure pending',
+      () async {
+    sourceFixtures();
+    final source = File('${root.path}/content/questions/one.yaml');
+    final doc = jsonDecode(source.readAsStringSync()) as Map<String, dynamic>;
+    final rows = doc['questions'] as List;
+    final copy = Map<String, dynamic>.from(rows.first as Map);
+    copy['figure'] = 'pending';
+    rows.add(copy);
+    source.writeAsStringSync(jsonEncode(doc));
+    final result = await run();
+    expect(result.exitCode, 65);
+    expect('${result.stderr}', contains('Duplicate question ID "duplicate-q"'));
+    expect('${result.stderr}', contains('content/questions/one.yaml'));
+  });
+
+  test('source IDs cannot collide with the retained legacy paper', () async {
+    sourceFixtures();
+    final historical =
+        File('${root.path}/tools/build_content_export/historical_v1.json');
+    final doc =
+        jsonDecode(historical.readAsStringSync()) as Map<String, dynamic>;
+    (doc['questions'] as List).add({'id': 'duplicate-q', 'topicId': 't'});
+    (doc['lessons'] as List).add({'id': 'lesson-test-sub', 'topicId': 't'});
+    historical.writeAsStringSync(jsonEncode(doc));
+    final result = await run();
+    expect(result.exitCode, 65);
+    expect('${result.stderr}', contains('duplicate-q'));
+    expect('${result.stderr}', contains('lesson-test-sub'));
+    expect('${result.stderr}', contains('historical_v1.json'));
+  });
+
+  test('unique source IDs still export', () async {
+    sourceFixtures();
+    final result = await run();
+    expect(result.exitCode, 0, reason: '${result.stdout} ${result.stderr}');
+  });
+
   test('exports stable links, stored choice ids and a slim asset', () async {
     final first = await run(assets: true);
     expect(first.exitCode, 0, reason: '${first.stderr}');

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -20,6 +21,7 @@ class TendenciesScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final work = ref.watch(howYouWorkProvider);
+    firstScreenReady(context, ref, ready: !work.isLoading, path: '/tendencies');
     void back() => context.canPop() ? context.pop() : context.go('/home');
     if (work.unwrapPrevious().asData == null) {
       if (context.wideWeb) {

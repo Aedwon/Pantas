@@ -1,6 +1,7 @@
 // ignore_for_file: directives_ordering
 
 import 'package:flutter/foundation.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -32,6 +33,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   final refreshListenable = RouterRefreshListenable(ref, [
     passedAgeGateProvider,
     onboardingCompleteProvider,
+    studyNeedsExamSettingsProvider,
     activeExamFocusProvider,
     entitlementProvider,
   ]);
@@ -62,6 +64,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (passed == null || focus == null || complete == null) return null;
       final atOnboarding = state.matchedLocation == '/onboarding' ||
           state.matchedLocation.startsWith('/onboarding/');
+      if (ref.read(studyNeedsExamSettingsProvider)) {
+        return atOnboarding ? null : '/onboarding';
+      }
       if (passed && focus.needsSelection) {
         if (!atOnboarding) return '/onboarding';
         return null;

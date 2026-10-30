@@ -48,22 +48,39 @@ class StudyRequest {
     required this.uid,
     required this.examId,
     required this.isCurrent,
+    this.recoverMissingSettings,
   });
   final StudyApi api;
   final String uid;
   final String examId;
   final Future<bool> Function() isCurrent;
+  final Future<bool> Function()? recoverMissingSettings;
   Future<Map<String, Object?>> read(
     String name, {
     Map<String, Object?> payload = const {},
   }) async {
     if (!await isCurrent()) throw StateError('Study owner changed');
-    final result = await api.request(
-      name,
-      expectedUid: uid,
-      examId: examId,
-      payload: payload,
-    );
+    Future<Map<String, Object?>> send() => api.request(
+          name,
+          expectedUid: uid,
+          examId: examId,
+          payload: payload,
+        );
+    Map<String, Object?> result;
+    try {
+      result = await send();
+    } on FirebaseFunctionsException catch (error) {
+      if (error.code != 'failed-precondition' ||
+          error.message != 'Set your exam first.' ||
+          recoverMissingSettings == null ||
+          !await isCurrent() ||
+          !await recoverMissingSettings!()) {
+        rethrow;
+      }
+      if (!await isCurrent()) throw StateError('Study owner changed');
+      // Retry outside the catch: a second no-settings response cannot loop.
+      result = await send();
+    }
     if (!await isCurrent()) throw StateError('Study owner changed');
     return result;
   }

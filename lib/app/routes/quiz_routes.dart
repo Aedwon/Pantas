@@ -42,7 +42,10 @@ List<RouteBase> quizRoutes(Ref ref) => [
                 ref.watch(mockAvailabilityProvider(request));
             final availability = availabilityState.valueOrNull;
             if (availabilityState.isLoading) {
-              return const QuizTabScreen(mockPanel: QuizMockPanelSkeleton());
+              return const QuizTabScreen(
+                mockReady: false,
+                mockPanel: QuizMockPanelSkeleton(),
+              );
             }
             if (availabilityState.hasError || availability == null) {
               return QuizTabScreen(
@@ -62,7 +65,10 @@ List<RouteBase> quizRoutes(Ref ref) => [
             final lastAttemptState =
                 ref.watch(lastSubmittedMockProvider(request));
             if (web && lastAttemptState.isLoading) {
-              return const QuizTabScreen(mockPanel: QuizMockPanelSkeleton());
+              return const QuizTabScreen(
+                mockReady: false,
+                mockPanel: QuizMockPanelSkeleton(),
+              );
             }
             if (web && lastAttemptState.hasError) {
               return QuizTabScreen(

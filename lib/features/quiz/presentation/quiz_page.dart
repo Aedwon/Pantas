@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -539,6 +540,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         ref.watch(entitlementProvider).valueOrNull?.state ==
             EntitlementState.paused;
     final state = ref.watch(quizControllerProvider);
+    firstScreenReady(
+      context,
+      ref,
+      ready: state is QuizRunning || state is QuizFailure,
+    );
     if (state is QuizComplete) {
       return QuizSessionEndPage(
         key: ValueKey('quiz-end-${state.attempt.id}'),

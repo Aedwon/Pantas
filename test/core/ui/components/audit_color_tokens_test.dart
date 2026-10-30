@@ -180,15 +180,7 @@ void main() {
       );
       final outline = tester
           .widget<Container>(
-            find.descendant(
-              of: find.byType(ListRow),
-              matching: find.byWidgetPredicate(
-                (w) =>
-                    w is Container &&
-                    w.decoration is BoxDecoration &&
-                    (w.decoration! as BoxDecoration).shape == BoxShape.circle,
-              ),
-            ),
+            find.byKey(const ValueKey('selection-mark')),
           )
           .decoration! as BoxDecoration;
       final surface = brightness == Brightness.light
@@ -214,16 +206,8 @@ void main() {
         brightness: brightness,
       );
       final circle = tester
-          .widget<DecoratedBox>(
-            find.byWidgetPredicate(
-              (w) =>
-                  w is DecoratedBox &&
-                  w.decoration is BoxDecoration &&
-                  (w.decoration as BoxDecoration).shape == BoxShape.circle &&
-                  (w.decoration as BoxDecoration).border != null,
-            ),
-          )
-          .decoration as BoxDecoration;
+          .widget<Container>(find.byKey(const ValueKey('selection-mark')))
+          .decoration! as BoxDecoration;
       expectContrast((circle.border! as Border).top.color, surface, minimum: 3);
       await pumpAccessibilitySurface(
         tester,

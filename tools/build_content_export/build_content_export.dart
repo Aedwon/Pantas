@@ -108,6 +108,7 @@ void _export(List<String> arguments) {
     exit(64);
   }
   final root = args.length == 2 ? args[1] : '.';
+  _checkDuplicateIds(root);
 
   final outlineFile = File('$root/tools/lesson_author/outline.json');
   final outlineUpdatedAt = _getFileHashTimestamp(outlineFile);
@@ -411,6 +412,76 @@ Map<String, String> loadTopicIdBySlug(Map<String, dynamic> outline) {
     }
   }
   return topicIdBySlug;
+}
+
+/// Validate identities before filtering pending figures or rendering lessons.
+/// Keep every occurrence, including two occurrences in the same source file.
+void _checkDuplicateIds(String root) {
+  final questions = <String, List<String>>{};
+  final lessons = <String, List<String>>{};
+  void record(Map<String, List<String>> sources, String id, String path) {
+    (sources[id] ??= []).add(path);
+  }
+
+  for (final file in _filesUnder('$root/content/questions', '.yaml')) {
+    final doc =
+        loadYaml(file.readAsStringSync(), sourceUrl: Uri.file(file.path))
+            as YamlMap;
+    for (final row in doc['questions'] as YamlList) {
+      record(questions, (row as YamlMap)['id'] as String, file.path);
+    }
+  }
+  for (final file in _filesUnder('$root/content/lessons', '.md')) {
+    final match = RegExp(r'^---\n(.*?)\n---\n', dotAll: true)
+        .firstMatch(file.readAsStringSync());
+    if (match == null) continue; // The existing frontmatter check names this.
+    final front =
+        loadYaml(match.group(1)!, sourceUrl: Uri.file(file.path)) as YamlMap;
+    record(lessons, front['_id'] as String, file.path);
+  }
+
+  // The retained legacy paper is also part of this export's ID namespace.
+  final historical =
+      File('$root/tools/build_content_export/historical_v1.json');
+  final saved =
+      jsonDecode(historical.readAsStringSync()) as Map<String, dynamic>;
+  final subjects = <String>{
+    for (final raw in saved['exams'] as List)
+      if ((raw as Map<String, dynamic>)['id'] == _keepExamId)
+        for (final subject in raw['subjects'] as List)
+          (subject as Map<String, dynamic>)['id'] as String,
+  };
+  final topics = <String>{
+    for (final raw in saved['topics'] as List)
+      if (subjects.contains((raw as Map<String, dynamic>)['subjectId']))
+        raw['id'] as String,
+  };
+  for (final (key, sources) in [
+    ('questions', questions),
+    ('lessons', lessons),
+  ]) {
+    for (final raw in saved[key] as List) {
+      final row = raw as Map<String, dynamic>;
+      if (topics.contains(row['topicId'])) {
+        record(sources, row['id'] as String, historical.path);
+      }
+    }
+  }
+  final errors = <String>[];
+  for (final (kind, sources) in [
+    ('question', questions),
+    ('lesson', lessons),
+  ]) {
+    for (final id in sources.keys.toList()..sort()) {
+      final files = sources[id]!;
+      if (files.length > 1) {
+        errors.add(
+          'Duplicate $kind ID "$id":\n  ${(files..sort()).join('\n  ')}',
+        );
+      }
+    }
+  }
+  if (errors.isNotEmpty) throw FormatException(errors.join('\n'));
 }
 
 List<Map<String, Object?>> buildQuestions(

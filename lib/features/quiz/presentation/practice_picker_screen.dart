@@ -6,12 +6,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
@@ -211,6 +213,16 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     final asyncPace = ref.watch(practicePaceProvider(widget.examId));
     final asyncPicks = ref.watch(savedPracticePicksProvider(widget.examId));
     final index = asyncIndex.valueOrNull;
+    firstScreenReady(
+      context,
+      ref,
+      ready: asyncIndex.hasError ||
+          asyncPace.hasError ||
+          asyncPicks.hasError ||
+          (!asyncIndex.isLoading &&
+              !asyncPace.isLoading &&
+              !asyncPicks.isLoading),
+    );
     if (asyncIndex.hasError || asyncPace.hasError || asyncPicks.hasError) {
       return PantasPage(
         title: 'Customize your own',
@@ -329,7 +341,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               subjects: subjects,
               selectedIds: _selection.selectedLessonIds,
               atLeastOne: false,
-              checkIconSize: 13,
               onChanged: (ids) => _change(() {
                 _selection = PracticeSelection.fromLessonIds(index, ids);
                 _adjustments = {};
@@ -393,23 +404,25 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             child: Column(
               children: [
                 for (final topic in subject.topics) ...[
-                  WebRow(
+                  CheckboxRow(
                     title: topic.name,
-                    dimmed: !topic.hasQuestions,
-                    subtitle: topic.hasQuestions ? null : 'No questions yet',
-                    leading: Checkbox(
-                      tristate: true,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                      value: switch (_selection.topicState(topic)) {
-                        PracticeCheckState.off => false,
-                        PracticeCheckState.on => true,
-                        PracticeCheckState.partial => null,
-                      },
-                      onChanged: topic.hasQuestions
-                          ? (_) => selection(_selection.toggleTopic(topic))
-                          : null,
+                    selected:
+                        _selection.topicState(topic) == PracticeCheckState.on,
+                    mixed: _selection.topicState(topic) ==
+                        PracticeCheckState.partial,
+                    onTap: topic.hasQuestions
+                        ? () => selection(_selection.toggleTopic(topic))
+                        : null,
+                    content: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(topic.name, style: context.type.body),
+                        if (!topic.hasQuestions)
+                          Text(
+                            'No questions yet',
+                            style: context.type.footnote,
+                          ),
+                      ],
                     ),
                     trailing: topic.canUnfold
                         ? IconButton(
@@ -427,33 +440,22 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             ),
                           )
                         : null,
-                    onPressed: () => selection(_selection.toggleTopic(topic)),
                   ),
                   if (_webOpenTopics.contains(topic.id))
                     for (final lesson in topic.lessons)
                       Padding(
                         padding: const EdgeInsets.only(left: 36),
-                        child: WebRow(
+                        child: CheckboxRow(
                           title: lesson.title,
-                          compact: true,
-                          titleStyle: t.style(16),
-                          dimmed: lesson.questionCount == 0,
-                          leading: Checkbox(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6),
-                            ),
-                            value: _selection.lessonSelected(lesson.id),
-                            onChanged: lesson.questionCount == 0
-                                ? null
-                                : (_) => selection(
-                                      _selection.toggleLesson(topic, lesson),
-                                    ),
-                          ),
+                          selected: _selection.lessonSelected(lesson.id),
+                          onTap: lesson.questionCount == 0
+                              ? null
+                              : () => selection(
+                                    _selection.toggleLesson(topic, lesson),
+                                  ),
                           trailing: !lesson.isRead
                               ? Text('Unread', style: t.sm)
                               : null,
-                          onPressed: () =>
-                              selection(_selection.toggleLesson(topic, lesson)),
                         ),
                       ),
                 ],

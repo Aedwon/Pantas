@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -188,6 +189,11 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
     return FutureBuilder<_LoadedReview>(
       future: _future,
       builder: (context, snapshot) {
+        firstScreenReady(
+          context,
+          ref,
+          ready: snapshot.connectionState == ConnectionState.done,
+        );
         if (snapshot.hasError || !_current()) {
           return Scaffold(body: errorFor('questions', _retry));
         }
@@ -232,6 +238,7 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final entries = ref.watch(flaggedExamReviewProvider(examId));
+    firstScreenReady(context, ref, ready: !entries.isLoading);
     void retry() => ref.invalidate(flaggedExamReviewProvider(examId));
     return entries.when(
       loading: () =>

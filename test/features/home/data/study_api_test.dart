@@ -1,7 +1,73 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 
 void main() {
+  for (final local in [true, false]) {
+    test('missing settings recovers once, local=$local', () async {
+      var reads = 0;
+      var recoveries = 0;
+      var onboarding = false;
+      final request = StudyRequest(
+        api: StudyApi((name, data) async {
+          reads++;
+          if (reads == 1 || !local) {
+            throw FirebaseFunctionsException(
+              code: 'failed-precondition',
+              message: 'Set your exam first.',
+            );
+          }
+          return {'ready': true};
+        }),
+        uid: 'u',
+        examId: 'e',
+        isCurrent: () async => true,
+        recoverMissingSettings: () async {
+          recoveries++;
+          if (!local) onboarding = true;
+          return local;
+        },
+      );
+      if (local) {
+        expect(await request.read('getRoadmap'), {'ready': true});
+        expect(reads, 2);
+      } else {
+        await expectLater(
+          request.read('getRoadmap'),
+          throwsA(isA<FirebaseFunctionsException>()),
+        );
+        expect(onboarding, isTrue);
+        expect(reads, 1);
+      }
+      expect(recoveries, 1);
+    });
+  }
+  test('missing settings retry cannot loop', () async {
+    var reads = 0;
+    var recoveries = 0;
+    final request = StudyRequest(
+      api: StudyApi((_, __) async {
+        reads++;
+        throw FirebaseFunctionsException(
+          code: 'failed-precondition',
+          message: 'Set your exam first.',
+        );
+      }),
+      uid: 'u',
+      examId: 'e',
+      isCurrent: () async => true,
+      recoverMissingSettings: () async {
+        recoveries++;
+        return true;
+      },
+    );
+    await expectLater(
+      request.read('getStudyInsights'),
+      throwsA(isA<FirebaseFunctionsException>()),
+    );
+    expect(reads, 2);
+    expect(recoveries, 1);
+  });
   test('all new requests carry immutable original UID and explicit exam',
       () async {
     final calls = <Map<String, Object?>>[];

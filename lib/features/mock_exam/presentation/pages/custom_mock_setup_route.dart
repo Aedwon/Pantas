@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
@@ -91,7 +92,9 @@ class CustomMockSetupRoute extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.watch(customMockSetupDataProvider).valueOrNull;
+    final state = ref.watch(customMockSetupDataProvider);
+    firstScreenReady(context, ref, ready: !state.isLoading);
+    final data = state.valueOrNull;
     if (data == null) {
       return const MockSetupSkeleton();
     }

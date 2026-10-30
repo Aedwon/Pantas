@@ -14,8 +14,8 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
-import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
@@ -255,16 +255,20 @@ void main() {
     }
   }
 
-  testWidgets('bookmark selection follows the approved 200 ms spring',
+  testWidgets('bookmark selection follows the shared 220 ms spring',
       (tester) async {
     await pumpSheet(tester, rows: 3);
     await tester.tap(find.text('Edit'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Lesson 3'));
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 100));
-    final transform = tester
-        .widget<Transform>(find.byKey(const ValueKey('check-mark-scale')));
+    await tester.pump(const Duration(milliseconds: 110));
+    final transform = tester.widget<Transform>(
+      find.descendant(
+        of: find.byKey(const ValueKey('l3')),
+        matching: find.byKey(const ValueKey('selection-scale')),
+      ),
+    );
     expect(
       transform.transform.storage[0],
       closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .001),
@@ -979,7 +983,7 @@ void main() {
 
     expect(find.text('Done'), findsOneWidget);
     expect(find.text('Edit'), findsNothing);
-    expect(find.byType(CheckMark), findsNWidgets(3));
+    expect(find.byType(CheckboxRow), findsNWidgets(3));
   });
 
   testWidgets('a row in edit mode selects rather than opening', (tester) async {

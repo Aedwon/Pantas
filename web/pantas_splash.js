@@ -1,22 +1,11 @@
-// Runs before Flutter. It decides whether this visit opens with the plain HTML
-// logo splash (index.html) and removes it when Flutter has drawn its first frame.
-//
-//   * Returning visit (pantas_welcome.js did not claim the visit): the splash
-//     shows from the first paint until Flutter's first frame.
-//   * First visit: the Welcome screen owns the visit. The splash never shows
-//     and its markup is removed, so the two can never appear together.
-//   * Reduced motion: the splash leaves at once, with no fade.
-//
-// Flutter's engine fires "flutter-first-frame" on the page when it has put its
-// first frame on screen. Nothing here reads app data.
+// Returning visits keep the logo until the first route has drawn settled data.
+// The HTML welcome still owns first visits. Eight seconds is the hard limit.
 (function (root) {
   'use strict';
 
   var FADE_MS = 400;
-  // If the first frame never comes, uncover whatever the page shows instead of
-  // leaving the logo up forever.
-  var GIVE_UP_MS = 20000;
-  var FIRST_FRAME_EVENT = 'flutter-first-frame';
+  // Uncover normal loading states if data takes too long.
+  var GIVE_UP_MS = 8000;
 
   function create(env) {
     var doc = env.document;
@@ -51,8 +40,8 @@
       env.setTimeout(removeNow, FADE_MS);
     }
 
-    // Called with the first-frame signal. Waits until the frame is painted.
-    function firstFrame() {
+    // Called by the app once the first route has settled.
+    function ready() {
       if (!state.shown || state.done) return;
       env.afterPaint(finish);
     }
@@ -66,15 +55,17 @@
       state.shown = true;
       doc.documentElement.classList.add('ps-on');
       preloadFont();
-      env.onFirstFrame(firstFrame);
-      env.setTimeout(finish, GIVE_UP_MS);
+      env.setTimeout(function () {
+        state.done = true;
+        removeNow();
+      }, GIVE_UP_MS);
     }
 
     return {
       isShown: function () {
         return state.shown;
       },
-      firstFrame: firstFrame,
+      ready: ready,
       state: state,
     };
   }
@@ -101,10 +92,6 @@
       } catch (_) {
         return false;
       }
-    },
-    onFirstFrame: function (fn) {
-      // Capture on window so it is heard wherever the engine dispatches it.
-      root.addEventListener(FIRST_FRAME_EVENT, fn, true);
     },
   });
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -115,7 +115,7 @@ void main() {
         settingsRepositoryProvider.overrideWithValue(_FailingSettings(db)),
       ],
     );
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).last);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -52,6 +53,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
       return _waiting(context, const AsyncLoading<void>(), () {});
     }
     if (view == null) {
+      firstScreenReady(context, ref, ready: value.hasError);
       return _waiting(
         context,
         value,
@@ -74,6 +76,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
         ),
       );
     }
+    firstScreenReady(context, ref);
     return PlanPage(
       webPane: widget.webPane,
       selectedWeek: widget.selectedWeek,
@@ -171,6 +174,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
   Widget build(BuildContext context) {
     final date = widget.date;
     final value = ref.watch(planDayViewProvider(date));
+    firstScreenReady(context, ref, ready: value.hasError);
     final view = value.unwrapPrevious().asData?.value;
     if (view == null) {
       return _waiting(
@@ -183,6 +187,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     }
     if (view.kind == 'locked') return const PlanScreen();
     if (view.kind == 'unknown' || view.plan == null) {
+      firstScreenReady(context, ref);
       return _waiting(
         context,
         const AsyncError<void>('Unknown stored day', StackTrace.empty),
@@ -200,6 +205,12 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     return FutureBuilder<bool>(
       future: _guard!.then((check) => check()),
       builder: (context, owner) {
+        firstScreenReady(
+          context,
+          ref,
+          ready: owner.connectionState == ConnectionState.done &&
+              (owner.data != true || shown.kind != 'today'),
+        );
         if (owner.data != true) {
           return _waiting(
             context,
@@ -313,6 +324,7 @@ class PlanWeekScreen extends ConsumerWidget {
     }
     if (!pro) return const PlanScreen();
     final value = ref.watch(planWeekViewProvider(start));
+    firstScreenReady(context, ref, ready: value.hasError);
     final days = value.unwrapPrevious().asData?.value;
     if (days == null) {
       return _waiting(
@@ -323,6 +335,7 @@ class PlanWeekScreen extends ConsumerWidget {
       );
     }
     if (days.any((day) => day.kind == 'locked')) return const PlanScreen();
+    firstScreenReady(context, ref);
     if (days.length != 7 || days.any((day) => day.plan == null)) {
       return _waiting(
         context,
@@ -378,6 +391,7 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
     final view = arrived ?? displayed.unwrapPrevious().asData?.value;
     if (arrived != null) _displayLimit = _limit;
     if (!ref.watch(currentStudyCoverageProvider)) return const PlanScreen();
+    firstScreenReady(context, ref, ready: !value.isLoading);
     if (view == null) {
       return _waiting(
         context,

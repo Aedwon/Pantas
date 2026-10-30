@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -242,6 +243,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     return FutureBuilder<HomeTodayData>(
       future: _request,
       builder: (context, snapshot) {
+        firstScreenReady(
+          context,
+          ref,
+          ready: snapshot.connectionState == ConnectionState.done,
+        );
         final data = snapshot.connectionState == ConnectionState.done
             ? snapshot.data
             : null;

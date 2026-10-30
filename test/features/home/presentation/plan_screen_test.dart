@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
@@ -19,6 +21,51 @@ import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  testWidgets('today deep link waits for Home data after its guard',
+      (tester) async {
+    final pending = Completer<HomeTodayData>();
+    var signals = 0;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          firstScreenSignalProvider
+              .overrideWithValue(FirstScreenSignal(() => signals++)),
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
+          todayQuestionLauncherProvider.overrideWith(_PlanLauncher.new),
+          homeTodayLoaderProvider
+              .overrideWith((_) => (exam, guard) => pending.future),
+          planDayViewProvider('2026-10-26').overrideWith(
+            (_) async => PlanDayView(
+              date: DateTime(2026, 10, 26),
+              plan: DayPlan(
+                day: DateTime(2026, 10, 26),
+                lessonIds: const [],
+                reviewQuestionIds: const [],
+                newQuestionIds: const [],
+                isMockDay: false,
+                advancedIds: const {},
+              ),
+              remaining: null,
+              lessons: const [],
+              kind: 'today',
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanDayScreen(date: '2026-10-26'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(signals, 0);
+    pending.completeError(StateError('offline'));
+    await tester.pumpAndSettle();
+    expect(signals, 1);
+  });
+
   testWidgets('coverage loading never shows the Free invitation',
       (tester) async {
     final pending = Completer<bool>();

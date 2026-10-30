@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_persistence_scheduler.dart';
@@ -819,6 +820,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
   @override
   Widget build(BuildContext context) {
+    firstScreenReady(
+      context,
+      ref,
+      ready: _retryError != null ||
+          (_controller?.state is MockSessionPaused) ||
+          (_controller?.state is MockSessionBetweenParts) ||
+          _preparedSample != null,
+    );
     if (_retryError != null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Error')),

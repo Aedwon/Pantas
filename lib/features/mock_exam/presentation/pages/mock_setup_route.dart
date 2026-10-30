@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -81,6 +82,7 @@ class MockSetupRoute extends ConsumerWidget {
 
     final error = parsedAsync.error ?? settingsAsync.error ?? countAsync.error;
     if (error != null) {
+      firstScreenReady(context, ref);
       return StateView.fullScreen(
         error: error,
         onRetry: () {
@@ -102,6 +104,7 @@ class MockSetupRoute extends ConsumerWidget {
       return const MockSetupSkeleton();
     }
 
+    firstScreenReady(context, ref);
     final parsed = parsedAsync.valueOrNull;
     final settings = settingsAsync.valueOrNull;
     if (parsed == null || settings == null) {

@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -366,6 +367,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final lessonId = _lessonId;
     final origin = widget.origin;
     if (_captureFailed) {
+      firstScreenReady(context, ref);
       return Scaffold(
         backgroundColor: context.colors.background,
         body: _ReaderFallback(
@@ -391,6 +393,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     }
     final failure = _selectionFailure;
     if (failure != null) {
+      firstScreenReady(context, ref);
       return Scaffold(
         backgroundColor: context.colors.background,
         body: _ReaderFallback(
@@ -410,6 +413,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       );
     }
     final asyncReader = ref.watch(readerContextProvider(lessonId));
+    firstScreenReady(context, ref, ready: !asyncReader.isLoading);
     final loaded = asyncReader.valueOrNull;
     if (loaded != null) {
       if (loaded.boundary?.token != _boundary!.token ||

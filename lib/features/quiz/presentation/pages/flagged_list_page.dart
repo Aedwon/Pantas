@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
@@ -194,6 +195,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
   @override
   Widget build(BuildContext context) {
     final value = ref.watch(flaggedExamReviewProvider(widget.examId));
+    firstScreenReady(context, ref, ready: !value.isLoading);
     final entries = value.asData?.value;
     return PantasPage(
       title: 'Flagged questions',

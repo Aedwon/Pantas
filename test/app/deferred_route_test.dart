@@ -1,17 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/routes/deferred_route.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 void main() {
-  Widget app(Future<void> Function() load) => MaterialApp(
-        theme: buildLightTheme(),
-        home: DeferredRoute(
-          loadLibrary: load,
-          builder: (_) => const Text('Loaded page'),
+  Widget app(Future<void> Function() load) => ProviderScope(
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: DeferredRoute(
+            loadLibrary: load,
+            builder: (_) => const Text('Loaded page'),
+          ),
         ),
       );
 

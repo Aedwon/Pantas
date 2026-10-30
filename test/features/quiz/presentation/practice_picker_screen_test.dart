@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -1294,10 +1295,18 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('picker uses the drawn thirteen-point filled check',
-      (tester) async {
+  testWidgets('picker uses the shared board checkbox', (tester) async {
     await pump(tester, saved: {'a', 'b'});
-    expect(tester.widget<Icon>(find.byIcon(PantasIcons.check).first).size, 13);
+    expect(
+      tester
+          .widgetList<CheckboxRow>(find.byType(CheckboxRow))
+          .any((row) => row.selected),
+      isTrue,
+    );
+    expect(
+      tester.getSize(find.byKey(const ValueKey('selection-mark')).first),
+      const Size(24, 24),
+    );
   });
 
   testWidgets('pace refresh keeps the picker visible and updates its estimate',

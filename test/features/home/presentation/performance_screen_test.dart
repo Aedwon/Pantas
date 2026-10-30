@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -56,6 +57,7 @@ String? lastPush;
 
 Future<void> pump(
   WidgetTester tester, {
+  VoidCallback? onReady,
   bool pro = true,
   bool paused = false,
   bool server = false,
@@ -103,6 +105,9 @@ Future<void> pump(
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
+        if (onReady != null)
+          firstScreenSignalProvider
+              .overrideWithValue(FirstScreenSignal(onReady)),
         if (realTopic)
           topicDetailProvider('Geometry').overrideWith(
             (_) async => TopicDetail(
@@ -176,6 +181,19 @@ Future<void> pump(
 }
 
 void main() {
+  testWidgets('Free topic deep link signals after its fallback data',
+      (tester) async {
+    var ready = 0;
+    await pump(
+      tester,
+      pro: false,
+      realTopic: true,
+      initialPath: '/performance/topic/Geometry',
+      onReady: () => ready++,
+    );
+    expect(ready, 1);
+  });
+
   testWidgets('a direct native Free topic route shows the approved invitation',
       (tester) async {
     await pump(

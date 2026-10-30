@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum ListRowVariant {
@@ -148,97 +148,71 @@ class ListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    if (_exam) {
-      final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
-      final enabled = !comingSoon && onTap != null;
-      final row = Semantics(
-        selected: selected,
-        enabled: enabled,
-        child: Material(
-          color: c.transparent,
-          child: InkWell(
-            onTap: enabled ? onTap : null,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: settingsMode ? 10 : 11,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Opacity(
-                          opacity: comingSoon ? .45 : 1,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: context.type.body,
-                              ),
-                              if (subtitle != null)
-                                Text(
-                                  subtitle!,
-                                  style: context.type.footnote,
-                                ),
-                            ],
-                          ),
-                        ),
-                        if (comingSoon && large)
-                          Text(
-                            'Coming soon',
-                            style: context.type.footnote.copyWith(
-                              color: c.tertiaryLabel,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                      ],
-                    ),
+    if (_exam ||
+        _checkbox ||
+        variant == ListRowVariant.check ||
+        variant == ListRowVariant.radio) {
+      final radio =
+          _exam || mutuallyExclusive || variant == ListRowVariant.radio;
+      final body = content ??
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              titleWidget ??
+                  Text.rich(
+                    richTitle ?? TextSpan(text: title),
+                    style: _checkbox
+                        ? context.type.body.copyWith(
+                            fontSize: 16,
+                            height: 1.4,
+                            letterSpacing: 0,
+                          )
+                        : context.type.body,
+                    maxLines: _checkbox || wrapTitle ? null : 1,
+                    overflow:
+                        _checkbox || wrapTitle ? null : TextOverflow.ellipsis,
                   ),
-                  if (comingSoon && !large) ...[
-                    const SizedBox(width: 10),
-                    Text(
-                      'Coming soon',
-                      style: context.type.footnote.copyWith(
-                        color: c.tertiaryLabel,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                  if (selected) ...[
-                    const SizedBox(width: 10),
-                    ExcludeSemantics(
-                      child: SizedBox.square(
-                        dimension: 18,
-                        child: CustomPaint(
-                          key: const ValueKey('exam-check'),
-                          painter: _CheckboxCheckPainter(
-                            c.accent,
-                            strokeWidth: 2.4,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
+              if (subtitle != null)
+                Text(subtitle!, style: context.type.footnote),
+              if (footer != null) footer!,
+            ],
+          );
+      final padding = contentPadding ??
+          EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: _checkbox ? 14 : verticalPadding,
+          );
+      final action = comingSoon ? null : onTap;
+      final row = radio
+          ? RadioRow(
+              title: title,
+              selected: selected,
+              onTap: action,
+              content: body,
+              padding: padding,
+              trailing: comingSoon
+                  ? Text('Coming soon', style: context.type.footnote)
+                  : trailingWidget,
+            )
+          : CheckboxRow(
+              interactiveContent: _checkbox && content != null,
+              title: title,
+              selected: selected,
+              onTap: action,
+              content: body,
+              padding: padding,
+              trailing: trailingWidget,
+            );
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           row,
           if (divider)
             Padding(
-              padding: EdgeInsets.only(left: settingsMode ? 0 : 16),
+              padding: EdgeInsets.only(left: _exam && !settingsMode ? 16 : 0),
               child: DecoratedBox(
-                key: const ValueKey('exam-row-divider'),
+                key: _exam ? const ValueKey('exam-row-divider') : null,
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(color: c.separator, width: .5),
@@ -248,73 +222,6 @@ class ListRow extends StatelessWidget {
               ),
             ),
         ],
-      );
-    }
-    if (_checkbox) {
-      return Semantics(
-        container: true,
-        explicitChildNodes: content != null,
-        label: content == null ? null : title,
-        checked: selected,
-        onTap: onTap,
-        child: Material(
-          color: c.transparent,
-          child: InkWell(
-            onTap: onTap,
-            excludeFromSemantics: true,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-              child: Row(
-                children: [
-                  ExcludeSemantics(
-                    child: Container(
-                      key: const ValueKey('checkbox-mark'),
-                      width: 24,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        color: selected ? c.accentFill : null,
-                        borderRadius: BorderRadius.circular(7),
-                        border: Border.all(
-                          color: selected ? c.accentFill : c.controlOutline,
-                          width: 1.5,
-                        ),
-                      ),
-                      child: selected
-                          ? PantasEffects.pop(
-                              duration: const Duration(milliseconds: 500),
-                              builder: (_, __, child) => child!,
-                              child: Center(
-                                child: SizedBox.square(
-                                  dimension: 15,
-                                  child: CustomPaint(
-                                    key: const ValueKey('checkbox-check'),
-                                    painter: _CheckboxCheckPainter(
-                                      c.onAccent,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          : null,
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: content ??
-                        Text(
-                          title,
-                          style: context.type.body.copyWith(
-                            fontSize: 16,
-                            letterSpacing: 0,
-                            height: 1.4,
-                          ),
-                        ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
       );
     }
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
@@ -349,24 +256,6 @@ class ListRow extends StatelessWidget {
                   onChanged: (_) => onTap?.call(),
                 ),
               ),
-            ),
-          ListRowVariant.check => selected
-              ? Icon(PantasIcons.check, size: 20, color: c.accent)
-              : const SizedBox(width: 20),
-          ListRowVariant.radio => Container(
-              width: 22,
-              height: 22,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: selected ? c.accentFill : null,
-                border: Border.all(
-                  color: selected ? c.accent : c.controlOutline,
-                  width: 1.5,
-                ),
-              ),
-              child: selected
-                  ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
-                  : null,
             ),
           ListRowVariant.inlineEditor => Icon(
               expanded ? PantasIcons.close : PantasIcons.next,
@@ -461,32 +350,4 @@ class ListRow extends StatelessWidget {
       ],
     );
   }
-}
-
-// O_Consent's 15 px SVG uses a 24-unit viewBox and a 3-unit check stroke.
-class _CheckboxCheckPainter extends CustomPainter {
-  const _CheckboxCheckPainter(this.color, {this.strokeWidth = 3});
-  final Color color;
-  final double strokeWidth;
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas
-      ..scale(size.width / 24, size.height / 24)
-      ..drawPath(
-        Path()
-          ..moveTo(5, 12.5)
-          ..lineTo(9.5, 17)
-          ..lineTo(19, 7),
-        Paint()
-          ..color = color
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = strokeWidth
-          ..strokeCap = StrokeCap.round
-          ..strokeJoin = StrokeJoin.round,
-      );
-  }
-
-  @override
-  bool shouldRepaint(_CheckboxCheckPainter old) =>
-      old.color != color || old.strokeWidth != strokeWidth;
 }

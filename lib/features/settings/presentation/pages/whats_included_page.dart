@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson_meta.dart';
@@ -132,6 +133,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     final examId = focus.valueOrNull?.exam?.id;
     final data =
         examId == null ? null : ref.watch(whatsIncludedDataProvider(examId));
+    firstScreenReady(context, ref, ready: data != null && !data.isLoading);
     return SettingsPanePage(
       section: 'Your exam',
       title: 'What’s included',

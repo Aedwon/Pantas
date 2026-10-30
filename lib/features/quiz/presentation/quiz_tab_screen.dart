@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -73,7 +74,8 @@ final quizPracticeCountsProvider = FutureProvider.autoDispose
 });
 
 class QuizTabScreen extends ConsumerStatefulWidget {
-  const QuizTabScreen({this.mockPanel, super.key});
+  const QuizTabScreen({this.mockPanel, this.mockReady = true, super.key});
+  final bool mockReady;
   final Widget? mockPanel;
   @override
   ConsumerState<QuizTabScreen> createState() => _QuizTabScreenState();
@@ -126,6 +128,23 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
   @override
   Widget build(BuildContext context) {
     final focus = ref.watch(activeExamFocusProvider);
+    final firstExamId = focus.valueOrNull?.exam?.id;
+    var settled = !focus.isLoading;
+    if (firstExamId != null) {
+      final session = ref.watch(sessionPanelProvider(firstExamId));
+      final counts = ref.watch(quizPracticeCountsProvider(firstExamId));
+      final today = ref.watch(quizTodayCountsProvider(firstExamId));
+      settled = settled &&
+          !session.isLoading &&
+          !counts.isLoading &&
+          !today.isLoading;
+    }
+    firstScreenReady(
+      context,
+      ref,
+      ready: settled && widget.mockReady,
+      path: '/quiz',
+    );
     ref.listen(activeExamFocusProvider, (previous, next) {
       if (previous?.unwrapPrevious().asData?.value.exam?.id !=
               next.unwrapPrevious().asData?.value.exam?.id &&

@@ -9,6 +9,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_observations.dart';
 import 'package:pantas/features/home/data/study_read_cache.dart';
@@ -19,6 +20,13 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_guard.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
+
+/// A no-settings response without locally saved settings needs the exam step.
+final studyNeedsExamSettingsProvider = StateProvider<bool>((ref) {
+  ref.watch(authStateProvider);
+  return false;
+});
 
 /// Watch the existing data-boundary envelope. No second owner/cache is stored.
 final studyCoreEpochProvider = StreamProvider.autoDispose<int>((ref) async* {
@@ -58,11 +66,51 @@ final studySnapshotReaderProvider = FutureProvider.autoDispose
       await captureQuizLaunchGuard(ref, examId: examId, isAlive: () => alive);
   final original = await SyncActiveContextStore(db).readSnapshot();
   if (!await guard()) throw StateError('Study owner changed');
+  Future<bool>? repair;
+  Future<bool> recover() {
+    final pending = repair;
+    if (pending != null) return pending;
+    final result = () async {
+      final selected =
+          await ref.read(appPreferencesRepositoryProvider).selectedExamId();
+      final days = await (db.select(db.accountPrefs)
+            ..where((p) => p.key.equals(SettingsPrefKeys.studyDays)))
+          .getSingleOrNull();
+      if (!await guard()) throw StateError('Study owner changed');
+      if (selected != examId || days == null || days.value.isEmpty) {
+        ref.read(studyNeedsExamSettingsProvider.notifier).state = true;
+        return false;
+      }
+      final payload = await readStudySettingsPayload(ref, examId);
+      final saveRequest = StudyRequest(
+        api: ref.read(studyApiProvider),
+        uid: uid,
+        examId: examId,
+        isCurrent: guard,
+      );
+      await ref.read(studyWritesProvider).settings(saveRequest, payload);
+      return true;
+    }();
+    repair = result;
+    unawaited(
+      result.then<void>(
+        (_) {
+          repair = null;
+        },
+        onError: (Object _, StackTrace __) {
+          repair = null;
+        },
+      ),
+    );
+    return result;
+  }
+
   final request = StudyRequest(
     api: ref.watch(studyApiProvider),
     uid: uid,
     examId: examId,
     isCurrent: guard,
+    recoverMissingSettings: recover,
   );
   final observations = StudyObservations(
     db,

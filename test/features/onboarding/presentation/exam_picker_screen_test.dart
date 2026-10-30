@@ -253,14 +253,14 @@ void main() {
         await tester.pumpAndSettle();
         final row = find.widgetWithText(ListRow, 'PSHS-NCE');
         expect(row, findsOneWidget);
-        final ink = tester.widget<InkWell>(
-          find.descendant(of: row, matching: find.byType(InkWell)),
+        final button = tester.widget<TextButton>(
+          find.descendant(of: row, matching: find.byType(TextButton)),
         );
-        expect(ink.onTap, isNull);
+        expect(button.onPressed, isNull);
         expect(
           tester
               .widget<Opacity>(
-                find.descendant(of: row, matching: find.byType(Opacity)),
+                find.descendant(of: row, matching: find.byType(Opacity)).first,
               )
               .opacity,
           .45,

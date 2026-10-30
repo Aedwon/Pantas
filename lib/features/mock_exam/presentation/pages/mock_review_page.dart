@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
@@ -11,6 +12,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -73,6 +75,15 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
     final savedAnswers = widget.proIsActive
         ? ref.watch(mockReviewAnswersProvider(widget.attemptId))
         : const AsyncData<Map<String, MockAnswer>>({});
+    firstScreenReady(
+      context,
+      ref,
+      ready: !reviewAsync.isLoading &&
+          !markedAsync.isLoading &&
+          !handledAsync.isLoading &&
+          !savedFlags.isLoading &&
+          !savedAnswers.isLoading,
+    );
     final shown = reviewAsync.valueOrNull;
     final filtered =
         shown == null ? null : FilterReviewEntries.call(shown, _filter);
@@ -1356,25 +1367,10 @@ class _ReasonChoice extends StatelessWidget {
   final bool selected;
 
   @override
-  Widget build(BuildContext context) => Semantics(
+  Widget build(BuildContext context) => RadioRow(
+        title: label,
         selected: selected,
-        child: InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Row(
-              children: [
-                Icon(
-                  selected
-                      ? Icons.radio_button_checked
-                      : Icons.radio_button_unchecked,
-                  size: 22,
-                ),
-                const SizedBox(width: 12),
-                Expanded(child: Text(label)),
-              ],
-            ),
-          ),
-        ),
+        onTap: onTap,
+        padding: const EdgeInsets.symmetric(vertical: 10),
       );
 }

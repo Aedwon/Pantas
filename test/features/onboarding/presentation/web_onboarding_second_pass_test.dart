@@ -11,6 +11,7 @@ import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -186,23 +187,18 @@ void main() {
       const label = 'Help improve Pantas by sharing anonymous usage data';
       await tester.tap(find.text(label));
       await tester.pump();
-      final semantics = tester.widget<Semantics>(
-        find
-            .ancestor(
-              of: find.byKey(const ValueKey(label)),
-              matching: find.byType(Semantics),
-            )
-            .first,
+      final row = tester.widget<CheckboxRow>(
+        find.byWidgetPredicate((w) => w is CheckboxRow && w.title == label),
       );
-      expect(semantics.properties.checked, isTrue);
+      expect(row.selected, isTrue);
       expect(tester.takeException(), isNull);
     });
 
     testWidgets('custom subject controls match board sizing $dark',
         (tester) async {
       await pump(tester, const CustomTrackSubjectsStep(name: 'My Exam'));
-      final tiles = find.byType(CheckboxListTile);
-      expect(tester.getSize(tiles.first).height, 56);
+      final tiles = find.byType(CheckboxRow);
+      expect(tester.getSize(tiles.first).height, 52);
       expect(
         tester
             .getSize(
@@ -214,25 +210,26 @@ void main() {
             .width,
         285,
       );
-      final tile = tester.widget<CheckboxListTile>(tiles.first);
-      expect(tile.checkboxScaleFactor * Checkbox.width, 24);
       final checkbox = find.descendant(
         of: tiles.first,
-        matching: find.byType(Checkbox),
+        matching: find.byKey(const ValueKey('selection-mark')),
       );
+      expect(tester.getSize(checkbox), const Size(24, 24));
       final center = tester.getCenter(checkbox);
       expect(center.dx - 12 - tester.getTopLeft(tiles.first).dx, 16);
       expect(
         tester.getTopLeft(find.text('Mathematics')).dx - center.dx - 12,
-        14,
+        12,
       );
       expect(
-        tile.title,
+        tester.widget<Text>(
+          find.text(tester.widget<CheckboxRow>(tiles.first).title),
+        ),
         isA<Text>().having((text) => text.style?.fontSize, 'font size', 16),
       );
       await tester.tap(find.text('Mathematics'));
       await tester.pump();
-      expect(tester.widget<CheckboxListTile>(tiles.first).value, isTrue);
+      expect(tester.widget<CheckboxRow>(tiles.first).selected, isTrue);
       expect(tester.takeException(), isNull);
     });
     testWidgets('restore loading keeps heading above progress card $dark',

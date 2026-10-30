@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_state.dart';
@@ -10,15 +11,84 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  for (final local in [true, false]) {
+    test('missing settings recovers or opens exam onboarding: $local',
+        () async {
+      final db = inMemoryDatabase();
+      final content = inMemoryContentDatabase();
+      addTearDown(content.close);
+      addTearDown(db.close);
+      await SyncActiveContextStore(db).clearStable();
+      await AppPreferencesRepository(db).setSelectedExamId('e');
+      if (local) {
+        await DriftSettingsRepository(db)
+            .updateStudyDays(StudyDays(const {1, 3, 5}));
+      }
+      final names = <String>[];
+      var saved = false;
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(content),
+          authStateProvider.overrideWith(
+            (_) => Stream.value(const AuthState.anonymous(uid: 'u')),
+          ),
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
+          studyApiProvider.overrideWithValue(
+            StudyApi((name, data) async {
+              names.add(name);
+              if (name == 'setExamSettings') {
+                expect(data['studyDays'], [1, 3, 5]);
+                saved = true;
+                return <String, Object?>{};
+              }
+              if (!saved) {
+                throw FirebaseFunctionsException(
+                  code: 'failed-precondition',
+                  message: 'Set your exam first.',
+                );
+              }
+              return {'examId': 'e'};
+            }),
+          ),
+        ],
+      );
+      addTearDown(container.dispose);
+      await container.read(authStateProvider.future);
+      await container.read(activeExamFocusProvider.future);
+      final reader =
+          await container.read(studySnapshotReaderProvider('e').future);
+      if (local) {
+        expect(await reader.request.read('getRoadmap'), {'examId': 'e'});
+        expect(names, ['getRoadmap', 'setExamSettings', 'getRoadmap']);
+        saved = false;
+        expect(await reader.request.read('getRoadmap'), {'examId': 'e'});
+        expect(names.where((name) => name == 'setExamSettings'), hasLength(2));
+
+        expect(container.read(studyNeedsExamSettingsProvider), false);
+      } else {
+        await expectLater(
+          reader.request.read('getRoadmap'),
+          throwsA(isA<FirebaseFunctionsException>()),
+        );
+        expect(names, ['getRoadmap']);
+        expect(container.read(studyNeedsExamSettingsProvider), true);
+      }
+    });
+  }
   test(
       'explicit settings send lesson exclusions beside topics '
       'for the original owner', () async {

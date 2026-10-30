@@ -20,9 +20,10 @@ bool isWideWebLayout({required double width, bool web = kIsWeb}) =>
 bool? debugWebPlatformOverride;
 
 extension WebLayoutContext on BuildContext {
+  bool get webPlatform => debugWebPlatformOverride ?? kIsWeb;
   WebLayoutTier get webTier => webLayoutTier(
         width: MediaQuery.sizeOf(this).width,
-        web: debugWebPlatformOverride ?? kIsWeb,
+        web: webPlatform,
       );
   bool get wideWeb => webTier.index >= WebLayoutTier.tabletLandscape.index;
 }

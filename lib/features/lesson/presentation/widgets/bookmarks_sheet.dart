@@ -11,9 +11,9 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
@@ -476,7 +476,6 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
           label: _editing
               ? 'Select bookmark: ${row.title}'
               : 'Open bookmark: ${row.title}',
-          checked: _editing ? checked : null,
           button: !_editing,
           customSemanticsActions: {
             if (_editing && index > 0)
@@ -492,100 +491,121 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                 ? Duration.zero
                 : const Duration(milliseconds: 250),
             curve: PantasCurves.houseOut,
-            builder: (context, value, _) => widget.wide
-                ? WebRow(
-                    title: row.title,
-                    subtitle: row.topicName,
-                    selected: _editing && checked,
-                    leading: _editing
-                        ? CheckMark.selection(selected: checked)
-                        : null,
-                    trailing:
-                        (_editing || _shownOrder == BookmarkOrder.custom) &&
-                                _shown.length > 1
-                            ? ReorderableDragStartListener(
-                                index: index,
-                                child: Tooltip(
-                                  message: 'Move bookmark: Alt ↑ or Alt ↓',
-                                  child: SizedBox.square(
-                                    dimension: 32,
-                                    child: IconTheme(
-                                      key: const ValueKey('bookmark-grip'),
-                                      data: IconThemeData(
-                                        size: 16,
-                                        color: context.colors.tertiaryLabel,
-                                      ),
-                                      child: PantasIcons.reorder,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            : _editing
-                                ? null
-                                : Icon(
-                                    PantasIcons.next,
-                                    size: 14,
-                                    color: context.colors.chevron,
-                                  ),
-                    onPressed: activate,
-                    divider: divider,
-                  )
-                : ListRow(
-                    title: row.title,
-                    subtitle: row.topicName,
-                    wrapTitle: large,
-                    minimumHeight: 62,
-                    divider: divider,
-                    contentPadding: EdgeInsets.fromLTRB(
-                      20,
-                      9,
-                      _editing && _shown.length > 1 ? 8 : 16,
-                      divider ? 8.5 : 9,
-                    ),
-                    leadingGap: 12 * value,
-                    leading: SizedBox(
-                      width: 22 * value,
-                      height: 22,
-                      child: ClipRect(
-                        child: OverflowBox(
-                          alignment: Alignment.centerLeft,
-                          minWidth: 22,
-                          maxWidth: 22,
-                          child: Opacity(
-                            opacity: value,
-                            child: ExcludeSemantics(
-                              child: CheckMark.selection(
-                                selected: checked,
+            builder: (context, value, _) => _editing
+                ? Container(
+                    constraints: const BoxConstraints(minHeight: 62),
+                    decoration: BoxDecoration(
+                      border: divider
+                          ? Border(
+                              bottom: BorderSide(
+                                color: context.colors.separator,
+                                width: .5,
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
+                            )
+                          : null,
                     ),
-                    trailingWidget: (_editing || widget.wide)
-                        ? _shown.length > 1
-                            ? ReorderableDragStartListener(
-                                index: index,
-                                child: SizedBox.square(
-                                  dimension: 44,
-                                  child: IconTheme(
-                                    key: const ValueKey('bookmark-grip'),
-                                    data: IconThemeData(
-                                      size: 20,
-                                      color: context.colors.controlOutline,
-                                    ),
-                                    child: PantasIcons.reorder,
+                    child: CheckboxRow(
+                      padding: const EdgeInsets.fromLTRB(20, 9, 8, 9),
+                      title: row.title,
+                      selected: checked,
+                      onTap: activate,
+                      content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(row.title, style: context.type.body),
+                          Text(row.topicName, style: context.type.footnote),
+                        ],
+                      ),
+                      trailing: _shown.length > 1
+                          ? ReorderableDragStartListener(
+                              index: index,
+                              child: SizedBox.square(
+                                dimension: 44,
+                                child: IconTheme(
+                                  key: const ValueKey('bookmark-grip'),
+                                  data: IconThemeData(
+                                    size: 20,
+                                    color: context.colors.controlOutline,
                                   ),
+                                  child: PantasIcons.reorder,
                                 ),
-                              )
-                            : const SizedBox.shrink()
-                        : Icon(
-                            PantasIcons.next,
-                            size: 14,
-                            color: context.colors.chevron,
-                          ),
-                    onTap: activate,
-                  ),
+                              ),
+                            )
+                          : null,
+                    ),
+                  )
+                : widget.wide
+                    ? WebRow(
+                        title: row.title,
+                        subtitle: row.topicName,
+                        selected: _editing && checked,
+                        trailing:
+                            (_editing || _shownOrder == BookmarkOrder.custom) &&
+                                    _shown.length > 1
+                                ? ReorderableDragStartListener(
+                                    index: index,
+                                    child: Tooltip(
+                                      message: 'Move bookmark: Alt ↑ or Alt ↓',
+                                      child: SizedBox.square(
+                                        dimension: 32,
+                                        child: IconTheme(
+                                          key: const ValueKey('bookmark-grip'),
+                                          data: IconThemeData(
+                                            size: 16,
+                                            color: context.colors.tertiaryLabel,
+                                          ),
+                                          child: PantasIcons.reorder,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : _editing
+                                    ? null
+                                    : Icon(
+                                        PantasIcons.next,
+                                        size: 14,
+                                        color: context.colors.chevron,
+                                      ),
+                        onPressed: activate,
+                        divider: divider,
+                      )
+                    : ListRow(
+                        title: row.title,
+                        subtitle: row.topicName,
+                        wrapTitle: large,
+                        minimumHeight: 62,
+                        divider: divider,
+                        contentPadding: EdgeInsets.fromLTRB(
+                          20,
+                          9,
+                          _editing && _shown.length > 1 ? 8 : 16,
+                          divider ? 8.5 : 9,
+                        ),
+                        leadingGap: 12 * value,
+                        trailingWidget: (_editing || widget.wide)
+                            ? _shown.length > 1
+                                ? ReorderableDragStartListener(
+                                    index: index,
+                                    child: SizedBox.square(
+                                      dimension: 44,
+                                      child: IconTheme(
+                                        key: const ValueKey('bookmark-grip'),
+                                        data: IconThemeData(
+                                          size: 20,
+                                          color: context.colors.controlOutline,
+                                        ),
+                                        child: PantasIcons.reorder,
+                                      ),
+                                    ),
+                                  )
+                                : const SizedBox.shrink()
+                            : Icon(
+                                PantasIcons.next,
+                                size: 14,
+                                color: context.colors.chevron,
+                              ),
+                        onTap: activate,
+                      ),
           ),
         ),
       ),

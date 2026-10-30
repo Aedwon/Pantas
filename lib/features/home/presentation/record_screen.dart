@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
@@ -21,6 +22,14 @@ class RecordScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final record = ref.watch(recordProvider);
     final history = ref.watch(mockHistoryProvider);
+    firstScreenReady(
+      context,
+      ref,
+      ready: record.hasError ||
+          history.hasError ||
+          (!record.isLoading && !history.isLoading),
+      path: '/record',
+    );
     void back() => context.canPop() ? context.pop() : context.go('/home');
     if (record.unwrapPrevious().asData == null ||
         history.unwrapPrevious().asData == null) {

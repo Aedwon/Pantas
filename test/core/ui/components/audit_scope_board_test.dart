@@ -140,10 +140,18 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('scope-select-t')));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 110));
-      final scale = tester
-          .widget<Transform>(find.byKey(const ValueKey('scope-mark-scale-t')));
-      final opacity = tester
-          .widget<Opacity>(find.byKey(const ValueKey('scope-mark-opacity-t')));
+      final scale = tester.widget<Transform>(
+        find.descendant(
+          of: find.byKey(const ValueKey('scope-select-t')),
+          matching: find.byKey(const ValueKey('selection-scale')),
+        ),
+      );
+      final opacity = tester.widget<Opacity>(
+        find.descendant(
+          of: find.byKey(const ValueKey('scope-select-t')),
+          matching: find.byKey(const ValueKey('selection-opacity')),
+        ),
+      );
       expect(
         scale.transform.storage[0],
         closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .002),
@@ -153,7 +161,10 @@ void main() {
       expect(
         tester
             .widget<Transform>(
-              find.byKey(const ValueKey('scope-mark-scale-t')),
+              find.descendant(
+                of: find.byKey(const ValueKey('scope-select-t')),
+                matching: find.byKey(const ValueKey('selection-scale')),
+              ),
             )
             .transform
             .storage[0],

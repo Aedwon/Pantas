@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -32,6 +33,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
     final styles = context.type;
     final colors = context.colors;
     final asyncEntry = ref.watch(wrappedArtifactProvider(widget.artifactId));
+    firstScreenReady(context, ref, ready: !asyncEntry.isLoading);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Wrapped'),

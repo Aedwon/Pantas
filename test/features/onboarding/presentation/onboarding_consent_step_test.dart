@@ -71,8 +71,8 @@ void main() {
           isNull,
         );
         await tester
-            .ensureVisible(find.byKey(const ValueKey('checkbox-mark')).first);
-        await tester.tap(find.byKey(const ValueKey('checkbox-mark')).first);
+            .ensureVisible(find.byKey(const ValueKey('selection-mark')).first);
+        await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
         await tester.pump();
         expect(
           tester.widgetList<ListRow>(find.byType(ListRow)).first.selected,
@@ -87,7 +87,7 @@ void main() {
           isNull,
         );
         await tester.ensureVisible(find.byType(ListRow).last);
-        await tester.tap(find.byKey(const ValueKey('checkbox-mark')).last);
+        await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
         await tester.pump();
         expect(
           tester
@@ -105,8 +105,8 @@ void main() {
       (tester) async {
     var completed = 0;
     await pump(tester, completed: () => completed++);
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).first);
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).last);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -126,8 +126,8 @@ void main() {
     final repository =
         DriftSettingsRepository(db, analytics: _FailingConsentGateway());
     await pump(tester, repository: repository, completed: () => completed++);
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).first);
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).last);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -172,8 +172,8 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).first);
-    await tester.tap(find.byKey(const ValueKey('checkbox-mark')).last);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pump();
     Focus.of(
       tester.element(find.text('Terms of Service')),

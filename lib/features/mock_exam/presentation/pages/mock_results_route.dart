@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -68,6 +69,7 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
     final earlier = ref.watch(mockEarlierResultsProvider(attemptId));
     final paused = ref.watch(entitlementProvider).valueOrNull?.state ==
         EntitlementState.paused;
+    firstScreenReady(context, ref, ready: access.hasError);
     if (access.isLoading) {
       _interruptFinale();
       return Scaffold(
@@ -91,6 +93,7 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
         ),
       );
     }
+    firstScreenReady(context, ref, ready: !entry.isLoading);
     return entry.when(
       skipLoadingOnRefresh: false,
       skipLoadingOnReload: false,

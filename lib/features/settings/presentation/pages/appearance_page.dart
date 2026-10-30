@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -26,74 +27,43 @@ class AppearancePage extends ConsumerWidget {
               .setThemePreference(value),
         );
     Widget preview(ThemePreference value, String label) => Expanded(
-          child: InkWell(
+          child: RadioRow(
+            title: label,
+            selected: preference == value,
             onTap: () => setTheme(value),
-            child: Column(
-              children: [
-                Container(
-                  height: 128,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: value == ThemePreference.dark
-                        ? const Color(0xFF000000)
-                        : const Color(0xFFF5F5F7),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(
-                      color: preference == value
-                          ? context.colors.accent
-                          : context.colors.separator,
-                      width: preference == value ? 2 : .5,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      for (var i = 0; i < 3; i++)
-                        Container(
-                          height: 22,
-                          margin: const EdgeInsets.only(bottom: 8),
-                          decoration: BoxDecoration(
-                            color: value == ThemePreference.dark
-                                ? const Color(0xFF1C1C1E)
-                                : Colors.white,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                    ],
-                  ),
+            preview: Container(
+              height: 128,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: value == ThemePreference.dark
+                    ? const Color(0xFF000000)
+                    : const Color(0xFFF5F5F7),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                  color: preference == value
+                      ? context.colors.accent
+                      : context.colors.separator,
+                  width: preference == value ? 2 : .5,
                 ),
-                const SizedBox(height: 12),
-                Text(label, style: context.type.body),
-                Semantics(
-                  checked: preference == value,
-                  inMutuallyExclusiveGroup: true,
-                  child: Container(
-                    width: 22,
-                    height: 22,
-                    margin: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: preference == value
-                            ? context.colors.accent
-                            : context.colors.controlOutline,
-                        width: 1.5,
+              ),
+              child: Column(
+                children: [
+                  for (var i = 0; i < 3; i++)
+                    Container(
+                      height: 22,
+                      margin: const EdgeInsets.only(bottom: 8),
+                      decoration: BoxDecoration(
+                        color: value == ThemePreference.dark
+                            ? const Color(0xFF1C1C1E)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(5),
                       ),
-                      color: preference == value
-                          ? context.colors.accentFill
-                          : null,
                     ),
-                    child: preference == value
-                        ? Icon(
-                            Icons.check,
-                            size: 14,
-                            color: context.colors.onAccent,
-                          )
-                        : null,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           ),
         );
     if (context.wideWeb) {
@@ -116,82 +86,47 @@ class AppearancePage extends ConsumerWidget {
                   runSpacing: 18,
                   children: [
                     for (final value in ThemePreference.values)
-                      Semantics(
-                        checked: preference == value,
-                        inMutuallyExclusiveGroup: true,
-                        child: TextButton(
-                          onPressed: () => setTheme(value),
-                          style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Container(
-                                width: 128,
-                                height: 84,
-                                decoration: BoxDecoration(
-                                  color: value == ThemePreference.dark
-                                      ? const Color(0xFF151515)
-                                      : const Color(0xFFF5F5F7),
-                                  gradient: value == ThemePreference.system
-                                      ? const LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          colors: [
-                                            Color(0xFFF5F5F7),
-                                            Color(0xFFF5F5F7),
-                                            Color(0xFF151515),
-                                            Color(0xFF151515),
-                                          ],
-                                          stops: [0, .5, .5, 1],
-                                        )
-                                      : null,
-                                  borderRadius: BorderRadius.circular(14),
-                                  border: Border.all(
-                                    color: preference == value
-                                        ? t.colors.accent
-                                        : t.colors.separator,
-                                    width: preference == value ? 3 : 1,
-                                  ),
+                      SizedBox(
+                        width: 152,
+                        child: RadioRow(
+                          title: switch (value) {
+                            ThemePreference.light => 'Light',
+                            ThemePreference.dark => 'Dark',
+                            ThemePreference.system => 'Automatic',
+                          },
+                          selected: preference == value,
+                          onTap: () => setTheme(value),
+                          padding: const EdgeInsets.all(12),
+                          preview: Center(
+                            child: Container(
+                              width: 128,
+                              height: 84,
+                              decoration: BoxDecoration(
+                                color: value == ThemePreference.dark
+                                    ? const Color(0xFF151515)
+                                    : const Color(0xFFF5F5F7),
+                                gradient: value == ThemePreference.system
+                                    ? const LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [
+                                          Color(0xFFF5F5F7),
+                                          Color(0xFFF5F5F7),
+                                          Color(0xFF151515),
+                                          Color(0xFF151515),
+                                        ],
+                                        stops: [0, .5, .5, 1],
+                                      )
+                                    : null,
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: preference == value
+                                      ? t.colors.accent
+                                      : t.colors.separator,
+                                  width: preference == value ? 3 : 1,
                                 ),
                               ),
-                              const SizedBox(height: 10),
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Container(
-                                    width: 20,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: preference == value
-                                          ? t.colors.accentFill
-                                          : null,
-                                      border: Border.all(
-                                        color: preference == value
-                                            ? t.colors.accentFill
-                                            : t.strongDivider,
-                                      ),
-                                    ),
-                                    child: preference == value
-                                        ? const Icon(
-                                            Icons.check,
-                                            size: 13,
-                                            color: Colors.white,
-                                          )
-                                        : null,
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    switch (value) {
-                                      ThemePreference.light => 'Light',
-                                      ThemePreference.dark => 'Dark',
-                                      ThemePreference.system => 'Automatic',
-                                    },
-                                    style: t.style(15),
-                                  ),
-                                ],
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),

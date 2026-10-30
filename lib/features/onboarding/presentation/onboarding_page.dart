@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -14,6 +15,7 @@ import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
@@ -57,6 +59,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       );
       if (!mounted) return;
       _finished = true;
+      ref.read(studyNeedsExamSettingsProvider.notifier).state = false;
       unawaited(
         ref.read(telemetryProvider).log(TelemetryEvent.onboardingCompleted),
       );
@@ -129,6 +132,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     if (_flow == null) {
       if (progress.isLoading) return Scaffold(body: loadingFor(progress));
       if (progress.hasError) {
+        firstScreenReady(context, ref);
         return Scaffold(
           body: errorFor(
             'progress',
@@ -136,7 +140,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           ),
         );
       }
-      var first = progress.requireValue.resumeStep;
+      var first = ref.read(studyNeedsExamSettingsProvider)
+          ? OnboardingStep.picker
+          : progress.requireValue.resumeStep;
       final handover = ref.read(welcomeHandoverProvider);
       if (handover.shownThisVisit) {
         // The HTML Welcome screen covers the app until the learner taps Get
@@ -161,6 +167,12 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       }
       _flow = OnboardingFlow(first);
     }
+    firstScreenReady(
+      context,
+      ref,
+      ready: _step != OnboardingStep.picker &&
+          _step != OnboardingStep.customSubjects,
+    );
     final disableAnimations = MediaQuery.disableAnimationsOf(context);
     final displayedStep = _step;
     return PopScope<void>(

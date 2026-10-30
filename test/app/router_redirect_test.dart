@@ -9,6 +9,7 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -70,6 +71,23 @@ void main() {
       await tester.pumpAndSettle();
     });
   }
+
+  testWidgets('missing server and local settings opens the exam step',
+      (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await AppPreferencesRepository(db).setCompletedOnboarding(value: true);
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    container.read(studyNeedsExamSettingsProvider.notifier).state = true;
+    await tester.pumpAndSettle();
+    expect(
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/onboarding',
+    );
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
+  });
 
   testWidgets('age gate not passed → boot lands on onboarding welcome',
       (tester) async {

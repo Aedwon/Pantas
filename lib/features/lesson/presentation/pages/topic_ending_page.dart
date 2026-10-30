@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -31,6 +32,7 @@ class TopicEndingPage extends ConsumerWidget {
     }
 
     final asyncMap = ref.watch(studyMapProvider);
+    firstScreenReady(context, ref, ready: !asyncMap.isLoading);
 
     return Scaffold(
       backgroundColor: colors.background,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -59,6 +60,38 @@ final today = RoadmapToday(
 );
 
 void main() {
+  for (final error in [false, true]) {
+    testWidgets('Home signals only after its plan settles, error=$error',
+        (tester) async {
+      final pending = Completer<HomeTodayData>();
+      var signals = 0;
+      final data = HomeTodayData(
+        today: today,
+        lessons: const [],
+        questionWork: null,
+        canAdvance: false,
+      );
+      await pumpData(
+        tester,
+        data,
+        pending: pending.future,
+        overrides: [
+          firstScreenSignalProvider
+              .overrideWithValue(FirstScreenSignal(() => signals++)),
+        ],
+      );
+      expect(signals, 0);
+      if (error) {
+        pending.completeError(StateError('offline'));
+      } else {
+        pending.complete(data);
+      }
+      await tester.pumpAndSettle();
+      expect(signals, 1);
+      await tester.pump();
+      expect(signals, 1);
+    });
+  }
   quietDayTests();
   auditTests();
   testWidgets('lesson sheet starts the real lesson with its day context',
@@ -302,6 +335,7 @@ Future<void> pumpData(
   WidgetTester tester,
   HomeTodayData data, {
   VoidCallback? onSetDate,
+  Future<HomeTodayData>? pending,
   List<Override> overrides = const [],
 }) async {
   final router = GoRouter(
@@ -335,8 +369,10 @@ Future<void> pumpData(
             ),
           ),
         ),
-        homeTodayLoaderProvider
-            .overrideWith((ref) => (examId, guard) async => data),
+        homeTodayLoaderProvider.overrideWith(
+          (ref) =>
+              (examId, guard) async => pending == null ? data : await pending,
+        ),
         todayQuestionLauncherProvider.overrideWith(_Launcher.new),
         ...overrides,
       ],

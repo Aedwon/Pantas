@@ -62,37 +62,11 @@ final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
           intent.cancel();
           return;
         }
-        final settings =
-            await ref.read(settingsRepositoryProvider).readUserSettings();
-        final scope = await ref
-            .read(customTrackRepositoryProvider)
-            .excludedTopicIds(request.examId);
-        final lessons = await ref
-            .read(customTrackRepositoryProvider)
-            .excludedLessonIds(request.examId);
-        final assessed = await ref
-            .read(assessmentRepositoryProvider)
-            .hasCompletedForExam(request.examId);
+        final payload = await readStudySettingsPayload(ref, request.examId);
         if (!await request.isCurrent()) {
           intent.cancel();
           return;
         }
-        final date = settings.examDate;
-        final payload = <String, Object?>{
-          'examDate': date == null
-              ? null
-              : date.day != null
-                  ? {'precision': 'day', 'day': date.storageValue}
-                  : {
-                      'precision': 'month',
-                      'year': date.year,
-                      'month': date.month,
-                    },
-          'studyDays': settings.studyDays.weekdays.toList()..sort(),
-          'excludedTopicIds': scope.toList()..sort(),
-          'excludedLessonIds': lessons.toList()..sort(),
-          'assessmentCompleted': assessed,
-        };
         unawaited(
           intent.publish(request, payload).then<void>(
             (_) {
@@ -186,3 +160,35 @@ final studyDeliveryLifecycleProvider = Provider<void>((ref) {
         ),
   );
 });
+
+/// The same local settings payload is used for saves and missing-server repair.
+Future<Map<String, Object?>> readStudySettingsPayload(
+  Ref ref,
+  String examId,
+) async {
+  final settings =
+      await ref.read(settingsRepositoryProvider).readUserSettings();
+  final scope =
+      await ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
+  final lessons =
+      await ref.read(customTrackRepositoryProvider).excludedLessonIds(examId);
+  final assessed =
+      await ref.read(assessmentRepositoryProvider).hasCompletedForExam(examId);
+  final date = settings.examDate;
+  final payload = <String, Object?>{
+    'examDate': date == null
+        ? null
+        : date.day != null
+            ? {'precision': 'day', 'day': date.storageValue}
+            : {
+                'precision': 'month',
+                'year': date.year,
+                'month': date.month,
+              },
+    'studyDays': settings.studyDays.weekdays.toList()..sort(),
+    'excludedTopicIds': scope.toList()..sort(),
+    'excludedLessonIds': lessons.toList()..sort(),
+    'assessmentCompleted': assessed,
+  };
+  return payload;
+}

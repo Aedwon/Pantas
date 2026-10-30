@@ -8,6 +8,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -282,6 +283,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   @override
   Widget build(BuildContext context) {
     final session = _session;
+    firstScreenReady(
+      context,
+      ref,
+      ready: _unavailable || _failed || session != null,
+    );
     final question = session?.questions[_index].question;
     final header = question == null
         ? null

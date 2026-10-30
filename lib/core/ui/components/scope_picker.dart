@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -47,7 +48,6 @@ class ScopePicker extends StatefulWidget {
     required this.selectedIds,
     required this.onChanged,
     this.atLeastOne = true,
-    this.checkIconSize = 14,
     this.minimumSelectionMessage,
     super.key,
   });
@@ -55,7 +55,6 @@ class ScopePicker extends StatefulWidget {
   final Set<String> selectedIds;
   final ValueChanged<Set<String>> onChanged;
   final bool atLeastOne;
-  final double checkIconSize;
   final String? minimumSelectionMessage;
   @override
   State<ScopePicker> createState() => _ScopePickerState();
@@ -119,166 +118,74 @@ class _ScopePickerState extends State<ScopePicker>
     final count = ids.where(widget.selectedIds.contains).length;
     final checked = ids.isNotEmpty && count == ids.length;
     final partial = count > 0 && !checked;
-    final mark = SizedBox(
-      width: 22,
-      height: 22,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                shape: context.wideWeb ? BoxShape.rectangle : BoxShape.circle,
-                borderRadius: context.wideWeb ? BorderRadius.circular(7) : null,
-                border: Border.all(color: c.controlOutline, width: 1.5),
-              ),
-            ),
-          ),
-          TweenAnimationBuilder<double>(
-            tween: Tween(begin: 0, end: count > 0 ? 1 : 0),
-            duration: MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : const Duration(milliseconds: 220),
-            curve: PantasCurves.popB,
-            builder: (context, value, child) => Transform.scale(
-              key: ValueKey('scope-mark-scale-$id'),
-              scale: .5 + .5 * value,
-              child: Opacity(
-                key: ValueKey('scope-mark-opacity-$id'),
-                opacity: value.clamp(0.0, 1.0),
-                child: child,
-              ),
-            ),
-            child: Container(
-              width: 22,
-              height: 22,
-              decoration: BoxDecoration(
-                shape: context.wideWeb ? BoxShape.rectangle : BoxShape.circle,
-                borderRadius: context.wideWeb ? BorderRadius.circular(7) : null,
-                color: c.accentFill,
-              ),
-              child: partial
-                  ? Center(
-                      child: Container(
-                        key: ValueKey('scope-partial-$id'),
-                        width: 10,
-                        height: 2.5,
-                        decoration: BoxDecoration(
-                          color: c.onAccent,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                    )
-                  : checked
-                      ? Icon(
-                          PantasIcons.check,
-                          size: widget.checkIconSize,
-                          color: c.onAccent,
-                        )
-                      : null,
-            ),
-          ),
-        ],
+    return AnimatedBuilder(
+      animation: _offset,
+      builder: (context, child) => Transform.translate(
+        key: ValueKey('scope-shake-$id'),
+        offset: Offset(_shaking == id ? _offset.value : 0, 0),
+        child: child,
       ),
-    );
-    final body = Material(
-      color: lesson ? c.pickerBackground : c.surface,
-      child: Row(
-        children: [
-          Expanded(
-            child: InkWell(
-              key: ValueKey('scope-select-$id'),
-              onTap: enabled ? () => toggle(id, ids) : null,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  lesson ? 42 : 16,
-                  12,
-                  expand == null ? 16 : 0,
-                  12,
-                ),
-                child: Row(
-                  children: [
-                    mark,
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: context.type.body.copyWith(
-                          fontSize: lesson || context.wideWeb ? 16 : 17,
-                          letterSpacing: lesson ? 0 : -.204,
-                        ),
-                      ),
-                    ),
-                    if (!enabled)
-                      Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 8),
-                          child: Text(
-                            'No questions yet',
-                            style: context.type.footnote,
-                          ),
-                        ),
-                      ),
-                    if (unread)
-                      Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 8),
-                          child: Text(
-                            'Unread',
-                            style: context.type.footnote.copyWith(
-                              fontWeight: FontWeight.w500,
-                              color: c.warningText,
-                            ),
-                          ),
-                        ),
-                      ),
-                  ],
+      child: Material(
+        color: lesson ? c.pickerBackground : c.surface,
+        child: CheckboxRow(
+          key: ValueKey('scope-select-$id'),
+          title: title,
+          padding: EdgeInsets.fromLTRB(lesson ? 42 : 16, 10, 12, 10),
+          selected: checked,
+          mixed: partial,
+          onTap: enabled ? () => toggle(id, ids) : null,
+          content: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.type.body,
                 ),
               ),
-            ),
-          ),
-          if (expand != null)
-            SizedBox(
-              width: 44,
-              height: 44,
-              child: IconButton(
-                key: ValueKey('scope-expand-$id'),
-                onPressed: expand,
-                tooltip: expanded ? 'Hide lessons' : 'Show lessons',
-                icon: AnimatedRotation(
-                  key: ValueKey('scope-caret-$id'),
-                  turns: expanded ? .5 : 0,
-                  curve: PantasCurves.houseOut,
-                  duration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : const Duration(milliseconds: 300),
-                  child: Transform.rotate(
-                    key: ValueKey('scope-caret-base-$id'),
-                    angle: math.pi / 2,
-                    child: Icon(
-                      PantasIcons.next,
-                      size: 16,
-                      color: c.controlOutline,
+              if (!enabled || unread) const SizedBox(width: 8),
+              if (!enabled)
+                Flexible(
+                  child: Text('No questions yet', style: context.type.footnote),
+                ),
+              if (unread)
+                Flexible(
+                  child: Text(
+                    'Unread',
+                    style: context.type.footnote.copyWith(
+                      color: c.warningText,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
-              ),
-            ),
-        ],
-      ),
-    );
-    return Semantics(
-      checked: checked,
-      mixed: partial,
-      child: AnimatedBuilder(
-        animation: _offset,
-        builder: (context, child) => Transform.translate(
-          key: ValueKey('scope-shake-$id'),
-          offset: Offset(_shaking == id ? _offset.value : 0, 0),
-          child: child,
+            ],
+          ),
+          trailing: expand == null
+              ? null
+              : IconButton(
+                  key: ValueKey('scope-expand-$id'),
+                  onPressed: expand,
+                  tooltip: expanded ? 'Hide lessons' : 'Show lessons',
+                  icon: AnimatedRotation(
+                    key: ValueKey('scope-caret-$id'),
+                    turns: expanded ? .5 : 0,
+                    curve: PantasCurves.houseOut,
+                    duration: MediaQuery.disableAnimationsOf(context)
+                        ? Duration.zero
+                        : const Duration(milliseconds: 300),
+                    child: Transform.rotate(
+                      key: ValueKey('scope-caret-base-$id'),
+                      angle: math.pi / 2,
+                      child: Icon(
+                        PantasIcons.next,
+                        size: 16,
+                        color: c.controlOutline,
+                      ),
+                    ),
+                  ),
+                ),
         ),
-        child: Opacity(opacity: enabled ? 1 : .45, child: body),
       ),
     );
   }

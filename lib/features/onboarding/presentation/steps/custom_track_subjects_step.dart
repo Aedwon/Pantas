@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -12,10 +13,11 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 final corpusSubjectsWithTopicsProvider =
@@ -134,6 +136,7 @@ class _CustomTrackSubjectsStepState
   @override
   Widget build(BuildContext context) {
     final subjects = ref.watch(corpusSubjectsWithTopicsProvider);
+    firstScreenReady(context, ref, ready: !subjects.isLoading);
     return OnboardingWebPage(
       title: 'What does it cover?',
       detail: 'Tick the subjects your exam covers. '
@@ -183,34 +186,17 @@ class _CustomTrackSubjectsStepState
                             radius: 14,
                             child: Material(
                               color: Colors.transparent,
-                              child: CheckboxListTile(
-                                contentPadding:
-                                    const EdgeInsets.only(left: 8, right: 16),
-                                // The 40px control centers a 24px painted box.
-                                // Its 8px inset plus the 6px gap gives 14px.
-                                checkboxScaleFactor: 24 / Checkbox.width,
-                                horizontalTitleGap: 6,
-                                minLeadingWidth: 0,
-                                title: Text(
+                              child: CheckboxRow(
+                                title: name,
+                                content: Text(
                                   name,
-                                  style: context.webTokens.style(16),
+                                  style:
+                                      context.type.body.copyWith(fontSize: 16),
                                 ),
-                                checkboxShape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    7 * Checkbox.width / 24,
-                                  ),
-                                ),
-                                side: BorderSide(
-                                  color:
-                                      context.webTokens.colors.controlOutline,
-                                  width: 1.5 * Checkbox.width / 24,
-                                ),
-                                value: _selected.contains(name),
-                                controlAffinity:
-                                    ListTileControlAffinity.leading,
-                                onChanged: _creating
+                                selected: _selected.contains(name),
+                                onTap: _creating
                                     ? null
-                                    : (_) => setState(() {
+                                    : () => setState(() {
                                           if (!_selected.add(name)) {
                                             _selected.remove(name);
                                           }

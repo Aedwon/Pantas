@@ -55,6 +55,20 @@ class SettingsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (variant == ListRowVariant.check || variant == ListRowVariant.radio) {
+      return ListRow(
+        title: title,
+        variant: variant,
+        selected: selected,
+        onTap: onTap,
+        subtitle: subtitle,
+        footer: footer,
+        divider: divider,
+        mutuallyExclusive: mutuallyExclusive,
+        titleWidget: titleWidget,
+        trailingWidget: trailingWidget,
+      );
+    }
     if (!context.wideWeb) {
       return ListRow(
         title: title,
@@ -80,14 +94,11 @@ class SettingsRow extends StatelessWidget {
     }
     final t = context.webTokens;
     final c = t.colors;
-    final check =
-        variant == ListRowVariant.check || variant == ListRowVariant.radio;
     final control = variant == ListRowVariant.switchControl;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Semantics(
-          checked: check ? selected : null,
           toggled: control ? selected : null,
           inMutuallyExclusiveGroup: mutuallyExclusive,
           child: WebRow(
@@ -119,18 +130,14 @@ class SettingsRow extends StatelessWidget {
                           ),
                         ),
                       )
-                    : check
-                        ? selected
-                            ? Icon(PantasIcons.check, size: 18, color: c.accent)
-                            : const SizedBox(width: 18)
-                        : variant == ListRowVariant.navigation ||
-                                variant == ListRowVariant.inlineEditor
-                            ? Icon(
-                                expanded ? PantasIcons.close : PantasIcons.next,
-                                size: 16,
-                                color: c.chevron,
-                              )
-                            : null),
+                    : variant == ListRowVariant.navigation ||
+                            variant == ListRowVariant.inlineEditor
+                        ? Icon(
+                            expanded ? PantasIcons.close : PantasIcons.next,
+                            size: 16,
+                            color: c.chevron,
+                          )
+                        : null),
             divider: divider,
             onPressed: onTap,
           ),

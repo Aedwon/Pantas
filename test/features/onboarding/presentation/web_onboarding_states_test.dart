@@ -8,6 +8,7 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -101,23 +102,23 @@ void main() {
       expect(find.bySemanticsLabel('Setup steps'), findsOneWidget);
       expect(find.text('Terms and Privacy'), findsOneWidget);
       expect(button(tester, 'Continue').onPressed, isNull);
-      final termsBox = find.byKey(
-        const ValueKey(
-          'I agree to the Terms of Service and Privacy Policy',
-        ),
+      final termsRow = find.byWidgetPredicate(
+        (w) =>
+            w is CheckboxRow &&
+            w.title == 'I agree to the Terms of Service and Privacy Policy',
+      );
+      final termsBox = find.descendant(
+        of: termsRow,
+        matching: find.byKey(const ValueKey('selection-mark')),
       );
       expect(tester.getSize(termsBox), const Size(24, 24));
       expect(find.byType(Divider), findsOneWidget);
-      final box = tester.widget<TextButton>(termsBox);
-      final shape = box.style!.shape!.resolve({})! as RoundedRectangleBorder;
-      expect(shape.borderRadius, BorderRadius.circular(7));
-      await tester.tap(
-        find.byKey(
-          const ValueKey(
-            'I agree to the Terms of Service and Privacy Policy',
-          ),
-        ),
+      final box = tester.widget<Container>(termsBox);
+      expect(
+        (box.decoration! as BoxDecoration).borderRadius,
+        BorderRadius.circular(7),
       );
+      await tester.tap(termsBox);
       await tester.pump();
       expect(button(tester, 'Continue').onPressed, isNotNull);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
@@ -149,7 +150,7 @@ void main() {
       );
       expect(find.text('What does it cover?'), findsOneWidget);
       expect(button(tester, 'Continue').onPressed, isNull);
-      final boxes = find.byType(CheckboxListTile);
+      final boxes = find.byType(CheckboxRow);
       expect(boxes, findsNWidgets(2));
       expect(
         tester.getTopLeft(boxes.first).dy,
