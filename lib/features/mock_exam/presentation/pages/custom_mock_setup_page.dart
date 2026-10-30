@@ -10,8 +10,10 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/web_custom_mock_setup.dart';
 
 /// What the screen needs to know about the student's track.
 @immutable
@@ -336,6 +338,40 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
     final fit = _fit;
     final canSave = fit.fits && !_hasUnsetRow && _effectiveQuestions > 0;
     final back = widget.onBack;
+
+    if (context.wideWeb) {
+      return WebCustomMockSetup(
+        questions: _effectiveQuestions,
+        minutes: _effectiveMinutes,
+        available: widget.data.availableQuestions,
+        fits: fit.fits,
+        breakdown: _breakdownOpen,
+        timedSeparately: _timedSeparately,
+        unset: _hasUnsetRow,
+        questionValues: customQuestionValues,
+        minuteValues: customMinuteValues,
+        sections: [
+          for (final subject in widget.data.subjects)
+            (
+              id: subject.id,
+              name: subject.name,
+              questions: _sections[subject.id]?.$1,
+              minutes: _sections[subject.id]?.$2
+            ),
+        ],
+        onQuestions: (value) => setState(() => _questions = value),
+        onMinutes: (value) => setState(() => _minutes = value),
+        onBreakdown: (value) => setState(() => _breakdownOpen = value),
+        onTiming: (value) => setState(() => _timedSeparately = value),
+        onSection: (id, value, {required minutes}) => setState(() {
+          final held = _sections[id];
+          _sections[id] = minutes ? (held?.$1, value) : (value, held?.$2);
+        }),
+        onSave: canSave ? _save : null,
+        onBack: back,
+        onTickMoreSubjects: widget.onTickMoreSubjects,
+      );
+    }
 
     final totals = GroupedSection(
       children: [

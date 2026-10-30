@@ -25,10 +25,14 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
+import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -61,6 +65,13 @@ final _completeAssessmentProvider = Provider<CompleteAssessment>(
     attemptsRepo: ref.watch(attemptsRepositoryProvider),
   ),
 );
+
+final _assessmentExamNameProvider =
+    FutureProvider.autoDispose.family<String, ExamId>((ref, id) async {
+  final exams = await ref.watch(contentRepositoryProvider).listExams();
+  return exams.where((exam) => exam.id == id).firstOrNull?.shortName ??
+      'Assessment';
+});
 
 class AssessmentPage extends ConsumerStatefulWidget {
   const AssessmentPage({required this.examId, super.key});
@@ -250,10 +261,15 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     _leaveOpen = true;
     final leave = await showDialog<bool>(
       context: context,
-      builder: (context) => _LeaveDialog(
-        onKeepGoing: () => Navigator.of(context).pop(false),
-        onLeave: () => Navigator.of(context).pop(true),
-      ),
+      builder: (context) => context.wideWeb
+          ? WebAssessmentLeaveDialog(
+              onKeepGoing: () => Navigator.of(context).pop(false),
+              onLeave: () => Navigator.of(context).pop(true),
+            )
+          : _LeaveDialog(
+              onKeepGoing: () => Navigator.of(context).pop(false),
+              onLeave: () => Navigator.of(context).pop(true),
+            ),
     );
     _leaveOpen = false;
     if ((leave ?? false) && mounted) {
@@ -329,6 +345,73 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   .copyWith(color: context.colors.secondaryLabel),
             ),
           ],
+        ),
+      );
+    }
+    if (context.wideWeb) {
+      return PopScope<void>(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, _) {
+          if (!didPop) _leave();
+        },
+        child: Scaffold(
+          backgroundColor: context.webTokens.colors.background,
+          body: SafeArea(
+            child: session != null &&
+                    !_failed &&
+                    !_unavailable &&
+                    !_completing &&
+                    (passageState == null || passageState.hasValue)
+                ? WebAssessmentLayout(
+                    question: question!,
+                    subject: header ?? '',
+                    examName: ref
+                            .watch(_assessmentExamNameProvider(widget.examId))
+                            .valueOrNull ??
+                        'Assessment',
+                    index: _index,
+                    total: session.questions.length,
+                    chosenId: _picked,
+                    passage: passage,
+                    onPick: (id) => setState(() => _picked = id),
+                    onNext: _next,
+                    onLeave: _leave,
+                    report: IconButton(
+                      tooltip: 'Report',
+                      icon: IconTheme(
+                        data: IconThemeData(
+                          color: _reported.contains(question.id)
+                              ? context.webTokens.colors.accent
+                              : context.webTokens.colors.tertiaryLabel,
+                          size: 21,
+                        ),
+                        child: PantasIcons.report,
+                      ),
+                      onPressed: () async {
+                        final sent = await openQuestionReport(
+                          context,
+                          question.id,
+                          queue: ReportQueue(ref.read(appDatabaseProvider)),
+                        );
+                        if ((sent ?? false) && mounted) {
+                          setState(() => _reported.add(question.id));
+                        }
+                      },
+                    ),
+                  )
+                : Column(
+                    children: [
+                      WebTopBar(
+                        leading: IconButton(
+                          tooltip: 'Leave assessment',
+                          onPressed: _completing ? null : _leave,
+                          icon: const Icon(Icons.close),
+                        ),
+                      ),
+                      Expanded(child: body),
+                    ],
+                  ),
+          ),
         ),
       );
     }

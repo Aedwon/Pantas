@@ -156,7 +156,8 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     final type = context.type;
     final quiz = widget.correct != null;
     final large = quiz || widget.mockSize;
-    final wideQuiz = quiz && widget.web;
+    final wideAssessment = quiz && widget.web && widget.assessment;
+    final wideQuiz = quiz && widget.web && !wideAssessment;
     final wideMock = widget.mockSize && widget.web;
     if (_painter == null ||
         _painter!.fraction != _fill ||
@@ -164,6 +165,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         _painter!.track != colors.fill ||
         _painter!.mockSize != large ||
         _painter!.wideMock != wideMock ||
+        _painter!.wideAssessment != wideAssessment ||
         _painter!.web != widget.web) {
       _painter = _GaugePainter(
         fraction: _fill,
@@ -172,6 +174,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         mockSize: large,
         web: widget.web,
         wideMock: wideMock,
+        wideAssessment: wideAssessment,
       );
     }
     final percentage = ((widget.displayedFraction ?? widget.fraction) * 100)
@@ -189,47 +192,55 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: wideMock
-                ? 300
-                : wideQuiz
-                    ? 320
-                    : large
-                        ? 264
-                        : widget.web
-                            ? 224
-                            : 220,
-            height: wideMock
-                ? 158
-                : wideQuiz
-                    ? 150
-                    : large
-                        ? 128
-                        : widget.web
-                            ? 118
-                            : 112,
+            width: wideAssessment
+                ? 264
+                : wideMock
+                    ? 300
+                    : wideQuiz
+                        ? 320
+                        : large
+                            ? 264
+                            : widget.web
+                                ? 224
+                                : 220,
+            height: wideAssessment
+                ? 140
+                : wideMock
+                    ? 158
+                    : wideQuiz
+                        ? 150
+                        : large
+                            ? 128
+                            : widget.web
+                                ? 118
+                                : 112,
             child: Stack(
               children: [
                 CustomPaint(
                   key: const ValueKey('half-ring-paint'),
-                  size: wideMock
-                      ? const Size(300, 158)
-                      : wideQuiz
-                          ? const Size(320, 150)
-                          : large
-                              ? const Size(264, 128)
-                              : widget.web
-                                  ? const Size(224, 118)
-                                  : const Size(220, 112),
+                  size: wideAssessment
+                      ? const Size(264, 140)
+                      : wideMock
+                          ? const Size(300, 158)
+                          : wideQuiz
+                              ? const Size(320, 150)
+                              : large
+                                  ? const Size(264, 128)
+                                  : widget.web
+                                      ? const Size(224, 118)
+                                      : const Size(220, 112),
                   painter: _painter,
                 ),
                 Positioned(
                   left: 0,
                   right: 0,
-                  bottom: large
-                      ? 2
-                      : widget.web
-                          ? 0
-                          : 10,
+                  bottom: wideAssessment
+                      ? 24
+                      : large
+                          ? 2
+                          : widget.web
+                              ? 0
+                              : 10,
                   child: Opacity(
                     opacity: widget.numberOpacity,
                     child: FittedBox(
@@ -285,6 +296,20 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                     ),
                   ),
                 ),
+                if (wideAssessment)
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Text(
+                      widget.label,
+                      textAlign: TextAlign.center,
+                      style: type.subhead.copyWith(
+                        fontSize: 16,
+                        color: colors.secondaryLabel,
+                      ),
+                    ),
+                  ),
                 if (widget.overlayBuilder != null)
                   AnimatedBuilder(
                     animation: _fill,
@@ -294,30 +319,35 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
               ],
             ),
           ),
-          SizedBox(
-            height: wideMock
-                ? 10
-                : large || widget.web
-                    ? 4
-                    : 6,
-          ),
-          Opacity(
-            opacity: widget.labelOpacity,
-            child: Text(
-              widget.label,
-              style: quiz
-                  ? type.subhead.copyWith(
-                      fontWeight: FontWeight.w500,
-                      color: colors.secondaryLabel,
-                    )
-                  : wideMock
-                      ? type.subhead
-                          .copyWith(fontSize: 16, color: colors.secondaryLabel)
-                      : large
-                          ? type.subhead.copyWith(color: colors.secondaryLabel)
-                          : type.subheadStrong,
+          if (!wideAssessment)
+            SizedBox(
+              height: wideMock
+                  ? 10
+                  : large || widget.web
+                      ? 4
+                      : 6,
             ),
-          ),
+          if (!wideAssessment)
+            Opacity(
+              opacity: widget.labelOpacity,
+              child: Text(
+                widget.label,
+                style: quiz
+                    ? type.subhead.copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: colors.secondaryLabel,
+                      )
+                    : wideMock
+                        ? type.subhead.copyWith(
+                            fontSize: 16,
+                            color: colors.secondaryLabel,
+                          )
+                        : large
+                            ? type.subhead
+                                .copyWith(color: colors.secondaryLabel)
+                            : type.subheadStrong,
+              ),
+            ),
         ],
       ),
     );
@@ -326,14 +356,14 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
   Widget _rollingCount(BuildContext context, PantasType type) {
     final style = type.largeTitle
         .copyWith(
-          fontSize: widget.web ? 76 : 60,
+          fontSize: widget.web && !widget.assessment ? 76 : 60,
           height: 1,
           letterSpacing: -1.8,
         )
         .tabular;
     final scaler = MediaQuery.textScalerOf(context);
-    final fontSize = widget.web ? 76.0 : 60.0;
-    final countHeight = widget.web ? 80.0 : 64.0;
+    final fontSize = widget.web && !widget.assessment ? 76.0 : 60.0;
+    final countHeight = widget.web && !widget.assessment ? 80.0 : 64.0;
     final extent = countHeight * scaler.scale(fontSize) / fontSize;
     final measure = TextPainter(
       text: TextSpan(
@@ -403,7 +433,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                   '/${widget.total}',
                   style: type.emphasized
                       .copyWith(
-                        fontSize: widget.web ? 28 : 24,
+                        fontSize: widget.web && !widget.assessment ? 28 : 24,
                         height: 1.35,
                         color: context.colors.secondaryLabel,
                       )
@@ -426,27 +456,33 @@ class _GaugePainter extends CustomPainter {
     required this.mockSize,
     required this.web,
     this.wideMock = false,
+    this.wideAssessment = false,
   })  : trackPaint = (Paint()
           ..style = PaintingStyle.stroke
-          ..strokeWidth = wideMock
-              ? 18
-              : web
-                  ? 14
-                  : 16
+          ..strokeWidth = wideAssessment
+              ? 16
+              : wideMock
+                  ? 18
+                  : web
+                      ? 14
+                      : 16
           ..strokeCap = StrokeCap.round
           ..color = track),
         fillPaint = (Paint()
           ..style = PaintingStyle.stroke
-          ..strokeWidth = wideMock
-              ? 18
-              : web
-                  ? 14
-                  : 16
+          ..strokeWidth = wideAssessment
+              ? 16
+              : wideMock
+                  ? 18
+                  : web
+                      ? 14
+                      : 16
           ..strokeCap = StrokeCap.round
           ..color = fill),
         super(repaint: fraction);
   final bool mockSize;
   final bool wideMock;
+  final bool wideAssessment;
   final bool web;
   final Animation<double> fraction;
   final Color fill;
@@ -456,15 +492,17 @@ class _GaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final rect = wideMock
-        ? const Rect.fromLTWH(24, 20, 252, 252)
-        : mockSize && web
-            ? const Rect.fromLTWH(22, 12, 276, 276)
-            : mockSize
-                ? const Rect.fromLTWH(24, 10, 216, 216)
-                : web
-                    ? const Rect.fromLTWH(18, 14, 188, 188)
-                    : const Rect.fromLTWH(18, 10, 184, 184);
+    final rect = wideAssessment
+        ? const Rect.fromLTWH(18, 16, 228, 228)
+        : wideMock
+            ? const Rect.fromLTWH(24, 20, 252, 252)
+            : mockSize && web
+                ? const Rect.fromLTWH(22, 12, 276, 276)
+                : mockSize
+                    ? const Rect.fromLTWH(24, 10, 216, 216)
+                    : web
+                        ? const Rect.fromLTWH(18, 14, 188, 188)
+                        : const Rect.fromLTWH(18, 10, 184, 184);
     canvas.drawArc(rect, math.pi, math.pi, false, trackPaint);
     if (fraction.value > 0) {
       canvas.drawArc(rect, math.pi, math.pi * fraction.value, false, fillPaint);
@@ -478,5 +516,6 @@ class _GaugePainter extends CustomPainter {
       oldDelegate.track != track ||
       oldDelegate.mockSize != mockSize ||
       oldDelegate.wideMock != wideMock ||
+      oldDelegate.wideAssessment != wideAssessment ||
       oldDelegate.web != web;
 }

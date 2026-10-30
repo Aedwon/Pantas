@@ -741,18 +741,29 @@ class WebBottomBar extends StatelessWidget {
           mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
           children: [
             if (leading != null) leading!,
-            TextButton(
-              onPressed: onCounterPressed,
-              style: TextButton.styleFrom(
-                foregroundColor: c.label,
-                minimumSize: const Size(0, 46),
+            if (onCounterPressed == null)
+              Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
-                textStyle: t.style(15, weight: FontWeight.w600).copyWith(
-                  fontFeatures: [const FontFeature.tabularFigures()],
+                child: Text(
+                  counter,
+                  style: t.style(15, weight: FontWeight.w600).copyWith(
+                    fontFeatures: [const FontFeature.tabularFigures()],
+                  ),
                 ),
+              )
+            else
+              TextButton(
+                onPressed: onCounterPressed,
+                style: TextButton.styleFrom(
+                  foregroundColor: c.label,
+                  minimumSize: const Size(0, 46),
+                  padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
+                  textStyle: t.style(15, weight: FontWeight.w600).copyWith(
+                    fontFeatures: [const FontFeature.tabularFigures()],
+                  ),
+                ),
+                child: Text(counter),
               ),
-              child: Text(counter),
-            ),
             if (!compact || hint != null)
               Expanded(
                 child: Text(

@@ -14,8 +14,11 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_debrief_loading.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
 
 String _seenKey(AssessmentResult result) =>
     'assessment.results_seen.${result.examId}.'
@@ -101,7 +104,8 @@ class AssessmentResultsPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: context.colors.background,
       body: data.when(
-        loading: () => loadingFor(data),
+        loading: () =>
+            context.wideWeb ? const WebDebriefLoading() : loadingFor(data),
         error: (error, _) => errorFor(
           'assessment results',
           () => ref.invalidate(_resultDataProvider(examId)),
@@ -279,6 +283,22 @@ class _ResultsBodyState extends State<_ResultsBody>
         widget.data.topicSubjectNames[weakest?.topic.id] ?? '';
     final c = context.colors;
     final elapsed = widget.data.elapsed;
+    if (context.wideWeb) {
+      return SafeArea(
+        child: WebAssessmentResults(
+          examName: widget.data.examName,
+          correct: correct,
+          total: total,
+          subjects: widget.data.subjects,
+          elapsed: elapsed,
+          weakestTopic: weakest?.topic.name,
+          weakestSubject: weakestSubject,
+          saving: _saving,
+          failure: _failed ? saveFailureLine(_acknowledge) : null,
+          onAcknowledge: _acknowledge,
+        ),
+      );
+    }
     final subjects = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
