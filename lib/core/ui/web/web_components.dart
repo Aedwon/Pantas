@@ -289,6 +289,7 @@ class WebRow extends StatelessWidget {
     this.titleColor,
     this.titleSuffix,
     this.value,
+    this.valueStyle,
     this.leading,
     this.trailing,
     this.onPressed,
@@ -305,6 +306,7 @@ class WebRow extends StatelessWidget {
   final Color? titleColor;
   final Widget? titleSuffix;
   final String? value;
+  final TextStyle? valueStyle;
   final Widget? leading;
   final Widget? trailing;
   final VoidCallback? onPressed;
@@ -407,7 +409,7 @@ class WebRow extends StatelessWidget {
                                 ),
                               ),
                             if (large && value != null)
-                              Text(value!, style: t.sub),
+                              Text(value!, style: valueStyle ?? t.sub),
                           ],
                         ),
                       ),
@@ -416,7 +418,7 @@ class WebRow extends StatelessWidget {
                         Flexible(
                           child: Text(
                             value!,
-                            style: t.sub,
+                            style: valueStyle ?? t.sub,
                             textAlign: TextAlign.end,
                           ),
                         ),

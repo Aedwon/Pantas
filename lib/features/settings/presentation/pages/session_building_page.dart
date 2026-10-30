@@ -112,7 +112,8 @@ class SessionBuildingPage extends ConsumerWidget {
         const SizedBox(height: 24),
         SettingsSection(
           footer: 'For mock exams: no pausing and no ending a section early. '
-              'Leaving the app instantly ends and submits your answers, '
+              'Leaving the ${context.wideWeb ? 'mock' : 'app'} instantly ends '
+              'and submits your answers, '
               'finished or not finished.',
           children: [
             SettingsRow(

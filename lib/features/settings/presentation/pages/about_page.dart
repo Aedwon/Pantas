@@ -5,7 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/settings/presentation/feedback_intent.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
@@ -47,18 +49,66 @@ class AboutPage extends ConsumerWidget {
       backLabel: 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        Center(
-          child: Column(
-            children: [
-              Text('Pantas', style: context.type.pageTitle),
-              const SizedBox(height: 8),
-              Text(
-                'Version $version (build ${buildNumber ?? kBuildNumber})',
-                style: context.type.footnote,
-              ),
-            ],
+        if (context.wideWeb)
+          WebCard(
+            radius: 16,
+            padding: const EdgeInsets.all(18),
+            child: Row(
+              children: [
+                ExcludeSemantics(
+                  child: Container(
+                    width: 52,
+                    height: 52,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: context.webTokens.colors.accentFill,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Text(
+                      'P',
+                      style: context.webTokens.style(
+                        26,
+                        weight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Pantas',
+                        style: context.webTokens.style(
+                          18,
+                          weight: FontWeight.w700,
+                        ),
+                      ),
+                      Text(
+                        'Version $version (${buildNumber ?? kBuildNumber})',
+                        style: context.webTokens.sm,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        else
+          Center(
+            child: Column(
+              children: [
+                Text('Pantas', style: context.type.pageTitle),
+                const SizedBox(height: 8),
+                Text(
+                  'Version $version (build ${buildNumber ?? kBuildNumber})',
+                  style: context.type.footnote,
+                ),
+              ],
+            ),
           ),
-        ),
         const SizedBox(height: 24),
         SettingsSection(
           header: 'Legal',
@@ -117,7 +167,10 @@ class AboutPage extends ConsumerWidget {
           children: [
             SettingsRow(
               title: 'Send feedback',
-              value: 'Facebook group',
+              value: context.wideWeb ? 'Facebook group ↗' : 'Facebook group',
+              variant: context.wideWeb
+                  ? ListRowVariant.value
+                  : ListRowVariant.navigation,
               onTap: () => unawaited(
                 openCommunityGroup(
                   contact.communityGroupUrl,

@@ -103,6 +103,7 @@ class SettingsRow extends StatelessWidget {
             horizontalPadding: 16,
             compact: true,
             value: value,
+            valueStyle: valueStyle ?? t.style(16, color: c.secondaryLabel),
             leading: leading ??
                 (icon == null
                     ? null

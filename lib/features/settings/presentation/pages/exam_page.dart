@@ -370,11 +370,20 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   ? 'Not set'
                   : DateFormat(date.day == null ? 'MMMM y' : 'MMM d, y')
                       .format(current),
-              valueStyle: context.type.rowValue.copyWith(
-                color: past
-                    ? context.colors.destructive
-                    : context.colors.secondaryLabel,
-              ),
+              valueStyle: context.wideWeb
+                  ? context.webTokens.style(
+                      16,
+                      color: past
+                          ? context.webTokens.colors.wrongText
+                          : _dateOpen
+                              ? context.webTokens.colors.accent
+                              : context.webTokens.colors.secondaryLabel,
+                    )
+                  : context.type.rowValue.copyWith(
+                      color: past
+                          ? context.colors.destructive
+                          : context.colors.secondaryLabel,
+                    ),
               variant: ListRowVariant.inlineEditor,
               expanded: _dateOpen,
               onTap: () => setState(() => _dateOpen = !_dateOpen),
