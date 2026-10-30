@@ -91,8 +91,10 @@ service cloud.firestore {
           && request.resource.data.updatedAt == request.time
           && request.resource.data.originDeviceId is string
           && request.resource.data.originDeviceId.size() > 0
+          && request.resource.data.originDeviceId.size() <= 128
           && request.resource.data.mutationId is string
           && request.resource.data.mutationId.size() > 0
+          && request.resource.data.mutationId.size() <= 128
           && request.resource.data.schemaVersion == 1
           && request.resource.data.deleted is bool;
     }
@@ -116,6 +118,26 @@ service cloud.firestore {
           && isValidSyncRowWrite(fields);
     }
 
+    // Optional user-root fields: absent, null, or the stated type and size.
+    function validUserRootFields() {
+      let d = request.resource.data;
+      return (!('displayName' in d) || d.displayName == null
+              || (d.displayName is string && d.displayName.size() <= 128))
+          && (!('photoUrl' in d) || d.photoUrl == null
+              || (d.photoUrl is string && d.photoUrl.size() <= 2048))
+          && (!('lastSeenAt' in d) || d.lastSeenAt == null
+              || d.lastSeenAt is timestamp)
+          && (!('preferences' in d) || d.preferences == null
+              || (d.preferences is map && d.preferences.size() <= 200))
+          && (!('schemaVersion' in d) || d.schemaVersion == null
+              || d.schemaVersion is int);
+    }
+
+    function validGenerationPreferences() {
+      return request.resource.data.preferences is map
+          && request.resource.data.preferences.size() <= 200;
+    }
+
     match /users/{uid} {
       allow read: if isOwner(uid);
       allow create: if isOwner(uid)
@@ -129,7 +151,8 @@ service cloud.firestore {
             'lastSeenAt',
             'preferences',
             'schemaVersion'
-          ]);
+          ])
+          && validUserRootFields();
       allow delete: if false;
 
       match /server/{document=**} {
@@ -180,7 +203,9 @@ service cloud.firestore {
             && request.resource.data.schemaVersion == 1
             && request.resource.data.createdAt == request.time
             && request.resource.data.createdByDeviceId is string
-            && request.resource.data.createdByDeviceId.size() > 0;
+            && request.resource.data.createdByDeviceId.size() > 0
+            && request.resource.data.createdByDeviceId.size() <= 128
+            && validGenerationPreferences();
 
         allow update: if isProOwner(uid)
             && (
@@ -188,7 +213,8 @@ service cloud.firestore {
               || resource.data.status == 'staging'
             )
             && request.resource.data.diff(resource.data)
-                .affectedKeys().hasOnly(['preferences']);
+                .affectedKeys().hasOnly(['preferences'])
+            && validGenerationPreferences();
 
         allow delete: if false;
 
@@ -296,9 +322,10 @@ service cloud.firestore {
         }
       }
 
+      // No server code writes this path and no client reads it. Closed
+      // until a feature needs it (L1 review, 30 October 2026).
       match /proDossiers/{dossierId} {
-        allow read: if isProOwner(uid);
-        allow write: if false;
+        allow read, write: if false;
       }
     }
 
@@ -342,7 +369,15 @@ service cloud.firestore {
           && shareId.matches('^[0-9a-f]{32}$')
           && request.resource.data.storagePath ==
               'wrapped/' + request.auth.uid + '/' + shareId + '.png'
-          && request.resource.data.revoked == false;
+          && request.resource.data.revoked == false
+          && request.resource.data.keys().hasOnly([
+            'ownerUid', 'storagePath', 'archetypeId', 'createdAt', 'revoked'
+          ])
+          && (!('archetypeId' in request.resource.data)
+              || (request.resource.data.archetypeId is string
+                  && request.resource.data.archetypeId.size() <= 64))
+          && (!('createdAt' in request.resource.data)
+              || request.resource.data.createdAt is timestamp);
       allow update: if isSignedIn()
           && resource.data.ownerUid == request.auth.uid
           && request.resource.data.diff(resource.data)
