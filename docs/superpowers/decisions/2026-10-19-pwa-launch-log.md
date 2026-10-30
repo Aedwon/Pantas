@@ -2091,3 +2091,17 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   mistake lines then "and N more", gold PRO tag) are part of the approved board.
 - No content schema change: R1 and R2 read the separate lesson link and gap tag files and the existing
   per-choice rationale.
+
+## 2026-10-30 Disk cleanup and stray worktree work
+
+- Aedwon approved freeing disk space ("go for the safe group, and also old worktrees") and saving
+  the six worktrees with uncommitted work ("for the other worktress, yes please clean them up").
+- Removed 35 clean, fully pushed worktrees; cleared build output, the npm cache and the Dart analyzer
+  cache. Free space went from 18 GB to 44 GB. The content lead's worktrees were not touched.
+- Saved as unreviewed WIP commits and pushed, then removed: codex/a11y-inline-math-sentence-r1
+  28d420cb (one math accessibility test), web/new-design-w4f-r1 338bae44 (29 notification files,
+  likely superseded), web/release-e2e-firebase-r1 f2713419, web/release-e2e-mock-r1 7c30959b,
+  web/release-e2e-quiz-delete-r1 85e7cce1, web/release-e2e-shipping-r1 e4f2f289 (release end-to-end
+  tests that never landed). None is merged; each needs review before use.
+- The Pantas Master SSOT Google Doc is on another account; Aedwon: "nevermind on the ssot, it's on a
+  different account so i can't set up the connector". The repo record (STATUS.md, this log) is current.
