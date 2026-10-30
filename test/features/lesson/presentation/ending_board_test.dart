@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
@@ -162,7 +162,7 @@ void main() {
         ),
         disableAnimations: reduced,
       );
-      expect(find.byType(LoadingShapes), findsOneWidget);
+      expect(find.byType(SkeletonPulse), findsWidgets);
       final opacity = find.byKey(const ValueKey('loading-shapes-opacity'));
       expect(opacity, findsNothing);
       await tester.pump(const Duration(milliseconds: 299));

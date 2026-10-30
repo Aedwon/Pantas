@@ -13,15 +13,16 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_skeletons.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 enum ExamPickerMode { onboarding, settings }
@@ -196,14 +197,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               onBack: _back,
               children: [
                 catalog.when(
-                  loading: () => const LoadingShapes(
-                    shapes: [
-                      LoadingShape(widthFraction: .48, height: 46),
-                      LoadingShape(widthFraction: .7, height: 34),
-                      LoadingShape(widthFraction: 1, height: 64),
-                      LoadingShape(widthFraction: 1, height: 64),
-                    ],
-                  ),
+                  loading: () => const ExamPickerWebSkeleton(),
                   error: (error, stack) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 80),
                     child: Column(
@@ -515,7 +509,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
                     child: catalog.when(
-                      loading: () => loadingFor(catalog),
+                      loading: () => const SkeletonGroups(
+                        rowHeight: 66,
+                        headerWidth: 110,
+                      ),
                       error: (error, _) => errorFor(
                         'exams',
                         () => ref.invalidate(examPickerCatalogProvider),
@@ -693,7 +690,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       custom,
       const SizedBox(height: 24),
       catalog.when(
-        loading: () => loadingFor(catalog),
+        loading: () => const SkeletonGroups(
+          rowHeight: 66,
+          headerWidth: 110,
+        ),
         error: (error, _) => errorFor(
           'exams',
           () => ref.invalidate(examPickerCatalogProvider),

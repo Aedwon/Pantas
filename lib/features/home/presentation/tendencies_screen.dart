@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/presentation/tendencies_page.dart';
+import 'package:pantas/features/home/presentation/widgets/progress_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/web_record_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -54,7 +55,7 @@ class TendenciesScreen extends ConsumerWidget {
               }
             })
           else
-            loadingFor(const AsyncLoading<void>()),
+            const TendenciesSkeleton(),
         ],
       );
     }

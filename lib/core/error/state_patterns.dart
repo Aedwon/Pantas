@@ -8,14 +8,8 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Mount only while loading, so each new load starts its own 300ms delay.
-Widget loadingFor<T>(AsyncValue<T> value) => value.isLoading
-    ? Semantics(
-        liveRegion: true,
-        label: 'Loading',
-        excludeSemantics: true,
-        child: const LoadingShapes(),
-      )
-    : const SizedBox.shrink();
+Widget loadingFor<T>(AsyncValue<T> value) =>
+    value.isLoading ? const LoadingShapes() : const SizedBox.shrink();
 
 Widget errorFor(
   String what,

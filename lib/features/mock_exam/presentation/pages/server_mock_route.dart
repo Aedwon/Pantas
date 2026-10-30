@@ -8,7 +8,6 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
@@ -22,6 +21,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.d
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 
 /// The mock on the web. The server pins the paper, owns the clock and keeps
 /// the answers (startMock, getMockPaper, controlMock, submitMock); this screen
@@ -302,7 +302,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   @override
   Widget build(BuildContext context) {
     if (_identityLost) {
-      return const Scaffold(body: Center(child: LoadingShapes()));
+      return const MockSessionSkeleton();
     }
     final error = _loadError;
     if (error != null) {
@@ -316,10 +316,10 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     }
     final session = _session;
     if (session == null) {
-      return const Scaffold(body: Center(child: LoadingShapes()));
+      return const MockSessionSkeleton();
     }
     if (session.stale) {
-      return const Scaffold(body: Center(child: LoadingShapes()));
+      return const MockSessionSkeleton();
     }
     final paper = session.paper;
     final failure = session.failure;

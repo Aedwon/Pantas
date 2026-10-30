@@ -9,7 +9,6 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -17,6 +16,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/plan_screen.dart';
+import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/l10n/app_localizations.dart';
@@ -88,7 +88,7 @@ class HomeMasthead extends ConsumerWidget {
           ],
         );
       }
-      return const LoadingShapes();
+      return const HomeMastheadSkeleton();
     }
 
     if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {

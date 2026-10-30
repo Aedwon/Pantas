@@ -20,6 +20,7 @@ import 'package:pantas/features/quiz/presentation/quiz_review_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/features/quiz/presentation/widgets/quiz_skeletons.dart';
 
 List<RouteBase> quizRoutes(Ref ref) => [
       GoRoute(
@@ -41,7 +42,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
                 ref.watch(mockAvailabilityProvider(request));
             final availability = availabilityState.valueOrNull;
             if (availabilityState.isLoading) {
-              return QuizTabScreen(mockPanel: loadingFor(availabilityState));
+              return const QuizTabScreen(mockPanel: QuizMockPanelSkeleton());
             }
             if (availabilityState.hasError || availability == null) {
               return QuizTabScreen(
@@ -61,7 +62,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
             final lastAttemptState =
                 ref.watch(lastSubmittedMockProvider(request));
             if (web && lastAttemptState.isLoading) {
-              return QuizTabScreen(mockPanel: loadingFor(lastAttemptState));
+              return const QuizTabScreen(mockPanel: QuizMockPanelSkeleton());
             }
             if (web && lastAttemptState.hasError) {
               return QuizTabScreen(

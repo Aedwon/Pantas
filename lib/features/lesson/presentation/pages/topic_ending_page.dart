@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
@@ -35,10 +35,10 @@ class TopicEndingPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: colors.background,
       body: asyncMap.when(
-        loading: () => SafeArea(
+        loading: () => const SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: loadingFor(asyncMap),
+            padding: EdgeInsets.all(20),
+            child: SkeletonGroups(groups: 1, rows: 4, rowHeight: 63),
           ),
         ),
         error: (e, _) => SafeArea(

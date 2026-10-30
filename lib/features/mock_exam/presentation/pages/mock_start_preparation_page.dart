@@ -1,8 +1,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
@@ -118,7 +118,15 @@ class MockStartPreparationPage extends StatelessWidget {
               Semantics(
                 label: 'Setting out your paper',
                 liveRegion: true,
-                child: const Center(child: LoadingShapes()),
+                child: const SkeletonPulse(
+                  child: Column(
+                    children: [
+                      SkeletonBlock(width: 280, height: 18),
+                      SizedBox(height: 22),
+                      SkeletonBlock(height: 52, radius: 14),
+                    ],
+                  ),
+                ),
               ),
           ],
         ),

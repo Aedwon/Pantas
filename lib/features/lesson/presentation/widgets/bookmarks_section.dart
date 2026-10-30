@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
 
 class BookmarksSection extends ConsumerWidget {
   const BookmarksSection({this.onSeeAll, super.key});
@@ -15,7 +16,7 @@ class BookmarksSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final value = ref.watch(bookmarkRowsProvider);
     return value.when(
-      loading: () => loadingFor(value),
+      loading: () => const BookmarksSkeleton(),
       error: (error, _) => errorFor(
         'bookmarks',
         () => ref.invalidate(bookmarkRowsProvider),

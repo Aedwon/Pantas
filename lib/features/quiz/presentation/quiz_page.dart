@@ -20,6 +20,7 @@ import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -133,7 +134,7 @@ class _PreparedQuestionStageState
         passageId != null ? ref.watch(passageByIdProvider(passageId)) : null;
     final passage = passageState?.valueOrNull;
     if (passageId != null && passage == null) {
-      if (passageState!.isLoading) return loadingFor(passageState);
+      if (passageState!.isLoading) return const SkeletonQuestionPage();
       return errorFor(
         'quiz',
         () => ref.invalidate(passageByIdProvider(passageId)),
@@ -564,7 +565,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       ref.read(quizControllerProvider.notifier),
                     ),
                   )
-                : loadingFor(const AsyncLoading<void>()),
+                : const SkeletonQuestionPage(),
           ),
         ),
       );

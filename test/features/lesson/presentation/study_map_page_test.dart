@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -25,7 +25,7 @@ void main() {
       ],
     );
 
-    expect(find.byType(LoadingShapes), findsOneWidget);
+    expect(find.byType(SkeletonPulse), findsWidgets);
     expect(find.byKey(const ValueKey('loading-shapes-opacity')), findsNothing);
     await tester.pump(const Duration(milliseconds: 300));
     expect(

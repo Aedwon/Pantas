@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -138,10 +139,10 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       onBack: () => Navigator.of(context).maybePop(),
       children: [
         if (data == null)
-          loadingFor(focus)
+          const WhatsIncludedSkeleton()
         else
           data.when(
-            loading: () => loadingFor(data),
+            loading: () => const WhatsIncludedSkeleton(),
             error: (error, _) => errorFor(
               'topics',
               () => ref.invalidate(whatsIncludedDataProvider(examId!)),
@@ -196,4 +197,20 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       ],
     );
   }
+}
+
+/// The exam name, then each subject's topic group (the scope picker).
+class WhatsIncludedSkeleton extends StatelessWidget {
+  const WhatsIncludedSkeleton({super.key});
+  @override
+  Widget build(BuildContext context) => const SkeletonPulse(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SkeletonBlock(width: 120, height: 22),
+            SizedBox(height: 24),
+            SkeletonGroups(rows: 4, rowHeight: 47, headerWidth: 110),
+          ],
+        ),
+      );
 }

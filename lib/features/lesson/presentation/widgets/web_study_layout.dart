@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -645,97 +646,61 @@ class WebStudyState extends StatelessWidget {
       );
 }
 
-class WebStudyLoading extends StatefulWidget {
+/// The Study map before it loads: a bookmarks line, then each subject's label
+/// and topic rows in the 340 wide map column. The topic pane is empty until a
+/// topic is opened, so it has no placeholder.
+class WebStudyLoading extends StatelessWidget {
   const WebStudyLoading({super.key});
-  @override
-  State<WebStudyLoading> createState() => _WebStudyLoadingState();
-}
-
-class _WebStudyLoadingState extends State<WebStudyLoading>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _pulse;
-  Timer? _delay;
-  bool _shown = false;
-  @override
-  void initState() {
-    super.initState();
-    _pulse = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1300),
-    );
-    _delay = Timer(const Duration(milliseconds: 300), () {
-      if (!mounted) return;
-      setState(() => _shown = true);
-      if (!MediaQuery.disableAnimationsOf(context)) {
-        _pulse.repeat(reverse: true);
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _delay?.cancel();
-    _pulse.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
-    if (!_shown) return const SizedBox.shrink();
-    Widget shape(double height, double radius) => Container(
-          height: height,
-          decoration: BoxDecoration(
-            color: context.webTokens.colors.skeleton,
-            borderRadius: BorderRadius.circular(radius),
+    final line = skeletonLineHeight(
+      context.webTokens.eb.copyWith(fontSize: 12),
+    );
+    Widget label(double width) => Padding(
+          padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
+          child: SizedBox(
+            height: line,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: SkeletonBlock(width: width, height: 11),
+            ),
           ),
         );
-    return Semantics(
-      label: 'Loading study',
-      child: AnimatedBuilder(
-        animation: _pulse,
-        builder: (_, child) => Opacity(
-          opacity: MediaQuery.disableAnimationsOf(context)
-              ? 1
-              : .5 + .5 * _pulse.value,
-          child: child,
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 340,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  for (final height in [
-                    76.0,
-                    14.0,
-                    36.0,
-                    36.0,
-                    36.0,
-                    14.0,
-                    36.0,
-                    36.0,
-                    36.0,
-                    36.0,
-                  ])
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 14),
-                      child: shape(
-                        height,
-                        height == 76
-                            ? 16
-                            : height == 14
-                                ? 6
-                                : 9,
-                      ),
-                    ),
-                ],
-              ),
+    Widget row() => const SizedBox(
+          height: 36,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              children: [
+                SkeletonBlock(width: 18, height: 18, radius: 9),
+                SizedBox(width: 10),
+                SkeletonBlock(width: 170, height: 13),
+              ],
             ),
-            const SizedBox(width: 24),
-            Expanded(child: shape(640, 20)),
-          ],
+          ),
+        );
+    return SkeletonPulse(
+      label: 'Loading study',
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: SizedBox(
+          width: 340,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              label(90),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                child: SkeletonBlock(width: 220, height: 14),
+              ),
+              for (var subject = 0; subject < 2; subject++) ...[
+                const SizedBox(height: 18),
+                label(120),
+                for (var topic = 0; topic < 4; topic++) row(),
+              ],
+            ],
+          ),
         ),
       ),
     );

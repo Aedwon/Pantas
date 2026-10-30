@@ -28,6 +28,7 @@ import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/home/presentation/practice_launcher.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_day.dart';
+import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
@@ -249,7 +250,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                 ? errorFor('plan', _retry, error: snapshot.error)
                 : context.wideWeb
                     ? const HomeWebLoading(more: true)
-                    : loadingFor(const AsyncLoading<HomeTodayData>())
+                    : const HomeTodaySkeleton()
             : _checklist(data);
         if (context.wideWeb) {
           return HomeWebOverlay(

@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -412,7 +413,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
           if (data == null) {
             return context.wideWeb
                 ? const WebDebriefLoading()
-                : loadingFor(const AsyncLoading<void>());
+                : const SkeletonResultsPage();
           }
           if (widget.all) return _list(data);
           final misses = [

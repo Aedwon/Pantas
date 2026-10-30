@@ -6,9 +6,9 @@ import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
@@ -106,7 +106,7 @@ void main() {
         const Scaffold(body: WebDebriefLoading()),
         dark: dark,
       );
-      expect(find.byType(LoadingShapes), findsNWidgets(6));
+      expect(find.byType(SkeletonPulse), findsOneWidget);
       expect(
         find.byKey(const ValueKey('loading-shapes-opacity')),
         findsNothing,
@@ -114,7 +114,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 301));
       expect(
         find.byKey(const ValueKey('loading-shapes-opacity')),
-        findsNWidgets(6),
+        findsOneWidget,
       );
       bool? strict;
       await pumpWide(

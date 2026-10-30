@@ -28,6 +28,7 @@ import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/features/quiz/presentation/widgets/quiz_skeletons.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 class QuizTodayCounts {
@@ -139,7 +140,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             bottomInset: 104,
             children: [
               focus.when(
-                loading: () => loadingFor(focus),
+                loading: () => const QuizPageSkeleton(),
                 error: (error, _) => errorFor(
                   'practice',
                   () => ref.invalidate(activeExamFocusProvider),
@@ -157,7 +158,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       _entry(
                         100,
                         session.when(
-                          loading: () => loadingFor(session),
+                          loading: () => const QuizTodaySkeleton(),
                           error: (error, _) => errorFor(
                             'practice',
                             () => ref.invalidate(sessionPanelProvider(exam.id)),
@@ -174,7 +175,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       _entry(
                         280,
                         counts.when(
-                          loading: () => loadingFor(counts),
+                          loading: () => const QuizMoreSkeleton(),
                           error: (error, _) => errorFor(
                             'questions',
                             () => ref.invalidate(
@@ -259,7 +260,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           const WebText('Quiz', kind: WebTextKind.h1),
           const SizedBox(height: 26),
           focus.when(
-            loading: () => loadingFor(focus),
+            loading: () => const QuizPageSkeleton(),
             error: (error, _) => errorFor(
               'practice',
               () => ref.invalidate(activeExamFocusProvider),
@@ -276,7 +277,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                 children: [
                   const WebText('Today', kind: WebTextKind.eyebrow),
                   session.when(
-                    loading: () => loadingFor(session),
+                    loading: () => const QuizTodaySkeleton(),
                     error: (error, _) => errorFor(
                       'practice',
                       () => ref.invalidate(sessionPanelProvider(exam.id)),
@@ -290,7 +291,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     kind: WebTextKind.eyebrow,
                   ),
                   counts.when(
-                    loading: () => loadingFor(counts),
+                    loading: () => const QuizMoreSkeleton(),
                     error: (error, _) => errorFor(
                       'questions',
                       () => ref.invalidate(quizPracticeCountsProvider(exam.id)),
@@ -426,7 +427,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     }
 
     return counts.when(
-      loading: () => loadingFor(counts),
+      loading: () => const QuizTodayRowsSkeleton(wide: true),
       error: (error, _) => errorFor(
         'questions',
         () => ref.invalidate(quizTodayCountsProvider(examId)),
@@ -620,7 +621,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                   )
                 : AsyncData(snapshot.data!);
         return work.when(
-          loading: () => loadingFor(work),
+          loading: () => const QuizSheetSkeleton(),
           error: (error, _) => errorFor(
             'questions',
             () => setState(() {
@@ -838,7 +839,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       header: 'Today',
       children: [
         counts.when(
-          loading: () => loadingFor(counts),
+          loading: () => const QuizTodayRowsSkeleton(),
           error: (error, _) => errorFor(
             'questions',
             () => ref.invalidate(quizTodayCountsProvider(examId)),

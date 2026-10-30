@@ -7,8 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
@@ -390,9 +390,9 @@ void main() {
     final semantics = tester.ensureSemantics();
     try {
       expect(find.bySemanticsLabel('Loading'), findsOneWidget);
-      expect(find.byType(LoadingShapes), findsOneWidget);
+      expect(find.byType(SkeletonPulse), findsWidgets);
       final shapes = find.descendant(
-        of: find.byType(LoadingShapes),
+        of: find.byType(SkeletonPulse),
         matching: find.byType(DecoratedBox),
       );
       expect(shapes, findsNothing);

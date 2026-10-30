@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
 import 'package:pantas/features/home/presentation/widgets/accuracy_line.dart';
+import 'package:pantas/features/home/presentation/widgets/progress_skeletons.dart';
 
 /// Shared MY_* header and scroll inset inside the existing sidebar shell.
 class WebMyPage extends StatelessWidget {
@@ -349,51 +349,13 @@ class _EarlyRecordLine extends CustomPainter {
 
 /// L_ProgressSlow: no invented figures while history is being read.
 class WebMyLoading extends StatelessWidget {
-  const WebMyLoading({super.key});
+  const WebMyLoading({this.record = false, super.key});
+
+  /// Your record has its own column layout; Your tendencies follows the board.
+  final bool record;
   @override
-  Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const LoadingShapes(
-            shapes: [LoadingShape(widthFraction: 1, height: 112, radius: 18)],
-          ),
-          const SizedBox(height: 26),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              width: 140,
-              child: LoadingShapes(
-                shapes: [
-                  LoadingShape(widthFraction: 1, height: 14),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          for (var row = 0; row < 2; row++) ...[
-            const Row(
-              children: [
-                Expanded(
-                  child: LoadingShapes(
-                    shapes: [
-                      LoadingShape(widthFraction: 1, height: 180, radius: 18),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 14),
-                Expanded(
-                  child: LoadingShapes(
-                    shapes: [
-                      LoadingShape(widthFraction: 1, height: 180, radius: 18),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            if (row == 0) const SizedBox(height: 14),
-          ],
-        ],
-      );
+  Widget build(BuildContext context) =>
+      record ? const WebRecordLoading() : const WebTendenciesLoading();
 }
 
 class WebMyFailure extends StatelessWidget {

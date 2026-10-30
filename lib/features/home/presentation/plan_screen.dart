@@ -19,6 +19,7 @@ import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/plan_day_page.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 import 'package:pantas/features/home/presentation/plan_web.dart';
+import 'package:pantas/features/home/presentation/widgets/plan_skeletons.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
@@ -106,30 +107,31 @@ Widget _waiting<T>(
   VoidCallback retry, {
   String title = 'Your plan',
   VoidCallback? onBack,
+  PlanSkeletonKind kind = PlanSkeletonKind.plan,
 }) {
   if (context.wideWeb) {
     return PlanWebFrame(
       title: title,
       onBack: onBack ?? () => _back(context),
-      child: WebCard(
-        padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 24),
-        child: Column(
-          children: [
-            if (value.hasError) ...[
-              const Icon(Icons.warning_amber_outlined, size: 28),
-              const SizedBox(height: 16),
-              const Text('Could not load your plan.'),
-              const SizedBox(height: 16),
-              WebButton(
-                label: 'Try Again',
-                variant: WebButtonVariant.secondary,
-                onPressed: retry,
+      child: value.hasError
+          ? WebCard(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 120, horizontal: 24),
+              child: Column(
+                children: [
+                  const Icon(Icons.warning_amber_outlined, size: 28),
+                  const SizedBox(height: 16),
+                  const Text('Could not load your plan.'),
+                  const SizedBox(height: 16),
+                  WebButton(
+                    label: 'Try Again',
+                    variant: WebButtonVariant.secondary,
+                    onPressed: retry,
+                  ),
+                ],
               ),
-            ] else
-              loadingFor(value),
-          ],
-        ),
-      ),
+            )
+          : WebPlanLoading(kind: kind),
     );
   }
   return PantasPage(
@@ -140,7 +142,7 @@ Widget _waiting<T>(
       if (value.hasError)
         errorFor('plan', retry, boardLayout: true)
       else
-        loadingFor(value),
+        PlanSkeleton(kind: kind),
     ],
   );
 }
@@ -176,6 +178,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
         value,
         () => ref.invalidate(planDayViewProvider(date)),
         onBack: widget.popover ? () => Navigator.of(context).pop() : null,
+        kind: PlanSkeletonKind.day,
       );
     }
     if (view.kind == 'locked') return const PlanScreen();
@@ -316,6 +319,7 @@ class PlanWeekScreen extends ConsumerWidget {
         context,
         value,
         () => ref.invalidate(planWeekViewProvider(start)),
+        kind: PlanSkeletonKind.week,
       );
     }
     if (days.any((day) => day.kind == 'locked')) return const PlanScreen();
@@ -380,6 +384,7 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
         value,
         () => ref.invalidate(planViewProvider(_limit)),
         title: 'History',
+        kind: PlanSkeletonKind.history,
       );
     }
     return PlanWebFrame(

@@ -10,7 +10,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
@@ -180,7 +180,7 @@ void main() {
         findsNothing,
       );
       await tester.pump(const Duration(milliseconds: 301));
-      expect(find.byType(LoadingShapes), findsWidgets);
+      expect(find.byType(SkeletonPulse), findsWidgets);
       expect(
         find.byKey(const ValueKey('loading-shapes-opacity')),
         findsWidgets,

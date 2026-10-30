@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
 
 class StudyHeadBlock extends ConsumerWidget {
   const StudyHeadBlock({required this.map, super.key});
@@ -16,7 +17,7 @@ class StudyHeadBlock extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final value = ref.watch(lastOpenedLessonProvider);
     return value.when(
-      loading: () => loadingFor(value),
+      loading: () => const LastOpenedSkeleton(),
       error: (error, _) => errorFor(
         'last lesson',
         () => ref.invalidate(lastOpenedLessonProvider),

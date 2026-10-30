@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -179,9 +180,12 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                     )
                   else if (loading)
                     const Padding(
-                      padding: EdgeInsets.all(28),
-                      child: Center(
-                        child: CircularProgressIndicator(),
+                      padding: EdgeInsets.all(12),
+                      child: SkeletonGroups(
+                        groups: 1,
+                        rows: 4,
+                        rowHeight: 63,
+                        header: false,
                       ),
                     )
                   else if (_query.isNotEmpty && results.isEmpty)

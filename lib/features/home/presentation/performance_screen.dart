@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -17,6 +18,7 @@ import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/presentation/performance_page.dart';
 import 'package:pantas/features/home/presentation/practice_launcher.dart';
 import 'package:pantas/features/home/presentation/topic_detail_page.dart';
+import 'package:pantas/features/home/presentation/widgets/progress_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/web_performance_layout.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -88,7 +90,7 @@ class PerformanceScreen extends ConsumerWidget {
                     ),
                   )
                 else
-                  loadingFor(const AsyncLoading<void>()),
+                  const WebPerformanceLoading(),
               ],
             ),
           ),
@@ -106,7 +108,7 @@ class PerformanceScreen extends ConsumerWidget {
                 ..invalidate(tableOrderProvider);
             })
           else
-            loadingFor(const AsyncLoading<void>()),
+            const PerformanceSkeleton(),
         ],
       );
     }
@@ -210,7 +212,7 @@ class TopicScreen extends ConsumerWidget {
               () => ref.invalidate(topicDetailProvider(topicId)),
             )
           else
-            loadingFor(const AsyncLoading<void>()),
+            const SkeletonGroups(rowHeight: 63),
         ],
       );
     }

@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/presentation/widgets/home_performance_card.dart';
+import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 
 /// YOUR PERFORMANCE on Home. No answers or no read means no card, with
@@ -29,7 +30,7 @@ class HomePerformanceSection extends ConsumerWidget {
     if (view == null) {
       return context.wideWeb
           ? const HomeWebLoading(performance: true)
-          : const SizedBox.shrink();
+          : const HomePerformanceSkeleton();
     }
     final pro = ref.watch(currentStudyCoverageProvider);
     return HomePerformanceCard(

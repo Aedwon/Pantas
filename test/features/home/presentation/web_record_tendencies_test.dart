@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/web_route_shell.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -233,7 +233,7 @@ void main() {
           } else {
             expect(find.byType(WebMyLoading), findsOneWidget);
             await tester.pump(const Duration(milliseconds: 301));
-            expect(find.byType(LoadingShapes), findsNWidgets(6));
+            expect(find.byType(SkeletonPulse), findsOneWidget);
           }
           expect(tester.takeException(), isNull);
           await tester.pumpWidget(const SizedBox());

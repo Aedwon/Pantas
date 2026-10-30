@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -1283,7 +1284,7 @@ class _QuestionBody extends ConsumerWidget {
           ],
         );
       },
-      loading: () => loadingFor(hydratedAsync),
+      loading: () => const SkeletonQuestionPage(),
       error: (e, st) => errorFor(
         'question',
         () => ref.invalidate(hydratedMockQuestionProvider(questionId)),

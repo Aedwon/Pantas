@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -21,7 +22,11 @@ class SearchResults extends ConsumerWidget {
     if (query.isEmpty) {
       final recent = ref.watch(recentlyOpenedLessonsProvider);
       return recent.when(
-        loading: () => loadingFor(recent),
+        loading: () => const SkeletonGroups(
+          groups: 1,
+          rowHeight: 63,
+          headerWidth: 120,
+        ),
         error: (error, _) => errorFor(
           'recent lessons',
           () => ref.invalidate(recentlyOpenedLessonsProvider),
@@ -69,7 +74,12 @@ class SearchResults extends ConsumerWidget {
 
     final hits = ref.watch(searchResultsProvider);
     return hits.when(
-      loading: () => loadingFor(hits),
+      loading: () => const SkeletonGroups(
+        groups: 1,
+        rows: 4,
+        rowHeight: 63,
+        headerWidth: 90,
+      ),
       error: (error, _) => errorFor(
         'search results',
         () => ref.invalidate(searchResultsProvider),
