@@ -46,6 +46,29 @@ visual pass, which authorizes the lead's screenshots for it (WORKFLOW's default 
    `docs/workflow/orchestrator.md`), the brief quoting the exact differences.
 5. Re-screenshot and confirm each fixed difference before marking the screen done.
 
+## Revised pipeline (Oct 31, Aedwon approved): Gemini looks, Claude fixes
+
+Aedwon, Oct 31: "make sure to have Gemini do its thing first before you do your thing" and "i want
+it to be effective, not efficient". Fixes: "when my other account resets tomorrow ... at 2 PM, I'll
+have it do the fixes" (another Claude account, Sat Nov 1 2 PM Manila).
+
+Work folder: `build/visual-pass/` in the staging worktree (gitignored build output).
+
+1. Capture (Gemini via `agy`). A script screenshots every board and its matching app screen at
+   1440x900, 1180x820 and 390x844, light and dark, against the localhost app
+   (`tools/local/run_web_local.sh`, no `--lan`). Output `build/visual-pass/shots/<BOARD>/`.
+   `build/visual-pass/coverage.md` lists every board with its app route and needed state, or why
+   the app cannot reach that state yet.
+2. Compare twice (two independent Gemini runs). Fixed checklist per pair: layout and alignment,
+   spacing, sizes, radii, colors, type size and weight, copy, icons, missing or extra parts, states.
+   The script also writes a pixel overlay per pair. Outputs `build/visual-pass/run1.md`, `run2.md`.
+3. Merge. Confirmed: both runs found it, or one run plus a visible overlay difference. Otherwise
+   "check". Output `build/visual-pass/differences.md` and a side-by-side contact sheet
+   `build/visual-pass/review.html` for Aedwon.
+4. Aedwon reviews the sheet and marks wrong or fine.
+5. Fix (Claude, Aedwon's other account, from Nov 1 2 PM) per area, then re-capture and re-compare
+   until every confirmed difference is gone. Record fixed items in `docs/ui-audit.md`.
+
 ## Order and progress
 
 | Area | Boards | State |
