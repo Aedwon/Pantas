@@ -24,12 +24,15 @@ const _trialAsProduct = 'pantas_cs_monthly';
 /// Maps rows of the server grant ledger (`users/{uid}/grants`) into the
 /// app's existing [Entitlement], so no model change is needed (ruling C1
 /// item 2). A grant counts while its state is `active` and its end is after
-/// [at]. Rows that are not a known grant are ignored, never guessed at.
+/// [at]. Connected queued subscriptions extend that coverage.
+/// Rows that are not a known grant are ignored, never guessed at.
 Entitlement entitlementFromGrants(
   Iterable<Map<String, dynamic>> rows, {
   required DateTime at,
 }) {
   final subscriptions = <_Held>[];
+  final promotions = <CoveragePeriod>[];
+  final connected = <_Held>[];
   final passes = <String, DateTime>{};
   final ordered = rows.where((row) => row['startsAt'] is int).toList()
     ..sort(
@@ -45,11 +48,11 @@ Entitlement entitlementFromGrants(
     if (starts is! int) continue;
     final startsAt = DateTime.fromMillisecondsSinceEpoch(starts, isUtc: true);
     if (startsAt.isAfter(at)) {
-      final tier = productForId(productId)?.tier;
-      if (productForId(productId)?.kind != ProductKind.subscription ||
-          !subscriptions.any(
+      final product = productForId(productId);
+      if (product?.kind != ProductKind.subscription ||
+          !connected.any(
             (held) =>
-                productForId(held.productId)!.tier == tier &&
+                tierCovers(productForId(held.productId)!.tier, product!.tier) &&
                 !startsAt.isAfter(held.endsAt),
           )) {
         continue;
@@ -60,12 +63,16 @@ Entitlement entitlementFromGrants(
     if (productId == _webTrialProduct) {
       if (row['source'] == 'trial' && row['tier'] == 'civilService') {
         subscriptions.add(_Held(_trialAsProduct, endsAt, isTrial: true));
+        connected.add(_Held(_trialAsProduct, endsAt, isTrial: true));
       }
       continue;
     }
     final product = productForId(productId);
+    if (product != null) connected.add(_Held(productId, endsAt));
     if (product?.kind == ProductKind.subscription) {
       subscriptions.add(_Held(productId, endsAt));
+    } else if (product?.kind == ProductKind.promotional) {
+      promotions.add(CoveragePeriod(id: productId, endsAt: endsAt));
     } else if (product?.kind == ProductKind.pass) {
       final examId = product!.examId!;
       if (passes[examId] == null || endsAt.isAfter(passes[examId]!)) {
@@ -74,9 +81,12 @@ Entitlement entitlementFromGrants(
     }
   }
   if (subscriptions.isEmpty) {
-    return passes.isEmpty
-        ? const Entitlement.free()
-        : const Entitlement.free().withPasses(passes);
+    return Entitlement(
+      plan: EntitlementPlan.free,
+      willRenew: false,
+      passes: Map.unmodifiable(passes),
+      promotions: promotions,
+    );
   }
   final selected = ([...subscriptions]..sort(_highestTierThenLatestEnd)).first;
   final product = productForId(selected.productId)!;
@@ -89,6 +99,7 @@ Entitlement entitlementFromGrants(
     willRenew: false,
     tier: product.tier,
     passes: Map.unmodifiable(passes),
+    promotions: promotions,
     subscriptions: [
       for (final held in subscriptions)
         CoveragePeriod(id: held.productId, endsAt: held.endsAt),

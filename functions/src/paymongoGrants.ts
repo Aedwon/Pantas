@@ -140,12 +140,18 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
     if (paid.exists) {transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return 'duplicate';}
     // A postponement saved after this checkout bound its sitting moves the payment too.
     let sitting = input.sitting;
-    for (let hop = 0; sitting && product.examId && hop < 8; hop++) {
-      const move = await transaction.get(db.doc(`paymongoSittingMoves/${product.examId}:${sitting.firstDay}`));
-      const target = move.exists ? catalog.find(e => e.id === product.examId)?.publishedSittings
-        .find(s => s.firstDay === move.get('to') && s.sourceUrl.length > 0) : undefined;
-      if (!target || target.firstDay === sitting.firstDay) break;
-      sitting = target;
+    let firstDay = sitting?.firstDay;
+    const visited = new Set<string>();
+    for (let hop = 0; firstDay && product.examId && hop < 8; hop++) {
+      if (visited.has(firstDay)) break;
+      visited.add(firstDay);
+      const move = await transaction.get(db.doc(`paymongoSittingMoves/${product.examId}:${firstDay}`));
+      const to: unknown = move.exists ? move.get('to') : undefined;
+      if (typeof to !== 'string' || visited.has(to)) break;
+      firstDay = to;
+      const target = catalog.find(e => e.id === product.examId)?.publishedSittings
+        .find(s => s.firstDay === to && s.sourceUrl.length > 0);
+      if (target) sitting = target;
     }
     const sittingEnd = sitting ? endOfSitting(sitting) : undefined;
     // Paid after the sitting ended: the pass can never be used and the money goes back.

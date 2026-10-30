@@ -137,6 +137,21 @@ test('reaudit 4: a paid event processed after a postponement uses the new sittin
   assert.equal(g.endsAt, Date.parse('2027-03-21T23:59:59.999+08:00'));
 });
 
+test('reaudit 4: postponement chains survive a removed intermediate sitting', async () => {
+  const uid = 'ra4-chain'; await reset(uid);
+  const middle = {...sitting, firstDay: '2027-04-04', lastDay: '2027-04-04'};
+  const final = {...sitting, firstDay: '2027-04-18', lastDay: '2027-04-18'};
+  await recomputePassRecords(db, [{id: 'exam_cse_pro', publishedSittings: [middle]}], fakeAuth(),
+    {'exam_cse_pro:2027-03-14': middle.firstDay});
+  const finalCatalog = [{id: 'exam_cse_pro', publishedSittings: [final]}];
+  await recomputePassRecords(db, finalCatalog, fakeAuth(), {'exam_cse_pro:2027-04-04': final.firstDay});
+  assert.equal(await commitPaymongoGrant(db, {uid, eventId: 'evt_ra4_chain', sessionId: 'cs_ra4_chain', paymentId: 'pay_ra4_chain',
+    paidAmount: 49900, product: webProduct('pantas_pass_cse_pro'), paidAt, sitting}, paidAt + 1000, finalCatalog), 'granted');
+  const g = await grantDoc(uid, 'pay_ra4_chain');
+  assert.deepEqual(g.sitting, final);
+  assert.equal(g.endsAt, Date.parse('2027-04-18T23:59:59.999+08:00'));
+});
+
 // Finding 5
 test('reaudit 5: removing native coverage re-anchors queued web time', async () => {
   const uid = 'ra5-native-revoked'; await reset(uid);
