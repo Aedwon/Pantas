@@ -21,6 +21,7 @@ import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_date_sheet.dart';
+import 'package:pantas/features/home/presentation/widgets/home_install_slot.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 import 'package:pantas/features/home/presentation/widgets/home_notice_strip.dart';
 import 'package:pantas/features/home/presentation/widgets/home_performance_section.dart';
@@ -226,6 +227,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
         onTendencies: showPerformance
             ? () => unawaited(context.push<void>('/tendencies'))
             : null,
+        footer: const HomeInstallSlot(topGap: 28),
       );
     }
     return ListView(
@@ -267,6 +269,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
             ],
           ),
         ],
+        const HomeInstallSlot(),
       ],
     );
   }

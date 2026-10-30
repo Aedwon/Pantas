@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
@@ -10,6 +11,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
+import 'package:pantas/features/home/application/home_install_offer.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -26,6 +28,8 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
+
+import '../../../core/platform/install/fake_install_platform.dart';
 
 const examId = 'exam_1';
 const exam = Exam(
@@ -95,6 +99,7 @@ Widget harness({
   HomeNotice? notice,
   HomeDayNote? note,
   List<PerformanceRow> subjects = const [],
+  List<Override> extra = const [],
 }) {
   final router = GoRouter(
     routes: [
@@ -190,6 +195,7 @@ Widget harness({
       ),
       proForActiveExamProvider.overrideWith((ref) async => true),
       todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+      ...extra,
     ],
     child: MaterialApp.router(
       theme: buildLightTheme(),
@@ -236,6 +242,47 @@ void main() {
     expect(find.text('Ratios'), findsOneWidget);
     expect(find.text('YOUR PERFORMANCE'), findsOneWidget);
     expect(find.text('See all topics and lessons'), findsOneWidget);
+  });
+
+  testWidgets('the install card sits at the bottom of Home, below the lists',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(
+        result: assessed(),
+        subjects: [subject('Mathematics', 8, 10)],
+        extra: [
+          installPlatformProvider
+              .overrideWithValue(FakeInstallPlatform(isIosSafari: true)),
+          homeFirstLessonFinishedProvider.overrideWith((ref) async => true),
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+    final card = find.text('Keep Pantas on your Home Screen');
+    await tester.ensureVisible(card);
+    expect(card, findsOneWidget);
+    expect(find.text('Show Me How'), findsOneWidget);
+    expect(
+      tester.getTopLeft(card).dy,
+      greaterThan(tester.getTopLeft(find.text('Your tendencies')).dy),
+    );
+  });
+
+  testWidgets('no install card at first open, before a finished lesson',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(
+        result: assessed(),
+        subjects: [subject('Mathematics', 8, 10)],
+        extra: [
+          installPlatformProvider
+              .overrideWithValue(FakeInstallPlatform(isIosSafari: true)),
+          homeFirstLessonFinishedProvider.overrideWith((ref) async => false),
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Show Me How'), findsNothing);
   });
 
   testWidgets('the old panels and stats band are gone', (tester) async {

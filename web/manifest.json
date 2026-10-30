@@ -1,11 +1,12 @@
 {
-    "name": "pantas",
-    "short_name": "pantas",
+    "name": "Pantas",
+    "short_name": "Pantas",
     "start_url": ".",
+    "scope": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#F5F5F7",
+    "theme_color": "#F5F5F7",
+    "description": "Philippine exam reviewer.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

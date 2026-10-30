@@ -25,6 +25,7 @@ import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/app_check.dart';
+import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -310,7 +311,12 @@ Future<void> _bootstrap(
     onContainerReady(container);
 
     await bootstrapAuthSession(container, firebaseResult);
-    if (kIsWeb) await _startWebContent(container);
+    if (kIsWeb) {
+      // Listen for the browser's install events from the first frame and ask
+      // it to keep storage once Pantas runs installed.
+      container.read(installPlatformProvider).start();
+      await _startWebContent(container);
+    }
     await applyPersistedTelemetryConsent(container);
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);

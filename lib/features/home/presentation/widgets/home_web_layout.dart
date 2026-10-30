@@ -15,6 +15,7 @@ class HomeWebLayout extends StatelessWidget {
     this.performance,
     this.onRecord,
     this.onTendencies,
+    this.footer,
     super.key,
   });
   final Widget header;
@@ -23,6 +24,9 @@ class HomeWebLayout extends StatelessWidget {
   final Widget? performance;
   final VoidCallback? onRecord;
   final VoidCallback? onTendencies;
+
+  /// Sits at the very bottom, under both columns.
+  final Widget? footer;
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
@@ -126,6 +130,7 @@ class HomeWebLayout extends StatelessWidget {
                     );
                   },
                 ),
+                if (footer != null) footer!,
               ],
             ),
           ),

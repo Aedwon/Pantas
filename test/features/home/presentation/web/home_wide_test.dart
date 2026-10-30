@@ -441,6 +441,31 @@ void additionalTests() {
       await tester.tap(find.text('Your tendencies'));
       expect(route, 'tendencies');
     });
+    testWidgets('the footer sits under both columns, dark=$dark',
+        (tester) async {
+      await mountWide(
+        tester,
+        const HomeWebLayout(
+          header: Text('Greeting'),
+          today: Text('Today column'),
+          performance: Text('Performance column'),
+          footer: Text('Footer slot'),
+        ),
+        dark: dark,
+      );
+      expect(
+        tester.getTopLeft(find.text('Footer slot')).dy,
+        greaterThanOrEqualTo(
+          tester.getBottomLeft(find.text('Today column')).dy,
+        ),
+      );
+      expect(
+        tester.getTopLeft(find.text('Footer slot')).dy,
+        greaterThanOrEqualTo(
+          tester.getBottomLeft(find.text('Performance column')).dy,
+        ),
+      );
+    });
     testWidgets('performance measured data and Free tag, dark=$dark',
         (tester) async {
       await mountWide(
