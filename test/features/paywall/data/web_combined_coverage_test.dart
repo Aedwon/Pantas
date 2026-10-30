@@ -11,6 +11,45 @@ void main() {
         'startsAt': start.millisecondsSinceEpoch,
         'endsAt': end.millisecondsSinceEpoch,
       };
+  test('an active promotion-only account shows Pro on web', () {
+    final end = now.add(const Duration(days: 10));
+    final entitlement = entitlementFromGrants(
+      [row('promo_civil_service', now, end)],
+      at: now,
+    );
+    expect(entitlement.proIsActive, isTrue);
+    expect(entitlement.coverage(at: now).hasKnownCoverage, isTrue);
+    expect(entitlement.endsAt, end);
+    expect(entitlement.willRenew, isFalse);
+  });
+  for (final anchor in [
+    'promo_civil_service',
+    'pantas_cs_monthly',
+    'pantas_pass_cse_pro',
+  ]) {
+    test('refresh keeps Pro through Monthly queued behind $anchor', () async {
+      final end = now.add(const Duration(days: 10));
+      final queuedEnd = end.add(const Duration(days: 30));
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) async => [
+          row('pantas_cs_monthly', end, queuedEnd),
+          row(anchor, now, end),
+        ],
+        refreshClaims: (_) async {},
+        openUrl: (_) async => false,
+        now: () => now,
+      );
+      await gateway.logIn('owner');
+      final refreshed = await gateway.restorePurchases();
+      final entitlement = refreshed.confirmedEntitlement!;
+      expect(entitlement.proIsActive, isTrue);
+      expect(entitlement.expiresAt, queuedEnd);
+      expect(entitlement.coverage(at: now).hasKnownCoverage, isTrue);
+      expect(entitlement.coverage(at: end).hasKnownCoverage, isTrue);
+      expect(entitlement.coverage(at: queuedEnd).hasKnownCoverage, isFalse);
+    });
+  }
   test('a future prepaid grant does not grant coverage before it starts', () {
     final entitlement = entitlementFromGrants(
       [

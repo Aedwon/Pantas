@@ -1042,7 +1042,7 @@ void main() {
       final entitlement = entitlementFromGrants(
         [
           _grant('pantas_future_plan', ends: ends),
-          _grant('promo_civil_service', ends: ends),
+          _grant('promo_unknown', ends: ends),
           _trial(ends: ends)..['tier'] = 'licensure',
           {'product': 'pantas_cs_monthly', 'state': 'active'},
           {
