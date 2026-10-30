@@ -73,6 +73,8 @@ Status Oct 31: the first Gemini run hit its Google quota (resets about Nov 5) af
 on onboarding. Partial work in the staging worktree `build/visual-pass/`: `capture.mjs`,
 `seed_onboarding.mjs`, test screenshots. No comparisons yet. Next: whichever account has room runs
 steps 1 to 3 from `build/visual-pass/BRIEF.md` (copy kept there), reusing the partial script.
+Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 to 5 from Nov 1
+2 PM Manila; it starts the localhost app itself (`tools/local/run_web_local.sh`, no `--lan`).
 
 ## Order and progress
 
