@@ -80,7 +80,7 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
 
 | Area | Boards | State |
 |---|---|---|
-| Onboarding | OB_* | not started |
+| Onboarding | OB_* | 6 of 28 boards compared at 1440 light (lead, Oct 31); fixes not started |
 | Home | HM_*, DK_Home | not started |
 | Study and reader | SD_*, RD_* | not started |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
@@ -102,3 +102,37 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
   splash until content is ready, duplicate-ID export check, shared checkbox and radio rows.
 - Open from Aedwon: onboarding page transitions should be a smooth step change, not a full-page
   slide (needs a preview first).
+
+## Onboarding findings (lead, Oct 31, 1440x900 light)
+
+Capture: `build/visual-pass/ob_pairs.mjs` in the staging worktree (board left, app right, saved as
+`shots/ob/<BOARD>-pair.png`). It drives the app with `?localAccount=free` and semantics labels.
+It stops after OB_DateKnown: the "That's Right" button label did not match `/^(Yes|Continue)/`;
+use `/^That's Right/`. Not yet compared: OB_Days, OB_Name, and all state boards (AgeBlocked,
+Picker loading/error/empty, Custom*, Date* variants, Days* variants, SignIn, Restoring), dark,
+1180 and 390.
+
+- All steps: the app's step content sits about 4 to 6 px higher than the board; the Back chevron is
+  smaller and thinner than the board's.
+- OB_Welcome: matches.
+- OB_Age: matches apart from the shared offset above.
+- OB_Terms: board rows are taller (about 57 px vs 41 px in the app) with more space between the
+  subtitle and the card. Disabled Continue: board shows dark label on a light gray pill; the app
+  shows a faded gray label.
+- OB_Picker:
+  - Search field: board is white with a light border; the app is a gray filled field.
+  - Filter chips: board labels are darker and heavier than the app's.
+  - "My exam isn't listed": board has a plus-in-circle icon on the left and a dark title; the app
+    has no icon and a teal title.
+  - Exam cards: board has no radio; the selected card gets a teal border and a teal check badge on
+    the right. The app shows a radio circle on the left of every card. Check against the Oct 31
+    shared radio row decision before changing.
+  - Coming soon: board shows a small gray "Coming soon" pill on the right of the card; the app adds
+    a third text line.
+  - The app shows a white bottom bar with Continue; the board shows none in the first screen.
+  - Expected, not differences: Civil service listed first (exam order decision); nothing preselected.
+- OB_DateKnown: close match. The app's month label in the date tile is smaller, and the gap between
+  "Different Date" and "That's Right" is smaller than the board's (about 8 px).
+
+Usage note for estimates: this onboarding work (capture script, 6 comparisons, these notes) took
+about 1% of the Claude weekly limit on the Pro plan (95% to 96%), at about 32% of a 5-hour window.
