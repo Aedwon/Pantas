@@ -14,6 +14,10 @@ const _compoundInterestSpeech =
 final _inlineEstimateSentence = RegExp(
   r'^Use\s+1\.02 to the power of 4\s+approximately\s+1\.0824\s+to calculate the result\.$',
 );
+final _compoundInterestSentence = RegExp(
+  r'^Use\s+A equals P open parenthesis 1 plus r close parenthesis to the power of t\s+to find the amount after interest\.$',
+);
+const _inlineEstimateSpeech = '1.02 to the power of 4 approximately 1.0824';
 
 Widget _readerSurface(Widget child) {
   return SizedBox(
@@ -98,9 +102,7 @@ Future<double> _inlineExponentPaintedHeight(
     r'Use $1.02^4$ here.',
     scaler,
   );
-  final rect = tester.getRect(
-    find.bySemanticsLabel('1.02 to the power of 4'),
-  );
+  final rect = tester.getRect(find.byType(Math).first);
   semantics.dispose();
   return rect.height;
 }
@@ -253,6 +255,12 @@ void main() {
           reason: 'Continuous reading needs one semantic sentence containing '
               'both the prose and the spoken inline expression.',
         );
+        expect(
+          find.bySemanticsLabel(_inlineEstimateSpeech),
+          findsNothing,
+          reason: 'The formula must not remain as a duplicate focus node '
+              'after it is included in the sentence.',
+        );
         semantics.dispose();
       },
     );
@@ -300,9 +308,58 @@ void main() {
           reason: 'Lesson prose must expose its inline formula as part of '
               'the containing accessibility sentence.',
         );
+        expect(
+          find.bySemanticsLabel(_inlineEstimateSpeech),
+          findsNothing,
+          reason: 'Lesson prose must not repeat the formula as a separate '
+              'focus node after reading the complete sentence.',
+        );
         semantics.dispose();
       },
     );
+
+    testWidgets('plain InlineMathText keeps sensible sentence semantics',
+        (tester) async {
+      final semantics = tester.ensureSemantics();
+      await pumpAccessibilitySurface(
+        tester,
+        _readerSurface(
+          const InlineMathText(
+            'Read this sentence normally.',
+            style: TextStyle(fontSize: 14, height: 1.5),
+          ),
+        ),
+        textScale: 2,
+        viewportSize: _viewport,
+      );
+
+      expect(
+        find.bySemanticsLabel('Read this sentence normally.'),
+        findsOneWidget,
+      );
+      semantics.dispose();
+    });
+
+    testWidgets('malformed inline math keeps the renderer fallback',
+        (tester) async {
+      const text = r'Use $\badcommand{{{$ carefully.';
+      expect(inlineMathSemantics(text), isNull);
+
+      await pumpAccessibilitySurface(
+        tester,
+        _readerSurface(
+          const InlineMathText(
+            text,
+            style: TextStyle(fontSize: 14, height: 1.5),
+          ),
+        ),
+        textScale: 2,
+        viewportSize: _viewport,
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('\badcommand{{{'), findsOneWidget);
+    });
 
     testWidgets('inline compound-interest math is one coherent expression',
         (tester) async {
@@ -319,7 +376,16 @@ void main() {
         viewportSize: _viewport,
       );
 
-      expect(find.bySemanticsLabel(_compoundInterestSpeech), findsOneWidget);
+      expect(
+        find.bySemanticsLabel(_compoundInterestSentence),
+        findsOneWidget,
+      );
+      expect(
+        find.bySemanticsLabel(_compoundInterestSpeech),
+        findsNothing,
+        reason: 'Inline math is already included in the complete sentence '
+            'and must not be repeated as its own focus stop.',
+      );
       expect(
         find.bySemanticsLabel(RegExp(r'^(A|=|P|\(|1|\+|r|\)|t)$')),
         findsNothing,
