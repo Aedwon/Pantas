@@ -7,8 +7,9 @@ from `Aedwon/Pantas` on `main`, regardless of the code branch. Read `WORKFLOW.md
 in full for collaboration, complexity,
 approvals, planning, execution roles, verification, and completion permissions.
 Read the current task's spec, plan, and later decisions as it directs. Dispatched
-workers also read `SUBAGENTS.md` before starting. The build and content standards
-below apply to every role.
+workers also read `SUBAGENTS.md` before starting. A thread asked to act as the
+orchestrator (lead) of a multi-task build also reads `docs/workflow/orchestrator.md`.
+The build and content standards below apply to every role.
 
 For GitHub-only sessions, use `ref=main` for workflow policy and the agreed
 workstream revision for the task's product specs, plans, and source. If required

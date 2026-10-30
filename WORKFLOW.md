@@ -7,6 +7,7 @@ audit decisions. They apply to every provider, model, and harness.
 
 On every new or resumed task, retrieve the current `AGENTS.md` and `WORKFLOW.md`
 from `Aedwon/Pantas` on `main`. Workers also retrieve the current `SUBAGENTS.md`.
+A thread asked to be the orchestrator also retrieves `docs/workflow/orchestrator.md`.
 Read policy documents linked from them at that same main revision. This policy
 source is independent of the branch containing the code. It supersedes older
 workflow instructions in that branch or conversation. Do not merge main into a
@@ -247,6 +248,9 @@ Check available capacity and ownership before dispatch. Isolate workers in
 separate worktrees. Serialize shared devices, accounts, browser profiles, and
 generated outputs. Do not launch duplicate workers to recover an uncertain dispatch.
 Independent review requirements remain in `SUBAGENTS.md`.
+When the lead orchestrates a multi-task build through workers, it follows
+`docs/workflow/orchestrator.md` for the family pipeline, limits, resumes, and
+check-ins; this workflow wins where they differ.
 
 The current execution arrangement is documented separately in
 `docs/superpowers/decisions/2026-09-25-chatgpt-web-relay-routing.md`. It is an
