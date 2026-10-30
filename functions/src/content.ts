@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
@@ -95,5 +96,5 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
 }
 
 export const getContent = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: true},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   request => serveContent(request.auth, request.data, {db: getFirestore()}));

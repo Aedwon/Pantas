@@ -2,7 +2,7 @@ import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
-import { assertFreshAppCheck } from './_appCheck.js';
+import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
 import { retirePublicId } from './publicId.js';
 import { clearPassOwnership } from './revenuecatPasses.js';
@@ -11,8 +11,8 @@ import { identityMarkers, trialIdentityKey } from './webTrial.js';
 export const deleteAccount = onCall(
   {
     region: 'asia-southeast1',
-    enforceAppCheck: true,
-    consumeAppCheckToken: true,
+    enforceAppCheck: enforceAppCheck,
+    consumeAppCheckToken: enforceAppCheck,
     secrets: [trialIdentityKey],
   },
   async (request) => {

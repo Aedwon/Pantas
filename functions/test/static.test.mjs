@@ -27,8 +27,8 @@ test('sensitive callables enforce App Check and consume replay tokens', () => {
   );
 
   for (const source of [exportData, deleteAccount]) {
-    assert.match(source, /enforceAppCheck: true/);
-    assert.match(source, /consumeAppCheckToken: true/);
+    assert.match(source, /enforceAppCheck: enforceAppCheck/);
+    assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
     assert.match(source, /assertNamedUser\(request\.auth\)/);
   }
 
@@ -93,7 +93,7 @@ test('activateSyncGeneration owns generation activation transaction', () => {
 
   assert.match(source, /onCall/);
   assert.match(source, /region: 'asia-southeast1'/);
-  assert.match(source, /enforceAppCheck:\s*true/);
+  assert.match(source, /enforceAppCheck:\s*enforceAppCheck/);
   assert.match(source, /runTransaction/);
   assert.match(source, /assertNamedPro/);
   assert.match(source, /generation-conflict/);
@@ -211,8 +211,8 @@ test('deleteAccount uses asia-southeast1 app check replay protection', () => {
   );
 
   assert.match(source, /region: 'asia-southeast1'/);
-  assert.match(source, /enforceAppCheck: true/);
-  assert.match(source, /consumeAppCheckToken: true/);
+  assert.match(source, /enforceAppCheck: enforceAppCheck/);
+  assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
 });
 
 test('deleteAccount checks recent auth before destructive work', () => {
@@ -276,7 +276,7 @@ test('exportData remains app check enforced if kept', () => {
     'utf8',
   );
 
-  assert.match(source, /enforceAppCheck: true/);
-  assert.match(source, /consumeAppCheckToken: true/);
+  assert.match(source, /enforceAppCheck: enforceAppCheck/);
+  assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
   assert.match(source, /assertNamedUser\(request\.auth\)/);
 });

@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
@@ -28,7 +29,7 @@ function isValidGenerationId(value: unknown): value is string {
 export const activateSyncGeneration = onCall(
   {
     region: 'asia-southeast1',
-    enforceAppCheck: true,
+    enforceAppCheck: enforceAppCheck,
   },
   async (request): Promise<ActivateSyncGenerationResponse> => {
     let uid: string;

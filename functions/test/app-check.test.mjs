@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import test from 'node:test';
+import { execFileSync } from 'node:child_process';
 import express from 'express';
 import * as endpoints from '../lib/index.js';
 
@@ -50,9 +51,10 @@ test('the source scan finds exactly the callables the deploy entry exposes', () 
   assert.ok(deployed.length >= 27);
 });
 
-test('every callable enforces App Check', () => {
-  for (const { name, options } of callables) {
-    assert.match(options, /enforceAppCheck:\s*true/, `${name} must enforce App Check`);
+test('every callable uses the shared App Check policy', () => {
+  for (const { name, options, source } of callables) {
+    assert.match(source, /import \{[^}]*\benforceAppCheck\b[^}]*\} from '\.\/_appCheck\.js'/, `${name} must import the shared policy`);
+    assert.match(options, /enforceAppCheck:\s*enforceAppCheck\s*[,}]/, `${name} must enforce App Check`);
   }
 });
 
@@ -60,7 +62,7 @@ test('payment, trial, deletion, export and admin callables consume the token and
   for (const name of REPLAY_PROTECTED) {
     const c = callables.find((x) => x.name === name);
     assert.ok(c, `${name} must exist`);
-    assert.match(c.options, /consumeAppCheckToken:\s*true/, `${name} must consume the token`);
+    assert.match(c.options, /consumeAppCheckToken:\s*enforceAppCheck\s*[,}]/, `${name} must consume the token`);
     const body = c.source.slice(c.source.indexOf(`export const ${name}`));
     assert.match(body.slice(0, 900), /assertFreshAppCheck\(request\)/, `${name} must reject a used token`);
   }
@@ -102,4 +104,14 @@ test('a used App Check token is rejected and a fresh one passes', async () => {
   assert.throws(() => assertFreshAppCheck({ app: { appId: 'a', token: {}, alreadyConsumed: true } }), /Unauthenticated/);
   assert.doesNotThrow(() => assertFreshAppCheck({ app: { appId: 'a', token: {}, alreadyConsumed: false } }));
   assert.doesNotThrow(() => assertFreshAppCheck({}));
+});
+
+test('only the Firebase emulator disables App Check', () => {
+  for (const value of [undefined, '', 'false', '0', '1', 'TRUE', 'true']) {
+    const env = {...process.env, NODE_ENV: 'development', FIREBASE_EMULATOR_HUB: 'localhost:4400'};
+    delete env.FUNCTIONS_EMULATOR;
+    if (value !== undefined) env.FUNCTIONS_EMULATOR = value;
+    const actual = execFileSync(process.execPath, ['-e', "console.log(require('./lib/_appCheck.js').enforceAppCheck)"], {env, encoding: 'utf8'}).trim();
+    assert.equal(actual, String(value !== 'true'));
+  }
 });

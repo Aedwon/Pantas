@@ -2,7 +2,7 @@ import {randomUUID, createHash} from 'node:crypto';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {defineSecret} from 'firebase-functions/params';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
-import {assertFreshAppCheck} from './_appCheck.js';
+import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
@@ -93,7 +93,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
 }
 
 export const createPaymongoCheckout = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: true, consumeAppCheckToken: true, secrets: [secretKey]},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [secretKey]},
   request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {

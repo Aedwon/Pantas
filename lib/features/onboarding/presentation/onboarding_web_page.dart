@@ -59,7 +59,7 @@ class OnboardingWebPage extends StatelessWidget {
         .whereType<OnboardingButton>()
         .where((button) => button.variant == PantasButtonVariant.primary)
         .firstOrNull;
-    return CallbackShortcuts(
+    return OnboardingShortcuts(
       bindings: {
         if (primary?.onPressed != null && !primary!.busy)
           const SingleActivator(LogicalKeyboardKey.enter): primary.onPressed!,
@@ -259,7 +259,7 @@ class OnboardingButton extends StatelessWidget {
       );
     }
     final primary = variant == PantasButtonVariant.primary;
-    return CallbackShortcuts(
+    return OnboardingShortcuts(
       bindings: {
         if (primary && onPressed != null && !busy)
           const SingleActivator(LogicalKeyboardKey.enter): onPressed!,
@@ -312,4 +312,27 @@ class OnboardingActions extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Registers onboarding keys as shortcuts for web text inputs.
+class OnboardingShortcuts extends StatelessWidget {
+  const OnboardingShortcuts({
+    required this.bindings,
+    required this.child,
+    super.key,
+  });
+  final Map<ShortcutActivator, VoidCallback> bindings;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Shortcuts(
+        shortcuts: {
+          for (final entry in bindings.entries)
+            entry.key: VoidCallbackIntent(entry.value),
+        },
+        child: Actions(
+          actions: {VoidCallbackIntent: VoidCallbackAction()},
+          child: child,
+        ),
+      );
 }

@@ -108,7 +108,7 @@ test('index exports the Pro content, mock and ingest callables, all behind App C
   for (const [name, file] of [['getContent', 'content.ts'], ['startMock', 'mock.ts'], ['submitMock', 'mock.ts'], ['ingestSession', 'ingestSession.ts']]) {
     assert.equal(typeof endpoints[name], 'function', name);
     assert.match(source('index.ts'), new RegExp(`export \\{ ${name} \\}`));
-    assert.match(source(file), /enforceAppCheck: true/);
+    assert.match(source(file), /enforceAppCheck: enforceAppCheck/);
   }
   assert.match(source('mock.ts'), /assertNamedUser\(auth\)/);
 });

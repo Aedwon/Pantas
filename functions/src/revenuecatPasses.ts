@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {FieldPath, FieldValue, getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {getAuth} from 'firebase-admin/auth';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
-import {assertFreshAppCheck} from './_appCheck.js';
+import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {requireAdmin} from './_admin.js';
 import {claimsForRevenueCatAnswer, type RevenueCatAccessSource} from './revenuecatPolicy.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
@@ -182,7 +182,7 @@ export async function clearPassOwnership(db: Firestore, uid: string): Promise<vo
   }
 }
 
-export const recomputePassEnds = onCall({region:'asia-southeast1',enforceAppCheck:true,consumeAppCheckToken:true},
+export const recomputePassEnds = onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck,consumeAppCheckToken: enforceAppCheck},
   async request => {
     assertFreshAppCheck(request);
     await requireAdmin(request);

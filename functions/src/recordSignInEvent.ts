@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { onCall } from 'firebase-functions/v2/https';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
@@ -7,7 +8,7 @@ import { ensurePublicId } from './publicId.js';
 export const recordSignInEvent = onCall(
   {
     region: 'asia-southeast1',
-    enforceAppCheck: true,
+    enforceAppCheck: enforceAppCheck,
   },
   async (request) => {
     const uid = assertNamedUser(request.auth);

@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {core} from './_core.js';
@@ -100,5 +101,5 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
       traced: diagnosis.traced, withinLesson: diagnosis.withinLesson};
   });
 }
-export const getSessionDiagnosis = onCall({region: 'asia-southeast1', enforceAppCheck: true},
+export const getSessionDiagnosis = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   request => readSessionDiagnosis(request.auth, request.data, {db: getFirestore()}));

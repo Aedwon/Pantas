@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import {createHash} from 'node:crypto';
 import {FieldPath, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
@@ -191,11 +192,11 @@ export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapD
 }
 
 export const setExamSettings = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: true},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   request => saveExamSettings(request.auth, request.data, {db: getFirestore()}));
 
 export const getRoadmap = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: true},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   request => readStudyRoadmap(request.auth, request.data, {db: getFirestore()}));
 
 type StudyBody = Record<string, any>;
@@ -511,6 +512,6 @@ export async function readStudyWeek(auth: StudyAuth, data: unknown, deps: Roadma
     return {examId:body.examId,serverNow:now,accessRecheckAt:context.access.recheckAt,proCovered:context.pro,start:body.start,days};
   });
 }
-export const advanceRoadmap=onCall({region:'asia-southeast1',enforceAppCheck:true},r=>advanceStudyRoadmap(r.auth,r.data,{db:getFirestore()}));
-export const getRoadmapDay=onCall({region:'asia-southeast1',enforceAppCheck:true},r=>readStudyDay(r.auth,r.data,{db:getFirestore()}));
-export const getRoadmapWeek=onCall({region:'asia-southeast1',enforceAppCheck:true},r=>readStudyWeek(r.auth,r.data,{db:getFirestore()}));
+export const advanceRoadmap=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>advanceStudyRoadmap(r.auth,r.data,{db:getFirestore()}));
+export const getRoadmapDay=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>readStudyDay(r.auth,r.data,{db:getFirestore()}));
+export const getRoadmapWeek=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>readStudyWeek(r.auth,r.data,{db:getFirestore()}));

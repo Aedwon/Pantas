@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import {createHash} from 'node:crypto';
 import {getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
@@ -126,4 +127,4 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   return response(derived,performance,revision);
  });
 }
-export const getStudyInsights=onCall({region:'asia-southeast1',enforceAppCheck:true},r=>readStudyInsights(r.auth,r.data,{db:getFirestore()}));
+export const getStudyInsights=onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck},r=>readStudyInsights(r.auth,r.data,{db:getFirestore()}));

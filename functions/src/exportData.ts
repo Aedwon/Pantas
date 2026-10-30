@@ -1,12 +1,12 @@
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
-import { assertFreshAppCheck } from './_appCheck.js';
+import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import { assertNamedUser } from './_audit.js';
 
 export const exportData = onCall(
   {
     region: 'asia-southeast1',
-    enforceAppCheck: true,
-    consumeAppCheckToken: true,
+    enforceAppCheck: enforceAppCheck,
+    consumeAppCheckToken: enforceAppCheck,
   },
   async (request) => {
     assertFreshAppCheck(request);

@@ -13,15 +13,15 @@ test('index exports the PayMongo checkout, webhook, trial and plan list function
 });
 
 test('the plan list enforces App Check and takes its prices from products.json only', () => {
-  assert.match(source('webPlans.ts'), /enforceAppCheck: true/);
+  assert.match(source('webPlans.ts'), /enforceAppCheck: enforceAppCheck/);
   assert.match(source('webPlans.ts'), /priceCentavos\(product\)/);
   assert.doesNotMatch(source('webPlans.ts'), /webPricePhp|\b(49|149|1199|499)\b/);
 });
 
 test('callables enforce App Check; secrets come only from Functions secrets', () => {
   for (const file of ['paymongoCheckout.ts', 'webTrial.ts']) {
-    assert.match(source(file), /enforceAppCheck: true/);
-    assert.match(source(file), /consumeAppCheckToken: true/);
+    assert.match(source(file), /enforceAppCheck: enforceAppCheck/);
+    assert.match(source(file), /consumeAppCheckToken: enforceAppCheck/);
     assert.match(source(file), /assertNamedUser\(auth\)/);
   }
   assert.match(source('paymongoCheckout.ts'), /defineSecret\('PAYMONGO_SECRET_KEY'\)/);

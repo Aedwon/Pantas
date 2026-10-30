@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 class OnboardingWelcomeStep extends StatelessWidget {
   const OnboardingWelcomeStep({required this.onAdvance, super.key});
@@ -16,7 +17,7 @@ class OnboardingWelcomeStep extends StatelessWidget {
   Widget build(BuildContext context) {
     if (context.wideWeb) {
       final t = context.webTokens;
-      return CallbackShortcuts(
+      return OnboardingShortcuts(
         bindings: {const SingleActivator(LogicalKeyboardKey.enter): onAdvance},
         child: Focus(
           autofocus: true,

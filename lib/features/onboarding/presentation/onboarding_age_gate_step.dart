@@ -193,7 +193,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
             child: SizedBox(
               width: 240,
               height: 64,
-              child: CallbackShortcuts(
+              child: OnboardingShortcuts(
                 bindings: {
                   const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
                       _changeYear(1),
@@ -224,7 +224,21 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                       horizontal: 18,
                       vertical: 14,
                     ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: BorderSide(
+                        color: context.webTokens.colors.accent,
+                        width: 2,
+                      ),
+                    ),
                     enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: BorderSide(
+                        color: context.webTokens.colors.accent,
+                        width: 2,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(14),
                       borderSide: BorderSide(
                         color: context.webTokens.colors.accent,

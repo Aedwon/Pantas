@@ -1,5 +1,8 @@
 import { HttpsError, type CallableRequest } from 'firebase-functions/v2/https';
 
+// Only Firebase's emulator flag may bypass platform App Check.
+export const enforceAppCheck = process.env.FUNCTIONS_EMULATOR !== 'true';
+
 /**
  * Replay protection for payment, trial, deletion and admin callables.
  *

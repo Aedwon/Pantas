@@ -1,7 +1,7 @@
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
-import {assertFreshAppCheck} from './_appCheck.js';
+import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {examCatalog} from './revenuecatPasses.js';
@@ -58,7 +58,7 @@ export async function changeBetaPro(request: Pick<CallableRequest, 'auth' | 'app
   await copyEntitlementClaims(deps.db, deps.auth, uid);
   return result;
 }
-export const setBetaPro = onCall({region:'asia-southeast1', enforceAppCheck:true, consumeAppCheckToken:true},
+export const setBetaPro = onCall({region:'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
   request => {
     assertFreshAppCheck(request);
     return changeBetaPro(request, {db:getFirestore(), auth:getAuth()});

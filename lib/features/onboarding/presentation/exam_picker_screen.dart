@@ -182,7 +182,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     final selected = _selectedId ?? active;
     if (!_settings && context.wideWeb) {
       final t = context.webTokens;
-      return CallbackShortcuts(
+      return OnboardingShortcuts(
         bindings: {
           if (_selectedId != null && !_saving)
             const SingleActivator(LogicalKeyboardKey.enter): _save,
@@ -469,7 +469,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     }
     if (_settings && context.wideWeb) {
       final t = context.webTokens;
-      return CallbackShortcuts(
+      return OnboardingShortcuts(
         bindings: {
           const SingleActivator(LogicalKeyboardKey.escape): _back,
         },

@@ -1,3 +1,4 @@
+import {enforceAppCheck} from './_appCheck.js';
 import {betaProUntil} from './betaPro.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
@@ -15,7 +16,7 @@ export async function webEntitlement(auth: Parameters<typeof assertNamedUser>[0]
     }))};
   });
 }
-export const getWebEntitlement = onCall({region: 'asia-southeast1', enforceAppCheck: true},
+export const getWebEntitlement = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   request => {
     if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
     if (request.data?.uid !== request.auth.uid) {

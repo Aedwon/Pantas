@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
@@ -54,6 +55,17 @@ void main() {
             ),
           ],
           child: MaterialApp(
+            builder: (context, child) => Shortcuts(
+              shortcuts: const {
+                SingleActivator(LogicalKeyboardKey.arrowUp):
+                    DoNothingAndStopPropagationTextIntent(),
+                SingleActivator(LogicalKeyboardKey.arrowDown):
+                    DoNothingAndStopPropagationTextIntent(),
+                SingleActivator(LogicalKeyboardKey.enter):
+                    DoNothingAndStopPropagationTextIntent(),
+              },
+              child: child!,
+            ),
             theme:
                 dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
             home: Scaffold(body: screen),
@@ -81,6 +93,92 @@ void main() {
         '2013',
       );
       expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('birth year keeps its outline while focused $dark',
+        (tester) async {
+      await pump(
+        tester,
+        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+      );
+      await tester.tap(find.byType(TextField));
+      await tester.enterText(find.byType(TextField), '2000');
+      await tester.pump();
+      final decoration =
+          tester.widget<TextField>(find.byType(TextField)).decoration!;
+      expect(decoration.focusedBorder, decoration.enabledBorder);
+      expect(decoration.border, decoration.enabledBorder);
+    });
+
+    testWidgets('birth year arrows step while typing $dark', (tester) async {
+      await pump(
+        tester,
+        OnboardingAgeGateStep(currentYear: 2026, onAgeGatePassed: () {}),
+      );
+      await tester.enterText(find.byType(TextField), '2000');
+      await tester.pump();
+      final shortcuts = find.ancestor(
+        of: find.byType(EditableText),
+        matching: find.byType(Shortcuts),
+      );
+      expect(
+        shortcuts
+            .evaluate()
+            .map(
+              (e) => (e.widget as Shortcuts)
+                  .shortcuts[const SingleActivator(LogicalKeyboardKey.arrowUp)],
+            )
+            .whereType<VoidCallbackIntent>(),
+        isNotEmpty,
+      );
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowUp);
+      await tester.pump();
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).controller!.text,
+        '2001',
+      );
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+      await tester.pump();
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).controller!.text,
+        '2000',
+      );
+    });
+
+    testWidgets('Enter submits valid years and ignores disabled actions $dark',
+        (tester) async {
+      var completed = 0;
+      await pump(
+        tester,
+        OnboardingAgeGateStep(
+          currentYear: 2026,
+          onAgeGatePassed: () => completed++,
+        ),
+      );
+      await tester.enterText(find.byType(TextField), '');
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      expect(completed, 0);
+      await tester.enterText(find.byType(TextField), '2000');
+      await tester.pump();
+      final shortcuts = find.ancestor(
+        of: find.byType(EditableText),
+        matching: find.byType(Shortcuts),
+      );
+      expect(
+        shortcuts
+            .evaluate()
+            .map(
+              (e) => (e.widget as Shortcuts)
+                  .shortcuts[const SingleActivator(LogicalKeyboardKey.enter)],
+            )
+            .whereType<VoidCallbackIntent>(),
+        isNotEmpty,
+      );
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(completed, 1);
     });
 
     testWidgets('usage consent label toggles the row $dark', (tester) async {
