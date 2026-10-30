@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/firebase_options_dev.dart' as dev_options;
 import 'package:pantas/firebase_options_prod.dart' as prod_options;
 import 'package:pantas/firebase_options_staging.dart' as staging_options;
@@ -51,6 +52,9 @@ class FirebaseSdkBootAdapter implements FirebaseBootAdapter {
 
   @override
   Future<void> initialize(FirebaseOptions options) async {
-    await Firebase.initializeApp(options: options);
+    await Firebase.initializeApp(
+      options: localEmulators ? localFirebaseOptions : options,
+    );
+    await connectLocalFirebase();
   }
 }
