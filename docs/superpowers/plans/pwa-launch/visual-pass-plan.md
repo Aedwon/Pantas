@@ -138,8 +138,9 @@ Second run (`ob_pairs2.mjs`, pairs cropped to the top 640 px to save image cost)
 - Blocker: the boards load `./support.js` (the Claude Design runtime), which is not in the handoff
   folder. 19 of 305 boards use its templates (`{{...}}`, `<sc-for>`), including OB_Days*,
   OB_Date{Day,Month,Year,ThisMonth,Today}; served with a stub they show raw `{{d.short}}` text.
-  Either get the runtime from Claude Design (DesignSync tool, or ask Aedwon to export it) or write a
-  small stand-in that runs the `data-dc-script` block and fills `{{}}` and `<sc-for>`.
+  Resolved Oct 31: the same runtime from `/Users/aedwon/Documents/Projects/aedwon/v3-design/reference/support.js`
+  renders OB_Days correctly with no errors; it is now copied next to the boards in
+  `web-design/pantas-handoff/web/project/support.js`. Board servers must serve it, not a stub.
 - Script fixes needed: typing a year did not reach the field (AgeBlocked shot shows Terms); OB_Days
   needs a day picked before Continue works (Name shot shows Days); the "isn't listed" click did not
   open the custom flow; date month and day labels are dumped to `shots/ob/date*-labels.txt` for
