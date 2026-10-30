@@ -2072,3 +2072,11 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - PayMongo methods: card and QR Ph only.
 - Open, explained to Aedwon: pending GCash (ST_ProPending), Manage Subscription on web, mistake
   reason wording, native tablets.
+- Follow-up answers (exact): on mistake reasons, "the former, shorter and more concise" (the boards'
+  "I misread / I forgot / I didn't know"); on subscriptions, "there are no subscriptions for now
+  right? it's a PWA launch"; on native tablets, "this is a PWA wdym"; on pending GCash, "what do you
+  recommend here" (lead: not built; web payments confirm at once).
+- Decisions: the mistake-reason labels become "I misread", "I forgot", "I didn't know", "Type my own"
+  on every platform (labels only; stored tags unchanged). Pending GCash is not built. Manage
+  Subscription stays hidden on web (web Pro is prepaid time, no renewals). Native tablet layouts are
+  not a launch question: tablets use the PWA, which gets the tablet layouts.
