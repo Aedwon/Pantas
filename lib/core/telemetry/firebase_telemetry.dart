@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 
 /// The only file in `lib/` permitted to import an analytics or crash package.
@@ -33,7 +34,9 @@ class FirebaseTelemetry implements Telemetry {
   /// this unconditionally killed the app on launch, at the splash, before a
   /// single screen drew.
   static Telemetry instancesIfAvailable() {
-    if (Firebase.apps.isEmpty) return const DisabledTelemetry();
+    if (localEmulators || Firebase.apps.isEmpty) {
+      return const DisabledTelemetry();
+    }
     return FirebaseTelemetry.instances();
   }
 
