@@ -21,6 +21,10 @@ class HalfRingGauge extends StatefulWidget {
         numberOpacity = 1,
         labelOpacity = 1,
         displayedFraction = null,
+        odometerProgress = null,
+        trackOpacity = 1,
+        glowOpacity = 0,
+        glowScale = 1,
         assert(
           fraction >= 0 && fraction <= 1,
           'Accuracy must be between zero and one.',
@@ -35,6 +39,10 @@ class HalfRingGauge extends StatefulWidget {
     this.numberOpacity = 1,
     this.labelOpacity = 1,
     this.displayedFraction,
+    this.odometerProgress,
+    this.trackOpacity = 1,
+    this.glowOpacity = 0,
+    this.glowScale = 1,
     super.key,
   })  : assessment = false,
         correct = null,
@@ -62,7 +70,11 @@ class HalfRingGauge extends StatefulWidget {
         decimalPlaces = 0,
         mockSize = false,
         numberOpacity = 1,
-        displayedFraction = null;
+        displayedFraction = null,
+        odometerProgress = null,
+        trackOpacity = 1,
+        glowOpacity = 0,
+        glowScale = 1;
 
   final bool web;
   final bool assessment;
@@ -71,6 +83,12 @@ class HalfRingGauge extends StatefulWidget {
   final double numberOpacity;
   final double labelOpacity;
   final double? displayedFraction;
+
+  /// The desktop finale uses the board's vertical score strip.
+  final double? odometerProgress;
+  final double trackOpacity;
+  final double glowOpacity;
+  final double glowScale;
   final bool mockSize;
   final int decimalPlaces;
   final double fraction;
@@ -144,6 +162,53 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     }
   }
 
+  Widget _mockOdometer(BuildContext context, PantasType type) {
+    final style = type.largeTitle
+        .copyWith(fontSize: 64, height: 1, letterSpacing: -1.68)
+        .tabular;
+    final target = widget.fraction * 100;
+    final text = TextPainter(
+      text: TextSpan(text: target.toStringAsFixed(1), style: style),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout();
+    final width = text.width;
+    text.dispose();
+    final height = MediaQuery.textScalerOf(context).scale(64);
+    return Baseline(
+      baseline: height * .8,
+      baselineType: TextBaseline.alphabetic,
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: ClipRect(
+          child: OverflowBox(
+            alignment: Alignment.topRight,
+            maxHeight: height * 47,
+            child: Transform.translate(
+              key: const ValueKey('web-finale-odometer'),
+              offset: Offset(0, -height * 46 * widget.odometerProgress!),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  for (var i = 0; i <= 46; i++)
+                    SizedBox(
+                      height: height,
+                      child: Text(
+                        (target * i / 46).toStringAsFixed(1),
+                        style: style,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -161,6 +226,9 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     final wideMock = widget.mockSize && widget.web;
     if (_painter == null ||
         _painter!.fraction != _fill ||
+        _painter!.trackOpacity != widget.trackOpacity ||
+        _painter!.glowOpacity != widget.glowOpacity ||
+        _painter!.glowScale != widget.glowScale ||
         _painter!.fill != colors.accent ||
         _painter!.track != colors.fill ||
         _painter!.mockSize != large ||
@@ -169,6 +237,9 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         _painter!.web != widget.web) {
       _painter = _GaugePainter(
         fraction: _fill,
+        trackOpacity: widget.trackOpacity,
+        glowOpacity: widget.glowOpacity,
+        glowScale: widget.glowScale,
         fill: colors.accent,
         track: colors.fill,
         mockSize: large,
@@ -255,25 +326,33 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 textBaseline: TextBaseline.alphabetic,
                                 children: [
-                                  Text(
-                                    ((widget.displayedFraction ?? _fill.value) *
-                                            100)
-                                        .toStringAsFixed(widget.decimalPlaces),
-                                    style: type.largeTitle
-                                        .copyWith(
-                                          fontSize: wideMock
-                                              ? 64
-                                              : large
-                                                  ? 56
-                                                  : widget.web
-                                                      ? 48
-                                                      : 44,
-                                          height:
-                                              large || widget.web ? 1 : 1.12,
-                                          letterSpacing: large ? -1.68 : -1.32,
-                                        )
-                                        .tabular,
-                                  ),
+                                  if (wideMock &&
+                                      widget.odometerProgress != null)
+                                    _mockOdometer(context, type)
+                                  else
+                                    Text(
+                                      ((widget.displayedFraction ??
+                                                  _fill.value) *
+                                              100)
+                                          .toStringAsFixed(
+                                        widget.decimalPlaces,
+                                      ),
+                                      style: type.largeTitle
+                                          .copyWith(
+                                            fontSize: wideMock
+                                                ? 64
+                                                : large
+                                                    ? 56
+                                                    : widget.web
+                                                        ? 48
+                                                        : 44,
+                                            height:
+                                                large || widget.web ? 1 : 1.12,
+                                            letterSpacing:
+                                                large ? -1.68 : -1.32,
+                                          )
+                                          .tabular,
+                                    ),
                                   const SizedBox(width: 1),
                                   percent!,
                                 ],
@@ -455,6 +534,9 @@ class _GaugePainter extends CustomPainter {
     required this.track,
     required this.mockSize,
     required this.web,
+    this.trackOpacity = 1,
+    this.glowOpacity = 0,
+    this.glowScale = 1,
     this.wideMock = false,
     this.wideAssessment = false,
   })  : trackPaint = (Paint()
@@ -482,6 +564,9 @@ class _GaugePainter extends CustomPainter {
         super(repaint: fraction);
   final bool mockSize;
   final bool wideMock;
+  final double trackOpacity;
+  final double glowOpacity;
+  final double glowScale;
   final bool wideAssessment;
   final bool web;
   final Animation<double> fraction;
@@ -503,7 +588,28 @@ class _GaugePainter extends CustomPainter {
                     : web
                         ? const Rect.fromLTWH(18, 14, 188, 188)
                         : const Rect.fromLTWH(18, 10, 184, 184);
-    canvas.drawArc(rect, math.pi, math.pi, false, trackPaint);
+    if (wideMock && glowOpacity > 0) {
+      final center = Offset(size.width / 2, size.height * .7);
+      final radius = 150 * glowScale;
+      canvas.drawCircle(
+        center,
+        radius,
+        Paint()
+          ..shader = RadialGradient(
+            colors: [
+              fill.withValues(alpha: .22 * glowOpacity),
+              fill.withValues(alpha: 0),
+            ],
+          ).createShader(Rect.fromCircle(center: center, radius: radius)),
+      );
+    }
+    canvas.drawArc(
+      rect,
+      math.pi,
+      math.pi,
+      false,
+      trackPaint..color = track.withValues(alpha: trackOpacity),
+    );
     if (fraction.value > 0) {
       canvas.drawArc(rect, math.pi, math.pi * fraction.value, false, fillPaint);
     }
@@ -512,6 +618,9 @@ class _GaugePainter extends CustomPainter {
   @override
   bool shouldRepaint(_GaugePainter oldDelegate) =>
       oldDelegate.fraction != fraction ||
+      oldDelegate.trackOpacity != trackOpacity ||
+      oldDelegate.glowOpacity != glowOpacity ||
+      oldDelegate.glowScale != glowScale ||
       oldDelegate.fill != fill ||
       oldDelegate.track != track ||
       oldDelegate.mockSize != mockSize ||

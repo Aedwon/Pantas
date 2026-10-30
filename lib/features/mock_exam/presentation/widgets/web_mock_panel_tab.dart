@@ -23,11 +23,13 @@ class _WebMockPanelTabState extends State<WebMockPanelTab>
   );
   bool _hover = false;
   bool _closing = false;
+  bool _initialized = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (MediaQuery.disableAnimationsOf(context)) {
+    if (!_initialized || MediaQuery.disableAnimationsOf(context)) {
+      _initialized = true;
       _controller.value = widget.hidden ? 1 : 0;
     }
   }
@@ -88,7 +90,15 @@ class _WebMockPanelTabState extends State<WebMockPanelTab>
                     child: IconButton(
                       tooltip: 'Show the question list',
                       onPressed: widget.onPressed,
-                      icon: const Icon(Icons.view_sidebar_outlined, size: 20),
+                      icon: AnimatedSlide(
+                        offset: Offset(_hover ? .1 : 0, 0),
+                        duration: MediaQuery.disableAnimationsOf(context)
+                            ? Duration.zero
+                            : const Duration(milliseconds: 200),
+                        curve: const Cubic(.32, .72, 0, 1),
+                        child:
+                            const Icon(Icons.view_sidebar_outlined, size: 20),
+                      ),
                     ),
                   ),
                 ),
@@ -97,4 +107,39 @@ class _WebMockPanelTabState extends State<WebMockPanelTab>
           );
         },
       );
+}
+
+/// The panel's children fade separately from its sliding surface.
+class WebMockPanelContents extends StatelessWidget {
+  const WebMockPanelContents({
+    required this.open,
+    required this.child,
+    super.key,
+  });
+  final bool open;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final still = MediaQuery.disableAnimationsOf(context);
+    return AnimatedSlide(
+      offset: Offset(open ? 0 : -14 / 300, 0),
+      duration: still ? Duration.zero : const Duration(milliseconds: 460),
+      curve: const Cubic(.32, .72, 0, 1),
+      child: TweenAnimationBuilder<double>(
+        tween: Tween(begin: 1, end: open ? 1 : 0),
+        duration:
+            still ? Duration.zero : Duration(milliseconds: open ? 340 : 160),
+        curve: open
+            ? const Interval(120 / 340, 1, curve: Curves.ease)
+            : Curves.ease,
+        builder: (context, value, child) => Opacity(
+          key: const ValueKey('web-mock-panel-content'),
+          opacity: value,
+          child: child,
+        ),
+        child: child,
+      ),
+    );
+  }
 }

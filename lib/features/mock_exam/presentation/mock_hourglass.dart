@@ -14,6 +14,7 @@ class MockHourglass extends StatelessWidget {
     this.size = const Size(width, height),
     this.streamOffset = 0,
     this.streamOpacity = 0,
+    this.streamCut = 0,
     super.key,
   });
 
@@ -26,6 +27,9 @@ class MockHourglass extends StatelessWidget {
   /// The board's stroke-dashoffset for the falling grains.
   final double streamOffset;
   final double streamOpacity;
+
+  /// Fraction of the stream cleared from the neck as the last grains fall.
+  final double streamCut;
 
   static const width = 76.0;
   static const height = 100.0;
@@ -40,6 +44,7 @@ class MockHourglass extends StatelessWidget {
           outlineColor: outlineColor,
           streamOffset: streamOffset,
           streamOpacity: streamOpacity,
+          streamCut: streamCut,
         ),
       );
 }
@@ -51,6 +56,7 @@ class HourglassPainter extends CustomPainter {
     required this.outlineColor,
     this.streamOffset = 0,
     this.streamOpacity = 0,
+    this.streamCut = 0,
   }) : remainingFraction = remainingFraction.clamp(0.0, 1.0);
 
   final double remainingFraction;
@@ -58,6 +64,9 @@ class HourglassPainter extends CustomPainter {
   final Color outlineColor;
   final double streamOffset;
   final double streamOpacity;
+
+  /// Fraction of the stream cleared from the neck as the last grains fall.
+  final double streamCut;
 
   static const sandSpan = 52.0;
   static const _dash = 1.6;
@@ -131,7 +140,7 @@ class HourglassPainter extends CustomPainter {
   /// the pattern by the negative of the dash offset along the line.
   void _paintStream(Canvas canvas) {
     final line = Path()
-      ..moveTo(50, 66)
+      ..moveTo(50, 66 + (54 - bottomSandHeight) * streamCut)
       ..lineTo(50, 120 - bottomSandHeight);
     final paint = Paint()
       ..color = sandColor.withValues(alpha: streamOpacity.clamp(0.0, 1.0))
@@ -156,5 +165,6 @@ class HourglassPainter extends CustomPainter {
       old.sandColor != sandColor ||
       old.outlineColor != outlineColor ||
       old.streamOffset != streamOffset ||
-      old.streamOpacity != streamOpacity;
+      old.streamOpacity != streamOpacity ||
+      old.streamCut != streamCut;
 }

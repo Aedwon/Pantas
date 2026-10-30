@@ -260,37 +260,45 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
           builder: (_, offset, __) => Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (offset <= 0)
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (var i = 0; i < total; i++)
-                      Container(
-                        width: 18,
-                        height: 4,
-                        margin: const EdgeInsets.only(right: 3),
-                        decoration: BoxDecoration(
-                          color: i + 1 == position
-                              ? t.colors.accent
-                              : t.strongDivider,
-                          borderRadius: BorderRadius.circular(99),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (var i = 0; i < total; i++)
+                    Container(
+                      width: 18,
+                      height: 4,
+                      margin: const EdgeInsets.only(right: 3),
+                      decoration: BoxDecoration(
+                        color: i + 1 == position
+                            ? t.colors.accent
+                            : t.strongDivider,
+                        borderRadius: BorderRadius.circular(99),
+                      ),
+                    ),
+                ],
+              ),
+              ClipRect(
+                child: Align(
+                  key: const ValueKey('web-reader-title-width'),
+                  widthFactor: (offset / 90).clamp(0, 1),
+                  alignment: Alignment.centerRight,
+                  child: Opacity(
+                    opacity: (offset / 90).clamp(0, 1),
+                    child: Transform.translate(
+                      offset: Offset(0, 6 * (1 - (offset / 90).clamp(0, 1))),
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 400),
+                        child: Text(
+                          reader.lesson.title,
+                          style: t.style(14, weight: FontWeight.w600),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                  ],
-                ),
-              if (offset > 0)
-                Opacity(
-                  opacity: (offset / 90).clamp(0, 1),
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 400),
-                    child: Text(
-                      reader.lesson.title,
-                      style: t.style(14, weight: FontWeight.w600),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
+              ),
               const SizedBox(width: 12),
               Text('$position of $total', style: t.sm),
               const SizedBox(width: 8),
@@ -309,6 +317,8 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final secondary = t.colors.secondaryLabel;
+    const compactTap = MaterialTapTargetSize.shrinkWrap;
     final reader = widget.reader;
     final meta = '${reader.topicName} · '
         '${reader.lesson.estimatedMinutes} min';
@@ -387,66 +397,130 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                         style: t.eb,
                                       ),
                                     ),
-                                    for (var i = 0; i < headings.length; i++)
-                                      if (headings[i] != null)
-                                        TextButton(
-                                          onPressed: () {
-                                            final anchor =
-                                                _anchors[i].currentContext;
-                                            if (anchor != null) {
-                                              Scrollable.ensureVisible(
-                                                anchor,
-                                                alignment: .05,
-                                              );
-                                            }
-                                          },
-                                          style: TextButton.styleFrom(
-                                            minimumSize: Size.zero,
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 10,
-                                              vertical: 6,
-                                            ),
-                                            tapTargetSize: MaterialTapTargetSize
-                                                .shrinkWrap,
-                                            alignment: Alignment.centerLeft,
-                                          ),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 6,
-                                                height: 6,
-                                                margin: const EdgeInsets.only(
-                                                  top: 6,
-                                                  right: 10,
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: _active == i
-                                                      ? t.colors.accent
-                                                      : Colors.transparent,
-                                                ),
+                                    LayoutBuilder(
+                                      builder: (context, constraints) {
+                                        final positions = <int, double>{};
+                                        var top = 0.0;
+                                        for (var i = 0;
+                                            i < headings.length;
+                                            i++) {
+                                          if (headings[i] == null) continue;
+                                          positions[i] = top;
+                                          final text = TextPainter(
+                                            text: TextSpan(
+                                              text: headings[i],
+                                              style: t.style(
+                                                14,
+                                                height: 1.35,
+                                                weight: _active == i
+                                                    ? FontWeight.w600
+                                                    : FontWeight.w400,
                                               ),
-                                              Expanded(
-                                                child: Text(
-                                                  headings[i]!,
-                                                  style: t.style(
-                                                    14,
-                                                    height: 1.35,
-                                                    weight: _active == i
-                                                        ? FontWeight.w600
-                                                        : FontWeight.w400,
-                                                    color: _active == i
-                                                        ? t.colors.label
-                                                        : t.colors
-                                                            .secondaryLabel,
+                                            ),
+                                            textDirection:
+                                                Directionality.of(context),
+                                            textScaler: MediaQuery.textScalerOf(
+                                              context,
+                                            ),
+                                          )..layout(
+                                              maxWidth:
+                                                  constraints.maxWidth - 36,
+                                            );
+                                          top += text.height + 12;
+                                          text.dispose();
+                                        }
+                                        return Stack(
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                for (var i = 0;
+                                                    i < headings.length;
+                                                    i++)
+                                                  if (headings[i] != null)
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        final anchor =
+                                                            _anchors[i]
+                                                                .currentContext;
+                                                        if (anchor != null) {
+                                                          Scrollable
+                                                              .ensureVisible(
+                                                            anchor,
+                                                            alignment: .05,
+                                                          );
+                                                        }
+                                                      },
+                                                      style:
+                                                          TextButton.styleFrom(
+                                                        minimumSize: Size.zero,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                          horizontal: 10,
+                                                          vertical: 6,
+                                                        ),
+                                                        tapTargetSize:
+                                                            compactTap,
+                                                        alignment: Alignment
+                                                            .centerLeft,
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(left: 16),
+                                                        child: Text(
+                                                          headings[i]!,
+                                                          style: t.style(
+                                                            14,
+                                                            height: 1.35,
+                                                            weight: _active == i
+                                                                ? FontWeight
+                                                                    .w600
+                                                                : FontWeight
+                                                                    .w400,
+                                                            color: _active == i
+                                                                ? t.colors.label
+                                                                : secondary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                              ],
+                                            ),
+                                            if (positions.containsKey(_active))
+                                              AnimatedPositioned(
+                                                key: const ValueKey(
+                                                  'web-reader-outline-dot',
+                                                ),
+                                                duration: MediaQuery
+                                                        .disableAnimationsOf(
+                                                  context,
+                                                )
+                                                    ? Duration.zero
+                                                    : const Duration(
+                                                        milliseconds: 250,
+                                                      ),
+                                                curve:
+                                                    const Cubic(.32, .72, 0, 1),
+                                                top: positions[_active]! + 12,
+                                                left: 10,
+                                                child: IgnorePointer(
+                                                  child: Container(
+                                                    width: 6,
+                                                    height: 6,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: t.colors.accent,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ],
-                                          ),
-                                        ),
+                                          ],
+                                        );
+                                      },
+                                    ),
                                   ],
                                 ),
                               ),

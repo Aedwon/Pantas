@@ -679,78 +679,81 @@ class _MockSessionPageState extends State<MockSessionPage> {
         color: c.surface,
         border: Border(right: BorderSide(color: c.separator)),
       ),
-      child: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 120),
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'Questions',
-                  style: t.style(17, weight: FontWeight.w600),
+      child: WebMockPanelContents(
+        open: _widePanelOpen,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 120),
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Questions',
+                    style: t.style(17, weight: FontWeight.w600),
+                  ),
                 ),
-              ),
-              IconButton(
-                tooltip: 'Hide the question list',
-                onPressed: () => setState(() => _widePanelOpen = false),
-                icon: const Icon(Icons.view_sidebar_outlined, size: 20),
-              ),
-            ],
-          ),
-          if (_gridSummary() != null) Text(_gridSummary()!, style: t.sm),
-          const SizedBox(height: 24),
-          Text(
-            widget.oneBlock
-                ? 'WHOLE PAPER'
-                : 'PART $part · '
-                    '${widget.partName.toUpperCase()}',
-            style: t.eb,
-          ),
-          const SizedBox(height: 6),
-          Text(
-            widget.oneBlock
-                ? '$count of ${widget.partTotal} answered'
-                : '$count of ${widget.partTotal}',
-            style: t.sm,
-          ),
-          const SizedBox(height: 14),
-          grid(ids),
-          for (final part in widget.upcomingParts) ...[
-            const SizedBox(height: 28),
+                IconButton(
+                  tooltip: 'Hide the question list',
+                  onPressed: () => setState(() => _widePanelOpen = false),
+                  icon: const Icon(Icons.view_sidebar_outlined, size: 20),
+                ),
+              ],
+            ),
+            if (_gridSummary() != null) Text(_gridSummary()!, style: t.sm),
+            const SizedBox(height: 24),
             Text(
-              'PART ${part.number} · ${part.name.toUpperCase()}',
+              widget.oneBlock
+                  ? 'WHOLE PAPER'
+                  : 'PART $part · '
+                      '${widget.partName.toUpperCase()}',
               style: t.eb,
             ),
             const SizedBox(height: 6),
-            Text('Opens when this part starts.', style: t.sm),
-            const SizedBox(height: 14),
-            Opacity(
-              opacity: .4,
-              child: grid(
-                [
-                  for (var i = 0; i < part.count; i++)
-                    'upcoming-${part.number}-$i',
-                ],
-                enabled: false,
-              ),
+            Text(
+              widget.oneBlock
+                  ? '$count of ${widget.partTotal} answered'
+                  : '$count of ${widget.partTotal}',
+              style: t.sm,
             ),
-          ],
-          if (widget.oneBlock && !widget.state.strictMode) ...[
-            const SizedBox(height: 24),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: WebButton(
-                  label: 'Submit the Exam',
-                  onPressed: () => _confirmEndPartEarly(context),
+            const SizedBox(height: 14),
+            grid(ids),
+            for (final part in widget.upcomingParts) ...[
+              const SizedBox(height: 28),
+              Text(
+                'PART ${part.number} · ${part.name.toUpperCase()}',
+                style: t.eb,
+              ),
+              const SizedBox(height: 6),
+              Text('Opens when this part starts.', style: t.sm),
+              const SizedBox(height: 14),
+              Opacity(
+                opacity: .4,
+                child: grid(
+                  [
+                    for (var i = 0; i < part.count; i++)
+                      'upcoming-${part.number}-$i',
+                  ],
+                  enabled: false,
                 ),
               ),
-            ),
+            ],
+            if (widget.oneBlock && !widget.state.strictMode) ...[
+              const SizedBox(height: 24),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: WebButton(
+                    label: 'Submit the Exam',
+                    onPressed: () => _confirmEndPartEarly(context),
+                  ),
+                ),
+              ),
+            ],
+            const SizedBox(height: 24),
+            Text('●  Answered    ○  Blank    ⚑  Flagged', style: t.sm),
           ],
-          const SizedBox(height: 24),
-          Text('●  Answered    ○  Blank    ⚑  Flagged', style: t.sm),
-        ],
+        ),
       ),
     );
     final question = _QuestionBody(
@@ -876,7 +879,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                     maxWidth: 300,
                                     child: Transform.translate(
                                       offset: Offset(-300 * (1 - value), 0),
-                                      child: value == 0 ? null : panel,
+                                      child: Offstage(
+                                        offstage: value == 0,
+                                        child: panel,
+                                      ),
                                     ),
                                   ),
                                 ),

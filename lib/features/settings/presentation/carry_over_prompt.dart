@@ -164,15 +164,42 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                         ),
                         offset:
                             Offset(0, 168 * 1.1 * (old ? drain : 1 - drain)),
-                        child: const SizedBox.expand(
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [Color(0xFF14937D), Color(0xFF0B7A68)],
+                        child: SizedBox.expand(
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              const Positioned.fill(
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: [
+                                        Color(0xFF14937D),
+                                        Color(0xFF0B7A68),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Positioned(
+                                left: -8 -
+                                    112 *
+                                        (MediaQuery.disableAnimationsOf(context)
+                                            ? 0
+                                            : ms / 6400),
+                                top: -10,
+                                child: CustomPaint(
+                                  key: ValueKey(
+                                    old
+                                        ? 'web-transfer-wave-old'
+                                        : 'web-transfer-wave-new',
+                                  ),
+                                  size: const Size(224, 12),
+                                  painter: const _TransferWave(),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -221,7 +248,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
         return WebCard(
           radius: 22,
           child: SizedBox(
-            height: 524 + extra,
+            height: 476 + extra,
             child: Stack(
               children: [
                 Positioned(
@@ -363,11 +390,39 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                           onPressed:
                               _saving ? null : () => _choose(count: false),
                         ),
-                        WebButton(
-                          label: 'Count Them',
-                          busy: _saving && !_counted,
-                          onPressed:
-                              _saving ? null : () => _choose(count: true),
+                        Transform.scale(
+                          scale: 1 - .04 * at(600, 700) + .04 * at(700, 840),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              WebButton(
+                                label: 'Count Them',
+                                busy: _saving && !_counted,
+                                onPressed:
+                                    _saving ? null : () => _choose(count: true),
+                              ),
+                              IgnorePointer(
+                                child: Opacity(
+                                  key: const ValueKey('web-transfer-ripple'),
+                                  opacity:
+                                      .28 * at(520, 700) * (1 - at(700, 1040)),
+                                  child: Transform.scale(
+                                    scale: .5 +
+                                        .5 * at(520, 700) +
+                                        .5 * at(700, 1040),
+                                    child: Container(
+                                      width: 46,
+                                      height: 46,
+                                      decoration: BoxDecoration(
+                                        color: c.label,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -727,4 +782,33 @@ class CarryOverRequest {
   final String exam;
   final String? previous;
   final VoidCallback onCounted;
+}
+
+// ST_ExamSwitchCount's SVG surface, repeated across the moving liquid.
+class _TransferWave extends CustomPainter {
+  const _TransferWave();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas
+      ..save()
+      ..scale(size.width / 240, size.height / 12);
+    final wave = Path()
+      ..moveTo(0, 8)
+      ..cubicTo(15, 2, 30, 2, 45, 7)
+      ..cubicTo(60, 12, 75, 12, 90, 6)
+      ..cubicTo(105, 0, 112, 2, 120, 6)
+      ..cubicTo(128, 10, 135, 2, 165, 7)
+      ..cubicTo(195, 12, 195, 12, 210, 6)
+      ..cubicTo(225, 0, 232, 2, 240, 6)
+      ..lineTo(240, 12)
+      ..lineTo(0, 12)
+      ..close();
+    canvas
+      ..drawPath(wave, Paint()..color = const Color(0xFF14937D))
+      ..restore();
+  }
+
+  @override
+  bool shouldRepaint(_TransferWave oldDelegate) => false;
 }

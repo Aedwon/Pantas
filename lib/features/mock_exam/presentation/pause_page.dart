@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -108,7 +109,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     );
     _wobble.duration = const Duration(milliseconds: 6000);
     _exit.duration = Duration(
-      milliseconds: context.wideWeb ? 2050 : PausePage.exitMilliseconds,
+      milliseconds: context.wideWeb ? 2400 : PausePage.exitMilliseconds,
     );
     if (still == _still) return;
     final first = _still == null;
@@ -119,6 +120,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
       _blinkDelay?.cancel();
       _tipDelay?.cancel();
       _entry.value = 1;
+      if (_leaving && context.wideWeb) _exit.value = 1;
     } else if (first) {
       _entry.forward();
     }
@@ -232,6 +234,14 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     return 0;
   }
 
+  double _wideTip(double t) {
+    if (t < 2400) return 0;
+    if (t < 2700) return _lerp(t, 2400, 2700, 0, -6);
+    if (t < 3000) return _lerp(t, 2700, 3000, -6, 5);
+    if (t < 3240) return _lerp(t, 3000, 3240, 5, 0);
+    return 0;
+  }
+
   String _clock([int elapsed = 0]) {
     final seconds = (widget.remaining.inSeconds - elapsed).clamp(0, 1 << 31);
     final hours = seconds ~/ 3600;
@@ -245,17 +255,45 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
   Widget _wide(BuildContext context) {
     final t = context.webTokens;
     final currentPart = widget.currentPartIndex;
+    final secondary = t.colors.secondaryLabel;
+    const circle = Icons.circle_outlined;
     final entry = _entry.value * 3900;
-    final exit = _exit.value * 2050;
-    final glide =
-        _leaving ? 1 - _ease(exit, 100, 850) : _ease(entry, 2244, 3300);
+    final exit = _exit.value * 2400;
+    final drop =
+        const Cubic(.2, .9, .3, 1.12).transform((entry / 594).clamp(0, 1));
+    final glide = _leaving
+        ? 1 - _ease(exit, 100, 850)
+        : const Cubic(.5, 0, .15, 1)
+            .transform(((entry - 2244) / 1056).clamp(0, 1));
+    final drain = const Cubic(.55, 0, 1, .45)
+        .transform(((entry - 1050) / 450).clamp(0, 1));
+    final refill =
+        const Cubic(.2, .8, .3, 1).transform(((exit - 500) / 400).clamp(0, 1));
+    final thunk = entry < 1677
+        ? const Cubic(.3, 1.5, .5, 1)
+            .transform(((entry - 1520) / 157).clamp(0, 1))
+        : 1 -
+            const Cubic(.3, 1.5, .5, 1)
+                .transform(((entry - 1677) / 293).clamp(0, 1));
     final reveal =
         _leaving ? 1 - _ease(exit, 0, 250) : _ease(entry, 2800, 3350);
-    final paused = _still ?? false ? 1.0 : _ease(entry, 1550, 2050);
+    final paused = _leaving
+        ? 1 - Curves.ease.transform((exit / 300).clamp(0, 1))
+        : _ease(entry, 1550, 2050);
     final resting = _wobble.value * 6000;
+    final blinkPhase =
+        _blink.value < .5 ? _blink.value * 2 : 2 - _blink.value * 2;
     final blink = (_still ?? false) || _leaving
         ? 1.0
-        : 1 - .7 * (1 - math.cos(_blink.value * 2 * math.pi)) / 2;
+        : 1 - .7 * PantasCurves.easeInOut.transform(blinkPhase);
+    final paperOpacity = _leaving
+        ? Curves.ease.transform(((exit - 1650) / 500).clamp(0, 1))
+        : 1 - Curves.ease.transform((entry / 550).clamp(0, 1));
+    final paperScale =
+        _leaving ? _ease(exit, 1600, 2400) : 1 - _ease(entry, 0, 800);
+    final pauseOpacity = _leaving
+        ? 1 - Curves.ease.transform(((exit - 1550) / 500).clamp(0, 1))
+        : Curves.ease.transform((entry / 500).clamp(0, 1));
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.enter): _resume,
@@ -266,179 +304,252 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         child: PopScope(
           canPop: false,
           child: Scaffold(
-            body: Center(
-              child: SingleChildScrollView(
-                key: const ValueKey('web-mock-paused'),
-                padding: const EdgeInsets.all(40),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Transform.translate(
-                      offset: Offset(
-                        246 * (1 - glide),
-                        28 * (1 - glide) - 56 * (1 - _ease(entry, 0, 594)),
-                      ),
-                      child: Transform.scale(
-                        scale: 1.4 - .4 * glide,
-                        child: Opacity(
-                          opacity: _leaving
-                              ? 1 - _ease(exit, 1550, 2050)
-                              : _ease(entry, 0, 594),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Transform.rotate(
-                                angle: (_still ?? false
-                                        ? 0
-                                        : _tipDegrees(
-                                            resting,
-                                          )) *
-                                    math.pi /
-                                    180,
-                                child: MockHourglass(
-                                  size: const Size(152, 200),
-                                  sandColor: t.colors.accent,
-                                  outlineColor: t.colors.label,
-                                  remainingFraction:
-                                      widget.partLength.inMilliseconds <= 0
-                                          ? 0
-                                          : widget.remaining.inMilliseconds /
-                                              widget.partLength.inMilliseconds,
-                                  streamOpacity: _still ?? false
-                                      ? 0
-                                      : _leaving
-                                          ? _ease(exit, 500, 900)
-                                          : 1 - _ease(entry, 1050, 1500),
-                                  streamOffset:
-                                      -(_leaving ? exit : entry) / 420 * 11.2,
-                                ),
-                              ),
-                              const SizedBox(height: 22),
-                              Opacity(
-                                opacity: paused,
-                                child: SizedBox(
-                                  height: 60 * paused,
-                                  child: Text('Paused', style: t.h1),
-                                ),
-                              ),
-                              const SizedBox(height: 2),
-                              Opacity(
-                                opacity: blink,
-                                child: Text(
-                                  _clock(
-                                    (_still ?? false)
-                                        ? 0
-                                        : _leaving
-                                            ? 1 +
-                                                ((exit - 650).clamp(0, 2050) /
-                                                        1000)
-                                                    .floor()
-                                            : (entry.clamp(0, 1450) / 1000)
-                                                .floor(),
-                                  ),
-                                  style: t.style(30, weight: FontWeight.w700),
-                                ),
-                              ),
-                              Text(
-                                widget.partNames.length > 1
-                                    ? 'left in this part'
-                                    : 'left',
-                                style: t.sub,
-                              ),
-                            ],
+            body: Stack(
+              fit: StackFit.expand,
+              children: [
+                if (widget.paper != null)
+                  IgnorePointer(
+                    child: ExcludeFocus(
+                      child: Opacity(
+                        key: const ValueKey('web-pause-paper'),
+                        opacity: paperOpacity,
+                        child: ImageFiltered(
+                          imageFilter: ui.ImageFilter.blur(
+                            sigmaX: 6 * (1 - paperOpacity),
+                            sigmaY: 6 * (1 - paperOpacity),
+                          ),
+                          child: Transform.scale(
+                            scale: .965 + .035 * paperScale,
+                            child: widget.paper,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 72),
-                    Opacity(
-                      key: const ValueKey('web-pause-content'),
-                      opacity: reveal,
-                      child: IgnorePointer(
-                        ignoring: reveal < 1,
-                        child: Transform.translate(
-                          offset: Offset(0, 12 * (1 - reveal)),
-                          child: SizedBox(
-                            width: 420,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                if (widget.partNames.length > 1) ...[
-                                  WebCard(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 24,
-                                      vertical: 22,
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        for (final (i, name)
-                                            in widget.partNames.indexed) ...[
-                                          if (i > 0) const SizedBox(height: 16),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                i < widget.currentPartIndex
-                                                    ? Icons.check_circle
-                                                    : Icons.circle_outlined,
-                                                size: 26,
-                                                color: i ==
-                                                        widget.currentPartIndex
-                                                    ? t.colors.label
-                                                    : t.colors.tertiaryLabel,
-                                              ),
-                                              const SizedBox(width: 12),
-                                              Expanded(
-                                                child: Text(
-                                                  'Part ${i + 1} · $name',
-                                                  style: t.style(
-                                                    17,
-                                                    weight: i == currentPart
-                                                        ? FontWeight.w600
-                                                        : FontWeight.w400,
-                                                    color: i == currentPart
-                                                        ? t.colors.label
-                                                        : t.colors
-                                                            .secondaryLabel,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
+                  ),
+                Opacity(
+                  opacity: pauseOpacity,
+                  child: ColoredBox(
+                    color: t.colors.background,
+                    child: Center(
+                      child: SingleChildScrollView(
+                        key: const ValueKey('web-mock-paused'),
+                        padding: const EdgeInsets.all(40),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Transform.translate(
+                              offset: Offset(
+                                246 * (1 - glide),
+                                28 * (1 - glide) - 56 * (1 - drop),
+                              ),
+                              child: Transform(
+                                key: const ValueKey('web-pause-drop'),
+                                transform: Matrix4.rotationZ(
+                                  -7 * math.pi / 180 * (1 - drop),
+                                )..scaleByDouble(
+                                    1.4 - .4 * glide,
+                                    1.4 - .4 * glide,
+                                    1,
+                                    1,
+                                  ),
+                                alignment: Alignment.center,
+                                child: Opacity(
+                                  opacity: _leaving
+                                      ? 1 - _ease(exit, 1550, 2050)
+                                      : drop.clamp(0, 1),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Transform.rotate(
+                                        angle: (_still ?? false
+                                                ? 0
+                                                : _wideTip(resting)) *
+                                            math.pi /
+                                            180,
+                                        child: Transform(
+                                          transform: Matrix4.diagonal3Values(
+                                            1 + .035 * thunk,
+                                            1 - .035 * thunk,
+                                            1,
                                           ),
+                                          alignment: Alignment.bottomCenter,
+                                          child: MockHourglass(
+                                            size: const Size(152, 200),
+                                            sandColor: t.colors.accent,
+                                            outlineColor: t.colors.label,
+                                            remainingFraction: widget.partLength
+                                                        .inMilliseconds <=
+                                                    0
+                                                ? 0
+                                                : widget.remaining
+                                                        .inMilliseconds /
+                                                    widget.partLength
+                                                        .inMilliseconds,
+                                            streamCut: _still ?? false
+                                                ? 1
+                                                : _leaving
+                                                    ? 1 - refill
+                                                    : drain,
+                                            streamOpacity: _still ?? false
+                                                ? 0
+                                                : _leaving
+                                                    ? (refill > 0 ? 1 : 0)
+                                                    : (drain < 1 ? 1 : 0),
+                                            streamOffset:
+                                                -(_leaving ? exit : entry) /
+                                                    420 *
+                                                    11.2,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 22),
+                                      Opacity(
+                                        opacity: paused,
+                                        child: SizedBox(
+                                          height: 60 * paused,
+                                          child: Transform.translate(
+                                            offset: Offset(0, 6 * (1 - paused)),
+                                            child: Text('Paused', style: t.h1),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Opacity(
+                                        opacity: blink,
+                                        child: Text(
+                                          _clock(
+                                            (_still ?? false)
+                                                ? 0
+                                                : _leaving
+                                                    ? 1 +
+                                                        ((exit - 650).clamp(
+                                                                  0,
+                                                                  2050,
+                                                                ) /
+                                                                1000)
+                                                            .floor()
+                                                    : (entry.clamp(0, 1450) /
+                                                            1000)
+                                                        .floor(),
+                                          ),
+                                          style: t.style(
+                                            30,
+                                            weight: FontWeight.w700,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        widget.partNames.length > 1
+                                            ? 'left in this part'
+                                            : 'left',
+                                        style: t.sub,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 72),
+                            Opacity(
+                              key: const ValueKey('web-pause-content'),
+                              opacity: reveal,
+                              child: IgnorePointer(
+                                ignoring: reveal < 1,
+                                child: Transform.translate(
+                                  offset: Offset(0, 12 * (1 - reveal)),
+                                  child: SizedBox(
+                                    width: 420,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        if (widget.partNames.length > 1) ...[
+                                          WebCard(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 24,
+                                              vertical: 22,
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                for (final (i, name) in widget
+                                                    .partNames.indexed) ...[
+                                                  if (i > 0)
+                                                    const SizedBox(height: 16),
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        i < currentPart
+                                                            ? Icons.check_circle
+                                                            : circle,
+                                                        size: 26,
+                                                        color: i == currentPart
+                                                            ? t.colors.label
+                                                            : t.colors
+                                                                .tertiaryLabel,
+                                                      ),
+                                                      const SizedBox(width: 12),
+                                                      Expanded(
+                                                        child: Text(
+                                                          'Part ${i + 1} · '
+                                                          '$name',
+                                                          style: t.style(
+                                                            17,
+                                                            weight:
+                                                                i == currentPart
+                                                                    ? FontWeight
+                                                                        .w600
+                                                                    : FontWeight
+                                                                        .w400,
+                                                            color: i ==
+                                                                    currentPart
+                                                                ? t.colors.label
+                                                                : secondary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(height: 20),
                                         ],
+                                        Wrap(
+                                          alignment: WrapAlignment.end,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.center,
+                                          spacing: 12,
+                                          runSpacing: 12,
+                                          children: [
+                                            WebButton(
+                                              label: 'Discard This Mock',
+                                              variant:
+                                                  WebButtonVariant.tertiary,
+                                              onPressed: _confirmDiscard,
+                                            ),
+                                            WebButton(
+                                              label: 'Resume',
+                                              large: true,
+                                              keyHint: 'Enter',
+                                              onPressed: _resume,
+                                            ),
+                                          ],
+                                        ),
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(height: 20),
-                                ],
-                                Wrap(
-                                  alignment: WrapAlignment.end,
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  spacing: 12,
-                                  runSpacing: 12,
-                                  children: [
-                                    WebButton(
-                                      label: 'Discard This Mock',
-                                      variant: WebButtonVariant.tertiary,
-                                      onPressed: _confirmDiscard,
-                                    ),
-                                    WebButton(
-                                      label: 'Resume',
-                                      large: true,
-                                      keyHint: 'Enter',
-                                      onPressed: _resume,
-                                    ),
-                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ),

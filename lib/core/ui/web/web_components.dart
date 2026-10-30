@@ -551,11 +551,13 @@ class WebAnswerOption extends StatelessWidget {
     this.revealProgress = 1,
     this.revealFromSelected = false,
     this.badgeProgress = 1,
+    this.badgeScale,
     super.key,
   });
   final bool revealFromSelected;
   final double revealProgress;
   final double badgeProgress;
+  final double? badgeScale;
   final String letter;
   final Widget child;
   final WebOptionState state;
@@ -656,9 +658,10 @@ class WebAnswerOption extends StatelessWidget {
                     ? Opacity(
                         opacity: badgeProgress,
                         child: Transform.scale(
-                          scale: badgeProgress < .6
-                              ? .4 + .75 * badgeProgress / .6
-                              : 1.15 - .15 * (badgeProgress - .6) / .4,
+                          scale: badgeScale ??
+                              (badgeProgress < .6
+                                  ? .4 + .75 * badgeProgress / .6
+                                  : 1.15 - .15 * (badgeProgress - .6) / .4),
                           child: Icon(
                             right ? Icons.check : Icons.close,
                             size: 18,

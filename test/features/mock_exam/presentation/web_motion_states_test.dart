@@ -16,6 +16,22 @@ import '../../../helpers/in_memory_database.dart';
 import 'web_mock_layout_test.dart' show question;
 
 void main() {
+  testWidgets('hidden navigation tab is available on first frame',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: MediaQuery(
+          data: const MediaQueryData(size: Size(1440, 1000)),
+          child: WebMockPanelTab(hidden: true, onPressed: () {}),
+        ),
+      ),
+    );
+    expect(
+      find.byTooltip('Show the question list').hitTestable(),
+      findsOneWidget,
+    );
+  });
   for (final reduced in [false, true]) {
     testWidgets('reveal stages and passage stays selectable, reduced=$reduced',
         (tester) async {
@@ -68,6 +84,30 @@ void main() {
       final options =
           tester.widgetList<WebAnswerOption>(find.byType(WebAnswerOption));
       expect(options.first.badgeProgress, reduced ? 1 : 0);
+      if (!reduced) {
+        await tester.pump(const Duration(milliseconds: 320));
+        final miss = find
+            .ancestor(
+              of: find.byIcon(Icons.close),
+              matching: find.byType(Transform),
+            )
+            .first;
+        expect(
+          tester.widget<Transform>(miss).transform.storage[0],
+          closeTo(1.1, .001),
+        );
+        await tester.pump(const Duration(milliseconds: 160));
+        final fix = find
+            .ancestor(
+              of: find.byIcon(Icons.check),
+              matching: find.byType(Transform),
+            )
+            .first;
+        expect(
+          tester.widget<Transform>(fix).transform.storage[0],
+          closeTo(1.15, .001),
+        );
+      }
       await tester.pump(const Duration(milliseconds: 1840));
       expect(
         tester
@@ -110,14 +150,51 @@ void main() {
               ),
               child: Scaffold(
                 body: WebReaderLayout(
-                  reader: const ReaderContext(
+                  reader: ReaderContext(
                     lesson: Lesson(
                       id: 'l',
                       topicId: 't',
                       title: 'Layers',
                       summary: '',
                       estimatedMinutes: 1,
-                      bodyJson: [],
+                      bodyJson: [
+                        {
+                          '_type': 'block',
+                          'style': 'h2',
+                          'children': [
+                            {'text': 'First section'},
+                          ],
+                        },
+                        {
+                          '_type': 'block',
+                          'style': 'normal',
+                          'children': [
+                            {
+                              'text': List.filled(
+                                150,
+                                'Read this lesson carefully.',
+                              ).join(' '),
+                            }
+                          ],
+                        },
+                        {
+                          '_type': 'block',
+                          'style': 'h2',
+                          'children': [
+                            {'text': 'Second section'},
+                          ],
+                        },
+                        {
+                          '_type': 'block',
+                          'style': 'normal',
+                          'children': [
+                            {
+                              'text': List.filled(150, 'More of the lesson.')
+                                  .join(' '),
+                            }
+                          ],
+                        },
+                      ],
                     ),
                     topicId: 't',
                     topicName: 'Science',
@@ -142,6 +219,22 @@ void main() {
           ),
         ),
       );
+      final dot = find.byKey(const ValueKey('web-reader-outline-dot'));
+      final initialDot = tester.getTopLeft(dot);
+      final second = find.text('Second section').last;
+      scroll.jumpTo(tester.getTopLeft(second).dy - 100);
+      offset.value = scroll.offset;
+      await tester.pump();
+      final target = tester.widget<AnimatedPositioned>(dot).top!;
+      expect(target, greaterThan(12));
+      await tester.pump(Duration(milliseconds: reduced ? 0 : 250));
+      expect(tester.getTopLeft(dot).dy, greaterThan(initialDot.dy));
+      scroll.jumpTo(0);
+      offset.value = 45;
+      await tester.pump();
+      final title = tester
+          .widget<Align>(find.byKey(const ValueKey('web-reader-title-width')));
+      expect(title.widthFactor, .5);
       offset.value = 300;
       await tester.pump();
       await tester.pump(Duration(milliseconds: reduced ? 0 : 700));
@@ -188,8 +281,27 @@ void main() {
       );
       await tester.tap(find.text('Count Them'));
       await tester.pump();
-      if (!reduced) await tester.pump(const Duration(milliseconds: 6400));
+      if (!reduced) {
+        await tester.pump(const Duration(milliseconds: 650));
+        expect(
+          tester
+              .widget<Opacity>(
+                find.byKey(const ValueKey('web-transfer-ripple')),
+              )
+              .opacity,
+          greaterThan(0),
+        );
+        await tester.pump(const Duration(milliseconds: 5750));
+      }
       expect(counted, 1);
+      expect(
+        find.byKey(const ValueKey('web-transfer-wave-old')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('web-transfer-wave-new')),
+        findsOneWidget,
+      );
       expect(find.text('Done').hitTestable(), findsOneWidget);
       expect(
         tester

@@ -384,8 +384,29 @@ class MockResultsPage extends StatelessWidget {
                                             ),
                                             child: HalfRingGauge.mock(
                                               web: true,
+                                              trackOpacity: time == null
+                                                  ? 1
+                                                  : sampleWebFinale(
+                                                      'k-track',
+                                                      time,
+                                                    ).opacity,
+                                              glowOpacity: time == null
+                                                  ? 0
+                                                  : sampleWebFinale(
+                                                      'k-rglow',
+                                                      time,
+                                                    ).opacity,
+                                              glowScale: time == null
+                                                  ? 1
+                                                  : sampleWebFinale(
+                                                      'k-rglow',
+                                                      time,
+                                                    ).sx,
                                               fraction:
                                                   results.percent / 100 * arc,
+                                              odometerProgress: time == null
+                                                  ? null
+                                                  : odometer,
                                               displayedFraction:
                                                   results.percent /
                                                       100 *

@@ -50,6 +50,18 @@ class _WebMockFinaleState extends State<WebMockFinale>
     super.dispose();
   }
 
+  String get _sceneLabel {
+    final reason = widget.input.reason == MockSubmitReason.timeUp
+        ? 'Time is up.'
+        : 'Mock submitted.';
+    final questions = [
+      for (final part in widget.input.parts) ...part.questions,
+    ];
+    final correct =
+        questions.where((q) => q.outcome == MockFinaleOutcome.correct).length;
+    return '$reason ${questions.length} questions. $correct correct.';
+  }
+
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
         animation: _clock,
@@ -65,13 +77,16 @@ class _WebMockFinaleState extends State<WebMockFinale>
             ),
             if (_clock.value < 4900)
               IgnorePointer(
-                child: CustomPaint(
-                  key: const ValueKey('web-finale-scene'),
-                  painter: _WebFinaleScene(
-                    input: widget.input,
-                    name: widget.name,
-                    milliseconds: _clock.value,
-                    tokens: context.webTokens,
+                child: Semantics(
+                  label: _sceneLabel,
+                  child: CustomPaint(
+                    key: const ValueKey('web-finale-scene'),
+                    painter: _WebFinaleScene(
+                      input: widget.input,
+                      name: widget.name,
+                      milliseconds: _clock.value,
+                      tokens: context.webTokens,
+                    ),
                   ),
                 ),
               ),
@@ -166,13 +181,41 @@ class _WebFinaleScene extends CustomPainter {
         Paint()..color = c.surface.withValues(alpha: fade),
       );
     }
+    final list = sampleWebFinale('k-pl', time);
+    for (var i = 0; i < input.parts.length; i++) {
+      _text(
+        canvas,
+        input.parts[i].name,
+        Offset(320, 430 + i * 50) + list.offset,
+        17,
+        list.opacity,
+        strong: i == input.currentPartIndex,
+      );
+    }
+    final legend = sampleWebFinale('k-lg', time);
+    _text(
+      canvas,
+      '●  Answered    ○  Blank',
+      const Offset(753, 738),
+      14,
+      legend.opacity,
+    );
     final questions = [for (final part in input.parts) ...part.questions];
     final correct =
         questions.where((q) => q.outcome == MockFinaleOutcome.correct).length;
     var ordinal = 0;
     for (var partIndex = 0; partIndex < input.parts.length; partIndex++) {
       final part = input.parts[partIndex];
-      final left = (1440 - input.parts.length * 300 + 48) / 2 + partIndex * 300;
+      final columns = input.parts.length == 1
+          ? math.max(10, (part.questions.length / 8).ceil())
+          : 10;
+      final pitch = math.min<double>(26, 1176 / (columns * input.parts.length));
+      final groupWidth = (columns - 1) * pitch + 18;
+      final left = (1440 - input.parts.length * (groupWidth + 48) + 48) / 2 +
+          partIndex * (groupWidth + 48);
+      final initialRows = (part.questions.length / 10).ceil();
+      final initialPitch =
+          math.min<double>(39, 270 / math.max(1, initialRows - 1));
       final label = sampleWebFinale(
         partIndex == input.currentPartIndex ? 'k-gls' : 'k-gl',
         time,
@@ -180,23 +223,29 @@ class _WebFinaleScene extends CustomPainter {
       _text(
         canvas,
         part.name,
-        Offset(left, 440),
+        partIndex == input.currentPartIndex
+            ? Offset.lerp(const Offset(753, 440), Offset(left, 440), reflow)!
+            : Offset(left, 440),
         14,
         label.opacity,
         strong: true,
       );
       for (var i = 0; i < part.questions.length; i++) {
         final q = part.questions[i];
-        final row = i ~/ 10;
-        final target = Offset(left + i % 10 * 26 + 9, 479 + row * 26);
-        final start = Offset(753 + i % 10 * 39 + 13.5, 479 + row * 39);
+        final row = i ~/ columns;
+        final target =
+            Offset(left + i % columns * pitch + 9, 479 + row * pitch);
+        final start =
+            Offset(753 + i % 10 * 39 + 13.5, 479 + (i ~/ 10) * initialPitch);
         final base = partIndex == input.currentPartIndex
             ? Offset.lerp(start, target, reflow)!
             : target;
         final pop = sampleWebFinale('k-pop', time - (1620 + row * 35));
         var position = base;
-        var sx =
-            partIndex == input.currentPartIndex ? 1.5 - .5 * reflow : pop.sx;
+        final initialScale = math.min(1.5, initialPitch / 26);
+        var sx = partIndex == input.currentPartIndex
+            ? initialScale + (1 - initialScale) * reflow
+            : pop.sx;
         var sy = sx;
         var opacity = partIndex == input.currentPartIndex ? 1.0 : pop.opacity;
         var rotation = 0.0;
@@ -206,7 +255,12 @@ class _WebFinaleScene extends CustomPainter {
           ordinal++;
           final flight = sampleWebFinale('kd$index', time);
           final end = sampleWebFinale('kd$index', 4500).offset;
-          final travel = ((time - 3200) / 800).clamp(0.0, 1.0);
+          // Keep the board's acceleration and anticipation when adapting its
+          // destination to the real paper. A wall-clock lerp moves idle dots.
+          final travel = end.distanceSquared == 0
+              ? 0.0
+              : (flight.offset.dx * end.dx + flight.offset.dy * end.dy) /
+                  end.distanceSquared;
           position +=
               flight.offset + (const Offset(720, 555) - base - end) * travel;
           sx *= flight.sx;
@@ -216,7 +270,7 @@ class _WebFinaleScene extends CustomPainter {
         } else {
           opacity *= sampleWebFinale('k-wfade', time).opacity;
         }
-        final scanTime = 2150 + row * 90;
+        final scanTime = 2150 + row * pitch / 212 * 650;
         final scanned = ((time - scanTime) / 60).clamp(0.0, 1.0);
         final color = q.outcome == MockFinaleOutcome.correct
             ? Color.lerp(tokens.strongDivider, c.accent, scanned)!

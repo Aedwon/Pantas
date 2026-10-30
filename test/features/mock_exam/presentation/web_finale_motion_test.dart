@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -51,9 +53,41 @@ void main() {
             find.descendant(of: f, matching: find.byType(Opacity)).first,
           )
           .opacity;
+      if (!reduced) {
+        expect(
+          find.bySemanticsLabel('Time is up. 155 questions. 106 correct.'),
+          findsOneWidget,
+        );
+      }
       expect(opacity(header), reduced ? 1 : 0);
       expect(opacity(past), reduced ? 1 : 0);
-      await tester.pump(const Duration(milliseconds: 11350));
+      if (!reduced) {
+        List<Offset> labelOffsets() {
+          final canvas = _TextPositionCanvas();
+          tester
+              .widget<CustomPaint>(
+                find.byKey(const ValueKey('web-finale-scene')),
+              )
+              .painter!
+              .paint(canvas, const Size(1440, 1000));
+          return canvas.textOffsets.where((at) => at.dy == 440).toList();
+        }
+
+        expect(labelOffsets().single.dx, 753);
+        await tester.pump(const Duration(milliseconds: 1100));
+        expect(labelOffsets().single.dx, inExclusiveRange(464, 753));
+        await tester.pump(const Duration(milliseconds: 400));
+        expect(labelOffsets().single.dx, 464);
+        await tester.pump(const Duration(milliseconds: 4100));
+        final roll = tester.widget<Transform>(
+          find.byKey(const ValueKey('web-finale-odometer')),
+        );
+        expect(roll.transform.storage[13], lessThan(0));
+        expect(roll.transform.storage[13], greaterThan(-2944));
+        await tester.pump(const Duration(milliseconds: 5750));
+      } else {
+        await tester.pump(const Duration(milliseconds: 11350));
+      }
       expect(opacity(header), 1);
       expect(opacity(past), 1);
       expect(find.byKey(const ValueKey('web-mock-score')), findsOneWidget);
@@ -62,4 +96,16 @@ void main() {
       expect(tester.binding.transientCallbackCount, 0);
     });
   }
+}
+
+class _TextPositionCanvas implements Canvas {
+  final textOffsets = <Offset>[];
+
+  @override
+  void drawParagraph(ui.Paragraph paragraph, Offset offset) {
+    textOffsets.add(offset);
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => null;
 }

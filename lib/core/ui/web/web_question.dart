@@ -78,6 +78,18 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
   double _phase(double start, double end) => const Cubic(.32, .72, 0, 1)
       .transform(((_reveal.value * 1840 - start) / (end - start)).clamp(0, 1));
 
+  // RV_Reveal: badge opacity ends at 35% (37% for the fix), then
+  // the scale settles at 38% (40%). Check is at 31% of the 8s comp.
+  double _badgeScale({required bool delayed, required bool wrong}) {
+    final start = delayed ? 160.0 : 0.0;
+    final peak = delayed ? 480.0 : 320.0;
+    final end = delayed ? 720.0 : 560.0;
+    final top = wrong ? 1.1 : 1.15;
+    final ms = _reveal.value * 1840;
+    if (ms <= peak) return .4 + (top - .4) * _phase(start, peak);
+    return top + (1 - top) * _phase(peak, end);
+  }
+
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
         animation: _reveal,
@@ -144,14 +156,20 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
               revealFromSelected: choice.id == widget.chosenId,
               revealProgress: widget.checked
                   ? _phase(
-                      wrong && choice.id == correct.id ? 240 : 80,
-                      wrong && choice.id == correct.id ? 640 : 480,
+                      wrong && choice.id == correct.id ? 160 : 0,
+                      wrong && choice.id == correct.id ? 560 : 400,
                     )
                   : 1,
               badgeProgress: widget.checked
                   ? _phase(
-                      wrong && choice.id == correct.id ? 240 : 80,
-                      wrong && choice.id == correct.id ? 800 : 640,
+                      wrong && choice.id == correct.id ? 160 : 0,
+                      wrong && choice.id == correct.id ? 480 : 320,
+                    )
+                  : 1,
+              badgeScale: widget.checked
+                  ? _badgeScale(
+                      delayed: wrong && choice.id == correct.id,
+                      wrong: choice.id != correct.id,
                     )
                   : 1,
               state: widget.checked
@@ -197,17 +215,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    _answer(
-                      context,
-                      correct.label,
-                      'correct answer',
-                      widget.question.explanation,
-                      false,
-                    ),
                     if (wrong && widget.pro && picked?.rationale != null) ...[
-                      const SizedBox(height: 18),
-                      Divider(height: 1, color: t.colors.separator),
-                      const SizedBox(height: 18),
                       _answer(
                         context,
                         picked!.label,
@@ -215,7 +223,17 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                         picked.rationale!,
                         true,
                       ),
+                      const SizedBox(height: 18),
+                      Divider(height: 1, color: t.colors.separator),
+                      const SizedBox(height: 18),
                     ],
+                    _answer(
+                      context,
+                      correct.label,
+                      'correct answer',
+                      widget.question.explanation,
+                      false,
+                    ),
                   ],
                 ),
               ),
