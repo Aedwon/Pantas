@@ -1,5 +1,6 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/platform/callable_options.dart';
 import 'package:pantas/features/mock_exam/domain/server_mock_paper.dart';
 import 'package:pantas/features/mock_exam/domain/server_mock_results.dart';
 
@@ -105,7 +106,9 @@ class ServerMockApi {
         try {
           final result = await FirebaseFunctions.instanceFor(
             region: 'asia-southeast1',
-          ).httpsCallable(name).call<Object?>(data);
+          )
+              .httpsCallable(name, options: callableOptionsFor(name))
+              .call<Object?>(data);
           return result.data;
         } on FirebaseFunctionsException catch (error) {
           throw ServerMockException(code: error.code, message: error.message);

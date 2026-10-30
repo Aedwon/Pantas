@@ -1,4 +1,5 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:pantas/core/platform/callable_options.dart';
 
 typedef StudyCallable = Future<Object?> Function(
   String name,
@@ -12,7 +13,7 @@ class StudyApi {
   factory StudyApi.firebase() => StudyApi(
         (name, data) async =>
             (await FirebaseFunctions.instanceFor(region: 'asia-southeast1')
-                    .httpsCallable(name)
+                    .httpsCallable(name, options: callableOptionsFor(name))
                     .call<Object?>(data))
                 .data,
       );

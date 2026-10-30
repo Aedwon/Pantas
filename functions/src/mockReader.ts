@@ -1,5 +1,6 @@
 import {FieldPath, getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {assertFreshAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {mockCoverage} from './mockAccess.js';
@@ -153,4 +154,7 @@ const options = {region: 'asia-southeast1', enforceAppCheck: true};
 export const getMockAvailability = onCall(options, request => serveMockAvailability(request.auth, request.data, {db: getFirestore()}));
 export const getMockResults = onCall(options, request => serveMockResults(request.auth, request.data, {db: getFirestore()}));
 export const getMockHistory = onCall(options, request => serveMockHistory(request.auth, request.data, {db: getFirestore()}));
-export const updateMockReview = onCall({...options, consumeAppCheckToken: true}, request => writeMockReview(request.auth, request.data, {db: getFirestore()}));
+export const updateMockReview = onCall({...options, consumeAppCheckToken: true}, request => {
+  assertFreshAppCheck(request);
+  return writeMockReview(request.auth, request.data, {db: getFirestore()});
+});

@@ -1,4 +1,5 @@
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
+import { assertFreshAppCheck } from './_appCheck.js';
 import { assertNamedUser } from './_audit.js';
 
 export const exportData = onCall(
@@ -8,6 +9,7 @@ export const exportData = onCall(
     consumeAppCheckToken: true,
   },
   async (request) => {
+    assertFreshAppCheck(request);
     assertNamedUser(request.auth);
     throw new HttpsError(
       'failed-precondition',

@@ -1,5 +1,6 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/platform/callable_options.dart';
 
 // Single-method interface is intentional for callable-client test DI.
 // ignore: one_member_abstracts
@@ -13,7 +14,9 @@ class FirebaseFunctionsCallableClient implements AuthFunctionsCallableClient {
   @override
   Future<Object?> call({required String region, required String name}) async {
     final functions = FirebaseFunctions.instanceFor(region: region);
-    final result = await functions.httpsCallable(name).call<Object?>();
+    final result = await functions
+        .httpsCallable(name, options: callableOptionsFor(name))
+        .call<Object?>();
     return result.data;
   }
 }

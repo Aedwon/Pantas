@@ -1,6 +1,7 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/platform/callable_options.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
@@ -513,7 +514,7 @@ Future<Object?> callFirebaseFunction(
   Map<String, Object?> data,
 ) async {
   final result = await FirebaseFunctions.instanceFor(region: _functionsRegion)
-      .httpsCallable(name)
+      .httpsCallable(name, options: callableOptionsFor(name))
       .call<Object?>(data);
   return result.data;
 }
