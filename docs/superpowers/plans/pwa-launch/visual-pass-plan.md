@@ -69,6 +69,11 @@ Work folder: `build/visual-pass/` in the staging worktree (gitignored build outp
 5. Fix (Claude, Aedwon's other account, from Nov 1 2 PM) per area, then re-capture and re-compare
    until every confirmed difference is gone. Record fixed items in `docs/ui-audit.md`.
 
+Status Oct 31: the first Gemini run hit its Google quota (resets about Nov 5) after starting step 1
+on onboarding. Partial work in the staging worktree `build/visual-pass/`: `capture.mjs`,
+`seed_onboarding.mjs`, test screenshots. No comparisons yet. Next: whichever account has room runs
+steps 1 to 3 from `build/visual-pass/BRIEF.md` (copy kept there), reusing the partial script.
+
 ## Order and progress
 
 | Area | Boards | State |
