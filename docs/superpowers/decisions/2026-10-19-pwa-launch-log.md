@@ -2150,3 +2150,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   server-gated; works only while beta mode is on and before the end time. UI preview first.
 - Emulators: the lead advised against running the beta from the Mac on emulators (Aedwon asked); the
   emulators are used this week only for his local visual check.
+- Beta Pro switch preview (`docs/superpowers/plans/pwa-launch/boards/beta-pro-switch-v1.html`, row directly below Pantas Pro): Aedwon, "yeah lgtm". Prod Hosting site is `pantas-prod` (the only site, checked with the CLI).
