@@ -80,7 +80,7 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
 
 | Area | Boards | State |
 |---|---|---|
-| Onboarding | OB_* | 6 of 28 boards compared at 1440 light (lead, Oct 31); fixes not started |
+| Onboarding | OB_* | 6 of 28 boards compared at 1440 light (lead, Oct 31); second capture run needs script fixes; fixes not started |
 | Home | HM_*, DK_Home | not started |
 | Study and reader | SD_*, RD_* | not started |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
@@ -134,5 +134,19 @@ Picker loading/error/empty, Custom*, Date* variants, Days* variants, SignIn, Res
 - OB_DateKnown: close match. The app's month label in the date tile is smaller, and the gap between
   "Different Date" and "That's Right" is smaller than the board's (about 8 px).
 
+Second run (`ob_pairs2.mjs`, pairs cropped to the top 640 px to save image cost):
+- Blocker: the boards load `./support.js` (the Claude Design runtime), which is not in the handoff
+  folder. 19 of 305 boards use its templates (`{{...}}`, `<sc-for>`), including OB_Days*,
+  OB_Date{Day,Month,Year,ThisMonth,Today}; served with a stub they show raw `{{d.short}}` text.
+  Either get the runtime from Claude Design (DesignSync tool, or ask Aedwon to export it) or write a
+  small stand-in that runs the `data-dc-script` block and fills `{{}}` and `<sc-for>`.
+- Script fixes needed: typing a year did not reach the field (AgeBlocked shot shows Terms); OB_Days
+  needs a day picked before Continue works (Name shot shows Days); the "isn't listed" click did not
+  open the custom flow; date month and day labels are dumped to `shots/ob/date*-labels.txt` for
+  the month and day click patterns. Check every `-app.png` shows the intended screen before comparing.
+- OB_Days (app only, board unreadable): the app's day chips and "Every Day" plus disabled Continue
+  row are present; compare once the board renders.
+
 Usage note for estimates: this onboarding work (capture script, 6 comparisons, these notes) took
-about 1% of the Claude weekly limit on the Pro plan (95% to 96%), at about 32% of a 5-hour window.
+about 1% of the Claude weekly limit on the Pro plan (95% to 96%), at about 32% of a 5-hour window. The second run (script, 4 cropped pairs, this note) stayed
+within the same 1% (96%). Rough rate: about 10 board comparisons per 1% weekly on Pro.
