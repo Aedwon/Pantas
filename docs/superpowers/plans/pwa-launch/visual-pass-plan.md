@@ -38,11 +38,16 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    area. Show Aedwon side-by-side images for anything that needs his judgment.
 6. Not done and out of scope here: dark mode and 1180/390 comparisons (boards are light 1440;
    check the board map for which families have phone boards), Gemini runs (quota until about Nov 5).
-7. In flight at handoff time: Codex Sol (account b) is fixing the onboarding list from the brief
-   `build/vp-ob-brief.md` in the `Pantas-wt-vc-fixes-r1` worktree (log `build/vp-ob-codex.log`), on
-   branch `web/visual-check-fixes-r1`, commit without push. Review its diff, re-capture onboarding
-   with `ob_pairs*.mjs` against a run of that worktree (or after fast-forwarding staging), then push.
-   Excluded from the brief pending Aedwon: exam card radio vs check badge, picker bottom bar.
+7. Done Oct 31: onboarding fix batch 1 (Codex Sol plus a lead fix to the Terms row height) is on
+   `web/visual-check-fixes-r1` and staging at bcb4b981. Analyzer clean; onboarding and core UI tests
+   pass (853). Re-captured: search field, "isn't listed" icon, Coming soon pills, plain day cells and
+   Back arrow now match. Remaining: app step content now sits about 3 to 5 px LOWER than the board
+   (overshoot); re-check Terms, Name and DateKnown pairs; AgeBlocked and CustomCover still not reached.
+   Pending Aedwon: exam card radio vs check badge, picker bottom bar.
+   Codex sandbox note: `codex-pick exec -s workspace-write` cannot write git metadata of a worktree
+   (fetch and commit fail even with `--add-dir .git`). Prefetch policy into `build/policy-*.md` and
+   tell Codex not to fetch or commit; the lead commits. Flutter tests also cannot run in that sandbox;
+   the lead runs them.
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
 
@@ -123,7 +128,7 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
 
 | Area | Boards | State |
 |---|---|---|
-| Onboarding | OB_* | 6 of 28 boards compared at 1440 light (lead, Oct 31); second capture run needs script fixes; fixes not started |
+| Onboarding | OB_* | 11 of 28 compared at 1440 light; fix batch 1 on staging bcb4b981; offset overshoot and 2 unreached states left |
 | Home | HM_*, DK_Home | not started |
 | Study and reader | SD_*, RD_* | not started |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
