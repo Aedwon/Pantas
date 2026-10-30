@@ -75,49 +75,6 @@ void main() {
     });
   });
 
-  group('streak save copy', () {
-    test('streak save copy covers key tiers', () {
-      const composer = NotificationBodyComposer();
-
-      expect(
-        composer.streakSave(streakLength: 1).title,
-        "Don't lose your streak",
-      );
-      expect(
-        composer.streakSave(streakLength: 2).title,
-        'Five more minutes?',
-      );
-      expect(
-        composer.streakSave(streakLength: 6).title,
-        'Five more minutes?',
-      );
-      expect(
-        composer.streakSave(streakLength: 7).title,
-        "Your 7-day streak's still alive",
-      );
-      expect(
-        composer.streakSave(streakLength: 29).title,
-        "Your 29-day streak's still alive",
-      );
-      expect(composer.streakSave(streakLength: 30).title, '30 days strong');
-      expect(composer.streakSave(streakLength: 100).title, '100 days strong');
-    });
-
-    test('streak save freeze copy surfaces remaining freezes', () {
-      final copy = const NotificationBodyComposer().streakSave(
-        streakLength: 5,
-        freezesRemaining: 1,
-      );
-
-      expect(copy.title, "Your 5-day streak's safe tonight");
-      expect(
-        copy.body,
-        "If you skip, your streak's freeze will save it "
-        '(1 left this month). Want to keep the freeze and study anyway?',
-      );
-    });
-  });
-
   group('exam countdown copy', () {
     test('countdown at 7 days with flagged questions includes count', () {
       final copy = const NotificationBodyComposer().examCountdown(

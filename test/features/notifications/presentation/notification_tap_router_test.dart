@@ -36,14 +36,14 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Today quiz'), findsOneWidget);
+    expect(find.text('Home'), findsOneWidget);
   });
 
   testWidgets('cold notification tap falls back home when payload is stale',
       (tester) async {
     final gateway = TapOnlyGateway(
       initialPayload: NotificationPayload(
-        kind: NotificationKind.streakSave,
+        kind: NotificationKind.followUp,
         scheduledFor: DateTime(2026, 5, 22, 20),
         route: '/quiz/today/cse',
       ).encode(),
@@ -66,6 +66,27 @@ void main() {
 
     expect(find.text('Home'), findsOneWidget);
   });
+  testWidgets('trial tap opens Pro and keeps a return route', (tester) async {
+    final gateway = TapOnlyGateway();
+    final router = _router();
+    addTearDown(router.dispose);
+    await tester.pumpWidget(MaterialApp.router(
+      routerConfig: router,
+      builder: (context, child) => NotificationTapRouter(
+        gateway: gateway, router: router, now: DateTime.now,
+        child: child ?? const SizedBox.shrink(),
+      ),
+    ));
+    gateway.emit(NotificationPayload(kind: NotificationKind.trialEnding,
+      scheduledFor: DateTime(2020)).encode());
+    await tester.pumpAndSettle();
+    expect(find.text('Pro'), findsOneWidget);
+    expect(router.canPop(), isTrue);
+    router.pop();
+    await tester.pumpAndSettle();
+    expect(find.text('Home'), findsOneWidget);
+  });
+
 }
 
 GoRouter _router() {
@@ -73,6 +94,7 @@ GoRouter _router() {
     initialLocation: '/home',
     routes: [
       GoRoute(path: '/home', builder: (_, __) => const Text('Home')),
+      GoRoute(path: '/settings/pro', builder: (_, __) => const Text('Pro')),
       GoRoute(
         path: '/quiz/today/:examId',
         builder: (_, __) => const Text('Today quiz'),

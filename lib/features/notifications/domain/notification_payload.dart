@@ -2,8 +2,8 @@ import 'dart:convert';
 
 enum NotificationKind {
   dailyReminder('daily_reminder'),
-  streakSave('streak_save'),
-  wrapped('wrapped'),
+  followUp('follow_up'),
+  trialEnding('trial_ending'),
   examCountdown('exam_countdown'),
   comeBack('come_back');
 
@@ -46,16 +46,26 @@ class NotificationPayload {
     try {
       final decoded = jsonDecode(value);
       if (decoded is! Map<String, Object?>) return null;
-      final kind = NotificationKind.fromStorage(decoded['kind'] as String?);
+      final rawKind = decoded['kind'];
+      final rawTime = decoded['scheduled_for'];
+      final route = decoded['route'];
+      final shareId = decoded['share_id'];
+      if (rawKind is! String ||
+          rawTime is! String ||
+          (route != null && route is! String) ||
+          (shareId != null && shareId is! String)) {
+        return null;
+      }
+      final kind = NotificationKind.fromStorage(rawKind);
       final scheduledFor = DateTime.tryParse(
-        decoded['scheduled_for'] as String? ?? '',
+        rawTime,
       );
       if (kind == null || scheduledFor == null) return null;
       return NotificationPayload(
         kind: kind,
         scheduledFor: scheduledFor,
-        route: decoded['route'] as String?,
-        shareId: decoded['share_id'] as String?,
+        route: route as String?,
+        shareId: shareId as String?,
       );
     } on FormatException {
       return null;

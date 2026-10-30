@@ -1,7 +1,9 @@
 import 'package:drift/drift.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/notifications/domain/reminder_prefs.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
@@ -27,6 +29,10 @@ class NoopAnalyticsConsentGateway implements AnalyticsConsentGateway {
 abstract final class SettingsPrefKeys {
   static const name = 'settings.name';
   static const dailyReminderTime = 'settings.daily_reminder_time';
+  static const dailyReminderEnabled = 'settings.daily_reminder_enabled';
+  static const followUpEnabled = 'settings.follow_up_enabled';
+  static const followUpTime = 'settings.follow_up_time';
+  static const countdownEnabled = 'settings.countdown_enabled';
   static const studyDays = 'settings.study_days';
   static const examDate = 'settings.exam_date';
   static const examDatePrecision = 'settings.exam_date_precision';
@@ -107,6 +113,49 @@ class DriftSettingsRepository {
   Future<void> updateReminderTime(SettingsTime time) async {
     await _writeAccountPrefs({
       SettingsPrefKeys.dailyReminderTime: time.storageValue,
+      SettingsPrefKeys.dailyReminderEnabled: 'true',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
+  }
+
+  Future<ReminderPrefs> readReminderPrefs() async {
+    final rows = await _db.select(_db.accountPrefs).get();
+    final values = {for (final row in rows) row.key: row.value};
+    final daily =
+        SettingsTime.fromStorage(values[SettingsPrefKeys.dailyReminderTime]);
+    final follow =
+        SettingsTime.fromStorage(values[SettingsPrefKeys.followUpTime]);
+    return ReminderPrefs(
+      dailyEnabled: values[SettingsPrefKeys.dailyReminderEnabled] == null
+          ? daily != null
+          : values[SettingsPrefKeys.dailyReminderEnabled] == 'true',
+      dailyTime:
+          NotificationTime(hour: daily?.hour ?? 19, minute: daily?.minute ?? 0),
+      followUpEnabled: values[SettingsPrefKeys.followUpEnabled] != 'false',
+      followUpTime: NotificationTime(
+        hour: follow?.hour ?? 21,
+        minute: follow?.minute ?? 0,
+      ),
+      countdownEnabled: values[SettingsPrefKeys.countdownEnabled] != 'false',
+    );
+  }
+
+  Future<void> updateReminderPrefs(ReminderPrefs prefs) async {
+    if (prefs.followUpEnabled && !prefs.followUpAfterDaily) {
+      throw ArgumentError('Follow up must be after the daily reminder.');
+    }
+    await _writeAccountPrefs({
+      SettingsPrefKeys.dailyReminderEnabled: '${prefs.dailyEnabled}',
+      SettingsPrefKeys.dailyReminderTime: SettingsTime(
+        hour: prefs.dailyTime.hour,
+        minute: prefs.dailyTime.minute,
+      ).storageValue,
+      SettingsPrefKeys.followUpEnabled: '${prefs.followUpEnabled}',
+      SettingsPrefKeys.followUpTime: SettingsTime(
+        hour: prefs.followUpTime.hour,
+        minute: prefs.followUpTime.minute,
+      ).storageValue,
+      SettingsPrefKeys.countdownEnabled: '${prefs.countdownEnabled}',
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
     });
   }

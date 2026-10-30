@@ -63,46 +63,6 @@ class NotificationBodyComposer {
     );
   }
 
-  NotificationCopy streakSave({
-    required int streakLength,
-    int freezesRemaining = 0,
-  }) {
-    if (freezesRemaining > 0) {
-      return NotificationCopy(
-        title: "Your $streakLength-day streak's safe tonight",
-        body: "If you skip, your streak's freeze will save it "
-            '($freezesRemaining left this month). Want to keep the freeze '
-            'and study anyway?',
-      );
-    }
-
-    if (streakLength == 1) {
-      return const NotificationCopy(
-        title: "Don't lose your streak",
-        body: 'Your 1-day streak is on the line. One more quick session '
-            "and you'll have 2.",
-      );
-    }
-    if (streakLength < 7) {
-      return NotificationCopy(
-        title: 'Five more minutes?',
-        body: 'Your $streakLength-day streak is still going. Quick session, '
-            "then you're done.",
-      );
-    }
-    if (streakLength < 30) {
-      return NotificationCopy(
-        title: "Your $streakLength-day streak's still alive",
-        body: 'One quick session before midnight keeps it going.',
-      );
-    }
-    return NotificationCopy(
-      title: '$streakLength days strong',
-      body: "Don't let tonight be the one that breaks your $streakLength-day "
-          'streak - a few minutes is all it takes.',
-    );
-  }
-
   NotificationCopy examCountdown({
     required int daysLeft,
     required String examName,
@@ -134,7 +94,9 @@ class NotificationBodyComposer {
         subjectName.isEmpty ||
         correctCount == null ||
         totalCount == null ||
-        totalCount <= 0) {
+        totalCount <= 0 ||
+        correctCount < 0 ||
+        correctCount > totalCount) {
       return null;
     }
 

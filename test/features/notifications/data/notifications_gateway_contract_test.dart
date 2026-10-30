@@ -21,7 +21,7 @@ void main() {
           payload: 'payload',
         ),
       );
-      await gateway.cancel(NotificationIds.streakSave);
+      await gateway.cancel(NotificationIds.followUp);
       await gateway.cancelAll();
 
       expect(gateway.log, [

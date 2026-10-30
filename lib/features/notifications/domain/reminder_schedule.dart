@@ -3,9 +3,12 @@ import 'package:pantas/core/time/study_days.dart';
 
 abstract final class NotificationIds {
   static const dailyReminder = 9001;
-  static const streakSave = 9002;
+  static const followUp = 9002;
   static const examCountdown = 9003;
   static const comeBack = 9004;
+  static const trialEnding = 9005;
+
+  static int countdown(int daysLeft) => 9100 + daysLeft;
 }
 
 class ReminderSchedulerClock {

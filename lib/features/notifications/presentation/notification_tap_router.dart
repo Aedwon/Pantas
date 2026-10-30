@@ -30,7 +30,7 @@ class _NotificationTapRouterState extends State<NotificationTapRouter> {
   @override
   void initState() {
     super.initState();
-    _handler = NotificationTapHandler(now: widget.now);
+    _handler = const NotificationTapHandler();
     _subscription =
         widget.gateway.notificationTapPayloads.listen(_openPayloadRoute);
     unawaited(_openInitialPayload());
@@ -39,7 +39,7 @@ class _NotificationTapRouterState extends State<NotificationTapRouter> {
   @override
   void didUpdateWidget(NotificationTapRouter oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _handler = NotificationTapHandler(now: widget.now);
+    _handler = const NotificationTapHandler();
     if (oldWidget.gateway == widget.gateway) return;
     unawaited(_subscription?.cancel());
     _subscription =
@@ -60,7 +60,12 @@ class _NotificationTapRouterState extends State<NotificationTapRouter> {
   }
 
   void _openPayloadRoute(String? payload) {
-    widget.router.go(_handler.targetFor(payload));
+    final target = _handler.targetFor(payload);
+    if (target == '/settings/pro') {
+      unawaited(widget.router.push<void>(target));
+    } else {
+      widget.router.go(target);
+    }
   }
 
   @override

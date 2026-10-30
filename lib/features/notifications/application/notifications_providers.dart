@@ -1,23 +1,29 @@
+import 'dart:async';
+
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/study_days.dart';
-import 'package:pantas/features/notifications/application/notification_service.dart';
+import 'package:pantas/features/notifications/application/reminder_service.dart';
 import 'package:pantas/features/notifications/data/flutter_local_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/inert_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/data/reminder_activity_reader.dart';
 import 'package:pantas/features/notifications/domain/notification_body_composer.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/application/trial_ending_notifier.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
-const _dailyReminderTimeKey = 'settings.daily_reminder_time';
 const _studyDaysKey = 'settings.study_days';
 
 final notificationStudyDaysReaderProvider =
-    Provider<NotificationStudyDaysReader>((ref) {
+    Provider<Future<StudyDays> Function()>((ref) {
   return () async {
     final db = ref.read(appDatabaseProvider);
     final row = await (db.select(db.accountPrefs)
@@ -30,7 +36,7 @@ final notificationStudyDaysReaderProvider =
 /// Local wall-clock time for scheduling. A provider so tests can fix the
 /// hour: whether a reminder fires today or on a later day depends on it.
 final notificationClockProvider =
-    Provider<NotificationClock>((ref) => DateTime.now);
+    Provider<DateTime Function()>((ref) => DateTime.now);
 
 /// Inert by default, and overridden in `bootstrap` with the real plugin.
 ///
@@ -46,41 +52,77 @@ final liveNotificationsGatewayProvider = Provider<NotificationsGateway>((ref) {
   return FlutterLocalNotificationsGateway();
 });
 
-final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
-  return NotificationServiceImpl(
+final reminderServiceProvider = Provider<ReminderService>((ref) {
+  final db = ref.watch(appDatabaseProvider);
+  final settings = DriftSettingsRepository(db);
+  Future<ComeBackReservation?> readReservation() async {
+    final row = await (db.select(db.devicePrefs)
+          ..where((p) => p.key.equals('notifications.come_back')))
+        .getSingleOrNull();
+    if (row == null) return null;
+    final parts = row.value.split('|');
+    if (parts.length != 2) return null;
+    final last = DateTime.tryParse(parts[0]);
+    final fire = DateTime.tryParse(parts[1]);
+    return last == null || fire == null
+        ? null
+        : ComeBackReservation(lastSessionAt: last, fireAt: fire);
+  }
+
+  final service = ReminderService(
     gateway: ref.watch(notificationsGatewayProvider),
+    now: () => ref.read(notificationClockProvider)(),
+    prefsReader: settings.readReminderPrefs,
     studyDaysReader: () => ref.read(notificationStudyDaysReaderProvider)(),
-    settingsReader: () async {
-      final db = ref.read(appDatabaseProvider);
-      final rows = await (db.select(db.accountPrefs)
-            ..where(
-              (pref) => pref.key.isIn([_dailyReminderTimeKey, _studyDaysKey]),
-            ))
-          .get();
-      final values = {for (final row in rows) row.key: row.value};
-      final reminder =
-          _notificationTimeFromStorage(values[_dailyReminderTimeKey]);
-      final studyDays = StudyDays.fromStorage(values[_studyDaysKey]);
-      if (reminder == null) {
-        return NotificationSettingsSnapshot.none(studyDays: studyDays);
-      }
-      return NotificationSettingsSnapshot.daily(
-        hour: reminder.hour,
-        minute: reminder.minute,
-        studyDays: studyDays,
+    reservationReader: readReservation,
+    reservationWriter: (value) => db
+        .into(db.devicePrefs)
+        .insertOnConflictUpdate(
+          DevicePrefsCompanion.insert(
+            key: 'notifications.come_back',
+            value: '${value.lastSessionAt.toIso8601String()}|'
+                '${value.fireAt.toIso8601String()}',
+          ),
+        )
+        .then((_) {}),
+    examReader: () async {
+      final focus = await ref.read(activeExamFocusProvider.future);
+      final exam = focus.exam;
+      if (exam == null) return const ReminderExamSnapshot();
+      final prefs = await settings.readUserSettings();
+      final flags = await db.select(db.questionFlagsLocal).get();
+      final content = ref.read(contentRepositoryProvider);
+      final topics = {
+        for (final topic in await content.topicsByExam(exam.id)) topic.id,
+      };
+      final questions =
+          await content.questionsByIds(flags.map((flag) => flag.questionId));
+      final flaggedCount = questions.values
+          .where((question) => topics.contains(question.topicId))
+          .length;
+      return ReminderExamSnapshot(
+        date: prefs.examDate,
+        name: exam.shortName,
+        flaggedCount: flaggedCount,
       );
+    },
+    activityReader: () async {
+      final focus = await ref.read(activeExamFocusProvider.future);
+      if (focus.exam == null) return const ReminderActivitySnapshot();
+      return ReminderActivityReader(db, ref.read(contentRepositoryProvider))
+          .read(focus.exam!);
     },
     planReader: () async {
       final focus = await ref.read(activeExamFocusProvider.future);
-      if (focus.needsSelection || focus.exam == null) {
-        return const NotificationPlanSnapshot.unavailable();
-      }
-      // Held open while loading: nothing else watches this auto-disposing
-      // provider here, so a plain read could dispose it before it completes.
-      final subscription = ref.listen(
-        roadmapTodayProvider(focus.exam!.id).future,
-        (_, __) {},
+      if (focus.exam == null) return const ReminderPlanSnapshot();
+      final started =
+          await ReminderActivityReader(db, ref.read(contentRepositoryProvider))
+              .todayStarted(
+        focus.exam!.id,
+        ref.read(notificationClockProvider)(),
       );
+      final subscription =
+          ref.listen(roadmapTodayProvider(focus.exam!.id).future, (_, __) {});
       final RoadmapToday today;
       try {
         today = await subscription.read();
@@ -89,19 +131,76 @@ final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
       }
       if (today.state == RoadmapState.needsAssessment ||
           today.state == RoadmapState.noContent) {
-        return const NotificationPlanSnapshot.unavailable();
+        return ReminderPlanSnapshot(todayStarted: started);
       }
-      return NotificationPlanSnapshot.ready(
+      return ReminderPlanSnapshot(
         reviewCount: today.remaining.reviewQuestionIds.length,
-        route: '/quiz',
+        todayStarted: started || today.originalDone,
         planState: today.remaining.isMockDay
             ? DailyReminderPlanState.mock
             : DailyReminderPlanState.standard,
       );
     },
-    streakReader: () async => const NotificationStreakSnapshot.empty(),
-    now: () => ref.read(notificationClockProvider)(),
   );
+  // Persisted starts cancel Follow up while the app stays in the foreground.
+  final activity = db
+      .customSelect(
+        'SELECT exam_id, MAX(started_at, '
+        'COALESCE(last_answered_at, started_at), '
+        'COALESCE(completed_at, started_at)) AS started_at FROM quiz_sessions '
+        'UNION ALL SELECT exam_id, MAX(started_at, COALESCE(completed_at, '
+        'started_at)) AS started_at FROM attempts_local '
+        'UNION ALL SELECT exam_id, MAX(started_at, last_flushed_at) '
+        'AS started_at FROM mock_attempts',
+        readsFrom: {db.quizSessions, db.attemptsLocal, db.mockAttempts},
+      )
+      .watch()
+      .listen((rows) {
+        final now = ref.read(notificationClockProvider)();
+        final examId = ref.read(activeExamFocusProvider).valueOrNull?.exam?.id;
+        if (rows.any(
+          (row) =>
+              row.read<String>('exam_id') == examId &&
+              localDay(row.read<DateTime>('started_at')) == localDay(now),
+        )) {
+          unawaited(service.onSessionStarted());
+        }
+      });
+  ref.onDispose(() => unawaited(activity.cancel()));
+  return service;
+});
+
+final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
+  final service = ref.watch(reminderServiceProvider);
+  // W3 owns trial eligibility and store pricing. W4f binds local delivery.
+  void syncTrial() {
+    final entitlement = ref.read(entitlementProvider).valueOrNull;
+    if (entitlement == null) return;
+    final packages =
+        ref.read(paywallOfferingProvider).valueOrNull?.recognizedPackages;
+    final scheduler = TrialEndingScheduler(
+      service,
+      priceTextFor: (entitlement) => packages
+          ?.where(
+            (p) =>
+                p.productId.split(':').first ==
+                entitlement.productId?.split(':').first,
+          )
+          .firstOrNull
+          ?.priceString,
+    );
+    unawaited(scheduler.sync(entitlement));
+  }
+
+  ref
+    ..listen(
+      entitlementProvider,
+      (_, __) => syncTrial(),
+      fireImmediately: true,
+    )
+    ..listen(paywallOfferingProvider, (_, __) => syncTrial())
+    ..listen(featurePermissionStatusProvider, (_, __) => syncTrial());
+  return service;
 });
 
 final featurePermissionStatusStreamProvider =
@@ -143,15 +242,4 @@ class NotificationRationaleRepository {
           mode: InsertMode.insertOrReplace,
         );
   }
-}
-
-NotificationTime? _notificationTimeFromStorage(String? value) {
-  if (value == null) return null;
-  final parts = value.split(':');
-  if (parts.length != 2) return null;
-  final hour = int.tryParse(parts[0]);
-  final minute = int.tryParse(parts[1]);
-  if (hour == null || minute == null) return null;
-  if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null;
-  return NotificationTime(hour: hour, minute: minute);
 }

@@ -25,6 +25,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
       StreamController<NotificationPermission>.broadcast();
   final _tapController = StreamController<String?>.broadcast();
   var _initialized = false;
+  NotificationPermission? _lastPermission;
 
   AndroidFlutterLocalNotificationsPlugin? get _androidPlugin {
     final resolver = _androidPluginResolver;
@@ -38,7 +39,11 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
     if (_initialized) return;
     tz_data.initializeTimeZones();
     const androidInit = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const darwinInit = DarwinInitializationSettings();
+    const darwinInit = DarwinInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
     await _plugin.initialize(
       settings: const InitializationSettings(
         android: androidInit,
@@ -49,10 +54,11 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
       },
     );
     final android = _androidPlugin;
-    await android?.createNotificationChannel(_dailyChannel);
-    await android?.createNotificationChannel(_streakChannel);
+    for (final channel in _channels.values) {
+      await android?.createNotificationChannel(channel);
+    }
     _initialized = true;
-    _permissionController.add(await permissionStatus());
+    await permissionStatus();
   }
 
   @override
@@ -81,12 +87,28 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
   Future<NotificationPermission> permissionStatus() async {
     final androidGranted = await _androidPlugin?.areNotificationsEnabled();
     if (androidGranted != null) {
-      return androidGranted
+      return _publishPermission(androidGranted
           ? NotificationPermission.granted
-          : NotificationPermission.denied;
+          : NotificationPermission.denied,);
     }
 
-    return NotificationPermission.notYetAsked;
+    final ios = _plugin.resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>();
+    final permission = await ios?.checkPermissions();
+    if (permission != null) {
+      return _publishPermission(permission.isEnabled
+          ? NotificationPermission.granted
+          : NotificationPermission.denied,);
+    }
+    return _publishPermission(NotificationPermission.notYetAsked);
+  }
+
+  NotificationPermission _publishPermission(NotificationPermission status) {
+    if (_lastPermission != status) {
+      _lastPermission = status;
+      _permissionController.add(status);
+    }
+    return status;
   }
 
   @override
@@ -104,8 +126,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
           await android?.requestExactAlarmsPermission();
         }
       }
-      _permissionController.add(status);
-      return status;
+      return _publishPermission(status);
     }
 
     final ios = _plugin.resolvePlatformSpecificImplementation<
@@ -116,8 +137,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
       false => NotificationPermission.denied,
       null => NotificationPermission.notYetAsked,
     };
-    _permissionController.add(status);
-    return status;
+    return _publishPermission(status);
   }
 
   @override
@@ -126,15 +146,9 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
         await _androidPlugin?.canScheduleExactNotifications();
     if (exactAlarmsAvailable == false) return;
 
+    final channel = _channels[notification.kind]!;
     final details = NotificationDetails(
-      android: AndroidNotificationDetails(
-        notification.kind == NotificationKind.dailyReminder
-            ? _dailyChannel.id
-            : _streakChannel.id,
-        notification.kind == NotificationKind.dailyReminder
-            ? _dailyChannel.name
-            : _streakChannel.name,
-      ),
+      android: AndroidNotificationDetails(channel.id, channel.name),
       iOS: const DarwinNotificationDetails(),
     );
     await _plugin.zonedSchedule(
@@ -155,14 +169,30 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
   }
 }
 
-const _dailyChannel = AndroidNotificationChannel(
-  'daily_reminder',
-  'Daily reminder',
-  description: 'Daily study reminders',
-);
-
-const _streakChannel = AndroidNotificationChannel(
-  'streak_save',
-  'Streak save',
-  description: 'Streak save reminders',
-);
+const _channels = {
+  NotificationKind.dailyReminder: AndroidNotificationChannel(
+    'daily_reminder',
+    'Daily reminder',
+    description: 'Daily study reminders',
+  ),
+  NotificationKind.followUp: AndroidNotificationChannel(
+    'follow_up',
+    'Follow up',
+    description: 'Follow-up study reminders',
+  ),
+  NotificationKind.examCountdown: AndroidNotificationChannel(
+    'exam_countdown',
+    'Exam countdown',
+    description: 'Exam countdown reminders',
+  ),
+  NotificationKind.comeBack: AndroidNotificationChannel(
+    'come_back',
+    'Come back',
+    description: 'Study reminders after a break',
+  ),
+  NotificationKind.trialEnding: AndroidNotificationChannel(
+    'trial_ending',
+    'Trial ending',
+    description: 'Monthly trial charge reminder',
+  ),
+};

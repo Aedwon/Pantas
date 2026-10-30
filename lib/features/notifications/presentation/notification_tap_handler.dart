@@ -1,18 +1,13 @@
 import 'package:pantas/features/notifications/domain/notification_payload.dart';
 
 class NotificationTapHandler {
-  const NotificationTapHandler({
-    required DateTime Function() now,
-  }) : _now = now;
-
-  final DateTime Function() _now;
+  const NotificationTapHandler();
 
   String targetFor(String? payload) {
     final decoded = NotificationPayload.tryDecode(payload);
     if (decoded == null) return '/home';
-    if (_now().difference(decoded.scheduledFor) > const Duration(hours: 4)) {
-      return '/home';
-    }
-    return decoded.route ?? '/home';
+    return decoded.kind == NotificationKind.trialEnding
+        ? '/settings/pro'
+        : '/home';
   }
 }
