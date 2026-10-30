@@ -38,7 +38,12 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    area. Show Aedwon side-by-side images for anything that needs his judgment.
 6. Not done and out of scope here: dark mode and 1180/390 comparisons (boards are light 1440;
    check the board map for which families have phone boards), Gemini runs (quota until about Nov 5).
-7. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
+7. In flight at handoff time: Codex Sol (account b) is fixing the onboarding list from the brief
+   `build/vp-ob-brief.md` in the `Pantas-wt-vc-fixes-r1` worktree (log `build/vp-ob-codex.log`), on
+   branch `web/visual-check-fixes-r1`, commit without push. Review its diff, re-capture onboarding
+   with `ob_pairs*.mjs` against a run of that worktree (or after fast-forwarding staging), then push.
+   Excluded from the brief pending Aedwon: exam card radio vs check badge, picker bottom bar.
+8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
 
 ## Why
