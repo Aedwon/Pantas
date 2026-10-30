@@ -5,12 +5,12 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 
 class BackupPage extends ConsumerStatefulWidget {
   const BackupPage({super.key});
@@ -46,7 +46,8 @@ class _BackupPageState extends ConsumerState<BackupPage> {
   @override
   Widget build(BuildContext context) {
     if (ref.watch(paymentsOnWebProvider)) {
-      return PantasPage(
+      return SettingsPanePage(
+        section: 'Account',
         title: 'Backup',
         backLabel: 'Account',
         onBack: () => Navigator.of(context).maybePop(),
@@ -92,12 +93,13 @@ class _BackupPageState extends ConsumerState<BackupPage> {
         !offline &&
         !busy &&
         runtime.runtimeKind == SyncRuntimeKind.configured;
-    return PantasPage(
+    return SettingsPanePage(
+      section: 'Account',
       title: 'Backup',
       backLabel: 'Account',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        GroupedSection(
+        SettingsSection(
           header: 'Backup',
           footer: busy
               ? 'This takes a moment. You can keep using Pantas.'
@@ -107,7 +109,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
                       ? 'Your progress is safe on this phone.'
                       : 'Pantas backs up on its own whenever you’re online.',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Backup',
               value: value,
               variant: ListRowVariant.value,
@@ -120,7 +122,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
                   : null,
             ),
             if (last != null)
-              ListRow(
+              SettingsRow(
                 title: 'Last backed up',
                 value: '${DateFormat.yMMMd().format(last.toLocal())}, '
                     '${DateFormat.jm().format(last.toLocal())}',
@@ -128,7 +130,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
                 divider: pending != null,
               ),
             if (pending != null)
-              ListRow(
+              SettingsRow(
                 title: 'Waiting to back up',
                 value: pending == 0
                     ? 'Nothing'

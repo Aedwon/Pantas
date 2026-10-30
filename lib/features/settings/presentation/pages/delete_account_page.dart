@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 typedef DeleteAccountCallback = Future<void> Function();
@@ -59,6 +65,145 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                 ? 'Your free trial will end if you delete now.'
                 : null
             : deleteAccountBillingLine(widget.entitlement);
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      if (_isDeleting || _isDeleted) {
+        return StepsScreen(
+          title: _isDeleted
+              ? widget.isAnonymous
+                  ? 'Your data is deleted.'
+                  : 'Your account is deleted. Nothing of yours is left.'
+              : widget.isAnonymous
+                  ? 'Deleting your data'
+                  : 'Deleting your account',
+          subtitle: _isDeleted ? null : 'Keep Pantas open until this finishes.',
+          steps: [
+            if (!_isDeleted)
+              WorkStep(
+                label: widget.isAnonymous
+                    ? 'From this browser'
+                    : 'From this browser and the cloud',
+                state: WorkStepState.active,
+              ),
+          ],
+          buttonLabel: _isDeleted ? 'Close' : null,
+          onContinue: () => Navigator.of(context).maybePop(),
+        );
+      }
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          const AccountPage(),
+          const ModalBarrier(color: Color(0x521D1D1F), dismissible: false),
+          Center(
+            child: Dialog(
+              insetPadding: const EdgeInsets.all(24),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              child: SizedBox(
+                width: 560,
+                child: WebCard(
+                  radius: 22,
+                  padding: const EdgeInsets.all(26),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          widget.isAnonymous
+                              ? 'Delete your data?'
+                              : 'Delete your account?',
+                          style: t.h3,
+                        ),
+                        const SizedBox(height: 4),
+                        Text("This can't be undone.", style: t.sub),
+                        const SizedBox(height: 18),
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: t.colors.background,
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: Column(
+                            children: [
+                              if (!widget.isAnonymous) ...[
+                                SettingsRow(
+                                  title: 'Your account is removed.',
+                                  leading: Icon(
+                                    PantasIcons.profile,
+                                    color: t.colors.wrongText,
+                                    size: 22,
+                                  ),
+                                  variant: ListRowVariant.value,
+                                  divider: true,
+                                ),
+                                SettingsRow(
+                                  title: 'Anything backed up to it is erased.',
+                                  leading: Icon(
+                                    PantasIcons.cloudSlash,
+                                    color: t.colors.wrongText,
+                                    size: 22,
+                                  ),
+                                  variant: ListRowVariant.value,
+                                  divider: true,
+                                ),
+                              ],
+                              SettingsRow(
+                                title:
+                                    'Progress in this browser is erased too.',
+                                leading: Icon(
+                                  PantasIcons.phoneSlash,
+                                  color: t.colors.wrongText,
+                                  size: 22,
+                                ),
+                                variant: ListRowVariant.value,
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (billing != null) ...[
+                          const SizedBox(height: 18),
+                          Text(billing, style: t.sub),
+                        ],
+                        if (_failed) ...[
+                          const SizedBox(height: 18),
+                          Text(
+                            'We could not complete deletion. '
+                            'Try again or contact '
+                            'our DPO at ${widget.dpoEmail}.',
+                            style: t.sub,
+                          ),
+                        ],
+                        const SizedBox(height: 18),
+                        Wrap(
+                          alignment: WrapAlignment.end,
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            WebButton(
+                              label: widget.isAnonymous
+                                  ? 'Cancel'
+                                  : 'Keep My Account',
+                              variant: WebButtonVariant.tertiary,
+                              onPressed: () => Navigator.of(context).maybePop(),
+                            ),
+                            WebButton(
+                              label: _failed ? 'Try Again' : 'Delete My Data',
+                              variant: WebButtonVariant.danger,
+                              onPressed: _delete,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
     Widget consequence(Widget icon, String text) => Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -73,8 +218,9 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
             ],
           ),
         );
-    return PantasPage(
-      title: '',
+    return SettingsPanePage(
+      section: 'Account',
+      title: context.wideWeb ? 'Delete account' : '',
       backLabel: 'Account',
       onBack: _isDeleting ? null : () => Navigator.of(context).maybePop(),
       bottom: SafeArea(
@@ -123,7 +269,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
               .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
         ),
         const SizedBox(height: 22),
-        GroupedSection(
+        SettingsSection(
           children: [
             if (!widget.isAnonymous) ...[
               consequence(
@@ -164,7 +310,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
         ),
         if (billing != null) ...[
           const SizedBox(height: 22),
-          GroupedSection(
+          SettingsSection(
             children: [
               consequence(
                 Icon(

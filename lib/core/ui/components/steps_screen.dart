@@ -4,6 +4,9 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum WorkStepState { pending, active, done }
 
@@ -105,6 +108,51 @@ class StepsScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+      );
+    }
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      return Scaffold(
+        backgroundColor: t.colors.background,
+        body: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(40),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 520),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(title, style: t.h2),
+                  if (subtitle != null) ...[
+                    const SizedBox(height: 4),
+                    Text(
+                      subtitle!,
+                      style: t.style(
+                        17,
+                        height: 1.45,
+                        color: t.colors.secondaryLabel,
+                      ),
+                    ),
+                  ],
+                  if (rows.isNotEmpty) ...[
+                    const SizedBox(height: 20),
+                    WebCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: rows,
+                      ),
+                    ),
+                  ],
+                  if (buttonLabel != null) ...[
+                    const SizedBox(height: 20),
+                    WebButton(label: buttonLabel!, onPressed: onContinue),
+                  ],
+                ],
+              ),
+            ),
           ),
         ),
       );

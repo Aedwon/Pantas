@@ -9,16 +9,18 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/settings/domain/exam_change_result.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 class ExamPage extends ConsumerStatefulWidget {
@@ -153,7 +155,8 @@ class _ExamPageState extends ConsumerState<ExamPage>
             offset: Offset(0, 14 * (1 - rise)),
             child: Opacity(
               opacity: rise,
-              child: PantasPage(
+              child: SettingsPanePage(
+                section: 'Your exam',
                 title: '',
                 children: [
                   const SizedBox(height: 80),
@@ -194,14 +197,14 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     style: context.type.body,
                   ),
                   const SizedBox(height: 24),
-                  GroupedSection(
+                  SettingsSection(
                     footer: date == null
                         ? null
                         : 'Kept from $_previousExam. '
                             'Change it if $_changedExam '
                             'falls on a different day.',
                     children: [
-                      ListRow(
+                      SettingsRow(
                         title: 'Exam Date',
                         value: date == null
                             ? 'Not set'
@@ -232,18 +235,114 @@ class _ExamPageState extends ConsumerState<ExamPage>
         },
       );
     }
-    return PantasPage(
+    Widget studyDay(int day) => AnimatedBuilder(
+          animation: _shake,
+          builder: (context, child) {
+            final t = _shake.value;
+            final offset = _lastDay == day
+                ? TweenSequence<double>([
+                    for (final p in [
+                      (0.0, -5.0),
+                      (-5.0, 5.0),
+                      (5.0, -3.0),
+                      (-3.0, 3.0),
+                      (3.0, 0.0),
+                    ])
+                      TweenSequenceItem(
+                        tween: Tween(
+                          begin: p.$1,
+                          end: p.$2,
+                        ).chain(
+                          CurveTween(
+                            curve: PantasCurves.easeOut,
+                          ),
+                        ),
+                        weight: 1,
+                      ),
+                  ]).transform(t)
+                : 0.0;
+            return Transform.translate(
+              offset: Offset(offset, 0),
+              child: child,
+            );
+          },
+          child: Semantics(
+            label: DateFormat.EEEE().format(
+              DateTime(2026, 10, 18 + day % 7),
+            ),
+            selected: settings.studyDays.weekdays.contains(day),
+            child: TextButton(
+              key: ValueKey('study-day-$day'),
+              style: TextButton.styleFrom(
+                shape: const CircleBorder(),
+                minimumSize: Size(context.wideWeb ? 44 : 40, 44),
+                fixedSize: context.wideWeb ? const Size(44, 44) : null,
+                tapTargetSize:
+                    context.wideWeb ? MaterialTapTargetSize.shrinkWrap : null,
+                textStyle: context.wideWeb
+                    ? context.webTokens.style(15, weight: FontWeight.w600)
+                    : null,
+                padding: EdgeInsets.zero,
+                backgroundColor: settings.studyDays.weekdays.contains(day)
+                    ? context.colors.accentFill
+                    : context.colors.fill,
+                foregroundColor: settings.studyDays.weekdays.contains(day)
+                    ? context.colors.onAccent
+                    : context.colors.secondaryLabel,
+              ),
+              onPressed: () {
+                final next = settings.studyDays.weekdays.toSet();
+                if (!next.add(day)) next.remove(day);
+                if (next.isEmpty) {
+                  setState(() => _lastDay = day);
+                  if (!MediaQuery.disableAnimationsOf(
+                    context,
+                  )) {
+                    _shake.forward(from: 0);
+                  }
+                  return;
+                }
+                setState(() => _lastDay = null);
+                unawaited(
+                  _save(
+                    () => actions.updateStudyDays(
+                      StudyDays(next),
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                const [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                ][day - 1],
+              ),
+            ),
+          ),
+        );
+
+    return SettingsPanePage(
+      section: 'Your exam',
       title: 'Your exam',
+      description:
+          "What you're preparing for, when it is, and which days you study.",
       backLabel: 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        Text(
-          'What you’re preparing for, when it is, and which days you study.',
-          style:
-              context.type.body.copyWith(color: context.colors.secondaryLabel),
-        ),
-        const SizedBox(height: 24),
-        GroupedSection(
+        if (!context.wideWeb) ...[
+          Text(
+            'What you’re preparing for, when it is, and which days you study.',
+            style: context.type.body
+                .copyWith(color: context.colors.secondaryLabel),
+          ),
+          const SizedBox(height: 24),
+        ],
+        SettingsSection(
           footer: past
               ? 'This date has passed. Pick your next exam date, or choose '
                   'I don’t know.'
@@ -259,13 +358,13 @@ class _ExamPageState extends ConsumerState<ExamPage>
                           'day should be '
                           'selected.',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Exam',
               value: ref.watch(activeExamShortNameProvider),
               divider: true,
               onTap: () => unawaited(_changeExam()),
             ),
-            ListRow(
+            SettingsRow(
               title: 'Exam date',
               value: date == null
                   ? 'Not set'
@@ -375,105 +474,42 @@ class _ExamPageState extends ConsumerState<ExamPage>
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-              child: Text('Study days', style: context.type.body),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
-              child: Row(
-                children: [
-                  for (final day in [7, 1, 2, 3, 4, 5, 6])
-                    Expanded(
-                      child: AnimatedBuilder(
-                        animation: _shake,
-                        builder: (context, child) {
-                          final t = _shake.value;
-                          final offset = _lastDay == day
-                              ? TweenSequence<double>([
-                                  for (final p in [
-                                    (0.0, -5.0),
-                                    (-5.0, 5.0),
-                                    (5.0, -3.0),
-                                    (-3.0, 3.0),
-                                    (3.0, 0.0),
-                                  ])
-                                    TweenSequenceItem(
-                                      tween: Tween(
-                                        begin: p.$1,
-                                        end: p.$2,
-                                      ).chain(
-                                        CurveTween(
-                                          curve: PantasCurves.easeOut,
-                                        ),
-                                      ),
-                                      weight: 1,
-                                    ),
-                                ]).transform(t)
-                              : 0.0;
-                          return Transform.translate(
-                            offset: Offset(offset, 0),
-                            child: child,
-                          );
-                        },
-                        child: Semantics(
-                          label: DateFormat.EEEE().format(
-                            DateTime(2026, 10, 18 + day % 7),
-                          ),
-                          selected: settings.studyDays.weekdays.contains(day),
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              shape: const CircleBorder(),
-                              minimumSize: const Size(40, 44),
-                              padding: EdgeInsets.zero,
-                              backgroundColor:
-                                  settings.studyDays.weekdays.contains(day)
-                                      ? context.colors.accentFill
-                                      : context.colors.fill,
-                              foregroundColor:
-                                  settings.studyDays.weekdays.contains(day)
-                                      ? context.colors.onAccent
-                                      : context.colors.secondaryLabel,
-                            ),
-                            onPressed: () {
-                              final next = settings.studyDays.weekdays.toSet();
-                              if (!next.add(day)) next.remove(day);
-                              if (next.isEmpty) {
-                                setState(() => _lastDay = day);
-                                if (!MediaQuery.disableAnimationsOf(
-                                  context,
-                                )) {
-                                  _shake.forward(from: 0);
-                                }
-                                return;
-                              }
-                              setState(() => _lastDay = null);
-                              unawaited(
-                                _save(
-                                  () => actions.updateStudyDays(
-                                    StudyDays(next),
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              const [
-                                'M',
-                                'T',
-                                'W',
-                                'T',
-                                'F',
-                                'S',
-                                'S',
-                              ][day - 1],
-                            ),
-                          ),
-                        ),
-                      ),
+            if (context.wideWeb)
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                child: Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 16,
+                  runSpacing: 16,
+                  children: [
+                    Text('Study days', style: context.webTokens.style(16)),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final day in [7, 1, 2, 3, 4, 5, 6]) studyDay(day),
+                      ],
                     ),
-                ],
+                  ],
+                ),
+              )
+            else ...[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+                child: Text('Study days', style: context.type.body),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+                child: Row(
+                  children: [
+                    for (final day in [7, 1, 2, 3, 4, 5, 6])
+                      Expanded(child: studyDay(day)),
+                  ],
+                ),
+              ),
+            ],
             if (_lastDay != null)
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -485,11 +521,11 @@ class _ExamPageState extends ConsumerState<ExamPage>
           ],
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           footer: 'Answers from your other exams count toward this one. '
               'Nothing is ever deleted.',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Carry over progress',
               variant: ListRowVariant.switchControl,
               selected: settings.carryOverProgress,
@@ -504,10 +540,10 @@ class _ExamPageState extends ConsumerState<ExamPage>
           ],
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           footer: 'Topics you leave out drop out of your plan.',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'What’s included',
               value: leftOut ? 'Some topics left out' : 'All subjects',
               onTap: () => push('/settings/exam/included'),

@@ -8,6 +8,10 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 
 Future<bool?> showCarryOverPrompt({
   required BuildContext context,
@@ -58,10 +62,17 @@ class CarryOverScreen extends ConsumerStatefulWidget {
 
 class _TransferScreenState extends ConsumerState<CarryOverScreen>
     with SingleTickerProviderStateMixin {
-  late final _controller = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 5400),
-  );
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 5400),
+    );
+  }
+
   bool _counted = false;
   bool _saving = false;
   bool _failed = false;
@@ -83,6 +94,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
       }
       widget.onCounted();
       setState(() => _counted = true);
+      if (context.wideWeb) return;
       if (MediaQuery.disableAnimationsOf(context)) {
         _controller.value = 1;
       } else {
@@ -110,6 +122,138 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    final previousName = widget.previous ?? 'your exam';
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      Widget vessel(String name, {required bool old}) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 90,
+                height: 170,
+                decoration: BoxDecoration(
+                  color: old
+                      ? _counted
+                          ? c.accentTint
+                          : c.accentFill
+                      : _counted
+                          ? c.accentFill
+                          : c.surface,
+                  borderRadius: BorderRadius.circular(22),
+                  border: Border.all(color: c.label, width: 2),
+                ),
+                child: !old && _counted
+                    ? const Icon(Icons.check, size: 36, color: Colors.white)
+                    : null,
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 150,
+                child: Text(
+                  name,
+                  textAlign: TextAlign.center,
+                  style: t.style(15, weight: FontWeight.w600),
+                ),
+              ),
+            ],
+          );
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          const ExamPage(),
+          const ModalBarrier(color: Color(0x521D1D1F), dismissible: false),
+          Center(
+            child: Dialog(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              insetPadding: const EdgeInsets.all(24),
+              child: SizedBox(
+                width: 560,
+                child: WebCard(
+                  radius: 22,
+                  padding: const EdgeInsets.all(32),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            vessel(widget.previous ?? '', old: true),
+                            Container(
+                              width: 80,
+                              height: 10,
+                              margin: const EdgeInsets.only(bottom: 40),
+                              decoration: BoxDecoration(
+                                color: c.separator,
+                                borderRadius: BorderRadius.circular(99),
+                              ),
+                            ),
+                            vessel(widget.exam, old: false),
+                          ],
+                        ),
+                        const SizedBox(height: 26),
+                        Text(
+                          _counted
+                              ? 'You pick up where you are'
+                              : "You're not starting from zero",
+                          textAlign: TextAlign.center,
+                          style: t.h3,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          _counted
+                              ? 'Your $previousName answers '
+                                  'stay on $previousName too.'
+                              : 'Some content on $previousName '
+                                  'is on ${widget.exam} too. '
+                                  'Count them and continue where you are.',
+                          textAlign: TextAlign.center,
+                          style: t.style(
+                            16,
+                            height: 1.45,
+                            color: c.secondaryLabel,
+                          ),
+                        ),
+                        const SizedBox(height: 26),
+                        if (_failed)
+                          saveFailureLine(() => _choose(count: _lastDecision)),
+                        if (_counted)
+                          WebButton(
+                            label: 'Done',
+                            onPressed: () => Navigator.of(context).pop(true),
+                          )
+                        else
+                          Wrap(
+                            alignment: WrapAlignment.center,
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: [
+                              WebButton(
+                                label: 'Start My Numbers Fresh',
+                                variant: WebButtonVariant.tertiary,
+                                onPressed: _saving
+                                    ? null
+                                    : () => _choose(count: false),
+                              ),
+                              WebButton(
+                                label: 'Count Them',
+                                busy: _saving,
+                                onPressed:
+                                    _saving ? null : () => _choose(count: true),
+                              ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
     return Scaffold(
       backgroundColor: c.background,
       body: SafeArea(

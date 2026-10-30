@@ -11,10 +11,10 @@ import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 
 final whatsIncludedDataProvider = FutureProvider.family<
     ({
@@ -131,7 +131,8 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     final examId = focus.valueOrNull?.exam?.id;
     final data =
         examId == null ? null : ref.watch(whatsIncludedDataProvider(examId));
-    return PantasPage(
+    return SettingsPanePage(
+      section: 'Your exam',
       title: 'What’s included',
       backLabel: 'Your exam',
       onBack: () => Navigator.of(context).maybePop(),

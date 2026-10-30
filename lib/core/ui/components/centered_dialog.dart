@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class CenteredDialog extends StatelessWidget {
   const CenteredDialog({
@@ -31,6 +34,70 @@ class CenteredDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      return CallbackShortcuts(
+        bindings: {
+          if (allowEscape)
+            const SingleActivator(LogicalKeyboardKey.escape): onCancel,
+        },
+        child: Dialog(
+          backgroundColor: t.colors.transparent,
+          elevation: 0,
+          insetPadding: const EdgeInsets.all(24),
+          child: SizedBox(
+            width: content == null ? 440 : 560,
+            child: WebCard(
+              key: const ValueKey('centered-dialog-surface'),
+              radius: 22,
+              padding: const EdgeInsets.all(26),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(title, style: t.h3),
+                    const SizedBox(height: 18),
+                    Text(
+                      message,
+                      style: t.style(
+                        16,
+                        height: 1.45,
+                        color: t.colors.secondaryLabel,
+                      ),
+                    ),
+                    if (content != null) ...[
+                      const SizedBox(height: 18),
+                      content!,
+                    ],
+                    const SizedBox(height: 18),
+                    Wrap(
+                      alignment: WrapAlignment.end,
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        WebButton(
+                          label: secondaryLabel,
+                          variant: WebButtonVariant.tertiary,
+                          onPressed: onCancel,
+                        ),
+                        WebButton(
+                          label: primaryLabel,
+                          variant: destructive
+                              ? WebButtonVariant.danger
+                              : WebButtonVariant.primary,
+                          onPressed: onConfirm,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
     Widget pill(String label, VoidCallback action, {required bool primary}) =>
         TextButton(
           onPressed: action,

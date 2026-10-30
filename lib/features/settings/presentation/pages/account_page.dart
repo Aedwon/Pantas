@@ -14,14 +14,17 @@ import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 class AccountPage extends ConsumerStatefulWidget {
@@ -91,8 +94,148 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       if (router != null) unawaited(router.push<void>(path));
     }
 
-    return PantasPage(
-      title: '',
+    Future<void> copyId() async {
+      if (digits == null || user == null) return;
+
+      final uid = user.uid;
+      final telemetry = ref.read(telemetryProvider);
+      try {
+        await Clipboard.setData(
+          ClipboardData(text: digits),
+        );
+      } catch (error, stack) {
+        await telemetry.recordError(error, stack);
+        return;
+      }
+      if (!mounted || ref.read(currentUserProvider).valueOrNull?.uid != uid) {
+        return;
+      }
+      _timer?.cancel();
+      setState(() {
+        _copied = digits;
+        _copiedUid = uid;
+      });
+      _timer = Timer(const Duration(seconds: 2), () {
+        if (mounted) setState(() => _copied = null);
+      });
+    }
+
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      return SettingsPanePage(
+        section: 'Account',
+        title: 'Account',
+        description: 'Your name, sign-in and backup.',
+        children: [
+          SettingsSection(
+            footer: user == null
+                ? 'You get your own Pantas ID when you sign in.'
+                : digits == null
+                    ? "It shows up the next time you're online."
+                    : 'This is safe to share publicly.',
+            children: [
+              SettingsRow(
+                title: 'Name',
+                value: settings.name ?? 'Add your name',
+                divider: true,
+                onTap: () => push('/settings/account/name'),
+              ),
+              if (user != null)
+                const SettingsRow(
+                  title: 'Signed in with',
+                  value: 'Google',
+                  variant: ListRowVariant.value,
+                  divider: true,
+                ),
+              SettingsRow(
+                title: 'Pantas ID',
+                value: user == null
+                    ? 'Sign in to get one'
+                    : copied
+                        ? 'Copied'
+                        : displayId ?? 'Not ready yet',
+                variant: ListRowVariant.value,
+                trailingWidget: digits == null
+                    ? null
+                    : copied
+                        ? Icon(
+                            PantasIcons.check,
+                            size: 16,
+                            color: t.colors.accent,
+                          )
+                        : const WebKeyHint('Click to copy'),
+                onTap: digits == null ? null : copyId,
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          if (user == null) ...[
+            WebButton(
+              label: _signingIn ? 'Signing in…' : 'Continue with Google',
+              busy: _signingIn,
+              onPressed: _signingIn ? null : _signIn,
+            ),
+            const SizedBox(height: 12),
+            Text(
+              _errorMessage ??
+                  'Your progress stays in this browser. '
+                      'Signing in gives you an account you can come back to.',
+              style: t.sm,
+            ),
+            const SizedBox(height: 24),
+            WebButton(
+              label: 'Delete My Data',
+              variant: WebButtonVariant.dangerOutline,
+              onPressed: () => push('/settings/account/delete'),
+            ),
+          ] else ...[
+            if (!web) ...[
+              SettingsSection(
+                header: 'Backup',
+                footer: pro
+                    ? "Pantas backs up on its own whenever you're online."
+                    : 'Your progress stays in this browser only. With Pro, '
+                        "it's backed up and syncs across your devices.",
+                children: [
+                  SettingsRow(
+                    title: 'Backup',
+                    value: pro ? backup : 'This browser only',
+                    variant: ListRowVariant.value,
+                  ),
+                  if (pro)
+                    SettingsRow(
+                      title: 'Details',
+                      onTap: () => push('/settings/backup'),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 24),
+            ],
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                WebButton(
+                  label: 'Sign Out',
+                  variant: WebButtonVariant.tertiary,
+                  onPressed: _confirmSignOut,
+                ),
+                WebButton(
+                  label: 'Delete Account',
+                  variant: WebButtonVariant.dangerOutline,
+                  onPressed: () => push('/settings/account/delete'),
+                ),
+              ],
+            ),
+            if (_errorMessage != null) Text(_errorMessage!, style: t.sm),
+          ],
+        ],
+      );
+    }
+    return SettingsPanePage(
+      section: 'Account',
+      description: 'Your name, sign-in and backup.',
+      title: context.wideWeb ? 'Account' : '',
       backLabel: 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
@@ -126,16 +269,16 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Name',
               value: settings.name ?? 'Add your name',
               divider: user != null,
               onTap: () => push('/settings/account/name'),
             ),
             if (user != null)
-              const ListRow(
+              const SettingsRow(
                 title: 'Signed in with',
                 value: 'Google',
                 variant: ListRowVariant.value,
@@ -143,14 +286,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ],
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           footer: user == null
               ? 'You get your own Pantas ID when you sign in.'
               : digits == null
                   ? 'It shows up the next time you’re online.'
                   : 'Tap to copy. This is safe to share publicly.',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Pantas ID',
               trailingWidget: digits == null
                   ? null
@@ -167,33 +310,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       ? 'Copied'
                       : displayId ?? 'Not ready yet',
               variant: ListRowVariant.value,
-              onTap: digits == null
-                  ? null
-                  : () async {
-                      final uid = user!.uid;
-                      final telemetry = ref.read(telemetryProvider);
-                      try {
-                        await Clipboard.setData(
-                          ClipboardData(text: digits),
-                        );
-                      } catch (error, stack) {
-                        await telemetry.recordError(error, stack);
-                        return;
-                      }
-                      if (!mounted ||
-                          ref.read(currentUserProvider).valueOrNull?.uid !=
-                              uid) {
-                        return;
-                      }
-                      _timer?.cancel();
-                      setState(() {
-                        _copied = digits;
-                        _copiedUid = uid;
-                      });
-                      _timer = Timer(const Duration(seconds: 2), () {
-                        if (mounted) setState(() => _copied = null);
-                      });
-                    },
+              onTap: digits == null ? null : copyId,
             ),
           ],
         ),
@@ -213,26 +330,26 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
         ] else ...[
           if (!web) ...[
-            GroupedSection(
+            SettingsSection(
               header: 'Backup',
               footer: pro
                   ? 'Pantas backs up on its own whenever you’re online.'
                   : 'Your progress stays on this phone only. With Pro, it’s '
                       'backed up and syncs across your devices.',
               children: [
-                ListRow(
+                SettingsRow(
                   title: 'Backup',
                   value: pro ? backup : 'This phone only',
                   variant: ListRowVariant.value,
                   divider: true,
                 ),
                 if (pro)
-                  ListRow(
+                  SettingsRow(
                     title: 'Details',
                     onTap: () => push('/settings/backup'),
                   )
                 else
-                  ListRow(
+                  SettingsRow(
                     title: 'Back Up with Pro',
                     onTap: () => push('/settings/pro'),
                   ),
@@ -240,10 +357,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
           ],
           const SizedBox(height: 24),
-          GroupedSection(
+          SettingsSection(
             children: [
-              ListRow(title: 'Sign Out', onTap: _confirmSignOut, divider: true),
-              ListRow(
+              SettingsRow(
+                title: 'Sign Out',
+                onTap: _confirmSignOut,
+                divider: true,
+              ),
+              SettingsRow(
                 title: 'Delete Account',
                 variant: ListRowVariant.destructive,
                 onTap: () => push('/settings/account/delete'),
@@ -253,9 +374,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         ],
         if (user == null) ...[
           const SizedBox(height: 24),
-          GroupedSection(
+          SettingsSection(
             children: [
-              ListRow(
+              SettingsRow(
                 title: 'Delete my data',
                 variant: ListRowVariant.destructive,
                 onTap: () => push('/settings/account/delete'),

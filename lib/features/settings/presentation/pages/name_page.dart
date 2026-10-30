@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 class NamePage extends ConsumerStatefulWidget {
@@ -53,31 +55,73 @@ class _NamePageState extends ConsumerState<NamePage> {
       onPopInvokedWithResult: (didPop, _) {
         if (!didPop) _back();
       },
-      child: PantasPage(
+      child: SettingsPanePage(
+        section: 'Account',
         title: 'Name',
         backLabel: 'Account',
         onBack: _saving ? null : _back,
         children: [
-          GroupedSection(
-            footer:
-                'Shown on Home and on your profile. Clear it to remove your '
-                'name.',
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                child: TextField(
-                  controller: _controller,
-                  enabled: _loaded && !_saving,
-                  decoration: const InputDecoration(border: InputBorder.none),
-                  textCapitalization: TextCapitalization.words,
-                  onSubmitted: (_) => _back(),
+          if (context.wideWeb)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 460),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextField(
+                      controller: _controller,
+                      enabled: _loaded && !_saving,
+                      style: context.webTokens.style(16),
+                      decoration: InputDecoration(
+                        labelText: 'Name',
+                        filled: true,
+                        fillColor: context.webTokens.colors.surface,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 14,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: context.webTokens.colors.separator,
+                          ),
+                        ),
+                      ),
+                      textCapitalization: TextCapitalization.words,
+                      onSubmitted: (_) => _back(),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Shown on Home and on your profile. '
+                      'Clear it to remove your name.',
+                      style: context.webTokens.sm,
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            )
+          else
+            SettingsSection(
+              footer:
+                  'Shown on Home and on your profile. Clear it to remove your '
+                  'name.',
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  child: TextField(
+                    controller: _controller,
+                    enabled: _loaded && !_saving,
+                    decoration: const InputDecoration(border: InputBorder.none),
+                    textCapitalization: TextCapitalization.words,
+                    onSubmitted: (_) => _back(),
+                  ),
+                ),
+              ],
+            ),
           if (_failed) saveFailureLine(_back),
         ],
       ),

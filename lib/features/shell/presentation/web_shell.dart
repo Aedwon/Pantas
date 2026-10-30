@@ -246,14 +246,16 @@ class WebSidebar extends StatelessWidget {
                                 activeIndex == i ? c.accent : c.tertiaryLabel,
                           ),
                           const SizedBox(width: 12),
-                          Text(
-                            _tabs[i].label,
-                            style: t.style(
-                              15,
-                              height: 1.2,
-                              weight: activeIndex == i
-                                  ? FontWeight.w600
-                                  : FontWeight.w500,
+                          Expanded(
+                            child: Text(
+                              _tabs[i].label,
+                              style: t.style(
+                                15,
+                                height: 1.2,
+                                weight: activeIndex == i
+                                    ? FontWeight.w600
+                                    : FontWeight.w500,
+                              ),
                             ),
                           ),
                         ],

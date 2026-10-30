@@ -11,7 +11,9 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 final settingsSessionLengthProvider = FutureProvider<int>((ref) async {
@@ -24,6 +26,7 @@ class SettingsHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (context.wideWeb) return const AccountPage();
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final user = ref.watch(currentUserProvider).valueOrNull;

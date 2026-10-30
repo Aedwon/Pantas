@@ -9,13 +9,13 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
@@ -28,6 +28,10 @@ import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
+import 'package:pantas/features/settings/presentation/widgets/web_pro_hero.dart';
 import 'package:pantas/features/settings/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -91,6 +95,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   String? _selected;
   String? _feedback;
   bool _busy = false;
+  bool _restoring = false;
   bool _trialUnavailable = false;
   @override
   void initState() {
@@ -355,6 +360,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final uid = ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
     setState(() {
       _busy = true;
+      _restoring = true;
       _feedback = null;
     });
     final result = await ref.read(paywallControllerProvider).restore();
@@ -385,6 +391,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (web && uid == null) return;
     setState(() {
       _busy = true;
+      _restoring = false;
       _feedback = null;
     });
     if (web && uid != null) {
@@ -665,187 +672,307 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         ? ''
         : '${_periodName(pendingPackage.sku)}, ${pendingPackage.priceString}. ';
     final showOffers = covered == false && !paused && !waiting;
-    return PantasPage(
-      title: '',
-      bottom: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (showOffers) ...[
-                if (web && anonymous)
-                  PantasButton(
-                    label: 'Continue with Google',
-                    onPressed: () => context.push<void>('/settings/account'),
-                  )
-                else if (exam != null &&
-                    (selectedPackage != null || selectedPass != null))
-                  PantasButton(
-                    label: selectedPass != null
-                        ? 'Buy Season Pass'
-                        : upgrade
-                            ? 'Upgrade for '
-                                '${selectedPackage!.priceString} a Month'
-                            : trial && !lapsed
-                                ? 'Try 7 Days Free'
-                                : lapsed
-                                    ? 'Get Pro Again'
-                                    : 'Subscribe for '
-                                        '${selectedPackage!.priceString} '
-                                        'a ${_period(selectedPackage.sku)}',
-                    busy: _busy,
-                    onPressed: _busy
-                        ? null
-                        : () => _purchase(
-                              selectedPackage,
-                              selectedPass,
-                              exam,
-                              allowTrial: trial && !lapsed,
+    final purchaseLabel = selectedPass != null
+        ? 'Buy Season Pass'
+        : selectedPackage == null
+            ? 'Get Pro'
+            : upgrade
+                ? 'Upgrade for ${selectedPackage.priceString} a Month'
+                : trial && !lapsed
+                    ? 'Try 7 Days Free'
+                    : lapsed
+                        ? 'Get Pro Again'
+                        : 'Subscribe for ${selectedPackage.priceString} '
+                            'a ${_period(selectedPackage.sku)}';
+    return SettingsPanePage(
+      section: 'Pantas Pro',
+      title: context.wideWeb ? 'Pantas Pro' : '',
+      bottom: context.wideWeb
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    WebButton(
+                      label: upgrade
+                          ? 'Switch on Free'
+                          : _busy && _restoring
+                              ? 'Restoring purchases'
+                              : 'Restore Purchases',
+                      variant: WebButtonVariant.tertiary,
+                      busy: _busy,
+                      onPressed: _busy
+                          ? null
+                          : upgrade
+                              ? _switchOnFree
+                              : _restore,
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          if (showOffers)
+                            if (web && anonymous)
+                              WebButton(
+                                label: 'Continue with Google',
+                                onPressed: () =>
+                                    context.push<void>('/settings/account'),
+                              )
+                            else if (exam != null &&
+                                (selectedPackage != null ||
+                                    selectedPass != null))
+                              WebButton(
+                                large: true,
+                                label: _busy && !_restoring
+                                    ? 'Confirming your payment'
+                                    : purchaseLabel,
+                                busy: _busy && !_restoring,
+                                onPressed: _busy
+                                    ? null
+                                    : () => _purchase(
+                                          selectedPackage,
+                                          selectedPass,
+                                          exam,
+                                          allowTrial: trial && !lapsed,
+                                        ),
+                              ),
+                          if (showOffers &&
+                              selectedPass != null &&
+                              sitting != null)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                '${selectedPass.priceString} once. '
+                                'Ends after the exam on $sittingEnd.',
+                                textAlign: TextAlign.right,
+                                style: context.webTokens.sm,
+                              ),
+                            )
+                          else if (showOffers && trial && !lapsed)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                web
+                                    ? 'No payment needed.'
+                                    : 'Free for 7 days, then '
+                                        '${selectedPackage.priceString} '
+                                        'a month. '
+                                        'Cancel any time.',
+                                textAlign: TextAlign.right,
+                                style: context.webTokens.sm,
+                              ),
                             ),
-                  ),
-                if (selectedPass != null && sitting != null) ...[
-                  const SizedBox(height: 8),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (playRenews)
                   Text(
-                    '${selectedPass.priceString} once. '
-                    'Ends after the exam on $sittingEnd.',
-                    textAlign: TextAlign.center,
-                    style: context.type.footnote,
+                    'Your Google Play plan keeps renewing. '
+                    'Cancel it in Google Play if you no longer need it.',
+                    style: context.webTokens.sm,
                   ),
-                ] else if (trial && !lapsed) ...[
-                  const SizedBox(height: 8),
-                  Text(
-                    web
-                        ? 'No payment needed.'
-                        : 'Then ${selectedPackage.priceString} a month. '
-                            'Cancel any time in Google Play.',
-                    textAlign: TextAlign.center,
-                    style: context.type.footnote,
+                if (_feedback != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(_feedback!, style: context.webTokens.sm),
                   ),
-                ],
               ],
-              if (playRenews)
-                Text(
-                  'Your Google Play plan keeps renewing. '
-                  'Cancel it in Google Play if you no longer need it.',
-                  textAlign: TextAlign.center,
-                  style: context.type.footnote,
+            )
+          : SafeArea(
+              top: false,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (showOffers) ...[
+                      if (web && anonymous)
+                        PantasButton(
+                          label: 'Continue with Google',
+                          onPressed: () =>
+                              context.push<void>('/settings/account'),
+                        )
+                      else if (exam != null &&
+                          (selectedPackage != null || selectedPass != null))
+                        PantasButton(
+                          label: purchaseLabel,
+                          busy: _busy,
+                          onPressed: _busy
+                              ? null
+                              : () => _purchase(
+                                    selectedPackage,
+                                    selectedPass,
+                                    exam,
+                                    allowTrial: trial && !lapsed,
+                                  ),
+                        ),
+                      if (selectedPass != null && sitting != null) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          '${selectedPass.priceString} once. '
+                          'Ends after the exam on $sittingEnd.',
+                          textAlign: TextAlign.center,
+                          style: context.type.footnote,
+                        ),
+                      ] else if (trial && !lapsed) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          web
+                              ? 'No payment needed.'
+                              : 'Then ${selectedPackage.priceString} a month. '
+                                  'Cancel any time in Google Play.',
+                          textAlign: TextAlign.center,
+                          style: context.type.footnote,
+                        ),
+                      ],
+                    ],
+                    if (playRenews)
+                      Text(
+                        'Your Google Play plan keeps renewing. '
+                        'Cancel it in Google Play if you no longer need it.',
+                        textAlign: TextAlign.center,
+                        style: context.type.footnote,
+                      ),
+                    if (upgrade)
+                      PantasButton(
+                        label: 'Switch on Free',
+                        variant: PantasButtonVariant.tertiary,
+                        onPressed: _busy ? null : _switchOnFree,
+                      ),
+                    if (!upgrade)
+                      PantasButton(
+                        label: 'Restore purchases',
+                        variant: PantasButtonVariant.tertiary,
+                        busy: _busy,
+                        onPressed: _busy ? null : _restore,
+                      ),
+                    if (_feedback != null)
+                      Text(
+                        _feedback!,
+                        textAlign: TextAlign.center,
+                        style: context.type.footnote,
+                      ),
+                  ],
                 ),
-              if (upgrade)
-                PantasButton(
-                  label: 'Switch on Free',
-                  variant: PantasButtonVariant.tertiary,
-                  onPressed: _busy ? null : _switchOnFree,
-                ),
-              if (!upgrade)
-                PantasButton(
-                  label: 'Restore purchases',
-                  variant: PantasButtonVariant.tertiary,
-                  busy: _busy,
-                  onPressed: _busy ? null : _restore,
-                ),
-              if (_feedback != null)
-                Text(
-                  _feedback!,
-                  textAlign: TextAlign.center,
-                  style: context.type.footnote,
-                ),
-            ],
-          ),
-        ),
-      ),
+              ),
+            ),
       backLabel: upgrade ? 'Exam' : 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        if (!upgrade) Text('PANTAS PRO', style: context.type.sectionHeader),
-        const SizedBox(height: 12),
-        if (!upgrade)
-          Text(
-            owned
-                ? 'You’re on Pro.'
+        if (context.wideWeb && !upgrade) ...[
+          WebProHero(
+            heading: owned
+                ? "You're on Pro."
                 : lapsed
                     ? passEnded
                         ? 'Your Season Pass ended'
                         : 'Your Pro plan ended'
-                    : 'See exactly what’s losing you points.',
-            style: context.type.pageTitle,
+                    : "See exactly what's losing you points.",
+            detail: owned
+                ? "Thanks for backing Pantas. Here's everything "
+                    "that's yours."
+                : lapsed
+                    ? 'It ended '
+                        '${passEnded ? "after your exam " : ""}on '
+                        '${DateFormat.yMMMd().format(ended)}. Nothing was lost.'
+                    : null,
           ),
-        if (upgrade)
-          Container(
-            padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-            decoration: BoxDecoration(
-              color: context.colors.surface,
-              borderRadius: BorderRadius.circular(18),
+          const SizedBox(height: 24),
+        ] else ...[
+          if (!upgrade) Text('PANTAS PRO', style: context.type.sectionHeader),
+          const SizedBox(height: 12),
+          if (!upgrade)
+            Text(
+              owned
+                  ? 'You’re on Pro.'
+                  : lapsed
+                      ? passEnded
+                          ? 'Your Season Pass ended'
+                          : 'Your Pro plan ended'
+                      : 'See exactly what’s losing you points.',
+              style: context.type.pageTitle,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  PantasIcons.pro,
-                  size: 36,
-                  color: context.colors.warningText,
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  '${exam!.shortName} has its own price tier',
-                  style: context.type.pageTitle
-                      .copyWith(fontSize: 28, height: 1.2),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  'Your Pro covers '
-                  "${widget.previousExamName ?? 'student exams'} "
-                  'and other student exams only. '
-                  'Pro for ${exam.shortName} covers those too if you upgrade.',
-                  style: context.type.body.copyWith(
-                    fontSize: 16,
-                    color: context.colors.secondaryLabel,
-                    height: 1.45,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        if (owned) ...[
-          const SizedBox(height: 8),
-          Text(
-            'Thanks for backing Pantas. Here’s everything that’s yours.',
-            style: context.type.body,
-          ),
-        ],
-        if (lapsed)
-          Text(
-            passEnded
-                ? 'It ended after your exam on '
-                    '${DateFormat.yMMMd().format(ended)}.'
-                : 'It ended on ${DateFormat.yMMMd().format(ended)}.',
-            style: context.type.body,
-          ),
-        const SizedBox(height: 24),
-        if (!upgrade)
-          for (final feature in [
-            (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
-            (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
-            (PantasIcons.studyHabits, 'The figures behind your study habits'),
-            (PantasIcons.proBackup, 'Progress that’s always backed up'),
-            (PantasIcons.topicResults, 'Results by topic and lesson'),
-          ])
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: Row(
+          if (upgrade)
+            Container(
+              padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+              decoration: BoxDecoration(
+                color: context.colors.surface,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(feature.$1, color: context.colors.accent, size: 21),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(feature.$2, style: context.type.subhead),
+                  Icon(
+                    PantasIcons.pro,
+                    size: 36,
+                    color: context.colors.warningText,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    '${exam!.shortName} has its own price tier',
+                    style: context.type.pageTitle
+                        .copyWith(fontSize: 28, height: 1.2),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    'Your Pro covers '
+                    "${widget.previousExamName ?? 'student exams'} "
+                    'and other student exams only. '
+                    'Pro for ${exam.shortName} covers those too '
+                    'if you upgrade.',
+                    style: context.type.body.copyWith(
+                      fontSize: 16,
+                      color: context.colors.secondaryLabel,
+                      height: 1.45,
+                    ),
                   ),
                 ],
               ),
             ),
-        const SizedBox(height: 24),
+          if (owned) ...[
+            const SizedBox(height: 8),
+            Text(
+              'Thanks for backing Pantas. Here’s everything that’s yours.',
+              style: context.type.body,
+            ),
+          ],
+          if (lapsed)
+            Text(
+              passEnded
+                  ? 'It ended after your exam on '
+                      '${DateFormat.yMMMd().format(ended)}.'
+                  : 'It ended on ${DateFormat.yMMMd().format(ended)}.',
+              style: context.type.body,
+            ),
+          const SizedBox(height: 24),
+          if (!upgrade)
+            for (final feature in [
+              (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
+              (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
+              (PantasIcons.studyHabits, 'The figures behind your study habits'),
+              (PantasIcons.proBackup, 'Progress that’s always backed up'),
+              (PantasIcons.topicResults, 'Results by topic and lesson'),
+            ])
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(feature.$1, color: context.colors.accent, size: 21),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(feature.$2, style: context.type.subhead),
+                    ),
+                  ],
+                ),
+              ),
+          const SizedBox(height: 24),
+        ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
             (entitlement.proIsActive || paused) &&
@@ -853,7 +980,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 entitlement.plan != EntitlementPlan.free ||
                 entitlement.isUnknownPlan ||
                 entitlement.promotions.isNotEmpty))
-          GroupedSection(
+          SettingsSection(
             header: 'Your plan',
             footer: web && entitlement.isTrial && planDate != null
                 ? 'Your free trial ends on '
@@ -861,14 +988,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     'You won’t be charged.'
                 : null,
             children: [
-              ListRow(
+              SettingsRow(
                 title: 'Plan',
                 value: planName,
                 variant: ListRowVariant.value,
                 divider: true,
               ),
               if (planDate != null)
-                ListRow(
+                SettingsRow(
                   title: web ||
                           entitlement.plan == EntitlementPlan.free ||
                           !entitlement.willRenew
@@ -888,12 +1015,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             ],
           ),
         for (final pass in entitlement.passes.entries) ...[
-          GroupedSection(
+          SettingsSection(
             header: 'Your plan',
             footer:
                 'A one-time purchase. It ends after the exam and never renews.',
             children: [
-              const ListRow(
+              const SettingsRow(
                 title: 'Plan',
                 value: 'Season Pass',
                 variant: ListRowVariant.value,
@@ -901,13 +1028,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
               if (passNames[pass.key]?.shortName != null ||
                   pass.key == exam?.id)
-                ListRow(
+                SettingsRow(
                   title: 'Exam',
                   value: passNames[pass.key]?.shortName ?? exam?.shortName,
                   variant: ListRowVariant.value,
                   divider: true,
                 ),
-              ListRow(
+              SettingsRow(
                 title: 'Ends',
                 value: DateFormat.yMMMd().format(pass.value),
                 variant: ListRowVariant.value,
@@ -917,7 +1044,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           const SizedBox(height: 22),
         ],
         if (waiting)
-          GroupedSection(
+          SettingsSection(
             children: [
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -954,12 +1081,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           if (offering.isLoading) const Text('Loading subscriptions...'),
           if (packages.isNotEmpty)
             Row(
+              spacing: context.wideWeb ? 12 : 0,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 for (final package in packages)
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 3),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: context.wideWeb ? 0 : 3,
+                      ),
                       child: _plan(
                         context,
                         package,
@@ -977,11 +1107,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       ),
                     ),
                   ),
-                if (upgrade)
+                if (upgrade || context.wideWeb)
                   for (final pass in passes)
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 3),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: context.wideWeb ? 0 : 3,
+                        ),
                         child: _choiceCard(
                           context,
                           label: 'Season Pass',
@@ -998,8 +1130,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     ),
               ],
             ),
-          for (final pass
-              in upgrade ? const <PaywallPassPackage>[] : passes) ...[
+          for (final pass in upgrade || context.wideWeb
+              ? const <PaywallPassPackage>[]
+              : passes) ...[
             const SizedBox(height: 22),
             Semantics(
               button: true,
@@ -1069,9 +1202,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               sitting == null &&
               exam?.priceTier == 'Civil Service') ...[
             const SizedBox(height: 22),
-            const GroupedSection(
+            const SettingsSection(
               children: [
-                ListRow(
+                SettingsRow(
                   title: 'Season Pass',
                   subtitle: 'Once the next date is out',
                   variant: ListRowVariant.value,
@@ -1091,7 +1224,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         if (!web &&
             entitlement.proIsActive &&
             entitlement.plan != EntitlementPlan.free)
-          ListRow(
+          SettingsRow(
             title: 'Manage in Google Play',
             onTap: _busy ? null : () => _manage(entitlement),
           ),
@@ -1155,6 +1288,90 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     String? badge,
     bool trialBadge = false,
   }) {
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      return Semantics(
+        button: true,
+        selected: selected,
+        child: InkWell(
+          onTap: _busy ? null : choose,
+          borderRadius: BorderRadius.circular(16),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.fromLTRB(
+                  18 - (selected ? 2 : 1),
+                  18 - (selected ? 2 : 1),
+                  18 - (selected ? 2 : 1),
+                  16 - (selected ? 2 : 1),
+                ),
+                decoration: BoxDecoration(
+                  color: t.colors.surface,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: selected ? t.colors.accent : t.colors.separator,
+                    width: selected ? 2 : 1,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(label, style: t.style(15, weight: FontWeight.w600)),
+                    const SizedBox(height: 6),
+                    Wrap(
+                      spacing: 6,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text(
+                          price,
+                          style: t.style(26, weight: FontWeight.w700),
+                        ),
+                        Text(periodText, style: t.sub),
+                      ],
+                    ),
+                    if (detail != null) ...[
+                      const SizedBox(height: 6),
+                      Text(detail, style: t.sm),
+                    ],
+                  ],
+                ),
+              ),
+              if (badge != null)
+                Positioned(
+                  top: -10,
+                  left: 16,
+                  right: 8,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        color:
+                            trialBadge ? t.colors.accentFill : t.colors.label,
+                        borderRadius: BorderRadius.circular(99),
+                      ),
+                      child: Text(
+                        badge,
+                        style: t.style(
+                          12,
+                          weight: FontWeight.w600,
+                          color:
+                              trialBadge ? Colors.white : t.colors.background,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    }
     final borderInset = selected ? 2.0 : .5;
     return Semantics(
       button: true,

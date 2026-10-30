@@ -1,8 +1,10 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 @immutable
 class ScopeLesson {
@@ -125,7 +127,8 @@ class _ScopePickerState extends State<ScopePicker>
           Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
+                shape: context.wideWeb ? BoxShape.rectangle : BoxShape.circle,
+                borderRadius: context.wideWeb ? BorderRadius.circular(7) : null,
                 border: Border.all(color: c.controlOutline, width: 1.5),
               ),
             ),
@@ -149,7 +152,8 @@ class _ScopePickerState extends State<ScopePicker>
               width: 22,
               height: 22,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
+                shape: context.wideWeb ? BoxShape.rectangle : BoxShape.circle,
+                borderRadius: context.wideWeb ? BorderRadius.circular(7) : null,
                 color: c.accentFill,
               ),
               child: partial
@@ -201,7 +205,7 @@ class _ScopePickerState extends State<ScopePicker>
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: context.type.body.copyWith(
-                          fontSize: lesson ? 16 : 17,
+                          fontSize: lesson || context.wideWeb ? 16 : 17,
                           letterSpacing: lesson ? 0 : -.204,
                         ),
                       ),
@@ -313,7 +317,7 @@ class _ScopePickerState extends State<ScopePicker>
               ),
             ),
             ClipRRect(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(context.wideWeb ? 16 : 14),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

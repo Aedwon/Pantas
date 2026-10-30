@@ -151,7 +151,7 @@ class WebButton extends StatelessWidget {
               ),
               const SizedBox(width: 8),
             ],
-            Text(label),
+            Flexible(child: Text(label)),
             if (keyHint != null) ...[
               const SizedBox(width: 12),
               WebKeyHint(keyHint!, onButton: true, enabled: onPressed != null),
@@ -315,6 +315,7 @@ class WebRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     return Opacity(
       opacity: dimmed ? .45 : 1,
       child: Semantics(
@@ -367,8 +368,10 @@ class WebRow extends StatelessWidget {
                             if (titleSuffix == null)
                               Text(
                                 title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
+                                maxLines: large ? null : 1,
+                                overflow: large
+                                    ? TextOverflow.visible
+                                    : TextOverflow.ellipsis,
                                 style: titleStyle ??
                                     t.style(17, color: titleColor),
                               )
@@ -379,8 +382,10 @@ class WebRow extends StatelessWidget {
                                   Flexible(
                                     child: Text(
                                       title,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: large ? null : 1,
+                                      overflow: large
+                                          ? TextOverflow.visible
+                                          : TextOverflow.ellipsis,
                                       style: titleStyle ??
                                           t.style(17, color: titleColor),
                                     ),
@@ -392,19 +397,29 @@ class WebRow extends StatelessWidget {
                             if (subtitle != null)
                               Text(
                                 subtitle!,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
+                                maxLines: large ? null : 1,
+                                overflow: large
+                                    ? TextOverflow.visible
+                                    : TextOverflow.ellipsis,
                                 style: t.style(
                                   14,
                                   color: t.colors.secondaryLabel,
                                 ),
                               ),
+                            if (large && value != null)
+                              Text(value!, style: t.sub),
                           ],
                         ),
                       ),
-                      if (value != null) ...[
+                      if (!large && value != null) ...[
                         const SizedBox(width: 12),
-                        Text(value!, style: t.sub),
+                        Flexible(
+                          child: Text(
+                            value!,
+                            style: t.sub,
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
                       ],
                       if (trailing != null) ...[
                         const SizedBox(width: 12),

@@ -22,23 +22,39 @@ class LegalDocumentPage extends StatelessWidget {
           : document?.title ?? 'Legal',
       backLabel: 'About',
       onBack: () => Navigator.of(context).maybePop(),
-      children: [
-        if (document == null)
-          const StateView(message: 'Legal page not found')
-        else ...[
-          Text(
-            'Updated ${DateFormat.yMMMd().format(document.updatedAt)}',
-            style: context.type.footnote,
-          ),
-          const SizedBox(height: 24),
-          for (final section in document.sections) ...[
-            Text(section.heading, style: context.type.emphasized),
-            const SizedBox(height: 8),
-            Text(section.body, style: context.type.body),
-            const SizedBox(height: 24),
-          ],
-        ],
-      ],
+      children: _documentChildren(context, documentId),
     );
   }
+}
+
+/// Reading content can also be placed in the settings pane by the app router.
+class LegalDocumentBody extends StatelessWidget {
+  const LegalDocumentBody({required this.documentId, super.key});
+  final String documentId;
+  @override
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: _documentChildren(context, documentId),
+      );
+}
+
+List<Widget> _documentChildren(BuildContext context, String documentId) {
+  final document = legalDocumentFallbacks[documentId];
+  return [
+    if (document == null)
+      const StateView(message: 'Legal page not found')
+    else ...[
+      Text(
+        'Updated ${DateFormat.yMMMd().format(document.updatedAt)}',
+        style: context.type.footnote,
+      ),
+      const SizedBox(height: 24),
+      for (final section in document.sections) ...[
+        Text(section.heading, style: context.type.emphasized),
+        const SizedBox(height: 8),
+        Text(section.body, style: context.type.body),
+        const SizedBox(height: 24),
+      ],
+    ],
+  ];
 }

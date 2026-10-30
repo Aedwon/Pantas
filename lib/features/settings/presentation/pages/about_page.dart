@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/settings/presentation/feedback_intent.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -41,8 +41,9 @@ class AboutPage extends ConsumerWidget {
       if (router != null) unawaited(router.push<void>(path));
     }
 
-    return PantasPage(
-      title: '',
+    return SettingsPanePage(
+      section: 'About',
+      title: context.wideWeb ? 'About' : '',
       backLabel: 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
@@ -59,28 +60,28 @@ class AboutPage extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           header: 'Legal',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Privacy policy',
               divider: true,
               onTap: () => push('/legal/privacy'),
             ),
-            ListRow(
+            SettingsRow(
               title: 'Terms of service',
               onTap: () => push('/legal/terms'),
             ),
           ],
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           header: 'Your data',
           footer: 'Help improve the app shares anonymous usage data. Crash '
               'reports are always sent. Contacting the officer opens your '
               'mail app.',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Help improve the app',
               variant: ListRowVariant.switchControl,
               selected: settings.helpImproveApp,
@@ -92,7 +93,7 @@ class AboutPage extends ConsumerWidget {
               ),
             ),
             if (!context.wideWeb && sharedLinksRow != null) sharedLinksRow!,
-            ListRow(
+            SettingsRow(
               title: 'Contact our data protection officer',
               onTap: () => unawaited(
                 openDpoMail(
@@ -111,10 +112,10 @@ class AboutPage extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: 24),
-        GroupedSection(
+        SettingsSection(
           header: 'Get in touch',
           children: [
-            ListRow(
+            SettingsRow(
               title: 'Send feedback',
               value: 'Facebook group',
               onTap: () => unawaited(
@@ -128,11 +129,14 @@ class AboutPage extends ConsumerWidget {
         ),
         if (debugEnabled) ...[
           const SizedBox(height: 24),
-          GroupedSection(
+          SettingsSection(
             header: 'Debug',
             children: [
-              ListRow(title: 'Debug', onTap: () => push('/settings/_debug')),
-              ListRow(
+              SettingsRow(
+                title: 'Debug',
+                onTap: () => push('/settings/_debug'),
+              ),
+              SettingsRow(
                 title: 'Component gallery',
                 onTap: () => push('/settings/_gallery'),
               ),

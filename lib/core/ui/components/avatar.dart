@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({this.name = '', this.photo, super.key});
@@ -16,6 +18,7 @@ class Avatar extends StatelessWidget {
             initial.runes.contains(0xFE0F) ||
             initial.runes.contains(0x20E3));
     final c = context.colors;
+    final wide = context.wideWeb;
     final plain = !emoji && !_letter.hasMatch(initial);
     final fallback = plain
         ? Icon(PantasIcons.profile, size: 30, color: c.secondaryLabel)
@@ -24,8 +27,8 @@ class Avatar extends StatelessWidget {
             child: Text(
               emoji ? initial : initial.toUpperCase(),
               style: context.type.emphasized.copyWith(
-                fontSize: 25,
-                color: c.onAccent,
+                fontSize: wide ? 19 : 25,
+                color: wide ? context.webTokens.tintText : c.onAccent,
                 letterSpacing: -.3,
               ),
             ),
@@ -35,11 +38,11 @@ class Avatar extends StatelessWidget {
       excludeSemantics: true,
       child: ClipOval(
         child: Container(
-          width: 58,
-          height: 58,
+          width: wide ? 44 : 58,
+          height: wide ? 44 : 58,
           color: plain
               ? c.fill
-              : emoji
+              : emoji || wide
                   ? c.accentTint
                   : c.accentFill,
           alignment: Alignment.center,
@@ -47,8 +50,8 @@ class Avatar extends StatelessWidget {
               ? fallback
               : Image(
                   image: photo!,
-                  width: 58,
-                  height: 58,
+                  width: wide ? 44 : 58,
+                  height: wide ? 44 : 58,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) => fallback,
                 ),

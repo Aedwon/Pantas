@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -17,6 +18,9 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum ExamPickerMode { onboarding, settings }
 
@@ -173,6 +177,182 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ? ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id
         : null;
     final selected = _selectedId ?? active;
+    if (_settings && context.wideWeb) {
+      final t = context.webTokens;
+      return CallbackShortcuts(
+        bindings: {
+          const SingleActivator(LogicalKeyboardKey.escape): _back,
+        },
+        child: Focus(
+          autofocus: true,
+          child: Material(
+            color: t.colors.surface,
+            borderRadius: BorderRadius.circular(22),
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              key: const ValueKey('settings-picker-content'),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 18, 20, 14),
+                  child: Row(
+                    children: [
+                      Expanded(child: Text('Exam', style: t.h3)),
+                      const WebKeyHint('Esc'),
+                      IconButton(
+                        onPressed: _saving ? null : _back,
+                        tooltip: 'Close',
+                        icon: const Icon(Icons.close),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 14),
+                  child: SearchField(
+                    hint: 'Search exams',
+                    onChanged: (value) =>
+                        setState(() => _query = value.trim().toLowerCase()),
+                  ),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
+                    child: catalog.when(
+                      loading: () => loadingFor(catalog),
+                      error: (error, _) => errorFor(
+                        'exams',
+                        () => ref.invalidate(examPickerCatalogProvider),
+                        error: error,
+                      ),
+                      data: (all) {
+                        final visible = all
+                            .where(
+                              (entry) => '${entry.name} ${entry.shortName} '
+                                      '${_organizations[entry.id] ?? ''}'
+                                  .toLowerCase()
+                                  .contains(_query),
+                            )
+                            .toList();
+                        if (all.isEmpty) {
+                          return StateView(
+                            message: 'No exams available right now.',
+                            detail: 'Check back soon, or set up your own exam.',
+                            actionLabel: 'Set Up My Own Exam',
+                            onRetry: _custom,
+                          );
+                        }
+                        return LayoutBuilder(
+                          builder: (context, constraints) => Wrap(
+                            spacing: 8,
+                            runSpacing: 14,
+                            children: [
+                              for (final group in _groups)
+                                if (visible.any(
+                                  (entry) => entry.group == group.$1,
+                                ))
+                                  SizedBox(
+                                    width: (constraints.maxWidth - 8) / 2,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                            12,
+                                            0,
+                                            12,
+                                            4,
+                                          ),
+                                          child: Text(
+                                            group.$3.toUpperCase(),
+                                            style: t.eb,
+                                          ),
+                                        ),
+                                        for (final entry in visible.where(
+                                          (entry) => entry.group == group.$1,
+                                        ))
+                                          WebRow(
+                                            key: ValueKey(
+                                              'exam-${entry.id}',
+                                            ),
+                                            title: entry.shortName,
+                                            titleStyle: t.style(
+                                              16,
+                                              weight: selected == entry.id
+                                                  ? FontWeight.w600
+                                                  : FontWeight.w400,
+                                            ),
+                                            subtitle:
+                                                _organizations[entry.id] ??
+                                                    entry.name,
+                                            horizontalPadding: 12,
+                                            compact: true,
+                                            divider: false,
+                                            selected: selected == entry.id,
+                                            dimmed: !widget.selectable(entry),
+                                            trailing: !widget.selectable(entry)
+                                                ? Text(
+                                                    'Coming soon',
+                                                    style: t.sm,
+                                                  )
+                                                : selected == entry.id
+                                                    ? Icon(
+                                                        Icons.check,
+                                                        size: 18,
+                                                        color: t.colors.accent,
+                                                      )
+                                                    : null,
+                                            onPressed: _saving
+                                                ? null
+                                                : () => _pick(entry, active),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                if (_saving)
+                  const Padding(
+                    padding: EdgeInsets.all(20),
+                    child: WebButton(label: 'Rebuilding your plan', busy: true),
+                  ),
+                if (_failed) saveFailureLine(_save),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    spacing: 16,
+                    runSpacing: 12,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      WebButton(
+                        label: "My exam isn't listed",
+                        variant: WebButtonVariant.tertiary,
+                        onPressed: _saving ? null : _custom,
+                      ),
+                      SizedBox(
+                        width: 380,
+                        child: Text(
+                          "Exams not out yet are gray and can't be picked.",
+                          textAlign: TextAlign.right,
+                          style: t.sm,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     final custom = GroupedSection(
       children: [
         ListRow(

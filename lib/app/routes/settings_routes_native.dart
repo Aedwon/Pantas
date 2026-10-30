@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
@@ -35,6 +36,7 @@ import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 List<RouteBase> settingsRoutes(Ref ref) => [
@@ -142,10 +144,24 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/legal/:doc',
-        builder: (_, state) => LegalDocumentPage(
-          documentId: state.pathParameters['doc']!,
-          contact: ref.watch(legalContactProvider),
-        ),
+        builder: (context, state) {
+          final id = state.pathParameters['doc']!;
+          if (!context.wideWeb) {
+            return LegalDocumentPage(
+              documentId: id,
+              contact: ref.watch(legalContactProvider),
+            );
+          }
+          return SettingsPanePage(
+            section: 'About',
+            title: id == 'privacy'
+                ? 'Privacy policy'
+                : legalDocumentFallbacks[id]?.title ?? 'Legal',
+            backLabel: 'About',
+            onBack: () => Navigator.of(context).maybePop(),
+            children: [LegalDocumentBody(documentId: id)],
+          );
+        },
       ),
     ];
 
@@ -181,78 +197,102 @@ Future<void> _deleteAccount(WidgetRef ref, {required bool isAnonymous}) async {
 class ChangeExamPage extends ConsumerWidget {
   const ChangeExamPage({super.key});
   @override
-  Widget build(BuildContext context, WidgetRef ref) => ExamPickerScreen(
-        mode: ExamPickerMode.settings,
-        onPicked: (examId) async {
-          final publish =
-              await ref.read(studySettingsCaptureProvider)(examId: examId);
-          var targetSaved = false;
-          Future<void> saveTarget() async {
-            if (targetSaved) return;
-            await publish.apply(
-              () => ref
-                  .read(appPreferencesRepositoryProvider)
-                  .setSelectedExamId(examId),
-            );
-            targetSaved = true;
-          }
-
-          final focus = await ref.read(activeExamFocusProvider.future);
-          final catalog = ref.read(examPickerCatalogProvider).valueOrNull;
-          final from =
-              catalog?.where((e) => e.id == focus.exam?.id).firstOrNull;
-          final to = catalog?.where((e) => e.id == examId).firstOrNull;
-          if (from != null && to != null) {
-            final entitlement = await ref.read(entitlementProvider.future);
-            final outcome = switchOutcome(from, to, entitlement);
-            if (!context.mounted) return;
-            if (outcome.kind == SwitchKind.passWarning) {
-              final ends = entitlement.passes[from.id]!;
-              final confirmed = await showDialog<bool>(
-                context: context,
-                builder: (dialogContext) => CenteredDialog(
-                  title: 'Your pass stays with ${from.shortName}',
-                  inlineActions: true,
-                  message: 'On ${to.shortName} you’ll be on Free. '
-                      'Switch back any time before '
-                      '${DateFormat.yMMMd().format(ends.toLocal())} '
-                      'and your pass is still there.',
-                  primaryLabel: 'Switch',
-                  secondaryLabel: 'Cancel',
-                  onConfirm: () => Navigator.of(dialogContext).pop(true),
-                  onCancel: () => Navigator.of(dialogContext).pop(false),
-                ),
-              );
-              if (confirmed != true) return;
-            }
-            if (outcome.kind == SwitchKind.upgradeOffer) {
-              if (!context.mounted) return;
-              final proceed = await context.push<bool>(
-                Uri(
-                  path: '/settings/exam/upgrade',
-                  queryParameters: {
-                    'target': to.id,
-                    'from': from.shortName,
-                  },
-                ).toString(),
-              );
-              if (proceed != true || !context.mounted) return;
-            }
-          }
-          await saveTarget();
-          final count = await ref.read(carryableCountProvider(examId).future);
-          final exams = await ref.read(examListProvider.future);
-          if (!context.mounted) return;
-          final route = ModalRoute.of(context);
-          Navigator.of(context).pop(
-            ExamChangeResult(
-              examShortName: exams.firstWhere((e) => e.id == examId).shortName,
-              carryableCount: count,
-              routeSettled: route?.completed ?? Future<void>.value(),
-            ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final picker = ExamPickerScreen(
+      mode: ExamPickerMode.settings,
+      onPicked: (examId) async {
+        final publish =
+            await ref.read(studySettingsCaptureProvider)(examId: examId);
+        var targetSaved = false;
+        Future<void> saveTarget() async {
+          if (targetSaved) return;
+          await publish.apply(
+            () => ref
+                .read(appPreferencesRepositoryProvider)
+                .setSelectedExamId(examId),
           );
-        },
-      );
+          targetSaved = true;
+        }
+
+        final focus = await ref.read(activeExamFocusProvider.future);
+        final catalog = ref.read(examPickerCatalogProvider).valueOrNull;
+        final from = catalog?.where((e) => e.id == focus.exam?.id).firstOrNull;
+        final to = catalog?.where((e) => e.id == examId).firstOrNull;
+        if (from != null && to != null) {
+          final entitlement = await ref.read(entitlementProvider.future);
+          final outcome = switchOutcome(from, to, entitlement);
+          if (!context.mounted) return;
+          if (outcome.kind == SwitchKind.passWarning) {
+            final ends = entitlement.passes[from.id]!;
+            final confirmed = await showDialog<bool>(
+              context: context,
+              builder: (dialogContext) => CenteredDialog(
+                title: 'Your pass stays with ${from.shortName}',
+                inlineActions: true,
+                message: 'On ${to.shortName} you’ll be on Free. '
+                    'Switch back any time before '
+                    '${DateFormat.yMMMd().format(ends.toLocal())} '
+                    'and your pass is still there.',
+                primaryLabel: 'Switch',
+                secondaryLabel: 'Cancel',
+                onConfirm: () => Navigator.of(dialogContext).pop(true),
+                onCancel: () => Navigator.of(dialogContext).pop(false),
+              ),
+            );
+            if (confirmed != true) return;
+          }
+          if (outcome.kind == SwitchKind.upgradeOffer) {
+            if (!context.mounted) return;
+            final proceed = await context.push<bool>(
+              Uri(
+                path: '/settings/exam/upgrade',
+                queryParameters: {
+                  'target': to.id,
+                  'from': from.shortName,
+                },
+              ).toString(),
+            );
+            if (proceed != true || !context.mounted) return;
+          }
+        }
+        await saveTarget();
+        final count = await ref.read(carryableCountProvider(examId).future);
+        final exams = await ref.read(examListProvider.future);
+        if (!context.mounted) return;
+        final route = ModalRoute.of(context);
+        Navigator.of(context).pop(
+          ExamChangeResult(
+            examShortName: exams.firstWhere((e) => e.id == examId).shortName,
+            carryableCount: count,
+            routeSettled: route?.completed ?? Future<void>.value(),
+          ),
+        );
+      },
+    );
+    if (!context.wideWeb) return picker;
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        const ExamPage(),
+        ModalBarrier(
+          color: const Color(0x521D1D1F),
+          onDismiss: () => Navigator.of(context).maybePop(),
+        ),
+        Center(
+          child: Dialog(
+            insetPadding: const EdgeInsets.all(24),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child: SizedBox(
+              width: 820,
+              height: (MediaQuery.sizeOf(context).height - 48).clamp(0, 760),
+              child: picker,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 GoRoute settingsCarryOverRoute() => GoRoute(
