@@ -91,7 +91,7 @@ questions:
     explanation: |
       "Kinain" puts the object that was eaten in focus. "Ang mangga" names that object, so the verb has object focus.
     approved: true
-  - id: "q-grammar-and-structure-tenses-and-voice-0012"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001"
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -113,7 +113,7 @@ questions:
       "Naglinis" shows that the cleaning is finished. It is perpektibo.
       "Naglilinis" would show cleaning that continues or happens regularly.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0013"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002"
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -135,7 +135,7 @@ questions:
       "Kadarating lang" means the documents have just arrived.
       The action is perpektibong katatapos, not still ongoing.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0014"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003"
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -157,7 +157,7 @@ questions:
       "Si Rosa" is the topic. Rosa does the cooking, so the focus is
       tagaganap. The visitors benefit, but they are not the topic.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0015"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004"
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -179,7 +179,7 @@ questions:
       Imperpektibo can show a repeated action. "Tuwing Sabado" gives
       the schedule. It does not mean they must be cleaning as we speak.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0016"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005"
     type: "correct-usage"
     difficulty: "medium"
     stem: |
@@ -201,7 +201,7 @@ questions:
       "Bukas" can come at the end. Keeping "magsusumite" and "bukas"
       keeps the planned action and its time the same.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0017"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006"
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -223,7 +223,7 @@ questions:
       "Ang mga bata" is the topic. The cook makes food for them.
       This is focus on tagatanggap. The cook is the doer, but not the topic.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0018"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0007"
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -245,7 +245,7 @@ questions:
       "Ang lapis" is the topic. Teresa uses the pencil to write.
       The focus is kagamitan because the topic is the tool.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0019"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0008"
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -267,7 +267,7 @@ questions:
       "Ang balita" is the topic. The news causes the workers' joy.
       This is focus on sanhi. Mentioning an office does not make it ganapan.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0020"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009"
     type: "correct-usage"
     difficulty: "medium"
     stem: |
@@ -290,7 +290,7 @@ questions:
       In the "kumain" group, repeat "ka" and leave out "-um-" to get
       "kakain." The "maglinis" group uses a different pattern.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0021"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010"
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -312,7 +312,7 @@ questions:
       Luis was still writing when the head arrived. "Nagsusulat" is
       imperpektibo. An action can be ongoing at a moment in the past.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0022"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011"
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -334,7 +334,7 @@ questions:
       "Naglinis" presents finished work. "Kalilinis lang" adds that
       the work has just ended. Completion alone does not mean recent completion.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0023"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012"
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -358,7 +358,7 @@ questions:
       In the second, the yard is the destination. A place name alone
       cannot tell us which focus applies.
     approved: false
-  - id: "q-grammar-and-structure-tenses-and-voice-0024"
+  - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0013"
     type: "correct-usage"
     difficulty: "hard"
     stem: |

@@ -126,7 +126,7 @@ questions:
   explanation: 'Article III prohibits cruel, degrading, or inhuman punishment. The protection concerns the nature of the punishment.
 
     '
-- id: q-philippine-constitution-bill-of-rights-0020
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001
   type: single_choice
   difficulty: exam
   approved: false
@@ -151,7 +151,7 @@ questions:
   explanation: 'Section 18 bars detention solely for political beliefs and aspirations. It prohibits involuntary servitude except as punishment after due conviction for a crime.
 
     '
-- id: q-philippine-constitution-bill-of-rights-0021
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0002
   type: single_choice
   difficulty: easy
   stem: |
@@ -177,7 +177,7 @@ questions:
     The court can then check the legal basis for detention. Parole serves
     a different purpose and follows service of part of a sentence.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0022
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0003
   type: single_choice
   difficulty: easy
   stem: |
@@ -203,7 +203,7 @@ questions:
     rights violations. A court decides criminal guilt. An investigation
     does not itself convict the officers.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0023
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0004
   type: single_choice
   difficulty: medium
   stem: |
@@ -231,7 +231,7 @@ questions:
     names require reclusion perpetua. Other penalty names require life
     imprisonment.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0024
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005
   type: single_choice
   difficulty: medium
   stem: |
@@ -258,7 +258,7 @@ questions:
     perpetua by reason of the Act. The sentence reduction does not create
     parole eligibility.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0025
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006
   type: single_choice
   difficulty: medium
   stem: |
@@ -285,7 +285,7 @@ questions:
     a valid loan. The lender may use lawful remedies that do not imprison
     the borrower solely for nonpayment.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0026
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0007
   type: single_choice
   difficulty: medium
   stem: |
@@ -313,7 +313,7 @@ questions:
     general rule requires a valid charge, a court with authority,
     arraignment, a valid plea, and a protected end to the case.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0027
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0008
   type: single_choice
   difficulty: hard
   stem: |
@@ -341,7 +341,7 @@ questions:
     acquittal therefore bars a homicide trial for the same killing under
     these facts. Changing the charge's name does not remove the bar.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0028
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0009
   type: single_choice
   difficulty: hard
   stem: |
@@ -368,7 +368,7 @@ questions:
     acquittal under either bars prosecution under the other. The rule
     applies even though one measure is national and the other is local.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0029
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0010
   type: single_choice
   difficulty: hard
   stem: |
@@ -396,7 +396,7 @@ questions:
     conviction. Rule 117 recognizes an exception for this situation.
     The first conviction does not automatically bar the later case.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0030
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0011
   type: single_choice
   difficulty: hard
   stem: |
@@ -424,7 +424,7 @@ questions:
     earlier offense. The penalty need not increase. The harmful backward
     change in proof is enough to raise this prohibition.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0031
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0012
   type: single_choice
   difficulty: exam
   stem: |
@@ -452,7 +452,7 @@ questions:
     stated facts show neither an acquittal for insufficient evidence nor
     a speedy-trial violation. The dismissal alone does not bar another case.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0032
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013
   type: single_choice
   difficulty: exam
   stem: |
@@ -481,7 +481,7 @@ questions:
     the demurrer. That ruling is an acquittal. The accused's request does
     not permit a second prosecution for the same offense under these facts.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0033
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014
   type: single_choice
   difficulty: exam
   stem: |
@@ -510,7 +510,7 @@ questions:
     exception to the usual rule on requested dismissals. The accused's
     request does not remove double-jeopardy protection under these facts.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0034
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015
   type: single_choice
   difficulty: exam
   stem: |

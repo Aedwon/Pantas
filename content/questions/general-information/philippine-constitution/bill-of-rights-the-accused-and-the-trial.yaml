@@ -78,7 +78,7 @@ questions:
   explanation: 'Section 17 says no person shall be compelled to be a witness against themselves.
 
     '
-- id: q-philippine-constitution-bill-of-rights-0019
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001
   type: single_choice
   difficulty: hard
   approved: false
@@ -103,7 +103,7 @@ questions:
   explanation: 'Section 16 covers cases before judicial, quasi-judicial, and administrative bodies.
 
     '
-- id: q-philippine-constitution-bill-of-rights-0020
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0002
   type: single_choice
   difficulty: easy
   stem: |
@@ -128,7 +128,7 @@ questions:
     The accused must know the crime charged and the acts behind it. This
     information helps the accused prepare a defense.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0021
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0003
   type: single_choice
   difficulty: easy
   stem: |
@@ -154,7 +154,7 @@ questions:
     The accused must have a chance to answer the charge personally and
     through a lawyer. Hearing only the prosecution denies that chance.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0022
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0004
   type: single_choice
   difficulty: easy
   stem: |
@@ -180,7 +180,7 @@ questions:
     Compulsory process lets the defense use court orders to obtain needed
     witnesses and evidence. A witness need not be willing to attend.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0023
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0005
   type: single_choice
   difficulty: medium
   stem: |
@@ -206,7 +206,7 @@ questions:
     may apply. Closing a hearing without a valid legal reason raises a
     public-trial issue.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0024
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0006
   type: single_choice
   difficulty: medium
   stem: |
@@ -232,7 +232,7 @@ questions:
     An impartial judge does not favor either side. A hearing can be public
     and prompt while still failing this requirement.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0025
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0007
   type: single_choice
   difficulty: medium
   stem: |
@@ -258,7 +258,7 @@ questions:
     Meeting witnesses face to face lets the defense question them and test
     their statements. Merely listening does not provide that chance.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0026
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008
   type: single_choice
   difficulty: medium
   stem: |
@@ -284,7 +284,7 @@ questions:
     The rule requires proper notice as well as arraignment and an
     unjustified absence. Missing notice prevents reliance on this rule.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0027
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0009
   type: single_choice
   difficulty: medium
   stem: |
@@ -310,7 +310,7 @@ questions:
     All the conditions for trial in the accused's absence are present.
     The trial may proceed. The prosecution still has to prove guilt.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0028
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0010
   type: single_choice
   difficulty: hard
   stem: |
@@ -337,7 +337,7 @@ questions:
     Rebellion alone is not enough. Public safety must also require
     suspension. Reducing paperwork does not meet that requirement.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0029
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0011
   type: single_choice
   difficulty: hard
   stem: |
@@ -364,7 +364,7 @@ questions:
     Suspension requires invasion or rebellion and a public-safety need.
     A storm emergency alone does not satisfy this rule.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0030
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0012
   type: single_choice
   difficulty: hard
   stem: |
@@ -389,7 +389,7 @@ questions:
     A speedy-trial claim depends on the circumstances. Check how long the
     delay lasted, why it happened, requests to proceed, and harm caused.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0031
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0013
   type: single_choice
   difficulty: hard
   stem: |
@@ -415,7 +415,7 @@ questions:
     Speedy trial concerns criminal trials. Speedy disposition is broader.
     It also protects cases before administrative and quasi-judicial bodies.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0032
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0014
   type: single_choice
   difficulty: exam
   stem: |
@@ -442,7 +442,7 @@ questions:
     The described body acts as a quasi-judicial body. Speedy disposition
     applies to its cases. The delay still needs assessment on its facts.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0033
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015
   type: single_choice
   difficulty: exam
   stem: |
@@ -469,7 +469,7 @@ questions:
     A person need not be on criminal trial to have this protection. The
     forced answer could show the witness's own guilt, so it is protected.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0034
+- id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0016
   type: single_choice
   difficulty: exam
   stem: |

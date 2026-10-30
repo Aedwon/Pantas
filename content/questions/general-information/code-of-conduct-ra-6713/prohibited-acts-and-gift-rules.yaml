@@ -248,7 +248,7 @@ questions:
   explanation: 'The employee uses confidential information learned through office to give someone an undue advantage. Section 7(c) prohibits that use.
 
     '
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001
   type: single_choice
   difficulty: hard
   approved: false
@@ -273,7 +273,7 @@ questions:
   explanation: 'The future employment creates a private financial interest in the company''s transaction. Section 7(a) bars direct or indirect financial or material interest in a transaction requiring the office''s approval.
 
     '
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0002
   type: single_choice
   difficulty: exam
   approved: false
@@ -298,7 +298,7 @@ questions:
   explanation: 'For one year after separation, the professional cannot practice in connection with any matter before the former office. The place of the matter is the key condition.
 
     '
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003
   type: single_choice
   difficulty: exam
   approved: false
@@ -323,7 +323,7 @@ questions:
   explanation: 'The Act requires authority under the Constitution or law. The implementing rules also refer to authority under regulation. The practice must also not conflict or tend to conflict with official functions. Both authority and absence of conflict are needed.
 
     '
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0004
   type: single_choice
   difficulty: easy
   stem: |
@@ -350,7 +350,7 @@ questions:
     company for a personal benefit. The company's refusal does not make that
     request proper.
   approved: false
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0005
   type: single_choice
   difficulty: easy
   stem: |
@@ -377,7 +377,7 @@ questions:
     fellowship grants are listed separately. They do not have to be treated
     as nominal courtesy souvenirs.
   approved: false
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0006
   type: single_choice
   difficulty: medium
   stem: |
@@ -404,7 +404,7 @@ questions:
     expressly includes this relative. The family celebration and lack of
     expected financial benefit meet the stated gift conditions.
   approved: false
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0007
   type: single_choice
   difficulty: medium
   stem: |
@@ -432,7 +432,7 @@ questions:
     duties. This referral meets that condition. A pending transaction alone
     does not defeat this exception.
   approved: false
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008
   type: single_choice
   difficulty: hard
   stem: |
@@ -460,7 +460,7 @@ questions:
     transaction. The planned application is an expected transaction.
     Small value and lack of expected financial benefit do not remove that condition.
   approved: false
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0009
   type: single_choice
   difficulty: hard
   stem: |
@@ -488,7 +488,7 @@ questions:
     listed exception. The equipment belongs to the receiving agency, not
     to the officer who accepts it.
   approved: false
-- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0010
   type: single_choice
   difficulty: exam
   stem: |

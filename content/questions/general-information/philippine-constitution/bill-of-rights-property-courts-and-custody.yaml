@@ -128,7 +128,7 @@ questions:
   explanation: 'Section 11 protects court and quasi-judicial access and adequate legal assistance from denial by reason of poverty.
 
     '
-- id: q-philippine-constitution-bill-of-rights-0018
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0001
   type: single_choice
   difficulty: easy
   stem: |
@@ -149,7 +149,7 @@ questions:
     Just compensation means the full and fair value of the property taken.
     The benefit of a public project does not remove the duty to pay.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0019
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0002
   type: single_choice
   difficulty: easy
   stem: |
@@ -170,7 +170,7 @@ questions:
     Sureties guarantee the accused person's appearance as required.
     Bail allows release from custody. It does not decide the case.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0020
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0003
   type: single_choice
   difficulty: easy
   stem: |
@@ -191,7 +191,7 @@ questions:
     This is release on recognizance. It uses a lawful undertaking instead
     of a bail bond and must be allowed by law. It does not decide guilt.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0021
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0004
   type: single_choice
   difficulty: medium
   stem: |
@@ -212,7 +212,7 @@ questions:
     A government body that hears facts and decides disputes outside the
     courts is quasi-judicial. Poverty cannot be the reason to deny access.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0022
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0005
   type: single_choice
   difficulty: medium
   stem: |
@@ -233,7 +233,7 @@ questions:
     Permission to file does not settle whether needed legal help was given.
     Poverty cannot be the reason to deny adequate legal assistance.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0023
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0006
   type: single_choice
   difficulty: medium
   stem: |
@@ -254,7 +254,7 @@ questions:
     Custodial investigation includes questioning a suspect whose freedom
     is significantly restricted. A formal arrest label is not required.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0024
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0007
   type: single_choice
   difficulty: medium
   stem: |
@@ -275,7 +275,7 @@ questions:
     Counsel must be competent and independent. A lawyer must protect the
     suspect's interests and be free from the investigators' control.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0025
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0008
   type: single_choice
   difficulty: medium
   stem: |
@@ -296,7 +296,7 @@ questions:
     A waiver must be in writing and made in counsel's presence.
     An oral agreement fails the writing requirement even if a lawyer is there.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0026
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0009
   type: single_choice
   difficulty: medium
   stem: |
@@ -317,7 +317,7 @@ questions:
     The ban covers secret detention and detention that cuts off communication.
     Physical violence is not required for these forms of detention to be prohibited.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0027
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0010
   type: single_choice
   difficulty: hard
   stem: |
@@ -338,7 +338,7 @@ questions:
     A law affecting a contract is not automatically invalid.
     Its effect on the agreed duties and its public-welfare basis must be checked.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0028
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0011
   type: single_choice
   difficulty: hard
   stem: |
@@ -359,7 +359,7 @@ questions:
     The rule requires just compensation for private property taken for public use.
     A rule affecting property does not by itself establish such a taking.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0029
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0012
   type: single_choice
   difficulty: hard
   stem: |
@@ -380,7 +380,7 @@ questions:
     A confession admits guilt. An admission may acknowledge only a helpful fact.
     Neither may be used against the person when obtained through prohibited threats.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0030
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0013
   type: single_choice
   difficulty: hard
   stem: |
@@ -401,7 +401,7 @@ questions:
     Forced testimony need not admit the whole offense to help prove guilt.
     The protection covers being compelled to give testimony against oneself.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0031
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0014
   type: single_choice
   difficulty: exam
   stem: |
@@ -422,7 +422,7 @@ questions:
     Both conditions must be present for the stated exception to apply.
     The penalty alone is not enough. Bail does not decide the accused person's guilt.
   approved: false
-- id: q-philippine-constitution-bill-of-rights-0032
+- id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0015
   type: single_choice
   difficulty: exam
   stem: |

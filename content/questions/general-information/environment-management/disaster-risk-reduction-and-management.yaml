@@ -129,7 +129,7 @@ questions:
   explanation: 'Long-term rebuilding of damaged services belongs to rehabilitation and recovery. Early recovery can also restore essential services during response.
 
     '
-- id: q-environment-management-environmental-concepts-0022
+- id: q-environment-management-disaster-risk-reduction-and-management-0001
   type: single_choice
   difficulty: exam
   approved: false
@@ -154,7 +154,7 @@ questions:
   explanation: 'The framework includes prevention and mitigation, preparedness, response, and recovery. Rescue and rebuilding alone leave the pre-disaster phases uncovered.
 
     '
-- id: q-environment-management-environmental-concepts-0023
+- id: q-environment-management-disaster-risk-reduction-and-management-0002
   type: single_choice
   difficulty: easy
   stem: |
@@ -179,7 +179,7 @@ questions:
     Storing supplies before an emergency is preparedness. Giving those supplies
     to people during the emergency is response.
   approved: false
-- id: q-environment-management-environmental-concepts-0024
+- id: q-environment-management-disaster-risk-reduction-and-management-0003
   type: single_choice
   difficulty: easy
   stem: |
@@ -204,7 +204,7 @@ questions:
     First aid during a disaster meets an urgent medical need. It is response.
     Helping people restart work after the emergency is recovery.
   approved: false
-- id: q-environment-management-environmental-concepts-0025
+- id: q-environment-management-disaster-risk-reduction-and-management-0004
   type: single_choice
   difficulty: easy
   stem: |
@@ -229,7 +229,7 @@ questions:
     Recovery includes helping people earn a living again after a disaster.
     Emergency relief meets their immediate needs during response.
   approved: false
-- id: q-environment-management-environmental-concepts-0026
+- id: q-environment-management-disaster-risk-reduction-and-management-0005
   type: single_choice
   difficulty: medium
   stem: |
@@ -251,7 +251,7 @@ questions:
     Safer land-use rules can keep new homes away from danger. This reduces
     exposure. Training residents would build preparedness instead.
   approved: false
-- id: q-environment-management-environmental-concepts-0027
+- id: q-environment-management-disaster-risk-reduction-and-management-0006
   type: single_choice
   difficulty: medium
   stem: |
@@ -273,7 +273,7 @@ questions:
     Warning systems help people prepare to act when danger threatens. They build
     readiness. They do not remove the flood hazard.
   approved: false
-- id: q-environment-management-environmental-concepts-0028
+- id: q-environment-management-disaster-risk-reduction-and-management-0007
   type: single_choice
   difficulty: medium
   stem: |
@@ -295,7 +295,7 @@ questions:
     Mitigation lowers the chance or size of harm. A hazard may still occur.
     Preparedness focuses on being ready to act.
   approved: false
-- id: q-environment-management-environmental-concepts-0029
+- id: q-environment-management-disaster-risk-reduction-and-management-0008
   type: single_choice
   difficulty: medium
   stem: |
@@ -317,7 +317,7 @@ questions:
     Recovery restores services and should make rebuilding safer. Emergency water
     deliveries help now, but do not repair the damaged system.
   approved: false
-- id: q-environment-management-environmental-concepts-0030
+- id: q-environment-management-disaster-risk-reduction-and-management-0009
   type: single_choice
   difficulty: hard
   stem: |
