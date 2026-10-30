@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -136,7 +137,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       }
       var first = progress.requireValue.resumeStep;
       if (first == OnboardingStep.welcome &&
-          !MediaQuery.disableAnimationsOf(context)) {
+          !MediaQuery.disableAnimationsOf(context) &&
+          !context.wideWeb) {
         first = OnboardingStep.launch;
       }
       if (first.index >= OnboardingStep.examDate.index &&

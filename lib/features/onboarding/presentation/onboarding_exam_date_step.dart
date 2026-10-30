@@ -10,10 +10,13 @@ import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_calendar.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class OnboardingExamDateStep extends ConsumerStatefulWidget {
@@ -130,19 +133,25 @@ class _OnboardingExamDateStepState
         : value.day == null
             ? ExamDate.inMonth(year: value.year, month: value.month!)
             : ExamDate.onDay(DateTime(value.year, value.month!, value.day!));
-    return PantasPage.onboarding(
+    return OnboardingWebPage(
       title: 'When is your exam?',
+      width: known == null ? 780 : 580,
       progress: 4,
       onBack: _back,
       bodyGap: known == null ? 18 : 22,
       detail: known == null
           ? 'Pick the month. Add the day if you know it.'
           : "Here's the date we have for this year's ${entry!.shortName}.",
-      bottom: Column(
-        mainAxisSize: MainAxisSize.min,
+      bottom: OnboardingActions(
+        leading: known == null
+            ? null
+            : Text(
+                'Is this your exam day?',
+                style: context.webTokens.style(17, weight: FontWeight.w600),
+              ),
         children: [
           if (_failed) saveFailureLine(() => _save(_retryDate)),
-          PantasButton(
+          OnboardingButton(
             label: known == null ? 'Continue' : "That's Right",
             busy: _saving,
             onPressed: !_loaded || _saving || (known == null && date == null)
@@ -150,9 +159,11 @@ class _OnboardingExamDateStepState
                 : () => _save(known == null ? date : ExamDate.onDay(known)),
           ),
           const SizedBox(height: 6),
-          PantasButton(
+          OnboardingButton(
             label: known == null ? "I don't know" : 'Different Date',
-            variant: PantasButtonVariant.tertiary,
+            variant: context.wideWeb && known != null
+                ? PantasButtonVariant.neutral
+                : PantasButtonVariant.tertiary,
             // Until the stored date has loaded, this would overwrite it unseen.
             onPressed: _saving || !_loaded
                 ? null
@@ -169,7 +180,7 @@ class _OnboardingExamDateStepState
           loadingFor(const AsyncLoading<void>())
         else if (known != null) ...[
           Container(
-            padding: const EdgeInsets.all(18),
+            padding: EdgeInsets.all(context.wideWeb ? 28 : 18),
             decoration: BoxDecoration(
               color: context.colors.surface,
               borderRadius: BorderRadius.circular(20),
@@ -177,8 +188,8 @@ class _OnboardingExamDateStepState
             child: Row(
               children: [
                 Container(
-                  width: 64,
-                  height: 68,
+                  width: context.wideWeb ? 84 : 64,
+                  height: context.wideWeb ? 84 : 68,
                   decoration: BoxDecoration(
                     border: Border.all(color: context.colors.label, width: 2),
                     borderRadius: BorderRadius.circular(14),
@@ -201,14 +212,22 @@ class _OnboardingExamDateStepState
                     ],
                   ),
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: context.wideWeb ? 24 : 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        DateFormat('EEEE, d MMMM y', 'en_US').format(known),
-                        style: context.type.emphasized,
+                        DateFormat(
+                          context.wideWeb
+                              ? 'EEEE, MMMM d, y'
+                              : 'EEEE, d MMMM y',
+                          'en_US',
+                        ).format(known),
+                        style: context.wideWeb
+                            ? context.webTokens
+                                .style(21, weight: FontWeight.w600)
+                            : context.type.emphasized,
                       ),
                       Text(
                         _daysFromToday(known.difference(_today).inDays),
@@ -221,21 +240,29 @@ class _OnboardingExamDateStepState
               ],
             ),
           ),
-          const SizedBox(height: 22),
-          Text(
-            'Is this your exam day?',
-            style: context.type.footnote
-                .copyWith(color: context.colors.secondaryLabel),
-          ),
+          if (!context.wideWeb) const SizedBox(height: 22),
+          if (!context.wideWeb)
+            Text(
+              'Is this your exam day?',
+              style: context.type.footnote
+                  .copyWith(color: context.colors.secondaryLabel),
+            ),
         ] else ...[
-          MonthFirstDatePicker.onboarding(
-            value: value,
-            today: _today,
-            dayNote: (day) =>
-                '${DateFormat('EEEE, d MMMM', 'en_US').format(day)}'
-                ' · ${_daysFromToday(day.difference(_today).inDays)}',
-            onChanged: (next) => setState(() => _value = next),
-          ),
+          if (context.wideWeb)
+            OnboardingWebCalendar(
+              value: value,
+              today: _today,
+              onChanged: (next) => setState(() => _value = next),
+            )
+          else
+            MonthFirstDatePicker.onboarding(
+              value: value,
+              today: _today,
+              dayNote: (day) =>
+                  '${DateFormat('EEEE, d MMMM', 'en_US').format(day)}'
+                  ' · ${_daysFromToday(day.difference(_today).inDays)}',
+              onChanged: (next) => setState(() => _value = next),
+            ),
         ],
       ],
     );

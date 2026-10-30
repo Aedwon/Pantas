@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 class CustomTrackNameStep extends StatefulWidget {
   const CustomTrackNameStep({
@@ -39,13 +38,13 @@ class _CustomTrackNameStepState extends State<CustomTrackNameStep> {
   }
 
   @override
-  Widget build(BuildContext context) => PantasPage.onboarding(
+  Widget build(BuildContext context) => OnboardingWebPage(
         title: 'What are you studying for?',
         detail: "Give it a name you'll recognize.",
         progress: 3,
         bodyGap: 24,
         onBack: widget.onBack ?? () => Navigator.of(context).maybePop(),
-        bottom: PantasButton(
+        bottom: OnboardingButton(
           label: 'Continue',
           onPressed: _controller.text.trim().isEmpty ? null : _next,
         ),

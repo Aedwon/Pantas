@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 enum ExamPickerMode { onboarding, settings }
 
@@ -177,6 +179,300 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ? ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id
         : null;
     final selected = _selectedId ?? active;
+    if (!_settings && context.wideWeb) {
+      final t = context.webTokens;
+      return CallbackShortcuts(
+        bindings: {
+          if (_selectedId != null && !_saving)
+            const SingleActivator(LogicalKeyboardKey.enter): _save,
+        },
+        child: Stack(
+          children: [
+            OnboardingWebPage(
+              title: 'Which exam are you taking?',
+              detail: 'You can change this later in Settings.',
+              progress: 3,
+              width: 820,
+              onBack: _back,
+              children: [
+                catalog.when(
+                  loading: () => const LoadingShapes(
+                    shapes: [
+                      LoadingShape(widthFraction: .48, height: 46),
+                      LoadingShape(widthFraction: .7, height: 34),
+                      LoadingShape(widthFraction: 1, height: 64),
+                      LoadingShape(widthFraction: 1, height: 64),
+                    ],
+                  ),
+                  error: (error, stack) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 80),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Could not load exams.',
+                          style: t.style(17, color: t.colors.secondaryLabel),
+                        ),
+                        const SizedBox(height: 16),
+                        WebButton(
+                          label: 'Retry',
+                          variant: WebButtonVariant.secondary,
+                          onPressed: () =>
+                              ref.invalidate(examPickerCatalogProvider),
+                        ),
+                      ],
+                    ),
+                  ),
+                  data: (all) {
+                    if (all.isEmpty) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 80),
+                        child: Column(
+                          children: [
+                            Text(
+                              'No exams available right now.',
+                              style: t.style(20, weight: FontWeight.w600),
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              'Check back soon, or set up your own exam.',
+                              style: t.sub,
+                            ),
+                            const SizedBox(height: 20),
+                            WebButton(
+                              label: 'Set Up My Own Exam',
+                              onPressed: _saving ? null : _custom,
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                    final visible = all
+                        .where(
+                          (entry) =>
+                              (_group == null || entry.group == _group) &&
+                              '${entry.name} ${entry.shortName} '
+                                      '${_organizations[entry.id] ?? ''}'
+                                  .toLowerCase()
+                                  .contains(_query),
+                        )
+                        .toList();
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        SearchField(
+                          hint: 'Search exams',
+                          onChanged: (value) => setState(
+                            () => _query = value.trim().toLowerCase(),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Wrap(
+                          spacing: 6,
+                          runSpacing: 6,
+                          children: [
+                            for (final group in [
+                              (null, 'All'),
+                              ..._groups.map((g) => (g.$1, g.$2)),
+                            ])
+                              TextButton(
+                                onPressed: () =>
+                                    setState(() => _group = group.$1),
+                                style: TextButton.styleFrom(
+                                  backgroundColor: _group == group.$1
+                                      ? t.colors.label
+                                      : t.colors.surface,
+                                  foregroundColor: _group == group.$1
+                                      ? t.colors.surface
+                                      : t.colors.secondaryLabel,
+                                  minimumSize: const Size(0, 34),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 14,
+                                  ),
+                                ),
+                                child: Text(group.$2),
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 24),
+                        WebCard(
+                          child: WebRow(
+                            title: "My exam isn't listed",
+                            subtitle: 'Set up your own and pick what it covers',
+                            titleColor: t.colors.accent,
+                            onPressed: _saving ? null : _custom,
+                            trailing: const Icon(Icons.chevron_right),
+                            divider: false,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        for (final group in _groups)
+                          if (visible
+                              .any((entry) => entry.group == group.$1)) ...[
+                            Text(group.$3.toUpperCase(), style: t.eb),
+                            const SizedBox(height: 8),
+                            LayoutBuilder(
+                              builder: (context, constraints) => Wrap(
+                                spacing: 10,
+                                runSpacing: 10,
+                                children: [
+                                  for (final entry in visible.where(
+                                    (entry) => entry.group == group.$1,
+                                  ))
+                                    SizedBox(
+                                      width: (constraints.maxWidth - 20) / 3,
+                                      child: Semantics(
+                                        selected: selected == entry.id,
+                                        child: Opacity(
+                                          opacity: widget.selectable(
+                                            entry,
+                                          )
+                                              ? 1
+                                              : .5,
+                                          child: WebCard(
+                                            radius: 14,
+                                            child: TextButton(
+                                              key: ValueKey(
+                                                'exam-${entry.id}',
+                                              ),
+                                              onPressed: _saving ||
+                                                      !widget.selectable(
+                                                        entry,
+                                                      )
+                                                  ? null
+                                                  : () => _pick(
+                                                        entry,
+                                                        active,
+                                                      ),
+                                              style: TextButton.styleFrom(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                  horizontal: 14,
+                                                  vertical: 12,
+                                                ),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    14,
+                                                  ),
+                                                  side: BorderSide(
+                                                    width: 2,
+                                                    color: selected == entry.id
+                                                        ? t.colors.accent
+                                                        : Colors.transparent,
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          entry.shortName,
+                                                          style: t.style(
+                                                            16,
+                                                            weight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          _organizations[
+                                                                  entry.id] ??
+                                                              entry.name,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: t.sm,
+                                                        ),
+                                                        if (!widget.selectable(
+                                                          entry,
+                                                        ))
+                                                          Text(
+                                                            'Coming soon',
+                                                            style: t.sm,
+                                                          ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  if (selected == entry.id)
+                                                    Icon(
+                                                      Icons.check_circle,
+                                                      color: t.colors.accent,
+                                                      size: 20,
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                          ],
+                      ],
+                    );
+                  },
+                ),
+                if (_failed) saveFailureLine(_save),
+                const SizedBox(height: 100),
+              ],
+            ),
+            if (!(catalog.hasValue && catalog.requireValue.isEmpty))
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Container(
+                  height: 84,
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  decoration: BoxDecoration(
+                    color: t.colors.surface,
+                    border: Border(
+                      top: BorderSide(color: t.colors.separator, width: .5),
+                    ),
+                  ),
+                  child: Center(
+                    child: SizedBox(
+                      width: 1084,
+                      child: Row(
+                        children: [
+                          if (selected != null)
+                            Expanded(
+                              child: Text(
+                                (catalog.valueOrNull ?? [])
+                                    .where((e) => e.id == selected)
+                                    .map(
+                                      (e) => '${e.shortName} · '
+                                          '${_organizations[e.id] ?? e.name}',
+                                    )
+                                    .join(),
+                                style: t.sub,
+                              ),
+                            )
+                          else
+                            const Spacer(),
+                          OnboardingButton(
+                            label: 'Continue',
+                            busy: _saving,
+                            onPressed:
+                                _selectedId == null || _saving ? null : _save,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      );
+    }
     if (_settings && context.wideWeb) {
       final t = context.webTokens;
       return CallbackShortcuts(

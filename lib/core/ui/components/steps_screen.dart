@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -78,7 +79,9 @@ class StepsScreen extends StatelessWidget {
     for (var i = 0; i < steps.length; i++) {
       rows.add(
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+          padding: context.wideWeb
+              ? const EdgeInsets.symmetric(vertical: 12)
+              : const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
           decoration: BoxDecoration(
             border: i < steps.length - 1
                 ? Border(
@@ -120,37 +123,68 @@ class StepsScreen extends StatelessWidget {
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(40),
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 520),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(title, style: t.h2),
-                  if (subtitle != null) ...[
-                    const SizedBox(height: 4),
-                    Text(
-                      subtitle!,
-                      style: t.style(
-                        17,
-                        height: 1.45,
-                        color: t.colors.secondaryLabel,
+              constraints: const BoxConstraints(maxWidth: 552),
+              child: WebCard(
+                padding: const EdgeInsets.fromLTRB(36, 36, 36, 32),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(title, style: t.style(28, weight: FontWeight.w700)),
+                    if (subtitle != null) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        subtitle!,
+                        style: t.style(
+                          17,
+                          height: 1.45,
+                          color: t.colors.secondaryLabel,
+                        ),
                       ),
-                    ),
-                  ],
-                  if (rows.isNotEmpty) ...[
-                    const SizedBox(height: 20),
-                    WebCard(
-                      child: Column(
+                    ],
+                    if (rows.isNotEmpty) ...[
+                      const SizedBox(height: 26),
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: rows,
                       ),
-                    ),
+                    ],
+                    if (buttonLabel != null) ...[
+                      const SizedBox(height: 26),
+                      CallbackShortcuts(
+                        bindings: {
+                          if (onContinue != null)
+                            const SingleActivator(LogicalKeyboardKey.enter):
+                                onContinue!,
+                        },
+                        child: Focus(
+                          autofocus: true,
+                          child: Row(
+                            children: [
+                              if (steps.isNotEmpty &&
+                                  steps.every(
+                                    (s) => s.state == WorkStepState.done,
+                                  ))
+                                Expanded(
+                                  child: Text(
+                                    'Everything is back.',
+                                    style: t.style(17, weight: FontWeight.w600),
+                                  ),
+                                )
+                              else
+                                const Spacer(),
+                              WebButton(
+                                label: buttonLabel!,
+                                onPressed: onContinue,
+                                keyHint: 'Enter',
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ],
-                  if (buttonLabel != null) ...[
-                    const SizedBox(height: 20),
-                    WebButton(label: buttonLabel!, onPressed: onContinue),
-                  ],
-                ],
+                ),
               ),
             ),
           ),

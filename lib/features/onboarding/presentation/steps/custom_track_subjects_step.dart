@@ -12,8 +12,9 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 final corpusSubjectsWithTopicsProvider =
     FutureProvider<Map<String, Set<TopicId>>>((ref) async {
@@ -131,7 +132,7 @@ class _CustomTrackSubjectsStepState
   @override
   Widget build(BuildContext context) {
     final subjects = ref.watch(corpusSubjectsWithTopicsProvider);
-    return PantasPage.onboarding(
+    return OnboardingWebPage(
       title: 'What does it cover?',
       detail: 'Tick the subjects your exam covers. '
           'You can choose exact topics later.',
@@ -146,11 +147,10 @@ class _CustomTrackSubjectsStepState
           Navigator.of(context).maybePop();
         }
       },
-      bottom: Column(
-        mainAxisSize: MainAxisSize.min,
+      bottom: OnboardingActions(
         children: [
           if (_failed) saveFailureLine(() => _save(subjects.requireValue)),
-          PantasButton(
+          OnboardingButton(
             label: 'Continue',
             busy: _creating,
             onPressed: _creating || _selected.isEmpty || !subjects.hasValue
@@ -167,20 +167,53 @@ class _CustomTrackSubjectsStepState
             () => ref.invalidate(corpusSubjectsWithTopicsProvider),
             error: error,
           ),
-          data: (map) => GroupedSection(
-            children: [
-              for (final name in map.keys)
-                ListRow.checkbox(
-                  title: name,
-                  selected: _selected.contains(name),
-                  onTap: _creating
-                      ? null
-                      : () => setState(() {
-                            if (!_selected.add(name)) _selected.remove(name);
-                          }),
+          data: (map) => context.wideWeb
+              ? LayoutBuilder(
+                  builder: (context, constraints) => Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      for (final name in map.keys)
+                        SizedBox(
+                          width: (constraints.maxWidth - 10) / 2,
+                          child: WebCard(
+                            child: Material(
+                              color: Colors.transparent,
+                              child: CheckboxListTile(
+                                title: Text(name),
+                                value: _selected.contains(name),
+                                controlAffinity:
+                                    ListTileControlAffinity.leading,
+                                onChanged: _creating
+                                    ? null
+                                    : (_) => setState(() {
+                                          if (!_selected.add(name)) {
+                                            _selected.remove(name);
+                                          }
+                                        }),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                )
+              : GroupedSection(
+                  children: [
+                    for (final name in map.keys)
+                      ListRow.checkbox(
+                        title: name,
+                        selected: _selected.contains(name),
+                        onTap: _creating
+                            ? null
+                            : () => setState(() {
+                                  if (!_selected.add(name)) {
+                                    _selected.remove(name);
+                                  }
+                                }),
+                      ),
+                  ],
                 ),
-            ],
-          ),
         ),
       ],
     );

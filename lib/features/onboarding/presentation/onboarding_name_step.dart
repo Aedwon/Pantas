@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
-import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class OnboardingNameStep extends ConsumerStatefulWidget {
@@ -71,7 +70,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
   }
 
   @override
-  Widget build(BuildContext context) => PantasPage.onboarding(
+  Widget build(BuildContext context) => OnboardingWebPage(
         title: 'What should we call you?',
         detail:
             "We'll use this to greet you across the app. A nickname is fine.",
@@ -80,11 +79,10 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
           _generation++;
           widget.onBack?.call();
         },
-        bottom: Column(
-          mainAxisSize: MainAxisSize.min,
+        bottom: OnboardingActions(
           children: [
             if (_failed) saveFailureLine(_save),
-            PantasButton(
+            OnboardingButton(
               label: 'Done',
               busy: _saving,
               onPressed:

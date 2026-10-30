@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The Name and custom-exam input drawn by O_Name and O_Custom.
 class OnboardingNameField extends StatelessWidget {
@@ -15,38 +17,51 @@ class OnboardingNameField extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final ValueChanged<String>? onSubmitted;
   @override
-  Widget build(BuildContext context) => TextField(
-        controller: controller,
-        maxLength: 40,
-        textCapitalization: TextCapitalization.words,
-        textInputAction: TextInputAction.done,
-        onChanged: onChanged,
-        onSubmitted: onSubmitted,
-        style: context.type.body.copyWith(
+  Widget build(BuildContext context) {
+    final field = TextField(
+      controller: controller,
+      maxLength: 40,
+      textCapitalization: TextCapitalization.words,
+      textInputAction: TextInputAction.done,
+      onChanged: onChanged,
+      onSubmitted: onSubmitted,
+      style: context.type.body.copyWith(
+        fontSize: 19,
+        fontWeight: FontWeight.w500,
+        letterSpacing: -.228,
+      ),
+      decoration: InputDecoration(
+        hintText: context.wideWeb ? null : label,
+        labelText: context.wideWeb ? label : null,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        counterText: '',
+        filled: true,
+        fillColor: context.colors.surface,
+        hintStyle: context.type.body.copyWith(
           fontSize: 19,
           fontWeight: FontWeight.w500,
-          letterSpacing: -.228,
+          color: context.colors.tertiaryLabel,
         ),
-        decoration: InputDecoration(
-          hintText: label,
-          counterText: '',
-          filled: true,
-          fillColor: context.colors.surface,
-          hintStyle: context.type.body.copyWith(
-            fontSize: 19,
-            fontWeight: FontWeight.w500,
-            color: context.colors.tertiaryLabel,
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: context.colors.accent, width: 1.5),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: context.colors.accent, width: 1.5),
-          ),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide(color: context.colors.accent, width: 1.5),
         ),
-      );
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide(color: context.colors.accent, width: 1.5),
+        ),
+      ),
+    );
+    if (!context.wideWeb) return field;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(label.toUpperCase(), style: context.webTokens.eb),
+        const SizedBox(height: 8),
+        field,
+      ],
+    );
+  }
 }
