@@ -2056,3 +2056,19 @@ by choice text, not a `gapLesson` field in the rationale as the spec says; engin
   Shortcuts always work. Aedwon approved the recommendation (quote above).
 - Home: "Your record" and "Your tendencies" each get their own white card (dark: card token).
   Aedwon: "Your record and Your tendencies should have their own white background btw".
+
+## 2026-10-30 Aedwon's answers on the web layout spec and launch items
+
+Exact comments, in order: "yes phones have the same dark mode." · "okay with trial notice." · "yes
+web is only CSE for now." · on L_Restore: "there's none like this on mobile? if not, drop the board"
+· on the payments re-audit: "you can begin when you please" · "you can write the privacy policy for
+me please" · "QR Code and cards for PayMongo for now". He also said "yes" to keeping KaTeX for math.
+
+- Phones move to the charcoal dark mode too (spec decision 1).
+- Trial notice keeps the approved copy; web stays CSE only.
+- L_Restore is dropped (no mobile counterpart).
+- The lead drafted the privacy policy's trial sentence (docs/PRIVACY.md section 7); Aedwon approves
+  the wording before it is published on the site.
+- PayMongo methods: card and QR Ph only.
+- Open, explained to Aedwon: pending GCash (ST_ProPending), Manage Subscription on web, mistake
+  reason wording, native tablets.

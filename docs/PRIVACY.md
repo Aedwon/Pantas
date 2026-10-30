@@ -56,6 +56,7 @@ You have the right to:
 
 - **Active account data:** retained while your account exists.
 - **Deleted account:** purged from active systems within 30 days. Backups age out within 90 days.
+- **Free trial record:** when you delete your account, we keep one item: a one-way code made from your Google sign-in. It cannot be turned back into your name, email, or any other detail. We use it only to stop the same Google account from starting a second free trial.
 - **Attempts older than 18 months:** archived to Google BigQuery (within `asia-southeast1`); aggregate trend data retained in your active account.
 - **Crash logs:** Uploaded crash reports are retained for 90 days. Crashlytics may create temporary local crash data while automatic upload is disabled. Unsent reports are deleted when consent is off.
 
