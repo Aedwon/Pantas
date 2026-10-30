@@ -50,7 +50,7 @@ class HomeMasthead extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final headState = ref.watch(homeMastheadProvider);
     final weekState = ref.watch(weekStripProvider(examId));
-    if (headState.hasError || weekState.hasError) {
+    if ((headState.hasError || weekState.hasError) && !context.wideWeb) {
       return errorFor(
         'plan',
         () {
@@ -84,7 +84,8 @@ class HomeMasthead extends ConsumerWidget {
                 ),
               ],
             ),
-            const SizedBox(width: 480, child: HomeWebLoading(header: true)),
+            if (!headState.hasError && !weekState.hasError)
+              const SizedBox(width: 480, child: HomeWebLoading(header: true)),
           ],
         );
       }

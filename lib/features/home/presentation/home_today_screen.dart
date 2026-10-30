@@ -247,7 +247,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             : null;
         final today = data == null
             ? snapshot.hasError
-                ? errorFor('plan', _retry, error: snapshot.error)
+                ? errorFor(
+                    'plan',
+                    _retry,
+                    error: snapshot.error,
+                    boardLayout: context.wideWeb,
+                  )
                 : context.wideWeb
                     ? const HomeWebLoading(more: true)
                     : const HomeTodaySkeleton()

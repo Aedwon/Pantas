@@ -1722,3 +1722,178 @@ the asset bundle. No font configuration changed in this assignment.
 `git diff --check` is clean. Implementation and automated verification are done.
 Task 5's reported account-specific cause still needs the local retest described
 above. No claim of visual acceptance or lead review is made.
+
+
+## Visual check fixes R1, 2026-10-31
+
+Assignment: Aedwon's three-problem brief. Source: `8a3f0ce378acf5de998908618d7603d6774ef501`,
+branch `web/visual-check-fixes-r1`. Policy read using `git show origin/main` at
+`f5b6852fdfb26301377f3d29f0f8dc0cf93ebd1d`. No fetch, commit, push, branch switch,
+deployment, app screenshots, or live backend calls.
+
+### Problem 1 [blocker], CSE plan and mock errors: DECISION NEEDED
+
+Read-only reproduction against Aedwon's running emulators at `192.168.1.194`
+(project `demo-pantas-local`, region `asia-southeast1`), signed in as the Free
+account through Auth emulator REST. No credentials or ID tokens are recorded here.
+
+- `getRoadmap` with the original account and `exam_cse_pro` returns
+  `FAILED_PRECONDITION: Set your exam first.`
+- `getStudyInsights` with that same account and exam returns
+  `UNAVAILABLE: Duplicate authored question identities.`
+- `getMockAvailability` for that exam succeeds: `status: no-blueprint`,
+  `proCovered: false`, `lastMockId: null`, `nextEligibleAt: null`,
+  `accessRecheckAt: null`. Missing blueprints are a supported response. The
+  reported Quiz error is not reproduced by the direct callable request. Its
+  client-side cause remains unverified.
+
+The CSE catalog contains 65 distinct sets and 49 duplicated question identities.
+`functions/src/_examContent.ts` rejects those duplicates in `loadStudyContent`.
+`saveExamSettings` validates the scope with that reader before storing settings,
+so these invalid sources prevent onboarding from saving its server settings.
+`readStudyRoadmap` then cannot find settings. The insights reader also fails
+against the same invalid catalog.
+
+The local runner imports the CSE corpus from `origin/content/cse-rewrite-r1`
+(`be6ab491e33f2dcaade5d31edf78b8775efc6e21`) when this code branch lacks it.
+The imported YAML files themselves repeat the identities, so this is not a Dart
+decoding failure or an emulator-specific server behavior. For example,
+`q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018` is a volunteer/SALN
+question in `duties-and-prohibited-acts.yaml` and an employment/conflict question
+in `prohibited-acts-and-gift-rules.yaml`. They have different answers and lesson
+relationships. Silently dropping one or renaming identities can change which
+question a stored answer refers to. The lead must resolve those content identities.
+No server validation was weakened. No running emulator data was edited.
+
+Problem 1 is not fixed. Its fix and regression test remain pending the content
+identity ruling. The running local app was not restarted or stopped.
+
+### Problem 2 [important], duplicate wide Home error: IMPLEMENTED
+
+The week header and the Today board both rendered the plan error. Wide Home now
+leaves the retry state to the board. The header does not show a permanent loading
+placeholder after an error. Phone error behavior stays as before.
+
+The new Home regression test first failed with two plan errors. With the fix,
+it checks one plan error, one retry button, and the board error presentation.
+Automated results are recorded below. Aedwon's visual acceptance is pending.
+
+### Problem 3, shared selection rows: BLOCKED
+
+Not started because the brief requires problems 1 and 2 to pass first.
+Selection inventory count: not collected. Selection screens changed: 0.
+
+### Duplicated identities in the emulator's CSE Professional catalog
+
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-environment-management-environmental-concepts-0022`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0023`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0024`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0025`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0026`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0027`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0028`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0029`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0030`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-grammar-and-structure-tenses-and-voice-0012`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0013`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0014`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0015`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0016`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0017`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0018`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0019`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0020`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0021`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0022`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0023`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0024`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-philippine-constitution-bill-of-rights-0018`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0019`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0020`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0021`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0022`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0023`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0024`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0025`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0026`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0027`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0028`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0029`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0030`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0031`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0032`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0033`: `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0034`: `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`.
+
+### Automated verification, final code patch
+
+Base: `8a3f0ce378acf5de998908618d7603d6774ef501`. SHA-256 of
+`git diff -- lib test`: `f923bcdf25655c591e60b129c01f45d2016c1d7539412bcf606c37a3664d5a43`.
+
+Commands used `--no-pub` after initial dependency resolution. No emulator
+suite ran against the occupied ports. Functions source did not change, so
+Functions plain tests were not run. No independent review or visual acceptance
+is claimed. The lead owns those steps.
+
+`flutter analyze --no-pub`, exit 0:
+
+```text
+No issues found! (ran in 16.3s)
+```
+
+`dart format --output=none --set-exit-if-changed lib test`, exit 0:
+
+```text
+Formatted 1701 files (0 changed) in 3.47 seconds.
+```
+
+`dart run tool/check_layering.dart`, exit 0:
+
+```text
+Running build hooks...Running build hooks...check_layering: OK
+```
+
+`dart run tool/check_no_ai_attribution.dart`, exit 0:
+
+```text
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+```
+
+`flutter test --no-pub test/features/home test/app test/core`, exit 0:
+
+```text
+02:26 +2187: All tests passed!
+```
+
+`flutter test --no-pub test/features/home/presentation/home_tab_test.dart test/features/home/presentation/widgets/home_masthead_test.dart test/features/home/presentation/web/home_header_wide_test.dart`, exit 0:
+
+```text
+00:01 +39: All tests passed!
+```
+
+`flutter build web --release --no-pub`, exit 0:
+
+```text
+Font asset "Phosphor.ttf" was tree-shaken, reducing it from 488636 to 13660 bytes (97.2% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib/main.dart for the Web...                             44.2s
+✓ Built build/web
+```
+
+The release build warned that Cupertino icon fonts were referenced but
+not included in the declared font assets. The build still completed. This
+assignment did not change fonts.
+
+Files changed: `lib/features/home/presentation/home_today_screen.dart`,
+`lib/features/home/presentation/widgets/home_masthead.dart`,
+`test/features/home/presentation/home_tab_test.dart`, and this audit.
+No changes to selection controls, content, seeds, scripts, or Functions.

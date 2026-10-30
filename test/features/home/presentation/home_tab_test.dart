@@ -6,8 +6,10 @@ import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
@@ -211,6 +213,38 @@ AssessmentResult assessed() => AssessmentResult(
     );
 
 void main() {
+  testWidgets('wide Home shows one board error when the plan fails',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() => debugWebPlatformOverride = null);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      harness(
+        server: true,
+        extra: [
+          weekStripProvider(examId).overrideWith(
+            (ref) async => throw StateError('plan unavailable'),
+          ),
+          homeTodayLoaderProvider.overrideWith(
+            (ref) => (id, guard) async => throw StateError('plan unavailable'),
+          ),
+        ],
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.text('Could not load your plan.'), findsOneWidget);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(
+      tester.widget<StateView>(find.byType(StateView)).boardLayout,
+      isTrue,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets(
       'web Home uses authoritative Today without a local assessment result',
       (tester) async {
