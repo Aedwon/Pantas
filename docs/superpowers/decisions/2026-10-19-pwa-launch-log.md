@@ -2115,3 +2115,5 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Decision: option A's card, placed at the bottom of Home instead of under the greeting; same timing
   (once, after the first finished lesson, never at first open), dismissible, iPhone sheet as shown.
   The welcome screen (B7a) awaits his answer.
+- B7a Welcome screen (same preview, the OB_Welcome board plus the proposed "Starting…" state): Aedwon's
+  exact comment: "welcome screens lgtm". Approved as drawn, including "Get Started" from the board.
