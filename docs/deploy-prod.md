@@ -33,6 +33,11 @@ to this site in step 9.
 
 ## 3. Prepare test-mode secrets (Aedwon-only)
 
+The beta end time is not a secret: `functions/.env.pantas-prod` sets
+`BETA_PRO_UNTIL=2026-11-16T00:00:00+08:00` and deploys with the functions. Remove that line (or
+the file) after the beta to turn the switch off for good.
+
+
 Use your own terminal. Never paste secrets into chat, source, screenshots, logs,
 command arguments, or a build define. Commands prompt for the PayMongo values:
 

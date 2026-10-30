@@ -77,3 +77,6 @@ ehthumbs.db
 # Functions build and installed dependencies
 functions/lib/
 functions/node_modules/
+# Non-secret Functions config per project (beta end time). Secrets stay in Secret Manager.
+!functions/.env.pantas-prod
+!functions/.env.pantas-staging
