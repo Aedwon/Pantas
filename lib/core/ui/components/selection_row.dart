@@ -129,7 +129,8 @@ class _SelectionRow extends StatelessWidget {
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
           backgroundColor: WidgetStateProperty.resolveWith((states) {
             if (!enabled) return Colors.transparent;
-            if (web && states.contains(WidgetState.hovered)) {
+            // Cards (no mark) show selection on the card, not a row fill.
+            if (web && showMark && states.contains(WidgetState.hovered)) {
               return context.webTokens.rowHover;
             }
             if (!web && states.contains(WidgetState.pressed)) {

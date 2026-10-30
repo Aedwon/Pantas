@@ -267,6 +267,7 @@ class WebCard extends StatelessWidget {
     this.padding = EdgeInsets.zero,
     this.radius = 18,
     this.selected = false,
+    this.minHeight,
     super.key,
   });
   final Widget child;
@@ -275,13 +276,21 @@ class WebCard extends StatelessWidget {
 
   /// Picked card (board OB_Picker): accent tint and a 2 px accent outline.
   final bool selected;
+
+  /// Shortest the card may be; its child is centered vertically.
+  final double? minHeight;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     return Container(
       clipBehavior: Clip.antiAlias,
+      constraints:
+          minHeight == null ? null : BoxConstraints(minHeight: minHeight!),
+      alignment: minHeight == null ? null : Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: selected ? t.colors.accentTint : t.colors.surface,
+        color: selected
+            ? (t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE))
+            : t.colors.surface,
         borderRadius: BorderRadius.circular(radius),
         border: t.dark && !selected ? Border.all(color: t.cardEdge) : null,
       ),

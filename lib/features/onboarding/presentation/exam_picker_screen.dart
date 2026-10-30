@@ -357,8 +357,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                   ))
                                     SizedBox(
                                       width: (constraints.maxWidth - 20) / 3,
+                                      // Board OB_Picker .ex: 64 px tall.
                                       child: WebCard(
                                         radius: 14,
+                                        minHeight: 64,
                                         selected: selected == entry.id,
                                         child: RadioRow(
                                           key: ValueKey('exam-${entry.id}'),
@@ -369,9 +371,11 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                                   !widget.selectable(entry)
                                               ? null
                                               : () => _pick(entry, active),
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 14,
-                                            vertical: 12,
+                                          padding: const EdgeInsets.fromLTRB(
+                                            16,
+                                            11,
+                                            14,
+                                            11,
                                           ),
                                           content: Column(
                                             crossAxisAlignment:
