@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
+import 'package:pantas/features/home/presentation/widgets/web_record_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 
 /// W4g fills this slot after Your mocks. A missing contract draws no control.
@@ -22,6 +23,21 @@ class RecordScreen extends ConsumerWidget {
     void back() => context.canPop() ? context.pop() : context.go('/home');
     if (record.unwrapPrevious().asData == null ||
         history.unwrapPrevious().asData == null) {
+      if (context.wideWeb) {
+        return WebMyPage(
+          title: 'Your record',
+          onBack: back,
+          child: record.hasError || history.hasError
+              ? WebMyFailure(
+                  onRetry: () {
+                    ref
+                      ..invalidate(recordProvider)
+                      ..invalidate(mockHistoryProvider);
+                  },
+                )
+              : const WebMyLoading(),
+        );
+      }
       return PantasPage(
         title: 'Your record',
         backLabel: 'Home',

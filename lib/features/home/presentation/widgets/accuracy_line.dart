@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class AccuracyLinePainter extends CustomPainter {
   AccuracyLinePainter({
     required this.series,
     required this.lineColor,
     required this.gridColor,
+    this.web = false,
+    this.areaColor,
   });
 
   final List<({DateTime weekStart, double accuracy})> series;
   final Color lineColor;
   final Color gridColor;
+  final bool web;
+  final Color? areaColor;
 
   double get minY => 0;
   double get maxY => 100;
@@ -25,23 +30,25 @@ class AccuracyLinePainter extends CustomPainter {
       ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
 
-    const gridLineCount = 4;
-    for (var i = 0; i <= gridLineCount; i++) {
-      final y = size.height * (i / gridLineCount);
+    final gridLines =
+        web ? [10 / 170, 60 / 170, 110 / 170] : [0.0, .25, .5, .75, 1.0];
+    for (final fraction in gridLines) {
+      final y = size.height * fraction;
       canvas.drawLine(Offset(0, y), Offset(size.width, y), gridPaint);
     }
 
     // Draw accuracy line (board at 1.5px)
     final linePaint = Paint()
       ..color = lineColor
-      ..strokeWidth = 1.5
+      ..strokeWidth = web ? 2.5 : 1.5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
 
+    final inset = web ? size.width / 60 : 0.0;
     final path = Path();
     for (var i = 0; i < series.length; i++) {
-      final x = (i / (series.length - 1)) * size.width;
+      final x = inset + (i / (series.length - 1)) * (size.width - 2 * inset);
       // Clamp accuracy between 0 and 100
       final acc = series[i].accuracy.clamp(0.0, 100.0);
       final y = size.height - (acc / 100.0) * size.height;
@@ -53,19 +60,38 @@ class AccuracyLinePainter extends CustomPainter {
       }
     }
 
+    if (web && areaColor != null) {
+      final area = Path.from(path)
+        ..lineTo(size.width - inset, size.height)
+        ..lineTo(inset, size.height)
+        ..close();
+      canvas.drawPath(area, Paint()..color = areaColor!.withValues(alpha: .6));
+    }
     canvas.drawPath(path, linePaint);
+    if (web) {
+      final lastY =
+          size.height * (1 - series.last.accuracy.clamp(0, 100) / 100);
+      canvas.drawCircle(
+        Offset(size.width - inset, lastY),
+        6,
+        Paint()..color = lineColor,
+      );
+    }
   }
 
   @override
   bool shouldRepaint(covariant AccuracyLinePainter oldDelegate) {
-    return oldDelegate.series != series ||
+    return oldDelegate.web != web ||
+        oldDelegate.areaColor != areaColor ||
+        oldDelegate.series != series ||
         oldDelegate.lineColor != lineColor ||
         oldDelegate.gridColor != gridColor;
   }
 }
 
 class AccuracyLine extends StatelessWidget {
-  const AccuracyLine({required this.series, super.key});
+  const AccuracyLine({required this.series, this.web = false, super.key});
+  final bool web;
 
   final List<({DateTime weekStart, double accuracy})> series;
 
@@ -83,13 +109,15 @@ class AccuracyLine extends StatelessWidget {
       label: summary,
       child: ExcludeSemantics(
         child: SizedBox(
-          height: 120,
+          height: web ? 170 : 120,
           width: double.infinity,
           child: CustomPaint(
             painter: AccuracyLinePainter(
               series: series,
-              lineColor: colors.label,
-              gridColor: colors.fill,
+              lineColor: web ? context.webTokens.colors.accent : colors.label,
+              gridColor: web ? context.webTokens.colors.separator : colors.fill,
+              web: web,
+              areaColor: web ? context.webTokens.colors.accentTint : null,
             ),
           ),
         ),

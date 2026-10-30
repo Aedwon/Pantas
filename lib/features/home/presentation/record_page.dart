@@ -5,8 +5,10 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/accuracy_line.dart';
+import 'package:pantas/features/home/presentation/widgets/web_record_layout.dart';
 
 class RecordMockRow {
   const RecordMockRow({
@@ -37,6 +39,14 @@ class RecordPage extends StatelessWidget {
   final Widget? wrappedRow;
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return WebRecordLayout(
+        record: record,
+        mocks: mocks,
+        onBack: onBack,
+        onMock: onMock,
+      );
+    }
     final hours = record.sessionMinutes ~/ 60;
     final minutes = record.sessionMinutes % 60;
     final time = hours == 0

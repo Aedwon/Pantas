@@ -403,6 +403,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     subtitle: topic.hasQuestions ? null : 'No questions yet',
                     leading: Checkbox(
                       tristate: true,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(7),
+                      ),
                       value: switch (_selection.topicState(topic)) {
                         PracticeCheckState.off => false,
                         PracticeCheckState.on => true,
@@ -440,6 +443,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                           titleStyle: t.style(16),
                           dimmed: lesson.questionCount == 0,
                           leading: Checkbox(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
                             value: _selection.lessonSelected(lesson.id),
                             onChanged: lesson.questionCount == 0
                                 ? null
@@ -502,201 +508,262 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     final timeLabel = _underMinute(summary)
         ? 'under 1 min'
         : _time(summary.estimatedMinutes ?? 0);
-    final panel = WebCard(
-      padding: const EdgeInsets.all(22),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
+    final panel = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
+          child: Row(
             children: [
-              Expanded(child: Text('Your quiz', style: t.h3)),
-              if (!summary.isEmpty) _clearButton(),
-            ],
-          ),
-          const SizedBox(height: 18),
-          if (summary.isEmpty) ...[
-            Text(
-              'Nothing picked yet',
-              style: t.style(17, weight: FontWeight.w600),
-            ),
-            const SizedBox(height: 6),
-            Text('Pick a topic or a lesson', style: t.sub),
-          ] else ...[
-            Text(pickedLabel, style: t.sub),
-            const SizedBox(height: 14),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  '${_mode == PracticeUnitMode.minutes ? '~' : ''}'
-                  '${summary.totalQuestions}',
-                  style: t.big,
-                ),
-                const SizedBox(width: 6),
-                Text('questions', style: t.sub),
-                const Spacer(),
-                Text(
-                  '${_mode == PracticeUnitMode.questions ? '~' : ''}$timeLabel',
-                  style: t.sub,
-                ),
-              ],
-            ),
-            const SizedBox(height: 24),
-            Text('How long?', style: t.style(17, weight: FontWeight.w600)),
-            const SizedBox(height: 12),
-            WebSegmentedControl(
-              labels: const ['Questions per lesson', 'Total time'],
-              selected: _mode.index,
-              onChanged: (i) {
-                if (i == _mode.index) return;
-                _change(
-                  () {
-                    _conversionTarget ??= summary.totalQuestions;
-                    _mode = PracticeUnitMode.values[i];
-                    _value = BuildPracticeSummary.closestValue(
-                          units: _selection.units(index),
-                          index: index,
-                          totalQuestions: _conversionTarget!,
-                          values: _values,
-                          mode: _mode,
-                          averageResponseMs: pace,
-                        ) ??
-                        _snap(_value, summary.unitCount, pace);
-                    _adjustments = {};
-                  },
-                  modeOnly: true,
-                );
-              },
-            ),
-            const SizedBox(height: 10),
-            Text(
-              _mode == PracticeUnitMode.questions
-                  ? 'You set the questions. Time follows.'
-                  : 'You set the time. Questions follow.',
-              style: t.sm,
-            ),
-            const SizedBox(height: 14),
-            Wrap(
-              spacing: 6,
-              runSpacing: 8,
-              children: [
-                for (final value in _mode == PracticeUnitMode.questions
-                    ? const [3, 4, 5, 6, 8, 10, 15, 20, 30, 50]
-                    : _values)
-                  SizedBox(
-                    width: 48,
-                    height: 40,
-                    child: TextButton(
-                      onPressed: _invalid(summary.unitCount, pace)
-                              .contains(_values.indexOf(value))
-                          ? null
-                          : () => _change(() {
-                                _value = value;
-                                _adjustments = {};
-                              }),
-                      style: TextButton.styleFrom(
-                        backgroundColor: _value == value
-                            ? t.colors.accentTint
-                            : t.colors.background,
-                        side: BorderSide(
-                          color: _value == value
-                              ? t.colors.accent
-                              : Colors.transparent,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Text(
-                        '$value',
-                        style: t.style(15, color: t.colors.label).copyWith(
-                              decoration: _invalid(summary.unitCount, pace)
-                                      .contains(_values.indexOf(value))
-                                  ? TextDecoration.lineThrough
-                                  : null,
-                            ),
-                      ),
+              Expanded(child: Text('Your quiz', style: t.eb)),
+              if (!summary.isEmpty)
+                TextButton(
+                  onPressed: () => selection(const PracticeSelection.empty()),
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Text(
+                    'Clear',
+                    style: t.style(
+                      14,
+                      weight: FontWeight.w600,
+                      color: t.colors.secondaryLabel,
                     ),
                   ),
-              ],
-            ),
-            const SizedBox(height: 22),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    'Split by lesson',
-                    style: t.style(15, weight: FontWeight.w600),
-                  ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    if (_adjusting) {
-                      _change(() {
-                        _adjustments = {};
-                        _adjusting = false;
-                      });
-                    } else {
-                      setState(() => _adjusting = true);
-                    }
-                  },
-                  child: Text(_adjusting ? 'Reset' : 'Adjust'),
+            ],
+          ),
+        ),
+        WebCard(
+          padding: const EdgeInsets.fromLTRB(22, 22, 22, 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (summary.isEmpty) ...[
+                Text(
+                  'Nothing picked yet',
+                  style: t.style(17, weight: FontWeight.w600),
                 ),
-              ],
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 280),
-              child: SingleChildScrollView(
-                child: Column(
+                const SizedBox(height: 6),
+                Text('Pick a topic or a lesson', style: t.sub),
+              ] else ...[
+                Text(
+                  pickedLabel,
+                  style: t.sm.copyWith(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
-                    for (final row in rows)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 9),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(row.title, style: t.style(15)),
-                                  if (row.meta != null)
-                                    Text(row.meta!, style: t.sm),
-                                ],
-                              ),
-                            ),
-                            if (_adjusting)
-                              _step(summary, row.keys, -1, row.title),
-                            Text('${_count(summary, row.keys)}', style: t.sub),
-                            if (_adjusting)
-                              _step(summary, row.keys, 1, row.title),
-                          ],
-                        ),
-                      ),
+                    Text(
+                      '${_mode == PracticeUnitMode.minutes ? '~' : ''}'
+                      '${summary.totalQuestions}',
+                      style: t.big,
+                    ),
+                    const SizedBox(width: 6),
+                    Text('questions', style: t.sub),
+                    const Spacer(),
+                    Text(
+                      '${_mode == PracticeUnitMode.questions ? '~' : ''}'
+                      '$timeLabel',
+                      style: t.sub,
+                    ),
                   ],
                 ),
+                const SizedBox(height: 16),
+                Divider(height: .5, thickness: .5, color: t.colors.separator),
+                const SizedBox(height: 16),
+                Text(
+                  'How long?',
+                  style: t.sm.copyWith(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 12),
+                WebSegmentedControl(
+                  labels: const ['Questions per lesson', 'Total time'],
+                  selected: _mode.index,
+                  onChanged: (i) {
+                    if (i == _mode.index) return;
+                    _change(
+                      () {
+                        _conversionTarget ??= summary.totalQuestions;
+                        _mode = PracticeUnitMode.values[i];
+                        _value = BuildPracticeSummary.closestValue(
+                              units: _selection.units(index),
+                              index: index,
+                              totalQuestions: _conversionTarget!,
+                              values: _values,
+                              mode: _mode,
+                              averageResponseMs: pace,
+                            ) ??
+                            _snap(_value, summary.unitCount, pace);
+                        _adjustments = {};
+                      },
+                      modeOnly: true,
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  _mode == PracticeUnitMode.questions
+                      ? 'You set the questions. Time follows.'
+                      : 'You set the time. Questions follow.',
+                  style: t.sm,
+                ),
+                const SizedBox(height: 14),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: t.colors.background,
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(3),
+                    child: Row(
+                      children: [
+                        for (final value in (<int>{
+                          ...(_mode == PracticeUnitMode.questions
+                              ? const [3, 4, 5, 6, 8, 10, 15, 20, 30, 50]
+                              : const [5, 10, 15, 20, 30, 45, 60]),
+                          // Keep saved phone values visible.
+                          _value,
+                        }.toList()
+                          ..sort()))
+                          Expanded(
+                            child: SizedBox(
+                              height: 34,
+                              child: TextButton(
+                                onPressed: _invalid(summary.unitCount, pace)
+                                        .contains(_values.indexOf(value))
+                                    ? null
+                                    : () => _change(() {
+                                          _value = value;
+                                          _adjustments = {};
+                                        }),
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  minimumSize: Size.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  backgroundColor: _value == value
+                                      ? t.colors.accentFill
+                                      : Colors.transparent,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                  ),
+                                ),
+                                child: Text(
+                                  '$value',
+                                  style: t
+                                      .style(
+                                        15,
+                                        weight: FontWeight.w600,
+                                        color: _value == value
+                                            ? Colors.white
+                                            : t.colors.secondaryLabel,
+                                      )
+                                      .copyWith(
+                                        decoration: _invalid(
+                                          summary.unitCount,
+                                          pace,
+                                        ).contains(
+                                          _values.indexOf(value),
+                                        )
+                                            ? TextDecoration.lineThrough
+                                            : null,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 22),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Split by lesson',
+                        style: t.style(15, weight: FontWeight.w600),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        if (_adjusting) {
+                          _change(() {
+                            _adjustments = {};
+                            _adjusting = false;
+                          });
+                        } else {
+                          setState(() => _adjusting = true);
+                        }
+                      },
+                      child: Text(_adjusting ? 'Reset' : 'Adjust'),
+                    ),
+                  ],
+                ),
+                ConstrainedBox(
+                  constraints: const BoxConstraints(maxHeight: 280),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        for (final row in rows)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 9),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(row.title, style: t.style(15)),
+                                      if (row.meta != null)
+                                        Text(row.meta!, style: t.sm),
+                                    ],
+                                  ),
+                                ),
+                                if (_adjusting)
+                                  _step(summary, row.keys, -1, row.title),
+                                Text(
+                                  '${_count(summary, row.keys)}',
+                                  style: t.sub,
+                                ),
+                                if (_adjusting)
+                                  _step(summary, row.keys, 1, row.title),
+                              ],
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+              if (_failure != null) ...[
+                const SizedBox(height: 14),
+                if (_launchFailed)
+                  StateView(message: _failure!, onRetry: start)
+                else
+                  saveFailureLine(_save),
+              ],
+              const SizedBox(height: 22),
+              Align(
+                alignment: Alignment.centerRight,
+                child: WebButton(
+                  label: 'Start',
+                  large: true,
+                  keyHint: 'Enter',
+                  onPressed: canStart ? start : null,
+                  busy: _starting,
+                ),
               ),
-            ),
-          ],
-          if (_failure != null) ...[
-            const SizedBox(height: 14),
-            if (_launchFailed)
-              StateView(message: _failure!, onRetry: start)
-            else
-              saveFailureLine(_save),
-          ],
-          const SizedBox(height: 22),
-          Align(
-            alignment: Alignment.centerRight,
-            child: WebButton(
-              label: 'Start',
-              keyHint: 'Enter',
-              onPressed: canStart ? start : null,
-              busy: _starting,
-            ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
     return CallbackShortcuts(
       bindings: {
@@ -706,32 +773,42 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       },
       child: Focus(
         autofocus: true,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: () => unawaited(_back()),
-                  icon: Icon(PantasIcons.back, size: 20),
-                  label: const Text('Quiz'),
+        child: LayoutBuilder(
+          builder: (context, constraints) => CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton.icon(
+                        onPressed: () => unawaited(_back()),
+                        icon: Icon(PantasIcons.back, size: 20),
+                        label: const Text('Quiz'),
+                      ),
+                    ),
+                    const WebText('Customize your own', kind: WebTextKind.h1),
+                    const SizedBox(height: 26),
+                  ],
                 ),
               ),
-              const WebText('Customize your own', kind: WebTextKind.h1),
-              const SizedBox(height: 26),
-              LayoutBuilder(
-                builder: (context, constraints) => constraints.maxWidth < 850
-                    ? Column(children: [tree, panel])
-                    : Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(child: tree),
-                          const SizedBox(width: 28),
-                          SizedBox(width: 440, child: panel),
-                        ],
-                      ),
-              ),
+              if (constraints.maxWidth < 850)
+                SliverToBoxAdapter(child: Column(children: [tree, panel]))
+              else
+                SliverCrossAxisGroup(
+                  slivers: [
+                    SliverToBoxAdapter(child: tree),
+                    const SliverConstrainedCrossAxis(
+                      maxExtent: 28,
+                      sliver: SliverToBoxAdapter(child: SizedBox()),
+                    ),
+                    SliverConstrainedCrossAxis(
+                      maxExtent: 400,
+                      sliver: PinnedHeaderSliver(child: panel),
+                    ),
+                  ],
+                ),
             ],
           ),
         ),

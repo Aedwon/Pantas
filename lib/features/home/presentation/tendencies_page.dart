@@ -9,7 +9,9 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
+import 'package:pantas/features/home/presentation/widgets/web_tendencies_layout.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_catalog.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_templates.dart';
 import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
@@ -33,6 +35,16 @@ class TendenciesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return WebTendenciesLayout(
+        data: data,
+        pro: pro,
+        paused: paused,
+        onBack: onBack,
+        onName: onName,
+        onPro: onPro,
+      );
+    }
     final clear = data.tendencies
         .where((t) => t.confidence == TendencyConfidence.clear)
         .toList();

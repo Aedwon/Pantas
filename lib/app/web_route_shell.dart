@@ -31,8 +31,9 @@ class WebRouteShell extends ConsumerWidget {
     final exam = ref.watch(activeExamShortNameProvider);
     final pro = ref.watch(proForActiveExamProvider).valueOrNull ?? false;
     const tabs = ['/home', '/study', '/quiz', '/settings'];
-    final activeIndex =
-        tabs.indexWhere((tab) => path == tab || path.startsWith('$tab/'));
+    final activeIndex = const ['/record', '/tendencies'].contains(path)
+        ? 0
+        : tabs.indexWhere((tab) => path == tab || path.startsWith('$tab/'));
     return WebShellFrame(
       activeIndex: activeIndex,
       person: person,
