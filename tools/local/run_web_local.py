@@ -141,6 +141,10 @@ def main():
                     archive = subprocess.run(['git', 'archive', 'origin/content/cse-rewrite-r1',
                                               'content', 'tools/lesson_author/outline.json'], check=True, stdout=subprocess.PIPE)
                     subprocess.run(['tar', '-x', '-C', str(content_root)], input=archive.stdout, check=True)
+                    # The export also reads this code-branch file, which the content branch lacks.
+                    historical = content_root / 'tools/build_content_export/historical_v1.json'
+                    historical.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy(ROOT / 'tools/build_content_export/historical_v1.json', historical)
             run([*export_command, content_root, '--assets-out', 'assets/seed'])
         except subprocess.CalledProcessError:
             print('NOTICE: CSE export failed; using the code corpus for layout checks.', flush=True)
