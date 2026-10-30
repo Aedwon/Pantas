@@ -1,4 +1,6 @@
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/content/sanity/schema_versions.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 
 abstract final class ReleaseTestContentIds {
   static const exam = 'release-e2e-exam';
@@ -133,6 +135,7 @@ Map<String, Object?> _question({
       'schemaVersion': SchemaVersions.question,
       'isActive': true,
       'topic': <String, Object?>{'_ref': ReleaseTestContentIds.topic},
+      'lesson': <String, Object?>{'_ref': ReleaseTestContentIds.lesson},
       'language': 'en',
       'stem': _portableText(stem),
       'explanation': _portableText('The correct answer is $correct.'),
@@ -166,3 +169,19 @@ List<Object?> _portableText(String text) => <Object?>[
         ],
       },
     ];
+
+// The picker reads the separate catalog asset, not the fixture's exam table.
+final releaseTestCatalogOverride = examPickerCatalogProvider.overrideWith(
+  (_) => Stream.value(const <ExamCatalogEntry>[
+    ExamCatalogEntry(
+      id: ReleaseTestContentIds.exam,
+      name: 'Release E2E Exam',
+      shortName: 'Release E2E',
+      priceTier: 'standard',
+      group: 'College entrance',
+      comingSoon: false,
+      publishedSittings: <PublishedExamSitting>[],
+      hasContent: true,
+    ),
+  ]),
+);

@@ -292,3 +292,35 @@ Decision: commit and push only the approved design, decision log, and research
 evidence on `codex/release-e2e-r1`. The exact candidate remains the parent of the
 documentation commit. Planning and implementation remain deferred to the
 coordinator.
+
+## October 30, 2026: bounded R2 test adaptation
+
+Current instruction:
+
+> Goal: bring these release end-to-end tests up to the current app so they compile (flutter analyze clean) and are wired into the release e2e runner the same way as the existing scenarios, and the contract test passes.
+
+Worktree candidate is `b98163bd980eb96d573c1a901a5afbc9bfba9035` on
+`web/release-e2e-r2`. Policy was read with `git show origin/main:<file>` at
+`d588f68f8be94016724ff0837be284cd4ea5c561`. No fetch was performed.
+The lead owns commits. This assignment does not resume historical three-pass
+release acceptance or authorize live services, deployment, or publication.
+
+All six scenarios were retained. The current custom quiz replaces the removed
+Home quick-quiz entry while preserving quiz-persistence assertions. Current
+onboarding, protected installation, mock preparation/pause/submission, local
+Settings deletion, and expiring emulator Pro claims are reflected in test code.
+The runner already named every scenario. No production source changed.
+
+Final results: `flutter analyze` reported `No issues found! (ran in 8.0s)`;
+format reported `Formatted 1707 files (0 changed) in 2.00 seconds.`;
+layering reported `check_layering: OK`; attribution reported
+`check_no_ai_attribution: OK`; `flutter test test/tool` reported
+`00:17 +201: All tests passed!`. All five commands exited 0.
+The expiry regression test failed when the expiry field was removed and passed
+in the final suite after restoration. `git diff --check` passed.
+
+`adb devices -l` listed no targets. Android and Firebase emulator journeys were
+not run. No browser execution mode exists in the current runner. Independent
+review and device acceptance are pending. Run instructions, file inventory, and
+local log locations are in `docs/release-e2e.md`. This records test adaptation,
+not release acceptance.
