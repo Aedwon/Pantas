@@ -3,6 +3,7 @@ import {defineSecret} from 'firebase-functions/params';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {assertFreshAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {claimsFromInputs, entitlementWrite, readEntitlementInputs, type EntitlementInputs} from './entitlementInputs.js';
@@ -95,4 +96,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
 
 export const startWebTrial = onCall(
   {region: 'asia-southeast1', enforceAppCheck: true, consumeAppCheckToken: true, secrets: [trialIdentityKey]},
-  request => startTrial(request.auth, {db: getFirestore(), auth: getAuth()}));
+  request => {
+    assertFreshAppCheck(request);
+    return startTrial(request.auth, {db: getFirestore(), auth: getAuth()});
+  });

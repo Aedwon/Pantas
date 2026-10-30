@@ -2,6 +2,7 @@ import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
+import { assertFreshAppCheck } from './_appCheck.js';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
 import { retirePublicId } from './publicId.js';
 import { clearPassOwnership } from './revenuecatPasses.js';
@@ -15,6 +16,7 @@ export const deleteAccount = onCall(
     secrets: [trialIdentityKey],
   },
   async (request) => {
+    assertFreshAppCheck(request);
     const uid = assertNamedUser(request.auth);
     const db = getFirestore();
     const userRef = db.collection('users').doc(uid);
