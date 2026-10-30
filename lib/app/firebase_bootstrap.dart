@@ -15,11 +15,17 @@ abstract interface class FirebaseBootAdapter {
 
 typedef FirebaseConfigSelector = FirebaseOptions? Function(Flavor flavor);
 
-FirebaseOptions firebaseConfigForFlavor(Flavor flavor) {
+FirebaseOptions firebaseConfigForFlavor(Flavor flavor, {bool isWeb = kIsWeb}) {
   return switch (flavor) {
-    Flavor.dev => dev_options.DefaultFirebaseOptions.android,
-    Flavor.staging => staging_options.DefaultFirebaseOptions.android,
-    Flavor.prod => prod_options.DefaultFirebaseOptions.android,
+    Flavor.dev => isWeb
+        ? dev_options.DefaultFirebaseOptions.web
+        : dev_options.DefaultFirebaseOptions.android,
+    Flavor.staging => isWeb
+        ? staging_options.DefaultFirebaseOptions.web
+        : staging_options.DefaultFirebaseOptions.android,
+    Flavor.prod => isWeb
+        ? prod_options.DefaultFirebaseOptions.web
+        : prod_options.DefaultFirebaseOptions.android,
   };
 }
 

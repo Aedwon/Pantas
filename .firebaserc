@@ -1,6 +1,7 @@
 {
   "projects": {
-    "staging": "pantas-staging"
+    "staging": "pantas-staging",
+    "prod": "pantas-prod"
   },
   "targets": {
     "pantas-staging": {
@@ -10,6 +11,13 @@
         ],
         "app": [
           "pantas-staging-app"
+        ]
+      }
+    },
+    "pantas-prod": {
+      "hosting": {
+        "app": [
+          "pantas-prod"
         ]
       }
     }

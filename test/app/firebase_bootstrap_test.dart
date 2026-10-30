@@ -7,6 +7,17 @@ import 'package:pantas/firebase_options_prod.dart' as prod_options;
 import 'package:pantas/firebase_options_staging.dart' as staging_options;
 
 void main() {
+  test('web flavors select web apps, including the approved prod app', () {
+    for (final flavor in Flavor.values) {
+      final options = firebaseConfigForFlavor(flavor, isWeb: true);
+      expect(options.appId, contains(':web:'));
+    }
+    final prod = firebaseConfigForFlavor(Flavor.prod, isWeb: true);
+    expect(prod.projectId, 'pantas-prod');
+    expect(prod.appId, '1:416041343210:web:cdf805fbfb28ca13639f93');
+    expect(prod.authDomain, 'pantas-prod.firebaseapp.com');
+  });
+
   test('dev selects the generated dev Firebase options', () {
     expect(
       identical(

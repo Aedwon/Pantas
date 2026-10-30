@@ -345,6 +345,12 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Beta applications are written by the Cloudflare Worker with server
+    // credentials. Client claims, including Pro, never authorize access.
+    match /betaApplications/{document=**} {
+      allow read, write: if false;
+    }
+
     match /audit_logs/{logId} {
       allow read, write: if false;
     }
