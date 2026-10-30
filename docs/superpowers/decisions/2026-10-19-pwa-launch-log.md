@@ -2105,3 +2105,13 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   tests that never landed). None is merged; each needs review before use.
 - The Pantas Master SSOT Google Doc is on another account; Aedwon: "nevermind on the ssot, it's on a
   different account so i can't set up the connector". The repo record (STATUS.md, this log) is current.
+
+## 2026-10-30 Install prompt placement (B6)
+
+- Preview `docs/superpowers/plans/pwa-launch/boards/pwa-install-welcome-v1.html` showed three
+  options: A a dismissible Home card after the first finished lesson (recommended), B a Settings row,
+  C an offer on the session-finished screen; all share the iPhone "Show Me How" sheet.
+- Aedwon's exact comment: "on Home but at the bottom-most i guess? so that it's not so intrusive".
+- Decision: option A's card, placed at the bottom of Home instead of under the greeting; same timing
+  (once, after the first finished lesson, never at first open), dismissible, iPhone sheet as shown.
+  The welcome screen (B7a) awaits his answer.
