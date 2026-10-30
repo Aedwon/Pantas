@@ -194,7 +194,17 @@ Second run (`ob_pairs2.mjs`, pairs cropped to the top 640 px to save image cost)
     plain text with no fill (only the picked day is filled teal). Clear difference.
   - OB_AgeBlocked: still not reached (ArrowUp presses did not change the year; the shot shows Terms).
     Focus the field first (click the year text) or type into the input element.
-  - Not viewed: OB_DateMonth (expect same day-cell finding), OB_Terms re-capture.
+  - OB_CustomName (reached in `ob_pairs4.mjs`, whose click helper now picks the smallest matching
+    element and also matches inputs): same short text field as OB_Name (about 46 px vs the board's
+    55 px; the app's text is also smaller). Otherwise a match.
+  - Still not reached: OB_CustomCover (typing did not reach the name field; click the field first,
+    then type) and OB_AgeBlocked (same cause: click the year field, then select all and type).
+  - Not viewed: OB_DateMonth (expect the same day-cell finding), OB_Terms re-capture.
+  - Onboarding fix list so far: step content offset and Back chevron (all steps); Terms row height,
+    spacing and disabled Continue; Picker search field, chips, "isn't listed" row, card radio vs
+    check badge (check decision), Coming soon pill, bottom bar; date tile month label and button gap;
+    day cells without fill; empty-panel calendar icon and help text size; text field height and
+    text size (Name, CustomName).
 - OB_Days (app only, board unreadable): the app's day chips and "Every Day" plus disabled Continue
   row are present; compare once the board renders.
 
