@@ -48,10 +48,10 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | B2 | Web platform | Claude | checkpoint on web/pwa-foundation-r1; staging737d471a contains foundation; not integrated here |
 | B3 | Platform seams and encrypted browser DB | Claude | checkpoint;3971 reported tests pass, Node encryption probes; browser still unverified |
 | B4 | Staging Hosting and size evidence | Claude | staging target created; deployment blocked by Blaze billing, App Check site key and ADC; no deployed-functions assumption |
-| B5 | HTML loading screen | Claude | pending handoff |
-| B6 | Caching, install prompt, persistent storage | Claude | pending handoff and approved visual representation |
+| B5 | HTML loading screen | Claude lead | returning-visitor logo splash; preview in progress for Aedwon (no board yet) |
+| B6 | Caching, install prompt, persistent storage | Claude lead, Sonnet | built Oct 30 per the approved preview (`pwa-launch/boards/pwa-install-welcome-v1.html`, card at the bottom of Home): Pantas service worker caches only the app files per build, never API or user data; first visit starts at once. Not checked in a real browser; app icons are still the Flutter logo (Aedwon to supply). Merged into staging 44313ce2, not deployed |
 | B7 | Content loading after first frame | Claude | C7 client/cached catalog built on staging2c2332e0; optional fetchHook preserves existing repository APIs; integration verification pending |
-| B7a | HTML Welcome screen | Claude | pending; approved board and Aedwon visual acceptance required |
+| B7a | HTML Welcome screen | Claude lead, Sonnet | built Oct 30 as approved ("welcome screens lgtm"): OB_Welcome in HTML on first visit, Starting state, hands over to onboarding at the age step. Merged into staging 44313ce2, not deployed |
 | B7c | Deferred libraries for later screens | Claude | pending; order route edits with W4e/W4f |
 | B7b | Phone layout at every width | Claude | pending; visible wide-screen framing requires acceptance |
 | B8 | Size cuts and measurements | Claude lead, Sonnet | done Oct 30: mock exam deferred on web; first load 5.02 MB to 4.88 MB gzip (evidence `pwa-launch/evidence/b8-size-r1.md`); `purchases_flutter` web script (781 KB, never fetched) left for a later conditional import. Merged into staging b9775d0c, not deployed |
