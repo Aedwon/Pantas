@@ -50,6 +50,7 @@ class RadioRow extends StatelessWidget {
     this.trailing,
     this.preview,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+    this.showMark = true,
     super.key,
   });
   final String title;
@@ -60,12 +61,16 @@ class RadioRow extends StatelessWidget {
   final Widget? preview;
   final EdgeInsetsGeometry padding;
 
+  /// False when the container shows the selection instead (web exam cards).
+  final bool showMark;
+
   @override
   Widget build(BuildContext context) => _SelectionRow(
         title: title,
         selected: selected,
         mixed: false,
         radio: true,
+        showMark: showMark,
         onTap: onTap,
         content: content,
         trailing: trailing,
@@ -86,12 +91,14 @@ class _SelectionRow extends StatelessWidget {
     required this.padding,
     this.preview,
     this.interactiveContent = false,
+    this.showMark = true,
   });
   final String title;
   final bool interactiveContent;
   final bool selected;
   final bool mixed;
   final bool radio;
+  final bool showMark;
   final VoidCallback? onTap;
   final Widget? content;
   final Widget? trailing;
@@ -148,14 +155,16 @@ class _SelectionRow extends StatelessWidget {
               if (preview != null) ...[preview!, const SizedBox(height: 12)],
               Row(
                 children: [
-                  ExcludeSemantics(
-                    child: _SelectionMark(
-                      selected: selected,
-                      mixed: mixed,
-                      radio: radio,
+                  if (showMark) ...[
+                    ExcludeSemantics(
+                      child: _SelectionMark(
+                        selected: selected,
+                        mixed: mixed,
+                        radio: radio,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
+                    const SizedBox(width: 12),
+                  ],
                   Expanded(
                     child: content ?? Text(title, style: context.type.body),
                   ),

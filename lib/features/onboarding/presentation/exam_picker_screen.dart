@@ -359,9 +359,11 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                       width: (constraints.maxWidth - 20) / 3,
                                       child: WebCard(
                                         radius: 14,
+                                        selected: selected == entry.id,
                                         child: RadioRow(
                                           key: ValueKey('exam-${entry.id}'),
                                           title: entry.shortName,
+                                          showMark: false,
                                           selected: selected == entry.id,
                                           onTap: _saving ||
                                                   !widget.selectable(entry)
