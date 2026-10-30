@@ -38,7 +38,7 @@ const httpFunctions = calls(/\bonRequest\(/g).filter((c) => c.name);
 
 // Payment, trial, deletion, export, admin and paid-mock actions: one use per token.
 const REPLAY_PROTECTED = [
-  'createPaymongoCheckout', 'startWebTrial', 'deleteAccount', 'exportData',
+  'createPaymongoCheckout', 'startWebTrial', 'setBetaPro', 'deleteAccount', 'exportData',
   'recomputePassEnds', 'startMock', 'updateMockReview',
 ];
 

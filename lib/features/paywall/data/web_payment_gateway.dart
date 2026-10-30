@@ -34,6 +34,7 @@ Entitlement entitlementFromGrants(
   final promotions = <CoveragePeriod>[];
   final connected = <_Held>[];
   final passes = <String, DateTime>{};
+  final betaPasses = <String, DateTime>{};
   final ordered = rows.where((row) => row['startsAt'] is int).toList()
     ..sort(
       (a, b) => (a['startsAt']! as int).compareTo(b['startsAt']! as int),
@@ -60,6 +61,17 @@ Entitlement entitlementFromGrants(
     }
     final endsAt = DateTime.fromMillisecondsSinceEpoch(end, isUtc: true);
     if (!endsAt.isAfter(at)) continue;
+    if (row['source'] == 'beta' && productId == 'beta_pro') {
+      final examId = row['examId'];
+      if (examId is String &&
+          const {'exam_cse_pro', 'exam_cse_sub'}.contains(examId)) {
+        final previous = betaPasses[examId];
+        if (previous == null || endsAt.isAfter(previous)) {
+          betaPasses[examId] = endsAt;
+        }
+      }
+      continue;
+    }
     if (productId == _webTrialProduct) {
       if (row['source'] == 'trial' && row['tier'] == 'civilService') {
         subscriptions.add(_Held(_trialAsProduct, endsAt, isTrial: true));
@@ -85,6 +97,7 @@ Entitlement entitlementFromGrants(
       plan: EntitlementPlan.free,
       willRenew: false,
       passes: Map.unmodifiable(passes),
+      betaPasses: Map.unmodifiable(betaPasses),
       promotions: promotions,
     );
   }
@@ -99,6 +112,7 @@ Entitlement entitlementFromGrants(
     willRenew: false,
     tier: product.tier,
     passes: Map.unmodifiable(passes),
+    betaPasses: Map.unmodifiable(betaPasses),
     promotions: promotions,
     subscriptions: [
       for (final held in subscriptions)

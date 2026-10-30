@@ -8,6 +8,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 const replayProtectedCallables = <String>{
   'createPaymongoCheckout',
   'startWebTrial',
+  'setBetaPro',
   'deleteAccount',
   'exportData',
   'recomputePassEnds',

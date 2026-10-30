@@ -97,6 +97,11 @@ class EntitlementSnapshotStore {
               in (decoded['passes'] as Map<String, dynamic>? ?? {}).entries)
             entry.key: DateTime.parse(entry.value as String).toUtc(),
         },
+        betaPasses: {
+          for (final entry
+              in (decoded['betaPasses'] as Map<String, dynamic>? ?? {}).entries)
+            entry.key: DateTime.parse(entry.value as String).toUtc(),
+        },
         subscriptions: _periods(decoded['subscriptions']),
         promotions: _periods(decoded['promotions']),
         examTiers: {
@@ -127,6 +132,10 @@ class EntitlementSnapshotStore {
       'verifiedAt': entitlement.verifiedAt?.toUtc().toIso8601String(),
       'passes': {
         for (final entry in entitlement.passes.entries)
+          entry.key: entry.value.toUtc().toIso8601String(),
+      },
+      'betaPasses': {
+        for (final entry in entitlement.betaPasses.entries)
           entry.key: entry.value.toUtc().toIso8601String(),
       },
       'subscriptions': _encodePeriods(entitlement.subscriptions),

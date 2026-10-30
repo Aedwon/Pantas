@@ -170,6 +170,9 @@ export function claimsForRevenueCatAnswer(
   sources: RevenueCatAccessSource[],
   options: Parameters<typeof coverageForRevenueCatAnswer>[1],
 ): {pro: boolean; proUntil: number} {
-  const latest = coverageForRevenueCatAnswer(sources, options).endsAt ?? 0;
-  return {pro: latest > 0, proUntil: latest > 0 ? latest + 86_400_000 : 0};
+  const coverage = coverageForRevenueCatAnswer(sources, options);
+  // Beta ends exactly at its cutoff. All other coverage keeps its existing grace.
+  const proUntil = Math.max(coverage.endsAt ?? 0,
+    coverage.graceEndsAt > 0 ? coverage.graceEndsAt + 86_400_000 : 0);
+  return {pro: proUntil > 0, proUntil};
 }

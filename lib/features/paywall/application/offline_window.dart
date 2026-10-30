@@ -89,6 +89,7 @@ class OfflineWindow {
             productForId(grant.id)?.kind == ProductKind.promotional)
           grant.endsAt,
       ...confirmed.passes.values,
+      ...confirmed.betaPasses.values,
     ];
     final latestEnd =
         ends.isEmpty ? null : ends.reduce((a, b) => a.isAfter(b) ? a : b);

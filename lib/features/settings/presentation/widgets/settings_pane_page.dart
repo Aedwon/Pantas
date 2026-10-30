@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 /// Settings destinations share the list pane. Providers and route state stay
@@ -198,7 +199,7 @@ class SettingsNavigation extends ConsumerWidget {
           value: value,
           leading: glyph,
           onPressed: () => open(path),
-          divider: label != 'Appearance',
+          divider: label != 'Appearance' && label != 'Pantas Pro',
         );
     return Column(
       key: const ValueKey('settings-navigation'),
@@ -233,13 +234,19 @@ class SettingsNavigation extends ConsumerWidget {
         const SizedBox(height: 18),
         WebCard(
           radius: 16,
-          child: row(
-            'Pantas Pro',
-            '/settings/pro',
-            Icon(PantasIcons.proSettings, size: 22, color: t.colors.accent),
-            value: ref.watch(proRowValueProvider),
+          child: Column(
+            children: [
+              row(
+                'Pantas Pro',
+                '/settings/pro',
+                Icon(PantasIcons.proSettings, size: 22, color: t.colors.accent),
+                value: ref.watch(proRowValueProvider),
+              ),
+              const BetaProRow(),
+            ],
           ),
         ),
+        const BetaProNote(),
         const SizedBox(height: 18),
         WebCard(
           radius: 16,

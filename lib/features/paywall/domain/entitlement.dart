@@ -36,6 +36,7 @@ class Entitlement {
     PriceTier? tier,
     EntitlementState? state,
     this.passes = const {},
+    this.betaPasses = const {},
     this.subscriptions = const [],
     this.promotions = const [],
     this.examTiers = const {},
@@ -99,6 +100,7 @@ class Entitlement {
             ? EntitlementState.active
             : state,
         passes: Map.unmodifiable(records),
+        betaPasses: betaPasses,
         subscriptions: subscriptions,
         promotions: promotions,
         examTiers: examTiers,
@@ -131,6 +133,7 @@ class Entitlement {
         tier: tier,
         state: state ?? this.state,
         passes: passes,
+        betaPasses: betaPasses,
         subscriptions: subscriptions,
         promotions: promotions,
         examTiers: examTiers,
@@ -144,6 +147,9 @@ class Entitlement {
 
   /// Active server-ledger pass records, never RevenueCat purchase history.
   final Map<String, DateTime> passes;
+
+  /// Beta access is exam-scoped and never receives offline grace.
+  final Map<String, DateTime> betaPasses;
   final List<CoveragePeriod> subscriptions;
   final List<CoveragePeriod> promotions;
   final Map<String, PriceTier> examTiers;
@@ -164,7 +170,9 @@ class Entitlement {
           : EntitlementState.canceledActive;
     }
     if (promotions.isNotEmpty) return EntitlementState.grant;
-    return passes.isEmpty ? EntitlementState.free : EntitlementState.active;
+    return passes.isEmpty && betaPasses.isEmpty
+        ? EntitlementState.free
+        : EntitlementState.active;
   }
 
   DateTime? get endsAt {
@@ -172,6 +180,7 @@ class Entitlement {
     final ends = [
       if (expiresAt != null) expiresAt!,
       ...passes.values,
+      ...betaPasses.values,
       ...subscriptions.map((source) => source.endsAt),
       ...promotions.map((source) => source.endsAt),
     ];
@@ -194,6 +203,10 @@ class Entitlement {
         passes: [
           for (final pass in passes.entries)
             LedgerPass(examId: pass.key, endsAt: pass.value),
+          for (final pass in betaPasses.entries)
+            if (pass.value
+                .isAfter(at ?? _effectiveAt ?? DateTime.now().toUtc()))
+              LedgerPass(examId: pass.key, endsAt: pass.value),
         ],
         promotions: promotions,
       );
@@ -222,6 +235,9 @@ class Entitlement {
       isUnknownPlan ||
       plan != EntitlementPlan.free ||
       passes.isNotEmpty ||
+      betaPasses.values.any(
+        (end) => end.isAfter(_effectiveAt ?? DateTime.now().toUtc()),
+      ) ||
       promotions.isNotEmpty;
 
   @override
@@ -242,6 +258,7 @@ class Entitlement {
         other.renewsAt == renewsAt &&
         other.chargesAt == chargesAt &&
         const DeepCollectionEquality().equals(other.passes, passes) &&
+        const DeepCollectionEquality().equals(other.betaPasses, betaPasses) &&
         const DeepCollectionEquality().equals(other.examTiers, examTiers) &&
         const DeepCollectionEquality()
             .equals(other.subscriptions, subscriptions) &&
@@ -266,6 +283,7 @@ class Entitlement {
       renewsAt,
       chargesAt,
       const DeepCollectionEquality().hash(passes),
+      const DeepCollectionEquality().hash(betaPasses),
       const DeepCollectionEquality().hash(examTiers),
       const DeepCollectionEquality().hash(subscriptions),
       const DeepCollectionEquality().hash(promotions),

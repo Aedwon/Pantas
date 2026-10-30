@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 final settingsSessionLengthProvider = FutureProvider<int>((ref) async {
@@ -78,8 +79,10 @@ class SettingsHomePage extends ConsumerWidget {
               iconColor: const Color(0xFFD9A400),
               onTap: () => push('/settings/pro'),
             ),
+            const BetaProRow(),
           ],
         ),
+        const BetaProNote(),
         const SizedBox(height: 24),
         GroupedSection(
           children: [

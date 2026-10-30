@@ -5,6 +5,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/paywall/application/beta_pro_provider.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -205,8 +206,13 @@ final activeExamShortNameProvider = Provider<String>((ref) {
 /// The Pro row's value. Free students see "Free" and every other row on the
 /// screen is unchanged: no row is hidden, disabled or badged by entitlement.
 final proRowValueProvider = Provider<String>((ref) {
+  if (ref.watch(betaProProvider).valueOrNull?.enabled ?? false) return 'Pro';
   final entitlement = ref.watch(entitlementProvider).valueOrNull;
   if (entitlement == null || !entitlement.proIsActive) return 'Free';
+  if (entitlement.betaPasses.isNotEmpty &&
+      !entitlement.coverage().hasKnownCoverage) {
+    return 'Free';
+  }
   if (entitlement.isTrial && entitlement.endsAt != null) {
     final days = entitlement.endsAt!.difference(DateTime.now()).inHours / 24;
     final remaining = days.ceil().clamp(0, 7);

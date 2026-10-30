@@ -3,7 +3,7 @@ import type {LedgerGrant, PriceTier} from './revenuecatCoverage.js';
 
 /** One row of users/{uid}/grants/{grantId}. Server-only writes; the owner may read. */
 export interface Grant {
-  source: 'paymongo' | 'trial';
+  source: 'paymongo' | 'trial' | 'beta';
   product: string;
   tier: PriceTier;
   startsAt: number;
@@ -35,7 +35,7 @@ export const TIER_ORDER: PriceTier[] = ['student', 'civilService', 'licensure', 
 
 export const ledgerGrants = (rows: Iterable<Grant>): LedgerGrant[] =>
   [...rows].map(g => ({source: g.source, product: g.product, tier: g.tier,
-    startsAt: g.startsAt, endsAt: g.endsAt, active: g.state === 'active'}));
+    examId: g.examId, startsAt: g.startsAt, endsAt: g.endsAt, active: g.state === 'active'}));
 
 /** Remaining length is the original length times (1 - refunded/paid), from startsAt, floored to the second. */
 export function shortenedEnd(startsAt: number, fullEndsAt: number, refunded: number, paid: number): number {
