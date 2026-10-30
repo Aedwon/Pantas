@@ -15,6 +15,7 @@ void main() {
       '/plan',
       '/plan/day/:date',
       '/plan/week/:start',
+      '/plan/history',
       '/performance',
       '/record',
       '/tendencies',

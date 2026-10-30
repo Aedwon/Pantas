@@ -9,6 +9,8 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/home/presentation/plan_web.dart';
 
 enum PlanNodeKind { week, review, mock, exam }
 
@@ -53,6 +55,9 @@ class PlanPage extends StatefulWidget {
     required this.onWeek,
     required this.onPro,
     this.subtitle,
+    this.webPane,
+    this.selectedWeek,
+    this.onHistory,
     this.initialShown = 5,
     this.loadingMore = false,
     this.paginationError,
@@ -60,6 +65,9 @@ class PlanPage extends StatefulWidget {
     this.onMore,
     super.key,
   });
+  final Widget? webPane;
+  final String? selectedWeek;
+  final VoidCallback? onHistory;
   final bool pro;
   final bool paused;
   final int done;
@@ -140,6 +148,14 @@ class _PlanPageState extends State<PlanPage> {
       );
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return PlanWebColumns(
+        page: widget,
+        pane: widget.webPane,
+        selectedWeek: widget.selectedWeek,
+        onHistory: widget.onHistory,
+      );
+    }
     final last =
         widget.nodes.where((n) => n.kind == PlanNodeKind.exam).firstOrNull;
     final visible = widget.history.take(_shown).toList();

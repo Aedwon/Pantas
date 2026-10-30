@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -50,9 +52,13 @@ class LessonPage extends ConsumerStatefulWidget {
     this.resume = false,
     this.dayContext,
     this.initialEnding = false,
+    this.onPlanClose,
+    this.planLabel,
     super.key,
   });
 
+  final String? planLabel;
+  final VoidCallback? onPlanClose;
   final LessonId lessonId;
   final ReaderOrigin origin;
   final LessonDayContext? dayContext;
@@ -362,6 +368,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       return Scaffold(
         backgroundColor: context.colors.background,
         body: _ReaderFallback(
+          onClose: widget.onPlanClose,
           origin: origin,
           child: StateView(
             message: 'Could not load this lesson.',
@@ -375,6 +382,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       return Scaffold(
         backgroundColor: context.colors.background,
         body: _ReaderFallback(
+          onClose: widget.onPlanClose,
           origin: origin,
           child: SingleChildScrollView(
             child: loadingFor(const AsyncLoading<Object?>()),
@@ -387,6 +395,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       return Scaffold(
         backgroundColor: context.colors.background,
         body: _ReaderFallback(
+          onClose: widget.onPlanClose,
           origin: origin,
           child: errorFor(
             'lesson',
@@ -447,6 +456,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
           : context.colors.surface,
       body: switch ((reader, asyncReader)) {
         (_, AsyncError(:final error)) => _ReaderFallback(
+            onClose: widget.onPlanClose,
             origin: origin,
             child: errorFor(
               'lesson',
@@ -466,6 +476,8 @@ class _LessonPageState extends ConsumerState<LessonPage> {
               );
               return _ReaderBody(
                 reader: reader,
+                onPlanClose: widget.onPlanClose,
+                planLabel: widget.planLabel,
                 dayContext: _dayContextFor(reader.lesson.id),
                 origin: origin,
                 resume: widget.resume && reader.lesson.id == widget.lessonId,
@@ -499,10 +511,12 @@ class _LessonPageState extends ConsumerState<LessonPage> {
             },
           ),
         (_, AsyncLoading()) => _ReaderFallback(
+            onClose: widget.onPlanClose,
             origin: origin,
             child: SingleChildScrollView(child: loadingFor(asyncReader)),
           ),
         _ => _ReaderFallback(
+            onClose: widget.onPlanClose,
             origin: origin,
             child: StateView(
               message: 'Lesson not found.',
@@ -516,7 +530,12 @@ class _LessonPageState extends ConsumerState<LessonPage> {
 }
 
 class _ReaderFallback extends StatelessWidget {
-  const _ReaderFallback({required this.origin, required this.child});
+  const _ReaderFallback({
+    required this.origin,
+    required this.child,
+    this.onClose,
+  });
+  final VoidCallback? onClose;
   final ReaderOrigin origin;
   final Widget child;
 
@@ -524,8 +543,8 @@ class _ReaderFallback extends StatelessWidget {
   Widget build(BuildContext context) => context.wideWeb
       ? CallbackShortcuts(
           bindings: {
-            const SingleActivator(LogicalKeyboardKey.escape): () =>
-                origin.leave(context),
+            const SingleActivator(LogicalKeyboardKey.escape):
+                onClose ?? () => origin.leave(context),
           },
           child: Focus(
             autofocus: true,
@@ -535,9 +554,11 @@ class _ReaderFallback extends StatelessWidget {
                   leading: Row(
                     children: [
                       WebButton(
-                        label: origin.backLabel(context),
+                        label: onClose == null
+                            ? origin.backLabel(context)
+                            : 'Close',
                         variant: WebButtonVariant.tertiary,
-                        onPressed: () => origin.leave(context),
+                        onPressed: onClose ?? () => origin.leave(context),
                       ),
                       const WebKeyHint('Esc'),
                     ],
@@ -567,7 +588,7 @@ class _ReaderFallback extends StatelessWidget {
                         vertical: 6,
                       ),
                     ),
-                    onPressed: () => origin.leave(context),
+                    onPressed: onClose ?? () => origin.leave(context),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -611,9 +632,13 @@ class _ReaderBody extends ConsumerStatefulWidget {
     required this.onPull,
     required this.onPullStart,
     this.dayContext,
+    this.onPlanClose,
+    this.planLabel,
     this.resume = false,
   });
 
+  final String? planLabel;
+  final VoidCallback? onPlanClose;
   final bool resume;
   final LessonEnding? ending;
   final String? destinationTitle;
@@ -1061,6 +1086,80 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
           nextFailed: controller != null && widget.nextFailed,
           onRetryNext: widget.onRetryNext,
         );
+    final close = widget.onPlanClose;
+    if (context.wideWeb && close != null) {
+      final t = context.webTokens;
+      return CallbackShortcuts(
+        bindings: {
+          const SingleActivator(LogicalKeyboardKey.escape): close,
+          const SingleActivator(LogicalKeyboardKey.enter): close,
+        },
+        child: Focus(
+          autofocus: true,
+          child: Column(
+            children: [
+              WebTopBar(
+                leading:
+                    Text(widget.planLabel ?? reader.topicName, style: t.sm),
+                trailing: IconButton(
+                  onPressed: close,
+                  tooltip: 'Close',
+                  icon: const Icon(Icons.close, size: 18),
+                ),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  padding: const EdgeInsets.fromLTRB(56, 36, 56, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        reader.lesson.title,
+                        style: t.h2.copyWith(fontSize: 32),
+                      ),
+                      const SizedBox(height: 18),
+                      ContentRenderer(
+                        blocks: reader.lesson.bodyJson,
+                        readerFigures: true,
+                        style: t.style(18, height: 1.65),
+                      ),
+                      if (_activityFailed)
+                        saveFailureLine(
+                          () => unawaited(
+                            _retryActivity(reader, activation),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "That's the lesson. It counts toward "
+                        "${DateFormat('EEEE', 'en_US').format(
+                          widget.dayContext!.date,
+                        )}.",
+                        style: t.sub,
+                      ),
+                    ),
+                    WebButton(
+                      label: 'Done',
+                      keyHint: 'Enter',
+                      onPressed: close,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     Widget plate(LessonEnding value) => EndingContent(
           ending: value,
           onLesson: widget.onAdvance,

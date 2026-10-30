@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
+import 'package:pantas/features/home/presentation/plan_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/l10n/app_localizations.dart';
@@ -127,11 +128,16 @@ class HomeMasthead extends ConsumerWidget {
                     width: 44,
                     child: TextButton(
                       key: ValueKey('web-week-day-$i'),
-                      onPressed: () => unawaited(
-                        context.push<void>(
-                          '/plan/day/${dayKey(start.add(Duration(days: i)))}',
-                        ),
-                      ),
+                      onPressed: () {
+                        final date = start.add(Duration(days: i));
+                        unawaited(
+                          date.isBefore(
+                            DateTime(now.year, now.month, now.day),
+                          )
+                              ? showPlanPastDay(context, date)
+                              : context.push<void>('/plan/day/${dayKey(date)}'),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         minimumSize: const Size(44, 50),

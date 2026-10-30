@@ -1617,3 +1617,16 @@ code**, which is why it ran for days unseen.
 The onboarding wide layouts were audited against the web handoff. Corrected birth-year height, consent-row clicking/card radius, subject controls, and calendar cell sizing. Added L_Restore loading presentation using the shared web components. Existing phone paths and tests were retained. New widget tests exercise light/dark at 1440.
 
 OB_Restoring and L_Restore have shared presentations but no live restore-progress route/caller. No operation stages or counts were fabricated. This remains a lead integration decision. CSE scope and the app's existing sign-in behavior remain. Automated verification and the full board inventory are in `docs/superpowers/plans/pwa-launch/evidence/web-layout-onboarding-r2.md`. Visual acceptance is pending Aedwon's review. No screenshots or browser operations were performed.
+
+### October 30, 2026: Plan wide web layout
+
+PL_Plan, PL_Free, PL_Week/WeekCustom, PL_Day/DayRead/DayPast,
+PL_History/HistoryEnd, and PL_Error now have wide web presentations.
+History opens as a page at /plan/history. Native and narrow layouts keep
+their existing branches. Reader completion still uses the existing reading-time
+and end-of-content checks. Done closes the drawer. L_PlanSlow already belongs
+to Home's shared delayed loading presentation. No dedicated DK_Plan board exists.
+Light/dark automated coverage and verification are recorded in
+`docs/superpowers/plans/pwa-launch/evidence/web-layout-plan-r1.md`.
+Lead review and Aedwon's visual acceptance are pending. No screenshots or browser
+operations were performed.

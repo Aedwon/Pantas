@@ -284,6 +284,7 @@ class WebRow extends StatelessWidget {
   const WebRow({
     required this.title,
     this.subtitle,
+    this.wrapTitle = false,
     this.titleStyle,
     this.horizontalPadding = 20,
     this.titleColor,
@@ -300,6 +301,7 @@ class WebRow extends StatelessWidget {
     super.key,
   });
   final String title;
+  final bool wrapTitle;
   final String? subtitle;
   final TextStyle? titleStyle;
   final double horizontalPadding;
@@ -370,8 +372,8 @@ class WebRow extends StatelessWidget {
                             if (titleSuffix == null)
                               Text(
                                 title,
-                                maxLines: large ? null : 1,
-                                overflow: large
+                                maxLines: large || wrapTitle ? null : 1,
+                                overflow: large || wrapTitle
                                     ? TextOverflow.visible
                                     : TextOverflow.ellipsis,
                                 style: titleStyle ??
@@ -384,8 +386,8 @@ class WebRow extends StatelessWidget {
                                   Flexible(
                                     child: Text(
                                       title,
-                                      maxLines: large ? null : 1,
-                                      overflow: large
+                                      maxLines: large || wrapTitle ? null : 1,
+                                      overflow: large || wrapTitle
                                           ? TextOverflow.visible
                                           : TextOverflow.ellipsis,
                                       style: titleStyle ??
@@ -399,8 +401,8 @@ class WebRow extends StatelessWidget {
                             if (subtitle != null)
                               Text(
                                 subtitle!,
-                                maxLines: large ? null : 1,
-                                overflow: large
+                                maxLines: large || wrapTitle ? null : 1,
+                                overflow: large || wrapTitle
                                     ? TextOverflow.visible
                                     : TextOverflow.ellipsis,
                                 style: t.style(
