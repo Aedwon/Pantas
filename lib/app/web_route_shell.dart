@@ -17,8 +17,16 @@ class WebRouteShell extends ConsumerWidget {
   final Widget child;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (context.webTier == WebLayoutTier.tabletPortrait) {
+      return ColoredBox(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: Center(
+          child: SizedBox(width: 640, child: child),
+        ),
+      );
+    }
     if (!context.wideWeb) return child;
-    if (!webSidebarRoute(path)) {
+    if (!webSidebarRoute(path) && context.webTier == WebLayoutTier.desktop) {
       return CallbackShortcuts(
         bindings: {
           const SingleActivator(LogicalKeyboardKey.keyK, control: true): () =>
@@ -27,27 +35,41 @@ class WebRouteShell extends ConsumerWidget {
         child: child,
       );
     }
-    final person = ref.watch(userSettingsProvider).valueOrNull?.name ?? '';
-    final exam = ref.watch(activeExamShortNameProvider);
-    final pro = ref.watch(proForActiveExamProvider).valueOrNull ?? false;
     const tabs = ['/home', '/study', '/quiz', '/settings'];
     final activeIndex = const ['/record', '/tendencies'].contains(path)
         ? 0
         : tabs.indexWhere((tab) => path == tab || path.startsWith('$tab/'));
+    void navigate(int index) {
+      ref.read(telemetryProvider).log(
+        TelemetryEvent.tabOpened,
+        properties: {'tab': tabs[index].substring(1)},
+      );
+      context.go(tabs[index]);
+    }
+
+    if (!webSidebarRoute(path)) {
+      // Existing focus bars sit 28px above this shortened viewport. This puts
+      // them 12px above the 64px navigation, with content insets kept intact.
+      return WebTabletNavigation(
+        activeIndex: activeIndex,
+        onNavigate: navigate,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 72),
+          child: child,
+        ),
+      );
+    }
+    final person = ref.watch(userSettingsProvider).valueOrNull?.name ?? '';
+    final exam = ref.watch(activeExamShortNameProvider);
+    final pro = ref.watch(proForActiveExamProvider).valueOrNull ?? false;
     return WebShellFrame(
       activeIndex: activeIndex,
       person: person,
       exam: exam,
       plan: pro ? 'Pro' : 'Free',
-      child: child,
       onSearch: () => showWebLessonSearch(context),
-      onNavigate: (index) {
-        ref.read(telemetryProvider).log(
-          TelemetryEvent.tabOpened,
-          properties: {'tab': tabs[index].substring(1)},
-        );
-        context.go(tabs[index]);
-      },
+      onNavigate: navigate,
+      child: child,
     );
   }
 }

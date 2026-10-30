@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Keep narrow web identical to the existing app, including its palette.
@@ -11,14 +12,18 @@ class WebLayoutTheme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
-      return child;
-    }
-    return Theme(
-      data: Theme.of(context).brightness == Brightness.dark
-          ? buildDarkTheme(web: true)
-          : buildLightTheme(web: true),
-      child: child,
+    final wide = isWideWebLayout(
+      width: MediaQuery.sizeOf(context).width,
+      web: web,
     );
+    final themed = wide
+        ? Theme(
+            data: Theme.of(context).brightness == Brightness.dark
+                ? buildDarkTheme(web: true)
+                : buildLightTheme(web: true),
+            child: child,
+          )
+        : child;
+    return web ? WebKeyboardHints(child: themed) : themed;
   }
 }

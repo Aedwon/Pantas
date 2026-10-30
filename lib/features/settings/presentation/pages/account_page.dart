@@ -163,7 +163,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                             size: 16,
                             color: t.colors.accent,
                           )
-                        : const WebKeyHint('Click to copy'),
+                        : const WebKeyHint('Click to copy', keyboard: false),
                 onTap: digits == null ? null : copyId,
               ),
             ],

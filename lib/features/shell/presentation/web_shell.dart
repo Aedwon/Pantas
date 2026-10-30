@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 
 /// Sidebar families from the board map. Sessions use focus mode.
 bool webSidebarRoute(String path) =>
@@ -50,6 +51,20 @@ class WebShellFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
       return child;
+    }
+    final tier = webLayoutTier(
+      width: MediaQuery.sizeOf(context).width,
+      web: web,
+    );
+    if (tier == WebLayoutTier.tabletLandscape) {
+      return WebTabletNavigation(
+        activeIndex: activeIndex,
+        onNavigate: onNavigate,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(44, 28, 44, 100),
+          child: child,
+        ),
+      );
     }
     return CallbackShortcuts(
       bindings: {
@@ -319,4 +334,41 @@ class WebSidebar extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Phone navigation at its approved width on landscape tablets.
+class WebTabletNavigation extends StatelessWidget {
+  const WebTabletNavigation({
+    required this.child,
+    required this.activeIndex,
+    required this.onNavigate,
+    super.key,
+  });
+  final Widget child;
+  final int activeIndex;
+  final ValueChanged<int> onNavigate;
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            child,
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 24,
+              child: Center(
+                child: SizedBox(
+                  width: 358,
+                  child: AppNavBar(
+                    currentIndex: activeIndex,
+                    onTap: onNavigate,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 }

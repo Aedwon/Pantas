@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum WebButtonVariant {
@@ -34,6 +35,7 @@ class WebButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final c = t.colors;
+    final showKeyHint = keyHint != null && WebKeyboardHints.visibleOf(context);
     final solid = variant == WebButtonVariant.primary ||
         variant == WebButtonVariant.danger;
     final danger = variant == WebButtonVariant.danger ||
@@ -98,7 +100,7 @@ class WebButton extends StatelessWidget {
                               variant == WebButtonVariant.dangerOutline
                           ? 18
                           : 20,
-              right: pill || keyHint != null
+              right: pill || showKeyHint
                   ? 14
                   : variant == WebButtonVariant.tertiary
                       ? 14
@@ -152,7 +154,7 @@ class WebButton extends StatelessWidget {
               const SizedBox(width: 8),
             ],
             Flexible(child: Text(label)),
-            if (keyHint != null) ...[
+            if (showKeyHint) ...[
               const SizedBox(width: 12),
               WebKeyHint(keyHint!, onButton: true, enabled: onPressed != null),
             ],
@@ -167,14 +169,19 @@ class WebKeyHint extends StatelessWidget {
   const WebKeyHint(
     this.label, {
     this.onButton = false,
+    this.keyboard = true,
     this.enabled = true,
     super.key,
   });
   final String label;
   final bool onButton;
+  final bool keyboard;
   final bool enabled;
   @override
   Widget build(BuildContext context) {
+    if (keyboard && !WebKeyboardHints.visibleOf(context)) {
+      return const SizedBox.shrink();
+    }
     final t = context.webTokens;
     return ExcludeSemantics(
       child: Container(
