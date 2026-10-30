@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -56,8 +57,11 @@ class OnboardingWebCalendar extends StatelessWidget {
             onPressed: action,
             style: TextButton.styleFrom(
               padding: EdgeInsets.zero,
-              backgroundColor:
-                  picked ? t.colors.accentFill : t.colors.background,
+              backgroundColor: picked
+                  ? t.colors.accentFill
+                  : semantics == null
+                      ? Colors.transparent
+                      : t.colors.background,
               foregroundColor: picked ? Colors.white : t.colors.label,
               disabledForegroundColor: t.disabledText,
               shape: RoundedRectangleBorder(
@@ -158,17 +162,33 @@ class OnboardingWebCalendar extends StatelessWidget {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(
-                                Icons.calendar_month_outlined,
-                                size: 32,
-                                color: t.colors.tertiaryLabel,
+                              SvgPicture.string(
+                                '<svg viewBox="0 0 24 24" fill="none" '
+                                'stroke="currentColor" stroke-width="1.5" '
+                                'stroke-linecap="round" '
+                                'stroke-linejoin="round"> '
+                                '<rect x="3.5" y="5" width="17" '
+                                'height="15.5" rx="2.5"/> '
+                                '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
+                                width: 36,
+                                height: 36,
+                                colorFilter: ColorFilter.mode(
+                                  t.dark
+                                      ? t.colors.tertiaryLabel
+                                      : const Color(0xFFC7C7CC),
+                                  BlendMode.srcIn,
+                                ),
                               ),
                               const SizedBox(height: 10),
                               Text(
                                 'Pick a month first.\n'
                                 'Then add the day here if you know it.',
                                 textAlign: TextAlign.center,
-                                style: t.sm,
+                                style: t.style(
+                                  15,
+                                  height: 1.45,
+                                  color: t.colors.tertiaryLabel,
+                                ),
                               ),
                             ],
                           ),

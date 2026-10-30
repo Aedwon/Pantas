@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -175,14 +176,27 @@ class OnboardingWebPage extends StatelessWidget {
                                 alignment: Alignment.centerLeft,
                                 child: TextButton.icon(
                                   onPressed: onBack,
-                                  icon: const Icon(
-                                    Icons.chevron_left,
-                                    size: 20,
+                                  icon: SvgPicture.string(
+                                    '<svg viewBox="0 0 24 24" fill="none" '
+                                    'stroke="currentColor" stroke-width="2.2" '
+                                    'stroke-linecap="round" '
+                                    'stroke-linejoin="round"> '
+                                    '<path d="M15 4.5 7.5 12l7.5 7.5"/></svg>',
+                                    width: 20,
+                                    height: 20,
+                                    colorFilter: ColorFilter.mode(
+                                      t.colors.accent,
+                                      BlendMode.srcIn,
+                                    ),
                                   ),
                                   label: const Text('Back'),
                                   style: TextButton.styleFrom(
                                     foregroundColor: t.colors.accent,
                                     minimumSize: const Size(0, 36),
+                                    visualDensity: VisualDensity.standard,
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    iconAlignment: IconAlignment.start,
                                     padding: EdgeInsets.zero,
                                     textStyle: t.style(16),
                                   ),
@@ -304,6 +318,7 @@ class OnboardingActions extends StatelessWidget {
                 .where((b) => b.variant != PantasButtonVariant.primary))
               button,
             if (leading == null) const Spacer(),
+            if (leading != null && buttons.length > 1) const SizedBox(width: 8),
             for (final button in buttons
                 .where((b) => b.variant == PantasButtonVariant.primary))
               button,

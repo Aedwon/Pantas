@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
@@ -275,6 +276,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         SearchField(
+                          outlined: true,
                           hint: 'Search exams',
                           onChanged: (value) => setState(
                             () => _query = value.trim().toLowerCase(),
@@ -298,7 +300,14 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                       : t.colors.surface,
                                   foregroundColor: _group == group.$1
                                       ? t.colors.surface
-                                      : t.colors.secondaryLabel,
+                                      : t.colors.label,
+                                  textStyle: t.style(
+                                    14,
+                                    weight: _group == group.$1
+                                        ? FontWeight.w600
+                                        : FontWeight.w500,
+                                  ),
+                                  shape: const StadiumBorder(),
                                   minimumSize: const Size(0, 34),
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 14,
@@ -313,7 +322,20 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                           child: WebRow(
                             title: "My exam isn't listed",
                             subtitle: 'Set up your own and pick what it covers',
-                            titleColor: t.colors.accent,
+                            titleColor: t.colors.label,
+                            leading: SvgPicture.string(
+                              '<svg viewBox="0 0 24 24" fill="none" '
+                              'stroke="currentColor" stroke-width="1.9" '
+                              'stroke-linecap="round"> '
+                              '<circle cx="12" cy="12" r="8.5"/> '
+                              '<path d="M12 8.5v7M8.5 12h7"/></svg>',
+                              width: 22,
+                              height: 22,
+                              colorFilter: ColorFilter.mode(
+                                t.colors.accent,
+                                BlendMode.srcIn,
+                              ),
+                            ),
                             onPressed: _saving ? null : _custom,
                             trailing: const Icon(Icons.chevron_right),
                             divider: false,
@@ -367,13 +389,43 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                                 overflow: TextOverflow.ellipsis,
                                                 style: t.sm,
                                               ),
-                                              if (!widget.selectable(entry))
-                                                Text(
-                                                  'Coming soon',
-                                                  style: t.sm,
-                                                ),
                                             ],
                                           ),
+                                          trailing: !widget.selectable(entry)
+                                              ? Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    right: 14,
+                                                  ),
+                                                  child: DecoratedBox(
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          t.disabledBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                        99,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                        horizontal: 7,
+                                                        vertical: 2,
+                                                      ),
+                                                      child: Text(
+                                                        'Coming soon',
+                                                        style: t.style(
+                                                          11,
+                                                          weight:
+                                                              FontWeight.w600,
+                                                          color: t.colors
+                                                              .secondaryLabel,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )
+                                              : null,
                                         ),
                                       ),
                                     ),

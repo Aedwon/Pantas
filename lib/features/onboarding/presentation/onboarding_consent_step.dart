@@ -65,13 +65,20 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
     required Widget child,
     bool wholeRow = false,
   }) {
-    return CheckboxRow(
-      interactiveContent: true,
-      title: label,
-      selected: value,
-      onTap: _saving ? null : onChanged,
-      content: child,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+    // Board OB_Terms: each consent row is 56 px tall.
+    return Theme(
+      data: Theme.of(context).copyWith(visualDensity: VisualDensity.compact),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 56),
+        child: CheckboxRow(
+          interactiveContent: true,
+          title: label,
+          selected: value,
+          onTap: _saving ? null : onChanged,
+          content: child,
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+        ),
+      ),
     );
   }
 
