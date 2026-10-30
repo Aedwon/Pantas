@@ -4,6 +4,37 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
 void main() {
+  for (final dark in [false, true]) {
+    test('web removes pressed ink but keeps hover and phone feedback $dark',
+        () {
+      final theme =
+          dark ? buildDarkTheme(web: true) : buildLightTheme(web: true);
+      expect(theme.splashFactory, NoSplash.splashFactory);
+      expect(theme.highlightColor, Colors.transparent);
+      expect(theme.splashColor, Colors.transparent);
+      for (final overlay in [
+        theme.textButtonTheme.style?.overlayColor,
+        theme.filledButtonTheme.style?.overlayColor,
+        theme.elevatedButtonTheme.style?.overlayColor,
+        theme.outlinedButtonTheme.style?.overlayColor,
+        theme.iconButtonTheme.style?.overlayColor,
+        theme.checkboxTheme.overlayColor,
+        theme.radioTheme.overlayColor,
+        theme.switchTheme.overlayColor,
+      ]) {
+        expect(overlay?.resolve({WidgetState.pressed}), Colors.transparent);
+        expect(
+          overlay?.resolve({WidgetState.hovered}),
+          isNot(Colors.transparent),
+        );
+      }
+      final phone =
+          dark ? buildDarkTheme(web: false) : buildLightTheme(web: false);
+      expect(phone.splashFactory, isNot(NoSplash.splashFactory));
+      expect(phone.highlightColor, isNot(Colors.transparent));
+    });
+  }
+
   test('themes use paper/ink scaffold backgrounds', () {
     expect(
       buildLightTheme().scaffoldBackgroundColor,

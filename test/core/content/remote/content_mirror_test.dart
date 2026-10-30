@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -149,6 +150,7 @@ class _Remote implements ContentRemote {
   String tier = 'free';
   String version = 'v1';
   bool offline = false;
+  Completer<void>? blocked;
   final calls = <String>[];
 
   @override
@@ -158,7 +160,9 @@ class _Remote implements ContentRemote {
     Map<String, String> knownVersions,
   ) async {
     calls.add('${kind.wire}:${ids.join(",")}');
-    if (offline) throw StateError('offline');
+    final failed = offline;
+    await blocked?.future;
+    if (failed) throw StateError('offline');
     final suffix = tier == 'pro' ? 'p' : 'f';
     return ContentFetch(
       tier: tier,
@@ -207,6 +211,37 @@ void main() {
 
   Future<List<ContentQuestionRow>> questionRows() =>
       contentDb.select(contentDb.contentQuestions).get();
+
+  test('sign-in refresh retries after an in-flight unauthenticated fetch',
+      () async {
+    remote.docs['catalog/index'] = {
+      ..._index,
+      'exams': [
+        ..._index['exams']! as List<Object?>,
+        _doc('exam_cse_pro', {
+          'code': 'CSE-PRO',
+          'name': 'Civil Service Examination: Professional',
+          'shortName': 'CSE Professional',
+          'language': 'en',
+          'ordering': 2,
+        }),
+      ],
+    };
+    remote.offline = true;
+    final blocked = remote.blocked = Completer<void>();
+    final starting = mirror.start();
+    while (remote.calls.isEmpty) {
+      await Future<void>.delayed(Duration.zero);
+    }
+    remote.offline = false;
+    final signedIn = mirror.refreshCatalog();
+    blocked.complete();
+    await starting;
+    await signedIn;
+    await mirror.idle;
+    final exams = await contentDb.select(contentDb.contentExams).get();
+    expect(exams.map((exam) => exam.id), contains('exam_cse_pro'));
+  });
 
   test('the catalog fills the structure but no text', () async {
     await mirror.start();

@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -94,6 +95,98 @@ void main() {
         viewportSize: const Size(390, 844),
         disableAnimations: true,
       );
+
+  for (final wide in [false, true]) {
+    for (final cseOnly in [false, true]) {
+      for (final mode in ExamPickerMode.values) {
+        testWidgets('selectable exams and groups first $wide $cseOnly $mode',
+            (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          const civil = ExamCatalogEntry(
+            id: 'exam_cse_pro',
+            name: 'CSE',
+            shortName: 'CSE Professional',
+            priceTier: 'Civil Service',
+            group: 'Civil service',
+            comingSoon: false,
+            publishedSittings: [],
+            hasContent: true,
+          );
+          final catalog = [
+            entries[3],
+            const ExamCatalogEntry(
+              id: 'exam_future',
+              name: 'Future',
+              shortName: 'Future',
+              priceTier: 'Student',
+              group: 'College entrance',
+              comingSoon: true,
+              publishedSittings: [],
+              hasContent: true,
+            ),
+            ...entries.take(3),
+            civil,
+          ];
+          await pumpAccessibilitySurface(
+            tester,
+            ProviderScope(
+              overrides: [
+                appDatabaseProvider.overrideWithValue(db),
+                examPickerCatalogProvider.overrideWith(
+                  (ref) => Stream.value(catalog),
+                ),
+                activeExamFocusProvider.overrideWith(
+                  (ref) async => const ActiveExamFocus.needsSelection(),
+                ),
+              ],
+              child: ExamPickerScreen(
+                mode: mode,
+                cseOnly: cseOnly,
+                onPicked: (_) async {},
+                onBack: () {},
+                onCustom: () {},
+              ),
+            ),
+            viewportSize: Size(wide ? 1440 : 390, 900),
+            disableAnimations: true,
+          );
+          await tester.pumpAndSettle();
+          final ids = find
+              .byWidgetPredicate(
+                (widget) =>
+                    widget.key is ValueKey<String> &&
+                    (widget.key! as ValueKey<String>)
+                        .value
+                        .startsWith('exam-exam_'),
+              )
+              .evaluate()
+              .map((e) => (e.widget.key! as ValueKey<String>).value)
+              .toList();
+          expect(
+            ids,
+            cseOnly
+                ? [
+                    'exam-exam_cse_pro',
+                    'exam-exam_future',
+                    'exam-exam_pupcet',
+                    'exam-exam_upcat',
+                    'exam-exam_acet',
+                    'exam-exam_pshs_nce',
+                  ]
+                : [
+                    'exam-exam_pupcet',
+                    'exam-exam_upcat',
+                    'exam-exam_acet',
+                    'exam-exam_future',
+                    'exam-exam_cse_pro',
+                    'exam-exam_pshs_nce',
+                  ],
+          );
+        });
+      }
+    }
+  }
 
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {

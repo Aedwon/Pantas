@@ -93,8 +93,13 @@ class ContentMirror implements ContentFetchHook {
   }
 
   /// Asks the server for the index and every exam catalog it lists.
-  Future<void> refreshCatalog() =>
-      _refreshing ??= _refreshCatalog().whenComplete(() => _refreshing = null);
+  Future<void> refreshCatalog() async {
+    // Sign-in may arrive while the startup request is still unauthenticated.
+    // Wait for that request, then fetch with the current account.
+    await _refreshing;
+    await (_refreshing ??=
+        _refreshCatalog().whenComplete(() => _refreshing = null));
+  }
 
   Future<void> _refreshCatalog() async {
     try {

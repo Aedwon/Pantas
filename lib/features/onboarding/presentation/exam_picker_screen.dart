@@ -143,6 +143,23 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     if (_settings) unawaited(_save());
   }
 
+  List<ExamCatalogEntry> _orderedEntries(List<ExamCatalogEntry> entries) => [
+        ...entries.where(widget.selectable),
+        ...entries.where((entry) => !widget.selectable(entry)),
+      ];
+
+  List<(String, String, String)> _orderedGroups(
+    List<ExamCatalogEntry> entries,
+  ) {
+    bool available((String, String, String) group) => entries.any(
+          (entry) => entry.group == group.$1 && widget.selectable(entry),
+        );
+    return [
+      ..._groups.where(available),
+      ..._groups.where((group) => !available(group)),
+    ];
+  }
+
   Widget _section(
     BuildContext context,
     String header,
@@ -216,7 +233,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       ],
                     ),
                   ),
-                  data: (all) {
+                  data: (catalogEntries) {
+                    final all = _orderedEntries(catalogEntries);
                     if (all.isEmpty) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 80),
@@ -299,7 +317,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        for (final group in _groups)
+                        for (final group in _orderedGroups(visible))
                           if (visible
                               .any((entry) => entry.group == group.$1)) ...[
                             Text(group.$3.toUpperCase(), style: t.eb),
@@ -518,7 +536,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         () => ref.invalidate(examPickerCatalogProvider),
                         error: error,
                       ),
-                      data: (all) {
+                      data: (catalogEntries) {
+                        final all = _orderedEntries(catalogEntries);
                         final visible = all
                             .where(
                               (entry) => '${entry.name} ${entry.shortName} '
@@ -540,7 +559,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                             spacing: 8,
                             runSpacing: 14,
                             children: [
-                              for (final group in _groups)
+                              for (final group in _orderedGroups(visible))
                                 if (visible.any(
                                   (entry) => entry.group == group.$1,
                                 ))
@@ -699,7 +718,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           () => ref.invalidate(examPickerCatalogProvider),
           error: error,
         ),
-        data: (all) {
+        data: (catalogEntries) {
+          final all = _orderedEntries(catalogEntries);
           if (all.isEmpty) {
             return StateView(
               message: 'No exams available right now.',
@@ -725,7 +745,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                for (final group in _groups)
+                for (final group in _orderedGroups(visible))
                   if (visible.any((entry) => entry.group == group.$1)) ...[
                     _section(
                       context,

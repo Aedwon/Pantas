@@ -1630,3 +1630,95 @@ Light/dark automated coverage and verification are recorded in
 `docs/superpowers/plans/pwa-launch/evidence/web-layout-plan-r1.md`.
 Lead review and Aedwon's visual acceptance are pending. No screenshots or browser
 operations were performed.
+
+### October 31, 2026: visual check fixes 5–7
+
+Assignment: Aedwon's visual-check brief is the spec and plan. Code base:
+`812402c2b3f098fc1ec7ffd5cb406c36069b5054`, branch
+`web/visual-check-fixes-r1`. Policy read from local `origin/main` at
+`f5b6852fdfb26301377f3d29f0f8dc0cf93ebd1d`, without fetching.
+
+5. The local seed already calls the real trial grant, whose tier is Civil Service.
+The picker does not filter by entitlement. Its availability requires a loaded
+content exam row. Reproduced a real app race: sign-in during an in-flight startup
+catalog request reuses that request, even if it fails before authentication.
+No second request runs, so the catalog stays empty and CSE cannot be selected.
+Catalog refresh now waits for the earlier request and starts a fresh request.
+The regression test first failed with an empty exam table. It now verifies that
+CSE Professional loads after the failed startup request. The running account's
+exact failure is not established by the available emulator log. No seed or server
+change was made. Aedwon's local account retest is pending.
+
+6. Both picker modes, in narrow and wide layouts, now partition each group's
+exams into selectable and coming-soon entries. Groups with selectable entries
+come first. Both partitions keep their previous order. Eight widget regressions
+first failed, then passed, covering both modes, both layouts, and CSE-only scope.
+
+7. Web themes disable ink splashes and pressed highlights, including Material
+button, checkbox, radio, and switch overlays. Hover remains available. The shared
+button's explicit overlay and press shrink follow this policy too. Its primary
+hover uses the existing web token. Native themes keep their feedback. Theme and
+button regression tests first failed, then passed. Visual acceptance remains
+with Aedwon. No screenshots were taken.
+
+Verification is recorded below. No live service calls, emulator writes, commits,
+branch switches, pushes, or deployment were performed. Functions were unchanged.
+Ports 8080, 9099, and 9199 are occupied by the existing local emulators. Emulator
+suites were skipped.
+
+Files touched for this assignment:
+
+- `lib/core/content/remote/content_mirror.dart`
+- `lib/features/onboarding/presentation/exam_picker_screen.dart`
+- `lib/core/ui/theme/app_theme.dart`
+- `lib/core/ui/components/pantas_button.dart`
+- `test/core/content/remote/content_mirror_test.dart`
+- `test/features/onboarding/presentation/exam_picker_screen_test.dart`
+- `test/core/ui/theme/app_theme_test.dart`
+- `test/core/ui/components/web_button_feedback_test.dart`
+- `docs/ui-audit.md`, this required status and verification record.
+
+The first combined verification run was invalidated by source edits during
+compilation. Its two feedback-related failures were corrected and passed in the
+focused rerun. Three content-fetch tests also could not find the native SQLite
+library while the web build ran concurrently. These are recorded as a verification
+environment problem, not accepted failures. Final tests and build run sequentially.
+Independent lead review, integration, and Aedwon's visual acceptance remain pending.
+
+Final automated evidence (unchanged final application and test files):
+
+```text
+flutter analyze
+No issues found! (ran in 19.3s)
+
+dart format --output=none --set-exit-if-changed lib test
+Formatted 1701 files (0 changed) in 2.14 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+flutter test test/features/onboarding test/features/settings test/core test/app
+02:45 +2218: All tests passed!
+```
+
+All commands above exited 0. Focused final rerun: `+30: All tests passed!`.
+Tracked `lib`/`test` patch SHA-256 from `git diff --binary -- lib test`:
+`702ea9f8c6f8361c0053a8bbc27e41abc75bbe1d67859e31bf55b2e6733f9b57`.
+New untracked feedback test SHA-256:
+`ee420ccdd041d50991d45bbcab564cbe416d7630c2e296478a8f6bc58e2fb2f5`.
+
+```text
+flutter build web --release
+Wasm dry run succeeded.
+Compiling lib/main.dart for the Web...                             30.8s
+✓ Built build/web
+```
+
+Release build exited 0. It warned that the CupertinoIcons font family is not in
+the asset bundle. No font configuration changed in this assignment.
+`git diff --check` is clean. Implementation and automated verification are done.
+Task 5's reported account-specific cause still needs the local retest described
+above. No claim of visual acceptance or lead review is made.

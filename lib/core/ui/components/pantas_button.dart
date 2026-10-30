@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 enum PantasButtonVariant { primary, secondary, tertiary, destructive, neutral }
 
@@ -108,6 +109,8 @@ class _PantasButtonState extends State<PantasButton> {
     final label = widget.label;
 
     final c = context.colors;
+    final webFeedback =
+        Theme.of(context).splashFactory == NoSplash.splashFactory;
     final enabled = onPressed != null || busy;
     final solid = variant == PantasButtonVariant.primary ||
         variant == PantasButtonVariant.destructive;
@@ -149,7 +152,7 @@ class _PantasButtonState extends State<PantasButton> {
         opacity: dimmed ? widget.disabledOpacity! : 1,
         child: AnimatedScale(
           key: const ValueKey('pantas-button-scale'),
-          scale: MediaQuery.disableAnimationsOf(context)
+          scale: webFeedback || MediaQuery.disableAnimationsOf(context)
               ? 1
               : _pressed
                   ? .97
@@ -180,15 +183,34 @@ class _PantasButtonState extends State<PantasButton> {
                             : 12,
                   ),
                 ),
-                backgroundColor: WidgetStatePropertyAll(background),
+                backgroundColor: WidgetStateProperty.resolveWith((states) {
+                  if (webFeedback &&
+                      enabled &&
+                      states.contains(WidgetState.hovered) &&
+                      variant == PantasButtonVariant.primary &&
+                      !widget._filterChip) {
+                    return context.webTokens.accentHover;
+                  }
+                  if (webFeedback &&
+                      enabled &&
+                      states.contains(WidgetState.hovered) &&
+                      !solid &&
+                      !(widget._filterChip && widget._chipSelected)) {
+                    return Theme.of(context).hoverColor;
+                  }
+                  return background;
+                }),
                 foregroundColor: WidgetStatePropertyAll(foreground),
                 shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(radius),
                   ),
                 ),
-                overlayColor:
-                    WidgetStatePropertyAll(foreground.withValues(alpha: .08)),
+                overlayColor: webFeedback
+                    ? WidgetStatePropertyAll(c.transparent)
+                    : WidgetStatePropertyAll(
+                        foreground.withValues(alpha: .08),
+                      ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
