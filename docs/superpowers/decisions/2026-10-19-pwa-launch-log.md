@@ -2080,3 +2080,14 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   on every platform (labels only; stored tags unchanged). Pending GCash is not built. Manage
   Subscription stays hidden on web (web Pro is prepaid time, no renewals). Native tablet layouts are
   not a launch question: tablets use the PWA, which gets the tablet layouts.
+
+## 2026-10-30 R2 debrief board approved
+
+- Board: `docs/superpowers/plans/pwa-launch/boards/r2-debrief-v1.html` (13 states, desktop and phone,
+  light and dark). Aedwon's exact comment: "go with your recommendations".
+- Decisions: add the Next card (option A); mistake notes show the first sentence only (option A); the
+  because wording is the board's recommended line per reason kind; the Free row and Pro section
+  wording as drawn. Details the board filled in (Pro prerequisite rows open the lesson, at most three
+  mistake lines then "and N more", gold PRO tag) are part of the approved board.
+- No content schema change: R1 and R2 read the separate lesson link and gap tag files and the existing
+  per-choice rationale.
