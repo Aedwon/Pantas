@@ -285,7 +285,7 @@ class WebCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         border: t.dark && !selected ? Border.all(color: t.cardEdge) : null,
       ),
-      // Drawn on top, like the board's inset outline, so content does not shift.
+      // Drawn on top like the board inset outline; content stays put.
       foregroundDecoration: selected
           ? BoxDecoration(
               borderRadius: BorderRadius.circular(radius),
