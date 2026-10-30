@@ -39,8 +39,114 @@
 
   <!-- Keeps the browser install event and registers the caching worker. -->
   <script src="pantas_pwa.js"></script>
+
+  <!--
+    Welcome screen (B7a). Plain HTML and CSS from the approved Welcome board,
+    shown on a first visit while the app downloads. pantas_welcome.js adds
+    pw-on to <html> before the first paint when this visit should show it.
+    Geist comes from the app's own font files, not an external host.
+  -->
+  <style>
+    @font-face { font-family: 'Geist'; font-weight: 400; font-display: block;
+      src: url('assets/assets/fonts/Geist-Regular.ttf') format('truetype'); }
+    @font-face { font-family: 'Geist'; font-weight: 600; font-display: block;
+      src: url('assets/assets/fonts/Geist-SemiBold.ttf') format('truetype'); }
+    @font-face { font-family: 'Geist'; font-weight: 700; font-display: block;
+      src: url('assets/assets/fonts/Geist-Bold.ttf') format('truetype'); }
+
+    #pantas-welcome {
+      --bg: #FFFFFF; --tx: #1D1D1F; --tx2: #6E6E73; --logo: #1D1D1F;
+      --link: #0B7A68; --btn: #0B7A68; --btnh: #086A5A;
+      display: none;
+      position: fixed; inset: 0; z-index: 2147483000;
+      background: var(--bg); color: var(--tx);
+      font-family: 'Geist', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 16px; line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+    @media (prefers-color-scheme: dark) {
+      #pantas-welcome {
+        --bg: #151515; --tx: #F5F5F5; --tx2: #A3A3A3; --logo: #F5F5F5;
+        --link: #4CC3AC; --btn: #0F8571; --btnh: #139A84;
+      }
+    }
+    html.pw-on { background: #FFFFFF; }
+    @media (prefers-color-scheme: dark) { html.pw-on { background: #151515; } }
+    html.pw-on #pantas-welcome { display: block; }
+    #pantas-welcome, #pantas-welcome * { box-sizing: border-box; }
+    #pantas-welcome .ld { fill: var(--logo); }
+    #pantas-welcome .lf { fill: var(--link); }
+    #pantas-welcome .lt { stroke: var(--link); }
+    #pantas-welcome .pw-body {
+      height: 100%; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 28px; padding: 40px 28px; text-align: center;
+    }
+    #pantas-welcome svg { display: block; flex-shrink: 0; width: 104px; height: 104px; }
+    #pantas-welcome .pw-text {
+      display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 560px;
+    }
+    #pantas-welcome h1, #pantas-welcome p { margin: 0; }
+    #pantas-welcome h1 {
+      font-size: 36px; font-weight: 700; letter-spacing: -.03em; line-height: 1.08;
+    }
+    #pantas-welcome p { font-size: 17px; color: var(--tx2); line-height: 1.45; }
+    #pantas-welcome .pw-btn {
+      min-width: 260px; margin-top: 12px; height: 50px; border: 0; border-radius: 14px;
+      padding: 0 20px; background: var(--btn); color: #fff; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font: inherit; font-size: 17px; font-weight: 600; white-space: nowrap;
+      transition: background .15s;
+    }
+    #pantas-welcome .pw-btn:hover { background: var(--btnh); }
+    #pantas-welcome .pw-btn:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+    #pantas-welcome .pw-key {
+      display: none; font-size: 12px; font-weight: 600; padding: 2px 7px; border-radius: 6px;
+      background: rgba(255,255,255,.16); color: rgba(255,255,255,.88); margin-right: -6px;
+    }
+    #pantas-welcome .pw-spin {
+      width: 16px; height: 16px; border-radius: 99px; display: inline-block;
+      border: 2px solid rgba(255,255,255,.35); border-top-color: #fff;
+      animation: pw-spin .9s linear infinite;
+    }
+    @media (min-width: 1024px) {
+      #pantas-welcome .pw-body { gap: 32px; }
+      #pantas-welcome svg { width: 120px; height: 120px; }
+      #pantas-welcome h1 { font-size: 48px; }
+      #pantas-welcome p { font-size: 19px; }
+      #pantas-welcome .pw-key { display: inline; }
+    }
+    @keyframes pw-spin { to { transform: rotate(360deg); } }
+    @keyframes pw-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes pw-pop {
+      0% { transform: scale(.4); opacity: 0; }
+      60% { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    #pantas-welcome svg { animation: pw-pop .6s cubic-bezier(.34,1.56,.64,1) .1s both; }
+    #pantas-welcome .pw-text { animation: pw-rise .5s cubic-bezier(.2,.9,.3,1) .35s both; }
+    #pantas-welcome .pw-btn { animation: pw-rise .5s cubic-bezier(.2,.9,.3,1) .5s both; }
+    @media (prefers-reduced-motion: reduce) {
+      #pantas-welcome * { animation-duration: 1ms !important; animation-delay: 0ms !important;
+        transition-duration: 1ms !important; }
+      #pantas-welcome .pw-spin { animation: none; border-right-color: #fff; }
+    }
+  </style>
+
+  <!-- Decides first visit or not, before the first paint. -->
+  <script src="pantas_welcome.js"></script>
 </head>
 <body>
+  <!-- Welcome screen markup (B7a). Hidden unless <html> has pw-on. -->
+  <main id="pantas-welcome">
+    <div class="pw-body">
+      <svg role="img" aria-label="Pantas" viewBox="307 309 640 640" width="104" height="104"><path class="lt" d="M887 515.69V664" stroke-width="11" stroke-linecap="round" fill="none"/><circle class="lf" cx="887" cy="682" r="20"/><path class="lf" d="M877 699 L897 699 L912 774 Q915 790 899 791 L875 791 Q859 790 862 774 Z"/><path class="ld" d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/><path class="ld" d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/><path class="ld" d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/></svg>
+      <div class="pw-text">
+        <h1>Welcome to Pantas</h1>
+        <p>Your personal review companion for Philippine exams.</p>
+      </div>
+      <button type="button" id="pw-start" class="pw-btn">Get Started<span class="pw-key">Enter</span></button>
+    </div>
+  </main>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader

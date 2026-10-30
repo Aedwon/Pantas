@@ -4,6 +4,8 @@ import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
+import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -26,6 +28,13 @@ class App extends ConsumerWidget {
           orElse: () => ThemeMode.system,
         );
     final gateway = ref.watch(notificationsGatewayProvider);
+    // A learner who is already set up never needs the HTML Welcome screen.
+    if (ref.watch(onboardingCompleteProvider).valueOrNull ?? false) {
+      final handover = ref.read(welcomeHandoverProvider);
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => handover.appReady(holdForTap: false),
+      );
+    }
     return MaterialApp.router(
       title: flavor.displayName,
       localizationsDelegates: AppLocalizations.localizationsDelegates,

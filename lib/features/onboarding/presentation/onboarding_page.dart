@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -136,7 +137,19 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         );
       }
       var first = progress.requireValue.resumeStep;
-      if (first == OnboardingStep.welcome &&
+      final handover = ref.read(welcomeHandoverProvider);
+      if (handover.shownThisVisit) {
+        // The HTML Welcome screen covers the app until the learner taps Get
+        // Started, so Launch and Welcome are not drawn a second time.
+        if (first == OnboardingStep.welcome) {
+          first = OnboardingStep.age;
+          _loggedSteps.add(OnboardingStep.welcome);
+          _logStep(OnboardingStep.welcome);
+        }
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => handover.appReady(holdForTap: true),
+        );
+      } else if (first == OnboardingStep.welcome &&
           !MediaQuery.disableAnimationsOf(context) &&
           !context.wideWeb) {
         first = OnboardingStep.launch;
