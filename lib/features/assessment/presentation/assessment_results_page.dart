@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/assessment/presentation/assessment_skeletons.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
 
 String _seenKey(AssessmentResult result) =>
@@ -104,8 +105,9 @@ class AssessmentResultsPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: context.colors.background,
       body: data.when(
-        loading: () =>
-            context.wideWeb ? const WebDebriefLoading() : loadingFor(data),
+        loading: () => context.wideWeb
+            ? const WebDebriefLoading()
+            : const AssessmentResultsSkeleton(),
         error: (error, _) => errorFor(
           'assessment results',
           () => ref.invalidate(_resultDataProvider(examId)),

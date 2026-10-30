@@ -21,6 +21,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart'
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -301,14 +302,14 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     } else if (_failed) {
       body = errorFor('assessment', session == null ? _load : _complete);
     } else if (session == null || _completing) {
-      body = loadingFor(const AsyncLoading<void>());
+      body = const SkeletonQuestionPage();
     } else if (passageState != null && !passageState.hasValue) {
       body = passageState.hasError
           ? errorFor(
               'passage',
               () => ref.invalidate(passageByIdProvider(question!.passageId!)),
             )
-          : loadingFor(passageState);
+          : const SkeletonQuestionPage();
     } else {
       body = SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(16, 20, 16, 120),

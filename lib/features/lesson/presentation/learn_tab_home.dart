@@ -21,6 +21,7 @@ import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dar
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_study_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
@@ -175,7 +176,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                 ),
               if (loading) const SizedBox(height: 24),
               Expanded(
-                child: loading ? SingleChildScrollView(child: state) : state,
+                child: loading
+                    ? SingleChildScrollView(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: state,
+                      )
+                    : state,
               ),
             ],
           ),
@@ -193,7 +199,8 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     final asyncMap = ref.watch(studyMapProvider);
 
     return asyncMap.when(
-      loading: () => _stateFrame(context, loadingFor(asyncMap), loading: true),
+      loading: () =>
+          _stateFrame(context, const StudyMapSkeleton(), loading: true),
       error: (error, _) => _stateFrame(
         context,
         errorFor(

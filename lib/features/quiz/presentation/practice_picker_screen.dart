@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -236,13 +237,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         title: 'Customize your own',
         backLabel: 'Quiz',
         onBack: () => unawaited(_back()),
-        children: [
-          if (index == null)
-            loadingFor(asyncIndex)
-          else if (saved == null)
-            loadingFor(asyncPicks)
-          else
-            loadingFor(asyncPace),
+        children: const [
+          SkeletonGroups(groups: 3, rows: 4, rowHeight: 47),
         ],
       );
     }

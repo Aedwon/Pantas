@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -417,8 +416,9 @@ class HomeWebNotice extends StatelessWidget {
   }
 }
 
-/// Shapes appear only after 300ms. No invented progress or loading text.
-class HomeWebLoading extends StatefulWidget {
+/// L_PlanSlow. Shapes appear only after 300ms. No invented progress or
+/// loading text.
+class HomeWebLoading extends StatelessWidget {
   const HomeWebLoading({
     this.performance = false,
     this.header = false,
@@ -428,72 +428,30 @@ class HomeWebLoading extends StatefulWidget {
   final bool performance;
   final bool header;
   final bool more;
-  @override
-  State<HomeWebLoading> createState() => _HomeWebLoadingState();
-}
-
-class _HomeWebLoadingState extends State<HomeWebLoading> {
-  bool _visible = false;
-  late final Timer _timer;
-  @override
-  void initState() {
-    super.initState();
-    _timer = Timer(const Duration(milliseconds: 300), () {
-      if (mounted) setState(() => _visible = true);
-    });
-  }
 
   @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => !_visible
-      ? const SizedBox.shrink()
-      : widget.header
-          ? Container(
-              height: 66,
-              decoration: BoxDecoration(
-                color: context.webTokens.disabledBackground,
-                borderRadius: BorderRadius.circular(18),
-              ),
-            )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    width: widget.performance ? 140 : 80,
-                    height: 14,
-                    decoration: BoxDecoration(
-                      color: context.webTokens.disabledBackground,
-                      borderRadius: BorderRadius.circular(6),
+  Widget build(BuildContext context) => SkeletonPulse(
+        child: header
+            ? const SkeletonCard(height: 66)
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: SkeletonBlock(
+                      width: performance ? 140 : 80,
+                      height: 14,
                     ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  height: widget.performance ? 520 : 330,
-                  decoration: BoxDecoration(
-                    color: context.webTokens.disabledBackground,
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                ),
-                if (widget.more) ...[
-                  const SizedBox(height: 28),
-                  Container(
-                    height: 96,
-                    decoration: BoxDecoration(
-                      color: context.webTokens.disabledBackground,
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                  ),
+                  const SizedBox(height: 8),
+                  SkeletonCard(height: performance ? 520 : 330),
+                  if (more) ...[
+                    const SizedBox(height: 28),
+                    const SkeletonCard(height: 96),
+                  ],
                 ],
-              ],
-            );
+              ),
+      );
 }
 
 class HomeWebQuestionsSheet extends StatelessWidget {

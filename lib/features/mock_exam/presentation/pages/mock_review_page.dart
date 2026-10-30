@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -240,7 +241,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
             onDismissFlags: () => _handleFlagOffer(markedIds, keep: false),
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => const SafeArea(child: SkeletonQuestionPage()),
         error: (err, st) => errorFor(
           'mock review',
           () {

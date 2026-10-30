@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -162,7 +163,8 @@ class _CustomTrackSubjectsStepState
       ),
       children: [
         subjects.when(
-          loading: () => loadingFor(subjects),
+          loading: () =>
+              const SkeletonGroups(groups: 1, rows: 6, header: false),
           error: (error, _) => errorFor(
             'subjects',
             () => ref.invalidate(corpusSubjectsWithTopicsProvider),

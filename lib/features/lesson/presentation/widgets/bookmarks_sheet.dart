@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -902,7 +903,14 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                     ),
                   )
                 : rows == null
-                    ? SingleChildScrollView(child: loadingFor(value))
+                    ? const SingleChildScrollView(
+                        child: SkeletonGroups(
+                          groups: 1,
+                          rows: 5,
+                          rowHeight: 63,
+                          header: false,
+                        ),
+                      )
                     : _shown.isEmpty
                         ? SingleChildScrollView(
                             child: StateView(

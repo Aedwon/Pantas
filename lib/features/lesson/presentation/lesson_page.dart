@@ -35,6 +35,7 @@ import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
@@ -384,9 +385,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         body: _ReaderFallback(
           onClose: widget.onPlanClose,
           origin: origin,
-          child: SingleChildScrollView(
-            child: loadingFor(const AsyncLoading<Object?>()),
-          ),
+          child: const SingleChildScrollView(child: ReaderSkeleton()),
         ),
       );
     }
@@ -513,7 +512,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         (_, AsyncLoading()) => _ReaderFallback(
             onClose: widget.onPlanClose,
             origin: origin,
-            child: SingleChildScrollView(child: loadingFor(asyncReader)),
+            child: const SingleChildScrollView(child: ReaderSkeleton()),
           ),
         _ => _ReaderFallback(
             onClose: widget.onPlanClose,

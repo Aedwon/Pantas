@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
@@ -25,6 +26,7 @@ import 'package:pantas/features/home/presentation/widgets/home_install_slot.dart
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 import 'package:pantas/features/home/presentation/widgets/home_notice_strip.dart';
 import 'package:pantas/features/home/presentation/widgets/home_performance_section.dart';
+import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -39,7 +41,7 @@ class HomeTab extends ConsumerWidget {
     return Scaffold(
       body: SafeArea(
         child: asyncFocus.when(
-          loading: () => loadingFor(asyncFocus),
+          loading: () => const HomePageSkeleton(),
           error: (_, __) => errorFor(
             'home',
             () => ref.invalidate(activeExamFocusProvider),
@@ -119,7 +121,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
     Widget nativeHome() {
       final result = ref.watch(assessmentResultProvider(examId));
       return result.when(
-        loading: () => loadingFor(result),
+        loading: () => const HomePageSkeleton(),
         error: (_, __) => errorFor(
           'home',
           () => ref.invalidate(assessmentResultProvider(examId)),
@@ -218,7 +220,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
               ),
         performance: showPerformance
             ? const HomePerformanceSection()
-            : data == null
+            : today is HomeWebLoading
                 ? const HomeWebLoading(performance: true)
                 : null,
         onRecord: showPerformance
@@ -250,6 +252,12 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
         ),
         const SizedBox(height: 22),
         today,
+        if (today is HomeTodaySkeleton) ...[
+          const SizedBox(height: 22),
+          const HomePerformanceSkeleton(),
+          const SizedBox(height: 24),
+          const SkeletonPulse(child: SkeletonGroup(rows: 2)),
+        ],
         if (showPerformance) ...[
           const SizedBox(height: 22),
           const HomePerformanceSection(),

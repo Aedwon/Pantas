@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/error/state_patterns.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_persistence_scheduler.dart';
@@ -27,6 +26,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_start_preparat
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:uuid/uuid.dart';
 
@@ -852,7 +852,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
           onStart: _startPreparedMock,
         );
       }
-      return const Scaffold(body: Center(child: LoadingShapes()));
+      return const MockSessionSkeleton();
     }
 
     final state = controller.state;
@@ -910,7 +910,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
 
     if (state is! MockSessionInProgress) {
-      return const Scaffold(body: Center(child: LoadingShapes()));
+      return const MockSessionSkeleton();
     }
 
     return _lastPaper = MockSessionPage(

@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
+import 'package:pantas/features/home/presentation/widgets/progress_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/web_record_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 
@@ -35,7 +36,7 @@ class RecordScreen extends ConsumerWidget {
                       ..invalidate(mockHistoryProvider);
                   },
                 )
-              : const WebMyLoading(),
+              : const WebMyLoading(record: true),
         );
       }
       return PantasPage(
@@ -50,7 +51,7 @@ class RecordScreen extends ConsumerWidget {
                 ..invalidate(mockHistoryProvider);
             })
           else
-            loadingFor(const AsyncLoading<void>()),
+            const RecordSkeleton(),
         ],
       );
     }

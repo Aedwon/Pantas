@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -192,7 +193,7 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
         }
         final loaded = snapshot.data;
         if (loaded == null) {
-          return Scaffold(body: loadingFor(const AsyncLoading<void>()));
+          return const Scaffold(body: SafeArea(child: SkeletonQuestionPage()));
         }
         return PopScope(
           canPop: widget.fromAll,
@@ -233,7 +234,8 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
     final entries = ref.watch(flaggedExamReviewProvider(examId));
     void retry() => ref.invalidate(flaggedExamReviewProvider(examId));
     return entries.when(
-      loading: () => Scaffold(body: loadingFor(entries)),
+      loading: () =>
+          const Scaffold(body: SafeArea(child: SkeletonQuestionPage())),
       error: (_, __) => Scaffold(body: errorFor('questions', retry)),
       data: (rows) {
         final index = rows.indexWhere((r) => r.question.id == questionId);

@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -215,7 +216,10 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
         value.when(
           skipLoadingOnRefresh: false,
           skipLoadingOnReload: false,
-          loading: () => loadingFor(value),
+          loading: () => const SkeletonGroups(
+            rowHeight: 64,
+            headerWidth: 120,
+          ),
           error: (error, _) => errorFor('questions', _refresh, error: error),
           data: (entries) {
             if (entries.isEmpty) {

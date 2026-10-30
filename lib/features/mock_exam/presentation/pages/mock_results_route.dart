@@ -12,6 +12,7 @@ import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_mock_finale.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 
@@ -70,7 +71,9 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
     if (access.isLoading) {
       _interruptFinale();
       return Scaffold(
-        body: context.wideWeb ? const WebDebriefLoading() : loadingFor(access),
+        body: context.wideWeb
+            ? const WebDebriefLoading()
+            : const MockResultsSkeleton(),
       );
     }
     if (access.hasError) {
@@ -94,7 +97,9 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
       loading: () {
         _interruptFinale();
         return Scaffold(
-          body: context.wideWeb ? const WebDebriefLoading() : loadingFor(entry),
+          body: context.wideWeb
+              ? const WebDebriefLoading()
+              : const MockResultsSkeleton(),
         );
       },
       error: (error, stack) {

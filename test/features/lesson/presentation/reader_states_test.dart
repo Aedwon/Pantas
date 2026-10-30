@@ -6,7 +6,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
@@ -77,7 +77,7 @@ void main() {
     );
     await tester.pump();
     expect(find.text('Study'), findsOneWidget);
-    expect(find.byType(LoadingShapes), findsOneWidget);
+    expect(find.byType(SkeletonPulse), findsWidgets);
     expect(find.byKey(const ValueKey('loading-shapes-opacity')), findsNothing);
     await tester.pump(const Duration(milliseconds: 300));
     expect(
@@ -87,7 +87,7 @@ void main() {
     pending.complete(null);
     await tester.pumpAndSettle();
     expect(find.text('Lesson not found.'), findsOneWidget);
-    expect(find.byType(LoadingShapes), findsNothing);
+    expect(find.byType(SkeletonPulse), findsNothing);
     expect(find.byType(StateView), findsOneWidget);
   });
 }
