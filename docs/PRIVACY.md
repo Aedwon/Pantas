@@ -4,7 +4,7 @@
 **Last updated:** [auto-update at publication]
 **Effective date:** [TBD — pre-soft-launch]
 **Legal entity:** [Aerol Balayon, sole proprietor — confirm pending DTI registration]
-**DPO:** Aerol Balayon · dpo@aedwon.com
+**DPO:** Aerol Balayon · dpo@pantas.study
 **NPC reference:** [insert post-Task 1 confirmation]
 
 ## 1. Scope
@@ -79,7 +79,7 @@ Material changes will be notified in-app at least 30 days before taking effect.
 
 ## 11. Contact
 
-DPO: Aerol Balayon · dpo@aedwon.com
+DPO: Aerol Balayon · dpo@pantas.study
 NPC: complaints@privacy.gov.ph
 
 ---

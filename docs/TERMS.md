@@ -71,8 +71,8 @@ We will notify material changes in-app at least 30 days before they take effect.
 
 ## 13. Contact
 
-aerol.balayon@gmail.com (general support)
-dpo@aedwon.com (privacy)
+contact@pantas.study (general support)
+dpo@pantas.study (privacy)
 
 ---
 
