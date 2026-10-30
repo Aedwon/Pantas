@@ -14,7 +14,7 @@ const CHECKOUTS_PER_WINDOW = 10;
 const WINDOW_MS = 10 * 60_000;
 // Method values confirmed in PayMongo's docs. Add more (for example dob) through
 // PAYMONGO_PAYMENT_METHODS once the merchant account has them enabled.
-const DEFAULT_METHODS = ['card', 'gcash', 'paymaya', 'grab_pay', 'shopeepay', 'qrph'];
+const DEFAULT_METHODS = ['card', 'qrph'];
 
 const NAMES: Record<string, string> = {
   pantas_cs_weekly: 'Pantas Pro, Civil Service, 1 week',
