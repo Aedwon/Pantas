@@ -183,8 +183,18 @@ Second run (`ob_pairs2.mjs`, pairs cropped to the top 640 px to save image cost)
   needs a day picked before Continue works (Name shot shows Days); the "isn't listed" click did not
   open the custom flow; date month and day labels are dumped to `shots/ob/date*-labels.txt` for
   the month and day click patterns. Check every `-app.png` shows the intended screen before comparing.
-- Pairs captured by `ob_pairs3.mjs` but not viewed yet: OB_AgeBlocked, OB_Days, OB_Name,
-  OB_DatePick, OB_DateMonth, OB_DateDay, OB_Terms (re-captured with the real runtime).
+- Third run viewed (lead, Oct 31, weekly 96% to 97%):
+  - OB_Days: close match (board now renders). The app's chips sit slightly closer to the subtitle and
+    the "6 study days a week" block is tighter than the board's; shared offset as above.
+  - OB_Name: the app's name field is shorter than the board's (about 46 px vs 55 px). Board shows a
+    typed name with Done on; the app shot is empty with Done off (state only).
+  - OB_DatePick: close match. The empty-panel calendar icon differs (app: calendar with a dot grid;
+    board: plain outline calendar) and the app's two help lines are smaller.
+  - OB_DateDay: every day cell in the app has a gray filled background; the board's day cells are
+    plain text with no fill (only the picked day is filled teal). Clear difference.
+  - OB_AgeBlocked: still not reached (ArrowUp presses did not change the year; the shot shows Terms).
+    Focus the field first (click the year text) or type into the input element.
+  - Not viewed: OB_DateMonth (expect same day-cell finding), OB_Terms re-capture.
 - OB_Days (app only, board unreadable): the app's day chips and "Every Day" plus disabled Continue
   row are present; compare once the board renders.
 
