@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+<title>Editorial cartoon: a large boulder labeled taxes rolls downhill toward a small worried figure labeled citizens</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="280" rx="14" fill="url(#bg)"/>
+<path d="M16 76 L344 232 V264 H16 Z" fill="#010101" fill-opacity="0.12"/>
+<line x1="16" y1="76" x2="344" y2="232" stroke="#020202" stroke-width="2" stroke-linecap="round" fill="none"/>
+<line x1="20" y1="44" x2="40" y2="53.5" stroke="#020202" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<line x1="20" y1="58" x2="44" y2="69.5" stroke="#020202" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<line x1="28" y1="72" x2="50" y2="82.5" stroke="#020202" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<circle cx="95.5" cy="74" r="36" fill="#050505" fill-opacity="0.45" stroke="#050505" stroke-width="3"/>
+<path d="M72 98 Q80 104 90 104" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<path d="M110 44 Q118 46 123 54" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="95.5" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="95.5">taxes</tspan></text>
+<rect x="262" y="178" width="7" height="16" rx="3" fill="#010101" fill-opacity="0.12"/>
+<rect x="271" y="178" width="7" height="22" rx="3" fill="#010101" fill-opacity="0.12"/>
+<rect x="260" y="156" width="20" height="26" rx="8" fill="#010101" fill-opacity="0.12"/>
+<line x1="262" y1="161" x2="251" y2="148" stroke="#020202" stroke-width="3" stroke-linecap="round" fill="none"/>
+<line x1="278" y1="161" x2="289" y2="148" stroke="#020202" stroke-width="3" stroke-linecap="round" fill="none"/>
+<circle cx="270" cy="146" r="10" fill="#010101" fill-opacity="0.05"/>
+<path d="M260 143 C260 132 280 132 280 143 C276 138 264 138 260 143 Z" fill="#010101" fill-opacity="0.12"/>
+<circle cx="266" cy="147" r="1.8" fill="#010101"/><circle cx="274" cy="147" r="1.8" fill="#010101"/>
+<path d="M262.5 144 L268 141.5" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<path d="M272 141.5 L277.5 144" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<path d="M266 154 Q270 150.5 274 154" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<text x="270" y="124" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="270">citizens</tspan></text>
+</svg>

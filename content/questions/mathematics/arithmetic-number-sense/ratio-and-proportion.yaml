@@ -352,8 +352,7 @@ questions:
     stem: |
       Two quantities have values $(x,y)=(2,8)$ and $(4,6)$. A student says they are inversely proportional because y decreases as x increases. Which check disproves the claim?
     choices:
-      - text: '$2(8)
-e4(6)$'
+      - text: '$2(8)\ne 4(6)$'
         correct: true
       - text: '$\dfrac{8}{2}\ne\dfrac{6}{4}$'
         rationale: |
