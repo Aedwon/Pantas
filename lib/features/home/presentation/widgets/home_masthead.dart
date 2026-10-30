@@ -313,6 +313,12 @@ class HomeMasthead extends ConsumerWidget {
             color: context.colors.surface,
             borderRadius: BorderRadius.circular(18),
           ),
+          foregroundDecoration: Theme.of(context).brightness == Brightness.dark
+              ? BoxDecoration(
+                  border: Border.all(color: context.colors.cardEdge),
+                  borderRadius: BorderRadius.circular(18),
+                )
+              : null,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,

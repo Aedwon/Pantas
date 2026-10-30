@@ -14,7 +14,7 @@ import 'w2_test_support.dart';
 void main() {
   test('wrong text token follows Aedwon decision', () {
     expect(PantasColors.light.wrongText, const Color(0xFFD70015));
-    expect(PantasColors.dark.wrongText, const Color(0xFFFF6961));
+    expect(PantasColors.dark.wrongText, const Color(0xFFE0706B));
     expectContrast(PantasColors.dark.wrongText, PantasColors.dark.wrongTint);
   });
   for (final brightness in Brightness.values) {

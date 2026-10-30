@@ -37,7 +37,7 @@ void main() {
           title.style!.color!,
           brightness == Brightness.light
               ? Colors.white
-              : const Color(0xFF1C1C1E),
+              : const Color(0xFF1F1F1F),
         );
         expect(
           tester.getSize(find.byType(ListRow)).height,
@@ -121,7 +121,7 @@ void main() {
         tester.widget<Text>(find.text('Save')).style!.color,
         brightness == Brightness.light
             ? const Color(0xFFAEAEB2)
-            : const Color(0xFF5A5A5E),
+            : const Color(0xFF949494),
       );
       for (final stacked in [true, false]) {
         await pumpAccessibilitySurface(

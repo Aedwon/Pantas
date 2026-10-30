@@ -1135,7 +1135,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
               ),
             ),
             _ReasonChoice(
-              label: "I didn't know it",
+              label: "I didn't know",
               selected:
                   widget.savedAnswer?.blankReason == BlankReason.didNotKnow,
               onTap: () => _save(
@@ -1144,19 +1144,19 @@ class _ReasonPanelState extends State<_ReasonPanel> {
             ),
           ] else ...[
             _ReasonChoice(
-              label: 'I misread it',
+              label: 'I misread',
               selected: widget.savedAnswer?.missReason == MissReason.misread,
               onTap: () =>
                   _save(() => widget.onMissReason(MissReason.misread, null)),
             ),
             _ReasonChoice(
-              label: 'I knew it, I just slipped',
+              label: 'I forgot',
               selected: widget.savedAnswer?.missReason == MissReason.slipped,
               onTap: () =>
                   _save(() => widget.onMissReason(MissReason.slipped, null)),
             ),
             _ReasonChoice(
-              label: "I didn't know it",
+              label: "I didn't know",
               selected: widget.savedAnswer?.missReason == MissReason.unknown,
               onTap: () =>
                   _save(() => widget.onMissReason(MissReason.unknown, null)),
@@ -1196,13 +1196,13 @@ class _ReasonPanelState extends State<_ReasonPanel> {
         ? [
             'I ran out of time',
             'I skipped it to come back later',
-            "I didn't know it",
+            "I didn't know",
             'Type my own',
           ]
         : [
-            'I misread it',
-            'I knew it, I just slipped',
-            "I didn't know it",
+            'I misread',
+            'I forgot',
+            "I didn't know",
             'Type my own',
           ];
     void choose(int index) {

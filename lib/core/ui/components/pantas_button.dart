@@ -126,7 +126,7 @@ class _PantasButtonState extends State<PantasButton> {
                     ? c.label
                     : variant == PantasButtonVariant.secondary &&
                             Theme.of(context).brightness == Brightness.dark
-                        ? c.label
+                        ? c.accentTintText
                         : c.accent;
     final background = !enabled && !dimmed
         ? c.fill

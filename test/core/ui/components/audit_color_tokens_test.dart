@@ -25,7 +25,7 @@ void main() {
         light.pickerBackground,
         dark.pickerBackground,
         0xFFFBFBFC,
-        0xFF18181A,
+        0xFF2A2A2A,
       ),
       'warningText': (
         light.warningText,
@@ -37,7 +37,7 @@ void main() {
         light.choiceOutline,
         dark.choiceOutline,
         0xFFD1D1D6,
-        0xFF48484A,
+        0xFF949494,
       ),
       'toastBackground': (
         light.toastBackground,
@@ -73,7 +73,7 @@ void main() {
         light.onAccent,
         dark.onAccent,
         0xFFFFFFFF,
-        0xFF1C1C1E,
+        0xFFFFFFFF,
       ),
       'onDestructive': (
         light.onDestructive,
@@ -103,13 +103,13 @@ void main() {
         light.floatingRight,
         dark.floatingRight,
         0xFFEFF7F5,
-        0xFF123F37,
+        0xFF18332D,
       ),
       'floatingWrong': (
         light.floatingWrong,
         dark.floatingWrong,
         0xFFFFF3F4,
-        0xFF3A1215,
+        0xFF2E1E1D,
       ),
       'inactiveDateLabel': (
         light.inactiveDateLabel,
@@ -127,7 +127,7 @@ void main() {
         light.pendingMark,
         dark.pendingMark,
         0xFFD1D1D6,
-        0xFF48484A,
+        0xFF949494,
       ),
       'switchThumb': (
         light.switchThumb,

@@ -65,7 +65,7 @@ void main() {
                 strokeWidth: 16,
                 color: brightness == Brightness.light
                     ? const Color(0xFF0B7A68)
-                    : const Color(0xFF2FB39C),
+                    : const Color(0xFF4CC3AC),
               ),
           );
         }
@@ -80,7 +80,7 @@ void main() {
         expect(percent.style!.fontWeight, FontWeight.w600);
         final background = brightness == Brightness.light
             ? const Color(0xFFFFFFFF)
-            : const Color(0xFF1C1C1E);
+            : const Color(0xFF1F1F1F);
         for (final style in [number.style!, percent.style!]) {
           final luminances = [
             style.color!.computeLuminance(),

@@ -248,13 +248,13 @@ void main() {
         ink,
         brightness == Brightness.light
             ? const Color(0xFF1D1D1F)
-            : const Color(0xFFF5F5F7),
+            : const Color(0xFFF5F5F5),
       );
       expect(
         tassel,
         brightness == Brightness.light
             ? const Color(0xFF0B7A68)
-            : const Color(0xFF2FB39C),
+            : const Color(0xFF4CC3AC),
       );
       expectContrast(ink, background, minimum: 3);
       expectContrast(tassel, background, minimum: 3);

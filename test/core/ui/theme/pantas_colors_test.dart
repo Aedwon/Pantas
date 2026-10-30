@@ -22,24 +22,45 @@ void main() {
     expect(c.liquidStart, const Color(0xFF14937D));
     expect(c.liquidEnd, const Color(0xFF0B7A68));
   });
-  test('dark matches every README color token', () {
+  test('dark matches the handoff charcoal palette', () {
     const c = PantasColors.dark;
-    expect(c.background, const Color(0xFF000000));
-    expect(c.surface, const Color(0xFF1C1C1E));
-    expect(c.label, const Color(0xFFF5F5F7));
-    expect(c.secondaryLabel, const Color(0xFF98989D));
-    expect(c.tertiaryLabel, const Color(0xFF5A5A5E));
-    expect(c.separator, const Color(0xFF38383A));
-    expect(c.fill, const Color(0xFF2C2C2E));
-    expect(c.chevron, const Color(0xFF48484A));
-    expect(c.accent, const Color(0xFF2FB39C));
-    expect(c.accentFill, const Color(0xFF1F9C86));
-    expect(c.accentTint, const Color(0xFF123F37));
-    expect(c.destructive, const Color(0xFFD70015));
-    expect(c.wrongTint, const Color(0xFF3A1215));
+    expect(c.background, const Color(0xFF151515));
+    expect(c.surface, const Color(0xFF1F1F1F));
+    expect(c.label, const Color(0xFFF5F5F5));
+    expect(c.secondaryLabel, const Color(0xFFA3A3A3));
+    expect(c.tertiaryLabel, const Color(0xFF949494));
+    expect(c.separator, const Color(0xFF303030));
+    expect(c.fill, const Color(0xFF2A2A2A));
+    expect(c.chevron, const Color(0xFF949494));
+    expect(c.accent, const Color(0xFF4CC3AC));
+    expect(c.accentFill, const Color(0xFF0F8571));
+    expect(c.accentTint, const Color(0xFF18332D));
+    expect(c.destructive, const Color(0xFFC44A46));
+    expect(c.wrongTint, const Color(0xFF33201F));
     expect(c.pro, const Color(0xFFD9A400));
     expect(c.liquidStart, const Color(0xFF14937D));
     expect(c.liquidEnd, const Color(0xFF0B7A68));
+  });
+  test('charcoal surface roles copy and interpolate', () {
+    const light = PantasColors.light;
+    const dark = PantasColors.dark;
+    expect(light.cardEdge, Colors.transparent);
+    expect(light.segmentOn, Colors.white);
+    expect(dark.cardEdge, const Color(0xFF2C2C2C));
+    expect(dark.segmentOn, const Color(0xFF4A4A4A));
+    expect(dark.accentTintText, const Color(0xFF7FD8C6));
+    expect(dark.wrongText, const Color(0xFFE0706B));
+    expect(dark.floatingWrong, const Color(0xFF2E1E1D));
+    expect(dark.onAccent, Colors.white);
+    final copied = light.copyWith(
+      cardEdge: dark.cardEdge,
+      segmentOn: dark.segmentOn,
+      accentTintText: dark.accentTintText,
+    );
+    final mixed = light.lerp(dark, 1);
+    expect(copied.cardEdge, mixed.cardEdge);
+    expect(copied.segmentOn, mixed.segmentOn);
+    expect(copied.accentTintText, mixed.accentTintText);
   });
   test('copy and interpolation preserve all token fields', () {
     expect(

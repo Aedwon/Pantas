@@ -63,6 +63,21 @@ void main() {
     'proSettings': PantasIcons.proSettings,
     'profile': PantasIcons.profile,
   };
+  testWidgets('custom icons use the charcoal dark foreground', (tester) async {
+    for (final icon in icons.values.whereType<Widget>()) {
+      await tester.pumpWidget(
+        Directionality(
+          textDirection: TextDirection.ltr,
+          child: IconTheme(
+            data: IconThemeData(color: PantasColors.dark.label, size: 24),
+            child: Center(child: icon),
+          ),
+        ),
+      );
+      final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+      expect((paint.painter! as OwnIconPainter).color, const Color(0xFFF5F5F5));
+    }
+  });
   test('approved core and Settings getters resolve without a lock', () {
     final source =
         File('lib/core/ui/icons/pantas_icons.dart').readAsStringSync();
@@ -128,9 +143,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['questionsSheet']! as Widget,
                   ),
@@ -206,9 +222,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['report']! as Widget,
                   ),
@@ -284,9 +301,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['paused']! as Widget,
                   ),
@@ -362,9 +380,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['streak']! as Widget,
                   ),
@@ -440,9 +459,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['progressError']! as Widget,
                   ),
@@ -518,9 +538,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['reorder']! as Widget,
                   ),
@@ -596,9 +617,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['appearance']! as Widget,
                   ),
@@ -674,9 +696,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['backup']! as Widget,
                   ),
@@ -752,9 +775,10 @@ void main() {
                 height: 48,
                 child: Center(
                   child: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       size: 24,
-                      color: PantasColors.dark.label,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
                     ),
                     child: icons['about']! as Widget,
                   ),

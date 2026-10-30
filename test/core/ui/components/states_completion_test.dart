@@ -13,7 +13,7 @@ import 'w2_test_support.dart';
 void main() {
   test('skeleton token copies and interpolates', () {
     expect(PantasColors.light.skeleton, const Color(0xFFE6E6EA));
-    expect(PantasColors.dark.skeleton, const Color(0xFF2C2C2E));
+    expect(PantasColors.dark.skeleton, const Color(0xFF2A2A2A));
     expect(
       PantasColors.light.copyWith(skeleton: Colors.red).skeleton,
       Colors.red,

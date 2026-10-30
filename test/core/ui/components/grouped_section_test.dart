@@ -17,12 +17,18 @@ void main() {
       final group = find.byKey(const ValueKey('grouped-section-surface'));
       final decoration =
           tester.widget<DecoratedBox>(group).decoration as BoxDecoration;
+      expect(
+        decoration.border,
+        brightness == Brightness.dark
+            ? Border.all(color: const Color(0xFF2C2C2C))
+            : null,
+      );
       expect(decoration.borderRadius, BorderRadius.circular(14));
       expect(
         decoration.color,
         brightness == Brightness.light
             ? const Color(0xFFFFFFFF)
-            : const Color(0xFF1C1C1E),
+            : const Color(0xFF1F1F1F),
       );
       expect(
         find.descendant(
@@ -51,7 +57,7 @@ void main() {
       expect(footer.style!.height, 1.4);
       final background = brightness == Brightness.light
           ? const Color(0xFFF5F5F7)
-          : const Color(0xFF000000);
+          : const Color(0xFF151515);
       final luminances = [
         header.style!.color!.computeLuminance(),
         background.computeLuminance(),

@@ -170,7 +170,7 @@ void main() {
       expect(find.byTooltip('Add Note'), findsOneWidget);
       await tester.tap(find.byTooltip('Add Note'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('I misread it'));
+      await tester.tap(find.text('I misread'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Add Note'));
 

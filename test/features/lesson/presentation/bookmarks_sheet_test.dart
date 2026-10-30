@@ -757,7 +757,7 @@ void main() {
         await tester.pump(const Duration(milliseconds: 75));
         expect(proxyScale(tester), closeTo(1.03, .00001));
         final lifted = proxyDecoration(tester);
-        expect(lifted.color, Color(dark ? 0xFF1C1C1E : 0xFFFFFFFF));
+        expect(lifted.color, Color(dark ? 0xFF1F1F1F : 0xFFFFFFFF));
         expect(lifted.boxShadow!.single.offset, const Offset(0, 8));
         expect(lifted.boxShadow!.single.blurRadius, 24);
         expect(lifted.boxShadow!.single.color.a, closeTo(.14, .00001));

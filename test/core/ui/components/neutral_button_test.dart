@@ -26,7 +26,7 @@ void main() {
         (
           PantasButtonVariant.secondary,
           colors.accentTint,
-          brightness == Brightness.dark ? colors.label : colors.accent
+          brightness == Brightness.dark ? colors.accentTintText : colors.accent
         ),
         (PantasButtonVariant.tertiary, colors.transparent, colors.accent),
         (

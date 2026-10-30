@@ -170,6 +170,30 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  for (final dark in [false, true]) {
+    testWidgets('phone week card edge follows dark mode: $dark',
+        (tester) async {
+      await tester.pumpWidget(
+        harness(data(null), theme: dark ? buildDarkTheme() : buildLightTheme()),
+      );
+      await tester.pumpAndSettle();
+      final card = tester.widget<Container>(
+        find
+            .ancestor(
+              of: find.byType(WeekStrip),
+              matching: find.byType(Container),
+            )
+            .first,
+      );
+      final decoration = card.decoration! as BoxDecoration;
+      expect(decoration.color, dark ? const Color(0xFF1F1F1F) : Colors.white);
+      expect(
+        (card.foregroundDecoration as BoxDecoration?)?.border,
+        dark ? Border.all(color: const Color(0xFF2C2C2C)) : isNull,
+      );
+    });
+  }
+
   test('greeting bands remain unchanged', () {
     expect(greetingFor(DateTime(2026, 10, 15, 8)), 'Magandang umaga');
     expect(greetingFor(DateTime(2026, 10, 15, 14)), 'Magandang hapon');

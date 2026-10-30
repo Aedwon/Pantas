@@ -33,6 +33,9 @@ class GroupedSection extends StatelessWidget {
             key: const ValueKey('grouped-section-surface'),
             decoration: BoxDecoration(
               color: context.colors.surface,
+              border: Theme.of(context).brightness == Brightness.dark
+                  ? Border.all(color: context.colors.cardEdge)
+                  : null,
               borderRadius: BorderRadius.circular(PantasShape.groupRadius),
             ),
             child: ClipRRect(

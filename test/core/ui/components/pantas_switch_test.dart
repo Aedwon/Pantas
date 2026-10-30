@@ -103,7 +103,7 @@ void main() {
       // CSS ease at .5 is .8024. Literal channels rounded to the nearest byte.
       final expected = brightness == Brightness.light
           ? const Color(0xFF368F81)
-          : const Color(0xFF248877);
+          : const Color(0xFF167364);
       expect(box.color!.r, closeTo(expected.r, .005));
       expect(box.color!.g, closeTo(expected.g, .005));
       expect(box.color!.b, closeTo(expected.b, .005));

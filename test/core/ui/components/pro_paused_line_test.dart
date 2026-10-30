@@ -26,7 +26,7 @@ void main() {
       expect(find.byType(InkWell), findsNothing);
       final background = brightness == Brightness.light
           ? const Color(0xFFFFFFFF)
-          : const Color(0xFF1C1C1E);
+          : const Color(0xFF1F1F1F);
       final luminances = [
         text.style!.color!.computeLuminance(),
         background.computeLuminance(),

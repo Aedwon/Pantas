@@ -111,9 +111,9 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   Widget _web(BuildContext context) {
     final t = context.webTokens;
     const reasons = [
-      (MistakeTag.misread, 'I misread it'),
-      (MistakeTag.slipped, 'I knew it, I just slipped'),
-      (MistakeTag.unknown, "I didn't know it"),
+      (MistakeTag.misread, 'I misread'),
+      (MistakeTag.slipped, 'I forgot'),
+      (MistakeTag.unknown, "I didn't know"),
       (MistakeTag.other, 'Type my own'),
     ];
     return CallbackShortcuts(
@@ -299,9 +299,9 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
             ),
             const SizedBox(height: 12),
             for (final (tag, label) in const [
-              (MistakeTag.misread, 'I misread it'),
-              (MistakeTag.slipped, 'I knew it, I just slipped'),
-              (MistakeTag.unknown, "I didn't know it"),
+              (MistakeTag.misread, 'I misread'),
+              (MistakeTag.slipped, 'I forgot'),
+              (MistakeTag.unknown, "I didn't know"),
               (MistakeTag.other, 'Type my own'),
             ])
               Semantics(
@@ -491,7 +491,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
               onPressed: _busy ? null : () => unawaited(_write(null, null)),
               child: Text(
                 'Remove',
-                style: type.subhead.copyWith(color: colors.destructive),
+                style: type.subhead.copyWith(color: colors.wrongText),
               ),
             ),
           ),

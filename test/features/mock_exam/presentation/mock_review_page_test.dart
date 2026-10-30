@@ -450,7 +450,7 @@ void main() {
     await tester.tap(find.byTooltip('Add note'));
     await tester.pumpAndSettle();
     expect(find.text('Why did you leave it blank?'), findsOneWidget);
-    await tester.tap(find.text("I didn't know it"));
+    await tester.tap(find.text("I didn't know"));
     await tester.pumpAndSettle();
 
     verify(
@@ -517,7 +517,7 @@ void main() {
     await tester.tap(find.byTooltip('Add note'));
     await tester.pumpAndSettle();
     expect(find.text('Why did you miss it?'), findsOneWidget);
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pumpAndSettle();
 
     verify(

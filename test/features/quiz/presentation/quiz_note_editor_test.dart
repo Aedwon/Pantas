@@ -11,6 +11,29 @@ import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  for (final dark in [false, true]) {
+    testWidgets('Remove uses destructive text color in dark mode: $dark',
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme() : buildLightTheme(),
+          home: Scaffold(
+            body: QuizNoteEditor(
+              tag: MistakeTag.misread,
+              onCancel: () {},
+              onSave: (_, __) async {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<Text>(find.text('Remove')).style?.color,
+        dark ? const Color(0xFFE0706B) : const Color(0xFFD70015),
+      );
+    });
+  }
+
   testWidgets('add note requires a reason and saves selected real value',
       (tester) async {
     MistakeTag? saved;
@@ -27,12 +50,40 @@ void main() {
           .onPressed,
       isNull,
     );
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
     expect(saved, MistakeTag.misread);
   });
+  for (final entry in [
+    ('I forgot', MistakeTag.slipped),
+    ("I didn't know", MistakeTag.unknown),
+  ]) {
+    testWidgets('${entry.$1} keeps the existing stored tag', (tester) async {
+      MistakeTag? saved;
+      await tester.pumpApp(
+        QuizNoteEditor(
+          tag: MistakeTag.misread,
+          onCancel: () {},
+          onSave: (tag, note) async => saved = tag,
+        ),
+      );
+      for (final label in [
+        'I misread',
+        'I forgot',
+        "I didn't know",
+        'Type my own',
+      ]) {
+        expect(find.text(label), findsOneWidget);
+      }
+      await tester.tap(find.text(entry.$1));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Update'));
+      await tester.pumpAndSettle();
+      expect(saved, entry.$2);
+    });
+  }
   testWidgets('own words require text and trim only the saved note',
       (tester) async {
     String? saved;
@@ -78,7 +129,7 @@ void main() {
       ),
     );
     expect(find.text('Update'), findsOneWidget);
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Update'));
     await tester.pumpAndSettle();
@@ -105,7 +156,7 @@ void main() {
         },
       ),
     );
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pump();
@@ -129,7 +180,7 @@ void main() {
     );
     final update = find.widgetWithText(PantasButton, 'Update');
     expect(tester.widget<PantasButton>(update).onPressed, isNull);
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pumpAndSettle();
     expect(tester.widget<PantasButton>(update).onPressed, isNotNull);
     await tester.tap(find.text('Type my own'));
@@ -142,7 +193,7 @@ void main() {
     await tester
         .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
     final colors = tester.element(find.byType(QuizNoteEditor)).colors;
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pump();
     double scale() {
       final dot = find.byWidgetPredicate(
@@ -174,7 +225,7 @@ void main() {
     await tester
         .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
     final colors = tester.element(find.byType(QuizNoteEditor)).colors;
-    await tester.tap(find.text('I misread it'));
+    await tester.tap(find.text('I misread'));
     await tester.pump();
     Color? background() => tester
         .widget<TextButton>(

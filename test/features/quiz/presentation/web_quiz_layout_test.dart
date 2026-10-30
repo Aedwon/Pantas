@@ -49,7 +49,7 @@ void main() {
         if (pro) {
           expect(find.text('Cancel'), findsOneWidget);
           expect(find.text('Your note'), findsOneWidget);
-          await tester.tap(find.text("I didn't know it"));
+          await tester.tap(find.text("I didn't know"));
           await tester.pumpAndSettle();
           await tester.tap(find.text('Update'));
           await tester.pumpAndSettle();
@@ -162,7 +162,7 @@ void main() {
       expect(find.byKey(const ValueKey('web-question-column')), findsOneWidget);
       expect(find.byKey(const ValueKey('web-answer-column')), findsOneWidget);
       expect(find.text('Why did you miss it?'), findsOneWidget);
-      expect(find.text('I knew it, I just slipped'), findsOneWidget);
+      expect(find.text('I forgot'), findsOneWidget);
       final question =
           tester.getTopLeft(find.byKey(const ValueKey('web-question-column')));
       final answer =

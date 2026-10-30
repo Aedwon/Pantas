@@ -37,7 +37,7 @@ void main() {
           background.color,
           brightness == Brightness.light
               ? const Color(0xFFFFFFFF)
-              : const Color(0xFF48484A),
+              : const Color(0xFF4A4A4A),
         );
         final luminances = [
           active.style!.color!.computeLuminance(),

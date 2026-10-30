@@ -53,7 +53,7 @@ void main() {
           ..circle(
             color: brightness == Brightness.light
                 ? const Color(0xFFC7C7CC)
-                : const Color(0xFF48484A),
+                : const Color(0xFF949494),
             strokeWidth: 1.5,
           ),
       );
@@ -148,7 +148,9 @@ void main() {
       );
       expectContrast(
         tester.widget<Text>(find.text('Wed')).style!.color!,
-        brightness == Brightness.light ? const Color(0xFFF5F5F7) : Colors.black,
+        brightness == Brightness.light
+            ? const Color(0xFFF5F5F7)
+            : const Color(0xFF151515),
       );
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);

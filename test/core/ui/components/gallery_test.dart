@@ -47,7 +47,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
     final scaffold = tester
         .widget<Scaffold>(find.byKey(const ValueKey('component-gallery')));
-    expect(scaffold.backgroundColor, Colors.black);
+    expect(scaffold.backgroundColor, const Color(0xFF151515));
     expect(
       ComponentGalleryPage.contractNames,
       containsAll([

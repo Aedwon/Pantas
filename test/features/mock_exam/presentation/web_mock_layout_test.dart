@@ -188,7 +188,7 @@ void main() {
           pro ? findsOneWidget : findsNothing,
         );
         expect(
-          find.text('I knew it, I just slipped'),
+          find.text('I forgot'),
           pro ? findsOneWidget : findsNothing,
         );
         expect(tester.takeException(), isNull);

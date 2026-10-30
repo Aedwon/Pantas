@@ -86,7 +86,7 @@ class SegmentedSwitch extends StatelessWidget {
                                     ? null
                                     : Theme.of(context).brightness ==
                                             Brightness.dark
-                                        ? colors.chevron
+                                        ? colors.segmentOn
                                         : colors.surface,
                                 borderRadius: BorderRadius.circular(8),
                                 boxShadow: i != selected

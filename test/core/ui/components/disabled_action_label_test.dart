@@ -10,14 +10,14 @@ void main() {
     const light = PantasColors.light;
     const dark = PantasColors.dark;
     expect(light.disabledActionLabel, const Color(0xFFB8B8BD));
-    expect(dark.disabledActionLabel, const Color(0xFF5A5A5E));
+    expect(dark.disabledActionLabel, const Color(0xFF949494));
     expect(light.copyWith().disabledActionLabel, light.disabledActionLabel);
     final changed = light.copyWith(disabledActionLabel: Colors.orange);
     expect(changed.disabledActionLabel, Colors.orange);
     expect(changed.tertiaryLabel, light.tertiaryLabel);
     expect(
       light.lerp(dark, .5).disabledActionLabel,
-      Color.lerp(const Color(0xFFB8B8BD), const Color(0xFF5A5A5E), .5),
+      Color.lerp(const Color(0xFFB8B8BD), const Color(0xFF949494), .5),
     );
     expect(light.lerp(null, .5).disabledActionLabel, light.disabledActionLabel);
   });

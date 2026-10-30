@@ -51,8 +51,8 @@ void main() {
       brightness: Brightness.dark,
     );
     final text = tester.widget<Text>(find.text('Delete account'));
-    expect(text.style!.color, const Color(0xFFFF6961));
-    expectContrast(text.style!.color!, const Color(0xFF1C1C1E));
+    expect(text.style!.color, const Color(0xFFE0706B));
+    expectContrast(text.style!.color!, const Color(0xFF1F1F1F));
   });
   testWidgets('Pro tag centers its label', (tester) async {
     await pumpAccessibilitySurface(tester, const ProTag());

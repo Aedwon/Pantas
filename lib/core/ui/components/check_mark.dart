@@ -38,7 +38,7 @@ class CheckMark extends StatelessWidget {
         child: Icon(
           PantasIcons.check,
           size: selection ? 13 : 14,
-          color: selection ? context.colors.onAccent : context.colors.surface,
+          color: context.colors.onAccent,
         ),
       ),
     );

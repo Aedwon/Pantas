@@ -34,7 +34,7 @@ void main() {
             sweepAngle: math.pi * .7,
             color: brightness == Brightness.light
                 ? const Color(0xFF0B7A68)
-                : const Color(0xFF2FB39C),
+                : const Color(0xFF4CC3AC),
           ),
       );
       expect(find.bySemanticsLabel('7 of 10 correct'), findsOneWidget);
