@@ -104,8 +104,9 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    reports). Known gap: flagged/retake/review reads use ids already seen, not filtered by exam.
    Study and reader checklist (Haiku): staging worktree `build/visual-pass/study-boards.md`
    (23 boards: 22 BUILD, 1 MOTION; reader headers are 60 px on the boards).
-   Study and reader batch 1 on staging ed6f5e78 (16 of 22; see ui-audit). Next: Quiz (QS_, QN_,
-   QZ_, RV_), Haiku crawl to `build/visual-pass/quiz-boards.md` in progress. The local test panel (spec and plan approved) is paused until the
+   Study and reader batch 1 on staging ed6f5e78 (16 of 22; see ui-audit). Quiz batch 1 on staging
+   025bba22 (19 of 27; see ui-audit). Bug follow-ups in progress: raw maths markup in question rows;
+   mock ids over 64 characters. Next: Mock (MK_*). The local test panel (spec and plan approved) is paused until the
    visual pass is done (Aedwon: "finish the screens first").
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
@@ -198,7 +199,7 @@ export or read that canvas into local board files. The web pass changes only the
 | Onboarding | OB_* | Done at 1440 light: 21 of 24 BUILD boards match (3 picker states unreachable); batches 1 and 2 on staging 081a82b1 |
 | Home | HM_*, DK_Home | batches 1-2 on staging 192ffa84; ~24 of 34 boards; open copy items and a lesson bug |
 | Study and reader | SD_*, RD_* | batch 1 on staging ed6f5e78: 16 of 22; 6 error/loading states not reached |
-| Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
+| Quiz and answers | QS_*, QN_*, QZ_*, RV_* | batch 1 on staging 025bba22: 19 of 27 |
 | Mock | MK_* | not started |
 | Results and Performance | results, PF_* | not started |
 | Record, bookmarks, custom quiz | MY_*, BM_*, CZ_* | not started |
