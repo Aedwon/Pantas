@@ -30,19 +30,7 @@ class PlanWebFrame extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton.icon(
-                    onPressed: onBack,
-                    icon: const Icon(Icons.chevron_left, size: 20),
-                    label: Text(backLabel),
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: const Size(0, 40),
-                      textStyle: context.webTokens.style(17),
-                    ),
-                  ),
-                ),
+                WebBackLink(label: backLabel, onPressed: onBack),
                 const SizedBox(height: 6),
                 WebText(title, kind: WebTextKind.h1),
                 if (subtitle != null) ...[
@@ -56,6 +44,93 @@ class PlanWebFrame extends StatelessWidget {
           ),
         ),
       );
+}
+
+/// The board's two columns: flex 1.3 from 460 px and flex 1 from 380 px, with
+/// a 28 px gap. Free space is shared by the flex factors after the bases.
+class PlanSplit extends StatelessWidget {
+  const PlanSplit({required this.left, required this.right, super.key});
+  final Widget left;
+  final Widget right;
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+        builder: (context, c) {
+          const gap = 28.0;
+          final free = c.maxWidth - 460 - 380 - gap;
+          if (!c.hasBoundedWidth || free < 0) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(flex: 13, child: left),
+                const SizedBox(width: gap),
+                Expanded(flex: 10, child: right),
+              ],
+            );
+          }
+          final leftWidth = 460 + free * 1.3 / 2.3;
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(width: leftWidth, child: left),
+              const SizedBox(width: gap),
+              Expanded(child: right),
+            ],
+          );
+        },
+      );
+}
+
+/// The board's exam day glyph: a 26 by 28 calendar with the day and month.
+class PlanExamCalendar extends StatelessWidget {
+  const PlanExamCalendar({required this.day, super.key});
+  final DateTime day;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    const months = [
+      'JAN',
+      'FEB',
+      'MAR',
+      'APR',
+      'MAY',
+      'JUN',
+      'JUL',
+      'AUG',
+      'SEP',
+      'OCT',
+      'NOV',
+      'DEC',
+    ];
+    return ExcludeSemantics(
+      child: Container(
+        width: 26,
+        height: 28,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(7),
+          border: Border.all(color: t.colors.label, width: 1.5),
+        ),
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '${day.day}',
+              style: t.style(12, weight: FontWeight.w700, height: 1),
+            ),
+            Text(
+              months[day.month - 1],
+              style: t.style(
+                7,
+                weight: FontWeight.w700,
+                color: t.colors.secondaryLabel,
+                height: 1.2,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class PlanWebColumns extends StatelessWidget {
@@ -80,48 +155,48 @@ class PlanWebColumns extends StatelessWidget {
       title: 'Your plan',
       onBack: page.onBack,
       subtitle: page.subtitle,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            flex: 13,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const WebText('Today', kind: WebTextKind.eyebrow),
-                WebCard(
-                  child: WebRow(
-                    title: '${page.done} of ${page.total} done',
-                    titleStyle: t.style(17, weight: FontWeight.w600),
-                    subtitle: page.done == page.total
-                        ? null
-                        : 'Reviews and new questions left',
-                    leading: ProgressRing(
-                      fraction: page.total == 0 ? 0 : page.done / page.total,
-                      size: 26,
-                    ),
-                    trailing: Icon(
-                      Icons.chevron_right,
-                      size: 16,
-                      color: t.colors.chevron,
-                    ),
-                    divider: false,
-                    onPressed: page.onToday,
-                  ),
+      child: PlanSplit(
+        left: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const WebText('Today', kind: WebTextKind.eyebrow),
+            WebCard(
+              child: WebRow(
+                boardMetrics: true,
+                title: '${page.done} of ${page.total} done',
+                subtitle: page.done == page.total
+                    ? null
+                    : 'Reviews and new questions left',
+                leading: ProgressRing(
+                  fraction: page.total == 0 ? 0 : page.done / page.total,
+                  size: 26,
+                  emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
                 ),
-                const SizedBox(height: 28),
-                const WebText('Coming up', kind: WebTextKind.eyebrow),
-                WebCard(
-                  child: Column(
-                    children: [
-                      for (var i = 0; i < nodes.length; i++)
-                        WebRow(
-                          title: nodes[i].title,
-                          subtitle: nodes[i].subtitle,
-                          value: nodes[i].date,
-                          selected: selectedWeek != null &&
-                              nodes[i].target == selectedWeek,
-                          leading: Icon(
+                trailing: const WebChevron(),
+                divider: false,
+                onPressed: page.onToday,
+              ),
+            ),
+            const SizedBox(height: 28),
+            const WebText('Coming up', kind: WebTextKind.eyebrow),
+            WebCard(
+              child: Column(
+                children: [
+                  for (var i = 0; i < nodes.length; i++)
+                    WebRow(
+                      boardMetrics: true,
+                      title: nodes[i].title,
+                      titleStyle: nodes[i].kind == PlanNodeKind.exam
+                          ? t.style(17, weight: FontWeight.w600, height: 1.3)
+                          : null,
+                      subtitle: nodes[i].subtitle,
+                      value: nodes[i].date,
+                      selected: selectedWeek != null &&
+                          nodes[i].target == selectedWeek,
+                      leading: switch (nodes[i].kind) {
+                        PlanNodeKind.exam when nodes[i].day != null =>
+                          PlanExamCalendar(day: nodes[i].day!),
+                        _ => Icon(
                             switch (nodes[i].kind) {
                               PlanNodeKind.week => Icons.circle_outlined,
                               PlanNodeKind.review => Icons.outlined_flag,
@@ -130,78 +205,71 @@ class PlanWebColumns extends StatelessWidget {
                                 Icons.calendar_today_outlined,
                             },
                             size: 26,
-                            color: t.colors.secondaryLabel,
+                            color: nodes[i].kind == PlanNodeKind.week
+                                ? (t.dark
+                                    ? t.colors.secondaryLabel
+                                    : const Color(0xFFD1D1D6))
+                                : t.colors.secondaryLabel,
                           ),
-                          trailing: nodes[i].kind == PlanNodeKind.week
-                              ? Icon(
-                                  Icons.chevron_right,
-                                  size: 16,
-                                  color: t.colors.chevron,
-                                )
-                              : null,
-                          divider: i < nodes.length - 1,
-                          onPressed: nodes[i].kind == PlanNodeKind.week &&
-                                  nodes[i].target != null
-                              ? () => page.onWeek(nodes[i].target!)
-                              : null,
-                        ),
-                    ],
-                  ),
-                ),
+                      },
+                      trailing: nodes[i].kind == PlanNodeKind.week
+                          ? const WebChevron()
+                          : null,
+                      divider: i < nodes.length - 1,
+                      onPressed: nodes[i].kind == PlanNodeKind.week &&
+                              nodes[i].target != null
+                          ? () => page.onWeek(nodes[i].target!)
+                          : null,
+                    ),
+                ],
+              ),
+            ),
+            if (page.pro)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                child: Text('Later weeks show topics only.', style: t.sm),
+              ),
+          ],
+        ),
+        right: pane ??
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const WebText('History', kind: WebTextKind.eyebrow),
                 if (page.pro)
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-                    child: Text(
-                      'Later weeks show topics only.',
-                      style: t.sm,
+                  PlanWebHistory(
+                    entries: page.history.take(5).toList(),
+                    onMore: onHistory,
+                    hasMore: onHistory != null,
+                    moreInsideCard: true,
+                  )
+                else
+                  WebCard(
+                    padding: const EdgeInsets.fromLTRB(24, 26, 24, 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'See every week up to your exam, '
+                          'and every time your plan adjusts.',
+                          style: t.style(17, height: 1.45),
+                        ),
+                        const SizedBox(height: 14),
+                        if (page.paused)
+                          const ProPausedLine()
+                        else
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: WebButton(
+                              label: 'Unlock with Pro',
+                              onPressed: page.onPro,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
               ],
             ),
-          ),
-          const SizedBox(width: 28),
-          Expanded(
-            flex: 10,
-            child: pane ??
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const WebText('History', kind: WebTextKind.eyebrow),
-                    if (page.pro)
-                      PlanWebHistory(
-                        entries: page.history.take(5).toList(),
-                        onMore: onHistory,
-                        hasMore: onHistory != null,
-                      )
-                    else
-                      WebCard(
-                        padding: const EdgeInsets.fromLTRB(24, 26, 24, 24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'See every week up to your exam, '
-                              'and every time your plan adjusts.',
-                              style: t.style(17, height: 1.45),
-                            ),
-                            const SizedBox(height: 14),
-                            if (page.paused)
-                              const ProPausedLine()
-                            else
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: WebButton(
-                                  label: 'Unlock with Pro',
-                                  onPressed: page.onPro,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
-          ),
-        ],
       ),
     );
   }
@@ -214,8 +282,13 @@ class PlanWebHistory extends StatelessWidget {
     this.loading = false,
     this.onMore,
     this.error,
+    this.moreInsideCard = false,
     super.key,
   });
+
+  /// Plan's card ends with a See more row (board `PL_Plan`); the full History
+  /// page keeps the link below the card.
+  final bool moreInsideCard;
   final List<PlanHistoryEntry> entries;
   final bool hasMore;
   final bool loading;
@@ -224,6 +297,8 @@ class PlanWebHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final hairline = webHairline(context);
+    final inside = moreInsideCard && hasMore;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -240,7 +315,7 @@ class PlanWebHistory extends StatelessWidget {
                         ? Border(
                             bottom: BorderSide(
                               color: t.colors.separator,
-                              width: .5,
+                              width: hairline,
                             ),
                           )
                         : null,
@@ -257,11 +332,44 @@ class PlanWebHistory extends StatelessWidget {
                     ],
                   ),
                 ),
+              if (inside)
+                InkWell(
+                  onTap: loading ? null : onMore,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(
+                          color: t.colors.separator,
+                          width: hairline,
+                        ),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            loading ? 'Loading' : 'See more',
+                            style: t.style(
+                              16,
+                              weight: FontWeight.w600,
+                              color: t.colors.accent,
+                            ),
+                          ),
+                        ),
+                        const WebChevron(),
+                      ],
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
-        const SizedBox(height: 18),
-        if (hasMore)
+        if (!inside) const SizedBox(height: 18),
+        if (inside)
+          const SizedBox.shrink()
+        else if (hasMore)
           Align(
             child: WebTextLink(
               label: loading ? 'Loading' : 'See more',
@@ -272,6 +380,72 @@ class PlanWebHistory extends StatelessWidget {
           Text("That's everything since you started.", style: t.sub),
         if (error != null) error!,
       ],
+    );
+  }
+}
+
+/// The board's `.ebr` header over a pane: an eyebrow (a link when [onLabel] is
+/// set) and a 32 px close button that rises 8 px above the row.
+class PlanPaneHeader extends StatelessWidget {
+  const PlanPaneHeader({
+    required this.label,
+    required this.onClose,
+    this.onLabel,
+    super.key,
+  });
+  final String label;
+  final VoidCallback onClose;
+  final VoidCallback? onLabel;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final text = Text(
+      onLabel == null ? label.toUpperCase() : label,
+      style: onLabel == null ? t.eb : t.eb.copyWith(color: t.colors.accent),
+    );
+    return SizedBox(
+      height: 30,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            left: 4,
+            bottom: 9,
+            child: onLabel == null
+                ? text
+                : MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(onTap: onLabel, child: text),
+                  ),
+          ),
+          Positioned(
+            right: 0,
+            top: -8,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const WebKeyHint('Esc'),
+                const SizedBox(width: 6),
+                SizedBox.square(
+                  dimension: 32,
+                  child: IconButton(
+                    onPressed: onClose,
+                    tooltip: 'Close',
+                    padding: EdgeInsets.zero,
+                    style: IconButton.styleFrom(
+                      foregroundColor: t.colors.accent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    icon: const Icon(Icons.close, size: 18),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

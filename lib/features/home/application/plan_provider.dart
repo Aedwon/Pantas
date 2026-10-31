@@ -205,6 +205,7 @@ final planViewProvider =
         subtitle: 'Exam day',
         date: date(examDay),
         reviewOnly: true,
+        day: examDay,
       ),
     );
   }

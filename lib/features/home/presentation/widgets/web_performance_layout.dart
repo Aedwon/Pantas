@@ -77,7 +77,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
         child: Scaffold(
           backgroundColor: t.colors.background,
           body: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(44, 28, 44, 64),
+            padding: const EdgeInsets.only(bottom: 44),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1080),
@@ -85,210 +85,216 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     WebPerformanceHeader(onBack: widget.onBack),
-                    const SizedBox(height: 28),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          flex: 145,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              LayoutBuilder(
-                                builder: (context, constraints) {
-                                  final switcher = WebSegmentedControl(
-                                    labels: [
-                                      'Subjects',
-                                      'Topics',
-                                      if (widget.data.lessonLevelAvailable)
-                                        'Lessons',
-                                    ],
-                                    suffixes: widget.pro
-                                        ? null
-                                        : [
-                                            null,
-                                            const ProTag(),
-                                            if (widget
-                                                .data.lessonLevelAvailable)
-                                              const ProTag(),
-                                          ],
-                                    selected: widget.level,
-                                    onChanged: widget.onLevel,
-                                  );
-                                  final menus = <Widget>[
-                                    if (widget.level > 0 && !gated)
-                                      _menu<String?>(
-                                        context,
-                                        label: scope ?? 'All subjects',
-                                        values: {
-                                          null: 'All subjects',
-                                          ...subjectNames,
-                                        },
-                                        selected: widget.subject,
-                                        onSelected: widget.onSubject,
-                                      ),
-                                    if (!gated)
-                                      _menu<SortCycleOrder>(
-                                        context,
-                                        label: _sortLabel,
-                                        values: const {
-                                          SortCycleOrder.weakest:
-                                              'Weakest first',
-                                          SortCycleOrder.strongest:
-                                              'Strongest first',
-                                          SortCycleOrder.alphabetical: 'A to Z',
-                                        },
-                                        selected: widget.sort,
-                                        onSelected: widget.onSort,
-                                      ),
-                                  ];
-                                  if (constraints.maxWidth >= 600) {
-                                    return Row(
-                                      children: [
-                                        Expanded(child: switcher),
-                                        for (final menu in menus) ...[
-                                          const SizedBox(width: 10),
-                                          menu,
-                                        ],
+                    const SizedBox(height: 26),
+                    _split(
+                      left: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              final switcher = WebSegmentedControl(
+                                accentLabels: true,
+                                labels: [
+                                  'Subjects',
+                                  'Topics',
+                                  if (widget.data.lessonLevelAvailable)
+                                    'Lessons',
+                                ],
+                                suffixes: widget.pro
+                                    ? null
+                                    : [
+                                        null,
+                                        const ProTag(),
+                                        if (widget.data.lessonLevelAvailable)
+                                          const ProTag(),
                                       ],
-                                    );
-                                  }
-                                  return Wrap(
-                                    spacing: 10,
-                                    runSpacing: 10,
-                                    crossAxisAlignment:
-                                        WrapCrossAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                        width:
-                                            constraints.maxWidth.clamp(0, 380),
-                                        child: switcher,
-                                      ),
-                                      ...menus,
-                                    ],
-                                  );
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              if (!gated) ...[
-                                WebText(
-                                  heading,
-                                  kind: WebTextKind.eyebrow,
-                                ),
-                                WebCard(
-                                  child: Column(
-                                    children: [
-                                      for (final row in widget.rows) ...[
-                                        _row(
-                                          context,
-                                          row,
-                                          subtitle: widget.level == 0
-                                              ? _topicCount(row.id)
-                                              : row.subtext,
-                                          expanded: widget.level == 0 &&
-                                              _expanded.contains(row.id),
-                                          onPressed: () {
-                                            if (widget.level == 0 &&
-                                                widget.pro) {
-                                              setState(
-                                                () => _expanded.contains(row.id)
-                                                    ? _expanded.remove(row.id)
-                                                    : _expanded.add(row.id),
-                                              );
-                                            } else if (widget.level == 0) {
-                                              widget.onLevel(1);
-                                            } else if (widget.level == 1) {
-                                              widget.onTopic(row.id);
-                                            } else {
-                                              widget.onLesson?.call(row.id);
-                                            }
-                                          },
+                                selected: widget.level,
+                                onChanged: widget.onLevel,
+                              );
+                              final menus = <Widget>[
+                                if (widget.level > 0 && !gated)
+                                  _menu<String?>(
+                                    context,
+                                    label: scope ?? 'All subjects',
+                                    values: {
+                                      null: 'All subjects',
+                                      ...subjectNames,
+                                    },
+                                    selected: widget.subject,
+                                    width: 272,
+                                    onSelected: widget.onSubject,
+                                  ),
+                                if (!gated)
+                                  _menu<SortCycleOrder>(
+                                    context,
+                                    label: _sortLabel,
+                                    values: const {
+                                      SortCycleOrder.weakest: 'Weakest first',
+                                      SortCycleOrder.strongest:
+                                          'Strongest first',
+                                      SortCycleOrder.alphabetical: 'A to Z',
+                                    },
+                                    selected: widget.sort,
+                                    width: 232,
+                                    onSelected: widget.onSort,
+                                  ),
+                              ];
+                              if (constraints.maxWidth >= 600) {
+                                return Row(
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: ConstrainedBox(
+                                            constraints: const BoxConstraints(
+                                              maxWidth: 384,
+                                            ),
+                                            child: switcher,
+                                          ),
                                         ),
-                                        if (widget.level == 0 &&
-                                            _expanded.contains(row.id))
-                                          for (final topic
-                                              in _topicsFor(row.id))
-                                            ColoredBox(
-                                              color: t.rowHover,
-                                              child: _row(
-                                                context,
-                                                topic,
-                                                indent: true,
-                                                onPressed: () => widget.onTopic(
-                                                  topic.id,
+                                      ),
+                                    ),
+                                    for (var i = 0; i < menus.length; i++) ...[
+                                      if (i > 0) const SizedBox(width: 10),
+                                      menus[i],
+                                    ],
+                                  ],
+                                );
+                              }
+                              return Wrap(
+                                spacing: 10,
+                                runSpacing: 10,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: constraints.maxWidth.clamp(0, 380),
+                                    child: switcher,
+                                  ),
+                                  ...menus,
+                                ],
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          if (!gated) ...[
+                            WebText(
+                              heading,
+                              kind: WebTextKind.eyebrow,
+                            ),
+                            WebCard(
+                              child: Column(
+                                children: [
+                                  for (final row in widget.rows) ...[
+                                    _row(
+                                      context,
+                                      row,
+                                      subtitle: widget.level == 0
+                                          ? _topicCount(row.id)
+                                          : row.subtext,
+                                      expanded: widget.level == 0 &&
+                                          _expanded.contains(row.id),
+                                      onPressed: () {
+                                        if (widget.level == 0 && widget.pro) {
+                                          setState(
+                                            () => _expanded.contains(row.id)
+                                                ? _expanded.remove(row.id)
+                                                : _expanded.add(row.id),
+                                          );
+                                        } else if (widget.level == 0) {
+                                          widget.onLevel(1);
+                                        } else if (widget.level == 1) {
+                                          widget.onTopic(row.id);
+                                        } else {
+                                          widget.onLesson?.call(row.id);
+                                        }
+                                      },
+                                    ),
+                                    if (widget.level == 0 &&
+                                        _expanded.contains(row.id))
+                                      for (final topic in _topicsFor(row.id))
+                                        ColoredBox(
+                                          color: t.dark
+                                              ? t.rowHover
+                                              : const Color(0xFFFBFBFC),
+                                          child: _row(
+                                            context,
+                                            topic,
+                                            indent: true,
+                                            onPressed: () => widget.onTopic(
+                                              topic.id,
+                                            ),
+                                          ),
+                                        ),
+                                  ],
+                                ],
+                              ),
+                            ),
+                          ],
+                          if (!widget.pro) ...[
+                            const SizedBox(height: 20),
+                            WebCard(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 22,
+                              ),
+                              child: widget.paused
+                                  ? const ProPausedLine()
+                                  : Row(
+                                      children: [
+                                        Container(
+                                          width: 44,
+                                          height: 44,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: t.colors.accentTint,
+                                          ),
+                                          child: Icon(
+                                            Icons.lock_outline_rounded,
+                                            size: 22,
+                                            color: t.colors.accent,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 18),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Go deeper with Pro',
+                                                style: t.style(
+                                                  17,
+                                                  weight: FontWeight.w700,
                                                 ),
                                               ),
-                                            ),
-                                      ],
-                                    ],
-                                  ),
-                                ),
-                              ],
-                              if (!widget.pro) ...[
-                                const SizedBox(height: 20),
-                                WebCard(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 24,
-                                    vertical: 22,
-                                  ),
-                                  child: widget.paused
-                                      ? const ProPausedLine()
-                                      : Row(
-                                          children: [
-                                            Container(
-                                              width: 44,
-                                              height: 44,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: t.colors.accentTint,
+                                              const SizedBox(height: 2),
+                                              Text(
+                                                'See your accuracy in '
+                                                'every topic and lesson, '
+                                                'so you know exactly '
+                                                'where to practice.',
+                                                style: t.sub,
                                               ),
-                                              child: Icon(
-                                                Icons.lock_outline_rounded,
-                                                size: 22,
-                                                color: t.colors.accent,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 18),
-                                            Expanded(
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Go deeper with Pro',
-                                                    style: t.style(
-                                                      17,
-                                                      weight: FontWeight.w700,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(height: 2),
-                                                  Text(
-                                                    'See your accuracy in '
-                                                    'every topic and lesson, '
-                                                    'so you know exactly '
-                                                    'where to practice.',
-                                                    style: t.sub,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            const SizedBox(width: 18),
-                                            WebButton(
-                                              label: 'Unlock with Pro',
-                                              onPressed: widget.onPro,
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 28),
-                        if (answered > 0)
-                          Expanded(
-                            flex: 100,
-                            child: Padding(
+                                        const SizedBox(width: 18),
+                                        WebButton(
+                                          label: 'Unlock with Pro',
+                                          onPressed: widget.onPro,
+                                        ),
+                                      ],
+                                    ),
+                            ),
+                          ],
+                        ],
+                      ),
+                      right: answered <= 0
+                          ? const SizedBox.shrink()
+                          : Padding(
                               padding: const EdgeInsets.only(top: 54),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -325,8 +331,6 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                 ],
                               ),
                             ),
-                          ),
-                      ],
                     ),
                   ],
                 ),
@@ -337,6 +341,33 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       ),
     );
   }
+
+  /// The board's list column (flex 1.45 from 480 px) beside the Overall column
+  /// (flex 1 from 300 px), 28 px apart.
+  Widget _split({required Widget left, required Widget right}) => LayoutBuilder(
+        builder: (context, c) {
+          const gap = 28.0;
+          final free = c.maxWidth - 480 - 300 - gap;
+          if (free < 0) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(flex: 145, child: left),
+                const SizedBox(width: gap),
+                Expanded(flex: 100, child: right),
+              ],
+            );
+          }
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(width: 480 + free * 1.45 / 2.45, child: left),
+              const SizedBox(width: gap),
+              Expanded(child: right),
+            ],
+          );
+        },
+      );
 
   String _topicCount(String id) {
     final count = widget.data.subjectCounts[id] ?? 0;
@@ -368,45 +399,65 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     bool expanded = false,
   }) {
     final t = context.webTokens;
-    return LayoutBuilder(
-      builder: (context, constraints) => WebRow(
-        title: row.title,
-        compact: indent,
-        subtitle: subtitle,
-        horizontalPadding: indent ? 40 : 20,
-        titleStyle: t.style(indent ? 16 : 17),
-        onPressed: onPressed,
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (widget.level > 0 || indent) ...[
-              Text('${row.answered} answered', style: t.sm),
-              const SizedBox(width: 16),
-            ],
-            SizedBox(
-              width: constraints.maxWidth > 600 ? 160 : 80,
-              child: AccuracyBar.topicRows(accuracy: row.accuracy!),
-            ),
-            const SizedBox(width: 16),
-            SizedBox(
-              width: 44,
-              child: Text(
-                '${(row.accuracy! * 100).round()}%',
-                textAlign: TextAlign.right,
-                style: t.style(16, weight: FontWeight.w600),
+    // The board indents a topic row 40 px left and keeps 20 px right.
+    return Padding(
+      padding: EdgeInsets.only(left: indent ? 20 : 0),
+      child: LayoutBuilder(
+        builder: (context, constraints) => WebRow(
+          boardMetrics: !indent,
+          title: row.title,
+          compact: indent,
+          subtitle: subtitle,
+          titleStyle: t.style(
+            indent ? 16 : 17,
+            height: indent ? null : 1.3,
+            weight: expanded ? FontWeight.w600 : FontWeight.w400,
+          ),
+          onPressed: onPressed,
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (widget.level > 0 || indent) ...[
+                SizedBox(
+                  width: 96,
+                  child: Text(
+                    '${row.answered} answered',
+                    textAlign: TextAlign.right,
+                    style: t.sub,
+                  ),
+                ),
+                const SizedBox(width: 12),
+              ],
+              SizedBox(
+                width: constraints.maxWidth > 600 ? 160 : 80,
+                child: AccuracyBar.topicRows(accuracy: row.accuracy!),
               ),
-            ),
-            const SizedBox(width: 12),
-            Icon(
-              widget.level == 0 && !indent
-                  ? expanded
+              const SizedBox(width: 12),
+              SizedBox(
+                width: 44,
+                child: Text(
+                  '${(row.accuracy! * 100).round()}%',
+                  textAlign: TextAlign.right,
+                  style: t.style(16, weight: FontWeight.w600),
+                ),
+              ),
+              // The board's Free rows end at the percent: a tap leads to Pro.
+              if (widget.pro || widget.level > 0 || indent)
+                const SizedBox(width: 12),
+              if (!widget.pro && widget.level == 0 && !indent)
+                const SizedBox.shrink()
+              else if (widget.level == 0 && !indent)
+                Icon(
+                  expanded
                       ? Icons.keyboard_arrow_up
-                      : Icons.keyboard_arrow_down
-                  : Icons.chevron_right,
-              size: 16,
-              color: t.colors.tertiaryLabel,
-            ),
-          ],
+                      : Icons.keyboard_arrow_down,
+                  size: 16,
+                  color: t.colors.chevron,
+                )
+              else
+                const WebChevron(),
+            ],
+          ),
         ),
       ),
     );
@@ -418,43 +469,64 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     required Map<T, String> values,
     required T selected,
     required ValueChanged<T> onSelected,
+    required double width,
   }) {
     final t = context.webTokens;
     // Wrap nullable values so All subjects is selectable.
     return PopupMenuButton<(T,)>(
       tooltip: label,
       color: t.colors.surface,
+      position: PopupMenuPosition.under,
+      offset: const Offset(0, 10),
+      menuPadding: const EdgeInsets.all(6),
+      constraints: BoxConstraints.tightFor(width: width),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shadowColor: Colors.black.withValues(alpha: .16),
+      surfaceTintColor: Colors.transparent,
       initialValue: (selected,),
       onSelected: (value) => onSelected(value.$1),
       itemBuilder: (_) => [
         for (final e in values.entries)
           PopupMenuItem(
             value: (e.key,),
-            child: Row(
-              children: [
-                Expanded(child: Text(e.value, style: t.style(15))),
-                if (e.key == selected)
-                  Icon(Icons.check, size: 18, color: t.colors.accent),
-              ],
+            height: 41,
+            padding: EdgeInsets.zero,
+            child: Container(
+              height: 41,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                color: e.key == selected
+                    ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
+                    : null,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Row(
+                children: [
+                  Expanded(child: Text(e.value, style: t.style(16))),
+                  if (e.key == selected)
+                    Icon(Icons.check, size: 18, color: t.colors.accent),
+                ],
+              ),
             ),
           ),
       ],
       child: Container(
         height: 38,
-        padding: const EdgeInsets.symmetric(horizontal: 14),
+        padding: const EdgeInsets.only(left: 14, right: 12),
         decoration: BoxDecoration(
           color: t.colors.surface,
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: t.colors.separator),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(label, style: t.style(15, weight: FontWeight.w500)),
+            Text(label, style: t.style(15, weight: FontWeight.w600)),
             const SizedBox(width: 8),
             Icon(
               Icons.keyboard_arrow_down,
               size: 16,
-              color: t.colors.tertiaryLabel,
+              color: t.colors.label,
             ),
           ],
         ),
@@ -475,16 +547,7 @@ class WebPerformanceHeader extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextButton.icon(
-            onPressed: onBack,
-            icon: const Icon(Icons.chevron_left, size: 20),
-            label: const Text('Home'),
-            style: TextButton.styleFrom(
-              padding: EdgeInsets.zero,
-              minimumSize: const Size(0, 28),
-              foregroundColor: context.webTokens.colors.accent,
-            ),
-          ),
+          WebBackLink(label: 'Home', onPressed: onBack),
           const SizedBox(height: 6),
           const WebText('Your performance', kind: WebTextKind.h1),
           if (description) ...[

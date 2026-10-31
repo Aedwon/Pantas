@@ -481,11 +481,10 @@ class WebRow extends StatefulWidget {
 class _WebRowState extends State<WebRow> {
   Widget _title(WebRow w, bool large, double? lineHeight, WebTokens t) {
     final lines = large || w.wrapTitle ? null : 1;
-    final overflow = large || w.wrapTitle
-        ? TextOverflow.visible
-        : TextOverflow.ellipsis;
-    final style = w.titleStyle ??
-        t.style(17, color: w.titleColor, height: lineHeight);
+    final overflow =
+        large || w.wrapTitle ? TextOverflow.visible : TextOverflow.ellipsis;
+    final style =
+        w.titleStyle ?? t.style(17, color: w.titleColor, height: lineHeight);
     return w.mathTitle
         ? MathText(w.title, style: style, maxLines: lines, overflow: overflow)
         : Text(w.title, maxLines: lines, overflow: overflow, style: style);
@@ -640,6 +639,7 @@ class WebSegmentedControl extends StatelessWidget {
     required this.selected,
     required this.onChanged,
     this.suffixes,
+    this.accentLabels = false,
     super.key,
   })  : assert(labels.length > 1, 'At least two segments are required.'),
         assert(
@@ -654,6 +654,9 @@ class WebSegmentedControl extends StatelessWidget {
   final int selected;
   final ValueChanged<int> onChanged;
   final List<Widget?>? suffixes;
+
+  /// Performance's switch (board `.seg button`) sets every label in the accent.
+  final bool accentLabels;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -689,7 +692,9 @@ class WebSegmentedControl extends StatelessWidget {
                       padding: const WidgetStatePropertyAll(
                         EdgeInsets.symmetric(horizontal: 12),
                       ),
-                      foregroundColor: WidgetStatePropertyAll(t.colors.label),
+                      foregroundColor: WidgetStatePropertyAll(
+                        accentLabels ? t.colors.accent : t.colors.label,
+                      ),
                       backgroundColor: WidgetStatePropertyAll(
                         selected == i ? t.segmentOn : Colors.transparent,
                       ),
@@ -1176,4 +1181,67 @@ class WebBarArrow extends StatelessWidget {
           icon: Icon(icon, size: 24),
         ),
       );
+}
+
+/// The board's `.back` link: 17 px accent text, 40 px tall, nudged 6 px left so
+/// the arrow lines up with the page edge.
+class WebBackLink extends StatelessWidget {
+  const WebBackLink({required this.label, required this.onPressed, super.key});
+  final String label;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Transform.translate(
+        offset: const Offset(-6, 0),
+        child: TextButton.icon(
+          onPressed: onPressed,
+          icon: const Icon(Icons.chevron_left, size: 20),
+          label: Text(label),
+          style: TextButton.styleFrom(
+            foregroundColor: t.colors.accent,
+            padding: EdgeInsets.zero,
+            minimumSize: const Size(0, 40),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
+            textStyle: t.style(17),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The board's `.btn3.teal`: a natural-width text action, 11 px radius, 14 px
+/// side padding, 16 px semibold accent label.
+class WebTextAction extends StatelessWidget {
+  const WebTextAction({
+    required this.label,
+    required this.onPressed,
+    this.height = 42,
+    super.key,
+  });
+  final String label;
+  final VoidCallback onPressed;
+  final double height;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        foregroundColor: t.colors.accent,
+        minimumSize: Size(0, height),
+        maximumSize: Size(double.infinity, height),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
+        textStyle: t.style(16, weight: FontWeight.w600),
+      ),
+      child: Text(label),
+    );
+  }
 }

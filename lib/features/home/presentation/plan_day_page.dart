@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
+import 'package:pantas/features/home/presentation/plan_web.dart';
 
 class PlanDayPage extends StatelessWidget {
   const PlanDayPage({
@@ -125,16 +126,10 @@ class PlanDayPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (!past)
-              Row(
-                children: [
-                  Expanded(child: Text(backLabel.toUpperCase(), style: t.eb)),
-                  const WebKeyHint('Esc'),
-                  IconButton(
-                    onPressed: onBack,
-                    tooltip: 'Close',
-                    icon: const Icon(Icons.close, size: 18),
-                  ),
-                ],
+              PlanPaneHeader(
+                label: backLabel,
+                onClose: onBack,
+                onLabel: onBack,
               ),
             WebCard(
               child: Column(
@@ -171,10 +166,15 @@ class PlanDayPage extends StatelessWidget {
                     ),
                   ),
                   if (rest)
-                    const WebRow(title: 'Rest day', divider: false)
+                    const WebRow(
+                      boardMetrics: true,
+                      title: 'Rest day',
+                      divider: false,
+                    )
                   else ...[
                     for (final lesson in lessons)
                       WebRow(
+                        boardMetrics: true,
                         title: lesson.title,
                         subtitle: lesson.subject,
                         titleColor:
@@ -185,23 +185,32 @@ class PlanDayPage extends StatelessWidget {
                                 color: t.colors.accent,
                                 size: 26,
                               )
-                            : const ProgressRing(fraction: 0, size: 26),
+                            : ProgressRing(
+                                fraction: 0,
+                                size: 26,
+                                emptyTrackColor:
+                                    t.dark ? null : const Color(0xFFD1D1D6),
+                              ),
                         value: lesson.read ? 'Read' : null,
                         trailing: !past && !lesson.read
-                            ? TextButton(
+                            ? WebTextAction(
+                                label: 'Read',
+                                height: 34,
                                 onPressed: () => onLesson(lesson),
-                                child: const Text('Read'),
                               )
                             : null,
                       ),
                     if (!past || reviewsTotal > 0)
                       WebRow(
+                        boardMetrics: true,
                         title: 'Reviews',
                         leading: ProgressRing(
                           fraction: past && reviewsTotal > 0
                               ? reviewsDone / reviewsTotal
                               : 0,
                           size: 26,
+                          emptyTrackColor:
+                              t.dark ? null : const Color(0xFFD1D1D6),
                         ),
                         subtitle: past
                             ? 'Questions due that day'
@@ -210,11 +219,14 @@ class PlanDayPage extends StatelessWidget {
                       ),
                     if (!past || newTotal > 0)
                       WebRow(
+                        boardMetrics: true,
                         title: 'New questions',
                         leading: ProgressRing(
                           fraction:
                               past && newTotal > 0 ? newDone / newTotal : 0,
                           size: 26,
+                          emptyTrackColor:
+                              t.dark ? null : const Color(0xFFD1D1D6),
                         ),
                         subtitle: past
                             ? "From that day's lessons"
@@ -342,27 +354,16 @@ class PlanWeekPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    '$title · Lessons by day'.toUpperCase(),
-                    style: t.eb,
-                  ),
-                ),
-                const WebKeyHint('Esc'),
-                IconButton(
-                  onPressed: onBack,
-                  tooltip: 'Close',
-                  icon: const Icon(Icons.close, size: 18),
-                ),
-              ],
+            PlanPaneHeader(
+              label: '$title · Lessons by day',
+              onClose: onBack,
             ),
             WebCard(
               child: Column(
                 children: [
                   for (var i = 0; i < days.length; i++)
                     WebRow(
+                      boardMetrics: true,
                       wrapTitle: true,
                       title: days[i].rest
                           ? 'Rest day'
@@ -375,35 +376,43 @@ class PlanWeekPage extends StatelessWidget {
                           children: [
                             Text(
                               DateFormat('EEE', 'en_US').format(days[i].date),
-                              style: t.sm.copyWith(fontSize: 11),
+                              style: t.sm.copyWith(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w600,
+                                height: 14 / 11,
+                              ),
                             ),
                             Text(
                               '${days[i].date.day}',
-                              style: t.style(17, weight: FontWeight.w600),
+                              style: t.style(
+                                17,
+                                weight: FontWeight.w600,
+                                height: 1.3,
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      trailing: days[i].rest
-                          ? null
-                          : Icon(
-                              Icons.chevron_right,
-                              size: 16,
-                              color: t.colors.chevron,
-                            ),
+                      trailing: days[i].rest ? null : const WebChevron(),
                       onPressed:
                           days[i].rest ? null : () => onDay(days[i].date),
                     ),
-                  Padding(
+                  Container(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                    decoration: BoxDecoration(
+                      color: t.dark ? null : const Color(0xFFFBFBFC),
+                      border: Border(
+                        top: BorderSide(
+                          color: t.colors.separator,
+                          width: webHairline(context),
+                        ),
+                      ),
+                    ),
                     child: Row(
                       children: [
                         Expanded(child: Text(studyDaysLabel, style: t.sub)),
                         if (onChange != null)
-                          TextButton(
-                            onPressed: onChange,
-                            child: const Text('Change'),
-                          ),
+                          WebTextAction(label: 'Change', onPressed: onChange!),
                       ],
                     ),
                   ),

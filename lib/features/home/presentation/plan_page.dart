@@ -22,6 +22,7 @@ class PlanNode {
     this.date,
     this.target,
     this.reviewOnly = false,
+    this.day,
   });
   final PlanNodeKind kind;
   final String title;
@@ -29,6 +30,9 @@ class PlanNode {
   final String? date;
   final String? target;
   final bool reviewOnly;
+
+  /// The calendar day of an exam node, for the wide web glyph.
+  final DateTime? day;
 }
 
 class PlanHistoryEntry {

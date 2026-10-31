@@ -2327,3 +2327,24 @@ Local runner: copies the app repo's `content/mock/cse-pro.yaml` into the local c
 (the content branch has no CSE mock blueprint) and shims the content App Check host.
 
 Checks: analyze clean; mock_exam and core/ui tests pass; layering OK.
+
+### Plan and Performance fix batch 1 (2026-11-01)
+
+Sonnet captured 16 of 19 BUILD boards (staging worktree `build/visual-pass/plan/shots/`); lead
+spot-checked PL_Plan (layout match). Not reached: PL_WeekCustom, PL_DayPast, PL_Error, PF_Error.
+
+Fixed (wide web): Performance page double padding removed (now x=295, y=28); back link 40 px;
+plan columns 580 and 472 px; coming-up rows 71 px; performance list 641 px with board bar widths;
+exam calendar glyph; "See more" row in the History card; pane headers; teal "Home" back link;
+week footer, Read and Change actions, filter and sort menus per the boards.
+
+For Aedwon / next batch (not changed):
+- The sidebar does not highlight "Home" on the plan page; the board does (lead, PL_Plan).
+- Week rows show "Nov 1 – 7" as the title with "This week" beside it; the board shows "This week"
+  as the title with the dates beside it.
+- Esc hint kept in week and day panes; week lesson titles wrap (a test requires it; board truncates).
+- PL_Free lock circle skipped (HANDOFF bans icon tiles in cards).
+- "PRO" tag reads "Pro" (shared component); eyebrow 3 px low.
+- Board figures the app does not compute (PL_Plan "7 to 8 a day") not added.
+
+Checks: analyze clean; home and core/ui tests pass (1,229); layering OK.
