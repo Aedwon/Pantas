@@ -2233,3 +2233,17 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   published or named-algorithm figure for it. Options: leave it out (recommended) or design an
   estimate from the student's own measured time per question (needs a spec). Aedwon: "Leave it
   out". The footer keeps only the button (and "The mock comes first today" on mock days).
+
+## Oct 31: exam scope includes shared-subject topics (Lesson not found)
+
+- Bug: CSE Professional students get "Lesson not found" on Mathematics and Language Proficiency
+  lessons. Cause (Sonnet, read-only, lead reviewed): exams share subjects on purpose (CSE uses 6
+  topics under subjects filed as UPCAT: 32 lessons, 640 CSE-tagged questions; all 8 non-UPCAT
+  exams have such topics; same in prod content). The server scopes an exam by question tags
+  (`functions/src/_examContent.ts`); the app scopes by owned subjects (`topicsByExam`), so study
+  map, placement test, mock pool and debrief miss those topics.
+- Options offered: (a) app exam scope includes topics the exam's questions are tagged to, with a
+  required filter so question pools keep only questions tagged for the exam (shared Mathematics
+  topics hold 880 questions, 240 tagged CSE), about half a day, recommended; (b) patch study map
+  and reader only; (c) a separate CSE Mathematics subject in content (duplicates content, breaks id
+  compatibility). Aedwon: "Investigate first", then "go with your recommendation". Result: (a).
