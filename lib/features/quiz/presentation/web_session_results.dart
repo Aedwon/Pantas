@@ -209,6 +209,8 @@ class WebSessionResults extends StatelessWidget {
                               children: [
                                 for (final i in misses.take(3))
                                   WebRow(
+                                    mathTitle:
+                                        session.questions[i].shortLabel == null,
                                     title: session.questions[i].shortLabel ??
                                         session.questions[i].stem,
                                     subtitle: subjectNames[
@@ -441,6 +443,9 @@ class WebQuizQuestionList extends StatelessWidget {
                                 WebRow(
                                   boardMetrics: true,
                                   chevron: WebRowChevron.always,
+                                  mathTitle: session.questions[index]
+                                          .shortLabel ==
+                                      null,
                                   title: session.questions[index].shortLabel ??
                                       session.questions[index].stem,
                                   subtitle: subjectNames[

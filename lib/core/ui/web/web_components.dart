@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -400,6 +401,7 @@ class WebRow extends StatefulWidget {
     required this.title,
     this.subtitle,
     this.wrapTitle = false,
+    this.mathTitle = false,
     this.titleStyle,
     this.horizontalPadding = 20,
     this.titleColor,
@@ -420,6 +422,9 @@ class WebRow extends StatefulWidget {
   });
   final String title;
   final bool wrapTitle;
+
+  /// The title is a question stem that may hold `\$...\$` maths.
+  final bool mathTitle;
   final String? subtitle;
   final TextStyle? titleStyle;
   final double horizontalPadding;
@@ -447,6 +452,18 @@ class WebRow extends StatefulWidget {
 }
 
 class _WebRowState extends State<WebRow> {
+  Widget _title(WebRow w, bool large, double? lineHeight, WebTokens t) {
+    final lines = large || w.wrapTitle ? null : 1;
+    final overflow = large || w.wrapTitle
+        ? TextOverflow.visible
+        : TextOverflow.ellipsis;
+    final style = w.titleStyle ??
+        t.style(17, color: w.titleColor, height: lineHeight);
+    return w.mathTitle
+        ? MathText(w.title, style: style, maxLines: lines, overflow: overflow)
+        : Text(w.title, maxLines: lines, overflow: overflow, style: style);
+  }
+
   final _states = WidgetStatesController();
 
   @override
@@ -517,37 +534,13 @@ class _WebRowState extends State<WebRow> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             if (w.titleSuffix == null)
-                              Text(
-                                w.title,
-                                maxLines: large || w.wrapTitle ? null : 1,
-                                overflow: large || w.wrapTitle
-                                    ? TextOverflow.visible
-                                    : TextOverflow.ellipsis,
-                                style: w.titleStyle ??
-                                    t.style(
-                                      17,
-                                      color: w.titleColor,
-                                      height: lineHeight,
-                                    ),
-                              )
+                              _title(w, large, lineHeight, t)
                             else
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Flexible(
-                                    child: Text(
-                                      w.title,
-                                      maxLines: large || w.wrapTitle ? null : 1,
-                                      overflow: large || w.wrapTitle
-                                          ? TextOverflow.visible
-                                          : TextOverflow.ellipsis,
-                                      style: w.titleStyle ??
-                                          t.style(
-                                            17,
-                                            color: w.titleColor,
-                                            height: lineHeight,
-                                          ),
-                                    ),
+                                    child: _title(w, large, lineHeight, t),
                                   ),
                                   const SizedBox(width: 6),
                                   w.titleSuffix!,

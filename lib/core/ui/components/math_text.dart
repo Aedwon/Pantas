@@ -14,6 +14,8 @@ class MathText extends StatelessWidget {
     this.semanticsLabel,
     this.textAlign,
     this.onErrorFallback,
+    this.maxLines,
+    this.overflow,
     super.key,
   });
   final String text;
@@ -22,6 +24,8 @@ class MathText extends StatelessWidget {
   final String? semanticsLabel;
   final TextAlign? textAlign;
   final WidgetBuilder? onErrorFallback;
+  final int? maxLines;
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     final effective = style ?? context.type.body;
@@ -44,6 +48,8 @@ class MathText extends StatelessWidget {
       ),
       style: effective,
       textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow ?? TextOverflow.clip,
     );
     final spoken = inlineMathSemantics(text);
     if (spoken == null || !spoken.hasMath) return rich;

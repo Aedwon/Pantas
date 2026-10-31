@@ -530,6 +530,7 @@ class _ReviewListBody extends StatelessWidget {
                       children: [
                         for (final entry in group.value)
                           WebRow(
+                            mathTitle: entry.labelIsStem,
                             title: entry.label,
                             subtitle: entry.isAnswered ? null : 'Left blank',
                             titleStyle: t.style(16),

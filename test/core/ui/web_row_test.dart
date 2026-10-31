@@ -62,4 +62,29 @@ void main() {
     await tester.pump();
     expect(opacity(), 1);
   });
+
+  testWidgets('a maths title shows no dollar signs and stays on one line',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: const Scaffold(
+          body: SizedBox(
+            width: 400,
+            child: WebRow(
+              mathTitle: true,
+              title: r'Find $x^2$ when $8$ liters hold a $50\%$ mix of the '
+                  'solution that the student adds to a very long tank',
+            ),
+          ),
+        ),
+      ),
+    );
+    final text = tester
+        .widgetList<RichText>(find.byType(RichText))
+        .map((r) => r.text.toPlainText())
+        .join();
+    expect(text.contains(r'$'), isFalse);
+    expect(tester.getSize(find.byType(WebRow)).height, lessThan(80));
+  });
 }
