@@ -196,7 +196,15 @@ void main() {
           onChanged: (_) {},
         ),
       );
-      expect(tester.getSize(find.byType(TextField)).height, 56);
+      // The 56 px box is measured in the browser with Geist (vertical
+      // padding 19); test fonts have taller lines, so check the padding.
+      expect(
+        tester
+            .widget<TextField>(find.byType(TextField))
+            .decoration!
+            .contentPadding,
+        const EdgeInsets.symmetric(horizontal: 18, vertical: 19),
+      );
       expect(
         tester.widget<TextField>(find.byType(TextField)).decoration!.labelText,
         isNull,
@@ -239,14 +247,16 @@ void main() {
         (tester) async {
       await pump(tester, const CustomTrackSubjectsStep(name: 'My Exam'));
       final tiles = find.byType(CheckboxRow);
-      expect(tester.getSize(tiles.first).height, 52);
+      expect(tester.getSize(tiles.first).height, greaterThanOrEqualTo(56));
       expect(
         tester
             .getSize(
-              find.ancestor(
-                of: tiles.first,
-                matching: find.byType(WebCard),
-              ),
+              find
+                  .ancestor(
+                    of: tiles.first,
+                    matching: find.byType(Expanded),
+                  )
+                  .first,
             )
             .width,
         285,
@@ -260,7 +270,7 @@ void main() {
       expect(center.dx - 12 - tester.getTopLeft(tiles.first).dx, 16);
       expect(
         tester.getTopLeft(find.text('Mathematics')).dx - center.dx - 12,
-        12,
+        14,
       );
       expect(
         tester.widget<Text>(

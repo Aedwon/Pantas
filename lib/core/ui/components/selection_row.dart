@@ -15,6 +15,9 @@ class CheckboxRow extends StatelessWidget {
     this.content,
     this.trailing,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+    this.gap = 12,
+    this.minHeight = 44,
+    this.hoverFill = true,
     super.key,
   });
   final String title;
@@ -26,12 +29,24 @@ class CheckboxRow extends StatelessWidget {
   final Widget? trailing;
   final EdgeInsetsGeometry padding;
 
+  /// Space between the box and the label.
+  final double gap;
+
+  /// Shortest the row may be.
+  final double minHeight;
+
+  /// False when the container draws its own hover state.
+  final bool hoverFill;
+
   @override
   Widget build(BuildContext context) => _SelectionRow(
         title: title,
         selected: selected,
         mixed: mixed,
         radio: false,
+        gap: gap,
+        minHeight: minHeight,
+        hoverFill: hoverFill,
         interactiveContent: interactiveContent,
         onTap: onTap,
         content: content,
@@ -92,7 +107,13 @@ class _SelectionRow extends StatelessWidget {
     this.preview,
     this.interactiveContent = false,
     this.showMark = true,
+    this.gap = 12,
+    this.minHeight = 44,
+    this.hoverFill = true,
   });
+  final double gap;
+  final double minHeight;
+  final bool hoverFill;
   final String title;
   final bool interactiveContent;
   final bool selected;
@@ -121,7 +142,7 @@ class _SelectionRow extends StatelessWidget {
       child: TextButton(
         onPressed: onTap,
         style: ButtonStyle(
-          minimumSize: const WidgetStatePropertyAll(Size(0, 44)),
+          minimumSize: WidgetStatePropertyAll(Size(0, minHeight)),
           padding: WidgetStatePropertyAll(padding),
           alignment: Alignment.centerLeft,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -130,7 +151,10 @@ class _SelectionRow extends StatelessWidget {
           backgroundColor: WidgetStateProperty.resolveWith((states) {
             if (!enabled) return Colors.transparent;
             // Cards (no mark) show selection on the card, not a row fill.
-            if (web && showMark && states.contains(WidgetState.hovered)) {
+            if (web &&
+                showMark &&
+                hoverFill &&
+                states.contains(WidgetState.hovered)) {
               return context.webTokens.rowHover;
             }
             if (!web && states.contains(WidgetState.pressed)) {
@@ -164,7 +188,7 @@ class _SelectionRow extends StatelessWidget {
                         radio: radio,
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: gap),
                   ],
                   Expanded(
                     child: content ?? Text(title, style: context.type.body),

@@ -136,6 +136,8 @@ class _OnboardingExamDateStepState
     return OnboardingWebPage(
       title: 'When is your exam?',
       width: known == null ? 780 : 580,
+      gap: known == null ? 24 : 28,
+      bottomGap: known == null ? 40 : 32,
       progress: 4,
       onBack: _back,
       bodyGap: known == null ? 18 : 22,

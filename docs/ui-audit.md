@@ -2170,3 +2170,35 @@ Files touched:
 - `lib/features/onboarding/presentation/onboarding_web_page.dart`
 - `test/features/onboarding/presentation/web_onboarding_second_pass_test.dart`
 - `docs/ui-audit.md`
+
+### Onboarding fix batch 2 (2026-10-31)
+
+Lead compared all 21 reachable onboarding BUILD boards at 1440 light against the running app
+(capture `build/visual-pass/ob_pairs5.mjs` in the staging worktree, date faked to Wed Oct 14 2026
+to match the boards; pixel rows from `measure.mjs` and `rows.mjs`). Unreachable by script:
+OB_PickerLoading, OB_PickerError, OB_PickerEmpty. Brief: `build/vp-ob-brief-2.md`. Implemented by
+a Sonnet subagent; the lead fixed the name field height and subject row density after re-capture.
+
+Fixed and re-measured in the browser:
+
+- Section gap 24 on the date picker and exam picker pages (was 28).
+- Action row gap: study days 28, date known 32 (was 40). Date known buttons now pixel exact.
+- Onboarding buttons 48 px with board padding; white "Different Date" has no border.
+- "Every Day" (and "I don't know") text aligned with the content edge.
+- Name and custom exam name field: 56 px box, 2 px border, label inset 4. Pixel exact.
+  Widget tests check the padding (19), because test fonts render taller lines than Geist.
+- Custom exam subjects: 56 px rows, 10 px gaps, 24 px boxes, ring on hover. Pixel exact.
+  Needed standard visual density locally; desktop compact density removed 8 px.
+- Date picker: day grid gaps 4, no outline on Today, equal panel heights.
+- Too-late card: calendar icon, radius 16, US date order ("Saturday, October 17").
+- Age blocked: standard top bar, block raised 40 px, board padlock, board gaps.
+
+Remaining small offsets (1 to 5 px): date picker weekday row about 4 px low; age blocked block
+about 4 px low; headings 1 px low. Not fixed.
+
+Decision, Aedwon Oct 31: "today can count as study day". The too-late card keeps suggesting
+today (the board's "Thursday or Friday" omits today); no change.
+
+Checks: `flutter analyze` clean; `flutter test test/features/onboarding test/core/ui` 861 passed;
+`check_layering` OK. `check_no_ai_attribution` fails on earlier commits on this branch
+(b14a5515, 9a001215, bcb4b981), not on this batch.

@@ -215,6 +215,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               detail: 'You can change this later in Settings.',
               progress: 3,
               width: 820,
+              gap: 24,
               onBack: _back,
               children: [
                 catalog.when(

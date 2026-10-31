@@ -16,8 +16,8 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 final corpusSubjectsWithTopicsProvider =
@@ -174,39 +174,41 @@ class _CustomTrackSubjectsStepState
             error: error,
           ),
           data: (map) => context.wideWeb
-              ? LayoutBuilder(
-                  builder: (context, constraints) => Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: [
-                      for (final name in map.keys)
-                        SizedBox(
-                          width: (constraints.maxWidth - 10) / 2,
-                          child: WebCard(
-                            radius: 14,
-                            child: Material(
-                              color: Colors.transparent,
-                              child: CheckboxRow(
-                                title: name,
-                                content: Text(
-                                  name,
-                                  style:
-                                      context.type.body.copyWith(fontSize: 16),
-                                ),
-                                selected: _selected.contains(name),
-                                onTap: _creating
-                                    ? null
-                                    : () => setState(() {
-                                          if (!_selected.add(name)) {
-                                            _selected.remove(name);
-                                          }
-                                        }),
+              ? Column(
+                  children: [
+                    for (var i = 0; i < map.length; i += 2) ...[
+                      if (i > 0) const SizedBox(height: 10),
+                      IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            for (var j = i; j < i + 2; j++) ...[
+                              if (j > i) const SizedBox(width: 10),
+                              Expanded(
+                                child: j < map.length
+                                    ? _SubjectTile(
+                                        name: map.keys.elementAt(j),
+                                        selected: _selected.contains(
+                                          map.keys.elementAt(j),
+                                        ),
+                                        onTap: _creating
+                                            ? null
+                                            : () => setState(() {
+                                                  final name =
+                                                      map.keys.elementAt(j);
+                                                  if (!_selected.add(name)) {
+                                                    _selected.remove(name);
+                                                  }
+                                                }),
+                                      )
+                                    : const SizedBox.shrink(),
                               ),
-                            ),
-                          ),
+                            ],
+                          ],
                         ),
+                      ),
                     ],
-                  ),
+                  ],
                 )
               : GroupedSection(
                   children: [
@@ -226,6 +228,67 @@ class _CustomTrackSubjectsStepState
                 ),
         ),
       ],
+    );
+  }
+}
+
+/// Board `.sb` subject row: 56 px minimum, white, inset ring on hover.
+class _SubjectTile extends StatefulWidget {
+  const _SubjectTile({
+    required this.name,
+    required this.selected,
+    required this.onTap,
+  });
+  final String name;
+  final bool selected;
+  final VoidCallback? onTap;
+  @override
+  State<_SubjectTile> createState() => _SubjectTileState();
+}
+
+class _SubjectTileState extends State<_SubjectTile> {
+  bool _hovered = false;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: t.colors.surface,
+          borderRadius: BorderRadius.circular(14),
+          border: t.dark ? Border.all(color: t.cardEdge) : null,
+        ),
+        foregroundDecoration: _hovered && widget.onTap != null
+            ? BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: t.strongDivider, width: 1.5),
+              )
+            : null,
+        child: Material(
+          color: Colors.transparent,
+          // Desktop's compact density would take 8 px off the 56 minimum.
+          child: Theme(
+            data: Theme.of(context)
+                .copyWith(visualDensity: VisualDensity.standard),
+            child: CheckboxRow(
+              title: widget.name,
+              content: Text(
+                widget.name,
+                style: context.type.body.copyWith(fontSize: 16),
+              ),
+              selected: widget.selected,
+              onTap: widget.onTap,
+              gap: 14,
+              minHeight: 56,
+              hoverFill: false,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
