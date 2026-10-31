@@ -59,6 +59,21 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    (fetch and commit fail even with `--add-dir .git`). Prefetch policy into `build/policy-*.md` and
    tell Codex not to fetch or commit; the lead commits. Flutter tests also cannot run in that sandbox;
    the lead runs them.
+9. Oct 31 afternoon (Opus, account c): all 21 reachable onboarding boards now compared at 1440
+   light (`build/visual-pass/ob_pairs5.mjs`: fixes the year and text typing, fakes the date to
+   Wed Oct 14 2026 to match the boards; `measure.mjs`/`rows.mjs` give exact pixel rows). Not
+   reachable by script: PickerLoading, PickerError, PickerEmpty. SignIn and Restoring belong to
+   Settings. Reminders, ReminderTime, Permission are NEW-FEATURE; Install is SKIP.
+   Fix batch 2 brief: `build/vp-ob-brief-2.md` in the fixes worktree (section gap 24 on wide date
+   and picker pages; action row gap 28 on Days and 32 on DateKnown; onboarding buttons 48 px;
+   Every Day aligned to chips; name fields 56 px with 2 px border; custom subject rows 56 px; day
+   grid 4 px gaps, no outline on Today, equal panel heights; too-late card icon and US date
+   order; AgeBlocked header, position and padlock). Implementing: Sonnet subagent, lead reviews,
+   tests and re-captures. Aedwon, Oct 31: "are you delegating changes to sonnet? please do, you
+   do the reasoning, it does the doing".
+   Open for Aedwon: OB_DaysTooLate board suggests "Thursday or Friday" with today Wednesday; the
+   app suggests "Wednesday or Thursday or Friday" (it counts today as a study day). Behavior,
+   not styling; not changed.
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
 
@@ -139,7 +154,7 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
 
 | Area | Boards | State |
 |---|---|---|
-| Onboarding | OB_* | 11 of 28 compared at 1440 light; fix batch 1 on staging bcb4b981; offset overshoot and 2 unreached states left |
+| Onboarding | OB_* | 21 of 24 BUILD boards compared at 1440 light (3 picker states unreachable); batch 1 on staging 143fa7b4; batch 2 in progress |
 | Home | HM_*, DK_Home | not started |
 | Study and reader | SD_*, RD_* | not started |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
