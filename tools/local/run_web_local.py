@@ -16,6 +16,9 @@ import sys
 import time
 import urllib.request
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import local_seed
+
 ROOT = Path(__file__).resolve().parents[2]
 os.chdir(ROOT)
 parser = argparse.ArgumentParser(description=__doc__)
@@ -216,6 +219,7 @@ window.pantasPwa = null;
             '<p><a href="/?localAccount=pro">Pro account</a></p>'
             '<p>Checkout cannot complete locally. Install and offline need HTTPS and are tested after deploy.</p>')
     print(f'+ serve build/web at http://{host}:{args.port} (SPA routes, no caching)', flush=True)
+    print('+ local-only POST /local-seed runs tools/local/seed_student.mjs for a sample student', flush=True)
     print('+ curl served page and authenticated getContent through Functions emulator', flush=True)
     if args.dry_run:
         print('+ print URL, Free/Pro logins and optional ASCII QR; stop process groups on Ctrl-C')
@@ -242,6 +246,30 @@ window.pantasPwa = null;
             if not Path(self.translate_path(self.path)).exists():
                 self.path = '/index.html'
             super().do_GET()
+
+        def do_POST(self):
+            # Sample students: server records are written by the server's own handlers, so a page
+            # in this browser asks this server to run the seed script. Emulators only.
+            try:
+                if self.path != '/local-seed':
+                    raise local_seed.Refused(404, 'Not found.')
+                size = int(self.headers.get('Content-Length') or 0)
+                if size > 4096:
+                    raise local_seed.Refused(413, 'Too large.')
+                uid, profile = local_seed.check(
+                    self.rfile.read(size), self.headers.get('Content-Type'), self.client_address[0],
+                    host, args.port, self.headers.get('Origin'), args.lan)
+                status, reply = 200, local_seed.seed(uid, profile, env)
+            except local_seed.Refused as refusal:
+                status, reply = refusal.status, {'error': str(refusal)}
+            except Exception as error:  # a timeout or a bad result must still answer the page
+                status, reply = 500, {'error': f'Seed failed: {type(error).__name__}'}
+            payload = json.dumps(reply).encode()
+            self.send_response(status)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
 
     import threading
     server = http.server.ThreadingHTTPServer((host, args.port),

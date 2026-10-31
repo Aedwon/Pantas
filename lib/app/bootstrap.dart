@@ -21,6 +21,7 @@ import 'package:pantas/core/content/security/content_package_verifier.dart';
 import 'package:pantas/core/content/security/content_signing_keys.dart';
 import 'package:pantas/core/dev/dev_demo_switch.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/core/dev/local_student_startup.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
@@ -234,6 +235,7 @@ Future<void> _bootstrap(
   AppDatabase? database;
   ContentDatabase? contentDatabase;
   ProviderContainer? ownedContainer;
+  rememberLocalStudentUrl();
   try {
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     await activateAppCheck(flavor);
@@ -322,6 +324,9 @@ Future<void> _bootstrap(
     await registerDevDemoSwitch(container);
     await bootstrapRevenueCat(container);
     await bootstrapSyncRuntime(container, firebaseResult);
+    // Local runs with ?localStudent=: the server records are written before the
+    // first screen, so Home never holds a read from before them.
+    await loadLocalStudentFromUrl(container);
 
     final notificationsLifecycleObserver = NotificationsLifecycleObserver(
       service: container.read(notificationServiceProvider),

@@ -1,7 +1,12 @@
 """No services are started by these checks."""
 from pathlib import Path
+import json
 import subprocess
+import sys
 import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import local_seed
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNNER = ROOT / 'tools/local/run_web_local.sh'
@@ -64,6 +69,44 @@ require('./tools/local/offline_guard.cjs');
 })();
 """
         subprocess.run(['node', '-e', source], cwd=ROOT, check=True)
+
+
+class LocalSeedRequestTest(unittest.TestCase):
+    ok = json.dumps({'uid': 'local-free', 'profile': 'steady'}).encode()
+
+    def check(self, body=ok, content_type='application/json', ip='127.0.0.1',
+              origin='http://127.0.0.1:7357', lan=False):
+        return local_seed.check(body, content_type, ip, '127.0.0.1', 7357, origin, lan)
+
+    def refused(self, status, **kwargs):
+        with self.assertRaises(local_seed.Refused) as caught:
+            self.check(**kwargs)
+        self.assertEqual(caught.exception.status, status)
+
+    def test_accepts_this_machine_and_each_profile(self):
+        self.assertEqual(self.check(), ('local-free', 'steady'))
+        self.assertEqual(self.check(origin=None, ip='::1'), ('local-free', 'steady'))
+        self.assertEqual(self.check(origin='http://localhost:7357'), ('local-free', 'steady'))
+        for profile in ['new', 'steady', 'behind', 'examWeek']:
+            body = json.dumps({'uid': 'local-pro', 'profile': profile}).encode()
+            self.assertEqual(self.check(body=body), ('local-pro', profile))
+
+    def test_refuses_other_machines_pages_and_lan_runs(self):
+        self.refused(403, ip='192.168.1.20')
+        self.refused(403, origin='http://evil.example')
+        self.refused(403, origin='http://localhost:9999')
+        self.refused(403, lan=True)
+        self.refused(415, content_type='text/plain')
+
+    def test_refuses_bad_bodies(self):
+        for body in [b'not json', b'{}', b'[]', b'{"uid":"a/b","profile":"steady"}',
+                     b'{"uid":"local-free","profile":"expert"}', b'{"uid":1,"profile":"new"}']:
+            self.refused(400, body=body)
+
+    def test_dry_run_announces_the_seed_endpoint(self):
+        result = subprocess.run([str(RUNNER), '--dry-run'], capture_output=True, text=True, check=True)
+        self.assertIn('POST /local-seed runs tools/local/seed_student.mjs', result.stdout)
+        self.assertTrue((ROOT / 'tools/local/seed_student.mjs').exists())
 
 
 if __name__ == '__main__':
