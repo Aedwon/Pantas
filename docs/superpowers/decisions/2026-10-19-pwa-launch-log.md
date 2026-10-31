@@ -2199,3 +2199,12 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   Home layout only now. Aedwon: "okay go with your recommendation". Result: plan Task 4 runs first,
   triggered by a local-only `?localStudent=<id>` link (same pattern as `?localAccount=`); the
   panel tasks stay paused.
+- Oct 31, sample students blocked on web: the generator (Sonnet, local branch
+  `web/local-sample-students-wip` 5b7b5ca0, not pushed) writes the app's local tables. In the
+  running local web app the student loads (name, exam, date) but Home shows "Could not load your
+  plan": on web the server builds the plan and records from ingested sessions
+  (`functions/src/ingestSession.ts`: daily session limit, questions must belong to the exam), and
+  the uploads of the generated history were rejected ("Question is outside this exam"). Lead
+  fixes on the WIP branch: read `?localStudent=` before routing rewrites the address; load after
+  the app starts. Needed: seed the students server-side in the Firestore emulator. Options sent to
+  Aedwon.
