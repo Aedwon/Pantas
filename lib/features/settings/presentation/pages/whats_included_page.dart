@@ -36,8 +36,14 @@ final whatsIncludedDataProvider = FutureProvider.family<
       groups.putIfAbsent(subject?.name ?? topic.subjectId, () => []).add(topic);
     }
   } else {
+    // Owned subjects first, then the shared subjects its questions are
+    // tagged to, so a student sees every topic the exam covers.
     for (final subject in exam.subjects) {
-      groups[subject.name] = await content.topicsBySubject(subject.id);
+      groups[subject.name] = [];
+    }
+    for (final topic in await content.topicsByExam(examId)) {
+      final subject = await content.subjectById(topic.subjectId);
+      groups.putIfAbsent(subject?.name ?? topic.subjectId, () => []).add(topic);
     }
   }
   final topics = [for (final group in groups.values) ...group];

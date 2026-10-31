@@ -196,6 +196,6 @@ class _RejectCorpusQuestionHydrationRepository extends ContentRepository {
   _RejectCorpusQuestionHydrationRepository(super.db);
 
   @override
-  Future<List<Question>> questionsByTopic(String topicId) =>
+  Future<List<Question>> questionsByTopic(String topicId, {String? examId}) =>
       throw StateError('corpus counting fully hydrated topic $topicId');
 }

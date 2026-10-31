@@ -71,7 +71,7 @@ final mockQuestionPoolsProvider =
   final passageSetsByTopic = <String, Map<String, List<String>>>{};
 
   for (final topic in topics) {
-    final questions = await content.questionsByTopic(topic.id);
+    final questions = await content.questionsByTopic(topic.id, examId: examId);
     final qIds = <String>[];
     final pSets = <String, List<String>>{};
 

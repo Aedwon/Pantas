@@ -23,7 +23,10 @@ class _BlockedContent extends ContentRepository {
   final entered = Completer<void>();
   final release = Completer<void>();
   @override
-  Future<List<Question>> questionsByTopic(String topicId) async {
+  Future<List<Question>> questionsByTopic(
+    String topicId, {
+    String? examId,
+  }) async {
     if (!entered.isCompleted) entered.complete();
     await release.future;
     return super.questionsByTopic(topicId);

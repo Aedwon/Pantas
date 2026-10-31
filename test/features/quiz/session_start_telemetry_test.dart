@@ -46,8 +46,9 @@ void main() {
 class FakeContentRepository implements ContentRepository {
   @override
   Future<List<QuestionSelectionRow>> selectionRowsByTopic(
-    TopicId topicId,
-  ) async {
+    TopicId topicId, {
+    String? examId,
+  }) async {
     return [
       QuestionSelectionRow(
         id: 'q1',
@@ -78,7 +79,10 @@ class FakeContentRepository implements ContentRepository {
   }
 
   @override
-  Future<List<Question>> questionsByTopic(TopicId topicId) async {
+  Future<List<Question>> questionsByTopic(
+    TopicId topicId, {
+    String? examId,
+  }) async {
     return [
       Question(
         id: 'q1',

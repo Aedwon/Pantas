@@ -80,14 +80,23 @@ final scopedSubjectsProvider =
   final topics = await ref.watch(scopedTopicsProvider(examId).future);
   final keptSubjectIds = {for (final topic in topics) topic.subjectId};
 
+  final exams = await content.listExams();
+  final isCustom = exams.any((e) => e.id == examId && e.isCustom);
+  // The exam's own subjects come first, then the shared ones in exam order.
+  final ordered = [
+    ...exams.where((e) => e.id == examId),
+    ...exams.where((e) => e.id != examId),
+  ];
+
   final subjects = <Subject>[];
   final seenNames = <String>{};
-  for (final exam in await content.listExams()) {
+  for (final exam in ordered) {
     for (final subject in exam.subjects) {
       if (!keptSubjectIds.contains(subject.id)) continue;
-      // A shared subject carries the same name under several exams, and a
-      // student should see it once.
-      if (!seenNames.add(subject.name)) continue;
+      // A custom track draws on every exam, where a shared subject carries the
+      // same name under several of them and a student should see it once. A
+      // listed exam keeps each subject that holds one of its topics.
+      if (isCustom && !seenNames.add(subject.name)) continue;
       subjects.add(subject);
     }
   }
@@ -106,7 +115,7 @@ Future<List<Topic>> corpusTopics(ContentRepository content) async {
 
   for (final exam in await content.listExams()) {
     if (exam.isCustom) continue;
-    for (final topic in await content.topicsByExam(exam.id)) {
+    for (final topic in await content.ownedTopicsByExam(exam.id)) {
       final subjectName = exam.subjects
           .where((s) => s.id == topic.subjectId)
           .map((s) => s.name)

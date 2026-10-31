@@ -212,7 +212,8 @@ class _RejectFullTopicHydrationRepository extends ContentRepository {
   _RejectFullTopicHydrationRepository(super.db);
 
   @override
-  Future<List<Question>> questionsByTopic(String topicId) => throw StateError(
+  Future<List<Question>> questionsByTopic(String topicId, {String? examId}) =>
+      throw StateError(
         'assessment selector fully hydrated candidate topic $topicId',
       );
 }

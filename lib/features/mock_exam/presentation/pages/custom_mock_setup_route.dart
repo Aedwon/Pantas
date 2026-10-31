@@ -40,7 +40,8 @@ final customMockSetupDataProvider =
   // the whole corpus.
   var available = 0;
   for (final topic in topics) {
-    available += (await content.questionsByTopic(topic.id)).length;
+    available +=
+        (await content.questionsByTopic(topic.id, examId: exam.id)).length;
   }
 
   final row = await ref.watch(customBlueprintRepositoryProvider).read(exam.id);

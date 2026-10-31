@@ -50,8 +50,8 @@ void main() {
     final questions = [makeQ('q1', 't1'), makeQ('q2', 't1'), makeQ('q3', 't1')];
 
     when(() => content.listExams()).thenAnswer((_) async => [exam]);
-    when(() => content.topicsBySubject('s1')).thenAnswer((_) async => topics);
-    when(() => content.questionsByTopic('t1'))
+    when(() => content.topicsByExam('e1')).thenAnswer((_) async => topics);
+    when(() => content.questionsByTopic('t1', examId: 'e1'))
         .thenAnswer((_) async => questions);
 
     final session = await useCase(
@@ -74,7 +74,7 @@ void main() {
       makeQ('q3', 't2'),
     ];
 
-    when(() => content.questionsByTopic('t1')).thenAnswer(
+    when(() => content.questionsByTopic('t1', examId: 'e1')).thenAnswer(
       (_) async => questions.where((q) => q.topicId == 't1').toList(),
     );
 

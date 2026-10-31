@@ -48,8 +48,10 @@ final sessionDebriefPlanProvider = FutureProvider.autoDispose
   final titles = {for (final l in lessons.values) l.id: l.title};
   final today = await ref.watch(roadmapTodayProvider(examId).future);
   final plan = today.remaining;
-  final questions =
-      await content.selectionRowsByTopics(topics.map((t) => t.id));
+  final questions = await content.selectionRowsByTopics(
+    topics.map((t) => t.id),
+    examId: examId,
+  );
   final byQuestion = {
     for (final group in questions.values)
       for (final q in group) q.id: q,

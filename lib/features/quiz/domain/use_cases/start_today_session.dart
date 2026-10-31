@@ -167,7 +167,7 @@ class StartTodaySession {
   }) async {
     final rows = topicId == null
         ? await _content.selectionRowsByExam(examId)
-        : await _content.selectionRowsByTopic(topicId);
+        : await _content.selectionRowsByTopic(topicId, examId: examId);
     final candidates = [
       for (final row in rows) _selectionQuestion(row, examId),
     ];

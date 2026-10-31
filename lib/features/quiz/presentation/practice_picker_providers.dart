@@ -28,7 +28,8 @@ final practiceIndexProvider =
     final topicEntries = <PracticeTopicEntry>[];
     final topics = topicsBySubjectMap[subject.id] ?? const [];
     for (final topic in topics) {
-      final questions = await content.questionsByTopic(topic.id);
+      final questions =
+          await content.questionsByTopic(topic.id, examId: examId);
       final taggedCounts = <LessonId, int>{};
       for (final question in questions) {
         final lessonId = question.lessonId;

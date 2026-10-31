@@ -25,6 +25,7 @@ class AssessmentQuestionSelector {
 
     final rowsByTopic = await _content.selectionRowsByTopics(
       [for (final topic in topicList) topic.id],
+      examId: examId,
     );
     final contributing =
         <({TopicId topicId, List<QuestionSelectionRow> questions})>[];

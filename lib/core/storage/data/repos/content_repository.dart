@@ -76,7 +76,8 @@ class ContentRepository {
     ]..sort((a, b) => a.ordering.compareTo(b.ordering));
   }
 
-  Future<List<Topic>> topicsByExam(ExamId examId) async {
+  /// Topics under the subjects [examId] owns, in subject order.
+  Future<List<Topic>> ownedTopicsByExam(ExamId examId) async {
     final subjectRows = await (_db.select(_db.contentSubjects)
           ..where((s) => s.examId.equals(examId)))
         .get();
@@ -87,16 +88,98 @@ class ContentRepository {
     return allTopics;
   }
 
-  Future<List<QuestionSelectionRow>> selectionRowsByTopic(
-    TopicId topicId,
+  /// The exam's topics: the ones under its own subjects, then the topics of
+  /// other exams' subjects that its questions are tagged to.
+  ///
+  /// Exams share subjects on purpose. The server scopes an exam by question
+  /// tags, so the app does the same or a shared topic's lessons and questions
+  /// are missing. Pools built from these topics must pass [examId] to the
+  /// question reads so they keep only questions tagged for the exam.
+  Future<List<Topic>> topicsByExam(ExamId examId) async {
+    final owned = await ownedTopicsByExam(examId);
+    final ownedIds = {for (final topic in owned) topic.id};
+
+    final memberships = _db.contentQuestionExams;
+    final questions = _db.contentQuestions;
+    final tagged = _db.selectOnly(questions, distinct: true)
+      ..addColumns([questions.topicId])
+      ..where(
+        questions.isActive.equals(true) &
+            questions.id.isInQuery(
+              _db.selectOnly(memberships)
+                ..addColumns([memberships.questionId])
+                ..where(memberships.examId.equals(examId)),
+            ),
+      );
+    final sharedIds = {
+      for (final row in await tagged.get())
+        if (row.read(questions.topicId) case final id?)
+          if (!ownedIds.contains(id)) id,
+    };
+    if (sharedIds.isEmpty) return owned;
+
+    final topicRows = await (_db.select(_db.contentTopics)
+          ..where((t) => t.id.isIn(sharedIds.toList())))
+        .get();
+    final subjectRows = await (_db.select(_db.contentSubjects)
+          ..where((s) => s.id.isIn({for (final t in topicRows) t.subjectId})))
+        .get();
+    final subjectOrdering = {for (final s in subjectRows) s.id: s.ordering};
+    topicRows.sort((a, b) {
+      final bySubject = (subjectOrdering[a.subjectId] ?? 0)
+          .compareTo(subjectOrdering[b.subjectId] ?? 0);
+      if (bySubject != 0) return bySubject;
+      final bySubjectId = a.subjectId.compareTo(b.subjectId);
+      if (bySubjectId != 0) return bySubjectId;
+      return a.ordering.compareTo(b.ordering);
+    });
+    return [
+      ...owned,
+      for (final r in topicRows)
+        Topic(
+          id: r.id,
+          subjectId: r.subjectId,
+          name: r.name,
+          ordering: r.ordering,
+        ),
+    ];
+  }
+
+  /// The condition that keeps only questions tagged for [examId].
+  ///
+  /// A custom track owns no question tags, so it keeps everything. So does a
+  /// read that names no exam.
+  Future<Expression<bool>> _taggedForExam(
+    ContentQuestions questions,
+    ExamId? examId,
   ) async {
-    final grouped = await selectionRowsByTopics([topicId]);
+    if (examId == null) return const Constant(true);
+    final exam = await (_db.select(_db.contentExams)
+          ..where((e) => e.id.equals(examId)))
+        .getSingleOrNull();
+    if (exam != null && exam.isCustom) return const Constant(true);
+    final memberships = _db.contentQuestionExams;
+    return questions.id.isInQuery(
+      _db.selectOnly(memberships)
+        ..addColumns([memberships.questionId])
+        ..where(memberships.examId.equals(examId)),
+    );
+  }
+
+  Future<List<QuestionSelectionRow>> selectionRowsByTopic(
+    TopicId topicId, {
+    ExamId? examId,
+  }) async {
+    final grouped = await selectionRowsByTopics([topicId], examId: examId);
     return grouped[topicId] ?? const [];
   }
 
+  /// Active questions per topic. Pass [examId] to keep only the questions
+  /// tagged for that exam; a shared topic holds other exams' questions too.
   Future<Map<TopicId, List<QuestionSelectionRow>>> selectionRowsByTopics(
-    Iterable<TopicId> topicIds,
-  ) async {
+    Iterable<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
     final wanted = topicIds.toSet().toList();
     final grouped = {
       for (final topicId in wanted) topicId: <QuestionSelectionRow>[],
@@ -104,6 +187,7 @@ class ContentRepository {
     if (wanted.isEmpty) return grouped;
 
     final questions = _db.contentQuestions;
+    final tagged = await _taggedForExam(questions, examId);
     for (final batch in _batches(wanted)) {
       final query = _db.selectOnly(questions)
         ..addColumns([
@@ -115,7 +199,9 @@ class ContentRepository {
           questions.figureSpecJson,
         ])
         ..where(
-          questions.topicId.isIn(batch) & questions.isActive.equals(true),
+          questions.topicId.isIn(batch) &
+              questions.isActive.equals(true) &
+              tagged,
         );
       _onQuery?.call();
       for (final row in await query.get()) {
@@ -165,19 +251,23 @@ class ContentRepository {
   }
 
   Future<Map<TopicId, int>> activeQuestionCountsByTopics(
-    Iterable<TopicId> topicIds,
-  ) async {
+    Iterable<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
     final wanted = topicIds.toSet().toList();
     final counts = {for (final topicId in wanted) topicId: 0};
     if (wanted.isEmpty) return counts;
 
     final questions = _db.contentQuestions;
     final total = questions.id.count();
+    final tagged = await _taggedForExam(questions, examId);
     for (final batch in _batches(wanted)) {
       final query = _db.selectOnly(questions)
         ..addColumns([questions.topicId, total])
         ..where(
-          questions.topicId.isIn(batch) & questions.isActive.equals(true),
+          questions.topicId.isIn(batch) &
+              questions.isActive.equals(true) &
+              tagged,
         )
         ..groupBy([questions.topicId]);
       _onQuery?.call();
@@ -250,11 +340,17 @@ class ContentRepository {
     );
   }
 
-  Future<List<Question>> questionsByTopic(TopicId topicId) async {
+  /// Active questions of a topic. Pass [examId] to keep only the questions
+  /// tagged for that exam.
+  Future<List<Question>> questionsByTopic(
+    TopicId topicId, {
+    ExamId? examId,
+  }) async {
+    final tagged = await _taggedForExam(_db.contentQuestions, examId);
     final query = _db.select(_db.contentQuestions)
       ..where(
         // isWithdrawn is isActive inverted
-        (q) => q.topicId.equals(topicId) & q.isActive.equals(true),
+        (q) => q.topicId.equals(topicId) & q.isActive.equals(true) & tagged,
       );
     var rows = await query.get();
     final hook = _fetchHook;

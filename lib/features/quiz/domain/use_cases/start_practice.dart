@@ -79,8 +79,8 @@ class StartPractice {
     final topics = <TopicId, List<Question>>{};
     final pools = <List<Question>>[];
     for (final unit in units) {
-      final questions =
-          topics[unit.topicId] ?? await _content.questionsByTopic(unit.topicId);
+      final questions = topics[unit.topicId] ??
+          await _content.questionsByTopic(unit.topicId, examId: examId);
       topics[unit.topicId] = questions;
       pools.add(
         unit.lessonId == null

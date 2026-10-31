@@ -124,10 +124,30 @@ final performanceProvider =
   }
   final examId = exam.id;
 
-  final subjectRows = await (contentDb.select(contentDb.contentSubjects)
+  final ownedSubjectRows = await (contentDb.select(contentDb.contentSubjects)
         ..where((s) => s.examId.equals(examId))
         ..orderBy([(s) => OrderingTerm.asc(s.ordering)]))
       .get();
+  // Subjects filed under another exam that this exam's questions are tagged
+  // to are part of the exam too.
+  final ownedSubjectIds = {for (final s in ownedSubjectRows) s.id};
+  final examTopics =
+      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
+  final examTopicIds = {for (final topic in examTopics) topic.id};
+  final sharedSubjectIds = {
+    for (final topic in examTopics)
+      if (!ownedSubjectIds.contains(topic.subjectId)) topic.subjectId,
+  };
+  final sharedSubjectRows = sharedSubjectIds.isEmpty
+      ? const <ContentSubjectRow>[]
+      : await (contentDb.select(contentDb.contentSubjects)
+            ..where((s) => s.id.isIn(sharedSubjectIds.toList()))
+            ..orderBy([
+              (s) => OrderingTerm.asc(s.ordering),
+              (s) => OrderingTerm.asc(s.id),
+            ]))
+          .get();
+  final subjectRows = [...ownedSubjectRows, ...sharedSubjectRows];
   if (subjectRows.isEmpty) {
     return const PerformanceTable(
       rows: [],
@@ -141,7 +161,12 @@ final performanceProvider =
   final topicRows = await (contentDb.select(contentDb.contentTopics)
         ..where((t) => t.subjectId.isIn(subjectIds))
         ..orderBy([(t) => OrderingTerm.asc(t.ordering)]))
-      .get();
+      .get()
+    ..removeWhere(
+      (t) =>
+          !ownedSubjectIds.contains(t.subjectId) &&
+          !examTopicIds.contains(t.id),
+    );
   final questionRows = await (contentDb.select(contentDb.contentQuestions)
         ..where((q) => q.topicId.isIn([for (final t in topicRows) t.id])))
       .get();

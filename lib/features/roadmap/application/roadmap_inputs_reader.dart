@@ -104,7 +104,8 @@ class RoadmapInputsReader {
     final excludedLessons = await _ref
         .read(customTrackRepositoryProvider)
         .excludedLessonIds(examId);
-    final selection = await content.selectionRowsByTopics(topicIds);
+    final selection =
+        await content.selectionRowsByTopics(topicIds, examId: examId);
     final lessonMeta = await content.lessonMetaByTopics(topicIds);
     final db = _ref.read(appDatabaseProvider);
     final readAt = {

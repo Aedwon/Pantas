@@ -305,7 +305,10 @@ Future<TodaySessionPlan> _buildTodayPlan(
     final metadata = await probe.measureAsync(
       QuizPerformancePhase.metadataRead,
       () async => (
-        questions: await content.selectionRowsByTopics(topicIds),
+        questions: await content.selectionRowsByTopics(
+          topicIds,
+          examId: request.examId,
+        ),
         lessons: await content.lessonMetaByTopics(topicIds),
       ),
     );
@@ -366,6 +369,7 @@ Future<TodaySessionPlan> _buildTodayPlan(
     () async {
       final rows = await content.selectionRowsByTopics(
         [for (final topic in topics) topic.id],
+        examId: request.examId,
       );
       return <TopicId, List<Question>>{
         for (final entry in rows.entries)
@@ -520,6 +524,7 @@ Future<QuizPreparationStamp> _readPreparationStamp(
     () async {
       final rows = await content.selectionRowsByTopics(
         [for (final topic in scope.topics) topic.id],
+        examId: request.examId,
       );
       return {
         for (final topicRows in rows.values)
