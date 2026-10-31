@@ -2208,3 +2208,17 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   fixes on the WIP branch: read `?localStudent=` before routing rewrites the address; load after
   the app starts. Needed: seed the students server-side in the Firestore emulator. Options sent to
   Aedwon.
+
+## Oct 31: prod billing and console setup
+
+- Aedwon linked one billing account (01E18B-95B3AF-A43FD4) to pantas-prod and pantas-staging and
+  set a $5 monthly budget alert on each (alerts at 50, 90, 100%). Lead verified billingEnabled on
+  both through the Cloud Billing API. Lead advice: spend cap on staging, alerts only on prod.
+- Lead read-only checks of prod: web app 1:416041343210:web:cdf805fbfb28ca13639f93 present;
+  Firestore (default) in asia-southeast1; Google and anonymous sign-in enabled.
+- Aedwon: "okay do what you can to ensure we're fully ready for beta. be efficient when it comes
+  to firebase though, don't want to unnecessarily spike my bill yknow?" Lead then: added
+  app.pantas.study to prod Auth authorized domains; enabled the Cloud Storage for Firebase API and
+  created the default bucket pantas-prod.firebasestorage.app in ASIA-SOUTHEAST1 (matches
+  `lib/firebase_options_prod.dart`). Storage rules deploy with the release (runbook section 5).
+- Remaining runbook sections 3 to 10 wait for release approval (runbook line 6).
