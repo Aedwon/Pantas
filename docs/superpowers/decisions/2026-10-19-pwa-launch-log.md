@@ -2222,3 +2222,10 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   created the default bucket pantas-prod.firebasestorage.app in ASIA-SOUTHEAST1 (matches
   `lib/firebase_options_prod.dart`). Storage rules deploy with the release (runbook section 5).
 - Remaining runbook sections 3 to 10 wait for release approval (runbook line 6).
+- Oct 31, PayMongo test setup (runbook section 3), done by Aedwon in his terminal: prod secrets
+  PAYMONGO_SECRET_KEY (test key), PAYMONGO_WEBHOOK_SECRET and TRIAL_IDENTITY_HMAC_KEY, each at
+  version 1, ENABLED (lead checked metadata only). PayMongo test webhook created and enabled for
+  `https://asia-southeast1-pantas-prod.cloudfunctions.net/paymongoWebhook` with
+  checkout_session.payment.paid, payment.refunded, payment.refund.updated
+  (refund.succeeded, dispute.created and dispute.resolved were not offered by the dashboard).
+  Do not rerun the TRIAL_IDENTITY_HMAC_KEY command. Section 6 (confirm after deploy) still open.
