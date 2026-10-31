@@ -89,6 +89,10 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    App Check rejects it. Home board checklist (Haiku): staging worktree
    `build/visual-pass/home-boards.md`. Split agreed with Aedwon: Sonnet captures, measures and
    drafts differences; the lead reviews and spot-checks; Haiku crawls.
+   Gotcha (Oct 31): 264 boards (all but the inline-styled OB_* boards) load the shared stylesheet as
+   `/_blob/9c74f4aa7aa198d9d094e998fa9000ba` = `web/shared/pantas.css` (HANDOFF.md line 8). Board
+   servers must map `/_blob/*` to that file, or board screenshots lack the base classes. The first
+   Home capture missed this and was redone.
    Next: Home (HM_*, DK_Home), capture in progress. The local test panel (spec and plan approved) is paused until the
    visual pass is done (Aedwon: "finish the screens first").
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
