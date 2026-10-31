@@ -2162,3 +2162,28 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   engineering's tools from `web/staging-candidate-r1` ea0aa5bf: 64 links and 116 tags (engineering
   expected 115), no invalid sources. `assets.json` was not generated; the export passes without it.
 - Oct 30: the content lead fixed the export blockers on `content/cse-rewrite-r1` be6ab491. Lead re-ran both checks from staging ea0aa5bf: export reports 64 links and 116 tags (one tag more than the earlier count); upload dry run has no invalid sources (170 lessons, 170 question sets, 1 gap document). The R1 real-data check passes. assets.json is not needed by the current export.
+
+## Oct 31: local test panel (second tab that controls the local web app)
+
+- Context: Aedwon started "Pantas Local Test" to check the onboarding fixes, but onboarding was
+  skipped because the browser kept his data from an earlier run. Aedwon: "can you make an
+  interface where i can control this? i think it's in a folder called demo but there was a
+  toolkit like this for testing we used before. not sure if it fits to this current one, but if
+  you can make one similar, perhaps a persistent panel on another tab where i can control the
+  actual screens on the other tab".
+- Finding: the old toolkit (`tools/demo`, `tools/pro`, `docs/DEMO_WORKFLOW.md`) drives an Android
+  debug build over the Dart VM service through adb. It cannot reach the local web build.
+- Options offered: Minimal (about 1 hour: a local page with Start fresh, Free and Pro links; no
+  screen jumps); Balanced (about half a day: a panel tab with Start fresh, Free/Pro, a chosen
+  "today", open any screen, onboarding states; a small local-only listener in the app; mockup
+  first); Hardened (1 to 2 days: Balanced plus sample study history, forced loading and error
+  states, saved presets per board). Recommended Balanced.
+- Choice: Aedwon: "Balanced".
+- Layout options in the visual companion: A, narrow column beside the app window; B, wide page
+  with tabs. Aedwon: "B looks cleaner but why are there so many things to click on, so i can
+  skip?" Lead explained each card opens that state directly and offered B with all states, a
+  lighter B (9 cards plus a list), or B with no onboarding cards. Aedwon: "i have no issue with
+  the amount of clickables if that's the case. i was just wondering".
+- Result: layout B with every onboarding state as a card. Presentation:
+  `docs/superpowers/plans/pwa-launch/boards/local-test-panel-b-v2.html`. Spec:
+  `docs/superpowers/specs/2026-10-31-local-test-panel-design.md`.
