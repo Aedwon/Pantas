@@ -2194,3 +2194,8 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   sample students as a fourth tab, presentation `local-test-panel-b-v3.html`, spec updated.
 - Approval, Oct 31: Aedwon approved the spec with four sample students: "lgtm". Plan: `docs/superpowers/plans/pwa-launch/local-test-panel-plan.md`.
 - Pause, Oct 31: Aedwon: "actually before you implement that can you finish the screens first". Panel work stopped before any code change; the visual pass of the remaining areas goes first.
+- Oct 31, Home needs data: every Home board shows a student with history. Options offered: build
+  the four sample students first (about half a day, recommended; the panel reuses them) or compare
+  Home layout only now. Aedwon: "okay go with your recommendation". Result: plan Task 4 runs first,
+  triggered by a local-only `?localStudent=<id>` link (same pattern as `?localAccount=`); the
+  panel tasks stay paused.

@@ -3,6 +3,9 @@
 **PAUSED Oct 31.** Aedwon: "actually before you implement that can you finish the screens first".
 No code was written (both Task 1 and 2 agents were stopped before any file change). Resume after
 the visual pass of the remaining areas.
+**Exception (Oct 31):** Task 4 runs now for the visual pass, triggered by a local-only
+`?localStudent=new|steady|behind|examWeek` link read at startup (local builds only). Task 2 later
+reuses the same entry point for the panel.
 
 > For agentic workers: follow `AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md` from origin/main. Steps
 > use checkboxes. The lead commits; workers do not commit, push, fetch or switch branches.
