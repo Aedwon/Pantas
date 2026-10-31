@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -121,7 +122,7 @@ class _OnboardingStudyDaysStepState
         ? ''
         : date.day != null
             ? 'Your exam is on '
-                '${DateFormat('EEEE, d MMMM', 'en_US').format(date.day!)}.'
+                '${DateFormat('EEEE, MMMM d', 'en_US').format(date.day!)}.'
             : 'Your exam is in '
                 '${DateFormat('MMMM y', 'en_US').format(date.monthStart)}.';
     final addDays = _available.join(' or ');
@@ -132,9 +133,11 @@ class _OnboardingStudyDaysStepState
     final untilExam = date?.daysUntil(_today);
     final examDays =
         untilExam != null && untilExam >= 1 && untilExam < 7 ? untilExam : null;
+    final examDayWord = examDays == 1 ? 'day' : 'days';
     return OnboardingWebPage(
       title: 'Which days will you study?',
       width: 640,
+      bottomGap: 28,
       detail: 'Your plan only puts work on these days. '
           'You can change them later in Settings.',
       progress: 5,
@@ -325,78 +328,115 @@ class _OnboardingStudyDaysStepState
                           color: context.wideWeb && !invalid
                               ? Colors.transparent
                               : c.surface,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(
+                            context.wideWeb ? 16 : 20,
+                          ),
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            if (invalid)
+                        child: _TooLateRow(
+                          icon: context.wideWeb && invalid,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (invalid)
+                                Text(
+                                  'None of these fall before your exam',
+                                  style: context.wideWeb
+                                      ? context.webTokens.style(
+                                          16,
+                                          weight: FontWeight.w600,
+                                          height: 1,
+                                        )
+                                      : context.type.emphasized,
+                                )
+                              else
+                                Text.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: '${_days.length}',
+                                        style: context.wideWeb
+                                            ? context.webTokens.style(
+                                                34,
+                                                weight: FontWeight.w700,
+                                                height: 1,
+                                              )
+                                            : context.type.largeTitle,
+                                      ),
+                                      TextSpan(
+                                        text: '  $dayCountLabel a week',
+                                        style: context.type.body.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: c.secondaryLabel,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              SizedBox(
+                                height: context.wideWeb && invalid ? 3 : 6,
+                              ),
                               Text(
-                                'None of these fall before your exam',
+                                invalid
+                                    ? '$dateDescription Add $addDays '
+                                        "so there's time to study first."
+                                    : examDays != null
+                                        ? 'Your exam is in $examDays '
+                                            '$examDayWord. '
+                                            "We'll focus on what matters most."
+                                        : 'Days off stay free. '
+                                            'Questions that come due '
+                                            'on a day off '
+                                            'wait for your next '
+                                            'study day.',
                                 style: context.wideWeb
                                     ? context.webTokens.style(
-                                        16,
-                                        weight: FontWeight.w600,
-                                        height: 1,
-                                      )
-                                    : context.type.emphasized,
-                              )
-                            else
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '${_days.length}',
-                                      style: context.wideWeb
-                                          ? context.webTokens.style(
-                                              34,
-                                              weight: FontWeight.w700,
-                                              height: 1,
-                                            )
-                                          : context.type.largeTitle,
-                                    ),
-                                    TextSpan(
-                                      text: '  $dayCountLabel a week',
-                                      style: context.type.body.copyWith(
-                                        fontWeight: FontWeight.w500,
+                                        15,
                                         color: c.secondaryLabel,
+                                        height: 1.45,
+                                      )
+                                    : context.type.subhead.copyWith(
+                                        color: c.secondaryLabel,
+                                        height: 1.4,
                                       ),
-                                    ),
-                                  ],
-                                ),
                               ),
-                            SizedBox(
-                              height: context.wideWeb && invalid ? 3 : 6,
-                            ),
-                            Text(
-                              invalid
-                                  ? '$dateDescription Add $addDays '
-                                      "so there's time to study first."
-                                  : examDays != null
-                                      ? 'Your exam is in $examDays '
-                                          '${examDays == 1 ? 'day' : 'days'}. '
-                                          "We'll focus on what matters most."
-                                      : 'Days off stay free. '
-                                          'Questions that come due '
-                                          'on a day off '
-                                          'wait for your next '
-                                          'study day.',
-                              style: context.wideWeb
-                                  ? context.webTokens.style(
-                                      15,
-                                      color: c.secondaryLabel,
-                                      height: 1.45,
-                                    )
-                                  : context.type.subhead.copyWith(
-                                      color: c.secondaryLabel,
-                                      height: 1.4,
-                                    ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
               ),
             ],
+    );
+  }
+}
+
+/// Board OB_DaysTooLate: a 22 px outline calendar beside the message (web).
+class _TooLateRow extends StatelessWidget {
+  const _TooLateRow({required this.icon, required this.child});
+  final bool icon;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    if (!icon) return child;
+    final t = context.webTokens;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 1),
+          child: SvgPicture.string(
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="1.8" stroke-linecap="round" '
+            'stroke-linejoin="round"> '
+            '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/> '
+            '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
+            width: 22,
+            height: 22,
+            colorFilter: ColorFilter.mode(t.colors.label, BlendMode.srcIn),
+          ),
+        ),
+        const SizedBox(width: 14),
+        Expanded(child: child),
+      ],
     );
   }
 }

@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
@@ -97,44 +99,90 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         child: Column(
           children: [
             const WebTopBar(
-              leading: OnboardingLogo(size: 28),
-              title: Text('Pantas'),
+              leading: PantasLogo(size: 28),
+              title: Text(
+                'Pantas',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
             ),
             Expanded(
-              child: Center(
-                child: SizedBox(
-                  width: 460,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.lock_outline,
-                        size: 44,
-                        color: t.colors.tertiaryLabel,
-                      ),
-                      const SizedBox(height: 22),
-                      Text(
-                        "Pantas isn't available yet",
-                        textAlign: TextAlign.center,
-                        style: t.style(
-                          34,
-                          weight: FontWeight.w700,
-                          height: 1.15,
+              // Board: 40 top, 120 bottom, so the block sits above center.
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(40, 40, 40, 120),
+                child: Center(
+                  child: SizedBox(
+                    width: 460,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SvgPicture.string(
+                          '<svg viewBox="0 0 24 24" fill="none" '
+                          'stroke="currentColor" stroke-width="1.5" '
+                          'stroke-linecap="round" stroke-linejoin="round"> '
+                          '<rect x="5" y="10.5" width="14" height="10" '
+                          'rx="2"/> '
+                          '<path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>',
+                          width: 44,
+                          height: 44,
+                          colorFilter: ColorFilter.mode(
+                            t.colors.tertiaryLabel,
+                            BlendMode.srcIn,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Sorry, this app isn't available for users under 13.",
-                        textAlign: TextAlign.center,
-                        style: t.style(17, color: t.colors.secondaryLabel),
-                      ),
-                      const SizedBox(height: 22),
-                      WebButton(
-                        label: 'Try a Different Year',
-                        variant: WebButtonVariant.secondary,
-                        onPressed: () => setState(() => _blocked = false),
-                      ),
-                    ],
+                        const SizedBox(height: 22),
+                        Text(
+                          "Pantas isn't available yet",
+                          textAlign: TextAlign.center,
+                          style: t
+                              .style(
+                                34,
+                                weight: FontWeight.w700,
+                                height: 1.15,
+                              )
+                              .copyWith(letterSpacing: -.748),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "Sorry, this app isn't available for users under 13.",
+                          textAlign: TextAlign.center,
+                          style: t.style(
+                            17,
+                            height: 1.45,
+                            color: t.colors.secondaryLabel,
+                          ),
+                        ),
+                        const SizedBox(height: 22),
+                        TextButton(
+                          onPressed: () => setState(() => _blocked = false),
+                          style: ButtonStyle(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            minimumSize:
+                                const WidgetStatePropertyAll(Size(0, 46)),
+                            padding: const WidgetStatePropertyAll(
+                              EdgeInsets.symmetric(horizontal: 22),
+                            ),
+                            backgroundColor: WidgetStateProperty.resolveWith(
+                              (s) => s.contains(WidgetState.hovered)
+                                  ? t.secondaryHover
+                                  : t.colors.accentTint,
+                            ),
+                            foregroundColor: WidgetStatePropertyAll(t.tintText),
+                            overlayColor: const WidgetStatePropertyAll(
+                              Colors.transparent,
+                            ),
+                            shape: WidgetStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            textStyle: WidgetStatePropertyAll(
+                              t.style(16, weight: FontWeight.w600),
+                            ),
+                          ),
+                          child: const Text('Try a Different Year'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

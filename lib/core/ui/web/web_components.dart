@@ -21,6 +21,7 @@ class WebButton extends StatelessWidget {
     this.pill = false,
     this.keyHint,
     this.busy = false,
+    this.tall = false,
     super.key,
   });
   final String label;
@@ -30,6 +31,9 @@ class WebButton extends StatelessWidget {
   final bool pill;
   final String? keyHint;
   final bool busy;
+
+  /// 48 px onboarding height with the board's padding.
+  final bool tall;
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +75,13 @@ class WebButton extends StatelessWidget {
         : large
             ? 14.0
             : 12.0;
-    final height = pill
-        ? 46.0
-        : large
-            ? 50.0
-            : 44.0;
+    final height = tall
+        ? 48.0
+        : pill
+            ? 46.0
+            : large
+                ? 50.0
+                : 44.0;
     return Align(
       widthFactor: 1,
       heightFactor: 1,
@@ -91,24 +97,33 @@ class WebButton extends StatelessWidget {
           minimumSize: WidgetStatePropertyAll(Size(0, height)),
           padding: WidgetStatePropertyAll(
             EdgeInsets.only(
-              left: pill
-                  ? 22
-                  : variant == WebButtonVariant.tertiary
+              left: tall
+                  ? switch (variant) {
+                      WebButtonVariant.primary => 22,
+                      WebButtonVariant.tertiary => 16,
+                      WebButtonVariant.white => 18,
+                      _ => 18,
+                    }
+                  : pill
+                      ? 22
+                      : variant == WebButtonVariant.tertiary
+                          ? 14
+                          : variant == WebButtonVariant.secondary ||
+                                  variant == WebButtonVariant.white ||
+                                  variant == WebButtonVariant.dangerOutline
+                              ? 18
+                              : 20,
+              right: tall && variant == WebButtonVariant.tertiary
+                  ? 16
+                  : pill || showKeyHint
                       ? 14
-                      : variant == WebButtonVariant.secondary ||
-                              variant == WebButtonVariant.white ||
-                              variant == WebButtonVariant.dangerOutline
-                          ? 18
-                          : 20,
-              right: pill || showKeyHint
-                  ? 14
-                  : variant == WebButtonVariant.tertiary
-                      ? 14
-                      : variant == WebButtonVariant.secondary ||
-                              variant == WebButtonVariant.white ||
-                              variant == WebButtonVariant.dangerOutline
-                          ? 18
-                          : 20,
+                      : variant == WebButtonVariant.tertiary
+                          ? 14
+                          : variant == WebButtonVariant.secondary ||
+                                  variant == WebButtonVariant.white ||
+                                  variant == WebButtonVariant.dangerOutline
+                              ? 18
+                              : 20,
             ),
           ),
           backgroundColor: WidgetStateProperty.resolveWith(background),
@@ -125,7 +140,11 @@ class WebButton extends StatelessWidget {
                   : variant == WebButtonVariant.dangerOutline
                       ? c.destructive
                       : variant == WebButtonVariant.white
-                          ? (t.dark ? t.cardEdge : c.separator)
+                          ? (tall
+                              ? Colors.transparent
+                              : t.dark
+                                  ? t.cardEdge
+                                  : c.separator)
                           : Colors.transparent,
               width: s.contains(WidgetState.focused) ? 2 : 1,
             ),

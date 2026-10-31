@@ -18,6 +18,8 @@ class OnboardingWebPage extends StatelessWidget {
     this.progress,
     this.bottom,
     this.bodyGap = 28,
+    this.gap = 28,
+    this.bottomGap = 40,
     this.centerBody = false,
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
@@ -31,6 +33,12 @@ class OnboardingWebPage extends StatelessWidget {
   final List<Widget> children;
   final Widget? bottom;
   final double bodyGap;
+
+  /// Web only: section gap around the title block.
+  final double gap;
+
+  /// Web only: space above the action row.
+  final double bottomGap;
   final bool centerBody;
   final bool surfaceBackground;
   final double detailLineHeight;
@@ -202,7 +210,7 @@ class OnboardingWebPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 28),
+                              SizedBox(height: gap),
                               Text(
                                 title,
                                 style: t
@@ -224,10 +232,10 @@ class OnboardingWebPage extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                              const SizedBox(height: 28),
+                              SizedBox(height: gap),
                               ...children,
                               if (bottom != null) ...[
-                                const SizedBox(height: 40),
+                                SizedBox(height: bottomGap),
                                 Align(
                                   alignment: Alignment.centerRight,
                                   child: bottom,
@@ -284,6 +292,7 @@ class OnboardingButton extends StatelessWidget {
           label: label,
           onPressed: onPressed,
           busy: busy,
+          tall: true,
           keyHint: primary ? 'Enter' : null,
           variant: primary
               ? WebButtonVariant.primary
@@ -316,7 +325,11 @@ class OnboardingActions extends StatelessWidget {
             if (leading != null) Expanded(child: leading!),
             for (final button in buttons
                 .where((b) => b.variant != PantasButtonVariant.primary))
-              button,
+              if (leading == null &&
+                  button.variant != PantasButtonVariant.neutral)
+                Transform.translate(offset: const Offset(-16, 0), child: button)
+              else
+                button,
             if (leading == null) const Spacer(),
             if (leading != null && buttons.length > 1) const SizedBox(width: 8),
             for (final button in buttons

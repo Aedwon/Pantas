@@ -23,6 +23,7 @@ class OnboardingNameField extends StatelessWidget {
       maxLength: 40,
       textCapitalization: TextCapitalization.words,
       textInputAction: TextInputAction.done,
+      textAlignVertical: context.wideWeb ? TextAlignVertical.center : null,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
       style: context.type.body.copyWith(
@@ -32,13 +33,11 @@ class OnboardingNameField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         hintText: label,
-        constraints:
-            context.wideWeb ? const BoxConstraints.tightFor(height: 56) : null,
-        isDense: context.wideWeb,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
         filled: true,
         fillColor: context.colors.surface,
+        hoverColor: context.wideWeb ? context.colors.surface : null,
         hintStyle: context.type.body.copyWith(
           fontSize: 19,
           fontWeight: FontWeight.w500,
@@ -46,15 +45,21 @@ class OnboardingNameField extends StatelessWidget {
         ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: context.wideWeb ? 18 : 16,
-          vertical: context.wideWeb ? 16 : 13,
+          vertical: context.wideWeb ? 19 : 13,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: context.colors.accent, width: 1.5),
+          borderSide: BorderSide(
+            color: context.colors.accent,
+            width: context.wideWeb ? 2 : 1.5,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: context.colors.accent, width: 1.5),
+          borderSide: BorderSide(
+            color: context.colors.accent,
+            width: context.wideWeb ? 2 : 1.5,
+          ),
         ),
       ),
     );
@@ -62,8 +67,12 @@ class OnboardingNameField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(label.toUpperCase(), style: context.webTokens.eb),
-        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.only(left: 4),
+          child: Text(label.toUpperCase(), style: context.webTokens.eb),
+        ),
+        // Board gap is 8; the label's taller line box takes 2 of it here.
+        const SizedBox(height: 6),
         field,
       ],
     );
