@@ -2259,3 +2259,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   with a long id fails to load ("Could not load your mock.").
 - Proposed fix: raise the three client limits to match the server. Awaiting Aedwon's approval
   because it changes answer handling.
+- Approval, Nov 1: Aedwon: "Yes, fix it". Raise the three client limits to match the server, with tests.
