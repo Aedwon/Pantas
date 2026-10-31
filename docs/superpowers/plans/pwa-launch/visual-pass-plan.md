@@ -174,6 +174,14 @@ steps 1 to 3 from `build/visual-pass/BRIEF.md` (copy kept there), reusing the pa
 Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 to 5 from Nov 1
 2 PM Manila; it starts the localhost app itself (`tools/local/run_web_local.sh`, no `--lan`).
 
+## Queued after the web pass: mobile pass
+
+Aedwon, Oct 31: "okay yeah queue that". After the web boards are done, compare the phone layout
+(390x844; Android app and the web app at phone width) with the mobile boards. They are not
+exported: Claude Design canvas https://claude.ai/artifact/M1hptDwMLUcuGxSAGescHi (same board
+names: MK_, QS_, ST_ and so on; `web-design/pantas-handoff/HANDOFF.md` line 7). First step:
+export or read that canvas into local board files. The web pass changes only the wide web layout.
+
 ## Order and progress
 
 | Area | Boards | State |
