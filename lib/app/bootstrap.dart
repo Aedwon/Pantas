@@ -27,6 +27,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/app_check.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -236,6 +237,7 @@ Future<void> _bootstrap(
   ContentDatabase? contentDatabase;
   ProviderContainer? ownedContainer;
   rememberLocalStudentUrl();
+  rememberLocalAccount();
   try {
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     await activateAppCheck(flavor);
@@ -326,7 +328,11 @@ Future<void> _bootstrap(
     await bootstrapSyncRuntime(container, firebaseResult);
     // Local runs with ?localStudent=: the server records are written before the
     // first screen, so Home never holds a read from before them.
-    await loadLocalStudentFromUrl(container);
+    if (await loadLocalStudentFromUrl(container)) {
+      // Loading dropped every provider, including the payment gateway that
+      // startup had signed in, so the account's Pro coverage was gone.
+      await bootstrapRevenueCat(container);
+    }
 
     final notificationsLifecycleObserver = NotificationsLifecycleObserver(
       service: container.read(notificationServiceProvider),

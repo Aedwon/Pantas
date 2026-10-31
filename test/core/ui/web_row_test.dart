@@ -1,0 +1,65 @@
+import 'dart:ui' show PointerDeviceKind;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+
+void main() {
+  testWidgets('a value sits at the row end and a board row is 71 px',
+      (tester) async {
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: Scaffold(
+          body: SizedBox(
+            width: 618,
+            child: WebRow(
+              boardMetrics: true,
+              title: 'Reviews',
+              subtitle: 'Questions due today',
+              value: '0 of 18',
+              onPressed: () {},
+            ),
+          ),
+        ),
+      ),
+    );
+    final row = find.byType(WebRow);
+    // Value right edge = row right edge less the 20 px padding.
+    expect(tester.getTopRight(find.text('0 of 18')).dx, 618 - 20);
+    // 15 + 22.1 + 18.2 + 15 + one device pixel for the hairline.
+    expect(tester.getSize(row).height, closeTo(71.3, .5));
+  });
+
+  testWidgets('the hover chevron is hidden until the row is hovered',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: Scaffold(
+          body: WebRow(
+            title: 'Reviews',
+            value: '0 of 18',
+            chevron: WebRowChevron.hover,
+            onPressed: () {},
+          ),
+        ),
+      ),
+    );
+    double opacity() => tester
+        .widgetList<Opacity>(find.byType(Opacity))
+        .singleWhere((o) => o.child is WebChevron)
+        .opacity;
+    expect(opacity(), 0);
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    addTearDown(mouse.removePointer);
+    await mouse.moveTo(tester.getCenter(find.byType(WebRow)));
+    await tester.pump();
+    expect(opacity(), 1);
+  });
+}

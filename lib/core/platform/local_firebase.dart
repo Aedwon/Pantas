@@ -16,6 +16,16 @@ const localFirebaseOptions = FirebaseOptions(
   storageBucket: 'demo-pantas-local.appspot.com',
 );
 
+/// `?localAccount=` as it was when startup began. Routing rewrites the page
+/// address before Firebase starts, so startup records it first.
+String? _startAccount;
+
+/// Records `?localAccount=` from the page address. Call first thing in startup.
+void rememberLocalAccount() {
+  if (!localEmulators || !kIsWeb) return;
+  _startAccount = Uri.base.queryParameters['localAccount'];
+}
+
 Future<void> connectLocalFirebase() async {
   if (!localEmulators) return;
   if (!kIsWeb || kReleaseMode) {
@@ -29,7 +39,7 @@ Future<void> connectLocalFirebase() async {
 
   // The app uses Google sign-in. These local-only links select password test
   // accounts before the normal auth bootstrap, without adding a product UI.
-  final account = Uri.base.queryParameters['localAccount'];
+  final account = _startAccount ?? Uri.base.queryParameters['localAccount'];
   if (account == 'free' || account == 'pro') {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: '$account@pantas.local',

@@ -115,192 +115,33 @@ class HomeMasthead extends ConsumerWidget {
               ),
               if (dayNote != null) ...[
                 const SizedBox(height: 4),
-                Text(dayNote!, style: t.sub),
-              ],
-            ],
-          ),
-          WebCard(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                for (var i = 0; i < 7; i++)
-                  SizedBox(
-                    width: 44,
-                    child: TextButton(
-                      key: ValueKey('web-week-day-$i'),
-                      onPressed: () {
-                        final date = start.add(Duration(days: i));
-                        unawaited(
-                          date.isBefore(
-                            DateTime(now.year, now.month, now.day),
-                          )
-                              ? showPlanPastDay(context, date)
-                              : context.push<void>('/plan/day/${dayKey(date)}'),
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: const Size(44, 50),
-                      ),
-                      child: Opacity(
-                        opacity:
-                            week.states[i] == WeekDayState.dayOff ? .35 : 1,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              const [
-                                'Sun',
-                                'Mon',
-                                'Tue',
-                                'Wed',
-                                'Thu',
-                                'Fri',
-                                'Sat',
-                              ][i],
-                              style: t.style(
-                                11,
-                                weight: FontWeight.w600,
-                                color: t.colors.secondaryLabel,
-                              ),
-                            ),
-                            const SizedBox(height: 3),
-                            Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                if (week.states[i] == WeekDayState.today &&
-                                    week.todayFraction > 0 &&
-                                    week.todayFraction < 1)
-                                  SizedBox.square(
-                                    dimension: 34,
-                                    child: CircularProgressIndicator(
-                                      key: const ValueKey('web-today-progress'),
-                                      value: week.todayFraction,
-                                      strokeWidth: 2,
-                                      strokeCap: StrokeCap.round,
-                                      color: t.colors.accent,
-                                      backgroundColor: t.colors.separator,
-                                    ),
-                                  ),
-                                Container(
-                                  width: 27,
-                                  height: 27,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    color: week.states[i] == WeekDayState.today
-                                        ? t.colors.accentFill
-                                        : null,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: week.states[i] == WeekDayState.today &&
-                                          week.todayFraction >= 1
-                                      ? const Icon(
-                                          Icons.check,
-                                          size: 15,
-                                          color: Colors.white,
-                                        )
-                                      : Text(
-                                          '${start.add(Duration(days: i)).day}',
-                                          style: t.style(
-                                            14,
-                                            weight: FontWeight.w600,
-                                            color: week.states[i] ==
-                                                    WeekDayState.today
-                                                ? Colors.white
-                                                : t.colors.label,
-                                          ),
-                                        ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 3),
-                            Container(
-                              width: 4,
-                              height: 4,
-                              decoration: BoxDecoration(
-                                color: week.states[i] == WeekDayState.done ||
-                                        week.states[i] == WeekDayState.partial
-                                    ? t.colors.accent
-                                    : Colors.transparent,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                Container(
-                  margin: const EdgeInsets.only(left: 10),
-                  padding: const EdgeInsets.only(left: 16),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      left: BorderSide(color: t.colors.separator),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 44,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: t.strongDivider),
-                          borderRadius: BorderRadius.circular(9),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            FittedBox(
-                              child: Text(
-                                masthead.examDate == null
-                                    ? '+'
-                                    : masthead.examDate!.day == null
-                                        ? _monthAbbreviation(
-                                            masthead.examDate!.month,
-                                          )
-                                        : '${masthead.examDate!.day!.day}',
-                                maxLines: 1,
-                                style: t.style(16, weight: FontWeight.w700),
-                              ),
-                            ),
-                            if (masthead.examDate?.day != null)
-                              Text(
-                                _monthAbbreviation(
-                                  masthead.examDate!.month,
-                                ),
-                                style: t.style(
-                                  9,
-                                  weight: FontWeight.w600,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            masthead.examShortName,
-                            style: t.style(13, weight: FontWeight.w700),
-                          ),
-                          Text(
-                            _footer(
-                              _stateFor(masthead.examDate, now),
-                              masthead.examDate,
-                              now,
-                            ),
-                            style: t.sm,
-                          ),
-                        ],
-                      ),
-                    ],
+                // Board `.lead`: 17 px.
+                Text(
+                  dayNote!,
+                  style: t.style(
+                    17,
+                    height: 1.45,
+                    color: t.colors.secondaryLabel,
                   ),
                 ),
               ],
+            ],
+          ),
+          _WebWeekCard(
+            now: now,
+            start: start,
+            week: week,
+            masthead: masthead,
+            footer: _footer(
+              _stateFor(masthead.examDate, now),
+              masthead.examDate,
+              now,
+            ),
+            monthAbbreviation: _monthAbbreviation,
+            onDay: (date) => unawaited(
+              date.isBefore(DateTime(now.year, now.month, now.day))
+                  ? showPlanPastDay(context, date)
+                  : context.push<void>('/plan/day/${dayKey(date)}'),
             ),
           ),
         ],
@@ -588,4 +429,256 @@ String greetingFor(DateTime now, [AppLocalizations? l10n]) {
           : 'gabi';
   if (l10n != null) return l10n.greeting(timeOfDay);
   return 'Magandang $timeOfDay';
+}
+
+/// Board `.week`: day cells 44 px wide with 4 px gaps, then the exam tile.
+class _WebWeekCard extends StatelessWidget {
+  const _WebWeekCard({
+    required this.now,
+    required this.start,
+    required this.week,
+    required this.masthead,
+    required this.footer,
+    required this.monthAbbreviation,
+    required this.onDay,
+  });
+  final DateTime now;
+  final DateTime start;
+  final HomeWeekStripData week;
+  final HomeMastheadData masthead;
+  final String footer;
+  final String Function(int month) monthAbbreviation;
+  final ValueChanged<DateTime> onDay;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final off = t.dark ? t.colors.tertiaryLabel : const Color(0xFFC7C7CC);
+    final date = masthead.examDate;
+    return WebCard(
+      padding: const EdgeInsets.fromLTRB(8, 8, 10, 8),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          for (var i = 0; i < 7; i++) ...[
+            if (i > 0) const SizedBox(width: 4),
+            _WebWeekDay(
+              key: ValueKey('web-week-day-$i'),
+              label: const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][i],
+              day: start.add(Duration(days: i)).day,
+              state: week.states[i],
+              todayFraction: week.todayFraction,
+              off: off,
+              onPressed: () => onDay(start.add(Duration(days: i))),
+            ),
+          ],
+          // `.exam`: margin-left 4 after the 4 px gap, 12 px padding.
+          Container(
+            margin: const EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 12, right: 4),
+            decoration: BoxDecoration(
+              border: Border(
+                left: BorderSide(
+                  color: t.colors.separator,
+                  width: webHairline(context),
+                ),
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 42,
+                  height: 36,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: t.colors.label, width: 1.5),
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        date == null
+                            ? '+'
+                            : date.day == null
+                                ? monthAbbreviation(date.month)
+                                : '${date.day!.day}',
+                        maxLines: 1,
+                        style: t.style(14, weight: FontWeight.w700, height: 1),
+                      ),
+                      if (date?.day != null)
+                        Text(
+                          monthAbbreviation(date!.month),
+                          style: t.style(
+                            9,
+                            weight: FontWeight.w700,
+                            height: 1.2,
+                            color: t.colors.secondaryLabel,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      masthead.examShortName,
+                      style: t.style(13, weight: FontWeight.w700, height: 1.3),
+                    ),
+                    Text(footer, style: t.sm),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Board `.wd`: 44 px wide, 4 px padding, 2 px gaps: label, 30 px number
+/// row, 5 px dot.
+class _WebWeekDay extends StatefulWidget {
+  const _WebWeekDay({
+    required this.label,
+    required this.day,
+    required this.state,
+    required this.todayFraction,
+    required this.off,
+    required this.onPressed,
+    super.key,
+  });
+  final String label;
+  final int day;
+  final WeekDayState state;
+  final double todayFraction;
+  final Color off;
+  final VoidCallback onPressed;
+  @override
+  State<_WebWeekDay> createState() => _WebWeekDayState();
+}
+
+class _WebWeekDayState extends State<_WebWeekDay> {
+  bool _hover = false;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final today = widget.state == WeekDayState.today;
+    final dayOff = widget.state == WeekDayState.dayOff;
+    final fraction = widget.todayFraction;
+    final dot = switch (widget.state) {
+      WeekDayState.done => t.colors.accent,
+      WeekDayState.partial => null,
+      _ => Colors.transparent,
+    };
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hover = true),
+      onExit: (_) => setState(() => _hover = false),
+      child: InkWell(
+        onTap: widget.onPressed,
+        borderRadius: BorderRadius.circular(12),
+        hoverColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        child: Container(
+          width: 44,
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          decoration: BoxDecoration(
+            color: _hover
+                ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
+                : null,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                widget.label,
+                style: t.style(
+                  11,
+                  weight: today ? FontWeight.w700 : FontWeight.w600,
+                  height: 1.27,
+                  color: dayOff
+                      ? widget.off
+                      : today
+                          ? t.colors.accent
+                          : t.colors.secondaryLabel,
+                ),
+              ),
+              const SizedBox(height: 2),
+              SizedBox(
+                height: 30,
+                child: Stack(
+                  alignment: Alignment.center,
+                  clipBehavior: Clip.none,
+                  children: [
+                    if (today && fraction > 0 && fraction < 1)
+                      SizedBox.square(
+                        dimension: 34,
+                        child: CircularProgressIndicator(
+                          key: const ValueKey('web-today-progress'),
+                          value: fraction,
+                          strokeWidth: 2,
+                          strokeCap: StrokeCap.round,
+                          color: t.colors.accent,
+                          backgroundColor: t.colors.separator,
+                        ),
+                      ),
+                    Container(
+                      width: 26,
+                      height: 26,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: today ? t.colors.accentFill : null,
+                        shape: BoxShape.circle,
+                      ),
+                      child: today && fraction >= 1
+                          ? const Icon(
+                              Icons.check,
+                              size: 15,
+                              color: Colors.white,
+                            )
+                          : Text(
+                              '${widget.day}',
+                              style: today
+                                  ? t.style(
+                                      14,
+                                      weight: FontWeight.w700,
+                                      color: Colors.white,
+                                    )
+                                  : t.style(
+                                      15,
+                                      weight: FontWeight.w500,
+                                      color: dayOff ? widget.off : null,
+                                    ),
+                            ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 2),
+              Container(
+                width: 5,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: dot,
+                  shape: BoxShape.circle,
+                  gradient: dot == null
+                      ? LinearGradient(
+                          stops: const [.5, .5],
+                          colors: [t.colors.accent, const Color(0xFFD1D1D6)],
+                        )
+                      : null,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

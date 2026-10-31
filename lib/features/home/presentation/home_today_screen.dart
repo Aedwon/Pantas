@@ -19,6 +19,7 @@ import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -479,11 +480,17 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       context.wideWeb
           ? WebRow(
               title: lesson.title,
-              titleColor: lesson.read ? context.colors.secondaryLabel : null,
+              titleStyle: context.webTokens.style(
+                16,
+                color: lesson.read ? context.colors.secondaryLabel : null,
+                height: 1.3,
+              ),
+              boardMetrics: true,
               value: lesson.read ? null : '${lesson.minutes} min',
-              leading: lesson.read
-                  ? const CheckMark()
-                  : ProgressRing(fraction: lesson.fraction ?? 0),
+              leading: _drawerRing(
+                lesson.read ? 1 : lesson.fraction ?? 0,
+                done: lesson.read,
+              ),
               compact: true,
               onPressed: () => unawaited(_openLesson(data, lesson)),
             )
@@ -622,14 +629,36 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
+  /// Board drawer rows: a 22 px box holding a 20 px ring or a 22 px check.
+  Widget _drawerRing(double fraction, {required bool done}) => SizedBox.square(
+        dimension: 22,
+        child: done
+            ? const FittedBox(child: CheckMark())
+            : Center(
+                child: fraction > 0
+                    ? ProgressRing(fraction: fraction, size: 21)
+                    : ProgressRing(
+                        fraction: 0,
+                        size: 20,
+                        emptyStrokeWidth: 2,
+                        emptyTrackColor: context.webTokens.dark
+                            ? null
+                            : const Color(0xFFD1D1D6),
+                      ),
+              ),
+      );
+
   Widget _questionRow(String title, int done, int total) => context.wideWeb
       ? WebRow(
           title: title,
+          titleStyle: context.webTokens.style(16, height: 1.3),
+          boardMetrics: true,
           value: '$total',
           compact: true,
-          leading: done == total
-              ? const CheckMark()
-              : ProgressRing(fraction: total == 0 ? 0 : done / total),
+          leading: _drawerRing(
+            total == 0 ? 0 : done / total,
+            done: done == total,
+          ),
         )
       : ListRow(
           title: title,

@@ -22,6 +22,7 @@ class WebButton extends StatelessWidget {
     this.keyHint,
     this.busy = false,
     this.tall = false,
+    this.expand = false,
     super.key,
   });
   final String label;
@@ -34,6 +35,9 @@ class WebButton extends StatelessWidget {
 
   /// 48 px onboarding height with the board's padding.
   final bool tall;
+
+  /// Full width of the parent, label centered (board `width: 100%`).
+  final bool expand;
 
   @override
   Widget build(BuildContext context) {
@@ -82,104 +86,109 @@ class WebButton extends StatelessWidget {
             : large
                 ? 50.0
                 : 44.0;
+    final button = TextButton(
+      onPressed: busy ? null : onPressed,
+      style: ButtonStyle(
+        animationDuration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 150),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
+        minimumSize: WidgetStatePropertyAll(
+          Size(expand ? double.infinity : 0, height),
+        ),
+        padding: WidgetStatePropertyAll(
+          EdgeInsets.only(
+            left: tall
+                ? switch (variant) {
+                    WebButtonVariant.primary => 22,
+                    WebButtonVariant.tertiary => 16,
+                    WebButtonVariant.white => 18,
+                    _ => 18,
+                  }
+                : pill
+                    ? 22
+                    : variant == WebButtonVariant.tertiary
+                        ? 14
+                        : variant == WebButtonVariant.secondary ||
+                                variant == WebButtonVariant.white ||
+                                variant == WebButtonVariant.dangerOutline
+                            ? 18
+                            : 20,
+            right: tall && variant == WebButtonVariant.tertiary
+                ? 16
+                : pill || showKeyHint
+                    ? 14
+                    : variant == WebButtonVariant.tertiary
+                        ? 14
+                        : variant == WebButtonVariant.secondary ||
+                                variant == WebButtonVariant.white ||
+                                variant == WebButtonVariant.dangerOutline
+                            ? 18
+                            : 20,
+          ),
+        ),
+        backgroundColor: WidgetStateProperty.resolveWith(background),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.disabled) && !busy
+              ? t.disabledText
+              : foreground,
+        ),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        side: WidgetStateProperty.resolveWith(
+          (s) => BorderSide(
+            color: s.contains(WidgetState.focused)
+                ? c.accent
+                : variant == WebButtonVariant.dangerOutline
+                    ? c.destructive
+                    : variant == WebButtonVariant.white
+                        ? (tall
+                            ? Colors.transparent
+                            : t.dark
+                                ? t.cardEdge
+                                : c.separator)
+                        : Colors.transparent,
+            width: s.contains(WidgetState.focused) ? 2 : 1,
+          ),
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(radius),
+          ),
+        ),
+        textStyle: WidgetStatePropertyAll(
+          t.style(large ? 17 : 16, weight: FontWeight.w600, height: 1.2),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: expand ? MainAxisSize.max : MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (busy) ...[
+            SizedBox.square(
+              dimension: 18,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                color: foreground,
+                value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
+              ),
+            ),
+            const SizedBox(width: 8),
+          ],
+          Flexible(child: Text(label)),
+          if (showKeyHint) ...[
+            const SizedBox(width: 12),
+            WebKeyHint(keyHint!, onButton: true, enabled: onPressed != null),
+          ],
+        ],
+      ),
+    );
+    if (expand) return button;
     return Align(
       widthFactor: 1,
       heightFactor: 1,
       alignment: Alignment.centerLeft,
-      child: TextButton(
-        onPressed: busy ? null : onPressed,
-        style: ButtonStyle(
-          animationDuration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 150),
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          visualDensity: VisualDensity.standard,
-          minimumSize: WidgetStatePropertyAll(Size(0, height)),
-          padding: WidgetStatePropertyAll(
-            EdgeInsets.only(
-              left: tall
-                  ? switch (variant) {
-                      WebButtonVariant.primary => 22,
-                      WebButtonVariant.tertiary => 16,
-                      WebButtonVariant.white => 18,
-                      _ => 18,
-                    }
-                  : pill
-                      ? 22
-                      : variant == WebButtonVariant.tertiary
-                          ? 14
-                          : variant == WebButtonVariant.secondary ||
-                                  variant == WebButtonVariant.white ||
-                                  variant == WebButtonVariant.dangerOutline
-                              ? 18
-                              : 20,
-              right: tall && variant == WebButtonVariant.tertiary
-                  ? 16
-                  : pill || showKeyHint
-                      ? 14
-                      : variant == WebButtonVariant.tertiary
-                          ? 14
-                          : variant == WebButtonVariant.secondary ||
-                                  variant == WebButtonVariant.white ||
-                                  variant == WebButtonVariant.dangerOutline
-                              ? 18
-                              : 20,
-            ),
-          ),
-          backgroundColor: WidgetStateProperty.resolveWith(background),
-          foregroundColor: WidgetStateProperty.resolveWith(
-            (s) => s.contains(WidgetState.disabled) && !busy
-                ? t.disabledText
-                : foreground,
-          ),
-          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-          side: WidgetStateProperty.resolveWith(
-            (s) => BorderSide(
-              color: s.contains(WidgetState.focused)
-                  ? c.accent
-                  : variant == WebButtonVariant.dangerOutline
-                      ? c.destructive
-                      : variant == WebButtonVariant.white
-                          ? (tall
-                              ? Colors.transparent
-                              : t.dark
-                                  ? t.cardEdge
-                                  : c.separator)
-                          : Colors.transparent,
-              width: s.contains(WidgetState.focused) ? 2 : 1,
-            ),
-          ),
-          shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(radius),
-            ),
-          ),
-          textStyle: WidgetStatePropertyAll(
-            t.style(large ? 17 : 16, weight: FontWeight.w600, height: 1.2),
-          ),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (busy) ...[
-              SizedBox.square(
-                dimension: 18,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: foreground,
-                  value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
-                ),
-              ),
-              const SizedBox(width: 8),
-            ],
-            Flexible(child: Text(label)),
-            if (showKeyHint) ...[
-              const SizedBox(width: 12),
-              WebKeyHint(keyHint!, onButton: true, enabled: onPressed != null),
-            ],
-          ],
-        ),
-      ),
+      child: button,
     );
   }
 }
@@ -232,9 +241,17 @@ class WebKeyHint extends StatelessWidget {
 }
 
 class WebTextLink extends StatefulWidget {
-  const WebTextLink({required this.label, required this.onPressed, super.key});
+  const WebTextLink({
+    required this.label,
+    required this.onPressed,
+    this.arrow = true,
+    super.key,
+  });
   final String label;
   final VoidCallback onPressed;
+
+  /// The board's Home links are text only; other pages keep the arrow.
+  final bool arrow;
   @override
   State<WebTextLink> createState() => _WebTextLinkState();
 }
@@ -265,14 +282,16 @@ class _WebTextLinkState extends State<WebTextLink> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(widget.label),
-            const SizedBox(width: 4),
-            AnimatedContainer(
-              transform: Matrix4.translationValues(_hover ? 4 : 0, 0, 0),
-              duration: MediaQuery.disableAnimationsOf(context)
-                  ? Duration.zero
-                  : const Duration(milliseconds: 150),
-              child: const Text('→'),
-            ),
+            if (widget.arrow) ...[
+              const SizedBox(width: 4),
+              AnimatedContainer(
+                transform: Matrix4.translationValues(_hover ? 4 : 0, 0, 0),
+                duration: MediaQuery.disableAnimationsOf(context)
+                    ? Duration.zero
+                    : const Duration(milliseconds: 150),
+                child: const Text('→'),
+              ),
+            ],
           ],
         ),
       ),
@@ -326,7 +345,57 @@ class WebCard extends StatelessWidget {
   }
 }
 
-class WebRow extends StatelessWidget {
+/// One hairline at device resolution: the board's `.5px` rule is a whole
+/// device pixel in the browser, not a half-covered pair.
+double webHairline(BuildContext context) =>
+    1 / MediaQuery.devicePixelRatioOf(context).clamp(1.0, 2.0);
+
+/// The board's 16 px row chevron (`m9.5 5.5 6.5 6.5-6.5 6.5`, 2.2 stroke).
+class WebChevron extends StatelessWidget {
+  const WebChevron({this.color, super.key});
+  final Color? color;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return ExcludeSemantics(
+      child: CustomPaint(
+        size: const Size.square(16),
+        painter: _ChevronPainter(
+          color ?? (t.dark ? t.colors.tertiaryLabel : const Color(0xFFB8B8BD)),
+        ),
+      ),
+    );
+  }
+}
+
+class _ChevronPainter extends CustomPainter {
+  const _ChevronPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    canvas.drawPath(
+      Path()
+        ..moveTo(9.5 * k, 5.5 * k)
+        ..lineTo(16 * k, 12 * k)
+        ..lineTo(9.5 * k, 18.5 * k),
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.2 * k
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..color = color,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_ChevronPainter old) => old.color != color;
+}
+
+/// Row chevron: absent, shown on hover only (board `.cv`), or always shown.
+enum WebRowChevron { none, hover, always }
+
+class WebRow extends StatefulWidget {
   const WebRow({
     required this.title,
     this.subtitle,
@@ -344,6 +413,8 @@ class WebRow extends StatelessWidget {
     this.dimmed = false,
     this.compact = false,
     this.divider = true,
+    this.boardMetrics = false,
+    this.chevron = WebRowChevron.none,
     super.key,
   });
   final String title;
@@ -362,28 +433,51 @@ class WebRow extends StatelessWidget {
   final bool dimmed;
   final bool compact;
   final bool divider;
+
+  /// Home's rows: the board's line heights (22 and 18 px) and its one-pixel
+  /// hairline, so a row is 71 px tall.
+  final bool boardMetrics;
+  final WebRowChevron chevron;
+  @override
+  State<WebRow> createState() => _WebRowState();
+}
+
+class _WebRowState extends State<WebRow> {
+  final _states = WidgetStatesController();
+
+  @override
+  void dispose() {
+    _states.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final w = widget;
     final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
+    final lineHeight = w.boardMetrics ? 1.3 : null;
+    final hairline = w.boardMetrics ? webHairline(context) : .5;
     return Opacity(
-      opacity: dimmed ? .45 : 1,
+      opacity: w.dimmed ? .45 : 1,
       child: Semantics(
-        selected: selected,
+        selected: w.selected,
         child: TextButton(
-          onPressed: dimmed ? null : onPressed,
+          statesController: _states,
+          onPressed: w.dimmed ? null : w.onPressed,
           style: ButtonStyle(
             animationDuration: MediaQuery.disableAnimationsOf(context)
                 ? Duration.zero
                 : const Duration(milliseconds: 150),
             padding: WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: horizontalPadding),
+              EdgeInsets.symmetric(horizontal: w.horizontalPadding),
             ),
             minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 0)),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
             shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
             backgroundColor: WidgetStateProperty.resolveWith(
-              (s) => selected
+              (s) => w.selected
                   ? t.colors.accentTint
                   : s.contains(WidgetState.hovered) ||
                           s.contains(WidgetState.focused)
@@ -394,16 +488,16 @@ class WebRow extends StatelessWidget {
           ),
           child: Row(
             children: [
-              if (leading != null) ...[leading!, const SizedBox(width: 16)],
+              if (w.leading != null) ...[w.leading!, const SizedBox(width: 16)],
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: compact ? 12 : 15),
+                  padding: EdgeInsets.symmetric(vertical: w.compact ? 12 : 15),
                   decoration: BoxDecoration(
-                    border: divider
+                    border: w.divider
                         ? Border(
                             bottom: BorderSide(
                               color: t.colors.separator,
-                              width: .5,
+                              width: hairline,
                             ),
                           )
                         : null,
@@ -415,15 +509,19 @@ class WebRow extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            if (titleSuffix == null)
+                            if (w.titleSuffix == null)
                               Text(
-                                title,
-                                maxLines: large || wrapTitle ? null : 1,
-                                overflow: large || wrapTitle
+                                w.title,
+                                maxLines: large || w.wrapTitle ? null : 1,
+                                overflow: large || w.wrapTitle
                                     ? TextOverflow.visible
                                     : TextOverflow.ellipsis,
-                                style: titleStyle ??
-                                    t.style(17, color: titleColor),
+                                style: w.titleStyle ??
+                                    t.style(
+                                      17,
+                                      color: w.titleColor,
+                                      height: lineHeight,
+                                    ),
                               )
                             else
                               Row(
@@ -431,49 +529,71 @@ class WebRow extends StatelessWidget {
                                 children: [
                                   Flexible(
                                     child: Text(
-                                      title,
-                                      maxLines: large || wrapTitle ? null : 1,
-                                      overflow: large || wrapTitle
+                                      w.title,
+                                      maxLines: large || w.wrapTitle ? null : 1,
+                                      overflow: large || w.wrapTitle
                                           ? TextOverflow.visible
                                           : TextOverflow.ellipsis,
-                                      style: titleStyle ??
-                                          t.style(17, color: titleColor),
+                                      style: w.titleStyle ??
+                                          t.style(
+                                            17,
+                                            color: w.titleColor,
+                                            height: lineHeight,
+                                          ),
                                     ),
                                   ),
                                   const SizedBox(width: 6),
-                                  titleSuffix!,
+                                  w.titleSuffix!,
                                 ],
                               ),
-                            if (subtitle != null)
+                            if (w.subtitle != null)
                               Text(
-                                subtitle!,
-                                maxLines: large || wrapTitle ? null : 1,
-                                overflow: large || wrapTitle
+                                w.subtitle!,
+                                maxLines: large || w.wrapTitle ? null : 1,
+                                overflow: large || w.wrapTitle
                                     ? TextOverflow.visible
                                     : TextOverflow.ellipsis,
                                 style: t.style(
                                   14,
                                   color: t.colors.secondaryLabel,
+                                  height: lineHeight,
                                 ),
                               ),
-                            if (large && value != null)
-                              Text(value!, style: valueStyle ?? t.sub),
+                            if (large && w.value != null)
+                              Text(w.value!, style: w.valueStyle ?? t.sub),
                           ],
                         ),
                       ),
-                      if (!large && value != null) ...[
+                      if (!large && w.value != null) ...[
                         const SizedBox(width: 12),
-                        Flexible(
-                          child: Text(
-                            value!,
-                            style: valueStyle ?? t.sub,
-                            textAlign: TextAlign.end,
-                          ),
+                        Text(
+                          w.value!,
+                          style: w.valueStyle ?? t.sub,
+                          textAlign: TextAlign.end,
                         ),
                       ],
-                      if (trailing != null) ...[
+                      if (w.trailing != null) ...[
                         const SizedBox(width: 12),
-                        trailing!,
+                        w.trailing!,
+                      ],
+                      if (w.chevron != WebRowChevron.none) ...[
+                        const SizedBox(width: 12),
+                        if (w.chevron == WebRowChevron.always)
+                          const WebChevron()
+                        else
+                          ListenableBuilder(
+                            listenable: _states,
+                            builder: (context, child) => Opacity(
+                              opacity:
+                                  _states.value.contains(WidgetState.hovered) ||
+                                          _states.value
+                                              .contains(WidgetState.focused)
+                                      ? 1
+                                      : 0,
+                              child: child,
+                            ),
+                            child: const WebChevron(),
+                          ),
                       ],
                     ],
                   ),

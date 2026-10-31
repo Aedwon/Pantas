@@ -48,11 +48,13 @@ void main() {
     );
     addTearDown(container.dispose);
 
-    await loadLocalStudentFromUrl(
+    final loaded = await loadLocalStudentFromUrl(
       container,
       url: Uri.parse('http://localhost:7357/?localStudent=steady'),
     );
 
+    // Nothing loaded, so startup does not rebind payments either.
+    expect(loaded, isFalse);
     expect(await db.select(db.attemptsLocal).get(), isEmpty);
     expect(await db.select(db.devicePrefs).get(), isEmpty);
     expect(await db.select(db.streakLocal).get(), isEmpty);

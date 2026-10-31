@@ -33,7 +33,7 @@ void main() {
       if (width >= 1024) {
         expect(find.text('Pantas'), findsOneWidget);
         expect(find.text('CSE · Free'), findsOneWidget);
-        expect(tester.getSize(find.byType(WebSidebar)).width, 244);
+        expect(tester.getSize(find.byType(WebSidebar)).width, 230.4);
         await tester.tap(find.text('Quiz'));
         expect(tab, 2);
         await tester.tap(find.text('Search lessons'));

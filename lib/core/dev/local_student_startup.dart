@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
+import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth_state.dart';
@@ -7,6 +10,7 @@ import 'package:pantas/core/content/remote/content_service_providers.dart';
 import 'package:pantas/core/dev/local_sample_students.dart';
 import 'package:pantas/core/dev/local_student_url.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 
 /// The page address as it was when startup began. Routing rewrites the
@@ -56,16 +60,18 @@ Future<SampleStudentProfile> seedLocalStudentOnServer(
 /// not do it again.
 ///
 /// Call after sign-in. A failure is logged and the app starts as it was.
-Future<void> loadLocalStudentFromUrl(
+/// Returns true when a student was loaded. Loading drops every provider, so
+/// the caller starts again whatever startup had bound to the old providers.
+Future<bool> loadLocalStudentFromUrl(
   ProviderContainer container, {
   Uri? url,
   LocalStudentSeed seed = seedLocalStudentOnServer,
   DateTime? today,
 }) async {
   // Both are compile-time constants: normal builds drop everything below.
-  if (!localEmulators || !kIsWeb) return;
+  if (!localEmulators || !kIsWeb) return false;
   final student = localStudentFromUrl(url ?? _startUrl ?? Uri.base);
-  if (student == null) return;
+  if (student == null) return false;
   try {
     final auth = await container.read(authStateProvider.future);
     final uid = switch (auth) {
@@ -87,9 +93,38 @@ Future<void> loadLocalStudentFromUrl(
     // The content mirror is rebuilt empty by the line above. Start it again, as
     // startup does, so question text can be fetched for the plan's reviews.
     await container.read(contentMirrorProvider).start();
+    await _waitForQuietSync(container.read(appDatabaseProvider));
+    return true;
   } catch (error, stack) {
     debugPrint('Local sample student did not load: $error\n$stack');
+    return false;
   } finally {
     removeLocalStudentFromUrl();
+  }
+}
+
+/// A signed-in account starts syncing the seeded records as soon as they are
+/// written, and each sync step rewrites the sync tables. Home's first plan
+/// read restarts on every such write and fails with "Study owner changed".
+/// Wait until the sync tables have been quiet for [quiet], for at most
+/// [limit], so the first screen starts from a settled database.
+Future<void> _waitForQuietSync(
+  AppDatabase db, {
+  Duration quiet = const Duration(seconds: 2),
+  Duration limit = const Duration(seconds: 20),
+}) async {
+  final stopwatch = Stopwatch()..start();
+  final updates = db.tableUpdates(TableUpdateQuery.onTable(db.syncMeta));
+  final iterator = StreamIterator<Object?>(updates);
+  try {
+    while (stopwatch.elapsed < limit) {
+      final next = await iterator.moveNext().timeout(
+            quiet,
+            onTimeout: () => false,
+          );
+      if (!next) return;
+    }
+  } finally {
+    await iterator.cancel();
   }
 }

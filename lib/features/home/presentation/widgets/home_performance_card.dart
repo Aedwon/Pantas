@@ -40,7 +40,6 @@ class HomePerformanceCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const WebText('Your performance', kind: WebTextKind.eyebrow),
-          const SizedBox(height: 9),
           WebCard(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -66,7 +65,7 @@ class HomePerformanceCard extends StatelessWidget {
                                 : Border(
                                     bottom: BorderSide(
                                       color: context.webTokens.colors.separator,
-                                      width: .5,
+                                      width: webHairline(context),
                                     ),
                                   ),
                           ),
@@ -77,13 +76,17 @@ class HomePerformanceCard extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       row.title,
-                                      style: context.webTokens.style(16),
+                                      style: context.webTokens
+                                          .style(16, height: 1.3),
                                     ),
                                   ),
                                   Text(
                                     '${(row.accuracy! * 100).round()}%',
-                                    style: context.webTokens
-                                        .style(16, weight: FontWeight.w600),
+                                    style: context.webTokens.style(
+                                      16,
+                                      weight: FontWeight.w600,
+                                      height: 1.3,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -98,39 +101,13 @@ class HomePerformanceCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: WebTextLink(
-                          label: 'See all topics and lessons',
-                          onPressed: onOpen,
-                        ),
-                      ),
-                      if (!pro)
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 1,
-                          ),
-                          decoration: BoxDecoration(
-                            color: context.webTokens.colors.accentTint,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Text(
-                            'PRO',
-                            style: context.webTokens.style(
-                              11,
-                              weight: FontWeight.w700,
-                              color: context.webTokens.tintText,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
+                // Board: a full-width hairline, then one 51 px row with the
+                // chevron. The PRO tag is on the Free plan only.
+                Container(
+                  height: webHairline(context),
+                  color: context.webTokens.colors.separator,
                 ),
+                _SeeAllRow(pro: pro, onPressed: onOpen),
               ],
             ),
           ),
@@ -184,6 +161,69 @@ class HomePerformanceCard extends StatelessWidget {
           onTap: onOpen,
         ),
       ],
+    );
+  }
+}
+
+class _SeeAllRow extends StatelessWidget {
+  const _SeeAllRow({required this.pro, required this.onPressed});
+  final bool pro;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return TextButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        animationDuration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 150),
+        visualDensity: VisualDensity.standard,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 51)),
+        padding: const WidgetStatePropertyAll(
+          EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        ),
+        shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (s) =>
+              s.contains(WidgetState.hovered) || s.contains(WidgetState.focused)
+                  ? t.rowHover
+                  : Colors.transparent,
+        ),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              'See all topics and lessons',
+              style: t.style(16, color: t.colors.label, height: 1.3),
+            ),
+          ),
+          if (!pro) ...[
+            const SizedBox(width: 12),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+              decoration: BoxDecoration(
+                color: t.colors.accentTint,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Text(
+                'PRO',
+                style: t.style(
+                  11,
+                  weight: FontWeight.w700,
+                  color: t.tintText,
+                  spacing: .22,
+                ),
+              ),
+            ),
+          ],
+          const SizedBox(width: 12),
+          const WebChevron(),
+        ],
+      ),
     );
   }
 }

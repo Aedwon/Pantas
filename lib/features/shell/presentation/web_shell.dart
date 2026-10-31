@@ -132,8 +132,9 @@ class WebSidebar extends StatelessWidget {
     return Semantics(
       container: true,
       label: 'Main navigation',
+      // Board `.side` at 1440: 230.4 px (its content's own width).
       child: SizedBox(
-        width: 244,
+        width: 230.4,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(14, 22, 14, 20),
           child: Column(
@@ -146,17 +147,19 @@ class WebSidebar extends StatelessWidget {
                   style: t.style(
                     22,
                     weight: FontWeight.w700,
-                    height: 1.2,
+                    height: 1.27,
                     spacing: -.44,
                   ),
                 ),
               ),
+              const SizedBox(height: 4),
               TextButton(
                 onPressed: onSearch,
                 style: ButtonStyle(
                   animationDuration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero
                       : const Duration(milliseconds: 150),
+                  visualDensity: VisualDensity.standard,
                   minimumSize: const WidgetStatePropertyAll(Size(0, 38)),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   padding: const WidgetStatePropertyAll(
@@ -221,6 +224,7 @@ class WebSidebar extends StatelessWidget {
                             MediaQuery.disableAnimationsOf(context)
                                 ? Duration.zero
                                 : const Duration(milliseconds: 150),
+                        visualDensity: VisualDensity.standard,
                         minimumSize: const WidgetStatePropertyAll(
                           Size(0, 40),
                         ),

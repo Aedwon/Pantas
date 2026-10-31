@@ -44,58 +44,36 @@ class HomeWebLayout extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         today,
-                        if (notice != null) ...[
-                          const SizedBox(height: 20),
-                          notice!,
-                        ],
                         if (onRecord != null && onTendencies != null) ...[
                           const SizedBox(height: 28),
                           const WebText(
                             'More about you',
                             kind: WebTextKind.eyebrow,
                           ),
-                          const SizedBox(height: 9),
                           Row(
                             children: [
                               Expanded(
-                                child: WebCard(
-                                  child: WebRow(
-                                    title: 'Your record',
-                                    leading: Icon(
-                                      Icons.show_chart,
-                                      color: context.webTokens.colors.accent,
-                                      size: 24,
-                                    ),
-                                    trailing: const Icon(
-                                      Icons.chevron_right,
-                                      size: 16,
-                                    ),
-                                    divider: false,
-                                    onPressed: onRecord,
-                                  ),
+                                child: _MoreRow(
+                                  title: 'Your record',
+                                  icon: Icons.show_chart,
+                                  onPressed: onRecord!,
                                 ),
                               ),
                               const SizedBox(width: 14),
                               Expanded(
-                                child: WebCard(
-                                  child: WebRow(
-                                    title: 'Your tendencies',
-                                    leading: Icon(
-                                      Icons.auto_awesome_outlined,
-                                      color: context.webTokens.colors.accent,
-                                      size: 24,
-                                    ),
-                                    trailing: const Icon(
-                                      Icons.chevron_right,
-                                      size: 16,
-                                    ),
-                                    divider: false,
-                                    onPressed: onTendencies,
-                                  ),
+                                child: _MoreRow(
+                                  title: 'Your tendencies',
+                                  icon: Icons.auto_awesome_outlined,
+                                  onPressed: onTendencies!,
                                 ),
                               ),
                             ],
                           ),
+                        ],
+                        // The board puts every notice after "More about you".
+                        if (notice != null) ...[
+                          const SizedBox(height: 28),
+                          notice!,
                         ],
                       ],
                     );
@@ -135,6 +113,66 @@ class HomeWebLayout extends StatelessWidget {
           ),
         ),
       );
+}
+
+/// "More about you" row. Flat on the page, like the board's `.card.row`
+/// (the later `.row{background:transparent}` rule wins over `.card`), with the
+/// row hover fill. Dark mode keeps the board's filled card.
+class _MoreRow extends StatelessWidget {
+  const _MoreRow({
+    required this.title,
+    required this.icon,
+    required this.onPressed,
+  });
+  final String title;
+  final IconData icon;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(18),
+        border: t.dark ? Border.all(color: t.cardEdge) : null,
+      ),
+      child: TextButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          animationDuration: MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 150),
+          visualDensity: VisualDensity.standard,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 60)),
+          padding: const WidgetStatePropertyAll(
+            EdgeInsets.fromLTRB(20, 18, 18, 18),
+          ),
+          backgroundColor: WidgetStateProperty.resolveWith(
+            (s) => s.contains(WidgetState.hovered) ||
+                    s.contains(WidgetState.focused)
+                ? t.rowHover
+                : t.dark
+                    ? t.colors.surface
+                    : Colors.transparent,
+          ),
+          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: t.colors.accent, size: 24),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(title, style: t.style(17, color: t.colors.label)),
+            ),
+            const WebChevron(),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 /// The three Today lists are right drawers. Date editing is a centered dialog.
@@ -242,12 +280,19 @@ class _HomeWebOverlayState extends State<HomeWebOverlay> {
                                         fit: StackFit.expand,
                                         children: [
                                           widget.child,
+                                          // Board `.ib`: 44 px, centred on
+                                          // the header's title block.
                                           Positioned(
-                                            top: 14,
+                                            top: 26.5,
                                             right: 16,
                                             child: IconButton(
                                               tooltip: 'Close',
                                               onPressed: widget.onDismiss,
+                                              style: IconButton.styleFrom(
+                                                fixedSize: const Size(44, 44),
+                                                visualDensity:
+                                                    VisualDensity.standard,
+                                              ),
                                               icon: const Icon(
                                                 Icons.close,
                                                 size: 18,
@@ -482,26 +527,27 @@ class HomeWebQuestionsSheet extends StatelessWidget {
         },
         child: Focus(
           autofocus: true,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 22, 16, 18),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8, bottom: 14),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      WebText(title, kind: WebTextKind.h2),
-                      Text(
-                        '$done of $total${title == 'Lessons' ? ' read' : ''}',
-                        style: context.webTokens.sub,
-                      ),
-                    ],
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 22, 16, 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    WebText(title, kind: WebTextKind.h2),
+                    Text(
+                      '$done of $total${title == 'Lessons' ? ' read' : ''}',
+                      style: context.webTokens.sub,
+                    ),
+                  ],
                 ),
-                Expanded(
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: SingleChildScrollView(
+                    padding: const EdgeInsets.only(bottom: 16),
                     child: title == 'Lessons'
                         ? Column(mainAxisSize: MainAxisSize.min, children: rows)
                         : WebCard(
@@ -512,19 +558,29 @@ class HomeWebQuestionsSheet extends StatelessWidget {
                           ),
                   ),
                 ),
-                if (failure != null) failure!,
-                if (onStart != null) ...[
-                  const SizedBox(height: 14),
-                  WebButton(
+              ),
+              if (failure != null) failure!,
+              if (onStart != null)
+                Container(
+                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: context.webTokens.colors.separator,
+                        width: webHairline(context),
+                      ),
+                    ),
+                  ),
+                  child: WebButton(
                     label: startLabel,
                     keyHint: 'Enter',
                     large: true,
+                    expand: true,
                     onPressed: onStart,
                     busy: busy,
                   ),
-                ],
-              ],
-            ),
+                ),
+            ],
           ),
         ),
       );

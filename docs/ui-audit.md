@@ -2202,3 +2202,34 @@ today (the board's "Thursday or Friday" omits today); no change.
 Checks: `flutter analyze` clean; `flutter test test/features/onboarding test/core/ui` 861 passed;
 `check_layering` OK. `check_no_ai_attribution` fails on earlier commits on this branch
 (b14a5515, 9a001215, bcb4b981), not on this batch.
+
+### Home fix batch 1 (2026-10-31)
+
+Boards rendered with `web/shared/pantas.css` (boards load it as `/_blob/9c74f4aa…`). Capture and
+measurement by Sonnet (`build/visual-pass/home-diffs.md`, `shots/home` in the staging worktree);
+lead reviewed HM_DayStart before and after. Sample students via `?localStudent=` (local only).
+
+Fixed: Today rows 71 px with values right-aligned and 24 px rings; footer tinted band and hairline;
+"More about you" flat rows in light (board `.row` rule); Performance bottom row full width with
+chevron; week strip 77 px, day pitch 48, today circle 26; exam tile 42x36 with dark border;
+sidebar 230.4 px wide, search 38 px, nav pitch 44; panel button full width and close icon
+position; Pro welcome notice after "More about you".
+
+Not fixed:
+- Footer time estimate ("About 45 min today" on the board): left out. The app has no measured,
+  published or named-algorithm figure for today's minutes (AGENTS "Never invent a figure"). Needs
+  Aedwon's decision.
+- Pro welcome notice open layout still differs from HM_ProWelcome.
+- 15 Home states not reached by the capture (DayDone, AdvanceAgain, Advanced, NothingDue, DayOff,
+  Resume, Service, Trial, BeforeAssessment, MockDay, MockMoved, MockDropped, NothingDueReview,
+  ReviewWeek, LastDay) and 8 special states (ExamDay, ExamPassed, MonthOnly, MonthOnlyPick, NoDate,
+  NoDateModal, NoticeClosed, NoContent).
+- Open bug, cause unknown: Start Lesson from the Today drawer showed "Lesson not found" for a
+  seeded student while the server returned the lesson. Retest with Pro working.
+
+Local fixes in the same batch: `?localAccount=` is read at the start of startup (routing had
+removed it); after seeding, the app waits for sync to settle and signs the payment gateway in
+again, which fixed "Study owner changed" and the sidebar's "Free" label on the Pro account.
+
+Checks: `flutter analyze` clean; `flutter test test/features/home test/features/shell test/core/ui
+test/core/dev test/core/platform` pass; `check_layering` OK.

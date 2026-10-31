@@ -238,9 +238,27 @@ class HomeTodayChecklist extends StatelessWidget {
             : reviewsDone < reviewsTotal
                 ? 'Start Reviews'
                 : 'Start New Questions';
+    final footerCaption = _footerCaption(visible);
+    // The board's ring is a 24 px circle in a 26 px box, 2 px empty stroke.
+    Widget ring(double fraction) => SizedBox.square(
+          dimension: 26,
+          child: Center(
+            child: fraction > 0
+                ? ProgressRing(fraction: fraction, size: 25)
+                : ProgressRing(
+                    fraction: 0,
+                    emptyStrokeWidth: 2,
+                    emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
+                  ),
+          ),
+        );
+    Widget check() =>
+        const SizedBox.square(dimension: 26, child: Center(child: CheckMark()));
     Widget lesson(HomeTodayLesson l, {bool upNext = false}) => Tooltip(
           message: l.title,
           child: WebRow(
+            boardMetrics: true,
+            chevron: upNext ? WebRowChevron.none : WebRowChevron.hover,
             title: l.title,
             subtitle: l.subject,
             titleColor: l.read ? t.colors.secondaryLabel : null,
@@ -267,9 +285,7 @@ class HomeTodayChecklist extends StatelessWidget {
                 : (l.fraction ?? 0) > 0
                     ? 'Resume'
                     : '${l.minutes} min',
-            leading: l.read
-                ? const CheckMark()
-                : ProgressRing(fraction: l.fraction ?? 0, size: 26),
+            leading: l.read ? check() : ring(l.fraction ?? 0),
             onPressed: () => onLesson(l),
           ),
         );
@@ -281,12 +297,12 @@ class HomeTodayChecklist extends StatelessWidget {
       VoidCallback open,
     ) =>
         WebRow(
+          boardMetrics: true,
+          chevron: collapsed ? WebRowChevron.always : WebRowChevron.hover,
           title: title,
           subtitle: subtitle,
           value: '$done of $total',
-          leading: done == total
-              ? const CheckMark()
-              : ProgressRing(fraction: done / total, size: 26),
+          leading: done == total ? check() : ring(done / total),
           onPressed: open,
         );
     return CallbackShortcuts(
@@ -305,7 +321,17 @@ class HomeTodayChecklist extends StatelessWidget {
                 children: [
                   Expanded(child: Text('TODAY', style: t.eb)),
                   if (onPlan != null)
-                    WebTextLink(label: 'View full plan', onPressed: onPlan!),
+                    // The board's label row is 19 px tall (link line box).
+                    SizedBox(
+                      height: 19,
+                      child: Center(
+                        child: WebTextLink(
+                          label: 'View full plan',
+                          onPressed: onPlan!,
+                          arrow: false,
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -326,22 +352,22 @@ class HomeTodayChecklist extends StatelessWidget {
                   ],
                   if (isMockDay)
                     WebRow(
+                      boardMetrics: true,
                       title: 'Mock exam',
                       subtitle: mockSubtitle,
                       value: mockDuration,
-                      leading: const ProgressRing(fraction: 0, size: 26),
+                      leading: ring(0),
                       onPressed: onMock,
                     ),
                   if (collapsed) ...[
                     if (next != null) lesson(next, upNext: true),
                     WebRow(
+                      boardMetrics: true,
+                      chevron: WebRowChevron.always,
                       title: 'Lessons',
                       subtitle: '${visible.length} today',
                       value: '$done of ${visible.length} read',
-                      leading: ProgressRing(
-                        fraction: done / visible.length,
-                        size: 26,
-                      ),
+                      leading: ring(done / visible.length),
                       onPressed: onLessons,
                     ),
                   ] else
@@ -373,18 +399,23 @@ class HomeTodayChecklist extends StatelessWidget {
                         border: Border(
                           top: BorderSide(
                             color: t.colors.separator,
-                            width: .5,
+                            width: webHairline(context),
                           ),
                         ),
                       ),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: WebButton(
-                          label: label,
-                          keyHint: 'Enter',
-                          onPressed: start,
-                          busy: advancing,
-                        ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(footerCaption ?? '', style: t.sub),
+                          ),
+                          const SizedBox(width: 16),
+                          WebButton(
+                            label: label,
+                            keyHint: 'Enter',
+                            onPressed: start,
+                            busy: advancing,
+                          ),
+                        ],
                       ),
                     ),
                   if (canAdvance || doneNote != null)
@@ -426,6 +457,12 @@ class HomeTodayChecklist extends StatelessWidget {
       ),
     );
   }
+
+  /// The board's time estimate is left out: no measured or published
+  /// figure gives today's minutes yet (AGENTS "Never invent a figure").
+  /// Aedwon decides.
+  String? _footerCaption(List<HomeTodayLesson> visible) =>
+      isMockDay ? 'The mock comes first today' : null;
 
   String? get _doneDetail => switch (doneNote) {
         HomeDoneNote.reviewWeek => 'This last week is reviews only, so '

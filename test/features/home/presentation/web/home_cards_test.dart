@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 
 void main() {
@@ -21,26 +20,27 @@ void main() {
           ),
         ),
       );
-      final cards = <Element>[];
+      // Board `.card.row`: the later `.row{background:transparent}` rule wins,
+      // so light rows sit flat on the page. Dark keeps the filled card.
+      final rows = <Element>[];
       for (final title in ['Your record', 'Your tendencies']) {
-        final card =
-            find.ancestor(of: find.text(title), matching: find.byType(WebCard));
-        expect(card, findsOneWidget);
-        cards.add(card.evaluate().single);
-        final container = tester.widget<Container>(
-          find
-              .descendant(
-                of: card,
-                matching: find.byType(Container),
-              )
-              .first,
+        final row = find.ancestor(
+          of: find.text(title),
+          matching: find.byType(TextButton),
+        );
+        expect(row, findsOneWidget);
+        rows.add(row.evaluate().single);
+        final button = tester.widget<TextButton>(row);
+        expect(
+          button.style!.backgroundColor!.resolve(<WidgetState>{}),
+          dark ? const Color(0xFF1F1F1F) : Colors.transparent,
         );
         expect(
-          (container.decoration! as BoxDecoration).color,
-          dark ? const Color(0xFF1F1F1F) : Colors.white,
+          button.style!.backgroundColor!.resolve({WidgetState.hovered}),
+          dark ? const Color(0xFF2A2A2A) : const Color(0xFFF7F7F9),
         );
       }
-      expect(identical(cards[0], cards[1]), isFalse);
+      expect(identical(rows[0], rows[1]), isFalse);
       expect(tester.takeException(), isNull);
     });
   }
