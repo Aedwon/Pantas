@@ -200,7 +200,7 @@ export or read that canvas into local board files. The web pass changes only the
 | Home | HM_*, DK_Home | batches 1-2 on staging 192ffa84; ~24 of 34 boards; open copy items and a lesson bug |
 | Study and reader | SD_*, RD_* | batch 1 on staging ed6f5e78: 16 of 22; 6 error/loading states not reached |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | batch 1 on staging 025bba22: 19 of 27 |
-| Mock | MK_* | not started |
+| Mock | MK_* | batch 1 on staging f571f994: 15 of 31; part-by-part boards need a UPCAT/DCAT mock |
 | Results and Performance | results, PF_* | not started |
 | Record, bookmarks, custom quiz | MY_*, BM_*, CZ_* | not started |
 | Settings and Pro | ST_* | not started |

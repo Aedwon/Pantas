@@ -2261,3 +2261,14 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   because it changes answer handling.
 - Approval, Nov 1: Aedwon: "Yes, fix it". Raise the three client limits to match the server, with tests.
 - Done Nov 1: fix on fixes and staging (one constant `ServerMockPaper.maxChosenLength` = 130; tests for 87, 130 and 131-character ids failed on the old limit). Mock and quiz tests pass (1308); analyze clean. No other client id limit is stricter than the server's.
+
+## Nov 1: release blocker, CSE mock blueprint missing from the content root
+
+- Found during the Mock visual pass: the CSE content branch has no `mock/` folder, so it has no
+  CSE mock blueprint. `tools/upload_content/upload_content.mjs` reads blueprints from
+  `<root>/mock`. Uploading the approved CSE content root as it stands would give CSE students no
+  mock exam. The blueprints exist in the app repo: `content/mock/cse-pro.yaml` (last change
+  20692945) and `content/mock/cse-sub.yaml`.
+- Before runbook step 7 (upload), the approved CSE content root must include the CSE mock
+  blueprints, and the dry run must report the expected mock blueprint count. Needs the content
+  lead and Aedwon; not changed.
