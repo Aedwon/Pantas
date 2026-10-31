@@ -414,6 +414,7 @@ class WebRow extends StatefulWidget {
     this.compact = false,
     this.divider = true,
     this.boardMetrics = false,
+    this.leadingGap = 16,
     this.chevron = WebRowChevron.none,
     super.key,
   });
@@ -437,6 +438,9 @@ class WebRow extends StatefulWidget {
   /// Home's rows: the board's line heights (22 and 18 px) and its one-pixel
   /// hairline, so a row is 71 px tall.
   final bool boardMetrics;
+
+  /// Space between the leading widget and the title.
+  final double leadingGap;
   final WebRowChevron chevron;
   @override
   State<WebRow> createState() => _WebRowState();
@@ -488,7 +492,10 @@ class _WebRowState extends State<WebRow> {
           ),
           child: Row(
             children: [
-              if (w.leading != null) ...[w.leading!, const SizedBox(width: 16)],
+              if (w.leading != null) ...[
+                w.leading!,
+                SizedBox(width: w.leadingGap),
+              ],
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: w.compact ? 12 : 15),

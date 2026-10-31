@@ -44,7 +44,7 @@ class WebEndingLayout extends StatelessWidget {
                   'That’s enough for today.',
                   style: t.h1,
                 ),
-                const SizedBox(height: 28),
+                const SizedBox(height: 22),
                 WebButton(
                   label: 'Back to Home',
                   keyHint: 'Enter',
@@ -166,8 +166,11 @@ class WebEndingLayout extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         if (unread.isNotEmpty) ...[
-                          Text('Still unread', style: t.eb),
-                          const SizedBox(height: 9),
+                          Text(
+                            'STILL UNREAD',
+                            style: t.eb.copyWith(height: 22 / 13),
+                          ),
+                          const SizedBox(height: 4),
                           WebCard(
                             child: Column(
                               children: [
@@ -192,6 +195,7 @@ class WebEndingLayout extends StatelessWidget {
                             label: 'Next topic · ${next.name}',
                             title: next.lessons.first.title,
                             detail: nextDetail,
+                            topGap: 0,
                             onPressed:
                                 onNext ?? () => onLesson(next.lessons.first.id),
                           ),

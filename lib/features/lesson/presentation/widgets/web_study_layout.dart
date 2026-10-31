@@ -104,7 +104,7 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
           padding: EdgeInsets.symmetric(horizontal: 4),
           child: WebText('Study', kind: WebTextKind.h1),
         ),
-        const SizedBox(height: 22),
+        const SizedBox(height: 26),
         Expanded(
           child: value.when(
             loading: () => const WebStudyLoading(),
@@ -248,180 +248,183 @@ class WebStudyMap extends StatelessWidget {
         }
       }
     }
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          width: 340,
-          child: ListView(
-            key: const ValueKey('web-study-map'),
-            children: [
-              if (lastLessonId != null && lastTitle != null) ...[
-                WebCard(
-                  padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'LAST OPENED',
-                              style: t.eb.copyWith(fontSize: 12),
-                            ),
-                            const SizedBox(height: 3),
-                            Text(
-                              lastTitle!,
-                              style: t.style(17, weight: FontWeight.w600),
-                            ),
-                            if (lastTopic != null)
-                              Text(
-                                lastTopic,
-                                style: t.style(
-                                  14,
-                                  color: t.colors.secondaryLabel,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      WebButton(
-                        label: 'Resume',
-                        variant: WebButtonVariant.secondary,
-                        onPressed: () => onLesson(lastLessonId!, resume: true),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 22),
-              ],
-              Row(
-                children: [
-                  Expanded(child: _label(context, 'BOOKMARKS')),
-                  if (bookmarks.isNotEmpty)
-                    TextButton(
-                      onPressed: onBookmarks,
-                      child: Text(
-                        'See all',
-                        style: t.style(
-                          14,
-                          color: t.colors.accent,
-                          weight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                ],
-              ),
-              if (bookmarks.isEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
-                  child: Text(
-                    'Bookmark a lesson to keep it here.',
-                    style: t.sm,
-                  ),
-                ),
-              for (final lesson in bookmarks.take(3))
-                _mapRow(
-                  context,
-                  lesson.title,
-                  leading: Icon(
-                    PantasIcons.bookmark,
-                    size: 16,
-                    color: t.colors.accent,
-                  ),
-                  onPressed: () => onLesson(lesson.id, resume: false),
-                ),
-              for (final subject in map.subjects) ...[
-                const SizedBox(height: 18),
-                _label(context, subject.name.toUpperCase()),
-                for (final topic in subject.topics)
-                  _mapRow(
-                    context,
-                    topic.name,
-                    selected: topic.id == openTopicId,
-                    leading: SizedBox.square(
-                      dimension: 18,
-                      child: topic.isComplete
-                          ? Icon(
-                              PantasIcons.check,
-                              size: 18,
-                              color: t.colors.accent,
-                            )
-                          : CircularProgressIndicator(
-                              value: topic.totalCount == 0
-                                  ? 0
-                                  : topic.readCount / topic.totalCount,
-                              strokeWidth: 2,
-                              backgroundColor: t.colors.separator,
-                              color: t.colors.accent,
-                            ),
-                    ),
-                    onPressed: () => onTopic(topic.id),
-                  ),
-              ],
-            ],
-          ),
-        ),
-        const SizedBox(width: 24),
-        Expanded(
-          child: selected == null
-              ? const SizedBox.shrink()
-              : SingleChildScrollView(
-                  key: const ValueKey('web-study-topic'),
-                  child: WebCard(
-                    padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return LayoutBuilder(
+      builder: (context, constraints) => Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            // The board's map column grows from 300 px by a thousandth of the
+            // spare width, up to 340.
+            width: (300 + (constraints.maxWidth - 784).clamp(0, 40000) / 1000)
+                .clamp(300.0, 340.0),
+            child: ListView(
+              key: const ValueKey('web-study-map'),
+              children: [
+                if (lastLessonId != null && lastTitle != null) ...[
+                  WebCard(
+                    padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                selectedSubject!.toUpperCase(),
-                                style: t.eb,
+                                'LAST OPENED',
+                                style: t.eb.copyWith(fontSize: 12),
                               ),
-                              const SizedBox(height: 4),
+                              const SizedBox(height: 3),
                               Text(
-                                selected.name,
-                                style: t.style(
-                                  30,
-                                  weight: FontWeight.w700,
-                                  spacing: -.6,
-                                ),
+                                lastTitle!,
+                                style: t.style(17, weight: FontWeight.w600),
                               ),
+                              if (lastTopic != null)
+                                Text(
+                                  lastTopic,
+                                  style: t.style(
+                                    14,
+                                    color: t.colors.secondaryLabel,
+                                  ),
+                                ),
                             ],
                           ),
                         ),
-                        for (final lesson in selected.lessons)
-                          _WideStudyLessonRow(
-                            lesson: lesson,
-                            today: today.contains(lesson.id),
-                            resume: lesson.id == lastLessonId,
-                            onPressed: () => onLesson(
-                              lesson.id,
-                              resume: lesson.id == lastLessonId,
-                            ),
-                            onBookmark: onBookmark == null
-                                ? null
-                                : () => onBookmark!(lesson.id),
-                          ),
-                        if (saveFailed)
-                          WebButton(
-                            label: 'Try Saving Again',
-                            onPressed: onRetry,
-                          ),
+                        const SizedBox(width: 12),
+                        WebButton(
+                          label: 'Resume',
+                          variant: WebButtonVariant.secondary,
+                          onPressed: () =>
+                              onLesson(lastLessonId!, resume: true),
+                        ),
                       ],
                     ),
                   ),
+                  const SizedBox(height: 22),
+                ],
+                Row(
+                  children: [
+                    Expanded(child: _label(context, 'BOOKMARKS')),
+                    if (bookmarks.isNotEmpty)
+                      TextButton(
+                        onPressed: onBookmarks,
+                        child: Text(
+                          'See all',
+                          style: t.style(
+                            14,
+                            color: t.colors.accent,
+                            weight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
-        ),
-      ],
+                if (bookmarks.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
+                    child: Text(
+                      'Bookmark a lesson to keep it here.',
+                      style: t.sm,
+                    ),
+                  ),
+                for (final lesson in bookmarks.take(3))
+                  _mapRow(
+                    context,
+                    lesson.title,
+                    leading: Icon(
+                      PantasIcons.bookmark,
+                      size: 16,
+                      color: t.colors.accent,
+                    ),
+                    onPressed: () => onLesson(lesson.id, resume: false),
+                  ),
+                for (final subject in map.subjects) ...[
+                  const SizedBox(height: 18),
+                  _label(context, subject.name.toUpperCase()),
+                  for (final topic in subject.topics)
+                    _mapRow(
+                      context,
+                      topic.name,
+                      selected: topic.id == openTopicId,
+                      leading: SizedBox.square(
+                        dimension: 18,
+                        child: topic.isComplete
+                            ? Icon(
+                                PantasIcons.check,
+                                size: 18,
+                                color: t.colors.accent,
+                              )
+                            : CircularProgressIndicator(
+                                value: topic.totalCount == 0
+                                    ? 0
+                                    : topic.readCount / topic.totalCount,
+                                strokeWidth: 2,
+                                backgroundColor: t.colors.separator,
+                                color: t.colors.accent,
+                              ),
+                      ),
+                      onPressed: () => onTopic(topic.id),
+                    ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(width: 24),
+          Expanded(
+            child: selected == null
+                ? const SizedBox.shrink()
+                : SingleChildScrollView(
+                    key: const ValueKey('web-study-topic'),
+                    child: WebCard(
+                      padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  selectedSubject!.toUpperCase(),
+                                  style: t.eb.copyWith(height: 1.45),
+                                ),
+                                Text(
+                                  selected.name,
+                                  style: t.style(
+                                    30,
+                                    weight: FontWeight.w700,
+                                    height: 1.2,
+                                    spacing: -.6,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          for (final lesson in selected.lessons)
+                            _WideStudyLessonRow(
+                              lesson: lesson,
+                              today: today.contains(lesson.id),
+                              resume: lesson.id == lastLessonId,
+                              onPressed: () => onLesson(
+                                lesson.id,
+                                resume: lesson.id == lastLessonId,
+                              ),
+                              onBookmark: onBookmark == null
+                                  ? null
+                                  : () => onBookmark!(lesson.id),
+                            ),
+                          if (saveFailed)
+                            WebButton(
+                              label: 'Try Saving Again',
+                              onPressed: onRetry,
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -443,6 +446,7 @@ class WebStudyMap extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         minimumSize: const Size(0, 36),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
         backgroundColor: selected ? t.colors.surface : null,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
       ),
@@ -457,7 +461,7 @@ class WebStudyMap extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: t.style(
                 15,
-                weight: selected ? FontWeight.w600 : FontWeight.w400,
+                weight: selected ? FontWeight.w600 : FontWeight.w500,
               ),
             ),
           ),
@@ -493,6 +497,18 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final lesson = widget.lesson;
+    final value = widget.resume
+        ? 'Resume'
+        : lesson.isRead
+            ? null
+            : '${lesson.estimatedMinutes} min';
+    final valuePainter = TextPainter(
+      text: TextSpan(text: value ?? '', style: t.sub),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout();
+    final valueWidth = valuePainter.width;
+    valuePainter.dispose();
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 50),
       child: MouseRegion(
@@ -500,76 +516,85 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
         onExit: (_) => setState(() => _hover = false),
         child: Focus(
           onFocusChange: (value) => setState(() => _focus = value),
-          child: WebRow(
-            title: lesson.title,
-            titleColor: lesson.isRead ? t.colors.tertiaryLabel : null,
-            divider: false,
-            compact: true,
-            leading: SizedBox.square(
-              dimension: 20,
-              child: lesson.isRead
-                  ? Icon(
-                      PantasIcons.check,
-                      size: 20,
-                      color: t.colors.accent,
-                    )
-                  : null,
-            ),
-            titleSuffix: widget.today
-                ? Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: t.colors.accentTint,
-                      borderRadius: BorderRadius.circular(99),
-                    ),
-                    child: Text(
-                      'Today',
-                      style: t.style(
-                        12,
-                        weight: FontWeight.w600,
-                        color: t.tintText,
-                      ),
-                    ),
-                  )
-                : null,
-            value: widget.resume
-                ? 'Resume'
-                : lesson.isRead
-                    ? null
-                    : '${lesson.estimatedMinutes} min',
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (widget.onBookmark != null)
-                  Opacity(
-                    opacity: _hover || _focus || lesson.isBookmarked ? 1 : 0,
-                    child: IconButton(
-                      tooltip: lesson.isBookmarked
-                          ? 'Remove bookmark'
-                          : 'Bookmark ${lesson.title}',
-                      onPressed: widget.onBookmark,
-                      icon: Icon(
-                        lesson.isBookmarked
-                            ? Icons.bookmark
-                            : Icons.bookmark_border,
-                        size: 18,
-                        color: lesson.isBookmarked
-                            ? t.colors.accent
-                            : t.colors.tertiaryLabel,
-                      ),
-                    ),
-                  ),
-                Icon(
+          child: Stack(
+            alignment: Alignment.centerRight,
+            children: [
+              WebRow(
+                title: lesson.title,
+                titleColor: lesson.isRead ? t.colors.tertiaryLabel : null,
+                divider: false,
+                compact: true,
+                leadingGap: 14,
+                leading: SizedBox.square(
+                  dimension: 20,
+                  child: lesson.isRead
+                      ? Icon(
+                          PantasIcons.check,
+                          size: 20,
+                          color: t.colors.accent,
+                        )
+                      : null,
+                ),
+                titleSuffix: widget.today
+                    ? Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: t.colors.accentTint,
+                          borderRadius: BorderRadius.circular(99),
+                        ),
+                        child: Text(
+                          'Today',
+                          style: t.style(
+                            12,
+                            weight: FontWeight.w600,
+                            color: t.tintText,
+                          ),
+                        ),
+                      )
+                    : null,
+                value: value,
+                trailing: Icon(
                   PantasIcons.next,
                   size: 16,
                   color: t.colors.tertiaryLabel,
                 ),
-              ],
-            ),
-            onPressed: widget.onPressed,
+                onPressed: widget.onPressed,
+              ),
+              if (widget.onBookmark != null)
+                Padding(
+                  // Sits left of the minutes: row padding, chevron, gaps and
+                  // the value's own width, so the board's row stays as drawn.
+                  padding:
+                      EdgeInsets.only(right: 20 + 16 + 12 + valueWidth + 8),
+                  child: Opacity(
+                    opacity: _hover || _focus || lesson.isBookmarked ? 1 : 0,
+                    child: Tooltip(
+                      message: lesson.isBookmarked
+                          ? 'Remove bookmark'
+                          : 'Bookmark ${lesson.title}',
+                      child: InkResponse(
+                        onTap: widget.onBookmark,
+                        radius: 16,
+                        child: SizedBox.square(
+                          dimension: 32,
+                          child: Icon(
+                            lesson.isBookmarked
+                                ? Icons.bookmark
+                                : Icons.bookmark_border,
+                            size: 18,
+                            color: lesson.isBookmarked
+                                ? t.colors.accent
+                                : t.colors.tertiaryLabel,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
       ),

@@ -223,7 +223,7 @@ void main() {
         tester.getTopLeft(find.byKey(const ValueKey('web-study-topic'))).dx,
         greaterThan(
           tester.getTopLeft(find.byKey(const ValueKey('web-study-map'))).dx +
-              340,
+              300,
         ),
       );
       expect(find.text('LAST OPENED'), findsOneWidget);
@@ -394,7 +394,12 @@ void main() {
       final control = find
           .ancestor(of: find.text('1 of 2'), matching: find.byType(TextButton))
           .first;
-      expect(tester.getCenter(control).dx, 720);
+      // The board puts the lesson control midway between the Esc hint and
+      // the bookmark button, not at the window's center.
+      final left = tester.getTopRight(find.byType(WebKeyHint)).dx;
+      final right =
+          tester.getTopLeft(find.byTooltip('Bookmark this lesson (B)')).dx;
+      expect(tester.getCenter(control).dx, closeTo((left + right) / 2, 1));
       await tester.tap(find.byTooltip('Bookmark this lesson (B)'));
       await tester.pump();
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
@@ -438,15 +443,17 @@ void main() {
         ),
         brightness,
       );
+      final quiz =
+          find.widgetWithText(TextButton, 'Quiz yourself, 5 questions');
       expect(
         tester.getCenter(find.text('Read')).dy,
-        closeTo(tester.getCenter(find.byType(WebButton)).dy, 1),
+        closeTo(tester.getCenter(quiz).dy, 1),
       );
-      expect(tester.getTopRight(find.byType(WebButton)).dx, 1060);
+      expect(tester.getTopRight(quiz).dx, 1060);
       final ruled = tester.widget<Container>(
         find
             .ancestor(
-              of: find.byType(WebButton),
+              of: quiz,
               matching: find.byType(Container),
             )
             .first,
@@ -523,7 +530,7 @@ void main() {
         ),
         brightness,
       );
-      expect(find.text('Still unread'), findsOneWidget);
+      expect(find.text('STILL UNREAD'), findsOneWidget);
       expect(find.text('Plate Tectonics'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });

@@ -2261,3 +2261,22 @@ The held test is in the fixes worktree `build/held/`.
 
 Checks: `flutter analyze` clean; home, shell, core ui/dev/platform/storage tests pass (1572);
 `test_run_web_local.py` OK; `check_layering` OK.
+
+### Study and reader fix batch 1 (2026-11-01)
+
+Sonnet captured 16 of 22 BUILD boards (staging worktree `build/visual-pass/study/`); lead
+spot-checked RD_Focus (match; lesson text differs as content only). MOTION board skipped. Not
+reached: SD_Loading, SD_Error, SD_NoExam, SD_NoLessons, RD_Error, RD_ImageFail (need blocked
+requests or special accounts).
+
+Fixed (wide web): lesson rows 50 px, map rows 36 px, map column 300 px, content gap under title
+26 px; reader outline item pitch 31 px; reader header back, Esc chip and lesson pill; lesson list
+popover rebuilt (41 px rows, 396 px, board radius and shadow); search rows and no-match panel;
+lesson end quiz button, Read dot and card gap; resume notice as the board's dark toast; day-done gap
+22 px; ending pages without the full progress line; no stadium hover on the next-topic card.
+
+For Aedwon (implemented to match the board, or kept): lesson-row bookmark sits left of the minutes
+and shows on hover only (board); "Still unread" label uppercase (board); lesson list popover kept
+centered (the board draws it at x=720, which looks like a board slip).
+
+Checks: analyze clean; lesson, core/ui and home tests pass (1,684); layering OK.

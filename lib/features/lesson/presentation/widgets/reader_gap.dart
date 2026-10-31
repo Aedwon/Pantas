@@ -42,27 +42,56 @@ class ReaderGap extends StatelessWidget {
       ],
     );
     if (context.wideWeb) {
+      final t = context.webTokens;
       return Container(
         margin: const EdgeInsets.only(top: 36),
         padding: const EdgeInsets.only(top: 28),
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: context.webTokens.strongDivider,
+              color: t.strongDivider,
               width: .5,
             ),
           ),
         ),
         child: Row(
           children: [
-            if (isRead) readLine,
+            if (isRead) ...[
+              Container(
+                key: const ValueKey('reader-read-check'),
+                width: 26,
+                height: 26,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: t.colors.accentFill,
+                ),
+                child: const CustomPaint(
+                  size: Size(15, 15),
+                  painter: _ReadCheckPainter(Colors.white, width: 3),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Text('Read', style: t.style(17, weight: FontWeight.w600)),
+            ],
             const Spacer(),
             if (examId != null)
-              WebButton(
-                label: 'Quiz yourself, 5 questions',
-                variant: WebButtonVariant.white,
+              TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(0, 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  visualDensity: VisualDensity.standard,
+                  backgroundColor: t.disabledBackground,
+                  foregroundColor: t.colors.label,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  textStyle: t.style(15, weight: FontWeight.w600),
+                ),
                 onPressed: () =>
                     startLessonQuiz(context, lessonId, examId: examId!),
+                child: const Text('Quiz yourself, 5 questions'),
               ),
           ],
         ),
@@ -112,8 +141,9 @@ class ReaderGap extends StatelessWidget {
 }
 
 class _ReadCheckPainter extends CustomPainter {
-  const _ReadCheckPainter(this.color);
+  const _ReadCheckPainter(this.color, {this.width = 2.6});
   final Color color;
+  final double width;
   @override
   void paint(Canvas canvas, Size size) {
     canvas
@@ -126,7 +156,7 @@ class _ReadCheckPainter extends CustomPainter {
           ..lineTo(19, 7),
         Paint()
           ..color = color
-          ..strokeWidth = 2.6
+          ..strokeWidth = width
           ..style = PaintingStyle.stroke
           ..strokeCap = StrokeCap.round
           ..strokeJoin = StrokeJoin.round,
@@ -136,5 +166,5 @@ class _ReadCheckPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ReadCheckPainter oldDelegate) =>
-      oldDelegate.color != color;
+      oldDelegate.color != color || oldDelegate.width != width;
 }

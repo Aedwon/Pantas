@@ -146,91 +146,55 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
           child: Padding(
             padding: const EdgeInsets.only(top: 56),
             child: SizedBox(
-              width: 380,
-              child: Material(
-                color: t.colors.surface,
-                elevation: 10,
-                shadowColor: Colors.black26,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  side: BorderSide(color: t.cardEdge),
+              width: 396,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: const [
+                    BoxShadow(color: Color(0x14000000), spreadRadius: .5),
+                    BoxShadow(
+                      color: Color(0x29000000),
+                      blurRadius: 40,
+                      offset: Offset(0, 14),
+                    ),
+                  ],
                 ),
-                clipBehavior: Clip.antiAlias,
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    maxHeight: MediaQuery.sizeOf(context).height - 100,
-                  ),
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            12,
-                            8,
-                            12,
-                            10,
-                          ),
-                          child: Text(
-                            '$menuTitle · '
-                            '${lessons.length} LESSONS',
-                            style: t.eb.copyWith(fontSize: 12),
-                          ),
-                        ),
-                        for (var i = 0; i < lessons.length; i++)
-                          WebRow(
-                            title: lessons[i].title,
-                            horizontalPadding: 12,
-                            titleStyle: t.style(
-                              15,
-                              weight: lessons[i].id == widget.reader.lesson.id
-                                  ? FontWeight.w600
-                                  : FontWeight.w400,
+                child: Material(
+                  color: t.colors.surface,
+                  borderRadius: BorderRadius.circular(14),
+                  clipBehavior: Clip.antiAlias,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: MediaQuery.sizeOf(context).height - 100,
+                    ),
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              12,
+                              8,
+                              12,
+                              6,
                             ),
-                            divider: false,
-                            leading: Container(
-                              width: 24,
-                              height: 24,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: lessons[i].id == widget.reader.lesson.id
-                                    ? t.colors.accentFill
-                                    : null,
-                                border: lessons[i].id == widget.reader.lesson.id
-                                    ? null
-                                    : Border.all(
-                                        color: t.strongDivider,
-                                        width: 1.5,
-                                      ),
-                              ),
-                              child: Text(
-                                '${i + 1}',
-                                style: t.style(
-                                  12,
-                                  weight: FontWeight.w700,
-                                  color:
-                                      lessons[i].id == widget.reader.lesson.id
-                                          ? Colors.white
-                                          : t.colors.secondaryLabel,
-                                ),
-                              ),
+                            child: Text(
+                              '$menuTitle · '
+                              '${lessons.length} LESSONS',
+                              style: t.eb.copyWith(height: 1.45),
                             ),
-                            value: lessons[i].id == widget.reader.lesson.id
-                                ? 'Reading'
-                                : '${lessons[i].estimatedMinutes} min',
-                            selected: lessons[i].id == widget.reader.lesson.id,
-                            compact: true,
-                            onPressed: () {
-                              Navigator.pop(context);
-                              if (lessons[i].id != widget.reader.lesson.id) {
-                                widget.onLesson(lessons[i].id);
-                              }
-                            },
                           ),
-                      ],
+                          for (var i = 0; i < lessons.length; i++)
+                            _menuRow(
+                              context,
+                              lessons[i],
+                              i + 1,
+                              current: lessons[i].id == widget.reader.lesson.id,
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -245,6 +209,82 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
     widget.onMenuChanged?.call(false);
   }
 
+  Widget _menuRow(
+    BuildContext context,
+    StudyLesson lesson,
+    int number, {
+    required bool current,
+  }) {
+    final t = context.webTokens;
+    return Material(
+      color: current ? t.colors.accentTint : Colors.transparent,
+      borderRadius: BorderRadius.circular(10),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () {
+          Navigator.pop(context);
+          if (!current) widget.onLesson(lesson.id);
+        },
+        child: Semantics(
+          selected: current,
+          child: SizedBox(
+            height: 41,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
+                  Container(
+                    width: 24,
+                    height: 24,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: current ? t.colors.accentFill : null,
+                      border: current
+                          ? null
+                          : Border.all(color: t.strongDivider, width: 1.5),
+                    ),
+                    child: Text(
+                      '$number',
+                      style: t.style(
+                        12,
+                        weight: FontWeight.w700,
+                        color: current ? Colors.white : t.colors.secondaryLabel,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      lesson.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: t.style(
+                        15,
+                        weight: current ? FontWeight.w600 : FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    current ? 'Reading' : '${lesson.estimatedMinutes} min',
+                    style: current
+                        ? t.style(
+                            12,
+                            weight: FontWeight.w600,
+                            color: t.tintText,
+                          )
+                        : t.style(13, color: t.colors.secondaryLabel),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _lessonControl(BuildContext context) {
     final t = context.webTokens;
     final reader = widget.reader;
@@ -255,60 +295,81 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
       label: 'Lesson $position of $total. Show all lessons',
       child: TextButton(
         onPressed: _menu,
+        style: TextButton.styleFrom(
+          minimumSize: const Size(0, 44),
+          padding: const EdgeInsets.fromLTRB(14, 0, 10, 0),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: VisualDensity.standard,
+          backgroundColor: _menuOpen ? t.disabledBackground : null,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
         child: ValueListenableBuilder<double>(
           valueListenable: widget.scrollOffset,
-          builder: (_, offset, __) => Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  for (var i = 0; i < total; i++)
-                    Container(
-                      width: 18,
-                      height: 4,
-                      margin: const EdgeInsets.only(right: 3),
-                      decoration: BoxDecoration(
-                        color: i + 1 == position
-                            ? t.colors.accent
-                            : t.strongDivider,
-                        borderRadius: BorderRadius.circular(99),
-                      ),
-                    ),
-                ],
-              ),
-              ClipRect(
-                child: Align(
-                  key: const ValueKey('web-reader-title-width'),
-                  widthFactor: (offset / 90).clamp(0, 1),
-                  alignment: Alignment.centerRight,
-                  child: Opacity(
-                    opacity: (offset / 90).clamp(0, 1),
-                    child: Transform.translate(
-                      offset: Offset(0, 6 * (1 - (offset / 90).clamp(0, 1))),
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 400),
-                        child: Text(
-                          reader.lesson.title,
-                          style: t.style(14, weight: FontWeight.w600),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+          builder: (_, offset, __) {
+            final shown = (offset / 90).clamp(0.0, 1.0);
+            return Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ClipRect(
+                  child: Align(
+                    key: const ValueKey('web-reader-title-width'),
+                    widthFactor: shown,
+                    alignment: Alignment.centerRight,
+                    child: Opacity(
+                      opacity: shown,
+                      child: Transform.translate(
+                        offset: Offset(0, 6 * (1 - shown)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 12),
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 400),
+                            child: Text(
+                              reader.lesson.title,
+                              style: t.style(14, weight: FontWeight.w600),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 12),
-              Text('$position of $total', style: t.sm),
-              const SizedBox(width: 8),
-              Icon(
-                _menuOpen ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                size: 16,
-                color: t.colors.tertiaryLabel,
-              ),
-            ],
-          ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    for (var i = 0; i < total; i++)
+                      Container(
+                        width: 18,
+                        height: 4,
+                        margin: EdgeInsets.only(right: i + 1 < total ? 3 : 0),
+                        decoration: BoxDecoration(
+                          color: i + 1 == position
+                              ? t.colors.accent
+                              : t.strongDivider,
+                          borderRadius: BorderRadius.circular(99),
+                        ),
+                      ),
+                  ],
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  '$position of $total',
+                  style: t.style(13, color: t.colors.secondaryLabel),
+                ),
+                const SizedBox(width: 12),
+                Icon(
+                  _menuOpen
+                      ? Icons.keyboard_arrow_up
+                      : Icons.keyboard_arrow_down,
+                  size: 16,
+                  color: t.colors.tertiaryLabel,
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -394,7 +455,7 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                       ),
                                       child: Text(
                                         'IN THIS LESSON',
-                                        style: t.eb,
+                                        style: t.eb.copyWith(height: 1.45),
                                       ),
                                     ),
                                     LayoutBuilder(
@@ -426,7 +487,7 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                               maxWidth:
                                                   constraints.maxWidth - 36,
                                             );
-                                          top += text.height + 12;
+                                          top += text.height + 13;
                                           text.dispose();
                                         }
                                         return Stack(
@@ -455,6 +516,9 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                                       style:
                                                           TextButton.styleFrom(
                                                         minimumSize: Size.zero,
+                                                        visualDensity:
+                                                            VisualDensity
+                                                                .standard,
                                                         padding:
                                                             const EdgeInsets
                                                                 .symmetric(
@@ -585,7 +649,7 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(height: 24),
+                                      const SizedBox(height: 20),
                                       widget.footer,
                                     ],
                                   ),
@@ -623,12 +687,16 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            if (ending == null)
-                              Center(child: _lessonControl(context)),
                             Row(
                               children: [
                                 TextButton(
                                   onPressed: widget.onBack,
+                                  style: TextButton.styleFrom(
+                                    minimumSize: const Size(0, 40),
+                                    padding: EdgeInsets.zero,
+                                    tapTargetSize: compactTap,
+                                    visualDensity: VisualDensity.standard,
+                                  ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -637,26 +705,41 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                         size: 20,
                                         color: t.colors.accent,
                                       ),
+                                      const SizedBox(width: 2),
                                       Text(
                                         widget.backLabel,
                                         style: t.style(
-                                          15,
+                                          17,
                                           color: t.colors.accent,
-                                          weight: FontWeight.w600,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
+                                const SizedBox(width: 12),
                                 const WebKeyHint('Esc'),
+                                if (ending == null) ...[
+                                  const SizedBox(width: 12),
+                                  const Spacer(),
+                                  const SizedBox(width: 12),
+                                  _lessonControl(context),
+                                  const SizedBox(width: 12),
+                                ],
                                 const Spacer(),
-                                if (ending == null)
+                                if (ending == null) ...[
+                                  const SizedBox(width: 12),
                                   Tooltip(
                                     message: reader.isBookmarked
                                         ? 'Remove bookmark (B)'
                                         : 'Bookmark this lesson (B)',
                                     child: IconButton(
                                       onPressed: _bookmark,
+                                      style: IconButton.styleFrom(
+                                        fixedSize: const Size(44, 44),
+                                        padding: EdgeInsets.zero,
+                                        visualDensity: VisualDensity.standard,
+                                        tapTargetSize: compactTap,
+                                      ),
                                       icon: Icon(
                                         reader.isBookmarked
                                             ? Icons.bookmark
@@ -668,6 +751,7 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                       ),
                                     ),
                                   ),
+                                ],
                               ],
                             ),
                           ],
@@ -677,24 +761,25 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                   ),
                 ),
               ),
-              AnimatedPositioned(
-                duration: MediaQuery.disableAnimationsOf(context)
-                    ? Duration.zero
-                    : Duration(milliseconds: _showBar ? 420 : 700),
-                curve: const Cubic(.32, .72, 0, 1),
-                top: _showBar || _menuOpen || ending != null ? 58 : 0,
-                left: 0,
-                right: 0,
-                child: ValueListenableBuilder<double>(
-                  valueListenable: widget.progress,
-                  builder: (_, value, __) => LinearProgressIndicator(
-                    value: ending != null ? 1 : value,
-                    minHeight: 2,
-                    backgroundColor: t.colors.separator,
-                    color: t.colors.accent,
+              if (ending == null)
+                AnimatedPositioned(
+                  duration: MediaQuery.disableAnimationsOf(context)
+                      ? Duration.zero
+                      : Duration(milliseconds: _showBar ? 420 : 700),
+                  curve: const Cubic(.32, .72, 0, 1),
+                  top: _showBar || _menuOpen || ending != null ? 58 : 0,
+                  left: 0,
+                  right: 0,
+                  child: ValueListenableBuilder<double>(
+                    valueListenable: widget.progress,
+                    builder: (_, value, __) => LinearProgressIndicator(
+                      value: value,
+                      minHeight: 2,
+                      backgroundColor: t.colors.separator,
+                      color: t.colors.accent,
+                    ),
                   ),
                 ),
-              ),
               if (_bookmarkNotice && ending == null)
                 const Positioned(
                   bottom: 28,
@@ -709,34 +794,60 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                 ),
               if (_resumeVisible && ending == null)
                 Positioned(
-                  bottom: 28,
+                  top: 76,
                   left: 0,
                   right: 0,
                   child: Center(
-                    child: WebCard(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 8,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Picked up where you left off',
-                            style: t.sub,
-                          ),
-                          const SizedBox(width: 16),
-                          WebButton(
-                            label: 'Start Over',
-                            variant: WebButtonVariant.tertiary,
-                            onPressed: () {
-                              widget.controller.jumpTo(0);
-                              setState(
-                                () => _resumeVisible = false,
-                              );
-                            },
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1D1D1F),
+                        borderRadius: BorderRadius.circular(14),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x33000000),
+                            blurRadius: 30,
+                            offset: Offset(0, 10),
                           ),
                         ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Picked up where you left off',
+                              style: t.style(15, color: Colors.white),
+                            ),
+                            const SizedBox(width: 14),
+                            TextButton(
+                              onPressed: () {
+                                widget.controller.jumpTo(0);
+                                setState(() => _resumeVisible = false);
+                              },
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 6,
+                                ),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                visualDensity: VisualDensity.standard,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: Text(
+                                'Start Over',
+                                style: t.style(
+                                  15,
+                                  weight: FontWeight.w600,
+                                  color: const Color(0xFF7FD6C5),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -755,8 +866,10 @@ class WebReaderNext extends StatelessWidget {
     required this.title,
     this.detail,
     this.onPressed,
+    this.topGap = 18,
     super.key,
   });
+  final double topGap;
   final String label;
   final String title;
   final String? detail;
@@ -772,28 +885,47 @@ class WebReaderNext extends StatelessWidget {
       child: Focus(
         autofocus: true,
         child: Padding(
-          padding: const EdgeInsets.only(top: 36),
+          padding: EdgeInsets.only(top: topGap),
           child: WebCard(
             child: TextButton(
               onPressed: onPressed,
-              style: TextButton.styleFrom(padding: const EdgeInsets.all(24)),
+              style: TextButton.styleFrom(
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                visualDensity: VisualDensity.standard,
+                padding: const EdgeInsets.fromLTRB(24, 20, 20, 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
               child: Row(
                 children: [
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(label.toUpperCase(), style: t.eb),
-                        const SizedBox(height: 8),
-                        Text(title, style: t.h3),
+                        Text(
+                          label.toUpperCase(),
+                          style: t.eb.copyWith(height: 1.45),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          title,
+                          style: t.style(
+                            22,
+                            weight: FontWeight.w700,
+                            height: 1.35,
+                            spacing: -.308,
+                          ),
+                        ),
                         if (detail != null) ...[
-                          const SizedBox(height: 4),
+                          const SizedBox(height: 2),
                           Text(detail!, style: t.sub),
                         ],
                       ],
                     ),
                   ),
-                  const SizedBox(width: 24),
+                  const SizedBox(width: 16),
                   const WebKeyHint('→'),
                   const SizedBox(width: 16),
                   CircleAvatar(

@@ -125,7 +125,6 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                       border: Border(
                         bottom: BorderSide(
                           color: t.colors.separator,
-                          width: .5,
                         ),
                       ),
                     ),
@@ -190,14 +189,21 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                     )
                   else if (_query.isNotEmpty && results.isEmpty)
                     Padding(
-                      padding: const EdgeInsets.all(38),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 44,
+                      ),
                       child: Column(
                         children: [
                           Text(
                             'Nothing matched “$_query”',
-                            style: t.h3,
+                            style: t.style(
+                              17,
+                              weight: FontWeight.w600,
+                              height: 22 / 17,
+                            ),
                           ),
-                          const SizedBox(height: 6),
+                          const SizedBox(height: 12),
                           Text(
                             'Try a shorter word, or part of one.',
                             style: t.sub,
@@ -257,6 +263,11 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                       results[i].lessonId,
                                     ),
                                     style: TextButton.styleFrom(
+                                      minimumSize: Size.zero,
+                                      tapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      visualDensity: VisualDensity.standard,
+                                      alignment: Alignment.centerLeft,
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 12,
                                         vertical: 10,
@@ -273,16 +284,13 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                                 _highlight(
                                                   results[i].titleMatch,
                                                   results[i].title,
-                                                  t.style(
-                                                    17,
-                                                    weight: FontWeight.w600,
-                                                  ),
+                                                  t.style(17, height: 22 / 17),
                                                   context,
                                                 ),
                                               ),
                                               Text(
                                                 results[i].topicName,
-                                                style: t.sm,
+                                                style: _small(t),
                                               ),
                                               if (results[i].bodySnippet !=
                                                   null)
@@ -290,7 +298,7 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                                   _highlight(
                                                     results[i].bodySnippet,
                                                     '',
-                                                    t.sm,
+                                                    _small(t),
                                                     context,
                                                   ),
                                                   maxLines: 2,
@@ -324,24 +332,25 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                         ),
                       ),
                     ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(
-                          color: t.colors.separator,
-                          width: .5,
+                  // The board's "nothing matched" panel has no key footer.
+                  if (_query.isEmpty || results.isNotEmpty)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(
+                            color: t.colors.separator,
+                          ),
                         ),
                       ),
+                      child: Text(
+                        '↑ ↓ to move · Enter to open',
+                        style: t.sm,
+                      ),
                     ),
-                    child: Text(
-                      '↑ ↓ to move · Enter to open',
-                      style: t.sm,
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -350,6 +359,9 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
       ),
     );
   }
+
+  TextStyle _small(WebTokens t) =>
+      t.style(14, height: 18 / 14, color: t.colors.secondaryLabel);
 
   TextSpan _highlight(
     SearchSnippet? match,
