@@ -580,7 +580,7 @@ class _GaugePainter extends CustomPainter {
     final rect = wideAssessment
         ? const Rect.fromLTWH(18, 16, 228, 228)
         : wideMock
-            ? const Rect.fromLTWH(24, 20, 252, 252)
+            ? const Rect.fromLTWH(18, 14, 264, 264)
             : mockSize && web
                 ? const Rect.fromLTWH(22, 12, 276, 276)
                 : mockSize

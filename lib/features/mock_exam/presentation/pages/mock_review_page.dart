@@ -112,18 +112,31 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           ? PreferredSize(
               preferredSize: const Size.fromHeight(64),
               child: WebTopBar(
-                leading: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TextButton.icon(
-                      onPressed: back,
-                      icon: const Icon(Icons.chevron_left),
-                      label: Text(
-                        _viewerIndex == null ? 'Results' : 'All questions',
+                leading: Transform.translate(
+                  offset: const Offset(-6, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextButton.icon(
+                        onPressed: back,
+                        style: TextButton.styleFrom(
+                          minimumSize: const Size(0, 40),
+                          padding: EdgeInsets.zero,
+                          foregroundColor: context.webTokens.colors.accent,
+                          overlayColor: Colors.transparent,
+                          visualDensity: VisualDensity.standard,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          textStyle: context.webTokens.style(17),
+                        ),
+                        icon: const Icon(Icons.chevron_left, size: 20),
+                        label: Text(
+                          _viewerIndex == null ? 'Results' : 'All questions',
+                        ),
                       ),
-                    ),
-                    const WebKeyHint('Esc'),
-                  ],
+                      const SizedBox(width: 10),
+                      const WebKeyHint('Esc'),
+                    ],
+                  ),
                 ),
                 trailing: viewed == null
                     ? null
@@ -430,7 +443,7 @@ class _ReviewListBody extends StatelessWidget {
       final t = context.webTokens;
       return SingleChildScrollView(
         key: const ValueKey('web-mock-review'),
-        padding: const EdgeInsets.fromLTRB(40, 24, 40, 56),
+        padding: const EdgeInsets.fromLTRB(40, 16, 40, 56),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 760),
@@ -438,11 +451,11 @@ class _ReviewListBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text('All questions', style: t.h1),
-                const SizedBox(height: 24),
+                const SizedBox(height: 20),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: SizedBox(
-                    width: 460,
+                    width: 464,
                     child: WebSegmentedControl(
                       labels: [
                         'All ${counts.all}',
@@ -458,7 +471,10 @@ class _ReviewListBody extends StatelessWidget {
                 if (proIsActive && filter == ReviewFilter.wrong) ...[
                   const SizedBox(height: 20),
                   WebCard(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 18,
+                    ),
                     child: Row(
                       children: [
                         Expanded(
@@ -482,22 +498,26 @@ class _ReviewListBody extends StatelessWidget {
                 if (showFlagOffer) ...[
                   const SizedBox(height: 20),
                   WebCard(
-                    padding: const EdgeInsets.all(20),
-                    child: Wrap(
-                      spacing: 16,
-                      runSpacing: 16,
-                      crossAxisAlignment: WrapCrossAlignment.center,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 18,
+                    ),
+                    child: Row(
                       children: [
-                        Text(
-                          'You flagged $markedCount questions while the '
-                          'clock was running. Do you want to save them?',
-                          style: t.sub,
+                        Expanded(
+                          child: Text(
+                            'You flagged $markedCount questions while the '
+                            'clock was running. Do you want to save them?',
+                            style: t.sub.copyWith(color: t.colors.label),
+                          ),
                         ),
+                        const SizedBox(width: 18),
                         WebButton(
                           label: 'No Thanks',
                           variant: WebButtonVariant.tertiary,
                           onPressed: onDismissFlags,
                         ),
+                        const SizedBox(width: 8),
                         WebButton(
                           label: 'Save All $markedCount',
                           onPressed: onKeepFlags,
@@ -506,22 +526,21 @@ class _ReviewListBody extends StatelessWidget {
                     ),
                   ),
                 ],
-                const SizedBox(height: 24),
+                const SizedBox(height: 20),
                 for (final group in groups.entries) ...[
                   Padding(
                     padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
                     child: Row(
                       children: [
                         Expanded(
-                          child: Text(
-                            group.key,
-                            style: t.style(
-                              17,
-                              weight: FontWeight.w600,
-                            ),
+                          child: Text(group.key.toUpperCase(), style: t.eb),
+                        ),
+                        Text(
+                          groupLabel(group.value),
+                          style: t.sm.copyWith(
+                            fontFeatures: [const FontFeature.tabularFigures()],
                           ),
                         ),
-                        Text(groupLabel(group.value), style: t.sub),
                       ],
                     ),
                   ),
@@ -532,7 +551,28 @@ class _ReviewListBody extends StatelessWidget {
                           WebRow(
                             mathTitle: entry.labelIsStem,
                             title: entry.label,
-                            subtitle: entry.isAnswered ? null : 'Left blank',
+                            compact: true,
+                            chevron: WebRowChevron.always,
+                            trailing: entry.isAnswered
+                                ? null
+                                : Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: t.disabledBackground,
+                                      borderRadius: BorderRadius.circular(99),
+                                    ),
+                                    child: Text(
+                                      'Left blank',
+                                      style: t.style(
+                                        12,
+                                        weight: FontWeight.w600,
+                                        color: t.colors.secondaryLabel,
+                                      ),
+                                    ),
+                                  ),
                             titleStyle: t.style(16),
                             leading: Container(
                               width: filter == ReviewFilter.wrong ? 34 : 30,
@@ -552,7 +592,9 @@ class _ReviewListBody extends StatelessWidget {
                                 '${entry.number}',
                                 style: t.style(
                                   filter == ReviewFilter.wrong ? 15 : 12,
-                                  weight: FontWeight.w600,
+                                  weight: filter == ReviewFilter.wrong
+                                      ? FontWeight.w700
+                                      : FontWeight.w600,
                                   color: entry.isCorrect
                                       ? t.colors.accent
                                       : t.colors.wrongText,
@@ -862,9 +904,10 @@ class _QuestionViewer extends StatelessWidget {
         child: Focus(
           autofocus: true,
           child: Stack(
+            fit: StackFit.expand,
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(40, 32, 40, 140),
+                padding: const EdgeInsets.fromLTRB(40, 56, 40, 140),
                 child: WebQuizQuestion(
                   question: entry.question,
                   subject: entry.subjectName,
@@ -900,17 +943,21 @@ class _QuestionViewer extends StatelessWidget {
                 child: Center(
                   child: WebBottomBar(
                     compact: true,
+                    gap: 6,
+                    counterPadding:
+                        const EdgeInsets.symmetric(horizontal: 14),
                     state:
                         entry.isCorrect ? WebBarState.right : WebBarState.wrong,
                     counter: '${index + 1} of ${entries.length}',
                     leading: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        IconButton(
+                        WebBarArrow(
                           tooltip: 'Previous question',
                           onPressed: onPrevious,
-                          icon: const Icon(Icons.chevron_left),
+                          icon: Icons.chevron_left,
                         ),
+                        const SizedBox(width: 6),
                         const WebKeyHint('←'),
                       ],
                     ),
@@ -918,10 +965,11 @@ class _QuestionViewer extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const WebKeyHint('→'),
-                        IconButton(
+                        const SizedBox(width: 6),
+                        WebBarArrow(
                           tooltip: 'Next question',
                           onPressed: onNext,
-                          icon: const Icon(Icons.chevron_right),
+                          icon: Icons.chevron_right,
                         ),
                       ],
                     ),
@@ -1276,46 +1324,73 @@ class _ReasonPanelState extends State<_ReasonPanel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                widget.isBlank
-                    ? 'Why did you leave it blank?'
-                    : 'Why did you miss it?',
-                style: t.style(17, weight: FontWeight.w600),
+              Row(
+                children: [
+                  CustomPaint(
+                    size: const Size.square(20),
+                    painter: _NoteGlyphPainter(t.colors.accent),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      widget.isBlank
+                          ? 'Why did you leave it blank?'
+                          : 'Why did you miss it?',
+                      style: t.style(17, weight: FontWeight.w600),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 14),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  for (final (i, label) in labels.indexed)
-                    TextButton(
-                      onPressed: _saving ? null : () => choose(i),
-                      style: TextButton.styleFrom(
-                        backgroundColor: _selected == i
-                            ? t.colors.accentTint
-                            : t.colors.fill,
-                        foregroundColor:
-                            _selected == i ? t.tintText : t.colors.label,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 10,
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          WebKeyHint('${i + 1}'),
-                          const SizedBox(width: 8),
-                          Flexible(
-                            child: Text(label, style: t.style(14)),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final width = (constraints.maxWidth - 8) / 2;
+                  return Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final (i, label) in labels.indexed)
+                        SizedBox(
+                          width: width,
+                          child: TextButton(
+                            onPressed: _saving ? null : () => choose(i),
+                            style: TextButton.styleFrom(
+                              minimumSize: const Size.fromHeight(48),
+                              alignment: Alignment.centerLeft,
+                              visualDensity: VisualDensity.standard,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              backgroundColor: _selected == i
+                                  ? t.colors.accentTint
+                                  : t.colors.background,
+                              foregroundColor:
+                                  _selected == i ? t.tintText : t.colors.label,
+                              overlayColor: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                WebKeyHint('${i + 1}'),
+                                const SizedBox(width: 10),
+                                Flexible(
+                                  child: Text(
+                                    label,
+                                    style: t.style(15),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                ],
+                        ),
+                    ],
+                  );
+                },
               ),
               if (_typing) ...[
                 const SizedBox(height: 14),
@@ -1335,12 +1410,17 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                 children: [
                   WebButton(
                     label: 'Not Now',
+                    height: 40,
+                    fontSize: 15,
                     variant: WebButtonVariant.tertiary,
                     onPressed: _saving ? null : widget.onCancel,
                   ),
                   const SizedBox(width: 8),
                   WebButton(
                     label: 'Add Note',
+                    height: 40,
+                    fontSize: 15,
+                    radius: 10,
                     busy: _saving,
                     onPressed: _selected == null ||
                             (_typing && _controller.text.trim().isEmpty)
@@ -1374,4 +1454,41 @@ class _ReasonChoice extends StatelessWidget {
         onTap: onTap,
         padding: const EdgeInsets.symmetric(vertical: 10),
       );
+}
+
+/// The note icon beside the reason question (board, 20 px, teal).
+class _NoteGlyphPainter extends CustomPainter {
+  const _NoteGlyphPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    canvas
+      ..drawPath(
+        Path()
+          ..moveTo(4.5 * k, 4.5 * k)
+          ..lineTo(19.5 * k, 4.5 * k)
+          ..lineTo(19.5 * k, 14.5 * k)
+          ..lineTo(14.5 * k, 19.5 * k)
+          ..lineTo(4.5 * k, 19.5 * k)
+          ..close(),
+        paint,
+      )
+      ..drawPath(
+        Path()
+          ..moveTo(14.5 * k, 19.5 * k)
+          ..lineTo(14.5 * k, 14.5 * k)
+          ..lineTo(19.5 * k, 14.5 * k),
+        paint,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_NoteGlyphPainter old) => old.color != color;
 }

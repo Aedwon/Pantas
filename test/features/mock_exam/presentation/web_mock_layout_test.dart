@@ -403,7 +403,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('Finish the Notes'), findsOneWidget);
       expect(find.text('Left blank'), findsOneWidget);
-      expect(tester.getSize(find.byType(WebSegmentedControl)).width, 460);
+      expect(tester.getSize(find.byType(WebSegmentedControl)).width, 464);
       expect(tester.getSize(find.byType(WebRow)).width, dark ? 758 : 760);
       await tester.tap(find.text('Flagged 1'));
       await tester.pump();

@@ -24,9 +24,25 @@ class WebButton extends StatelessWidget {
     this.busy = false,
     this.tall = false,
     this.expand = false,
+    this.icon,
+    this.redText = false,
+    this.height,
+    this.fontSize,
+    this.radius,
     super.key,
   });
   final String label;
+
+  /// Board overrides for a smaller button: its height, text size and radius.
+  final double? height;
+  final double? fontSize;
+  final double? radius;
+
+  /// A tertiary button whose label is red (board `.btn3.red`).
+  final bool redText;
+
+  /// Drawn before the label, 8 px apart (board `.btn3` with an icon).
+  final Widget? icon;
   final VoidCallback? onPressed;
   final WebButtonVariant variant;
   final bool large;
@@ -51,7 +67,7 @@ class WebButton extends StatelessWidget {
         variant == WebButtonVariant.dangerOutline;
     final foreground = solid
         ? Colors.white
-        : danger
+        : danger || redText
             ? c.wrongText
             : variant == WebButtonVariant.secondary
                 ? t.tintText
@@ -75,18 +91,20 @@ class WebButton extends StatelessWidget {
       };
     }
 
-    final radius = pill
-        ? 99.0
-        : large
-            ? 14.0
-            : 12.0;
-    final height = tall
-        ? 48.0
-        : pill
-            ? 46.0
+    final radius = this.radius ??
+        (pill
+            ? 99.0
             : large
-                ? 50.0
-                : 44.0;
+                ? 14.0
+                : 12.0);
+    final height = this.height ??
+        (tall
+            ? 48.0
+            : pill
+                ? 46.0
+                : large
+                    ? 50.0
+                    : 44.0);
     final button = TextButton(
       onPressed: busy ? null : onPressed,
       style: ButtonStyle(
@@ -158,7 +176,11 @@ class WebButton extends StatelessWidget {
           ),
         ),
         textStyle: WidgetStatePropertyAll(
-          t.style(large ? 17 : 16, weight: FontWeight.w600, height: 1.2),
+          t.style(
+            fontSize ?? (large ? 17 : 16),
+            weight: FontWeight.w600,
+            height: 1.2,
+          ),
         ),
       ),
       child: Row(
@@ -176,10 +198,15 @@ class WebButton extends StatelessWidget {
             ),
             const SizedBox(width: 8),
           ],
+          if (icon != null) ...[icon!, const SizedBox(width: 8)],
           Flexible(child: Text(label)),
           if (showKeyHint) ...[
             const SizedBox(width: 12),
-            WebKeyHint(keyHint!, onButton: true, enabled: onPressed != null),
+            WebKeyHint(
+              keyHint!,
+              onButton: variant != WebButtonVariant.tertiary,
+              enabled: onPressed != null,
+            ),
           ],
         ],
       ),
@@ -655,6 +682,9 @@ class WebSegmentedControl extends StatelessWidget {
                         Colors.black.withValues(alpha: .1),
                       ),
                       minimumSize: const WidgetStatePropertyAll(Size(0, 34)),
+                      visualDensity: VisualDensity.standard,
+                      overlayColor:
+                          const WidgetStatePropertyAll(Colors.transparent),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: const WidgetStatePropertyAll(
                         EdgeInsets.symmetric(horizontal: 12),
@@ -894,10 +924,18 @@ class WebBottomBar extends StatelessWidget {
     this.wide = false,
     this.compact = false,
     this.counterChevron = false,
+    this.gap = 0,
+    this.counterPadding,
     super.key,
   });
   final String counter;
   final VoidCallback? onCounterPressed;
+
+  /// Space between the bar's items (board `gap`).
+  final double gap;
+
+  /// Padding around a plain counter. Defaults to 16 left and 12 right.
+  final EdgeInsets? counterPadding;
   final Widget action;
   final Widget? leading;
   final String? hint;
@@ -943,10 +981,11 @@ class WebBottomBar extends StatelessWidget {
         child: Row(
           mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
           children: [
-            if (leading != null) leading!,
+            if (leading != null) ...[leading!, SizedBox(width: gap)],
             if (onCounterPressed == null)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
+                padding:
+                    counterPadding ?? const EdgeInsets.fromLTRB(16, 0, 12, 0),
                 child: Text(
                   counter,
                   style: t.style(15, weight: FontWeight.w600).copyWith(
@@ -995,6 +1034,7 @@ class WebBottomBar extends StatelessWidget {
                   ),
                 ),
               ),
+            if (gap > 0) SizedBox(width: gap),
             action,
           ],
         ),
@@ -1110,6 +1150,30 @@ class WebTopBar extends StatelessWidget {
               if (trailing != null) trailing!,
             ],
           ),
+        ),
+      );
+}
+
+/// A 46 px round chevron button for a floating question bar (board `.ib`).
+class WebBarArrow extends StatelessWidget {
+  const WebBarArrow({
+    required this.tooltip,
+    required this.onPressed,
+    required this.icon,
+    super.key,
+  });
+  final String tooltip;
+  final VoidCallback? onPressed;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) => SizedBox.square(
+        dimension: 46,
+        child: IconButton(
+          tooltip: tooltip,
+          padding: EdgeInsets.zero,
+          onPressed: onPressed,
+          icon: Icon(icon, size: 24),
         ),
       );
 }

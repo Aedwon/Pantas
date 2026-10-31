@@ -577,7 +577,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
     final ids = _idsInPart.toList();
     final count = ids.where(_isAnswered).length;
     Widget grid(List<String> questionIds, {bool enabled = true}) => Wrap(
-          spacing: 8,
+          spacing: 7,
           runSpacing: 8,
           children: [
             for (final (i, id) in questionIds.indexed)
@@ -649,41 +649,72 @@ class _MockSessionPageState extends State<MockSessionPage> {
       child: WebMockPanelContents(
         open: _widePanelOpen,
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 120),
+          padding: const EdgeInsets.fromLTRB(24, 24, 24, 120),
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
+            Transform.translate(
+              offset: const Offset(-10, -8),
+              child: Row(
+                children: [
+                  SizedBox.square(
+                    dimension: 36,
+                    child: IconButton(
+                      tooltip: 'Hide the question list',
+                      padding: EdgeInsets.zero,
+                      onPressed: () => setState(() => _widePanelOpen = false),
+                      icon: const MockPanelGlyph(),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
                     'Questions',
                     style: t.style(17, weight: FontWeight.w600),
                   ),
+                ],
+              ),
+            ),
+            if (!widget.oneBlock && _gridSummary() != null) ...[
+              const SizedBox(height: 8),
+              Text(_gridSummary()!, style: t.sm),
+            ],
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  child: Text(
+                    widget.oneBlock
+                        ? 'WHOLE PAPER'
+                        : 'PART $part · '
+                            '${widget.partName.toUpperCase()}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: t.sm.copyWith(
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: .26,
+                    ),
+                  ),
                 ),
-                IconButton(
-                  tooltip: 'Hide the question list',
-                  onPressed: () => setState(() => _widePanelOpen = false),
-                  icon: const Icon(Icons.view_sidebar_outlined, size: 20),
+                const SizedBox(width: 8),
+                Text(
+                  widget.oneBlock
+                      ? '$count of ${widget.partTotal} answered'
+                      : '$count of ${widget.partTotal}',
+                  style: t.sm.copyWith(
+                    fontFeatures: [const FontFeature.tabularFigures()],
+                  ),
                 ),
               ],
             ),
-            if (_gridSummary() != null) Text(_gridSummary()!, style: t.sm),
-            const SizedBox(height: 24),
-            Text(
-              widget.oneBlock
-                  ? 'WHOLE PAPER'
-                  : 'PART $part · '
-                      '${widget.partName.toUpperCase()}',
-              style: t.eb,
-            ),
             const SizedBox(height: 6),
-            Text(
-              widget.oneBlock
-                  ? '$count of ${widget.partTotal} answered'
-                  : '$count of ${widget.partTotal}',
-              style: t.sm,
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 560),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 2),
+                  child: grid(ids),
+                ),
+              ),
             ),
-            const SizedBox(height: 14),
-            grid(ids),
             for (final part in widget.upcomingParts) ...[
               const SizedBox(height: 28),
               Text(
@@ -705,7 +736,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
               ),
             ],
             if (widget.oneBlock && !widget.state.strictMode) ...[
-              const SizedBox(height: 24),
+              const SizedBox(height: 28),
               Align(
                 alignment: Alignment.centerLeft,
                 child: FittedBox(
@@ -717,8 +748,22 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 ),
               ),
             ],
-            const SizedBox(height: 24),
-            Text('●  Answered    ○  Blank    ⚑  Flagged', style: t.sm),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Wrap(
+                spacing: 14,
+                runSpacing: 4,
+                children: [
+                  _LegendDot('Answered', fill: c.separator),
+                  _LegendDot(
+                    'Blank',
+                    ring: t.strongDivider,
+                  ),
+                  _LegendDot('Flagged', fill: c.accent),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -803,7 +848,12 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                   ? const SizedBox.shrink()
                                   : WebButton(
                                       label: 'Pause',
-                                      keyHint: 'P',
+                                      icon: CustomPaint(
+                                        size: const Size.square(18),
+                                        painter: _PauseGlyphPainter(
+                                          c.secondaryLabel,
+                                        ),
+                                      ),
                                       variant: WebButtonVariant.tertiary,
                                       onPressed: _onPausePressed,
                                     ),
@@ -877,28 +927,19 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                             children: [
                                               question,
                                               Positioned(
-                                                top: -12,
+                                                top: -8,
                                                 right: 0,
-                                                child: Align(
-                                                  alignment:
-                                                      Alignment.centerRight,
-                                                  child: WebButton(
-                                                    key: const ValueKey(
-                                                      'web-mock-flag',
-                                                    ),
-                                                    label: widget.state.flags
-                                                            .contains(
-                                                      widget.state
-                                                          .currentQuestionId,
-                                                    )
-                                                        ? 'Flagged'
-                                                        : 'Flag',
-                                                    keyHint: 'F',
-                                                    variant: WebButtonVariant
-                                                        .tertiary,
-                                                    onPressed:
-                                                        widget.onToggleFlag,
+                                                child: _FlagButton(
+                                                  key: const ValueKey(
+                                                    'web-mock-flag',
                                                   ),
+                                                  flagged: widget.state.flags
+                                                      .contains(
+                                                    widget.state
+                                                        .currentQuestionId,
+                                                  ),
+                                                  onPressed:
+                                                      widget.onToggleFlag,
                                                 ),
                                               ),
                                             ],
@@ -908,8 +949,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                     ],
                                   ),
                                   Positioned(
-                                    left: 24,
-                                    right: 24,
+                                    left: 0,
+                                    right: _widePanelOpen ? 48 : 0,
                                     bottom: 28,
                                     child: Column(
                                       children: [
@@ -927,20 +968,24 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                           ),
                                         WebBottomBar(
                                           compact: true,
+                                          gap: 6,
+                                          counterPadding:
+                                              const EdgeInsets.symmetric(
+                                            horizontal: 14,
+                                          ),
                                           counter: '${widget.partPosition} '
                                               'of ${widget.partTotal}',
                                           leading: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
-                                              IconButton(
+                                              WebBarArrow(
                                                 tooltip: 'Previous question',
                                                 onPressed: widget.canGoPrevious
                                                     ? widget.onPrevious
                                                     : null,
-                                                icon: const Icon(
-                                                  Icons.chevron_left,
-                                                ),
+                                                icon: Icons.chevron_left,
                                               ),
+                                              const SizedBox(width: 6),
                                               const WebKeyHint('←'),
                                             ],
                                           ),
@@ -948,7 +993,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               const WebKeyHint('→'),
-                                              IconButton(
+                                              const SizedBox(width: 6),
+                                              WebBarArrow(
                                                 tooltip: widget.partPosition ==
                                                         widget.partTotal
                                                     ? widget.oneBlock
@@ -956,9 +1002,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                                         : 'End part'
                                                     : 'Next question',
                                                 onPressed: next,
-                                                icon: const Icon(
-                                                  Icons.chevron_right,
-                                                ),
+                                                icon: Icons.chevron_right,
                                               ),
                                             ],
                                           ),
@@ -1257,6 +1301,130 @@ class _QuestionBody extends ConsumerWidget {
         () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
         error: e,
       ),
+    );
+  }
+}
+
+/// The question's Flag control (board `.btn3`, 36 px, 14 px text).
+class _FlagButton extends StatelessWidget {
+  const _FlagButton({
+    required this.flagged,
+    required this.onPressed,
+    super.key,
+  });
+  final bool flagged;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        minimumSize: const Size(0, 36),
+        padding: const EdgeInsets.fromLTRB(10, 0, 8, 0),
+        foregroundColor: flagged ? t.colors.accent : t.colors.secondaryLabel,
+        overlayColor: Colors.transparent,
+        visualDensity: VisualDensity.standard,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
+        textStyle: t.style(14, weight: FontWeight.w600),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CustomPaint(
+            size: const Size.square(17),
+            painter: _FlagGlyphPainter(
+              flagged ? t.colors.accent : t.colors.secondaryLabel,
+            ),
+          ),
+          const SizedBox(width: 8),
+          Text(flagged ? 'Flagged' : 'Flag'),
+          const SizedBox(width: 8),
+          const WebKeyHint('F'),
+        ],
+      ),
+    );
+  }
+}
+
+class _FlagGlyphPainter extends CustomPainter {
+  const _FlagGlyphPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.9 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    canvas
+      ..drawLine(Offset(6 * k, 3.2 * k), Offset(6 * k, 20.8 * k), paint)
+      ..drawPath(
+        Path()
+          ..moveTo(6 * k, 4.4 * k)
+          ..lineTo(18.2 * k, 4.4 * k)
+          ..lineTo(14 * k, 9 * k)
+          ..lineTo(18.2 * k, 13.6 * k)
+          ..lineTo(6 * k, 13.6 * k),
+        paint,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_FlagGlyphPainter old) => old.color != color;
+}
+
+class _PauseGlyphPainter extends CustomPainter {
+  const _PauseGlyphPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()..color = color;
+    for (final x in [6.5, 13.9]) {
+      canvas.drawRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromLTWH(x * k, 5 * k, 3.6 * k, 14 * k),
+          Radius.circular(1.2 * k),
+        ),
+        paint,
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_PauseGlyphPainter old) => old.color != color;
+}
+
+/// A legend entry: a 10 px dot and its word (board `.hrow`, 12 px).
+class _LegendDot extends StatelessWidget {
+  const _LegendDot(this.label, {this.fill, this.ring});
+  final String label;
+  final Color? fill;
+  final Color? ring;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 10,
+          height: 10,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: fill,
+            border: ring == null ? null : Border.all(color: ring!, width: 1.5),
+          ),
+        ),
+        const SizedBox(width: 6),
+        Text(label, style: t.style(12, color: t.colors.secondaryLabel)),
+      ],
     );
   }
 }

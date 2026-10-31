@@ -306,19 +306,32 @@ class _MockSetupPageState extends State<MockSetupPage> {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: () => Navigator.maybePop(context),
-                  icon: const Icon(Icons.chevron_left),
-                  label: const Text('Quiz'),
+                child: Transform.translate(
+                  offset: const Offset(-6, 0),
+                  child: TextButton.icon(
+                    onPressed: () => Navigator.maybePop(context),
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size(0, 40),
+                      padding: EdgeInsets.zero,
+                      foregroundColor: t.colors.accent,
+                      overlayColor: Colors.transparent,
+                      visualDensity: VisualDensity.standard,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      textStyle: t.style(17),
+                    ),
+                    icon: const Icon(Icons.chevron_left, size: 20),
+                    label: const Text('Quiz'),
+                  ),
                 ),
               ),
+              const SizedBox(height: 6),
               Text(_simulationTitle(blueprint), style: t.h1),
               const SizedBox(height: 6),
               Text(
                 '$total total items · ${_duration(blueprint.durationMinutes)}',
                 style: t.style(17, color: t.colors.secondaryLabel),
               ),
-              const SizedBox(height: 28),
+              const SizedBox(height: 26),
               LayoutBuilder(
                 builder: (context, constraints) => constraints.maxWidth < 820
                     ? Column(

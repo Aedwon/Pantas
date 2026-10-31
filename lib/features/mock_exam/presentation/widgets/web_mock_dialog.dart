@@ -34,34 +34,57 @@ class WebMockDialog extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 440),
             child: WebCard(
               radius: 22,
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(26),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(title, style: context.webTokens.h3),
-                    const SizedBox(height: 8),
-                    Text(message, style: context.webTokens.sub),
-                    if (content != null) content!,
-                    const SizedBox(height: 20),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        WebButton(
-                          label: primaryLabel,
-                          variant: destructive
-                              ? WebButtonVariant.danger
-                              : WebButtonVariant.primary,
-                          onPressed: onConfirm,
-                        ),
-                        WebButton(
-                          label: secondaryLabel,
-                          variant: WebButtonVariant.tertiary,
-                          onPressed: onCancel,
-                        ),
-                      ],
+                    const SizedBox(height: 18),
+                    Text(
+                      message,
+                      style: context.webTokens.sub.copyWith(fontSize: 16),
+                    ),
+                    if (content != null) ...[
+                      const SizedBox(height: 18),
+                      content!,
+                    ],
+                    const SizedBox(height: 18),
+                    // The boards right-align the pair. A destructive dialog
+                    // puts the safe choice first and the red action last;
+                    // every other dialog puts the action first, as plain
+                    // text, and the safe choice last, in teal.
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: destructive
+                            ? [
+                                WebButton(
+                                  label: secondaryLabel,
+                                  variant: WebButtonVariant.tertiary,
+                                  onPressed: onCancel,
+                                ),
+                                WebButton(
+                                  label: primaryLabel,
+                                  variant: WebButtonVariant.danger,
+                                  onPressed: onConfirm,
+                                ),
+                              ]
+                            : [
+                                WebButton(
+                                  label: primaryLabel,
+                                  variant: WebButtonVariant.tertiary,
+                                  onPressed: onConfirm,
+                                ),
+                                WebButton(
+                                  label: secondaryLabel,
+                                  onPressed: onCancel,
+                                ),
+                              ],
+                      ),
                     ),
                   ],
                 ),

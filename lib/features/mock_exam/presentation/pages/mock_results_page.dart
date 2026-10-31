@@ -477,37 +477,41 @@ class MockResultsPage extends StatelessWidget {
                                             const SizedBox(
                                               height: 14,
                                             ),
-                                            if (canReview) ...[
-                                              WebFinaleEffect(
-                                                milliseconds: time,
-                                                track: 'k-rall',
-                                                child: WebTextLink(
-                                                  label: 'See all questions',
-                                                  onPressed:
-                                                      onReviewTap ?? () {},
-                                                ),
+                                            if (canReview)
+                                              // The board puts the Free
+                                              // note beside the link.
+                                              Wrap(
+                                                crossAxisAlignment:
+                                                    WrapCrossAlignment.center,
+                                                spacing: 16,
+                                                runSpacing: 6,
+                                                children: [
+                                                  WebFinaleEffect(
+                                                    milliseconds: time,
+                                                    track: 'k-rall',
+                                                    child: WebTextLink(
+                                                      label:
+                                                          'See all questions',
+                                                      onPressed:
+                                                          onReviewTap ?? () {},
+                                                    ),
+                                                  ),
+                                                  if (!proIsActive &&
+                                                      reviewUntil != null)
+                                                    Text(
+                                                      fromRecord
+                                                          ? 'Open until '
+                                                              '${until!}'
+                                                          : 'On Free, you can '
+                                                              'go through '
+                                                              'these until '
+                                                              'your next '
+                                                              'mock opens on '
+                                                              '${until!}.',
+                                                      style: t.sm,
+                                                    ),
+                                                ],
                                               ),
-                                              if (!proIsActive &&
-                                                  reviewUntil != null)
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 6,
-                                                  ),
-                                                  child: Text(
-                                                    fromRecord
-                                                        ? 'Open until '
-                                                            '${until!}'
-                                                        : 'On Free, you can go '
-                                                            'through these '
-                                                            'until your next '
-                                                            'mock '
-                                                            'opens on '
-                                                            '${until!}.',
-                                                    style: t.sm,
-                                                  ),
-                                                ),
-                                            ],
                                           ],
                                         ),
                                       ),
@@ -770,20 +774,22 @@ class _Breakdown extends StatelessWidget {
               ],
             ),
           const SizedBox(height: 9),
-          if (animatedAccuracy == null)
+          if (animatedAccuracy == null && !context.wideWeb)
             AccuracyBar(accuracy: section.accuracy)
           else
+            // The wide boards draw an 8 px bar (the phone keeps 5 px).
             ClipRRect(
               borderRadius: BorderRadius.circular(99),
               child: Container(
-                height: 5,
+                height: context.wideWeb ? 8 : 5,
                 color: context.colors.fill,
                 alignment: Alignment.centerLeft,
                 child: FractionallySizedBox(
-                  widthFactor: animatedAccuracy!.clamp(0, 1),
+                  widthFactor:
+                      (animatedAccuracy ?? section.accuracy).clamp(0, 1),
                   child: ColoredBox(
                     color: context.colors.accuracyTint(section.accuracy),
-                    child: const SizedBox(height: 5),
+                    child: SizedBox(height: context.wideWeb ? 8 : 5),
                   ),
                 ),
               ),
@@ -814,7 +820,7 @@ class MockPastChart extends StatelessWidget {
   final double? time;
   @override
   Widget build(BuildContext context) => SizedBox(
-        height: 132,
+        height: context.wideWeb ? 170 : 132,
         width: context.wideWeb ? double.infinity : null,
         child: CustomPaint(
           painter: _PastPainter(
@@ -828,6 +834,7 @@ class MockPastChart extends StatelessWidget {
             accent: context.colors.accent,
             previous: context.colors.tertiaryLabel,
             separator: context.colors.separator,
+            strongLabel: context.colors.label,
           ),
         ),
       );
@@ -840,9 +847,11 @@ class _PastPainter extends CustomPainter {
     required this.accent,
     required this.previous,
     required this.separator,
+    this.strongLabel = const Color(0xFF1D1D1F),
     this.time,
     this.web = false,
   });
+  final Color strongLabel;
   final List<MockPastPoint> points;
   final Color label;
   final Color accent;
@@ -857,13 +866,14 @@ class _PastPainter extends CustomPainter {
     Color? color,
     bool strong = false,
     bool rightAligned = false,
+    double? size,
   }) {
     final p = TextPainter(
       text: TextSpan(
         text: value,
         style: TextStyle(
           fontFamily: 'Geist',
-          fontSize: strong ? 12 : 11,
+          fontSize: size ?? (strong ? 12 : 11),
           fontWeight: strong ? FontWeight.w700 : FontWeight.w400,
           color: color ?? label,
         ),
@@ -880,23 +890,31 @@ class _PastPainter extends CustomPainter {
     final max = (all.reduce((a, b) => a > b ? a : b) / 20).ceil() * 20.0;
     final low = min == max ? min - 20 : min;
     final high = min == max ? max + 20 : max;
+    // The wide board draws a 1000 by 170 chart stretched to the card width.
+    final sx = size.width / 1000;
     for (var i = 0; i < 3; i++) {
-      final y = 106 - i * 46.0;
+      final y = web ? 136 - i * 56.0 : 106 - i * 46.0;
       canvas.drawLine(
-        Offset(34, y),
-        Offset(size.width, y),
+        Offset(web ? 40 * sx : 34, y),
+        Offset(web ? 980 * sx : size.width, y),
         Paint()..color = separator,
       );
       text(
         canvas,
         (low + (high - low) * i / 2).toStringAsFixed(0),
-        Offset(15, y - 5),
+        web ? Offset(30 * sx, y - 6) : Offset(15, y - 5),
+        rightAligned: web,
+        size: web ? 12 : null,
       );
     }
     Offset? last;
     for (var i = 0; i < points.length; i++) {
-      final x = 74 + (size.width - 98) * i / (points.length - 1);
-      final y = 106 - (points[i].percent - low) / (high - low) * 92;
+      final x = web
+          ? (40 + 940 * (.14 + .72 * i / (points.length - 1))) * sx
+          : 74 + (size.width - 98) * i / (points.length - 1);
+      final y = web
+          ? 136 - (points[i].percent - low) / (high - low) * 112
+          : 106 - (points[i].percent - low) / (high - low) * 92;
       final current = i == points.length - 1;
       final point = Offset(x, y);
       if (last != null) {
@@ -929,7 +947,8 @@ class _PastPainter extends CustomPainter {
           : null;
       canvas.drawCircle(
         point,
-        (current ? 7 : 5) * (webPop?.sx ?? pop?.scaleX ?? 1),
+        (web ? (current ? 6.5 : 4.5) : (current ? 7 : 5)) *
+            (webPop?.sx ?? pop?.scaleX ?? 1),
         Paint()
           ..color = (current ? accent : previous)
               .withValues(alpha: webPop?.opacity ?? pop?.opacity ?? 1),
@@ -937,8 +956,10 @@ class _PastPainter extends CustomPainter {
       text(
         canvas,
         points[i].label,
-        Offset(x, 116),
-        color: (current ? accent : label).withValues(
+        Offset(x, web ? 152 : 116),
+        strong: web && current,
+        size: web ? 12 : null,
+        color: (current ? (web ? strongLabel : accent) : label).withValues(
           alpha: time == null || !current
               ? 1
               : web
@@ -953,7 +974,7 @@ class _PastPainter extends CustomPainter {
           Offset(
             x,
             y -
-                23 +
+                (web ? 27 : 23) +
                 (time == null
                     ? 0
                     : web
@@ -968,6 +989,7 @@ class _PastPainter extends CustomPainter {
                     : sampleCseFinaleEffect(571, time!).opacity,
           ),
           strong: true,
+          size: web ? 13 : null,
           rightAligned: time != null,
         );
       }

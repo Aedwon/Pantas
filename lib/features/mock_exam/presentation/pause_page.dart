@@ -525,6 +525,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                                           children: [
                                             WebButton(
                                               label: 'Discard This Mock',
+                                              redText: true,
                                               variant:
                                                   WebButtonVariant.tertiary,
                                               onPressed: _confirmDiscard,

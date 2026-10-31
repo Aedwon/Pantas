@@ -2302,3 +2302,28 @@ the primary style when no next session exists; "F to flag" hint shows only with 
 the report icon glyph differs from the board.
 
 Checks: analyze clean; quiz, core/ui and mock tests pass (1,991); layering OK.
+
+### Mock fix batch 1 (2026-11-01)
+
+Sonnet captured 15 of 31 BUILD boards (staging worktree `build/visual-pass/mock/shots/`); lead
+spot-checked MK_ReviewWrong (match apart from content). Not reached: all part-by-part boards
+(local content has no UPCAT or DCAT mock): Setup, SetupDCAT, EndEarly, PartEnded, Between,
+Proctor, FiveMin, LastMinute, LastQ, LastQStrict; Forfeit; ResultsFirst, PastPro and other record
+boards; ReviewBlank. MOTION boards skipped. Lead rulings: panel 300 px and header 72 px (boards);
+proctor warning on the clock only (HANDOFF hard rule).
+
+Fixed (wide web): setup title and table; Flag 36 px, Pause 101 px with icons and key chips;
+question grid 6 columns with a scrolling area so Submit stays visible; edge tab and nav bar
+centered; dialogs; results ring 264 px, bar 8 px, rows 71 px, chart 170 px; review list rows 47 px,
+"Left blank" pill, caps headers; review viewer reason tiles 2x2 and bottom nav; segmented control
+34 px.
+
+For Aedwon (not changed): Pause/Flag/Submit stay natural width (hard rule) where the board shows
+full width; board's extra proctor line not added; Free "open until" and flag-offer wording differ;
+no "See full record" link on results; board reason chip "I forgot"; board segment labels teal;
+review viewer top-right icon differs; CSE Paused screen has no part list.
+
+Local runner: copies the app repo's `content/mock/cse-pro.yaml` into the local content root
+(the content branch has no CSE mock blueprint) and shims the content App Check host.
+
+Checks: analyze clean; mock_exam and core/ui tests pass; layering OK.

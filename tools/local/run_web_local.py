@@ -144,6 +144,9 @@ def main():
                     archive = subprocess.run(['git', 'archive', 'origin/content/cse-rewrite-r1',
                                               'content', 'tools/lesson_author/outline.json'], check=True, stdout=subprocess.PIPE)
                     subprocess.run(['tar', '-x', '-C', str(content_root)], input=archive.stdout, check=True)
+                    # LOCAL VISUAL PASS ONLY: add the CSE mock blueprint the content branch lacks.
+                    (content_root / 'content/mock').mkdir(parents=True, exist_ok=True)
+                    shutil.copy(ROOT / 'content/mock/cse-pro.yaml', content_root / 'content/mock/cse-pro.yaml')
                     # The export also reads this code-branch file, which the content branch lacks.
                     historical = content_root / 'tools/build_content_export/historical_v1.json'
                     historical.parent.mkdir(parents=True, exist_ok=True)
@@ -203,7 +206,7 @@ def main():
 const localFetch = window.fetch.bind(window);
 window.fetch = (input, init) => {
   const url = new URL(typeof input === 'string' ? input : input.url, location.href);
-  if (url.hostname === 'firebaseappcheck.googleapis.com') {
+  if (url.hostname === 'firebaseappcheck.googleapis.com' || url.hostname === 'content-firebaseappcheck.googleapis.com') {
     return localFetch('/local-app-check', {method: 'GET'});
   }
   if (url.hostname === 'api.paymongo.com') return Promise.reject(new Error('Checkout is disabled locally.'));
