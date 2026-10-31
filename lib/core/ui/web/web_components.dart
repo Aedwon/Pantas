@@ -762,6 +762,7 @@ class WebAnswerOption extends StatelessWidget {
             minimumSize:
                 const WidgetStatePropertyAll(Size(double.infinity, 64)),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
             padding: const WidgetStatePropertyAll(
               EdgeInsets.fromLTRB(16, 14, 18, 14),
             ),
@@ -899,6 +900,7 @@ class WebBottomBar extends StatelessWidget {
     this.state = WebBarState.neutral,
     this.wide = false,
     this.compact = false,
+    this.counterChevron = false,
     super.key,
   });
   final String counter;
@@ -909,6 +911,10 @@ class WebBottomBar extends StatelessWidget {
   final WebBarState state;
   final bool wide;
   final bool compact;
+
+  /// Question-session bar (board `.cnt`): the counter button ends in a small
+  /// chevron-down and the bar's right padding is 9 px.
+  final bool counterChevron;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -917,7 +923,7 @@ class WebBottomBar extends StatelessWidget {
       constraints: BoxConstraints(maxWidth: wide ? 1080 : 720),
       child: Container(
         constraints: const BoxConstraints(minHeight: 64),
-        padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
+        padding: EdgeInsets.fromLTRB(8, 0, counterChevron ? 9 : 10, 0),
         decoration: BoxDecoration(
           color: switch (state) {
             WebBarState.neutral => c.surface,
@@ -961,12 +967,30 @@ class WebBottomBar extends StatelessWidget {
                 style: TextButton.styleFrom(
                   foregroundColor: c.label,
                   minimumSize: const Size(0, 46),
-                  padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
+                  padding: counterChevron
+                      ? const EdgeInsets.fromLTRB(18, 0, 6, 0)
+                      : const EdgeInsets.fromLTRB(16, 0, 12, 0),
                   textStyle: t.style(15, weight: FontWeight.w600).copyWith(
                     fontFeatures: [const FontFeature.tabularFigures()],
                   ),
                 ),
-                child: Text(counter),
+                child: counterChevron
+                    ? Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(counter),
+                          const SizedBox(width: 8),
+                          CustomPaint(
+                            size: const Size.square(14),
+                            painter: _DownChevronPainter(
+                              t.dark
+                                  ? c.secondaryLabel
+                                  : const Color(0xFF8E8E93),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Text(counter),
               ),
             if (!compact || hint != null)
               Expanded(
@@ -984,6 +1008,89 @@ class WebBottomBar extends StatelessWidget {
       ),
     );
   }
+}
+
+class _DownChevronPainter extends CustomPainter {
+  const _DownChevronPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    canvas.drawPath(
+      Path()
+        ..moveTo(6 * k, 9 * k)
+        ..lineTo(12 * k, 15 * k)
+        ..lineTo(18 * k, 9 * k),
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.2 * k
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..color = color,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_DownChevronPainter old) => old.color != color;
+}
+
+/// The board's 21 px flag: outlined, or filled when flagged.
+class WebFlagIcon extends StatelessWidget {
+  const WebFlagIcon({required this.flagged, super.key});
+  final bool flagged;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return ExcludeSemantics(
+      child: CustomPaint(
+        size: const Size.square(21),
+        painter: _FlagPainter(
+          flagged: flagged,
+          color: flagged
+              ? t.colors.accent
+              : t.dark
+                  ? t.colors.secondaryLabel
+                  : const Color(0xFF8E8E93),
+        ),
+      ),
+    );
+  }
+}
+
+class _FlagPainter extends CustomPainter {
+  const _FlagPainter({required this.flagged, required this.color});
+  final bool flagged;
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.9 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..color = color;
+    canvas.drawLine(Offset(6 * k, 3.2 * k), Offset(6 * k, 20.8 * k), stroke);
+    final pennant = Path()
+      ..moveTo(6 * k, 4.4 * k)
+      ..lineTo(18.2 * k, 4.4 * k)
+      ..lineTo(14 * k, 9 * k)
+      ..lineTo(18.2 * k, 13.6 * k)
+      ..lineTo(6 * k, 13.6 * k);
+    if (flagged) {
+      canvas.drawPath(
+        pennant,
+        Paint()
+          ..style = PaintingStyle.fill
+          ..color = color,
+      );
+    }
+    canvas.drawPath(pennant, stroke);
+  }
+
+  @override
+  bool shouldRepaint(_FlagPainter old) =>
+      old.flagged != flagged || old.color != color;
 }
 
 /// Shared 64px focus-mode header, with no sidebar.

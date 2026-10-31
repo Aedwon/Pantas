@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -306,28 +307,42 @@ class _ReportFormState extends State<ReportForm> {
         },
       },
       child: WebCard(
-        radius: 20,
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+        radius: 14,
+        padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 58),
-            Text(
-              _limit == ReportResult.dailyLimit
-                  ? "You've sent a lot of reports today. "
-                      'You can send more tomorrow.'
-                  : _limit == ReportResult.questionLimit
-                      ? 'You reported this question before.'
-                      : _reported
-                          ? 'You reported this question before. '
-                              'Feel free to add any other concern so we can '
-                              'work on it right away.'
-                          : 'Something wrong or unclear? Tell us '
-                              "and we'll check it.",
-              style: t.sm,
-            ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 54),
+            if (_reported && _limit == null)
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: t.colors.background,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  'You reported this question before. '
+                  'Feel free to add any other concern so we can '
+                  'work on it right away.',
+                  style: t.sm,
+                ),
+              )
+            else
+              Text(
+                _limit == ReportResult.dailyLimit
+                    ? "You've sent a lot of reports today. "
+                        'You can send more tomorrow.'
+                    : _limit == ReportResult.questionLimit
+                        ? 'You reported this question before.'
+                        : 'Something wrong or unclear? Tell us '
+                            "and we'll check it.",
+                style: t.sub,
+              ),
+            const SizedBox(height: 12),
             TextField(
               controller: _text,
               focusNode: _focus,
@@ -341,11 +356,31 @@ class _ReportFormState extends State<ReportForm> {
                 hintText: _limit == ReportResult.dailyLimit
                     ? 'Reports open again tomorrow'
                     : 'What did you notice?',
+                hintStyle: t.style(16, height: 1.4, color: t.disabledText),
                 filled: true,
-                fillColor: t.colors.background,
+                fillColor: _reported && _limit == null
+                    ? t.colors.surface
+                    : t.colors.background,
+                isDense: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: _reported && _limit == null
+                      ? BorderSide(color: t.strongDivider)
+                      : BorderSide.none,
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: t.colors.accent, width: 2),
                 ),
               ),
             ),
@@ -353,19 +388,15 @@ class _ReportFormState extends State<ReportForm> {
               saveFailureLine(
                 () => unawaited(_ready ? _send() : _load()),
               ),
-            const SizedBox(height: 14),
-            Wrap(
-              alignment: WrapAlignment.end,
-              spacing: 8,
-              runSpacing: 8,
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                WebButton(
-                  label: 'Cancel',
-                  variant: WebButtonVariant.tertiary,
-                  onPressed: widget.onClose,
-                ),
-                WebButton(
+                _ReportButton(label: 'Cancel', onPressed: widget.onClose),
+                const SizedBox(width: 8),
+                _ReportButton(
                   label: 'Send',
+                  solid: true,
                   keyHint: 'Ctrl Enter',
                   busy: _busy,
                   onPressed: canSend ? () => unawaited(_send()) : null,
@@ -418,13 +449,13 @@ class _WebReportPanelState extends State<_WebReportPanel> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    final position = _position ?? Offset(size.width - 400, 60);
+    final position = _position ?? Offset(size.width - 436, 60);
     return Stack(
       children: [
         Positioned(
           left: position.dx,
           top: position.dy,
-          width: 380,
+          width: 416,
           child: Material(
             color: Colors.transparent,
             child: Stack(
@@ -438,13 +469,13 @@ class _WebReportPanelState extends State<_WebReportPanel> {
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: 0,
-                  height: 58,
+                  top: 12,
+                  height: 32,
                   child: GestureDetector(
                     onPanUpdate: (details) => setState(
                       () => _position = Offset(
                         ((_position ?? position).dx + details.delta.dx)
-                            .clamp(0, size.width - 380),
+                            .clamp(0, size.width - 416),
                         ((_position ?? position).dy + details.delta.dy)
                             .clamp(0, size.height - 360),
                       ),
@@ -452,20 +483,36 @@ class _WebReportPanelState extends State<_WebReportPanel> {
                     child: MouseRegion(
                       cursor: SystemMouseCursors.move,
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 10),
+                        padding: const EdgeInsets.only(left: 18, right: 10),
                         child: Row(
                           children: [
                             Expanded(
                               child: Text(
                                 'Report this question',
                                 style: context.webTokens
-                                    .style(17, weight: FontWeight.w600),
+                                    .style(17, weight: FontWeight.w700),
                               ),
                             ),
-                            IconButton(
-                              tooltip: 'Close report',
-                              onPressed: () => Navigator.of(context).pop(),
-                              icon: const Icon(Icons.close, size: 20),
+                            SizedBox.square(
+                              dimension: 32,
+                              child: IconButton(
+                                tooltip: 'Close report',
+                                padding: EdgeInsets.zero,
+                                style: IconButton.styleFrom(
+                                  minimumSize: Size.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                onPressed: () => Navigator.of(context).pop(),
+                                icon: Icon(
+                                  Icons.close,
+                                  size: 16,
+                                  color: context.webTokens.colors.tertiaryLabel,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -478,6 +525,78 @@ class _WebReportPanelState extends State<_WebReportPanel> {
           ),
         ),
       ],
+    );
+  }
+}
+
+/// Board `.btn` and `.btn3`: 40 px buttons, 15 px label.
+class _ReportButton extends StatelessWidget {
+  const _ReportButton({
+    required this.label,
+    required this.onPressed,
+    this.solid = false,
+    this.keyHint,
+    this.busy = false,
+  });
+  final String label;
+  final VoidCallback? onPressed;
+  final bool solid;
+  final String? keyHint;
+  final bool busy;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final off = onPressed == null && !busy;
+    final showHint = keyHint != null && WebKeyboardHints.visibleOf(context);
+    return TextButton(
+      onPressed: busy ? null : onPressed,
+      style: TextButton.styleFrom(
+        minimumSize: const Size(0, 40),
+        padding: EdgeInsets.only(
+          left: solid ? 20 : 14,
+          right: solid ? (showHint ? 14 : 20) : 14,
+        ),
+        visualDensity: VisualDensity.standard,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        overlayColor: Colors.transparent,
+        backgroundColor: !solid
+            ? Colors.transparent
+            : off
+                ? t.disabledBackground
+                : t.colors.accentFill,
+        foregroundColor: !solid
+            ? t.colors.secondaryLabel
+            : off
+                ? t.disabledText
+                : Colors.white,
+        disabledBackgroundColor:
+            solid && !busy ? t.disabledBackground : t.colors.accentFill,
+        disabledForegroundColor: solid && !busy ? t.disabledText : Colors.white,
+        textStyle: t.style(15, weight: FontWeight.w600),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(solid ? 10 : 11),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (busy) ...[
+            const SizedBox.square(
+              dimension: 16,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(width: 8),
+          ],
+          Text(label),
+          if (showHint) ...[
+            const SizedBox(width: 12),
+            WebKeyHint(keyHint!, onButton: true, enabled: !off),
+          ],
+        ],
+      ),
     );
   }
 }

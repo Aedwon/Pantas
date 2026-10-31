@@ -28,6 +28,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -520,6 +521,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   final Set<String> _reported = {};
   String? _reportStatus;
   Timer? _reportTimer;
+  final LayerLink _barLink = LayerLink();
 
   @override
   void dispose() {
@@ -840,6 +842,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   }) {
     final t = context.webTokens;
     final session = state.session;
+    final total = session.questions.length;
+    final flagHint = _toastVisible && WebKeyboardHints.visibleOf(context);
     final current = session.currentIndex;
     final question = session.questions[index];
     final outcome =
@@ -906,8 +910,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         IconButton(
                           tooltip: 'Leave session',
                           onPressed: () => unawaited(_confirmLeave()),
+                          constraints: const BoxConstraints.tightFor(
+                            width: 44,
+                            height: 44,
+                          ),
+                          visualDensity: VisualDensity.standard,
+                          style: IconButton.styleFrom(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
                           icon: Icon(PantasIcons.close, size: 22),
                         ),
+                        const SizedBox(width: 10),
                         const WebKeyHint('Esc'),
                         Expanded(
                           child: Text(
@@ -926,6 +939,14 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           ),
                         IconButton(
                           tooltip: 'Report a question',
+                          constraints: const BoxConstraints.tightFor(
+                            width: 44,
+                            height: 44,
+                          ),
+                          visualDensity: VisualDensity.standard,
+                          style: IconButton.styleFrom(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
                           onPressed: () async {
                             final saved = await openQuestionReport(
                               context,
@@ -997,181 +1018,241 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                             behavior: HitTestBehavior.translucent,
                           ),
                         ),
-                      if (_gridOpen)
-                        Positioned(
-                          bottom: 104,
-                          left: (MediaQuery.sizeOf(context).width - 376) / 2,
-                          width: 376,
-                          child: WebCard(
-                            radius: 14,
-                            padding: const EdgeInsets.all(18),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Questions',
-                                      style: t.style(
-                                        17,
-                                        weight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 12),
-                                    Expanded(
-                                      child: Text(
-                                        '${session.outcomes.length} of '
-                                        '${session.questions.length} answered',
-                                        style: t.sm,
-                                        textAlign: TextAlign.right,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 14),
-                                ConstrainedBox(
-                                  constraints: const BoxConstraints(
-                                    maxHeight: 360,
-                                  ),
-                                  child: SingleChildScrollView(
-                                    child: Wrap(
-                                      spacing: 8,
-                                      runSpacing: 8,
-                                      children: [
-                                        for (var n = 0;
-                                            n < session.questions.length;
-                                            n++)
-                                          SizedBox(
-                                            width: 61,
-                                            height: 44,
-                                            child: TextButton(
-                                              key: ValueKey(
-                                                'web-grid-question-$n',
-                                              ),
-                                              onPressed: n <=
-                                                      session.outcomes.length
-                                                  ? () {
-                                                      _lookAt(
-                                                        n == current ? null : n,
-                                                      );
-                                                      setState(
-                                                        () => _gridOpen = false,
-                                                      );
-                                                    }
-                                                  : null,
-                                              style: TextButton.styleFrom(
-                                                backgroundColor: n <
-                                                        session.outcomes.length
-                                                    ? session.outcomes[n]
-                                                            .isCorrect
-                                                        ? t.colors.accentTint
-                                                        : t.colors.wrongTint
-                                                    : t.colors.surface,
-                                                foregroundColor:
-                                                    n < session.outcomes.length
-                                                        ? session.outcomes[n]
-                                                                .isCorrect
-                                                            ? t.colors.accent
-                                                            : t.colors.wrongText
-                                                        : t.colors.label,
-                                                side: BorderSide(
-                                                  color: n == index
-                                                      ? t.colors.label
-                                                      : t.colors.separator,
-                                                  width: n == index ? 2 : 1,
-                                                ),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    12,
-                                                  ),
-                                                ),
-                                              ),
-                                              child: Text('${n + 1}'),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 14),
-                                Text(
-                                  'Click any answered question '
-                                  'to go back to it.',
-                                  style: t.sm,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
                       Positioned(
                         bottom: 28,
                         left: 24,
                         right: 24,
                         child: Center(
-                          child: IntrinsicWidth(
-                            child: WebBottomBar(
-                              compact: true,
-                              counter:
-                                  '${index + 1} of ${session.questions.length}',
-                              onCounterPressed: state.checking
-                                  ? null
-                                  : () => setState(
-                                        () => _gridOpen = !_gridOpen,
+                          child: CompositedTransformTarget(
+                            link: _barLink,
+                            child: IntrinsicWidth(
+                              child: WebBottomBar(
+                                compact: true,
+                                counterChevron: true,
+                                counter: '${index + 1} of $total',
+                                onCounterPressed: state.checking
+                                    ? null
+                                    : () => setState(
+                                          () => _gridOpen = !_gridOpen,
+                                        ),
+                                state: outcome == null
+                                    ? WebBarState.neutral
+                                    : outcome.isCorrect
+                                        ? WebBarState.right
+                                        : WebBarState.wrong,
+                                action: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    if (flagHint) ...[
+                                      const SizedBox(width: 6),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        child: Text(
+                                          'F to flag',
+                                          style: t.sm.copyWith(
+                                            color: t.dark
+                                                ? t.colors.secondaryLabel
+                                                : t.colors.tertiaryLabel,
+                                          ),
+                                        ),
                                       ),
-                              state: outcome == null
-                                  ? WebBarState.neutral
-                                  : outcome.isCorrect
-                                      ? WebBarState.right
-                                      : WebBarState.wrong,
-                              action: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  IconButton(
-                                    tooltip: flagged.contains(question.id)
-                                        ? 'Remove flag'
-                                        : 'Flag question',
-                                    onPressed: _flagBusy
-                                        ? null
-                                        : () => unawaited(
-                                              _toggleFlag(question.id),
-                                            ),
-                                    icon: _flag(
-                                      question.id,
-                                      flagged.contains(question.id),
+                                    ],
+                                    IconButton(
+                                      tooltip: flagged.contains(question.id)
+                                          ? 'Remove flag'
+                                          : 'Flag question',
+                                      constraints:
+                                          const BoxConstraints.tightFor(
+                                        width: 46,
+                                        height: 46,
+                                      ),
+                                      padding: EdgeInsets.zero,
+                                      visualDensity: VisualDensity.standard,
+                                      style: IconButton.styleFrom(
+                                        tapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        shape: const CircleBorder(),
+                                      ),
+                                      onPressed: _flagBusy
+                                          ? null
+                                          : () => unawaited(
+                                                _toggleFlag(question.id),
+                                              ),
+                                      icon: _flag(
+                                        question.id,
+                                        flagged.contains(question.id),
+                                        web: true,
+                                      ),
                                     ),
-                                  ),
-                                  const WebKeyHint('F'),
-                                  const SizedBox(width: 8),
-                                  WebButton(
-                                    label: label,
-                                    pill: true,
-                                    keyHint: 'Enter',
-                                    busy: state.checking,
-                                    onPressed: state.checking ||
-                                            (!lookingBack &&
-                                                outcome == null &&
-                                                state.selectedChoiceId == null)
-                                        ? null
-                                        : action,
-                                  ),
-                                ],
+                                    const SizedBox(width: 6),
+                                    WebButton(
+                                      label: label,
+                                      pill: true,
+                                      keyHint: 'Enter',
+                                      busy: state.checking,
+                                      onPressed: state.checking ||
+                                              (!lookingBack &&
+                                                  outcome == null &&
+                                                  state.selectedChoiceId ==
+                                                      null)
+                                          ? null
+                                          : action,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
+                      if (_gridOpen)
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: CompositedTransformFollower(
+                            link: _barLink,
+                            followerAnchor: Alignment.bottomLeft,
+                            offset: const Offset(.8, -12),
+                            child: SizedBox(
+                              width: 376,
+                              child: WebCard(
+                                radius: 14,
+                                padding: const EdgeInsets.all(18),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Questions',
+                                          style: t.style(
+                                            17,
+                                            weight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 12),
+                                        Expanded(
+                                          child: Text(
+                                            '${session.outcomes.length} of '
+                                            '$total answered',
+                                            style: t.sm,
+                                            textAlign: TextAlign.right,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 14),
+                                    ConstrainedBox(
+                                      constraints: const BoxConstraints(
+                                        maxHeight: 360,
+                                      ),
+                                      child: SingleChildScrollView(
+                                        child: Wrap(
+                                          spacing: 8,
+                                          runSpacing: 8,
+                                          children: [
+                                            for (var n = 0;
+                                                n < session.questions.length;
+                                                n++)
+                                              SizedBox(
+                                                width: 61.6,
+                                                height: 44,
+                                                child: TextButton(
+                                                  key: ValueKey(
+                                                    'web-grid-question-$n',
+                                                  ),
+                                                  onPressed: n <=
+                                                          session
+                                                              .outcomes.length
+                                                      ? () {
+                                                          _lookAt(
+                                                            n == current
+                                                                ? null
+                                                                : n,
+                                                          );
+                                                          setState(
+                                                            () => _gridOpen =
+                                                                false,
+                                                          );
+                                                        }
+                                                      : null,
+                                                  style: TextButton.styleFrom(
+                                                    padding: EdgeInsets.zero,
+                                                    visualDensity:
+                                                        VisualDensity.standard,
+                                                    tapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    textStyle: t.style(
+                                                      15,
+                                                      weight: n == index
+                                                          ? FontWeight.w700
+                                                          : FontWeight.w600,
+                                                    ),
+                                                    backgroundColor: n <
+                                                            session
+                                                                .outcomes.length
+                                                        ? session.outcomes[n]
+                                                                .isCorrect
+                                                            ? t.colors
+                                                                .accentTint
+                                                            : t.colors.wrongTint
+                                                        : t.colors.surface,
+                                                    disabledBackgroundColor:
+                                                        t.colors.surface,
+                                                    foregroundColor: n <
+                                                            session
+                                                                .outcomes.length
+                                                        ? session.outcomes[n]
+                                                                .isCorrect
+                                                            ? t.colors.accent
+                                                            : t.colors.wrongText
+                                                        : t.disabledText,
+                                                    disabledForegroundColor:
+                                                        t.disabledText,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                        12,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  child: Text('${n + 1}'),
+                                                ),
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14),
+                                    Text(
+                                      'Click any answered question '
+                                      'to go back to it.',
+                                      style: t.sm,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       if (_toastMessage != null)
                         Positioned(
                           bottom: 108,
-                          left: 240,
-                          right: 240,
-                          child: Toast(
-                            message: _toastMessage!,
-                            visible: _toastVisible,
-                            onUndo: _undoFlag == null
-                                ? null
-                                : () => unawaited(_toggleFlag(_undoFlag!)),
+                          left: 24,
+                          right: 24,
+                          child: Center(
+                            child: Toast(
+                              web: true,
+                              message: _toastMessage!,
+                              visible: _toastVisible,
+                              onUndo: _undoFlag == null
+                                  ? null
+                                  : () => unawaited(_toggleFlag(_undoFlag!)),
+                            ),
                           ),
                         ),
                     ],
@@ -1431,12 +1512,15 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     });
   }
 
-  Widget _flag(String id, bool flagged) {
-    final icon = Icon(
-      PantasIcons.flag,
-      size: 21,
-      color: flagged ? context.colors.accent : context.colors.controlOutline,
-    );
+  Widget _flag(String id, bool flagged, {bool web = false}) {
+    final Widget icon = web
+        ? WebFlagIcon(flagged: flagged)
+        : Icon(
+            PantasIcons.flag,
+            size: 21,
+            color:
+                flagged ? context.colors.accent : context.colors.controlOutline,
+          );
     if (!flagged ||
         _poppingFlag != id ||
         MediaQuery.disableAnimationsOf(context)) {

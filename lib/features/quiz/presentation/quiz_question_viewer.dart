@@ -63,6 +63,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
   final Map<String, AttemptItem> _updates = {};
   final Set<String> _reported = {};
   String? _reportStatus;
+  bool _reportOpen = false;
   Timer? _reportTimer;
   final Set<String> _dismissedNotes = {};
   final FocusNode _webFocus = FocusNode();
@@ -112,7 +113,13 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
   }
 
   Future<void> _report(String id) async {
-    final saved = await widget.onReport(id);
+    setState(() => _reportOpen = true);
+    final bool? saved;
+    try {
+      saved = await widget.onReport(id);
+    } finally {
+      if (mounted) setState(() => _reportOpen = false);
+    }
     if (mounted && (saved ?? false)) {
       _reportTimer?.cancel();
       setState(() {
@@ -186,6 +193,15 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                       children: [
                         TextButton.icon(
                           onPressed: widget.onBack,
+                          style: TextButton.styleFrom(
+                            minimumSize: const Size(0, 40),
+                            padding: EdgeInsets.zero,
+                            foregroundColor: t.colors.accent,
+                            overlayColor: Colors.transparent,
+                            visualDensity: VisualDensity.standard,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            textStyle: t.style(17),
+                          ),
                           icon: Icon(PantasIcons.back, size: 20),
                           label: Text(widget.backLabel),
                         ),
@@ -193,20 +209,41 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         const WebKeyHint('Esc'),
                         const Spacer(),
                         if (_reportStatus == question.id)
-                          Text(
-                            "Saved. It sends when you're back online.",
-                            style: t.sm,
-                          ),
-                        IconButton(
-                          tooltip: 'Report a question',
-                          onPressed: () => unawaited(_report(question.id)),
-                          icon: IconTheme(
-                            data: IconThemeData(
-                              color: _reported.contains(question.id)
-                                  ? t.colors.accent
-                                  : t.colors.secondaryLabel,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Text(
+                              "Saved. It sends when you're back online.",
+                              style: t.style(
+                                14,
+                                height: 1.3,
+                                color: t.colors.secondaryLabel,
+                              ),
                             ),
-                            child: PantasIcons.report,
+                          ),
+                        SizedBox.square(
+                          dimension: 44,
+                          child: IconButton(
+                            tooltip: 'Report a question',
+                            padding: EdgeInsets.zero,
+                            style: IconButton.styleFrom(
+                              minimumSize: Size.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              backgroundColor: _reportOpen
+                                  ? t.disabledBackground
+                                  : Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            onPressed: () => unawaited(_report(question.id)),
+                            icon: IconTheme(
+                              data: IconThemeData(
+                                color: _reported.contains(question.id)
+                                    ? t.colors.accent
+                                    : t.colors.secondaryLabel,
+                              ),
+                              child: PantasIcons.report,
+                            ),
                           ),
                         ),
                       ],
@@ -269,55 +306,23 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         bottom: 28,
                         child: Center(
                           child: IntrinsicWidth(
-                            child: WebBottomBar(
-                              compact: true,
+                            child: _ViewerBar(
                               counter:
                                   '${_index + 1} of ${widget.questions.length}',
                               state:
                                   wrong ? WebBarState.wrong : WebBarState.right,
-                              leading: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  IconButton(
-                                    tooltip: 'Previous question',
-                                    onPressed: _index > 0 ? previous : null,
-                                    icon: Icon(
-                                      PantasIcons.back,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  const WebKeyHint('←'),
-                                ],
-                              ),
-                              action: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const WebKeyHint('→'),
-                                  if (canNote &&
+                              onPrevious: _index > 0 ? previous : null,
+                              onNext: _index + 1 < widget.questions.length
+                                  ? next
+                                  : null,
+                              onEditNote: canNote &&
                                       (_savedQuestion == question.id ||
-                                          _dismissedNotes
-                                              .contains(question.id)))
-                                    IconButton(
-                                      tooltip: 'Edit Note',
-                                      onPressed: () => setState(() {
+                                          _dismissedNotes.contains(question.id))
+                                  ? () => setState(() {
                                         _notes = true;
                                         _editorEpoch++;
-                                      }),
-                                      icon: Icon(PantasIcons.addNote),
-                                    ),
-                                  IconButton(
-                                    tooltip: 'Next question',
-                                    onPressed:
-                                        _index + 1 < widget.questions.length
-                                            ? next
-                                            : null,
-                                    icon: Icon(
-                                      PantasIcons.next,
-                                      size: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                      })
+                                  : null,
                             ),
                           ),
                         ),
@@ -643,6 +648,103 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Board `.fbar.wide`: previous, counter and next with their key chips.
+class _ViewerBar extends StatelessWidget {
+  const _ViewerBar({
+    required this.counter,
+    required this.state,
+    required this.onPrevious,
+    required this.onNext,
+    this.onEditNote,
+  });
+  final String counter;
+  final WebBarState state;
+  final VoidCallback? onPrevious;
+  final VoidCallback? onNext;
+  final VoidCallback? onEditNote;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final c = t.colors;
+    Widget arrow(String tooltip, IconData icon, VoidCallback? onPressed) =>
+        SizedBox.square(
+          dimension: 46,
+          child: IconButton(
+            tooltip: tooltip,
+            onPressed: onPressed,
+            padding: EdgeInsets.zero,
+            style: IconButton.styleFrom(
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              foregroundColor: c.accent,
+              disabledForegroundColor: t.disabledText,
+            ),
+            icon: Icon(icon, size: 20),
+          ),
+        );
+    return Container(
+      constraints: const BoxConstraints(minHeight: 64),
+      padding: const EdgeInsets.fromLTRB(8, 0, 9, 0),
+      decoration: BoxDecoration(
+        color: switch (state) {
+          WebBarState.neutral => c.surface,
+          WebBarState.right => c.floatingRight,
+          WebBarState.wrong => c.floatingWrong,
+        },
+        borderRadius: BorderRadius.circular(32),
+        border: Border.all(
+          color: switch (state) {
+            WebBarState.neutral =>
+              t.dark ? c.separator : Colors.black.withValues(alpha: .06),
+            WebBarState.right => c.accent.withValues(alpha: .26),
+            WebBarState.wrong => c.destructive.withValues(alpha: .26),
+          },
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: t.dark ? .4 : .10),
+            blurRadius: 30,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          arrow('Previous question', PantasIcons.back, onPrevious),
+          const SizedBox(width: 6),
+          const WebKeyHint('←'),
+          const SizedBox(width: 6),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Text(
+              counter,
+              style: t.style(15, weight: FontWeight.w600).copyWith(
+                fontFeatures: [const FontFeature.tabularFigures()],
+              ),
+            ),
+          ),
+          const SizedBox(width: 6),
+          const WebKeyHint('→'),
+          const SizedBox(width: 6),
+          if (onEditNote != null)
+            SizedBox.square(
+              dimension: 46,
+              child: IconButton(
+                tooltip: 'Edit Note',
+                onPressed: onEditNote,
+                padding: EdgeInsets.zero,
+                icon: Icon(PantasIcons.addNote),
+              ),
+            ),
+          arrow('Next question', PantasIcons.next, onNext),
+        ],
       ),
     );
   }

@@ -45,7 +45,7 @@ void main() {
       final before = tester.getTopLeft(header);
       expect(tester.getRect(find.byType(ReportForm)).top, 60);
       expect(tester.getRect(find.byType(ReportForm)).right, 1420);
-      expect(tester.getSize(find.byType(ReportForm)).width, 380);
+      expect(tester.getSize(find.byType(ReportForm)).width, 416);
       await tester.drag(header, const Offset(-100, 50));
       await tester.pumpAndSettle();
       expect(tester.getTopLeft(header).dx, lessThan(before.dx));

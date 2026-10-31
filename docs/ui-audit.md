@@ -2280,3 +2280,25 @@ and shows on hover only (board); "Still unread" label uppercase (board); lesson 
 centered (the board draws it at x=720, which looks like a board slip).
 
 Checks: analyze clean; lesson, core/ui and home tests pass (1,684); layering OK.
+
+### Quiz fix batch 1 (2026-11-01)
+
+Sonnet captured 19 of 27 BUILD boards (staging worktree `build/visual-pass/quiz/shots/`); lead
+spot-checked QS_EndPro (match apart from the items below). Not reached: QS_EndLow, QS_EndPerfect,
+QS_Figure, QS_Long, QN_EditNote; skipped G9 report states (limit, offline, sent, again).
+
+Fixed (wide web): answer options 64 px; Quiz tab columns 546/506 and rows 71 px; mock "Take the
+Exam" 458x48; flag toast about 311x55; grid popover aligned to the bottom bar; end screen rebuilt
+to the board; viewer bar prev/next, key chips and counter; reasons panel and report popover 416 px.
+
+Bugs found (to fix next):
+- Mistake and question-list rows show raw maths markup (for example `$8$`, `$50\%$`) instead of
+  rendered maths.
+- A mock whose chosen ids exceed 64 characters makes the Quiz tab show "Could not load your mock."
+  Seen with seeded mocks; check whether real mock ids can reach that length.
+
+For Aedwon (not changed): the end screen's extra "NEXT" debrief card is not on the board; Done keeps
+the primary style when no next session exists; "F to flag" hint shows only with the flag toast;
+the report icon glyph differs from the board.
+
+Checks: analyze clean; quiz, core/ui and mock tests pass (1,991); layering OK.

@@ -215,18 +215,6 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    if (wrong && widget.pro && picked?.rationale != null) ...[
-                      _answer(
-                        context,
-                        picked!.label,
-                        'your pick',
-                        picked.rationale!,
-                        true,
-                      ),
-                      const SizedBox(height: 18),
-                      Divider(height: 1, color: t.colors.separator),
-                      const SizedBox(height: 18),
-                    ],
                     _answer(
                       context,
                       correct.label,
@@ -234,6 +222,18 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                       widget.question.explanation,
                       false,
                     ),
+                    if (wrong && widget.pro && picked?.rationale != null) ...[
+                      const SizedBox(height: 18),
+                      Divider(height: 1, color: t.colors.separator),
+                      const SizedBox(height: 18),
+                      _answer(
+                        context,
+                        picked!.label,
+                        'your pick',
+                        picked.rationale!,
+                        true,
+                      ),
+                    ],
                   ],
                 ),
               ),

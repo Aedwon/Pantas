@@ -320,38 +320,38 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       child: Column(
                         children: [
                           WebRow(
+                            boardMetrics: true,
+                            chevron: WebRowChevron.always,
                             title: 'Your past mistakes',
                             value: n.mistakes == 0 ? null : '${n.mistakes}',
                             subtitle:
                                 n.mistakes == 0 ? 'Nothing to fix yet' : null,
                             dimmed: n.mistakes == 0,
-                            leading: Icon(
-                              PantasIcons.close,
-                              color: context.webTokens.colors.accent,
-                              size: 22,
+                            leading: const _WebPracticeGlyph(
+                              _WebGlyphKind.mistakes,
                             ),
-                            trailing: const Icon(Icons.chevron_right, size: 16),
                             onPressed: () => unawaited(
                               _open('/quiz/retake/${exam.id}'),
                             ),
                           ),
                           WebRow(
+                            boardMetrics: true,
+                            chevron: WebRowChevron.always,
                             title: 'Customize your own',
                             dimmed: paused,
                             subtitle: paused
                                 ? 'Finish or discard your paused quiz first'
                                 : null,
-                            leading: Icon(
-                              PantasIcons.practice,
-                              color: context.webTokens.colors.accent,
-                              size: 22,
+                            leading: const _WebPracticeGlyph(
+                              _WebGlyphKind.customize,
                             ),
-                            trailing: const Icon(Icons.chevron_right, size: 16),
                             onPressed: () => unawaited(
                               _open('/quiz/practice/${exam.id}'),
                             ),
                           ),
                           WebRow(
+                            boardMetrics: true,
+                            chevron: WebRowChevron.always,
                             title: 'Flagged questions',
                             value: n.flags == 0 ? null : '${n.flags}',
                             subtitle: n.flags == 0
@@ -359,12 +359,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                 : null,
                             dimmed: n.flags == 0,
                             divider: false,
-                            leading: Icon(
-                              PantasIcons.flag,
-                              color: context.webTokens.colors.accent,
-                              size: 22,
+                            leading: const _WebPracticeGlyph(
+                              _WebGlyphKind.flagged,
                             ),
-                            trailing: const Icon(Icons.chevron_right, size: 16),
                             onPressed: () => unawaited(
                               _open('/quiz/flagged/${exam.id}'),
                             ),
@@ -376,25 +373,36 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                 ],
               );
               return LayoutBuilder(
-                builder: (context, constraints) => constraints.maxWidth < 780
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          left,
-                          const SizedBox(height: 28),
-                          if (widget.mockPanel != null) widget.mockPanel!,
-                        ],
-                      )
-                    : Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(child: left),
-                          const SizedBox(width: 28),
-                          Expanded(
-                            child: widget.mockPanel ?? const SizedBox.shrink(),
-                          ),
-                        ],
+                builder: (context, constraints) {
+                  if (constraints.maxWidth < 780) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        left,
+                        const SizedBox(height: 28),
+                        if (widget.mockPanel != null) widget.mockPanel!,
+                      ],
+                    );
+                  }
+                  // Board: flex bases 420 and 380 with a 28 gap. Spare width
+                  // is shared equally; a shortfall shrinks by basis.
+                  final free = constraints.maxWidth - 28 - 800;
+                  final leftWidth =
+                      free >= 0 ? 420 + free / 2 : 420 + free * 420 / 800;
+                  final rightWidth =
+                      free >= 0 ? 380 + free / 2 : 380 + free * 380 / 800;
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(width: leftWidth, child: left),
+                      const SizedBox(width: 28),
+                      SizedBox(
+                        width: rightWidth,
+                        child: widget.mockPanel ?? const SizedBox.shrink(),
                       ),
+                    ],
+                  );
+                },
               );
             },
           ),
@@ -413,24 +421,43 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         child: Focus(
           autofocus: true,
           child: WebCard(
-            padding: const EdgeInsets.all(22),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('First, a short assessment', style: t.h2),
-                const SizedBox(height: 10),
-                Text(
-                  'We check your strengths and weak spots first, '
-                  'so your plan is built around you.',
-                  style: t.sub,
-                ),
-                const SizedBox(height: 18),
-                WebButton(
-                  label: 'Start Assessment',
-                  keyHint: 'Enter',
-                  onPressed: start,
-                ),
-              ],
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(24, 26, 24, 22),
+              decoration: t.dark
+                  ? null
+                  : const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment(-1, -.55),
+                        end: Alignment(1, .55),
+                        stops: [.6, 1],
+                        colors: [Color(0xFFFFFFFF), Color(0xFFE4F1EE)],
+                      ),
+                    ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text('First, a short assessment', style: t.h3),
+                  const SizedBox(height: 10),
+                  Text(
+                    'We check your strengths and weak spots first, '
+                    'so your plan is built around you.',
+                    style: t.style(
+                      16,
+                      height: 1.45,
+                      color: t.colors.secondaryLabel,
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: WebButton(
+                      label: 'Start Assessment',
+                      keyHint: 'Enter',
+                      onPressed: start,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -457,6 +484,61 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             state is SessionPanelInProgress ? state.reviewSession : null;
         final canStart = state is SessionPanelInProgress ||
             state is SessionPanelAvailable && n.reviewsTotal > n.reviewsDone;
+        final showFoot = canStart || _saveFailed || _questionFailed;
+        // The board's ring is a 24 px circle in a 26 px box, 2 px empty stroke.
+        Widget ring(int done, int total) {
+          if (total > 0 && done >= total) {
+            return const SizedBox.square(
+              dimension: 26,
+              child: Center(child: CheckMark()),
+            );
+          }
+          final fraction = total == 0 ? 0.0 : done / total;
+          return SizedBox.square(
+            dimension: 26,
+            child: Center(
+              child: fraction > 0
+                  ? ProgressRing(fraction: fraction, size: 25)
+                  : ProgressRing(
+                      fraction: 0,
+                      emptyStrokeWidth: 2,
+                      emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
+                    ),
+            ),
+          );
+        }
+
+        final reviewsDone =
+            n.reviewsTotal > 0 && n.reviewsDone >= n.reviewsTotal;
+        final newDone = n.newTotal > 0 && n.newDone >= n.newTotal;
+        Widget? sessionLabel() => state is SessionPanelAvailable
+            ? Consumer(
+                builder: (context, ref, _) {
+                  final work =
+                      ref.watch(todayQuestionWorkProvider(examId)).valueOrNull;
+                  if (work == null) return const SizedBox.shrink();
+                  final sizes = work.reviewSizes;
+                  final current = sizes.indexed
+                      .where(
+                        (entry) => work.reviewProgress[entry.$1] < entry.$2,
+                      )
+                      .firstOrNull;
+                  if (current == null) return const SizedBox.shrink();
+                  return Text(
+                    'Reviews · Session ${current.$1 + 1} '
+                    'of ${sizes.length}',
+                    style: t.sub,
+                  );
+                },
+              )
+            : null;
+        final primary = WebButton(
+          label:
+              state is SessionPanelInProgress ? 'Resume' : 'Continue Reviews',
+          keyHint: 'Enter',
+          busy: _startingQuestions,
+          onPressed: start,
+        );
         return CallbackShortcuts(
           bindings: {
             if (canStart)
@@ -464,132 +546,113 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           },
           child: Focus(
             autofocus: true,
-            child: WebCard(
-              child: Column(
-                children: [
-                  WebRow(
-                    title: 'Reviews',
-                    subtitle: progress == null
-                        ? 'Questions due today'
-                        : 'Session ${progress.ordinal} of ${progress.total}',
-                    value: '${progress?.done ?? n.reviewsDone} of '
-                        '${progress?.questions ?? n.reviewsTotal}',
-                    leading: ProgressRing(
-                      fraction: n.reviewsTotal == 0
-                          ? 0
-                          : n.reviewsDone / n.reviewsTotal,
-                    ),
-                    onPressed: () =>
-                        _showQuestions(examId, TodayQuestionKind.reviews),
-                  ),
-                  WebRow(
-                    title: 'New questions',
-                    subtitle: "From today's lessons",
-                    value: '${n.newDone} of ${n.newTotal}',
-                    divider: false,
-                    leading: ProgressRing(
-                      fraction: n.newTotal == 0 ? 0 : n.newDone / n.newTotal,
-                    ),
-                    onPressed: () => _showQuestions(
-                      examId,
-                      TodayQuestionKind.newQuestions,
-                    ),
-                  ),
-                  if (state is SessionPanelCaughtUp ||
-                      state is SessionPanelInProgress ||
-                      canStart)
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(
-                            color: t.colors.separator,
-                            width: .5,
-                          ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                WebCard(
+                  child: Column(
+                    children: [
+                      WebRow(
+                        boardMetrics: true,
+                        chevron: WebRowChevron.always,
+                        title: 'Reviews',
+                        titleColor:
+                            reviewsDone ? t.colors.secondaryLabel : null,
+                        subtitle: progress == null
+                            ? 'Questions due today'
+                            : 'Session ${progress.ordinal} '
+                                'of ${progress.total}',
+                        value: '${progress?.done ?? n.reviewsDone} of '
+                            '${progress?.questions ?? n.reviewsTotal}',
+                        leading: ring(n.reviewsDone, n.reviewsTotal),
+                        onPressed: () =>
+                            _showQuestions(examId, TodayQuestionKind.reviews),
+                      ),
+                      WebRow(
+                        boardMetrics: true,
+                        chevron: WebRowChevron.always,
+                        title: 'New questions',
+                        titleColor: newDone ? t.colors.secondaryLabel : null,
+                        subtitle: "From today's lessons",
+                        value: '${n.newDone} of ${n.newTotal}',
+                        divider: showFoot,
+                        leading: ring(n.newDone, n.newTotal),
+                        onPressed: () => _showQuestions(
+                          examId,
+                          TodayQuestionKind.newQuestions,
                         ),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          if (state is SessionPanelCaughtUp)
-                            Text("That's all for today.", style: t.sub),
-                          if (state is SessionPanelInProgress) ...[
-                            Text(
-                              'You paused. Every answer was saved.',
-                              style: t.sub,
+                      if (showFoot)
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                          decoration: BoxDecoration(
+                            color: t.dark
+                                ? t.colors.surface
+                                : const Color(0xFFFBFBFC),
+                            border: Border(
+                              top: BorderSide(
+                                color: t.colors.separator,
+                                width: webHairline(context),
+                              ),
                             ),
-                            const SizedBox(height: 14),
-                          ],
-                          if (canStart)
-                            Wrap(
-                              alignment: WrapAlignment.end,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              spacing: 12,
-                              children: [
-                                if (state is SessionPanelInProgress)
-                                  TextButton(
-                                    onPressed: _discarding
-                                        ? null
-                                        : () => unawaited(
-                                              _discard(examId),
-                                            ),
-                                    child: const Text(
-                                      'Discard this session',
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              if (state is SessionPanelInProgress) ...[
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'You paused. Every answer was saved.',
+                                        style: t.sub,
+                                      ),
                                     ),
-                                  ),
-                                if (state is SessionPanelAvailable)
-                                  Consumer(
-                                    builder: (context, ref, _) {
-                                      final work = ref
-                                          .watch(
-                                            todayQuestionWorkProvider(examId),
-                                          )
-                                          .valueOrNull;
-                                      if (work == null) {
-                                        return const SizedBox.shrink();
-                                      }
-                                      final sizes = work.reviewSizes;
-                                      final current = sizes.indexed
-                                          .where(
-                                            (entry) =>
-                                                work.reviewProgress[entry.$1] <
-                                                entry.$2,
-                                          )
-                                          .firstOrNull;
-                                      if (current == null) {
-                                        return const SizedBox.shrink();
-                                      }
-                                      return Text(
-                                        'Reviews · Session ${current.$1 + 1} '
-                                        'of ${sizes.length}',
-                                        style: t.sm,
-                                      );
-                                    },
-                                  ),
-                                WebButton(
-                                  label: state is SessionPanelInProgress
-                                      ? 'Resume'
-                                      : 'Continue Reviews',
-                                  keyHint: 'Enter',
-                                  busy: _startingQuestions,
-                                  onPressed: start,
+                                    const SizedBox(width: 16),
+                                    _WebDiscardButton(
+                                      onPressed: _discarding
+                                          ? null
+                                          : () => unawaited(_discard(examId)),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          if (_saveFailed)
-                            saveFailureLine(
-                              () => unawaited(_discard(examId)),
-                            ),
-                          if (_questionFailed)
-                            StateView(
-                              message: 'Could not start your quiz.',
-                              onRetry: start,
-                            ),
-                        ],
-                      ),
+                                const SizedBox(height: 16),
+                                primary,
+                              ] else if (canStart)
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: sessionLabel() ??
+                                          const SizedBox.shrink(),
+                                    ),
+                                    const SizedBox(width: 16),
+                                    primary,
+                                  ],
+                                ),
+                              if (_saveFailed)
+                                saveFailureLine(
+                                  () => unawaited(_discard(examId)),
+                                ),
+                              if (_questionFailed)
+                                StateView(
+                                  message: 'Could not start your quiz.',
+                                  onRetry: start,
+                                ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                if (state is SessionPanelCaughtUp)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 18, 4, 0),
+                    child: Text(
+                      "That's all for today.",
+                      style: t.style(19, weight: FontWeight.w700, height: 1.3),
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
           ),
         );
@@ -980,5 +1043,109 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     } finally {
       if (mounted) setState(() => _discarding = false);
     }
+  }
+}
+
+enum _WebGlyphKind { mistakes, customize, flagged }
+
+/// The board's 22 px teal stroke glyphs (24 px viewBox, 2 px stroke).
+class _WebPracticeGlyph extends StatelessWidget {
+  const _WebPracticeGlyph(this.kind);
+  final _WebGlyphKind kind;
+
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: CustomPaint(
+          size: const Size.square(22),
+          painter: _WebGlyphPainter(kind, context.webTokens.colors.accent),
+        ),
+      );
+}
+
+class _WebGlyphPainter extends CustomPainter {
+  const _WebGlyphPainter(this.kind, this.color);
+  final _WebGlyphKind kind;
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..color = color;
+    Offset o(double x, double y) => Offset(x * k, y * k);
+    switch (kind) {
+      case _WebGlyphKind.mistakes:
+        canvas
+          ..drawLine(o(6.5, 6.5), o(17.5, 17.5), paint)
+          ..drawLine(o(17.5, 6.5), o(6.5, 17.5), paint);
+      case _WebGlyphKind.customize:
+        canvas
+          ..drawLine(o(4, 7), o(13, 7), paint)
+          ..drawLine(o(17, 7), o(20, 7), paint)
+          ..drawLine(o(4, 17), o(7, 17), paint)
+          ..drawLine(o(11, 17), o(20, 17), paint)
+          ..drawCircle(o(15, 7), 2 * k, paint)
+          ..drawCircle(o(9, 17), 2 * k, paint);
+      case _WebGlyphKind.flagged:
+        canvas
+          ..drawLine(o(5.5, 21), o(5.5, 4.5), paint)
+          ..drawPath(
+            Path()
+              ..moveTo(5.5 * k, 4.5 * k)
+              ..lineTo(17 * k, 4.5 * k)
+              ..lineTo(14.6 * k, 8.5 * k)
+              ..lineTo(17 * k, 12.5 * k)
+              ..lineTo(5.5 * k, 12.5 * k),
+            paint,
+          );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_WebGlyphPainter old) =>
+      old.kind != kind || old.color != color;
+}
+
+/// Board `.btn3`: 42 px text button, radius 11, 16 px semibold gray.
+class _WebDiscardButton extends StatelessWidget {
+  const _WebDiscardButton({required this.onPressed});
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return TextButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
+        minimumSize: const WidgetStatePropertyAll(Size(0, 42)),
+        padding: const WidgetStatePropertyAll(
+          EdgeInsets.symmetric(horizontal: 14),
+        ),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.hovered)
+              ? t.disabledBackground
+              : Colors.transparent,
+        ),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.hovered)
+              ? t.colors.label
+              : t.colors.secondaryLabel,
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
+        ),
+        textStyle: WidgetStatePropertyAll(
+          t.style(16, weight: FontWeight.w600, height: 1.2),
+        ),
+      ),
+      child: const Text('Discard this session'),
+    );
   }
 }

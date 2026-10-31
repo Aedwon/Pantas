@@ -172,7 +172,10 @@ void main() {
           if (correct == 2) {
             expect(find.text('See all 8 mistakes'), findsOneWidget);
           }
-          expect(tester.getTopLeft(find.text('Done')).dy, lessThan(100));
+          final close = find.byKey(const ValueKey('results-close'));
+          expect(tester.getSize(close), const Size(44, 44));
+          expect(tester.getTopLeft(close), const Offset(20, 10));
+          expect(tester.getTopLeft(find.text('Done')).dy, greaterThan(400));
           expect(tester.takeException(), isNull);
         });
       }

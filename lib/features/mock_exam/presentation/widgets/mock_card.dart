@@ -165,7 +165,7 @@ class MockCard extends StatelessWidget {
         MockCardState.customUnset => ('Set One Up', onSetUp),
         _ => ('Take the Exam', null),
       };
-      Widget history(String value, String caption) => Expanded(
+      Widget history(String value, String caption, {String? unit}) => Expanded(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
               decoration: BoxDecoration(
@@ -175,20 +175,35 @@ class MockCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    value,
-                    style: t.style(
-                      34,
-                      weight: FontWeight.w700,
-                      height: 1,
-                      spacing: -1.02,
+                  SizedBox(
+                    height: 34,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          value,
+                          style: t.style(
+                            34,
+                            weight: FontWeight.w700,
+                            height: 1,
+                            spacing: -1.02,
+                          ),
+                        ),
+                        if (unit != null)
+                          Text(
+                            unit,
+                            style: t.style(
+                              17,
+                              weight: FontWeight.w600,
+                              color: t.colors.secondaryLabel,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 6),
-                  Text(
-                    caption,
-                    style: t.style(14, color: t.colors.secondaryLabel),
-                  ),
+                  Text(caption, style: t.sm),
                 ],
               ),
             ),
@@ -230,7 +245,11 @@ class MockCard extends StatelessWidget {
                   Row(
                     children: [
                       if (model.lastPercent != null)
-                        history('${model.lastPercent!.round()}%', 'Last score'),
+                        history(
+                          '${model.lastPercent!.round()}',
+                          'Last score',
+                          unit: '%',
+                        ),
                       if (model.lastPercent != null &&
                           model.lastAttemptAt != null)
                         const SizedBox(width: 12),
@@ -244,7 +263,10 @@ class MockCard extends StatelessWidget {
                 ],
                 if (body != null) ...[
                   const SizedBox(height: 22),
-                  Text(body, style: t.sub),
+                  Text(
+                    body,
+                    style: t.style(16, height: 1.45),
+                  ),
                 ],
                 if (state != MockCardState.quizPaused &&
                     state != MockCardState.unavailable) ...[
@@ -255,10 +277,10 @@ class MockCard extends StatelessWidget {
                     Text(rule, style: t.sub),
                 ],
                 const SizedBox(height: 22),
-                WebButton(
+                _MockActionButton(
                   label: label,
                   onPressed: callback,
-                  variant: WebButtonVariant.secondary,
+                  outlined: state == MockCardState.waiting,
                 ),
                 if (state == MockCardState.customReady && onChangeSetup != null)
                   WebButton(
@@ -348,6 +370,69 @@ class MockCard extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+/// Board `.btn2` / `.btnw` at card width: 48 px tall, radius 12, 17 px.
+class _MockActionButton extends StatelessWidget {
+  const _MockActionButton({
+    required this.label,
+    required this.onPressed,
+    this.outlined = false,
+  });
+  final String label;
+  final VoidCallback? onPressed;
+  final bool outlined;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return TextButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        animationDuration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 150),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
+        minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 48)),
+        padding: const WidgetStatePropertyAll(
+          EdgeInsets.symmetric(horizontal: 18),
+        ),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        backgroundColor: WidgetStateProperty.resolveWith((s) {
+          if (s.contains(WidgetState.disabled)) return t.disabledBackground;
+          final hover = s.contains(WidgetState.hovered);
+          return outlined
+              ? (hover ? t.rowHover : t.colors.surface)
+              : (hover ? t.secondaryHover : t.colors.accentTint);
+        }),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.disabled)
+              ? t.disabledText
+              : outlined
+                  ? t.colors.label
+                  : t.tintText,
+        ),
+        side: WidgetStateProperty.resolveWith(
+          (s) => BorderSide(
+            color: s.contains(WidgetState.focused)
+                ? t.colors.accent
+                : outlined && !s.contains(WidgetState.disabled)
+                    ? (t.dark ? t.cardEdge : t.colors.separator)
+                    : Colors.transparent,
+            width: s.contains(WidgetState.focused) ? 2 : 1,
+          ),
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        textStyle: WidgetStatePropertyAll(
+          t.style(17, weight: FontWeight.w600, height: 1.2),
+        ),
+      ),
+      child: Text(label),
     );
   }
 }
