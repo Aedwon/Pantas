@@ -49,6 +49,10 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    check inside". Done (staging 143fa7b4): board card exactly (tint #E4F1EE light / accentTint dark,
    2 px outline, 64 px min height, padding 11/14/11/16, no hover fill), no check. Phone picker
    unchanged. The bottom bar is on the board too, so it stays.
+   Re-checked after fixes (staging 143fa7b4): OB_Terms matches (the board image shows a dark
+   disabled label only because its runtime did not apply `.cta.off`; the board CSS is the faded
+   #AEAEB2 label with an outlined Enter chip, as in the app). OB_Name: close; the field is still
+   about 49 px vs the board's 55 px. Not re-checked: OB_DateKnown (no capture script step yet).
    Local run note: after stopping, wait until port 8080 is free (the Firestore emulator exits
    slowly) before starting again.
    Codex sandbox note: `codex-pick exec -s workspace-write` cannot write git metadata of a worktree
