@@ -184,7 +184,7 @@ class ServerMockSession extends ChangeNotifier {
     }
     if (!_paper.questionIds.contains(questionId) ||
         chosen.isEmpty ||
-        chosen.length > 64) {
+        chosen.length > ServerMockPaper.maxChosenLength) {
       return;
     }
     _answers = {

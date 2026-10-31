@@ -162,7 +162,7 @@ void main() {
         const [],
         [for (var i = 0; i < 301; i++) _answer('q$i')],
         [_answer('x' * 129)],
-        [_answer('q1', chosen: 'c' * 65)],
+        [_answer('q1', chosen: 'c' * 131)],
       ]) {
         await expectLater(
           api.control(
@@ -174,6 +174,17 @@ void main() {
         );
       }
       expect(server.calls, isEmpty);
+    });
+
+    test('a save with an 87-character choice id is sent', () async {
+      server.reply = _view();
+      final long = 'c' * 87;
+      await api.control(
+        mockId: 'abcdefghij1',
+        action: ServerMockAction.save,
+        answers: [_answer('q1', chosen: long)],
+      );
+      expect(server.calls, hasLength(1));
     });
 
     test('answers are refused on actions that do not take them', () async {

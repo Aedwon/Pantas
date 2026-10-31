@@ -119,7 +119,6 @@ class ServerMockApi {
 
   static final _mockId = RegExp(r'^[A-Za-z0-9]{10,40}$');
   static const _maxIdLength = 128;
-  static const _maxChosenLength = 64;
   static const _dayMs = 86400000;
 
   Future<ServerMockResult> results(String mockId) async {
@@ -291,7 +290,7 @@ class ServerMockApi {
       final chosen = answer.chosen;
       if (answer.questionId.isEmpty ||
           answer.questionId.length > _maxIdLength ||
-          (chosen != null && chosen.length > _maxChosenLength)) {
+          (chosen != null && chosen.length > ServerMockPaper.maxChosenLength)) {
         throw ArgumentError('An answer does not fit.');
       }
     }

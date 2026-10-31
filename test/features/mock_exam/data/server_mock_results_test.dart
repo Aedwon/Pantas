@@ -79,6 +79,31 @@ void main() {
     expect(out.paper!.questionIds, ['a', 'b']);
     expect(out.notes['a']?.reasonNote, 'Read carefully');
   });
+  test('a saved result with an 87-character choice id loads', () async {
+    final raw = result(pro: true);
+    (raw['answers']! as List<Object?>)[0] = {
+      'questionId': 'a',
+      'chosen': 'c' * 87,
+      'correct': true,
+      'answeredAt': 2000,
+    };
+    final out =
+        await ServerMockApi((_, __) async => raw).results('MockResult000001');
+    expect(out.paper!.answers['a']!.chosen, 'c' * 87);
+  });
+  test('a saved result with a choice id past 130 is rejected', () async {
+    final raw = result(pro: true);
+    (raw['answers']! as List<Object?>)[0] = {
+      'questionId': 'a',
+      'chosen': 'c' * 131,
+      'correct': true,
+      'answeredAt': 2000,
+    };
+    await expectLater(
+      ServerMockApi((_, __) async => raw).results('MockResult000001'),
+      throwsA(isA<ServerMockFormatException>()),
+    );
+  });
   test('locked results keep counts without reconstructing a paper', () async {
     final out = await ServerMockApi((_, __) async => result(open: false))
         .results('MockResult000001');

@@ -189,6 +189,25 @@ void main() {
       expect((saved.first! as Map)['chosen'], 'a');
     });
 
+    test('an 87-character choice id is kept, saved and scored', () async {
+      final long = 'q1_${'c' * 84}';
+      expect(long.length, 87);
+      session.answer('q1', chosen: long, selectedIndex: 2, correct: true);
+      expect(session.answers['q1']!.chosen, long);
+      expect(session.answers['q1']!.correct, isTrue);
+      await settle();
+      final saved = server.saves.single['answers']! as List<Object?>;
+      expect((saved.single! as Map)['chosen'], long);
+      expect((saved.single! as Map)['correct'], isTrue);
+    });
+
+    test('a choice id past the server limit of 130 is refused', () async {
+      session.answer('q1', chosen: 'c' * 131, selectedIndex: 0, correct: true);
+      expect(session.answers, isEmpty);
+      session.answer('q1', chosen: 'c' * 130, selectedIndex: 0, correct: true);
+      expect(session.answers['q1']!.chosen, 'c' * 130);
+    });
+
     test('nothing is saved when nothing is answered', () async {
       await session.flush();
       expect(server.calls, isEmpty);

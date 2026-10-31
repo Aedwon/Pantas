@@ -135,7 +135,8 @@ class ServerMockPaper {
       final chosen = entry['chosen'];
       if (!seen.contains(questionId) ||
           answers.containsKey(questionId) ||
-          (chosen != null && (chosen is! String || chosen.length > 64)) ||
+          (chosen != null &&
+              (chosen is! String || chosen.length > maxChosenLength)) ||
           entry['correct'] is! bool) {
         throw const ServerMockFormatException('an answer does not fit');
       }
@@ -166,6 +167,11 @@ class ServerMockPaper {
 
   /// The most answers one save or submission can carry.
   static const maxAnswers = 300;
+
+  /// The longest chosen answer id the server accepts: `MAX_ID_LENGTH` (128)
+  /// plus 2, in `checkAnswers` of functions/src/_answers.ts. Real choice ids
+  /// are the question id plus a letter and run to 87 characters.
+  static const maxChosenLength = 130;
 
   static final _mockIdPattern = RegExp(r'^[A-Za-z0-9]{10,40}$');
 
