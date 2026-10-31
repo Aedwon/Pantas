@@ -2187,3 +2187,8 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Result: layout B with every onboarding state as a card. Presentation:
   `docs/superpowers/plans/pwa-launch/boards/local-test-panel-b-v2.html`. Spec:
   `docs/superpowers/specs/2026-10-31-local-test-panel-design.md`.
+- Scope change, same day: Aedwon: "wait uh, i want that faux data injection so i can see".
+  Options offered: one sample student (+2 to 3 hours); four sample students New, Steady, Behind,
+  Exam week (+about half a day, recommended, because the Home and Performance boards show these
+  states); four plus custom sliders (+1 day). Aedwon: "add your reco  to the plan". Result: four
+  sample students as a fourth tab, presentation `local-test-panel-b-v3.html`, spec updated.
