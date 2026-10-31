@@ -84,12 +84,24 @@ class LocalSeedRequestTest(unittest.TestCase):
         self.assertEqual(caught.exception.status, status)
 
     def test_accepts_this_machine_and_each_profile(self):
-        self.assertEqual(self.check(), ('local-free', 'steady'))
-        self.assertEqual(self.check(origin=None, ip='::1'), ('local-free', 'steady'))
-        self.assertEqual(self.check(origin='http://localhost:7357'), ('local-free', 'steady'))
+        self.assertEqual(self.check(), ('local-free', 'steady', None))
+        self.assertEqual(self.check(origin=None, ip='::1'), ('local-free', 'steady', None))
+        self.assertEqual(self.check(origin='http://localhost:7357'), ('local-free', 'steady', None))
         for profile in ['new', 'steady', 'behind', 'examWeek']:
             body = json.dumps({'uid': 'local-pro', 'profile': profile}).encode()
-            self.assertEqual(self.check(body=body), ('local-pro', profile))
+            self.assertEqual(self.check(body=body), ('local-pro', profile, None))
+
+    def test_accepts_each_home_state_and_nothing_else(self):
+        for state in local_seed.STATES:
+            body = json.dumps({'uid': 'local-pro', 'profile': 'steady', 'state': state}).encode()
+            self.assertEqual(self.check(body=body), ('local-pro', 'steady', state))
+        self.refused(400, body=json.dumps({'uid': 'local-pro', 'profile': 'steady', 'state': '--x'}).encode())
+        self.refused(400, body=json.dumps({'uid': 'local-pro', 'profile': 'steady', 'state': 5}).encode())
+
+    def test_every_state_is_defined_by_the_seed_script(self):
+        script = (ROOT / 'tools/local/seed_student.mjs').read_text()
+        for state in local_seed.STATES:
+            self.assertIn(f'  {state}: {{', script)
 
     def test_refuses_other_machines_pages_and_lan_runs(self):
         self.refused(403, ip='192.168.1.20')

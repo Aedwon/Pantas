@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -35,45 +37,63 @@ class HomeExamDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasWarmUp = reviewsTotal > 0;
-    final detail = hasWarmUp
-        ? 'Nothing new today. If you want a warm-up, $reviewsTotal easy '
-            '${reviewsTotal == 1 ? "review is" : "reviews are"} here.'
-        : 'Nothing new today.';
+    final detail = _examDayDetail(reviewsTotal);
     if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
+      // The board sets the title above both columns (HomeExamDayIntro), so
+      // this column holds only the warm-up card.
+      if (!hasWarmUp) return const SizedBox.shrink();
+      final t = context.webTokens;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('$examShortName is today.', style: context.webTokens.h3),
-          const SizedBox(height: 4),
-          Text(detail, style: context.webTokens.sub),
-          if (hasWarmUp) ...[
-            const SizedBox(height: 22),
-            HomeTodayHeader(onPlan: onPlan, web: web),
-            WebCard(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  WebRow(
-                    title: 'Warm-up reviews',
-                    subtitle: 'Optional',
-                    value: '$reviewsDone of $reviewsTotal',
-                    onPressed: onRow,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: WebButton(
-                        label: 'Start Warm-up',
-                        onPressed: onStart,
-                        busy: busy,
+          HomeTodayHeader(onPlan: onPlan, web: web),
+          WebCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                WebRow(
+                  boardMetrics: true,
+                  title: 'Warm-up reviews',
+                  subtitle: 'Optional',
+                  value: '$reviewsDone of $reviewsTotal',
+                  leading: SizedBox.square(
+                    dimension: 26,
+                    child: Center(
+                      child: ProgressRing(
+                        fraction: reviewsDone / reviewsTotal,
+                        emptyStrokeWidth: 2,
+                        emptyTrackColor:
+                            t.dark ? null : const Color(0xFFD1D1D6),
                       ),
                     ),
                   ),
-                ],
-              ),
+                  onPressed: onRow,
+                ),
+                // The board's footer band. Its time estimate is left out.
+                Container(
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                  decoration: BoxDecoration(
+                    color: t.dark ? t.colors.surface : const Color(0xFFFBFBFC),
+                    border: Border(
+                      top: BorderSide(
+                        color: t.colors.separator,
+                        width: webHairline(context),
+                      ),
+                    ),
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: WebButton(
+                      label: 'Start Warm-up',
+                      variant: WebButtonVariant.secondary,
+                      onPressed: onStart,
+                      busy: busy,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ],
       );
     }
@@ -131,3 +151,51 @@ class HomeExamDay extends StatelessWidget {
     );
   }
 }
+
+/// The wide board's exam day title: the Pantas mark, a 26 px title and a
+/// 17 px line, above both columns.
+class HomeExamDayIntro extends StatelessWidget {
+  const HomeExamDayIntro({
+    required this.examShortName,
+    required this.reviewsTotal,
+    super.key,
+  });
+  final String examShortName;
+  final int reviewsTotal;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+      child: Row(
+        children: [
+          const PantasLogo(size: 56),
+          const SizedBox(width: 22),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('$examShortName is today.', style: t.h2),
+                const SizedBox(height: 4),
+                Text(
+                  _examDayDetail(reviewsTotal),
+                  style: t.style(
+                    17,
+                    height: 1.45,
+                    color: t.colors.secondaryLabel,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+String _examDayDetail(int reviewsTotal) => reviewsTotal > 0
+    ? 'Nothing new today. If you want a warm-up, $reviewsTotal easy '
+        '${reviewsTotal == 1 ? "review is" : "reviews are"} here.'
+    : 'Nothing new today.';

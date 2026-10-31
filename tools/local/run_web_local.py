@@ -256,10 +256,10 @@ window.pantasPwa = null;
                 size = int(self.headers.get('Content-Length') or 0)
                 if size > 4096:
                     raise local_seed.Refused(413, 'Too large.')
-                uid, profile = local_seed.check(
+                uid, profile, state = local_seed.check(
                     self.rfile.read(size), self.headers.get('Content-Type'), self.client_address[0],
                     host, args.port, self.headers.get('Origin'), args.lan)
-                status, reply = 200, local_seed.seed(uid, profile, env)
+                status, reply = 200, local_seed.seed(uid, profile, env, state)
             except local_seed.Refused as refusal:
                 status, reply = refusal.status, {'error': str(refusal)}
             except Exception as error:  # a timeout or a bad result must still answer the page

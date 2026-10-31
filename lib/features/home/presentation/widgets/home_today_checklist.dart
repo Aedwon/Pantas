@@ -418,42 +418,59 @@ class HomeTodayChecklist extends StatelessWidget {
                         ],
                       ),
                     ),
-                  if (canAdvance || doneNote != null)
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("That's all for today.", style: t.h3),
-                          const SizedBox(height: 6),
-                          if (canAdvance) ...[
-                            Text(
-                              advanced
-                                  ? "Want to keep going? The next day's lesson "
-                                      'and its new questions move to today. '
-                                      'Stop whenever you like.'
-                                  : "Want to keep going? Tomorrow's lesson "
-                                      'and its new questions move to today. '
-                                      'Stop whenever you like.',
-                              style: t.sub,
-                            ),
-                            const SizedBox(height: 14),
-                            WebButton(
-                              label: 'I Want to Advance',
-                              variant: WebButtonVariant.secondary,
-                              onPressed: onAdvance,
-                              busy: advancing,
-                            ),
-                          ] else if (_doneDetail != null)
-                            Text(_doneDetail!, style: t.sub),
-                        ],
-                      ),
-                    ),
                 ],
               ),
             ),
+            if (canAdvance || doneNote != null) _wideDone(t),
           ],
         ),
+      ),
+    );
+  }
+
+  /// The closing block under the Today card: a 19 px title and the line, with
+  /// the advance button at the right when the day can advance. The board sets
+  /// it outside the card, 22 px below it, inset 4 px.
+  Widget _wideDone(WebTokens t) {
+    final advanced = lessons.any((l) => l.advanced);
+    final detail = canAdvance
+        ? advanced
+            ? "Want to keep going? The next day's lesson "
+                'and its new questions move to today. '
+                'Stop whenever you like.'
+            : "Want to keep going? Tomorrow's lesson "
+                'and its new questions move to today. '
+                'Stop whenever you like.'
+        : _doneDetail;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 22, 4, 0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "That's all for today.",
+                  style: t.style(19, weight: FontWeight.w700),
+                ),
+                if (detail != null) ...[
+                  const SizedBox(height: 4),
+                  Text(detail, style: t.sub),
+                ],
+              ],
+            ),
+          ),
+          if (canAdvance) ...[
+            const SizedBox(width: 20),
+            WebButton(
+              label: 'I Want to Advance',
+              variant: WebButtonVariant.secondary,
+              onPressed: onAdvance,
+              busy: advancing,
+            ),
+          ],
+        ],
       ),
     );
   }
@@ -515,7 +532,17 @@ class HomeTodayHeader extends StatelessWidget {
                 children: [
                   Expanded(child: Text('TODAY', style: context.webTokens.eb)),
                   if (onPlan != null)
-                    WebTextLink(label: 'View full plan', onPressed: onPlan!),
+                    // The board's label row is 19 px tall, with no arrow.
+                    SizedBox(
+                      height: 19,
+                      child: Center(
+                        child: WebTextLink(
+                          label: 'View full plan',
+                          onPressed: onPlan!,
+                          arrow: false,
+                        ),
+                      ),
+                    ),
                 ],
               ),
             )

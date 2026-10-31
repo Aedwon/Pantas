@@ -6,6 +6,9 @@ import subprocess
 import threading
 
 PROFILES = ('new', 'steady', 'behind', 'examWeek')
+# Home states the seed can set up on top of a profile (see STATES in seed_student.mjs).
+STATES = ('dayDone', 'nothingDue', 'dayOff', 'resume', 'beforeAssessment', 'mockDay', 'reviewWeek', 'lastDay',
+          'examDay', 'examPassed', 'noDate', 'monthOnly')
 UID = re.compile(r'^[A-Za-z0-9_-]{1,128}$')
 _one_at_a_time = threading.Lock()
 
@@ -17,7 +20,7 @@ class Refused(Exception):
 
 
 def check(body, content_type, client_ip, host, port, origin, lan):
-    """Returns (uid, profile). Raises Refused. Only this machine's own page may ask."""
+    """Returns (uid, profile, state). Raises Refused. Only this machine's own page may ask."""
     if lan:
         raise Refused(403, 'Sample students are not available with --lan.')
     try:
@@ -33,18 +36,21 @@ def check(body, content_type, client_ip, host, port, origin, lan):
     try:
         data = json.loads(body)
         uid, profile = data['uid'], data['profile']
-    except (ValueError, KeyError, TypeError):
+        state = data.get('state')
+    except (ValueError, KeyError, TypeError, AttributeError):
         raise Refused(400, 'Send uid and profile.') from None
     if not isinstance(uid, str) or not UID.match(uid) or profile not in PROFILES:
         raise Refused(400, 'Unknown account or student.')
-    return uid, profile
+    if state is not None and state not in STATES:
+        raise Refused(400, 'Unknown state.')
+    return uid, profile, state
 
 
-def seed(uid, profile, env, script='tools/local/seed_student.mjs', timeout=240):
+def seed(uid, profile, env, state=None, script='tools/local/seed_student.mjs', timeout=240):
     """Runs the seed script against the emulators. Returns its JSON result."""
+    command = ['node', script, uid, profile] + ([f'--state={state}'] if state else [])
     with _one_at_a_time:
-        done = subprocess.run(['node', script, uid, profile], env=env, capture_output=True, text=True,
-                              timeout=timeout)
+        done = subprocess.run(command, env=env, capture_output=True, text=True, timeout=timeout)
     if done.returncode != 0:
         raise Refused(500, (done.stderr or done.stdout).strip().splitlines()[-1][:300] if (done.stderr or done.stdout).strip() else 'Seed failed.')
     return json.loads(done.stdout.strip().splitlines()[-1])

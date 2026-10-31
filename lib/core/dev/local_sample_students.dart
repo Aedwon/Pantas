@@ -204,23 +204,48 @@ class SampleStudentProfile {
     required this.streak,
     required this.longest,
     required this.lastActiveDate,
+    this.examMonthOnly = false,
+    this.studyDays = const [1, 2, 3, 4, 5, 6],
+    this.assessmentDone = true,
+    this.resumeLessonId,
   });
 
-  /// Reads the result the local server's seed returns.
+  /// Reads the result the local server's seed returns. A seed for a Home state
+  /// also says whether the exam date has a day, the study days, whether the
+  /// placement test was taken and which lesson is part read.
   factory SampleStudentProfile.fromJson(Map<String, Object?> json) {
     final last = json['lastActiveDate'] as String?;
+    final exam = json['examDate'] as String?;
+    final days = json['studyDays'];
     return SampleStudentProfile(
-      examDate: DateTime.parse(json['examDate']! as String),
+      examDate: exam == null ? null : DateTime.parse(exam),
+      examMonthOnly: json['examPrecision'] == 'month',
       streak: json['streak']! as int,
       longest: json['longest']! as int,
       lastActiveDate: last == null ? null : DateTime.parse(last),
+      studyDays: days is String
+          ? [for (final day in days.split(',')) int.parse(day)]
+          : const [1, 2, 3, 4, 5, 6],
+      assessmentDone: json['assessmentDone'] as bool? ?? true,
+      resumeLessonId: json['resumeLessonId'] as String?,
     );
   }
 
-  final DateTime examDate;
+  /// Null when the student has no exam date.
+  final DateTime? examDate;
+
+  /// True when only the exam month is known (the date is its first day).
+  final bool examMonthOnly;
   final int streak;
   final int longest;
   final DateTime? lastActiveDate;
+  final List<int> studyDays;
+
+  /// False before the placement test: the device does not record it.
+  final bool assessmentDone;
+
+  /// A lesson left part read, which Home offers to resume.
+  final String? resumeLessonId;
 }
 
 /// Web: clears the device's study data and writes only what the device owns
@@ -240,6 +265,9 @@ Future<void> loadSampleStudentProfile(
       db,
       stamp: DateTime(today.year, today.month, today.day).toUtc(),
       examDate: profile.examDate,
+      examMonthOnly: profile.examMonthOnly,
+      studyDayList: profile.studyDays,
+      resumeLessonId: profile.resumeLessonId,
     );
     _writeStreak(
       batch,
@@ -251,15 +279,17 @@ Future<void> loadSampleStudentProfile(
     // The app sends this flag to the server with the settings, and the plan
     // waits for the placement test when it is false. The server holds the
     // placement answers; this only marks the test as taken.
-    batch.insert(
-      db.assessmentResultsLocal,
-      AssessmentResultsLocalCompanion.insert(
-        examId: sampleExamId,
-        completedAt: today,
-        topicScoresJson: '[]',
-      ),
-      mode: InsertMode.insertOrReplace,
-    );
+    if (profile.assessmentDone) {
+      batch.insert(
+        db.assessmentResultsLocal,
+        AssessmentResultsLocalCompanion.insert(
+          examId: sampleExamId,
+          completedAt: today,
+          topicScoresJson: '[]',
+        ),
+        mode: InsertMode.insertOrReplace,
+      );
+    }
   });
 }
 
@@ -267,9 +297,12 @@ void _writeOnboarding(
   Batch batch,
   AppDatabase db, {
   required DateTime stamp,
-  required DateTime examDate,
+  required DateTime? examDate,
+  bool examMonthOnly = false,
+  List<int> studyDayList = const [1, 2, 3, 4, 5, 6],
+  String? resumeLessonId,
 }) {
-  final studyDays = StudyDays(const [1, 2, 3, 4, 5, 6]);
+  final studyDays = StudyDays(studyDayList);
   final stampText = stamp.toIso8601String();
   void device(String key, String value) => batch.insert(
         db.devicePrefs,
@@ -289,8 +322,25 @@ void _writeOnboarding(
   device('notifications.rationale_shown', 'true');
   account(_nameKey, 'Aerol');
   account(_studyDaysKey, studyDays.storageValue);
-  account(_examDateKey, _dateText(examDate));
-  account(_examDatePrecisionKey, 'day');
+  // No exam date is stored as empty, as clearing it in Settings does.
+  account(_examDateKey, examDate == null ? '' : _dateText(examDate));
+  account(
+    _examDatePrecisionKey,
+    examDate == null
+        ? ''
+        : examMonthOnly
+            ? 'month'
+            : 'day',
+  );
+  // `ReaderPositionRepository` keeps a lesson's position under this key. A
+  // fraction above zero is what makes Home offer "Resume".
+  final resume = resumeLessonId;
+  if (resume != null) {
+    device(
+      'lesson_offset.$sampleExamId.$resume',
+      jsonEncode({'offset': 600.0, 'fraction': 0.5}),
+    );
+  }
   account(_policyAcceptedAtKey, stampText);
   account(_policyVersionKey, '1');
   account(_updatedAtKey, stampText);

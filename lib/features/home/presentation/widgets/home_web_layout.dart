@@ -10,6 +10,7 @@ class HomeWebLayout extends StatelessWidget {
   const HomeWebLayout({
     required this.header,
     required this.today,
+    this.intro,
     this.notice,
     this.performance,
     this.onRecord,
@@ -19,6 +20,9 @@ class HomeWebLayout extends StatelessWidget {
   });
   final Widget header;
   final Widget today;
+
+  /// Spans both columns under the header (the exam day title).
+  final Widget? intro;
   final Widget? notice;
   final Widget? performance;
   final VoidCallback? onRecord;
@@ -38,6 +42,7 @@ class HomeWebLayout extends StatelessWidget {
               children: [
                 header,
                 const SizedBox(height: 26),
+                if (intro != null) ...[intro!, const SizedBox(height: 26)],
                 LayoutBuilder(
                   builder: (context, constraints) {
                     final left = Column(

@@ -510,7 +510,8 @@ void additionalTests() {
         ),
         dark: dark,
       );
-      expect(find.text('CSE is today.'), findsOneWidget);
+      // The title is HomeExamDayIntro, above both columns.
+      expect(find.text('CSE is today.'), findsNothing);
       expect(find.text('0 of 10'), findsOneWidget);
       expect(find.text('Start Warm-up'), findsOneWidget);
       expect(find.byType(WebButton), findsOneWidget);

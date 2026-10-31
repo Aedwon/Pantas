@@ -2233,3 +2233,31 @@ again, which fixed "Study owner changed" and the sidebar's "Free" label on the P
 
 Checks: `flutter analyze` clean; `flutter test test/features/home test/features/shell test/core/ui
 test/core/dev test/core/platform` pass; `check_layering` OK.
+
+### Home fix batch 2 (2026-10-31)
+
+Seed: `?localState=` (local only) reaches DayDone, NothingDue, DayOff, Resume, BeforeAssessment,
+MockDay, ReviewWeek, LastDay, ExamDay, ExamPassed, NoDate, MonthOnly. Captures in the staging
+worktree `build/visual-pass/r2`. Lead spot-checked HM_DayDone (match).
+
+Fixed (wide web): "That's all for today." block below the card (22 px, 19 px title, button right);
+quiet-state cards padding 26/24/22, 40 px icon, 16 px body, "TODAY" label on the assessment card;
+ExamDay title spans both columns (26 px) with a tinted footer band; no arrow on "View full plan".
+
+Copy or behavior differences, not changed (for Aedwon):
+- Notices collapsed; the board shows them open on NoDate and MonthOnly.
+- BeforeAssessment hides the performance card; the board shows a placeholder.
+- Mock-day footer caption text differs from the board.
+- The header sub-line "Unfinished items are added to today." also shows when the day is done.
+- ExamPassed shows "View full plan" and the date as "24 October" (should be US order).
+
+Open bug, fix held for review: "Start Lesson" shows "Lesson not found" for CSE Professional lessons
+under Mathematics. Cause (Sonnet): the study map builds an exam's topics only from subjects the
+exam owns, and Mathematics topics are owned by UPCAT's subject while CSE questions are tagged to
+them. A real CSE student would hit it. A candidate fix in `topicsByExam` (adds topics that the
+exam's questions are tagged to) was held back by the lead: that function also feeds the
+assessment, mock start, quiz debrief and study scope, and the root cause may be content structure.
+The held test is in the fixes worktree `build/held/`.
+
+Checks: `flutter analyze` clean; home, shell, core ui/dev/platform/storage tests pass (1572);
+`test_run_web_local.py` OK; `check_layering` OK.

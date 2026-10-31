@@ -1,5 +1,6 @@
-// Emulator-only sample student. Usage: node tools/local/seed_student.mjs <uid> <profile> [today]
+// Emulator-only sample student. Usage: node tools/local/seed_student.mjs <uid> <profile> [today] [--state=<id>]
 // profile: new | steady | behind | examWeek. today: YYYY-MM-DD (Philippine day), default the real day.
+// state: optional Home state for the chosen profile, see STATES. Dates are relative to today.
 //
 // The server owns study records on web, so this runs the compiled server handlers with admin
 // dependencies: exam settings, lesson reads, finished sessions and mocks, each stamped with its own
@@ -20,7 +21,9 @@ for (const [key, port] of [['FIRESTORE_EMULATOR_HOST', 8080], ['FIREBASE_AUTH_EM
 process.env.GCLOUD_PROJECT = project;
 process.env.GOOGLE_CLOUD_PROJECT = project;
 
-const [uid, profileId, todayArg] = process.argv.slice(2);
+const positional = process.argv.slice(2).filter(arg => !arg.startsWith('--'));
+const [uid, profileId, todayArg] = positional;
+const stateId = process.argv.slice(2).find(arg => arg.startsWith('--state='))?.slice('--state='.length);
 const EXAM = 'exam_cse_pro';
 const DAY = 86_400_000;
 const PH = 8 * 3_600_000;
@@ -37,8 +40,30 @@ const PROFILES = {
     accuracy: 0.80, examInDays: 5, poolSize: 420, mockAt: [0.35, 0.55, 0.75, 0.92],
     mockAccuracy: [0.55, 0.65, 0.73, 0.80]},
 };
-const profile = PROFILES[profileId];
-if (!uid || !profile) throw Error('Usage: seed_student.mjs <uid> <new|steady|behind|examWeek> [YYYY-MM-DD]');
+// Home states a board shows. Each one changes the chosen profile as little as it can; the server's own
+// handlers still decide what Home draws. `examInDays` null means no exam date, `examMonth` this month's
+// exam month without a day. `finishToday` completes today's whole plan, as the student would. `noHistory`
+// drops the study days; `unassessed` leaves the placement test untaken; `coverDaysAgo` has the student read every
+// lesson and answer every question that many days ago, so the plan holds only what has come due since.
+const STATES = {
+  dayDone: {finishToday: true},
+  nothingDue: {noHistory: true, coverDaysAgo: 1, examInDays: 120},
+  dayOff: {restToday: true},
+  resume: {resume: true},
+  beforeAssessment: {noHistory: true, unassessed: true, examInDays: 28},
+  mockDay: {examInDays: 6},
+  // Inside the last days the plan crams what is left; the student finishes it, with a mock done yesterday.
+  reviewWeek: {examInDays: 2, finishToday: true, mockAt: [0.7, 1], mockAccuracy: [0.7, 0.75]},
+  lastDay: {examInDays: 1, finishToday: true, mockAt: [0.7, 1], mockAccuracy: [0.7, 0.75]},
+  examDay: {examInDays: 0},
+  examPassed: {examInDays: -7},
+  noDate: {examInDays: null},
+  monthOnly: {examMonth: true},
+};
+if (stateId !== undefined && !STATES[stateId]) throw Error(`Unknown state ${stateId}.`);
+const state$ = STATES[stateId] ?? {};
+const profile = PROFILES[profileId] && {...PROFILES[profileId], ...state$};
+if (!uid || !profile) throw Error('Usage: seed_student.mjs <uid> <new|steady|behind|examWeek> [YYYY-MM-DD] [--state=<id>]');
 const {earlierRate = 0, weakShare = 0, breakStreak = false, mockAt = [], mockAccuracy = [], assessmentLimit} = profile;
 const MOCK_QUESTIONS_PER_SECTION = 12;
 
@@ -49,7 +74,7 @@ initializeApp({projectId: project});
 const db = getFirestore();
 const lib = name => require(resolve(`functions/lib/${name}.js`));
 const {recordSession} = lib('ingestSession');
-const {saveExamSettings} = lib('roadmap');
+const {saveExamSettings, readStudyRoadmap} = lib('roadmap');
 const {writeLessonRead} = lib('studyObservations');
 const {beginMock, recordMock} = lib('mock');
 const {loadExamContent, clearExamContentCache} = lib('_examContent');
@@ -151,17 +176,18 @@ async function ensureBlueprint() {
 
 // ---------------------------------------------------------------- study days
 // Mon to Sat. The run ends on the last study day; earlier days are studied by chance.
+// A state with no history has no study days at all.
 const anchor = today - profile.lastStudyDaysAgo;
-const window = [anchor];
-for (let cursor = anchor; window.length < profile.streakDays;) {
+const window = profile.noHistory ? [] : [anchor];
+for (let cursor = anchor; window.length > 0 && window.length < profile.streakDays;) {
   cursor -= 1;
   if (weekday(cursor) !== 0) window.push(cursor);
 }
 window.sort((a, b) => a - b);
 const studied = new Set(window);
-let skipped = window[0] - 1;
+let skipped = window.length ? window[0] - 1 : 0;
 while (weekday(skipped) === 0) skipped -= 1;
-for (let day = today - profile.startDaysAgo; day < window[0]; day++) {
+for (let day = today - profile.startDaysAgo; window.length && day < window[0]; day++) {
   if (weekday(day) === 0 || day === skipped) continue;
   if (random() < earlierRate) studied.add(day);
 }
@@ -180,23 +206,31 @@ if (breakStreak) streak = 0;
 
 // ---------------------------------------------------------------- plan the events
 const mockByDay = new Map();
-if (mockAt.length) {
+if (mockAt.length && days.length) {
   await ensureBlueprint();
   mockAt.forEach((fraction, i) => mockByDay.set(Math.round(fraction * (days.length - 1)), mockAccuracy[i]));
 }
-const assessmentSize = Math.min(assessmentLimit ?? 30, pool.length);
+const assessmentSize = profile.noHistory ? 0 : Math.min(assessmentLimit ?? 30, pool.length);
 const mockSize = mockByDay.size ? MOCK_QUESTIONS_PER_SECTION * 4 : 0; // an upper bound for sizing
 const sessionTotal = Math.max(days.length, profile.answers - assessmentSize - mockByDay.size * mockSize);
 const weights = days.map(() => 0.7 + random() * 0.6);
 const weightSum = weights.reduce((a, b) => a + b, 0);
 const sizes = weights.map(w => Math.max(1, Math.round(sessionTotal * w / weightSum)));
-sizes[sizes.length - 1] = Math.max(1, sessionTotal - sizes.slice(0, -1).reduce((a, b) => a + b, 0));
+if (sizes.length) sizes[sizes.length - 1] = Math.max(1, sessionTotal - sizes.slice(0, -1).reduce((a, b) => a + b, 0));
 
 // Settings first, at the start of the first study day, so the roadmap exists and gives lesson order.
-const examDay = today + profile.examInDays;
-const settings = {expectedUid: uid, examId: EXAM, examDate: {precision: 'day', day: dayText(examDay)},
-  studyDays: [1, 2, 3, 4, 5, 6]};
-await saveExamSettings(auth, settings, at$(at(days[0], 8)));
+// The exam date as the page keeps it: a day, a month without a day, or none.
+const examDay = profile.examInDays === null ? null : today + profile.examInDays;
+const monthStart = new Date(today * DAY);
+const examDate = profile.examMonth
+  ? {precision: 'month', year: monthStart.getUTCFullYear(), month: monthStart.getUTCMonth() + 1}
+  : examDay === null ? null : {precision: 'day', day: dayText(examDay)};
+const settings = {expectedUid: uid, examId: EXAM, examDate, studyDays: [1, 2, 3, 4, 5, 6],
+  ...(profile.unassessed ? {assessmentCompleted: false} : profile.noHistory ? {assessmentCompleted: true} : {})};
+// A day off: every weekday but today's, Sunday being 7 on the server.
+const finalSettings = profile.restToday ? {...settings, studyDays: [1, 2, 3, 4, 5, 6, 7].filter(day => day !== (weekday(today) || 7))}
+  : settings;
+await saveExamSettings(auth, settings, at$(at(days[0] ?? today - (profile.coverDaysAgo ?? 1) - 1, 8)));
 const roadmap = JSON.parse(String((await db.doc(`users/${uid}/server/roadmap`).get()).get('roadmapJson') ?? '{}'));
 const topicRank = new Map((roadmap.topicOrder ?? []).map((id, i) => [id, i]));
 const lessons = [...content.lessons].sort((a, b) =>
@@ -204,6 +238,7 @@ const lessons = [...content.lessons].sort((a, b) =>
 const lessonCount = Math.min(profile.lessons, lessons.length);
 const lessonsByDay = new Map();
 for (let k = 0; k < lessonCount; k++) {
+  if (!days.length) break;
   const i = Math.min(days.length - 1, Math.floor(k * days.length / lessonCount));
   (lessonsByDay.get(i) ?? lessonsByDay.set(i, []).get(i)).push(lessons[k].id);
 }
@@ -308,12 +343,65 @@ for (let i = 0; i < days.length; i++) {
 }
 for (const [ref, data] of setAside) await ref.set(data);
 
+// ---------------------------------------------------------------- a state that needs more work
+// Everything the plan could hold, done on an earlier day, so nothing is new today.
+if (profile.coverDaysAgo) {
+  const day = today - profile.coverDaysAgo;
+  for (let k = 0; k < lessons.length; k++) {
+    const readAt = at(day, 8, k % 60);
+    await writeLessonRead(auth, {expectedUid: uid, lessonId: lessons[k].id, readAt}, at$(readAt));
+  }
+  const ids = shuffled(usable.map(q => q.id));
+  for (let from = 0, n = 0; from < ids.length; from += 100, n++) {
+    await session({sessionId: `sample-${profileId}-cover-${n}`, origin: 'today_interleaved', day,
+      startAt: at(day, 9, n), ids: ids.slice(from, from + 100), accuracyFor: () => 1});
+  }
+  // Those answers are the only study the account has, so they are its streak.
+  last = day;
+  streak = profile.coverDaysAgo > 1 ? 0 : 1;
+  longest = 1;
+}
+
 // Leave the plan computed for the real time, as a real student's last request would.
-await saveExamSettings(auth, settings, {db, allow});
+await saveExamSettings(auth, finalSettings, {db, allow});
+const readPlan = () => readStudyRoadmap(auth, {expectedUid: uid, examId: EXAM}, {db, allow});
+let plan = await readPlan();
+
+// Today's whole plan done, as a student would: the lessons read, then every review and new question
+// answered, early today. The server's handlers then report what is left (nothing).
+if (profile.finishToday) {
+  const finishAt = Math.min(at(today, 5), Date.now() - 30 * 60_000);
+  const startAt = Math.max(at(today, 0, 1), finishAt - 20 * 60_000);
+  let minute = 0;
+  for (const lessonId of plan.today.lessonIds) {
+    const readAt = startAt + minute++ * 60_000;
+    await writeLessonRead(auth, {expectedUid: uid, lessonId, readAt}, at$(readAt));
+    counts.lessons++;
+  }
+  const ids = [...new Set([...plan.today.reviewQuestionIds, ...plan.today.newQuestionIds])];
+  for (let from = 0, n = 0; from < ids.length; from += 300, n++) { // a session takes at most 300 answers
+    await session({sessionId: `sample-${profileId}-today-${n}`, origin: 'today_interleaved', day: today,
+      startAt: startAt + (10 + n) * 60_000, ids: ids.slice(from, from + 300), accuracyFor: () => profile.accuracy});
+  }
+  plan = await readPlan();
+}
+// A lesson part-read: the first lesson still to read. The page keeps the position, so it is returned.
+const resumeLessonId = profile.resume ? plan.remaining.lessonIds[0] ?? null : null;
 
 const roadmapNow = JSON.parse(String((await db.doc(`users/${uid}/server/roadmap`).get()).get('roadmapJson') ?? '{}'));
+const size = list => list.length;
 console.log(JSON.stringify({
-  uid, profile: profileId, examId: EXAM, examDate: dayText(examDay), studyDays: '1,2,3,4,5,6',
+  uid, profile: profileId, state: stateId ?? null, examId: EXAM,
+  // The page keeps the same exam date and study days it sent to the server.
+  examDate: examDate === null ? null : examDate.precision === 'day' ? examDate.day
+    : `${examDate.year}-${String(examDate.month).padStart(2, '0')}-01`,
+  examPrecision: examDate?.precision ?? null,
+  studyDays: finalSettings.studyDays.join(','), assessmentDone: !profile.unassessed, resumeLessonId,
   streak, longest, lastActiveDate: last === null ? null : dayText(last), ...counts,
   roadmapState: roadmapNow.state ?? null,
+  plan: {state: plan.state, today: plan.today.day, lessons: size(plan.today.lessonIds),
+    reviews: size(plan.today.reviewQuestionIds), newQuestions: size(plan.today.newQuestionIds),
+    remaining: size(plan.remaining.lessonIds) + size(plan.remaining.reviewQuestionIds) + size(plan.remaining.newQuestionIds),
+    isMockDay: plan.today.isMockDay, isRestDay: plan.today.isRestDay,
+    originalDone: plan.originalDone, canAdvance: plan.canAdvance},
 }));

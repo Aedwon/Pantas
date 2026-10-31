@@ -29,11 +29,36 @@ SampleStudent? localStudentFromUrl(Uri url) {
   return id == null ? null : SampleStudent.fromId(id);
 }
 
-/// Asks the local server to seed [student] for the account [uid], and returns
-/// the parts the device keeps. Replaced in tests.
+/// The Home states the local seed can set up, as `?localState=<id>` names
+/// them. `tools/local/seed_student.mjs` defines what each one does.
+const localHomeStates = {
+  'dayDone',
+  'nothingDue',
+  'dayOff',
+  'resume',
+  'beforeAssessment',
+  'mockDay',
+  'reviewWeek',
+  'lastDay',
+  'examDay',
+  'examPassed',
+  'noDate',
+  'monthOnly',
+};
+
+/// The Home state named by `?localState=<id>` in [url], or null.
+String? localStateFromUrl(Uri url) {
+  final id = url.queryParameters['localState'];
+  return localHomeStates.contains(id) ? id : null;
+}
+
+/// Asks the local server to seed [student] for the account [uid], in the Home
+/// [state] when there is one, and returns the parts the device keeps.
+/// Replaced in tests.
 typedef LocalStudentSeed = Future<SampleStudentProfile> Function(
   String uid,
   SampleStudent student,
+  String? state,
 );
 
 /// `POST /local-seed` on the page's own origin (`tools/local/run_web_local.py`).
@@ -41,10 +66,15 @@ typedef LocalStudentSeed = Future<SampleStudentProfile> Function(
 Future<SampleStudentProfile> seedLocalStudentOnServer(
   String uid,
   SampleStudent student,
+  String? state,
 ) async {
   final reply = await Dio().post<Map<String, Object?>>(
     Uri.base.resolve('/local-seed').toString(),
-    data: {'uid': uid, 'profile': student.id},
+    data: {
+      'uid': uid,
+      'profile': student.id,
+      if (state != null) 'state': state,
+    },
     options: Options(
       contentType: Headers.jsonContentType,
       receiveTimeout: const Duration(minutes: 4),
@@ -57,7 +87,8 @@ Future<SampleStudentProfile> seedLocalStudentOnServer(
 /// the local server write that student's study records for the signed-in
 /// account, then replaces the device's study data with the matching
 /// onboarding answers and streak, and removes the parameter so a reload does
-/// not do it again.
+/// not do it again. `?localState=<id>` alone loads the steady student in that
+/// Home state; with `localStudent` it applies to that student.
 ///
 /// Call after sign-in. A failure is logged and the app starts as it was.
 /// Returns true when a student was loaded. Loading drops every provider, so
@@ -70,7 +101,10 @@ Future<bool> loadLocalStudentFromUrl(
 }) async {
   // Both are compile-time constants: normal builds drop everything below.
   if (!localEmulators || !kIsWeb) return false;
-  final student = localStudentFromUrl(url ?? _startUrl ?? Uri.base);
+  final link = url ?? _startUrl ?? Uri.base;
+  final state = localStateFromUrl(link);
+  final student = localStudentFromUrl(link) ??
+      (state == null ? null : SampleStudent.steady);
   if (student == null) return false;
   try {
     final auth = await container.read(authStateProvider.future);
@@ -80,7 +114,7 @@ Future<bool> loadLocalStudentFromUrl(
       _ => null,
     };
     if (uid == null) throw StateError('Sign in before loading a student.');
-    final profile = await seed(uid, student);
+    final profile = await seed(uid, student, state);
     await loadSampleStudentProfile(
       container.read(appDatabaseProvider),
       profile,

@@ -7,6 +7,7 @@ import 'package:pantas/core/dev/local_student_startup.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../helpers/in_memory_database.dart';
@@ -123,5 +124,101 @@ void main() {
     );
     final streak = await db.select(db.streakLocal).getSingle();
     expect((streak.current, streak.longest), (0, 6));
+  });
+
+  test('the link names a Home state, and only a known one', () {
+    String? read(String link) => localStateFromUrl(Uri.parse(link));
+
+    expect(read('http://localhost:7357/?localState=dayDone'), 'dayDone');
+    expect(
+      read('http://localhost:7357/?localStudent=new&localState=noDate'),
+      'noDate',
+    );
+    expect(read('http://localhost:7357/?localState=nobody'), isNull);
+    expect(read('http://localhost:7357/'), isNull);
+  });
+
+  test('a Home state needs no student in the link', () async {
+    // These tests run without LOCAL_EMULATOR_HOST, so nothing loads.
+    final db = inMemoryDatabase();
+    final content = inMemoryContentDatabase();
+    addTearDown(() async {
+      await db.close();
+      await content.close();
+    });
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    expect(
+      await loadLocalStudentFromUrl(
+        container,
+        url: Uri.parse('http://localhost:7357/?localState=dayDone'),
+      ),
+      isFalse,
+    );
+  });
+
+  test('a part-read lesson, no date and no placement test reach the device',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+
+    await loadSampleStudentProfile(
+      db,
+      SampleStudentProfile.fromJson(const {
+        'examDate': null,
+        'examPrecision': null,
+        'studyDays': '1,2,3,4,5,7',
+        'assessmentDone': false,
+        'resumeLessonId': 'lesson-a',
+        'streak': 0,
+        'longest': 0,
+        'lastActiveDate': null,
+      }),
+      today: DateTime(2026, 10, 31),
+    );
+
+    final prefs = {
+      for (final row in await db.select(db.accountPrefs).get())
+        row.key: row.value,
+    };
+    expect(prefs[SettingsPrefKeys.examDate], '');
+    expect(prefs[SettingsPrefKeys.examDatePrecision], '');
+    expect(prefs[SettingsPrefKeys.studyDays], '1,2,3,4,5,7');
+    expect(await db.select(db.assessmentResultsLocal).get(), isEmpty);
+    final positions = ReaderPositionRepository(
+      AppPreferencesRepository(db),
+      database: db,
+    );
+    expect(await positions.readFraction(sampleExamId, 'lesson-a'), 0.5);
+  });
+
+  test('a month-only exam date keeps its month precision', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+
+    await loadSampleStudentProfile(
+      db,
+      SampleStudentProfile.fromJson(const {
+        'examDate': '2026-11-01',
+        'examPrecision': 'month',
+        'streak': 1,
+        'longest': 1,
+        'lastActiveDate': '2026-10-30',
+      }),
+      today: DateTime(2026, 10, 31),
+    );
+
+    final prefs = {
+      for (final row in await db.select(db.accountPrefs).get())
+        row.key: row.value,
+    };
+    expect(prefs[SettingsPrefKeys.examDate], '2026-11-01');
+    expect(prefs[SettingsPrefKeys.examDatePrecision], 'month');
   });
 }
