@@ -2260,3 +2260,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Proposed fix: raise the three client limits to match the server. Awaiting Aedwon's approval
   because it changes answer handling.
 - Approval, Nov 1: Aedwon: "Yes, fix it". Raise the three client limits to match the server, with tests.
+- Done Nov 1: fix on fixes and staging (one constant `ServerMockPaper.maxChosenLength` = 130; tests for 87, 130 and 131-character ids failed on the old limit). Mock and quiz tests pass (1308); analyze clean. No other client id limit is stricter than the server's.
