@@ -99,6 +99,12 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    Home batch 2 done (staging 192ffa84): 12 more states via `?localState=`; see ui-audit "Home fix
    batch 2". Open: copy/behavior differences listed there for Aedwon; "Lesson not found" for CSE
    Mathematics lessons (real bug, fix held for review: content structure vs `topicsByExam`).
+   Exam scope fix (Aedwon approved option a): local branch `web/exam-scope-shared-topics` in the
+   fixes worktree, NOT pushed, NOT integrated. Analyze and layering clean; browser check passed
+   (CSE Pro Mathematics lesson opens). Before integrating: run the full suite on the base
+   (192ffa84) and on this branch and confirm the 28 settings overflow failures are pre-existing
+   (Sonnet sampled only); review uncovered items (flagged/retake/review ids not filtered; no
+   direct tests on today/review paths). Then fast-forward fixes and staging.
    Next: Study and reader. The local test panel (spec and plan approved) is paused until the
    visual pass is done (Aedwon: "finish the screens first").
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
