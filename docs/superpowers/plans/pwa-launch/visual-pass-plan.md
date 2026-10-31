@@ -93,7 +93,10 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    `/_blob/9c74f4aa7aa198d9d094e998fa9000ba` = `web/shared/pantas.css` (HANDOFF.md line 8). Board
    servers must map `/_blob/*` to that file, or board screenshots lack the base classes. The first
    Home capture missed this and was redone.
-   Next: Home (HM_*, DK_Home), capture in progress. The local test panel (spec and plan approved) is paused until the
+   Home batch 1 done (staging c6a41248): see `docs/ui-audit.md` "Home fix batch 1". Open: the
+   footer time estimate needs Aedwon's decision (no real figure exists); 23 Home states not yet
+   reached; "Lesson not found" from the Today drawer for a seeded student (cause unknown).
+   Next: reach the remaining Home states, then Study and reader. The local test panel (spec and plan approved) is paused until the
    visual pass is done (Aedwon: "finish the screens first").
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
@@ -176,7 +179,7 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
 | Area | Boards | State |
 |---|---|---|
 | Onboarding | OB_* | Done at 1440 light: 21 of 24 BUILD boards match (3 picker states unreachable); batches 1 and 2 on staging 081a82b1 |
-| Home | HM_*, DK_Home | not started |
+| Home | HM_*, DK_Home | batch 1 on staging c6a41248 (default, panels, Pro, dark); 23 states not reached |
 | Study and reader | SD_*, RD_* | not started |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
 | Mock | MK_* | not started |
