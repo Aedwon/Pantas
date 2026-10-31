@@ -71,9 +71,19 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    order; AgeBlocked header, position and padlock). Implementing: Sonnet subagent, lead reviews,
    tests and re-captures. Aedwon, Oct 31: "are you delegating changes to sonnet? please do, you
    do the reasoning, it does the doing".
-   Open for Aedwon: OB_DaysTooLate board suggests "Thursday or Friday" with today Wednesday; the
-   app suggests "Wednesday or Thursday or Friday" (it counts today as a study day). Behavior,
-   not styling; not changed.
+   Decided, Aedwon Oct 31: "today can count as study day". The too-late card keeps suggesting
+   today; the board's "Thursday or Friday" is not followed there.
+   Done: batch 2 is on `web/visual-check-fixes-r1` and staging at 081a82b1 (analyzer clean, 861
+   onboarding and core UI tests pass). Re-measured in the browser: name field, subject rows and
+   date known buttons pixel exact; the rest within 1 to 5 px (date picker weekday row about 4 px
+   low, under-13 block about 4 px low). Record: `docs/ui-audit.md` "Onboarding fix batch 2".
+   Faster loop for later areas: back up `build/web/index.html`, `pantas_pwa.js`,
+   `local-login.html`, run only `flutter build web --profile --no-web-resources-cdn -t
+   lib/main_dev.dart --dart-define=LOCAL_EMULATOR_HOST=127.0.0.1`, restore the three files; the
+   running local server serves the new build (about 2 minutes instead of a full restart).
+   Gotcha: on desktop web, Material's compact visual density removes 8 px from button minimum
+   heights; use `VisualDensity.standard` where a board height must hold.
+   Next: Home (HM_*, DK_Home).
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
 
@@ -154,7 +164,7 @@ Aedwon, Oct 31: "Other account Saturday". His other Claude account runs steps 1 
 
 | Area | Boards | State |
 |---|---|---|
-| Onboarding | OB_* | 21 of 24 BUILD boards compared at 1440 light (3 picker states unreachable); batch 1 on staging 143fa7b4; batch 2 in progress |
+| Onboarding | OB_* | Done at 1440 light: 21 of 24 BUILD boards match (3 picker states unreachable); batches 1 and 2 on staging 081a82b1 |
 | Home | HM_*, DK_Home | not started |
 | Study and reader | SD_*, RD_* | not started |
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | not started |
