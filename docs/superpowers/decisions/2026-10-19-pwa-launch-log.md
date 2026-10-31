@@ -2247,3 +2247,15 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   topics hold 880 questions, 240 tagged CSE), about half a day, recommended; (b) patch study map
   and reader only; (c) a separate CSE Mathematics subject in content (duplicates content, breaks id
   compatibility). Aedwon: "Investigate first", then "go with your recommendation". Result: (a).
+
+## Nov 1: mock answers with long choice ids are dropped (needs Aedwon)
+
+- Found by Sonnet during the Quiz visual pass, verified by the lead: the app rejects a chosen
+  answer id longer than 64 characters in three places
+  (`server_mock_session.dart:187`, `server_mock_api.dart:122` `_maxChosenLength`,
+  `server_mock_paper.dart:138`), while the server allows ids up to 128 (+2)
+  (`functions/src/_answers.ts` MAX_ID_LENGTH). 940 exported choice ids are longer than 64
+  (max 87). A student picking one in a mock has that answer silently dropped, and a saved result
+  with a long id fails to load ("Could not load your mock.").
+- Proposed fix: raise the three client limits to match the server. Awaiting Aedwon's approval
+  because it changes answer handling.
