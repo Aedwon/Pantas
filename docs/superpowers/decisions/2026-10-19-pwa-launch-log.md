@@ -2192,3 +2192,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   Exam week (+about half a day, recommended, because the Home and Performance boards show these
   states); four plus custom sliders (+1 day). Aedwon: "add your reco  to the plan". Result: four
   sample students as a fourth tab, presentation `local-test-panel-b-v3.html`, spec updated.
+- Approval, Oct 31: Aedwon approved the spec with four sample students: "lgtm". Plan: `docs/superpowers/plans/pwa-launch/local-test-panel-plan.md`.
