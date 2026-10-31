@@ -2229,3 +2229,7 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   checkout_session.payment.paid, payment.refunded, payment.refund.updated
   (refund.succeeded, dispute.created and dispute.resolved were not offered by the dashboard).
   Do not rerun the TRIAL_IDENTITY_HMAC_KEY command. Section 6 (confirm after deploy) still open.
+- Oct 31, Home footer time estimate: the board shows "About 45 min today"; the app has no measured,
+  published or named-algorithm figure for it. Options: leave it out (recommended) or design an
+  estimate from the student's own measured time per question (needs a spec). Aedwon: "Leave it
+  out". The footer keeps only the button (and "The mock comes first today" on mock days).
