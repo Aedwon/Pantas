@@ -83,7 +83,13 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    running local server serves the new build (about 2 minutes instead of a full restart).
    Gotcha: on desktop web, Material's compact visual density removes 8 px from button minimum
    heights; use `VisualDensity.standard` where a board height must hold.
-   Next: Home (HM_*, DK_Home). The local test panel (spec and plan approved) is paused until the
+   Sample students (Oct 31): fixes branch 77fbfe4c adds local-only `?localStudent=new|steady|behind|examWeek`
+   (with `?localAccount=free|pro`). The local server seeds the student through the server's own
+   session, lesson and mock code (`tools/local/seed_student.mjs`). Do not fake the browser clock:
+   App Check rejects it. Home board checklist (Haiku): staging worktree
+   `build/visual-pass/home-boards.md`. Split agreed with Aedwon: Sonnet captures, measures and
+   drafts differences; the lead reviews and spot-checks; Haiku crawls.
+   Next: Home (HM_*, DK_Home), capture in progress. The local test panel (spec and plan approved) is paused until the
    visual pass is done (Aedwon: "finish the screens first").
 8. Cost guide: about 10 board comparisons per 1% of a Pro weekly limit when pairs are cropped.
    Aedwon asked to track usage per step; note it in the findings.
