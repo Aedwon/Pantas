@@ -1,0 +1,114 @@
+<style>
+  .paper{background:#F5F5F7;color:#1D1D1F;font-family:'Geist',-apple-system,'Segoe UI',sans-serif;border-radius:14px;box-shadow:0 0 0 1px #333;width:960px;min-height:600px;padding:18px 22px;box-sizing:border-box}
+  .card{background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer}
+  .card:hover{box-shadow:inset 0 0 0 1.5px #D1D1D6}
+  .card b{font-size:14px;display:block}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .btn{height:36px;border:0;border-radius:10px;padding:0 14px;font:600 14px/1 inherit;background:#F2F2F5;color:#1D1D1F;cursor:pointer}
+  .btn.p{background:#0B7A68;color:#fff}
+  .btn.d{background:#FBEAEA;color:#B2423E}
+  .seg{display:inline-flex;background:#EDEDF0;border-radius:10px;padding:3px}
+  .seg span{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:#6E6E73;cursor:pointer}
+  .seg span.on{background:#fff;color:#1D1D1F;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .muted{font-size:13px;color:#6E6E73;line-height:1.4}
+  .dot{width:8px;height:8px;border-radius:9px;background:#34A853;display:inline-block;margin-right:4px}
+  .inp{height:36px;border-radius:10px;border:1.5px solid #D1D1D6;padding:0 10px;font:15px inherit;background:#fff;color:#1D1D1F;box-sizing:border-box}
+  .tabs{display:flex;gap:4px;border-bottom:1px solid #E5E5EA;margin:10px 0 14px}
+  .tabs span{padding:10px 14px;font-size:14px;font-weight:600;color:#6E6E73;border-bottom:2px solid transparent;cursor:pointer}
+  .tabs span.on{color:#0B7A68;border-color:#0B7A68}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .sec{font-size:12px;font-weight:700;color:#8A8A8E;letter-spacing:.04em;text-transform:uppercase;margin:14px 0 8px}
+  .sec:first-child{margin-top:0}
+  .rt{font:12px ui-monospace,Menlo,monospace;color:#8A8A8E;margin-top:2px}
+  .idf{height:28px;width:100%;margin-top:8px;border-radius:8px;border:1.5px solid #D1D1D6;padding:0 8px;font-size:13px;box-sizing:border-box}
+  .pane{display:none}.pane.on{display:block}
+  .note{font:13px/1.45 system-ui;color:#bbb;max-width:900px;margin-top:12px}
+</style>
+
+<h2>Layout B, all three tabs</h2>
+<p class="subtitle">Click the tabs inside the panel to see each one. This is the presentation the spec will point to.</p>
+
+<div class="paper">
+  <div class="row" style="justify-content:space-between">
+    <div style="font-size:20px;font-weight:700">Pantas test panel</div>
+    <div class="row">
+      <span class="muted"><span class="dot"></span>App tab connected · /onboarding</span>
+      <button class="btn d">Start fresh</button>
+      <div class="seg"><span>Free</span><span class="on">Pro</span><span>Real</span></div>
+    </div>
+  </div>
+  <div class="tabs" id="tabs">
+    <span class="on" data-t="ob">Onboarding</span><span data-t="sc">Screens</span><span data-t="td">Today</span>
+  </div>
+
+  <div class="pane on" id="ob">
+    <div class="sec">Steps</div>
+    <div class="grid">
+      <div class="card"><b>Welcome</b><div class="muted">Fresh start</div></div>
+      <div class="card"><b>Birth year</b><div class="muted">Empty field</div></div>
+      <div class="card"><b>Terms</b><div class="muted">Nothing ticked</div></div>
+      <div class="card"><b>Exam picker</b><div class="muted">Nothing picked</div></div>
+      <div class="card"><b>Exam date: known</b><div class="muted">CSE Professional</div></div>
+      <div class="card"><b>Study days</b><div class="muted">Six days picked</div></div>
+      <div class="card"><b>Your name</b><div class="muted">Empty field</div></div>
+    </div>
+    <div class="sec">Other states</div>
+    <div class="grid">
+      <div class="card"><b>Under 13</b><div class="muted">Year 2020</div></div>
+      <div class="card"><b>Custom exam: name</b><div class="muted">Empty</div></div>
+      <div class="card"><b>Custom exam: subjects</b><div class="muted">Named "Nursing Board"</div></div>
+      <div class="card"><b>Date: nothing picked</b><div class="muted">Different Date</div></div>
+      <div class="card"><b>Date: month picked</b><div class="muted">December, no day</div></div>
+      <div class="card"><b>Date: day picked</b><div class="muted">December 15</div></div>
+      <div class="card"><b>Date: next year</b><div class="muted">February 2027</div></div>
+      <div class="card"><b>Date: this month</b><div class="muted">Today's month</div></div>
+      <div class="card"><b>Date: exam today</b><div class="muted">Today picked</div></div>
+      <div class="card"><b>Study days: none</b><div class="muted">Continue off</div></div>
+      <div class="card"><b>Study days: too late</b><div class="muted">Exam in 3 days, Sun to Tue</div></div>
+      <div class="card"><b>Study days: exam soon</b><div class="muted">Exam in 3 days, Wed to Fri</div></div>
+    </div>
+  </div>
+
+  <div class="pane" id="sc">
+    <input class="inp" placeholder="Search screens" style="width:320px">
+    <div class="sec">Home and plan</div>
+    <div class="grid">
+      <div class="card"><b>Home</b><div class="rt">/home</div></div>
+      <div class="card"><b>Plan</b><div class="rt">/plan</div></div>
+      <div class="card"><b>Plan history</b><div class="rt">/plan/history</div></div>
+      <div class="card"><b>Performance</b><div class="rt">/performance</div></div>
+    </div>
+    <div class="sec">Study and quiz</div>
+    <div class="grid">
+      <div class="card"><b>Study</b><div class="rt">/study</div></div>
+      <div class="card"><b>Quiz</b><div class="rt">/quiz</div></div>
+      <div class="card"><b>Today's quiz</b><div class="rt">/quiz/today/:examId</div><div class="muted">Uses the current exam</div></div>
+      <div class="card"><b>Lesson</b><div class="rt">/lesson/:lessonId</div><input class="idf" placeholder="Lesson ID" onclick="event.stopPropagation()"></div>
+    </div>
+    <div class="sec">Mock, settings, more</div>
+    <div class="grid">
+      <div class="card"><b>Mock setup</b><div class="rt">/quiz/mock/setup</div></div>
+      <div class="card"><b>Settings</b><div class="rt">/settings</div></div>
+      <div class="card"><b>Pro</b><div class="rt">/pro</div></div>
+      <div class="card"><b>Mock results</b><div class="rt">/mock/results/:attemptId</div><input class="idf" placeholder="Attempt ID" onclick="event.stopPropagation()"></div>
+    </div>
+    <p class="muted" style="margin-top:10px">All 60 app screens, grouped like this. Screens that need an exam use the current one. Screens that need a lesson or attempt ask for its ID.</p>
+  </div>
+
+  <div class="pane" id="td">
+    <div class="card" style="max-width:520px;cursor:default">
+      <b style="margin-bottom:8px">The app's date</b>
+      <div class="row"><input class="inp" type="date" value="2026-10-14" style="width:170px"><button class="btn p">Apply</button><button class="btn">Real date</button></div>
+      <div class="muted" style="margin-top:8px">Now: Wednesday, October 14, 2026 (set). The app tab reloads to use it. Time of day keeps running. The local server keeps the real date.</div>
+    </div>
+  </div>
+</div>
+<p class="note">Status line shows whether the app tab is open and which screen it shows. Start fresh asks once before it clears data.</p>
+
+<script>
+document.querySelectorAll('#tabs span').forEach(t => t.addEventListener('click', e => {
+  e.stopPropagation();
+  document.querySelectorAll('#tabs span').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === t.dataset.t));
+}));
+</script>
