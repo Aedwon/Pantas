@@ -202,7 +202,7 @@ export or read that canvas into local board files. The web pass changes only the
 | Quiz and answers | QS_*, QN_*, QZ_*, RV_* | batch 1 on staging 025bba22: 19 of 27 |
 | Mock | MK_* | batch 1 on staging f571f994: 15 of 31; part-by-part boards need a UPCAT/DCAT mock |
 | Results and Performance | PL_*, PF_* | batch 1 on staging 19d968d9: 16 of 19 |
-| Record, bookmarks, custom quiz | MY_*, BM_*, CZ_* | not started |
+| Record, bookmarks, custom quiz | MY_*, BM_*, CZ_* | batch 1 on staging 6a5384cb: 20 of 33 |
 | Settings and Pro | ST_* | not started |
 | Plan, More, loading | PL_*, L_*, SY_* | not started |
 
