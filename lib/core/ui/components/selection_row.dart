@@ -20,11 +20,16 @@ class CheckboxRow extends StatelessWidget {
     this.hoverFill = true,
     this.markSize = 24,
     this.standardDensity = false,
+    this.round = false,
     super.key,
   });
   final String title;
   final bool selected;
   final bool mixed;
+
+  /// Phone boards (QZ_Picker, ST_Included, BM_Edit) draw this check as a
+  /// circle. Wide web keeps the rounded square.
+  final bool round;
   final bool interactiveContent;
   final VoidCallback? onTap;
   final Widget? content;
@@ -50,6 +55,7 @@ class CheckboxRow extends StatelessWidget {
   Widget build(BuildContext context) => _SelectionRow(
         standardDensity: standardDensity,
         markSize: markSize,
+        round: round,
         title: title,
         selected: selected,
         mixed: mixed,
@@ -122,7 +128,9 @@ class _SelectionRow extends StatelessWidget {
     this.hoverFill = true,
     this.markSize = 24,
     this.standardDensity = false,
+    this.round = false,
   });
+  final bool round;
   final bool standardDensity;
   final double markSize;
   final double gap;
@@ -201,7 +209,7 @@ class _SelectionRow extends StatelessWidget {
                         size: markSize,
                         selected: selected,
                         mixed: mixed,
-                        radio: radio,
+                        radio: radio || (round && !context.wideWeb),
                       ),
                     ),
                     SizedBox(width: gap),

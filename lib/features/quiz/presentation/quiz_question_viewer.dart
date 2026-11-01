@@ -455,7 +455,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                   Positioned(
                     left: 16,
                     right: 16,
-                    bottom: 18,
+                    bottom: 26,
                     child: Builder(
                       builder: (context) {
                         Widget action(

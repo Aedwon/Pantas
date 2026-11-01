@@ -1305,7 +1305,14 @@ void main() {
     );
     expect(
       tester.getSize(find.byKey(const ValueKey('selection-mark')).first),
-      const Size(24, 24),
+      const Size(22, 22),
+    );
+    final mark = tester.widget<Container>(
+      find.byKey(const ValueKey('selection-mark')).first,
+    );
+    expect(
+      (mark.decoration! as BoxDecoration).borderRadius,
+      BorderRadius.circular(99),
     );
   });
 

@@ -512,6 +512,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                               : null,
                         ),
                         child: CheckboxRow(
+                          round: true,
                           padding: const EdgeInsets.fromLTRB(20, 9, 8, 9),
                           title: row.title,
                           selected: checked,

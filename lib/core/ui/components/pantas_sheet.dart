@@ -195,11 +195,16 @@ class _PantasSheetState extends State<PantasSheet> {
                                           }
                                           return false;
                                         },
-                                        child: widget.scrollable
-                                            ? SingleChildScrollView(
-                                                child: widget.child,
-                                              )
-                                            : widget.child,
+                                        // No Scaffold above: without Material,
+                                        // text gets the yellow-underline style.
+                                        child: Material(
+                                          type: MaterialType.transparency,
+                                          child: widget.scrollable
+                                              ? SingleChildScrollView(
+                                                  child: widget.child,
+                                                )
+                                              : widget.child,
+                                        ),
                                       ),
                                     ),
                                   ),

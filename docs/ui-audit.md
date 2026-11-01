@@ -2565,3 +2565,31 @@ Not changed (copy or behavior, boards differ): "Unfinished items are added to to
 Today card counts and subject lines (data); Free plan placeholder card and "Unlock with Pro" button; Practice option rows
 (board: plain rows with a check and a "Recommended" tag; app: radio rows); Appearance preview tiles; onboarding Notify step
 (no reminder step in the app); O_Days title and circle row offsets; tab bar on pushed pages (S9, waits for Aedwon).
+
+### Mobile fix batch 2 (phone layout only; wide web untouched)
+
+Source: `build/visual-pass/mobile/diffs.md` and the phone boards. Checked on the running app at 390 x 844 (shots
+`fix2-*.app.png` in the staging worktree).
+
+- Yellow underlines in the question grid and mock sheet: `PantasSheet` drew its contents with no Material ancestor, so
+  text fell back to Flutter's debug style (phone and web). The sheet surface now carries a transparent Material. Every sheet
+  built on `PantasSheet` is covered.
+- Question session, question viewer and assessment: the bottom bar sits 26 px above the screen bottom (was 18), giving the
+  boards' 758 to 818 position at 60 px. The assessment top row starts 6 px down, as the quiz row already did.
+- Selection controls: phone check rows in the practice picker, What's included and Bookmarks edit mode are circles
+  (QZ_Picker, ST_Included, BM_Edit). Terms, Custom subjects and the pause-warning box stay rounded squares as on their boards.
+  Picker and What's included circles are 22 px. Wide web keeps the squares.
+- Your record phone cards: Since you started has a half-point divider, 40 px numbers, 15 px medium labels, a 26 px orange
+  outline flame left of the streak number, and the streak start date. Your totals is a two-column grid with half-point dividers,
+  24 px numbers and 13 px gray labels. The loading skeleton follows the new card height.
+- Sign Out dialog: Cancel and Sign Out sit side by side, 24 px from the screen edge with a 10 px gap (ST_SignOut).
+
+Not done:
+- S12 note icon and Add Note in the live quiz bar (QN_*). Notes attach to a stored attempt and the app saves the attempt when
+  the session ends, so a live question has nothing to attach to. This needs a new behavior.
+- Backup page: Aedwon's W4f decision hides backup details on web, and the board rows "Backed up since" and "This phone" need
+  data the app does not hold. The page keeps its one line.
+
+Copy and behavior differences left as they are: Sign Out copy for Free ("Your progress stays on this phone...") against the
+account copy; Record "Your Wrapped" row and the accuracy chart state; the date chip on Your exam; miss order and "Next >" chevron
+in the quiz bar; MK_PauseWarn dialog width (board 24 px, app 28 px).

@@ -768,7 +768,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
+                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 26),
                           child: bar,
                         ),
                       ],
@@ -777,7 +777,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                   return Stack(
                     children: [
                       Positioned.fill(child: scroll),
-                      Positioned(left: 16, right: 16, bottom: 18, child: bar),
+                      Positioned(left: 16, right: 16, bottom: 26, child: bar),
                       if (toast != null)
                         Positioned(
                           left: 16,

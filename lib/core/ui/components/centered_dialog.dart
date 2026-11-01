@@ -19,6 +19,8 @@ class CenteredDialog extends StatelessWidget {
     this.inlineActions = false,
     this.content,
     this.allowEscape = true,
+    this.horizontalInset = 28,
+    this.actionGap = 8,
     super.key,
   });
   final String title;
@@ -31,6 +33,12 @@ class CenteredDialog extends StatelessWidget {
   final bool inlineActions;
   final Widget? content;
   final bool allowEscape;
+
+  /// Phone gap to the screen edge. ST_SignOut uses 24, the leave dialogs 28.
+  final double horizontalInset;
+
+  /// Phone gap between side-by-side buttons. ST_SignOut uses 10.
+  final double actionGap;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -137,7 +145,8 @@ class CenteredDialog extends StatelessWidget {
         backgroundColor: context.colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        insetPadding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
+        insetPadding:
+            EdgeInsets.symmetric(horizontal: horizontalInset, vertical: 24),
         child: DecoratedBox(
           key: const ValueKey('centered-dialog-surface'),
           decoration: BoxDecoration(
@@ -181,7 +190,7 @@ class CenteredDialog extends StatelessWidget {
                 ),
                 ButtonPair(
                   stacked: !destructive && !inlineActions,
-                  gap: 8,
+                  gap: actionGap,
                   primary: destructive || inlineActions
                       ? pill(primaryLabel, onConfirm, primary: true)
                       : PantasButton(

@@ -434,10 +434,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             children: [
               Column(
                 children: [
+                  // AS_Question: the board's top row starts 6 px down.
                   SizedBox(
-                    height: 44,
+                    height: 50,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -492,7 +493,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                 Positioned(
                   left: 16,
                   right: 16,
-                  bottom: 18,
+                  bottom: 26,
                   child: FloatingBar.content(
                     child: Row(
                       children: [

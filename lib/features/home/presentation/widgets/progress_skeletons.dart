@@ -11,7 +11,7 @@ class RecordSkeleton extends StatelessWidget {
           children: [
             SkeletonSection(height: 125),
             SizedBox(height: 24),
-            SkeletonSection(height: 306),
+            SkeletonSection(height: 238),
             SizedBox(height: 24),
             SkeletonSection(height: 230),
           ],
