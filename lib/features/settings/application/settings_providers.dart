@@ -168,10 +168,16 @@ class SettingsActions {
     _publishPlanChange();
   }
 
+  /// The one write for the carry-over choice, used by the exam prompt and the
+  /// Settings row. The server computes the web figures, so it is told the
+  /// choice the same way it is told the exam date. Scheduling never reads it.
   Future<void> setCarryOverProgress({required bool enabled}) async {
-    await _ref
-        .read(settingsRepositoryProvider)
-        .updateCarryOverProgress(enabled: enabled);
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref
+          .read(settingsRepositoryProvider)
+          .updateCarryOverProgress(enabled: enabled),
+    );
     _ref.invalidate(userSettingsProvider);
   }
 

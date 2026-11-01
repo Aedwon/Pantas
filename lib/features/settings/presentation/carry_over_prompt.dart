@@ -25,24 +25,55 @@ Future<bool?> showCarryOverPrompt({
   final request = CarryOverRequest(
     exam: examShortName,
     previous: previousExam,
+    count: carryableCount,
     onCounted: () => selected = true,
     onDecision: onDecision,
   );
   final router = GoRouter.maybeOf(context);
-  final result = router != null
-      ? await context.push<bool>('/settings/exam/transfer', extra: request)
-      : await Navigator.of(context).push<bool>(
-          MaterialPageRoute(
-            builder: (_) => CarryOverScreen(
-              exam: request.exam,
-              previous: request.previous,
-              onCounted: request.onCounted,
-              onDecision: request.onDecision,
+  pendingCarryOverRequest = request;
+  final bool? result;
+  try {
+    result = router != null
+        ? await context.push<bool>('/settings/exam/transfer', extra: request)
+        : await Navigator.of(context).push<bool>(
+            MaterialPageRoute(
+              builder: (_) => CarryOverScreen(
+                exam: request.exam,
+                previous: request.previous,
+                onCounted: request.onCounted,
+                onDecision: request.onDecision,
+              ),
             ),
-          ),
-        );
+          );
+  } finally {
+    if (identical(pendingCarryOverRequest, request)) {
+      pendingCarryOverRequest = null;
+    }
+  }
   return result ?? selected;
 }
+
+/// The prompt on screen, for the router to read.
+///
+/// The web router writes a pushed route's `extra` into the browser history as
+/// JSON. An object that holds callbacks cannot be written, so it comes back as
+/// null whenever the router rebuilds the page, and the exam change does that.
+/// The route reads this when `extra` is gone.
+CarryOverRequest? pendingCarryOverRequest;
+
+/// The request a `/settings/exam/transfer` route should show, or null when
+/// there is none and the route should go back to the exam page.
+CarryOverRequest? carryOverRequestFor(Object? extra) =>
+    extra is CarryOverRequest ? extra : pendingCarryOverRequest;
+
+/// The prompt's sentence. The board (ST_ExamSwitch) prints no figure.
+String _promptBody({
+  required int? count,
+  required String exam,
+  required String previous,
+}) =>
+    'Some content on $previous is on $exam too. '
+    'Count them and continue where you are.';
 
 class CarryOverScreen extends ConsumerStatefulWidget {
   const CarryOverScreen({
@@ -50,9 +81,13 @@ class CarryOverScreen extends ConsumerStatefulWidget {
     required this.onCounted,
     super.key,
     this.previous,
+    this.count,
     this.onDecision,
   });
   final VoidCallback onCounted;
+
+  /// How many answered questions the new exam also has, when known.
+  final int? count;
   final Future<void> Function({required bool count})? onDecision;
   final String exam;
   final String? previous;
@@ -337,9 +372,11 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                         Text("You're not starting from zero", style: t.h3),
                         const SizedBox(height: 6),
                         Text(
-                          'Some content on $previousName '
-                          'is on ${widget.exam} too. '
-                          'Count them and continue where you are.',
+                          _promptBody(
+                            count: widget.count,
+                            exam: widget.exam,
+                            previous: previousName,
+                          ),
                           textAlign: TextAlign.center,
                           style: t.style(
                             16,
@@ -683,10 +720,11 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Some content on '
-                                "${widget.previous ?? 'your exam'} "
-                                'is on ${widget.exam} too. '
-                                'Count them and continue where you are.',
+                                _promptBody(
+                                  count: widget.count,
+                                  exam: widget.exam,
+                                  previous: widget.previous ?? 'your exam',
+                                ),
                                 textAlign: TextAlign.center,
                                 style: context.type.body,
                               ),
@@ -776,11 +814,13 @@ class CarryOverRequest {
     required this.exam,
     required this.onCounted,
     this.previous,
+    this.count,
     this.onDecision,
   });
   final Future<void> Function({required bool count})? onDecision;
   final String exam;
   final String? previous;
+  final int? count;
   final VoidCallback onCounted;
 }
 

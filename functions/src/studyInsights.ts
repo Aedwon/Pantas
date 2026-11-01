@@ -66,8 +66,10 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
    actualTrial(tx,deps.db,auth.uid,examId,now),
   ]);
   if(settings.exists&&settings.get('examId')!==examId)throw new HttpsError('failed-precondition','Your exam changed. Open this screen again.');
+  // Absent means carry over. The choice filters the figures only; the plan and due dates never read it.
+  const carry=settings.get('carryOverProgress')!==false;
   const pro=access.coversExam(examId),topicOf=new Map(content.topics.map(t=>[t.id,t]));
-  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),'topic-details-v3-unmet-requirements']);
+  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v3-unmet-requirements']);
   const response=(derived:Insights,performance:Performance,revision:string)=>{
    const {topics,lessons,topicDetails,...visible}=performance;
    return{examId:examId,serverNow:now,accessRecheckAt:access.recheckAt,proCovered:pro,revision,trialEndsAt,
@@ -86,8 +88,14 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   const subjectOf=new Map(content.subjects.map(s=>[s.id,s])),questionOf=new Map(content.questions.map(q=>[q.id,q]));
   const item=(a:Answer):ObservedItem=>{const q=questionOf.get(String(a.questionId)),topic=q?topicOf.get(q.topicId):undefined;
    return {...a,...(q?{topicId:q.topicId,lessonId:q.lessonId}:{}),...(topic?{subjectName:subjectOf.get(topic.subjectId)?.name}:{})};};
-  const attempts:Attempt[]=answers.docs.filter(d=>d.get('examId')===examId&&typeof d.get('origin')==='string').map(d=>{
-   const r=d.data() as StoredSession;return {...r,startedAt:phStamp(Number(r.startedAt)),finishedAt:phStamp(Number(r.finishedAt)),items:r.answers.map(item)};
+  // Own-exam sessions always count. With carry-over on, a session made under another exam counts for the
+  // questions this exam also has, so nothing is copied and the choice reverses at once. A mock is one exam's
+  // paper and is never carried. Work on a question outside this exam's pool never counts.
+  const attempts:Attempt[]=answers.docs.flatMap(d=>{
+   const r=d.data() as StoredSession,own=r.examId===examId;
+   if(typeof r.origin!=='string'||!own&&!(carry&&typeof r.examId==='string'&&r.origin!=='mock'))return[];
+   const items=(own?r.answers:r.answers.filter(a=>questionOf.has(String(a.questionId)))).map(item);
+   return own||items.length?[{...r,examId:examId,startedAt:phStamp(Number(r.startedAt)),finishedAt:phStamp(Number(r.finishedAt)),items}]:[];
   });
   const quizOrigins=new Set(['today_topic','today_interleaved','new_questions','drill','flagged','retake','inline']);
   const sessions=attempts.filter(r=>quizOrigins.has(String(r.origin))).map(r=>({...r,total:r.items.length,correct:r.items.filter((a:ObservedItem)=>a.correct).length}));

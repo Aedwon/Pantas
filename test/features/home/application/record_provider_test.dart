@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart' hide isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -669,5 +670,98 @@ void main() {
       record.mocks.first.takenOn.isAfter(record.mocks.last.takenOn),
       isTrue,
     );
+  });
+
+  group('carry-over on the record figures', () {
+    // The student prepared for the CSE, then switched to UPCAT. UPCAT lists
+    // q_both. q_cse_only is on the CSE alone.
+    Future<void> seedSwitched() async {
+      final contentDb = openTestContentDatabase();
+      addTearDown(contentDb.close);
+      await seedContentTopicWithQuestions(
+        contentDb,
+        examId: 'exam_upcat',
+        topicId: 'topic_a',
+        topicName: 'A',
+        questionIds: ['q_both', 'q_new'],
+      );
+      await AppPreferencesRepository(db).setSelectedExamId('exam_upcat');
+      Future<void> attempt(String id, String exam, DateTime day, String q) =>
+          db.into(db.attemptsLocal).insert(
+                AttemptsLocalCompanion.insert(
+                  id: id,
+                  examId: exam,
+                  startedAt: day,
+                  completedAt: Value(day.add(const Duration(minutes: 10))),
+                  itemsJson: jsonEncode([
+                    {
+                      'questionId': q,
+                      'questionVersion': 1,
+                      'chosenChoiceId': 'c_a',
+                      'correctChoiceId': 'c_a',
+                      'responseMs': 1000,
+                    },
+                  ]),
+                ),
+              );
+      await attempt('old_both', 'exam_cse', DateTime(2026, 7, 10), 'q_both');
+      await attempt(
+        'old_only',
+        'exam_cse',
+        DateTime(2026, 7, 11),
+        'q_cse_only',
+      );
+      await attempt('new', 'exam_upcat', DateTime(2026, 7, 12), 'q_new');
+      // A mock is one exam's paper. The CSE mock is not carried either way.
+      final taken = DateTime(2026, 7, 9);
+      await db.into(db.mockAttempts).insert(
+            MockAttemptsCompanion.insert(
+              id: 'cse_mock',
+              userId: 'local',
+              examId: 'exam_cse',
+              blueprintId: 'bp',
+              blueprintName: 'CSE paper',
+              durationMinutes: 60,
+              status: 'completed',
+              strictMode: false,
+              sampledQuestionsJson: jsonEncode([]),
+              scoreRaw: const Value(90),
+              scoreTotal: const Value(100),
+              startedAt: taken,
+              lastFlushedAt: taken,
+              submittedAt: Value(taken),
+              updatedAt: taken,
+            ),
+          );
+      container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+      );
+    }
+
+    test('on, shared questions from the old exam count; the rest do not',
+        () async {
+      await seedSwitched();
+
+      final record = await container.read(recordProvider.future);
+
+      expect(record.questionsAnswered, 2);
+      expect(record.daysActive, 2);
+      expect(record.mocks, isEmpty);
+      expect(record.bestMockPercent, isNull);
+    });
+
+    test('off, only the current exam counts', () async {
+      await seedSwitched();
+      await DriftSettingsRepository(db).updateCarryOverProgress(enabled: false);
+
+      final record = await container.read(recordProvider.future);
+
+      expect(record.questionsAnswered, 1);
+      expect(record.daysActive, 1);
+      expect(record.mocks, isEmpty);
+    });
   });
 }

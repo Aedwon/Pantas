@@ -6,17 +6,23 @@ import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
 import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
 
 class TestModeDeltaSignal implements Signal<PressureDelta> {
-  TestModeDeltaSignal(this._db, ContentDatabase contentDb)
-      : _attemptReader = const AttemptItemReader(),
+  TestModeDeltaSignal(
+    this._db,
+    ContentDatabase contentDb, {
+    AttemptScope? scope,
+  })  : _scope = scope,
+        _attemptReader = const AttemptItemReader(),
         _mockReader = const MockPayloadReader(),
         _content = SignalContentHelpers(contentDb);
 
   final AppDatabase _db;
+  final AttemptScope? _scope;
   final AttemptItemReader _attemptReader;
   final MockPayloadReader _mockReader;
   final SignalContentHelpers _content;
@@ -36,17 +42,28 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
     final practice = <bool>[];
     final mock = <bool>[];
 
-    final attempts = _db.select(_db.attemptsLocal)
-      ..where(
-        (row) =>
-            row.examId.equals(examId) &
-            row.completedAt.isNotNull() &
-            // Recorded mock answers are mocks, not practice.
-            row.origin.isNotIn(AttemptOrigins.mirrored.toList()),
-      );
-    for (final row in await attempts.get()) {
-      for (final item in _attemptReader.read(row.itemsJson)) {
-        practice.add(item.isCorrect);
+    final scope = _scope;
+    if (scope != null) {
+      for (final attempt in await scope.attempts(_db, examId)) {
+        // Recorded mock answers are mocks, not practice.
+        if (AttemptOrigins.mirrored.contains(attempt.row.origin)) continue;
+        for (final item in _attemptReader.read(attempt.row.itemsJson)) {
+          if (attempt.counts(item.questionId)) practice.add(item.isCorrect);
+        }
+      }
+    } else {
+      final attempts = _db.select(_db.attemptsLocal)
+        ..where(
+          (row) =>
+              row.examId.equals(examId) &
+              row.completedAt.isNotNull() &
+              // Recorded mock answers are mocks, not practice.
+              row.origin.isNotIn(AttemptOrigins.mirrored.toList()),
+        );
+      for (final row in await attempts.get()) {
+        for (final item in _attemptReader.read(row.itemsJson)) {
+          practice.add(item.isCorrect);
+        }
       }
     }
 

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
@@ -10,8 +9,10 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
 import 'package:pantas/features/metrics/signals/per_question_speed_signal.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// The fraction of a student's own average response time below which an answer
 /// is considered "answered too fast" (rushed).
@@ -73,15 +74,23 @@ final missCausesProvider = FutureProvider<MissCauses?>((ref) async {
   final contentDb = ref.watch(contentDatabaseProvider);
 
   // 1. Fetch completed attempts for active exam in chronological order
-  final attempts = await (db.select(db.attemptsLocal)
-        ..where((r) => r.examId.equals(examId) & r.completedAt.isNotNull())
-        ..orderBy([(r) => OrderingTerm.asc(r.startedAt)]))
-      .get();
+  // Answers from the student's other exams count when they carry them over.
+  final carryOver =
+      (await ref.watch(userSettingsProvider.future)).carryOverProgress;
+  final scope = AttemptScope(
+    ref.watch(contentRepositoryProvider),
+    carryOver: carryOver,
+  );
+  final counted = await scope.attempts(db, examId)
+    ..sort((a, b) => a.row.startedAt.compareTo(b.row.startedAt));
+  final attempts = [for (final c in counted) c.row];
+  final countedById = {for (final c in counted) c.row.id: c};
 
   if (attempts.isEmpty) return null;
 
   // 2. Fetch latency distribution from PerQuestionSpeedSignal
-  final speedDistribution = await PerQuestionSpeedSignal(db).compute(
+  final speedDistribution =
+      await PerQuestionSpeedSignal(db, scope: scope).compute(
     window: ResolvedMetricsWindow(
       window: MetricsWindow.rolling30d,
       start: null,
@@ -141,6 +150,7 @@ final missCausesProvider = FutureProvider<MissCauses?>((ref) async {
 
     for (var i = 0; i < items.length; i++) {
       final metricItem = items[i];
+      if (!countedById[row.id]!.counts(metricItem.questionId)) continue;
 
       // Check mistakeTag from raw json if available
       MistakeTag? tag;

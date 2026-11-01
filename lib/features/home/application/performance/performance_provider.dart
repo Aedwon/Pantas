@@ -9,6 +9,8 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 @immutable
 class PerformanceRow {
@@ -246,13 +248,22 @@ final performanceProvider =
   }
 
   const reader = AttemptItemReader();
-  final attemptRows = await (db.select(db.attemptsLocal)
-        ..where((a) => a.examId.equals(examId) & a.completedAt.isNotNull()))
-      .get();
+  // The student's choice decides whether answers from their other exams count.
+  // It governs these figures only, never the schedule.
+  final carryOver =
+      (await ref.watch(userSettingsProvider.future)).carryOverProgress;
+  final attemptRows = await countedAttempts(
+    db: db,
+    content: ref.watch(contentRepositoryProvider),
+    examId: examId,
+    carryOver: carryOver,
+    completedOnly: true,
+  );
 
   final answeredPerSubject = <String, int>{};
   for (final attempt in attemptRows) {
-    for (final item in reader.read(attempt.itemsJson)) {
+    for (final item in reader.read(attempt.row.itemsJson)) {
+      if (!attempt.counts(item.questionId)) continue;
       final subjectId = subjectIdForQuestion[item.questionId];
       if (subjectId != null) {
         answeredPerSubject[subjectId] =

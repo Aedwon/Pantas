@@ -25,6 +25,11 @@ export type ExamSettings = {
   assessmentCompleted?: boolean;
   excludedTopicIds?: string[];
   excludedLessonIds?: string[];
+  /**
+   * Whether answers made under the student's other exams count toward this one's figures. Absent means yes.
+   * It is a filter on the figures only: the plan and every due date ignore it.
+   */
+  carryOverProgress?: boolean;
 };
 
 type Auth = {uid: string; token: object} | undefined;
@@ -74,7 +79,9 @@ export function checkSettings(data: unknown): ExamSettings {
   const excludedLessons = body?.excludedLessonIds;
   if (excludedLessons !== undefined && (!Array.isArray(excludedLessons) || excludedLessons.length > 1000 ||
       excludedLessons.some(id => typeof id !== 'string' || !id || id.length > 128))) throw bad('Bad excluded lessons.');
-  return {examId, examDate, ...(excludedLessons === undefined ? {} : {excludedLessonIds: [...new Set(excludedLessons as string[])].sort()}), ...(excluded === undefined ? {} : {excludedTopicIds: [...new Set(excluded as string[])].sort()}), studyDays: [...new Set(days)].sort((a, b) => a - b),
+  const carry = body?.carryOverProgress;
+  if (carry !== undefined && typeof carry !== 'boolean') throw bad('Bad carry-over flag.');
+  return {examId, examDate, ...(carry === undefined ? {} : {carryOverProgress: carry}), ...(excludedLessons === undefined ? {} : {excludedLessonIds: [...new Set(excludedLessons as string[])].sort()}), ...(excluded === undefined ? {} : {excludedTopicIds: [...new Set(excluded as string[])].sort()}), studyDays: [...new Set(days)].sort((a, b) => a - b),
     ...(assessed === undefined ? {} : {assessmentCompleted: assessed})};
 }
 

@@ -7,6 +7,8 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -121,6 +123,57 @@ void main() {
       ranked.take(3).map((t) => t.topicId),
       ['chemistry', 'algebra', 'geometry'],
     );
+  });
+
+  test("weakest areas count the old exam's answers only while carry-over on",
+      () async {
+    await setupExam('upcat');
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'upcat',
+      topicId: 'chemistry',
+      topicName: 'Chemistry',
+      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
+    );
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'upcat',
+      topicId: 'algebra',
+      topicName: 'Algebra',
+      questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3'],
+    );
+    // Chemistry was missed under the old exam, Algebra was got right under
+    // UPCAT. Chemistry is only weak while the old work counts.
+    await insertAttempt(
+      db,
+      id: 'old',
+      examId: 'exam_cse',
+      items: [
+        (questionId: 'q_chem_1', isCorrect: false),
+        (questionId: 'q_chem_2', isCorrect: false),
+        (questionId: 'q_chem_3', isCorrect: false),
+      ],
+    );
+    await insertAttempt(
+      db,
+      id: 'new',
+      examId: 'upcat',
+      items: [
+        (questionId: 'q_alg_1', isCorrect: true),
+        (questionId: 'q_alg_2', isCorrect: true),
+        (questionId: 'q_alg_3', isCorrect: true),
+      ],
+    );
+
+    final on = await container.read(topicAccuracyProvider.future);
+    expect(on.first.topicId, 'chemistry');
+    expect(on.first.answered, 3);
+
+    await DriftSettingsRepository(db).updateCarryOverProgress(enabled: false);
+    container.invalidate(userSettingsProvider);
+    final off = await container.read(topicAccuracyProvider.future);
+    expect(off.first.topicId, 'algebra');
+    expect(off.firstWhere((t) => t.topicId == 'chemistry').answered, 0);
   });
 
   test('an untouched topic sorts last, never at nought per cent', () async {

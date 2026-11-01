@@ -189,6 +189,7 @@ Future<Map<String, Object?>> readStudySettingsPayload(
     'excludedTopicIds': scope.toList()..sort(),
     'excludedLessonIds': lessons.toList()..sort(),
     'assessmentCompleted': assessed,
+    'carryOverProgress': settings.carryOverProgress,
   };
   return payload;
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:drift/drift.dart' show BooleanExpressionOperators, Constant;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
@@ -8,12 +9,14 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 @immutable
 class StudentRecord {
@@ -65,7 +68,27 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final db = ref.watch(appDatabaseProvider);
   final now = ref.watch(recordNowProvider) ?? DateTime.now();
 
-  final allAttemptsRows = await db.select(db.attemptsLocal).get();
+  // The figures count what the student's choice says counts toward the exam
+  // they are preparing for now. With no exam chosen there is nothing to filter
+  // against, so every attempt counts. Today's session and the due dates do not
+  // come through here at all.
+  final examId =
+      await ref.watch(appPreferencesRepositoryProvider).selectedExamId();
+  final carryOver = examId == null ||
+      (await ref.watch(userSettingsProvider.future)).carryOverProgress;
+  final counted = examId == null
+      ? [
+          for (final row in await db.select(db.attemptsLocal).get())
+            CountedAttempt(row),
+        ]
+      : await countedAttempts(
+          db: db,
+          content: ref.watch(contentRepositoryProvider),
+          examId: examId,
+          carryOver: carryOver,
+        );
+  final countedById = {for (final c in counted) c.row.id: c};
+  final allAttemptsRows = [for (final c in counted) c.row];
   final lessonProgressRows = await db.select(db.lessonProgressLocal).get();
   final streakRow = await (db.select(db.streakLocal)
         ..where((s) => s.id.equals(1)))
@@ -73,7 +96,11 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final mockAccuracy = <String, ({int correct, int total})>{};
   final List<MockAttempt> mockAttemptsRows;
   if (ref.watch(mockUsesServerProvider)) {
-    final history = await ref.watch(mockHistoryProvider.future);
+    // A mock is one exam's paper: only the current exam's mocks count.
+    final history = [
+      for (final entry in await ref.watch(mockHistoryProvider.future))
+        if (examId == null || entry.attempt.examId == examId) entry,
+    ];
     mockAttemptsRows = [for (final entry in history) entry.attempt];
     for (final entry in history) {
       final sections = entry.results.sections;
@@ -86,7 +113,13 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     }
   } else {
     final stored = await (db.select(db.mockAttempts)
-          ..where((m) => m.status.equals('completed')))
+          ..where(
+            (m) =>
+                m.status.equals('completed') &
+                (examId == null
+                    ? const Constant(true)
+                    : m.examId.equals(examId)),
+          ))
         .get();
     mockAttemptsRows = stored.map(MockAttempt.fromRow).toList();
     for (final mock in mockAttemptsRows) {
@@ -177,14 +210,24 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     if (continuous) streakStartedOn = candidate;
   }
 
-  // Helper for reading items in attempts_local
-  List<({bool isCorrect})> parseAttemptItems(String itemsJson) {
+  // Helper for reading the items of an attempt that count toward this exam.
+  List<({bool isCorrect})> parseAttemptItems(
+    String attemptId,
+    String itemsJson,
+  ) {
+    final attempt = countedById[attemptId];
     try {
       final decoded = jsonDecode(itemsJson);
       if (decoded is! List) return const [];
       final result = <({bool isCorrect})>[];
       for (final item in decoded) {
         if (item is Map<String, Object?>) {
+          final questionId = item['questionId'];
+          if (attempt != null &&
+              questionId is String &&
+              !attempt.counts(questionId)) {
+            continue;
+          }
           final chosen = item['chosenChoiceId'];
           final correct = item['correctChoiceId'];
           result.add((isCorrect: chosen != null && chosen == correct));
@@ -201,7 +244,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   var totalSessionSeconds = 0;
 
   for (final row in attemptsRows) {
-    final items = parseAttemptItems(row.itemsJson);
+    final items = parseAttemptItems(row.id, row.itemsJson);
     questionsAnswered += items.length;
     final comp = row.completedAt;
     if (comp != null) {
@@ -282,7 +325,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
         !mockAccuracy.containsKey(a.id),
   )) {
     if (row.completedAt == null) continue;
-    final items = parseAttemptItems(row.itemsJson);
+    final items = parseAttemptItems(row.id, row.itemsJson);
     if (items.isEmpty) continue;
     final dt = row.startedAt.toLocal();
     final localDate = DateTime(dt.year, dt.month, dt.day);

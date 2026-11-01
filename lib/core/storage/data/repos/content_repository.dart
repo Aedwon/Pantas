@@ -478,6 +478,27 @@ class ContentRepository {
     return rows.length;
   }
 
+  /// Which of [questionIds] are tagged for [examId].
+  ///
+  /// The filter behind carry-over: an answer made under another exam counts
+  /// toward [examId] only when its question is in this set.
+  Future<Set<QuestionId>> questionIdsTaggedForExam({
+    required Iterable<QuestionId> questionIds,
+    required ExamId examId,
+  }) async {
+    final wanted = questionIds.toSet().toList();
+    final tagged = <QuestionId>{};
+    for (final batch in _batches(wanted)) {
+      final rows = await (_db.select(_db.contentQuestionExams)
+            ..where(
+              (row) => row.questionId.isIn(batch) & row.examId.equals(examId),
+            ))
+          .get();
+      tagged.addAll(rows.map((row) => row.questionId));
+    }
+    return tagged;
+  }
+
   Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.contentLessons)
           ..where((l) => l.topicId.equals(topicId))

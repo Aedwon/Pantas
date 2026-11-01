@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
@@ -182,6 +183,60 @@ void main() {
 
     final settings = await container.read(userSettingsProvider.future);
     expect(settings.examDate!.day, isNull);
+  });
+
+  test('the carry-over choice is saved, then sent to the server', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final events = <String>[];
+    final sent = <Object?>[];
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studySettingsCaptureProvider
+            .overrideWithValue(({String? examId}) async {
+          events.add('captured');
+          return StudySettingsPublication(() async {
+            events.add('publish');
+            sent.add(
+              (await DriftSettingsRepository(db).readUserSettings())
+                  .carryOverProgress,
+            );
+          });
+        }),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    await container
+        .read(settingsActionsProvider)
+        .setCarryOverProgress(enabled: false);
+
+    expect(events, ['captured', 'publish']);
+    expect(sent, [false]);
+  });
+
+  test('the settings sent to the server carry the choice, on by default',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = inMemoryContentDatabase();
+    addTearDown(contentDb.close);
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+    addTearDown(container.dispose);
+    final payloadOf = Provider<Future<Map<String, Object?>>>(
+      (ref) => readStudySettingsPayload(ref, 'exam_x'),
+    );
+
+    expect((await container.read(payloadOf))['carryOverProgress'], isTrue);
+    await DriftSettingsRepository(db).updateCarryOverProgress(enabled: false);
+    container.invalidate(payloadOf);
+    expect((await container.read(payloadOf))['carryOverProgress'], isFalse);
   });
 
   test('carry over, ordering and table order all persist', () async {

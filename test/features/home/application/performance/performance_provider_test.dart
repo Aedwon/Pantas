@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -86,11 +87,12 @@ void main() {
     String id,
     List<(String, bool)> items, {
     String origin = 'practice',
+    String attemptExam = examId,
   }) async {
     await db.into(db.attemptsLocal).insertOnConflictUpdate(
           AttemptsLocalCompanion.insert(
             id: id,
-            examId: examId,
+            examId: attemptExam,
             origin: Value(origin),
             startedAt: DateTime(2026, 8),
             completedAt: Value(DateTime(2026, 8, 1, 0, 20)),
@@ -422,5 +424,81 @@ void main() {
     final both = await read(TableLevel.topic);
     expect(both.subjects.map((s) => s.name), ['Science', 'Mathematics']);
     expect(both.subjects.first.rowCount, 2);
+  });
+
+  group('carry-over: a filter on the figures, never a copy', () {
+    // Work done under the student's old exam (exam_cse): two questions UPCAT
+    // also has, one only the old exam has, and a mock-origin row. The student
+    // switched to UPCAT and answered Algebra once there.
+    Future<void> seedSwitchedStudent() async {
+      await seedSyllabus();
+      await seedAttempt(
+        'old_quiz',
+        [('q_c1', true), ('q_c2', false), ('q_only_cse', true)],
+        attemptExam: 'exam_cse',
+      );
+      await seedAttempt(
+        'old_mock',
+        [('q_c3', true)],
+        origin: 'mock',
+        attemptExam: 'exam_cse',
+      );
+      await seedAttempt('new_quiz', [('q_a1', true)]);
+    }
+
+    Future<void> setCarry({required bool enabled}) =>
+        DriftSettingsRepository(db).updateCarryOverProgress(enabled: enabled);
+
+    Map<String, (int, int)> figures(PerformanceTable table) => {
+          for (final r in table.rows) r.title: (r.correct, r.answered),
+        };
+
+    test("on, the old exam's answers on shared questions count", () async {
+      await seedSwitchedStudent();
+
+      final table = await read(TableLevel.subject);
+
+      // q_c1 and q_c2 count. q_only_cse is not on UPCAT and the mock is not
+      // carried, whatever the setting.
+      expect(figures(table)['Science'], (1, 2));
+      expect(figures(table)['Mathematics'], (1, 1));
+    });
+
+    test('off, only answers made under the current exam count', () async {
+      await seedSwitchedStudent();
+      await setCarry(enabled: false);
+
+      final table = await read(TableLevel.subject);
+
+      expect(figures(table)['Science'], (0, 0));
+      expect(figures(table)['Mathematics'], (1, 1));
+    });
+
+    test('flipping the switch back restores the numbers, nothing was lost',
+        () async {
+      await seedSwitchedStudent();
+      await setCarry(enabled: false);
+      expect(figures(await read(TableLevel.subject))['Science'], (0, 0));
+      container.dispose();
+
+      await setCarry(enabled: true);
+
+      expect(figures(await read(TableLevel.subject))['Science'], (1, 2));
+      expect(await db.select(db.attemptsLocal).get(), hasLength(3));
+    });
+
+    test('the topic level and the weakest ranking read the same filter',
+        () async {
+      await seedSwitchedStudent();
+
+      final topics = await read(TableLevel.topic);
+      expect(figures(topics)['Chemistry'], (1, 2));
+      expect(figures(topics)['Algebra'], (1, 1));
+
+      container.dispose();
+      await setCarry(enabled: false);
+      final off = await read(TableLevel.topic);
+      expect(figures(off)['Chemistry'], (0, 0));
+    });
   });
 }

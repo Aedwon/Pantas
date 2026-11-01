@@ -5,15 +5,18 @@ import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
 import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
 
 class ReadThenQuizSignal implements Signal<WorkflowRatio> {
-  ReadThenQuizSignal(this._db, this._contentDb)
-      : _reader = const AttemptItemReader(),
+  ReadThenQuizSignal(this._db, this._contentDb, {AttemptScope? scope})
+      : _scope = scope,
+        _reader = const AttemptItemReader(),
         _content = SignalContentHelpers(_contentDb);
 
   final AppDatabase _db;
+  final AttemptScope? _scope;
   final ContentDatabase _contentDb;
   final AttemptItemReader _reader;
   final SignalContentHelpers _content;
@@ -31,13 +34,22 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
   }) async {
     if (!window.hasEnoughData) return null;
     final observedAttempts = <({String topicId, DateTime startedAt})>[];
-    final attempts = await (_db.select(_db.attemptsLocal)
-          ..where(
-            (row) => row.examId.equals(examId) & row.completedAt.isNotNull(),
-          ))
-        .get();
-    for (final attempt in attempts) {
+    final scope = _scope;
+    final attempts = scope != null
+        ? await scope.attempts(_db, examId)
+        : [
+            for (final row in await (_db.select(_db.attemptsLocal)
+                  ..where(
+                    (row) =>
+                        row.examId.equals(examId) & row.completedAt.isNotNull(),
+                  ))
+                .get())
+              CountedAttempt(row),
+          ];
+    for (final counted in attempts) {
+      final attempt = counted.row;
       for (final item in _reader.read(attempt.itemsJson)) {
+        if (!counted.counts(item.questionId)) continue;
         final topicId = await _content.topicIdForQuestion(item.questionId);
         if (topicId == null) continue;
         observedAttempts.add((topicId: topicId, startedAt: attempt.startedAt));

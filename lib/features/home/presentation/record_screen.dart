@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
@@ -22,6 +23,9 @@ class RecordScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final record = ref.watch(recordProvider);
     final history = ref.watch(mockHistoryProvider);
+    // A mock is one exam's paper, so the list shows the current exam's only,
+    // the same as the figures above it.
+    final examId = ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id;
     firstScreenReady(
       context,
       ref,
@@ -68,7 +72,8 @@ class RecordScreen extends ConsumerWidget {
       record: record.requireValue,
       mocks: [
         for (final entry in history.requireValue)
-          if (entry.attempt.submittedAt != null)
+          if (entry.attempt.submittedAt != null &&
+              (examId == null || entry.attempt.examId == examId))
             RecordMockRow(
               id: entry.attempt.id,
               name: entry.attempt.blueprintName,

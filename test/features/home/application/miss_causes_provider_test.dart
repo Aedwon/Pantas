@@ -9,6 +9,8 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/miss_causes_provider.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -445,5 +447,42 @@ void main() {
 
     final causes = await container.read(missCausesProvider.future);
     expect(causes!.selfNotedMisreads, 1);
+  });
+
+  test('misses on shared questions from the old exam count only while on',
+      () async {
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'cse',
+      topicId: 'topic1',
+      topicName: 'Topic 1',
+      questionIds: ['q_shared'],
+    );
+    final now = DateTime.now();
+    await db.into(db.attemptsLocal).insert(
+          AttemptsLocalCompanion.insert(
+            id: 'old',
+            examId: 'exam_old',
+            startedAt: now.subtract(const Duration(hours: 1)),
+            completedAt: Value(now.subtract(const Duration(hours: 1))),
+            itemsJson: jsonEncode([
+              for (final q in ['q_shared', 'q_old_only'])
+                AttemptItem(
+                  questionId: q,
+                  questionVersion: 1,
+                  chosenChoiceId: 'c_b',
+                  correctChoiceId: 'c_a',
+                  responseMs: 5000,
+                ).toJson(),
+            ]),
+          ),
+        );
+
+    final on = await container.read(missCausesProvider.future);
+    expect(on!.total, 1);
+
+    await DriftSettingsRepository(db).updateCarryOverProgress(enabled: false);
+    container.invalidate(userSettingsProvider);
+    expect(await container.read(missCausesProvider.future), isNull);
   });
 }

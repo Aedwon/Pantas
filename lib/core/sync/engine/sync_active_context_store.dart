@@ -91,9 +91,14 @@ class SyncActiveContextStore {
     );
   }
 
-  Future<void> clearStable() => _writeEnvelope(
-        <String, Object?>{'token': _nextToken()},
-      );
+  /// Clears the context. A context that is already cleared keeps its token:
+  /// every entitlement refresh calls this, and a new token would make
+  /// guards that Home and Quiz captured from it fail with no real change.
+  Future<void> clearStable() async {
+    final current = await readSnapshot();
+    if (current != null && current.context == null) return;
+    await _writeEnvelope(<String, Object?>{'token': _nextToken()});
+  }
 
   Future<void> _writeEnvelope(Map<String, Object?> envelope) =>
       _db.customStatement(

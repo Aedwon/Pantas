@@ -36,8 +36,9 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         GoRoute(
           path: path,
           redirect: path == '/settings/exam/transfer'
-              ? (_, state) =>
-                  state.extra is CarryOverRequest ? null : '/settings/exam'
+              ? (_, state) => carryOverRequestFor(state.extra) == null
+                  ? '/settings/exam'
+                  : null
               : null,
           builder: (context, state) => DeferredRoute(
             loadLibrary: screens.loadLibrary,

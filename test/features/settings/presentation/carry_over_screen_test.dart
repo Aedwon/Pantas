@@ -54,4 +54,32 @@ void main() {
     await tester.pump(const Duration(seconds: 2));
     expect(find.text('You’re not starting from zero'), findsNothing);
   });
+  test('the route finds the prompt when the web router has dropped its extra',
+      () async {
+    // The web router stores a pushed route's extra as JSON. An object holding
+    // callbacks comes back as null when the exam change makes it rebuild.
+    expect(carryOverRequestFor(null), isNull);
+    final request = CarryOverRequest(exam: 'CSE Sub', onCounted: () {});
+    expect(carryOverRequestFor(request), same(request));
+    pendingCarryOverRequest = request;
+    addTearDown(() => pendingCarryOverRequest = null);
+    expect(carryOverRequestFor(null), same(request));
+  });
+  testWidgets('the prompt keeps the board copy, with no figure',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      CarryOverScreen(
+        exam: 'CSE Sub',
+        previous: 'CSE Pro',
+        count: 245,
+        onCounted: () {},
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      find.textContaining('Some content on CSE Pro is on CSE Sub too.'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('245'), findsNothing);
+  });
 }

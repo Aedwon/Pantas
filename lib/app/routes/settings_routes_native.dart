@@ -302,12 +302,13 @@ class ChangeExamPage extends ConsumerWidget {
 GoRoute settingsCarryOverRoute() => GoRoute(
       path: '/settings/exam/transfer',
       redirect: (_, state) =>
-          state.extra is CarryOverRequest ? null : '/settings/exam',
+          carryOverRequestFor(state.extra) == null ? '/settings/exam' : null,
       builder: (_, state) {
-        final request = state.extra! as CarryOverRequest;
+        final request = carryOverRequestFor(state.extra)!;
         return CarryOverScreen(
           exam: request.exam,
           previous: request.previous,
+          count: request.count,
           onCounted: request.onCounted,
           onDecision: request.onDecision,
         );
