@@ -2310,3 +2310,37 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   for this". A separate content session takes it.
 - Review list: "where is it can i read". Pointed to `docs/ui-audit.md` "Visual pass" sections on
   the fixes branch.
+
+## Nov 1: CSE mock blueprints added to the content root (blocker resolved)
+
+- Content lead session (Opus), as asked in "Aedwon's answers on the open items". Policy read at main
+  e0867421.
+- Source of truth: the two blueprints Aedwon approved on Oct 19 ("proceed"), kept in the app repo
+  at `content/mock/` on `web/staging-candidate-r1` (cse-pro last changed 20692945). Both the
+  uploader and the content export read blueprints only from `<root>/mock`. The content branch's
+  `content/mock/` held only `upcat.yaml`. Fixing the upload path instead was rejected: the export
+  also needs the blueprints for the catalog, and the root is meant to be complete on its own.
+- Change: `content/cse-rewrite-r1` 912a57a7 adds `cse-pro.yaml` and `cse-sub.yaml`, byte-identical
+  to staging 9043ad48, plus a STATUS row. No content wording or figure changed, so no new content
+  approval was needed.
+- Match with the CSE content: the server pools questions as `topic_<exam>_<meta.topic>` from
+  question sets tagged for the exam (`functions/src/_examContent.ts`); every blueprint topic has a
+  pool in this root. (The export's catalog topic ids are `topic_upcat_*`; that is the catalog's
+  namespace, not the mock's.) The server's compiled sampler, fed the real pools, built a full
+  paper on all 20 seeds: Professional 155 (20/55/35/45), Subprofessional 145 (36/36/36/37).
+  Tightest pools: Professional algebra 18 of 20, Subprofessional clerical 36 of 40, so repeats
+  across papers are likely there.
+- Evidence, tools from `web/staging-candidate-r1` 9043ad48, root = the content branch checkout at
+  912a57a7: `dart run tools/build_content_export/build_content_export.dart <export> <checkout>`
+  gives 64 links, 116 tags, 3 mock blueprints; `node tools/upload_content/upload_content.mjs
+  --root <checkout>/content --export <export> --dry-run` exits 0 with no invalid sources: 170
+  lessons, 170 question sets, 3 mock blueprints (was 1), 9 catalog documents, 1 gap document, 170
+  pro documents. An `--out-dir` run shows the cse-pro and cse-sub catalog documents carry their
+  blueprint. No `--live` run; nothing touched prod or staging.
+- For runbook step 7: the approved CSE root is `content/` at `content/cse-rewrite-r1` 912a57a7,
+  and the export must be rebuilt from that revision (an export built before it has no CSE
+  blueprints in the catalog).
+- Follow-ups, not done here: the local runner's stopgap copy of `cse-pro.yaml`
+  (`tools/local/run_web_local.py`) is now redundant and copies only Professional; engineering can
+  remove it. The root also carries `upcat.yaml` and all 9 exam catalog documents, unchanged from
+  before.
