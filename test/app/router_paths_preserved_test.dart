@@ -95,7 +95,7 @@ void main() {
     final shell =
         buildAppRoutes(_RouteRef()).whereType<StatefulShellRoute>().single;
     expect(
-      shell.branches.map((branch) => (branch.routes.single as GoRoute).path),
+      shell.branches.map((branch) => (branch.routes.first as GoRoute).path),
       ['/home', '/study', '/quiz', '/settings'],
     );
   });

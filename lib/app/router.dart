@@ -88,6 +88,7 @@ List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
   final quiz = quizRoutes(ref);
   final settings = settingsRoutes(ref);
   final homeRoot = _tabRoot(home, '/home');
+  final homeSubpages = home.where((route) => route != homeRoot).toList();
   final studyRoot = _tabRoot(study, '/study');
   final quizRoot = _tabRoot(quiz, '/quiz');
   final settingsRoot = _tabRoot(settings, '/settings');
@@ -95,13 +96,15 @@ List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
     StatefulShellRoute.indexedStack(
       builder: (context, state, shell) => AppShell(navigationShell: shell),
       branches: [
-        StatefulShellBranch(routes: [homeRoot]),
+        // Plan, Day, Week, history, Performance, topic, Record and Tendencies
+        // are Home pages on the phone boards: they keep the floating tab bar
+        // with Home lit, and back returns within this branch.
+        StatefulShellBranch(routes: [homeRoot, ...homeSubpages]),
         StatefulShellBranch(routes: [studyRoot]),
         StatefulShellBranch(routes: [quizRoot]),
         StatefulShellBranch(routes: [settingsRoot]),
       ],
     ),
-    ...home.where((route) => route != homeRoot),
     ...study.where((route) => route != studyRoot),
     ...quiz.where((route) => route != quizRoot),
     ...mockRoutes(ref),

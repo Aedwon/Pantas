@@ -2593,3 +2593,15 @@ Not done:
 Copy and behavior differences left as they are: Sign Out copy for Free ("Your progress stays on this phone...") against the
 account copy; Record "Your Wrapped" row and the accuracy chart state; the date chip on Your exam; miss order and "Next >" chevron
 in the quiz bar; MK_PauseWarn dialog width (board 24 px, app 28 px).
+
+## Phone tab bar on Home pages (Aedwon, Nov 2, "Yes, follow the board")
+
+On the phone (Android app and narrow web), the pages the boards draw with the floating tab bar now open inside the tab
+shell with Home lit: Your plan, Day, Week, plan history, Performance, topic detail, Your record, Tendencies (DP_*, DT_*,
+YR_*, YO_*). They are routes of the Home branch, so the bar stays, paths and deep links are unchanged, and back (the
+page's back link or system back) returns to the page that opened it, ending at Home. Tapping Home on one of them returns
+to the Home root, like any tab re-tap. Wide web is unchanged: no phone bar, same sidebar.
+
+Left full screen, because their boards have no bar: all Settings subpages and legal pages (ST_About, ST_Account,
+ST_Appearance, ST_Exam, ST_Pro*, ST_Privacy and the rest), Wrapped, question sessions, reader, mock, onboarding and modal
+flows. The Settings root keeps the bar. Not yet confirmed on a phone-size run: port 8080 was busy.
