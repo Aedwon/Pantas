@@ -2491,3 +2491,26 @@ Not reached, with reason:
 
 For Aedwon (not changed): report icon on the board turns teal after a report and uses a different bubble glyph than the app's "!";
 plan week panel day titles wrap where the board truncates; the exam switch never offers "Count Them" or "Start My Numbers Fresh".
+
+#### Visual pass round 3, last pass (2026-11-01)
+
+No code changed in this pass. Pairs: staging worktree `build/visual-pass/rest/shots/pairs/`.
+
+Reached:
+- HM_LongTitle: a seeded Today row has a long CSE title; it truncates to one line with an ellipsis and "12 min" stays on the right, as on the board.
+- MK_ReviewBlank (past mock, Wrong tab, "Left blank" row): layout matches the board (panel, "Why did you leave it blank?" tiles, nav pill).
+  The board has a report icon top right; the app shows "Flag F" there.
+- RD_Error: reached by aborting the lesson request, but the app shows "Lesson not found." with a book icon and no Try Again; the
+  board shows "Could not load this lesson." with a warning icon and Try Again.
+- The note prompt "Why did you miss it?" does appear in a Pro mock review (it is not shown after a miss in Reviews).
+
+Not reached:
+- QN_EditNote: choosing a reason and Add Note in the mock review returns to the list, and the question reopens with no saved note.
+  Report states with `localAccount=pro` match the earlier result (the local server queues the report as offline).
+- ST_AccountOffline: the not-signed-in Account pane is reachable (`?localStudent=steady` with no account), but `setOffline`
+  also cuts the local servers and the app shows "Something went wrong."; the in-app offline state never shows.
+- RD_ImageFail: the local lessons have no images to fail. MK_ResultsFirst: needs a full first mock. SD_NoExam: onboarding always sets an exam.
+
+For Aedwon (not changed): a failed lesson request is shown as "Lesson not found." instead of the retry error; the Home footer
+line on the board ("About 45 min today · hover a title to see all of it") is missing on the app; the reader header's back
+glyph rendered as an empty box once ("[]  Study") in one capture.
