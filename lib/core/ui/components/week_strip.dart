@@ -52,9 +52,6 @@ class _WeekStripState extends State<WeekStrip> {
           child: SingleChildScrollView(
             controller: _scroll,
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(
-              horizontal: (constraints.maxWidth - width) / 2,
-            ),
             child: Row(
               children: List.generate(7, (i) {
                 final date = DateTime(start.year, start.month, start.day + i);
@@ -112,7 +109,7 @@ class _WeekStripState extends State<WeekStrip> {
                             const SizedBox(height: 2),
                             SizedBox.square(
                               dimension: size,
-                              child: today
+                              child: today && widget.todayFraction > 0
                                   ? ProgressRing(
                                       size: size,
                                       fraction: widget.todayFraction,
@@ -128,7 +125,20 @@ class _WeekStripState extends State<WeekStrip> {
                                         child: digit,
                                       ),
                                     )
-                                  : Center(child: digit),
+                                  : today
+                                      ? Center(
+                                          child: Container(
+                                            width: size - 6,
+                                            height: size - 6,
+                                            decoration: BoxDecoration(
+                                              color: c.accentFill,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: digit,
+                                          ),
+                                        )
+                                      : Center(child: digit),
                             ),
                             const SizedBox(height: 2),
                             SizedBox(

@@ -476,16 +476,9 @@ class _ExamPageState extends ConsumerState<ExamPage>
       description:
           "What you're preparing for, when it is, and which days you study.",
       backLabel: 'Settings',
+      hero: true,
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        if (!context.wideWeb) ...[
-          Text(
-            'What you’re preparing for, when it is, and which days you study.',
-            style: context.type.body
-                .copyWith(color: context.colors.secondaryLabel),
-          ),
-          const SizedBox(height: 24),
-        ],
         SettingsSection(
           // ST_DaysLast: on the wide layout the message is the footer.
           footer: _lastDay != null && context.wideWeb

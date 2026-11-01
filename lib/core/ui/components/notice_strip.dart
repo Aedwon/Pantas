@@ -40,8 +40,10 @@ class NoticeStrip extends StatelessWidget {
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
         : const Duration(milliseconds: 350);
+    // The board draws the 1 px outline inside the 52 px strip, so it is a
+    // foreground layer that takes no space.
     final content = Container(
-      decoration: BoxDecoration(
+      foregroundDecoration: BoxDecoration(
         border: Border.all(color: context.colors.separator),
         borderRadius: BorderRadius.circular(14),
       ),

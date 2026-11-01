@@ -9,6 +9,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -30,6 +31,7 @@ class SettingsPanePage extends StatelessWidget {
     super.key,
     this.description,
     this.icon,
+    this.hero = false,
   });
   final String title;
   final List<Widget> children;
@@ -41,6 +43,10 @@ class SettingsPanePage extends StatelessWidget {
   final String? description;
   final IconData? icon;
 
+  /// Phone only: draws the board's icon card (Practice, Appearance, Your exam)
+  /// in place of the large title.
+  final bool hero;
+
   @override
   Widget build(BuildContext context) {
     if (!context.wideWeb) {
@@ -50,6 +56,15 @@ class SettingsPanePage extends StatelessWidget {
         onBack: onBack,
         bottom: bottom,
         bottomInset: bottomInset,
+        // Settings boards put the back row 4 px from the edge.
+        backPadding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
+        hero: hero
+            ? _SettingsHero(
+                section: section,
+                title: title,
+                subtitle: description ?? '',
+              )
+            : null,
         children: children,
       );
     }
@@ -312,6 +327,72 @@ class SettingsNavigation extends ConsumerWidget {
               row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),
         ),
       ],
+    );
+  }
+}
+
+/// ST_Practice, ST_Appearance and ST_Exam: a white 18 px card with a 42 px
+/// colored icon, a 24 px bold title and a 15 px gray subtitle.
+class _SettingsHero extends StatelessWidget {
+  const _SettingsHero({
+    required this.section,
+    required this.title,
+    required this.subtitle,
+  });
+  final String section;
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final icon = switch (section) {
+      'Practice' =>
+        Icon(PantasIcons.practice, size: 42, color: const Color(0xFF2F6FEB)),
+      'Appearance' => IconTheme(
+          data: const IconThemeData(color: Color(0xFF5F3DC4), size: 42),
+          child: PantasIcons.appearance,
+        ),
+      _ => Icon(PantasIcons.exam, size: 42, color: c.accent),
+    };
+    return Padding(
+      padding: const EdgeInsets.only(top: 6, bottom: 22),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+        decoration: BoxDecoration(
+          color: c.surface,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox.square(dimension: 52, child: Center(child: icon)),
+            const SizedBox(height: 10),
+            Semantics(
+              header: true,
+              child: Text(
+                title,
+                style: context.type.sectionHero.copyWith(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                  height: 1.35,
+                  letterSpacing: -0.288,
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              subtitle,
+              style: context.type.body.copyWith(
+                fontSize: 15,
+                height: 1.4,
+                letterSpacing: 0,
+                color: c.secondaryLabel,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -157,6 +157,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         : PantasPage(
             title: 'Quiz',
             bottomInset: 104,
+            // Board QZ_Tab: the title box starts at y 50 and the Today label
+            // 14 px below it.
+            titlePadding: const EdgeInsets.fromLTRB(4, 48, 4, 14),
             children: [
               focus.when(
                 loading: () => const QuizPageSkeleton(),

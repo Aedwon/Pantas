@@ -147,8 +147,8 @@ class _PlanPageState extends State<PlanPage> {
 
   Widget _heading(String text) => Padding(
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
-        child:
-            Text(text, style: context.type.emphasized.copyWith(fontSize: 20)),
+        // Boards: 13 px gray caps, like the Today label.
+        child: Text(text.toUpperCase(), style: context.type.sectionHeader),
       );
   @override
   Widget build(BuildContext context) {
@@ -171,6 +171,13 @@ class _PlanPageState extends State<PlanPage> {
       backLabel: 'Home',
       onBack: widget.onBack,
       bottomInset: 104,
+      // Board DP_PlanA: the subtitle sits 2 px under the title.
+      titlePadding: EdgeInsets.fromLTRB(
+        4,
+        0,
+        4,
+        widget.subtitle != null ? 2 : 20,
+      ),
       children: [
         if (widget.subtitle != null)
           Padding(
@@ -207,8 +214,15 @@ class _PlanPageState extends State<PlanPage> {
         if (widget.pro) ...[
           GroupedSection(
             children: [
-              for (var i = 0; i < widget.nodes.length; i++)
-                _timelineRow(widget.nodes[i], i),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 16, 16, 12),
+                child: Column(
+                  children: [
+                    for (var i = 0; i < widget.nodes.length; i++)
+                      _timelineRow(widget.nodes[i], i),
+                  ],
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 7),
@@ -355,110 +369,208 @@ class _PlanPageState extends State<PlanPage> {
     );
   }
 
+  /// DP_PlanA: 66 px rows, a 28 px marker column and a 2 or 3 px line from
+  /// each marker down to the next one.
   Widget _timelineRow(PlanNode node, int index) {
     final start = 350 + index * 260;
-    final icon = switch (node.kind) {
-      PlanNodeKind.week => Icons.circle,
-      PlanNodeKind.review => PantasIcons.studyTab,
-      PlanNodeKind.mock => PantasIcons.timer,
-      PlanNodeKind.exam => PantasIcons.exam,
+    final c = context.colors;
+    final last = index == widget.nodes.length - 1;
+    final week = node.kind == PlanNodeKind.week;
+    final marker = switch (node.kind) {
+      PlanNodeKind.week => Container(
+          width: 12,
+          height: 12,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: index == 0 ? c.label : c.surface,
+            border: index == 0 ? null : Border.all(color: c.chevron, width: 2),
+            boxShadow: [BoxShadow(color: c.surface, spreadRadius: 3)],
+          ),
+        ),
+      PlanNodeKind.exam => Container(
+          width: 30,
+          height: 30,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: c.surface, shape: BoxShape.circle),
+          child: const PantasLogo(size: 28),
+        ),
+      _ => Container(
+          width: 28,
+          height: 28,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: c.surface,
+            shape: BoxShape.circle,
+            border: Border.all(color: c.label, width: 1.6),
+          ),
+          child: CustomPaint(
+            size: const Size.square(14),
+            painter: _TimelineGlyph(
+              clock: node.kind == PlanNodeKind.mock,
+              color: c.label,
+            ),
+          ),
+        ),
     };
-    return Row(
+    final lineWidth = node.reviewOnly ? 3.0 : 2.0;
+    final text = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: 48,
-          height: 76,
-          child: Stack(
-            alignment: Alignment.topCenter,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (index < widget.nodes.length - 1)
-                Positioned(
-                  top: 12,
-                  bottom: -12,
-                  child: _entry(
-                    start + 120,
-                    140,
-                    Container(
-                      width: node.reviewOnly ? 2 : 1.5,
-                      color: node.reviewOnly
-                          ? context.colors.label
-                          : context.colors.separator,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Flexible(
+                    child: Text(
+                      node.title,
+                      maxLines: 1,
+                      softWrap: false,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.type.body,
                     ),
-                    draw: true,
-                    effectKey: ValueKey('plan-line-$index'),
                   ),
-                ),
-              Positioned(
-                top: 14,
-                child: _entry(
-                  start,
-                  node.kind == PlanNodeKind.exam ? 420 : 260,
-                  node.kind == PlanNodeKind.week
-                      ? Container(
-                          width: 10,
-                          height: 10,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: index == 0
-                                ? context.colors.accent
-                                : Colors.transparent,
-                            border: Border.all(
-                              color: index == 0
-                                  ? context.colors.accent
-                                  : context.colors.secondaryLabel,
-                              width: 1.5,
-                            ),
-                          ),
-                        )
-                      : node.kind == PlanNodeKind.exam
-                          ? const PantasLogo(size: 28, monochrome: true)
-                          : Icon(
-                              icon,
-                              size: 22,
-                              color: context.colors.secondaryLabel,
-                            ),
-                  pop: true,
-                ),
+                  if (node.date != null) ...[
+                    const SizedBox(width: 8),
+                    Text(
+                      node.date!,
+                      maxLines: 1,
+                      softWrap: false,
+                      style: context.type.footnote.copyWith(
+                        fontFeatures: const [FontFeature.tabularFigures()],
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+              const SizedBox(height: 2),
+              Text(
+                node.subtitle,
+                maxLines: 1,
+                softWrap: false,
+                overflow: TextOverflow.ellipsis,
+                style: context.type.subhead.copyWith(color: c.secondaryLabel),
               ),
             ],
           ),
         ),
-        Expanded(
-          child: _entry(
-            start + 40,
-            300,
-            ListRow(
-              title: node.title,
-              subtitle: node.subtitle,
-              titleWidget: Wrap(
-                spacing: 8,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  Text(
-                    node.title,
-                    style: node.kind == PlanNodeKind.exam
-                        ? context.type.emphasized
-                        : context.type.body,
-                  ),
-                  if (node.date != null)
-                    Text(node.date!, style: context.type.footnote),
-                ],
-              ),
-              minimumHeight: 76,
-              contentPadding:
-                  const EdgeInsets.only(right: 16, top: 10, bottom: 10),
-              variant: node.kind == PlanNodeKind.week
-                  ? ListRowVariant.navigation
-                  : ListRowVariant.value,
-              onTap: node.kind == PlanNodeKind.week && node.target != null
-                  ? () => widget.onWeek(node.target!)
-                  : null,
-            ),
-            x: -6,
-          ),
-        ),
+        const SizedBox(width: 8),
+        if (week && node.target != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 17),
+            child: Icon(PantasIcons.next, size: 14, color: c.chevron),
+          )
+        else
+          const SizedBox(width: 14),
       ],
     );
+    final row = SizedBox(
+      height: last ? 46 : 66,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          if (!last)
+            Positioned(
+              left: node.reviewOnly ? 12.5 : 13,
+              top: 12,
+              child: _entry(
+                start + 120,
+                140,
+                Container(
+                  width: lineWidth,
+                  height: 66,
+                  color: node.reviewOnly ? const Color(0xFF8E8E93) : c.fill,
+                ),
+                draw: true,
+                effectKey: ValueKey('plan-line-$index'),
+              ),
+            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 28,
+                height: 24,
+                child: OverflowBox(
+                  maxWidth: 30,
+                  maxHeight: 30,
+                  child: Center(
+                    child: _entry(
+                      start,
+                      node.kind == PlanNodeKind.exam ? 420 : 260,
+                      marker,
+                      pop: true,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(child: _entry(start + 40, 300, text, x: -6)),
+            ],
+          ),
+        ],
+      ),
+    );
+    return week && node.target != null
+        ? InkWell(onTap: () => widget.onWeek(node.target!), child: row)
+        : row;
   }
+}
+
+/// The calendar and stopwatch glyphs from DP_PlanA (24 unit grid, 2.2 stroke).
+class _TimelineGlyph extends CustomPainter {
+  const _TimelineGlyph({required this.clock, required this.color});
+  final bool clock;
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final unit = size.width / 24;
+    canvas.scale(unit);
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.2
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    if (clock) {
+      canvas
+        ..drawCircle(const Offset(12, 13), 7.8, paint)
+        ..drawPath(
+          Path()
+            ..moveTo(12, 9)
+            ..relativeLineTo(0, 4.3)
+            ..relativeLineTo(2.6, 1.6)
+            ..moveTo(9.5, 2.8)
+            ..relativeLineTo(5, 0),
+          paint,
+        );
+    } else {
+      canvas
+        ..drawRRect(
+          RRect.fromRectAndRadius(
+            const Rect.fromLTWH(3.8, 5, 16.4, 15.2),
+            const Radius.circular(3),
+          ),
+          paint,
+        )
+        ..drawPath(
+          Path()
+            ..moveTo(3.8, 9.8)
+            ..relativeLineTo(16.4, 0)
+            ..moveTo(8, 3)
+            ..relativeLineTo(0, 4)
+            ..moveTo(16, 3)
+            ..relativeLineTo(0, 4),
+          paint,
+        );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_TimelineGlyph old) =>
+      old.clock != clock || old.color != color;
 }

@@ -249,8 +249,8 @@ class _OnboardingStudyDaysStepState
                                 ),
                               )
                             : SizedBox(
-                                width: size + 2,
-                                height: size + 2,
+                                width: size,
+                                height: size,
                                 child: TextButton(
                                   key: ValueKey('study-day-$day'),
                                   onPressed: _saving
@@ -269,7 +269,10 @@ class _OnboardingStudyDaysStepState
                                       side: BorderSide(
                                         color: _days.contains(day)
                                             ? c.accentFill
-                                            : c.controlOutline,
+                                            : Theme.of(context).brightness ==
+                                                    Brightness.light
+                                                ? c.separator
+                                                : c.controlOutline,
                                         width: 1.5,
                                       ),
                                     ),

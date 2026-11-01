@@ -254,7 +254,16 @@ class _SelectionMark extends StatelessWidget {
       decoration: BoxDecoration(
         color: on ? c.accentFill : null,
         borderRadius: BorderRadius.circular(_radius),
-        border: on ? null : Border.all(color: c.controlOutline, width: 1.5),
+        // Aedwon, Nov 2: phone light mode uses the boards' light gray ring.
+        border: on
+            ? null
+            : Border.all(
+                color: !context.wideWeb &&
+                        Theme.of(context).brightness == Brightness.light
+                    ? c.chevron
+                    : c.controlOutline,
+                width: 1.5,
+              ),
       ),
       child: TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: on ? 1 : 0),

@@ -2535,3 +2535,33 @@ Applied on wide web unless noted. The phone is unchanged except item 10's behavi
 Not changed, with reason:
 - Study sidebar bookmark icons: every board that draws the BOOKMARKS list (W_Study, BM_*, SD_*) shows them teal, so teal kept. Only the lesson-row bookmark is gray (done earlier). Tell me if you still want gray.
 - MockMoved and MockDropped: the app already prints "Your <exam> simulation moved to today." (tested). The local seed cannot store an earlier mock day, so the line does not appear in the local run.
+
+### Mobile fix batch 1 (phone layout only; wide web untouched)
+
+Source: `build/visual-pass/mobile/diffs.md` shared causes. Visual confirm on the running app is pending (port 8080 was busy);
+changes are from the board markup and checked by widget tests.
+
+- Pushed page headers (Plan, Day, Week, Performance, Record, Tendencies, Settings subpages, other pages on the shared page
+  shell): back row is 6 px of padding plus a 44 px row, back icon 24 px with a 2 px gap (text at x 34), title block starts at
+  y 52. Settings subpages put the back icon at x 4 as the Settings boards do. Plan subtitle sits 2 px under the title.
+- Home week strip: seven equal cells across the card with no right alignment; today with no progress is the 28 px disc
+  without the extra ring (the ring stays once there is progress, as on HP_Free).
+- Unselected checkbox and radio ring: board light gray in phone light mode (Aedwon, Nov 2: "Board's light gray"): #C7C7CC for
+  checkbox and radio, #E3E3E8 for study days. Dark mode keeps the 3:1 ring. Light-mode contrast tests now assert the board
+  color. Study day circles are 42 px as on O_Days.
+- Home banners: 52 px total; the outline is painted inside the box instead of adding 2 px.
+- Plan section labels "Coming up" and "History": 13 px gray caps.
+- Onboarding header: back row 56 px (label 1 px lower), progress bar 4 px lower, title 4 px lower, subtitle 3 px lower.
+  Welcome was already pinned to the bottom with the 350 x 52 button (tested); no change.
+- Study title left-aligned (the title centered because the collapse wrapper centered it), 6 px lower, Cancel no longer
+  grows the search row. Quiz tab title starts at y 50 with the Today label 14 px below it (was 48 px higher).
+- Settings Practice, Appearance and Your exam: the board's white icon card (42 px icon, 24 px title, 15 px gray subtitle)
+  replaces the large title and the separate subtitle line. Other subpages have no hero on their boards.
+- Plan timeline (phone): rebuilt to DP_PlanA geometry: 66 px rows, 28 px marker column, 2 px line (3 px dark gray for
+  review-only segments), 12 px week dots (this week filled dark, others ringed gray), 28 px ringed calendar and stopwatch
+  glyphs for "New material stops" and the mock, the colored logo for the exam day.
+
+Not changed (copy or behavior, boards differ): "Unfinished items are added to today." on Home (real-date carry-over, S6); Plan
+Today card counts and subject lines (data); Free plan placeholder card and "Unlock with Pro" button; Practice option rows
+(board: plain rows with a check and a "Recommended" tag; app: radio rows); Appearance preview tiles; onboarding Notify step
+(no reminder step in the app); O_Days title and circle row offsets; tab bar on pushed pages (S9, waits for Aedwon).

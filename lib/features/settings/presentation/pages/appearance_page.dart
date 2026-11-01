@@ -174,14 +174,9 @@ class AppearancePage extends ConsumerWidget {
       description: 'How Pantas looks.',
       title: 'Appearance',
       backLabel: 'Settings',
+      hero: true,
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        Text(
-          'How Pantas looks.',
-          style:
-              context.type.body.copyWith(color: context.colors.secondaryLabel),
-        ),
-        const SizedBox(height: 24),
         Row(
           children: [
             preview(ThemePreference.light, 'Light'),

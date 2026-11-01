@@ -160,6 +160,11 @@ class _SearchFieldState extends State<SearchField> {
         ),
       ),
       child: TextButton(
+        style: TextButton.styleFrom(
+          minimumSize: const Size(48, 44),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: VisualDensity.standard,
+        ),
         onPressed: () {
           _text.clear();
           widget.onChanged('');
@@ -184,6 +189,7 @@ class _SearchFieldState extends State<SearchField> {
             curve: PantasCurves.houseOut,
             builder: (context, value, child) => ClipRect(
               child: Align(
+                alignment: Alignment.centerLeft,
                 heightFactor: value,
                 child: Opacity(
                   opacity: value,
@@ -199,7 +205,11 @@ class _SearchFieldState extends State<SearchField> {
               child: Text(widget.title!, style: context.type.largeTitle),
             ),
           ),
-        Row(children: [Expanded(child: enteringField), cancel]),
+        // The field stays 14 px under the title whatever the Cancel height.
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [Expanded(child: enteringField), cancel],
+        ),
       ],
     );
   }

@@ -186,11 +186,19 @@ void main() {
       final surface = brightness == Brightness.light
           ? PantasColors.light.surface
           : PantasColors.dark.surface;
-      expectContrast(
-        (outline.border! as Border).top.color,
-        surface,
-        minimum: 3,
-      );
+      // Aedwon, Nov 2: light mode asserts the board ring color; dark keeps 3:1.
+      if (brightness == Brightness.light) {
+        expect(
+          (outline.border! as Border).top.color,
+          PantasColors.light.chevron,
+        );
+      } else {
+        expectContrast(
+          (outline.border! as Border).top.color,
+          surface,
+          minimum: 3,
+        );
+      }
       await pumpAccessibilitySurface(
         tester,
         ScopePicker(
@@ -208,7 +216,18 @@ void main() {
       final circle = tester
           .widget<Container>(find.byKey(const ValueKey('selection-mark')))
           .decoration! as BoxDecoration;
-      expectContrast((circle.border! as Border).top.color, surface, minimum: 3);
+      if (brightness == Brightness.light) {
+        expect(
+          (circle.border! as Border).top.color,
+          PantasColors.light.chevron,
+        );
+      } else {
+        expectContrast(
+          (circle.border! as Border).top.color,
+          surface,
+          minimum: 3,
+        );
+      }
       await pumpAccessibilitySurface(
         tester,
         ContentRenderer(

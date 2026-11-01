@@ -27,16 +27,9 @@ class SessionBuildingPage extends ConsumerWidget {
       title: 'Practice',
       description: 'How your sessions are put together.',
       backLabel: 'Settings',
+      hero: true,
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        if (!context.wideWeb) ...[
-          Text(
-            'How your sessions are put together.',
-            style: context.type.body
-                .copyWith(color: context.colors.secondaryLabel),
-          ),
-          const SizedBox(height: 24),
-        ],
         SettingsSection(
           header: 'Session length',
           footer: 'How many questions in one quiz session. It doesn’t change '

@@ -19,7 +19,6 @@ void main() {
               TextButton(onPressed: () {}, child: const Text('Clear')),
           backLabel: 'Quiz',
           onBack: () {},
-          backIconSize: 24,
           backPadding: const EdgeInsets.only(left: 4, right: 12),
           titlePadding: const EdgeInsets.fromLTRB(4, 4, 4, 18),
           children: [for (var i = 0; i < 40; i++) Text('Row $i')],

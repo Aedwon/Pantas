@@ -172,7 +172,7 @@ void main() {
         expect(title.style!.height, 1.12);
         expect(title.style!.letterSpacing, -.66);
         expect(tester.getTopLeft(find.text('When were you born?')).dx, 20);
-        expect(tester.getTopLeft(find.text('When were you born?')).dy, 60);
+        expect(tester.getTopLeft(find.text('When were you born?')).dy, 64);
         final segments = find.byKey(
           const ValueKey('onboarding-segment'),
           skipOffstage: false,
@@ -279,11 +279,17 @@ void main() {
         expect(decoration.borderRadius, BorderRadius.circular(7));
         expect((decoration.border! as Border).top.width, 1.5);
         final colors = tester.element(find.byType(ListRow)).colors;
-        expectContrast(
-          (decoration.border! as Border).top.color,
-          colors.surface,
-          minimum: 3,
-        );
+        // Aedwon, Nov 2: light mode asserts the O_Consent board ring color;
+        // dark mode keeps the 3:1 guard.
+        if (brightness == Brightness.light) {
+          expect((decoration.border! as Border).top.color, colors.chevron);
+        } else {
+          expectContrast(
+            (decoration.border! as Border).top.color,
+            colors.surface,
+            minimum: 3,
+          );
+        }
         final label = tester.widget<Text>(
           find.text('Help improve Pantas by sharing anonymous usage data'),
         );

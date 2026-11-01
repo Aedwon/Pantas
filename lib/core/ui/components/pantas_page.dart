@@ -13,11 +13,12 @@ class PantasPage extends StatelessWidget {
     this.titleStyle,
     this.headerTrailing,
     this.fixedTitle = false,
-    this.backIconSize = 20,
-    this.backIconGap = 0,
-    this.headerPadding = EdgeInsets.zero,
-    this.backPadding = const EdgeInsets.symmetric(horizontal: 16),
+    this.backIconSize = 24,
+    this.backIconGap = 2,
+    this.headerPadding = const EdgeInsets.only(top: 6),
+    this.backPadding = const EdgeInsets.fromLTRB(8, 0, 16, 0),
     this.titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+    this.hero,
     super.key,
   })  : contentBody = null,
         contentPadding = EdgeInsets.zero,
@@ -42,6 +43,7 @@ class PantasPage extends StatelessWidget {
     this.detailLineHeight = 1.4,
     super.key,
   })  : contentBody = null,
+        hero = null,
         contentPadding = EdgeInsets.zero,
         bottomInset = 24,
         titleStyle = null,
@@ -60,6 +62,7 @@ class PantasPage extends StatelessWidget {
     required this.children,
     super.key,
   })  : contentBody = null,
+        hero = null,
         contentPadding = EdgeInsets.zero,
         bottomInset = 24,
         titleStyle = null,
@@ -89,6 +92,7 @@ class PantasPage extends StatelessWidget {
     this.bottom,
     super.key,
   })  : contentBody = body,
+        hero = null,
         contentPadding = padding,
         title = '',
         children = const [],
@@ -112,6 +116,9 @@ class PantasPage extends StatelessWidget {
         surfaceBackground = false,
         detailLineHeight = 1.4;
   final Widget? contentBody;
+
+  /// Replaces the large title with a board hero card (Settings subpages).
+  final Widget? hero;
   final EdgeInsets contentPadding;
   final double detailLineHeight;
   final bool settingsPicker;
@@ -153,11 +160,12 @@ class PantasPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: settingsPicker ? 44 : 52,
+                // Boards: back label at y 21, progress bar at y 56.
+                height: settingsPicker ? 44 : 56,
                 child: Padding(
                   padding: settingsPicker
                       ? const EdgeInsets.fromLTRB(4, 6, 8, 0)
-                      : const EdgeInsets.fromLTRB(8, 4, 8, 0),
+                      : const EdgeInsets.fromLTRB(8, 5, 8, 0),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton(
@@ -249,7 +257,9 @@ class PantasPage extends StatelessWidget {
                               ),
                             ),
                           if (detail != null) ...[
-                            const SizedBox(height: 8),
+                            // Boards: subtitle 3 px lower than the old
+                            // layout, with the title 4 px lower.
+                            const SizedBox(height: 7),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 4),
@@ -292,48 +302,55 @@ class PantasPage extends StatelessWidget {
                     if (backLabel != null || headerTrailing != null)
                       Padding(
                         padding: headerPadding,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: backLabel == null
-                                    ? const SizedBox.shrink()
-                                    : TextButton(
-                                        onPressed: onBack,
-                                        style: TextButton.styleFrom(
-                                          minimumSize: const Size(44, 44),
-                                          padding: backPadding,
-                                          tapTargetSize: fixedTitle
-                                              ? MaterialTapTargetSize.shrinkWrap
-                                              : null,
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(
-                                              PantasIcons.back,
-                                              size: backIconSize,
-                                              color: context.colors.accent,
-                                            ),
-                                            if (backIconGap > 0)
-                                              SizedBox(width: backIconGap),
-                                            Flexible(
-                                              child: Text(
-                                                backLabel!,
-                                                style:
-                                                    context.type.body.copyWith(
-                                                  color: context.colors.accent,
+                        // Boards: a 44 px back row under 6 px of padding,
+                        // whatever the platform's button density.
+                        child: SizedBox(
+                          height: 44,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: backLabel == null
+                                      ? const SizedBox.shrink()
+                                      : TextButton(
+                                          onPressed: onBack,
+                                          style: TextButton.styleFrom(
+                                            minimumSize: const Size(44, 44),
+                                            padding: backPadding,
+                                            visualDensity:
+                                                VisualDensity.standard,
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                PantasIcons.back,
+                                                size: backIconSize,
+                                                color: context.colors.accent,
+                                              ),
+                                              if (backIconGap > 0)
+                                                SizedBox(width: backIconGap),
+                                              Flexible(
+                                                child: Text(
+                                                  backLabel!,
+                                                  style: context.type.body
+                                                      .copyWith(
+                                                    color:
+                                                        context.colors.accent,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
+                                ),
                               ),
-                            ),
-                            if (headerTrailing != null) headerTrailing!,
-                          ],
+                              if (headerTrailing != null) headerTrailing!,
+                            ],
+                          ),
                         ),
                       ),
                     if (fixedTitle)
@@ -352,7 +369,7 @@ class PantasPage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            if (!fixedTitle) heading(context),
+                            if (!fixedTitle) hero ?? heading(context),
                             ...children,
                           ],
                         ),

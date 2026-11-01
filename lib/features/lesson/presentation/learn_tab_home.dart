@@ -259,6 +259,8 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           label: 'Bookmarks',
           onDismiss: () => setState(() => _bookmarksOpen = false),
           page: PantasPage.content(
+            // Board ST_Map: the Study title starts 6 px below the top.
+            padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
