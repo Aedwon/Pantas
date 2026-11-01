@@ -113,7 +113,11 @@ final planViewProvider =
           );
         }
       }
-      final stored = await readPlanHistory(reader.request, wanted: limit);
+      final stored = await readPlanHistory(
+        reader.request,
+        wanted: limit,
+        first: raw,
+      );
       for (final row in studyRows(stored['changes'])) {
         final cause =
             RoadmapChangeCause.values.byName(studyString(row['cause']));

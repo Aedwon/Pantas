@@ -6,19 +6,23 @@ import 'package:pantas/features/home/domain/study_models.dart';
 Future<Map<String, Object?>> readPlanHistory(
   StudyRequest request, {
   required int wanted,
+  Map<String, Object?>? first,
 }) async {
   final rows = <Map<String, Object?>>[];
   final ids = <String>{};
   final cursors = <String>{};
   Map<String, Object?>? next;
   do {
-    final response = await request.read(
-      'getRoadmap',
-      payload: {
-        'historyLimit': rows.isEmpty ? 5 : 10,
-        if (next != null) 'historyBefore': next,
-      },
-    );
+    // The caller's page 1 (historyLimit 5) is reused, not fetched again.
+    final response = rows.isEmpty && next == null && first != null
+        ? first
+        : await request.read(
+            'getRoadmap',
+            payload: {
+              'historyLimit': rows.isEmpty ? 5 : 10,
+              if (next != null) 'historyBefore': next,
+            },
+          );
     // A coverage downgrade drops paid history immediately.
     if (response['proCovered'] == false) {
       return {'changes': <Object?>[], 'next': null};
