@@ -504,6 +504,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
               title: 'Exam',
               value: ref.watch(activeExamShortNameProvider),
               divider: true,
+              dividerInset: context.wideWeb ? 0 : 16,
               onTap: () => unawaited(_changeExam()),
             ),
             SettingsRow(
@@ -519,24 +520,26 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   ? null
                   : Container(
                       height: 34,
-                      padding: const EdgeInsets.symmetric(horizontal: 11),
-                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
                       decoration: BoxDecoration(
                         color: context.colors.fill,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Text(
-                        date == null
-                            ? 'Not set'
-                            : DateFormat(
-                                date.day == null ? 'MMMM y' : 'MMM d, y',
-                              ).format(current),
-                        style: context.type.rowValue.copyWith(
-                          color: past
-                              ? context.colors.destructive
-                              : _dateOpen
-                                  ? context.colors.accent
-                                  : context.colors.label,
+                      child: Center(
+                        widthFactor: 1,
+                        child: Text(
+                          date == null
+                              ? 'Not set'
+                              : DateFormat(
+                                  date.day == null ? 'MMMM y' : 'MMM d, y',
+                                ).format(current),
+                          style: context.type.rowValue.copyWith(
+                            color: past
+                                ? context.colors.destructive
+                                : _dateOpen
+                                    ? context.colors.accent
+                                    : context.colors.label,
+                          ),
                         ),
                       ),
                     ),
@@ -556,7 +559,8 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     ),
               variant: ListRowVariant.inlineEditor,
               hideChevron: true,
-              divider: context.wideWeb && !_dateOpen,
+              divider: !_dateOpen || !context.wideWeb,
+              dividerInset: context.wideWeb ? 0 : 16,
               expanded: _dateOpen,
               onTap: () => setState(() => _dateOpen = !_dateOpen),
               editor: Column(

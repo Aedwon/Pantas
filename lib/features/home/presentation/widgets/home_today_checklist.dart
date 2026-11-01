@@ -113,6 +113,7 @@ class HomeTodayChecklist extends StatelessWidget {
                 divider: true,
                 naturalValue: true,
                 dividerInset: 52,
+                verticalPadding: 12,
               ),
             if (collapsed) ...[
               if (next != null) lessonRow(context, next, upNext: true),
@@ -125,6 +126,7 @@ class HomeTodayChecklist extends StatelessWidget {
                 divider: true,
                 naturalValue: true,
                 dividerInset: 52,
+                verticalPadding: 12,
               ),
             ] else
               for (final lesson in visible) lessonRow(context, lesson),
@@ -520,6 +522,7 @@ class HomeTodayChecklist extends StatelessWidget {
         divider: true,
         naturalValue: true,
         dividerInset: 52,
+        verticalPadding: 12,
       );
 }
 

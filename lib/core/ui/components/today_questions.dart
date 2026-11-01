@@ -33,6 +33,7 @@ class TodayQuestionRow extends StatelessWidget {
         divider: divider,
         naturalValue: true,
         dividerInset: 52,
+        verticalPadding: 12,
         titleColor:
             total > 0 && done == total ? context.colors.secondaryLabel : null,
         valueStyle: context.type.subhead.copyWith(

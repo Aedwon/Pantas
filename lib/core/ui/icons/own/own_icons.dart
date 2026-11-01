@@ -14,8 +14,12 @@ enum OwnIconKind {
 }
 
 class OwnIcon extends StatelessWidget {
-  const OwnIcon(this.kind, {super.key});
+  const OwnIcon(this.kind, {this.fill, super.key});
   final OwnIconKind kind;
+
+  /// Fill of the half circle on the appearance glyph. The phone boards stroke
+  /// the ring purple and fill the half with the text color.
+  final Color? fill;
   @override
   Widget build(BuildContext context) {
     final theme = IconTheme.of(context);
@@ -32,7 +36,7 @@ class OwnIcon extends StatelessWidget {
       OwnIconKind.progressError => ProgressErrorPainter(color),
       OwnIconKind.warning => WarningPainter(color),
       OwnIconKind.reorder => ReorderPainter(color),
-      OwnIconKind.appearance => AppearancePainter(color),
+      OwnIconKind.appearance => AppearancePainter(color, fill: fill),
       OwnIconKind.backup => BackupPainter(color),
       OwnIconKind.about => AboutPainter(color),
     };
@@ -320,7 +324,12 @@ class ReorderPainter extends OwnIconPainter {
 }
 
 class AppearancePainter extends OwnIconPainter {
-  const AppearancePainter(super.color);
+  const AppearancePainter(super.color, {this.fill});
+  final Color? fill;
+  @override
+  bool shouldRepaint(covariant OwnIconPainter oldDelegate) =>
+      super.shouldRepaint(oldDelegate) ||
+      (oldDelegate is AppearancePainter && oldDelegate.fill != fill);
   @override
   void draw(Canvas canvas, Paint stroke) {
     // IC_Final's filled half inherits the enclosing 1.5-point stroke.
@@ -336,7 +345,7 @@ class AppearancePainter extends OwnIconPainter {
       ..drawPath(
         half,
         Paint()
-          ..color = color
+          ..color = fill ?? color
           ..style = PaintingStyle.fill,
       )
       ..drawPath(half, stroke);

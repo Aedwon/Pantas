@@ -147,7 +147,10 @@ class _ScopePickerState extends State<ScopePicker>
                 )
               : EdgeInsets.fromLTRB(lesson ? 42 : 16, 10, 12, 10),
           gap: board ? 16 : 12,
-          minHeight: board ? (lesson ? 45 : 62) : 44,
+          minHeight: board
+              ? (lesson ? 45 : 62)
+              // ST_Included on a phone: 47.5 px rows.
+              : (widget.settingsRows && !lesson ? 47.5 : 44),
           markSize: board && lesson ? 20 : (context.wideWeb ? 24 : 22),
           round: true,
           standardDensity: board,
@@ -301,7 +304,9 @@ class _ScopePickerState extends State<ScopePicker>
                     if (index < subject.topics.length - 1)
                       Padding(
                         padding: EdgeInsets.only(
-                          left: widget.settingsRows && context.wideWeb ? 60 : 0,
+                          left: widget.settingsRows
+                              ? (context.wideWeb ? 60 : 50)
+                              : 0,
                           right:
                               widget.settingsRows && context.wideWeb ? 20 : 0,
                         ),

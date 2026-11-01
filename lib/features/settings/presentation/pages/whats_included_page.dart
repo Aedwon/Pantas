@@ -177,10 +177,13 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (!context.wideWeb) ...[
-                    Text(
-                      scope.exam.shortName,
-                      style: context.type.body
-                          .copyWith(color: context.colors.secondaryLabel),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4),
+                      child: Text(
+                        scope.exam.shortName,
+                        style: context.type.body
+                            .copyWith(color: context.colors.secondaryLabel),
+                      ),
                     ),
                     const SizedBox(height: 22),
                   ],

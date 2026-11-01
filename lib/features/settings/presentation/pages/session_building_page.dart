@@ -39,7 +39,7 @@ class SessionBuildingPage extends ConsumerWidget {
             Padding(
               padding: context.wideWeb
                   ? const EdgeInsets.symmetric(horizontal: 16, vertical: 14)
-                  : const EdgeInsets.all(8),
+                  : const EdgeInsets.fromLTRB(16, 6, 16, 6),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: ConstrainedBox(
@@ -47,6 +47,7 @@ class SessionBuildingPage extends ConsumerWidget {
                     maxWidth: context.wideWeb ? 420 : double.infinity,
                   ),
                   child: SegmentedSwitch(
+                    unselectedFontWeight: FontWeight.w600,
                     labels: const ['5', '10', '20', 'All'],
                     selected: lengths.indexOf(length),
                     onChanged: (index) async {

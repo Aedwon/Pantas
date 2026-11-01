@@ -44,15 +44,17 @@ class _BetaProRowState extends ConsumerState<BetaProRow> {
     return Stack(
       children: [
         Positioned(
-          left: context.wideWeb ? 50 : 52,
+          left: context.wideWeb ? 50 : 56,
           right: 16,
           top: 0,
           child: Container(height: .5, color: context.colors.separator),
         ),
         ListRow(
           title: 'Beta: Pro Features',
-          leading: const SizedBox(width: 22),
-          leadingGap: context.wideWeb ? 12 : 14,
+          leading: SizedBox(width: context.wideWeb ? 22 : 30),
+          contentPadding: context.wideWeb
+              ? null
+              : const EdgeInsets.fromLTRB(14, 11, 16, 11),
           minimumHeight: 66,
           verticalPadding: context.wideWeb ? 13 : 11,
           titleWidget: Text(

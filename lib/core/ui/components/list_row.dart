@@ -337,11 +337,26 @@ class ListRow extends StatelessWidget {
             Icon(PantasIcons.next, size: 16, color: c.chevron),
           ListRowVariant.switchControl => ExcludeSemantics(
               child: ExcludeFocus(
-                child: PantasSwitch(
-                  value: selected,
-                  label: title,
-                  onChanged: (_) => onTap?.call(),
-                ),
+                child: context.wideWeb
+                    ? PantasSwitch(
+                        value: selected,
+                        label: title,
+                        onChanged: (_) => onTap?.call(),
+                      )
+                    // Phone boards: the row is 53 px, the switch 31. The whole
+                    // row is the tap target, so the switch need not be 44.
+                    : SizedBox(
+                        width: 51,
+                        height: 31,
+                        child: OverflowBox(
+                          maxHeight: 44,
+                          child: PantasSwitch(
+                            value: selected,
+                            label: title,
+                            onChanged: (_) => onTap?.call(),
+                          ),
+                        ),
+                      ),
               ),
             ),
           ListRowVariant.inlineEditor => Icon(

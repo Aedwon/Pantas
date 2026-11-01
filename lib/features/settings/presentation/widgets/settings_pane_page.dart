@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -372,7 +373,9 @@ class _SettingsHero extends StatelessWidget {
         Icon(PantasIcons.practice, size: 42, color: const Color(0xFF2F6FEB)),
       'Appearance' => IconTheme(
           data: const IconThemeData(color: Color(0xFF5F3DC4), size: 42),
-          child: PantasIcons.appearance,
+          child: context.wideWeb
+              ? PantasIcons.appearance
+              : const OwnIcon(OwnIconKind.appearance, fill: Color(0xFF1D1D1F)),
         ),
       _ => Icon(PantasIcons.exam, size: 42, color: c.accent),
     };

@@ -284,13 +284,16 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
           ),
         ),
         const SizedBox(height: 6),
-        Text(
-          widget.isAnonymous
-              ? 'Your progress on this device will be permanently deleted. '
-                  'Sign in first if you want to keep it.'
-              : 'This can’t be undone.',
-          style: context.type.body
-              .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
+        Padding(
+          padding: const EdgeInsets.only(left: 4),
+          child: Text(
+            widget.isAnonymous
+                ? 'Your progress on this device will be permanently deleted. '
+                    'Sign in first if you want to keep it.'
+                : 'This can’t be undone.',
+            style: context.type.body
+                .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
+          ),
         ),
         const SizedBox(height: 22),
         card([

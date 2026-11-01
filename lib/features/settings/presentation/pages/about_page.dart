@@ -175,6 +175,8 @@ class AboutPage extends ConsumerWidget {
               variant: ListRowVariant.switchControl,
               selected: settings.helpImproveApp,
               divider: true,
+              // ST_About: the divider starts at the text.
+              dividerInset: context.wideWeb ? 0 : 16,
               onTap: () => unawaited(
                 ref
                     .read(settingsActionsProvider)

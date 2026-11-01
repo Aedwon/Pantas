@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -39,6 +40,25 @@ class SettingsHomePage extends ConsumerWidget {
       final router = GoRouter.maybeOf(context);
       if (router != null) unawaited(router.push<void>(path));
     }
+
+    // ST_RootPro: a 24 px glyph in a 30 px box, 14 px from the card edge and
+    // 12 px before the text. The row dividers start at the text (56 px).
+    Widget glyph(IconData data, Color color) => SizedBox(
+          width: 30,
+          height: 30,
+          child: Center(child: Icon(data, size: 24, color: color)),
+        );
+    Widget ownGlyph(Widget icon, Color color) => SizedBox(
+          width: 30,
+          height: 30,
+          child: Center(
+            child: IconTheme(
+              data: IconThemeData(color: color, size: 24),
+              child: icon,
+            ),
+          ),
+        );
+    const rowPadding = EdgeInsets.fromLTRB(14, 0, 16, 0);
 
     return PantasPage(
       title: 'Settings',
@@ -77,8 +97,9 @@ class SettingsHomePage extends ConsumerWidget {
             ListRow(
               title: 'Pantas Pro',
               value: ref.watch(proRowValueProvider),
-              icon: PantasIcons.proSettings,
-              iconColor: const Color(0xFFD9A400),
+              leading: glyph(PantasIcons.proSettings, const Color(0xFFD9A400)),
+              contentPadding: rowPadding,
+              minimumHeight: 45,
               onTap: () => push('/settings/pro'),
             ),
             const BetaProRow(),
@@ -91,16 +112,21 @@ class SettingsHomePage extends ConsumerWidget {
             ListRow(
               title: 'Your exam',
               value: ref.watch(activeExamShortNameProvider),
-              icon: PantasIcons.exam,
+              leading: glyph(PantasIcons.exam, context.colors.accent),
+              contentPadding: rowPadding,
+              minimumHeight: 45,
               divider: true,
+              dividerInset: 56,
               onTap: () => push('/settings/exam'),
             ),
             ListRow(
               title: 'Practice',
               value: length < 0 ? 'All questions' : '$length questions',
-              icon: PantasIcons.practice,
-              iconColor: const Color(0xFF2F6FEB),
+              leading: glyph(PantasIcons.practice, const Color(0xFF2F6FEB)),
+              contentPadding: rowPadding,
+              minimumHeight: 45,
               divider: true,
+              dividerInset: 56,
               onTap: () => push('/settings/practice'),
             ),
             if (!kIsWeb)
@@ -112,9 +138,11 @@ class SettingsHomePage extends ConsumerWidget {
                         hour: settings.dailyReminderTime!.hour,
                         minute: settings.dailyReminderTime!.minute,
                       ).format(context),
-                icon: PantasIcons.reminders,
-                iconColor: const Color(0xFFE8590C),
+                leading: glyph(PantasIcons.reminders, const Color(0xFFE8590C)),
+                contentPadding: rowPadding,
+                minimumHeight: 45,
                 divider: true,
+                dividerInset: 56,
                 onTap: () => push('/settings/reminders'),
               ),
             ListRow(
@@ -124,7 +152,12 @@ class SettingsHomePage extends ConsumerWidget {
                 ThemePreference.dark => 'Dark',
                 ThemePreference.system => 'Automatic'
               },
-              leading: PantasIcons.appearance,
+              leading: ownGlyph(
+                const OwnIcon(OwnIconKind.appearance, fill: Color(0xFF1D1D1F)),
+                const Color(0xFF5F3DC4),
+              ),
+              contentPadding: rowPadding,
+              minimumHeight: 45,
               onTap: () => push('/settings/appearance'),
             ),
           ],
@@ -134,7 +167,9 @@ class SettingsHomePage extends ConsumerWidget {
           children: [
             ListRow(
               title: 'About',
-              leading: PantasIcons.about,
+              leading: ownGlyph(PantasIcons.about, const Color(0xFF6E6E73)),
+              contentPadding: rowPadding,
+              minimumHeight: 45,
               onTap: () => push('/settings/about'),
             ),
           ],

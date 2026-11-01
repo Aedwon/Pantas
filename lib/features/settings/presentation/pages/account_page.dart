@@ -139,14 +139,16 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 title: 'Name',
                 value: settings.name ?? 'Add your name',
                 divider: true,
+                dividerInset: context.wideWeb ? 0 : 16,
                 onTap: () => push('/settings/account/name'),
               ),
               if (user != null)
-                const SettingsRow(
+                SettingsRow(
                   title: 'Signed in with',
                   value: 'Google',
                   variant: ListRowVariant.value,
                   divider: true,
+                  dividerInset: context.wideWeb ? 0 : 16,
                 ),
               SettingsRow(
                 title: 'Pantas ID',
@@ -352,6 +354,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                   value: pro ? backup : 'This phone only',
                   variant: ListRowVariant.value,
                   divider: true,
+                  dividerInset: context.wideWeb ? 0 : 16,
                 ),
                 if (pro)
                   SettingsRow(

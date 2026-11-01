@@ -33,6 +33,7 @@ class SettingsRow extends StatelessWidget {
     this.hideChevron = false,
     this.subtitleStyle,
     this.valueWidget,
+    this.dividerInset = 0,
     super.key,
   });
 
@@ -58,6 +59,9 @@ class SettingsRow extends StatelessWidget {
 
   /// Wide web: the board draws no arrow on this row.
   final bool hideChevron;
+
+  /// Phone only: left inset of the divider under the row.
+  final double dividerInset;
 
   /// Phone only: replaces the value text (the exam date chip).
   final Widget? valueWidget;
@@ -100,6 +104,7 @@ class SettingsRow extends StatelessWidget {
         valueStyle: valueStyle,
         valueWidget: valueWidget,
         hideTrailing: hideChevron,
+        dividerInset: dividerInset,
         titleWidget: titleWidget,
         trailingWidget: trailingWidget,
         mutuallyExclusive: mutuallyExclusive,

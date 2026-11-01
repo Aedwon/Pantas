@@ -2695,3 +2695,15 @@ page); MK_Paper bar is 58 px against the board's 60. Copy and behavior, not chan
 phone, "Shared links" row, "Help improve the app" default, Backup section and details rows (W4f), "Your Wrapped" row, "UPCAT"
 against "CSE Professional", "Version 1.0.0 (142)" against the app build number, exam group order, Free sign-out copy,
 the data-protection address line (kept, the board has none).
+
+### Mobile fix batch 5 (strict re-check of Settings, Record and Home; phone only, wide web untouched)
+
+The lead found misses that earlier "OK" notes had skipped. Fixed: Settings values and dividers (rows with an icon start the
+divider at the text, 56 px; Account, Exam, About inset 16 px; What's included 50 px), Appearance icon (purple ring, dark half)
+and About icon (gray), 53 px switch rows (were 66), Practice session-length card (60 px, bold digits), Exam date chip width,
+What's included rows (47.5 px) and subtitle alignment, Delete Account subtitle alignment, Home Today card 5 px higher with
+66 px rows. The "since" line under the streak is already in the app; it is hidden for the steady sample student because its
+sessions do not prove every day of the streak (data, not layout).
+
+Not re-checked this batch (usage): Plan, Study, Reader, Quiz, Question session, Mock, Assessment, Bookmarks, Onboarding.
+Details and pairs: `build/visual-pass/mobile/final.md`, `shots/final-*.png`.
