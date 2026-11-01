@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 class StateView extends StatelessWidget {
   const StateView({
@@ -54,6 +56,14 @@ class StateView extends StatelessWidget {
   final bool primaryAction;
   @override
   Widget build(BuildContext context) {
+    if (fullScreen && context.wideWeb) {
+      return WebFullNotice(
+        title: message,
+        lead: "Nothing you've done is lost.",
+        actionLabel: actionLabel,
+        onPressed: onRetry,
+      );
+    }
     final primary = !fullScreen && primaryAction;
     final compact = primary || boardLayout;
     final gap = onboardingBlocked

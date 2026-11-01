@@ -1412,3 +1412,80 @@ class _WebRootModalState extends State<WebRootModal> {
         child: widget.child,
       );
 }
+
+/// Full-page notice on wide web (boards SY_Error, SY_Update): a 60 px "P"
+/// mark, heading, one lead line and a large natural-width button, centered.
+class WebFullNotice extends StatelessWidget {
+  const WebFullNotice({
+    required this.title,
+    required this.actionLabel,
+    required this.onPressed,
+    this.lead,
+    super.key,
+  });
+  final String title;
+  final String? lead;
+  final String actionLabel;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return Scaffold(
+      backgroundColor: t.colors.background,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Semantics(
+            liveRegion: true,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ExcludeSemantics(
+                  child: Container(
+                    key: const ValueKey('web-notice-mark'),
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: t.colors.accentFill,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'P',
+                      style: t.style(
+                        30,
+                        weight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(title, textAlign: TextAlign.center, style: t.h2),
+                if (lead != null) ...[
+                  const SizedBox(height: 16),
+                  Text(
+                    lead!,
+                    textAlign: TextAlign.center,
+                    style: t.style(
+                      17,
+                      height: 1.45,
+                      color: t.colors.secondaryLabel,
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 16),
+                WebButton(
+                  label: actionLabel,
+                  onPressed: onPressed,
+                  large: true,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

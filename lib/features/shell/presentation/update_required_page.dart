@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Whether this build is below the minimum the server publishes.
@@ -32,6 +34,16 @@ class UpdateRequiredPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return PopScope(
+        canPop: false,
+        child: WebFullNotice(
+          title: 'Pantas needs an update to keep working.',
+          actionLabel: 'Update',
+          onPressed: () => _openStore(context),
+        ),
+      );
+    }
     return PopScope(
       canPop: false,
       child: Scaffold(

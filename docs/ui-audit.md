@@ -2388,3 +2388,23 @@ docs/pricing.md; the boards show two and say "SAVE 32%" where the math gives 33%
 
 Settings tests: 30 failing before and the same 30 after (none new). Checks: analyze clean; settings,
 paywall, core/ui, shell, onboarding match base; layering OK.
+
+### Remaining web boards batch 1 (2026-11-01)
+
+Sonnet captured 30 of 31 BUILD boards; 15 have app pairs (Main, W_Study, W_QuizTab, W_Question,
+W_QRight, W_QMiss, W_Mock, W_MockResults, W_Settings, L_ChangeExam, DK_Quiz, DK_Settings, SY_Error).
+Board only: AS_* (see below), L_Restore/Delete/SignIn/Purchase/RestorePurchase (external or
+destructive), L_PlanSlow/ProgressSlow/DebriefSlow (slow-load states), SY_Update, X_Side, X_Perf,
+X_More. Wrapped (WR_) and SKIP boards out of scope.
+
+Fixed (wide web): SY_Error and SY_Update now use the teal mark, 26 px heading and a centered 50 px
+Try Again button (was a gray circle and a button pinned bottom-left); positions match within 1 px.
+
+Possible bugs (investigating):
+- "Start Assessment" returns to Home instead of opening the placement test (seen with seeded data).
+- On web, "Update required" opens Google Play instead of reloading.
+
+For Aedwon (not changed): no Enter chip on Try Again/Update (Enter not bound); board's Update lead
+line missing; "Pick with A to D" hint missing; note-reason prompt not shown on a Pro miss.
+
+Checks: analyze clean; layering OK; core/ui, shell, core/error tests pass (749).
