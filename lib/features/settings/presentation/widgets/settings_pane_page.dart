@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,7 +56,7 @@ class SettingsPanePage extends StatelessWidget {
     final t = context.webTokens;
     final headingIcon = icon == null
         ? title == 'Name'
-            ? Icon(PantasIcons.edit, size: 22, color: t.colors.accent)
+            ? Icon(PantasIcons.profile, size: 22, color: t.colors.accent)
             : switch (section) {
                 'Account' =>
                   Icon(PantasIcons.profile, size: 22, color: t.colors.accent),
@@ -71,8 +72,8 @@ class SettingsPanePage extends StatelessWidget {
                     size: 40,
                     color: const Color(0xFF2F6FEB),
                   ),
-                'Appearance' => PantasIcons.appearance,
-                'About' => PantasIcons.about,
+                'Appearance' => _grayGlyph(t, PantasIcons.appearance),
+                'About' => _grayGlyph(t, PantasIcons.about),
                 _ => null,
               }
         : Icon(icon, size: 32, color: t.colors.accent);
@@ -98,9 +99,7 @@ class SettingsPanePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: constraints.maxWidth >= 1000
-                          ? 360
-                          : constraints.maxWidth * .33,
+                      width: _listWidth(constraints.maxWidth),
                       child: SingleChildScrollView(
                         child: SettingsNavigation(selected: section),
                       ),
@@ -116,10 +115,13 @@ class SettingsPanePage extends StatelessWidget {
                             if (nested) ...[
                               Row(
                                 children: [
-                                  TextButton(
-                                    onPressed: onBack,
-                                    child: Text('‹ $backLabel'),
+                                  WebBackLink(
+                                    label: backLabel!,
+                                    fontSize: 15,
+                                    tightIcon: true,
+                                    onPressed: onBack ?? () {},
                                   ),
+                                  const SizedBox(width: 8),
                                   const WebKeyHint('Esc'),
                                 ],
                               ),
@@ -168,6 +170,20 @@ class SettingsPanePage extends StatelessWidget {
   }
 }
 
+/// The board's list pane is `flex: 1 1 300px; max-width: 360px` beside a
+/// detail pane of `flex: 999 1 460px`, 28 px apart: 300 px plus a thousandth
+/// of what is left over. Below that it keeps a third of the width.
+double _listWidth(double available) {
+  final spare = available - 28 - 300 - 460;
+  return spare >= 0 ? math.min(360, 300 + spare / 1000) : available * .33;
+}
+
+/// A 22 px outline glyph in the board's gray (`#6E6E73`).
+Widget _grayGlyph(WebTokens t, Widget glyph) => IconTheme(
+      data: IconThemeData(color: t.colors.secondaryLabel, size: 22),
+      child: SizedBox.square(dimension: 22, child: glyph),
+    );
+
 class SettingsNavigation extends ConsumerWidget {
   const SettingsNavigation({required this.selected, super.key});
   final String selected;
@@ -195,11 +211,17 @@ class SettingsNavigation extends ConsumerWidget {
           ),
           horizontalPadding: 16,
           compact: true,
+          leadingGap: 12,
           selected: selected == label,
           value: value,
+          valueStyle: t.sub.copyWith(
+            color: selected == label ? t.colors.accent : null,
+          ),
           leading: glyph,
           onPressed: () => open(path),
-          divider: label != 'Appearance' && label != 'Pantas Pro',
+          divider: label != 'Appearance' &&
+              label != 'Pantas Pro' &&
+              label != 'About',
         );
     return Column(
       key: const ValueKey('settings-navigation'),
@@ -214,6 +236,8 @@ class SettingsNavigation extends ConsumerWidget {
             subtitle: user?.email ?? 'Not signed in',
             titleStyle: t.style(17, weight: FontWeight.w600),
             horizontalPadding: 16,
+            verticalPadding: 14,
+            leadingGap: 12,
             selected: selected == 'Account',
             leading: SizedBox.square(
               dimension: 44,
@@ -261,13 +285,17 @@ class SettingsNavigation extends ConsumerWidget {
               row(
                 'Practice',
                 '/settings/practice',
-                Icon(PantasIcons.practice, size: 22, color: t.colors.accent),
+                Icon(
+                  PantasIcons.practice,
+                  size: 22,
+                  color: const Color(0xFF2F6FEB),
+                ),
                 value: length < 0 ? 'All questions' : '$length questions',
               ),
               row(
                 'Appearance',
                 '/settings/appearance',
-                PantasIcons.appearance,
+                _grayGlyph(t, PantasIcons.appearance),
                 value: switch (theme) {
                   ThemePreference.light => 'Light',
                   ThemePreference.dark => 'Dark',
@@ -280,7 +308,8 @@ class SettingsNavigation extends ConsumerWidget {
         const SizedBox(height: 18),
         WebCard(
           radius: 16,
-          child: row('About', '/settings/about', PantasIcons.about),
+          child:
+              row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),
         ),
       ],
     );

@@ -696,19 +696,24 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    WebButton(
-                      label: upgrade
-                          ? 'Switch on Free'
-                          : _busy && _restoring
-                              ? 'Restoring purchases'
-                              : 'Restore Purchases',
-                      variant: WebButtonVariant.tertiary,
-                      busy: _busy,
-                      onPressed: _busy
-                          ? null
-                          : upgrade
-                              ? _switchOnFree
-                              : _restore,
+                    Transform.translate(
+                      offset: const Offset(-14, 0),
+                      child: WebButton(
+                        label: upgrade
+                            ? 'Switch on Free'
+                            : _busy && _restoring
+                                ? 'Restoring purchases'
+                                : 'Restore Purchases',
+                        variant: WebButtonVariant.tertiary,
+                        height: 42,
+                        radius: 11,
+                        busy: _busy,
+                        onPressed: _busy
+                            ? null
+                            : upgrade
+                                ? _switchOnFree
+                                : _restore,
+                      ),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
@@ -1086,11 +1091,19 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           ),
         if (showOffers) ...[
           if (exam != null)
-            Text(
-              'PLANS FOR ${exam.shortName.toUpperCase()}',
-              style: context.type.sectionHeader,
+            Padding(
+              padding: EdgeInsets.only(
+                left: context.wideWeb ? 4 : 0,
+                bottom: context.wideWeb ? 10 : 0,
+              ),
+              child: Text(
+                'PLANS FOR ${exam.shortName.toUpperCase()}',
+                style: context.wideWeb
+                    ? context.webTokens.eb.copyWith(height: 1.3)
+                    : context.type.sectionHeader,
+              ),
             ),
-          const SizedBox(height: 12),
+          SizedBox(height: context.wideWeb ? 6 : 12),
           if (offering.isLoading) const Text('Loading subscriptions...'),
           if (packages.isNotEmpty)
             Row(
@@ -1225,7 +1238,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ],
             ),
           ],
-          const SizedBox(height: 24),
+          // The wide page adds its own 24 px before the Restore row.
+          SizedBox(height: context.wideWeb ? 0 : 24),
           if (!offering.isLoading && packages.isEmpty)
             PantasButton(
               label: 'Try Again',

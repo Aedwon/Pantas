@@ -30,6 +30,8 @@ class SettingsRow extends StatelessWidget {
     this.trailingWidget,
     this.mutuallyExclusive = false,
     this.footer,
+    this.hideChevron = false,
+    this.subtitleStyle,
     super.key,
   });
 
@@ -52,6 +54,12 @@ class SettingsRow extends StatelessWidget {
   final Widget? trailingWidget;
   final bool mutuallyExclusive;
   final Widget? footer;
+
+  /// Wide web: the board draws no arrow on this row.
+  final bool hideChevron;
+
+  /// Wide web: the subtitle style (the boards use 13 px under a title).
+  final TextStyle? subtitleStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +112,7 @@ class SettingsRow extends StatelessWidget {
           child: WebRow(
             title: title,
             subtitle: subtitle,
+            subtitleStyle: subtitleStyle,
             titleStyle: t.style(
               16,
               color: variant == ListRowVariant.destructive
@@ -130,8 +139,9 @@ class SettingsRow extends StatelessWidget {
                           ),
                         ),
                       )
-                    : variant == ListRowVariant.navigation ||
-                            variant == ListRowVariant.inlineEditor
+                    : (variant == ListRowVariant.navigation ||
+                                variant == ListRowVariant.inlineEditor) &&
+                            !hideChevron
                         ? Icon(
                             expanded ? PantasIcons.close : PantasIcons.next,
                             size: 16,

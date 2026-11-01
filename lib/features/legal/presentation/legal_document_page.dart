@@ -3,6 +3,9 @@ import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/legal/legal.dart';
 
 class LegalDocumentPage extends StatelessWidget {
@@ -31,11 +34,42 @@ class LegalDocumentPage extends StatelessWidget {
 class LegalDocumentBody extends StatelessWidget {
   const LegalDocumentBody({required this.documentId, super.key});
   final String documentId;
+
+  /// The line under the page title on wide web: "Updated Aug 3, 2026".
+  static String? updatedLine(String documentId) {
+    final document = legalDocumentFallbacks[documentId];
+    return document == null
+        ? null
+        : 'Updated ${DateFormat.yMMMd().format(document.updatedAt)}';
+  }
+
   @override
-  Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: _documentChildren(context, documentId),
+  Widget build(BuildContext context) {
+    final document = legalDocumentFallbacks[documentId];
+    if (context.wideWeb && document != null) {
+      // Board `.card`: 28 px above, 32 px each side, 16 px below; 20 px
+      // headings and 17 px text, 14 px apart.
+      final t = context.webTokens;
+      return WebCard(
+        padding: const EdgeInsets.fromLTRB(32, 28, 32, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final section in document.sections) ...[
+              Text(section.heading, style: t.h3),
+              const SizedBox(height: 14),
+              Text(section.body, style: t.style(17, height: 1.6)),
+              const SizedBox(height: 14),
+            ],
+          ],
+        ),
       );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: _documentChildren(context, documentId),
+    );
+  }
 }
 
 List<Widget> _documentChildren(BuildContext context, String documentId) {

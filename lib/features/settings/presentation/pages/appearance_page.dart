@@ -86,49 +86,10 @@ class AppearancePage extends ConsumerWidget {
                   runSpacing: 18,
                   children: [
                     for (final value in ThemePreference.values)
-                      SizedBox(
-                        width: 152,
-                        child: RadioRow(
-                          title: switch (value) {
-                            ThemePreference.light => 'Light',
-                            ThemePreference.dark => 'Dark',
-                            ThemePreference.system => 'Automatic',
-                          },
-                          selected: preference == value,
-                          onTap: () => setTheme(value),
-                          padding: const EdgeInsets.all(12),
-                          preview: Center(
-                            child: Container(
-                              width: 128,
-                              height: 84,
-                              decoration: BoxDecoration(
-                                color: value == ThemePreference.dark
-                                    ? const Color(0xFF151515)
-                                    : const Color(0xFFF5F5F7),
-                                gradient: value == ThemePreference.system
-                                    ? const LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: [
-                                          Color(0xFFF5F5F7),
-                                          Color(0xFFF5F5F7),
-                                          Color(0xFF151515),
-                                          Color(0xFF151515),
-                                        ],
-                                        stops: [0, .5, .5, 1],
-                                      )
-                                    : null,
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                  color: preference == value
-                                      ? t.colors.accent
-                                      : t.colors.separator,
-                                  width: preference == value ? 3 : 1,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                      _ThemeTile(
+                        value: value,
+                        selected: preference == value,
+                        onTap: () => setTheme(value),
                       ),
                   ],
                 ),
@@ -143,19 +104,35 @@ class AppearancePage extends ConsumerWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
                 child: Row(
                   children: [
                     Text('A', style: t.style(14)),
+                    const SizedBox(width: 2),
                     Expanded(
-                      child: Slider(
-                        min: 1,
-                        max: 2,
-                        value: scale.clamp(1, 2),
-                        onChanged: (value) => unawaited(
-                          ref
-                              .read(lessonTextScaleProvider.notifier)
-                              .setScale(value),
+                      child: SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          trackHeight: 4,
+                          activeTrackColor: t.colors.accentFill,
+                          inactiveTrackColor: t.colors.separator,
+                          thumbColor: Colors.white,
+                          overlayColor: Colors.transparent,
+                          thumbShape: const RoundSliderThumbShape(
+                            enabledThumbRadius: 13,
+                            elevation: 3,
+                          ),
+                          overlayShape: SliderComponentShape.noOverlay,
+                          trackShape: const RoundedRectSliderTrackShape(),
+                        ),
+                        child: Slider(
+                          min: 1,
+                          max: 2,
+                          value: scale.clamp(1, 2),
+                          onChanged: (value) => unawaited(
+                            ref
+                                .read(lessonTextScaleProvider.notifier)
+                                .setScale(value),
+                          ),
                         ),
                       ),
                     ),
@@ -269,6 +246,122 @@ class AppearancePage extends ConsumerWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+/// One of the board's three appearance tiles: a 128 by 84 preview, then a 20 px
+/// radio and the label. The chosen preview has a 3 px accent ring outside it.
+class _ThemeTile extends StatelessWidget {
+  const _ThemeTile({
+    required this.value,
+    required this.selected,
+    required this.onTap,
+  });
+  final ThemePreference value;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final label = switch (value) {
+      ThemePreference.light => 'Light',
+      ThemePreference.dark => 'Dark',
+      ThemePreference.system => 'Automatic',
+    };
+    return Semantics(
+      button: true,
+      selected: selected,
+      inMutuallyExclusiveGroup: true,
+      label: label,
+      excludeSemantics: true,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onTap,
+          child: SizedBox(
+            width: 140,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 128,
+                    height: 84,
+                    decoration: BoxDecoration(
+                      color: value == ThemePreference.dark
+                          ? const Color(0xFF151515)
+                          : const Color(0xFFF5F5F7),
+                      gradient: value == ThemePreference.system
+                          ? const LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFF5F5F7),
+                                Color(0xFFF5F5F7),
+                                Color(0xFF151515),
+                                Color(0xFF151515),
+                              ],
+                              stops: [0, .5, .5, 1],
+                            )
+                          : null,
+                      borderRadius: BorderRadius.circular(14),
+                      border: selected
+                          ? null
+                          : Border.all(color: const Color(0xFFE3E3E8)),
+                      boxShadow: selected
+                          ? [
+                              BoxShadow(
+                                color: t.colors.accentFill,
+                                spreadRadius: 3,
+                              ),
+                            ]
+                          : null,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 8,
+                    runSpacing: 2,
+                    children: [
+                      Container(
+                        width: 20,
+                        height: 20,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: selected ? t.colors.accentFill : null,
+                          border: selected
+                              ? null
+                              : Border.all(
+                                  color: t.dark
+                                      ? t.colors.controlOutline
+                                      : const Color(0xFFC7C7CC),
+                                  width: 1.5,
+                                ),
+                        ),
+                        child: selected
+                            ? const Icon(
+                                Icons.check,
+                                size: 11,
+                                color: Colors.white,
+                              )
+                            : null,
+                      ),
+                      Text(label, style: t.style(15)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

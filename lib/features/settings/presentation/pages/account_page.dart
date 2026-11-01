@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
@@ -172,6 +173,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           if (user == null) ...[
             WebButton(
               label: _signingIn ? 'Signing in…' : 'Continue with Google',
+              variant: WebButtonVariant.white,
+              height: 48,
+              icon: SvgPicture.string(_googleMark, width: 18, height: 18),
               busy: _signingIn,
               onPressed: _signingIn ? null : _signIn,
             ),
@@ -211,21 +215,26 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
               const SizedBox(height: 24),
             ],
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                WebButton(
-                  label: 'Sign Out',
-                  variant: WebButtonVariant.tertiary,
-                  onPressed: _confirmSignOut,
-                ),
-                WebButton(
-                  label: 'Delete Account',
-                  variant: WebButtonVariant.dangerOutline,
-                  onPressed: () => push('/settings/account/delete'),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  WebTextAction(
+                    label: 'Sign Out',
+                    onPressed: _confirmSignOut,
+                  ),
+                  WebButton(
+                    label: 'Delete Account',
+                    variant: WebButtonVariant.tertiary,
+                    redText: true,
+                    height: 42,
+                    radius: 11,
+                    onPressed: () => push('/settings/account/delete'),
+                  ),
+                ],
+              ),
             ),
             if (_errorMessage != null) Text(_errorMessage!, style: t.sm),
           ],
@@ -435,6 +444,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   Future<void> _confirmSignOut() async {
     final confirmed = await showDialog<bool>(
       context: context,
+      barrierColor: context.wideWeb ? const Color(0x521D1D1F) : null,
       builder: (context) => CenteredDialog(
         title: 'Sign out?',
         message: 'Your progress is saved to your account. '
@@ -473,3 +483,12 @@ bool _isNetworkError(Object error) {
   return error is NetworkException ||
       const {'network-request-failed', 'network_error'}.contains(code);
 }
+
+/// The board's four-color Google mark (ST_AccountOut), 18 px.
+const _googleMark = '''
+<svg viewBox="0 0 24 24">
+<path fill="#4285F4" d="M22.5 12.3c0-.8-.1-1.5-.2-2.3H12v4.4h5.9a5 5 0 0 1-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.7 3.3-8.1z"/>
+<path fill="#34A853" d="M12 23c3 0 5.5-1 7.2-2.7l-3.5-2.7c-1 .7-2.2 1-3.7 1-2.9 0-5.3-1.9-6.2-4.5H2.2v2.8A11 11 0 0 0 12 23z"/>
+<path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.2a11 11 0 0 0 0 9.8z"/>
+<path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.1-3.1A11 11 0 0 0 2.2 7.1l3.6 2.8C6.7 7.3 9.1 5.4 12 5.4z"/>
+</svg>''';

@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 @immutable
 class ScopeLesson {
@@ -49,6 +50,7 @@ class ScopePicker extends StatefulWidget {
     required this.onChanged,
     this.atLeastOne = true,
     this.minimumSelectionMessage,
+    this.settingsRows = false,
     super.key,
   });
   final List<ScopeSubject> subjects;
@@ -56,6 +58,10 @@ class ScopePicker extends StatefulWidget {
   final ValueChanged<Set<String>> onChanged;
   final bool atLeastOne;
   final String? minimumSelectionMessage;
+
+  /// Wide web, Settings "What's included": the board's 62 px rows with 17 px
+  /// titles and a 32 px expand button, and 46 px lesson rows.
+  final bool settingsRows;
   @override
   State<ScopePicker> createState() => _ScopePickerState();
 }
@@ -118,6 +124,8 @@ class _ScopePickerState extends State<ScopePicker>
     final count = ids.where(widget.selectedIds.contains).length;
     final checked = ids.isNotEmpty && count == ids.length;
     final partial = count > 0 && !checked;
+    final board = widget.settingsRows && context.wideWeb;
+    final web = context.webTokens;
     return AnimatedBuilder(
       animation: _offset,
       builder: (context, child) => Transform.translate(
@@ -130,7 +138,18 @@ class _ScopePickerState extends State<ScopePicker>
         child: CheckboxRow(
           key: ValueKey('scope-select-$id'),
           title: title,
-          padding: EdgeInsets.fromLTRB(lesson ? 42 : 16, 10, 12, 10),
+          padding: board
+              ? EdgeInsets.fromLTRB(
+                  lesson ? 56 : 20,
+                  lesson ? 12 : 15,
+                  expand == null ? 20 : 0,
+                  lesson ? 12 : 15,
+                )
+              : EdgeInsets.fromLTRB(lesson ? 42 : 16, 10, 12, 10),
+          gap: board ? 16 : 12,
+          minHeight: board ? (lesson ? 45 : 62) : 44,
+          markSize: board && lesson ? 20 : 24,
+          standardDensity: board,
           selected: checked,
           mixed: partial,
           onTap: enabled ? () => toggle(id, ids) : null,
@@ -141,7 +160,8 @@ class _ScopePickerState extends State<ScopePicker>
                   title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: context.type.body,
+                  style:
+                      board ? web.style(lesson ? 16 : 17) : context.type.body,
                 ),
               ),
               if (!enabled || unread) const SizedBox(width: 8),
@@ -163,24 +183,38 @@ class _ScopePickerState extends State<ScopePicker>
           ),
           trailing: expand == null
               ? null
-              : IconButton(
-                  key: ValueKey('scope-expand-$id'),
-                  onPressed: expand,
-                  tooltip: expanded ? 'Hide lessons' : 'Show lessons',
-                  icon: AnimatedRotation(
-                    key: ValueKey('scope-caret-$id'),
-                    turns: expanded ? .5 : 0,
-                    curve: PantasCurves.houseOut,
-                    duration: MediaQuery.disableAnimationsOf(context)
-                        ? Duration.zero
-                        : const Duration(milliseconds: 300),
-                    child: Transform.rotate(
-                      key: ValueKey('scope-caret-base-$id'),
-                      angle: math.pi / 2,
-                      child: Icon(
-                        PantasIcons.next,
-                        size: 16,
-                        color: c.controlOutline,
+              : Padding(
+                  padding: EdgeInsets.only(right: board ? 20 : 0),
+                  child: IconButton(
+                    key: ValueKey('scope-expand-$id'),
+                    onPressed: expand,
+                    style: board
+                        ? IconButton.styleFrom(
+                            fixedSize: const Size.square(32),
+                            minimumSize: const Size.square(32),
+                            padding: EdgeInsets.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          )
+                        : null,
+                    tooltip: expanded ? 'Hide lessons' : 'Show lessons',
+                    icon: AnimatedRotation(
+                      key: ValueKey('scope-caret-$id'),
+                      turns: expanded ? .5 : 0,
+                      curve: PantasCurves.houseOut,
+                      duration: MediaQuery.disableAnimationsOf(context)
+                          ? Duration.zero
+                          : const Duration(milliseconds: 300),
+                      child: Transform.rotate(
+                        key: ValueKey('scope-caret-base-$id'),
+                        angle: math.pi / 2,
+                        child: Icon(
+                          PantasIcons.next,
+                          size: 16,
+                          color: c.controlOutline,
+                        ),
                       ),
                     ),
                   ),
@@ -204,7 +238,13 @@ class _ScopePickerState extends State<ScopePicker>
                 lesson: true,
               ),
               if (index < topic.lessons.length - 1)
-                Container(height: .5, color: context.colors.separator),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: widget.settingsRows && context.wideWeb ? 92 : 0,
+                    right: widget.settingsRows && context.wideWeb ? 20 : 0,
+                  ),
+                  child: Container(height: .5, color: context.colors.separator),
+                ),
             ],
           ],
         )
@@ -258,10 +298,17 @@ class _ScopePickerState extends State<ScopePicker>
                         child: lessons(topic),
                       ),
                     if (index < subject.topics.length - 1)
-                      Container(
-                        key: ValueKey('scope-rule-${topic.id}'),
-                        height: .5,
-                        color: context.colors.separator,
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: widget.settingsRows && context.wideWeb ? 60 : 0,
+                          right:
+                              widget.settingsRows && context.wideWeb ? 20 : 0,
+                        ),
+                        child: Container(
+                          key: ValueKey('scope-rule-${topic.id}'),
+                          height: .5,
+                          color: context.colors.separator,
+                        ),
                       ),
                   ],
                 ],

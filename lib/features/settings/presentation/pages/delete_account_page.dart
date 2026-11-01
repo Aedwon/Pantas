@@ -11,7 +11,6 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
-import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -56,6 +55,19 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
     }
   }
 
+  /// A board `.row.c` in the dialog: a 20 px red no-entry glyph, 16 px text.
+  Widget _consequence(WebTokens t, String text, {bool divider = false}) =>
+      WebRow(
+        title: text,
+        titleStyle: t.style(16),
+        compact: true,
+        leading: CustomPaint(
+          size: const Size.square(20),
+          painter: _NoEntryPainter(t.colors.wrongText),
+        ),
+        divider: divider,
+      );
+
   @override
   Widget build(BuildContext context) {
     final billing = widget.isAnonymous
@@ -90,118 +102,105 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
           onContinue: () => Navigator.of(context).maybePop(),
         );
       }
-      return Stack(
-        fit: StackFit.expand,
-        children: [
-          const AccountPage(),
-          const ModalBarrier(color: Color(0x521D1D1F), dismissible: false),
-          Center(
-            child: Dialog(
-              insetPadding: const EdgeInsets.all(24),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              child: SizedBox(
-                width: 560,
-                child: WebCard(
-                  radius: 22,
-                  padding: const EdgeInsets.all(26),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          widget.isAnonymous
-                              ? 'Delete your data?'
-                              : 'Delete your account?',
-                          style: t.h3,
-                        ),
-                        const SizedBox(height: 4),
-                        Text("This can't be undone.", style: t.sub),
-                        const SizedBox(height: 18),
-                        DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: t.colors.background,
-                            borderRadius: BorderRadius.circular(18),
+      return WebRootModal(
+        child: const AccountPage(),
+        modal: (context) => Stack(
+          fit: StackFit.expand,
+          children: [
+            const ModalBarrier(color: Color(0x521D1D1F), dismissible: false),
+            Center(
+              child: Dialog(
+                insetPadding: const EdgeInsets.all(24),
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                child: SizedBox(
+                  width: 560,
+                  child: WebCard(
+                    radius: 22,
+                    padding: const EdgeInsets.all(26),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            widget.isAnonymous
+                                ? 'Delete your data?'
+                                : 'Delete your account?',
+                            style: t.h3,
                           ),
-                          child: Column(
-                            children: [
-                              if (!widget.isAnonymous) ...[
-                                SettingsRow(
-                                  title: 'Your account is removed.',
-                                  leading: Icon(
-                                    PantasIcons.profile,
-                                    color: t.colors.wrongText,
-                                    size: 22,
+                          const SizedBox(height: 4),
+                          Text("This can't be undone.", style: t.sub),
+                          const SizedBox(height: 18),
+                          DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: t.colors.background,
+                              borderRadius: BorderRadius.circular(18),
+                            ),
+                            child: Column(
+                              children: [
+                                if (!widget.isAnonymous) ...[
+                                  _consequence(
+                                    t,
+                                    'Your account is removed.',
+                                    divider: true,
                                   ),
-                                  variant: ListRowVariant.value,
-                                  divider: true,
-                                ),
-                                SettingsRow(
-                                  title: 'Anything backed up to it is erased.',
-                                  leading: Icon(
-                                    PantasIcons.cloudSlash,
-                                    color: t.colors.wrongText,
-                                    size: 22,
+                                  _consequence(
+                                    t,
+                                    'Anything backed up to it is erased.',
+                                    divider: true,
                                   ),
-                                  variant: ListRowVariant.value,
-                                  divider: true,
+                                ],
+                                _consequence(
+                                  t,
+                                  'Progress in this browser is erased too.',
                                 ),
                               ],
-                              SettingsRow(
-                                title:
-                                    'Progress in this browser is erased too.',
-                                leading: Icon(
-                                  PantasIcons.phoneSlash,
-                                  color: t.colors.wrongText,
-                                  size: 22,
-                                ),
-                                variant: ListRowVariant.value,
+                            ),
+                          ),
+                          if (billing != null) ...[
+                            const SizedBox(height: 18),
+                            Text(billing, style: t.sub),
+                          ],
+                          if (_failed) ...[
+                            const SizedBox(height: 18),
+                            Text(
+                              'We could not complete deletion. '
+                              'Try again or contact '
+                              'our DPO at ${widget.dpoEmail}.',
+                              style: t.sub,
+                            ),
+                          ],
+                          const SizedBox(height: 18),
+                          Wrap(
+                            alignment: WrapAlignment.end,
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: [
+                              WebButton(
+                                label: widget.isAnonymous
+                                    ? 'Cancel'
+                                    : 'Keep My Account',
+                                variant: WebButtonVariant.tertiary,
+                                onPressed: () =>
+                                    Navigator.of(context).maybePop(),
+                              ),
+                              WebButton(
+                                label: _failed ? 'Try Again' : 'Delete My Data',
+                                variant: WebButtonVariant.danger,
+                                onPressed: _delete,
                               ),
                             ],
                           ),
-                        ),
-                        if (billing != null) ...[
-                          const SizedBox(height: 18),
-                          Text(billing, style: t.sub),
                         ],
-                        if (_failed) ...[
-                          const SizedBox(height: 18),
-                          Text(
-                            'We could not complete deletion. '
-                            'Try again or contact '
-                            'our DPO at ${widget.dpoEmail}.',
-                            style: t.sub,
-                          ),
-                        ],
-                        const SizedBox(height: 18),
-                        Wrap(
-                          alignment: WrapAlignment.end,
-                          spacing: 8,
-                          runSpacing: 8,
-                          children: [
-                            WebButton(
-                              label: widget.isAnonymous
-                                  ? 'Cancel'
-                                  : 'Keep My Account',
-                              variant: WebButtonVariant.tertiary,
-                              onPressed: () => Navigator.of(context).maybePop(),
-                            ),
-                            WebButton(
-                              label: _failed ? 'Try Again' : 'Delete My Data',
-                              variant: WebButtonVariant.danger,
-                              onPressed: _delete,
-                            ),
-                          ],
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
     Widget consequence(Widget icon, String text) => Padding(
@@ -386,4 +385,29 @@ class _UserSlashPainter extends CustomPainter {
   @override
   bool shouldRepaint(_UserSlashPainter oldDelegate) =>
       background != oldDelegate.background || color != oldDelegate.color;
+}
+
+/// The board's circle with a slash: radius 8.5 on a 24 unit box, stroke 1.8.
+class _NoEntryPainter extends CustomPainter {
+  const _NoEntryPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final unit = size.width / 24;
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8 * unit
+      ..strokeCap = StrokeCap.round;
+    canvas
+      ..drawCircle(Offset(12 * unit, 12 * unit), 8.5 * unit, paint)
+      ..drawLine(
+        Offset(6 * unit, 6 * unit),
+        Offset(18 * unit, 18 * unit),
+        paint,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_NoEntryPainter oldDelegate) => color != oldDelegate.color;
 }

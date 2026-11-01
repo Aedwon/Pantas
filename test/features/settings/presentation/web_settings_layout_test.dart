@@ -90,15 +90,17 @@ void main() {
           dpoEmail: defaultLegalContact.dpoEmail,
           onDelete: () async {},
         ),
-        const SettingsPanePage(
+        SettingsPanePage(
           section: 'About',
           title: 'Privacy policy',
-          children: [LegalDocumentBody(documentId: 'privacy')],
+          description: LegalDocumentBody.updatedLine('privacy'),
+          children: const [LegalDocumentBody(documentId: 'privacy')],
         ),
-        const SettingsPanePage(
+        SettingsPanePage(
           section: 'About',
           title: 'Terms of service',
-          children: [LegalDocumentBody(documentId: 'terms')],
+          description: LegalDocumentBody.updatedLine('terms'),
+          children: const [LegalDocumentBody(documentId: 'terms')],
         ),
         const SettingsHomePage(),
         const WhatsIncludedPage(),

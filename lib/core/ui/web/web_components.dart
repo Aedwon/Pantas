@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
@@ -445,6 +446,8 @@ class WebRow extends StatefulWidget {
     this.boardMetrics = false,
     this.leadingGap = 16,
     this.chevron = WebRowChevron.none,
+    this.verticalPadding,
+    this.subtitleStyle,
     super.key,
   });
   final String title;
@@ -474,6 +477,12 @@ class WebRow extends StatefulWidget {
   /// Space between the leading widget and the title.
   final double leadingGap;
   final WebRowChevron chevron;
+
+  /// Overrides the 12 (compact) or 15 px padding above and below the content.
+  final double? verticalPadding;
+
+  /// Overrides the 14 px secondary subtitle (Settings rows use 13 px).
+  final TextStyle? subtitleStyle;
   @override
   State<WebRow> createState() => _WebRowState();
 }
@@ -541,7 +550,9 @@ class _WebRowState extends State<WebRow> {
               ],
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: w.compact ? 12 : 15),
+                  padding: EdgeInsets.symmetric(
+                    vertical: w.verticalPadding ?? (w.compact ? 12 : 15),
+                  ),
                   decoration: BoxDecoration(
                     border: w.divider
                         ? Border(
@@ -579,11 +590,12 @@ class _WebRowState extends State<WebRow> {
                                 overflow: large || w.wrapTitle
                                     ? TextOverflow.visible
                                     : TextOverflow.ellipsis,
-                                style: t.style(
-                                  14,
-                                  color: t.colors.secondaryLabel,
-                                  height: lineHeight,
-                                ),
+                                style: w.subtitleStyle ??
+                                    t.style(
+                                      14,
+                                      color: t.colors.secondaryLabel,
+                                      height: lineHeight,
+                                    ),
                               ),
                             if (large && w.value != null)
                               Text(w.value!, style: w.valueStyle ?? t.sub),
@@ -1186,29 +1198,55 @@ class WebBarArrow extends StatelessWidget {
 /// The board's `.back` link: 17 px accent text, 40 px tall, nudged 6 px left so
 /// the arrow lines up with the page edge.
 class WebBackLink extends StatelessWidget {
-  const WebBackLink({required this.label, required this.onPressed, super.key});
+  const WebBackLink({
+    required this.label,
+    required this.onPressed,
+    this.fontSize = 17,
+    this.tightIcon = false,
+    super.key,
+  });
   final String label;
   final VoidCallback onPressed;
+
+  /// Settings pages set this link at 15 px (board `.back` with an override).
+  final double fontSize;
+
+  /// Board `.back` puts 2 px between the arrow and the label.
+  final bool tightIcon;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final style = TextButton.styleFrom(
+      foregroundColor: t.colors.accent,
+      padding: EdgeInsets.zero,
+      minimumSize: const Size(0, 40),
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      visualDensity: VisualDensity.standard,
+      textStyle: t.style(fontSize),
+    );
     return Align(
       alignment: Alignment.centerLeft,
       child: Transform.translate(
         offset: const Offset(-6, 0),
-        child: TextButton.icon(
-          onPressed: onPressed,
-          icon: const Icon(Icons.chevron_left, size: 20),
-          label: Text(label),
-          style: TextButton.styleFrom(
-            foregroundColor: t.colors.accent,
-            padding: EdgeInsets.zero,
-            minimumSize: const Size(0, 40),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-            textStyle: t.style(17),
-          ),
-        ),
+        child: tightIcon
+            ? TextButton(
+                onPressed: onPressed,
+                style: style,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.chevron_left, size: 20),
+                    const SizedBox(width: 2),
+                    Text(label),
+                  ],
+                ),
+              )
+            : TextButton.icon(
+                onPressed: onPressed,
+                icon: const Icon(Icons.chevron_left, size: 20),
+                label: Text(label),
+                style: style,
+              ),
       ),
     );
   }
@@ -1244,4 +1282,133 @@ class WebTextAction extends StatelessWidget {
       child: Text(label),
     );
   }
+}
+
+/// One column of the board's date picker (`.pk`): five 38 px rows 2 px apart
+/// around the chosen value, 120 px wide. The chosen row is accent on the tint
+/// and bold; the rest are muted. A row is picked by tapping it or by the
+/// mouse wheel over the column.
+class WebPickerColumn extends StatelessWidget {
+  const WebPickerColumn({
+    required this.values,
+    required this.selectedIndex,
+    required this.label,
+    required this.onSelected,
+    this.disabledIndices = const {},
+    super.key,
+  });
+  final List<String> values;
+  final int selectedIndex;
+  final String label;
+  final ValueChanged<int> onSelected;
+
+  /// Values that can't be picked, such as days before today.
+  final Set<int> disabledIndices;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    Widget row(int slot) {
+      final index = selectedIndex + slot;
+      if (index < 0 || index >= values.length) {
+        return const SizedBox(height: 38);
+      }
+      final chosen = slot == 0;
+      final disabled = disabledIndices.contains(index);
+      return Semantics(
+        button: true,
+        selected: chosen,
+        enabled: !disabled,
+        label: '$label ${values[index]}',
+        excludeSemantics: true,
+        child: TextButton(
+          onPressed: disabled || chosen ? null : () => onSelected(index),
+          style: ButtonStyle(
+            minimumSize: const WidgetStatePropertyAll(Size(120, 38)),
+            maximumSize: const WidgetStatePropertyAll(Size(120, 38)),
+            padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
+            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+            backgroundColor: WidgetStateProperty.resolveWith(
+              (s) => chosen
+                  ? t.colors.accentTint
+                  : s.contains(WidgetState.hovered) && !disabled
+                      ? t.rowHover
+                      : Colors.transparent,
+            ),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
+            ),
+          ),
+          child: Text(
+            values[index],
+            style: t.style(
+              17,
+              weight: chosen ? FontWeight.w700 : FontWeight.w400,
+              color: chosen
+                  ? t.colors.accent
+                  : disabled
+                      ? t.disabledText
+                      : t.colors.tertiaryLabel,
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Listener(
+      onPointerSignal: (event) {
+        if (event is! PointerScrollEvent) return;
+        final next = selectedIndex + (event.scrollDelta.dy > 0 ? 1 : -1);
+        if (next >= 0 &&
+            next < values.length &&
+            !disabledIndices.contains(next)) {
+          onSelected(next);
+        }
+      },
+      child: SizedBox(
+        width: 120,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            for (var slot = -2; slot <= 2; slot++) ...[
+              if (slot > -2) const SizedBox(height: 2),
+              row(slot),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Draws [modal] over the whole window, sidebar included, on the root overlay.
+/// The boards' scrim covers the page and centers its dialog in the window, not
+/// in the pane that opened it. [child] stays in place underneath.
+class WebRootModal extends StatefulWidget {
+  const WebRootModal({required this.child, required this.modal, super.key});
+  final Widget child;
+  final WidgetBuilder modal;
+  @override
+  State<WebRootModal> createState() => _WebRootModalState();
+}
+
+class _WebRootModalState extends State<WebRootModal> {
+  final _controller = OverlayPortalController();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && !_controller.isShowing) _controller.show();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => OverlayPortal(
+        controller: _controller,
+        overlayLocation: OverlayChildLocation.rootOverlay,
+        overlayChildBuilder: widget.modal,
+        child: widget.child,
+      );
 }

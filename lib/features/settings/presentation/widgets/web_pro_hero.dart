@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class WebProHero extends StatelessWidget {
@@ -25,32 +24,36 @@ class WebProHero extends StatelessWidget {
         Text(heading, style: t.h2),
         if (detail != null) ...[
           const SizedBox(height: 8),
-          Text(detail!, style: t.sub),
+          Text(detail!, style: t.sub.copyWith(fontSize: 16, height: 1.45)),
         ],
       ],
     );
-    final features = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (final feature in [
-          (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
-          (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
-          (PantasIcons.studyHabits, 'The figures behind your study habits'),
-          (PantasIcons.proBackup, "Progress that's always backed up"),
-          (PantasIcons.topicResults, 'Results by topic and lesson'),
-        ])
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    final features = Padding(
+      padding: const EdgeInsets.only(top: 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (final (index, feature) in [
+            'Unlimited mock exams',
+            'Notes on why your answer was wrong',
+            'The figures behind your study habits',
+            "Progress that's always backed up",
+            'Results by topic and lesson',
+          ].indexed) ...[
+            if (index > 0) const SizedBox(height: 8),
+            Row(
               children: [
-                Icon(feature.$1, size: 20, color: t.colors.accent),
+                CustomPaint(
+                  size: const Size.square(14),
+                  painter: _CheckPainter(t.colors.accent),
+                ),
                 const SizedBox(width: 10),
-                Expanded(child: Text(feature.$2, style: t.style(16))),
+                Expanded(child: Text(feature, style: t.style(16, height: 1.3))),
               ],
             ),
-          ),
-      ],
+          ],
+        ],
+      ),
     );
     return Container(
       key: const ValueKey('pro-hero'),
@@ -85,4 +88,30 @@ class WebProHero extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The board's 14 px tick: stroke 3 on a 24 unit box, round caps and joins.
+class _CheckPainter extends CustomPainter {
+  const _CheckPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final unit = size.width / 24;
+    final path = Path()
+      ..moveTo(5 * unit, 12.5 * unit)
+      ..lineTo(9.5 * unit, 17 * unit)
+      ..lineTo(19 * unit, 7 * unit);
+    canvas.drawPath(
+      path,
+      Paint()
+        ..color = color
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3 * unit
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_CheckPainter oldDelegate) => color != oldDelegate.color;
 }

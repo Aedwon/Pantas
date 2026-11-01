@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
@@ -157,6 +158,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
             title: id == 'privacy'
                 ? 'Privacy policy'
                 : legalDocumentFallbacks[id]?.title ?? 'Legal',
+            description: LegalDocumentBody.updatedLine(id),
             backLabel: 'About',
             onBack: () => Navigator.of(context).maybePop(),
             children: [LegalDocumentBody(documentId: id)],
@@ -270,27 +272,29 @@ class ChangeExamPage extends ConsumerWidget {
       },
     );
     if (!context.wideWeb) return picker;
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        const ExamPage(),
-        ModalBarrier(
-          color: const Color(0x521D1D1F),
-          onDismiss: () => Navigator.of(context).maybePop(),
-        ),
-        Center(
-          child: Dialog(
-            insetPadding: const EdgeInsets.all(24),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            child: SizedBox(
-              width: 820,
-              height: (MediaQuery.sizeOf(context).height - 48).clamp(0, 760),
-              child: picker,
+    return WebRootModal(
+      child: const ExamPage(),
+      modal: (context) => Stack(
+        fit: StackFit.expand,
+        children: [
+          ModalBarrier(
+            color: const Color(0x521D1D1F),
+            onDismiss: () => Navigator.of(context).maybePop(),
+          ),
+          Center(
+            child: Dialog(
+              insetPadding: const EdgeInsets.all(24),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              child: SizedBox(
+                width: 820,
+                height: (MediaQuery.sizeOf(context).height - 48).clamp(0, 760),
+                child: picker,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

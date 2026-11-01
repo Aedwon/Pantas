@@ -2365,3 +2365,26 @@ board's 40/60/80; reader progress bar under the header; Study sidebar bookmark i
 board's gray (not yet matched).
 
 Checks: analyze clean; layering OK; five test folders pass (2,496).
+
+### Settings and Pro fix batch 1 (2026-11-01)
+
+Sonnet captured 29 of 51 BUILD boards (staging worktree `build/visual-pass/settings/shots/`); lead
+spot-checked ST_ExamDate (match). Not captured: exam switch boards (irreversible), backup boards
+(backup hidden on web), ST_Avatars (component sheet), ST_LargeText, ST_ExamCustom,
+ST_IncludedLast, ST_DaysLast (would change data), ST_AccountOffline, and most Pro plan states
+(lapsed, pass, offline). NEW-FEATURE and MOTION boards skipped.
+
+Fixed (wide web): list pane 300 px; profile card 72 px; nav icon colors and gap (Your exam icon
+stays teal: HANDOFF reserves red); Sign Out teal text and Delete Account red text, 42 px; appearance
+tiles 140 px with 20 px radios; exam date picker rebuilt to the board's columns (click and mouse
+wheel instead of drag); Pro hero checks and gap; What's included rows 62 px; exam picker rows 55 px
+without radios; dialog scrims cover the whole window; privacy page in a card; name field, Google
+sign-in button and dialogs per the boards.
+
+For Aedwon (not changed): plan cards show "₱149.00" where the board shows "₱149"; no "7 DAYS FREE"
+tag on web; CTA wording ("No payment needed.", "Subscribe for ₱149.00 a Month") differs from the
+board; Manage Subscription and Reminders rows hidden on web; CSE shows all four plans (matches
+docs/pricing.md; the boards show two and say "SAVE 32%" where the math gives 33%).
+
+Settings tests: 30 failing before and the same 30 after (none new). Checks: analyze clean; settings,
+paywall, core/ui, shell, onboarding match base; layering OK.

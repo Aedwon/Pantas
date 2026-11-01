@@ -15,6 +15,7 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 
@@ -143,6 +144,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     return SettingsPanePage(
       section: 'Your exam',
       title: 'What’s included',
+      description: focus.valueOrNull?.exam?.shortName,
       backLabel: 'Your exam',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
@@ -171,16 +173,19 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    scope.exam.shortName,
-                    style: context.type.body
-                        .copyWith(color: context.colors.secondaryLabel),
-                  ),
-                  const SizedBox(height: 24),
+                  if (!context.wideWeb) ...[
+                    Text(
+                      scope.exam.shortName,
+                      style: context.type.body
+                          .copyWith(color: context.colors.secondaryLabel),
+                    ),
+                    const SizedBox(height: 24),
+                  ],
                   IgnorePointer(
                     ignoring: _saving,
                     child: ScopePicker(
                       subjects: scope.subjects,
+                      settingsRows: true,
                       selectedIds: selected,
                       minimumSelectionMessage:
                           'At least one topic stays ticked.',

@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/settings/domain/exam_change_result.dart';
@@ -326,6 +327,149 @@ class _ExamPageState extends ConsumerState<ExamPage>
           ),
         );
 
+    Widget dateModes() => SegmentedSwitch(
+          labels: const [
+            'Exact day',
+            'Month only',
+            'I don’t know',
+          ],
+          selected: mode,
+          onChanged: (index) {
+            setState(() => _mode = index);
+            if (index == 2) {
+              unawaited(_save(actions.clearExamDate));
+            } else {
+              saveDate(
+                current.year,
+                current.month,
+                index == 0 ? current.day : null,
+              );
+            }
+          },
+        );
+
+    Widget phoneWheels() => Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: ValueWheel(
+                values: [
+                  for (var m = 1; m <= 12; m++)
+                    DateFormat(mode == 0 ? 'MMM' : 'MMMM')
+                        .format(DateTime(2000, m)),
+                ],
+                selectedIndex: current.month - 1,
+                label: 'Month',
+                invalidIndices: {
+                  if (current.year <= now.year)
+                    for (var m = 0; m < now.month - 1; m++) m,
+                },
+                onSelected: (i) => saveDate(
+                  current.year,
+                  i + 1,
+                  mode == 0 ? current.day : null,
+                ),
+              ),
+            ),
+            if (mode == 0)
+              Expanded(
+                child: ValueWheel(
+                  values: [
+                    for (var d = 1;
+                        d <=
+                            DateUtils.getDaysInMonth(
+                              current.year,
+                              current.month,
+                            );
+                        d++)
+                      '$d',
+                  ],
+                  selectedIndex: current.day - 1,
+                  label: 'Day',
+                  invalidIndices: {
+                    if (current.year == now.year && current.month == now.month)
+                      for (var d = 0; d < now.day - 1; d++) d,
+                  },
+                  onSelected: (i) => saveDate(
+                    current.year,
+                    current.month,
+                    i + 1,
+                  ),
+                ),
+              ),
+            Expanded(
+              child: ValueWheel(
+                values: [
+                  for (var y = now.year; y <= current.year + 10; y++) '$y',
+                ],
+                selectedIndex: (current.year - now.year).clamp(0, 999),
+                label: 'Year',
+                onSelected: (i) => saveDate(
+                  now.year + i,
+                  current.month,
+                  mode == 0 ? current.day : null,
+                ),
+              ),
+            ),
+          ],
+        );
+
+    Widget webPickers() => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            WebPickerColumn(
+              label: 'Month',
+              values: [
+                for (var m = 1; m <= 12; m++)
+                  DateFormat(mode == 0 ? 'MMM' : 'MMMM')
+                      .format(DateTime(2000, m)),
+              ],
+              selectedIndex: current.month - 1,
+              disabledIndices: {
+                if (current.year <= now.year)
+                  for (var m = 0; m < now.month - 1; m++) m,
+              },
+              onSelected: (i) => saveDate(
+                current.year,
+                i + 1,
+                mode == 0 ? current.day : null,
+              ),
+            ),
+            if (mode == 0) ...[
+              const SizedBox(width: 12),
+              WebPickerColumn(
+                label: 'Day',
+                values: [
+                  for (var d = 1;
+                      d <=
+                          DateUtils.getDaysInMonth(current.year, current.month);
+                      d++)
+                    '$d',
+                ],
+                selectedIndex: current.day - 1,
+                disabledIndices: {
+                  if (current.year == now.year && current.month == now.month)
+                    for (var d = 0; d < now.day - 1; d++) d,
+                },
+                onSelected: (i) => saveDate(current.year, current.month, i + 1),
+              ),
+            ],
+            const SizedBox(width: 12),
+            WebPickerColumn(
+              label: 'Year',
+              values: [
+                for (var y = now.year; y <= current.year + 10; y++) '$y',
+              ],
+              selectedIndex: (current.year - now.year).clamp(0, 999),
+              onSelected: (i) => saveDate(
+                now.year + i,
+                current.month,
+                mode == 0 ? current.day : null,
+              ),
+            ),
+          ],
+        );
+
     return SettingsPanePage(
       section: 'Your exam',
       title: 'Your exam',
@@ -385,104 +529,33 @@ class _ExamPageState extends ConsumerState<ExamPage>
                           : context.colors.secondaryLabel,
                     ),
               variant: ListRowVariant.inlineEditor,
+              hideChevron: true,
+              divider: context.wideWeb && !_dateOpen,
               expanded: _dateOpen,
               onTap: () => setState(() => _dateOpen = !_dateOpen),
               editor: Column(
+                crossAxisAlignment: context.wideWeb
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.center,
                 children: [
-                  SegmentedSwitch(
-                    labels: const [
-                      'Exact day',
-                      'Month only',
-                      'I don’t know',
-                    ],
-                    selected: mode,
-                    onChanged: (index) {
-                      setState(() => _mode = index);
-                      if (index == 2) {
-                        unawaited(_save(actions.clearExamDate));
-                      } else {
-                        saveDate(
-                          current.year,
-                          current.month,
-                          index == 0 ? current.day : null,
-                        );
-                      }
-                    },
-                  ),
-                  if (mode != 2)
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: ValueWheel(
-                            values: [
-                              for (var m = 1; m <= 12; m++)
-                                DateFormat(mode == 0 ? 'MMM' : 'MMMM')
-                                    .format(DateTime(2000, m)),
-                            ],
-                            selectedIndex: current.month - 1,
-                            label: 'Month',
-                            invalidIndices: {
-                              if (current.year <= now.year)
-                                for (var m = 0; m < now.month - 1; m++) m,
-                            },
-                            onSelected: (i) => saveDate(
-                              current.year,
-                              i + 1,
-                              mode == 0 ? current.day : null,
-                            ),
-                          ),
-                        ),
-                        if (mode == 0)
-                          Expanded(
-                            child: ValueWheel(
-                              values: [
-                                for (var d = 1;
-                                    d <=
-                                        DateUtils.getDaysInMonth(
-                                          current.year,
-                                          current.month,
-                                        );
-                                    d++)
-                                  '$d',
-                              ],
-                              selectedIndex: current.day - 1,
-                              label: 'Day',
-                              invalidIndices: {
-                                if (current.year == now.year &&
-                                    current.month == now.month)
-                                  for (var d = 0; d < now.day - 1; d++) d,
-                              },
-                              onSelected: (i) => saveDate(
-                                current.year,
-                                current.month,
-                                i + 1,
-                              ),
-                            ),
-                          ),
-                        Expanded(
-                          child: ValueWheel(
-                            values: [
-                              for (var y = now.year;
-                                  y <= current.year + 10;
-                                  y++)
-                                '$y',
-                            ],
-                            selectedIndex:
-                                (current.year - now.year).clamp(0, 999),
-                            label: 'Year',
-                            onSelected: (i) => saveDate(
-                              now.year + i,
-                              current.month,
-                              mode == 0 ? current.day : null,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  if (context.wideWeb)
+                    SizedBox(width: 424, child: dateModes())
+                  else
+                    dateModes(),
+                  if (mode != 2 && context.wideWeb) ...[
+                    const SizedBox(height: 14),
+                    webPickers(),
+                  ] else if (mode != 2)
+                    phoneWheels(),
                 ],
               ),
             ),
+            if (context.wideWeb && _dateOpen)
+              Divider(
+                height: .5,
+                thickness: .5,
+                color: context.webTokens.colors.separator,
+              ),
             if (context.wideWeb)
               Padding(
                 padding:
@@ -531,11 +604,20 @@ class _ExamPageState extends ConsumerState<ExamPage>
         ),
         const SizedBox(height: 24),
         SettingsSection(
-          footer: 'Answers from your other exams count toward this one. '
-              'Nothing is ever deleted.',
+          footer: context.wideWeb
+              ? null
+              : 'Answers from your other exams count toward this one. '
+                  'Nothing is ever deleted.',
           children: [
             SettingsRow(
               title: 'Carry over progress',
+              subtitle: context.wideWeb
+                  ? 'Answers from your other exams count toward this one. '
+                      'Nothing is ever deleted.'
+                  : null,
+              subtitleStyle: context.wideWeb
+                  ? context.webTokens.sm.copyWith(height: 1.45)
+                  : null,
               variant: ListRowVariant.switchControl,
               selected: settings.carryOverProgress,
               onTap: () => unawaited(

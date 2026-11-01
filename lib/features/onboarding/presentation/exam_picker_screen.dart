@@ -21,6 +21,7 @@ import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -192,6 +193,96 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           ],
         ],
       );
+
+  /// One exam row of the board's Settings picker (`.row.c`): 55 px, title over
+  /// the organization, a tint and a check when chosen, a pill when not out yet.
+  Widget _settingsExamRow(
+    WebTokens t,
+    ExamCatalogEntry entry, {
+    required bool chosen,
+    required VoidCallback? onTap,
+  }) {
+    final enabled = widget.selectable(entry);
+    return Opacity(
+      opacity: enabled ? 1 : .45,
+      child: Semantics(
+        inMutuallyExclusiveGroup: true,
+        selected: chosen,
+        child: TextButton(
+          key: ValueKey('exam-${entry.id}'),
+          onPressed: onTap,
+          style: ButtonStyle(
+            minimumSize:
+                const WidgetStatePropertyAll(Size(double.infinity, 55)),
+            padding: const WidgetStatePropertyAll(
+              EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            ),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
+            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+            backgroundColor: WidgetStateProperty.resolveWith(
+              (s) => chosen
+                  ? t.colors.accentTint
+                  : s.contains(WidgetState.hovered) && enabled
+                      ? t.rowHover
+                      : Colors.transparent,
+            ),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            ),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      entry.shortName,
+                      style: t.style(
+                        16,
+                        height: 1.3,
+                        weight: chosen ? FontWeight.w600 : FontWeight.w400,
+                      ),
+                    ),
+                    Text(
+                      _organizations[entry.id] ?? entry.name,
+                      style: t.style(
+                        14,
+                        height: 1.3,
+                        color: t.colors.secondaryLabel,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (!enabled)
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: t.disabledBackground,
+                    borderRadius: BorderRadius.circular(99),
+                  ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    child: Text(
+                      'Coming soon',
+                      style: t.style(
+                        12,
+                        weight: FontWeight.w600,
+                        color: t.colors.secondaryLabel,
+                      ),
+                    ),
+                  ),
+                )
+              else if (chosen)
+                Icon(PantasIcons.check, size: 16, color: t.colors.accent),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -524,7 +615,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       IconButton(
                         onPressed: _saving ? null : _back,
                         tooltip: 'Close',
-                        icon: const Icon(Icons.close),
+                        color: t.colors.secondaryLabel,
+                        icon: const Icon(Icons.close, size: 18),
                       ),
                     ],
                   ),
@@ -532,6 +624,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 14),
                   child: SearchField(
+                    outlined: true,
                     hint: 'Search exams',
                     onChanged: (value) =>
                         setState(() => _query = value.trim().toLowerCase()),
@@ -598,44 +691,14 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                         for (final entry in visible.where(
                                           (entry) => entry.group == group.$1,
                                         ))
-                                          RadioRow(
-                                            key: ValueKey('exam-${entry.id}'),
-                                            title: entry.shortName,
-                                            selected: selected == entry.id,
+                                          _settingsExamRow(
+                                            t,
+                                            entry,
+                                            chosen: selected == entry.id,
                                             onTap: _saving ||
                                                     !widget.selectable(entry)
                                                 ? null
                                                 : () => _pick(entry, active),
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 12,
-                                              vertical: 10,
-                                            ),
-                                            content: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  entry.shortName,
-                                                  style: t.style(
-                                                    16,
-                                                    weight: selected == entry.id
-                                                        ? FontWeight.w600
-                                                        : FontWeight.w400,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  _organizations[entry.id] ??
-                                                      entry.name,
-                                                  style: t.sm,
-                                                ),
-                                              ],
-                                            ),
-                                            trailing: !widget.selectable(entry)
-                                                ? Text(
-                                                    'Coming soon',
-                                                    style: t.sm,
-                                                  )
-                                                : null,
                                           ),
                                       ],
                                     ),
@@ -661,10 +724,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     runSpacing: 12,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      WebButton(
+                      WebTextAction(
                         label: "My exam isn't listed",
-                        variant: WebButtonVariant.tertiary,
-                        onPressed: _saving ? null : _custom,
+                        onPressed: _saving ? () {} : _custom,
                       ),
                       SizedBox(
                         width: 380,

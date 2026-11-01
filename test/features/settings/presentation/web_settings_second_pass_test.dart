@@ -8,7 +8,6 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
-import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -156,13 +155,13 @@ void main() {
       );
       await tester.tap(find.text('Exam date'));
       await tester.pumpAndSettle();
-      expect(find.byType(ValueWheel), findsNWidgets(3));
+      expect(find.byType(WebPickerColumn), findsNWidgets(3));
       await tester.tap(find.text('Month only'));
       await tester.pumpAndSettle();
-      expect(find.byType(ValueWheel), findsNWidgets(2));
+      expect(find.byType(WebPickerColumn), findsNWidgets(2));
       await tester.tap(find.text('I don’t know'));
       await tester.pumpAndSettle();
-      expect(find.byType(ValueWheel), findsNothing);
+      expect(find.byType(WebPickerColumn), findsNothing);
       expect(
         find.text('Your plan keeps a steady pace until you add a date.'),
         findsOneWidget,

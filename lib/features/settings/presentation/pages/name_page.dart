@@ -43,6 +43,17 @@ class _NamePageState extends ConsumerState<NamePage> {
     }
   }
 
+  OutlineInputBorder _fieldBorder(BuildContext context, double width) =>
+      OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(
+          color: width > 1
+              ? context.webTokens.colors.accent
+              : context.webTokens.colors.separator,
+          width: width,
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(userSettingsProvider);
@@ -69,27 +80,30 @@ class _NamePageState extends ConsumerState<NamePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextField(
-                      controller: _controller,
-                      enabled: _loaded && !_saving,
-                      style: context.webTokens.style(16),
-                      decoration: InputDecoration(
-                        labelText: 'Name',
-                        filled: true,
-                        fillColor: context.webTokens.colors.surface,
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 14,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: context.webTokens.colors.separator,
+                    // Board `.field.focus`: 48 px, white, 2 px accent edge.
+                    SizedBox(
+                      height: 48,
+                      child: Semantics(
+                        label: 'Name',
+                        child: TextField(
+                          controller: _controller,
+                          enabled: _loaded && !_saving,
+                          style: context.webTokens.style(16),
+                          textAlignVertical: TextAlignVertical.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: context.webTokens.colors.surface,
+                            contentPadding:
+                                const EdgeInsets.symmetric(horizontal: 14),
+                            border: _fieldBorder(context, 2),
+                            enabledBorder: _fieldBorder(context, 2),
+                            focusedBorder: _fieldBorder(context, 2),
+                            disabledBorder: _fieldBorder(context, 1),
                           ),
+                          textCapitalization: TextCapitalization.words,
+                          onSubmitted: (_) => _back(),
                         ),
                       ),
-                      textCapitalization: TextCapitalization.words,
-                      onSubmitted: (_) => _back(),
                     ),
                     const SizedBox(height: 8),
                     Text(
