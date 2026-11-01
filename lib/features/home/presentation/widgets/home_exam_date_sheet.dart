@@ -74,7 +74,7 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
     );
     final content = Padding(
       padding: wide
-          ? const EdgeInsets.all(24)
+          ? const EdgeInsets.all(26)
           : const EdgeInsets.fromLTRB(20, 8, 20, 34),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -85,11 +85,11 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
                 ? 'Which day is your exam?'
                 : 'When is your exam?',
             style: wide
-                ? context.webTokens.h2
+                ? context.webTokens.h3
                 : context.type.emphasized
                     .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: wide ? 0 : 4),
           Text(
             wide && widget.requireDay
                 ? 'Pick a day in $monthLabel.'
@@ -181,6 +181,8 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
 }
 
 /// The same month-first value as the phone picker, laid out beside a calendar.
+/// Sizes follow the web date boards: a 160 px month column of 77 by 38 tiles
+/// in two columns beside a 14 px padded calendar panel with 42 by 32 day cells.
 class HomeWebDatePicker extends StatelessWidget {
   const HomeWebDatePicker({
     required this.value,
@@ -194,88 +196,136 @@ class HomeWebDatePicker extends StatelessWidget {
   final ValueChanged<MonthFirstDate> onChanged;
   final bool requireDay;
 
+  static const _panelHeight = 259.0;
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final month = value.month;
+    final weeks = month == null
+        ? 0
+        : (DateTime(value.year, month).weekday % 7 +
+                DateTime(value.year, month + 1, 0).day +
+                6) ~/
+            7;
     final calendar = month == null
         ? const SizedBox.shrink()
-        : Column(
+        : Container(
             key: const ValueKey('home-web-calendar'),
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      DateFormat('MMMM yyyy', 'en_US')
-                          .format(DateTime(value.year, month)),
-                      style: t.style(15, weight: FontWeight.w600),
-                    ),
-                  ),
-                  if (!requireDay) Text('Optional', style: t.sm),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Row(
-                children: [
-                  for (final day in ['S', 'M', 'T', 'W', 'T', 'F', 'S'])
-                    Expanded(child: Center(child: Text(day, style: t.sm))),
-                ],
-              ),
-              const SizedBox(height: 6),
-              for (var week = 0;
-                  week <
-                      (DateTime(value.year, month).weekday % 7 +
-                              DateTime(value.year, month + 1, 0).day +
-                              6) ~/
-                          7;
-                  week++)
+            height: requireDay ? null : _panelHeight,
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: t.colors.background,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
                 Row(
                   children: [
-                    for (var weekday = 0; weekday < 7; weekday++)
-                      Expanded(
-                        child: _day(
-                          context,
-                          week * 7 +
-                              weekday -
-                              DateTime(value.year, month).weekday % 7 +
-                              1,
-                        ),
+                    Expanded(
+                      child: Text(
+                        DateFormat('MMMM yyyy', 'en_US')
+                            .format(DateTime(value.year, month)),
+                        style: t.style(16, weight: FontWeight.w700),
                       ),
+                    ),
+                    if (!requireDay) Text('Optional', style: t.sm),
                   ],
                 ),
-            ],
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    for (var i = 0; i < 7; i++) ...[
+                      if (i > 0) const SizedBox(width: 2),
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            'SMTWTFS'[i],
+                            style: t.style(
+                              11,
+                              weight: FontWeight.w600,
+                              color: t.dark
+                                  ? t.colors.tertiaryLabel
+                                  : const Color(0xFF8A8A8E),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 4),
+                for (var week = 0; week < weeks; week++) ...[
+                  if (week > 0) const SizedBox(height: 2),
+                  Row(
+                    children: [
+                      for (var weekday = 0; weekday < 7; weekday++) ...[
+                        if (weekday > 0) const SizedBox(width: 2),
+                        Expanded(
+                          child: _day(
+                            context,
+                            week * 7 +
+                                weekday -
+                                DateTime(value.year, month).weekday % 7 +
+                                1,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+              ],
+            ),
           );
     final months = SizedBox(
       key: const ValueKey('home-web-months'),
       width: 160,
-      height: 230,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          final year = today.year + index;
-          final first = year == today.year ? today.month : 1;
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Text('$year', style: t.sm),
-              ),
-              for (var start = first; start <= 12; start += 3)
-                Row(
-                  children: [
-                    for (var offset = 0; offset < 3; offset++)
-                      Expanded(
-                        child: start + offset > 12
-                            ? const SizedBox.shrink()
-                            : _month(context, year, start + offset),
+      height: _panelHeight,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                final year = today.year + index;
+                final first = year == today.year ? today.month : 1;
+                return Padding(
+                  padding: EdgeInsets.only(top: index == 0 ? 0 : 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        '$year',
+                        style: t.style(
+                          13,
+                          weight: FontWeight.w700,
+                          color: t.colors.secondaryLabel,
+                        ),
                       ),
-                  ],
-                ),
-            ],
-          );
-        },
+                      const SizedBox(height: 8),
+                      for (var start = first; start <= 12; start += 2) ...[
+                        if (start > first) const SizedBox(height: 6),
+                        Row(
+                          children: [
+                            Expanded(child: _month(context, year, start)),
+                            const SizedBox(width: 6),
+                            Expanded(
+                              child: start + 1 > 12
+                                  ? const SizedBox.shrink()
+                                  : _month(context, year, start + 1),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Text('Scroll for more', style: t.sm),
+        ],
       ),
     );
     return Column(
@@ -288,7 +338,7 @@ class HomeWebDatePicker extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               months,
-              const SizedBox(width: 20),
+              const SizedBox(width: 14),
               Expanded(child: calendar),
             ],
           ),
@@ -299,23 +349,33 @@ class HomeWebDatePicker extends StatelessWidget {
   Widget _month(BuildContext context, int year, int month) {
     final t = context.webTokens;
     final selected = year == value.year && month == value.month;
-    return TextButton(
-      key: ValueKey(
-        year == value.year ? 'date-month-$month' : 'date-month-$year-$month',
-      ),
-      onPressed: () => onChanged(MonthFirstDate(year: year, month: month)),
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.zero,
-        minimumSize: const Size(0, 40),
-        backgroundColor: selected ? t.colors.accentFill : Colors.transparent,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      ),
-      child: Text(
-        DateFormat('MMM', 'en_US').format(DateTime(year, month)),
-        style: t.style(
-          14,
-          weight: FontWeight.w500,
-          color: selected ? Colors.white : t.colors.label,
+    return SizedBox(
+      height: 38,
+      child: TextButton(
+        key: ValueKey(
+          year == value.year ? 'date-month-$month' : 'date-month-$year-$month',
+        ),
+        onPressed: () => onChanged(MonthFirstDate(year: year, month: month)),
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          minimumSize: const Size(0, 38),
+          backgroundColor: selected ? t.colors.accentFill : t.colors.surface,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: selected
+                ? BorderSide.none
+                : BorderSide(
+                    color: t.dark ? t.cardEdge : const Color(0xFFE3E3E8),
+                  ),
+          ),
+        ),
+        child: Text(
+          DateFormat('MMM', 'en_US').format(DateTime(year, month)),
+          style: t.style(
+            16,
+            weight: FontWeight.w600,
+            color: selected ? Colors.white : t.colors.label,
+          ),
         ),
       ),
     );
@@ -324,35 +384,40 @@ class HomeWebDatePicker extends StatelessWidget {
   Widget _day(BuildContext context, int day) {
     final month = value.month!;
     if (day < 1 || day > DateTime(value.year, month + 1, 0).day) {
-      return const SizedBox(height: 36);
+      return const SizedBox(height: 32);
     }
     final date = DateTime(value.year, month, day);
     final past = date.isBefore(DateTime(today.year, today.month, today.day));
     final selected = day == value.day;
     final t = context.webTokens;
-    return TextButton(
-      key: ValueKey('date-day-$day'),
-      onPressed: past
-          ? null
-          : () => onChanged(
-                MonthFirstDate(year: value.year, month: month, day: day),
-              ),
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.zero,
-        minimumSize: const Size(0, 36),
-        backgroundColor: selected ? t.colors.accentFill : Colors.transparent,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-      child: Text(
-        '$day',
-        style: t.style(
-          14,
-          weight: selected ? FontWeight.w600 : FontWeight.w400,
-          color: past
-              ? t.colors.tertiaryLabel
-              : selected
-                  ? Colors.white
-                  : t.colors.label,
+    return SizedBox(
+      height: 32,
+      child: TextButton(
+        key: ValueKey('date-day-$day'),
+        onPressed: past
+            ? null
+            : () => onChanged(
+                  MonthFirstDate(year: value.year, month: month, day: day),
+                ),
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          minimumSize: const Size(0, 32),
+          backgroundColor: selected ? t.colors.accentFill : Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(selected ? 99 : 8),
+          ),
+        ),
+        child: Text(
+          '$day',
+          style: t.style(
+            14,
+            weight: selected ? FontWeight.w700 : FontWeight.w400,
+            color: past
+                ? t.colors.tertiaryLabel
+                : selected
+                    ? Colors.white
+                    : t.colors.label,
+          ),
         ),
       ),
     );

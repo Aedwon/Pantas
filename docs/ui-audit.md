@@ -2408,3 +2408,23 @@ For Aedwon (not changed): no Enter chip on Try Again/Update (Enter not bound); b
 line missing; "Pick with A to D" hint missing; note-reason prompt not shown on a Pro miss.
 
 Checks: analyze clean; layering OK; core/ui, shell, core/error tests pass (749).
+
+### Second round: Home and Quiz states (2026-11-01)
+
+Sonnet reached 13 of 14 more states (staging worktree `build/visual-pass/round2/shots/`); lead
+spot-checked HM_NoDateModal (match; app shows no month picked). Reached: HM_Advanced,
+AdvanceAgain, MockMoved, MockDropped, NothingDueReview, ManyLessons, MonthOnlyPick, NoDateModal,
+NoticeClosed, Trial; QS_EndLow, QS_EndPerfect. Not reached: HM_Service (remote flag),
+HM_LongTitle (needs a long content title). Seed adds localState advanceAgain, mockMoved,
+mockDropped, nothingDueReview, trial, manyLessons, and makes Sunday a study day when today is Sunday.
+
+Fixed (wide web): Home exam date dialog rebuilt to the board (2-column month tiles, tinted
+calendar panel, 42x32 day cells, padding 26, title 20, "Scroll for more"); Home notice open
+layout (16/600 title, 22 px icon, 44 px close, left-aligned buttons); quiz end close X gray 22 px;
+Study lesson-row bookmark gray. Sidebar bookmark icons are teal on the boards too (kept).
+
+For Aedwon (not changed): MockMoved/MockDropped do not show "moved to today"; month-only notice
+shows an inline day row the board lacks; trial wording differs.
+
+Checks: analyze clean; home, quiz, lesson, core/ui, core/dev tests pass (2,492); runner tests OK;
+layering OK.

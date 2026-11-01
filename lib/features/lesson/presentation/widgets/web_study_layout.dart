@@ -588,7 +588,10 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                             size: 18,
                             color: lesson.isBookmarked
                                 ? t.colors.accent
-                                : t.colors.tertiaryLabel,
+                                // W_Study: lesson-row bookmark is #8A8A8E.
+                                : t.dark
+                                    ? t.colors.tertiaryLabel
+                                    : const Color(0xFF8A8A8E),
                           ),
                         ),
                       ),

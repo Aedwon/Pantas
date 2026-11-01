@@ -59,6 +59,17 @@ const STATES = {
   examPassed: {examInDays: -7},
   noDate: {examInDays: null},
   monthOnly: {examMonth: true},
+  // The student finished today, took the extra day, and finished that too, so the offer returns.
+  advanceAgain: {finishToday: true, advanceTimes: 1, finishAdvanced: true},
+  // The mock is due today with the exam 4 days or 1 day out. The "moved to today" line needs the server to
+  // have stored an earlier mock day, which this seed cannot arrange, so Home shows the ordinary note.
+  mockMoved: {examInDays: 4},
+  mockDropped: {examInDays: 1},
+  // A busy day: the exam 10 days out leaves many lessons for today.
+  manyLessons: {examInDays: 10},
+  nothingDueReview: {noHistory: true, coverDaysAgo: 1, examInDays: 5},
+  // A Pro trial with two days left (the grant's end is moved; startsAt stays).
+  trial: {trialDaysLeft: 2},
 };
 if (stateId !== undefined && !STATES[stateId]) throw Error(`Unknown state ${stateId}.`);
 const state$ = STATES[stateId] ?? {};
@@ -74,7 +85,7 @@ initializeApp({projectId: project});
 const db = getFirestore();
 const lib = name => require(resolve(`functions/lib/${name}.js`));
 const {recordSession} = lib('ingestSession');
-const {saveExamSettings, readStudyRoadmap} = lib('roadmap');
+const {saveExamSettings, readStudyRoadmap, advanceStudyRoadmap} = lib('roadmap');
 const {writeLessonRead} = lib('studyObservations');
 const {beginMock, recordMock} = lib('mock');
 const {loadExamContent, clearExamContentCache} = lib('_examContent');
@@ -233,7 +244,8 @@ const monthStart = new Date(today * DAY);
 const examDate = profile.examMonth
   ? {precision: 'month', year: monthStart.getUTCFullYear(), month: monthStart.getUTCMonth() + 1}
   : examDay === null ? null : {precision: 'day', day: dayText(examDay)};
-const settings = {expectedUid: uid, examId: EXAM, examDate, studyDays: [1, 2, 3, 4, 5, 6],
+// The boards show a study day. If today is a Sunday (never a study day), Sunday is added so Home draws a day with work.
+const settings = {expectedUid: uid, examId: EXAM, examDate, studyDays: weekday(today) === 0 ? [1, 2, 3, 4, 5, 6, 7] : [1, 2, 3, 4, 5, 6],
   ...(profile.unassessed ? {assessmentCompleted: false} : profile.noHistory ? {assessmentCompleted: true} : {})};
 // A day off: every weekday but today's, Sunday being 7 on the server.
 const finalSettings = profile.restToday ? {...settings, studyDays: [1, 2, 3, 4, 5, 6, 7].filter(day => day !== (weekday(today) || 7))}
@@ -370,6 +382,14 @@ if (profile.coverDaysAgo) {
   longest = 1;
 }
 
+// The Pro trial grant: the web trial lasts seven days; a state may leave fewer. Other states restore it.
+for (const doc of (await db.collection(`users/${uid}/grants`).get()).docs) {
+  if (doc.get('source') !== 'trial') continue;
+  const endsAt = profile.trialDaysLeft === undefined ? doc.get('startsAt') + 7 * DAY
+    : at(today, 12) + profile.trialDaysLeft * DAY;
+  if (doc.get('endsAt') !== endsAt) await doc.ref.update({endsAt});
+}
+
 // Leave the plan computed for the real time, as a real student's last request would.
 await saveExamSettings(auth, finalSettings, {db, allow});
 const readPlan = () => readStudyRoadmap(auth, {expectedUid: uid, examId: EXAM}, {db, allow});
@@ -390,6 +410,26 @@ if (profile.finishToday) {
   for (let from = 0, n = 0; from < ids.length; from += 300, n++) { // a session takes at most 300 answers
     await session({sessionId: `sample-${profileId}-today-${n}`, origin: 'today_interleaved', day: today,
       startAt: startAt + (10 + n) * 60_000, ids: ids.slice(from, from + 300), accuracyFor: () => profile.accuracy});
+  }
+  plan = await readPlan();
+}
+// The extra day, taken and finished: the server's advance handler, then the new remaining work answered.
+for (let n = 0; n < (profile.advanceTimes ?? 0); n++) {
+  await advanceStudyRoadmap(auth, {expectedUid: uid, examId: EXAM, requestId: `sample-${uid}-advance-${n}`,
+    expectedDay: plan.today.day, expectedRevision: plan.revision}, {db, allow});
+  plan = await readPlan();
+  if (!profile.finishAdvanced) continue;
+  const finishAt = Math.min(at(today, 5), Date.now() - 20 * 60_000);
+  let minute = 0;
+  for (const lessonId of plan.remaining.lessonIds) {
+    const readAt = finishAt - 10 * 60_000 + minute++ * 30_000;
+    await writeLessonRead(auth, {expectedUid: uid, lessonId, readAt}, at$(readAt));
+    counts.lessons++;
+  }
+  const ids = [...new Set([...plan.remaining.reviewQuestionIds, ...plan.remaining.newQuestionIds])];
+  for (let from = 0, k = 0; from < ids.length; from += 300, k++) {
+    await session({sessionId: `sample-${profileId}-advanced-${n}-${k}`, origin: 'today_interleaved', day: today,
+      startAt: finishAt - 5 * 60_000 + k * 1000, ids: ids.slice(from, from + 300), accuracyFor: () => profile.accuracy});
   }
   plan = await readPlan();
 }

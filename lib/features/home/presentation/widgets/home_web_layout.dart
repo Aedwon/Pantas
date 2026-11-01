@@ -373,59 +373,79 @@ class HomeWebNotice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    // Board `.notice`: a 1 px inset rule drawn over the card, so it adds no
+    // layout; `.nh` is 52 px tall with 18 px left and 6 px right padding;
+    // `.nb` has 18 px sides, 16 px bottom and 12 px between its parts.
     return Container(
       decoration: BoxDecoration(
         color: t.colors.surface,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      foregroundDecoration: BoxDecoration(
         border: Border.all(color: t.colors.separator),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: TextButton(
-                  onPressed: onToggle,
-                  style: TextButton.styleFrom(
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 14,
+          ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 52),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: onToggle,
+                    style: TextButton.styleFrom(
+                      alignment: Alignment.centerLeft,
+                      minimumSize: const Size(0, 52),
+                      padding: const EdgeInsets.only(left: 18),
+                      shape: const RoundedRectangleBorder(),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          icon ?? PantasIcons.addDate,
+                          size: 22,
+                          color: iconColor ?? t.colors.secondaryLabel,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            title,
+                            style: t.style(16, weight: FontWeight.w600),
+                          ),
+                        ),
+                        if (detail != null) ...[
+                          const SizedBox(width: 12),
+                          Icon(
+                            expanded ? Icons.expand_less : Icons.expand_more,
+                            size: 16,
+                            color: t.colors.secondaryLabel,
+                          ),
+                        ],
+                      ],
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        icon ?? PantasIcons.addDate,
-                        size: 18,
-                        color: iconColor ?? t.colors.secondaryLabel,
+                ),
+                const SizedBox(width: 12),
+                Padding(
+                  padding: const EdgeInsets.only(right: 6),
+                  child: SizedBox.square(
+                    dimension: 44,
+                    child: IconButton(
+                      tooltip: 'Dismiss',
+                      onPressed: onClose,
+                      padding: EdgeInsets.zero,
+                      icon: Icon(
+                        Icons.close,
+                        size: 16,
+                        color: t.colors.secondaryLabel,
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          title,
-                          style: t.style(15, weight: FontWeight.w500),
-                        ),
-                      ),
-                      if (detail != null) ...[
-                        const SizedBox(width: 8),
-                        Icon(
-                          expanded ? Icons.expand_more : Icons.chevron_right,
-                          size: 15,
-                          color: t.colors.secondaryLabel,
-                        ),
-                      ],
-                    ],
+                    ),
                   ),
                 ),
-              ),
-              IconButton(
-                tooltip: 'Dismiss',
-                onPressed: onClose,
-                icon: const Icon(Icons.close, size: 14),
-              ),
-            ],
+              ],
+            ),
           ),
           if (expanded)
             Padding(
@@ -438,10 +458,9 @@ class HomeWebNotice extends StatelessWidget {
                     const SizedBox(height: 12),
                     editor!,
                   ],
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 12),
                   Wrap(
-                    alignment: WrapAlignment.end,
-                    spacing: 8,
+                    spacing: 12,
                     children: [
                       if (secondaryLabel != null)
                         WebButton(

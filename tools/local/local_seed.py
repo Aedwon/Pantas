@@ -8,7 +8,8 @@ import threading
 PROFILES = ('new', 'steady', 'behind', 'examWeek')
 # Home states the seed can set up on top of a profile (see STATES in seed_student.mjs).
 STATES = ('dayDone', 'nothingDue', 'dayOff', 'resume', 'beforeAssessment', 'mockDay', 'reviewWeek', 'lastDay',
-          'examDay', 'examPassed', 'noDate', 'monthOnly')
+          'examDay', 'examPassed', 'noDate', 'monthOnly', 'advanceAgain', 'mockMoved', 'mockDropped',
+          'nothingDueReview', 'trial', 'manyLessons')
 UID = re.compile(r'^[A-Za-z0-9_-]{1,128}$')
 _one_at_a_time = threading.Lock()
 

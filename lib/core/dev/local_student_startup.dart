@@ -44,6 +44,12 @@ const localHomeStates = {
   'examPassed',
   'noDate',
   'monthOnly',
+  'advanceAgain',
+  'mockMoved',
+  'mockDropped',
+  'nothingDueReview',
+  'trial',
+  'manyLessons',
 };
 
 /// The Home state named by `?localState=<id>` in [url], or null.

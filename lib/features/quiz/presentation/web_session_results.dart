@@ -310,13 +310,15 @@ class _CloseButton extends StatelessWidget {
             padding: EdgeInsets.zero,
             minimumSize: Size.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            foregroundColor: t.colors.accent,
+            // Board `.ib` on the end screens draws its X in #8E8E93, 22 px.
+            foregroundColor:
+                t.dark ? t.colors.tertiaryLabel : const Color(0xFF8E8E93),
             overlayColor: Colors.transparent,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: const Icon(Icons.close, size: 24),
+          child: const Icon(Icons.close, size: 22),
         ),
       ),
     );
@@ -443,9 +445,9 @@ class WebQuizQuestionList extends StatelessWidget {
                                 WebRow(
                                   boardMetrics: true,
                                   chevron: WebRowChevron.always,
-                                  mathTitle: session.questions[index]
-                                          .shortLabel ==
-                                      null,
+                                  mathTitle:
+                                      session.questions[index].shortLabel ==
+                                          null,
                                   title: session.questions[index].shortLabel ??
                                       session.questions[index].stem,
                                   subtitle: subjectNames[
