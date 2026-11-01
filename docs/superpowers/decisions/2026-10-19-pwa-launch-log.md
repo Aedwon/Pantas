@@ -2366,3 +2366,12 @@ with an ellipsis (decided earlier); Home highlighted on the plan page; whole-pes
 accuracy axis fitted to the data; white cards for "More about you"; board report icon, teal after a
 report; failed lesson load shows the retry error. Past mock screen (MK_PastPro): pending, shown with
 real screenshots.
+
+## Nov 2: phone tab bar on pushed pages
+
+Aedwon: "Yes, follow the board". On phone, pages opened from a tab (Your plan, Day, Week,
+Performance, Record, Tendencies, Settings subpages) keep the floating tab bar, with the owning tab
+highlighted, as on the mobile boards. This moves those routes inside the tab shell on phone and
+supersedes the AGENTS "push for destinations outside the tab shell" practice for these pages.
+Also Nov 1 to 2: "Count Them" built per the exam switching spec (mocks never carry; streak follows
+Home stats); prompt keeps the board copy with no figure.
