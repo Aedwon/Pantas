@@ -5,7 +5,7 @@
 // The server owns study records on web, so this runs the compiled server handlers with admin
 // dependencies: exam settings, lesson reads, finished sessions and mocks, each stamped with its own
 // past time. Streak, accuracy, due reviews and the plan are then whatever the server computes.
-// It first deletes that uid's study documents (never its entitlement or trial) and nothing else.
+// It first deletes that uid's study documents and cloud backup (never its entitlement or trial) and nothing else.
 import {createRequire} from 'node:module';
 import {resolve} from 'node:path';
 import {networkInterfaces} from 'node:os';
@@ -119,6 +119,14 @@ const at$ = now => ({db, now: () => now, allow});
 for (const ref of await db.collection(`users/${uid}/server`).listDocuments()) {
   if (['entitlement', 'trial'].includes(ref.id)) continue;
   await db.recursiveDelete(ref);
+}
+// The cloud backup of an earlier sample student (its answers and assessment result) would be
+// restored into the next browser, so a re-seeded account must not keep it.
+await db.recursiveDelete(db.collection(`users/${uid}/sync_generations`));
+await db.recursiveDelete(db.collection(`users/${uid}/sync_state`));
+// Rate-limit counters from earlier loads would block the plan (the trial counter stays).
+for (const ref of await db.collection(`users/${uid}/limits`).listDocuments()) {
+  if (ref.id !== 'webTrial') await ref.delete();
 }
 
 // ---------------------------------------------------------------- content
