@@ -112,12 +112,13 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    Aedwon asked to track usage per step; note it in the findings.
 
 10. Status Nov 1 (current): web first round complete for every area; second round (Home and
-   Quiz states) done. Fixes and staging at 9043ad48. Per-area details and Aedwon's review items:
-   `docs/ui-audit.md` "Visual pass" sections. Waiting for Aedwon: web Update button fix (opens
-   Google Play on web); insights refetch loop fix on local branch `web/insights-refetch-loop`
-   f769640b (not pushed); CSE mock blueprint missing from the content root (release blocker);
-   copy, price and behavior differences listed per area. Next: remaining unreached states that
-   need special seeding, then the queued mobile pass.
+   Quiz states) done. Fixes and staging include: insights refetch loop fix, web Update fix
+   (reload in place; verify a real reload after deploy), Plan history single fetch. CSE mock
+   blueprints added to content branch 912a57a7 by the content session (dry run: 3 blueprints).
+   Per-area details and Aedwon's review items: `docs/ui-audit.md` "Visual pass" sections on the
+   fixes branch. Open: `getWebEntitlement` called twice at load (low priority, untraced);
+   unreached states (about a third of web boards: loading/error, irreversible actions, UPCAT-style
+   mocks, Pro plan states). Next: the queued mobile pass.
 
 ## Why
 

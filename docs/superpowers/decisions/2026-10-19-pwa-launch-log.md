@@ -2353,3 +2353,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   Plan visit (history page 1 fetched twice: `plan_provider.dart:100` and
   `plan_history_reader.dart:16`), fix is to reuse the first response (1 call per visit saved);
   `getWebEntitlement` 2 calls at load (second caller untraced), low priority. Waiting for Aedwon.
+- Nov 1: Aedwon: "ok fix it". Plan history double fetch fixed (reader reuses page 1); on fixes and staging. Test failed before (missing first-page argument), passes after; home tests 550 pass.
