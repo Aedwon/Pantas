@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/platform/app_update/app_update.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -23,10 +25,21 @@ bool updateIsRequired({
 /// actively wrong. It says the one thing the student can act on and
 /// nothing else: no version numbers, no changelog, no apology.
 class UpdateRequiredPage extends StatelessWidget {
-  const UpdateRequiredPage({super.key, this.storeUrl});
+  const UpdateRequiredPage({
+    super.key,
+    this.storeUrl,
+    this.isWeb = kIsWeb,
+    this.updateInPlace = updateWebAppInPlace,
+  });
 
   /// Overridden in tests. Null uses the platform's own listing.
   final Uri? storeUrl;
+
+  /// On web the page updates in place. Overridden in tests.
+  final bool isWeb;
+
+  /// Reloads the web app on its newest build. Overridden in tests.
+  final Future<void> Function() updateInPlace;
 
   static final Uri _playListing = Uri.parse(
     'https://play.google.com/store/apps/details?id=com.aedwon.pantas',
@@ -124,6 +137,10 @@ class UpdateRequiredPage extends StatelessWidget {
   }
 
   Future<void> _openStore(BuildContext context) async {
+    if (isWeb) {
+      await updateInPlace();
+      return;
+    }
     await launchUrl(
       storeUrl ?? _playListing,
       mode: LaunchMode.externalApplication,

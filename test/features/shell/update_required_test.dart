@@ -308,4 +308,33 @@ void main() {
     expect(args['useWebView'], false);
     expect(args['useSafariVC'], false);
   });
+
+  testWidgets('on web Update reloads in place and never opens Google Play',
+      (tester) async {
+    const channel = MethodChannel('plugins.flutter.io/url_launcher');
+    final launches = <MethodCall>[];
+    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+      channel,
+      (call) async {
+        launches.add(call);
+        return true;
+      },
+    );
+    addTearDown(
+      () => tester.binding.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, null),
+    );
+    var updates = 0;
+    await pumpAccessibilitySurface(
+      tester,
+      UpdateRequiredPage(
+        isWeb: true,
+        updateInPlace: () async => updates++,
+      ),
+    );
+    await tester.tap(find.text('Update'));
+    await tester.pumpAndSettle();
+    expect(updates, 1);
+    expect(launches, isEmpty);
+  });
 }

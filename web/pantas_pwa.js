@@ -107,5 +107,45 @@
       );
     },
     registerWorker: registerWorker,
+    // Forced update: removes this browser's worker and cached app files, then
+    // reloads so the next load comes from the network. Always reloads.
+    updateNow: function () {
+      var work = [];
+      try {
+        if ('serviceWorker' in navigator) {
+          work.push(
+            navigator.serviceWorker.getRegistrations().then(function (list) {
+              return Promise.all(
+                list.map(function (registration) {
+                  return registration.unregister();
+                })
+              );
+            })
+          );
+        }
+        if (window.caches) {
+          work.push(
+            caches.keys().then(function (names) {
+              return Promise.all(
+                names
+                  .filter(function (name) {
+                    return name.indexOf('pantas-shell-') === 0;
+                  })
+                  .map(function (name) {
+                    return caches.delete(name);
+                  })
+              );
+            })
+          );
+        }
+      } catch (_) {}
+      return Promise.all(
+        work.map(function (job) {
+          return job.catch(function () {});
+        })
+      ).then(function () {
+        window.location.reload();
+      });
+    },
   };
 })();
