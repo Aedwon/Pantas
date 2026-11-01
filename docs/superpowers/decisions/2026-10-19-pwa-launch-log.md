@@ -2344,3 +2344,12 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   (`tools/local/run_web_local.py`) is now redundant and copies only Professional; engineering can
   remove it. The root also carries `upcat.yaml` and all 9 exam catalog documents, unchanged from
   before.
+- Nov 1, done: web Update fix on fixes and staging (button calls `pantasPwa.updateNow`: unregister
+  service workers, delete `pantas-shell-*` caches, reload; Android keeps Play). Test failed on old
+  code. Not tested as a real browser reload; check after deploy. It unregisters every service
+  worker on the origin, which only matters if web push is added later.
+- Nov 1, server-call audit (Sonnet, headless counts, four sample students): Home idle makes 0 calls
+  in 60 s; Study, Performance and repeat visits make none. Offenders: `getRoadmap` called twice per
+  Plan visit (history page 1 fetched twice: `plan_provider.dart:100` and
+  `plan_history_reader.dart:16`), fix is to reuse the first response (1 call per visit saved);
+  `getWebEntitlement` 2 calls at load (second caller untraced), low priority. Waiting for Aedwon.
