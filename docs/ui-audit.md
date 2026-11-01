@@ -2348,3 +2348,20 @@ For Aedwon / next batch (not changed):
 - Board figures the app does not compute (PL_Plan "7 to 8 a day") not added.
 
 Checks: analyze clean; home and core/ui tests pass (1,229); layering OK.
+
+### Record, bookmarks and custom quiz fix batch 1 (2026-11-01)
+
+Sonnet captured 20 of 33 BUILD boards (staging worktree `build/visual-pass/record/shots/`); lead
+spot-checked BM_Edit (match). Not captured: MY_RecordFirst, MY_TendNew, remaining CZ states,
+MY_RecordRest, MY_TendError, CM_* and the two reference sheets (need seeding).
+
+Fixed (wide web): sidebar highlights Home on /plan and /performance; Record and Tendencies title,
+back link and stat card heights; Tendencies hero left-aligned; bookmarks drawer header, rows 71 px,
+edit rows, footer, scrim and toast; reader "Bookmarked" toast intrinsic width; Customize your own
+rows 62 px, panel, full-width Start, stepper buttons.
+
+For Aedwon (not changed): Wrapped row stays hidden (HANDOFF); accuracy chart axis 0/50/100 vs the
+board's 40/60/80; reader progress bar under the header; Study sidebar bookmark icons teal vs the
+board's gray (not yet matched).
+
+Checks: analyze clean; layering OK; five test folders pass (2,496).

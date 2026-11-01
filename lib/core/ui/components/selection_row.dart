@@ -18,6 +18,8 @@ class CheckboxRow extends StatelessWidget {
     this.gap = 12,
     this.minHeight = 44,
     this.hoverFill = true,
+    this.markSize = 24,
+    this.standardDensity = false,
     super.key,
   });
   final String title;
@@ -38,8 +40,16 @@ class CheckboxRow extends StatelessWidget {
   /// False when the container draws its own hover state.
   final bool hoverFill;
 
+  /// Side of the check box. Nested rows on the web boards use 20.
+  final double markSize;
+
+  /// Board rows with fixed heights ignore the desktop compact density.
+  final bool standardDensity;
+
   @override
   Widget build(BuildContext context) => _SelectionRow(
+        standardDensity: standardDensity,
+        markSize: markSize,
         title: title,
         selected: selected,
         mixed: mixed,
@@ -110,7 +120,11 @@ class _SelectionRow extends StatelessWidget {
     this.gap = 12,
     this.minHeight = 44,
     this.hoverFill = true,
+    this.markSize = 24,
+    this.standardDensity = false,
   });
+  final bool standardDensity;
+  final double markSize;
   final double gap;
   final double minHeight;
   final bool hoverFill;
@@ -142,6 +156,7 @@ class _SelectionRow extends StatelessWidget {
       child: TextButton(
         onPressed: onTap,
         style: ButtonStyle(
+          visualDensity: standardDensity ? VisualDensity.standard : null,
           minimumSize: WidgetStatePropertyAll(Size(0, minHeight)),
           padding: WidgetStatePropertyAll(padding),
           alignment: Alignment.centerLeft,
@@ -183,6 +198,7 @@ class _SelectionRow extends StatelessWidget {
                   if (showMark) ...[
                     ExcludeSemantics(
                       child: _SelectionMark(
+                        size: markSize,
                         selected: selected,
                         mixed: mixed,
                         radio: radio,
@@ -214,10 +230,18 @@ class _SelectionMark extends StatelessWidget {
     required this.selected,
     required this.mixed,
     required this.radio,
+    this.size = 24,
   });
   final bool selected;
   final bool mixed;
   final bool radio;
+  final double size;
+
+  double get _radius => radio
+      ? 99
+      : size == 24
+          ? 7
+          : 6;
 
   @override
   Widget build(BuildContext context) {
@@ -225,11 +249,11 @@ class _SelectionMark extends StatelessWidget {
     final on = selected || mixed;
     return Container(
       key: const ValueKey('selection-mark'),
-      width: 24,
-      height: 24,
+      width: size,
+      height: size,
       decoration: BoxDecoration(
         color: on ? c.accentFill : null,
-        borderRadius: BorderRadius.circular(radio ? 99 : 7),
+        borderRadius: BorderRadius.circular(_radius),
         border: on ? null : Border.all(color: c.controlOutline, width: 1.5),
       ),
       child: TweenAnimationBuilder<double>(

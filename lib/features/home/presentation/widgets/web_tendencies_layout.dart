@@ -32,6 +32,9 @@ class WebTendenciesLayout extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // The board's hero sits 26 px under the title; the eyebrow pages
+            // above get 2 px from their own label box.
+            const SizedBox(height: 2),
             WebTendencyProfile(data: data, onName: onName),
             const SizedBox(height: 26),
             const WebText('What we found', kind: WebTextKind.eyebrow),
@@ -70,10 +73,19 @@ class WebTendenciesLayout extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.lock_outline,
-                        color: context.webTokens.colors.accent,
-                        size: 22,
+                      Container(
+                        width: 44,
+                        height: 44,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: context.webTokens.colors.accentTint,
+                        ),
+                        child: Icon(
+                          Icons.lock_outline,
+                          color: context.webTokens.colors.accent,
+                          size: 22,
+                        ),
                       ),
                       const SizedBox(width: 18),
                       Expanded(
@@ -215,58 +227,61 @@ class WebTendencyProfile extends StatelessWidget {
         borderRadius: BorderRadius.circular(22),
       ),
       child: Stack(
-        alignment: Alignment.centerRight,
         children: [
           Positioned(
             right: -34,
+            top: -4.5,
             child: Transform.rotate(
               angle: -8 * math.pi / 180,
               child: Icon(glyph, size: 150, color: const Color(0xff3a3a3d)),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(28, 26, 124, 28),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (data.name == null)
-                  TextButton(
-                    onPressed: onName,
-                    child: const Text('Add your name'),
-                  )
-                else
-                  Text(
-                    data.name!,
-                    style: t.style(
-                      15,
-                      weight: FontWeight.w500,
-                      color: Colors.white.withValues(alpha: .6),
+          SizedBox(
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(28, 26, 124, 28),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (data.name == null)
+                    TextButton(
+                      onPressed: onName,
+                      child: const Text('Add your name'),
+                    )
+                  else
+                    Text(
+                      data.name!,
+                      style: t.style(
+                        15,
+                        weight: FontWeight.w500,
+                        color: Colors.white.withValues(alpha: .6),
+                      ),
                     ),
-                  ),
-                const SizedBox(height: 6),
-                Text(
-                  data.archetype!,
-                  style: t
-                      .style(
-                        30,
-                        weight: FontWeight.w700,
-                        height: 1.1,
-                        color: Colors.white,
-                      )
-                      .copyWith(letterSpacing: -.6),
-                ),
-                if (data.archetypeLine != null) ...[
                   const SizedBox(height: 6),
                   Text(
-                    data.archetypeLine!,
-                    style: t.style(
-                      17,
-                      height: 1.4,
-                      color: Colors.white.withValues(alpha: .78),
-                    ),
+                    data.archetype!,
+                    style: t
+                        .style(
+                          30,
+                          weight: FontWeight.w700,
+                          height: 1.1,
+                          color: Colors.white,
+                        )
+                        .copyWith(letterSpacing: -.6),
                   ),
+                  if (data.archetypeLine != null) ...[
+                    const SizedBox(height: 6),
+                    Text(
+                      data.archetypeLine!,
+                      style: t.style(
+                        17,
+                        height: 1.4,
+                        color: Colors.white.withValues(alpha: .78),
+                      ),
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ],
@@ -384,7 +399,7 @@ class WebTendencyFinding extends StatelessWidget {
               clear ? fraction(a.leftFigure) : .6,
               clear ? t.colors.accent : t.colors.separator,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 14),
             bar(
               a.rightLabel,
               a.rightFigure,
@@ -397,7 +412,7 @@ class WebTendencyFinding extends StatelessWidget {
           if (clear && pressure) {
             content.add(
               Padding(
-                padding: const EdgeInsets.fromLTRB(104, 12, 52, 0),
+                padding: const EdgeInsets.fromLTRB(104, 14, 52, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -130,7 +130,7 @@ void main() {
             .first;
         await tester.drag(pageScroll, const Offset(0, -500));
         await tester.pumpAndSettle();
-        expect(tester.getTopLeft(find.text('Your quiz')).dy, closeTo(28, 1));
+        expect(tester.getTopLeft(find.text('YOUR QUIZ')).dy, closeTo(28, 1));
         expect(find.text('Start').hitTestable(), findsOneWidget);
         await tester.drag(pageScroll, const Offset(0, 500));
         await tester.pumpAndSettle();

@@ -34,23 +34,26 @@ class WebMyPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: TextButton.icon(
-                          onPressed: onBack,
-                          icon: const Icon(Icons.chevron_left, size: 20),
-                          label: const Text('Home'),
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            minimumSize: const Size(0, 40),
-                            foregroundColor: context.webTokens.colors.accent,
-                            textStyle: context.webTokens.style(17),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: TextButton.icon(
+                            onPressed: onBack,
+                            icon: const Icon(Icons.chevron_left, size: 20),
+                            label: const Text('Home'),
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              minimumSize: const Size(0, 40),
+                              foregroundColor: context.webTokens.colors.accent,
+                              textStyle: context.webTokens.style(17),
+                            ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 6),
+                      const SizedBox(height: 10),
                       WebText(title, kind: WebTextKind.h1),
-                      const SizedBox(height: 26),
+                      const SizedBox(height: 24),
                       child,
                     ],
                   ),
@@ -95,8 +98,10 @@ class WebRecordLayout extends StatelessWidget {
           children: [
             Text(
               value,
-              style:
-                  (big ? t.big : t.style(28, weight: FontWeight.w700)).copyWith(
+              style: (big
+                      ? t.big
+                      : t.style(28, weight: FontWeight.w700, height: 36 / 28))
+                  .copyWith(
                 color: streak ? t.colors.accent : null,
                 fontFeatures: [const FontFeature.tabularFigures()],
                 letterSpacing: big ? -1.2 : -.56,

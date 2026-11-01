@@ -395,6 +395,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           _adjustments = {};
           _value = _snap(_value, next.units(index).length, pace);
         });
+    final hairline = Padding(
+      padding: const EdgeInsets.only(left: 60, right: 20),
+      child: Divider(height: 1, thickness: 1, color: t.colors.separator),
+    );
     final tree = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -403,7 +407,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           WebCard(
             child: Column(
               children: [
-                for (final topic in subject.topics) ...[
+                for (final (ti, topic) in subject.topics.indexed) ...[
                   CheckboxRow(
                     title: topic.name,
                     selected:
@@ -413,51 +417,109 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     onTap: topic.hasQuestions
                         ? () => selection(_selection.toggleTopic(topic))
                         : null,
+                    padding: const EdgeInsets.fromLTRB(20, 19, 8, 19),
+                    gap: 16,
+                    minHeight: 62,
+                    standardDensity: true,
                     content: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(topic.name, style: context.type.body),
+                        Text(
+                          topic.name,
+                          style: t.style(17, height: 22 / 17),
+                        ),
                         if (!topic.hasQuestions)
                           Text(
                             'No questions yet',
-                            style: context.type.footnote,
+                            style: t.style(
+                              14,
+                              height: 18 / 14,
+                              color: t.colors.secondaryLabel,
+                            ),
                           ),
                       ],
                     ),
                     trailing: topic.canUnfold
-                        ? IconButton(
-                            tooltip: 'Lessons in ${topic.name}',
-                            onPressed: () => setState(() {
-                              if (!_webOpenTopics.remove(topic.id)) {
-                                _webOpenTopics.add(topic.id);
-                              }
-                            }),
-                            icon: Icon(
-                              _webOpenTopics.contains(topic.id)
-                                  ? Icons.keyboard_arrow_up
-                                  : Icons.keyboard_arrow_down,
-                              size: 18,
+                        ? Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: SizedBox.square(
+                              dimension: 32,
+                              child: IconButton(
+                                tooltip: 'Lessons in ${topic.name}',
+                                padding: EdgeInsets.zero,
+                                onPressed: () => setState(() {
+                                  if (!_webOpenTopics.remove(topic.id)) {
+                                    _webOpenTopics.add(topic.id);
+                                  }
+                                }),
+                                icon: Icon(
+                                  _webOpenTopics.contains(topic.id)
+                                      ? Icons.keyboard_arrow_up
+                                      : Icons.keyboard_arrow_down,
+                                  size: 14,
+                                  color: t.colors.chevron,
+                                ),
+                              ),
                             ),
                           )
                         : null,
                   ),
                   if (_webOpenTopics.contains(topic.id))
-                    for (final lesson in topic.lessons)
-                      Padding(
-                        padding: const EdgeInsets.only(left: 36),
-                        child: CheckboxRow(
-                          title: lesson.title,
-                          selected: _selection.lessonSelected(lesson.id),
-                          onTap: lesson.questionCount == 0
-                              ? null
-                              : () => selection(
-                                    _selection.toggleLesson(topic, lesson),
+                    ColoredBox(
+                      color: t.dark
+                          ? t.colors.background
+                          : const Color(0xFFFBFBFC),
+                      child: Column(
+                        children: [
+                          for (final lesson in topic.lessons)
+                            CheckboxRow(
+                              title: lesson.title,
+                              selected: _selection.lessonSelected(lesson.id),
+                              onTap: lesson.questionCount == 0
+                                  ? null
+                                  : () => selection(
+                                        _selection.toggleLesson(topic, lesson),
+                                      ),
+                              padding:
+                                  const EdgeInsets.fromLTRB(56, 12, 20, 12),
+                              gap: 16,
+                              minHeight: 45,
+                              standardDensity: true,
+                              markSize: 20,
+                              content: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      lesson.title,
+                                      style: t.style(16, height: 21 / 16),
+                                    ),
                                   ),
-                          trailing: !lesson.isRead
-                              ? Text('Unread', style: t.sm)
-                              : null,
-                        ),
+                                  if (!lesson.isRead)
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 2,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: t.disabledBackground,
+                                        borderRadius: BorderRadius.circular(99),
+                                      ),
+                                      child: Text(
+                                        'Unread',
+                                        style: t.style(
+                                          12,
+                                          weight: FontWeight.w600,
+                                          color: t.colors.secondaryLabel,
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                        ],
                       ),
+                    ),
+                  if (ti + 1 < subject.topics.length) hairline,
                 ],
               ],
             ),
@@ -513,7 +575,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           padding: const EdgeInsets.fromLTRB(4, 0, 4, 9),
           child: Row(
             children: [
-              Expanded(child: Text('Your quiz', style: t.eb)),
+              Expanded(child: Text('YOUR QUIZ', style: t.eb)),
               if (!summary.isEmpty)
                 TextButton(
                   onPressed: () => selection(const PracticeSelection.empty()),
@@ -535,23 +597,22 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           ),
         ),
         WebCard(
-          padding: const EdgeInsets.fromLTRB(22, 22, 22, 20),
+          padding: summary.isEmpty
+              ? const EdgeInsets.all(24)
+              : const EdgeInsets.fromLTRB(22, 22, 22, 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               if (summary.isEmpty) ...[
-                Text(
-                  'Nothing picked yet',
-                  style: t.style(17, weight: FontWeight.w600),
-                ),
-                const SizedBox(height: 6),
+                Text('Nothing picked yet', style: t.h3),
+                const SizedBox(height: 14),
                 Text('Pick a topic or a lesson', style: t.sub),
               ] else ...[
                 Text(
                   pickedLabel,
                   style: t.sm.copyWith(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: 14),
+                const SizedBox(height: 16),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
@@ -561,8 +622,18 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                       '${summary.totalQuestions}',
                       style: t.big,
                     ),
-                    const SizedBox(width: 6),
-                    Text('questions', style: t.sub),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text(
+                        'questions',
+                        overflow: TextOverflow.ellipsis,
+                        style: t.style(
+                          17,
+                          height: 1.45,
+                          color: t.colors.secondaryLabel,
+                        ),
+                      ),
+                    ),
                     const Spacer(),
                     Text(
                       '${_mode == PracticeUnitMode.questions ? '~' : ''}'
@@ -578,7 +649,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   'How long?',
                   style: t.sm.copyWith(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
                 WebSegmentedControl(
                   labels: const ['Questions per lesson', 'Total time'],
                   selected: _mode.index,
@@ -603,14 +674,14 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     );
                   },
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 Text(
                   _mode == PracticeUnitMode.questions
                       ? 'You set the questions. Time follows.'
                       : 'You set the time. Questions follow.',
                   style: t.sm,
                 ),
-                const SizedBox(height: 14),
+                const SizedBox(height: 16),
                 DecoratedBox(
                   decoration: BoxDecoration(
                     color: t.colors.background,
@@ -679,16 +750,25 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 22),
+                const SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
-                      child: Text(
-                        'Split by lesson',
-                        style: t.style(15, weight: FontWeight.w600),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: Text(
+                          'Split by lesson',
+                          style: t.sm.copyWith(fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                     TextButton(
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(0, 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        textStyle: t.style(14, weight: FontWeight.w600),
+                      ),
                       onPressed: () {
                         if (_adjusting) {
                           _change(() {
@@ -708,9 +788,18 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        for (final row in rows)
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 9),
+                        for (final (ri, row) in rows.indexed)
+                          Container(
+                            padding: const EdgeInsets.fromLTRB(4, 12, 4, 12),
+                            decoration: BoxDecoration(
+                              border: ri + 1 < rows.length
+                                  ? Border(
+                                      bottom: BorderSide(
+                                        color: t.colors.separator,
+                                      ),
+                                    )
+                                  : null,
+                            ),
                             child: Row(
                               children: [
                                 Expanded(
@@ -718,20 +807,47 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(row.title, style: t.style(15)),
+                                      Text(
+                                        row.title,
+                                        style: t.style(16, height: 21 / 16),
+                                      ),
                                       if (row.meta != null)
-                                        Text(row.meta!, style: t.sm),
+                                        Text(
+                                          row.meta!,
+                                          style: t.style(
+                                            14,
+                                            height: 18 / 14,
+                                            color: t.colors.secondaryLabel,
+                                          ),
+                                        ),
                                     ],
                                   ),
                                 ),
+                                if (_adjusting) ...[
+                                  _webStep(summary, row.keys, -1, row.title),
+                                  const SizedBox(width: 12),
+                                ],
                                 if (_adjusting)
-                                  _step(summary, row.keys, -1, row.title),
-                                Text(
-                                  '${_count(summary, row.keys)}',
-                                  style: t.sub,
-                                ),
-                                if (_adjusting)
-                                  _step(summary, row.keys, 1, row.title),
+                                  SizedBox(
+                                    width: 28,
+                                    child: Text(
+                                      '${_count(summary, row.keys)}',
+                                      textAlign: TextAlign.center,
+                                      style: t.style(
+                                        16,
+                                        weight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  )
+                                else
+                                  Text(
+                                    '${_count(summary, row.keys)}',
+                                    style: t.style(16, weight: FontWeight.w600),
+                                  ),
+                                if (_adjusting) ...[
+                                  const SizedBox(width: 12),
+                                  _webStep(summary, row.keys, 1, row.title),
+                                ],
                               ],
                             ),
                           ),
@@ -747,16 +863,14 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                 else
                   saveFailureLine(_save),
               ],
-              const SizedBox(height: 22),
-              Align(
-                alignment: Alignment.centerRight,
-                child: WebButton(
-                  label: 'Start',
-                  large: true,
-                  keyHint: 'Enter',
-                  onPressed: canStart ? start : null,
-                  busy: _starting,
-                ),
+              SizedBox(height: summary.isEmpty ? 14 : 16),
+              WebButton(
+                label: 'Start',
+                large: true,
+                expand: true,
+                keyHint: 'Enter',
+                onPressed: canStart ? start : null,
+                busy: _starting,
               ),
             ],
           ),
@@ -778,16 +892,20 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextButton.icon(
-                        onPressed: () => unawaited(_back()),
-                        icon: Icon(PantasIcons.back, size: 20),
-                        label: const Text('Quiz'),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextButton.icon(
+                          onPressed: () => unawaited(_back()),
+                          icon: Icon(PantasIcons.back, size: 20),
+                          label: const Text('Quiz'),
+                        ),
                       ),
                     ),
+                    const SizedBox(height: 10),
                     const WebText('Customize your own', kind: WebTextKind.h1),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: 24),
                   ],
                 ),
               ),
@@ -1308,6 +1426,45 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             color: next == null
                 ? context.colors.tertiaryLabel
                 : context.colors.accent,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _webStep(
+    PracticeSummary summary,
+    Set<String> keys,
+    int delta,
+    String title,
+  ) {
+    final next = BuildPracticeSummary.adjust(
+      summary,
+      keys,
+      delta,
+      preserveTotal: _mode == PracticeUnitMode.minutes,
+    );
+    final t = context.webTokens;
+    return SizedBox.square(
+      dimension: 28,
+      child: IconButton(
+        tooltip: '${delta > 0 ? 'Increase' : 'Decrease'} $title',
+        onPressed:
+            next == null ? null : () => _change(() => _adjustments = next),
+        padding: EdgeInsets.zero,
+        visualDensity: VisualDensity.standard,
+        constraints: const BoxConstraints.tightFor(width: 28, height: 28),
+        icon: Container(
+          width: 28,
+          height: 28,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: t.colors.background,
+          ),
+          child: Icon(
+            delta > 0 ? Icons.add : Icons.remove,
+            size: 16,
+            color: next == null ? t.colors.tertiaryLabel : t.colors.label,
           ),
         ),
       ),

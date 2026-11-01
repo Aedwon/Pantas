@@ -36,9 +36,12 @@ class WebRouteShell extends ConsumerWidget {
       );
     }
     const tabs = ['/home', '/study', '/quiz', '/settings'];
-    final activeIndex = const ['/record', '/tendencies'].contains(path)
-        ? 0
-        : tabs.indexWhere((tab) => path == tab || path.startsWith('$tab/'));
+    // Plan, Performance, Record and Tendencies belong to Home on the boards.
+    const homeGroup = ['/record', '/tendencies', '/plan', '/performance'];
+    final activeIndex =
+        homeGroup.any((r) => path == r || path.startsWith('$r/'))
+            ? 0
+            : tabs.indexWhere((tab) => path == tab || path.startsWith('$tab/'));
     void navigate(int index) {
       ref.read(telemetryProvider).log(
         TelemetryEvent.tabOpened,

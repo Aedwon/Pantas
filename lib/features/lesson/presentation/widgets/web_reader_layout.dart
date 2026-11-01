@@ -786,9 +786,10 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                   left: 0,
                   right: 0,
                   child: Center(
-                    child: SizedBox(
-                      width: 220,
-                      child: Toast(message: 'Bookmarked', keyHint: 'B'),
+                    child: Toast(
+                      message: 'Bookmarked',
+                      keyHint: 'B',
+                      web: true,
                     ),
                   ),
                 ),

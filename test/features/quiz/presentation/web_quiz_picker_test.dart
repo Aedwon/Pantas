@@ -50,7 +50,7 @@ void main() {
       expect(find.text('2 lessons picked'), findsOneWidget);
       expect(find.text('Split by lesson'), findsOneWidget);
       expect(
-        tester.getTopLeft(find.text('Your quiz')).dx,
+        tester.getTopLeft(find.text('YOUR QUIZ')).dx,
         greaterThan(tester.getTopLeft(find.text('MATHEMATICS')).dx),
       );
       await tester.tap(find.text('Total time'));

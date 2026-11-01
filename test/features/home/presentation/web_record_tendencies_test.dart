@@ -139,7 +139,13 @@ void main() {
         expect(bars[1].widthFactor, greaterThan(bars[0].widthFactor!));
       }
     });
-    for (final path in ['/record', '/tendencies']) {
+    for (final path in [
+      '/record',
+      '/tendencies',
+      '/plan',
+      '/performance',
+      '/performance/subject',
+    ]) {
       testWidgets('MY sidebar keeps Home active $path dark=$dark',
           (tester) async {
         await mount(

@@ -156,6 +156,7 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
                 ),
                 onBookmarks: () => showDialog<void>(
                   context: context,
+                  barrierColor: const Color(0x381D1D1F),
                   builder: (context) => Align(
                     alignment: Alignment.centerRight,
                     child: SizedBox(

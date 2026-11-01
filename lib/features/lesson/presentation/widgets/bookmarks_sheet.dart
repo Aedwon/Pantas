@@ -341,6 +341,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     String? label,
     bool strong = false,
     double size = 15,
+    bool wide = false,
   }) =>
       Semantics(
         label: label ?? text,
@@ -351,8 +352,10 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-            minimumSize: const Size(44, 44),
-            padding: EdgeInsets.zero,
+            minimumSize: wide ? const Size(0, 36) : const Size(44, 44),
+            padding: wide
+                ? const EdgeInsets.symmetric(horizontal: 14)
+                : EdgeInsets.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           child: Text(
@@ -377,7 +380,8 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
               Expanded(
                 child: Text(
                   'Bookmarks',
-                  style: context.webTokens.style(22, weight: FontWeight.w700),
+                  style: context.webTokens
+                      .style(22, weight: FontWeight.w700, height: 1.3),
                 ),
               ),
               if (_shown.isNotEmpty)
@@ -392,6 +396,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                   label: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
                   strong: true,
                   size: 16,
+                  wide: true,
                 ),
             ],
           ),
@@ -491,56 +496,59 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                 ? Duration.zero
                 : const Duration(milliseconds: 250),
             curve: PantasCurves.houseOut,
-            builder: (context, value, _) => _editing
-                ? Container(
-                    constraints: const BoxConstraints(minHeight: 62),
-                    decoration: BoxDecoration(
-                      border: divider
-                          ? Border(
-                              bottom: BorderSide(
-                                color: context.colors.separator,
-                                width: .5,
-                              ),
-                            )
-                          : null,
-                    ),
-                    child: CheckboxRow(
-                      padding: const EdgeInsets.fromLTRB(20, 9, 8, 9),
-                      title: row.title,
-                      selected: checked,
-                      onTap: activate,
-                      content: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(row.title, style: context.type.body),
-                          Text(row.topicName, style: context.type.footnote),
-                        ],
-                      ),
-                      trailing: _shown.length > 1
-                          ? ReorderableDragStartListener(
-                              index: index,
-                              child: SizedBox.square(
-                                dimension: 44,
-                                child: IconTheme(
-                                  key: const ValueKey('bookmark-grip'),
-                                  data: IconThemeData(
-                                    size: 20,
-                                    color: context.colors.controlOutline,
+            builder: (context, value, _) => _editing && widget.wide
+                ? _wideEditRow(row, index, checked, activate, divider)
+                : _editing
+                    ? Container(
+                        constraints: const BoxConstraints(minHeight: 62),
+                        decoration: BoxDecoration(
+                          border: divider
+                              ? Border(
+                                  bottom: BorderSide(
+                                    color: context.colors.separator,
+                                    width: .5,
                                   ),
-                                  child: PantasIcons.reorder,
-                                ),
-                              ),
-                            )
-                          : null,
-                    ),
-                  )
-                : widget.wide
-                    ? WebRow(
-                        title: row.title,
-                        subtitle: row.topicName,
-                        selected: _editing && checked,
-                        trailing:
-                            (_editing || _shownOrder == BookmarkOrder.custom) &&
+                                )
+                              : null,
+                        ),
+                        child: CheckboxRow(
+                          padding: const EdgeInsets.fromLTRB(20, 9, 8, 9),
+                          title: row.title,
+                          selected: checked,
+                          onTap: activate,
+                          content: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(row.title, style: context.type.body),
+                              Text(row.topicName, style: context.type.footnote),
+                            ],
+                          ),
+                          trailing: _shown.length > 1
+                              ? ReorderableDragStartListener(
+                                  index: index,
+                                  child: SizedBox.square(
+                                    dimension: 44,
+                                    child: IconTheme(
+                                      key: const ValueKey('bookmark-grip'),
+                                      data: IconThemeData(
+                                        size: 20,
+                                        color: context.colors.controlOutline,
+                                      ),
+                                      child: PantasIcons.reorder,
+                                    ),
+                                  ),
+                                )
+                              : null,
+                        ),
+                      )
+                    : widget.wide
+                        ? WebRow(
+                            title: row.title,
+                            subtitle: row.topicName,
+                            selected: _editing && checked,
+                            boardMetrics: true,
+                            trailing: (_editing ||
+                                        _shownOrder == BookmarkOrder.custom) &&
                                     _shown.length > 1
                                 ? ReorderableDragStartListener(
                                     index: index,
@@ -562,52 +570,115 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                 : _editing
                                     ? null
                                     : Icon(
-                                        PantasIcons.next,
-                                        size: 14,
+                                        Icons.chevron_right,
+                                        size: 16,
                                         color: context.colors.chevron,
                                       ),
-                        onPressed: activate,
-                        divider: divider,
-                      )
-                    : ListRow(
-                        title: row.title,
-                        subtitle: row.topicName,
-                        wrapTitle: large,
-                        minimumHeight: 62,
-                        divider: divider,
-                        contentPadding: EdgeInsets.fromLTRB(
-                          20,
-                          9,
-                          _editing && _shown.length > 1 ? 8 : 16,
-                          divider ? 8.5 : 9,
-                        ),
-                        leadingGap: 12 * value,
-                        trailingWidget: (_editing || widget.wide)
-                            ? _shown.length > 1
-                                ? ReorderableDragStartListener(
-                                    index: index,
-                                    child: SizedBox.square(
-                                      dimension: 44,
-                                      child: IconTheme(
-                                        key: const ValueKey('bookmark-grip'),
-                                        data: IconThemeData(
-                                          size: 20,
-                                          color: context.colors.controlOutline,
+                            onPressed: activate,
+                            divider: divider,
+                          )
+                        : ListRow(
+                            title: row.title,
+                            subtitle: row.topicName,
+                            wrapTitle: large,
+                            minimumHeight: 62,
+                            divider: divider,
+                            contentPadding: EdgeInsets.fromLTRB(
+                              20,
+                              9,
+                              _editing && _shown.length > 1 ? 8 : 16,
+                              divider ? 8.5 : 9,
+                            ),
+                            leadingGap: 12 * value,
+                            trailingWidget: (_editing || widget.wide)
+                                ? _shown.length > 1
+                                    ? ReorderableDragStartListener(
+                                        index: index,
+                                        child: SizedBox.square(
+                                          dimension: 44,
+                                          child: IconTheme(
+                                            key:
+                                                const ValueKey('bookmark-grip'),
+                                            data: IconThemeData(
+                                              size: 20,
+                                              color:
+                                                  context.colors.controlOutline,
+                                            ),
+                                            child: PantasIcons.reorder,
+                                          ),
                                         ),
-                                        child: PantasIcons.reorder,
-                                      ),
-                                    ),
-                                  )
-                                : const SizedBox.shrink()
-                            : Icon(
-                                PantasIcons.next,
-                                size: 14,
-                                color: context.colors.chevron,
-                              ),
-                        onTap: activate,
-                      ),
+                                      )
+                                    : const SizedBox.shrink()
+                                : Icon(
+                                    PantasIcons.next,
+                                    size: 14,
+                                    color: context.colors.chevron,
+                                  ),
+                            onTap: activate,
+                          ),
           ),
         ),
+      ),
+    );
+  }
+
+  /// BM_Edit: board checkbox row, tint when picked, small grip at the end.
+  Widget _wideEditRow(
+    BookmarkRow row,
+    int index,
+    bool checked,
+    VoidCallback activate,
+    bool divider,
+  ) {
+    final t = context.webTokens;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: checked ? t.colors.accentTint : null,
+        border: divider
+            ? Border(bottom: BorderSide(color: t.colors.separator))
+            : null,
+      ),
+      child: CheckboxRow(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        gap: 16,
+        minHeight: 70,
+        standardDensity: true,
+        title: row.title,
+        selected: checked,
+        onTap: activate,
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              row.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: t.style(17, height: 22 / 17),
+            ),
+            Text(
+              row.topicName,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style:
+                  t.style(14, height: 18 / 14, color: t.colors.secondaryLabel),
+            ),
+          ],
+        ),
+        trailing: _shown.length > 1
+            ? ReorderableDragStartListener(
+                index: index,
+                child: Tooltip(
+                  message: 'Move bookmark: Alt ↑ or Alt ↓',
+                  child: SizedBox.square(
+                    dimension: 16,
+                    child: CustomPaint(
+                      key: const ValueKey('bookmark-grip'),
+                      painter: _GripDots(t.colors.tertiaryLabel),
+                    ),
+                  ),
+                ),
+              )
+            : null,
       ),
     );
   }
@@ -671,15 +742,36 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       children: [all, remove],
     );
     if (widget.wide) {
+      final t = context.webTokens;
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        color: context.colors.surface,
+        padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+        decoration: BoxDecoration(
+          color: context.colors.surface,
+          border: Border(top: BorderSide(color: t.colors.separator)),
+        ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            all,
-            const SizedBox(width: 16),
-            count,
-            const Spacer(),
+            _action(
+              'Select All',
+              _busy
+                  ? null
+                  : () => setState(() {
+                        if (_selected.length == _shown.length) {
+                          _selected.clear();
+                        } else {
+                          _selected.addAll(_shown.map((row) => row.lessonId));
+                        }
+                      }),
+              label: 'Select all bookmarks',
+              strong: true,
+              size: 16,
+              wide: true,
+            ),
+            Text(
+              '${_selected.length} selected',
+              style: t.sm,
+            ),
             WebButton(
               label: 'Remove',
               variant: WebButtonVariant.danger,
@@ -719,6 +811,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     if ((_editing || (widget.wide && order == BookmarkOrder.custom)) &&
         items.length > 1) {
       return ReorderableListView.builder(
+        shrinkWrap: widget.wide,
         buildDefaultDragHandles: false,
         proxyDecorator: (child, index, animation) => _BookmarkDragProxy(
           animation: animation,
@@ -731,6 +824,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       );
     }
     return ListView.builder(
+      shrinkWrap: widget.wide,
       itemCount: items.length,
       itemBuilder: (_, index) {
         final item = items[index];
@@ -821,15 +915,25 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                 IconButton(
                   tooltip: 'Close bookmarks',
                   onPressed: widget.onClose,
-                  icon: const Icon(Icons.close),
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints.tightFor(
+                    width: 44,
+                    height: 44,
+                  ),
+                  icon: Icon(
+                    Icons.close,
+                    size: 18,
+                    color: context.colors.accent,
+                  ),
                 ),
+                const SizedBox(width: 12),
               ],
             )
           else
             _header(!value.hasError && rows != null),
           if (_shown.length > 1)
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 4),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, widget.wide ? 14 : 4),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -951,19 +1055,27 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                   ? const EdgeInsets.symmetric(horizontal: 16)
                                   : EdgeInsets.zero,
                               child: widget.wide
-                                  ? WebCard(child: _list(_shownOrder))
+                                  ? Align(
+                                      alignment: Alignment.topCenter,
+                                      child: WebCard(child: _list(_shownOrder)),
+                                    )
                                   : _list(_shownOrder),
                             ),
                           ),
           ),
           if (_removed != null)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Toast(
-                message: '$removalCount '
-                    'bookmark${removalCount == 1 ? '' : 's'} removed',
-                onUndo: _undo,
-                visible: _undoVisible,
+              padding: widget.wide
+                  ? const EdgeInsets.only(bottom: 17)
+                  : const EdgeInsets.symmetric(horizontal: 20),
+              child: Center(
+                child: Toast(
+                  message: '$removalCount '
+                      'bookmark${removalCount == 1 ? '' : 's'} removed',
+                  onUndo: _undo,
+                  visible: _undoVisible,
+                  web: widget.wide,
+                ),
               ),
             ),
           _EditReveal(open: _editing && _shown.isNotEmpty, child: _footer()),
@@ -1148,4 +1260,22 @@ class _FoldRow extends StatelessWidget {
           ),
         ),
       );
+}
+
+/// Six dots in two columns, as drawn on the BM_Edit board.
+class _GripDots extends CustomPainter {
+  const _GripDots(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()..color = color;
+    for (final x in [5.95, 9.95]) {
+      for (final y in [2.95, 6.95, 10.95]) {
+        canvas.drawCircle(Offset(x, y), 1.05, paint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_GripDots oldDelegate) => oldDelegate.color != color;
 }
