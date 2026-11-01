@@ -128,6 +128,17 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    as offline. `getWebEntitlement` double call: two separate features (sign-in read and Beta Pro
    status), left as is. Aedwon does his own visual pass next; then the mobile pass.
 
+12. Nov 2: mobile pass started. Phone boards copied from the canvas to
+   `web-design/pantas-handoff/mobile/project/` (untracked; non-launch exam boards left out).
+   Checklist `build/visual-pass/mobile-boards.md`, differences `build/visual-pass/mobile/diffs.md`
+   (staging worktree). Done on staging 7062c2a1: Count Them built (spec Section 4; server figures
+   filter on web; new callable getCarryableCount, deploys with release); Home stuck after an
+   entitlement refresh fixed; Try Again recovers; phone fix batches 1 and 2; tab bar kept on pages
+   opened from Home (Aedwon). Ring color: board light gray in light mode (Aedwon). Open: live note
+   button in the question bar (needs new behavior), Backup details (no data), unreached phone
+   boards (mock parts, Wrapped, weekday-dependent Home states), 8 pre-existing quiz/lesson test
+   failures, second capture round to confirm all areas.
+
 ## Why
 
 Aedwon, Oct 31: "ui looks terrible. some parts do not look like what was presented to me in Claude
