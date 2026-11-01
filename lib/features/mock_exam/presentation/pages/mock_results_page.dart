@@ -277,22 +277,31 @@ class MockResultsPage extends StatelessWidget {
         child: Scaffold(
           body: Column(
             children: [
-              WebTopBar(
-                leading: fromRecord
-                    ? TextButton.icon(
-                        onPressed: onDone,
-                        icon: const Icon(Icons.chevron_left),
-                        label: const Text('Your record'),
-                      )
-                    : IconButton(
-                        tooltip: 'Close',
-                        onPressed: onDone,
-                        icon: const Icon(Icons.close, size: 22),
-                      ),
-              ),
+              if (fromRecord)
+                // The board's header is the 40 px link alone.
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: SizedBox(
+                    height: 40,
+                    child: WebBackLink(
+                      label: 'Your record',
+                      onPressed: onDone ?? () {},
+                      tightIcon: true,
+                    ),
+                  ),
+                )
+              else
+                WebTopBar(
+                  leading: IconButton(
+                    tooltip: 'Close',
+                    onPressed: onDone,
+                    icon: const Icon(Icons.close, size: 22),
+                  ),
+                ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(40, 16, 40, 56),
+                  padding:
+                      EdgeInsets.fromLTRB(40, fromRecord ? 40 : 16, 40, 56),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1040),
@@ -556,7 +565,24 @@ class MockResultsPage extends StatelessWidget {
                                     ),
                             ),
                           ],
-                          if (!forfeited && pastResults.isNotEmpty) ...[
+                          if (fromRecord && onFullRecord != null) ...[
+                            const SizedBox(height: 28),
+                            WebCard(
+                              radius: 20,
+                              child: WebRow(
+                                title: 'See full record',
+                                titleStyle: t.style(
+                                  16,
+                                  color: t.colors.accent,
+                                ),
+                                chevron: WebRowChevron.always,
+                                onPressed: onFullRecord,
+                                divider: false,
+                              ),
+                            ),
+                          ] else if (!fromRecord &&
+                              !forfeited &&
+                              pastResults.isNotEmpty) ...[
                             const SizedBox(height: 28),
                             WebFinaleEffect(
                               milliseconds: time,

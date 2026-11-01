@@ -53,6 +53,47 @@ void main() {
       expect(done, isTrue);
       expect(tester.takeException(), isNull);
     });
+    testWidgets('wide results from Your record vs after finishing dark=$dark',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      tester.view.physicalSize = const Size(1440, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      Future<void> pump({required bool fromRecord}) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme:
+                dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+            home: MockResultsPage(
+              results: result,
+              proIsActive: true,
+              fromRecord: fromRecord,
+              blueprintName: 'CSE simulation',
+              dateFormatted: 'Friday, October 30',
+              onDone: () {},
+              onFullRecord: () {},
+              pastResults: const [MockPastPoint(percent: 60, label: 'Oct 1')],
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+      }
+
+      await pump(fromRecord: true);
+      expect(find.text('Your record'), findsOneWidget);
+      expect(find.text('Done'), findsNothing);
+      expect(find.byTooltip('Close'), findsNothing);
+      expect(find.text('See full record'), findsOneWidget);
+      expect(find.byType(MockPastChart), findsNothing);
+      expect(find.text('VERSUS PAST RESULTS'), findsNothing);
+      await pump(fromRecord: false);
+      expect(find.byTooltip('Close'), findsOneWidget);
+      expect(find.text('Done'), findsOneWidget);
+      expect(find.text('Your record'), findsNothing);
+      expect(find.text('See full record'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
     testWidgets(
         'past locked results keep score and show an invitation dark=$dark',
         (tester) async {

@@ -2528,9 +2528,10 @@ Applied on wide web unless noted. The phone is unchanged except item 10's behavi
 - 7 More about you: white 16 px cards as on the Home (Main) board.
 - 9 Report icon: the board's bubble with an exclamation mark (wide web). It already turned teal after a report.
 - 10 Lesson failed to load (all platforms): a lesson the catalog lists but whose text fails to fetch now throws, so the reader shows "Could not load this lesson." with Try Again (warning triangle on wide web). Try Again clears the cached failure. "Lesson not found." stays for an id the catalog does not list. Tests added.
+- 8 Past mock from Your record (wide web): the board's teal "< Your record" back link replaces the X, there is no Done, and a "See full record" row (white card, chevron) sits under the results card and opens Your record. The "Versus past results" chart is left out for now (Aedwon). Results opened right after finishing keep the X and Done. Your record now adds `?origin=record` on wide web; the phone is unchanged.
+- Reader error screen (wide web): the "Study" back link is teal with the chevron, as on RD_Error.
 - 11 Avatar: the sidebar avatar capitalizes the first letter (accents included) and shows the plain gray person for no letter. The main Avatar already capitalized. Enter now presses Try Again and Update, with the Enter chip (SY_Error, SY_Update).
 
 Not changed, with reason:
 - Study sidebar bookmark icons: every board that draws the BOOKMARKS list (W_Study, BM_*, SD_*) shows them teal, so teal kept. Only the lesson-row bookmark is gray (done earlier). Tell me if you still want gray.
 - MockMoved and MockDropped: the app already prints "Your <exam> simulation moved to today." (tested). The local seed cannot store an earlier mock day, so the line does not appear in the local run.
-- Item 8 (past mock screen) waits for Aedwon.

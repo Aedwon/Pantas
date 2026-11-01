@@ -140,6 +140,10 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
               fromRecord: fromRecord,
               forfeitedPart: endedPart,
               onDone: () => context.pop(),
+              onFullRecord: fromRecord && context.wideWeb
+                  ? () =>
+                      context.canPop() ? context.pop() : context.go('/record')
+                  : null,
               onSeePro: () => context.push('/settings/pro'),
               pastResults: [
                 for (final previous

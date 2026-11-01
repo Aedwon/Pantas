@@ -568,13 +568,14 @@ class _ReaderFallback extends StatelessWidget {
                 WebTopBar(
                   leading: Row(
                     children: [
-                      WebButton(
+                      WebBackLink(
                         label: onClose == null
                             ? origin.backLabel(context)
                             : 'Close',
-                        variant: WebButtonVariant.tertiary,
+                        tightIcon: true,
                         onPressed: onClose ?? () => origin.leave(context),
                       ),
+                      const SizedBox(width: 2),
                       const WebKeyHint('Esc'),
                     ],
                   ),

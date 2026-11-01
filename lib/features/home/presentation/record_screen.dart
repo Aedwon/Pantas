@@ -78,7 +78,10 @@ class RecordScreen extends ConsumerWidget {
       ],
       onBack: back,
       onMock: (id) => unawaited(
-        context.push<void>('/mock/results/${Uri.encodeComponent(id)}'),
+        context.push<void>(
+          '/mock/results/${Uri.encodeComponent(id)}'
+          '${context.wideWeb ? '?origin=record' : ''}',
+        ),
       ),
       wrappedRow: context.wideWeb ? null : ref.watch(wrappedRecordRowProvider),
     );
