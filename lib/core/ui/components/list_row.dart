@@ -413,7 +413,15 @@ class ListRow extends StatelessWidget {
                             child: detail,
                           )
                         else
-                          Flexible(child: detail),
+                          // Without the Align a short value shrinks to its own
+                          // width and sits mid-row, not at the row's end.
+                          Flexible(
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              heightFactor: 1,
+                              child: detail,
+                            ),
+                          ),
                       ],
                       if (!hideTrailing &&
                           (trailingWidget != null ||

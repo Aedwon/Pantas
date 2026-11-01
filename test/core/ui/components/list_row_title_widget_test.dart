@@ -7,6 +7,22 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  testWidgets('a short value sits at the end of the row', (tester) async {
+    await tester.pumpApp(
+      SizedBox(
+        width: 358,
+        child: ListRow(
+          title: 'Signed in with',
+          value: 'Google',
+          variant: ListRowVariant.value,
+          onTap: () {},
+        ),
+      ),
+    );
+    final row = tester.getRect(find.byType(ListRow));
+    expect(tester.getRect(find.text('Google')).right, row.right - 16);
+  });
+
   testWidgets('default title keeps truncation and the existing tap',
       (tester) async {
     var taps = 0;
