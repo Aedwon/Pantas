@@ -149,7 +149,12 @@ void _expiry(Ref ref, StudyEnvelope value, Duration elapsed) {
 
 final serverStudyInsightsProvider = StreamProvider.autoDispose
     .family<StudyInsights, String>((ref, examId) async* {
+  // Kept alive so a consumer that re-watches coverage after an await cannot
+  // drop it and trigger a fetch loop. Refreshes still come from the session
+  // and roadmap revisions, the reader (account, exam, core), the access
+  // deadline and explicit invalidation.
   ref
+    ..keepAlive()
     ..watch(quizSessionPanelRevisionProvider)
     ..watch(roadmapRevisionProvider);
   final reader = await ref.watch(studySnapshotReaderProvider(examId).future);
@@ -163,7 +168,12 @@ final serverStudyInsightsProvider = StreamProvider.autoDispose
 
 final serverStudyRoadmapProvider = StreamProvider.autoDispose
     .family<StudyRoadmap, String>((ref, examId) async* {
+  // Kept alive so a consumer that re-watches coverage after an await cannot
+  // drop it and trigger a fetch loop. Refreshes still come from the session
+  // and roadmap revisions, the reader (account, exam, core), the access
+  // deadline and explicit invalidation.
   ref
+    ..keepAlive()
     ..watch(quizSessionPanelRevisionProvider)
     ..watch(roadmapRevisionProvider);
   final reader = await ref.watch(studySnapshotReaderProvider(examId).future);

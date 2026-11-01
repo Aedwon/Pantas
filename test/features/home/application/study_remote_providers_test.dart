@@ -15,6 +15,7 @@ import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 
@@ -252,4 +253,117 @@ void main() {
       'getStudyInsights',
     ]);
   });
+
+  test(
+      'a consumer that watches coverage after an await does not refetch '
+      'insights in a loop', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await SyncActiveContextStore(db).clearStable();
+    var insightsReads = 0;
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studyUsesServerProvider.overrideWithValue(true),
+        trackScopeProvider('e').overrideWith((_) async => {}),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'u')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+        studyApiProvider.overrideWithValue(
+          StudyApi((name, data) async {
+            if (name == 'getStudyInsights') insightsReads++;
+            return {
+              'examId': 'e',
+              'serverNow': 123 + insightsReads,
+              'accessRecheckAt': null,
+              'proCovered': true,
+              'revision': 'v1',
+              'profile': null,
+              'performance': {
+                'overall': {'correct': 0, 'answered': 0},
+                'subjects': <Object?>[],
+                'lessonLevelAvailable': false,
+              },
+            };
+          }),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    // Like the plan and notice providers: coverage is read only after awaits,
+    // so between rebuilds nothing listens to it.
+    final consumer = FutureProvider.autoDispose<bool>((ref) async {
+      await ref.watch(authStateProvider.future);
+      await ref.watch(activeExamFocusProvider.future);
+      await Future<void>.delayed(Duration.zero);
+      return ref.watch(currentStudyCoverageProvider);
+    });
+    final subscription = container.listen(consumer, (_, __) {});
+    addTearDown(subscription.close);
+    for (var i = 0; i < 40; i++) {
+      await Future<void>.delayed(const Duration(milliseconds: 25));
+    }
+    expect(insightsReads, lessThanOrEqualTo(2));
+  });
+
+  for (final change in ['session ingest', 'account switch']) {
+    test('kept-alive insights still refetch on $change', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await SyncActiveContextStore(db).clearStable();
+      final uids = <Object?>[];
+      final auth = StreamController<AuthState>();
+      addTearDown(auth.close);
+      auth.add(const AuthState.anonymous(uid: 'a'));
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          trackScopeProvider('e').overrideWith((_) async => {}),
+          authStateProvider.overrideWith((_) => auth.stream),
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
+          studyApiProvider.overrideWithValue(
+            StudyApi((name, data) async {
+              if (name == 'getStudyInsights') uids.add(data['expectedUid']);
+              return {
+                'examId': 'e',
+                'serverNow': 1,
+                'accessRecheckAt': null,
+                'proCovered': false,
+                'revision': 'v1',
+                'profile': null,
+                'performance': {
+                  'overall': {'correct': 0, 'answered': 0},
+                  'subjects': <Object?>[],
+                  'lessonLevelAvailable': false,
+                },
+              };
+            }),
+          ),
+        ],
+      );
+      addTearDown(container.dispose);
+      final subscription =
+          container.listen(serverStudyInsightsProvider('e'), (_, __) {});
+      addTearDown(subscription.close);
+      await container.read(serverStudyInsightsProvider('e').future);
+      expect(uids, ['a']);
+      if (change == 'session ingest') {
+        container
+            .read(quizSessionPanelRevisionProvider.notifier)
+            .publishCompletion();
+      } else {
+        auth.add(const AuthState.anonymous(uid: 'b'));
+      }
+      for (var i = 0; i < 40 && uids.length < 2; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 50));
+      }
+      expect(uids.length, greaterThanOrEqualTo(2));
+      expect(uids.last, change == 'session ingest' ? 'a' : 'b');
+    });
+  }
 }
