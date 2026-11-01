@@ -2428,3 +2428,36 @@ shows an inline day row the board lacks; trial wording differs.
 
 Checks: analyze clean; home, quiz, lesson, core/ui, core/dev tests pass (2,492); runner tests OK;
 layering OK.
+
+### Visual pass round 3 (2026-11-01, partial)
+
+Run stopped early for budget. Pairs: staging worktree `build/visual-pass/rest/shots/pairs/`.
+
+Reached and compared: X_Side (match within 1 px), X_Perf (match within 1 px), X_More, MY_Profiles and
+MY_Pictures (card 148 px, radius 22, padding 26/28, bar 12 px, tiles radius 12 all match the Tendencies
+board; the sheet's 3-up width is not shown on the app), ST_Avatars, MY_RecordFirst, MK_PastPro (opened
+from Your record on the seeded Pro student).
+
+Fixed (wide web): ST_Avatars plain person (no name, number or symbol first) now shows the board's small
+teal dot (about 5.7 px at 44 px) on gray, not a person icon. Test updated.
+
+Not reached, with reason:
+- OB_PickerLoading, OB_PickerError, OB_PickerEmpty, SD_Loading, SD_Error, PL_Error, PF_Error, MY_TendError:
+  the exam catalog, study map and plan data come from the local database, not from network requests, so
+  `page.route` cannot delay or fail them (checked: aborting the emulator ports leaves the picker populated
+  from the seed).
+- ST_ProPassHave: needs a Season Pass purchase.
+- UPCAT and DCAT mock boards: the picker lists UPCAT as Coming soon and local content is CSE only. Runner
+  not changed.
+- Not attempted for lack of budget: RD_Error, RD_ImageFail, QN_ReportOffline, ST_AccountOffline, settings
+  and plan states, new-account assessment states, quiz content states, exam switch.
+
+For Aedwon (not changed):
+- More about you: the Main board draws white 16 px cards, the X_More board draws flat 18 px rows. The app
+  follows X_More.
+- MY_RecordFirst: board streak card adds "since Oct 12, 2026"; board has five totals tiles and no mocks
+  column, the app shows six tiles (best mock) and a Your mocks list.
+- MK_PastPro: the app opens the normal results screen (X close, Done button, no "Versus past results"
+  chart, no "See full record" row). The board shows a "< Your record" back link, the chart and the link.
+- Sidebar avatar (not changed): does not capitalize the first letter (ST_Avatars says capitalized, accents
+  included) and has no gray plain state.

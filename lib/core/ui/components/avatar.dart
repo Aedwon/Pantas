@@ -21,7 +21,18 @@ class Avatar extends StatelessWidget {
     final wide = context.wideWeb;
     final plain = !emoji && !_letter.hasMatch(initial);
     final fallback = plain
-        ? Icon(PantasIcons.profile, size: 30, color: c.secondaryLabel)
+        ? wide
+            // ST_Avatars: a plain person is a small teal dot on gray, no
+            // made-up letter.
+            ? Container(
+                width: 44 * .13,
+                height: 44 * .13,
+                decoration: BoxDecoration(
+                  color: c.accent,
+                  shape: BoxShape.circle,
+                ),
+              )
+            : Icon(PantasIcons.profile, size: 30, color: c.secondaryLabel)
         : FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(

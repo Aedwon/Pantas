@@ -32,7 +32,9 @@ void main() {
         );
         final t = WebTokens(dark ? Brightness.dark : Brightness.light);
         if (sample.$2.isEmpty) {
-          expect(find.byIcon(PantasIcons.profile), findsOneWidget);
+          // ST_Avatars: a plain person is a small teal dot, not an icon.
+          expect(find.byIcon(PantasIcons.profile), findsNothing);
+          expect(find.text(''), findsNothing);
         } else {
           expect(find.text(sample.$2), findsOneWidget);
           final container = tester
