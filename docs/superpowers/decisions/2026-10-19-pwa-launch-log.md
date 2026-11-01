@@ -2300,3 +2300,13 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   that fails today, then the smallest root-cause fix (watch before await, or keepAlive with all
   refresh points kept).
 - Fix ready Nov 1 on local branch `web/insights-refetch-loop` f769640b (not pushed): insights and roadmap providers kept alive (two lines); refreshes still come from session/roadmap revisions, account/exam change, the access deadline and explicit invalidation. New loop test failed on old code; refetch tests for ingest and account switch pass. Repro: 2 to 4 calls in 8 runs (was 602). Awaiting Aedwon's approval to integrate.
+
+## Nov 1: Aedwon's answers on the open items
+
+- Web Update button: "ok". Build the fix (web reloads; Android keeps Play).
+- Insights refetch loop fix: "ok good, maybe you can find more optimizations like this". Integrate
+  `web/insights-refetch-loop` f769640b; audit the app for other excess or repeated server calls.
+- CSE mock blueprint missing from the content root: "can you spin up a content lead orchestrator
+  for this". A separate content session takes it.
+- Review list: "where is it can i read". Pointed to `docs/ui-audit.md` "Visual pass" sections on
+  the fixes branch.
