@@ -2272,3 +2272,14 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Before runbook step 7 (upload), the approved CSE content root must include the CSE mock
   blueprints, and the dry run must report the expected mock blueprint count. Needs the content
   lead and Aedwon; not changed.
+
+## Nov 1: web "Update required" opens Google Play (needs Aedwon)
+
+- Found in the last web visual batch, confirmed by Sonnet in code: the force-update page's button
+  always opens the Google Play listing, with no web check. A student on a stale cached web build
+  below the minimum version would be sent to Play instead of updating.
+- Proposed fix: on web, unregister the service worker and reload the page; keep Play for the
+  Android app. Waiting for Aedwon's approval (behavior change on the force-update path).
+- Also checked: "Start Assessment returns to Home" was a local sample-data artifact (an earlier
+  sample student's assessment survived re-seeding the same account); a fresh student opens it.
+  The seed is being changed to clear it. No student impact.
