@@ -33,3 +33,10 @@ class PaywallPackage {
   final double priceAmount;
   final bool trialEligible;
 }
+
+/// Drops ".00" after an amount, so a whole amount reads without centavos. An
+/// amount with real centavos is left alone.
+String wholePesos(String priceString) => priceString.replaceFirstMapped(
+      RegExp(r'(\d)\.00(?!\d)'),
+      (match) => match[1]!,
+    );

@@ -95,7 +95,7 @@ void main() {
       void draw(Canvas canvas) =>
           paint.painter!.paint(canvas, const Size(600, 170));
       expect(draw, paintsExactlyCountTimes(#drawLine, 3));
-      expect(draw, paints..circle(x: 590, y: 66.3, radius: 6));
+      expect(draw, paints..circle(x: 590, y: 57.5, radius: 6));
     });
     testWidgets('pressure represents full score range dark=$dark',
         (tester) async {
@@ -145,8 +145,9 @@ void main() {
       '/plan',
       '/performance',
       '/performance/subject',
+      '/legal/privacy',
     ]) {
-      testWidgets('MY sidebar keeps Home active $path dark=$dark',
+      testWidgets('MY sidebar keeps the home tab active $path dark=$dark',
           (tester) async {
         await mount(
           tester,
@@ -163,7 +164,7 @@ void main() {
         );
         expect(
           tester.widget<WebShellFrame>(find.byType(WebShellFrame)).activeIndex,
-          0,
+          path.startsWith('/legal') ? 3 : 0,
         );
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox());

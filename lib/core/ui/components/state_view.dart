@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class StateView extends StatelessWidget {
   const StateView({
@@ -16,6 +17,7 @@ class StateView extends StatelessWidget {
     this.primaryAction = false,
     this.boardLayout = false,
     this.bookmarkLayout = false,
+    this.plainMessage = false,
     super.key,
   })  : fullScreen = false,
         onboardingBlocked = false;
@@ -31,6 +33,7 @@ class StateView extends StatelessWidget {
         error = null,
         actionLabel = 'Try Again',
         primaryAction = false,
+        plainMessage = false,
         boardLayout = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
       : bookmarkLayout = false,
@@ -41,8 +44,12 @@ class StateView extends StatelessWidget {
         detail = null,
         actionLabel = 'Try Again',
         primaryAction = true,
+        plainMessage = false,
         boardLayout = false;
   final bool boardLayout;
+
+  /// Board RD_Error: a 17 px regular message and a 28 px gray mark.
+  final bool plainMessage;
   final String message;
   final VoidCallback? onRetry;
   // Error is deliberately not rendered. Callers keep diagnostic handling.
@@ -77,21 +84,8 @@ class StateView extends StatelessWidget {
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
-          size: bookmarkLayout
-              ? 34
-              : fullScreen
-                  ? 36
-                  : compact
-                      ? 40
-                      : 60,
-          color: fullScreen
-              ? context.colors.secondaryLabel
-              : context.colors.chevron,
-        ),
-        child: SizedBox.square(
-          key: const ValueKey('state-mark'),
-          dimension: onboardingBlocked
-              ? 72
+          size: plainMessage
+              ? 28
               : bookmarkLayout
                   ? 34
                   : fullScreen
@@ -99,6 +93,25 @@ class StateView extends StatelessWidget {
                       : compact
                           ? 40
                           : 60,
+          color: fullScreen
+              ? context.colors.secondaryLabel
+              : plainMessage
+                  ? context.webTokens.colors.secondaryLabel
+                  : context.colors.chevron,
+        ),
+        child: SizedBox.square(
+          key: const ValueKey('state-mark'),
+          dimension: plainMessage
+              ? 28
+              : onboardingBlocked
+                  ? 72
+                  : bookmarkLayout
+                      ? 34
+                      : fullScreen
+                          ? 36
+                          : compact
+                              ? 40
+                              : 60,
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
@@ -127,14 +140,19 @@ class StateView extends StatelessWidget {
         Text(
           message,
           textAlign: TextAlign.center,
-          style: context.type.sectionHero.copyWith(
-            fontSize: onboardingBlocked
-                ? 26
-                : bookmarkLayout
-                    ? 18
-                    : fullScreen
-                        ? 24
-                        : 20,
+          style: (plainMessage
+                  ? context.webTokens.style(17, height: 1.35)
+                  : context.type.sectionHero)
+              .copyWith(
+            fontSize: plainMessage
+                ? 17
+                : onboardingBlocked
+                    ? 26
+                    : bookmarkLayout
+                        ? 18
+                        : fullScreen
+                            ? 24
+                            : 20,
             height: fullScreen ? 1.25 : 1.35,
             letterSpacing: onboardingBlocked
                 ? -.312

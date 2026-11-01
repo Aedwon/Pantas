@@ -87,7 +87,11 @@ final topicsByExamProvider =
 
 final lessonByIdProvider =
     FutureProvider.family<Lesson?, LessonId>((ref, id) async {
-  return ref.watch(contentRepositoryProvider).lessonById(id);
+  // Throws when the catalog lists the lesson but its text did not load, so the
+  // reader can offer a retry instead of "Lesson not found".
+  return ref
+      .watch(contentRepositoryProvider)
+      .lessonById(id, throwOnLoadFailure: true);
 });
 
 final passageByIdProvider =

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum OwnIconKind {
   questionsSheet,
@@ -6,6 +7,7 @@ enum OwnIconKind {
   paused,
   streak,
   progressError,
+  warning,
   reorder,
   appearance,
   backup,
@@ -23,10 +25,14 @@ class OwnIcon extends StatelessWidget {
     final size = theme.size ?? 24;
     final painter = switch (kind) {
       OwnIconKind.questionsSheet => QuestionsSheetPainter(color),
-      OwnIconKind.report => ReportPainter(color),
+      // Wide web draws the boards' stroked bubble (QN_Report); phones keep
+      // the filled chat circle.
+      OwnIconKind.report =>
+        context.wideWeb ? ReportBoardPainter(color) : ReportPainter(color),
       OwnIconKind.paused => PausedPainter(color),
       OwnIconKind.streak => StreakPainter(color),
       OwnIconKind.progressError => ProgressErrorPainter(color),
+      OwnIconKind.warning => WarningPainter(color),
       OwnIconKind.reorder => ReorderPainter(color),
       OwnIconKind.appearance => AppearancePainter(color),
       OwnIconKind.backup => BackupPainter(color),
@@ -78,6 +84,82 @@ class QuestionsSheetPainter extends OwnIconPainter {
       ..drawCircle(const Offset(5.5, 18.5), 2.6, stroke)
       ..drawCircle(const Offset(12, 18.5), 2.6, stroke)
       ..drawCircle(const Offset(18.5, 18.5), 2.6, stroke);
+  }
+}
+
+/// Board QN_Report glyph: a speech bubble holding an exclamation mark.
+class ReportBoardPainter extends OwnIconPainter {
+  const ReportBoardPainter(super.color);
+  @override
+  double get strokeWidth => 1.9;
+  @override
+  void draw(Canvas canvas, Paint stroke) {
+    // Board SVG: M5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4
+    // 4v-4h-.5A1.5 1.5 0 0 1 4 14.5v-9A1.5 1.5 0 0 1 5.5 4z M12 7.6v3.4
+    // M12 13.4v.1
+    canvas
+      ..drawPath(
+        Path()
+          ..moveTo(5.5, 4)
+          ..lineTo(18.5, 4)
+          ..arcToPoint(
+            const Offset(20, 5.5),
+            radius: const Radius.circular(1.5),
+          )
+          ..lineTo(20, 14.5)
+          ..arcToPoint(
+            const Offset(18.5, 16),
+            radius: const Radius.circular(1.5),
+          )
+          ..lineTo(10, 16)
+          ..lineTo(6, 20)
+          ..lineTo(6, 16)
+          ..lineTo(5.5, 16)
+          ..arcToPoint(
+            const Offset(4, 14.5),
+            radius: const Radius.circular(1.5),
+          )
+          ..lineTo(4, 5.5)
+          ..arcToPoint(const Offset(5.5, 4), radius: const Radius.circular(1.5))
+          ..close(),
+        stroke,
+      )
+      ..drawPath(
+        Path()
+          ..moveTo(12, 7.6)
+          ..lineTo(12, 11)
+          ..moveTo(12, 13.4)
+          ..lineTo(12, 13.5),
+        stroke,
+      );
+  }
+}
+
+/// Board RD_Error glyph: a triangle with an exclamation mark.
+class WarningPainter extends OwnIconPainter {
+  const WarningPainter(super.color);
+  @override
+  double get strokeWidth => 1.7;
+  @override
+  void draw(Canvas canvas, Paint stroke) {
+    // Board SVG: M12 4 2.8 19.5h18.4z M12 10v4.5M12 17.2v.1
+    canvas
+      ..drawPath(
+        Path()
+          ..moveTo(12, 4)
+          ..lineTo(2.8, 19.5)
+          ..lineTo(21.2, 19.5)
+          ..close(),
+        stroke,
+      )
+      ..drawPath(
+        Path()
+          ..moveTo(12, 10)
+          ..lineTo(12, 14.5)
+          ..moveTo(12, 17.2)
+          ..lineTo(12, 17.3),
+        stroke,
+      );
   }
 }
 

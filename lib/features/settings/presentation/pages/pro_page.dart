@@ -24,6 +24,7 @@ import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
@@ -672,19 +673,21 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         packages.where((p) => p.productId == pending?.productId).firstOrNull;
     final pendingPlan = pendingPackage == null
         ? ''
-        : '${_periodName(pendingPackage.sku)}, ${pendingPackage.priceString}. ';
+        : '${_periodName(pendingPackage.sku)}, '
+            '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
             ? 'Get Pro'
             : upgrade
-                ? 'Upgrade for ${selectedPackage.priceString} a Month'
+                ? 'Upgrade for ${_money(selectedPackage.priceString)} a Month'
                 : trial && !lapsed
                     ? 'Try 7 Days Free'
                     : lapsed
                         ? 'Get Pro Again'
-                        : 'Subscribe for ${selectedPackage.priceString} '
+                        : 'Subscribe for '
+                            '${_money(selectedPackage.priceString)} '
                             'a ${_period(selectedPackage.sku)}';
     return SettingsPanePage(
       section: 'Pantas Pro',
@@ -751,7 +754,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
-                                '${selectedPass.priceString} once. '
+                                '${_money(selectedPass.priceString)} once. '
                                 'Ends after the exam on $sittingEnd.',
                                 textAlign: TextAlign.right,
                                 style: context.webTokens.sm,
@@ -764,7 +767,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                 web
                                     ? 'No payment needed.'
                                     : 'Free for 7 days, then '
-                                        '${selectedPackage.priceString} '
+                                        '${_money(
+                                        selectedPackage.priceString,
+                                      )} '
                                         'a month. '
                                         'Cancel any time.',
                                 textAlign: TextAlign.right,
@@ -821,7 +826,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       if (selectedPass != null && sitting != null) ...[
                         const SizedBox(height: 8),
                         Text(
-                          '${selectedPass.priceString} once. '
+                          '${_money(selectedPass.priceString)} once. '
                           'Ends after the exam on $sittingEnd.',
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
@@ -831,7 +836,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                         Text(
                           web
                               ? 'No payment needed.'
-                              : 'Then ${selectedPackage.priceString} a month. '
+                              : 'Then '
+                                  '${_money(selectedPackage.priceString)} '
+                                  'a month. '
                                   'Cancel any time in Google Play.',
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
@@ -1143,7 +1150,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                         child: _choiceCard(
                           context,
                           label: 'Season Pass',
-                          price: pass.priceString,
+                          price: _money(pass.priceString),
                           periodText: 'one time',
                           detail: passDetail,
                           selected: selectedPass == pass,
@@ -1210,7 +1217,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              pass.priceString,
+                              _money(pass.priceString),
                               style: context.type.emphasized
                                   .copyWith(fontSize: 22),
                             ),
@@ -1259,6 +1266,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     );
   }
 
+  /// Wide web drops ".00" so a whole amount shows no centavos (board ST_Pro).
+  /// The amount itself still comes from the price source.
+  String _money(String priceString) =>
+      context.wideWeb ? wholePesos(priceString) : priceString;
+
   Widget _plan(
     BuildContext context,
     PaywallPackage package,
@@ -1292,7 +1304,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     return _choiceCard(
       context,
       label: label,
-      price: package.priceString,
+      price: _money(package.priceString),
       periodText: 'a ${_period(package.sku).toLowerCase()}',
       detail: package.sku == PaywallSku.yearly
           ? '$monthlyEquivalent a month'

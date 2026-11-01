@@ -205,8 +205,10 @@ void main() {
       expect(opened, isNull);
       final title =
           find.text('Mendelian inheritance, Punnett squares, DNA and genes');
-      expect(tester.widget<Text>(title).maxLines, isNull);
-      expect(tester.getSize(title).height, greaterThan(30));
+      // A long title truncates to one line with an ellipsis (PL_WeekCustom).
+      expect(tester.widget<Text>(title).maxLines, 1);
+      expect(tester.widget<Text>(title).overflow, TextOverflow.ellipsis);
+      expect(tester.getSize(title).height, lessThan(30));
       await tester.tap(title);
       expect(opened, DateTime(2026, 10, 19));
       expect(find.text('OCT 18 – 24 · LESSONS BY DAY'), findsOneWidget);

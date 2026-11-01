@@ -18,11 +18,13 @@ Widget errorFor(
   String? message,
   Widget? icon,
   bool boardLayout = false,
+  bool plainMessage = false,
 }) =>
     StateView(
       message: message ?? 'Could not load your $what.',
       icon: icon,
       boardLayout: boardLayout,
+      plainMessage: plainMessage,
       onRetry: onRetry,
       error: error,
     );

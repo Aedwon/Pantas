@@ -2514,3 +2514,23 @@ Not reached:
 For Aedwon (not changed): a failed lesson request is shown as "Lesson not found." instead of the retry error; the Home footer
 line on the board ("About 45 min today · hover a title to see all of it") is missing on the app; the reader header's back
 glyph rendered as an empty box once ("[]  Study") in one capture.
+
+### Aedwon decisions, Nov 1 (2026-11-01)
+
+Applied on wide web unless noted. The phone is unchanged except item 10's behavior fix.
+
+- 1 Quiz end screen: the "NEXT" debrief card is gone on wide web (the diagnosis card and Free row stay).
+- 2 Plan week rows: kept "Nov 1 – 7" with "This week" beside it.
+- 3 Plan week panel: long lesson titles truncate to one line with an ellipsis (the day panel already did). Test updated.
+- 4 Sidebar: Home was already highlighted on Your plan, Performance, Record and Tendencies. Legal pages now keep Settings highlighted (ST_Privacy).
+- 5 Prices: ".00" is dropped on the Pro page ("₱149"); amounts still come from the price source and are not changed.
+- 6 Your record chart: three or more unlabeled gridlines at board spacing, in steps of 20 and fitted to the data (data 52 to 74 gives 40/60/80; down to 30 gives 20 to 80). Lead ruling: no labels, because the board draws the lines without them.
+- 7 More about you: white 16 px cards as on the Home (Main) board.
+- 9 Report icon: the board's bubble with an exclamation mark (wide web). It already turned teal after a report.
+- 10 Lesson failed to load (all platforms): a lesson the catalog lists but whose text fails to fetch now throws, so the reader shows "Could not load this lesson." with Try Again (warning triangle on wide web). Try Again clears the cached failure. "Lesson not found." stays for an id the catalog does not list. Tests added.
+- 11 Avatar: the sidebar avatar capitalizes the first letter (accents included) and shows the plain gray person for no letter. The main Avatar already capitalized. Enter now presses Try Again and Update, with the Enter chip (SY_Error, SY_Update).
+
+Not changed, with reason:
+- Study sidebar bookmark icons: every board that draws the BOOKMARKS list (W_Study, BM_*, SD_*) shows them teal, so teal kept. Only the lesson-row bookmark is gray (done earlier). Tell me if you still want gray.
+- MockMoved and MockDropped: the app already prints "Your <exam> simulation moved to today." (tested). The local seed cannot store an earlier mock day, so the line does not appear in the local run.
+- Item 8 (past mock screen) waits for Aedwon.

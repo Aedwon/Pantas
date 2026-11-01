@@ -118,6 +118,22 @@ void main() {
       expect(hook.calls, ['lesson:l1', 'lesson:l2']);
     });
 
+    test('a listed lesson that fails to load throws only when asked', () async {
+      final hook = _Hook(db, {});
+      final repo = ContentRepository(db, fetchHook: hook);
+      // Default callers keep the null they always got.
+      expect(await repo.lessonById('l1'), isNull);
+      // The reader asks to tell "could not load" from "does not exist".
+      await expectLater(
+        repo.lessonById('l1', throwOnLoadFailure: true),
+        throwsA(isA<LessonLoadFailure>()),
+      );
+      expect(
+        await repo.lessonById('unlisted', throwOnLoadFailure: true),
+        isNull,
+      );
+    });
+
     test('passageById asks the hook first', () async {
       await db.into(db.contentPassages).insert(
             ContentPassagesCompanion.insert(

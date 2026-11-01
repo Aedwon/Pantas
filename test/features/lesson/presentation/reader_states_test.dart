@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -59,6 +60,30 @@ void main() {
     );
     expect(find.textContaining('private'), findsNothing);
     expect(find.byType(StateView), findsOneWidget);
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    expect(attempts, 2);
+  });
+
+  testWidgets(
+      'a failed lesson load shows the retry state and Try Again reloads',
+      (tester) async {
+    var attempts = 0;
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'listed'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        activeExamFocusProvider.overrideWith((_) async => focus),
+        readerContextProvider('listed').overrideWith((_) async {
+          attempts++;
+          throw const LessonLoadFailure('listed');
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Could not load this lesson.'), findsOneWidget);
+    expect(find.text('Lesson not found.'), findsNothing);
+    expect(find.text('Try Again'), findsOneWidget);
     await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
     expect(attempts, 2);

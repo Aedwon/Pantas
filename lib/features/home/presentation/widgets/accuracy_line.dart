@@ -17,6 +17,24 @@ class AccuracyLinePainter extends CustomPainter {
   final bool web;
   final Color? areaColor;
 
+  /// Wide web axis: gridlines every 20 points, fitted to the data so no point
+  /// is clipped. Three lines for a narrow range (for example 40, 60, 80).
+  static ({int low, int high}) axisRange(Iterable<double> values) {
+    final lowest = values.reduce((a, b) => a < b ? a : b).clamp(0, 100);
+    final highest = values.reduce((a, b) => a > b ? a : b).clamp(0, 100);
+    var low = (lowest / 20).floor() * 20;
+    var high = (highest / 20).ceil() * 20;
+    if (high - low < 40) {
+      if (low + 40 <= 100) {
+        high = low + 40;
+      } else {
+        high = 100;
+        low = 60;
+      }
+    }
+    return (low: low, high: high);
+  }
+
   double get minY => 0;
   double get maxY => 100;
 
@@ -30,11 +48,23 @@ class AccuracyLinePainter extends CustomPainter {
       ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
 
-    final gridLines =
-        web ? [10 / 170, 60 / 170, 110 / 170] : [0.0, .25, .5, .75, 1.0];
-    for (final fraction in gridLines) {
-      final y = size.height * fraction;
-      canvas.drawLine(Offset(0, y), Offset(size.width, y), gridPaint);
+    final axis = axisRange(series.map((p) => p.accuracy));
+    final steps = (axis.high - axis.low) ~/ 20;
+    // Board geometry: lines 50 px apart from y 10 (three lines at 10, 60,
+    // 110 of 170); more lines share the room above the bottom edge.
+    final spacing = steps == 0 ? 50.0 : (150 / steps).clamp(0, 50).toDouble();
+    double yFor(double value) =>
+        10 + (axis.high - value.clamp(axis.low, axis.high)) / 20 * spacing;
+    if (web) {
+      for (var i = 0; i <= steps; i++) {
+        final y = 10 + i * spacing;
+        canvas.drawLine(Offset(0, y), Offset(size.width, y), gridPaint);
+      }
+    } else {
+      for (final fraction in [0.0, .25, .5, .75, 1.0]) {
+        final y = size.height * fraction;
+        canvas.drawLine(Offset(0, y), Offset(size.width, y), gridPaint);
+      }
     }
 
     // Draw accuracy line (board at 1.5px)
@@ -51,7 +81,7 @@ class AccuracyLinePainter extends CustomPainter {
       final x = inset + (i / (series.length - 1)) * (size.width - 2 * inset);
       // Clamp accuracy between 0 and 100
       final acc = series[i].accuracy.clamp(0.0, 100.0);
-      final y = size.height - (acc / 100.0) * size.height;
+      final y = web ? yFor(acc) : size.height - (acc / 100.0) * size.height;
 
       if (i == 0) {
         path.moveTo(x, y);
@@ -69,8 +99,7 @@ class AccuracyLinePainter extends CustomPainter {
     }
     canvas.drawPath(path, linePaint);
     if (web) {
-      final lastY =
-          size.height * (1 - series.last.accuracy.clamp(0, 100) / 100);
+      final lastY = yFor(series.last.accuracy.clamp(0, 100).toDouble());
       canvas.drawCircle(
         Offset(size.width - inset, lastY),
         6,

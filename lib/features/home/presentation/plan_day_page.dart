@@ -364,7 +364,6 @@ class PlanWeekPage extends StatelessWidget {
                   for (var i = 0; i < days.length; i++)
                     WebRow(
                       boardMetrics: true,
-                      wrapTitle: true,
                       title: days[i].rest
                           ? 'Rest day'
                           : days[i].lessonTitles.join(', '),

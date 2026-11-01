@@ -120,9 +120,8 @@ class HomeWebLayout extends StatelessWidget {
       );
 }
 
-/// "More about you" row. Flat on the page, like the board's `.card.row`
-/// (the later `.row{background:transparent}` rule wins over `.card`), with the
-/// row hover fill. Dark mode keeps the board's filled card.
+/// "More about you" card: white, 16 px radius, as on the Home (Main) board,
+/// with the row hover fill.
 class _MoreRow extends StatelessWidget {
   const _MoreRow({
     required this.title,
@@ -137,7 +136,7 @@ class _MoreRow extends StatelessWidget {
     final t = context.webTokens;
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         border: t.dark ? Border.all(color: t.cardEdge) : null,
       ),
       child: TextButton(
@@ -158,17 +157,17 @@ class _MoreRow extends StatelessWidget {
                 ? t.rowHover
                 : t.dark
                     ? t.colors.surface
-                    : Colors.transparent,
+                    : Colors.white,
           ),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
           shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
         ),
         child: Row(
           children: [
             Icon(icon, color: t.colors.accent, size: 24),
-            const SizedBox(width: 16),
+            const SizedBox(width: 14),
             Expanded(
               child: Text(title, style: t.style(17, color: t.colors.label)),
             ),

@@ -363,7 +363,8 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                 .watch(sessionDebriefClaimProvider(data.session.sessionId))
                 .valueOrNull ??
             false);
-    if (plan?.next == null && !claimed) return null;
+    final hasNext = !context.wideWeb && plan?.next != null;
+    if (!hasNext && !claimed) return null;
     return SessionDebriefCards(
       plan: plan,
       diagnosis: diagnosis,

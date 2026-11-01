@@ -291,23 +291,7 @@ class WebSidebar extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: c.accentTint,
-                        shape: BoxShape.circle,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        person.isEmpty ? '' : person.characters.first,
-                        style: t.style(
-                          14,
-                          weight: FontWeight.w700,
-                          color: t.tintText,
-                        ),
-                      ),
-                    ),
+                    _SidebarAvatar(person: person),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Column(
@@ -375,4 +359,41 @@ class WebTabletNavigation extends StatelessWidget {
           ],
         ),
       );
+}
+
+/// The sidebar picture (X_Side, ST_Avatars): the first letter capitalized,
+/// accents included; an emoji as itself; otherwise a plain gray person.
+class _SidebarAvatar extends StatelessWidget {
+  const _SidebarAvatar({required this.person});
+  final String person;
+  static final _letter = RegExp(r'^\p{L}', unicode: true);
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final c = t.colors;
+    final initial = person.trim().isEmpty ? '' : person.trim().characters.first;
+    final first = initial.isEmpty ? 0 : initial.runes.first;
+    final emoji = initial.isNotEmpty &&
+        (first >= 0x1F000 ||
+            (first >= 0x2600 && first <= 0x27BF) ||
+            initial.runes.contains(0xFE0F) ||
+            initial.runes.contains(0x20E3));
+    final plain = !emoji && !_letter.hasMatch(initial);
+    return Container(
+      width: 30,
+      height: 30,
+      decoration: BoxDecoration(
+        color: plain ? c.fill : c.accentTint,
+        shape: BoxShape.circle,
+      ),
+      alignment: Alignment.center,
+      child: plain
+          ? Icon(PantasIcons.profile, size: 16, color: c.chevron)
+          : Text(
+              emoji ? initial : initial.toUpperCase(),
+              style: t.style(14, weight: FontWeight.w700, color: t.tintText),
+            ),
+    );
+  }
 }

@@ -35,7 +35,8 @@ class SessionDebriefCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    final next = plan?.next;
+    // The wide web end screen has no "Next" card (QS_EndPro).
+    final next = wide ? null : plan?.next;
     final count = diagnosis?.tracedCount ?? 0;
     final show = showDiagnosis && !paused && count > 0;
     final detail = pro && show ? diagnosis?.detail : null;

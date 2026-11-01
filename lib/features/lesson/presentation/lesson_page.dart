@@ -17,6 +17,7 @@ import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -275,10 +276,18 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     setState(() => _selectionFailure = (id: id, error: error));
   }
 
+  /// A failed lesson load stays cached, so a retry must clear the lesson text
+  /// provider as well as the reader context built on it.
+  void _invalidateLesson(LessonId id) {
+    ref
+      ..invalidate(lessonByIdProvider(id))
+      ..invalidate(readerContextProvider(id));
+  }
+
   Future<void> _advanceTo(LessonId next, {bool retry = false}) async {
     final epoch = ++_navigationEpoch;
     if (!mounted || !_boundaryAlive) return;
-    if (retry) ref.invalidate(readerContextProvider(next));
+    if (retry) _invalidateLesson(next);
     try {
       final target = await ref.read(readerContextProvider(next).future);
       if (!mounted || !_boundaryAlive || epoch != _navigationEpoch) return;
@@ -406,7 +415,9 @@ class _LessonPageState extends ConsumerState<LessonPage> {
             message: failure.error == null
                 ? 'Lesson not found.'
                 : 'Could not load this lesson.',
-            icon: Icon(PantasIcons.studyTab),
+            icon: failure.error != null && context.wideWeb
+                ? const OwnIcon(OwnIconKind.warning)
+                : Icon(PantasIcons.studyTab),
             boardLayout: true,
           ),
         ),
@@ -463,11 +474,14 @@ class _LessonPageState extends ConsumerState<LessonPage> {
             origin: origin,
             child: errorFor(
               'lesson',
-              () => ref.invalidate(readerContextProvider(lessonId)),
+              () => _invalidateLesson(lessonId),
               error: error,
               message: 'Could not load this lesson.',
-              icon: Icon(PantasIcons.studyTab),
+              icon: context.wideWeb
+                  ? const OwnIcon(OwnIconKind.warning)
+                  : Icon(PantasIcons.studyTab),
               boardLayout: true,
+              plainMessage: context.wideWeb,
             ),
           ),
         (final ReaderContext reader, _) => Builder(
@@ -500,9 +514,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
                     ((nextValue?.hasError ?? false) ||
                         ((nextValue?.hasValue ?? false) && readyNext == null)),
                 onRetryNext: () {
-                  if (nextId != null) {
-                    ref.invalidate(readerContextProvider(nextId));
-                  }
+                  if (nextId != null) _invalidateLesson(nextId);
                 },
                 onPullStart: () => _pullEpoch = ++_navigationEpoch,
                 onPull: readyNext != null

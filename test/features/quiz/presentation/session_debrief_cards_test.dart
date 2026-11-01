@@ -210,8 +210,12 @@ void main() {
               ),
             ),
           );
-          expect(find.text('NEXT'), findsOneWidget);
-          expect(find.text(plan.next!.because), findsOneWidget);
+          // Wide web has no Next card (board QS_EndPro).
+          expect(find.text('NEXT'), wide ? findsNothing : findsOneWidget);
+          expect(
+            find.text(plan.next!.because),
+            wide ? findsNothing : findsOneWidget,
+          );
           if (hidden) {
             expect(find.byTooltip('Dismiss this note'), findsNothing);
             expect(find.text('WHERE YOUR MISSES CAME FROM'), findsNothing);
@@ -269,7 +273,10 @@ void main() {
             expect(dismissed, isTrue);
             await tester.pump();
             expect(find.byTooltip('Dismiss this note'), findsNothing);
-            expect(find.text(plan.next!.title), findsOneWidget);
+            expect(
+              find.text(plan.next!.title),
+              wide ? findsNothing : findsOneWidget,
+            );
           }
           semantics.dispose();
           expect(tester.takeException(), isNull);
@@ -339,7 +346,10 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text('Reviews · Session 2 of 3'), findsOneWidget);
         expect(find.text('Start Session 3'), findsOneWidget);
-        expect(find.text(_plan.next!.title), findsOneWidget);
+        expect(
+          find.text(_plan.next!.title),
+          width >= 1024 ? findsNothing : findsOneWidget,
+        );
         await tester.tap(find.text('Start Session 3'));
         await tester.pumpAndSettle();
         expect(started, isTrue);
@@ -380,14 +390,19 @@ void main() {
         tester.getTopLeft(row).dy - tester.getTopLeft(title).dy,
         lessThan(wide ? 60 : 55),
       );
-      final nextRow = find.ancestor(
-        of: find.text(_plan.next!.title),
-        matching: find.byType(InkWell),
-      );
-      expect(
-        tester.getTopLeft(title).dy - tester.getBottomLeft(nextRow).dy,
-        wide ? 32 : 22,
-      );
+      if (wide) {
+        // Wide web has no Next card (board QS_EndPro).
+        expect(find.text(_plan.next!.title), findsNothing);
+      } else {
+        final nextRow = find.ancestor(
+          of: find.text(_plan.next!.title),
+          matching: find.byType(InkWell),
+        );
+        expect(
+          tester.getTopLeft(title).dy - tester.getBottomLeft(nextRow).dy,
+          22,
+        );
+      }
       expect(find.byType(Divider), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
@@ -447,12 +462,16 @@ void main() {
         expect(find.text('Connect once to keep using Pro.'), findsOneWidget);
         expect(find.text('WHERE YOUR MISSES CAME FROM'), findsNothing);
         expect(find.textContaining('See which'), findsNothing);
-        expect(
-          tester.getTopLeft(find.text('NEXT')).dy,
-          lessThan(
-            tester.getTopLeft(find.textContaining('YOUR MISTAKES')).dy,
-          ),
-        );
+        if (width >= 1024) {
+          expect(find.text('NEXT'), findsNothing);
+        } else {
+          expect(
+            tester.getTopLeft(find.text('NEXT')).dy,
+            lessThan(
+              tester.getTopLeft(find.textContaining('YOUR MISTAKES')).dy,
+            ),
+          );
+        }
         expect(tester.takeException(), isNull);
       });
     }

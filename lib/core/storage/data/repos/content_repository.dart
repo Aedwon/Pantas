@@ -514,9 +514,23 @@ class ContentRepository {
     return grouped;
   }
 
-  Future<Lesson?> lessonById(LessonId id) async {
+  /// With [throwOnLoadFailure], a lesson that the catalog lists but whose body
+  /// could not be fetched throws [LessonLoadFailure] instead of returning null,
+  /// so a caller can tell "could not load" from "does not exist".
+  Future<Lesson?> lessonById(
+    LessonId id, {
+    bool throwOnLoadFailure = false,
+  }) async {
     final hook = _fetchHook;
-    if (hook != null && !await hook.ensureLesson(id)) return null;
+    if (hook != null && !await hook.ensureLesson(id)) {
+      if (throwOnLoadFailure) {
+        final listed = await (_db.select(_db.contentLessons)
+              ..where((l) => l.id.equals(id)))
+            .getSingleOrNull();
+        if (listed != null) throw LessonLoadFailure(id);
+      }
+      return null;
+    }
     final row = await (_db.select(_db.contentLessons)
           ..where((l) => l.id.equals(id)))
         .getSingleOrNull();
@@ -698,4 +712,13 @@ class ContentRepository {
         .join('\n')
         .trim();
   }
+}
+
+/// The lesson exists in the catalog but its text could not be fetched.
+class LessonLoadFailure implements Exception {
+  const LessonLoadFailure(this.id);
+  final LessonId id;
+
+  @override
+  String toString() => 'LessonLoadFailure($id)';
 }

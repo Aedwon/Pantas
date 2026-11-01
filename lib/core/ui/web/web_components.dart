@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -1476,10 +1477,21 @@ class WebFullNotice extends StatelessWidget {
                   ),
                 ],
                 const SizedBox(height: 16),
-                WebButton(
-                  label: actionLabel,
-                  onPressed: onPressed,
-                  large: true,
+                CallbackShortcuts(
+                  bindings: {
+                    if (onPressed != null)
+                      const SingleActivator(LogicalKeyboardKey.enter):
+                          onPressed!,
+                  },
+                  child: Focus(
+                    autofocus: true,
+                    child: WebButton(
+                      label: actionLabel,
+                      onPressed: onPressed,
+                      large: true,
+                      keyHint: 'Enter',
+                    ),
+                  ),
                 ),
               ],
             ),

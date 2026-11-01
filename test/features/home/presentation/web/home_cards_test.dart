@@ -20,8 +20,7 @@ void main() {
           ),
         ),
       );
-      // Board `.card.row`: the later `.row{background:transparent}` rule wins,
-      // so light rows sit flat on the page. Dark keeps the filled card.
+      // Home (Main) board: white 16 px cards.
       final rows = <Element>[];
       for (final title in ['Your record', 'Your tendencies']) {
         final row = find.ancestor(
@@ -33,7 +32,7 @@ void main() {
         final button = tester.widget<TextButton>(row);
         expect(
           button.style!.backgroundColor!.resolve(<WidgetState>{}),
-          dark ? const Color(0xFF1F1F1F) : Colors.transparent,
+          dark ? const Color(0xFF1F1F1F) : Colors.white,
         );
         expect(
           button.style!.backgroundColor!.resolve({WidgetState.hovered}),
