@@ -2283,3 +2283,19 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Also checked: "Start Assessment returns to Home" was a local sample-data artifact (an earlier
   sample student's assessment survived re-seeding the same account); a fresh student opens it.
   The seed is being changed to clear it. No student impact.
+
+## Nov 1: Home insights refetch loop (needs Aedwon)
+
+- Found while checking the assessment bounce: with the seeded Pro "new" student before the
+  assessment, Home called `getStudyInsights` about 602 times in 20 s (30/s) until the server's
+  "Too many attempts" limit, then showed "Could not load your plan". Seen in about 3 of 5 runs; a
+  fresh unseeded student made 0 calls in 60 s.
+- Cause (Sonnet, temporary logging): the auto-disposed insights provider
+  (`study_remote_providers.dart:151`) is watched by the coverage provider (`:182`), which
+  `plan_provider.dart:73` and `home_notices.dart:84` watch only after awaits. In that gap coverage
+  loses its listener and disposes, insights disposes, and re-watching refetches; the result change
+  rebuilds the watchers. It is a race, so real Pro students could hit it; each time costs about 600
+  calls in prod.
+- Fix being built for approval on local branch `web/insights-refetch-loop` (not integrated): a test
+  that fails today, then the smallest root-cause fix (watch before await, or keepAlive with all
+  refresh points kept).
