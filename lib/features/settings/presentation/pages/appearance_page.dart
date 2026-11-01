@@ -136,7 +136,13 @@ class AppearancePage extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    Text('A', style: t.style(24)),
+                    Text(
+                      'A',
+                      // ST_LargeText: 31 px row, 67 px card.
+                      style: t.style(24).copyWith(
+                            height: context.wideWeb ? 31 / 24 : null,
+                          ),
+                    ),
                   ],
                 ),
               ),

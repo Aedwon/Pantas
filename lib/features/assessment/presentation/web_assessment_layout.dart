@@ -336,7 +336,10 @@ class WebAssessmentResults extends StatelessWidget {
                                               Expanded(
                                                 child: Text(
                                                   subject.name,
-                                                  style: t.style(17),
+                                                  style: t.style(
+                                                    17,
+                                                    height: 22 / 17,
+                                                  ),
                                                 ),
                                               ),
                                               Text(
@@ -344,6 +347,7 @@ class WebAssessmentResults extends StatelessWidget {
                                                 style: t.style(
                                                   17,
                                                   weight: FontWeight.w700,
+                                                  height: 22 / 17,
                                                 ),
                                               ),
                                             ],

@@ -2461,3 +2461,33 @@ For Aedwon (not changed):
   chart, no "See full record" row). The board shows a "< Your record" back link, the chart and the link.
 - Sidebar avatar (not changed): does not capitalize the first letter (ST_Avatars says capitalized, accents
   included) and has no gray plain state.
+
+#### Visual pass round 3, continuation (2026-11-01)
+
+Local run, seeded Pro student unless noted. Pairs: staging worktree `build/visual-pass/rest/shots/pairs/`.
+
+Reached and compared:
+- ST_LargeText (Appearance, slider at max): text-size card was 70 px, board 67 px. Fixed to 67 px (wide only). The active track
+  measures about 5 px against the board's 4 px (not changed).
+- ST_DaysLast: the app put "At least one day stays on." inside the card; the board shows it as the footer below the card in place of
+  the long footer. Fixed on wide web.
+- ST_IncludedLast: the board message is red 13 px at the list's left edge; the app showed gray 14 px. Fixed to red 13 px on wide web.
+- PL_WeekCustom (Mon, Wed, Fri): plan and week panel layout match. The board truncates day titles to one line with an ellipsis; the
+  app wraps them (a test asserts wrapping), so not changed.
+- AS_Question, AS_Picked, AS_Leave: match (content differs: CSE, 26 questions). AS_Results: bar rows were 68.5 px, board 67 px;
+  fixed to 67 px. The whole block still sits about 3 px lower than the board (title and lead area, not traced).
+- QN_ReportAgain: the note box was 82 px, board 92 px; fixed (92 px, wide only). QN_ReportOffline: reached (the local server queues the
+  report: "Saved. It sends when you're back online."); text and position match the board.
+- QS_Long: reached (long question stem in Reviews); wraps over five lines, no layout difference seen.
+
+Not reached, with reason:
+- QN_ReportSent, QN_ReportLimit: the local report always queues as offline, so "Thank you" and the daily limit never show.
+- QN_EditNote: the "Why did you miss it?" note prompt is not shown after a miss on web (already listed below).
+- ST_ExamSwitch: switching CSE Pro to CSE Sub applies at once; the "You're not starting from zero" dialog never appears.
+- PL_DayPast: today is Sunday, the first day of the week strip, so no past day exists. QS_Figure: no figure question was found in Reviews.
+- OB_PickerLoading, OB_PickerError, OB_PickerEmpty, SD_Loading, SD_Error, PL_Error, PF_Error, MY_TendError: local database, not network.
+- Not attempted for lack of budget: RD_Error, RD_ImageFail, ST_AccountOffline, MK_ResultsFirst, MK_ReviewBlank, SD_NoExam, HM_LongTitle,
+  and the UPCAT and DCAT mock boards.
+
+For Aedwon (not changed): report icon on the board turns teal after a report and uses a different bubble glyph than the app's "!";
+plan week panel day titles wrap where the board truncates; the exam switch never offers "Count Them" or "Start My Numbers Fresh".

@@ -487,20 +487,23 @@ class _ExamPageState extends ConsumerState<ExamPage>
           const SizedBox(height: 24),
         ],
         SettingsSection(
-          footer: past
-              ? 'This date has passed. Pick your next exam date, or choose '
-                  'I don’t know.'
-              : mode == 2
-                  ? 'Your plan keeps a steady pace until you add a date.'
-                  : mode == 1
-                      ? 'Without a day, your plan defaults to '
-                          '$monthName 1 as the '
-                          'last day and asks you again later.'
-                      : 'When you change your exam date or study days, '
-                          'the roadmap '
-                          'rebuilds your plan right away. At least one '
-                          'day should be '
-                          'selected.',
+          // ST_DaysLast: on the wide layout the message is the footer.
+          footer: _lastDay != null && context.wideWeb
+              ? 'At least one day stays on.'
+              : past
+                  ? 'This date has passed. Pick your next exam date, or choose '
+                      'I don’t know.'
+                  : mode == 2
+                      ? 'Your plan keeps a steady pace until you add a date.'
+                      : mode == 1
+                          ? 'Without a day, your plan defaults to '
+                              '$monthName 1 as the '
+                              'last day and asks you again later.'
+                          : 'When you change your exam date or study days, '
+                              'the roadmap '
+                              'rebuilds your plan right away. At least one '
+                              'day should be '
+                              'selected.',
           children: [
             SettingsRow(
               title: 'Exam',
@@ -592,7 +595,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                 ),
               ),
             ],
-            if (_lastDay != null)
+            if (_lastDay != null && !context.wideWeb)
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Text(

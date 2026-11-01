@@ -362,8 +362,9 @@ class _ReportFormState extends State<ReportForm> {
                     ? t.colors.surface
                     : t.colors.background,
                 isDense: true,
+                // QN_ReportAgain: the board's box is 92 px with three lines.
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 17),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,

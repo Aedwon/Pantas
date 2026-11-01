@@ -323,7 +323,11 @@ class _ScopePickerState extends State<ScopePicker>
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   widget.minimumSelectionMessage!,
-                  style: context.type.footnote,
+                  // ST_IncludedLast: red 13 px on the wide layout.
+                  style: widget.settingsRows && context.wideWeb
+                      ? context.webTokens.sm
+                          .copyWith(color: context.colors.destructive)
+                      : context.type.footnote,
                 ),
               ),
             ),
