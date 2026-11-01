@@ -2375,3 +2375,5 @@ highlighted, as on the mobile boards. This moves those routes inside the tab she
 supersedes the AGENTS "push for destinations outside the tab shell" practice for these pages.
 Also Nov 1 to 2: "Count Them" built per the exam switching spec (mocks never carry; streak follows
 Home stats); prompt keeps the board copy with no figure.
+
+Nov 2: unselected checkbox and radio rings on phone use the board light gray #C7C7CC in light mode (Aedwon: "Board's light gray"), below 3:1 contrast; dark mode keeps 3:1.
