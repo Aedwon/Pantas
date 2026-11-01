@@ -2354,3 +2354,15 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
   `plan_history_reader.dart:16`), fix is to reuse the first response (1 call per visit saved);
   `getWebEntitlement` 2 calls at load (second caller untraced), low priority. Waiting for Aedwon.
 - Nov 1: Aedwon: "ok fix it". Plan history double fetch fixed (reader reuses page 1); on fixes and staging. Test failed before (missing first-page argument), passes after; home tests 550 pass.
+
+## Nov 1: visual pass decisions
+
+Aedwon: "a lot of these are already on the board, so why still ask me?" Rule from now on: where an
+approved board shows a state, follow the board without asking. Ask only when the board conflicts with
+a hard rule, the pricing doc, another board, or needs a new feature, and then show real board and app
+screenshots, not sketches ("i need these to be illustrated with full fidelity to properly decide").
+Decisions: remove the quiz end "Next" card; keep the plan week title as dates; long titles truncate
+with an ellipsis (decided earlier); Home highlighted on the plan page; whole-peso prices; board-style
+accuracy axis fitted to the data; white cards for "More about you"; board report icon, teal after a
+report; failed lesson load shows the retry error. Past mock screen (MK_PastPro): pending, shown with
+real screenshots.
