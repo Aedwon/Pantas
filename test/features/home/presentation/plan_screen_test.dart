@@ -280,6 +280,69 @@ void main() {
     expect(find.text('Unlock with Pro'), findsOneWidget);
     expect(find.text('Set that morning'), findsNothing);
   });
+  testWidgets('retry after a real context change recaptures the owner',
+      (tester) async {
+    var token = 'a';
+    var reads = 0;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
+          todayQuestionLauncherProvider
+              .overrideWith((ref) => _TokenPlanLauncher(ref, () => token)),
+          planDayViewProvider('2026-10-18').overrideWith((_) async {
+            reads++;
+            return PlanDayView(
+              date: DateTime(2026, 10, 18),
+              plan: DayPlan(
+                day: DateTime(2026, 10, 18),
+                lessonIds: const [],
+                reviewQuestionIds: const [],
+                newQuestionIds: const [],
+                isMockDay: false,
+                advancedIds: const {},
+              ),
+              remaining: null,
+              lessons: const [],
+              kind: 'past',
+            );
+          }),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanDayScreen(date: '2026-10-18'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Try Again'), findsNothing);
+    // The context changes after the screen captured its owner, then the
+    // screen rebuilds.
+    token = 'b';
+    ProviderScope.containerOf(tester.element(find.byType(PlanDayScreen)))
+        .invalidate(planDayViewProvider('2026-10-18'));
+    await tester.pumpAndSettle();
+    expect(find.text('Try Again'), findsOneWidget);
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Try Again'), findsNothing);
+    expect(reads, greaterThan(1));
+  });
+}
+
+class _TokenPlanLauncher extends TodayQuestionLauncher {
+  _TokenPlanLauncher(Ref ref, this.readToken) : super(ref, () => true);
+  final String Function() readToken;
+  @override
+  Future<Future<bool> Function()> captureGuard(
+    String examId, {
+    required bool Function() isAlive,
+  }) async {
+    final captured = readToken();
+    return () async => isAlive() && readToken() == captured;
+  }
 }
 
 class _PlanLauncher extends TodayQuestionLauncher {

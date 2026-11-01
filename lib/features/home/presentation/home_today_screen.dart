@@ -90,11 +90,13 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   @override
   void initState() {
     super.initState();
-    _guard = ref
-        .read(todayQuestionLauncherProvider)
-        .captureGuard(widget.examId, isAlive: _current);
+    _guard = _captureGuard();
     _reload();
   }
+
+  Future<Future<bool> Function()> _captureGuard() => ref
+      .read(todayQuestionLauncherProvider)
+      .captureGuard(widget.examId, isAlive: _current);
 
   void _reload() {
     _request = ref.read(homeTodayLoaderProvider)(widget.examId, _guard);
@@ -103,7 +105,13 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
-  void _retry() => setState(_reload);
+  /// A retry recaptures the current owner, so it recovers after a real
+  /// context change. Loads already running keep the guard they were given
+  /// and still fail, so a stale owner cannot write into the new context.
+  void _retry() => setState(() {
+        _guard = _captureGuard();
+        _reload();
+      });
   void _dismiss() => setState(() {
         _generation++;
         _sheet = null;

@@ -170,6 +170,16 @@ class PlanDayScreen extends ConsumerStatefulWidget {
 class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
   PlanDayView? _opened;
   Future<Future<bool> Function()>? _guard;
+  String? _guardExamId;
+
+  /// Retrying recaptures the current owner, so the screen recovers after a
+  /// real context change. A check that was already handed out keeps its
+  /// original owner and still fails for a stale one.
+  void _retryOwner() {
+    setState(() => _guard = null);
+    ref.invalidate(planDayViewProvider(widget.date));
+  }
+
   @override
   Widget build(BuildContext context) {
     final date = widget.date;
@@ -197,6 +207,8 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     }
     final examId = ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id;
     if (examId == null) return chooseExamFallback(context);
+    if (_guardExamId != examId) _guard = null;
+    _guardExamId = examId;
     _guard ??= ref
         .read(todayQuestionLauncherProvider)
         .captureGuard(examId, isAlive: () => mounted);
@@ -217,7 +229,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
             owner.connectionState == ConnectionState.done
                 ? const AsyncError<void>('Plan owner changed', StackTrace.empty)
                 : const AsyncLoading<void>(),
-            () => ref.invalidate(planDayViewProvider(date)),
+            _retryOwner,
             onBack: widget.popover ? () => Navigator.of(context).pop() : null,
           );
         }

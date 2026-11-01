@@ -248,9 +248,11 @@ void main() {
       ),
     );
   });
-  testWidgets('retry retains original page ownership guard', (tester) async {
+  testWidgets('retry after a real context change recaptures and loads',
+      (tester) async {
+    var token = 'a';
     final guards = <Future<Future<bool> Function()>>[];
-    var tries = 0;
+    var staleWrites = 0;
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -270,11 +272,30 @@ void main() {
           homeTodayLoaderProvider.overrideWith(
             (ref) => (examId, guard) async {
               guards.add(guard);
-              tries++;
-              throw StateError('recoverable');
+              final check = await guard;
+              // The context changes while the first load is running.
+              if (guards.length == 1) token = 'b';
+              if (!await check()) throw StateError('Home owner changed');
+              staleWrites++;
+              return HomeTodayData(
+                today: today,
+                lessons: const [
+                  HomeTodayLesson(
+                    id: 'l1',
+                    title: 'Ratios',
+                    subject: 'Mathematics',
+                    minutes: 8,
+                    read: false,
+                  ),
+                ],
+                questionWork: null,
+                canAdvance: false,
+              );
             },
           ),
-          todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+          todayQuestionLauncherProvider.overrideWith(
+            (ref) => _TokenLauncher(ref, () => token),
+          ),
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
@@ -286,13 +307,29 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(staleWrites, 0);
     await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
-    expect(tries, 2);
-    expect(identical(guards.first, guards.last), isTrue);
-    expect(find.textContaining('recoverable'), findsNothing);
-    expect(find.byType(TodayQuestionRow), findsNothing);
+    expect(guards, hasLength(2));
+    expect(identical(guards.first, guards.last), isFalse);
+    expect(find.text('Try Again'), findsNothing);
+    expect(find.text('Ratios'), findsOneWidget);
+    expect(staleWrites, 1);
   });
+}
+
+class _TokenLauncher extends TodayQuestionLauncher {
+  _TokenLauncher(Ref ref, this.readToken) : super(ref, () => true);
+  final String Function() readToken;
+  @override
+  Future<Future<bool> Function()> captureGuard(
+    String examId, {
+    required bool Function() isAlive,
+  }) async {
+    final captured = readToken();
+    return () async => isAlive() && readToken() == captured;
+  }
 }
 
 class _Launcher extends TodayQuestionLauncher {
