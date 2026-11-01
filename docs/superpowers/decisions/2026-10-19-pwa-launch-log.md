@@ -2299,3 +2299,4 @@ me please" · "QR Code and cards for PayMongo for now". He also said "yes" to ke
 - Fix being built for approval on local branch `web/insights-refetch-loop` (not integrated): a test
   that fails today, then the smallest root-cause fix (watch before await, or keepAlive with all
   refresh points kept).
+- Fix ready Nov 1 on local branch `web/insights-refetch-loop` f769640b (not pushed): insights and roadmap providers kept alive (two lines); refreshes still come from session/roadmap revisions, account/exam change, the access deadline and explicit invalidation. New loop test failed on old code; refetch tests for ingest and account switch pass. Repro: 2 to 4 calls in 8 runs (was 602). Awaiting Aedwon's approval to integrate.
