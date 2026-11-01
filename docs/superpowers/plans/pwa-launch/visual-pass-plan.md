@@ -119,6 +119,14 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    fixes branch. Open: `getWebEntitlement` called twice at load (low priority, untraced);
    unreached states (about a third of web boards: loading/error, irreversible actions, UPCAT-style
    mocks, Pro plan states). Next: the queued mobile pass.
+11. Nov 1 evening: round 3 (unreached boards) done; staging 1255a223. List:
+   `build/visual-pass/unreached.md` in the staging worktree; results in ui-audit "Visual pass round 3".
+   About 20 more boards compared, 6 layout fixes. Not reachable locally: local-database
+   loading/error states, Google sign-in/restore, purchases, UPCAT/DCAT mocks (no local content),
+   timer states. Possible bugs for Aedwon: a failed lesson request shows "Lesson not found."
+   with no retry; a mock review note (Add Note) did not save locally; local reports always queue
+   as offline. `getWebEntitlement` double call: two separate features (sign-in read and Beta Pro
+   status), left as is. Aedwon does his own visual pass next; then the mobile pass.
 
 ## Why
 
