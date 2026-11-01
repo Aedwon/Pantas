@@ -231,42 +231,50 @@ class _ResultsBodyState extends State<_ResultsBody>
     final percent = subject.total == 0
         ? 0
         : (100 * subject.correct / subject.total).round();
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Semantics(
-        label: '${subject.name}, $percent percent',
-        excludeSemantics: true,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(child: Text(subject.name, style: context.type.body)),
-                Text('$percent%', style: context.type.body),
-              ],
-            ),
-            const SizedBox(height: 8),
-            AnimatedBuilder(
-              animation: _controller,
-              builder: (context, _) {
-                final progress = PantasCurves.houseOut.transform(
-                  ((_controller.value * 3000 - 1500 - index * 120) / 800)
-                      .clamp(0.0, 1.0),
-                );
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(99),
-                  child: LinearProgressIndicator(
-                    value: (subject.total == 0
-                            ? 0
-                            : subject.correct / subject.total) *
-                        progress,
-                    minHeight: 5,
-                    backgroundColor: context.colors.fill,
-                    color: context.colors.chevron,
-                  ),
-                );
-              },
-            ),
-          ],
+    // AS_Results: a half-point rule under every row, the last one too.
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: context.colors.separator, width: .5),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Semantics(
+          label: '${subject.name}, $percent percent',
+          excludeSemantics: true,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(child: Text(subject.name, style: context.type.body)),
+                  Text('$percent%', style: context.type.body),
+                ],
+              ),
+              const SizedBox(height: 8),
+              AnimatedBuilder(
+                animation: _controller,
+                builder: (context, _) {
+                  final progress = PantasCurves.houseOut.transform(
+                    ((_controller.value * 3000 - 1500 - index * 120) / 800)
+                        .clamp(0.0, 1.0),
+                  );
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(99),
+                    child: LinearProgressIndicator(
+                      value: (subject.total == 0
+                              ? 0
+                              : subject.correct / subject.total) *
+                          progress,
+                      minHeight: 5,
+                      backgroundColor: context.colors.fill,
+                      color: context.colors.chevron,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -338,7 +346,8 @@ class _ResultsBodyState extends State<_ResultsBody>
           ),
         ),
         if (elapsed != null) ...[
-          const SizedBox(height: 6),
+          // AS_Results: "in 24 minutes" sits 20 px under "correct".
+          const SizedBox(height: 1),
           _reveal(
             1500,
             300,

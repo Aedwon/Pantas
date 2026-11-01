@@ -121,6 +121,11 @@ class _PerformancePageState extends State<PerformancePage> {
         }),
       );
     }
+    final accentHex = context.colors.accent
+        .toARGB32()
+        .toRadixString(16)
+        .padLeft(8, '0')
+        .substring(2);
     final page = PantasPage(
       title: 'Your performance',
       backLabel: 'Home',
@@ -128,11 +133,16 @@ class _PerformancePageState extends State<PerformancePage> {
       bottomInset: 104,
       children: [
         if (answered > 0) ...[
-          HalfRingGauge(
-            fraction: correct / answered,
-            label: 'Overall accuracy',
+          // Boards (DT_Free, DT_TopicsA): the ring starts 4 px lower; the
+          // switch is 6 px lower on the Pro Topics and Lessons views.
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: HalfRingGauge(
+              fraction: correct / answered,
+              label: 'Overall accuracy',
+            ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: widget.pro && level != 0 ? 22 : 16),
         ],
         // Board (DT_TopicsA): the sort square sits beside the switch, and the
         // label row under them holds the filter and the order.
@@ -252,29 +262,57 @@ class _PerformancePageState extends State<PerformancePage> {
             ],
           ),
         if (gated) ...[
-          const SizedBox(height: 20),
+          // Board (DT_Free): the card starts 7 px higher, content centered
+          // under a 26 px sparkle.
+          const SizedBox(height: 13),
           GroupedSection(
             children: [
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.fromLTRB(18, 22, 18, 18),
                 child: widget.paused
                     ? const ProPausedLine()
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(
-                            'Go deeper with Pro',
-                            style: context.type.emphasized,
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            'See your accuracy in every topic and lesson, '
-                            'so you know exactly where to practice.',
-                            style: context.type.subhead.copyWith(
-                              color: context.colors.secondaryLabel,
+                          Center(
+                            child: ExcludeSemantics(
+                              child: SvgPicture.string(
+                                '<svg viewBox="0 0 24 24" fill="none" '
+                                'stroke="#$accentHex" stroke-width="2" '
+                                'stroke-linecap="round" '
+                                'stroke-linejoin="round"><path d="M11 3.5 '
+                                '12.6 8.4 17.5 10 12.6 11.6 11 16.5 9.4 '
+                                '11.6 4.5 10l4.9-1.6z"/> <path d="M18 '
+                                '15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/>'
+                                ' </svg>',
+                                width: 26,
+                                height: 26,
+                              ),
                             ),
                           ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 12),
+                          Text(
+                            'Go deeper with Pro',
+                            textAlign: TextAlign.center,
+                            style:
+                                context.type.emphasized.copyWith(fontSize: 20),
+                          ),
+                          const SizedBox(height: 8),
+                          Center(
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 280),
+                              child: Text(
+                                'See your accuracy in every topic and lesson, '
+                                'so you know exactly where to practice.',
+                                textAlign: TextAlign.center,
+                                style: context.type.subhead.copyWith(
+                                  fontSize: 15,
+                                  color: context.colors.secondaryLabel,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 18),
                           PantasButton(
                             label: 'Unlock with Pro',
                             onPressed: widget.onPro,

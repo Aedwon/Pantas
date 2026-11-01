@@ -189,7 +189,12 @@ class _SelectionRow extends StatelessWidget {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
           ),
           side: WidgetStateProperty.resolveWith(
-            (states) => states.contains(WidgetState.focused)
+            // Phone boards draw no ring on a row at rest (O_Consent); one
+            // shows only while the keyboard drives the focus.
+            (states) => states.contains(WidgetState.focused) &&
+                    (context.wideWeb ||
+                        FocusManager.instance.highlightMode ==
+                            FocusHighlightMode.traditional)
                 ? BorderSide(color: c.accent, width: 2)
                 : BorderSide.none,
           ),

@@ -5,8 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -55,7 +55,9 @@ void main() {
           (tester) async {
         await pump(tester, brightness: brightness, scale: scale);
         expect(find.text('Terms and Privacy'), findsOneWidget);
-        final rows = tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).toList();
+        final rows = tester
+            .widgetList<CheckboxRow>(find.byType(CheckboxRow))
+            .toList();
         expect(
           rows.first.title,
           'Help improve Pantas by sharing anonymous usage data',
@@ -75,7 +77,10 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
         await tester.pump();
         expect(
-          tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).first.selected,
+          tester
+              .widgetList<CheckboxRow>(find.byType(CheckboxRow))
+              .first
+              .selected,
           isTrue,
         );
         expect(

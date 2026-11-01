@@ -42,6 +42,8 @@ class SettingsHomePage extends ConsumerWidget {
 
     return PantasPage(
       title: 'Settings',
+      // ST_RootPro: the title and the first card sit 12 and 21 px lower.
+      titlePadding: const EdgeInsets.fromLTRB(4, 18, 4, 24),
       bottomInset: 104,
       children: [
         GroupedSection(

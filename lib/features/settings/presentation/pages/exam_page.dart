@@ -276,13 +276,15 @@ class _ExamPageState extends ConsumerState<ExamPage>
               key: ValueKey('study-day-$day'),
               style: TextButton.styleFrom(
                 shape: const CircleBorder(),
-                minimumSize: Size(context.wideWeb ? 44 : 40, 44),
-                fixedSize: context.wideWeb ? const Size(44, 44) : null,
-                tapTargetSize:
-                    context.wideWeb ? MaterialTapTargetSize.shrinkWrap : null,
+                // ST_Exam: 38 px circles on the phone.
+                minimumSize: Size(context.wideWeb ? 44 : 38, 44),
+                fixedSize:
+                    context.wideWeb ? const Size(44, 44) : const Size(38, 38),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 textStyle: context.wideWeb
                     ? context.webTokens.style(15, weight: FontWeight.w600)
-                    : null,
+                    : context.type.body
+                        .copyWith(fontSize: 15, fontWeight: FontWeight.w600),
                 padding: EdgeInsets.zero,
                 backgroundColor: settings.studyDays.weekdays.contains(day)
                     ? context.colors.accentFill
@@ -510,6 +512,34 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   ? 'Not set'
                   : DateFormat(date.day == null ? 'MMMM y' : 'MMM d, y')
                       .format(current),
+              // ST_Exam, ST_ExamDate: a gray chip, with green text while the
+              // picker is open.
+              verticalPadding: context.wideWeb ? 11 : 12,
+              valueWidget: context.wideWeb
+                  ? null
+                  : Container(
+                      height: 34,
+                      padding: const EdgeInsets.symmetric(horizontal: 11),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: context.colors.fill,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        date == null
+                            ? 'Not set'
+                            : DateFormat(
+                                date.day == null ? 'MMMM y' : 'MMM d, y',
+                              ).format(current),
+                        style: context.type.rowValue.copyWith(
+                          color: past
+                              ? context.colors.destructive
+                              : _dateOpen
+                                  ? context.colors.accent
+                                  : context.colors.label,
+                        ),
+                      ),
+                    ),
               valueStyle: context.wideWeb
                   ? context.webTokens.style(
                       16,
@@ -575,15 +605,16 @@ class _ExamPageState extends ConsumerState<ExamPage>
               )
             else ...[
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+                padding: const EdgeInsets.fromLTRB(16, 11, 16, 8),
                 child: Text('Study days', style: context.type.body),
               ),
+              // ST_Exam: seven 38 px circles, 10 px apart.
               Padding(
-                padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    for (final day in [7, 1, 2, 3, 4, 5, 6])
-                      Expanded(child: studyDay(day)),
+                    for (final day in [7, 1, 2, 3, 4, 5, 6]) studyDay(day),
                   ],
                 ),
               ),

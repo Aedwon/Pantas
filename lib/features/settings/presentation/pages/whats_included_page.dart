@@ -145,6 +145,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       section: 'Your exam',
       title: 'What’s included',
       description: focus.valueOrNull?.exam?.shortName,
+      compactTitle: true,
+      titleLineHeight: 1.2,
+      titleGap: 6,
       backLabel: 'Your exam',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
@@ -179,7 +182,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                       style: context.type.body
                           .copyWith(color: context.colors.secondaryLabel),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 22),
                   ],
                   IgnorePointer(
                     ignoring: _saving,
@@ -193,11 +196,16 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                           unawaited(_save(examId!, scope.subjects, selected)),
                     ),
                   ),
-                  Text(
-                    'Untick what you don’t need. '
-                    'It gets removed from your plan, '
-                    'and your answers on it won’t be deleted.',
-                    style: context.type.footnote,
+                  Padding(
+                    padding: context.wideWeb
+                        ? EdgeInsets.zero
+                        : const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                    child: Text(
+                      'Untick what you don’t need. '
+                      'It gets removed from your plan, '
+                      'and your answers on it won’t be deleted.',
+                      style: context.type.footnote,
+                    ),
                   ),
                   if (_failed)
                     saveFailureLine(

@@ -5,10 +5,13 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 class Avatar extends StatelessWidget {
-  const Avatar({this.name = '', this.photo, super.key});
+  const Avatar({this.name = '', this.photo, this.size = 58, super.key});
   static final _letter = RegExp(r'^\p{L}', unicode: true);
   final String name;
   final ImageProvider<Object>? photo;
+
+  /// Phone diameter. The wide layout always draws 44 px.
+  final double size;
   @override
   Widget build(BuildContext context) {
     final initial = name.trim().isEmpty ? '' : name.trim().characters.first;
@@ -32,13 +35,17 @@ class Avatar extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
               )
-            : Icon(PantasIcons.profile, size: 30, color: c.secondaryLabel)
+            : Icon(
+                PantasIcons.profile,
+                size: 30 * size / 58,
+                color: c.secondaryLabel,
+              )
         : FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               emoji ? initial : initial.toUpperCase(),
               style: context.type.emphasized.copyWith(
-                fontSize: wide ? 19 : 25,
+                fontSize: wide ? 19 : 25 * size / 58,
                 color: wide ? context.webTokens.tintText : c.onAccent,
                 letterSpacing: -.3,
               ),
@@ -49,8 +56,8 @@ class Avatar extends StatelessWidget {
       excludeSemantics: true,
       child: ClipOval(
         child: Container(
-          width: wide ? 44 : 58,
-          height: wide ? 44 : 58,
+          width: wide ? 44 : size,
+          height: wide ? 44 : size,
           color: plain
               ? c.fill
               : emoji || wide
@@ -61,8 +68,8 @@ class Avatar extends StatelessWidget {
               ? fallback
               : Image(
                   image: photo!,
-                  width: wide ? 44 : 58,
-                  height: wide ? 44 : 58,
+                  width: wide ? 44 : size,
+                  height: wide ? 44 : size,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) => fallback,
                 ),

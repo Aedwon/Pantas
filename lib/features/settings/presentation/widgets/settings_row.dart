@@ -32,6 +32,7 @@ class SettingsRow extends StatelessWidget {
     this.footer,
     this.hideChevron = false,
     this.subtitleStyle,
+    this.valueWidget,
     super.key,
   });
 
@@ -57,6 +58,9 @@ class SettingsRow extends StatelessWidget {
 
   /// Wide web: the board draws no arrow on this row.
   final bool hideChevron;
+
+  /// Phone only: replaces the value text (the exam date chip).
+  final Widget? valueWidget;
 
   /// Wide web: the subtitle style (the boards use 13 px under a title).
   final TextStyle? subtitleStyle;
@@ -94,6 +98,8 @@ class SettingsRow extends StatelessWidget {
         titleColor: titleColor,
         verticalPadding: verticalPadding,
         valueStyle: valueStyle,
+        valueWidget: valueWidget,
+        hideTrailing: hideChevron,
         titleWidget: titleWidget,
         trailingWidget: trailingWidget,
         mutuallyExclusive: mutuallyExclusive,

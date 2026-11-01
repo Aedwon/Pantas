@@ -189,7 +189,10 @@ class _PantasButtonState extends State<PantasButton> {
                   ),
                 ),
                 backgroundColor: WidgetStateProperty.resolveWith((states) {
+                  // A phone layout has no hover: a mouse resting on a button
+                  // in a narrow browser must not fill it (O_Age).
                   if (webFeedback &&
+                      context.wideWeb &&
                       enabled &&
                       states.contains(WidgetState.hovered) &&
                       variant == PantasButtonVariant.primary &&
@@ -197,6 +200,7 @@ class _PantasButtonState extends State<PantasButton> {
                     return context.webTokens.accentHover;
                   }
                   if (webFeedback &&
+                      context.wideWeb &&
                       enabled &&
                       states.contains(WidgetState.hovered) &&
                       !solid &&

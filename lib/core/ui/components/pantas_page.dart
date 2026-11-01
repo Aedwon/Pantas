@@ -168,10 +168,10 @@ class PantasPage extends StatelessWidget {
             children: [
               SizedBox(
                 // Boards: back label at y 21, progress bar at y 56.
-                height: settingsPicker ? 44 : 56,
+                height: settingsPicker ? 49 : 56,
                 child: Padding(
                   padding: settingsPicker
-                      ? const EdgeInsets.fromLTRB(4, 6, 8, 0)
+                      ? const EdgeInsets.fromLTRB(4, 4, 8, 0)
                       : const EdgeInsets.fromLTRB(8, 5, 8, 0),
                   child: Align(
                     alignment: Alignment.centerLeft,

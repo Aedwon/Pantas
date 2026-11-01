@@ -221,6 +221,11 @@ class RecordPage extends StatelessWidget {
                   subtitle:
                       DateFormat('MMM d, y', 'en_US').format(mocks[i].date),
                   value: '${mocks[i].percent}%',
+                  // YR_Full: the percent in 17 px semibold, no chevron.
+                  valueStyle:
+                      context.type.body.copyWith(fontWeight: FontWeight.w600),
+                  hideTrailing: true,
+                  naturalValue: true,
                   divider: i < mocks.length - 1,
                   onTap: () => onMock(mocks[i].id),
                 ),
@@ -297,8 +302,12 @@ class RecordPage extends StatelessWidget {
           children: [
             Text(
               figure.value,
-              style: context.type.sectionHero.tabular
-                  .copyWith(letterSpacing: -.48),
+              // YR_Full: 24 px on a 32 px line, so the card is 237 px.
+              style: context.type.sectionHero.tabular.copyWith(
+                fontSize: 24,
+                height: 32 / 24,
+                letterSpacing: -.48,
+              ),
             ),
             const SizedBox(height: 1),
             Text(figure.label, style: context.type.footnote),

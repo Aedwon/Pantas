@@ -111,6 +111,8 @@ class QuestionGridSheet extends StatelessWidget {
       open: open,
       onDismiss: onDismiss,
       label: title,
+      // MK_Sheet: the mock sheet is 664 px under 180 px of the page.
+      topInset: mock ? 180 : 0,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 34),
         child: Column(

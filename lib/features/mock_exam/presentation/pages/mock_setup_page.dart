@@ -69,8 +69,10 @@ class _MockSetupPageState extends State<MockSetupPage> {
           children: [
             Column(
               children: [
+                // MK_SetupCSE: the link row is 44 px under 6 px of padding, so
+                // its text sits 6 px lower than a bare 44 px row.
                 SizedBox(
-                  height: 44,
+                  height: 50,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(4, 6, 8, 0),
                     child: Align(

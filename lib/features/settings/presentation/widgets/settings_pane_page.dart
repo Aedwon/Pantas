@@ -32,6 +32,10 @@ class SettingsPanePage extends StatelessWidget {
     this.description,
     this.icon,
     this.hero = false,
+    this.noHeading = false,
+    this.compactTitle = false,
+    this.titleLineHeight = 1.12,
+    this.titleGap = 22,
   });
   final String title;
   final List<Widget> children;
@@ -47,6 +51,15 @@ class SettingsPanePage extends StatelessWidget {
   /// in place of the large title.
   final bool hero;
 
+  /// Phone only: no large title at all. The page draws its own header.
+  final bool noHeading;
+
+  /// Phone only: the 28 px page title of the Settings sub-pages (Name,
+  /// What's included, Privacy policy).
+  final bool compactTitle;
+  final double titleLineHeight;
+  final double titleGap;
+
   @override
   Widget build(BuildContext context) {
     if (!context.wideWeb) {
@@ -58,13 +71,21 @@ class SettingsPanePage extends StatelessWidget {
         bottomInset: bottomInset,
         // Settings boards put the back row 4 px from the edge.
         backPadding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
-        hero: hero
-            ? _SettingsHero(
-                section: section,
-                title: title,
-                subtitle: description ?? '',
-              )
+        titleStyle: compactTitle
+            ? context.type.pageTitleCompact.copyWith(height: titleLineHeight)
             : null,
+        titlePadding: compactTitle
+            ? EdgeInsets.fromLTRB(4, 6, 4, titleGap)
+            : const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        hero: noHeading
+            ? const SizedBox.shrink()
+            : hero
+                ? _SettingsHero(
+                    section: section,
+                    title: title,
+                    subtitle: description ?? '',
+                  )
+                : null,
         children: children,
       );
     }

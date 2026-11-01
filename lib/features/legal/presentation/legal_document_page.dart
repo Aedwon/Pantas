@@ -25,7 +25,17 @@ class LegalDocumentPage extends StatelessWidget {
           : document?.title ?? 'Legal',
       backLabel: 'About',
       onBack: () => Navigator.of(context).maybePop(),
-      children: _documentChildren(context, documentId),
+      // ST_Privacy: a 28 px title 6 px above the updated line.
+      backPadding: context.wideWeb
+          ? const EdgeInsets.fromLTRB(8, 0, 16, 0)
+          : const EdgeInsets.fromLTRB(4, 0, 16, 0),
+      titleStyle: context.wideWeb
+          ? null
+          : context.type.pageTitleCompact.copyWith(height: 1.2),
+      titlePadding: context.wideWeb
+          ? const EdgeInsets.fromLTRB(4, 0, 4, 20)
+          : const EdgeInsets.fromLTRB(4, 6, 4, 6),
+      children: _documentChildren(context, documentId, phone: !context.wideWeb),
     );
   }
 }
@@ -72,12 +82,45 @@ class LegalDocumentBody extends StatelessWidget {
   }
 }
 
-List<Widget> _documentChildren(BuildContext context, String documentId) {
+List<Widget> _documentChildren(
+  BuildContext context,
+  String documentId, {
+  bool phone = false,
+}) {
   final document = legalDocumentFallbacks[documentId];
   return [
     if (document == null)
       const StateView(message: 'Legal page not found')
-    else ...[
+    else if (phone) ...[
+      // ST_Privacy: a 16 px updated line, 17 px headings, 26 px body lines.
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: Text(
+          'Updated ${DateFormat.yMMMd().format(document.updatedAt)}',
+          style: context.type.body.copyWith(
+            fontSize: 16,
+            color: context.colors.secondaryLabel,
+          ),
+        ),
+      ),
+      const SizedBox(height: 22),
+      for (final (index, section) in document.sections.indexed) ...[
+        if (index > 0) const SizedBox(height: 22),
+        Text(
+          section.heading,
+          style: context.type.emphasized.copyWith(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          section.body,
+          style: context.type.body.copyWith(
+            fontSize: 16,
+            height: 1.55,
+            letterSpacing: 0,
+          ),
+        ),
+      ],
+    ] else ...[
       Text(
         'Updated ${DateFormat.yMMMd().format(document.updatedAt)}',
         style: context.type.footnote,

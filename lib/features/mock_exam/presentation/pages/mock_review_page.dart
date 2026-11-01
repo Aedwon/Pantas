@@ -157,38 +157,45 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           : AppBar(
               // MK_Review*: the list page has a green "< Results" text link
               // instead of a centered title.
-              toolbarHeight: _viewerIndex == null ? 44 : null,
+              // The route's own back arrow stays out; the green link is the
+              // back control (MK_ReviewAll).
+              automaticallyImplyLeading: _viewerIndex != null,
+              toolbarHeight: _viewerIndex == null ? 46 : null,
               leadingWidth: _viewerIndex == null ? 0 : null,
               titleSpacing: _viewerIndex == null ? 4 : null,
               centerTitle: false,
               title: _viewerIndex == null
-                  ? Align(
-                      alignment: Alignment.centerLeft,
-                      child: GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTap: back,
-                        child: Semantics(
-                          button: true,
-                          label: 'Results',
-                          excludeSemantics: true,
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(minHeight: 44),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  PantasIcons.back,
-                                  size: 24,
-                                  color: context.colors.accent,
-                                ),
-                                const SizedBox(width: 2),
-                                Text(
-                                  'Results',
-                                  style: context.type.body.copyWith(
+                  ? Padding(
+                      // MK_ReviewAll: the link sits 5 px lower.
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: back,
+                          child: Semantics(
+                            button: true,
+                            label: 'Results',
+                            excludeSemantics: true,
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(minHeight: 44),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    PantasIcons.back,
+                                    size: 24,
                                     color: context.colors.accent,
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(width: 2),
+                                  Text(
+                                    'Results',
+                                    style: context.type.body.copyWith(
+                                      color: context.colors.accent,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

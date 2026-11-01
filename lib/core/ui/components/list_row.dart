@@ -3,6 +3,7 @@ import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum ListRowVariant {
   navigation,
@@ -44,6 +45,7 @@ class ListRow extends StatelessWidget {
     this.mutuallyExclusive = false,
     this.naturalValue = false,
     this.dividerInset = 0,
+    this.hideTrailing = false,
     super.key,
   })  : content = null,
         _checkbox = false,
@@ -59,6 +61,7 @@ class ListRow extends StatelessWidget {
   })  : mutuallyExclusive = false,
         naturalValue = false,
         dividerInset = 0,
+        hideTrailing = false,
         _checkbox = true,
         variant = ListRowVariant.check,
         value = null,
@@ -97,6 +100,7 @@ class ListRow extends StatelessWidget {
   })  : mutuallyExclusive = false,
         naturalValue = false,
         dividerInset = 0,
+        hideTrailing = false,
         _exam = true,
         _checkbox = false,
         variant = ListRowVariant.check,
@@ -133,6 +137,9 @@ class ListRow extends StatelessWidget {
   /// Left inset of the divider, drawn under the row. Zero keeps the divider
   /// inside the row at full width.
   final double dividerInset;
+
+  /// Draws no trailing control or space after the value (ST_Exam date chip).
+  final bool hideTrailing;
   final Widget? content;
   final String title;
   final Widget? titleWidget;
@@ -162,6 +169,72 @@ class ListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    if (_exam && settingsMode && !context.wideWeb) {
+      // ST_ExamPick: a plain 62 px row, the check at the right, and a gray
+      // "Coming soon" for an exam that is not out yet.
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Semantics(
+            button: true,
+            checked: selected,
+            inMutuallyExclusiveGroup: true,
+            enabled: !comingSoon,
+            label: '$title, $subtitle${comingSoon ? ', coming soon' : ''}',
+            excludeSemantics: true,
+            child: Opacity(
+              opacity: comingSoon ? .45 : 1,
+              child: TextButton(
+                onPressed: comingSoon ? null : onTap,
+                style: TextButton.styleFrom(
+                  alignment: Alignment.centerLeft,
+                  minimumSize: Size.zero,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  shape: const RoundedRectangleBorder(),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  visualDensity: VisualDensity.standard,
+                  foregroundColor: c.label,
+                  disabledForegroundColor: c.label,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title, style: context.type.body),
+                          Text(subtitle ?? '', style: context.type.footnote),
+                        ],
+                      ),
+                    ),
+                    if (comingSoon)
+                      Text(
+                        'Coming soon',
+                        style: context.type.footnote.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: c.tertiaryLabel,
+                        ),
+                      )
+                    else if (selected)
+                      Icon(PantasIcons.check, size: 18, color: c.accent),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (divider)
+            DecoratedBox(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(color: c.separator, width: .5),
+                ),
+              ),
+              child: const SizedBox(height: .5),
+            ),
+        ],
+      );
+    }
     if (_exam ||
         _checkbox ||
         variant == ListRowVariant.check ||
@@ -342,9 +415,10 @@ class ListRow extends StatelessWidget {
                         else
                           Flexible(child: detail),
                       ],
-                      if (trailingWidget != null ||
-                          (variant != ListRowVariant.value &&
-                              variant != ListRowVariant.destructive)) ...[
+                      if (!hideTrailing &&
+                          (trailingWidget != null ||
+                              (variant != ListRowVariant.value &&
+                                  variant != ListRowVariant.destructive))) ...[
                         const SizedBox(width: 8),
                         trailing,
                       ],

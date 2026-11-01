@@ -2657,3 +2657,41 @@ worktree): Home, Plan (Pro and Free). Onboarding, Performance and Bookmarks chan
 Not done: Study search field offset (not measured on the run); Plan header spacing; HE_* compact "Today's done" card (state);
 DP_PlanA row count (matches); BM_Edit selected-row outline (keyboard focus ring in capture, not styling); O_Days press highlight;
 O_DateChange toast (board annotation). Copy/behavior: reminders step, past-month disabling, "Unfinished items..." line, UPCAT vs CSE.
+
+### Mobile fix batch 4 (Settings, Record, verification mismatches; phone layout only, wide web untouched)
+
+Source: `build/visual-pass/mobile/remaining.md` (Settings, Record) and the mismatches of the last verification. Every change is
+gated so `context.wideWeb` layouts are as before.
+
+- Settings root: the title and the first card sit 12 and 21 px lower (ST_RootPro).
+- Practice (ST_Practice): plain rows, a green "Recommended" tag beside the title, a check at the right (no radio circles).
+- Appearance (ST_Appearance): one white card with the 74 x 140 Light and Dark previews, 22 px radios under them and the
+  Automatic switch; Text size card with a 26 px thumb.
+- Your exam (ST_Exam, ST_ExamDate): gray date chip (green text while the picker is open, no arrow), 38 px study-day circles
+  10 px apart with the gray off-day disc. The hero card was already there.
+- Account (ST_Account): centered 84 px avatar, 24 px name and email; Sign Out (green) and Delete Account (red, with arrow) are
+  separate cards. The empty 34 px heading no longer pushes Account, About and Delete Account 39 px down.
+- Name (ST_Name): 28 px title; 48 px white field with the 1.5 px green edge and a clear button.
+- About (ST_About): white card with the 52 px "P" tile; the external-link glyph on the data-protection and feedback rows. The
+  address line under the officer row stays (tests pin it), so that row is 20 px taller than the board.
+- Delete Account (ST_DeleteAccount): 28 px title, 13 px between the rows, 16 px card padding, alert icon on the billing note,
+  buttons pinned 30 px from the bottom with 8 px between them.
+- What's included (ST_Included) and Privacy policy (ST_Privacy): 28 px title at y 58, 22 px gaps, 16 px body on 26 px lines.
+- Exam picker, Settings mode (ST_ExamPick): 62 px plain rows, check at the right, gray "Coming soon" at the right.
+- Record (YR_Full): totals use 24 px figures (card 237 px); mock rows show the percent in 17 px semibold, no arrow.
+  Tendencies (YO_Free): the "Your tendencies" label over the locked cards.
+- Verification mismatches: no hover fill on a phone button (O_Age "Try a Different Year" stays a green link); consent rows use
+  standard density (73 px) and draw no focus ring on the phone (O_Consent); Performance Free card is centered under a 26 px
+  sparkle, ring 4 px lower, card 7 px higher, Pro Topics switch 6 px lower (DT_Free, DT_TopicsA); mock link row 6 px lower
+  (MK_SetupCSE, title unchanged); mock review link 5 px lower (MK_ReviewAll); question sheet stops 180 px below the top (MK_Sheet); mock bar groups the grid, counter and flag with the
+  previous and next arrows at the edges, 7 px lower (MK_Paper); half-point rule under every subject row (AS_Results).
+
+Checked against the boards and left as they are: the streak flame on YR_Full is an outline in the board; the streak number is
+40 px and the labels 15 px medium (YR_Full dump); the tendencies finding headline is 20 px bold (YO_Pro dump).
+
+Not done: ST_ExamDate picker wheels (board highlight bar and five rows); ST_ExamPick list starts 5 px lower than the board;
+the AS_Results "Weakest first" footer scrolls out of view on the run because the seeded subject names wrap (the line is in the
+page); MK_Paper bar is 58 px against the board's 60. Copy and behavior, not changed: Reminders row and Reminders page on the
+phone, "Shared links" row, "Help improve the app" default, Backup section and details rows (W4f), "Your Wrapped" row, "UPCAT"
+against "CSE Professional", "Version 1.0.0 (142)" against the app build number, exam group order, Free sign-out copy,
+the data-protection address line (kept, the board has none).

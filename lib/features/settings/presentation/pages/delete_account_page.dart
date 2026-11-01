@@ -203,29 +203,50 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
         ),
       );
     }
-    Widget consequence(Widget icon, String text) => Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              icon,
-              const SizedBox(width: 12),
-              Expanded(
-                child:
-                    Text(text, style: context.type.body.copyWith(fontSize: 16)),
+    // ST_DeleteAccount: 16 px inside the card, 13 px between the rows.
+    Widget consequence(Widget icon, String text, {double fontSize = 16}) => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            icon,
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                text,
+                style: context.type.body.copyWith(
+                  fontSize: fontSize,
+                  height: 1.4,
+                  letterSpacing: 0,
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
+        );
+    Widget card(List<Widget> rows) => SettingsSection(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (final (index, row) in rows.indexed) ...[
+                    if (index > 0) const SizedBox(height: 13),
+                    row,
+                  ],
+                ],
+              ),
+            ),
+          ],
         );
     return SettingsPanePage(
       section: 'Account',
       title: context.wideWeb ? 'Delete account' : '',
+      noHeading: true,
       backLabel: 'Account',
       onBack: _isDeleting ? null : () => Navigator.of(context).maybePop(),
       bottom: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -237,6 +258,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                   busy: _isDeleting,
                   onPressed: _isDeleting ? null : _delete,
                 ),
+                const SizedBox(height: 8),
                 PantasButton(
                   label: widget.isAnonymous ? 'Cancel' : 'Keep My Account',
                   variant: PantasButtonVariant.tertiary,
@@ -254,9 +276,12 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
         ),
       ),
       children: [
-        Text(
-          widget.isAnonymous ? 'Delete your data?' : 'Delete your account?',
-          style: context.type.pageTitle,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+          child: Text(
+            widget.isAnonymous ? 'Delete your data?' : 'Delete your account?',
+            style: context.type.pageTitleCompact.copyWith(height: 1.2),
+          ),
         ),
         const SizedBox(height: 6),
         Text(
@@ -268,59 +293,56 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
               .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
         ),
         const SizedBox(height: 22),
-        SettingsSection(
-          children: [
-            if (!widget.isAnonymous) ...[
-              consequence(
-                SizedBox.square(
-                  dimension: 22,
-                  child: CustomPaint(
-                    foregroundPainter: _UserSlashPainter(
-                      context.colors.surface,
-                      context.colors.destructive,
-                    ),
-                    child: Icon(
-                      PantasIcons.profile,
-                      size: 22,
-                      color: context.colors.destructive,
-                    ),
+        card([
+          if (!widget.isAnonymous) ...[
+            consequence(
+              SizedBox.square(
+                dimension: 22,
+                child: CustomPaint(
+                  foregroundPainter: _UserSlashPainter(
+                    context.colors.surface,
+                    context.colors.destructive,
+                  ),
+                  child: Icon(
+                    PantasIcons.profile,
+                    size: 22,
+                    color: context.colors.destructive,
                   ),
                 ),
-                'Your account is removed.',
               ),
-              consequence(
-                Icon(
-                  PantasIcons.cloudSlash,
-                  size: 22,
-                  color: context.colors.destructive,
-                ),
-                'Anything backed up to it is erased.',
-              ),
-            ],
+              'Your account is removed.',
+            ),
             consequence(
               Icon(
-                PantasIcons.phoneSlash,
+                PantasIcons.cloudSlash,
                 size: 22,
                 color: context.colors.destructive,
               ),
-              'Progress on this phone is erased too.',
+              'Anything backed up to it is erased.',
             ),
           ],
-        ),
+          consequence(
+            Icon(
+              PantasIcons.phoneSlash,
+              size: 22,
+              color: context.colors.destructive,
+            ),
+            'Progress on this phone is erased too.',
+          ),
+        ]),
         if (billing != null) ...[
           const SizedBox(height: 22),
-          SettingsSection(
-            children: [
-              consequence(
-                Icon(
-                  PantasIcons.appError,
-                  size: 22,
-                  color: context.colors.destructive,
-                ),
-                billing,
+          card([
+            consequence(
+              Icon(
+                PantasIcons.appError,
+                size: 22,
+                color: context.colors.destructive,
               ),
-            ],
-          ),
+              billing,
+              fontSize: 15,
+            ),
+          ]),
         ],
         if (_isDeleting) ...[
           const SizedBox(height: 22),

@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -16,6 +18,7 @@ class PantasSheet extends StatefulWidget {
     this.bookmarks = false,
     this.readerContents = false,
     this.scrollable = true,
+    this.topInset = 0,
     super.key,
   });
 
@@ -27,6 +30,10 @@ class PantasSheet extends StatefulWidget {
   final bool bookmarks;
   final bool readerContents;
   final bool scrollable;
+
+  /// Space kept clear above the sheet, so a tall sheet stops short of the
+  /// top of the screen (MK_Sheet: the page stays visible for 180 px).
+  final double topInset;
 
   @override
   State<PantasSheet> createState() => _PantasSheetState();
@@ -156,7 +163,10 @@ class _PantasSheetState extends State<PantasSheet> {
                                   ),
                                   child: ConstrainedBox(
                                     constraints: BoxConstraints(
-                                      maxHeight: constraints.maxHeight,
+                                      maxHeight: math.max(
+                                        0,
+                                        constraints.maxHeight - widget.topInset,
+                                      ),
                                     ),
                                     child: SizedBox(
                                       width: constraints.maxWidth,

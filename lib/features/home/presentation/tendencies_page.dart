@@ -66,6 +66,14 @@ class TendenciesPage extends StatelessWidget {
         _Profile(data: data, onName: onName),
         const SizedBox(height: 24),
         if (!pro) ...[
+          // YO_Free: a section label over the locked cards.
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+            child: Text(
+              'YOUR TENDENCIES',
+              style: context.type.sectionHeader,
+            ),
+          ),
           for (final t in data.tendencies) ...[
             _Finding(tendency: t, covered: false),
             const SizedBox(height: 12),

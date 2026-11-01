@@ -245,39 +245,40 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       section: 'Account',
       description: 'Your name, sign-in and backup.',
       title: context.wideWeb ? 'Account' : '',
+      noHeading: true,
       backLabel: 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
+        // ST_Account: a centered 84 px avatar over a 24 px name and the email.
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Row(
+          padding: const EdgeInsets.only(top: 10, bottom: 7),
+          child: Column(
             children: [
               Avatar(
                 name: settings.name ?? '',
+                size: 84,
                 photo: user?.photoUrl == null
                     ? null
                     : NetworkImage(user!.photoUrl!),
               ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      settings.name ?? 'Add your name',
-                      style: context.type.emphasized.copyWith(fontSize: 22),
-                    ),
-                    Text(
-                      user?.email ?? 'Not signed in',
-                      style: context.type.subhead,
-                    ),
-                  ],
+              const SizedBox(height: 6),
+              Text(
+                settings.name ?? 'Add your name',
+                style: context.type.emphasized
+                    .copyWith(fontSize: 24, fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                user?.email ?? 'Not signed in',
+                style: context.type.subhead.copyWith(
+                  fontSize: 15,
+                  color: context.colors.secondaryLabel,
                 ),
               ),
             ],
           ),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: 22),
         SettingsSection(
           children: [
             SettingsRow(
@@ -294,7 +295,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: 22),
         SettingsSection(
           footer: user == null
               ? 'You get your own Pantas ID when you sign in.'
@@ -323,7 +324,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
           ],
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: 22),
         if (user == null) ...[
           PantasButton(
             label: 'Continue with Google',
@@ -365,24 +366,31 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ],
             ),
           ],
-          const SizedBox(height: 24),
+          const SizedBox(height: 22),
+          // ST_Account: Sign Out and Delete Account are separate cards.
           SettingsSection(
             children: [
               SettingsRow(
                 title: 'Sign Out',
+                titleColor: context.colors.accent,
+                hideChevron: true,
                 onTap: _confirmSignOut,
-                divider: true,
               ),
+            ],
+          ),
+          const SizedBox(height: 22),
+          SettingsSection(
+            children: [
               SettingsRow(
                 title: 'Delete Account',
-                variant: ListRowVariant.destructive,
+                titleColor: context.colors.destructive,
                 onTap: () => push('/settings/account/delete'),
               ),
             ],
           ),
         ],
         if (user == null) ...[
-          const SizedBox(height: 24),
+          const SizedBox(height: 22),
           SettingsSection(
             children: [
               SettingsRow(

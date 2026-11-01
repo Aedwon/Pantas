@@ -106,7 +106,7 @@ void main() {
         final title = tester.widget<Text>(find.text('Exam'));
         expect(title.style!.fontSize, 28);
         expect(title.style!.height, 1.2);
-        expect(tester.getTopLeft(find.text('Exam')), const Offset(20, 52));
+        expect(tester.getTopLeft(find.text('Exam')), const Offset(20, 57));
         expect(find.text('Your exam'), findsOneWidget);
         expect(tester.takeException(), isNull);
       });

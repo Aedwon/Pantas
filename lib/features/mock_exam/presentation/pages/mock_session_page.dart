@@ -439,56 +439,54 @@ class _MockSessionPageState extends State<MockSessionPage> {
                         (_proctorToastMinutes != null ? 20 : 0) +
                         12;
                 statusMetrics.dispose();
+                final prev = control(
+                  'mock-prev',
+                  'Previous question',
+                  Icon(PantasIcons.back, size: 20),
+                  widget.canGoPrevious ? widget.onPrevious : null,
+                );
+                final gridButton = control(
+                  'mock-grid',
+                  'Questions',
+                  // MK_Paper: a 3 x 3 grid of rounded squares.
+                  CustomPaint(
+                    size: const Size.square(19),
+                    painter: _MockGridGlyphPainter(c.label),
+                  ),
+                  () => setState(() => _gridOpen = true),
+                );
+                final flagButton = control(
+                  'mock-flag',
+                  'Flag question',
+                  // MK_Paper: a flag on a pole.
+                  CustomPaint(
+                    size: const Size.square(21),
+                    painter: _FlagGlyphPainter(
+                      widget.state.flags
+                              .contains(widget.state.currentQuestionId)
+                          ? c.accent
+                          : c.label,
+                    ),
+                  ),
+                  widget.onToggleFlag,
+                );
+                final nextButton = control(
+                  'mock-next',
+                  last
+                      ? widget.oneBlock
+                          ? 'Submit the exam'
+                          : 'End part'
+                      : 'Next question',
+                  Icon(PantasIcons.next, size: 20),
+                  next,
+                );
                 final left = Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                    control(
-                      'mock-prev',
-                      'Previous question',
-                      Icon(PantasIcons.back, size: 20),
-                      widget.canGoPrevious ? widget.onPrevious : null,
-                    ),
-                    control(
-                      'mock-grid',
-                      'Questions',
-                      // MK_Paper: a 3 x 3 grid of rounded squares.
-                      CustomPaint(
-                        size: const Size.square(19),
-                        painter: _MockGridGlyphPainter(c.label),
-                      ),
-                      () => setState(() => _gridOpen = true),
-                    ),
-                  ],
+                  children: [prev, gridButton],
                 );
                 final right = Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                    control(
-                      'mock-flag',
-                      'Flag question',
-                      // MK_Paper: a flag on a pole.
-                      CustomPaint(
-                        size: const Size.square(21),
-                        painter: _FlagGlyphPainter(
-                          widget.state.flags
-                                  .contains(widget.state.currentQuestionId)
-                              ? c.accent
-                              : c.label,
-                        ),
-                      ),
-                      widget.onToggleFlag,
-                    ),
-                    control(
-                      'mock-next',
-                      last
-                          ? widget.oneBlock
-                              ? 'Submit the exam'
-                              : 'End part'
-                          : 'Next question',
-                      Icon(PantasIcons.next, size: 20),
-                      next,
-                    ),
-                  ],
+                  children: [flagButton, nextButton],
                 );
                 final bar = compact
                     ? FloatingBar.content(
@@ -508,7 +506,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
                           ],
                         ),
                       )
-                    : FloatingBar(left: left, counter: counter, right: right);
+                    // MK_Paper: previous and next at the edges, the grid and
+                    // flag grouped with the counter.
+                    : FloatingBar(
+                        left: prev,
+                        beforeCounter: gridButton,
+                        counter: counter,
+                        afterCounter: flagButton,
+                        right: nextButton,
+                      );
                 return Stack(
                   children: [
                     ListView(
@@ -562,7 +568,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 30),
+                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 25),
                         child: bar,
                       ),
                     ),

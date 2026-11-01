@@ -162,6 +162,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                 title: 'Help improve Pantas by sharing anonymous usage data',
                 selected: _acceptedUsage,
                 gap: 14,
+                standardDensity: true,
                 onTap: _saving
                     ? null
                     : () => setState(() => _acceptedUsage = !_acceptedUsage),
@@ -179,6 +180,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                 title: 'I agree to the Terms of Service and Privacy Policy.',
                 selected: _acceptedTerms,
                 gap: 14,
+                standardDensity: true,
                 interactiveContent: true,
                 onTap: _saving
                     ? null

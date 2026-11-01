@@ -13,6 +13,8 @@ class FloatingBar extends StatelessWidget {
     required this.counter,
     required this.right,
     this.state = FloatingBarState.neutral,
+    this.beforeCounter,
+    this.afterCounter,
     super.key,
   })  : content = null,
         radius = 30,
@@ -30,11 +32,17 @@ class FloatingBar extends StatelessWidget {
     this.transitionCurve = Curves.linear,
     super.key,
   })  : content = child,
+        beforeCounter = null,
+        afterCounter = null,
         left = const SizedBox.shrink(),
         counter = '',
         right = const SizedBox.shrink();
 
   final Widget? content;
+
+  /// Phone only (MK_Paper): controls grouped with the counter in the middle.
+  final Widget? beforeCounter;
+  final Widget? afterCounter;
   final double radius;
   final double inset;
   final Duration? transitionDuration;
@@ -113,7 +121,9 @@ class FloatingBar extends StatelessWidget {
                     child: left,
                   ),
                 ),
+                if (beforeCounter != null) beforeCounter!,
                 Text(counter, style: context.type.subheadStrong),
+                if (afterCounter != null) afterCounter!,
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerRight,
