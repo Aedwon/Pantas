@@ -198,6 +198,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
               ),
             ),
             inlineActions: true,
+            // MK_PauseWarn: 24 px from the screen edge, 10 px between buttons.
+            horizontalInset: 24,
+            actionGap: 10,
             primaryLabel: 'Pause',
             secondaryLabel: 'Keep Going',
             onCancel: () => Navigator.pop(dialogContext),
@@ -263,6 +266,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
           secondaryLabel: 'Keep Working',
           destructive: !context.wideWeb && !widget.oneBlock,
           inlineActions: true,
+          // MK_SubmitCSE: 342 px wide (24 px edge), buttons 146 px apart by 10.
+          horizontalInset: 24,
+          actionGap: 10,
           onCancel: () => Navigator.pop(dialogContext),
           onConfirm: () {
             Navigator.pop(dialogContext);
@@ -370,7 +376,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 IconButton(
                   key: const Key('mock-pause'),
                   tooltip: 'Pause',
-                  icon: Icon(PantasIcons.pause, size: 20),
+                  // MK_Paper: a thin two-bar glyph, not the outlined boxes.
+                  icon: CustomPaint(
+                    size: const Size.square(20),
+                    painter: _PhonePauseGlyphPainter(c.label),
+                  ),
                   onPressed: _onPausePressed,
                 )
               else
@@ -441,7 +451,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                     control(
                       'mock-grid',
                       'Questions',
-                      PantasIcons.questionsSheet,
+                      // MK_Paper: a 3 x 3 grid of rounded squares.
+                      CustomPaint(
+                        size: const Size.square(19),
+                        painter: _MockGridGlyphPainter(c.label),
+                      ),
                       () => setState(() => _gridOpen = true),
                     ),
                   ],
@@ -452,13 +466,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
                     control(
                       'mock-flag',
                       'Flag question',
-                      Icon(
-                        PantasIcons.flag,
-                        size: 21,
-                        color: widget.state.flags
-                                .contains(widget.state.currentQuestionId)
-                            ? c.accent
-                            : c.label,
+                      // MK_Paper: a flag on a pole.
+                      CustomPaint(
+                        size: const Size.square(21),
+                        painter: _FlagGlyphPainter(
+                          widget.state.flags
+                                  .contains(widget.state.currentQuestionId)
+                              ? c.accent
+                              : c.label,
+                        ),
                       ),
                       widget.onToggleFlag,
                     ),
@@ -1376,6 +1392,52 @@ class _FlagGlyphPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_FlagGlyphPainter old) => old.color != color;
+}
+
+/// Phone pause glyph (MK_Paper): two 2.2 px round strokes, `M9 6v12M15 6v12`.
+class _PhonePauseGlyphPainter extends CustomPainter {
+  const _PhonePauseGlyphPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.2 * k
+      ..strokeCap = StrokeCap.round;
+    canvas
+      ..drawLine(Offset(9 * k, 6 * k), Offset(9 * k, 18 * k), paint)
+      ..drawLine(Offset(15 * k, 6 * k), Offset(15 * k, 18 * k), paint);
+  }
+
+  @override
+  bool shouldRepaint(_PhonePauseGlyphPainter old) => old.color != color;
+}
+
+/// Phone question-grid glyph (MK_Paper): nine 5.4 px squares, radius 1.2.
+class _MockGridGlyphPainter extends CustomPainter {
+  const _MockGridGlyphPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()..color = color;
+    for (final y in [1.2, 8.6, 16.0]) {
+      for (final x in [1.2, 8.6, 16.0]) {
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(
+            Rect.fromLTWH(x * k, y * k, 5.4 * k, 5.4 * k),
+            Radius.circular(1.2 * k),
+          ),
+          paint,
+        );
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_MockGridGlyphPainter old) => old.color != color;
 }
 
 class _PauseGlyphPainter extends CustomPainter {

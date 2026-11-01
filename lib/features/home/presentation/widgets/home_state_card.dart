@@ -219,7 +219,9 @@ class HomeStateCard extends StatelessWidget {
               SizedBox(height: assessment ? 8 : 10),
               detail,
               if (action != null) ...[
-                SizedBox(height: assessment ? 8 : 10),
+                // Board (HE_BeforeAssessment): 8 px gap plus 8 px above the
+                // button.
+                SizedBox(height: assessment ? 16 : 10),
                 PantasButton(
                   label: action,
                   onPressed: onPrimary,

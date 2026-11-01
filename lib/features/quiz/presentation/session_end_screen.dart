@@ -221,8 +221,31 @@ class _SessionEndBodyState extends State<SessionEndBody>
       child: Stack(
         children: [
           ListView(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 180),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 180),
             children: [
+              // QV_EndPro: an X at x 19, y 17 closes the page like Done; the
+              // title then starts at y 58.
+              SizedBox(
+                height: 47,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Transform.translate(
+                    offset: const Offset(-8, 4),
+                    child: IconButton(
+                      tooltip: 'Done',
+                      constraints:
+                          const BoxConstraints.tightFor(width: 44, height: 44),
+                      padding: EdgeInsets.zero,
+                      onPressed: _nextBusy ? null : widget.onDone,
+                      icon: Icon(
+                        PantasIcons.close,
+                        size: 22,
+                        color: colors.controlOutline,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               _appear(
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,7 +261,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                 380,
                 rise: 6,
               ),
-              const SizedBox(height: 22),
+              const SizedBox(height: 27),
               Padding(
                 padding: const EdgeInsets.only(top: 6, bottom: 2),
                 child: Column(

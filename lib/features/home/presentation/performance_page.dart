@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
@@ -9,6 +10,7 @@ import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
@@ -132,47 +134,31 @@ class _PerformancePageState extends State<PerformancePage> {
           ),
           const SizedBox(height: 20),
         ],
-        SegmentedSwitch(
-          labels: [
-            'Subjects',
-            'Topics',
-            if (widget.data.lessonLevelAvailable) 'Lessons',
-          ],
-          selected: level,
-          onChanged: (level) => setState(() {
-            _level = level;
-            _publish();
-          }),
-        ),
-        const SizedBox(height: 16),
-        Wrap(
-          alignment: WrapAlignment.spaceBetween,
-          crossAxisAlignment: WrapCrossAlignment.center,
+        // Board (DT_TopicsA): the sort square sits beside the switch, and the
+        // label row under them holds the filter and the order.
+        Row(
           children: [
-            if (gated)
-              const SizedBox.shrink()
-            else
-              TextButton(
-                onPressed: level == 0 || !widget.pro
-                    ? null
-                    : () => setState(() => _picker = true),
-                child: Text(
-                  level == 0
-                      ? '${subjects.length} SUBJECTS'
-                      : _subject == null
-                          ? 'ALL SUBJECTS'
-                          : subjects
-                              .firstWhere((r) => r.id == _subject)
-                              .title
-                              .toUpperCase(),
-                  style: context.type.sectionHeader,
-                ),
+            Expanded(
+              child: SegmentedSwitch(
+                labels: [
+                  'Subjects',
+                  'Topics',
+                  if (widget.data.lessonLevelAvailable) 'Lessons',
+                ],
+                selected: level,
+                onChanged: (level) => setState(() {
+                  _level = level;
+                  _publish();
+                }),
               ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (!gated) Text(order, style: context.type.sectionHeader),
-                Opacity(
+            ),
+            const SizedBox(width: 8),
+            SizedBox.square(
+              dimension: 36,
+              child: OverflowBox(
+                maxWidth: 44,
+                maxHeight: 44,
+                child: Opacity(
                   opacity: gated ? .35 : 1,
                   child: IgnorePointer(
                     ignoring: gated,
@@ -185,43 +171,83 @@ class _PerformancePageState extends State<PerformancePage> {
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),
+        const SizedBox(height: 28),
+        if (!gated)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (level == 0)
+                  Text(
+                    '${subjects.length} SUBJECTS',
+                    style: context.type.sectionHeader,
+                  )
+                else
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: widget.pro
+                        ? () => setState(() => _picker = true)
+                        : null,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          _subject == null
+                              ? 'ALL SUBJECTS'
+                              : subjects
+                                  .firstWhere((r) => r.id == _subject)
+                                  .title
+                                  .toUpperCase(),
+                          style: context.type.sectionHeader,
+                        ),
+                        const SizedBox(width: 3),
+                        ExcludeSemantics(
+                          child: SvgPicture.string(
+                            '<svg viewBox="0 0 24 24" fill="none" '
+                            'stroke="#6E6E73" stroke-width="2.4" '
+                            'stroke-linecap="round" stroke-linejoin="round"> '
+                            '<path d="M8 9.5 12 5.5l4 4M8 14.5l4 4 4-4"/></svg>',
+                            width: 13,
+                            height: 13,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                Text(order, style: context.type.sectionHeader),
+              ],
+            ),
+          ),
         if (!gated)
           GroupedSection(
             children: [
-              for (final row in rows)
-                Column(
-                  children: [
-                    ListRow(
-                      title: row.title,
-                      subtitle: level == 0
-                          ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
-                          : [
-                              if (row.subtext != null) row.subtext!,
-                              '${row.answered} answered',
-                            ].join(' · '),
-                      value: '${(row.accuracy! * 100).round()}%',
-                      valueStyle: context.type.emphasized,
-                      onTap: () => setState(() {
-                        if (level == 0) {
-                          _subject = row.id;
-                          _level = 1;
-                          _publish();
-                        } else if (level == 1) {
-                          widget.onTopic(row.id);
-                        } else {
-                          widget.onLesson?.call(row.id);
-                        }
-                      }),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 13),
-                      child: AccuracyBar.topicRows(accuracy: row.accuracy!),
-                    ),
-                  ],
+              for (final (index, row) in rows.indexed)
+                _PerformanceRow(
+                  title: row.title,
+                  subtitle: level == 0
+                      ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
+                      : [
+                          if (row.subtext != null) row.subtext!,
+                          '${row.answered} answered',
+                        ].join(' · '),
+                  accuracy: row.accuracy!,
+                  divider: index < rows.length - 1,
+                  onTap: () => setState(() {
+                    if (level == 0) {
+                      _subject = row.id;
+                      _level = 1;
+                      _publish();
+                    } else if (level == 1) {
+                      widget.onTopic(row.id);
+                    } else {
+                      widget.onLesson?.call(row.id);
+                    }
+                  }),
                 ),
             ],
           ),
@@ -294,6 +320,83 @@ class _PerformancePageState extends State<PerformancePage> {
                 }),
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Board (DT_TopicsA): 12/16 padding, the percent in 17 px semibold and a 5 px
+/// bar 8 px under the title.
+class _PerformanceRow extends StatelessWidget {
+  const _PerformanceRow({
+    required this.title,
+    required this.subtitle,
+    required this.accuracy,
+    required this.divider,
+    required this.onTap,
+  });
+  final String title;
+  final String subtitle;
+  final double accuracy;
+  final bool divider;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return MergeSemantics(
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            border: divider
+                ? Border(bottom: BorderSide(color: c.separator, width: .5))
+                : null,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: context.type.body,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 1),
+                          child: Text(
+                            subtitle,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: context.type.footnote,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    '${(accuracy * 100).round()}%',
+                    style: context.type.emphasized.copyWith(
+                      fontFeatures: const [FontFeature.tabularFigures()],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Icon(PantasIcons.next, size: 14, color: c.chevron),
+                ],
+              ),
+              const SizedBox(height: 8),
+              AccuracyBar(accuracy: accuracy),
+            ],
+          ),
         ),
       ),
     );

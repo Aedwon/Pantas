@@ -24,6 +24,7 @@ class OnboardingWebPage extends StatelessWidget {
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
     this.width = 580,
+    this.topPadding = 4,
     super.key,
   });
   final String title;
@@ -44,6 +45,9 @@ class OnboardingWebPage extends StatelessWidget {
   final double detailLineHeight;
   final double width;
 
+  /// Phone only: space between the progress bar and the title.
+  final double topPadding;
+
   @override
   Widget build(BuildContext context) {
     if (!context.wideWeb) {
@@ -57,6 +61,7 @@ class OnboardingWebPage extends StatelessWidget {
         centerBody: centerBody,
         surfaceBackground: surfaceBackground,
         detailLineHeight: detailLineHeight,
+        topPadding: topPadding,
         children: children,
       );
     }

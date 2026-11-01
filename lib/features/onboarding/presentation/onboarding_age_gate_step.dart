@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
@@ -199,6 +200,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         surfaceBackground: true,
         bottom: OnboardingButton(
           label: 'Try a Different Year',
+          // Board (O_Age): a green text action with no fill on the phone.
+          variant: PantasButtonVariant.tertiary,
           onPressed: () => setState(() {
             _blocked = false;
             _returning = true;

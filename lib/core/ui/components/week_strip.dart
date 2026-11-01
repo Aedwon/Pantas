@@ -48,7 +48,8 @@ class _WeekStripState extends State<WeekStrip> {
           initialScrollOffset: (widget.today.weekday % 7) * width,
         );
         return SizedBox(
-          height: scale.scale(10) * 1.35 + size + 12,
+          // Board: the strip is 59.4 px tall, so the card is 75.4 px.
+          height: scale.scale(10) * 1.35 + size + 11.5,
           child: SingleChildScrollView(
             controller: _scroll,
             scrollDirection: Axis.horizontal,

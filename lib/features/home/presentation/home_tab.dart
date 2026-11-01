@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -14,6 +15,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
@@ -277,10 +279,23 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
               ListRow(
                 title: 'Your record',
                 divider: true,
+                dividerInset: 58,
+                leading: _MoreIcon(
+                  context.colors.accent,
+                  '<path d="M12 21c3.9 0 6.5-2.6 6.5-6.3 0-3.2-2.2-5.5-3.6-7.4 '
+                  '-.4 1.8-1.4 2.8-2.7 3.2.3-3-.7-5.7-3-7.5.4 3.6-3.7 6-3.7 '
+                  '11.7 0 3.7 2.6 6.3 6.5 6.3z"/>',
+                ),
                 onTap: () => unawaited(context.push<void>('/record')),
               ),
               ListRow(
                 title: 'Your tendencies',
+                leading: _MoreIcon(
+                  context.colors.accent,
+                  '<path d="M11 3.5 12.6 8.4 17.5 10 12.6 11.6 11 16.5 9.4 '
+                  '11.6 4.5 10l4.9-1.6z"/><path d="M18 15.5l.7 2 2 .7-2 .7-.7 '
+                  '2-.7-2-2-.7 2-.7z"/>',
+                ),
                 onTap: () => unawaited(context.push<void>('/tendencies')),
               ),
             ],
@@ -306,4 +321,30 @@ class _AssessmentCard extends StatelessWidget {
         examShortName: '',
         onPrimary: () => unawaited(context.push<void>('/assessment/$examId')),
       );
+}
+
+/// Board (HP_Free, HP_Pro): a 22 px outline icon in a 30 px column.
+class _MoreIcon extends StatelessWidget {
+  const _MoreIcon(this.color, this.paths);
+  final Color color;
+  final String paths;
+
+  @override
+  Widget build(BuildContext context) {
+    final hex = color.toARGB32().toRadixString(16).padLeft(8, '0').substring(2);
+    return ExcludeSemantics(
+      child: SizedBox(
+        width: 30,
+        child: Center(
+          child: SvgPicture.string(
+            '<svg viewBox="0 0 24 24" fill="none" stroke="#$hex" '
+            'stroke-width="2" stroke-linecap="round" '
+            'stroke-linejoin="round">$paths</svg>',
+            width: 22,
+            height: 22,
+          ),
+        ),
+      ),
+    );
+  }
 }

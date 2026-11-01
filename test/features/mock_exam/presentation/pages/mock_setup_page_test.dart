@@ -112,8 +112,10 @@ void main() {
     expect(find.textContaining('personal-information'), findsNothing);
   });
 
-  testWidgets('draws setup table, total row, rules, switch and start contract',
+  testWidgets('draws setup table, rules, switch and start contract',
       (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
     bool? startedStrict;
     await tester.pumpWidget(
       MaterialApp(
@@ -130,8 +132,9 @@ void main() {
     expect(find.text('SECTION'), findsOneWidget);
     expect(find.text('ITEMS'), findsOneWidget);
     expect(find.text('TIME'), findsOneWidget);
-    expect(find.text('Total'), findsOneWidget);
-    expect(find.text('250'), findsWidgets);
+    // MK_SetupStrict: the phone table has no Total row; the subtitle says it.
+    expect(find.text('Total'), findsNothing);
+    expect(find.text('70 min'), findsOneWidget);
     expect(
       find.text(
         "This paper runs part by part. Once a part ends, you can't go back to it.",

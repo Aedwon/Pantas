@@ -106,6 +106,9 @@ Widget webMockConfirmation({
   bool inlineActions = false,
   Widget? content,
   bool allowEscape = true,
+  // Phone dialog geometry; the web dialog ignores both.
+  double horizontalInset = 28,
+  double actionGap = 8,
   Key? key,
 }) =>
     WebMockDialog(

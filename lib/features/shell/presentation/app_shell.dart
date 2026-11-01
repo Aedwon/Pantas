@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
@@ -20,22 +21,27 @@ class AppShell extends ConsumerWidget {
         body: navigationShell,
         bottomNavigationBar: context.wideWeb
             ? null
-            : Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                child: SafeArea(
-                  top: false,
-                  child: AppNavBar(
-                    currentIndex: navigationShell.currentIndex,
-                    onTap: (i) {
-                      ref.read(telemetryProvider).log(
-                        TelemetryEvent.tabOpened,
-                        properties: {'tab': _labels[i]},
-                      );
-                      navigationShell.goBranch(
-                        i,
-                        initialLocation: i == navigationShell.currentIndex,
-                      );
-                    },
+            : ValueListenableBuilder<bool>(
+                valueListenable: phoneTabBarHidden,
+                builder: (context, hidden, bar) =>
+                    hidden ? const SizedBox.shrink() : bar!,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                  child: SafeArea(
+                    top: false,
+                    child: AppNavBar(
+                      currentIndex: navigationShell.currentIndex,
+                      onTap: (i) {
+                        ref.read(telemetryProvider).log(
+                          TelemetryEvent.tabOpened,
+                          properties: {'tab': _labels[i]},
+                        );
+                        navigationShell.goBranch(
+                          i,
+                          initialLocation: i == navigationShell.currentIndex,
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),

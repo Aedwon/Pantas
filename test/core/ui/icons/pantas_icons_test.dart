@@ -199,7 +199,8 @@ void main() {
     final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
     final painter = paint.painter! as OwnIconPainter;
     expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
-    expect(painter.strokeWidth, 1.5);
+    // The phone boards (QV_Answer, AS_Question) draw the stroked chat square.
+    expect(painter.strokeWidth, 1.9);
     expect(painter.strokeCap, StrokeCap.round);
     expect(painter.strokeJoin, StrokeJoin.round);
     await expectLater(
@@ -239,7 +240,8 @@ void main() {
     final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
     final painter = paint.painter! as OwnIconPainter;
     expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
-    expect(painter.strokeWidth, 1.5);
+    // The phone boards (QV_Answer, AS_Question) draw the stroked chat square.
+    expect(painter.strokeWidth, 1.9);
     expect(painter.strokeCap, StrokeCap.round);
     expect(painter.strokeJoin, StrokeJoin.round);
     await expectLater(

@@ -136,7 +136,8 @@ class StateView extends StatelessWidget {
           )
         else
           mark,
-        SizedBox(height: gap),
+        // Board (O_Age): the title sits 12 px lower than the plain gap.
+        SizedBox(height: onboardingBlocked ? gap + 12 : gap),
         Text(
           message,
           textAlign: TextAlign.center,

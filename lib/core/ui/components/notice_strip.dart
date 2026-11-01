@@ -43,6 +43,8 @@ class NoticeStrip extends StatelessWidget {
     // The board draws the 1 px outline inside the 52 px strip, so it is a
     // foreground layer that takes no space.
     final content = Container(
+      // Board: the strip is filled with the page color.
+      color: context.colors.background,
       foregroundDecoration: BoxDecoration(
         border: Border.all(color: context.colors.separator),
         borderRadius: BorderRadius.circular(14),

@@ -23,6 +23,7 @@ class PantasPage extends StatelessWidget {
   })  : contentBody = null,
         contentPadding = EdgeInsets.zero,
         settingsPicker = false,
+        topPadding = 4,
         onboarding = false,
         progress = null,
         detail = null,
@@ -41,6 +42,7 @@ class PantasPage extends StatelessWidget {
     this.centerBody = false,
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
+    this.topPadding = 4,
     super.key,
   })  : contentBody = null,
         hero = null,
@@ -74,6 +76,7 @@ class PantasPage extends StatelessWidget {
         backPadding = const EdgeInsets.symmetric(horizontal: 16),
         titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
         settingsPicker = true,
+        topPadding = 4,
         onboarding = true,
         title = 'Exam',
         backLabel = 'Your exam',
@@ -108,6 +111,7 @@ class PantasPage extends StatelessWidget {
         backPadding = const EdgeInsets.symmetric(horizontal: 16),
         titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
         settingsPicker = false,
+        topPadding = 4,
         onboarding = false,
         progress = null,
         detail = null,
@@ -122,6 +126,9 @@ class PantasPage extends StatelessWidget {
   final EdgeInsets contentPadding;
   final double detailLineHeight;
   final bool settingsPicker;
+
+  /// Onboarding only: space between the progress bar and the title.
+  final double topPadding;
   final bool onboarding;
   final int? progress;
   final String? detail;
@@ -224,8 +231,12 @@ class PantasPage extends StatelessWidget {
               Expanded(
                 child: LayoutBuilder(
                   builder: (context, constraints) => SingleChildScrollView(
-                    padding:
-                        EdgeInsets.fromLTRB(16, settingsPicker ? 8 : 4, 16, 32),
+                    padding: EdgeInsets.fromLTRB(
+                      16,
+                      settingsPicker ? 8 : topPadding,
+                      16,
+                      32,
+                    ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: centerBody

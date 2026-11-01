@@ -6,6 +6,7 @@ import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -54,98 +55,206 @@ class _MockSetupPageState extends State<MockSetupPage> {
 
     if (context.wideWeb) return _wide(context, plannedTotal, isSectional);
 
+    // MK_SetupCSE and MK_SetupStrict: a green "< Quiz" link, a white table
+    // card, a white strict-mode card and a Start button pinned to the bottom.
+    final table = _SetupTable(
+      sections: sections,
+      isSectional: isSectional,
+      total: plannedTotal,
+      durationMinutes: blueprint.durationMinutes,
+    );
     return Scaffold(
-      appBar: AppBar(title: const Text('Mock exam')),
       body: SafeArea(
-        top: false,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 18, 20, 32),
+        child: Stack(
           children: [
-            Text(
-              _simulationTitle(blueprint),
-              style: type.pageTitleCompact,
-            ),
-            const SizedBox(height: 5),
-            Text(
-              '$plannedTotal total items · ${_duration(blueprint.durationMinutes)}',
-              style: type.subhead.copyWith(color: colors.secondaryLabel),
-            ),
-            const SizedBox(height: 26),
-            _SetupTable(
-              sections: sections,
-              isSectional: isSectional,
-              total: plannedTotal,
-              durationMinutes: blueprint.durationMinutes,
-            ),
-            const SizedBox(height: 24),
-            Text(
-              _paperRule(blueprint),
-              style: type.subhead.copyWith(height: 1.5),
-            ),
-            if (blueprint.unscoredItems != null) ...[
-              const SizedBox(height: 10),
-              Text(
-                'The real exam also has ${blueprint.unscoredItems} '
-                'personal-information items. They are not scored, so this '
-                'mock leaves them out.',
-                style: type.subhead.copyWith(color: colors.secondaryLabel),
-              ),
-            ],
-            if (actualTotal != null && actualTotal < plannedTotal) ...[
-              const SizedBox(height: 10),
-              Text(
-                'This mock has $actualTotal questions instead of $plannedTotal.',
-                style: type.subhead.copyWith(color: colors.secondaryLabel),
-              ),
-            ],
-            const SizedBox(height: 28),
-            Row(
+            Column(
               children: [
+                SizedBox(
+                  height: 44,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 6, 8, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () => Navigator.maybePop(context),
+                        child: Semantics(
+                          button: true,
+                          label: 'Quiz',
+                          excludeSemantics: true,
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(minHeight: 44),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  PantasIcons.back,
+                                  size: 24,
+                                  color: colors.accent,
+                                ),
+                                const SizedBox(width: 2),
+                                Text(
+                                  'Quiz',
+                                  style:
+                                      type.body.copyWith(color: colors.accent),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 150),
                     children: [
-                      Text('Strict mode', style: type.emphasized),
-                      const SizedBox(height: 4),
-                      Text(
-                        'For this mock only',
-                        style: type.footnote
-                            .copyWith(color: colors.secondaryLabel),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _simulationTitle(blueprint),
+                              style: type.pageTitle,
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              '$plannedTotal total items · ${_duration(blueprint.durationMinutes)}',
+                              style: type.body.copyWith(
+                                fontSize: 16,
+                                color: colors.secondaryLabel,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 22),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: colors.surface,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: table.card(context),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                        child: Text(
+                          _paperRule(blueprint),
+                          style: type.footnote.copyWith(
+                            color: colors.secondaryLabel,
+                            height: 1.4,
+                          ),
+                        ),
+                      ),
+                      if (blueprint.unscoredItems != null)
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+                          child: Text(
+                            'The real exam also has ${blueprint.unscoredItems} '
+                            'personal-information items. They are not scored, so this '
+                            'mock leaves them out.',
+                            style: type.footnote.copyWith(
+                              color: colors.secondaryLabel,
+                              height: 1.4,
+                            ),
+                          ),
+                        ),
+                      if (actualTotal != null && actualTotal < plannedTotal)
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+                          child: Text(
+                            'This mock has $actualTotal questions instead of $plannedTotal.',
+                            style: type.footnote.copyWith(
+                              color: colors.secondaryLabel,
+                              height: 1.4,
+                            ),
+                          ),
+                        ),
+                      const SizedBox(height: 22),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: colors.surface,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Strict mode', style: type.body),
+                                  const SizedBox(height: 2),
+                                  Text(
+                                    _strictMode
+                                        ? 'No pausing and no ending a section early. Leaving the app '
+                                            'instantly ends and submits your answers, finished or not '
+                                            'finished.'
+                                        : 'Closest to the real exam. Turn it on when you can take the '
+                                            'whole mock without interruptions.',
+                                    style: type.footnote.copyWith(
+                                      color: colors.secondaryLabel,
+                                      height: 1.4,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            PantasSwitch(
+                              value: _strictMode,
+                              label: 'Strict mode for this mock',
+                              onChanged: (value) =>
+                                  setState(() => _strictMode = value),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(width: 12),
-                PantasSwitch(
-                  value: _strictMode,
-                  label: 'Strict mode for this mock',
-                  onChanged: (value) => setState(() => _strictMode = value),
-                ),
               ],
             ),
-            const SizedBox(height: 10),
-            Text(
-              _strictMode
-                  ? 'No pausing and no ending a section early. Leaving the app '
-                      'instantly ends and submits your answers, finished or not '
-                      'finished.'
-                  : 'Closest to the real exam. Turn it on when you can take the '
-                      'whole mock without interruptions.',
-              style: type.subhead.copyWith(
-                color: colors.secondaryLabel,
-                height: 1.45,
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0, .26],
+                    colors: [
+                      colors.background.withValues(alpha: 0),
+                      colors.background,
+                    ],
+                  ),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    PantasButton(
+                      label: 'Start the Mock Exam',
+                      onPressed: () => widget.onStart(_strictMode),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'The clock starts when you tap.',
+                      textAlign: TextAlign.center,
+                      style:
+                          type.footnote.copyWith(color: colors.secondaryLabel),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 28),
-            PantasButton(
-              label: 'Start the Mock Exam',
-              onPressed: () => widget.onStart(_strictMode),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'The clock starts when you tap.',
-              textAlign: TextAlign.center,
-              style: type.footnote.copyWith(color: colors.secondaryLabel),
             ),
           ],
         ),
@@ -470,6 +579,104 @@ class _SetupTable extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  /// The phone card: no Total row, 12 px caps header, 16 px rows (boards).
+  Widget card(BuildContext context) {
+    final colors = context.colors;
+    final type = context.type;
+    Widget row(
+      Widget section,
+      Widget items,
+      Widget? time,
+      EdgeInsets pad, {
+      required bool line,
+    }) {
+      return Container(
+        padding: pad,
+        decoration: BoxDecoration(
+          border: line
+              ? Border(bottom: BorderSide(color: colors.separator, width: .5))
+              : null,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Expanded(child: section),
+            SizedBox(width: 56, child: items),
+            if (time != null) ...[
+              const SizedBox(width: 8),
+              SizedBox(width: 56, child: time),
+            ],
+          ],
+        ),
+      );
+    }
+
+    final caps = type.sectionHeader.copyWith(
+      color: colors.secondaryLabel,
+      fontSize: 12,
+      fontWeight: FontWeight.w600,
+      letterSpacing: .36,
+    );
+    final rowText = type.body.copyWith(fontSize: 16);
+    return Column(
+      children: [
+        row(
+          Text('SECTION', style: caps),
+          Text('ITEMS', textAlign: TextAlign.end, style: caps),
+          isSectional
+              ? Text('TIME', textAlign: TextAlign.end, style: caps)
+              : null,
+          const EdgeInsets.fromLTRB(16, 10, 16, 8),
+          line: true,
+        ),
+        for (var i = 0; i < sections.length; i++)
+          row(
+            Text(
+              sections[i].name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: rowText,
+            ),
+            _phoneFigure(
+              context,
+              sections[i].questionCountFigure,
+              sections[i].questionCount,
+              rowText.copyWith(color: colors.secondaryLabel).tabular,
+            ),
+            isSectional
+                ? _phoneFigure(
+                    context,
+                    sections[i].sectionalMinutesFigure,
+                    sections[i].sectionalMinutes,
+                    rowText.copyWith(color: colors.secondaryLabel).tabular,
+                    suffix: ' min',
+                  )
+                : null,
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            line: i < sections.length - 1,
+          ),
+      ],
+    );
+  }
+
+  Widget _phoneFigure(
+    BuildContext context,
+    BlueprintValue? figure,
+    int? value,
+    TextStyle style, {
+    String suffix = '',
+  }) {
+    if (value == null) return const SizedBox.shrink();
+    if (figure?.isPlaceholder ?? false) {
+      return Align(
+        alignment: Alignment.centerRight,
+        child: PlaceholderFigure(value, reason: figure!.placeholderNote!),
+      );
+    }
+    return Text('$value$suffix', textAlign: TextAlign.end, style: style);
   }
 
   Widget _figure(

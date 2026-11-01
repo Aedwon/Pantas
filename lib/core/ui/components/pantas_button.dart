@@ -21,6 +21,7 @@ class PantasButton extends StatefulWidget {
     this.horizontalPadding = 16,
     this.disabledOpacity,
     this.disabledForeground,
+    this.trailing,
     super.key,
   })  : _filterChip = false,
         _chipSelected = false;
@@ -39,7 +40,8 @@ class PantasButton extends StatefulWidget {
         fullWidth = false,
         horizontalPadding = 14,
         disabledOpacity = null,
-        disabledForeground = null;
+        disabledForeground = null,
+        trailing = null;
   final bool _filterChip;
   final bool _chipSelected;
   final String label;
@@ -53,6 +55,9 @@ class PantasButton extends StatefulWidget {
   final double horizontalPadding;
   final double? disabledOpacity;
   final Color? disabledForeground;
+
+  /// Phone only: drawn 2 px after the label (the question bar's Next chevron).
+  final Widget? trailing;
   @override
   State<PantasButton> createState() => _PantasButtonState();
 }
@@ -240,6 +245,13 @@ class _PantasButtonState extends State<PantasButton> {
                       ),
                     ),
                   ),
+                  if (widget.trailing != null) ...[
+                    const SizedBox(width: 2),
+                    IconTheme(
+                      data: IconThemeData(color: foreground, size: 16),
+                      child: widget.trailing!,
+                    ),
+                  ],
                 ],
               ),
             ),

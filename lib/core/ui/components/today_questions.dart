@@ -31,6 +31,8 @@ class TodayQuestionRow extends StatelessWidget {
         value: '$done of $total',
         onTap: onTap,
         divider: divider,
+        naturalValue: true,
+        dividerInset: 52,
         titleColor:
             total > 0 && done == total ? context.colors.secondaryLabel : null,
         valueStyle: context.type.subhead.copyWith(

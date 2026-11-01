@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -155,18 +154,32 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
             ),
           )
         else
+          // Board (O_Consent): 14 px between box and text, 14/16 padding and
+          // a half-point divider between the two rows.
           GroupedSection(
             children: [
-              ListRow.checkbox(
+              CheckboxRow(
                 title: 'Help improve Pantas by sharing anonymous usage data',
                 selected: _acceptedUsage,
+                gap: 14,
                 onTap: _saving
                     ? null
                     : () => setState(() => _acceptedUsage = !_acceptedUsage),
+                content: Text(
+                  'Help improve Pantas by sharing anonymous usage data',
+                  style: textStyle,
+                ),
               ),
-              ListRow.checkbox(
+              Divider(
+                height: .5,
+                thickness: .5,
+                color: context.colors.separator,
+              ),
+              CheckboxRow(
                 title: 'I agree to the Terms of Service and Privacy Policy.',
                 selected: _acceptedTerms,
+                gap: 14,
+                interactiveContent: true,
                 onTap: _saving
                     ? null
                     : () => setState(() => _acceptedTerms = !_acceptedTerms),

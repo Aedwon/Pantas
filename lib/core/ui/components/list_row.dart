@@ -42,6 +42,8 @@ class ListRow extends StatelessWidget {
     this.valueWidget,
     this.trailingWidget,
     this.mutuallyExclusive = false,
+    this.naturalValue = false,
+    this.dividerInset = 0,
     super.key,
   })  : content = null,
         _checkbox = false,
@@ -55,6 +57,8 @@ class ListRow extends StatelessWidget {
     this.content,
     super.key,
   })  : mutuallyExclusive = false,
+        naturalValue = false,
+        dividerInset = 0,
         _checkbox = true,
         variant = ListRowVariant.check,
         value = null,
@@ -91,6 +95,8 @@ class ListRow extends StatelessWidget {
     this.divider = false,
     super.key,
   })  : mutuallyExclusive = false,
+        naturalValue = false,
+        dividerInset = 0,
         _exam = true,
         _checkbox = false,
         variant = ListRowVariant.check,
@@ -119,6 +125,14 @@ class ListRow extends StatelessWidget {
   final bool settingsMode;
   final bool _checkbox;
   final bool mutuallyExclusive;
+
+  /// Phone Today rows (HE_*, HP_*): the value keeps its own width and the
+  /// title takes the rest. Without it the title and value split the space.
+  final bool naturalValue;
+
+  /// Left inset of the divider, drawn under the row. Zero keeps the divider
+  /// inside the row at full width.
+  final double dividerInset;
   final Widget? content;
   final String title;
   final Widget? titleWidget;
@@ -288,7 +302,7 @@ class ListRow extends StatelessWidget {
                         vertical: verticalPadding,
                       ),
                   decoration: BoxDecoration(
-                    border: divider
+                    border: divider && dividerInset == 0
                         ? Border(
                             bottom: BorderSide(color: c.separator, width: .5),
                           )
@@ -319,8 +333,14 @@ class ListRow extends StatelessWidget {
                         ),
                       ),
                       if (!stack && detail != null) ...[
-                        const SizedBox(width: 8),
-                        Flexible(child: detail),
+                        SizedBox(width: naturalValue ? 10 : 8),
+                        if (naturalValue)
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 140),
+                            child: detail,
+                          )
+                        else
+                          Flexible(child: detail),
                       ],
                       if (trailingWidget != null ||
                           (variant != ListRowVariant.value &&
@@ -335,6 +355,11 @@ class ListRow extends StatelessWidget {
             ),
           ),
         ),
+        if (divider && dividerInset > 0)
+          Padding(
+            padding: EdgeInsets.only(left: dividerInset),
+            child: Divider(height: .5, thickness: .5, color: c.separator),
+          ),
         if (variant == ListRowVariant.inlineEditor)
           AnimatedSize(
             duration: MediaQuery.disableAnimationsOf(context)

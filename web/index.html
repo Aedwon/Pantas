@@ -108,6 +108,22 @@
       border: 2px solid rgba(255,255,255,.35); border-top-color: #fff;
       animation: pw-spin .9s linear infinite;
     }
+    /* Phone board (O_Launch): the stack sits 180 px from the top, the title is
+       34 px and the button is pinned 34 px above the bottom edge. */
+    #pantas-welcome .pw-br { display: none; }
+    @media (max-width: 1023px) {
+      #pantas-welcome .pw-body {
+        justify-content: flex-start; gap: 28px; padding: 180px 20px 0;
+      }
+      #pantas-welcome .pw-text { gap: 10px; }
+      #pantas-welcome h1 { font-size: 34px; letter-spacing: -.022em; line-height: 1.12; }
+      #pantas-welcome p { letter-spacing: -.012em; }
+      #pantas-welcome .pw-br { display: inline; }
+      #pantas-welcome .pw-btn {
+        position: absolute; left: 20px; right: 20px; bottom: 34px;
+        min-width: 0; margin: 0; height: 52px; padding: 0 20px;
+      }
+    }
     @media (min-width: 1024px) {
       #pantas-welcome .pw-body { gap: 32px; }
       #pantas-welcome svg { width: 120px; height: 120px; }
@@ -196,7 +212,7 @@
       <svg role="img" aria-label="Pantas" viewBox="307 309 640 640" width="104" height="104"><path class="lt" d="M887 515.69V664" stroke-width="11" stroke-linecap="round" fill="none"/><circle class="lf" cx="887" cy="682" r="20"/><path class="lf" d="M877 699 L897 699 L912 774 Q915 790 899 791 L875 791 Q859 790 862 774 Z"/><path class="ld" d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/><path class="ld" d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/><path class="ld" d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/></svg>
       <div class="pw-text">
         <h1>Welcome to Pantas</h1>
-        <p>Your personal review companion for Philippine exams.</p>
+        <p>Your personal review companion<br class="pw-br"> for Philippine exams.</p>
       </div>
       <button type="button" id="pw-start" class="pw-btn">Get Started<span class="pw-key">Enter</span></button>
     </div>

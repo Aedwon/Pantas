@@ -1,11 +1,13 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
-import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -162,6 +164,11 @@ class _PlanPageState extends State<PlanPage> {
     }
     final last =
         widget.nodes.where((n) => n.kind == PlanNodeKind.exam).firstOrNull;
+    final accentHex = context.colors.accent
+        .toARGB32()
+        .toRadixString(16)
+        .padLeft(8, '0')
+        .substring(2);
     final visible = widget.history.take(_shown).toList();
     final historyStart = widget.nodes.isEmpty
         ? 350
@@ -194,15 +201,30 @@ class _PlanPageState extends State<PlanPage> {
           GroupedSection(
             header: 'Today',
             children: [
+              // Board (DP_PlanA): 14/16 padding, a 34 px dark ring, a 17 px
+              // semibold title and the line 1 px under it.
               ListRow(
                 title: '${widget.done} of ${widget.total} done',
-                subtitle: widget.done == widget.total
-                    ? null
-                    : 'Reviews and new questions left',
-                leading: ProgressRing(
-                  fraction: widget.total == 0 ? 0 : widget.done / widget.total,
-                  size: 36,
+                titleWidget: Text(
+                  '${widget.done} of ${widget.total} done',
+                  style:
+                      context.type.body.copyWith(fontWeight: FontWeight.w600),
                 ),
+                footer: widget.done == widget.total
+                    ? null
+                    : Padding(
+                        padding: const EdgeInsets.only(top: 1),
+                        child: Text(
+                          'Reviews and new questions left',
+                          style: context.type.footnote,
+                        ),
+                      ),
+                leading: _PlanDoneRing(
+                  fraction: widget.total == 0 ? 0 : widget.done / widget.total,
+                ),
+                leadingGap: 14,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 variant: ListRowVariant.value,
               ),
             ],
@@ -241,24 +263,10 @@ class _PlanPageState extends State<PlanPage> {
                 _entry(
                   historyStart + 200 + i * 80,
                   500,
-                  ListRow(
-                    title: visible[i].text,
-                    titleWidget: Text(
-                      visible[i].text,
-                      maxLines: _expanded.contains(visible[i].id) ? null : 1,
-                      overflow: _expanded.contains(visible[i].id)
-                          ? null
-                          : TextOverflow.ellipsis,
-                      style: context.type.subhead,
-                    ),
-                    leading: SizedBox(
-                      width: 70,
-                      child: Text(
-                        visible[i].date,
-                        style: context.type.footnote,
-                      ),
-                    ),
-                    variant: ListRowVariant.value,
+                  _HistoryRow(
+                    date: visible[i].date,
+                    text: visible[i].text,
+                    expanded: _expanded.contains(visible[i].id),
                     divider: i < visible.length - 1,
                     onTap: () => setState(
                       () => _expanded.contains(visible[i].id)
@@ -297,75 +305,197 @@ class _PlanPageState extends State<PlanPage> {
           ),
           if (widget.paginationError != null) widget.paginationError!,
         ] else ...[
+          // Board (DP_PlanFree): a gray placeholder timeline of eight rows and
+          // the exam day, three gray history rows and one Pro card.
           GroupedSection(
             children: [
-              for (var i = 0; i < 3; i++)
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 12,
-                        height: 12,
-                        decoration: BoxDecoration(
-                          color: context.colors.fill,
-                          shape: BoxShape.circle,
-                        ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 16, 16, 12),
+                child: Column(
+                  children: [
+                    for (final (index, row) in _freeRows.indexed)
+                      _PlaceholderRow(
+                        icon: index >= 6 ? (clock: index == 7) : null,
+                        top: row.$1,
+                        bottom: row.$2,
                       ),
-                      const SizedBox(width: 18),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 12,
-                              width: 130 + i * 20,
-                              color: context.colors.fill,
-                            ),
-                            const SizedBox(height: 9),
-                            Container(height: 9, color: context.colors.fill),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    if (last != null) _freeExamRow(last),
+                  ],
                 ),
-              if (last != null)
-                ListRow(
-                  title: last.title,
-                  subtitle: last.date,
-                  value: last.subtitle,
-                  variant: ListRowVariant.value,
-                ),
+              ),
             ],
           ),
           const SizedBox(height: 24),
           _heading('History'),
           GroupedSection(
             children: [
-              for (var i = 0; i < 3; i++)
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Container(height: 10, color: context.colors.fill),
+              for (final (index, row) in const [
+                (56.0, 220.0),
+                (56.0, 180.0),
+                (56.0, 240.0),
+              ].indexed)
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+                  decoration: BoxDecoration(
+                    border: index < 2
+                        ? Border(
+                            bottom: BorderSide(
+                              color: context.colors.separator,
+                              width: .5,
+                            ),
+                          )
+                        : null,
+                  ),
+                  child: Row(
+                    children: [
+                      _Bar(width: row.$1, height: 12),
+                      const SizedBox(width: 12),
+                      _Bar(width: row.$2, height: 12),
+                    ],
+                  ),
                 ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 28),
           if (widget.paused)
             const ProPausedLine()
-          else ...[
-            Text(
-              'See every week up to your exam, and every time your plan '
-              'adjusts.',
-              textAlign: TextAlign.center,
-              style: context.type.subhead
-                  .copyWith(color: context.colors.secondaryLabel),
+          else
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: context.colors.surface,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 1),
+                          child: ExcludeSemantics(
+                            child: SvgPicture.string(
+                              '<svg viewBox="0 0 24 24" fill="none" '
+                              'stroke="#$accentHex" '
+                              'stroke-width="2" stroke-linecap="round" '
+                              'stroke-linejoin="round"><path d="M11 3.5 12.6 '
+                              '8.4 17.5 10 12.6 11.6 11 16.5 9.4 11.6 4.5 10l '
+                              '4.9-1.6z"/><path d="M18 15.5l.7 2 2 .7-2 .7-.7 '
+                              '2-.7-2-2-.7 2-.7z"/></svg>',
+                              width: 22,
+                              height: 22,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'See every week up to your exam, and every time '
+                            'your plan adjusts.',
+                            style: context.type.body.copyWith(
+                              fontWeight: FontWeight.w500,
+                              height: 1.35,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 14),
+                    PantasButton(
+                      label: 'Unlock with Pro',
+                      onPressed: widget.onPro,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            const SizedBox(height: 14),
-            PantasButton(label: 'Unlock with Pro', onPressed: widget.onPro),
-          ],
         ],
       ],
+    );
+  }
+
+  static const _freeRows = <(double, double)>[
+    (120, 220),
+    (90, 180),
+    (140, 240),
+    (110, 200),
+    (130, 160),
+    (80, 120),
+    (150, 200),
+    (120, 140),
+  ];
+
+  /// DP_PlanFree: the exam day closes the gray timeline.
+  Widget _freeExamRow(PlanNode node) {
+    final c = context.colors;
+    return SizedBox(
+      height: 46,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 28,
+            height: 24,
+            child: OverflowBox(
+              maxWidth: 30,
+              maxHeight: 30,
+              child: Center(
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  alignment: Alignment.center,
+                  decoration:
+                      BoxDecoration(color: c.surface, shape: BoxShape.circle),
+                  child: const PantasLogo(size: 28),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        node.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: context.type.body,
+                      ),
+                    ),
+                    if (node.date != null) ...[
+                      const SizedBox(width: 8),
+                      Text(
+                        node.date!,
+                        maxLines: 1,
+                        style: context.type.footnote.copyWith(
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  node.subtitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.type.subhead.copyWith(color: c.secondaryLabel),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 22),
+        ],
+      ),
     );
   }
 
@@ -573,4 +703,237 @@ class _TimelineGlyph extends CustomPainter {
   @override
   bool shouldRepaint(_TimelineGlyph old) =>
       old.clock != clock || old.color != color;
+}
+
+/// Board (DP_PlanA): a 34 px ring, 3.4 px round stroke, dark on a light track.
+class _PlanDoneRing extends StatelessWidget {
+  const _PlanDoneRing({required this.fraction});
+  final double fraction;
+
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: CustomPaint(
+          size: const Size.square(34),
+          painter: _PlanDoneRingPainter(
+            fraction: fraction,
+            track: context.colors.fill,
+            fill: context.colors.label,
+          ),
+        ),
+      );
+}
+
+class _PlanDoneRingPainter extends CustomPainter {
+  const _PlanDoneRingPainter({
+    required this.fraction,
+    required this.track,
+    required this.fill,
+  });
+  final double fraction;
+  final Color track;
+  final Color fill;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = size.center(Offset.zero);
+    const radius = 15.3;
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3.4
+      ..strokeCap = StrokeCap.round;
+    canvas.drawCircle(center, radius, paint..color = track);
+    if (fraction <= 0) return;
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -math.pi / 2,
+      2 * math.pi * fraction.clamp(0, 1),
+      false,
+      paint..color = fill,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_PlanDoneRingPainter old) =>
+      old.fraction != fraction || old.track != track || old.fill != fill;
+}
+
+/// Board (DP_History): a 74 px date column, the text on one line and a small
+/// down chevron that expands it.
+class _HistoryRow extends StatelessWidget {
+  const _HistoryRow({
+    required this.date,
+    required this.text,
+    required this.expanded,
+    required this.divider,
+    required this.onTap,
+  });
+  final String date;
+  final String text;
+  final bool expanded;
+  final bool divider;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return MergeSemantics(
+      child: Semantics(
+        expanded: expanded,
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+            decoration: BoxDecoration(
+              border: divider
+                  ? Border(bottom: BorderSide(color: c.separator, width: .5))
+                  : null,
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 74,
+                  child: Text(
+                    date,
+                    maxLines: 1,
+                    style: context.type.subhead.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: c.secondaryLabel,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    text,
+                    maxLines: expanded ? null : 1,
+                    overflow: expanded ? null : TextOverflow.ellipsis,
+                    style: context.type.subhead.copyWith(color: c.label),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: RotatedBox(
+                    quarterTurns: expanded ? 3 : 1,
+                    child: Icon(PantasIcons.next, size: 13, color: c.chevron),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Bar extends StatelessWidget {
+  const _Bar({required this.width, required this.height});
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) => Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: context.colors.fill,
+          borderRadius: BorderRadius.circular(height / 2),
+        ),
+      );
+}
+
+/// A gray timeline row of the Free plan. A set `icon` draws the calendar or
+/// stopwatch ring with the thicker line, as on the board.
+class _PlaceholderRow extends StatelessWidget {
+  const _PlaceholderRow({
+    required this.top,
+    required this.bottom,
+    this.icon,
+  });
+  final double top;
+  final double bottom;
+  final ({bool clock})? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return SizedBox(
+      height: 66,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            left: icon != null ? 12.5 : 13,
+            top: 12,
+            child: Container(
+              width: icon != null ? 3 : 2,
+              height: 66,
+              color: c.separator,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 28,
+                height: 24,
+                child: OverflowBox(
+                  maxWidth: 30,
+                  maxHeight: 30,
+                  child: Center(
+                    child: icon == null
+                        ? Container(
+                            width: 12,
+                            height: 12,
+                            decoration: BoxDecoration(
+                              color: c.separator,
+                              shape: BoxShape.circle,
+                            ),
+                          )
+                        : Container(
+                            width: 28,
+                            height: 28,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: c.surface,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: c.separator,
+                                width: 1.6,
+                              ),
+                            ),
+                            child: CustomPaint(
+                              size: const Size.square(14),
+                              painter: _TimelineGlyph(
+                                clock: icon!.clock,
+                                color: c.chevron,
+                              ),
+                            ),
+                          ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _Bar(width: top, height: 12),
+                      const SizedBox(height: 8),
+                      _Bar(width: bottom, height: 10),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 22),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }

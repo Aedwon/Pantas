@@ -360,7 +360,7 @@ class _ResultsBodyState extends State<_ResultsBody>
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 52, 16, 24),
+              padding: const EdgeInsets.fromLTRB(16, 57, 16, 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -384,7 +384,7 @@ class _ResultsBodyState extends State<_ResultsBody>
                           .copyWith(color: c.secondaryLabel),
                     ),
                   ),
-                  const SizedBox(height: 22),
+                  const SizedBox(height: 23),
                   _reveal(300, 380, gauge),
                   const SizedBox(height: 22),
                   _reveal(1300, 380, subjects),

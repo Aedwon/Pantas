@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
 
 enum OwnIconKind {
   questionsSheet,
@@ -25,10 +24,9 @@ class OwnIcon extends StatelessWidget {
     final size = theme.size ?? 24;
     final painter = switch (kind) {
       OwnIconKind.questionsSheet => QuestionsSheetPainter(color),
-      // Wide web draws the boards' stroked bubble (QN_Report); phones keep
-      // the filled chat circle.
-      OwnIconKind.report =>
-        context.wideWeb ? ReportBoardPainter(color) : ReportPainter(color),
+      // Both the wide web and the phone boards (QV_Answer, AS_Question) draw
+      // the stroked chat square.
+      OwnIconKind.report => ReportBoardPainter(color),
       OwnIconKind.paused => PausedPainter(color),
       OwnIconKind.streak => StreakPainter(color),
       OwnIconKind.progressError => ProgressErrorPainter(color),

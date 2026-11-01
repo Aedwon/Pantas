@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -49,6 +50,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   final _listKey = GlobalKey();
   bool _searching = false;
   bool _bookmarksOpen = false;
+
+  void _setBookmarksOpen({required bool open}) {
+    setState(() => _bookmarksOpen = open);
+    phoneTabBarHidden.value = open;
+  }
+
   StudyTopic? _pinnedTopic;
   final _topicAnchors = <TopicId, double>{};
   bool _saveFailed = false;
@@ -75,6 +82,10 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
 
   @override
   void dispose() {
+    // The tree is locked while this runs, so release the bar a moment later.
+    if (phoneTabBarHidden.value) {
+      Future<void>.microtask(() => phoneTabBarHidden.value = false);
+    }
     _scrollController.dispose();
     _openTopicOffScreen.dispose();
     super.dispose();
@@ -257,7 +268,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           scrollable: false,
           open: _bookmarksOpen,
           label: 'Bookmarks',
-          onDismiss: () => setState(() => _bookmarksOpen = false),
+          onDismiss: () => _setBookmarksOpen(open: false),
           page: PantasPage.content(
             // Board ST_Map: the Study title starts 6 px below the top.
             padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
@@ -311,7 +322,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                                   delay: const Duration(milliseconds: 260),
                                   child: BookmarksSection(
                                     onSeeAll: () =>
-                                        setState(() => _bookmarksOpen = true),
+                                        _setBookmarksOpen(open: true),
                                   ),
                                 ),
                                 if (today.hasError)
@@ -403,7 +414,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
             key: ValueKey(
               ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id,
             ),
-            onClose: () => setState(() => _bookmarksOpen = false),
+            onClose: () => _setBookmarksOpen(open: false),
           ),
         );
       },

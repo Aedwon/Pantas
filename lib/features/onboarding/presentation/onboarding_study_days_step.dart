@@ -138,6 +138,8 @@ class _OnboardingStudyDaysStepState
       title: 'Which days will you study?',
       width: 640,
       bottomGap: 28,
+      // Board (O_Days): the content starts 24 px under the progress bar.
+      topPadding: 24,
       detail: 'Your plan only puts work on these days. '
           'You can change them later in Settings.',
       progress: 5,

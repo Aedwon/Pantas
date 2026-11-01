@@ -4,7 +4,6 @@ import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -157,7 +156,24 @@ class HomePerformanceCard extends StatelessWidget {
         ListRow(
           title: 'See all topics and lessons',
           titleColor: context.colors.accent,
-          trailingWidget: pro ? null : const ProTag(),
+          // Board (HP_Free): the Pro pill follows the label and the chevron
+          // stays at the right edge.
+          titleWidget: pro
+              ? null
+              : Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        'See all topics and lessons',
+                        style: context.type.body
+                            .copyWith(color: context.colors.accent),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    const _ProPill(),
+                  ],
+                ),
           onTap: onOpen,
         ),
       ],
@@ -226,4 +242,32 @@ class _SeeAllRow extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Board (HP_Free): 22 px tall pill, 12 px bold label.
+class _ProPill extends StatelessWidget {
+  const _ProPill();
+
+  @override
+  Widget build(BuildContext context) => Container(
+        height: 22,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: context.colors.accentTint,
+          borderRadius: BorderRadius.circular(99),
+        ),
+        child: Text(
+          'Pro',
+          style: context.type.footnote.copyWith(
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+            letterSpacing: .24,
+            height: 1.35,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? context.colors.label
+                : context.colors.accent,
+          ),
+        ),
+      );
 }

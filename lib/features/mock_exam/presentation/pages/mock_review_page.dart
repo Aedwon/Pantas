@@ -155,7 +155,46 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
               ),
             )
           : AppBar(
-              title: Text(_viewerIndex == null ? 'Results' : 'All questions'),
+              // MK_Review*: the list page has a green "< Results" text link
+              // instead of a centered title.
+              toolbarHeight: _viewerIndex == null ? 44 : null,
+              leadingWidth: _viewerIndex == null ? 0 : null,
+              titleSpacing: _viewerIndex == null ? 4 : null,
+              centerTitle: false,
+              title: _viewerIndex == null
+                  ? Align(
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: back,
+                        child: Semantics(
+                          button: true,
+                          label: 'Results',
+                          excludeSemantics: true,
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(minHeight: 44),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  PantasIcons.back,
+                                  size: 24,
+                                  color: context.colors.accent,
+                                ),
+                                const SizedBox(width: 2),
+                                Text(
+                                  'Results',
+                                  style: context.type.body.copyWith(
+                                    color: context.colors.accent,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : const Text('All questions'),
               actions: [
                 if (viewed != null && savedFlags.hasValue)
                   IconButton(
@@ -621,7 +660,13 @@ class _ReviewListBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('All questions', style: context.type.sectionHero),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: Text(
+              'All questions',
+              style: context.type.sectionHero.copyWith(fontSize: 28),
+            ),
+          ),
           const SizedBox(height: 22),
           _MockFilterRow(active: filter, counts: counts, onChanged: onFilter),
           if (proIsActive && filter == ReviewFilter.wrong) ...[
@@ -636,14 +681,30 @@ class _ReviewListBody extends StatelessWidget {
               onDismiss: onDismissFlags,
             ),
           ],
-          const SizedBox(height: 14),
           for (final group in groups.entries) ...[
+            const SizedBox(height: 22),
             _PartHeader(
               name: group.key,
               label: groupLabel(group.value),
             ),
-            for (final entry in group.value)
-              _MockReviewRow(entry: entry, onTap: () => onOpen(entry)),
+            // MK_Review*: one white card per section.
+            Container(
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                color: context.colors.surface,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Column(
+                children: [
+                  for (final entry in group.value)
+                    _MockReviewRow(
+                      entry: entry,
+                      onTap: () => onOpen(entry),
+                      divider: entry != group.value.last,
+                    ),
+                ],
+              ),
+            ),
           ],
         ],
       ),
@@ -784,78 +845,106 @@ class _PartHeader extends StatelessWidget {
   final String label;
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(16, 12, 16, 7),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                name.toUpperCase(),
-                style: context.type.subhead.copyWith(
-                  color: context.colors.secondaryLabel,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+  Widget build(BuildContext context) {
+    final style = context.type.sectionHeader.copyWith(
+      color: context.colors.secondaryLabel,
+      fontSize: 13,
+      fontWeight: FontWeight.w600,
+      letterSpacing: .26,
+    );
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+      child: Row(
+        children: [
+          Expanded(child: Text(name.toUpperCase(), style: style)),
+          Text(
+            label,
+            style: style.copyWith(
+              letterSpacing: 0,
+              fontFeatures: const [FontFeature.tabularFigures()],
             ),
-            Text(
-              label,
-              style: context.type.subhead
-                  .copyWith(color: context.colors.secondaryLabel),
-            ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _MockReviewRow extends StatelessWidget {
-  const _MockReviewRow({required this.entry, required this.onTap});
+  const _MockReviewRow({
+    required this.entry,
+    required this.onTap,
+    required this.divider,
+  });
   final ReviewEntry entry;
   final VoidCallback onTap;
+  final bool divider;
 
   @override
   Widget build(BuildContext context) {
     final outcomeColor =
-        entry.isCorrect ? context.colors.accent : context.colors.destructive;
+        entry.isCorrect ? context.colors.accent : context.colors.wrongText;
     return InkWell(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 11),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: context.colors.fill,
-              width: 0.5,
-            ),
-          ),
-        ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 32,
+              width: 42,
               child: Text(
                 '${entry.number}',
-                style: context.type.subhead
-                    .copyWith(color: outcomeColor, fontWeight: FontWeight.w700),
+                style: context.type.subheadStrong.copyWith(
+                  color: outcomeColor,
+                  fontWeight: FontWeight.w700,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
               ),
             ),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ContentRenderer(
-                    text: entry.label,
-                    maxLines: entry.labelIsStem ? 2 : null,
-                  ),
-                  if (!entry.isAnswered) ...[
-                    const SizedBox(height: 3),
-                    Text(
-                      'Left blank',
-                      style: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(0, 11, 16, 11),
+                constraints: const BoxConstraints(minHeight: 49),
+                decoration: BoxDecoration(
+                  border: divider
+                      ? Border(
+                          bottom: BorderSide(
+                            color: context.colors.separator,
+                            width: .5,
+                          ),
+                        )
+                      : null,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ContentRenderer(
+                            text: entry.label,
+                            maxLines: entry.labelIsStem ? 1 : null,
+                          ),
+                          if (!entry.isAnswered) ...[
+                            const SizedBox(height: 3),
+                            Text(
+                              'Left blank',
+                              style: context.type.footnote.copyWith(
+                                color: context.colors.secondaryLabel,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Icon(
+                      PantasIcons.next,
+                      size: 16,
+                      color: context.colors.tertiaryLabel,
                     ),
                   ],
-                ],
+                ),
               ),
             ),
           ],
@@ -944,8 +1033,7 @@ class _QuestionViewer extends StatelessWidget {
                   child: WebBottomBar(
                     compact: true,
                     gap: 6,
-                    counterPadding:
-                        const EdgeInsets.symmetric(horizontal: 14),
+                    counterPadding: const EdgeInsets.symmetric(horizontal: 14),
                     state:
                         entry.isCorrect ? WebBarState.right : WebBarState.wrong,
                     counter: '${index + 1} of ${entries.length}',

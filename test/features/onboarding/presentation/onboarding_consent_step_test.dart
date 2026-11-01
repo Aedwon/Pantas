@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
@@ -55,7 +55,7 @@ void main() {
           (tester) async {
         await pump(tester, brightness: brightness, scale: scale);
         expect(find.text('Terms and Privacy'), findsOneWidget);
-        final rows = tester.widgetList<ListRow>(find.byType(ListRow)).toList();
+        final rows = tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).toList();
         expect(
           rows.first.title,
           'Help improve Pantas by sharing anonymous usage data',
@@ -75,7 +75,7 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
         await tester.pump();
         expect(
-          tester.widgetList<ListRow>(find.byType(ListRow)).first.selected,
+          tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).first.selected,
           isTrue,
         );
         expect(
@@ -86,7 +86,7 @@ void main() {
               .onPressed,
           isNull,
         );
-        await tester.ensureVisible(find.byType(ListRow).last);
+        await tester.ensureVisible(find.byType(CheckboxRow).last);
         await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
         await tester.pump();
         expect(
@@ -137,7 +137,7 @@ void main() {
     expect((await repository.readUserSettings()).acceptedTermsAt, isNull);
     expect(
       tester
-          .widgetList<ListRow>(find.byType(ListRow))
+          .widgetList<CheckboxRow>(find.byType(CheckboxRow))
           .every((row) => row.selected),
       isTrue,
     );
@@ -187,7 +187,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(
       tester
-          .widgetList<ListRow>(find.byType(ListRow))
+          .widgetList<CheckboxRow>(find.byType(CheckboxRow))
           .every((row) => row.selected),
       isTrue,
     );
@@ -198,7 +198,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(
       tester
-          .widgetList<ListRow>(find.byType(ListRow))
+          .widgetList<CheckboxRow>(find.byType(CheckboxRow))
           .every((row) => row.selected),
       isTrue,
     );

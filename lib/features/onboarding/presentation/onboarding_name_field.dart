@@ -23,7 +23,7 @@ class OnboardingNameField extends StatelessWidget {
       maxLength: 40,
       textCapitalization: TextCapitalization.words,
       textInputAction: TextInputAction.done,
-      textAlignVertical: context.wideWeb ? TextAlignVertical.center : null,
+      textAlignVertical: TextAlignVertical.center,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
       style: context.type.body.copyWith(
@@ -35,6 +35,10 @@ class OnboardingNameField extends StatelessWidget {
         hintText: label,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
+        // A TextField ignores a SizedBox height; the board field is 52 px.
+        constraints: context.wideWeb
+            ? null
+            : const BoxConstraints.tightFor(height: 52),
         filled: true,
         fillColor: context.colors.surface,
         hoverColor: context.wideWeb ? context.colors.surface : null,
@@ -45,7 +49,7 @@ class OnboardingNameField extends StatelessWidget {
         ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: context.wideWeb ? 18 : 16,
-          vertical: context.wideWeb ? 19 : 13,
+          vertical: context.wideWeb ? 19 : 0,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),

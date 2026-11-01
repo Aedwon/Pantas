@@ -111,6 +111,8 @@ class HomeTodayChecklist extends StatelessWidget {
                 leading: const ProgressRing(fraction: 0),
                 onTap: onMock,
                 divider: true,
+                naturalValue: true,
+                dividerInset: 52,
               ),
             if (collapsed) ...[
               if (next != null) lessonRow(context, next, upNext: true),
@@ -121,6 +123,8 @@ class HomeTodayChecklist extends StatelessWidget {
                 leading: ProgressRing(fraction: done / visible.length),
                 onTap: onLessons,
                 divider: true,
+                naturalValue: true,
+                dividerInset: 52,
               ),
             ] else
               for (final lesson in visible) lessonRow(context, lesson),
@@ -514,6 +518,8 @@ class HomeTodayChecklist extends StatelessWidget {
               ),
         onTap: () => onLesson(lesson),
         divider: true,
+        naturalValue: true,
+        dividerInset: 52,
       );
 }
 

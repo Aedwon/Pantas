@@ -2605,3 +2605,55 @@ to the Home root, like any tab re-tap. Wide web is unchanged: no phone bar, same
 Left full screen, because their boards have no bar: all Settings subpages and legal pages (ST_About, ST_Account,
 ST_Appearance, ST_Exam, ST_Pro*, ST_Privacy and the rest), Wrapped, question sessions, reader, mock, onboarding and modal
 flows. The Settings root keeps the bar. Not yet confirmed on a phone-size run: port 8080 was busy.
+
+### Mobile fix batch 3 (Quiz, Mock, Assessment; phone layout only, wide web untouched)
+
+Source: `build/visual-pass/mobile/remaining.md` and the phone boards. Port 8080 was busy (another run held the emulator), so
+these changes were not captured on a phone-size run; they follow the board values and are covered by tests.
+
+- Report icon (QV_Answer, AS_Question, all sessions): the phone now draws the board's stroked chat square, as wide web did.
+- Question bar (QV_MissPro): "Next" carries a 16 px chevron. `PantasButton` gained an optional `trailing`.
+- Session end (QV_EndPro): X at the top left (closes like Done); title starts 47 px lower; ring gap 27 px.
+- Mock setup (MK_SetupCSE, MK_SetupStrict): green "< Quiz" link header; 30 px title; white table card with a 12 px caps header,
+  16 px rows and 56 px figure columns, no Total row; paper rule as a 13 px note under the card; white strict-mode card with the
+  description inside; Start button and caption pinned to the bottom with the board fade.
+- Mock paper (MK_Paper): thin two-bar pause glyph, 3 x 3 rounded-square grid glyph, flag on a pole.
+- Mock dialogs (MK_SubmitCSE, MK_PauseWarn): 24 px from the screen edge (342 px wide), 10 px between the buttons.
+- Mock review list (MK_Review*): green "< Results" link header, 28 px title, one white card per section, 49 px rows with a
+  42 px number column, ellipsis title and chevron.
+- Assessment results (AS_Results): title 5 px lower, ring 6 px lower.
+
+Checked against the boards and left as they are: the picker title (a test pins it at the board's y 54); the half ring (the board draws a 216 px arc centerline in a 264 px box, which
+the app already matches); the QV_MissPro explanation cards (the board has a top hairline per note, as the app).
+
+Not done: QZ_Picker label and first card offsets (inside the shared `ScopePicker`); QV_Grid sheet height; QV_EndPro mistake rows and
+the pinned Start Session over the list; MK_Results ring and finale X (the finale frames are animated); MK_Review question bar
+pill and Wrong-tab pale button; MK_Paper bottom bar chevrons and counter grouping; MK_SheetCSE sheet height and pinned Submit;
+AS_Question top block, AS_Leave card offset (batch 2 already moved the row, not measured again); AS_Results plan card (board
+frame not captured).
+
+Copy and behavior, not changed: S12 note icon and Add Note in the live bar; QV_MissPro miss order; "Finish the Notes" card in
+QV_EndPro; MK_ReviewBlank "Why did you leave it blank?" card; 170 against 155 items and part label (MK_Paper, MK_SetupCSE).
+
+### Mobile fix batch 3 (Onboarding, Home, Plan, Study, Bookmarks; phone layout only, wide web untouched)
+
+Source: `build/visual-pass/mobile/remaining.md` and the phone boards. Checked on a 390 x 844 run (shots `fix3-*` in the staging
+worktree): Home, Plan (Pro and Free). Onboarding, Performance and Bookmarks changes follow board values and tests only.
+
+- Welcome (O_Launch, web first visit): the HTML screen pins the 350 x 52 button 34 px above the bottom, stack 180 px from the top,
+  34 px title, two-line subtitle. Wide web keeps its centered layout.
+- Under 13 (O_Age): "Try a Different Year" is a green text action; title sits 12 px lower.
+- Terms (O_Consent): 14 px box gap, half-point divider between rows. Study days (O_Days): content starts 24 px under the bar.
+  Name (O_Name): field 52 px tall.
+- Home: assessment card button 16 px under the text; week strip 75.4 px; banner filled with the page color; Today rows keep the
+  value at natural width (titles no longer cut at half width) with a divider inset of 52 px; "Your record" and "Your tendencies"
+  carry the 22 px icons; Free "See all topics and lessons" has the Pro pill after the label and the chevron at the edge.
+- Plan: Today card (34 px dark ring, 17 px semibold title); History rows (74 px date column, one line, down chevron); Free plan
+  (eight gray timeline rows, exam day, three gray history rows, Pro card with sparkle).
+- Performance (DT_Topics*): sort square beside the switch, label row with the order at right and a caret on the subject filter,
+  board rows (12/16 padding, 5 px bar, single-line title and subtitle).
+- Bookmarks (BM_Open): the phone tab bar hides while the sheet is open.
+
+Not done: Study search field offset (not measured on the run); Plan header spacing; HE_* compact "Today's done" card (state);
+DP_PlanA row count (matches); BM_Edit selected-row outline (keyboard focus ring in capture, not styling); O_Days press highlight;
+O_DateChange toast (board annotation). Copy/behavior: reminders step, past-month disabling, "Unfinished items..." line, UPCAT vs CSE.
