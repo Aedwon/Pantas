@@ -10,13 +10,13 @@
 <path d="M180 150 L211 96.3 A62 62 0 0 1 242 150 Z" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="180" y1="196.5" x2="180" y2="232" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
 <circle cx="180" cy="196.5" r="3" fill="#010101" stroke="#020202" stroke-width="1"/>
-<text x="180" y="252" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="180">Online</tspan><tspan x="180" dy="1.2em">180 degrees</tspan></text>
+<text x="180" y="252" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="180">Online</tspan><tspan x="180" dy="18">180 degrees</tspan></text>
 <line x1="156.7" y1="109.7" x2="110" y2="90" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
 <circle cx="156.7" cy="109.7" r="3" fill="#010101" stroke="#020202" stroke-width="1"/>
-<text x="108" y="86" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="108">In person</tspan><tspan x="108" dy="1.2em">120 degrees</tspan></text>
+<text x="108" y="86" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="108">In person</tspan><tspan x="108" dy="18">120 degrees</tspan></text>
 <line x1="220.3" y1="126.8" x2="254" y2="108" stroke="#020202" stroke-width="1.5" stroke-linecap="round" fill="none"/>
 <circle cx="220.3" cy="126.8" r="3" fill="#010101" stroke="#020202" stroke-width="1"/>
-<text x="260" y="104" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="260">Mail</tspan><tspan x="260" dy="1.2em">60 degrees</tspan></text>
+<text x="260" y="104" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="260">Mail</tspan><tspan x="260" dy="18">60 degrees</tspan></text>
 <rect x="90" y="298" width="180" height="38" rx="10" fill="#050505" fill-opacity="0.18"/>
 <rect x="90" y="298" width="180" height="38" rx="10" fill="none" stroke="#050505" stroke-width="2"/>
 <text x="180" y="323" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#050505"><tspan x="180">Total: 120 requests</tspan></text>

@@ -182,6 +182,36 @@ void main() {
     });
   });
 
+  group('check_lesson_illustrations.py --phase svg-units', () {
+    test('passes on the production illustrations', () async {
+      final result = await _runChecker(['--phase', 'svg-units']);
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+      expect(result.stdout.toString(), contains('no em in dy'));
+    });
+
+    test('rejects em in dy and accepts user units', () async {
+      final tmp = await Directory.systemTemp.createTemp('illus_dy_');
+      addTearDown(() => tmp.delete(recursive: true));
+      File('${tmp.path}/ok.svg').writeAsStringSync(
+        '<svg><text font-size="14"><tspan dy="16.8">a</tspan></text></svg>',
+      );
+      var result = await _runChecker(
+        ['--phase', 'svg-units', '--illustrations', tmp.path],
+      );
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+
+      File('${tmp.path}/bad.svg').writeAsStringSync(
+        '<svg><text font-size="14"><tspan dy="1.2em">a</tspan></text></svg>',
+      );
+      result = await _runChecker(
+        ['--phase', 'svg-units', '--illustrations', tmp.path],
+      );
+      expect(result.exitCode, isNot(0));
+      expect(result.stderr.toString(), contains('bad.svg'));
+      expect(result.stderr.toString(), contains('em in dy'));
+    });
+  });
+
   group('production review state', () {
     test('is version 1 with all 59 current rows approved', () {
       final parsed = jsonDecode(

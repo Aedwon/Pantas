@@ -11,7 +11,7 @@
 
 </defs>
 <rect width="360" height="350" rx="14" fill="url(#bg)"/>
-<text x="180" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">y=-2|x-3|+1</text>
+<text x="114.3" y="28" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = −2|</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 3| + 1</tspan></text>
 <rect x="40" y="56" width="262" height="252" rx="6" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
 <line x1="40" y1="56" x2="40" y2="308" stroke="#020202" stroke-width="1" stroke-opacity="0.15"/>
 <line x1="72.8" y1="56" x2="72.8" y2="308" stroke="#020202" stroke-width="1" stroke-opacity="0.15"/>
@@ -47,6 +47,6 @@
 <text x="211.8" y="133" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(3, 1)</tspan></text>
 <text x="162" y="187" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2, −1)</tspan></text>
 <text x="245.5" y="187" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(4, −1)</tspan></text>
-<text x="203.8" y="249.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">y=-2|x-3|+1</text>
-<text x="216.9" y="72.8" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">y=|x|</text>
+<text x="149.7" y="282" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = −2|</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 3| + 1</tspan></text>
+<text x="176.4" y="72.8" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = |</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">|</tspan></text>
 </svg>

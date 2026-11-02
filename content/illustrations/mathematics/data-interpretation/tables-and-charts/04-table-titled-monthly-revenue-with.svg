@@ -16,7 +16,7 @@
 <text x="160.7" y="95" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="160.7">Month 1</tspan></text>
 <text x="234" y="95" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="234">Month 2</tspan></text>
 <text x="307.3" y="95" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="307.3">Month 3</tspan></text>
-<text x="70" y="131" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="70">Revenue,</tspan><tspan x="70" dy="1.2em">pesos</tspan></text>
+<text x="70" y="131" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="70">Revenue,</tspan><tspan x="70" dy="16.8">pesos</tspan></text>
 <text x="160.7" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="160.7">40,000</tspan></text>
 <text x="234" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="234">50,000</tspan></text>
 <text x="307.3" y="141" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="307.3">60,000</tspan></text>

@@ -8,7 +8,7 @@
 <rect width="360" height="260" rx="14" fill="url(#bg)"/>
 <text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">hypothesis</text>
 <rect x="32" y="42" width="296" height="56" rx="10" fill="url(#o)" stroke="#020202" stroke-width="2"/>
-<text x="180" y="66" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">an applicant may enter</tspan><tspan x="180" dy="1.2em">the records room</tspan></text>
+<text x="180" y="66" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">an applicant may enter</tspan><tspan x="180" dy="18">the records room</tspan></text>
 <line x1="180" y1="104" x2="180" y2="141" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/><polygon points="180,154 171,140 189,140" fill="#050505" fill-opacity="0.45"/>
 <text x="180" y="180" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">conclusion</text>
 <rect x="32" y="190" width="296" height="48" rx="10" fill="url(#i)" stroke="#020202" stroke-width="2"/>

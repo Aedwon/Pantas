@@ -13,7 +13,7 @@
 <line x1="230" y1="114" x2="230" y2="142" stroke="#050505" stroke-width="3.5" stroke-linecap="butt" fill="none"/>
 <line x1="330" y1="114" x2="330" y2="142" stroke="#050505" stroke-width="3.5" stroke-linecap="butt" fill="none"/>
 <line x1="30" y1="114" x2="30" y2="86" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
-<text x="16" y="60" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="16">January 1, 2026</tspan><tspan x="16" dy="1.2em">approval (day 0)</tspan></text>
+<text x="16" y="60" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="16">January 1, 2026</tspan><tspan x="16" dy="18">approval (day 0)</tspan></text>
 <line x1="330" y1="114" x2="330" y2="86" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
 <text x="344" y="60" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#050505"><tspan x="344">April 1 (day 90)</tspan></text>
 <line x1="230" y1="142" x2="230" y2="164" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none"/>

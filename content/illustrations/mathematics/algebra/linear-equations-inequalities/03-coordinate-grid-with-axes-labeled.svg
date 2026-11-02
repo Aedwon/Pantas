@@ -4,7 +4,7 @@
 <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
 </defs>
 <rect width="360" height="420" rx="14" fill="url(#bg)"/>
-<text x="180" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="18" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 3</tspan></text>
+<text x="138.4" y="38" text-anchor="start" font-family="Geist, sans-serif" font-size="18" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 3</tspan></text>
 <line x1="36" y1="76" x2="36" y2="364" stroke="#020202" stroke-width="1" stroke-linecap="butt" stroke-opacity="0.3"/>
 <line x1="36" y1="76" x2="324" y2="76" stroke="#020202" stroke-width="1" stroke-linecap="butt" stroke-opacity="0.3"/>
 <line x1="84" y1="76" x2="84" y2="364" stroke="#020202" stroke-width="1" stroke-linecap="butt" stroke-opacity="0.3"/>
@@ -36,7 +36,8 @@
 <circle cx="180" cy="220" r="5" fill="#010101" stroke="#020202" stroke-width="1.5"/>
 <circle cx="228" cy="124" r="5" fill="#010101" stroke="#020202" stroke-width="1.5"/>
 <text x="120" y="310" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(0, −3)</tspan></text>
-<text x="194" y="238" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(1, −1)</tspan></text>
+<rect x="192.0" y="226.8" width="47.2" height="15.4" rx="2" fill="#030303"/>
+<text x="194.0" y="238" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(1, −1)</tspan></text>
 <text x="240" y="140" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2, 1)</tspan></text>
 <text x="156" y="336" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
 <text x="192" y="273" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>

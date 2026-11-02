@@ -8,7 +8,7 @@
 </defs>
 <rect width="360" height="340" rx="14" fill="url(#bg)"/>
 <circle cx="180" cy="170" r="135" fill="url(#o)" stroke="#020202" stroke-width="2"/>
-<text x="180" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">Can fly as the first</tspan><tspan x="180" dy="1.2em">premise assumes</tspan></text>
+<text x="180" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">Can fly as the first</tspan><tspan x="180" dy="18">premise assumes</tspan></text>
 <circle cx="180" cy="215" r="70" fill="url(#i)" stroke="#020202" stroke-width="2"/>
 <text x="180" y="190" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">Birds</text>
 <circle cx="180" cy="232" r="18" fill="url(#g)"/><circle cx="180" cy="232" r="7" fill="#050505" fill-opacity="0.45" stroke="#010101" stroke-width="1.5"/>

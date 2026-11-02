@@ -19,7 +19,7 @@
 </g>
 <rect x="16" y="16" width="328" height="284" rx="10" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.4"/>
 <path transform="translate(-565.6 -141.6) scale(1.2)" d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="url(#wm)"/>
-<text x="180" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">Condensation</tspan><tspan x="180" dy="1.2em">releases heat</tspan></text>
+<text x="180" y="84" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101"><tspan x="180">Condensation</tspan><tspan x="180" dy="18">releases heat</tspan></text>
 <line x1="180" y1="228" x2="180" y2="141.7" stroke="#020202" stroke-width="4"/>
 <polygon points="180,130 186.5,143 173.5,143" fill="#010101" fill-opacity="0.05"/>
 <text x="194" y="164" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Moist air rises</text>
@@ -27,7 +27,7 @@
 <polygon points="168,206 165.8,218.1 157,211.5" fill="#010101" fill-opacity="0.05"/>
 <path d="M264 224 Q210 230 192 206" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
 <polygon points="192,206 203,211.5 194.2,218.1" fill="#010101" fill-opacity="0.05"/>
-<text x="26" y="152" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="26">Air spirals toward</tspan><tspan x="26" dy="1.2em">low pressure</tspan></text>
+<text x="26" y="152" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="26">Air spirals toward</tspan><tspan x="26" dy="16.8">low pressure</tspan></text>
 <line x1="322" y1="232" x2="322" y2="207.9" stroke="#020202" stroke-width="3.5"/>
 <polygon points="322,198 327.5,209 316.5,209" fill="#010101" fill-opacity="0.05"/>
 <text x="338" y="190" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Water vapor rises</text>
@@ -42,6 +42,6 @@
 <polygon points="157.6,369.7 166.6,376.4 157.6,380.9" fill="#010101" fill-opacity="0.05"/>
 <circle cx="140" cy="366" r="5" fill="#010101"/>
 <line x1="146" y1="368" x2="204" y2="372" stroke="#020202" stroke-width="1.5"/>
-<text x="210" y="368" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="210">Low-pressure</tspan><tspan x="210" dy="1.2em">center</tspan></text>
+<text x="210" y="368" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="210">Low-pressure</tspan><tspan x="210" dy="16.8">center</tspan></text>
 <text x="180" y="438" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">north of the equator</text>
 </svg>

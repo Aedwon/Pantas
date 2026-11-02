@@ -4,7 +4,6 @@
 <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
 </defs>
 <rect width="360" height="220" rx="14" fill="url(#bg)"/>
-<line x1="150" y1="40" x2="210" y2="40" stroke="#050505" stroke-width="4" stroke-linecap="round"/>
 <rect x="22" y="91" width="28" height="28" rx="0" fill="none" stroke="#020202" stroke-width="2.5"/>
 <circle cx="36" cy="105" r="3.5" fill="#010101"/>
 <circle cx="108" cy="105" r="28" fill="none" stroke="#020202" stroke-width="2.5"/>

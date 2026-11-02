@@ -24,5 +24,5 @@
 <text x="204" y="55" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">tertiary consumers</text>
 <text x="204" y="73" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">0.1%</text>
 <rect x="30" y="262" width="300" height="72" rx="10" fill="none" stroke="#050505" stroke-width="2"/>
-<text x="180" y="284" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan x="180">Illustration of an assumed</tspan><tspan x="180" dy="1.2em">transfer rate, not an exact</tspan><tspan x="180" dy="1.2em">rule.</tspan></text>
+<text x="180" y="284" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan x="180">Illustration of an assumed</tspan><tspan x="180" dy="16.8">transfer rate, not an exact</tspan><tspan x="180" dy="16.8">rule.</tspan></text>
 </svg>

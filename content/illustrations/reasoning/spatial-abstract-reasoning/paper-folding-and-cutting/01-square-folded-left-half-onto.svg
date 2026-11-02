@@ -22,9 +22,9 @@
 <line x1="316" y1="16" x2="316" y2="44" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
 <line x1="316" y1="44" x2="344" y2="44" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/>
 <line x1="80" y1="44" x2="136.8" y2="44" stroke="#020202" stroke-width="2.5"/>
-<polygon points="144,44 136,48 136,40" fill="#010101" fill-opacity="0.05"/>
+<polygon points="144,44 136,48 136,40" fill="#020202"/>
 <line x1="216" y1="44" x2="272.8" y2="44" stroke="#020202" stroke-width="2.5"/>
-<polygon points="280,44 272,48 272,40" fill="#010101" fill-opacity="0.05"/>
+<polygon points="280,44 272,48 272,40" fill="#020202"/>
 <circle cx="332.8" cy="25.8" r="3" fill="#030303" stroke="#020202" stroke-width="1.6"/>
 <rect x="280" y="132" width="64" height="128" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5"/>
 <line x1="280" y1="132" x2="280" y2="260" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
@@ -39,10 +39,10 @@
 <circle cx="41.6" cy="154.4" r="5" fill="#030303" stroke="#020202" stroke-width="1.2"/>
 <circle cx="41.6" cy="237.6" r="5" fill="#030303" stroke="#020202" stroke-width="1.2"/>
 <line x1="312" y1="80" x2="312" y2="115.9" stroke="#020202" stroke-width="2.5"/>
-<polygon points="312,124 307.5,115 316.5,115" fill="#010101" fill-opacity="0.05"/>
-<text x="302" y="102" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="302">Open the horizontal</tspan><tspan x="302" dy="1.2em">fold first.</tspan></text>
+<polygon points="312,124 307.5,115 316.5,115" fill="#020202"/>
+<text x="302" y="102" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="302">Open the horizontal</tspan><tspan x="302" dy="16.8">fold first.</tspan></text>
 <line x1="270" y1="196" x2="160.1" y2="196" stroke="#020202" stroke-width="2.5"/>
-<polygon points="152,196 161,191.5 161,200.5" fill="#010101" fill-opacity="0.05"/>
-<text x="212" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="212">Open the</tspan><tspan x="212" dy="1.2em">vertical fold.</tspan></text>
+<polygon points="152,196 161,191.5 161,200.5" fill="#020202"/>
+<text x="212" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="212">Open the</tspan><tspan x="212" dy="16.8">vertical fold.</tspan></text>
 <text x="180" y="292" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101">Open the last fold first.</text>
 </svg>

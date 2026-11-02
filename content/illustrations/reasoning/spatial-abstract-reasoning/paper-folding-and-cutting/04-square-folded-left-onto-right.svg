@@ -22,9 +22,9 @@
 <line x1="316" y1="16" x2="316" y2="44" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
 <line x1="316" y1="44" x2="344" y2="44" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
 <line x1="80" y1="44" x2="136.8" y2="44" stroke="#020202" stroke-width="2.5"/>
-<polygon points="144,44 136,48 136,40" fill="#010101" fill-opacity="0.05"/>
+<polygon points="144,44 136,48 136,40" fill="#020202"/>
 <line x1="216" y1="44" x2="272.8" y2="44" stroke="#020202" stroke-width="2.5"/>
-<polygon points="280,44 272,48 272,40" fill="#010101" fill-opacity="0.05"/>
+<polygon points="280,44 272,48 272,40" fill="#020202"/>
 <rect x="287.5" y="100.5" width="56" height="56" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.2"/>
 <rect x="285" y="103" width="56" height="56" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.2"/>
 <rect x="282.5" y="105.5" width="56" height="56" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.2"/>
@@ -32,13 +32,13 @@
 <line x1="280" y1="108" x2="280" y2="164" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
 <line x1="280" y1="164" x2="336" y2="164" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
 <line x1="312" y1="80" x2="312" y2="92.8" stroke="#020202" stroke-width="2.5"/>
-<polygon points="312,100 308,92 316,92" fill="#010101" fill-opacity="0.05"/>
+<polygon points="312,100 308,92 316,92" fill="#020202"/>
 <line x1="308" y1="170" x2="308" y2="205.9" stroke="#020202" stroke-width="2.5"/>
-<polygon points="308,214 303.5,205 312.5,205" fill="#010101" fill-opacity="0.05"/>
-<text x="298" y="188" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="298">Open the horizontal</tspan><tspan x="298" dy="1.2em">fold.</tspan></text>
+<polygon points="308,214 303.5,205 312.5,205" fill="#020202"/>
+<text x="298" y="188" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="298">Open the horizontal</tspan><tspan x="298" dy="16.8">fold.</tspan></text>
 <line x1="268" y1="276" x2="144.1" y2="276" stroke="#020202" stroke-width="2.5"/>
-<polygon points="136,276 145,271.5 145,280.5" fill="#010101" fill-opacity="0.05"/>
-<text x="202" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="202">Open the vertical</tspan><tspan x="202" dy="1.2em">fold.</tspan></text>
+<polygon points="136,276 145,271.5 145,280.5" fill="#020202"/>
+<text x="202" y="296" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="202">Open the vertical</tspan><tspan x="202" dy="16.8">fold.</tspan></text>
 <path d="M280 164 L280 142 A22 22 0 0 1 302 164 Z" fill="#030303" stroke="#050505" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="280" y="220" width="56" height="112" rx="2" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1.5"/>
 <line x1="280" y1="220" x2="280" y2="254" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>

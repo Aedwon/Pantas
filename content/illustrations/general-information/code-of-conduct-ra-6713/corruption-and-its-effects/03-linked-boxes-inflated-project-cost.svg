@@ -14,12 +14,12 @@
 <rect x="80" y="20" width="200" height="52" rx="10" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.5"/>
 <text x="180" y="51.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Inflated project cost</text>
 <line x1="180" y1="76" x2="180" y2="119" stroke="#020202" stroke-width="3"/>
-<polygon points="180,128 175,118 185,118" fill="#010101" fill-opacity="0.05"/>
+<polygon points="180,128 175,118 185,118" fill="#020202"/>
 <text x="196" y="108" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">economic effect</text>
 <rect x="80" y="132" width="200" height="52" rx="10" fill="url(#wm)" stroke="#020202" stroke-width="1.5" stroke-opacity="0.5"/>
 <text x="180" y="163.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="700" fill="#010101">Fewer classrooms</text>
 <line x1="180" y1="188" x2="180" y2="231" stroke="#020202" stroke-width="3"/>
-<polygon points="180,240 175,230 185,230" fill="#010101" fill-opacity="0.05"/>
+<polygon points="180,240 175,230 185,230" fill="#020202"/>
 <text x="196" y="220" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">political effect</text>
 <rect x="80" y="244" width="200" height="52" rx="10" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.5"/>
 <text x="180" y="275.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Lower trust</text>

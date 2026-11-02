@@ -643,6 +643,37 @@ def collect_visual_digests(
     return digests, missing_founders
 
 
+DY_EM_RE = re.compile(r'\bdy\s*=\s*["\'][^"\']*em\s*["\']')
+
+
+def check_svg_dy_units(illustrations_dir: str) -> int:
+    """Reject `em` in a `dy` attribute of any SVG under the illustrations root.
+
+    The app's SVG parser drops the unit, so dy="1.2em" shifts a line by 1.2
+    points and multi-line labels print on top of each other. Write dy in
+    user units (1.2 times the font size) instead.
+    """
+    bad = []
+    count = 0
+    for folder, _, names in os.walk(illustrations_dir):
+        for name in sorted(names):
+            if not name.endswith(".svg"):
+                continue
+            count += 1
+            path = os.path.join(folder, name)
+            with open(path, encoding="utf-8") as handle:
+                if DY_EM_RE.search(handle.read()):
+                    bad.append(os.path.relpath(path, illustrations_dir))
+    if bad:
+        for rel in sorted(bad):
+            sys.stderr.write(
+                f"Error: {rel} uses em in dy; write dy in user units "
+                "(1.2 times the font size)\n"
+            )
+        raise SystemExit(1)
+    return count
+
+
 def check_review_ready(
     strategy_path: str,
     worklist_path: str,
@@ -653,6 +684,7 @@ def check_review_ready(
 ) -> None:
     inv = check_inventory(strategy_path, worklist_path)
     check_lesson_marker_state(inv, lessons_dir)
+    check_svg_dy_units(illustrations_dir)
     catalog = build_review_catalog(inv)
     load_review_state(review_path, catalog["keys"])
     digests, missing_founders = collect_visual_digests(
@@ -686,6 +718,7 @@ def check_complete(
 ) -> None:
     inv = check_inventory(strategy_path, worklist_path)
     expected_illustrations = check_lesson_marker_state(inv, lessons_dir)
+    check_svg_dy_units(illustrations_dir)
     catalog = build_review_catalog(inv)
     review_items = load_review_state(review_path, catalog["keys"])
     digests, _ = collect_visual_digests(
@@ -737,8 +770,8 @@ def main() -> None:
     parser.add_argument(
         "--phase",
         required=True,
-        choices=["inventory", "review-ready", "complete"],
-        help="Check phase: inventory, review-ready, or complete",
+        choices=["inventory", "review-ready", "complete", "svg-units"],
+        help="Check phase: inventory, review-ready, complete, or svg-units",
     )
     parser.add_argument(
         "--strategy", default=DEFAULT_STRATEGY, help="Path to strategy.tsv"
@@ -768,6 +801,9 @@ def main() -> None:
     args = parser.parse_args()
     if args.phase == "inventory":
         check_inventory(args.strategy, args.worklist)
+    elif args.phase == "svg-units":
+        count = check_svg_dy_units(args.illustrations)
+        print(f"svg-units: {count} SVG files, no em in dy")
     elif args.phase == "review-ready":
         check_review_ready(
             args.strategy,

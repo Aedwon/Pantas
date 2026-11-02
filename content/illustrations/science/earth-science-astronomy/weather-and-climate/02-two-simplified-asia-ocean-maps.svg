@@ -33,5 +33,5 @@
 <text x="118" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202">Cooler, higher pressure</text>
 <polygon points="217.0,247.2 307.6,299.5 304.6,304.6 324.0,302.0 316.6,283.9 313.6,289.1 223.0,236.8" fill="#010101" fill-opacity="0.05"/>
 <polygon points="127.8,261.6 252.0,310.5 249.8,316.1 268.6,310.6 258.6,293.8 256.4,299.3 132.2,250.4" fill="#010101" fill-opacity="0.05"/>
-<text x="180" y="356" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202"><tspan x="180">Seasonal heating changes</tspan><tspan x="180" dy="1.2em">pressure and reverses winds.</tspan></text>
+<text x="180" y="356" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202"><tspan x="180">Seasonal heating changes</tspan><tspan x="180" dy="18">pressure and reverses winds.</tspan></text>
 </svg>

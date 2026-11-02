@@ -14,9 +14,9 @@
 <rect x="125" y="24" width="110" height="44" rx="10" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="1.5" stroke-opacity="0.5"/>
 <text x="180" y="51.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Complaint</text>
 <line x1="180" y1="70" x2="180" y2="99" stroke="#020202" stroke-width="3"/>
-<polygon points="180,108 175,98 185,98" fill="#010101" fill-opacity="0.05"/>
+<polygon points="180,108 175,98 185,98" fill="#020202"/>
 <rect x="70" y="112" width="220" height="72" rx="10" fill="url(#wm)" stroke="#020202" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="144" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180">Ombudsman:</tspan><tspan x="180" dy="1.2em">acts on complaints</tspan></text>
+<text x="180" y="144" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180">Ombudsman:</tspan><tspan x="180" dy="19.2">acts on complaints</tspan></text>
 <rect x="50" y="236" width="260" height="80" rx="10" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.5"/>
-<text x="180" y="263.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="180">Sandiganbayan:</tspan><tspan x="180" dy="1.2em">tries cases within</tspan><tspan x="180" dy="1.2em">its legal authority</tspan></text>
+<text x="180" y="263.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan x="180">Sandiganbayan:</tspan><tspan x="180" dy="18">tries cases within</tspan><tspan x="180" dy="18">its legal authority</tspan></text>
 </svg>
