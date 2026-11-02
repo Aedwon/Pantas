@@ -120,3 +120,21 @@ test('the ceiling refuses lessons and questions with the same error but leaves t
   assert.equal(catalog.items.index.status, 'missing');
   assert.deepEqual(writes, [4], 'catalog neither checks nor adds to the ceiling');
 });
+
+test('over the ceiling a Free account is refused and a paid account is served up to its own limit', async () => {
+  const free = 'lim-ceil-free', paid = 'lim-ceil-paid';
+  await reset(free); await reset(paid);
+  await db.doc(`users/${paid}/grants/test`).set({source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', startsAt: NOW - 1000, endsAt: NOW + 86_400_000, state: 'active'});
+  const added = [];
+  const closed = {isOpen: async () => false, record: async n => { added.push(n); }};
+  const a = await fail(ask(free, ids.slice(0, 2), {}, {ceiling: closed}));
+  assert.equal(a.code, 'resource-exhausted');
+  assert.deepEqual(a.details, {kind: 'content', scope: 'ceiling'});
+  const out = await ask(paid, ids.slice(0, 5), {}, {ceiling: closed, dailyIds: 3});
+  assert.equal(okCount(out), 3);
+  assert.equal(Object.values(out.items).filter(e => e.status === 'limited').length, 2);
+  assert.deepEqual(added, [3], 'paid deliveries still count in the total');
+  const b = await fail(ask(paid, ids.slice(5, 6), {}, {ceiling: closed, dailyIds: 3}));
+  assert.equal(b.code, 'resource-exhausted', 'its own limit still binds');
+  assert.deepEqual(b.details, {kind: 'content', scope: 'delivered'});
+});

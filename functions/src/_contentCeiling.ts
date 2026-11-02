@@ -9,6 +9,15 @@ import {phDay} from './_phDate.js';
 export const DAILY_DELIVERED_CEILING = 200_000;
 
 /**
+ * The value in force. `DAILY_CONTENT_CEILING` in `functions/.env` overrides it at the next
+ * deploy, for a manual raise or lowering without a code change. Read when an instance starts.
+ */
+export function configuredCeiling(env: NodeJS.ProcessEnv = process.env): number {
+  const value = Number.parseInt(env.DAILY_CONTENT_CEILING ?? '', 10);
+  return Number.isFinite(value) && value > 0 ? value : DAILY_DELIVERED_CEILING;
+}
+
+/**
  * The total is split over this many counter documents. One document takes about one write a
  * second, and the ceiling adds one write for every call that delivers anything, so a single
  * counter would be the limit on content traffic.
@@ -74,7 +83,7 @@ export type CeilingOptions = {
  * ids, roughly 2,500 ids (about 1.3%).
  */
 export function createCeiling(options: CeilingOptions): Ceiling {
-  const limit = options.limit ?? DAILY_DELIVERED_CEILING;
+  const limit = options.limit ?? configuredCeiling();
   const clock = options.now ?? Date.now;
   const random = options.random ?? Math.random;
   const alert = options.alert ?? ((message: string) => console.error(message));

@@ -87,3 +87,11 @@ test('it logs one alertable line at 80% and one when the ceiling is reached', as
   assert.equal(state.alerts.length, 2);
   assert.match(state.alerts[1], /^Daily content ceiling reached\./);
 });
+
+test('DAILY_CONTENT_CEILING overrides the default; bad values are ignored', async () => {
+  const {configuredCeiling} = await import('../lib/_contentCeiling.js');
+  assert.equal(configuredCeiling({}), 200_000);
+  assert.equal(configuredCeiling({DAILY_CONTENT_CEILING: '50000'}), 50_000);
+  assert.equal(configuredCeiling({DAILY_CONTENT_CEILING: 'abc'}), 200_000);
+  assert.equal(configuredCeiling({DAILY_CONTENT_CEILING: '-5'}), 200_000);
+});

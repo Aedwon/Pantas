@@ -22,7 +22,10 @@ import {examCatalog} from './revenuecatPasses.js';
  *    (1000 each) ids asked about, delivered or not. It stops version checks being used as a
  *    probe or a load. It is checked before any document is read.
  * 3. A daily ceiling over all accounts on delivered lesson and question ids (`_contentCeiling`).
- *    The catalog is exempt, so the app still opens.
+ *    The catalog is exempt, so the app still opens. Content a caller has paid access to is also
+ *    exempt, so throwaway accounts cannot lock paying students out; their deliveries still count
+ *    in the total, and limits 1 and 2 still bind them. The worst-case bill therefore also depends
+ *    on the number of paid accounts, each bounded by limits 1 and 2.
  * 4. App Check and sign-in (anonymous accounts included) in front of all of it.
  *
  * None of these stops someone who makes many accounts; App Check, the anonymous-account controls
@@ -90,10 +93,13 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
   // 2. The ceiling over all accounts. Lessons and questions only: the catalog must stay open.
   const ceiling = kind === 'catalog' ? null
     : deps.ceiling === undefined ? (deps.allow ? null : sharedCeiling(deps.db)) : deps.ceiling;
-  if (ceiling && !await ceiling.isOpen()) throw exhausted(scope, 'ceiling');
-
   const coverage = await deps.db.runTransaction(tx => mockCoverage(tx, deps.db, uid, now));
   const pro = examCatalog.some(exam => coverage.coversExam(exam.id));
+  // Accounts with paid access are exempt from the ceiling, so throwaway accounts cannot lock
+  // paying students out. Their own limits still apply and their deliveries still count in the
+  // total. The error is the same for everyone and does not say why.
+  const ceilingOpen = ceiling ? await ceiling.isOpen() : true;
+  if (!ceilingOpen && !pro) throw exhausted(scope, 'ceiling');
   const items: Record<string, Entry> = {};
   const candidates: Candidate[] = [];
   await Promise.all(unique.map(async (id) => {
@@ -114,6 +120,15 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
 
   // 3. The delivered budget. Candidates are in the order of the request, so the first ones win.
   candidates.sort((a, b) => unique.indexOf(a.id) - unique.indexOf(b.id));
+  if (!ceilingOpen) {
+    // Paid somewhere, but not for these sets: they stay behind the ceiling.
+    const unpaid = candidates.filter(candidate => !candidate.paid);
+    if (unpaid.length > 0 && unpaid.length === candidates.length) throw exhausted(scope, 'ceiling');
+    for (const candidate of unpaid) {
+      items[candidate.id] = {status: 'limited'};
+      candidates.splice(candidates.indexOf(candidate), 1);
+    }
+  }
   let granted = candidates.length;
   if (granted > 0 && !deps.allow) {
     granted = await takeAtMost(uid, kind === 'catalog' ? 'getCatalog' : 'getContent',
