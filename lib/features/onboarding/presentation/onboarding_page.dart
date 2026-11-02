@@ -92,14 +92,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       step != OnboardingStep.launch &&
       step != OnboardingStep.reminders;
 
-  /// Wide web: the content width each step asks for, as its page passes it.
-  static double _widthHint(OnboardingStep step) => switch (step) {
-        OnboardingStep.picker => 820,
-        OnboardingStep.studyDays => 640,
-        OnboardingStep.examDate => 780,
-        _ => 580,
-      };
-
   OnboardingStep? get _step => _flow?.step;
   final Set<OnboardingStep> _loggedSteps = {};
 
@@ -210,7 +202,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           controller: _frame,
           enabled: _framed(_step!),
           resetToken: _step!,
-          widthHint: _widthHint(_step!),
           child: AnimatedSwitcher(
             // Content only: the frame around it does not move.
             layoutBuilder: (current, previous) => Stack(
@@ -221,16 +212,14 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             duration: disableAnimations
                 ? Duration.zero
                 : Duration(
-                    milliseconds: _step == OnboardingStep.welcome ||
-                            _step == OnboardingStep.picker
-                        ? 300
-                        : 380,
+                    milliseconds: _step == OnboardingStep.welcome ? 300 : 380,
                   ),
             reverseDuration: Duration.zero,
             transitionBuilder: (child, animation) {
+              // Only the screens before the framed steps fade. Every framed
+              // step, the picker included, slides in the same way.
               final fade = child.key == const ValueKey('welcome') ||
-                  child.key == const ValueKey('launch') ||
-                  child.key == const ValueKey('picker');
+                  child.key == const ValueKey('launch');
               return AnimatedBuilder(
                 animation: animation,
                 child: child,

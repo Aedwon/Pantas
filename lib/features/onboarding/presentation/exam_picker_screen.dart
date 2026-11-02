@@ -15,7 +15,6 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
@@ -285,6 +284,68 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     );
   }
 
+  /// One exam row of the onboarding picker: the shared selection row in a
+  /// card that shows the picked state. Long names wrap instead of clipping.
+  Widget _webExamRow(
+    WebTokens t,
+    ExamCatalogEntry entry,
+    bool chosen,
+    String? active,
+  ) {
+    final enabled = widget.selectable(entry);
+    return WebCard(
+      radius: 14,
+      minHeight: 64,
+      selected: chosen,
+      child: RadioRow(
+        key: ValueKey('exam-${entry.id}'),
+        title: entry.shortName,
+        showMark: false,
+        selected: chosen,
+        onTap: _saving || !enabled ? null : () => _pick(entry, active),
+        padding: const EdgeInsets.fromLTRB(16, 11, 14, 11),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              entry.shortName,
+              style: t.style(16, weight: FontWeight.w600),
+            ),
+            Text(
+              _organizations[entry.id] ?? entry.name,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: t.sm,
+            ),
+          ],
+        ),
+        trailing: enabled
+            ? null
+            : Padding(
+                padding: const EdgeInsets.only(right: 14),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: t.disabledBackground,
+                    borderRadius: BorderRadius.circular(99),
+                  ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                    child: Text(
+                      'Coming soon',
+                      style: t.style(
+                        11,
+                        weight: FontWeight.w600,
+                        color: t.colors.secondaryLabel,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final catalog = ref.watch(examPickerCatalogProvider);
@@ -295,297 +356,167 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     final selected = _selectedId ?? active;
     if (!_settings && context.wideWeb) {
       final t = context.webTokens;
-      return OnboardingShortcuts(
-        bindings: {
-          if (_selectedId != null && !_saving)
-            const SingleActivator(LogicalKeyboardKey.enter): _save,
-        },
-        child: Stack(
-          children: [
-            OnboardingWebPage(
-              title: 'Which exam are you taking?',
-              detail: 'You can change this later in Settings.',
-              progress: 3,
-              width: 820,
-              gap: 24,
-              onBack: _back,
-              children: [
-                catalog.when(
-                  loading: () => const ExamPickerWebSkeleton(),
-                  error: (error, stack) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 80),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Could not load exams.',
-                          style: t.style(17, color: t.colors.secondaryLabel),
-                        ),
-                        const SizedBox(height: 16),
-                        WebButton(
-                          label: 'Retry',
-                          variant: WebButtonVariant.secondary,
-                          onPressed: () =>
-                              ref.invalidate(examPickerCatalogProvider),
-                        ),
-                      ],
-                    ),
+      final emptyCatalog = catalog.hasValue && catalog.requireValue.isEmpty;
+      // Aedwon overrode board OB_Picker on Nov 2, 2026: the picker keeps the
+      // same 580 column as every other step. Exams are one column of rows and
+      // Continue sits inline, right aligned, like the other steps.
+      return OnboardingWebPage(
+        title: 'Which exam are you taking?',
+        detail: 'You can change this later in Settings.',
+        progress: 3,
+        gap: 24,
+        onBack: _back,
+        bottom: emptyCatalog
+            ? null
+            : OnboardingActions(
+                children: [
+                  if (_failed) saveFailureLine(_save),
+                  OnboardingButton(
+                    label: 'Continue',
+                    busy: _saving,
+                    onPressed: _selectedId == null || _saving ? null : _save,
                   ),
-                  data: (catalogEntries) {
-                    final all = _orderedEntries(catalogEntries);
-                    if (all.isEmpty) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 80),
-                        child: Column(
-                          children: [
-                            Text(
-                              'No exams available right now.',
-                              style: t.style(20, weight: FontWeight.w600),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              'Check back soon, or set up your own exam.',
-                              style: t.sub,
-                            ),
-                            const SizedBox(height: 20),
-                            WebButton(
-                              label: 'Set Up My Own Exam',
-                              onPressed: _saving ? null : _custom,
-                            ),
-                          ],
-                        ),
-                      );
-                    }
-                    final visible = all
-                        .where(
-                          (entry) =>
-                              (_group == null || entry.group == _group) &&
-                              '${entry.name} ${entry.shortName} '
-                                      '${_organizations[entry.id] ?? ''}'
-                                  .toLowerCase()
-                                  .contains(_query),
-                        )
-                        .toList();
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        SearchField(
-                          outlined: true,
-                          hint: 'Search exams',
-                          onChanged: (value) => setState(
-                            () => _query = value.trim().toLowerCase(),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Wrap(
-                          spacing: 6,
-                          runSpacing: 6,
-                          children: [
-                            for (final group in [
-                              (null, 'All'),
-                              ..._groups.map((g) => (g.$1, g.$2)),
-                            ])
-                              TextButton(
-                                onPressed: () =>
-                                    setState(() => _group = group.$1),
-                                style: TextButton.styleFrom(
-                                  backgroundColor: _group == group.$1
-                                      ? t.colors.label
-                                      : t.colors.surface,
-                                  foregroundColor: _group == group.$1
-                                      ? t.colors.surface
-                                      : t.colors.label,
-                                  textStyle: t.style(
-                                    14,
-                                    weight: _group == group.$1
-                                        ? FontWeight.w600
-                                        : FontWeight.w500,
-                                  ),
-                                  shape: const StadiumBorder(),
-                                  minimumSize: const Size(0, 34),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 14,
-                                  ),
-                                ),
-                                child: Text(group.$2),
-                              ),
-                          ],
-                        ),
-                        const SizedBox(height: 24),
-                        WebCard(
-                          child: WebRow(
-                            title: "My exam isn't listed",
-                            subtitle: 'Set up your own and pick what it covers',
-                            titleColor: t.colors.label,
-                            leading: SvgPicture.string(
-                              '<svg viewBox="0 0 24 24" fill="none" '
-                              'stroke="currentColor" stroke-width="1.9" '
-                              'stroke-linecap="round"> '
-                              '<circle cx="12" cy="12" r="8.5"/> '
-                              '<path d="M12 8.5v7M8.5 12h7"/></svg>',
-                              width: 22,
-                              height: 22,
-                              colorFilter: ColorFilter.mode(
-                                t.colors.accent,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                            onPressed: _saving ? null : _custom,
-                            trailing: const Icon(Icons.chevron_right),
-                            divider: false,
-                          ),
-                        ),
-                        const SizedBox(height: 24),
-                        for (final group in _orderedGroups(visible))
-                          if (visible
-                              .any((entry) => entry.group == group.$1)) ...[
-                            Text(group.$3.toUpperCase(), style: t.eb),
-                            const SizedBox(height: 8),
-                            LayoutBuilder(
-                              builder: (context, constraints) => Wrap(
-                                spacing: 10,
-                                runSpacing: 10,
-                                children: [
-                                  for (final entry in visible.where(
-                                    (entry) => entry.group == group.$1,
-                                  ))
-                                    SizedBox(
-                                      width: (constraints.maxWidth - 20) / 3,
-                                      // Board OB_Picker .ex: 64 px tall.
-                                      child: WebCard(
-                                        radius: 14,
-                                        minHeight: 64,
-                                        selected: selected == entry.id,
-                                        child: RadioRow(
-                                          key: ValueKey('exam-${entry.id}'),
-                                          title: entry.shortName,
-                                          showMark: false,
-                                          selected: selected == entry.id,
-                                          onTap: _saving ||
-                                                  !widget.selectable(entry)
-                                              ? null
-                                              : () => _pick(entry, active),
-                                          padding: const EdgeInsets.fromLTRB(
-                                            16,
-                                            11,
-                                            14,
-                                            11,
-                                          ),
-                                          content: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                entry.shortName,
-                                                style: t.style(
-                                                  16,
-                                                  weight: FontWeight.w600,
-                                                ),
-                                              ),
-                                              Text(
-                                                _organizations[entry.id] ??
-                                                    entry.name,
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: t.sm,
-                                              ),
-                                            ],
-                                          ),
-                                          trailing: !widget.selectable(entry)
-                                              ? Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    right: 14,
-                                                  ),
-                                                  child: DecoratedBox(
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          t.disabledBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                        99,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                          .symmetric(
-                                                        horizontal: 7,
-                                                        vertical: 2,
-                                                      ),
-                                                      child: Text(
-                                                        'Coming soon',
-                                                        style: t.style(
-                                                          11,
-                                                          weight:
-                                                              FontWeight.w600,
-                                                          color: t.colors
-                                                              .secondaryLabel,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                )
-                                              : null,
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 24),
-                          ],
-                      ],
-                    );
-                  },
-                ),
-                if (_failed) saveFailureLine(_save),
-                const SizedBox(height: 100),
-              ],
-            ),
-            if (!(catalog.hasValue && catalog.requireValue.isEmpty))
-              OnboardingPinnedBar(
-                child: Container(
-                  height: 84,
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  decoration: BoxDecoration(
-                    color: t.colors.surface,
-                    border: Border(
-                      top: BorderSide(color: t.colors.separator, width: .5),
-                    ),
-                  ),
-                  child: Center(
-                    child: SizedBox(
-                      width: 1084,
-                      child: Row(
-                        children: [
-                          if (selected != null)
-                            Expanded(
-                              child: Text(
-                                (catalog.valueOrNull ?? [])
-                                    .where((e) => e.id == selected)
-                                    .map(
-                                      (e) => '${e.shortName} · '
-                                          '${_organizations[e.id] ?? e.name}',
-                                    )
-                                    .join(),
-                                style: t.sub,
-                              ),
-                            )
-                          else
-                            const Spacer(),
-                          OnboardingButton(
-                            label: 'Continue',
-                            busy: _saving,
-                            onPressed:
-                                _selectedId == null || _saving ? null : _save,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                ],
               ),
-          ],
-        ),
+        children: [
+          catalog.when(
+            loading: () => const ExamPickerWebSkeleton(),
+            error: (error, stack) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 80),
+              child: Column(
+                children: [
+                  Text(
+                    'Could not load exams.',
+                    style: t.style(17, color: t.colors.secondaryLabel),
+                  ),
+                  const SizedBox(height: 16),
+                  WebButton(
+                    label: 'Retry',
+                    variant: WebButtonVariant.secondary,
+                    onPressed: () => ref.invalidate(examPickerCatalogProvider),
+                  ),
+                ],
+              ),
+            ),
+            data: (catalogEntries) {
+              final all = _orderedEntries(catalogEntries);
+              if (all.isEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 80),
+                  child: Column(
+                    children: [
+                      Text(
+                        'No exams available right now.',
+                        style: t.style(20, weight: FontWeight.w600),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        'Check back soon, or set up your own exam.',
+                        style: t.sub,
+                      ),
+                      const SizedBox(height: 20),
+                      WebButton(
+                        label: 'Set Up My Own Exam',
+                        onPressed: _saving ? null : _custom,
+                      ),
+                    ],
+                  ),
+                );
+              }
+              final visible = all
+                  .where(
+                    (entry) =>
+                        (_group == null || entry.group == _group) &&
+                        '${entry.name} ${entry.shortName} '
+                                '${_organizations[entry.id] ?? ''}'
+                            .toLowerCase()
+                            .contains(_query),
+                  )
+                  .toList();
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SearchField(
+                    outlined: true,
+                    hint: 'Search exams',
+                    onChanged: (value) => setState(
+                      () => _query = value.trim().toLowerCase(),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: [
+                      for (final group in [
+                        (null, 'All'),
+                        ..._groups.map((g) => (g.$1, g.$2)),
+                      ])
+                        TextButton(
+                          onPressed: () => setState(() => _group = group.$1),
+                          style: TextButton.styleFrom(
+                            backgroundColor: _group == group.$1
+                                ? t.colors.label
+                                : t.colors.surface,
+                            foregroundColor: _group == group.$1
+                                ? t.colors.surface
+                                : t.colors.label,
+                            textStyle: t.style(
+                              14,
+                              weight: _group == group.$1
+                                  ? FontWeight.w600
+                                  : FontWeight.w500,
+                            ),
+                            shape: const StadiumBorder(),
+                            minimumSize: const Size(0, 34),
+                            padding: const EdgeInsets.symmetric(horizontal: 14),
+                          ),
+                          child: Text(group.$2),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  WebCard(
+                    child: WebRow(
+                      title: "My exam isn't listed",
+                      subtitle: 'Set up your own and pick what it covers',
+                      titleColor: t.colors.label,
+                      leading: SvgPicture.string(
+                        '<svg viewBox="0 0 24 24" fill="none" '
+                        'stroke="currentColor" stroke-width="1.9" '
+                        'stroke-linecap="round"> '
+                        '<circle cx="12" cy="12" r="8.5"/> '
+                        '<path d="M12 8.5v7M8.5 12h7"/></svg>',
+                        width: 22,
+                        height: 22,
+                        colorFilter: ColorFilter.mode(
+                          t.colors.accent,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      onPressed: _saving ? null : _custom,
+                      trailing: const Icon(Icons.chevron_right),
+                      divider: false,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  for (final group in _orderedGroups(visible))
+                    if (visible.any((entry) => entry.group == group.$1)) ...[
+                      Text(group.$3.toUpperCase(), style: t.eb),
+                      const SizedBox(height: 8),
+                      for (final (index, entry) in visible
+                          .where((entry) => entry.group == group.$1)
+                          .indexed) ...[
+                        if (index > 0) const SizedBox(height: 10),
+                        _webExamRow(t, entry, selected == entry.id, active),
+                      ],
+                      const SizedBox(height: 24),
+                    ],
+                ],
+              );
+            },
+          ),
+        ],
       );
     }
     if (_settings && context.wideWeb) {

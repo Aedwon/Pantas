@@ -135,12 +135,11 @@ class _OnboardingStudyDaysStepState
     final examDays =
         untilExam != null && untilExam >= 1 && untilExam < 7 ? untilExam : null;
     final examDayWord = examDays == 1 ? 'day' : 'days';
+    // Wide web: Aedwon overrode the board's wider day row on Nov 2, 2026. The
+    // seven days fit the 580 column that every onboarding step uses.
     return OnboardingWebPage(
       title: 'Which days will you study?',
-      width: 640,
       bottomGap: 28,
-      // Board (O_Days): the content starts 24 px under the progress bar.
-      topPadding: 24,
       detail: 'Your plan only puts work on these days. '
           'You can change them later in Settings.',
       progress: 5,

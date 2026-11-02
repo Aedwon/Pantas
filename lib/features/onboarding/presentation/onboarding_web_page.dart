@@ -24,7 +24,6 @@ class OnboardingWebPage extends StatelessWidget {
     this.centerBody = false,
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
-    this.width = 580,
     this.topPadding = 4,
     super.key,
   });
@@ -44,7 +43,6 @@ class OnboardingWebPage extends StatelessWidget {
   final bool centerBody;
   final bool surfaceBackground;
   final double detailLineHeight;
-  final double width;
 
   /// Phone only: space between the progress bar and the title.
   final double topPadding;
@@ -84,7 +82,7 @@ class OnboardingWebPage extends StatelessWidget {
       // The top bar and steps list stay on screen in the onboarding frame.
       return OnboardingFrameClaim(
         host: host,
-        spec: OnboardingFrameSpec(progress: progress, width: width),
+        spec: OnboardingFrameSpec(progress: progress),
         onBack: onBack,
         child: OnboardingShortcuts(bindings: shortcuts, child: column),
       );
@@ -107,7 +105,7 @@ class OnboardingWebPage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
                 child: Center(
                   child: SizedBox(
-                    width: width + (width > 580 ? 264 : 280),
+                    width: onboardingColumnWidth + 280,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -118,7 +116,7 @@ class OnboardingWebPage extends StatelessWidget {
                             child: OnboardingRail(progress: progress),
                           ),
                         ),
-                        SizedBox(width: width > 580 ? 64 : 80),
+                        const SizedBox(width: 80),
                         Expanded(child: column),
                       ],
                     ),

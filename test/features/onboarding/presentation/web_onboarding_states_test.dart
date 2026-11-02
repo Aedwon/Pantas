@@ -178,10 +178,16 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('exam-exam_cse_pro')));
       await tester.pump();
       expect(button(tester, 'Continue').onPressed, isNotNull);
+      // The pick shows only as the row's selected state.
       expect(
         find.text('CSE Professional · Civil Service Commission'),
-        findsOneWidget,
+        findsNothing,
       );
+      final pickedCard = find.ancestor(
+        of: find.byKey(const ValueKey('exam-exam_cse_pro')),
+        matching: find.byType(WebCard),
+      );
+      expect(tester.widget<WebCard>(pickedCard).selected, isTrue);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pumpAndSettle();
       expect(picked, 1);
@@ -352,7 +358,7 @@ void main() {
         expect(find.text('Which days will you study?'), findsOneWidget);
         expect(find.text('Mon'), findsOneWidget);
         final status = find.byKey(const ValueKey('study-days-status'));
-        expect(tester.getSize(status).width, 640);
+        expect(tester.getSize(status).width, 580);
         expect(tester.getSize(status).height, 96);
         final continueY =
             tester.getTopLeft(find.widgetWithText(WebButton, 'Continue')).dy;

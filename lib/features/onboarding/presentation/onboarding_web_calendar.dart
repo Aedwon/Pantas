@@ -6,6 +6,9 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Desktop month and day panels share the existing date value and save path.
+///
+/// Aedwon overrode the board's wider calendar on Nov 2, 2026: both panels now
+/// fit the 580 column that every onboarding step uses.
 class OnboardingWebCalendar extends StatelessWidget {
   const OnboardingWebCalendar({
     required this.value,
@@ -128,9 +131,9 @@ class OnboardingWebCalendar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                width: 270,
+                width: 236,
                 child: WebCard(
-                  padding: const EdgeInsets.all(18),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -171,10 +174,10 @@ class OnboardingWebCalendar extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 12),
               Expanded(
                 child: WebCard(
-                  padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
+                  padding: const EdgeInsets.fromLTRB(16, 18, 16, 20),
                   child: month == null
                       ? SizedBox(
                           height: 322,

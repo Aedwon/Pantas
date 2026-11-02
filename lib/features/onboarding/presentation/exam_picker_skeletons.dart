@@ -3,8 +3,7 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The wide exam picker before the catalog loads: the search field, the group
-/// chips, the "my exam isn't listed" card, then two groups of exam cards three
-/// to a row.
+/// chips, the "my exam isn't listed" card, then two groups of exam rows.
 class ExamPickerWebSkeleton extends StatelessWidget {
   const ExamPickerWebSkeleton({super.key});
 
@@ -22,21 +21,10 @@ class ExamPickerWebSkeleton extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            LayoutBuilder(
-              builder: (context, constraints) => Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: [
-                  for (var i = 0; i < cards; i++)
-                    SkeletonBlock(
-                      width: (constraints.maxWidth - 20) / 3,
-                      height: 64,
-                      radius: 14,
-                      section: true,
-                    ),
-                ],
-              ),
-            ),
+            for (var i = 0; i < cards; i++) ...[
+              if (i > 0) const SizedBox(height: 10),
+              const SkeletonBlock(height: 64, radius: 14, section: true),
+            ],
           ],
         );
     return SkeletonPulse(

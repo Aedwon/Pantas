@@ -8,12 +8,14 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
+/// Wide web: the width of every step's content column.
+const double onboardingColumnWidth = 580;
+
 /// What the still part of onboarding needs to know about the visible step.
 @immutable
 class OnboardingFrameSpec {
   const OnboardingFrameSpec({
     this.progress,
-    this.width = 580,
     this.surfaceBackground = false,
     this.bare = false,
   });
@@ -21,8 +23,6 @@ class OnboardingFrameSpec {
   /// Step number from 1 to 6, or null when the step has no number.
   final int? progress;
 
-  /// Wide web: width of the content column.
-  final double width;
   final bool surfaceBackground;
 
   /// Wide web: show the top bar only, with no steps list and no scrolling.
@@ -32,12 +32,11 @@ class OnboardingFrameSpec {
   bool operator ==(Object other) =>
       other is OnboardingFrameSpec &&
       other.progress == progress &&
-      other.width == width &&
       other.surfaceBackground == surfaceBackground &&
       other.bare == bare;
 
   @override
-  int get hashCode => Object.hash(progress, width, surfaceBackground, bare);
+  int get hashCode => Object.hash(progress, surfaceBackground, bare);
 }
 
 /// Carries the visible step's frame needs up to the frame that stays on screen.
@@ -126,14 +125,9 @@ class OnboardingFrame extends StatefulWidget {
     required this.enabled,
     required this.resetToken,
     required this.child,
-    this.widthHint = 580,
     super.key,
   });
   final OnboardingFrameController controller;
-
-  /// Wide web: the content width the visible step usually asks for. The frame
-  /// uses it for the first frame of a step, before the step publishes its own.
-  final double widthHint;
 
   /// False for screens that draw their own whole page.
   final bool enabled;
@@ -159,7 +153,6 @@ class _OnboardingFrameState extends State<OnboardingFrame>
       CurvedAnimation(parent: _presence, curve: PantasCurves.ease);
   bool _reduced = false;
   bool _started = false;
-  double? _hint;
 
   @override
   void didChangeDependencies() {
@@ -176,10 +169,8 @@ class _OnboardingFrameState extends State<OnboardingFrame>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.enabled != widget.enabled) _syncPresence();
     if (oldWidget.resetToken != widget.resetToken) {
-      _hint = widget.widthHint;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (_scroll.hasClients && _scroll.offset != 0) _scroll.jumpTo(0);
-        if (mounted && _hint != null) setState(() => _hint = null);
       });
     }
   }
@@ -244,12 +235,11 @@ class _OnboardingFrameState extends State<OnboardingFrame>
         ),
       );
 
+  /// Wide web: every step uses the same 580 column in the same place, so the
+  /// steps list and the content never move between steps. Aedwon decided this
+  /// on Nov 2, 2026, over the boards' wider picker, study days and date steps.
   Widget _wide(OnboardingFrameSpec spec, Widget child) {
     final t = context.webTokens;
-    final width = _hint ?? spec.width;
-    final wideColumn = width > 580;
-    final duration =
-        _reduced ? Duration.zero : const Duration(milliseconds: 380);
     return Material(
       color: t.colors.background,
       child: Column(
@@ -271,10 +261,8 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                     controller: _scroll,
                     padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
                     child: Center(
-                      child: AnimatedContainer(
-                        duration: duration,
-                        curve: PantasCurves.ease,
-                        width: width + (wideColumn ? 264 : 280),
+                      child: SizedBox(
+                        width: onboardingColumnWidth + 280,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -290,11 +278,7 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                                 ),
                               ),
                             ),
-                            AnimatedContainer(
-                              duration: duration,
-                              curve: PantasCurves.ease,
-                              width: wideColumn ? 64 : 80,
-                            ),
+                            const SizedBox(width: 80),
                             Expanded(child: child),
                           ],
                         ),
@@ -486,57 +470,6 @@ class OnboardingProgressBar extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-/// A bar pinned to the bottom of the screen. Inside the frame, the step sits in
-/// a scrolling column, so the bar goes on the overlay instead.
-class OnboardingPinnedBar extends StatefulWidget {
-  const OnboardingPinnedBar({required this.child, super.key});
-  final Widget child;
-
-  @override
-  State<OnboardingPinnedBar> createState() => _OnboardingPinnedBarState();
-}
-
-class _OnboardingPinnedBarState extends State<OnboardingPinnedBar> {
-  final OverlayPortalController _portal = OverlayPortalController();
-  bool _shown = false;
-
-  @override
-  Widget build(BuildContext context) {
-    if (OnboardingFrameScope.hostOf(context) == null) {
-      return Positioned(left: 0, right: 0, bottom: 0, child: widget.child);
-    }
-    if (!_shown) {
-      _shown = true;
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) _portal.show();
-      });
-    }
-    final duration = MediaQuery.disableAnimationsOf(context)
-        ? Duration.zero
-        : const Duration(milliseconds: 300);
-    return OverlayPortal(
-      controller: _portal,
-      overlayChildBuilder: (context) => Positioned(
-        left: 0,
-        right: 0,
-        bottom: 0,
-        child: Material(
-          type: MaterialType.transparency,
-          child: TweenAnimationBuilder<double>(
-            tween: Tween(begin: 0, end: 1),
-            duration: duration,
-            curve: PantasCurves.ease,
-            builder: (context, value, child) =>
-                Opacity(opacity: value, child: child),
-            child: widget.child,
-          ),
-        ),
-      ),
-      child: const SizedBox.shrink(),
     );
   }
 }

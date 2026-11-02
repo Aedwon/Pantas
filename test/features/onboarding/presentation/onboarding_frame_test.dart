@@ -38,7 +38,11 @@ void main() {
 
   tearDown(() => db.close());
 
-  Future<void> pumpPage(WidgetTester tester, {required bool wide}) async {
+  Future<void> pumpPage(
+    WidgetTester tester, {
+    required bool wide,
+    bool animate = false,
+  }) async {
     final catalog = await tester
         .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     if (wide) {
@@ -67,7 +71,8 @@ void main() {
           theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
           home: Builder(
             builder: (context) => MediaQuery(
-              data: MediaQuery.of(context).copyWith(disableAnimations: true),
+              data:
+                  MediaQuery.of(context).copyWith(disableAnimations: !animate),
               child: const OnboardingPage(),
             ),
           ),
@@ -194,7 +199,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('wide: the picker keeps its pinned Continue bar and the frame',
+  testWidgets('wide: the picker keeps the frame and an inline Continue',
       (tester) async {
     await pumpPage(tester, wide: true);
     await tester.tap(find.text('Get Started'));
@@ -216,8 +221,9 @@ void main() {
     expect(tester.takeException(), isNull);
     final continueButton = find.text('Continue');
     expect(continueButton, findsOneWidget);
-    // Pinned to the bottom of the window.
-    expect(tester.getBottomLeft(continueButton).dy, greaterThan(800));
+    // Inline with the list like every other step, not pinned to the window.
+    await tester.ensureVisible(continueButton);
+    await tester.pumpAndSettle();
     await tester.tap(continueButton);
     await tester.pumpAndSettle();
     expect(find.text('When is your exam?'), findsOneWidget);
@@ -250,5 +256,33 @@ void main() {
           .pixels,
       0,
     );
+  });
+
+  testWidgets('the picker slides in like every other framed step',
+      (tester) async {
+    await pumpPage(tester, wide: true, animate: true);
+    await tester.tap(find.text('Get Started'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), '2000');
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    double incomingOffset() => tester
+        .widget<Transform>(
+          find.byKey(const ValueKey('onboarding-incoming-offset')).last,
+        )
+        .transform
+        .getTranslation()
+        .x;
+    // Terms follows the age step by sliding in from the right.
+    await tester.tap(find.text('I agree to the '));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 60));
+    // The picker has the same motion: it is no longer a fade.
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
+    expect(incomingOffset(), greaterThan(0));
+    await tester.pumpAndSettle();
   });
 }

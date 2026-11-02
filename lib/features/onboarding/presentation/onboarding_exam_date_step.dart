@@ -139,7 +139,6 @@ class _OnboardingExamDateStepState
             : ExamDate.onDay(DateTime(value.year, value.month!, value.day!));
     return OnboardingWebPage(
       title: 'When is your exam?',
-      width: known == null ? 780 : 580,
       gap: known == null ? 24 : 28,
       bottomGap: known == null ? 40 : 32,
       progress: 4,
