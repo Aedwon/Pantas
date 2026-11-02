@@ -546,7 +546,10 @@ class HomeWebQuestionsSheet extends StatelessWidget {
   Widget build(BuildContext context) => CallbackShortcuts(
         bindings: {
           if (onStart != null && !busy)
-            const SingleActivator(LogicalKeyboardKey.enter): onStart!,
+            const SingleActivator(
+              LogicalKeyboardKey.enter,
+              includeRepeats: false,
+            ): onStart!,
         },
         child: Focus(
           autofocus: true,

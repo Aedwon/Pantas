@@ -423,7 +423,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       if (state.questionCount == 0) return assessmentNotReady();
       void start() => unawaited(_open('/assessment/$examId'));
       return CallbackShortcuts(
-        bindings: {const SingleActivator(LogicalKeyboardKey.enter): start},
+        bindings: {
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): start,
+        },
         child: Focus(
           autofocus: true,
           child: WebCard(
@@ -548,7 +553,10 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         return CallbackShortcuts(
           bindings: {
             if (canStart)
-              const SingleActivator(LogicalKeyboardKey.enter): start,
+              const SingleActivator(
+                LogicalKeyboardKey.enter,
+                includeRepeats: false,
+              ): start,
           },
           child: Focus(
             autofocus: true,

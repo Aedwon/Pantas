@@ -901,7 +901,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             unawaited(_confirmLeave());
           }
         },
-        const SingleActivator(LogicalKeyboardKey.enter): action,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): action,
         const SingleActivator(LogicalKeyboardKey.keyF): () {
           if (!_flagBusy) unawaited(_toggleFlag(question.id));
         },

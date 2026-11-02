@@ -27,7 +27,12 @@ class WebEndingLayout extends StatelessWidget {
     final t = context.webTokens;
     if (ending is DayFinished) {
       return CallbackShortcuts(
-        bindings: {const SingleActivator(LogicalKeyboardKey.enter): onHome},
+        bindings: {
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): onHome,
+        },
         child: Focus(
           autofocus: true,
           child: Center(

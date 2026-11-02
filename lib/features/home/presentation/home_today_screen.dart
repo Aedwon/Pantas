@@ -126,23 +126,40 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       });
 
   Future<void> _openLesson(HomeTodayData data, HomeTodayLesson lesson) async {
+    if (_busy) return;
     final generation = _generation;
-    if (!await (await _guard)() ||
-        !mounted ||
-        !_current() ||
-        generation != _generation) {
-      return;
+    bool current() => _current() && generation == _generation;
+    setState(() {
+      _busy = true;
+      _failed = false;
+    });
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      if (!await (await _guard)() || !mounted || !current()) return;
+      _dismiss();
+      await context.push<void>(
+        '/lesson/${Uri.encodeComponent(lesson.id)}?from=home',
+        extra: LessonDayContext(
+          date: data.today.snapshot.day,
+          lessonIds: data.today.snapshot.plan.lessonIds,
+          index: data.today.snapshot.plan.lessonIds.indexOf(lesson.id),
+        ),
+      );
+      if (_current()) _retry();
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (current()) {
+        // A direct open has no panel. Show the lesson panel in its failure
+        // state, which carries the message and the retry.
+        setState(() {
+          _sheet ??= 'lesson';
+          _lesson = lesson;
+          _failed = true;
+        });
+      }
+    } finally {
+      if (current()) setState(() => _busy = false);
     }
-    _dismiss();
-    await context.push<void>(
-      '/lesson/${Uri.encodeComponent(lesson.id)}?from=home',
-      extra: LessonDayContext(
-        date: data.today.snapshot.day,
-        lessonIds: data.today.snapshot.plan.lessonIds,
-        index: data.today.snapshot.plan.lessonIds.indexOf(lesson.id),
-      ),
-    );
-    if (_current()) _retry();
   }
 
   Future<void> _start(HomeTodayData data, TodayQuestionKind kind) async {
@@ -468,6 +485,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     ].where((id) => !data.today.snapshot.plan.advancedIds.contains(id)).length;
     final sizes = work?.reviewSizes ?? const <int>[];
     return HomeTodayChecklist(
+      web: context.webPlatform,
       onPlan: () => unawaited(context.push<void>('/plan')),
       lessons: data.lessons,
       reviewsDone: work?.reviewsDone ?? 0,
@@ -488,6 +506,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           : 'Questions due today',
       advancing: _busy,
       onLesson: (lesson) => _show('lesson', lesson: lesson),
+      onStartLesson: (lesson) => unawaited(_openLesson(data, lesson)),
       onLessons: () => _show('lessons'),
       onReviews: () => _show('reviews'),
       onNew: () => _show('new'),
@@ -601,6 +620,16 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                 : 'Start Lesson'
             : 'Continue Lesson',
         onStart: next == null ? null : () => unawaited(_openLesson(data, next)),
+        busy: _busy,
+        failure: _failed
+            ? StateView(
+                message: 'Could not open the lesson.',
+                onRetry: () {
+                  final retry = _lesson ?? next;
+                  if (retry != null) unawaited(_openLesson(data, retry));
+                },
+              )
+            : null,
       );
     }
     if (work == null) return const SizedBox.shrink();

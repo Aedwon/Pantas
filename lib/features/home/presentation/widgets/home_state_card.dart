@@ -179,7 +179,10 @@ class HomeStateCard extends StatelessWidget {
       return CallbackShortcuts(
         bindings: {
           if (state == HomeState.assessment && onPrimary != null)
-            const SingleActivator(LogicalKeyboardKey.enter): onPrimary!,
+            const SingleActivator(
+              LogicalKeyboardKey.enter,
+              includeRepeats: false,
+            ): onPrimary!,
         },
         child: Focus(
           autofocus: state == HomeState.assessment,

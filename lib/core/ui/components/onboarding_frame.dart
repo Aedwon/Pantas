@@ -622,9 +622,7 @@ class _RenderSticky extends RenderProxyBox {
   /// The viewport's bottom edge, in this box's own coordinates.
   double get _viewportBottom {
     final viewport = _viewport;
-    return viewport == null
-        ? 0
-        : viewport.size.height - _naturalTop(viewport);
+    return viewport == null ? 0 : viewport.size.height - _naturalTop(viewport);
   }
 
   @override

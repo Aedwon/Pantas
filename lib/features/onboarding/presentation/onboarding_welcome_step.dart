@@ -18,7 +18,12 @@ class OnboardingWelcomeStep extends StatelessWidget {
     if (context.wideWeb) {
       final t = context.webTokens;
       return OnboardingShortcuts(
-        bindings: {const SingleActivator(LogicalKeyboardKey.enter): onAdvance},
+        bindings: {
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): onAdvance,
+        },
         child: Focus(
           autofocus: true,
           child: Material(

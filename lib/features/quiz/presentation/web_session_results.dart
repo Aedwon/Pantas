@@ -62,8 +62,10 @@ class WebSessionResults extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): onDone,
-        const SingleActivator(LogicalKeyboardKey.enter):
-            next ? onNext! : onDone,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): next ? onNext! : onDone,
       },
       child: Focus(
         autofocus: true,

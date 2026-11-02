@@ -173,8 +173,10 @@ void main() {
         shortcuts
             .evaluate()
             .map(
-              (e) => (e.widget as Shortcuts)
-                  .shortcuts[const SingleActivator(LogicalKeyboardKey.enter)],
+              (e) => (e.widget as Shortcuts).shortcuts[const SingleActivator(
+                LogicalKeyboardKey.enter,
+                includeRepeats: false,
+              )],
             )
             .whereType<VoidCallbackIntent>(),
         isNotEmpty,

@@ -882,7 +882,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     );
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): start,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): start,
         const SingleActivator(LogicalKeyboardKey.escape): () =>
             unawaited(_back()),
       },

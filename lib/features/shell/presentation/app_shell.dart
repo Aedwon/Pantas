@@ -216,7 +216,10 @@ class _NavItem extends StatelessWidget {
       excludeSemantics: true,
       child: FocusableActionDetector(
         shortcuts: const {
-          SingleActivator(LogicalKeyboardKey.enter): ActivateIntent(),
+          SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): ActivateIntent(),
           SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
         },
         actions: {

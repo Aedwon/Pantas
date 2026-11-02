@@ -413,8 +413,10 @@ class _MockSetupPageState extends State<MockSetupPage> {
     );
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): () =>
-            widget.onStart(_strictMode),
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () => widget.onStart(_strictMode),
       },
       child: Focus(
         autofocus: true,

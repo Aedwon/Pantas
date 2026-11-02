@@ -303,7 +303,11 @@ class _ReportFormState extends State<ReportForm> {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): widget.onClose,
-        const SingleActivator(LogicalKeyboardKey.enter, control: true): () {
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          control: true,
+          includeRepeats: false,
+        ): () {
           if (canSend) unawaited(_send());
         },
       },

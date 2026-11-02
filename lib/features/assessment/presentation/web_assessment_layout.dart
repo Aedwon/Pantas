@@ -45,7 +45,10 @@ class WebAssessmentLayout extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): onLeave,
-        const SingleActivator(LogicalKeyboardKey.enter): () {
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () {
           if (chosenId != null) onNext();
         },
         for (final (i, key) in const [
@@ -236,7 +239,10 @@ class WebAssessmentResults extends StatelessWidget {
     );
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): () {
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () {
           if (!saving) onAcknowledge();
         },
       },

@@ -208,8 +208,10 @@ class StepsScreen extends StatelessWidget {
                       CallbackShortcuts(
                         bindings: {
                           if (onContinue != null)
-                            const SingleActivator(LogicalKeyboardKey.enter):
-                                onContinue!,
+                            const SingleActivator(
+                              LogicalKeyboardKey.enter,
+                              includeRepeats: false,
+                            ): onContinue!,
                         },
                         child: Focus(
                           autofocus: true,

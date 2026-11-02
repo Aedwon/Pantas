@@ -76,7 +76,10 @@ class OnboardingWebPage extends StatelessWidget {
     final column = _column(context);
     final shortcuts = <ShortcutActivator, VoidCallback>{
       if (primary?.onPressed != null && !primary!.busy)
-        const SingleActivator(LogicalKeyboardKey.enter): primary.onPressed!,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): primary.onPressed!,
     };
     if (host != null) {
       // The top bar and steps list stay on screen in the onboarding frame.
@@ -231,7 +234,10 @@ class OnboardingButton extends StatelessWidget {
     return OnboardingShortcuts(
       bindings: {
         if (primary && onPressed != null && !busy)
-          const SingleActivator(LogicalKeyboardKey.enter): onPressed!,
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): onPressed!,
       },
       child: Focus(
         autofocus: primary,

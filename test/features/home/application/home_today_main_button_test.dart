@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -48,6 +49,8 @@ class _Content extends ContentRepository {
   }
 }
 
+int lessonOpens = 0;
+
 class _Rig {
   _Rig(this.db, this.content);
   final AppDatabase db;
@@ -79,6 +82,7 @@ void main() {
       addTearDown(() => debugWebPlatformOverride = null);
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      lessonOpens = 0;
       final db = inMemoryDatabase();
       final contentDb = inMemoryContentDatabase();
       addTearDown(contentDb.close);
@@ -178,6 +182,15 @@ void main() {
             ),
           ),
           GoRoute(
+            path: '/lesson/:id',
+            builder: (_, state) {
+              lessonOpens++;
+              return Scaffold(
+                body: Text('Lesson ${state.pathParameters['id']} opened'),
+              );
+            },
+          ),
+          GoRoute(
             path: '/quiz/resume/e',
             builder: (_, __) => const Scaffold(body: Text('Actual run opened')),
           ),
@@ -240,6 +253,52 @@ void main() {
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });
+    testWidgets('$layout: Continue Lesson opens the lesson with no panel',
+        (tester) async {
+      await pump(tester, lessonsRead: false);
+      if (wide) {
+        await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      } else {
+        await tester.tap(find.text('Continue Lesson'));
+      }
+      await settle(
+        tester,
+        () => find.text('Lesson a opened').evaluate().isNotEmpty,
+      );
+      expect(find.text('Lesson a opened'), findsOneWidget);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    });
+    testWidgets('$layout: a second lesson press is ignored while opening',
+        (tester) async {
+      await pump(tester, lessonsRead: false);
+      await tester.tap(find.text('Continue Lesson'));
+      await tester.tap(find.text('Continue Lesson'), warnIfMissed: false);
+      await settle(
+        tester,
+        () => find.text('Lesson a opened').evaluate().isNotEmpty,
+      );
+      expect(find.text('Lesson a opened'), findsOneWidget);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    });
+    if (wide) {
+      testWidgets('a held Enter on Home opens the lesson once', (tester) async {
+        await pump(tester, lessonsRead: false);
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+        await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
+        await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
+        await settle(
+          tester,
+          () => find.text('Lesson a opened').evaluate().isNotEmpty,
+        );
+        expect(find.text('Lesson a opened'), findsOneWidget);
+        expect(lessonOpens, 1);
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpAndSettle();
+      });
+    }
     testWidgets('$layout: unread lessons keep the lesson button',
         (tester) async {
       await pump(tester, lessonsRead: false);

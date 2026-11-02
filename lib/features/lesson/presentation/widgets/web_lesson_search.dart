@@ -95,7 +95,10 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
             _move(1, results.length),
         const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
             _move(-1, results.length),
-        const SingleActivator(LogicalKeyboardKey.enter): () {
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () {
           if (results.isNotEmpty) _open(results[selected].lessonId);
         },
       },

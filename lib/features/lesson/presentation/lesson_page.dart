@@ -1109,7 +1109,10 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
       return CallbackShortcuts(
         bindings: {
           const SingleActivator(LogicalKeyboardKey.escape): close,
-          const SingleActivator(LogicalKeyboardKey.enter): close,
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): close,
         },
         child: Focus(
           autofocus: true,

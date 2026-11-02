@@ -61,7 +61,10 @@ class WebCustomMockSetup extends StatelessWidget {
         'A $questions-question mock needs more.';
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): () => onSave?.call(),
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () => onSave?.call(),
       },
       child: Focus(
         autofocus: true,

@@ -172,8 +172,10 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
     return CallbackShortcuts(
       bindings: {
         if (date != null && !widget.saving)
-          const SingleActivator(LogicalKeyboardKey.enter): () =>
-              widget.onSave(date),
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): () => widget.onSave(date),
       },
       child: Focus(autofocus: true, child: content),
     );

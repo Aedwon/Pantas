@@ -362,7 +362,10 @@ class _PartTransitionPageState extends State<PartTransitionPage>
     final t = context.webTokens;
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): widget.onStartNext,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): widget.onStartNext,
       },
       child: Focus(
         autofocus: true,

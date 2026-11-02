@@ -296,7 +296,10 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         : Curves.ease.transform((entry / 500).clamp(0, 1));
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter): _resume,
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): _resume,
         const SingleActivator(LogicalKeyboardKey.keyP): _resume,
       },
       child: Focus(

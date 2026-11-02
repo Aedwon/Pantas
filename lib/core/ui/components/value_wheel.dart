@@ -134,8 +134,10 @@ class _ValueWheelState extends State<ValueWheel> {
           },
           const SingleActivator(LogicalKeyboardKey.arrowUp): () => move(-1),
           const SingleActivator(LogicalKeyboardKey.arrowDown): () => move(1),
-          const SingleActivator(LogicalKeyboardKey.enter): () =>
-              widget.onSelected(widget.selectedIndex),
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): () => widget.onSelected(widget.selectedIndex),
         },
         child: Focus(
           child: widget.horizontal

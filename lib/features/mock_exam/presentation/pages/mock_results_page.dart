@@ -272,7 +272,10 @@ class MockResultsPage extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {
         if (onDone != null)
-          const SingleActivator(LogicalKeyboardKey.enter): onDone!,
+          const SingleActivator(
+            LogicalKeyboardKey.enter,
+            includeRepeats: false,
+          ): onDone!,
         if (onDone != null)
           const SingleActivator(LogicalKeyboardKey.escape): onDone!,
       },

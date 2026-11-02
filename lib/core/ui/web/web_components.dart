@@ -1480,8 +1480,10 @@ class WebFullNotice extends StatelessWidget {
                 CallbackShortcuts(
                   bindings: {
                     if (onPressed != null)
-                      const SingleActivator(LogicalKeyboardKey.enter):
-                          onPressed!,
+                      const SingleActivator(
+                        LogicalKeyboardKey.enter,
+                        includeRepeats: false,
+                      ): onPressed!,
                   },
                   child: Focus(
                     autofocus: true,
