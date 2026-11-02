@@ -75,4 +75,50 @@ void main() {
       });
     }
   }
+
+  for (final width in [390.0, 1440.0]) {
+    testWidgets('beta row toggles from the text and the switch once at $width',
+        (tester) async {
+      debugWebPlatformOverride = width > 800;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = Size(width, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final updates = StreamController<BetaProState?>();
+      addTearDown(updates.close);
+      final calls = <bool>[];
+      var enabled = false;
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            betaProProvider.overrideWith((ref) => updates.stream),
+            setBetaProProvider.overrideWithValue(({required enabled}) async {
+              calls.add(enabled);
+            }),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(web: width > 800),
+            home: const Scaffold(body: Column(children: [BetaProRow()])),
+          ),
+        ),
+      );
+      updates.add(BetaProState(until: DateTime(2026, 11, 16), enabled: false));
+      await tester.pump();
+      await tester.tap(find.text('Beta: Pro Features'));
+      await tester.pumpAndSettle();
+      expect(calls, [true]);
+      enabled = true;
+      updates
+          .add(BetaProState(until: DateTime(2026, 11, 16), enabled: enabled));
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
+        isTrue,
+      );
+      await tester.tap(find.byType(PantasSwitch));
+      await tester.pumpAndSettle();
+      expect(calls, [true, false]);
+    });
+  }
 }

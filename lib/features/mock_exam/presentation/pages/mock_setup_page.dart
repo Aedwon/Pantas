@@ -6,6 +6,7 @@ import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
+import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
@@ -176,46 +177,49 @@ class _MockSetupPageState extends State<MockSetupPage> {
                           ),
                         ),
                       const SizedBox(height: 22),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                        decoration: BoxDecoration(
-                          color: colors.surface,
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Strict mode', style: type.body),
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    _strictMode
-                                        ? 'No pausing and no ending a section early. Leaving the app '
-                                            'instantly ends and submits your answers, finished or not '
-                                            'finished.'
-                                        : 'Closest to the real exam. Turn it on when you can take the '
-                                            'whole mock without interruptions.',
-                                    style: type.footnote.copyWith(
-                                      color: colors.secondaryLabel,
-                                      height: 1.4,
+                      RowTapTarget(
+                        onTap: () => setState(() => _strictMode = !_strictMode),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors.surface,
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Strict mode', style: type.body),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      _strictMode
+                                          ? 'No pausing and no ending a section early. Leaving the app '
+                                              'instantly ends and submits your answers, finished or not '
+                                              'finished.'
+                                          : 'Closest to the real exam. Turn it on when you can take the '
+                                              'whole mock without interruptions.',
+                                      style: type.footnote.copyWith(
+                                        color: colors.secondaryLabel,
+                                        height: 1.4,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(width: 12),
-                            PantasSwitch(
-                              value: _strictMode,
-                              label: 'Strict mode for this mock',
-                              onChanged: (value) =>
-                                  setState(() => _strictMode = value),
-                            ),
-                          ],
+                              const SizedBox(width: 12),
+                              PantasSwitch(
+                                value: _strictMode,
+                                label: 'Strict mode for this mock',
+                                onChanged: (value) =>
+                                    setState(() => _strictMode = value),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -361,36 +365,39 @@ class _MockSetupPageState extends State<MockSetupPage> {
     final controls = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        WebCard(
-          padding: const EdgeInsets.all(20),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Strict mode',
-                      style: t.style(17, weight: FontWeight.w700),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      _strictMode
-                          ? 'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.'
-                          : 'Closest to the real exam. Turn it on when you can take the whole mock without interruptions.',
-                      style: t.sub,
-                    ),
-                  ],
+        RowTapTarget(
+          onTap: () => setState(() => _strictMode = !_strictMode),
+          child: WebCard(
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Strict mode',
+                        style: t.style(17, weight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        _strictMode
+                            ? 'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.'
+                            : 'Closest to the real exam. Turn it on when you can take the whole mock without interruptions.',
+                        style: t.sub,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 16),
-              PantasSwitch(
-                value: _strictMode,
-                label: 'Strict mode for this mock',
-                onChanged: (value) => setState(() => _strictMode = value),
-              ),
-            ],
+                const SizedBox(width: 16),
+                PantasSwitch(
+                  value: _strictMode,
+                  label: 'Strict mode for this mock',
+                  onChanged: (value) => setState(() => _strictMode = value),
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 16),
