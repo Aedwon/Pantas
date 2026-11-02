@@ -24,7 +24,7 @@ review state on one machine.
 `records` has one entry per item touched: `id`, `kind`, `file`, `exams`, `state`, `choice`, `size`,
 `plan`, `theme`, `tags`, `comment`, `status` (`not_reviewed`, `looks_good`, `tagged`), `time`, `hash`,
 `commit`. To act on the problems, read records with status `tagged` and fix `file` at `id`. `state`,
-`choice`, `size` (`desktop`, `tablet` or `phone`; old notes say `wide`, which means desktop), `plan`
+`choice`, `size` (`desktop`, `tablet`, `tabletLandscape` or `phone`; old notes say `wide`, which means desktop), `plan`
 (`free` or `pro`) and `theme` say what was on screen. `previous` holds the earlier note when the
 content changed after review. `removed: true` means the item is gone from the content.
 

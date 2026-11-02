@@ -11,6 +11,7 @@ void main() {
     test('reads the three sizes', () {
       expect(Device.fromStored('desktop'), Device.desktop);
       expect(Device.fromStored('tablet'), Device.tablet);
+      expect(Device.fromStored('tabletLandscape'), Device.tabletLandscape);
       expect(Device.fromStored('phone'), Device.phone);
     });
 
@@ -26,6 +27,10 @@ void main() {
     test('the sizes are the ones the reviewer lays screens out at', () {
       expect((Device.desktop.width, Device.desktop.height), (1440, 900));
       expect((Device.tablet.width, Device.tablet.height), (820, 1180));
+      expect(
+        (Device.tabletLandscape.width, Device.tabletLandscape.height),
+        (1180, 820),
+      );
       expect((Device.phone.width, Device.phone.height), (390, 844));
     });
   });

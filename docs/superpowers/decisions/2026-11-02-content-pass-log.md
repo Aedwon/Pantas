@@ -85,3 +85,8 @@ Aedwon, verbatim: "okay go B, green. also add animations please so that it's sat
 Choice: placement B, green selected state, animations added. No animation option was shown first, because he
 asked for it directly. The lead ruled that animations touch only the reviewer chrome, and never block input
 or change the real screens' own motion. Tablet is portrait only until he says otherwise.
+
+Aedwon, verbatim, on the open tablet question: "wait please add tablet landscape"
+
+Choice: four sizes: Desktop, Tablet portrait, Tablet landscape (1180x820), Phone. The landscape icon is the
+tablet icon turned a quarter. It costs one more segment in the toolbar.

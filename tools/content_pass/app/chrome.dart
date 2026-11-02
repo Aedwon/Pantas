@@ -872,7 +872,12 @@ class _Toolbar extends StatelessWidget {
           palette: p,
           segments: const [
             SwitchSegment.icon(_desktopIcon, 'Desktop'),
-            SwitchSegment.icon(_tabletIcon, 'Tablet'),
+            SwitchSegment.icon(_tabletIcon, 'Tablet portrait'),
+            SwitchSegment.icon(
+              _tabletIcon,
+              'Tablet landscape',
+              quarterTurns: 1,
+            ),
             SwitchSegment.icon(_phoneIcon, 'Phone'),
           ],
           selected: Device.values.indexOf(c.device),

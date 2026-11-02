@@ -8,12 +8,17 @@ import 'palette.dart';
 class SwitchSegment {
   const SwitchSegment.text(String this.label)
       : icon = null,
-        tooltip = null;
-  const SwitchSegment.icon(IconData this.icon, String this.tooltip)
-      : label = null;
+        tooltip = null,
+        quarterTurns = 0;
+  const SwitchSegment.icon(
+    IconData this.icon,
+    String this.tooltip, {
+    this.quarterTurns = 0,
+  }) : label = null;
 
   final String? label;
   final IconData? icon;
+  final int quarterTurns;
   final String? tooltip;
 
   String get name => label ?? tooltip!;
@@ -148,7 +153,10 @@ class _Segment extends StatelessWidget {
       duration: chromeDuration(context, 160),
       builder: (context, c, _) => Center(
         child: segment.icon != null
-            ? Icon(segment.icon, size: 17, color: c)
+            ? RotatedBox(
+                quarterTurns: segment.quarterTurns,
+                child: Icon(segment.icon, size: 17, color: c),
+              )
             : Text(
                 segment.label!,
                 maxLines: 1,
