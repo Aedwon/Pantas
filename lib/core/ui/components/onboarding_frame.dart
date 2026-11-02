@@ -1,0 +1,542 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
+
+/// What the still part of onboarding needs to know about the visible step.
+@immutable
+class OnboardingFrameSpec {
+  const OnboardingFrameSpec({
+    this.progress,
+    this.width = 580,
+    this.surfaceBackground = false,
+    this.bare = false,
+  });
+
+  /// Step number from 1 to 6, or null when the step has no number.
+  final int? progress;
+
+  /// Wide web: width of the content column.
+  final double width;
+  final bool surfaceBackground;
+
+  /// Wide web: show the top bar only, with no steps list and no scrolling.
+  final bool bare;
+
+  @override
+  bool operator ==(Object other) =>
+      other is OnboardingFrameSpec &&
+      other.progress == progress &&
+      other.width == width &&
+      other.surfaceBackground == surfaceBackground &&
+      other.bare == bare;
+
+  @override
+  int get hashCode => Object.hash(progress, width, surfaceBackground, bare);
+}
+
+/// Carries the visible step's frame needs up to the frame that stays on screen.
+///
+/// A step cannot change the frame while it builds, so [publish] applies the new
+/// spec after the frame. [onBack] is read when the student presses Back.
+class OnboardingFrameController extends ValueNotifier<OnboardingFrameSpec> {
+  OnboardingFrameController() : super(const OnboardingFrameSpec());
+
+  VoidCallback? onBack;
+  OnboardingFrameSpec? _pending;
+  bool _scheduled = false;
+  bool _disposed = false;
+
+  void publish(OnboardingFrameSpec spec, VoidCallback? back) {
+    onBack = back;
+    if (spec == (_pending ?? value)) return;
+    _pending = spec;
+    if (_scheduled) return;
+    _scheduled = true;
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      _scheduled = false;
+      final next = _pending;
+      _pending = null;
+      if (!_disposed && next != null) value = next;
+    });
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
+  }
+}
+
+/// Tells a step whether a frame outside it already draws the top bar, steps
+/// list, Back and progress.
+class OnboardingFrameScope extends InheritedWidget {
+  const OnboardingFrameScope({
+    required this.controller,
+    required this.hosted,
+    required super.child,
+    super.key,
+  });
+  final OnboardingFrameController controller;
+  final bool hosted;
+
+  /// The controller when a frame hosts this step, otherwise null.
+  static OnboardingFrameController? hostOf(BuildContext context) {
+    final scope =
+        context.dependOnInheritedWidgetOfExactType<OnboardingFrameScope>();
+    return scope != null && scope.hosted ? scope.controller : null;
+  }
+
+  @override
+  bool updateShouldNotify(OnboardingFrameScope oldWidget) =>
+      hosted != oldWidget.hosted || controller != oldWidget.controller;
+}
+
+/// Wraps a step's content and hands its frame needs to the host.
+class OnboardingFrameClaim extends StatelessWidget {
+  const OnboardingFrameClaim({
+    required this.host,
+    required this.spec,
+    required this.onBack,
+    required this.child,
+    super.key,
+  });
+  final OnboardingFrameController host;
+  final OnboardingFrameSpec spec;
+  final VoidCallback? onBack;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    host.publish(spec, onBack);
+    return child;
+  }
+}
+
+/// The part of onboarding that stays put while a step's content changes: the
+/// top bar and steps list on wide web, Back and the progress bar on a phone.
+class OnboardingFrame extends StatefulWidget {
+  const OnboardingFrame({
+    required this.controller,
+    required this.enabled,
+    required this.resetToken,
+    required this.child,
+    this.widthHint = 580,
+    super.key,
+  });
+  final OnboardingFrameController controller;
+
+  /// Wide web: the content width the visible step usually asks for. The frame
+  /// uses it for the first frame of a step, before the step publishes its own.
+  final double widthHint;
+
+  /// False for screens that draw their own whole page.
+  final bool enabled;
+
+  /// Changes with the step, so the wide scroll position returns to the top.
+  final Object resetToken;
+  final Widget child;
+
+  @override
+  State<OnboardingFrame> createState() => _OnboardingFrameState();
+}
+
+class _OnboardingFrameState extends State<OnboardingFrame>
+    with SingleTickerProviderStateMixin {
+  // Keeps the step content mounted when the frame around it changes shape.
+  final GlobalKey _contentKey = GlobalKey();
+  final ScrollController _scroll = ScrollController();
+  late final AnimationController _presence = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 300),
+  );
+  late final Animation<double> _fade =
+      CurvedAnimation(parent: _presence, curve: PantasCurves.ease);
+  bool _reduced = false;
+  bool _started = false;
+  double? _hint;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _reduced = MediaQuery.disableAnimationsOf(context);
+    if (!_started) {
+      _started = true;
+      _syncPresence();
+    }
+  }
+
+  @override
+  void didUpdateWidget(OnboardingFrame oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.enabled != widget.enabled) _syncPresence();
+    if (oldWidget.resetToken != widget.resetToken) {
+      _hint = widget.widthHint;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_scroll.hasClients && _scroll.offset != 0) _scroll.jumpTo(0);
+        if (mounted && _hint != null) setState(() => _hint = null);
+      });
+    }
+  }
+
+  /// The frame fades in once when a framed step follows a whole-screen one.
+  void _syncPresence() {
+    if (!widget.enabled) {
+      _presence.value = 0;
+    } else if (_reduced) {
+      _presence.value = 1;
+    } else {
+      _presence.forward(from: 0);
+    }
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    _presence.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final content = KeyedSubtree(key: _contentKey, child: widget.child);
+    return OnboardingFrameScope(
+      controller: widget.controller,
+      hosted: widget.enabled,
+      child: widget.enabled
+          ? ValueListenableBuilder<OnboardingFrameSpec>(
+              valueListenable: widget.controller,
+              child: content,
+              builder: (context, spec, child) =>
+                  context.wideWeb ? _wide(spec, child!) : _phone(spec, child!),
+            )
+          : content,
+    );
+  }
+
+  Widget _phone(OnboardingFrameSpec spec, Widget child) => ColoredBox(
+        color: spec.surfaceBackground
+            ? context.colors.surface
+            : context.colors.background,
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              FadeTransition(
+                opacity: _fade,
+                child: OnboardingBackBar(
+                  onBack: () => widget.controller.onBack?.call(),
+                ),
+              ),
+              if (spec.progress != null)
+                FadeTransition(
+                  opacity: _fade,
+                  child: OnboardingProgressBar(progress: spec.progress!),
+                ),
+              Expanded(child: child),
+            ],
+          ),
+        ),
+      );
+
+  Widget _wide(OnboardingFrameSpec spec, Widget child) {
+    final t = context.webTokens;
+    final width = _hint ?? spec.width;
+    final wideColumn = width > 580;
+    final duration =
+        _reduced ? Duration.zero : const Duration(milliseconds: 380);
+    return Material(
+      color: t.colors.background,
+      child: Column(
+        children: [
+          FadeTransition(
+            opacity: _fade,
+            child: const WebTopBar(
+              leading: PantasLogo(size: 28),
+              title: Text(
+                'Pantas',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+            ),
+          ),
+          Expanded(
+            child: spec.bare
+                ? child
+                : SingleChildScrollView(
+                    controller: _scroll,
+                    padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
+                    child: Center(
+                      child: AnimatedContainer(
+                        duration: duration,
+                        curve: PantasCurves.ease,
+                        width: width + (wideColumn ? 264 : 280),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            FadeTransition(
+                              opacity: _fade,
+                              child: SizedBox(
+                                width: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 56),
+                                  child: OnboardingRail(
+                                    progress: spec.progress,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            AnimatedContainer(
+                              duration: duration,
+                              curve: PantasCurves.ease,
+                              width: wideColumn ? 64 : 80,
+                            ),
+                            Expanded(child: child),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Wide web: the six setup steps beside the content (board `OB_*`).
+class OnboardingRail extends StatelessWidget {
+  const OnboardingRail({required this.progress, super.key});
+  final int? progress;
+
+  static const labels = [
+    'Birth year',
+    'Terms',
+    'Your exam',
+    'Exam date',
+    'Study days',
+    'Your name',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final current = progress ?? 1;
+    final duration = MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 220);
+    return Semantics(
+      label: 'Setup steps',
+      container: true,
+      explicitChildNodes: true,
+      child: Column(
+        children: [
+          for (final (i, label) in labels.indexed)
+            SizedBox(
+              height: 40,
+              child: Row(
+                children: [
+                  AnimatedContainer(
+                    duration: duration,
+                    width: 22,
+                    height: 22,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: i + 1 < current ? t.colors.accentFill : null,
+                      border: Border.all(
+                        color: i + 1 <= current
+                            ? t.colors.accent
+                            : t.strongDivider,
+                        width: i + 1 == progress ? 2 : 1.5,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: i + 1 < current
+                        ? const Icon(Icons.check, size: 12, color: Colors.white)
+                        : i + 1 == progress
+                            ? Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: t.colors.accent,
+                                ),
+                              )
+                            : null,
+                  ),
+                  const SizedBox(width: 12),
+                  AnimatedDefaultTextStyle(
+                    duration: duration,
+                    style: t.style(
+                      15,
+                      weight:
+                          i + 1 == progress ? FontWeight.w600 : FontWeight.w400,
+                      color: i + 1 == progress
+                          ? t.colors.label
+                          : i + 1 < current
+                              ? t.colors.secondaryLabel
+                              : t.colors.tertiaryLabel,
+                    ),
+                    child: Text(label),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Phone: the Back row above the progress bar (boards `O_*`).
+class OnboardingBackBar extends StatelessWidget {
+  const OnboardingBackBar({
+    required this.onBack,
+    this.label = 'Back',
+    this.compact = false,
+    super.key,
+  });
+  final VoidCallback? onBack;
+  final String label;
+
+  /// The settings exam picker uses a shorter row.
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+        // Boards: back label at y 21, progress bar at y 56.
+        height: compact ? 49 : 56,
+        child: Padding(
+          padding: compact
+              ? const EdgeInsets.fromLTRB(4, 4, 8, 0)
+              : const EdgeInsets.fromLTRB(8, 5, 8, 0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton(
+              onPressed: onBack,
+              style: TextButton.styleFrom(
+                minimumSize: const Size(44, 44),
+                padding: const EdgeInsets.fromLTRB(4, 0, 8, 0),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    PantasIcons.back,
+                    size: 24,
+                    color: context.colors.accent,
+                  ),
+                  const SizedBox(width: 2),
+                  Text(
+                    label,
+                    style: context.type.body
+                        .copyWith(color: context.colors.accent),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+}
+
+/// Phone: six segments. A segment changes color over time when the step moves.
+class OnboardingProgressBar extends StatelessWidget {
+  const OnboardingProgressBar({required this.progress, super.key});
+  final int progress;
+
+  @override
+  Widget build(BuildContext context) {
+    final duration = MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 380);
+    return Semantics(
+      label: 'Step $progress of 6',
+      excludeSemantics: true,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          children: [
+            for (var index = 0; index < 6; index++) ...[
+              if (index > 0) const SizedBox(width: 6),
+              Expanded(
+                child: TweenAnimationBuilder<Color?>(
+                  tween: ColorTween(
+                    end: index < progress
+                        ? context.colors.accentFill
+                        : context.colors.fill,
+                  ),
+                  duration: duration,
+                  curve: PantasCurves.riseIn,
+                  builder: (context, color, _) => DecoratedBox(
+                    key: const ValueKey('onboarding-segment'),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9),
+                      color: color,
+                    ),
+                    child: const SizedBox(height: 4),
+                  ),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A bar pinned to the bottom of the screen. Inside the frame, the step sits in
+/// a scrolling column, so the bar goes on the overlay instead.
+class OnboardingPinnedBar extends StatefulWidget {
+  const OnboardingPinnedBar({required this.child, super.key});
+  final Widget child;
+
+  @override
+  State<OnboardingPinnedBar> createState() => _OnboardingPinnedBarState();
+}
+
+class _OnboardingPinnedBarState extends State<OnboardingPinnedBar> {
+  final OverlayPortalController _portal = OverlayPortalController();
+  bool _shown = false;
+
+  @override
+  Widget build(BuildContext context) {
+    if (OnboardingFrameScope.hostOf(context) == null) {
+      return Positioned(left: 0, right: 0, bottom: 0, child: widget.child);
+    }
+    if (!_shown) {
+      _shown = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _portal.show();
+      });
+    }
+    final duration = MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 300);
+    return OverlayPortal(
+      controller: _portal,
+      overlayChildBuilder: (context) => Positioned(
+        left: 0,
+        right: 0,
+        bottom: 0,
+        child: Material(
+          type: MaterialType.transparency,
+          child: TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: 1),
+            duration: duration,
+            curve: PantasCurves.ease,
+            builder: (context, value, child) =>
+                Opacity(opacity: value, child: child),
+            child: widget.child,
+          ),
+        ),
+      ),
+      child: const SizedBox.shrink(),
+    );
+  }
+}

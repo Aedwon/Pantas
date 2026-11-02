@@ -64,20 +64,18 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
     required Widget child,
     bool wholeRow = false,
   }) {
-    // Board OB_Terms: each consent row is 56 px tall.
-    return Theme(
-      data: Theme.of(context).copyWith(visualDensity: VisualDensity.compact),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 56),
-        child: CheckboxRow(
-          interactiveContent: true,
-          title: label,
-          selected: value,
-          onTap: _saving ? null : onChanged,
-          content: child,
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-        ),
-      ),
+    // Board OB_Terms: each consent row is 56 px tall and its hover fills the
+    // row edge to edge. The card clips the outer corners.
+    return CheckboxRow(
+      interactiveContent: true,
+      title: label,
+      selected: value,
+      onTap: _saving ? null : onChanged,
+      content: child,
+      minHeight: 56,
+      standardDensity: true,
+      squareEdges: true,
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
     );
   }
 
@@ -126,8 +124,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                   _webConsentRow(
                     value: _acceptedUsage,
                     wholeRow: true,
-                    label:
-                        'Help improve Pantas by sharing usage data',
+                    label: 'Help improve Pantas by sharing usage data',
                     onChanged: () =>
                         setState(() => _acceptedUsage = !_acceptedUsage),
                     child: plain(

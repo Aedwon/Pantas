@@ -15,6 +15,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
@@ -541,10 +542,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               ],
             ),
             if (!(catalog.hasValue && catalog.requireValue.isEmpty))
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
+              OnboardingPinnedBar(
                 child: Container(
                   height: 84,
                   padding: const EdgeInsets.symmetric(horizontal: 40),

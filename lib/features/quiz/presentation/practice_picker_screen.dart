@@ -407,6 +407,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               children: [
                 for (final (ti, topic) in subject.topics.indexed) ...[
                   CheckboxRow(
+                    squareEdges: true,
                     title: topic.name,
                     selected:
                         _selection.topicState(topic) == PracticeCheckState.on,
@@ -471,6 +472,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                         children: [
                           for (final lesson in topic.lessons)
                             CheckboxRow(
+                              squareEdges: true,
                               title: lesson.title,
                               selected: _selection.lessonSelected(lesson.id),
                               onTap: lesson.questionCount == 0

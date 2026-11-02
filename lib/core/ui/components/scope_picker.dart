@@ -142,6 +142,7 @@ class _ScopePickerState extends State<ScopePicker>
         color: lesson ? c.pickerBackground : c.surface,
         child: CheckboxRow(
           key: ValueKey('scope-select-$id'),
+          squareEdges: context.wideWeb,
           title: title,
           padding: board
               ? EdgeInsets.fromLTRB(

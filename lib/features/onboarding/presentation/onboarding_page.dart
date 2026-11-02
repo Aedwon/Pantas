@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -39,6 +40,7 @@ class OnboardingPage extends ConsumerStatefulWidget {
 
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   OnboardingFlow? _flow;
+  final OnboardingFrameController _frame = OnboardingFrameController();
   String _customName = '';
   String? _customTrackId;
   bool _finishing = false;
@@ -75,6 +77,28 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       if (mounted) setState(() => _finishing = false);
     }
   }
+
+  @override
+  void dispose() {
+    _frame.dispose();
+    super.dispose();
+  }
+
+  /// Screens that draw their whole page, with no top bar, steps list, Back or
+  /// progress around them: Welcome, Launch and the save-and-finish screen.
+  /// Every other step keeps the frame on screen and changes only its content.
+  static bool _framed(OnboardingStep step) =>
+      step != OnboardingStep.welcome &&
+      step != OnboardingStep.launch &&
+      step != OnboardingStep.reminders;
+
+  /// Wide web: the content width each step asks for, as its page passes it.
+  static double _widthHint(OnboardingStep step) => switch (step) {
+        OnboardingStep.picker => 820,
+        OnboardingStep.studyDays => 640,
+        OnboardingStep.examDate => 780,
+        _ => 580,
+      };
 
   OnboardingStep? get _step => _flow?.step;
   final Set<OnboardingStep> _loggedSteps = {};
@@ -182,45 +206,57 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         if (!didPop && _step == displayedStep) _back();
       },
       child: Scaffold(
-        body: AnimatedSwitcher(
-          duration: disableAnimations
-              ? Duration.zero
-              : Duration(
-                  milliseconds: _step == OnboardingStep.welcome ||
-                          _step == OnboardingStep.picker
-                      ? 300
-                      : 380,
-                ),
-          reverseDuration: Duration.zero,
-          transitionBuilder: (child, animation) {
-            final fade = child.key == const ValueKey('welcome') ||
-                child.key == const ValueKey('launch') ||
-                child.key == const ValueKey('picker');
-            return AnimatedBuilder(
-              animation: animation,
-              child: child,
-              builder: (context, child) {
-                final progress =
-                    (fade ? PantasCurves.ease : PantasCurves.riseIn)
-                        .transform(animation.value);
-                return ExcludeFocus(
-                  excluding: progress == 0,
-                  child: ExcludeSemantics(
+        body: OnboardingFrame(
+          controller: _frame,
+          enabled: _framed(_step!),
+          resetToken: _step!,
+          widthHint: _widthHint(_step!),
+          child: AnimatedSwitcher(
+            // Content only: the frame around it does not move.
+            layoutBuilder: (current, previous) => Stack(
+              fit: StackFit.passthrough,
+              alignment: Alignment.topLeft,
+              children: [...previous, if (current != null) current],
+            ),
+            duration: disableAnimations
+                ? Duration.zero
+                : Duration(
+                    milliseconds: _step == OnboardingStep.welcome ||
+                            _step == OnboardingStep.picker
+                        ? 300
+                        : 380,
+                  ),
+            reverseDuration: Duration.zero,
+            transitionBuilder: (child, animation) {
+              final fade = child.key == const ValueKey('welcome') ||
+                  child.key == const ValueKey('launch') ||
+                  child.key == const ValueKey('picker');
+              return AnimatedBuilder(
+                animation: animation,
+                child: child,
+                builder: (context, child) {
+                  final progress =
+                      (fade ? PantasCurves.ease : PantasCurves.riseIn)
+                          .transform(animation.value);
+                  return ExcludeFocus(
                     excluding: progress == 0,
-                    child: Opacity(
-                      opacity: progress,
-                      child: Transform.translate(
-                        key: const ValueKey('onboarding-incoming-offset'),
-                        offset: Offset(fade ? 0 : 40 * (1 - progress), 0),
-                        child: child,
+                    child: ExcludeSemantics(
+                      excluding: progress == 0,
+                      child: Opacity(
+                        opacity: progress,
+                        child: Transform.translate(
+                          key: const ValueKey('onboarding-incoming-offset'),
+                          offset: Offset(fade ? 0 : 40 * (1 - progress), 0),
+                          child: child,
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-            );
-          },
-          child: _buildStep(_step!),
+                  );
+                },
+              );
+            },
+            child: _buildStep(_step!),
+          ),
         ),
       ),
     );

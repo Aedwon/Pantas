@@ -180,6 +180,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
       selected: _agreed,
       gap: 14,
       standardDensity: true,
+      squareEdges: wide,
       onTap: _busy ? null : () => setState(() => _agreed = !_agreed),
       content: Text(
         "I'm their parent or guardian, and I agree to these terms.",

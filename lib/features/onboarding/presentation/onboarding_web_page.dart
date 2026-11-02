@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -73,11 +74,23 @@ class OnboardingWebPage extends StatelessWidget {
         .whereType<OnboardingButton>()
         .where((button) => button.variant == PantasButtonVariant.primary)
         .firstOrNull;
+    final host = OnboardingFrameScope.hostOf(context);
+    final column = _column(context);
+    final shortcuts = <ShortcutActivator, VoidCallback>{
+      if (primary?.onPressed != null && !primary!.busy)
+        const SingleActivator(LogicalKeyboardKey.enter): primary.onPressed!,
+    };
+    if (host != null) {
+      // The top bar and steps list stay on screen in the onboarding frame.
+      return OnboardingFrameClaim(
+        host: host,
+        spec: OnboardingFrameSpec(progress: progress, width: width),
+        onBack: onBack,
+        child: OnboardingShortcuts(bindings: shortcuts, child: column),
+      );
+    }
     return OnboardingShortcuts(
-      bindings: {
-        if (primary?.onPressed != null && !primary!.busy)
-          const SingleActivator(LogicalKeyboardKey.enter): primary.onPressed!,
-      },
+      bindings: shortcuts,
       child: Material(
         color: t.colors.background,
         child: Column(
@@ -102,153 +115,11 @@ class OnboardingWebPage extends StatelessWidget {
                           width: 200,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 56),
-                            child: Semantics(
-                              label: 'Setup steps',
-                              container: true,
-                              explicitChildNodes: true,
-                              child: Column(
-                                children: [
-                                  for (final (i, label) in const [
-                                    'Birth year',
-                                    'Terms',
-                                    'Your exam',
-                                    'Exam date',
-                                    'Study days',
-                                    'Your name',
-                                  ].indexed)
-                                    SizedBox(
-                                      height: 40,
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 22,
-                                            height: 22,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: i + 1 < (progress ?? 1)
-                                                  ? t.colors.accentFill
-                                                  : null,
-                                              border: Border.all(
-                                                color: i + 1 <= (progress ?? 1)
-                                                    ? t.colors.accent
-                                                    : t.strongDivider,
-                                                width:
-                                                    i + 1 == progress ? 2 : 1.5,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: i + 1 < (progress ?? 1)
-                                                ? const Icon(
-                                                    Icons.check,
-                                                    size: 12,
-                                                    color: Colors.white,
-                                                  )
-                                                : i + 1 == progress
-                                                    ? Container(
-                                                        width: 8,
-                                                        height: 8,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                          color:
-                                                              t.colors.accent,
-                                                        ),
-                                                      )
-                                                    : null,
-                                          ),
-                                          const SizedBox(width: 12),
-                                          Text(
-                                            label,
-                                            style: t.style(
-                                              15,
-                                              weight: i + 1 == progress
-                                                  ? FontWeight.w600
-                                                  : FontWeight.w400,
-                                              color: i + 1 == progress
-                                                  ? t.colors.label
-                                                  : i + 1 < (progress ?? 1)
-                                                      ? t.colors.secondaryLabel
-                                                      : t.colors.tertiaryLabel,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
+                            child: OnboardingRail(progress: progress),
                           ),
                         ),
                         SizedBox(width: width > 580 ? 64 : 80),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: TextButton.icon(
-                                  onPressed: onBack,
-                                  icon: SvgPicture.string(
-                                    '<svg viewBox="0 0 24 24" fill="none" '
-                                    'stroke="currentColor" stroke-width="2.2" '
-                                    'stroke-linecap="round" '
-                                    'stroke-linejoin="round"> '
-                                    '<path d="M15 4.5 7.5 12l7.5 7.5"/></svg>',
-                                    width: 20,
-                                    height: 20,
-                                    colorFilter: ColorFilter.mode(
-                                      t.colors.accent,
-                                      BlendMode.srcIn,
-                                    ),
-                                  ),
-                                  label: const Text('Back'),
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: t.colors.accent,
-                                    minimumSize: const Size(0, 36),
-                                    visualDensity: VisualDensity.standard,
-                                    tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    iconAlignment: IconAlignment.start,
-                                    padding: EdgeInsets.zero,
-                                    textStyle: t.style(16),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: gap),
-                              Text(
-                                title,
-                                style: t
-                                    .style(
-                                      36,
-                                      weight: FontWeight.w700,
-                                      height: 1.12,
-                                    )
-                                    .copyWith(letterSpacing: -.864),
-                              ),
-                              if (detail != null) ...[
-                                const SizedBox(height: 8),
-                                Text(
-                                  detail!,
-                                  style: t.style(
-                                    17,
-                                    height: 1.45,
-                                    color: t.colors.secondaryLabel,
-                                  ),
-                                ),
-                              ],
-                              SizedBox(height: gap),
-                              ...children,
-                              if (bottom != null) ...[
-                                SizedBox(height: bottomGap),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: bottom,
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
+                        Expanded(child: column),
                       ],
                     ),
                   ),
@@ -258,6 +129,69 @@ class OnboardingWebPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  /// Back, title, detail, body and actions: the part that changes per step.
+  Widget _column(BuildContext context) {
+    final t = context.webTokens;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton.icon(
+            onPressed: onBack,
+            icon: SvgPicture.string(
+              '<svg viewBox="0 0 24 24" fill="none" '
+              'stroke="currentColor" stroke-width="2.2" '
+              'stroke-linecap="round" '
+              'stroke-linejoin="round"> '
+              '<path d="M15 4.5 7.5 12l7.5 7.5"/></svg>',
+              width: 20,
+              height: 20,
+              colorFilter: ColorFilter.mode(
+                t.colors.accent,
+                BlendMode.srcIn,
+              ),
+            ),
+            label: const Text('Back'),
+            style: TextButton.styleFrom(
+              foregroundColor: t.colors.accent,
+              minimumSize: const Size(0, 36),
+              visualDensity: VisualDensity.standard,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              iconAlignment: IconAlignment.start,
+              padding: EdgeInsets.zero,
+              textStyle: t.style(16),
+            ),
+          ),
+        ),
+        SizedBox(height: gap),
+        Text(
+          title,
+          style: t
+              .style(36, weight: FontWeight.w700, height: 1.12)
+              .copyWith(letterSpacing: -.864),
+        ),
+        if (detail != null) ...[
+          const SizedBox(height: 8),
+          Text(
+            detail!,
+            style: t.style(
+              17,
+              height: 1.45,
+              color: t.colors.secondaryLabel,
+            ),
+          ),
+        ],
+        SizedBox(height: gap),
+        ...children,
+        if (bottom != null) ...[
+          SizedBox(height: bottomGap),
+          Align(alignment: Alignment.centerRight, child: bottom),
+        ],
+      ],
     );
   }
 }

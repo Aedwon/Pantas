@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -158,149 +159,113 @@ class PantasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       onboarding ? _onboardingPage(context) : _ordinaryPage(context);
-  Widget _onboardingPage(BuildContext context) => Scaffold(
-        backgroundColor: surfaceBackground
-            ? context.colors.surface
-            : context.colors.background,
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                // Boards: back label at y 21, progress bar at y 56.
-                height: settingsPicker ? 49 : 56,
-                child: Padding(
-                  padding: settingsPicker
-                      ? const EdgeInsets.fromLTRB(4, 4, 8, 0)
-                      : const EdgeInsets.fromLTRB(8, 5, 8, 0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: TextButton(
-                      onPressed: onBack,
-                      style: TextButton.styleFrom(
-                        minimumSize: const Size(44, 44),
-                        padding: const EdgeInsets.fromLTRB(4, 0, 8, 0),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            PantasIcons.back,
-                            size: 24,
-                            color: context.colors.accent,
-                          ),
-                          const SizedBox(width: 2),
-                          Text(
-                            backLabel!,
-                            style: context.type.body
-                                .copyWith(color: context.colors.accent),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+  Widget _onboardingPage(BuildContext context) {
+    // Inside the onboarding frame, Back and the progress bar already stay on
+    // screen, so this builds only the part that changes with the step.
+    final host = settingsPicker ? null : OnboardingFrameScope.hostOf(context);
+    final body = [
+      Expanded(
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(
+              16,
+              settingsPicker ? 8 : topPadding,
+              16,
+              32,
+            ),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: centerBody
+                    ? (constraints.maxHeight - 36).clamp(0, double.infinity)
+                    : 0,
               ),
-              if (progress != null)
-                Semantics(
-                  label: 'Step $progress of 6',
-                  excludeSemantics: true,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        for (var index = 0; index < 6; index++) ...[
-                          if (index > 0) const SizedBox(width: 6),
-                          Expanded(
-                            child: DecoratedBox(
-                              key: const ValueKey('onboarding-segment'),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(9),
-                                color: index < progress!
-                                    ? context.colors.accentFill
-                                    : context.colors.fill,
-                              ),
-                              child: const SizedBox(height: 4),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                ),
-              Expanded(
-                child: LayoutBuilder(
-                  builder: (context, constraints) => SingleChildScrollView(
-                    padding: EdgeInsets.fromLTRB(
-                      16,
-                      settingsPicker ? 8 : topPadding,
-                      16,
-                      32,
-                    ),
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: centerBody
-                            ? (constraints.maxHeight - 36)
-                                .clamp(0, double.infinity)
-                            : 0,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: centerBody
-                            ? MainAxisAlignment.center
-                            : MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          if (title.isNotEmpty)
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
-                              child: Semantics(
-                                header: true,
-                                liveRegion: true,
-                                child: Text(
-                                  title,
-                                  style: settingsPicker
-                                      ? context.type.pageTitleCompact
-                                          .copyWith(height: 1.2)
-                                      : context.type.pageTitle,
-                                ),
-                              ),
-                            ),
-                          if (detail != null) ...[
-                            // Boards: subtitle 3 px lower than the old
-                            // layout, with the title 4 px lower.
-                            const SizedBox(height: 7),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
-                              child: Text(
-                                detail!,
-                                style: context.type.body.copyWith(
-                                  color: context.colors.secondaryLabel,
-                                  height: detailLineHeight,
-                                ),
-                              ),
-                            ),
-                          ],
-                          if (title.isNotEmpty || detail != null)
-                            SizedBox(height: bodyGap),
-                          ...children,
-                        ],
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: centerBody
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (title.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Semantics(
+                        header: true,
+                        liveRegion: true,
+                        child: Text(
+                          title,
+                          style: settingsPicker
+                              ? context.type.pageTitleCompact
+                                  .copyWith(height: 1.2)
+                              : context.type.pageTitle,
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  if (detail != null) ...[
+                    // Boards: subtitle 3 px lower than the old
+                    // layout, with the title 4 px lower.
+                    const SizedBox(height: 7),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Text(
+                        detail!,
+                        style: context.type.body.copyWith(
+                          color: context.colors.secondaryLabel,
+                          height: detailLineHeight,
+                        ),
+                      ),
+                    ),
+                  ],
+                  if (title.isNotEmpty || detail != null)
+                    SizedBox(height: bodyGap),
+                  ...children,
+                ],
               ),
-              if (bottom != null)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
-                  child: bottom,
-                ),
-            ],
+            ),
           ),
         ),
+      ),
+      if (bottom != null)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+          child: bottom,
+        ),
+    ];
+    if (host != null) {
+      return OnboardingFrameClaim(
+        host: host,
+        spec: OnboardingFrameSpec(
+          progress: progress,
+          surfaceBackground: surfaceBackground,
+        ),
+        onBack: onBack,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: body,
+        ),
       );
+    }
+    return Scaffold(
+      backgroundColor: surfaceBackground
+          ? context.colors.surface
+          : context.colors.background,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            OnboardingBackBar(
+              onBack: onBack,
+              label: backLabel!,
+              compact: settingsPicker,
+            ),
+            if (progress != null) OnboardingProgressBar(progress: progress!),
+            ...body,
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _ordinaryPage(BuildContext context) => Scaffold(
         backgroundColor: context.colors.background,
         bottomNavigationBar: bottom,

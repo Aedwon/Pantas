@@ -239,7 +239,12 @@ void main() {
       );
       expect(row.selected, isTrue);
       expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 168);
-      expect(tester.getSize(find.byType(CheckboxRow).first).height, 56);
+      // The test font wraps the label to two lines; the hover test checks the
+      // one-line board height of exactly 56.
+      expect(
+        tester.getSize(find.byType(CheckboxRow).first).height,
+        greaterThanOrEqualTo(56),
+      );
       expect(tester.takeException(), isNull);
     });
 

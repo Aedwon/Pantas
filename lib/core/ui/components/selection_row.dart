@@ -21,11 +21,16 @@ class CheckboxRow extends StatelessWidget {
     this.markSize = 24,
     this.standardDensity = false,
     this.round = false,
+    this.squareEdges = false,
     super.key,
   });
   final String title;
   final bool selected;
   final bool mixed;
+
+  /// Wide web, for a row inside a card that clips its own corners: the hover
+  /// fill runs edge to edge with square corners, as the web boards draw it.
+  final bool squareEdges;
 
   /// Phone boards (QZ_Picker, ST_Included, BM_Edit) draw this check as a
   /// circle. Wide web keeps the rounded square.
@@ -56,6 +61,7 @@ class CheckboxRow extends StatelessWidget {
         standardDensity: standardDensity,
         markSize: markSize,
         round: round,
+        squareEdges: squareEdges,
         title: title,
         selected: selected,
         mixed: mixed,
@@ -129,7 +135,9 @@ class _SelectionRow extends StatelessWidget {
     this.markSize = 24,
     this.standardDensity = false,
     this.round = false,
+    this.squareEdges = false,
   });
+  final bool squareEdges;
   final bool round;
   final bool standardDensity;
   final double markSize;
@@ -186,7 +194,10 @@ class _SelectionRow extends StatelessWidget {
             return Colors.transparent;
           }),
           shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+            RoundedRectangleBorder(
+              borderRadius:
+                  squareEdges ? BorderRadius.zero : BorderRadius.circular(7),
+            ),
           ),
           side: WidgetStateProperty.resolveWith(
             // Phone boards draw no ring on a row at rest (O_Consent); one
