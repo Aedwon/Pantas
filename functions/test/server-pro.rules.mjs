@@ -6,7 +6,7 @@ import {collection, deleteDoc, doc, getDoc, getDocs, setDoc} from 'firebase/fire
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 let env;
-const paths = ['content/lessons/items/l1', 'content/questions/items/q1', 'content/catalog/items/index', 'content/catalog/items/exam_upcat', 'contentPro/q1',
+const paths = ['content/lessons/items/l1', 'content/questions/items/q1', 'content/catalog/items/index', 'content/catalog/items/exam_upcat', 'contentPro/q1', 'contentCeiling/2026-11-20/shards/1',
   'users/sp-user/server/mocks/items/m1', 'users/sp-user/server/answers/items/s1',
   'content/mocks/items/exam_cse_pro', 'users/sp-user/server/roadmap', 'users/sp-user/server/settings', 'users/sp-user/server/answerTotals',
   'users/sp-user/server/roadmapDays/items/d1', 'users/sp-user/server/roadmapHistory/items/h1', 'users/sp-user/server/roadmapAdvances/items/a1',

@@ -93,14 +93,16 @@ test('serveContent validates input and refuses signed-out callers', async () => 
   assert.equal(await code(serveContent(named('c-bad'), {kind: 'lessons', ids: ['a/b'], knownVersions: {}}, d)), 'invalid-argument');
 });
 
-test('the daily limit counts requested ids and refuses once it is reached', async () => {
+test('the daily limit counts delivered ids and refuses once it is reached', async () => {
   await reset('c-limit');
   const d = deps({dailyIds: 3});
   const ask = ids => serveContent(named('c-limit'), {kind: 'lessons', ids, knownVersions: {}}, d);
   assert.equal(await code(ask(['lesson-t1', 'x2'])), 'ok');
-  assert.equal(await code(ask(['lesson-t1', 'x2'])), 'resource-exhausted');
+  assert.equal(await code(ask(['lesson-t1'])), 'ok');
   assert.equal(await code(ask(['lesson-t1'])), 'ok');
   assert.equal(await code(ask(['lesson-t1'])), 'resource-exhausted');
+  // A missing id delivers nothing, so it is free against this budget.
+  assert.equal(await code(ask(['x2'])), 'ok');
 });
 
 // ---- catalog and passages ----------------------------------------------------------------------
@@ -155,8 +157,8 @@ test('catalog ids use their own daily budget, so app starts never spend the cont
   const d = deps({dailyIds: 1, dailyCatalogIds: 3});
   const ask = ids => serveContent(named('cat-limit'), {kind: 'catalog', ids, knownVersions: {}}, d);
   assert.equal(await code(ask(['index', 'exam_upcat'])), 'ok');
-  assert.equal(await code(ask(['index', 'exam_upcat'])), 'resource-exhausted');
   assert.equal(await code(ask(['index'])), 'ok');
+  assert.equal(await code(ask(['index'])), 'resource-exhausted');
   // The content budget of 1 is still whole after three catalog ids.
   assert.equal(await code(serveContent(named('cat-limit'), {kind: 'questions', ids: [pset.item.id], knownVersions: {}}, d)), 'ok');
 });
