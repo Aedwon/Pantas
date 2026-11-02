@@ -2392,3 +2392,5 @@ Release source recommended: a tagged staging commit (not yet chosen).
 
 Under-13 support stays out of the CSE launch (Aedwon, Nov 2). What PSHS-NCE still needs is in
 `docs/future/2026-08-02-parent-child-pairing-and-consent.md`, "Update, 2 November 2026".
+Known gap, left until after the beta (Aedwon, Nov 2): a student who turns 18 stays marked as a minor and keeps seeing
+the guardian checkout line. It does not block payment.
