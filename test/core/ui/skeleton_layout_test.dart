@@ -152,6 +152,8 @@ void main() {
                 onLessons: () {},
                 onReviews: () {},
                 onNew: () {},
+                onStartReviews: () {},
+                onStartNew: () {},
                 onAdvance: () {},
                 onMock: () {},
                 onPlan: () {},

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -53,6 +54,8 @@ Widget harness(
               onLessons: () {},
               onReviews: () {},
               onNew: () {},
+              onStartReviews: () {},
+              onStartNew: () {},
               onPlan: plan ? () {} : null,
               doneNote: note,
               examShortName: 'UPCAT',
@@ -181,5 +184,178 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text("That's all for today."), findsOneWidget);
     expect(find.textContaining('tomorrow'), findsNothing);
+  });
+
+  group('main button goes straight into the session', () {
+    for (final wide in [false, true]) {
+      final layout = wide ? 'wide' : 'phone';
+      var reviewRows = 0;
+      var newRows = 0;
+      var startReviews = 0;
+      var startNew = 0;
+      Widget mount({
+        int reviewsDone = 0,
+        int reviewsTotal = 5,
+        int newDone = 0,
+        int newTotal = 3,
+        bool reviewsStarted = false,
+        bool busy = false,
+        bool advance = false,
+        List<HomeTodayLesson>? lessons,
+      }) {
+        reviewRows = newRows = startReviews = startNew = 0;
+        return MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: MediaQuery(
+            data: const MediaQueryData(
+              size: Size(1440, 900),
+              disableAnimations: true,
+            ),
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: HomeTodayChecklist(
+                  web: wide,
+                  lessons: lessons ?? [lesson(1, read: true)],
+                  reviewsDone: reviewsDone,
+                  reviewsTotal: reviewsTotal,
+                  newDone: newDone,
+                  newTotal: newTotal,
+                  reviewsStarted: reviewsStarted,
+                  canAdvance: advance,
+                  isMockDay: false,
+                  advancing: busy,
+                  onLesson: (_) {},
+                  onLessons: () {},
+                  onReviews: () => reviewRows++,
+                  onNew: () => newRows++,
+                  onStartReviews: () => startReviews++,
+                  onStartNew: () => startNew++,
+                  onAdvance: () {},
+                  onMock: () {},
+                ),
+              ),
+            ),
+          ),
+        );
+      }
+
+      Future<void> setUpView(WidgetTester tester) async {
+        final size = wide ? const Size(1440, 900) : const Size(390, 844);
+        tester.view.physicalSize = size;
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+      }
+
+      testWidgets('$layout: Start Reviews starts and opens no panel',
+          (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(mount());
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Start Reviews'));
+        expect(startReviews, 1);
+        expect(reviewRows, 0);
+        expect(startNew, 0);
+      });
+      testWidgets('$layout: Continue Reviews when a session is stored',
+          (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(mount(reviewsDone: 2, reviewsStarted: true));
+        await tester.pumpAndSettle();
+        expect(find.text('Start Reviews'), findsNothing);
+        await tester.tap(find.text('Continue Reviews'));
+        expect(startReviews, 1);
+        expect(reviewRows, 0);
+      });
+      testWidgets('$layout: Start New Questions once reviews are done',
+          (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(mount(reviewsDone: 5));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Start New Questions'));
+        expect(startNew, 1);
+        expect(newRows, 0);
+        expect(startReviews, 0);
+      });
+      testWidgets('$layout: lessons come before reviews', (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(mount(lessons: [lesson(1)]));
+        await tester.pumpAndSettle();
+        expect(find.text('Continue Lesson'), findsOneWidget);
+        expect(find.text('Start Reviews'), findsNothing);
+      });
+      testWidgets('$layout: the rows still open the panel', (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(mount());
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Reviews'));
+        await tester.tap(find.text('New questions'));
+        expect(reviewRows, 1);
+        expect(newRows, 1);
+        expect(startReviews, 0);
+        expect(startNew, 0);
+      });
+      testWidgets('$layout: no button when everything is done', (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(
+          mount(reviewsDone: 5, newDone: 3, advance: true),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Start Reviews'), findsNothing);
+        expect(find.text('Continue Reviews'), findsNothing);
+        expect(find.text('Start New Questions'), findsNothing);
+        expect(find.text("That's all for today."), findsOneWidget);
+        expect(find.text('I Want to Advance'), findsOneWidget);
+      });
+      testWidgets('$layout: busy button cannot be pressed again',
+          (tester) async {
+        await setUpView(tester);
+        await tester.pumpWidget(mount(busy: true));
+        await tester.pump();
+        await tester.tap(find.text('Start Reviews'), warnIfMissed: false);
+        expect(startReviews, 0);
+        if (wide) {
+          await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+          expect(startReviews, 0);
+        }
+      });
+    }
+    testWidgets('wide: Enter starts the session directly', (tester) async {
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      var startReviews = 0;
+      var rows = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: HomeTodayChecklist(
+              web: true,
+              lessons: [lesson(1, read: true)],
+              reviewsDone: 0,
+              reviewsTotal: 5,
+              newDone: 0,
+              newTotal: 0,
+              canAdvance: false,
+              isMockDay: false,
+              onLesson: (_) {},
+              onLessons: () {},
+              onReviews: () => rows++,
+              onNew: () => rows++,
+              onStartReviews: () => startReviews++,
+              onStartNew: () => rows++,
+              onAdvance: () {},
+              onMock: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(startReviews, 1);
+      expect(rows, 0);
+    });
   });
 }

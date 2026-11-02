@@ -32,6 +32,8 @@ class HomeTodayChecklist extends StatelessWidget {
     required this.onLessons,
     required this.onReviews,
     required this.onNew,
+    required this.onStartReviews,
+    required this.onStartNew,
     required this.onAdvance,
     required this.onMock,
     this.web = kIsWeb,
@@ -42,6 +44,7 @@ class HomeTodayChecklist extends StatelessWidget {
     this.examShortName = '',
     this.originalSummary,
     this.reviewSubtitle = 'Questions due today',
+    this.reviewsStarted = false,
     this.advancing = false,
     super.key,
   });
@@ -57,6 +60,11 @@ class HomeTodayChecklist extends StatelessWidget {
   final VoidCallback onLessons;
   final VoidCallback onReviews;
   final VoidCallback onNew;
+
+  /// The main button's reviews and new-questions steps. They start the
+  /// session directly. [onReviews] and [onNew] only open the row's panel.
+  final VoidCallback onStartReviews;
+  final VoidCallback onStartNew;
   final VoidCallback? onPlan;
   final VoidCallback onAdvance;
   final VoidCallback onMock;
@@ -68,7 +76,34 @@ class HomeTodayChecklist extends StatelessWidget {
   final String examShortName;
   final String? originalSummary;
   final String reviewSubtitle;
+
+  /// A reviews session is already stored, so the button says Continue.
+  final bool reviewsStarted;
+
+  /// A start or an advance is running. The main button shows its busy state.
   final bool advancing;
+
+  /// The one main button: the mock, then lessons, then reviews, then new
+  /// questions. Null when nothing is left to start.
+  ({String label, VoidCallback onPressed})? _main(HomeTodayLesson? next) {
+    if (isMockDay) return (label: 'Start Mock Exam', onPressed: onMock);
+    if (next != null) {
+      return (
+        label: (next.fraction ?? 0) > 0 ? 'Resume Lesson' : 'Continue Lesson',
+        onPressed: () => onLesson(next),
+      );
+    }
+    if (reviewsDone < reviewsTotal) {
+      return (
+        label: reviewsStarted ? 'Continue Reviews' : 'Start Reviews',
+        onPressed: onStartReviews,
+      );
+    }
+    if (newDone < newTotal) {
+      return (label: 'Start New Questions', onPressed: onStartNew);
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +115,8 @@ class HomeTodayChecklist extends StatelessWidget {
         advanced ? lessons.where((l) => l.advanced).toList() : lessons;
     final next = visible.firstWhereOrNull((l) => !l.read);
     final collapsed = visible.length >= 4;
-    final resumed = (next?.fraction ?? 0) > 0;
     final done = visible.where((l) => l.read).length;
+    final main = _main(next);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -158,16 +193,13 @@ class HomeTodayChecklist extends StatelessWidget {
                 onTap: onNew,
                 divider: false,
               ),
-            if (isMockDay || next != null)
+            if (main != null)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
                 child: PantasButton(
-                  label: isMockDay
-                      ? 'Start Mock Exam'
-                      : resumed
-                          ? 'Resume Lesson'
-                          : 'Continue Lesson',
-                  onPressed: isMockDay ? onMock : () => onLesson(next!),
+                  label: main.label,
+                  busy: advancing,
+                  onPressed: main.onPressed,
                 ),
               ),
             if (canAdvance)
@@ -235,24 +267,9 @@ class HomeTodayChecklist extends StatelessWidget {
     final next = visible.firstWhereOrNull((l) => !l.read);
     final collapsed = visible.length >= 4;
     final done = visible.where((l) => l.read).length;
-    final start = isMockDay
-        ? onMock
-        : next != null
-            ? () => onLesson(next)
-            : reviewsDone < reviewsTotal
-                ? onReviews
-                : newDone < newTotal
-                    ? onNew
-                    : null;
-    final label = isMockDay
-        ? 'Start Mock Exam'
-        : next != null
-            ? (next.fraction ?? 0) > 0
-                ? 'Resume Lesson'
-                : 'Continue Lesson'
-            : reviewsDone < reviewsTotal
-                ? 'Start Reviews'
-                : 'Start New Questions';
+    final main = _main(next);
+    final start = main?.onPressed;
+    final label = main?.label ?? '';
     final footerCaption = _footerCaption(visible);
     // The board's ring is a 24 px circle in a 26 px box, 2 px empty stroke.
     Widget ring(double fraction) => SizedBox.square(

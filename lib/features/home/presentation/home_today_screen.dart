@@ -165,7 +165,14 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       if (_current()) _retry();
     } on Object catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
-      if (current()) setState(() => _failed = true);
+      if (current()) {
+        // A start from the main button has no panel open. Show the panel in
+        // its failure state, which carries the message and the retry.
+        setState(() {
+          _sheet ??= kind == TodayQuestionKind.reviews ? 'reviews' : 'new';
+          _failed = true;
+        });
+      }
     } finally {
       if (current()) setState(() => _busy = false);
     }
@@ -484,6 +491,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       onLessons: () => _show('lessons'),
       onReviews: () => _show('reviews'),
       onNew: () => _show('new'),
+      onStartReviews: () => unawaited(_start(data, TodayQuestionKind.reviews)),
+      onStartNew: () => unawaited(_start(data, TodayQuestionKind.newQuestions)),
+      reviewsStarted: work?.storedReviews != null,
       // Task 6 adds the plan route. Until it exists nothing pushes to it, so
       // the link is not drawn.
       onAdvance: () => unawaited(_advance()),
