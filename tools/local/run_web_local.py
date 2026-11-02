@@ -241,7 +241,8 @@ try {
   }
 } catch (_) {}
 </script>'''
-        index.write_text(index.read_text().replace('<head>', '<head>' + shim.replace('__LOCAL_HOST__', host)))
+        shim = shim.replace('__LOCAL_HOST__', host)
+        index.write_text(index.read_text().replace('<head>', '<head>' + shim))
         # Do not register the production caching worker during a local visual check.
         Path('build/web/pantas_pwa.js').write_text('window.pantasPwa = null;\n')
         Path('build/web/local-login.html').write_text(
