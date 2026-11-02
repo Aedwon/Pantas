@@ -64,7 +64,7 @@ void main() {
         ),
         findsNothing,
       );
-      expect(find.text('Answers show at the end.'), findsOneWidget);
+      expect(find.text('Answers show at the end.'), findsNothing);
       expect(find.text('Hidden answer'), findsNothing);
       expect(
         tester.getSize(find.byKey(const ValueKey('web-question-column'))).width,

@@ -111,21 +111,12 @@ class WebAssessmentLayout extends StatelessWidget {
                 child: WebBottomBar(
                   compact: true,
                   counter: '${index + 1} of $total',
-                  action: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text('Answers show at the end.', style: t.sm),
-                      ),
-                      WebButton(
-                        label: 'Next',
-                        keyHint: 'Enter',
-                        pill: true,
-                        busy: saving,
-                        onPressed: chosenId == null ? null : onNext,
-                      ),
-                    ],
+                  action: WebButton(
+                    label: 'Next',
+                    keyHint: 'Enter',
+                    pill: true,
+                    busy: saving,
+                    onPressed: chosenId == null ? null : onNext,
                   ),
                 ),
               ),

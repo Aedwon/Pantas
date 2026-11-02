@@ -130,7 +130,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('1 of 1'), findsOneWidget);
-    expect(find.text('Answers show at the end.'), findsOneWidget);
+    expect(find.text('Answers show at the end.'), findsNothing);
   });
 
   testWidgets('the question header reads SUBJECT · TOPIC as AS_Question draws',

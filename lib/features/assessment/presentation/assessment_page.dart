@@ -367,12 +367,6 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   ),
               ],
             ),
-            SizedBox(height: context.wideWeb ? 20 : 24),
-            Text(
-              'Answers show at the end.',
-              style: context.type.footnote
-                  .copyWith(color: context.colors.secondaryLabel),
-            ),
           ],
         ),
       );
