@@ -71,6 +71,7 @@ class Toast extends StatelessWidget {
               mainAxisSize: web ? MainAxisSize.min : MainAxisSize.max,
               children: [
                 Flexible(
+                  fit: !web && onUndo != null ? FlexFit.tight : FlexFit.loose,
                   child: Text(
                     message,
                     style: web
@@ -85,6 +86,7 @@ class Toast extends StatelessWidget {
                   ),
                 ),
                 if (web && onUndo != null) const SizedBox(width: 12),
+                // Board (BM_Empty): on the phone Undo sits at the far end.
                 if (keyHint != null) ...[
                   const SizedBox(width: 14),
                   WebKeyHint(keyHint!, onButton: true),
@@ -94,15 +96,18 @@ class Toast extends StatelessWidget {
                     onPressed: onUndo,
                     style: TextButton.styleFrom(
                       foregroundColor: context.colors.toastAction,
-                      minimumSize: web ? const Size(0, 31) : const Size(44, 44),
+                      minimumSize: web
+                          ? const Size(0, 31)
+                          : onUndo != null
+                              ? const Size(0, 20)
+                              : const Size(44, 44),
                       padding: web
                           ? const EdgeInsets.symmetric(
                               horizontal: 10,
                               vertical: 6,
                             )
-                          : null,
-                      tapTargetSize:
-                          web ? MaterialTapTargetSize.shrinkWrap : null,
+                          : const EdgeInsets.symmetric(horizontal: 4),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       visualDensity: web ? VisualDensity.standard : null,
                       shape: web
                           ? RoundedRectangleBorder(

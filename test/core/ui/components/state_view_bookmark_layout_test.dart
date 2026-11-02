@@ -37,7 +37,7 @@ void main() {
       expect(
         tester.getTopLeft(find.text('No bookmarks yet.')).dy -
             tester.getBottomLeft(mark).dy,
-        closeTo(8, .5),
+        closeTo(14, .5),
       );
       expect(
         find.byWidgetPredicate(

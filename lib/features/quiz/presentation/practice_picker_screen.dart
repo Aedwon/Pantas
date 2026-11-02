@@ -335,6 +335,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           headerTrailing: barSummary.isEmpty ? null : _clearButton(),
           children: [
             ScopePicker(
+              phoneBoardRows: true,
               subjects: subjects,
               selectedIds: _selection.selectedLessonIds,
               atLeastOne: false,
@@ -1164,12 +1165,15 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               width: 36,
               height: 5,
               decoration: BoxDecoration(
-                color: context.colors.controlOutline,
+                // Board (QZS_1b): the handle is #D1D1D6 in light mode.
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? context.colors.controlOutline
+                    : const Color(0xFFD1D1D6),
                 borderRadius: BorderRadius.circular(9),
               ),
             ),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
           Row(
             children: [
               Expanded(
@@ -1184,6 +1188,12 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               ),
               TextButton(
                 onPressed: () => setState(() => _lengthOpen = false),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.standard,
+                  minimumSize: const Size(0, 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
                 child: Text(
                   'Done',
                   style: context.type.body.copyWith(
@@ -1194,7 +1204,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
           SegmentedSwitch(
             unselectedFontWeight: FontWeight.w600,
             labels: const ['Questions per lesson', 'Total time'],
@@ -1221,7 +1231,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               );
             },
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 8),
           ValueWheel.horizontal(
             key: ValueKey(_mode),
             values: [for (final n in _values) '$n'],
@@ -1235,7 +1245,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
               _adjustments = {};
             }),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 5),
           Text(
             _mode == PracticeUnitMode.questions
                 ? 'You set the questions. Time follows.'
@@ -1291,6 +1301,11 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     setState(() => _adjusting = true);
                   }
                 },
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.standard,
+                  minimumSize: const Size(0, 40),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
                 child: Text(
                   _adjusting ? 'Reset' : 'Adjust',
                   style: context.type.subhead.copyWith(

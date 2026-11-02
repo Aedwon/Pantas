@@ -392,8 +392,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (note != null && !context.wideWeb) ...[
+          // Boards (HE_BackAfterBreak, HE_MockMoved): the line sits 6 px lower
+          // and the Today label 16 px nearer than the plain gap.
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
             child: Text(
               note,
               style: context.type.subhead.copyWith(
@@ -402,7 +404,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: 6),
         ],
         body,
         if (_failed && _sheet == null)
@@ -418,7 +420,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        HomeTodayHeader(onPlan: () => unawaited(context.push<void>('/plan'))),
+        // Board (HP_ExamPassed): the label stands alone, with no plan link.
+        HomeTodayHeader(
+          onPlan: passed && !context.wideWeb
+              ? null
+              : () => unawaited(context.push<void>('/plan')),
+        ),
         HomeStateCard(
           state: switch (view.kind) {
             HomeTodayKind.nothingDue => HomeState.nothingDue,

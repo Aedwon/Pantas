@@ -77,7 +77,7 @@ class BookmarksSection extends ConsumerWidget {
                           ),
                         ]
                       : [
-                          for (final row in rows.take(3))
+                          for (final (index, row) in rows.take(3).indexed)
                             ListRow(
                               title: row.title,
                               wrapTitle:
@@ -97,7 +97,9 @@ class BookmarksSection extends ConsumerWidget {
                                 size: 14,
                                 color: context.colors.chevron,
                               ),
-                              verticalPadding: 12,
+                              verticalPadding: 12.5,
+                              divider: index < rows.take(3).length - 1,
+                              dividerInset: 52,
                               onTap: () => context.push(
                                 '/lesson/${row.lessonId}?from=study',
                               ),

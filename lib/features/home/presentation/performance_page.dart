@@ -185,10 +185,10 @@ class _PerformancePageState extends State<PerformancePage> {
             ),
           ],
         ),
-        const SizedBox(height: 28),
+        SizedBox(height: level == 0 ? 28 : 22),
         if (!gated)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, level == 0 ? 7 : 9),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

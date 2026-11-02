@@ -120,6 +120,9 @@ void main() {
 
   testWidgets('end score uses completed answers and real elapsed time',
       (tester) async {
+    // The phone page starts 11 px lower, so the last row needs a taller view.
+    await tester.binding.setSurfaceSize(const Size(800, 1000));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
     await pump(tester);
     expect(find.text('Session finished.'), findsOneWidget);
     expect(find.text('/10'), findsOneWidget);

@@ -214,18 +214,50 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton.icon(
-              onPressed: () {
-                if (context.canPop()) {
-                  context.pop();
-                } else {
-                  context.pushReplacement('/quiz/debrief/${widget.attemptId}');
-                }
-              },
-              icon: Icon(PantasIcons.back, size: 24),
-              label: const Text('Session'),
+          // Boards QV_All and QV_Mistakes: a 44 px back row under 6 px, with
+          // a teal body-size label, whatever the platform's button density.
+          Padding(
+            padding: const EdgeInsets.only(top: 6),
+            child: SizedBox(
+              height: 44,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      context.pushReplacement(
+                        '/quiz/debrief/${widget.attemptId}',
+                      );
+                    }
+                  },
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(44, 44),
+                    padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
+                    visualDensity: VisualDensity.standard,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        PantasIcons.back,
+                        size: 24,
+                        color: context.colors.accent,
+                      ),
+                      const SizedBox(width: 2),
+                      Flexible(
+                        child: Text(
+                          'Session',
+                          style: context.type.body
+                              .copyWith(color: context.colors.accent),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
           Expanded(

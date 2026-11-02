@@ -53,6 +53,8 @@ class StudySubjectSection extends ConsumerWidget {
                         delay: ringDelay,
                       ),
                 verticalPadding: 12,
+                divider: topic != subject.topics.last,
+                dividerInset: 52,
                 trailingWidget: AnimatedRotation(
                   turns: open == topic.id ? .25 : 0,
                   duration: MediaQuery.disableAnimationsOf(context)
@@ -160,6 +162,7 @@ class _TopicLessonsState extends State<_TopicLessons> {
               for (final lesson in topic.lessons)
                 StudyLessonRow(
                   lesson: lesson,
+                  divider: lesson != topic.lessons.last,
                   isToday: today.contains(lesson.id),
                   onTap: () => context.push('/lesson/${lesson.id}?from=study'),
                 ),
@@ -176,11 +179,13 @@ class StudyLessonRow extends StatelessWidget {
     required this.lesson,
     required this.onTap,
     this.isToday = false,
+    this.divider = false,
     super.key,
   });
   final StudyLesson lesson;
   final VoidCallback onTap;
   final bool isToday;
+  final bool divider;
   @override
   Widget build(BuildContext context) => ListRow(
         title: lesson.title,
@@ -193,6 +198,11 @@ class StudyLessonRow extends StatelessWidget {
               : null,
         ),
         verticalPadding: 12,
+        // Boards (ST_TopicOpen): lessons sit 18 px in from their topic's
+        // text, and the dividers start at the lesson title.
+        contentPadding: const EdgeInsets.fromLTRB(34, 12, 16, 12),
+        divider: divider,
+        dividerInset: 70,
         valueWidget: !lesson.isRead || isToday
             ? Wrap(
                 spacing: 8,

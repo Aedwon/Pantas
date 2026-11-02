@@ -277,7 +277,8 @@ class _ExamPageState extends ConsumerState<ExamPage>
               style: TextButton.styleFrom(
                 shape: const CircleBorder(),
                 // ST_Exam: 38 px circles on the phone.
-                minimumSize: Size(context.wideWeb ? 44 : 38, 44),
+                minimumSize:
+                    context.wideWeb ? const Size(44, 44) : const Size(38, 38),
                 fixedSize:
                     context.wideWeb ? const Size(44, 44) : const Size(38, 38),
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,

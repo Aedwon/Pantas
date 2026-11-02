@@ -286,7 +286,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                   onEditingChanged: (editing) =>
                       setState(() => _searching = editing),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 18),
                 Expanded(
                   child: Stack(
                     fit: StackFit.expand,

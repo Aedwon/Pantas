@@ -674,7 +674,7 @@ class _ReviewListBody extends StatelessWidget {
               style: context.type.sectionHero.copyWith(fontSize: 28),
             ),
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: 19),
           _MockFilterRow(active: filter, counts: counts, onChanged: onFilter),
           if (proIsActive && filter == ReviewFilter.wrong) ...[
             const SizedBox(height: 16),
@@ -910,8 +910,8 @@ class _MockReviewRow extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.fromLTRB(0, 11, 16, 11),
-                constraints: const BoxConstraints(minHeight: 49),
+                padding: const EdgeInsets.fromLTRB(0, 9.75, 16, 9.75),
+                constraints: const BoxConstraints(minHeight: 46),
                 decoration: BoxDecoration(
                   border: divider
                       ? Border(

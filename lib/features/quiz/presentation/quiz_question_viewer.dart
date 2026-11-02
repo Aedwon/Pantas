@@ -349,25 +349,50 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(4, 6, 8, 0),
+              padding: const EdgeInsets.fromLTRB(0, 6, 8, 0),
               child: Row(
                 children: [
                   Expanded(
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: TextButton.icon(
+                      // Boards: a 44 px back row, whatever the density.
+                      child: TextButton(
                         onPressed: widget.onBack,
-                        icon: Icon(PantasIcons.back, size: 24),
-                        label: Text(
-                          widget.backLabel,
-                          style:
-                              context.type.body.copyWith(color: colors.accent),
+                        style: TextButton.styleFrom(
+                          minimumSize: const Size(44, 44),
+                          padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
+                          visualDensity: VisualDensity.standard,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              PantasIcons.back,
+                              size: 24,
+                              color: colors.accent,
+                            ),
+                            const SizedBox(width: 2),
+                            Flexible(
+                              child: Text(
+                                widget.backLabel,
+                                style: context.type.body
+                                    .copyWith(color: colors.accent),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ),
                   IconButton(
                     tooltip: 'Report a question',
+                    constraints:
+                        const BoxConstraints.tightFor(width: 44, height: 44),
+                    padding: EdgeInsets.zero,
+                    style: IconButton.styleFrom(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
                     onPressed: () => unawaited(_report(question.id)),
                     icon: IconTheme(
                       data: IconThemeData(
@@ -541,8 +566,8 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                         final counter = Text(
                           '${_index + 1} of ${widget.questions.length}',
                           style: context.type.subheadStrong.copyWith(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
                           ),
                         );
                         final counterRow = KeyedSubtree(
@@ -565,26 +590,38 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                     ),
                                   ],
                                 )
-                              : Row(
-                                  children: [
-                                    Expanded(
-                                      child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: previous,
-                                      ),
+                              : canNote
+                                  // QN_Wrong: with the note icon the counter
+                                  // sits right after the arrow.
+                                  ? Row(
+                                      children: [
+                                        previous,
+                                        const SizedBox(width: 10),
+                                        counter,
+                                        const Spacer(),
+                                        trailing,
+                                      ],
+                                    )
+                                  : Row(
+                                      children: [
+                                        Expanded(
+                                          child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: previous,
+                                          ),
+                                        ),
+                                        counter,
+                                        Expanded(
+                                          child: Align(
+                                            alignment: Alignment.centerRight,
+                                            child: trailing,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    counter,
-                                    Expanded(
-                                      child: Align(
-                                        alignment: Alignment.centerRight,
-                                        child: trailing,
-                                      ),
-                                    ),
-                                  ],
-                                ),
                         );
                         final row = Padding(
-                          padding: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.fromLTRB(4, 8, 8, 8),
                           child: counterRow,
                         );
                         final editor = KeyedSubtree(

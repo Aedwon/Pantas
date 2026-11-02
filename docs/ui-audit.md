@@ -2707,3 +2707,20 @@ sessions do not prove every day of the streak (data, not layout).
 
 Not re-checked this batch (usage): Plan, Study, Reader, Quiz, Question session, Mock, Assessment, Bookmarks, Onboarding.
 Details and pairs: `build/visual-pass/mobile/final.md`, `shots/final-*.png`.
+
+### Mobile fix batch 6, agent A (Onboarding, Plan and day, Study and Performance, Reader, Bookmarks)
+
+Phone only. Plan day rows 66 px with inset dividers; Plan "See more" chevron; Performance Topics/Lessons label row and card offsets;
+Study: search-to-card gap, taller Last opened card, bookmark and topic rows with inset dividers, lessons indented 18 px;
+Reader eyebrow/title/heading spacing; Bookmarks sheet switch height, grip size and color. Not reached: see `build/visual-pass/mobile/recheck-a.md`.
+
+### Mobile fix batch 6B (Quiz, Question session, Mock, Assessment, Home boards; phone only, wide web untouched)
+
+Captures used a desktop user agent, so Flutter used compact density and minimum heights ran 8 px short; set an Android user agent
+for phone captures. Home: Today's done card, exam day card, assessment and passed card tops, note line spacing. Quiz: board glyphs on
+the practice rows, picker rows 47.5 px, Resume link, assessment button gap. Session: flag on a pole, session end offsets and gray
+subtitle, Leave dialog position. Mock: dialog buttons 46 px and card 30 px high, CSE sheet with Submit pinned, Results header.
+Assessment: X color. Notes: `build/visual-pass/mobile/recheck-b.md`.
+
+## Mobile fix batch 6, agent B (phone density)
+Earlier captures used compact density (the user agent does not change Flutter's platform; `navigator.platform` does). Re-measured at phone density: ST_Exam day circles 38 px; ST_Included expand button 47.5; Home "View full plan" 20 px link; question session top buttons and flag 44 px; QV_All and read-only question back row 44 px; mock Results X and title position; mock review rows 46 and filter row at 113; "How long?" sheet Done and Adjust no longer 48 px. Notes: `build/visual-pass/mobile/recheck-c.md`.

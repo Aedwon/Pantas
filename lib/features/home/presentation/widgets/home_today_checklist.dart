@@ -86,21 +86,30 @@ class HomeTodayChecklist extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         HomeTodayHeader(onPlan: onPlan),
-        GroupedSection(
-          children: [
-            if (advanced) ...[
+        // Board (HE_AdvanceAgain): "Today's done" is its own card, then the
+        // "From tomorrow" label over the card that holds the advanced rows.
+        if (advanced) ...[
+          GroupedSection(
+            children: [
               ListRow(
                 title: "Today's done",
+                titleWidget: Text(
+                  "Today's done",
+                  style: context.type.emphasized,
+                ),
                 subtitle: originalSummary,
                 leading: const CheckMark(),
                 variant: ListRowVariant.value,
-                divider: true,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
-                child: Text('FROM TOMORROW', style: context.type.sectionHeader),
               ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+            child: Text('FROM TOMORROW', style: context.type.sectionHeader),
+          ),
+        ],
+        GroupedSection(
+          children: [
             if (isMockDay)
               ListRow(
                 title: 'Mock exam',
@@ -558,8 +567,11 @@ class HomeTodayHeader extends StatelessWidget {
           : Padding(
               padding: EdgeInsets.only(
                 left: 16,
-                right: 8,
-                bottom: onPlan == null ? 7 : 0,
+                right: 4,
+                // Boards: the link line sits 22 px under the card above and
+                // 8 px over the Today card.
+                top: onPlan == null ? 0 : 6,
+                bottom: onPlan == null ? 7 : 8,
               ),
               child: Wrap(
                 alignment: WrapAlignment.spaceBetween,
@@ -569,10 +581,18 @@ class HomeTodayHeader extends StatelessWidget {
                   if (onPlan != null)
                     TextButton(
                       onPressed: onPlan,
+                      style: TextButton.styleFrom(
+                        visualDensity: VisualDensity.standard,
+                        minimumSize: const Size(0, 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
                       child: Text(
                         'View full plan',
-                        style: context.type.subhead
-                            .copyWith(color: context.colors.accent),
+                        style: context.type.subhead.copyWith(
+                          color: context.colors.accent,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                 ],

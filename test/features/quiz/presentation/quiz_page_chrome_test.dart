@@ -5,7 +5,7 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -97,7 +97,7 @@ void main() {
         find.descendant(of: bar, matching: find.byTooltip('Flag question'));
     expect(flag, findsOneWidget);
     expect(
-      find.descendant(of: flag, matching: find.byIcon(PantasIcons.flag)),
+      find.descendant(of: flag, matching: find.byType(WebFlagIcon)),
       findsOneWidget,
     );
     expect(

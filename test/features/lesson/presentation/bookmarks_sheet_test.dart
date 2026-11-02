@@ -239,7 +239,7 @@ void main() {
           find.byKey(const ValueKey('bookmark-grip')).first,
         );
         final colors = tester.element(find.byType(BookmarksSheet)).colors;
-        expect(grip.data.color, colors.controlOutline);
+        expect(grip.data.color, colors.tertiaryLabel);
         await tester.tap(find.text('Select All'));
         await tester.pumpAndSettle();
         await tester.tap(find.text('Remove'));

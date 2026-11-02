@@ -51,6 +51,7 @@ class ScopePicker extends StatefulWidget {
     this.atLeastOne = true,
     this.minimumSelectionMessage,
     this.settingsRows = false,
+    this.phoneBoardRows = false,
     super.key,
   });
   final List<ScopeSubject> subjects;
@@ -62,6 +63,10 @@ class ScopePicker extends StatefulWidget {
   /// Wide web, Settings "What's included": the board's 62 px rows with 17 px
   /// titles and a 32 px expand button, and 46 px lesson rows.
   final bool settingsRows;
+
+  /// Phone boards QZ_Picker and QZS_*: 47.5 px topic rows, 46.5 px lesson
+  /// rows and rules that start at the text. Wide web is unchanged.
+  final bool phoneBoardRows;
   @override
   State<ScopePicker> createState() => _ScopePickerState();
 }
@@ -150,10 +155,14 @@ class _ScopePickerState extends State<ScopePicker>
           minHeight: board
               ? (lesson ? 45 : 62)
               // ST_Included on a phone: 47.5 px rows.
-              : (widget.settingsRows && !lesson ? 47.5 : 44),
+              : (widget.settingsRows && !lesson
+                  ? 47.5
+                  : widget.phoneBoardRows
+                      ? (lesson ? 46.5 : 47.5)
+                      : 44),
           markSize: board && lesson ? 20 : (context.wideWeb ? 24 : 22),
           round: true,
-          standardDensity: board,
+          standardDensity: board || widget.phoneBoardRows,
           selected: checked,
           mixed: partial,
           onTap: enabled ? () => toggle(id, ids) : null,
@@ -202,7 +211,17 @@ class _ScopePickerState extends State<ScopePicker>
                               borderRadius: BorderRadius.circular(12),
                             ),
                           )
-                        : null,
+                        : !context.wideWeb &&
+                                (widget.settingsRows ||
+                                    widget.phoneBoardRows) &&
+                                !lesson
+                            // Phone boards: the button is as tall as the
+                            // 47.5 px row, so it never makes the row taller.
+                            ? IconButton.styleFrom(
+                                fixedSize: const Size(48, 47.5),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              )
+                            : null,
                     tooltip: expanded ? 'Hide lessons' : 'Show lessons',
                     icon: AnimatedRotation(
                       key: ValueKey('scope-caret-$id'),
@@ -244,7 +263,11 @@ class _ScopePickerState extends State<ScopePicker>
               if (index < topic.lessons.length - 1)
                 Padding(
                   padding: EdgeInsets.only(
-                    left: widget.settingsRows && context.wideWeb ? 92 : 0,
+                    left: widget.settingsRows && context.wideWeb
+                        ? 92
+                        : widget.phoneBoardRows && !context.wideWeb
+                            ? 76
+                            : 0,
                     right: widget.settingsRows && context.wideWeb ? 20 : 0,
                   ),
                   child: Container(height: .5, color: context.colors.separator),
@@ -306,7 +329,9 @@ class _ScopePickerState extends State<ScopePicker>
                         padding: EdgeInsets.only(
                           left: widget.settingsRows
                               ? (context.wideWeb ? 60 : 50)
-                              : 0,
+                              : widget.phoneBoardRows && !context.wideWeb
+                                  ? 50
+                                  : 0,
                           right:
                               widget.settingsRows && context.wideWeb ? 20 : 0,
                         ),

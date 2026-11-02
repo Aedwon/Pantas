@@ -246,6 +246,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                   ),
                 ),
               ),
+              const SizedBox(height: 11),
               _appear(
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,20 +255,27 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       'Session finished.',
                       style: type.pageTitle.copyWith(fontSize: 30),
                     ),
-                    if (source != null) Text(source, style: type.subhead),
+                    if (source != null) ...[
+                      const SizedBox(height: 2),
+                      Text(
+                        source,
+                        style: type.subhead
+                            .copyWith(color: colors.secondaryLabel),
+                      ),
+                    ],
                   ],
                 ),
                 100,
                 380,
                 rise: 6,
               ),
-              const SizedBox(height: 27),
+              const SizedBox(height: 22),
               Padding(
                 padding: const EdgeInsets.only(top: 6, bottom: 2),
                 child: Column(
                   children: [
                     HalfRingGauge.quizCount(correct: correct, total: total),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 18),
                     Wrap(
                       alignment: WrapAlignment.center,
                       spacing: 6,
@@ -275,7 +283,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       children: [for (var i = 0; i < total; i++) _circle(i)],
                     ),
                     if (durationLine != null) ...[
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 11),
                       _appear(
                         Text(durationLine, style: type.footnote),
                         1600,

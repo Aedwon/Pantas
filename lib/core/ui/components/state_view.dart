@@ -137,7 +137,14 @@ class StateView extends StatelessWidget {
         else
           mark,
         // Board (O_Age): the title sits 12 px lower than the plain gap.
-        SizedBox(height: onboardingBlocked ? gap + 12 : gap),
+        // Board (BM_Empty): 14 px under the mark, 9 px between the lines.
+        SizedBox(
+          height: onboardingBlocked
+              ? gap + 12
+              : bookmarkLayout
+                  ? 14
+                  : gap,
+        ),
         Text(
           message,
           textAlign: TextAlign.center,
@@ -177,7 +184,7 @@ class StateView extends StatelessWidget {
           ),
         ] else ...[
           if (detail != null) ...[
-            SizedBox(height: gap),
+            SizedBox(height: bookmarkLayout ? 9 : gap),
             Text(
               detail!,
               textAlign: TextAlign.center,

@@ -21,6 +21,7 @@ class CenteredDialog extends StatelessWidget {
     this.allowEscape = true,
     this.horizontalInset = 28,
     this.actionGap = 8,
+    this.lift = 0,
     super.key,
   });
   final String title;
@@ -39,6 +40,10 @@ class CenteredDialog extends StatelessWidget {
 
   /// Phone gap between side-by-side buttons. ST_SignOut uses 10.
   final double actionGap;
+
+  /// Phone: how far above the screen center the card sits (the mock boards
+  /// center it 30 px high). A negative value sits it lower.
+  final double lift;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -121,6 +126,7 @@ class CenteredDialog extends StatelessWidget {
                     : c.onAccent
                 : c.label,
             minimumSize: const Size(0, 46),
+            visualDensity: VisualDensity.standard,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             shape: const StadiumBorder(),
           ),
@@ -145,8 +151,12 @@ class CenteredDialog extends StatelessWidget {
         backgroundColor: context.colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        insetPadding:
-            EdgeInsets.symmetric(horizontal: horizontalInset, vertical: 24),
+        insetPadding: EdgeInsets.fromLTRB(
+          horizontalInset,
+          24 + (lift < 0 ? -2 * lift : 0),
+          horizontalInset,
+          24 + (lift > 0 ? 2 * lift : 0),
+        ),
         child: DecoratedBox(
           key: const ValueKey('centered-dialog-surface'),
           decoration: BoxDecoration(

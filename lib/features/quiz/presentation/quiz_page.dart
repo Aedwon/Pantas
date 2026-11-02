@@ -603,6 +603,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     tooltip: 'Leave session',
                     constraints:
                         const BoxConstraints.tightFor(width: 44, height: 44),
+                    style: IconButton.styleFrom(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
                     padding: EdgeInsets.zero,
                     onPressed: () => unawaited(_confirmLeave()),
                     icon: Icon(
@@ -615,6 +618,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     tooltip: 'Report a question',
                     constraints:
                         const BoxConstraints.tightFor(width: 44, height: 44),
+                    style: IconButton.styleFrom(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
                     padding: EdgeInsets.zero,
                     onPressed: () async {
                       final saved = await openQuestionReport(
@@ -662,6 +668,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       child: IconButton(
                         constraints:
                             const BoxConstraints(minWidth: 44, minHeight: 44),
+                        style: IconButton.styleFrom(
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
                         tooltip: flagged.contains(question.id)
                             ? 'Remove flag'
                             : 'Flag question',
@@ -1451,6 +1460,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                   'up from the Quiz tab whenever you like.',
               primaryLabel: 'Keep Going',
               secondaryLabel: 'Leave',
+              // Board (QV_Leave): the card starts at y 300, 9 px under center.
+              lift: -9,
               onConfirm: () => Navigator.of(dialogContext).pop(false),
               onCancel: () => Navigator.of(dialogContext).pop(true),
             ),
@@ -1519,14 +1530,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   }
 
   Widget _flag(String id, bool flagged, {bool web = false}) {
-    final Widget icon = web
-        ? WebFlagIcon(flagged: flagged)
-        : Icon(
-            PantasIcons.flag,
-            size: 21,
-            color:
-                flagged ? context.colors.accent : context.colors.controlOutline,
-          );
+    // Phone boards (QV_Answer, QV_Flag): the flag on a pole, as on wide web.
+    final Widget icon = WebFlagIcon(flagged: flagged);
     if (!flagged ||
         _poppingFlag != id ||
         MediaQuery.disableAnimationsOf(context)) {

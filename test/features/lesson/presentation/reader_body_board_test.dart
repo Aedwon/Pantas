@@ -109,7 +109,7 @@ void main() {
                   )
                   .dy -
               tester.getBottomLeft(find.text('EARTH SCIENCE AND ASTRONOMY')).dy,
-          closeTo(18, .1),
+          closeTo(8, .1),
         );
         final bodyContext =
             tester.element(find.text('Earth has several layers.'));

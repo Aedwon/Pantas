@@ -108,19 +108,24 @@ class MockResultsPage extends StatelessWidget {
                               .copyWith(color: context.colors.accent),
                         ),
                       )
-                    : IconButton(
-                        tooltip: 'Close',
-                        onPressed: onDone,
-                        icon: Icon(
-                          PantasIcons.close,
-                          color: context.colors.secondaryLabel,
-                          size: 22,
+                    // Board (MK_Results): the X sits at x 19, y 17, in #8E8E93.
+                    : Padding(
+                        padding: const EdgeInsets.only(left: 6, top: 4),
+                        child: IconButton(
+                          tooltip: 'Close',
+                          onPressed: onDone,
+                          icon: Icon(
+                            PantasIcons.close,
+                            color: context.colors.controlOutline,
+                            size: 22,
+                          ),
                         ),
                       ),
               ),
             Expanded(
               child: ListView(
-                padding: EdgeInsets.fromLTRB(16, time == null ? 8 : 50, 16, 24),
+                padding:
+                    EdgeInsets.fromLTRB(16, time == null ? 6 : 50, 16, 24),
                 children: [
                   _phase(
                     time,
@@ -148,7 +153,7 @@ class MockResultsPage extends StatelessWidget {
                                 ),
                             ],
                           ),
-                          const SizedBox(height: 2),
+                          SizedBox(height: time == null ? 5 : 2),
                           Text(
                             dateFormatted,
                             style: context.type.subhead.copyWith(

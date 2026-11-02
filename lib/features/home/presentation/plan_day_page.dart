@@ -67,9 +67,18 @@ class PlanDayPage extends StatelessWidget {
                       value: lesson.read ? 'Read' : null,
                       leading: lesson.read
                           ? const CheckMark()
-                          : const ProgressRing(fraction: 0),
+                          : ProgressRing(
+                              fraction: 0,
+                              emptyStrokeWidth: 2,
+                              emptyTrackColor: context.colors.separator,
+                            ),
                       onTap: () => onLesson(lesson),
                       divider: true,
+                      naturalValue: true,
+                      dividerInset: 52,
+                      verticalPadding: 12.5,
+                      valueStyle: context.type.subhead
+                          .copyWith(color: context.colors.secondaryLabel),
                     ),
                   if (!past || reviewsTotal > 0)
                     ListRow(
@@ -83,9 +92,16 @@ class PlanDayPage extends StatelessWidget {
                               fraction: past && reviewsTotal > 0
                                   ? reviewsDone / reviewsTotal
                                   : 0,
+                              emptyStrokeWidth: 2,
+                              emptyTrackColor: context.colors.separator,
                             ),
                       variant: ListRowVariant.value,
                       divider: true,
+                      naturalValue: true,
+                      dividerInset: 52,
+                      verticalPadding: 12.5,
+                      valueStyle: context.type.subhead
+                          .copyWith(color: context.colors.secondaryLabel),
                     ),
                   if (!past || newTotal > 0)
                     ListRow(
@@ -99,8 +115,15 @@ class PlanDayPage extends StatelessWidget {
                           : ProgressRing(
                               fraction:
                                   past && newTotal > 0 ? newDone / newTotal : 0,
+                              emptyStrokeWidth: 2,
+                              emptyTrackColor: context.colors.separator,
                             ),
                       variant: ListRowVariant.value,
+                      naturalValue: true,
+                      dividerInset: 52,
+                      verticalPadding: 12.5,
+                      valueStyle: context.type.subhead
+                          .copyWith(color: context.colors.secondaryLabel),
                     ),
                 ],
               ],
@@ -298,14 +321,48 @@ class PlanWeekPage extends StatelessWidget {
                     title: days[i].rest
                         ? 'Rest day'
                         : days[i].lessonTitles.join(', '),
+                    // Board (DP_Week): 15 px names and titles, the title
+                    // column starts at 108, rest days are gray with a small
+                    // moon before the words and no chevron.
+                    titleWidget: Row(
+                      children: [
+                        if (days[i].rest) ...[
+                          Icon(
+                            PantasIcons.restDay,
+                            size: 13,
+                            color: context.colors.tertiaryLabel,
+                          ),
+                          const SizedBox(width: 6),
+                        ],
+                        Expanded(
+                          child: Text(
+                            days[i].rest
+                                ? 'Rest day'
+                                : days[i].lessonTitles.join(', '),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: context.type.subhead.copyWith(
+                              color: days[i].rest
+                                  ? context.colors.secondaryLabel
+                                  : context.colors.label,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    verticalPadding: 12.25,
                     leading: SizedBox(
-                      width: 56,
+                      width: 64,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             DateFormat('EEE', 'en_US').format(days[i].date),
-                            style: context.type.emphasized,
+                            style: context.type.subheadStrong.copyWith(
+                              color: days[i].rest
+                                  ? context.colors.secondaryLabel
+                                  : context.colors.label,
+                            ),
                           ),
                           Text(
                             DateFormat('MMM d', 'en_US').format(days[i].date),
@@ -314,14 +371,7 @@ class PlanWeekPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    titleColor:
-                        days[i].rest ? context.colors.secondaryLabel : null,
-                    trailingWidget: days[i].rest
-                        ? Icon(
-                            PantasIcons.restDay,
-                            color: context.colors.secondaryLabel,
-                          )
-                        : null,
+                    hideTrailing: days[i].rest,
                     divider: i < days.length - 1,
                     onTap: days[i].rest ? null : () => onDay(days[i].date),
                   ),

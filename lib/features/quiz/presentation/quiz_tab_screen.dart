@@ -19,7 +19,6 @@ import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -211,7 +210,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                               _practiceRow(
                                 'Your past mistakes',
                                 counts.mistakes,
-                                icon: PantasIcons.close,
+                                glyph: _WebGlyphKind.mistakes,
                                 empty: 'Nothing to fix yet',
                                 onTap: () =>
                                     unawaited(_open('/quiz/retake/${exam.id}')),
@@ -223,10 +222,14 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                   variant: paused
                                       ? ListRowVariant.value
                                       : ListRowVariant.navigation,
-                                  icon: PantasIcons.practice,
-                                  iconColor: paused
-                                      ? context.colors.secondaryLabel
-                                      : null,
+                                  // Board (QZ_Tab): the sliders glyph.
+                                  leading: _phoneGlyph(
+                                    _WebGlyphKind.customize,
+                                    paused
+                                        ? context.colors.secondaryLabel
+                                        : context.colors.accent,
+                                  ),
+                                  leadingGap: 14,
                                   subtitle: paused
                                       ? 'Finish or discard your '
                                           'paused quiz first'
@@ -242,7 +245,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                               _practiceRow(
                                 'Flagged questions',
                                 counts.flags,
-                                icon: PantasIcons.flag,
+                                glyph: _WebGlyphKind.flagged,
                                 empty: 'Flag a question to come back to it',
                                 onTap: () => unawaited(
                                   _open('/quiz/flagged/${exam.id}'),
@@ -857,10 +860,24 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     );
   }
 
+  /// Board rows (QZ_Tab): a 21 px stroke glyph in a 28 px box, so the title
+  /// starts at x 74.
+  Widget _phoneGlyph(_WebGlyphKind kind, Color color) => ExcludeSemantics(
+        child: SizedBox(
+          width: 28,
+          child: Center(
+            child: CustomPaint(
+              size: const Size.square(21),
+              painter: _WebGlyphPainter(kind, color),
+            ),
+          ),
+        ),
+      );
+
   Widget _practiceRow(
     String title,
     int count, {
-    required IconData icon,
+    required _WebGlyphKind glyph,
     required String empty,
     required VoidCallback onTap,
   }) =>
@@ -868,10 +885,13 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         opacity: count == 0 ? .45 : 1,
         child: ListRow(
           title: title,
-          icon: icon,
+          leading: _phoneGlyph(
+            glyph,
+            count == 0 ? context.colors.secondaryLabel : context.colors.accent,
+          ),
+          leadingGap: 14,
           variant:
               count == 0 ? ListRowVariant.value : ListRowVariant.navigation,
-          iconColor: count == 0 ? context.colors.secondaryLabel : null,
           value: count == 0 ? null : '$count',
           subtitle: count == 0 ? empty : null,
           onTap: count == 0 ? null : onTap,
@@ -909,7 +929,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                   height: 1.4,
                 ),
               ),
-              const SizedBox(height: 10),
+              // Board (QZ_First): 20 px from the line to the button.
+              const SizedBox(height: 16),
               PantasButton(
                 label: 'Start Assessment',
                 onPressed: () => unawaited(_open('/assessment/$examId')),
@@ -966,7 +987,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+          padding: EdgeInsets.fromLTRB(
+            16,
+            14,
+            16,
+            state is SessionPanelInProgress ? 11 : 16,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -984,6 +1010,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                   label: 'Resume',
                   onPressed: () => unawaited(_open('/quiz/resume/$examId')),
                 ),
+                // Board (QZ_Resume): the link sits 6 px lower.
+                const SizedBox(height: 6),
                 TextButton(
                   onPressed:
                       _discarding ? null : () => unawaited(_discard(examId)),

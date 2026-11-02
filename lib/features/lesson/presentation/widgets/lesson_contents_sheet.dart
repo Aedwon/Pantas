@@ -177,6 +177,7 @@ class LessonContentsSheet extends ConsumerWidget {
       key: ValueKey('contents-lesson-${lesson.id}'),
       title: lesson.title,
       variant: ListRowVariant.value,
+      naturalValue: true,
       minimumHeight: 0,
       contentPadding: const EdgeInsets.symmetric(vertical: 10),
       wrapTitle: MediaQuery.textScalerOf(context).scale(16) > 24,
@@ -218,8 +219,8 @@ class LessonContentsSheet extends ConsumerWidget {
                 heightFactor: 1,
                 child: Text(
                   'Reading',
-                  style:
-                      context.type.captionStrong.copyWith(color: colors.accent),
+                  style: context.type.captionStrong
+                      .copyWith(fontSize: 12, color: colors.accent),
                 ),
               ),
             )

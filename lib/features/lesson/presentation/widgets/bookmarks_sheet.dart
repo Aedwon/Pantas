@@ -422,7 +422,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     );
     if (MediaQuery.textScalerOf(context).scale(17) > 25.5) {
       return Padding(
-        padding: const EdgeInsets.fromLTRB(20, 14, 20, 12),
+        padding: EdgeInsets.fromLTRB(20, 14, 20, widget.wide ? 12 : 7),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -435,10 +435,15 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 14, 20, 12),
+          padding: EdgeInsets.fromLTRB(20, 14, 20, widget.wide ? 12 : 7),
           child: title,
         ),
-        Positioned(top: 0, bottom: 0, right: 20, child: action),
+        Positioned(
+          top: 0,
+          bottom: widget.wide ? 0 : -8,
+          right: 20,
+          child: action,
+        ),
       ],
     );
   }
@@ -513,7 +518,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                         ),
                         child: CheckboxRow(
                           round: true,
-                          padding: const EdgeInsets.fromLTRB(20, 9, 8, 9),
+                          padding: const EdgeInsets.fromLTRB(20, 9, 11, 9),
                           title: row.title,
                           selected: checked,
                           onTap: activate,
@@ -529,13 +534,15 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                   index: index,
                                   child: SizedBox.square(
                                     dimension: 44,
-                                    child: IconTheme(
-                                      key: const ValueKey('bookmark-grip'),
-                                      data: IconThemeData(
-                                        size: 20,
-                                        color: context.colors.controlOutline,
+                                    child: Center(
+                                      child: IconTheme(
+                                        key: const ValueKey('bookmark-grip'),
+                                        data: IconThemeData(
+                                          size: 22,
+                                          color: context.colors.tertiaryLabel,
+                                        ),
+                                        child: PantasIcons.reorder,
                                       ),
-                                      child: PantasIcons.reorder,
                                     ),
                                   ),
                                 )
@@ -587,7 +594,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                             contentPadding: EdgeInsets.fromLTRB(
                               20,
                               9,
-                              _editing && _shown.length > 1 ? 8 : 16,
+                              _editing && _shown.length > 1 ? 11 : 16,
                               divider ? 8.5 : 9,
                             ),
                             leadingGap: 12 * value,
@@ -597,15 +604,18 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                         index: index,
                                         child: SizedBox.square(
                                           dimension: 44,
-                                          child: IconTheme(
-                                            key:
-                                                const ValueKey('bookmark-grip'),
-                                            data: IconThemeData(
-                                              size: 20,
-                                              color:
-                                                  context.colors.controlOutline,
+                                          child: Center(
+                                            child: IconTheme(
+                                              key: const ValueKey(
+                                                'bookmark-grip',
+                                              ),
+                                              data: IconThemeData(
+                                                size: 22,
+                                                color: context
+                                                    .colors.tertiaryLabel,
+                                              ),
+                                              child: PantasIcons.reorder,
                                             ),
-                                            child: PantasIcons.reorder,
                                           ),
                                         ),
                                       )
@@ -934,7 +944,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             _header(!value.hasError && rows != null),
           if (_shown.length > 1)
             Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, widget.wide ? 14 : 4),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, widget.wide ? 14 : 3),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -1038,6 +1048,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                       )
                     : _shown.isEmpty
                         ? SingleChildScrollView(
+                            padding: const EdgeInsets.only(top: 4),
                             child: StateView(
                               message: 'No bookmarks yet',
                               detail: 'Bookmark a lesson to keep it here.',
@@ -1068,7 +1079,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             Padding(
               padding: widget.wide
                   ? const EdgeInsets.only(bottom: 17)
-                  : const EdgeInsets.symmetric(horizontal: 20),
+                  : const EdgeInsets.fromLTRB(12, 0, 12, 12),
               child: Center(
                 child: Toast(
                   message: '$removalCount '

@@ -100,31 +100,38 @@ class HomeExamDay extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '$examShortName is today.',
-                style: context.type.emphasized.copyWith(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
+        // Board (HP_ExamDay): the title and line sit in a white 18 px card.
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: context.colors.surface,
+            borderRadius: BorderRadius.circular(18),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '$examShortName is today.',
+                  style: context.type.emphasized.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                detail,
-                style: context.type.subhead.copyWith(
-                  color: context.colors.secondaryLabel,
-                  height: 1.4,
+                const SizedBox(height: 10),
+                Text(
+                  detail,
+                  style: context.type.subhead.copyWith(
+                    color: context.colors.secondaryLabel,
+                    height: 1.4,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         if (hasWarmUp) ...[
-          const SizedBox(height: 22),
+          const SizedBox(height: 16),
           HomeTodayHeader(onPlan: onPlan),
           GroupedSection(
             children: [

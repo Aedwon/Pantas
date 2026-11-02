@@ -201,6 +201,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
             // MK_PauseWarn: 24 px from the screen edge, 10 px between buttons.
             horizontalInset: 24,
             actionGap: 10,
+            lift: 30,
             primaryLabel: 'Pause',
             secondaryLabel: 'Keep Going',
             onCancel: () => Navigator.pop(dialogContext),
@@ -269,6 +270,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
           // MK_SubmitCSE: 342 px wide (24 px edge), buttons 146 px apart by 10.
           horizontalInset: 24,
           actionGap: 10,
+          lift: 30,
           onCancel: () => Navigator.pop(dialogContext),
           onConfirm: () {
             Navigator.pop(dialogContext);

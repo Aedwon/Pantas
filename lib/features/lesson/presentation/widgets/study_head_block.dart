@@ -43,14 +43,14 @@ class StudyHeadBlock extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text('LAST OPENED', style: context.type.sectionHeader),
-                      const SizedBox(height: 2),
+                      const SizedBox(height: 5),
                       Text(
                         lesson.title,
                         style: context.type.sectionHero
                             .copyWith(fontSize: 22, letterSpacing: -.264),
                       ),
                       if (topicName != null) ...[
-                        const SizedBox(height: 2),
+                        const SizedBox(height: 3),
                         Text(
                           topicName,
                           style: context.type.subhead

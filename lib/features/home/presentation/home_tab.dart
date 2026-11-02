@@ -261,8 +261,16 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
                   onRoute: (route) => unawaited(context.push<void>(route)),
                 ),
         ),
-        // Phone Home boards: the Today card starts 5 px higher.
-        const SizedBox(height: 17),
+        // Phone Home boards: the Today card starts 5 px higher. The cards
+        // that stand alone (assessment, no content, exam day) keep 21 px.
+        SizedBox(
+          height: view?.kind == HomeTodayKind.assessment ||
+                  view?.kind == HomeTodayKind.noContent ||
+                  view?.kind == HomeTodayKind.examDay ||
+                  view?.kind == HomeTodayKind.passed
+              ? 21
+              : 17,
+        ),
         today,
         if (today is HomeTodaySkeleton) ...[
           const SizedBox(height: 22),

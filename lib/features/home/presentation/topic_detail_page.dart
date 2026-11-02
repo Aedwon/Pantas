@@ -50,22 +50,29 @@ class TopicDetailPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+            // Board (DT_Topic): the three figures sit side by side, 114 px
+            // apart.
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (answered > 0) ...[
-                  _Stat(
-                    value: '${(detail.correct / answered * 100).round()}%',
-                    label: 'accuracy',
+                if (answered > 0)
+                  SizedBox(
+                    width: 114,
+                    child: _Stat(
+                      value: '${(detail.correct / answered * 100).round()}%',
+                      label: 'accuracy',
+                    ),
                   ),
-                  const SizedBox(height: 16),
-                ],
-                _Stat(value: '$answered', label: 'answered'),
-                const SizedBox(height: 16),
-                _Stat(
-                  value: '${detail.lessonsRead} of ${detail.lessons.length}',
-                  label: 'lessons read',
+                SizedBox(
+                  width: 114,
+                  child: _Stat(value: '$answered', label: 'answered'),
+                ),
+                Expanded(
+                  child: _Stat(
+                    value: '${detail.lessonsRead} of ${detail.lessons.length}',
+                    label: 'lessons read',
+                  ),
                 ),
               ],
             ),
@@ -82,6 +89,8 @@ class TopicDetailPage extends StatelessWidget {
                 valueWidget: lesson.today ? const _TodayTag() : null,
                 onTap: () => onLesson(lesson.id),
                 divider: lesson != detail.lessons.last,
+                dividerInset: 52,
+                verticalPadding: 13,
               ),
           ],
         ),
@@ -269,6 +278,7 @@ class _Stat extends StatelessWidget {
               fontFeatures: const [FontFeature.tabularFigures()],
             ),
           ),
+          const SizedBox(height: 2),
           Text(label, style: context.type.footnote),
         ],
       );

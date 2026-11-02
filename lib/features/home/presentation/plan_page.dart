@@ -277,9 +277,12 @@ class _PlanPageState extends State<PlanPage> {
                   y: 8,
                 ),
               if (_shown < widget.history.length || widget.hasMore)
-                PantasButton(
-                  label: 'See more',
-                  variant: PantasButtonVariant.tertiary,
+                // Board (DP_History): regular weight, 17 px, chevron after.
+                TextButton(
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size.fromHeight(49),
+                    foregroundColor: context.colors.accent,
+                  ),
                   onPressed: widget.loadingMore
                       ? null
                       : () => setState(() {
@@ -288,6 +291,26 @@ class _PlanPageState extends State<PlanPage> {
                               widget.onMore?.call();
                             }
                           }),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'See more',
+                        style: context.type.body.copyWith(
+                          color: context.colors.accent,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      RotatedBox(
+                        quarterTurns: 1,
+                        child: Icon(
+                          PantasIcons.next,
+                          size: 13,
+                          color: context.colors.accent,
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               else
                 Padding(

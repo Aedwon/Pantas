@@ -447,7 +447,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                             onPressed: _completing ? null : _leave,
                             icon: Icon(
                               PantasIcons.close,
-                              color: context.colors.tertiaryLabel,
+                              // Board (AS_Question): the X is #8E8E93.
+                              color: context.colors.controlOutline,
                               size: 22,
                             ),
                           ),

@@ -1427,12 +1427,12 @@ class _LessonContent extends StatelessWidget {
                     style:
                         context.type.sectionHeader.copyWith(letterSpacing: .52),
                   ),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 8),
                   Text(
                     reader.lesson.title,
                     style: context.type.pageTitle.copyWith(height: 1.15),
                   ),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 33),
                   ContentRenderer(
                     blocks: reader.lesson.bodyJson,
                     readerFigures: true,
