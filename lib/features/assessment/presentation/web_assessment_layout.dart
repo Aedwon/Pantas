@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
 
 /// AS_Question and AS_Picked. The owning page still records every answer.
 class WebAssessmentLayout extends StatelessWidget {
@@ -21,8 +22,12 @@ class WebAssessmentLayout extends StatelessWidget {
     this.chosenId,
     this.passage,
     this.report,
+    this.saving = false,
     super.key,
   });
+
+  /// True while the last answer is still being saved for long enough to show.
+  final bool saving;
   final Question question;
   final String subject;
   final String examName;
@@ -118,6 +123,7 @@ class WebAssessmentLayout extends StatelessWidget {
                         label: 'Next',
                         keyHint: 'Enter',
                         pill: true,
+                        busy: saving,
                         onPressed: chosenId == null ? null : onNext,
                       ),
                     ],
@@ -207,8 +213,12 @@ class WebAssessmentResults extends StatelessWidget {
     this.weakestSubject,
     this.saving = false,
     this.failure,
+    this.sequence,
     super.key,
   });
+
+  /// The entrance timeline. Without one, everything shows at once.
+  final AssessmentResultsSequence? sequence;
   final String examName;
   final int correct;
   final int total;
@@ -228,6 +238,11 @@ class WebAssessmentResults extends StatelessWidget {
             ? 0
             : (100 * subject.correct / subject.total).round(),
     ];
+    final sequence = this.sequence;
+    Widget reveal(Animation<double>? animation, Widget child) =>
+        animation == null
+            ? child
+            : ResultsReveal(animation: animation, child: child);
     final button = WebButton(
       label: 'Go to Today',
       large: true,
@@ -251,19 +266,25 @@ class WebAssessmentResults extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    "Where you're starting",
-                    textAlign: TextAlign.center,
-                    style: t.h1,
+                  reveal(
+                    sequence?.title,
+                    Text(
+                      "Where you're starting",
+                      textAlign: TextAlign.center,
+                      style: t.h1,
+                    ),
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    '$examName · $total questions',
-                    textAlign: TextAlign.center,
-                    style: t.style(
-                      17,
-                      height: 1.45,
-                      color: t.colors.secondaryLabel,
+                  reveal(
+                    sequence?.subtitle,
+                    Text(
+                      '$examName · $total questions',
+                      textAlign: TextAlign.center,
+                      style: t.style(
+                        17,
+                        height: 1.45,
+                        color: t.colors.secondaryLabel,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 36),
@@ -272,31 +293,35 @@ class WebAssessmentResults extends StatelessWidget {
                     children: [
                       Expanded(
                         flex: 10,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              key: const ValueKey('web-assessment-score'),
-                              width: 264,
-                              height: 140,
-                              child: HalfRingGauge.quizCount(
-                                correct: correct,
-                                total: total,
-                                assessment: true,
-                                web: true,
+                        child: reveal(
+                          sequence?.score,
+                          Column(
+                            children: [
+                              SizedBox(
+                                key: const ValueKey('web-assessment-score'),
+                                width: 264,
+                                height: 140,
+                                child: HalfRingGauge.quizCount(
+                                  correct: correct,
+                                  total: total,
+                                  assessment: true,
+                                  web: true,
+                                  progress: sequence?.ring,
+                                ),
                               ),
-                            ),
-                            if (elapsed != null) ...[
-                              const SizedBox(height: 12),
-                              Text(
-                                switch (elapsed!.inMinutes) {
-                                  0 => 'in under a minute',
-                                  1 => 'in 1 minute',
-                                  final minutes => 'in $minutes minutes',
-                                },
-                                style: t.sub,
-                              ),
+                              if (elapsed != null) ...[
+                                const SizedBox(height: 12),
+                                Text(
+                                  switch (elapsed!.inMinutes) {
+                                    0 => 'in under a minute',
+                                    1 => 'in 1 minute',
+                                    final minutes => 'in $minutes minutes',
+                                  },
+                                  style: t.sub,
+                                ),
+                              ],
                             ],
-                          ],
+                          ),
                         ),
                       ),
                       const SizedBox(width: 32),
@@ -305,80 +330,97 @@ class WebAssessmentResults extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Text('BY SUBJECT · WEAKEST FIRST', style: t.eb),
+                            reveal(
+                              sequence?.subjects,
+                              Text('BY SUBJECT · WEAKEST FIRST', style: t.eb),
+                            ),
                             const SizedBox(height: 9),
-                            WebCard(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 22,
-                                vertical: 4,
-                              ),
-                              child: Column(
-                                children: [
-                                  for (final (i, subject) in subjects.indexed)
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 14,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        border: i == subjects.length - 1
-                                            ? null
-                                            : Border(
-                                                bottom: BorderSide(
-                                                  color: t.colors.separator,
-                                                  width: .5,
+                            reveal(
+                              sequence?.subjects,
+                              WebCard(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 22,
+                                  vertical: 4,
+                                ),
+                                child: Column(
+                                  children: [
+                                    for (final (i, subject) in subjects.indexed)
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 14,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          border: i == subjects.length - 1
+                                              ? null
+                                              : Border(
+                                                  bottom: BorderSide(
+                                                    color: t.colors.separator,
+                                                    width: .5,
+                                                  ),
                                                 ),
-                                              ),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  subject.name,
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Expanded(
+                                                  child: Text(
+                                                    subject.name,
+                                                    style: t.style(
+                                                      17,
+                                                      height: 22 / 17,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '${percentages[i]}%',
                                                   style: t.style(
                                                     17,
+                                                    weight: FontWeight.w700,
                                                     height: 22 / 17,
                                                   ),
                                                 ),
-                                              ),
-                                              Text(
-                                                '${percentages[i]}%',
-                                                style: t.style(
-                                                  17,
-                                                  weight: FontWeight.w700,
-                                                  height: 22 / 17,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(height: 8),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(99),
-                                            child: LinearProgressIndicator(
-                                              minHeight: 8,
-                                              value: subject.total == 0
-                                                  ? 0
-                                                  : subject.correct /
-                                                      subject.total,
-                                              backgroundColor: t.colors.fill,
-                                              color: Color.lerp(
-                                                t.colors.accent,
-                                                t.colors.surface,
-                                                .7 *
-                                                    (1 -
-                                                        (subject.total == 0
-                                                            ? 0
-                                                            : subject.correct /
-                                                                subject.total)),
-                                              ),
+                                              ],
                                             ),
-                                          ),
-                                        ],
+                                            const SizedBox(height: 8),
+                                            AnimatedBuilder(
+                                              animation: sequence?.bar(i) ??
+                                                  const AlwaysStoppedAnimation(
+                                                    1,
+                                                  ),
+                                              builder: (context, _) {
+                                                final fraction =
+                                                    subject.total == 0
+                                                        ? 0.0
+                                                        : subject.correct /
+                                                            subject.total;
+                                                return ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(99),
+                                                  child:
+                                                      LinearProgressIndicator(
+                                                    minHeight: 8,
+                                                    value: fraction *
+                                                        (sequence
+                                                                ?.bar(i)
+                                                                .value ??
+                                                            1),
+                                                    backgroundColor:
+                                                        t.colors.fill,
+                                                    color: Color.lerp(
+                                                      t.colors.accent,
+                                                      t.colors.surface,
+                                                      .7 * (1 - fraction),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -388,54 +430,58 @@ class WebAssessmentResults extends StatelessWidget {
                   ),
                   const SizedBox(height: 36),
                   if (weakestTopic != null)
-                    WebCard(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 20,
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('YOUR PLAN STARTS WITH', style: t.eb),
-                                const SizedBox(height: 4),
-                                Row(
-                                  children: [
-                                    Text(weakestTopic!, style: t.h3),
-                                    const SizedBox(width: 8),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: t.colors.accentTint,
-                                        borderRadius: BorderRadius.circular(99),
-                                      ),
-                                      child: Text(
-                                        'Today',
-                                        style: t.style(
-                                          12,
-                                          weight: FontWeight.w600,
-                                          color: t.tintText,
+                    reveal(
+                      sequence?.plan,
+                      WebCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 20,
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('YOUR PLAN STARTS WITH', style: t.eb),
+                                  const SizedBox(height: 4),
+                                  Row(
+                                    children: [
+                                      Text(weakestTopic!, style: t.h3),
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 2,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: t.colors.accentTint,
+                                          borderRadius:
+                                              BorderRadius.circular(99),
+                                        ),
+                                        child: Text(
+                                          'Today',
+                                          style: t.style(
+                                            12,
+                                            weight: FontWeight.w600,
+                                            color: t.tintText,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  '$weakestSubject · your weakest topic. '
-                                  'Weakest first. It changes as you study.',
-                                  style: t.sub,
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  Text(
+                                    '$weakestSubject · your weakest topic. '
+                                    'Weakest first. It changes as you study.',
+                                    style: t.sub,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 18),
-                          button,
-                        ],
+                            const SizedBox(width: 18),
+                            button,
+                          ],
+                        ),
                       ),
                     )
                   else

@@ -13,12 +13,12 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
 import 'package:pantas/features/assessment/presentation/assessment_skeletons.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
 
@@ -97,6 +97,19 @@ final _resultDataProvider =
   );
 });
 
+/// Loads what the results screen shows and keeps it until the caller leaves,
+/// so the screen opens with its data in hand and never shows a skeleton first.
+/// A failure is left for the results screen to report with its own retry.
+Future<void> holdAssessmentResults(WidgetRef ref, ExamId examId) async {
+  final provider = _resultDataProvider(examId);
+  ref.listenManual(provider, (_, __) {});
+  try {
+    await ref.read(provider.future).timeout(const Duration(seconds: 3));
+  } catch (_) {
+    // The results screen shows its own loading or error state.
+  }
+}
+
 class AssessmentResultsPage extends ConsumerWidget {
   const AssessmentResultsPage({required this.examId, super.key});
   final ExamId examId;
@@ -139,7 +152,8 @@ class AssessmentResultsPage extends ConsumerWidget {
                 await ref
                     .read(appPreferencesRepositoryProvider)
                     .setDeviceValue(_seenKey(value.result!), 'true');
-                ref.invalidate(_resultDataProvider(examId));
+                // The provider is released when this page leaves. Resetting it
+                // here would swap the results for a skeleton on the way out.
                 if (context.mounted) context.go('/home');
               } catch (error, stack) {
                 unawaited(telemetry.recordError(error, stack));
@@ -164,15 +178,21 @@ class _ResultsBody extends StatefulWidget {
 
 class _ResultsBodyState extends State<_ResultsBody>
     with SingleTickerProviderStateMixin {
-  late final _controller = AnimationController(
+  late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 3000),
+    duration: AssessmentResultsSequence.duration,
+  );
+  late final AssessmentResultsSequence _sequence = AssessmentResultsSequence(
+    _controller,
+    subjectCount: widget.data.subjects.length,
   );
   bool _saving = false;
   bool _failed = false;
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    // The sequence plays once for this arrival. A rebuild or a resize keeps
+    // the controller where it is, and reduced motion shows the final state.
     if (MediaQuery.disableAnimationsOf(context)) {
       _controller.value = 1;
     } else if (!_controller.isAnimating && _controller.value == 0) {
@@ -186,29 +206,6 @@ class _ResultsBodyState extends State<_ResultsBody>
     super.dispose();
   }
 
-  Widget _reveal(int start, int duration, Widget child, {double offset = 10}) =>
-      AnimatedBuilder(
-        animation: _controller,
-        child: child,
-        builder: (context, child) {
-          final p = const Cubic(.3, .9, .3, 1).transform(
-            ((_controller.value * 3000 - start) / duration).clamp(0.0, 1.0),
-          );
-          return ExcludeFocus(
-            excluding: p == 0,
-            child: ExcludeSemantics(
-              excluding: p == 0,
-              child: Opacity(
-                opacity: p,
-                child: Transform.translate(
-                  offset: Offset(0, offset * (1 - p)),
-                  child: child,
-                ),
-              ),
-            ),
-          );
-        },
-      );
   Future<void> _acknowledge() async {
     if (_saving) return;
     setState(() {
@@ -218,9 +215,12 @@ class _ResultsBodyState extends State<_ResultsBody>
     try {
       await widget.onAcknowledge();
     } catch (_) {
-      if (mounted) setState(() => _failed = true);
-    } finally {
-      if (mounted) setState(() => _saving = false);
+      if (mounted) {
+        setState(() {
+          _failed = true;
+          _saving = false;
+        });
+      }
     }
   }
 
@@ -253,25 +253,19 @@ class _ResultsBodyState extends State<_ResultsBody>
               ),
               const SizedBox(height: 8),
               AnimatedBuilder(
-                animation: _controller,
-                builder: (context, _) {
-                  final progress = PantasCurves.houseOut.transform(
-                    ((_controller.value * 3000 - 1500 - index * 120) / 800)
-                        .clamp(0.0, 1.0),
-                  );
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(99),
-                    child: LinearProgressIndicator(
-                      value: (subject.total == 0
-                              ? 0
-                              : subject.correct / subject.total) *
-                          progress,
-                      minHeight: 5,
-                      backgroundColor: context.colors.fill,
-                      color: context.colors.chevron,
-                    ),
-                  );
-                },
+                animation: _sequence.bar(index),
+                builder: (context, _) => ClipRRect(
+                  borderRadius: BorderRadius.circular(99),
+                  child: LinearProgressIndicator(
+                    value: (subject.total == 0
+                            ? 0
+                            : subject.correct / subject.total) *
+                        _sequence.bar(index).value,
+                    minHeight: 5,
+                    backgroundColor: context.colors.fill,
+                    color: context.colors.chevron,
+                  ),
+                ),
               ),
             ],
           ),
@@ -308,6 +302,7 @@ class _ResultsBodyState extends State<_ResultsBody>
           saving: _saving,
           failure: _failed ? saveFailureLine(_acknowledge) : null,
           onAcknowledge: _acknowledge,
+          sequence: _sequence,
         ),
       );
     }
@@ -335,31 +330,22 @@ class _ResultsBodyState extends State<_ResultsBody>
     );
     final gauge = Column(
       children: [
-        AnimatedBuilder(
-          animation: _controller,
-          builder: (context, _) => HalfRingGauge.quizCount(
-            correct: correct,
-            total: total,
-            assessment: true,
-            labelOpacity:
-                ((_controller.value * 3000 - 1300) / 300).clamp(0.0, 1.0),
-          ),
+        HalfRingGauge.quizCount(
+          correct: correct,
+          total: total,
+          assessment: true,
+          progress: _sequence.ring,
         ),
         if (elapsed != null) ...[
           // AS_Results: "in 24 minutes" sits 20 px under "correct".
           const SizedBox(height: 1),
-          _reveal(
-            1500,
-            300,
-            Text(
-              switch (elapsed.inMinutes) {
-                0 => 'in under a minute',
-                1 => 'in 1 minute',
-                final minutes => 'in $minutes minutes',
-              },
-              style: context.type.footnote.copyWith(color: c.secondaryLabel),
-            ),
-            offset: 0,
+          Text(
+            switch (elapsed.inMinutes) {
+              0 => 'in under a minute',
+              1 => 'in 1 minute',
+              final minutes => 'in $minutes minutes',
+            },
+            style: context.type.footnote.copyWith(color: c.secondaryLabel),
           ),
         ],
       ],
@@ -373,20 +359,18 @@ class _ResultsBodyState extends State<_ResultsBody>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _reveal(
-                    100,
-                    380,
-                    Text(
+                  ResultsReveal(
+                    animation: _sequence.title,
+                    child: Text(
                       "Where you're starting",
                       textAlign: TextAlign.center,
                       style: context.type.pageTitleCompact,
                     ),
                   ),
                   const SizedBox(height: 6),
-                  _reveal(
-                    200,
-                    380,
-                    Text(
+                  ResultsReveal(
+                    animation: _sequence.subtitle,
+                    child: Text(
                       '${widget.data.examName} · $total questions',
                       textAlign: TextAlign.center,
                       style: context.type.subhead
@@ -394,15 +378,14 @@ class _ResultsBodyState extends State<_ResultsBody>
                     ),
                   ),
                   const SizedBox(height: 23),
-                  _reveal(300, 380, gauge),
+                  ResultsReveal(animation: _sequence.score, child: gauge),
                   const SizedBox(height: 22),
-                  _reveal(1300, 380, subjects),
+                  ResultsReveal(animation: _sequence.subjects, child: subjects),
                   if (weakest != null) ...[
                     const SizedBox(height: 22),
-                    _reveal(
-                      2600,
-                      380,
-                      GroupedSection(
+                    ResultsReveal(
+                      animation: _sequence.plan,
+                      child: GroupedSection(
                         header: 'YOUR PLAN STARTS WITH',
                         footer: 'Weakest first. It changes as you study.',
                         children: [

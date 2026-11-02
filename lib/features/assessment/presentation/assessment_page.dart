@@ -34,6 +34,7 @@ import 'package:pantas/features/assessment/application/assessment_result_provide
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
+import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -89,6 +90,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   bool _failed = false;
   bool _unavailable = false;
   bool _completing = false;
+  // Set when saving takes long enough that Next should say so.
+  bool _savingSlow = false;
+  Timer? _slowTimer;
   bool _advancing = false;
   bool _leaveOpen = false;
   int _generation = 0;
@@ -104,6 +108,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   @override
   void dispose() {
     _generation++;
+    _slowTimer?.cancel();
     _questionClock.stop();
     super.dispose();
   }
@@ -228,6 +233,13 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       _completing = true;
       _failed = false;
     });
+    // The question stays on screen while the answers are saved. Next shows
+    // that it is working only if saving takes noticeably long.
+    _slowTimer?.cancel();
+    _slowTimer = Timer(const Duration(milliseconds: 400), () {
+      if (mounted && _completing) setState(() => _savingSlow = true);
+    });
+    var done = false;
     try {
       if (!await _checkOwner()) return;
       final publish =
@@ -245,7 +257,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
         ..invalidate(roadmapTodayProvider(widget.examId));
       ref.read(todayQuizPreparerProvider).invalidateAll();
       ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
+      // Have the results ready before leaving, so they open in one step.
+      await holdAssessmentResults(ref, widget.examId);
       if (mounted) {
+        // Stay in the saving state: this page is replaced, not shown again.
+        done = true;
         context.pushReplacement('/assessment/${widget.examId}/results');
       }
     } on AssessmentAlreadyCompleted {
@@ -254,7 +270,13 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
-      if (mounted) setState(() => _completing = false);
+      _slowTimer?.cancel();
+      if (mounted && !done) {
+        setState(() {
+          _completing = false;
+          _savingSlow = false;
+        });
+      }
     }
   }
 
@@ -307,7 +329,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       );
     } else if (_failed) {
       body = errorFor('assessment', session == null ? _load : _complete);
-    } else if (session == null || _completing) {
+    } else if (session == null) {
       body = const SkeletonQuestionPage();
     } else if (passageState != null && !passageState.hasValue) {
       body = passageState.hasError
@@ -367,7 +389,6 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             child: session != null &&
                     !_failed &&
                     !_unavailable &&
-                    !_completing &&
                     (passageState == null || passageState.hasValue)
                 ? WebAssessmentLayout(
                     question: question!,
@@ -380,6 +401,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                     total: session.questions.length,
                     chosenId: _picked,
                     passage: passage,
+                    saving: _savingSlow,
                     onPick: (id) => setState(() => _picked = id),
                     onNext: _next,
                     onLeave: _leave,
@@ -506,7 +528,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   Expanded(child: body),
                 ],
               ),
-              if (session != null && !_failed && !_completing)
+              if (session != null && !_failed)
                 Positioned(
                   left: 16,
                   right: 16,
@@ -529,6 +551,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                           fontSize: 16,
                           fullWidth: false,
                           horizontalPadding: 20,
+                          busy: _savingSlow,
                           onPressed: _picked == null ? null : _next,
                         ),
                       ],
