@@ -264,38 +264,58 @@ class _OnboardingFrameState extends State<OnboardingFrame>
           Expanded(
             child: spec.bare
                 ? child
-                : SingleChildScrollView(
-                    controller: _scroll,
-                    padding: const EdgeInsets.fromLTRB(
-                      40,
-                      40,
-                      40,
-                      onboardingActionsMargin,
-                    ),
-                    child: Center(
-                      child: SizedBox(
-                        width: onboardingColumnWidth + 280,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            FadeTransition(
-                              opacity: _fade,
+                : Stack(
+                    children: [
+                      SingleChildScrollView(
+                        controller: _scroll,
+                        padding: const EdgeInsets.fromLTRB(
+                          40,
+                          40,
+                          40,
+                          onboardingActionsMargin,
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            width: onboardingColumnWidth + 280,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(width: 200),
+                                const SizedBox(width: 80),
+                                Expanded(child: child),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // The steps list stays still. It ignores pointers, so
+                      // the wheel over it scrolls the content beneath.
+                      Positioned.fill(
+                        child: IgnorePointer(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(40, 96, 40, 0),
+                            child: Align(
+                              alignment: Alignment.topCenter,
                               child: SizedBox(
-                                width: 200,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 56),
-                                  child: OnboardingRail(
-                                    progress: spec.progress,
+                                width: onboardingColumnWidth + 280,
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child: FadeTransition(
+                                    opacity: _fade,
+                                    child: SizedBox(
+                                      width: 200,
+                                      child: OnboardingRail(
+                                        progress: spec.progress,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 80),
-                            Expanded(child: child),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
           ),
         ],

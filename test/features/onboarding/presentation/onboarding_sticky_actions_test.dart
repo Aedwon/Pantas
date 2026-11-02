@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 import '../../../helpers/onboarding_steps_harness.dart';
@@ -81,5 +82,26 @@ void main() {
     await tester.pump();
     expect(tester.getRect(continueButton()), short);
     expect(short.bottom, lessThan(900 - 60));
+  });
+
+  testWidgets('the steps list stays still while the content scrolls',
+      (tester) async {
+    await pumpFramedStep(tester, 'picker', wide: true);
+    final rail = find.byType(OnboardingRail);
+    final top = tester.getRect(rail);
+    position(tester).jumpTo(position(tester).maxScrollExtent / 2);
+    await tester.pump();
+    expect(tester.getRect(rail), top);
+    position(tester).jumpTo(position(tester).maxScrollExtent);
+    await tester.pump();
+    expect(tester.getRect(rail), top);
+    // The wheel over the steps list still scrolls the content.
+    position(tester).jumpTo(0);
+    await tester.pump();
+    final pointer = TestPointer(1, PointerDeviceKind.mouse);
+    await tester.sendEventToBinding(pointer.hover(tester.getCenter(rail)));
+    await tester.sendEventToBinding(pointer.scroll(const Offset(0, 120)));
+    await tester.pump();
+    expect(position(tester).pixels, greaterThan(0));
   });
 }
