@@ -141,12 +141,44 @@ final serverMockAvailabilityProvider =
   },
 );
 
+/// The server says no mock can start now, and why. This is a normal state
+/// for a student, not a failure.
+class ServerMockNotOpen implements Exception {
+  const ServerMockNotOpen.noBlueprint()
+      : nextOpensAt = null,
+        noBlueprint = true;
+  const ServerMockNotOpen.cooldown(DateTime this.nextOpensAt)
+      : noBlueprint = false;
+
+  final DateTime? nextOpensAt;
+  final bool noBlueprint;
+
+  @override
+  String toString() =>
+      'ServerMockNotOpen(${noBlueprint ? 'no-blueprint' : 'cooldown'})';
+}
+
 final serverMockSetupCountProvider = FutureProvider.family<int, String>(
   (ref, examId) => guardedMockRead(ref, (api, check) async {
     final reply = await api.availability(examId, includeSetup: true);
     check();
-    if (reply['examId'] != examId || reply['status'] != 'available') {
+    if (reply['examId'] != examId) {
       throw const ServerMockException(code: 'failed-precondition');
+    }
+    switch (reply['status']) {
+      case 'available':
+        break;
+      case 'cooldown':
+        throw ServerMockNotOpen.cooldown(
+          DateTime.fromMillisecondsSinceEpoch(
+            serverMockWhole(reply['nextEligibleAt']),
+            isUtc: true,
+          ),
+        );
+      case 'no-blueprint':
+        throw const ServerMockNotOpen.noBlueprint();
+      default:
+        throw const ServerMockException(code: 'failed-precondition');
     }
     final setup = serverMockObject(reply['setup']);
     final count = serverMockWhole(setup['questionCount']);

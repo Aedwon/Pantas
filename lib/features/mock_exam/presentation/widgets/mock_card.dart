@@ -10,6 +10,13 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
+/// Board QZ_Free wording for the wait between Free mocks.
+String freeMockIntervalLine(int days) =>
+    'Free includes one mock every $days days.';
+
+String mockNextOpensLine(DateTime opens) =>
+    'Your next one opens ${PantasDates.withWeekday(opens)}.';
+
 enum MockCardState {
   neverTaken,
   ready,
@@ -115,13 +122,11 @@ class MockCard extends StatelessWidget {
           );
     final nextOpens =
         state == MockCardState.waiting && model.nextOpensAt != null
-            ? ' Your next one opens '
-                '${PantasDates.withWeekday(model.nextOpensAt!)}.'
+            ? ' ${mockNextOpensLine(model.nextOpensAt!)}'
             : '';
     final rule = model.pro
         ? "You're on Pro. Take as many mocks as you like."
-        : 'Free includes one mock every '
-            '${model.freeIntervalDays} days.$nextOpens';
+        : '${freeMockIntervalLine(model.freeIntervalDays)}$nextOpens';
     final body = switch (state) {
       MockCardState.neverTaken => 'The whole exam under real timing. '
           'Test yourself on how you do under time pressure.',

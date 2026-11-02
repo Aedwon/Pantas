@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -11,6 +12,7 @@ import 'package:pantas/features/mock_exam/application/server_mock_results_provid
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
@@ -80,6 +82,12 @@ class MockSetupRoute extends ConsumerWidget {
     final settingsAsync = ref.watch(userSettingsProvider);
     final countAsync = ref.watch(mockSetupQuestionCountProvider(examId));
 
+    final notOpen = countAsync.error;
+    if (notOpen is ServerMockNotOpen) {
+      firstScreenReady(context, ref);
+      return _MockNotOpen(notOpen);
+    }
+
     final error = parsedAsync.error ?? settingsAsync.error ?? countAsync.error;
     if (error != null) {
       firstScreenReady(context, ref);
@@ -124,6 +132,31 @@ class MockSetupRoute extends ConsumerWidget {
       actualQuestionCount: countAsync.valueOrNull,
       onStart: (strictMode) =>
           onStart(parsed.blueprint.id, strictMode: strictMode),
+    );
+  }
+}
+
+/// Shown instead of setup while the server will not start a mock. The wording
+/// comes from the Quiz card (board QZ_Free) and the mock status card.
+class _MockNotOpen extends StatelessWidget {
+  const _MockNotOpen(this.notOpen);
+
+  final ServerMockNotOpen notOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    final opens = notOpen.nextOpensAt?.toLocal();
+    return Scaffold(
+      body: Center(
+        child: StateView(
+          // The server-backed mock is the web mock, which waits 30 days.
+          message:
+              opens == null ? 'Mock paper not ready' : freeMockIntervalLine(30),
+          detail: opens == null ? null : mockNextOpensLine(opens),
+          actionLabel: 'Back',
+          onRetry: () => context.canPop() ? context.pop() : context.go('/quiz'),
+        ),
+      ),
     );
   }
 }
