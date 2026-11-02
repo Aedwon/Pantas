@@ -124,43 +124,65 @@ class _PulleyPainter extends CustomPainter {
       hairline,
     );
 
+    // A fixed pulley beside a movable one sits to the right, so that the
+    // rope from the movable pulley rises straight to its near side.
+    final both = fixed > 0 && movable > 0;
+    final loadX = both ? centreX - radius : centreX;
+
     // Fixed pulleys hang from the beam, side by side.
     const spread = radius * 2.6;
-    final firstX = centreX - spread * (fixed - 1) / 2;
+    final firstX =
+        both ? loadX + radius * 2 : centreX - spread * (fixed - 1) / 2;
+    const fixedY = beamY + 10 + radius;
     for (var i = 0; i < fixed; i++) {
       final x = firstX + spread * i;
       canvas
         ..drawLine(Offset(x, beamY), Offset(x, beamY + 10), hairline)
-        ..drawCircle(Offset(x, beamY + 10 + radius), radius, hairline);
+        ..drawCircle(Offset(x, fixedY), radius, hairline);
     }
 
     // The load hangs below. Movable pulleys ride between the beam and it.
     final loadTop = size.height - 34;
+    var hangerTop = beamY + 25 + radius;
     for (var i = 0; i < movable; i++) {
       final y = beamY + 46.0 + i * (radius * 2.4);
+      hangerTop = y;
+      // One supporting segment runs up to the beam. The other runs up to
+      // the fixed pulley when there is one, and to the beam when not.
+      final rightTop = both && i == 0 ? fixedY : beamY;
       canvas
-        ..drawCircle(Offset(centreX, y), radius, hairline)
+        ..drawCircle(Offset(loadX, y), radius, hairline)
         ..drawLine(
-          Offset(centreX - radius, y),
-          Offset(centreX - radius, beamY + 10),
+          Offset(loadX - radius, y),
+          Offset(loadX - radius, beamY),
           hairline,
         )
         ..drawLine(
-          Offset(centreX + radius, y),
-          Offset(centreX + radius, beamY + 10),
+          Offset(loadX + radius, y),
+          Offset(loadX + radius, rightTop),
           hairline,
         );
     }
 
-    // The load, and the rope down to it.
-    final ropeTop = movable == 0 ? beamY + 25 + radius : loadTop - 30;
+    // The free end of the rope comes over the fixed pulley and hangs down.
+    if (both) {
+      final freeX = firstX + radius;
+      canvas.drawLine(
+        Offset(freeX, fixedY),
+        Offset(freeX, fixedY + 44),
+        hairline,
+      );
+    }
+
+    // The load hangs from the middle of the movable pulley, or from the end
+    // of the rope when there is no movable pulley.
     canvas
       ..drawLine(
-        Offset(centreX, ropeTop),
-        Offset(centreX, loadTop),
+        Offset(loadX, hangerTop),
+        Offset(loadX, loadTop),
         hairline,
       )
-      ..drawRect(Rect.fromLTWH(centreX - 16, loadTop, 32, 24), hairline);
+      ..drawRect(Rect.fromLTWH(loadX - 16, loadTop, 32, 24), hairline);
   }
 
   @override

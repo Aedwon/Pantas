@@ -94,6 +94,7 @@ class GeometryDiagramFigure extends StatelessWidget {
             labels: labels,
             ink: colors.label,
             faint: colors.fill,
+            mark: colors.secondaryLabel,
             labelStyle: context.type.subhead.copyWith(
               color: colors.label,
             ),
@@ -110,6 +111,7 @@ class _GeometryDiagramPainter extends CustomPainter {
     required this.labels,
     required this.ink,
     required this.faint,
+    required this.mark,
     required this.labelStyle,
   });
 
@@ -117,6 +119,9 @@ class _GeometryDiagramPainter extends CustomPainter {
   final List<String> labels;
   final Color ink;
   final Color faint;
+
+  /// Arrows the student must follow, which the faint helper color hides.
+  final Color mark;
   final TextStyle labelStyle;
 
   @override
@@ -890,6 +895,10 @@ class _GeometryDiagramPainter extends CustomPainter {
     Paint helper,
   ) {
     _draw3DCylinder(canvas, bounds, stroke, helper);
+    final rays = Paint()
+      ..color = mark
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
     final cx = bounds.center.dx;
     final topY = bounds.top + 30;
     final shadowY = bounds.bottom - 4;
@@ -897,21 +906,23 @@ class _GeometryDiagramPainter extends CustomPainter {
       final from = Offset(cx + dx, bounds.top - 8);
       final tip = Offset(cx + dx, topY - 14);
       canvas
-        ..drawLine(from, tip, helper)
-        ..drawLine(tip, tip + const Offset(-4, -7), helper)
-        ..drawLine(tip, tip + const Offset(4, -7), helper);
+        ..drawLine(from, tip, rays)
+        ..drawLine(tip, tip + const Offset(-4, -7), rays)
+        ..drawLine(tip, tip + const Offset(4, -7), rays);
     }
+    final shadowHalf = bounds.width * 0.29;
     canvas.drawOval(
       Rect.fromCenter(
         center: Offset(cx, shadowY),
-        width: bounds.width * 0.58,
+        width: shadowHalf * 2,
         height: 14,
       ),
       stroke,
     );
     return [
       Offset(bounds.left, bounds.top - 14),
-      Offset(bounds.center.dx - 30, bounds.bottom + 2),
+      // Beside the shadow, so the words do not sit on its outline.
+      Offset(cx + shadowHalf + 18, shadowY - 10),
     ];
   }
 
@@ -921,34 +932,55 @@ class _GeometryDiagramPainter extends CustomPainter {
     Paint stroke,
     Paint helper,
   ) {
-    _draw3DCylinder(canvas, bounds, stroke, helper);
-    final targetX = bounds.left + bounds.width * 0.24;
+    // The wall shadow of an upright cylinder is as wide as the cylinder and
+    // as tall as it is, so both are drawn at one size and fitted side by
+    // side: the light's arrows, the cylinder, a gap, then the shadow.
+    const lightRun = 44.0;
+    const gap = 40.0;
+    final half = math.min<double>(bounds.width * 0.25, 54);
+    final centreX = bounds.left + lightRun + half;
+    _draw3DCylinder(
+      canvas,
+      Rect.fromCenter(
+        center: Offset(centreX, bounds.center.dy),
+        width: half * 4,
+        height: bounds.height,
+      ),
+      stroke,
+      helper,
+    );
+
+    final rays = Paint()
+      ..color = mark
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    final cylinderLeft = centreX - half;
+    final topY = bounds.top + 30;
+    final botY = bounds.bottom - 30;
     for (final dy in [-28.0, 0.0, 28.0]) {
       final from = Offset(bounds.left - 8, bounds.center.dy + dy);
-      final tip = Offset(targetX, bounds.center.dy + dy);
+      final tip = Offset(cylinderLeft - 2, bounds.center.dy + dy);
       canvas
-        ..drawLine(from, tip, helper)
-        ..drawLine(tip, tip + const Offset(-7, -4), helper)
-        ..drawLine(tip, tip + const Offset(-7, 4), helper);
+        ..drawLine(from, tip, rays)
+        ..drawLine(tip, tip + const Offset(-7, -4), rays)
+        ..drawLine(tip, tip + const Offset(-7, 4), rays);
     }
-    final wallX = bounds.right - 4;
+
+    final shadowLeft = centreX + half + gap;
+    final wallX = shadowLeft + half * 2 + 6;
     canvas
       ..drawLine(
         Offset(wallX, bounds.top + 8),
         Offset(wallX, bounds.bottom - 8),
-        helper,
+        rays,
       )
       ..drawRect(
-        Rect.fromCenter(
-          center: Offset(wallX - 8, bounds.center.dy),
-          width: 16,
-          height: bounds.height * 0.62,
-        ),
+        Rect.fromLTRB(shadowLeft, topY, shadowLeft + half * 2, botY),
         stroke,
       );
     return [
       Offset(bounds.left, bounds.top - 14),
-      Offset(bounds.right - 76, bounds.bottom + 2),
+      Offset(shadowLeft + 10, bounds.bottom + 2),
     ];
   }
 

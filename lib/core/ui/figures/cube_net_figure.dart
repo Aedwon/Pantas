@@ -77,7 +77,8 @@ class CubeNetFigure extends StatelessWidget {
       label: 'A flat pattern of ${cells.length} squares joined edge to edge'
           '${showFolded ? ', beside a folded cube' : ''}.',
       child: SizedBox(
-        height: 160,
+        // Labeled faces need a little more room to keep their words apart.
+        height: labels.any((label) => label != null) ? 184 : 160,
         child: CustomPaint(
           painter: _NetPainter(
             cells: cells,
@@ -154,7 +155,7 @@ class _NetPainter extends CustomPainter {
       );
       canvas.drawRect(cell, stroke);
       final label = labels[i];
-      if (label != null) _drawLabel(canvas, label, cell.center);
+      if (label != null) _drawLabel(canvas, label, cell.center, side);
     }
   }
 
@@ -175,11 +176,24 @@ class _NetPainter extends CustomPainter {
       ..drawLine(front.topRight + depth, front.bottomRight + depth, stroke);
   }
 
-  void _drawLabel(Canvas canvas, String text, Offset center) {
-    final painter = TextPainter(
+  void _drawLabel(Canvas canvas, String text, Offset center, double side) {
+    var painter = TextPainter(
       text: TextSpan(text: text, style: labelStyle),
       textDirection: TextDirection.ltr,
     )..layout();
+    // A word is set smaller when it would touch the edges of its square, so
+    // that neighboring words stay apart.
+    final fit = side * 0.86;
+    if (painter.width > fit) {
+      final size = (labelStyle.fontSize ?? 14) * fit / painter.width;
+      painter = TextPainter(
+        text: TextSpan(
+          text: text,
+          style: labelStyle.copyWith(fontSize: size, height: 1),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+    }
     painter.paint(
       canvas,
       center - Offset(painter.width / 2, painter.height / 2),

@@ -85,7 +85,7 @@ class StabilityShapeFigure extends StatelessWidget {
             shapes: shapes,
             tiltDegrees: tiltDegrees,
             ink: colors.label,
-            faint: colors.fill,
+            plumbColor: colors.secondaryLabel,
           ),
           size: Size.infinite,
         ),
@@ -111,18 +111,75 @@ class StabilityShape {
   bool get isPyramid => form == 'pyramid';
 }
 
+/// How big the shapes are drawn, shared by the painter and its tests.
+@visibleForTesting
+abstract final class StabilityGeometry {
+  /// The corners of a shape's outline, relative to its pivot (the bottom
+  /// right corner of the base), before it leans. Up is negative.
+  static List<Offset> outline(StabilityShape shape, double unit) {
+    final base = shape.baseWidth * unit;
+    final height = shape.height * unit;
+    if (shape.isPyramid) {
+      return [Offset(-base, 0), Offset.zero, Offset(-base / 2, -height)];
+    }
+    return [
+      Offset(-base, 0),
+      Offset.zero,
+      Offset(0, -height),
+      Offset(-base, -height),
+    ];
+  }
+
+  /// The size of one unit of base width or height. Every shape leans about
+  /// the right end of its base, and none may leave the figure.
+  static double fitUnit({
+    required List<StabilityShape> shapes,
+    required double slot,
+    required double groundY,
+  }) {
+    final widest =
+        shapes.map((s) => s.baseWidth).reduce((a, b) => a > b ? a : b);
+    final tallest = shapes.map((s) => s.height).reduce((a, b) => a > b ? a : b);
+    final unit = math.min(slot * 0.55 / widest, (groundY - 22) / tallest);
+
+    const topMargin = 6.0;
+    var shrink = 1.0;
+    for (final shape in shapes) {
+      final angle = shape.tiltDegrees * math.pi / 180;
+      final pivotX = shape.baseWidth * unit / 2;
+      var up = 0.0;
+      var left = 0.0;
+      for (final corner in outline(shape, unit)) {
+        final x = corner.dx * math.cos(angle) - corner.dy * math.sin(angle);
+        final y = corner.dx * math.sin(angle) + corner.dy * math.cos(angle);
+        up = math.max(up, -y);
+        left = math.max(left, -x);
+      }
+      if (up > groundY - topMargin) {
+        shrink = math.min(shrink, (groundY - topMargin) / up);
+      }
+      final room = slot / 2 + pivotX - 4;
+      if (left > room) shrink = math.min(shrink, room / left);
+    }
+    return unit * shrink;
+  }
+}
+
 class _StabilityPainter extends CustomPainter {
   _StabilityPainter({
     required this.shapes,
     required this.tiltDegrees,
     required this.ink,
-    required this.faint,
+    required this.plumbColor,
   });
 
   final List<StabilityShape> shapes;
   final double tiltDegrees;
   final Color ink;
-  final Color faint;
+
+  /// The plumb line is what the lesson asks the student to read, so it is
+  /// not drawn in the faintest fill.
+  final Color plumbColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -133,7 +190,7 @@ class _StabilityPainter extends CustomPainter {
     final plumb = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
-      ..color = faint;
+      ..color = plumbColor;
 
     final groundY = size.height - 24;
     canvas.drawLine(
@@ -142,12 +199,16 @@ class _StabilityPainter extends CustomPainter {
       hairline,
     );
 
-    final widest =
-        shapes.map((s) => s.baseWidth).reduce((a, b) => a > b ? a : b);
-    final tallest = shapes.map((s) => s.height).reduce((a, b) => a > b ? a : b);
     final slot = size.width / shapes.length;
-    final unitWidth = (slot * 0.55) / widest;
-    final unitHeight = (groundY - 22) / tallest;
+    // One scale for both directions, so a base of 2 and a height of 3 are
+    // drawn in that proportion. Then shrink until every leaning shape fits.
+    final unit = StabilityGeometry.fitUnit(
+      shapes: shapes,
+      slot: slot,
+      groundY: groundY,
+    );
+    final unitWidth = unit;
+    final unitHeight = unit;
 
     for (var i = 0; i < shapes.length; i++) {
       final shape = shapes[i];
@@ -283,5 +344,5 @@ class _StabilityPainter extends CustomPainter {
       old.tiltDegrees != tiltDegrees ||
       old.shapes != shapes ||
       old.ink != ink ||
-      old.faint != faint;
+      old.plumbColor != plumbColor;
 }

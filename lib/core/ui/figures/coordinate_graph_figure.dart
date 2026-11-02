@@ -377,8 +377,15 @@ class _CoordinateGraphPainter extends CustomPainter {
     }
 
     const inset = 24.0;
-    final graph =
-        Rect.fromLTRB(inset, 16, size.width - 16, size.height - inset);
+    // A system's formula is a caption, so it sits above the graph rather
+    // than over the curves.
+    final captionAbove = type == 'system' && (formula?.isNotEmpty ?? false);
+    final graph = Rect.fromLTRB(
+      inset,
+      captionAbove ? 32 : 16,
+      size.width - 16,
+      size.height - inset,
+    );
     final grid = Paint()
       ..color = faint
       ..strokeWidth = 1;
@@ -397,9 +404,10 @@ class _CoordinateGraphPainter extends CustomPainter {
       ..color = faint
       ..style = PaintingStyle.fill;
 
-    for (var i = 1; i < 10; i++) {
-      final x = graph.left + graph.width * i / 10;
-      final y = graph.top + graph.height * i / 10;
+    // Twelve cells across and down, one per unit, to match `map` below.
+    for (var i = 1; i < 12; i++) {
+      final x = graph.left + graph.width * i / 12;
+      final y = graph.top + graph.height * i / 12;
       canvas
         ..drawLine(Offset(x, graph.top), Offset(x, graph.bottom), grid)
         ..drawLine(Offset(graph.left, y), Offset(graph.right, y), grid);
@@ -534,6 +542,10 @@ class _CoordinateGraphPainter extends CustomPainter {
         );
 
       case 'system':
+        // Lines that run past the graph stop at its edge.
+        canvas
+          ..save()
+          ..clipRect(graph);
         if (points.length == 1) {
           canvas
             ..drawLine(map(-2, -1), map(5, 6), stroke)
@@ -554,6 +566,7 @@ class _CoordinateGraphPainter extends CustomPainter {
             ..drawPath(parabolaPath, stroke)
             ..drawLine(map(-0.5, -7.5), map(3.5, 4.5), stroke);
         }
+        canvas.restore();
 
       case 'rational':
         _drawDashedLine(
@@ -643,17 +656,24 @@ class _CoordinateGraphPainter extends CustomPainter {
       for (final point in points) {
         final pt = map(point.dx, point.dy);
         canvas.drawCircle(pt, 3, fill);
-        _drawText(
-          canvas,
-          '(${point.dx.toInt()}, ${point.dy.toInt()})',
-          Offset(pt.dx + 4, pt.dy - 12),
-        );
+        final text = '(${point.dx.toInt()}, ${point.dy.toInt()})';
+        if (type == 'system') {
+          _drawSystemPointLabel(canvas, text, pt, points.length == 1);
+        } else {
+          _drawText(canvas, text, Offset(pt.dx + 4, pt.dy - 12));
+        }
       }
     }
 
     final label = formula;
     if (label != null && label.isNotEmpty) {
-      _drawText(canvas, label, Offset(graph.left + 4, graph.top + 4));
+      _drawText(
+        canvas,
+        captionAbove ? label.replaceAll('^2', '\u00B2') : label,
+        captionAbove
+            ? Offset(graph.left, 6)
+            : Offset(graph.left + 4, graph.top + 4),
+      );
     }
   }
 
@@ -1163,6 +1183,31 @@ class _CoordinateGraphPainter extends CustomPainter {
         paint,
       );
     }
+  }
+
+  /// A point's label on a system graph, in the empty wedge between the
+  /// lines, on a paper-colored patch so no line runs through the text.
+  /// One crossing has lines leaving to every side but up and down, so its
+  /// label sits below. With two points the lines climb steeply to the right,
+  /// so each label sits to the lower right.
+  void _drawSystemPointLabel(
+    Canvas canvas,
+    String text,
+    Offset point,
+    bool below,
+  ) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: labelStyle),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    final topLeft = below
+        ? Offset(point.dx - painter.width / 2, point.dy + 12)
+        : Offset(point.dx + 8, point.dy + 2);
+    canvas.drawRect(
+      (topLeft & painter.size).deflate(2),
+      Paint()..color = background,
+    );
+    painter.paint(canvas, topLeft);
   }
 
   void _drawText(Canvas canvas, String text, Offset offset) {
