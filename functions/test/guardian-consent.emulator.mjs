@@ -19,7 +19,7 @@ function harness({now = T0} = {}) {
   let clock = now;
   let n = 0;
   return {
-    sent, advance: ms => { clock += ms; },
+    sent, now: () => clock, advance: ms => { clock += ms; },
     deps: {db, key: KEY, linkOrigin: 'https://app.example.test/', now: () => clock,
       token: () => (++n).toString(16).padStart(64, '0'),
       allow: async () => true,
@@ -173,20 +173,64 @@ test('names allow only letters, spaces, hyphens, apostrophes and periods, 40 at 
   assert.equal(h.sent.at(-1).subject, "Review your child's Pantas account");
 });
 
-test('a global daily cap stops all sends and resets the next day', async () => {
-  await reset('g-cap1'); await reset('g-cap2'); await reset('g-cap3');
-  await db.recursiveDelete(db.collection('guardianLimits'));
+const globalDoc = h => db.doc(`guardianLimits/global-${new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Manila'}).format(h.now())}`);
+const fresh = async (...uids) => { for (const u of uids) await reset(u); await db.recursiveDelete(db.collection('guardianLimits')); };
+
+test('new guardian emails stop at 80% of the daily cap; the cap resets next day', async () => {
+  const uids = Array.from({length: 10}, (_, i) => `g-cap${i}`);
+  await fresh(...uids);
   const h = harness();
-  const deps = {...h.deps, dailyCap: 2};
-  assert.equal(await code(sendLink(req('g-cap1', body({guardianEmail: 'a1@mail.com'})), deps)), 'ok');
-  assert.equal(await code(sendLink(req('g-cap2', body({guardianEmail: 'a2@mail.com'})), deps)), 'ok');
-  assert.equal(await code(sendLink(req('g-cap3', body({guardianEmail: 'a3@mail.com'})), deps)), 'resource-exhausted');
-  assert.equal(h.sent.length, 2);
+  const deps = {...h.deps, dailyCap: 10, alert: () => {}};
+  for (let i = 0; i < 8; i++) assert.equal(await code(sendLink(req(uids[i], body({guardianEmail: `n${i}@mail.com`})), deps)), 'ok', `send ${i}`);
+  assert.equal(await code(sendLink(req(uids[8], body({guardianEmail: 'n8@mail.com'})), deps)), 'resource-exhausted');
   h.advance(DAY);
-  assert.equal(await code(sendLink(req('g-cap3', body({guardianEmail: 'a3@mail.com'})), deps)), 'ok');
+  assert.equal(await code(sendLink(req(uids[8], body({guardianEmail: 'n8@mail.com'})), deps)), 'ok');
   for (const bad of [0, -1, NaN]) {
-    assert.equal(await code(sendLink(req('g-cap3', body({guardianEmail: 'a4@mail.com'})), {...h.deps, dailyCap: bad})), 'resource-exhausted', `cap ${bad}`);
+    assert.equal(await code(sendLink(req(uids[9], body({guardianEmail: 'z@mail.com'})), {...h.deps, dailyCap: bad})), 'resource-exhausted', `cap ${bad}`);
   }
+});
+
+test('the last 20% of the cap is kept for re-sends to an email already on file', async () => {
+  const uids = Array.from({length: 9}, (_, i) => `g-res${i}`);
+  await fresh(...uids);
+  const h = harness();
+  const deps = {...h.deps, dailyCap: 10, alert: () => {}};
+  for (let i = 0; i < 8; i++) await sendLink(req(uids[i], body({guardianEmail: `r${i}@mail.com`})), deps);
+  assert.equal(await code(sendLink(req(uids[8], body({guardianEmail: 'new@mail.com'})), deps)), 'resource-exhausted', 'a new email is refused');
+  h.advance(SEND_LIMIT.gapMs + 1);
+  assert.equal(await code(sendLink(req(uids[0], body({guardianEmail: 'r0@mail.com'})), deps)), 'ok', 'resend 1');
+  h.advance(SEND_LIMIT.gapMs + 1);
+  assert.equal(await code(sendLink(req(uids[1], body({guardianEmail: 'r1@mail.com'})), deps)), 'ok', 'resend 2');
+  h.advance(SEND_LIMIT.gapMs + 1);
+  assert.equal(await code(sendLink(req(uids[2], body({guardianEmail: 'r2@mail.com'})), deps)), 'resource-exhausted', 'cap reached');
+  assert.equal((await globalDoc(h).get()).get('count'), 10);
+});
+
+test('a failed mail gives its place back', async () => {
+  await fresh('g-refund');
+  const h = harness();
+  const failing = {...h.deps, dailyCap: 10, alert: () => {}, mailer: {send: async () => { throw new Error('down'); }}};
+  assert.equal(await code(sendLink(req('g-refund', body()), failing)), 'unavailable');
+  assert.equal((await globalDoc(h).get()).get('count'), 0);
+  h.advance(SEND_LIMIT.gapMs + 1);
+  await sendLink(req('g-refund', body()), {...h.deps, dailyCap: 10, alert: () => {}});
+  assert.equal((await globalDoc(h).get()).get('count'), 1);
+});
+
+test('an error-level alert is raised once when sends reach 80% of the cap', async () => {
+  const uids = Array.from({length: 9}, (_, i) => `g-alert${i}`);
+  await fresh(...uids);
+  const h = harness();
+  const alerts = [];
+  const deps = {...h.deps, dailyCap: 10, alert: m => alerts.push(m)};
+  for (let i = 0; i < 7; i++) await sendLink(req(uids[i], body({guardianEmail: `a${i}@mail.com`})), deps);
+  assert.equal(alerts.length, 0);
+  await sendLink(req(uids[7], body({guardianEmail: 'a7@mail.com'})), deps);
+  assert.equal(alerts.length, 1);
+  assert.match(alerts[0], /80%/);
+  h.advance(SEND_LIMIT.gapMs + 1);
+  await sendLink(req(uids[0], body({guardianEmail: 'a0@mail.com'})), deps);
+  assert.equal(alerts.length, 1, 'only once');
 });
 
 test('unknown and malformed tokens reveal nothing', async () => {

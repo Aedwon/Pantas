@@ -40,6 +40,8 @@ export type ConsentDeps = {
   mailer: GuardianMailer;
   linkOrigin: string;
   dailyCap?: number;
+  /** Error-level alert sink. Defaults to the error log. */
+  alert?: (message: string) => void;
   now?: () => number;
   token?: () => string;
   allow?: (uid: string, key: string, max: number, windowMs: number) => Promise<boolean>;
@@ -160,8 +162,17 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
       throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
     }
     const sentToday = (global.get('count') as number | undefined) ?? 0;
-    if (sentToday + 1 > cap) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+    // The last 20% of the cap is kept for a student sending again to the
+    // address already on file, so throwaway accounts cannot lock them out.
+    const resend = before?.emailHash === emailHash;
+    const ceiling = resend ? cap : Math.floor(cap * 0.8);
+    if (sentToday + 1 > ceiling) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
     tx.set(globalLimit, {count: sentToday + 1});
+    const threshold = Math.ceil(cap * 0.8);
+    if (sentToday < threshold && sentToday + 1 >= threshold) {
+      (deps.alert ?? ((m: string) => console.error(m)))(
+        `Guardian emails reached 80% of the daily cap (${sentToday + 1} of ${cap}).`);
+    }
     tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1});
     if (typeof before?.tokenHash === 'string') {
       tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked'}, {merge: true});
@@ -179,6 +190,11 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   } catch (error) {
     // The student can retry. The unsent link stays valid only for this window.
     console.error('Guardian mail failed', {uid, error: String(error)});
+    // Give the place back so a failing mailer cannot use up the cap.
+    await deps.db.runTransaction(async (tx) => {
+      const count = ((await tx.get(globalLimit)).get('count') as number | undefined) ?? 0;
+      tx.set(globalLimit, {count: Math.max(0, count - 1)});
+    });
     throw new HttpsError('unavailable', 'The email could not be sent. Try again.');
   }
   return {expiresAt, maskedEmail};
