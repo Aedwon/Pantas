@@ -22,25 +22,23 @@ void main() {
     final status = await CallableGuardianGateway(client).sendLink(
       guardianName: 'Maria',
       guardianEmail: 'maria@gmail.com',
-      studentName: 'Juan',
     );
     expect(client.calls.single.$1, 'sendGuardianLink');
     expect(client.calls.single.$2, {
       'guardianName': 'Maria',
       'guardianEmail': 'maria@gmail.com',
-      'studentName': 'Juan',
     });
     expect(status.status, GuardianConsentStatus.pending);
     expect(status.maskedEmail, 'm***@g***.com');
   });
 
-  test('a missing student name is left out of the request', () async {
+  test('the request carries no student name', () async {
     final client = _Client((_, __) => {'expiresAt': 1, 'maskedEmail': 'x'});
     await CallableGuardianGateway(client).sendLink(
       guardianName: 'Maria',
       guardianEmail: 'maria@gmail.com',
     );
-    expect(client.calls.single.$2.containsKey('studentName'), isFalse);
+    expect(client.calls.single.$2.keys, ['guardianName', 'guardianEmail']);
   });
 
   test('status reads the callable', () async {
@@ -52,13 +50,16 @@ void main() {
 
   test('the link view maps open and closed states', () async {
     final open = _Client(
-      (_, __) => {'state': 'open', 'studentName': 'Juan', 'expiresAt': 1000},
+      (_, __) => {'state': 'open', 'expiresAt': 1000},
     );
     final view = await CallableGuardianGateway(open).readLink('t');
     expect(open.calls.single.$1, 'getGuardianRequest');
     expect(open.calls.single.$2, {'token': 't'});
     expect(view, isA<GuardianLinkOpen>());
-    expect((view as GuardianLinkOpen).studentName, 'Juan');
+    expect(
+      (view as GuardianLinkOpen).expiresAt,
+      DateTime.utc(1970, 1, 1, 0, 0, 1),
+    );
     for (final entry in {
       'used': GuardianLinkClosedReason.used,
       'expired': GuardianLinkClosedReason.expired,

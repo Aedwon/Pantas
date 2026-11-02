@@ -46,21 +46,6 @@ final guardianControllerProvider = Provider<GuardianController>(
   GuardianController.new,
 );
 
-// Letters, spaces, hyphens, apostrophes and periods, as the server requires.
-final _plainNamePattern =
-    RegExp(r"^\p{L}[\p{L}\p{M} '.\u2019-]*$", unicode: true);
-String? _plainName(String? name) {
-  final text = name?.trim();
-  if (text == null ||
-      text.isEmpty ||
-      text.length > 40 ||
-      !_plainNamePattern.hasMatch(text) ||
-      RegExp(r'\.\p{L}', unicode: true).hasMatch(text)) {
-    return null;
-  }
-  return text;
-}
-
 class GuardianController {
   GuardianController(this._ref);
   final Ref _ref;
@@ -70,14 +55,12 @@ class GuardianController {
   Future<GuardianStatus> sendLink({
     required String guardianName,
     required String guardianEmail,
-    String? studentName,
   }) async {
     final name = guardianName.trim();
     final email = guardianEmail.trim().toLowerCase();
     final status = await _ref.read(guardianGatewayProvider).sendLink(
           guardianName: name,
           guardianEmail: email,
-          studentName: _plainName(studentName),
         );
     final prefs = _ref.read(appPreferencesRepositoryProvider);
     await prefs.setGuardianContact(name: name, email: email);
@@ -87,14 +70,13 @@ class GuardianController {
   }
 
   /// Resends to the contact kept on this device, or null if there is none.
-  Future<GuardianStatus?> resend({String? studentName}) async {
+  Future<GuardianStatus?> resend() async {
     final contact =
         await _ref.read(appPreferencesRepositoryProvider).guardianContact();
     if (contact == null) return null;
     return sendLink(
       guardianName: contact.name,
       guardianEmail: contact.email,
-      studentName: studentName,
     );
   }
 

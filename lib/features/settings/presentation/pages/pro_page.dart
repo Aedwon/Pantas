@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -676,6 +677,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
+    // Message only: it adds no check of who pays and blocks nothing.
+    final askGuardian =
+        showOffers && ref.watch(ageGroupProvider).valueOrNull == 'minor';
+    const askGuardianLine =
+        'Ask your parent or guardian to complete this payment';
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -723,6 +729,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
+                          if (askGuardian)
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text(
+                                askGuardianLine,
+                                textAlign: TextAlign.right,
+                                style: context.webTokens.sm,
+                              ),
+                            ),
                           if (showOffers)
                             if (web && anonymous)
                               WebButton(
@@ -803,6 +818,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     if (showOffers) ...[
+                      if (askGuardian) ...[
+                        Text(
+                          askGuardianLine,
+                          textAlign: TextAlign.center,
+                          style: context.type.footnote,
+                        ),
+                        const SizedBox(height: 8),
+                      ],
                       if (web && anonymous)
                         PantasButton(
                           label: 'Continue with Google',

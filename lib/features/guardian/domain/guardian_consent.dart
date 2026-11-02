@@ -48,8 +48,7 @@ sealed class GuardianLinkView {
 }
 
 class GuardianLinkOpen extends GuardianLinkView {
-  const GuardianLinkOpen({required this.studentName, required this.expiresAt});
-  final String? studentName;
+  const GuardianLinkOpen({required this.expiresAt});
   final DateTime expiresAt;
 }
 

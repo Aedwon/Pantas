@@ -6,7 +6,7 @@ class FakeGuardianGateway implements GuardianGateway {
     status: GuardianConsentStatus.none,
   );
   Exception? failure;
-  final sent = <({String name, String email, String? student})>[];
+  final sent = <({String name, String email})>[];
 
   @override
   Future<GuardianStatus> status() async {
@@ -18,10 +18,9 @@ class FakeGuardianGateway implements GuardianGateway {
   Future<GuardianStatus> sendLink({
     required String guardianName,
     required String guardianEmail,
-    String? studentName,
   }) async {
     if (failure != null) throw failure!;
-    sent.add((name: guardianName, email: guardianEmail, student: studentName));
+    sent.add((name: guardianName, email: guardianEmail));
     return current = GuardianStatus(
       status: GuardianConsentStatus.pending,
       maskedEmail: maskEmail(guardianEmail),

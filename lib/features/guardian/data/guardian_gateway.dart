@@ -24,7 +24,6 @@ abstract interface class GuardianGateway {
   Future<GuardianStatus> sendLink({
     required String guardianName,
     required String guardianEmail,
-    String? studentName,
   });
 
   /// Reads the link for the guardian page. Never confirms.
@@ -83,13 +82,11 @@ class CallableGuardianGateway implements GuardianGateway {
   Future<GuardianStatus> sendLink({
     required String guardianName,
     required String guardianEmail,
-    String? studentName,
   }) async {
     final reply = _map(
       await _client.call('sendGuardianLink', {
         'guardianName': guardianName,
         'guardianEmail': guardianEmail,
-        if (studentName != null) 'studentName': studentName,
       }),
     );
     return GuardianStatus.fromJson({...reply, 'status': 'pending'});
@@ -101,9 +98,7 @@ class CallableGuardianGateway implements GuardianGateway {
         _map(await _client.call('getGuardianRequest', {'token': token}));
     final expires = reply['expiresAt'];
     if (reply['state'] == 'open' && expires is int) {
-      final name = reply['studentName'];
       return GuardianLinkOpen(
-        studentName: name is String ? name : null,
         expiresAt: DateTime.fromMillisecondsSinceEpoch(expires, isUtc: true),
       );
     }

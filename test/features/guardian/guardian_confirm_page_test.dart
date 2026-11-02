@@ -28,7 +28,6 @@ void main() {
   setUp(() {
     gateway = FakeGuardianGateway()
       ..link = GuardianLinkOpen(
-        studentName: 'Juan',
         expiresAt: DateTime.utc(2026, 11, 8, 17),
       );
     sink = _Sink();
@@ -98,15 +97,16 @@ void main() {
             web: entry.value.$2,
             scale: scale,
           );
-          expect(find.text("Confirm Juan's account"), findsOneWidget);
+          expect(find.text("Confirm your child's account"), findsOneWidget);
           expect(
-            find.text("You're confirming as Juan's parent or guardian."),
+            find.text("You're confirming as their parent or guardian."),
             findsOneWidget,
           );
           expect(
             find.textContaining(
-              "Pantas keeps Juan's answers and study progress to run the app. "
-              "Juan can't buy Pro. Only you can, from your own payment method.",
+              "Pantas keeps your child's answers and study progress to run the "
+              "app. Your child can't buy Pro. Only you can, from your own "
+              'payment method.',
             ),
             findsOneWidget,
           );
@@ -115,7 +115,7 @@ void main() {
           expect(find.text('Notice for teens'), findsOneWidget);
           expect(
             find.text(
-              "I'm Juan's parent or guardian, and I agree to these terms.",
+              "I'm their parent or guardian, and I agree to these terms.",
             ),
             findsOneWidget,
           );
@@ -136,12 +136,12 @@ void main() {
     await pump(tester);
     expect(confirmButton(tester).onPressed, isNull);
     await tester.tap(
-      find.text("I'm Juan's parent or guardian, and I agree to these terms."),
+      find.text("I'm their parent or guardian, and I agree to these terms."),
     );
     await tester.pump();
     expect(confirmButton(tester).onPressed, isNotNull);
     await tester.tap(
-      find.text("I'm Juan's parent or guardian, and I agree to these terms."),
+      find.text("I'm their parent or guardian, and I agree to these terms."),
     );
     await tester.pump();
     expect(confirmButton(tester).onPressed, isNull);
@@ -151,13 +151,17 @@ void main() {
       (tester) async {
     await pump(tester, token: 'tok');
     await tester.tap(
-      find.text("I'm Juan's parent or guardian, and I agree to these terms."),
+      find.text("I'm their parent or guardian, and I agree to these terms."),
     );
     await tester.pump();
     await tester.tap(find.widgetWithText(PantasButton, 'Confirm'));
     await tester.pumpAndSettle();
     expect(gateway.answers.single, (token: 'tok', confirm: true, agreed: true));
     expect(find.text('Thank you'), findsOneWidget);
+    expect(
+      find.text('The account is confirmed. You can close this page.'),
+      findsOneWidget,
+    );
     expect(find.widgetWithText(PantasButton, 'Confirm'), findsNothing);
   });
 
@@ -172,6 +176,10 @@ void main() {
       (token: 'tok', confirm: false, agreed: false),
     );
     expect(find.text('Response sent'), findsOneWidget);
+    expect(
+      find.text('The account was not confirmed. You can close this page.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('a link answered by someone else in the meantime says so',
@@ -189,6 +197,10 @@ void main() {
       gateway.link = GuardianLinkClosed(reason);
       await pump(tester);
       expect(find.text('This link no longer works'), findsOneWidget);
+      expect(
+        find.text('It has expired or was already used.'),
+        findsOneWidget,
+      );
       expect(find.text('Confirm'), findsNothing);
       expect(find.text("I Don't Agree"), findsNothing);
     });
@@ -216,7 +228,7 @@ void main() {
     await tester.ensureVisible(find.text("I Don't Agree"));
     await tester.tap(find.text("I Don't Agree"));
     await tester.pumpAndSettle();
-    expect(find.text("Confirm Juan's account"), findsOneWidget);
+    expect(find.text("Confirm your child's account"), findsOneWidget);
     expect(find.text('Could not save your progress.'), findsOneWidget);
     expect(sink.errors, hasLength(1));
   });
@@ -228,20 +240,6 @@ void main() {
     gateway.failure = null;
     await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
-    expect(find.text("Confirm Juan's account"), findsOneWidget);
-  });
-
-  testWidgets('an unnamed student uses the flagged fallback wording',
-      (tester) async {
-    gateway.link = GuardianLinkOpen(
-      studentName: null,
-      expiresAt: DateTime.utc(2026, 11, 9),
-    );
-    await pump(tester);
     expect(find.text("Confirm your child's account"), findsOneWidget);
-    expect(
-      find.textContaining("run the app. Your child can't buy Pro."),
-      findsOneWidget,
-    );
   });
 }

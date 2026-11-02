@@ -52,27 +52,15 @@ void main() {
     final status = await container.read(guardianControllerProvider).sendLink(
           guardianName: 'Maria',
           guardianEmail: ' Maria@Gmail.com ',
-          studentName: 'Juan',
         );
     expect(status.maskedEmail, 'm***@g***.com');
     expect(gateway.sent.single.email, 'maria@gmail.com');
-    expect(gateway.sent.single.student, 'Juan');
     final contact = await repo.guardianContact();
     expect(contact?.name, 'Maria');
     expect(contact?.email, 'maria@gmail.com');
     expect(await repo.guardianStatusCache(), 'pending');
     expect(await gate(), GuardianGate.waiting);
     expect(await repo.hasPassedAgeGate(), isFalse);
-  });
-
-  test('a student name the server would refuse is left out', () async {
-    await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
-    await container.read(guardianControllerProvider).sendLink(
-          guardianName: 'Maria',
-          guardianEmail: 'maria@gmail.com',
-          studentName: 'Juan2 www.x.com',
-        );
-    expect(gateway.sent.single.student, isNull);
   });
 
   test('a failed send keeps the student where they were', () async {

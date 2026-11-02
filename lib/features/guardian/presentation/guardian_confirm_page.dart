@@ -40,7 +40,6 @@ enum _Phase { loading, loadFailed, form, closed, confirmed, declined }
 
 class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
   _Phase _phase = _Phase.loading;
-  GuardianLinkOpen? _link;
   bool _agreed = false;
   bool _busy = false;
   bool _failed = false;
@@ -64,7 +63,6 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
       if (!mounted) return;
       setState(() {
         if (view is GuardianLinkOpen) {
-          _link = view;
           _phase = _Phase.form;
         } else {
           _phase = _Phase.closed;
@@ -112,8 +110,6 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
     unawaited(context.push(path));
   }
 
-  String get _student => _link?.studentName ?? GuardianCopy.unnamedStudent;
-
   @override
   Widget build(BuildContext context) {
     switch (_phase) {
@@ -127,14 +123,14 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
           detail: GuardianCopy.closedDetail,
         );
       case _Phase.confirmed:
-        return GuardianScreen(
+        return const GuardianScreen(
           title: GuardianCopy.confirmedTitle,
-          detail: GuardianCopy.confirmedDetail(_student),
+          detail: GuardianCopy.confirmedDetail,
         );
       case _Phase.declined:
-        return GuardianScreen(
+        return const GuardianScreen(
           title: GuardianCopy.declinedTitle,
-          detail: GuardianCopy.declinedDetail(_student),
+          detail: GuardianCopy.declinedDetail,
         );
       case _Phase.form:
         return _form(context);
@@ -142,7 +138,6 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
   }
 
   Widget _form(BuildContext context) {
-    final student = _student;
     final wide = context.wideWeb;
     final textStyle = wide
         ? context.webTokens.style(17, height: 1.5)
@@ -163,9 +158,9 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Pantas keeps $student's answers and study progress to run the "
-            "app. ${GuardianCopy.atSentenceStart(student)} can't buy Pro. "
-            'Only you can, from your own payment method.',
+            "Pantas keeps your child's answers and study progress to run the "
+            "app. Your child can't buy Pro. Only you can, from your own "
+            'payment method.',
             style: textStyle,
           ),
           const SizedBox(height: 8),
@@ -181,13 +176,13 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
       ),
     );
     final agreement = CheckboxRow(
-      title: "I'm $student's parent or guardian, and I agree to these terms.",
+      title: "I'm their parent or guardian, and I agree to these terms.",
       selected: _agreed,
       gap: 14,
       standardDensity: true,
       onTap: _busy ? null : () => setState(() => _agreed = !_agreed),
       content: Text(
-        "I'm $student's parent or guardian, and I agree to these terms.",
+        "I'm their parent or guardian, and I agree to these terms.",
         style: textStyle,
       ),
     );
@@ -195,8 +190,8 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         ? WebCard(radius: 16, child: child)
         : GroupedSection(children: [child]);
     return GuardianScreen(
-      title: "Confirm $student's account",
-      detail: "You're confirming as $student's parent or guardian.",
+      title: "Confirm your child's account",
+      detail: "You're confirming as their parent or guardian.",
       actions: [
         if (_failed)
           saveFailureLine(() => unawaited(_answer(confirm: _lastConfirm))),

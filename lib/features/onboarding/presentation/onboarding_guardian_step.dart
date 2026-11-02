@@ -9,7 +9,6 @@ import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
-import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// Asks a student under 18 for a parent or guardian's contact and sends them
 /// the link. Also serves Change Email from the Waiting screen.
@@ -70,12 +69,9 @@ class _OnboardingGuardianStepState
       _failed = false;
     });
     try {
-      final studentName =
-          (await ref.read(settingsRepositoryProvider).readUserSettings()).name;
       await ref.read(guardianControllerProvider).sendLink(
             guardianName: _name.text,
             guardianEmail: _email.text,
-            studentName: studentName,
           );
       if (mounted) widget.onSent();
     } on Object catch (error, stack) {

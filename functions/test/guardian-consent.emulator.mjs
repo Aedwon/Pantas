@@ -26,7 +26,7 @@ function harness({now = T0} = {}) {
       mailer: {send: async m => { sent.push(m); }}},
   };
 }
-const body = (over = {}) => ({guardianName: 'Maria', guardianEmail: 'Maria@Gmail.com', studentName: 'Juan', ...over});
+const body = (over = {}) => ({guardianName: 'Maria', guardianEmail: 'Maria@Gmail.com', ...over});
 const reset = async uid => {
   await db.recursiveDelete(db.doc(`users/${uid}`));
   await db.recursiveDelete(db.collection('guardianLimits'));
@@ -63,7 +63,7 @@ test('opening the link does not confirm; confirming needs the agreement box and 
   await sendLink(req(uid, body()), h.deps);
   const token = tokenOf(h.sent[0]);
   const guardian = 'g-visitor';
-  assert.deepEqual(await readRequest(req(guardian, {token}), h.deps), {state: 'open', studentName: 'Juan', expiresAt: T0 + GUARDIAN_WINDOW_MS});
+  assert.deepEqual(await readRequest(req(guardian, {token}), h.deps), {state: 'open', expiresAt: T0 + GUARDIAN_WINDOW_MS});
   await readRequest(req(guardian, {token}), h.deps);
   assert.equal((await stored(uid)).status, 'pending', 'reading never confirms');
   assert.equal(await code(answerRequest(req(guardian, {token, decision: 'confirm', agreed: false}), h.deps)), 'failed-precondition');
@@ -139,10 +139,19 @@ test('sends are rate limited per student, per gap and per guardian address', asy
   assert.equal(await code(readRequest(req('g-limit2', {token: 'a'.repeat(64)}), denied)), 'resource-exhausted');
 });
 
+test('a student name sent by an old client is ignored and never stored', async () => {
+  const uid = 'g-noname'; await reset(uid);
+  const h = harness();
+  await sendLink(req(uid, body({studentName: 'Juan'})), h.deps);
+  assert.ok(!h.sent[0].text.includes('Juan'));
+  assert.equal(JSON.stringify(await stored(uid)).includes('Juan'), false);
+  assert.equal('studentName' in (await stored(uid)), false);
+});
+
 test('bad input, no App Check and no sign-in are refused; a confirmed student cannot send again', async () => {
   const uid = 'g-input'; await reset(uid);
   const h = harness();
-  for (const bad of [body({guardianEmail: 'nope'}), body({guardianName: ''}), body({guardianName: 'x'.repeat(61)}), body({studentName: 'a\nb'}), {}]) {
+  for (const bad of [body({guardianEmail: 'nope'}), body({guardianName: ''}), body({guardianName: 'x'.repeat(61)}), {}]) {
     assert.equal(await code(sendLink(req(uid, bad), h.deps)), 'invalid-argument');
   }
   assert.equal(await code(sendLink({auth: anon(uid), data: body()}, h.deps)), 'unauthenticated');
@@ -163,7 +172,6 @@ test('names allow only letters, spaces, hyphens, apostrophes and periods, 40 at 
   const bad = ['Maria2', 'Visit http://x.co', 'a@b', 'Call 0917', 'www.evil.com now', 'x'.repeat(41), 'Maria_', 'Maria\u{1F600}', '<b>'];
   for (const name of bad) {
     assert.equal(await code(sendLink(req(uid, body({guardianName: name})), h.deps)), 'invalid-argument', `guardian ${name}`);
-    assert.equal(await code(sendLink(req(uid, body({studentName: name})), h.deps)), 'invalid-argument', `student ${name}`);
   }
   assert.equal(h.sent.length, 0);
   for (const name of ["Mary-Ann O'Neil Jr.", 'José Niño', 'x'.repeat(40)]) {

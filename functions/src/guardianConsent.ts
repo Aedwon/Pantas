@@ -122,7 +122,6 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const uid = requireCaller(request);
   const data = (request.data ?? {}) as Record<string, unknown>;
   const guardianName = cleanName(data.guardianName, true) as string;
-  const studentName = cleanName(data.studentName, false);
   const rawEmail = typeof data.guardianEmail === 'string' ? data.guardianEmail.trim().toLowerCase() : '';
   if (!validEmail(rawEmail)) throw new HttpsError('invalid-argument', 'Enter a valid email.');
   const ownEmail = (request.auth?.token as {email?: string} | undefined)?.email;
@@ -179,14 +178,14 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     }
     tx.set(tokenRef(deps.db, tokenHash), {uid, state: 'open', createdAt: now, expiresAt});
     tx.set(consent, {
-      status: 'pending', ageGroup: 'minor', emailHash, maskedEmail, tokenHash, studentName,
+      status: 'pending', ageGroup: 'minor', emailHash, maskedEmail, tokenHash,
       createdAt: before?.createdAt ?? now, sentAt: now, expiresAt,
     });
   });
 
   const link = `${deps.linkOrigin.replace(/\/$/, '')}/guardian?token=${token}`;
   try {
-    await deps.mailer.send(guardianMessage({guardianName, guardianEmail: rawEmail, studentName, link, expiresAt}));
+    await deps.mailer.send(guardianMessage({guardianName, guardianEmail: rawEmail, link, expiresAt}));
   } catch (error) {
     // The student can retry. The unsent link stays valid only for this window.
     console.error('Guardian mail failed', {uid, error: String(error)});
@@ -201,7 +200,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
 }
 
 export type RequestResult =
-  | {state: 'open'; studentName: string | null; expiresAt: number}
+  | {state: 'open'; expiresAt: number}
   | {state: 'used' | 'expired' | 'unknown'};
 
 async function lookup(deps: ConsentDeps, token: unknown, now: number) {
@@ -233,7 +232,7 @@ export async function readRequest(request: AppRequest, deps: ConsentDeps): Promi
   if (found.state !== 'open') return {state: found.state};
   const consent = (await consentRef(deps.db, found.uid).get()).data();
   if (consent?.status !== 'pending') return {state: 'used'};
-  return {state: 'open', studentName: consent.studentName ?? null, expiresAt: found.expiresAt};
+  return {state: 'open', expiresAt: found.expiresAt};
 }
 
 export type AnswerResult = {state: 'confirmed' | 'declined' | 'used' | 'expired' | 'unknown'};

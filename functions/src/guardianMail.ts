@@ -18,9 +18,6 @@ export interface GuardianMailer {
   send(message: GuardianMessage): Promise<void>;
 }
 
-/** The only wording that depends on a missing student name. Pending approval. */
-export const UNNAMED_STUDENT = 'your child';
-
 const escapeHtml = (value: string): string =>
   value.replace(/[&<>"']/g, (c) => (
     {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c] as string));
@@ -35,7 +32,6 @@ export function expiryLabel(at: number): string {
 export type GuardianMailInput = {
   guardianName: string;
   guardianEmail: string;
-  studentName: string | null;
   link: string;
   expiresAt: number;
 };
@@ -47,13 +43,10 @@ const font = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial
 
 /** The consent request email. Every dynamic value is escaped before it enters the markup. */
 export function guardianMessage(input: GuardianMailInput): GuardianMessage {
-  const student = input.studentName ?? UNNAMED_STUDENT;
   const subject = "Review your child's Pantas account";
-  const heading = input.studentName === null
-    ? `Confirm ${UNNAMED_STUDENT}'s Pantas account.`
-    : `Confirm ${student}'s Pantas account.`;
+  const heading = "Confirm your child's Pantas account.";
   const greeting = `Hi ${input.guardianName},`;
-  const lead = `${student[0].toUpperCase()}${student.slice(1)} wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. ` +
+  const lead = `Your child wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. ` +
     'So far we have only their age group, and your name and email.';
   const notice = 'Opening the link alone does not confirm.';
   const label = 'Review and Confirm';

@@ -175,7 +175,6 @@ void main() {
         (tester) async {
       final guardian = FakeGuardianGateway()
         ..link = GuardianLinkOpen(
-          studentName: 'Juan',
           expiresAt: DateTime.utc(2026, 11, 9),
         );
       await pumpApp(tester, guardian: guardian);
@@ -184,7 +183,7 @@ void main() {
       container.read(routerProvider).go('/guardian?token=abc');
       await tester.pumpAndSettle();
       expect(pathOf(tester), '/guardian');
-      expect(find.text("Confirm Juan's account"), findsOneWidget);
+      expect(find.text("Confirm your child's account"), findsOneWidget);
       expect(guardian.answers, isEmpty, reason: 'opening never confirms');
     });
 
