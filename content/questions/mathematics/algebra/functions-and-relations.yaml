@@ -262,9 +262,7 @@ questions:
         rationale: |
           This reverses the square-root condition. Subtracting or adding one does not reverse an inequality. Check that the radicand must be nonnegative.
     explanation: |
-      The square root requires $x+1\ge0$, so $x\ge-1$. The denominator requires $x-2
-      e0$, so $x
-      e2$. Both conditions must hold.
+      The square root requires $x+1\ge0$, so $x\ge-1$. The denominator requires $x-2\ne0$, so $x\ne2$. Both conditions must hold.
 
   - id: q-algebra-functions-and-relations-0014
     type: which-is-true

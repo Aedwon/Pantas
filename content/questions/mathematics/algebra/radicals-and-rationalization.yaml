@@ -242,8 +242,7 @@ questions:
         rationale: |
           This assumes the square-root shortcut works for a cube root. Both methods multiply by a radical. Check the number of factors needed to complete a cube.
     explanation: |
-      The written multiplication produces denominator $\sqrt[3]{x}\sqrt[3]{x}=\sqrt[3]{x^2}$. To obtain $x$ instead, multiply top and bottom by $\sqrt[3]{x^2}$. This gives $\dfrac{\sqrt[3]{x^2}}{x}$ for $x
-      e0$.
+      The written multiplication produces denominator $\sqrt[3]{x}\sqrt[3]{x}=\sqrt[3]{x^2}$. To obtain $x$ instead, multiply top and bottom by $\sqrt[3]{x^2}$. This gives $\dfrac{\sqrt[3]{x^2}}{x}$ for $x\ne0$.
 
   - id: q-algebra-radicals-and-rationalization-0013
     type: direct-computation
