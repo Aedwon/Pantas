@@ -11,7 +11,7 @@
 
 </defs>
 <rect width="360" height="350" rx="14" fill="url(#bg)"/>
-<text x="107.5" y="28" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = (</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + 1)/(</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 2)</tspan></text>
+<text x="106.8" y="28" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="1.1">= (</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400" dx="-3.7">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="1.1">+ 1)/(</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400" dx="-3.7">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="1.1">− 2)</tspan></text>
 <rect x="40" y="56" width="262" height="262" rx="6" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
 <line x1="40" y1="56" x2="40" y2="318" stroke="#020202" stroke-width="1" stroke-opacity="0.15"/>
 <line x1="61.8" y1="56" x2="61.8" y2="318" stroke="#020202" stroke-width="1" stroke-opacity="0.15"/>
@@ -50,8 +50,8 @@
 <circle cx="127.3" cy="208.8" r="4.5" fill="#010101"/>
 <circle cx="149.2" cy="219.8" r="4.5" fill="#010101"/>
 <circle cx="214.7" cy="121.5" r="4.5" fill="#010101"/>
-<rect x="150.6" y="60.0" width="39.2" height="16.5" rx="2" fill="#030303"/>
-<text x="152.6" y="72" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan></text>
+<rect x="150.1" y="60.0" width="39.7" height="16.5" rx="2" fill="#030303"/>
+<text x="152.1" y="72" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dx="1">= 2</tspan></text>
 <text x="308" y="192" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 1</tspan></text>
 <line x1="123.3" y1="212.8" x2="113.3" y2="230.8" stroke="#020202" stroke-width="1.5"/>
 <rect x="87.7" y="233.6" width="47.2" height="15.4" rx="2" fill="#030303"/>
