@@ -12,6 +12,10 @@ class RemoteEntry {
   const RemoteEntry.unchanged({required this.version})
       : status = RemoteStatus.unchanged,
         data = null;
+  const RemoteEntry.limited()
+      : status = RemoteStatus.limited,
+        version = null,
+        data = null;
   const RemoteEntry.missing()
       : status = RemoteStatus.missing,
         version = null,
@@ -22,7 +26,15 @@ class RemoteEntry {
   final Map<String, Object?>? data;
 }
 
-enum RemoteStatus { ok, unchanged, missing }
+enum RemoteStatus { ok, unchanged, missing, limited }
+
+/// The server answered `resource-exhausted`: the daily content limit.
+class ContentLimitReached implements Exception {
+  const ContentLimitReached();
+
+  @override
+  String toString() => 'ContentLimitReached';
+}
 
 @immutable
 class ContentFetch {
@@ -55,12 +67,18 @@ class CallableContentRemote implements ContentRemote {
     List<String> ids,
     Map<String, String> knownVersions,
   ) async {
-    final result = await _functions.httpsCallable('getContent').call<Object?>({
-      'kind': kind.wire,
-      'ids': ids,
-      'knownVersions': knownVersions,
-    });
-    return parseContentResponse(result.data);
+    try {
+      final result =
+          await _functions.httpsCallable('getContent').call<Object?>({
+        'kind': kind.wire,
+        'ids': ids,
+        'knownVersions': knownVersions,
+      });
+      return parseContentResponse(result.data);
+    } on FirebaseFunctionsException catch (error) {
+      if (error.code == 'resource-exhausted') throw const ContentLimitReached();
+      rethrow;
+    }
   }
 }
 
@@ -84,6 +102,8 @@ RemoteEntry _entry(Map<String, Object?> raw) {
       );
     case 'unchanged':
       return RemoteEntry.unchanged(version: raw['version']! as String);
+    case 'limited':
+      return const RemoteEntry.limited();
     default:
       return const RemoteEntry.missing();
   }

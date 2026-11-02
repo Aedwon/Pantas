@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/auth_bootstrap.dart';
+import 'package:pantas/app/content_access_bridge.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/local_onboarding_preset_apply.dart';
@@ -382,6 +383,7 @@ Future<void> _bootstrap(
 Future<void> _startWebContent(ProviderContainer container) async {
   try {
     await container.read(contentMirrorProvider).start();
+    container.read(contentAccessBridgeProvider);
   } catch (error, stack) {
     debugPrint('Web content did not start: $error\n$stack');
   }

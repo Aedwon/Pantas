@@ -5,6 +5,8 @@ import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/remote/content_cache.dart';
+import 'package:pantas/core/content/remote/content_checks.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/content/remote/content_mirror.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
@@ -21,9 +23,18 @@ final contentCacheProvider = Provider<ContentCache>(
 /// The web content source. Native builds keep reading the bundled content
 /// database and never read this provider.
 final contentServiceProvider = Provider<ContentService>((ref) {
+  final limitFlag = ref.read(contentLimitReachedProvider.notifier);
   final service = ContentService(
     remote: ref.watch(contentRemoteProvider),
     cache: ref.watch(contentCacheProvider),
+    checks: ContentChecks(
+      store: DevicePrefsCheckStore(ref.watch(appDatabaseProvider)),
+    ),
+    onLimitReached: (reached) {
+      if (limitFlag.mounted && limitFlag.state != reached) {
+        limitFlag.state = reached;
+      }
+    },
   );
   String? lastUid;
   ref
@@ -36,6 +47,12 @@ final contentServiceProvider = Provider<ContentService>((ref) {
         if (state is SignedOutAuthState ||
             (lastUid != null && uid != lastUid)) {
           service.onSignedOut();
+        }
+        // The day's checks belong to one account.
+        if (state is SignedOutAuthState) {
+          unawaited(service.useAccount(null));
+        } else if (uid != null) {
+          unawaited(service.useAccount(uid));
         }
         if (state is! UnknownAuthState) lastUid = uid;
       },

@@ -92,30 +92,49 @@ class ContentMirror implements ContentFetchHook {
     await _queue;
   }
 
-  /// Asks the server for the index and every exam catalog it lists.
-  Future<void> refreshCatalog() async {
+  /// Asks the server for the index and every exam catalog it lists. A
+  /// document already checked today is not asked for again, unless [force].
+  Future<void> refreshCatalog({bool force = false}) async {
     // Sign-in may arrive while the startup request is still unauthenticated.
     // Wait for that request, then fetch with the current account.
     await _refreshing;
     await (_refreshing ??=
-        _refreshCatalog().whenComplete(() => _refreshing = null));
+        _refreshCatalog(force: force).whenComplete(() => _refreshing = null));
   }
 
-  Future<void> _refreshCatalog() async {
+  /// What the account has paid for changed (a purchase, a restore, Pro
+  /// ending). The checks of the day are already dropped, so this fetches the
+  /// question sets held on this device first, which brings in the Pro notes
+  /// (or removes them), then the catalog. Lessons are checked when opened.
+  Future<void> onAccessChanged() async {
+    _revalidated.clear();
+    final sets = [
+      for (final item in await _service.storedItems())
+        if (item.kind == ContentKind.questions) item.id,
+    ];
+    if (sets.isNotEmpty) await _service.refresh(ContentKind.questions, sets);
+    await refreshCatalog();
+  }
+
+  Future<void> _refreshCatalog({bool force = false}) async {
     try {
-      await _service.refresh(ContentKind.catalog, [catalogIndexId]);
+      await _service.refresh(
+        ContentKind.catalog,
+        [catalogIndexId],
+        force: force,
+      );
       final index = await _loadStored(ContentKind.catalog, catalogIndexId);
       if (index == null) return;
       final catalogs = parseCatalogIndex(index.data).catalogs;
       if (catalogs.isEmpty) return;
-      await _service.refresh(ContentKind.catalog, catalogs);
+      await _service.refresh(ContentKind.catalog, catalogs, force: force);
       final parts = <String>[];
       for (final id in catalogs) {
         final item = await _loadStored(ContentKind.catalog, id);
         if (item != null) parts.addAll(parseExamCatalog(item.data).parts);
       }
       if (parts.isEmpty) return;
-      await _service.refresh(ContentKind.catalog, parts);
+      await _service.refresh(ContentKind.catalog, parts, force: force);
       for (final id in parts) {
         await _loadStored(ContentKind.catalog, id);
       }
@@ -254,8 +273,11 @@ class ContentMirror implements ContentFetchHook {
       });
       _applied[key] = item.version;
     } on Object catch (error) {
-      // One bad document must not stop the rest from loading.
+      // One bad document must not stop the rest from loading. Forgetting its
+      // check makes the next request fetch a fresh copy instead of trusting
+      // today's.
       debugPrint('Content item $key not applied: $error');
+      await _service.forgetCheck(item.kind, item.id);
     }
   }
 

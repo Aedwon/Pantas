@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:pantas/core/content/remote/content_cache.dart';
+import 'package:pantas/core/content/remote/content_checks.dart';
 import 'package:pantas/core/content/remote/content_item.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 
@@ -12,12 +13,23 @@ import 'package:pantas/core/content/remote/content_remote.dart';
 /// With nothing stored it waits for the server. Pro-only fields exist in the
 /// store only when the server sent them to a Pro account.
 class ContentService {
-  ContentService({required ContentRemote remote, required ContentCache cache})
-      : _remote = remote,
-        _cache = cache;
+  /// With [checks], an item the server was asked about today is not asked
+  /// about again the same local day. [onLimitReached] hears whether the last
+  /// request was refused for the daily limit.
+  ContentService({
+    required ContentRemote remote,
+    required ContentCache cache,
+    ContentChecks? checks,
+    ValueSetter<bool>? onLimitReached,
+  })  : _remote = remote,
+        _cache = cache,
+        _checks = checks,
+        _onLimitReached = onLimitReached;
 
   final ContentRemote _remote;
   final ContentCache _cache;
+  final ContentChecks? _checks;
+  final ValueSetter<bool>? _onLimitReached;
   final _changes = StreamController<ContentItem>.broadcast();
   final _inFlight = <Future<void>>{};
 
@@ -53,13 +65,47 @@ class ContentService {
 
   /// Fetches the latest of [ids] in calls of at most 20. A failed call keeps
   /// the stored copies and does not throw.
-  Future<void> refresh(ContentKind kind, List<String> ids) async {
+  ///
+  /// An id with a stored copy that was checked today is skipped, unless
+  /// [force] is set (a manual retry). An id with no stored copy is always
+  /// fetched.
+  Future<void> refresh(
+    ContentKind kind,
+    List<String> ids, {
+    bool force = false,
+  }) async {
     final unique = ids.toSet().toList();
-    for (var start = 0; start < unique.length; start += maxContentIdsPerCall) {
-      final end = (start + maxContentIdsPerCall).clamp(0, unique.length);
-      await _refreshBatch(kind, unique.sublist(start, end));
+    final due = force ? unique : await _due(kind, unique);
+    for (var start = 0; start < due.length; start += maxContentIdsPerCall) {
+      final end = (start + maxContentIdsPerCall).clamp(0, due.length);
+      await _refreshBatch(kind, due.sublist(start, end));
     }
   }
+
+  Future<List<String>> _due(ContentKind kind, List<String> ids) async {
+    final checks = _checks;
+    if (checks == null) return ids;
+    final stored = await _cache.versions(kind, ids);
+    return [
+      for (final id in ids)
+        if (!stored.containsKey(id) || !await checks.isFresh(kind, id)) id,
+    ];
+  }
+
+  /// Makes the next [refresh] of this item ask the server. Call when the
+  /// stored copy could not be used.
+  Future<void> forgetCheck(ContentKind kind, String id) async =>
+      _checks?.forget(kind, id);
+
+  /// Tells the service which account is signed in. True when a different
+  /// account dropped the day's checks.
+  Future<bool> useAccount(String? uid) async =>
+      await _checks?.useAccount(uid) ?? false;
+
+  /// Tells the service what the account has paid for. True when that changed
+  /// and the day's checks were dropped, so the caller should fetch again.
+  Future<bool> useAccess(String access) async =>
+      await _checks?.useAccess(access) ?? false;
 
   /// After [openedId] opens, fetches up to [count] of the next ids in [ordered]
   /// that are not stored yet.
@@ -88,9 +134,17 @@ class ContentService {
     try {
       final known = await _cache.versions(kind, ids);
       final fetched = await _remote.fetch(kind, ids, known);
+      var limited = false;
+      final checked = <String>[];
       for (final id in ids) {
         final entry = fetched.entries[id];
-        if (entry == null || entry.status != RemoteStatus.ok) continue;
+        if (entry == null) continue;
+        if (entry.status == RemoteStatus.limited) {
+          limited = true;
+          continue;
+        }
+        checked.add(id);
+        if (entry.status != RemoteStatus.ok) continue;
         final item = ContentItem(
           kind: kind,
           id: id,
@@ -101,8 +155,12 @@ class ContentService {
         await _cache.put(item);
         _changes.add(item);
       }
+      await _checks?.markChecked(kind, checked);
+      _onLimitReached?.call(limited);
       // A Free answer means any Pro copy in the store is out of date.
       if (fetched.tier == 'free') await _downgrade();
+    } on ContentLimitReached {
+      _onLimitReached?.call(true);
     } on Object catch (error) {
       debugPrint('Content refresh failed: $error');
     }
