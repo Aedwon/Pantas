@@ -2,17 +2,17 @@
 // Local use only: nothing here is imported by the app or the deployed functions.
 //
 //   npm --prefix functions run build
-//   node tool/preview_guardian_email.mjs <out.html> [studentName] [guardianName]
+//   node tool/preview_guardian_email.mjs <out.html> [guardianName]
 import {writeFileSync} from 'node:fs';
 import {guardianMessage} from '../functions/lib/guardianMail.js';
 
-const [out, studentName = 'Juan', guardianName = 'Maria'] = process.argv.slice(2);
+const [out, guardianName = 'Maria'] = process.argv.slice(2);
 if (!out) {
-  console.error('Usage: node tool/preview_guardian_email.mjs <out.html> [studentName] [guardianName]');
+  console.error('Usage: node tool/preview_guardian_email.mjs <out.html> [guardianName]');
   process.exit(2);
 }
 const message = guardianMessage({
-  guardianName, guardianEmail: 'maria@gmail.com', studentName,
+  guardianName, guardianEmail: 'maria@gmail.com',
   link: 'http://localhost/guardian?token=preview',
   expiresAt: Date.parse('2026-11-09T12:00:00+08:00'),
 });
