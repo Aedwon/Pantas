@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'api.dart';
 import 'databases.dart';
+import 'device.dart';
 import 'exams.dart';
 import 'models.dart';
 import 'study_order.dart';
@@ -46,7 +47,10 @@ class ReviewController extends ChangeNotifier {
 
   /// `not_reviewed`, `tagged` or `all`.
   String statusFilter = 'not_reviewed';
-  bool wide = false;
+  Device device = Device.phone;
+
+  /// Whether Pro is on. It applies to questions only.
+  bool pro = true;
   bool dark = false;
   String? currentId;
   String screenState = 'question';
@@ -66,6 +70,13 @@ class ReviewController extends ChangeNotifier {
   final FocusNode commentFocus = FocusNode();
   final TextEditingController commentText = TextEditingController();
   Timer? _debounce;
+
+  /// Items whose status just changed stay in the queue a moment, so their
+  /// dot can finish its animation after the filter would drop them.
+  final Map<String, Timer> _lingering = {};
+
+  /// Counts Looks good presses, for the button's check animation.
+  int goodTick = 0;
   var _dirtyComment = false;
 
   ReviewItem? get current => _byId[currentId];
@@ -95,7 +106,9 @@ class ReviewController extends ChangeNotifier {
           ofKind.where((i) => recordOf(i.id).status != 'not_reviewed').length;
       out.add(QueueRow.header(heading, done, ofKind.length));
       for (final item in ofKind) {
-        if (_matches(item) || item.id == currentId) {
+        if (_matches(item) ||
+            item.id == currentId ||
+            _lingering.containsKey(item.id)) {
           out.add(QueueRow.item(item));
         }
       }
@@ -127,8 +140,8 @@ class ReviewController extends ChangeNotifier {
       const ['not_reviewed', 'tagged', 'all'],
       statusFilter,
     );
-    final size = query['size'] ?? position['size'];
-    wide = size == 'wide';
+    device = Device.fromStored(query['size'] ?? position['size']);
+    pro = (query['plan'] ?? position['plan']) != 'free';
     final theme = query['theme'] ?? position['theme'];
     dark = theme == 'dark';
     final wanted = query['item'] ?? position['itemId'];
@@ -303,8 +316,14 @@ class ReviewController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setWide({required bool value}) {
-    wide = value;
+  void setDevice(Device value) {
+    device = value;
+    _savePosition();
+    notifyListeners();
+  }
+
+  void setPro({required bool value}) {
+    pro = value;
     _savePosition();
     notifyListeners();
   }
@@ -334,7 +353,8 @@ class ReviewController extends ChangeNotifier {
         'exam': exam,
         'status': statusFilter,
         'itemId': currentId,
-        'size': wide ? 'wide' : 'phone',
+        'size': device.name,
+        'plan': pro ? 'pro' : 'free',
         'theme': dark ? 'dark' : 'light',
         'questionState': screenState,
         'choice': wrongLetter,
@@ -389,6 +409,7 @@ class ReviewController extends ChangeNotifier {
       previous: old.previous,
     );
     _records[item.id] = next;
+    if (old.status != next.status) _linger(item.id);
     unawaited(
       api.saveNote({
         'id': item.id,
@@ -397,7 +418,8 @@ class ReviewController extends ChangeNotifier {
         'exams': item.exams,
         'state': screenState,
         if (screenState == 'wrong') 'choice': wrongLetter,
-        'size': wide ? 'wide' : 'phone',
+        'size': device.name,
+        'plan': pro ? 'pro' : 'free',
         'theme': dark ? 'dark' : 'light',
         'tags': tags,
         'comment': comment,
@@ -410,10 +432,19 @@ class ReviewController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void _linger(String id) {
+    _lingering[id]?.cancel();
+    _lingering[id] = Timer(const Duration(milliseconds: 700), () {
+      _lingering.remove(id);
+      notifyListeners();
+    });
+  }
+
   /// Marks the item as fine and moves on.
   void looksGood() {
     final item = current;
     if (item == null) return;
+    goodTick++;
     flushComment();
     final record = recordOf(item.id);
     _save(
@@ -454,6 +485,9 @@ class ReviewController extends ChangeNotifier {
   @override
   void dispose() {
     _debounce?.cancel();
+    for (final t in _lingering.values) {
+      t.cancel();
+    }
     commentFocus.dispose();
     commentText.dispose();
     super.dispose();

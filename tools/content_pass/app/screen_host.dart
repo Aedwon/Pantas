@@ -26,6 +26,7 @@ import 'package:pantas/l10n/app_localizations.dart';
 
 import 'api.dart';
 import 'databases.dart';
+import 'device.dart';
 import 'fixed_quiz_controller.dart';
 import 'mock_topics.dart';
 
@@ -35,8 +36,9 @@ class ScreenSpec {
     required this.kind,
     required this.itemId,
     required this.examId,
-    required this.wide,
+    required this.device,
     required this.dark,
+    this.pro = true,
     this.state = 'question',
     this.choice,
     this.generation = 0,
@@ -52,16 +54,19 @@ class ScreenSpec {
 
   /// For a wrong answer: the letter of the choice picked.
   final String? choice;
-  final bool wide;
+  final Device device;
   final bool dark;
+
+  /// Whether the question screen shows Pro features (the wrong-choice notes).
+  final bool pro;
   final int generation;
 
   ({double width, double height}) get size =>
-      wide ? (width: 1280, height: 800) : (width: 390, height: 844);
+      (width: device.width, height: device.height);
 
   /// A fresh screen for any change here, so no state carries between items.
-  String get key =>
-      '$kind|$itemId|$examId|$state|$choice|$wide|$dark|$generation';
+  String get key => '$kind|$itemId|$examId|$state|$choice|${device.name}|$dark|'
+      '${kind == 'question' ? pro : ''}|$generation';
 }
 
 /// Mounts one real screen the way the app mounts it, with test seams only:
@@ -197,8 +202,8 @@ Widget _screen(ScreenSpec spec, ContentPassApi api) => switch (spec.kind) {
       'question' => QuizPage(
           examId: spec.examId,
           mode: QuizPageMode.today,
-          // Shows the Pro wrong-choice note without a store entitlement.
-          proIsActive: true,
+          // Follows the switch, without a store entitlement.
+          proIsActive: spec.pro,
         ),
       'mock' when spec.state == 'exam' => _MockExam(spec: spec),
       'mock' => _MockStart(spec: spec),

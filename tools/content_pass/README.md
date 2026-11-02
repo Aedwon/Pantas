@@ -22,9 +22,10 @@ never touches the notes.
 review state on one machine.
 
 `records` has one entry per item touched: `id`, `kind`, `file`, `exams`, `state`, `choice`, `size`,
-`theme`, `tags`, `comment`, `status` (`not_reviewed`, `looks_good`, `tagged`), `time`, `hash`,
+`plan`, `theme`, `tags`, `comment`, `status` (`not_reviewed`, `looks_good`, `tagged`), `time`, `hash`,
 `commit`. To act on the problems, read records with status `tagged` and fix `file` at `id`. `state`,
-`choice`, `size` and `theme` say what was on screen. `previous` holds the earlier note when the
+`choice`, `size` (`desktop`, `tablet` or `phone`; old notes say `wide`, which means desktop), `plan`
+(`free` or `pro`) and `theme` say what was on screen. `previous` holds the earlier note when the
 content changed after review. `removed: true` means the item is gone from the content.
 
 ## Choose the content
@@ -44,7 +45,8 @@ for updates, after a change. Items reviewed earlier whose content changed go bac
 
 Real: `LessonPage`, `QuizPage`, `MockSetupPage`, `MockSessionPage`, `ContentRenderer`, the themes, the
 export and the seed writer. Test seams only: the two databases, the auth state, and a quiz controller
-holding a fixed state. Wrong shows Pro, so each wrong-choice note is visible.
+holding a fixed state. The Free and Pro switch (default Pro) sets whether a question shows the Pro wrong-choice notes, so Wrong
+needs Pro to show each note. It applies to questions only.
 
 Not real:
 

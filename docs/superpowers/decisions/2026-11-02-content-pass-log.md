@@ -48,3 +48,40 @@ brief, so nothing here is quoted as his wording. Scope and layout are in
   - `mathematics/algebra/linear-equations-inequalities/01-number-line-with-an-open.svg` shows a garbled
     "x" in its label.
   - 509 Pro and 459 Subpro questions have `approved: false`, and the export does not filter on it.
+
+## 2 November 2026: Free and Pro, device sizes, controls
+
+Prompt: after the first build, Aedwon asked "no Free/Pro toggle?" The lead said there was none, offered
+one for questions, and recommended it.
+
+Aedwon, verbatim: "yes please add.
+
+also some toggles could be icons instead. say, phone and wide (i think it should be desktop tablet and phone) and also light mode and dark mode
+
+and then make it easier for me to distinguish between options, check the your performance screen of the app itself where i can choose viewing between subjects topics and lessons, maybe adopt that, or maybe you have a better option.
+
+please also use apple design guidelines/principles. not saying you should copy the design but just the principles you know what i mean"
+
+Options put to him, in an inline preview. The preview approximates: real build uses Phosphor icons and Geist.
+
+- All controls use the app's segmented switch from the Performance screen: a recessed track with a
+  raised selected segment. The lead found no better control. It is also the standard Apple
+  pattern.
+- Placement A: everything in one top bar. Cost: what each control affects is less clear.
+- Placement B (recommended): exam and status on the queue, device, theme and plan on the screen.
+  Cost: about 80px of queue height, and it moves two controls from the approved top bar.
+- Selected state: neutral as in the app, or green. Green is easier to spot. It uses the accent color on
+  chrome that was meant to stay quiet.
+- Tablet: one size, portrait, is the default. The app has a separate tablet landscape layout, and
+  this question is still open.
+
+Choice: pending at the time of this entry.
+
+The first preview lost its labels and selected state because the host page's button styling won. Aedwon
+replied "what" with a screenshot. The lead redrew it without real buttons.
+
+Aedwon, verbatim: "okay go B, green. also add animations please so that it's satisfying"
+
+Choice: placement B, green selected state, animations added. No animation option was shown first, because he
+asked for it directly. The lead ruled that animations touch only the reviewer chrome, and never block input
+or change the real screens' own motion. Tablet is portrait only until he says otherwise.
