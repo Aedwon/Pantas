@@ -1289,10 +1289,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     );
   }
 
-  /// Wide web drops ".00" so a whole amount shows no centavos (board ST_Pro).
-  /// The amount itself still comes from the price source.
-  String _money(String priceString) =>
-      context.wideWeb ? wholePesos(priceString) : priceString;
+  /// Drops ".00" so a whole amount shows no centavos, on phone and web (boards
+  /// ST_ProFree and ST_ProCSE). The amount itself still comes from the price
+  /// source; real centavos stay.
+  String _money(String priceString) => wholePesos(priceString);
 
   Widget _plan(
     BuildContext context,
@@ -1481,10 +1481,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    price,
-                    style: context.type.emphasized
-                        .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
+                  // A price never breaks across lines: it shrinks to fit.
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      price,
+                      maxLines: 1,
+                      softWrap: false,
+                      style: context.type.emphasized
+                          .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
+                    ),
                   ),
                   Text(
                     periodText,
