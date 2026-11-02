@@ -10,19 +10,31 @@ class OnboardingNameField extends StatelessWidget {
     required this.label,
     required this.onChanged,
     this.onSubmitted,
+    this.keyboardType,
+    this.textCapitalization = TextCapitalization.words,
+    this.textInputAction = TextInputAction.done,
+    this.maxLength = 40,
+    this.autofillHints,
     super.key,
   });
   final TextEditingController controller;
   final String label;
   final ValueChanged<String> onChanged;
   final ValueChanged<String>? onSubmitted;
+  final TextInputType? keyboardType;
+  final TextCapitalization textCapitalization;
+  final TextInputAction textInputAction;
+  final int maxLength;
+  final Iterable<String>? autofillHints;
   @override
   Widget build(BuildContext context) {
     final field = TextField(
       controller: controller,
-      maxLength: 40,
-      textCapitalization: TextCapitalization.words,
-      textInputAction: TextInputAction.done,
+      maxLength: maxLength,
+      keyboardType: keyboardType,
+      autofillHints: autofillHints,
+      textCapitalization: textCapitalization,
+      textInputAction: textInputAction,
       textAlignVertical: TextAlignVertical.center,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
@@ -36,9 +48,8 @@ class OnboardingNameField extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
         // A TextField ignores a SizedBox height; the board field is 52 px.
-        constraints: context.wideWeb
-            ? null
-            : const BoxConstraints.tightFor(height: 52),
+        constraints:
+            context.wideWeb ? null : const BoxConstraints.tightFor(height: 52),
         filled: true,
         fillColor: context.colors.surface,
         hoverColor: context.wideWeb ? context.colors.surface : null,

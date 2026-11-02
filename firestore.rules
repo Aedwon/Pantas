@@ -351,6 +351,15 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Guardian consent link records and send counters: server only, keyed by hash.
+    match /guardianTokens/{hash} {
+      allow read, write: if false;
+    }
+
+    match /guardianLimits/{hash} {
+      allow read, write: if false;
+    }
+
     match /audit_logs/{logId} {
       allow read, write: if false;
     }

@@ -9,6 +9,8 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -18,6 +20,7 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
+import '../features/guardian/fake_guardian_gateway.dart';
 import '../helpers/in_memory_database.dart';
 
 // ignore_for_file: cascade_invocations
@@ -48,7 +51,10 @@ void main() {
 
   tearDown(() => db.close());
 
-  Future<void> pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(
+    WidgetTester tester, {
+    FakeGuardianGateway? guardian,
+  }) async {
     final catalog = await tester
         .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
@@ -58,6 +64,8 @@ void main() {
           examPickerCatalogProvider
               .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
+          if (guardian != null)
+            guardianGatewayProvider.overrideWithValue(guardian),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
           ),
@@ -87,6 +95,108 @@ void main() {
       '/onboarding',
     );
     expect(find.text('Which exam are you taking?'), findsOneWidget);
+  });
+
+  group('guardian consent', () {
+    String pathOf(WidgetTester tester) => ProviderScope.containerOf(
+          tester.element(find.byType(App)),
+        ).read(routerProvider).routeInformationProvider.value.uri.path;
+
+    testWidgets('a minor with a pending request boots onto Waiting, no tabs',
+        (tester) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      final guardian = FakeGuardianGateway()
+        ..current = GuardianStatus(
+          status: GuardianConsentStatus.pending,
+          maskedEmail: 'm***@g***.com',
+          expiresAt: DateTime.utc(2026, 11, 9),
+        );
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/guardian/waiting');
+      expect(find.text('Waiting for your parent or guardian'), findsOneWidget);
+      expect(find.byType(AppShell), findsNothing);
+    });
+
+    testWidgets('a minor who finished everything else is still held',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setAgeGroup('minor');
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+      final guardian = FakeGuardianGateway()
+        ..current = const GuardianStatus(
+          status: GuardianConsentStatus.declined,
+          maskedEmail: 'm***@g***.com',
+        );
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/guardian/waiting');
+    });
+
+    testWidgets('a minor with no request yet resumes at the guardian form',
+        (tester) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      await pumpApp(tester, guardian: FakeGuardianGateway());
+      expect(pathOf(tester), '/onboarding');
+      expect(
+        find.text('A parent or guardian needs to agree first'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('a confirmed minor goes on to Terms', (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setAgeGroup('minor');
+      await prefs.setPassedAgeGate(value: true);
+      final guardian = FakeGuardianGateway()
+        ..current = const GuardianStatus(
+          status: GuardianConsentStatus.confirmed,
+        );
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/onboarding');
+      expect(find.text('Which exam are you taking?'), findsOneWidget);
+    });
+
+    testWidgets('Waiting is out of reach for a student who is not held',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+      await pumpApp(tester);
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/guardian/waiting');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), isNot('/guardian/waiting'));
+    });
+
+    testWidgets('the guardian link opens for a signed-out visitor',
+        (tester) async {
+      final guardian = FakeGuardianGateway()
+        ..link = GuardianLinkOpen(
+          studentName: 'Juan',
+          expiresAt: DateTime.utc(2026, 11, 9),
+        );
+      await pumpApp(tester, guardian: guardian);
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/guardian?token=abc');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/guardian');
+      expect(find.text("Confirm Juan's account"), findsOneWidget);
+      expect(guardian.answers, isEmpty, reason: 'opening never confirms');
+    });
+
+    testWidgets('legal pages open for the guardian before any onboarding',
+        (tester) async {
+      await pumpApp(tester, guardian: FakeGuardianGateway());
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/legal/terms');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/legal/terms');
+    });
   });
 
   testWidgets('age gate not passed → boot lands on onboarding welcome',

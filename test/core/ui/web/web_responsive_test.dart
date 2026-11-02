@@ -50,6 +50,29 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  for (final path in ['/guardian', '/guardian/waiting', '/guardian/contact']) {
+    testWidgets('$path has no tab navigation on a tablet', (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(1100, 900);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: WebRouteShell(
+              path: path,
+              child: const Scaffold(body: Text('Guardian')),
+            ),
+          ),
+        ),
+      );
+      expect(find.byType(AppNavBar), findsNothing);
+      expect(find.text('Guardian'), findsOneWidget);
+    });
+  }
   testWidgets('tablet focused route stacks its action above navigation',
       (tester) async {
     debugWebPlatformOverride = true;

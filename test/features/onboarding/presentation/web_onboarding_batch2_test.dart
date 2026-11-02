@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -26,6 +27,7 @@ void main() {
       addTearDown(db.close);
       await tester.pumpWidget(
         ProviderScope(
+          overrides: [appDatabaseProvider.overrideWithValue(db)],
           child: MaterialApp(
             theme:
                 dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
@@ -142,12 +144,10 @@ void main() {
       final title = tester.widget<Text>(find.text('Pantas').first);
       expect(title.style!.fontSize, 18);
       expect(title.style!.fontWeight, FontWeight.w700);
-      expect(find.text('Try a Different Year'), findsOneWidget);
+      expect(find.text('Try a Different Year'), findsNothing);
       expect(
-        tester
-            .getSize(find.widgetWithText(TextButton, 'Try a Different Year'))
-            .height,
-        46,
+        find.text('Entered the wrong year? Email contact@pantas.study.'),
+        findsOneWidget,
       );
     });
   }

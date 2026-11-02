@@ -6,6 +6,7 @@ import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
 import { retirePublicId } from './publicId.js';
 import { clearPassOwnership } from './revenuecatPasses.js';
+import { deleteGuardianRecords } from './guardianConsent.js';
 import { identityMarkers, trialIdentityKey } from './webTrial.js';
 
 export const deleteAccount = onCall(
@@ -39,6 +40,7 @@ export const deleteAccount = onCall(
     }
     await writeAuditLog({ uid, event: 'accountDeleted' });
     await retirePublicId(db, uid);
+    await deleteGuardianRecords(db, uid);
     await db.recursiveDelete(userRef);
     await clearPassOwnership(db, uid);
     // The payment-to-account index is account data; the grant ledger went with the user tree.

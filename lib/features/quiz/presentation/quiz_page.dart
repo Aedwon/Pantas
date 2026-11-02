@@ -693,11 +693,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         ? context.colors.disabledActionLabel
                         : null,
                     // QV_MissPro: Next carries a chevron.
-                    trailing: !lookingBack &&
-                            outcome != null &&
-                            !session.isComplete
-                        ? Icon(PantasIcons.next, size: 16)
-                        : null,
+                    trailing:
+                        !lookingBack && outcome != null && !session.isComplete
+                            ? Icon(PantasIcons.next, size: 16)
+                            : null,
                     fullWidth: large,
                     height: 44,
                     radius: 99,

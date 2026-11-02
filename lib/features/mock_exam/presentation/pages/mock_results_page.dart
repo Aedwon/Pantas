@@ -124,8 +124,7 @@ class MockResultsPage extends StatelessWidget {
               ),
             Expanded(
               child: ListView(
-                padding:
-                    EdgeInsets.fromLTRB(16, time == null ? 6 : 50, 16, 24),
+                padding: EdgeInsets.fromLTRB(16, time == null ? 6 : 50, 16, 24),
                 children: [
                   _phase(
                     time,

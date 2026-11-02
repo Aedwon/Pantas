@@ -55,9 +55,8 @@ void main() {
           (tester) async {
         await pump(tester, brightness: brightness, scale: scale);
         expect(find.text('Terms and Privacy'), findsOneWidget);
-        final rows = tester
-            .widgetList<CheckboxRow>(find.byType(CheckboxRow))
-            .toList();
+        final rows =
+            tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).toList();
         expect(
           rows.first.title,
           'Help improve Pantas by sharing anonymous usage data',

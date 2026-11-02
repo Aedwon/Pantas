@@ -26,6 +26,8 @@ class WebRouteShell extends ConsumerWidget {
       );
     }
     if (!context.wideWeb) return child;
+    // The guardian screens are full screen: no sidebar and no tabs.
+    if (path.startsWith('/guardian')) return child;
     if (!webSidebarRoute(path) && context.webTier == WebLayoutTier.desktop) {
       return CallbackShortcuts(
         bindings: {
