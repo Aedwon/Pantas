@@ -350,10 +350,14 @@ class ContentRenderer extends StatelessWidget {
     if (rows.any((r) => r.length != rows.first.length)) {
       return fallback(context);
     }
+    // The first column labels each row, so it stays left-aligned even when
+    // its values are numbers such as years. Another column is right-aligned
+    // only when every body cell in it is a number.
     final numeric = [
       for (var c = 0; c < rows.first.length; c++)
-        rows.length > 1 &&
-            rows.skip(1).every((r) => _numberCell.hasMatch(r[c].trim())),
+        c > 0 &&
+            rows.length > 1 &&
+            rows.skip(1).every((r) => _isNumberCell(r[c])),
     ];
     final line = BorderSide(color: context.colors.separator, width: .5);
     return LayoutBuilder(
@@ -382,7 +386,7 @@ class ContentRenderer extends StatelessWidget {
                       for (var c = 0; c < rows[i].length; c++)
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
+                            horizontal: 16,
                             vertical: 10,
                           ),
                           child: _cell(
@@ -425,6 +429,17 @@ class ContentRenderer extends StatelessWidget {
   }
 
   static final _numberCell = RegExp(r'^[+\-\u2212]?[₱$]?[\d,]+(\.\d+)?%?$');
+
+  /// A plain or currency number, with or without `$...$` around it, as in
+  /// `\text{₱}12,500`.
+  static bool _isNumberCell(String cell) {
+    var text = cell.trim();
+    if (text.length > 1 && text.startsWith(r'$') && text.endsWith(r'$')) {
+      text = text.substring(1, text.length - 1).trim();
+    }
+    text = text.replaceAll(r'\text{₱}', '₱').replaceAll(r'\$', r'$');
+    return _numberCell.hasMatch(text);
+  }
 
   Widget example(BuildContext context, Map<String, Object?> block) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -655,9 +670,10 @@ class ContentRenderer extends StatelessWidget {
   }
 }
 
-/// Sizes a table to the page: as wide as the page when the table fits, narrower
-/// cells wrapping when they must, and only as wide as its narrowest layout
-/// (so it scrolls sideways) when even that is wider than the page.
+/// Sizes a table to its content: as wide as its cells need when that fits the
+/// page, so a short table stays compact. A wider table fills the page and its
+/// cells wrap, and one that cannot wrap enough is as wide as its narrowest
+/// layout and scrolls sideways.
 class _FitWidth extends SingleChildRenderObjectWidget {
   const _FitWidth({required this.available, required super.child});
   final double available;
@@ -683,7 +699,9 @@ class _RenderFitWidth extends RenderProxyBox {
 
   double _width(RenderBox child) {
     final min = child.getMinIntrinsicWidth(double.infinity);
-    return min > _available ? min : _available;
+    final max = child.getMaxIntrinsicWidth(double.infinity);
+    if (min >= _available) return min;
+    return max < _available ? max : _available;
   }
 
   @override

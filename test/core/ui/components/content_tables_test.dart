@@ -198,4 +198,105 @@ void main() {
     );
     expect(find.byType(SingleChildScrollView), findsOneWidget);
   });
+
+  group('alignment and compact width', () {
+    const years = [
+      {
+        '_type': 'table',
+        'rows': [
+          ['Year', 'Product A', 'Product B'],
+          ['2024', '40', '60'],
+          ['2025', '50', '75'],
+        ],
+      },
+    ];
+
+    TextAlign alignOf(WidgetTester tester, String text) => tester
+        .widget<RichText>(
+          find
+              .descendant(
+                of: find.ancestor(
+                  of: find.text(text),
+                  matching: find.byType(Padding),
+                ),
+                matching: find.byType(RichText),
+              )
+              .first,
+        )
+        .textAlign;
+
+    testWidgets('the first column stays left even when it holds numbers',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const ContentRenderer(blocks: years),
+        viewportSize: const Size(1440, 700),
+      );
+      expect(alignOf(tester, 'Year'), TextAlign.left);
+      expect(alignOf(tester, '2024'), TextAlign.left);
+      expect(alignOf(tester, '2025'), TextAlign.left);
+    });
+
+    testWidgets('number columns align right with their headers',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const ContentRenderer(blocks: years),
+        viewportSize: const Size(1440, 700),
+      );
+      for (final text in ['Product A', '40', '50', 'Product B', '60', '75']) {
+        expect(alignOf(tester, text), TextAlign.right, reason: text);
+      }
+    });
+
+    testWidgets('a column with any non-number cell stays left', (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const ContentRenderer(
+          blocks: [
+            {
+              '_type': 'table',
+              'rows': [
+                ['Score', 'Range', 'Count', 'Midpoint'],
+                ['A', r'$50-59$', '10', r'$\text{₱}12,500$'],
+                ['B', r'$60-69$', r'$k$', r'$\text{₱}17,500$'],
+              ],
+            },
+          ],
+        ),
+        viewportSize: const Size(1440, 700),
+      );
+      expect(alignOf(tester, 'Range'), TextAlign.left);
+      expect(alignOf(tester, 'Count'), TextAlign.left);
+      expect(alignOf(tester, '10'), TextAlign.left);
+      expect(alignOf(tester, 'Midpoint'), TextAlign.right);
+    });
+
+    testWidgets('a short table is compact and left-aligned with the stem',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const SizedBox(
+          width: 800,
+          child: ContentRenderer(blocks: years),
+        ),
+        viewportSize: const Size(1440, 700),
+      );
+      final table = tester.getRect(find.byType(Table));
+      final host = tester.getRect(find.byType(SizedBox).first);
+      expect(table.width, lessThan(host.width * .75));
+      expect(table.left, host.left);
+    });
+
+    testWidgets('header text starts inside the header fill', (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const ContentRenderer(blocks: years),
+        viewportSize: const Size(1440, 700),
+      );
+      final table = tester.getRect(find.byType(Table));
+      final text = tester.getRect(find.text('Year'));
+      expect(text.left - table.left, greaterThanOrEqualTo(12));
+    });
+  });
 }
