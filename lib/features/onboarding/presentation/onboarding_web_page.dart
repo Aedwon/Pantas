@@ -102,7 +102,12 @@ class OnboardingWebPage extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
+                padding: const EdgeInsets.fromLTRB(
+                  40,
+                  40,
+                  40,
+                  onboardingActionsMargin,
+                ),
                 child: Center(
                   child: SizedBox(
                     width: onboardingColumnWidth + 280,
@@ -187,7 +192,12 @@ class OnboardingWebPage extends StatelessWidget {
         ...children,
         if (bottom != null) ...[
           SizedBox(height: bottomGap),
-          Align(alignment: Alignment.centerRight, child: bottom),
+          StickyActions(
+            background: t.colors.background,
+            separator: t.colors.separator,
+            clearance: bottomGap,
+            child: Align(alignment: Alignment.centerRight, child: bottom),
+          ),
         ],
       ],
     );

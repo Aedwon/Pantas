@@ -1,4 +1,7 @@
+// ignore_for_file: avoid_setters_without_getters, cascade_invocations
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -10,6 +13,10 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Wide web: the width of every step's content column.
 const double onboardingColumnWidth = 580;
+
+/// Wide web: space below the action row, in the window and at the end of the
+/// list, so the row rests where it was pinned.
+const double onboardingActionsMargin = 24;
 
 /// What the still part of onboarding needs to know about the visible step.
 @immutable
@@ -259,7 +266,12 @@ class _OnboardingFrameState extends State<OnboardingFrame>
                 ? child
                 : SingleChildScrollView(
                     controller: _scroll,
-                    padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
+                    padding: const EdgeInsets.fromLTRB(
+                      40,
+                      40,
+                      40,
+                      onboardingActionsMargin,
+                    ),
                     child: Center(
                       child: SizedBox(
                         width: onboardingColumnWidth + 280,
@@ -471,5 +483,181 @@ class OnboardingProgressBar extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Wide web: an action row that sits after the content, and stays inside the
+/// window when the content is taller than the window.
+///
+/// The row keeps its place in the layout, so the content never moves. Only the
+/// painting, hit testing and semantics move it up. While pinned it sits on a
+/// band of [background]. A half-point line shows on the band's top edge while
+/// content is scrolled beneath it.
+class StickyActions extends SingleChildRenderObjectWidget {
+  const StickyActions({
+    required this.background,
+    required this.separator,
+    required this.clearance,
+    required super.child,
+    super.key,
+  });
+  final Color background;
+  final Color separator;
+
+  /// Space between the end of the content and the row.
+  final double clearance;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) => _RenderSticky(
+        background: background,
+        separator: separator,
+        clearance: clearance,
+        position: Scrollable.maybeOf(context)?.position,
+      );
+
+  @override
+  void updateRenderObject(BuildContext context, RenderObject renderObject) {
+    (renderObject as _RenderSticky)
+      ..background = background
+      ..separator = separator
+      ..clearance = clearance
+      ..position = Scrollable.maybeOf(context)?.position;
+  }
+}
+
+class _RenderSticky extends RenderProxyBox {
+  _RenderSticky({
+    required Color background,
+    required Color separator,
+    required double clearance,
+    required ScrollPosition? position,
+  })  : _background = background,
+        _separator = separator,
+        _clearance = clearance,
+        _position = position;
+
+  static const double _bandPadding = 16;
+
+  Color _background;
+  Color _separator;
+  double _clearance;
+  ScrollPosition? _position;
+
+  set background(Color value) {
+    if (value == _background) return;
+    _background = value;
+    markNeedsPaint();
+  }
+
+  set separator(Color value) {
+    if (value == _separator) return;
+    _separator = value;
+    markNeedsPaint();
+  }
+
+  set clearance(double value) {
+    if (value == _clearance) return;
+    _clearance = value;
+    markNeedsPaint();
+  }
+
+  set position(ScrollPosition? value) {
+    if (value == _position) return;
+    if (attached) _position?.removeListener(markNeedsPaint);
+    _position = value;
+    if (attached) _position?.addListener(markNeedsPaint);
+    markNeedsPaint();
+  }
+
+  @override
+  void attach(PipelineOwner owner) {
+    super.attach(owner);
+    _position?.addListener(markNeedsPaint);
+  }
+
+  @override
+  void detach() {
+    _position?.removeListener(markNeedsPaint);
+    super.detach();
+  }
+
+  RenderBox? get _viewport {
+    final Object? viewport = RenderAbstractViewport.maybeOf(this);
+    return viewport is RenderBox && viewport.hasSize ? viewport : null;
+  }
+
+  /// Where the row sits in the viewport when the content has not moved it.
+  double _naturalTop(RenderBox viewport) =>
+      getTransformTo(viewport).getTranslation().y;
+
+  /// How far up the row is drawn, zero or less.
+  double get _lift {
+    final viewport = _viewport;
+    if (viewport == null) return 0;
+    final pinnedBottom = viewport.size.height - onboardingActionsMargin;
+    final lift = pinnedBottom - (_naturalTop(viewport) + size.height);
+    return lift < -.01 ? lift : 0;
+  }
+
+  /// The viewport's bottom edge, in this box's own coordinates.
+  double get _viewportBottom {
+    final viewport = _viewport;
+    return viewport == null
+        ? 0
+        : viewport.size.height - _naturalTop(viewport);
+  }
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    final lift = _lift;
+    if (lift < 0) {
+      final top = offset.dy + lift - _bandPadding;
+      final band = Rect.fromLTRB(
+        offset.dx,
+        top,
+        offset.dx + size.width,
+        offset.dy + _viewportBottom,
+      );
+      final canvas = context.canvas;
+      canvas.drawRect(band, Paint()..color = _background);
+      // Content shows beneath the band while it runs past the band's top.
+      if (offset.dy - _clearance > top) {
+        canvas.drawRect(
+          Rect.fromLTWH(band.left, top, band.width, .5),
+          Paint()..color = _separator,
+        );
+      }
+    }
+    super.paint(context, offset + Offset(0, lift));
+  }
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    final lift = _lift;
+    if (lift == 0) return super.hitTest(result, position: position);
+    final moved = position - Offset(0, lift);
+    if (child != null && size.contains(moved)) {
+      if (child!.hitTest(result, position: moved)) {
+        result.add(BoxHitTestEntry(this, position));
+        return true;
+      }
+    }
+    // The band takes hits meant for the list beneath it.
+    final band = Rect.fromLTWH(
+      0,
+      lift - _bandPadding,
+      size.width,
+      _viewportBottom - lift + _bandPadding,
+    );
+    if (band.contains(position)) {
+      result.add(BoxHitTestEntry(this, position));
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  void applyPaintTransform(RenderBox child, Matrix4 transform) {
+    transform.multiply(Matrix4.translationValues(0, _lift, 0));
   }
 }
