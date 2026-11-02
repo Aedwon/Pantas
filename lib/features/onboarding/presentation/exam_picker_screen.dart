@@ -471,7 +471,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                             minimumSize: const Size(0, 34),
                             padding: const EdgeInsets.symmetric(horizontal: 14),
                           ),
-                          child: Text(group.$2),
+                          child: _ChipLabel(
+                            label: group.$2,
+                            style: t.style(14, weight: FontWeight.w600),
+                          ),
                         ),
                     ],
                   ),
@@ -801,6 +804,35 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         if (!didPop && widget.onBack != null) _back();
       },
       child: page,
+    );
+  }
+}
+
+/// A filter chip label that always takes the width of its heaviest (selected)
+/// weight, so no chip moves or wraps when another is picked.
+class _ChipLabel extends StatelessWidget {
+  const _ChipLabel({required this.label, required this.style});
+  final String label;
+  final TextStyle style;
+  @override
+  Widget build(BuildContext context) {
+    final painter = TextPainter(
+      text: TextSpan(text: label, style: style),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+      maxLines: 1,
+    )..layout();
+    final width = painter.width.ceilToDouble();
+    painter.dispose();
+    return SizedBox(
+      width: width,
+      child: Text(
+        label,
+        textAlign: TextAlign.center,
+        maxLines: 1,
+        softWrap: false,
+        overflow: TextOverflow.visible,
+      ),
     );
   }
 }
