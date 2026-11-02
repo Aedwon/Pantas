@@ -258,7 +258,7 @@ void main() {
             builder: (context) => ColoredBox(
               color: context.colors.surface,
               child: ListRow.checkbox(
-                title: 'Help improve Pantas by sharing anonymous usage data',
+                title: 'Help improve Pantas by sharing usage data',
                 selected: false,
                 onTap: () {},
               ),
@@ -291,7 +291,7 @@ void main() {
           );
         }
         final label = tester.widget<Text>(
-          find.text('Help improve Pantas by sharing anonymous usage data'),
+          find.text('Help improve Pantas by sharing usage data'),
         );
         expect(label.maxLines, isNull);
         expect(label.style!.fontSize, 16);

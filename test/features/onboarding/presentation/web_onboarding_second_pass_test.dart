@@ -231,7 +231,7 @@ void main() {
 
     testWidgets('usage consent label toggles the row $dark', (tester) async {
       await pump(tester, OnboardingConsentStep(onCompleted: () {}));
-      const label = 'Help improve Pantas by sharing anonymous usage data';
+      const label = 'Help improve Pantas by sharing usage data';
       await tester.tap(find.text(label));
       await tester.pump();
       final row = tester.widget<CheckboxRow>(

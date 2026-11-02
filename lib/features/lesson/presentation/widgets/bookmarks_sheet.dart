@@ -422,7 +422,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     );
     if (MediaQuery.textScalerOf(context).scale(17) > 25.5) {
       return Padding(
-        padding: EdgeInsets.fromLTRB(20, 14, 20, widget.wide ? 12 : 7),
+        padding: const EdgeInsets.fromLTRB(20, 14, 20, 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -435,12 +435,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     return Stack(
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(20, 14, 20, widget.wide ? 12 : 7),
+          padding: const EdgeInsets.fromLTRB(20, 14, 20, 12),
           child: title,
         ),
         Positioned(
-          top: 0,
-          bottom: widget.wide ? 0 : -8,
+          top: widget.wide ? 0 : 3,
+          bottom: 0,
           right: 20,
           child: action,
         ),
@@ -589,6 +589,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                             title: row.title,
                             subtitle: row.topicName,
                             wrapTitle: large,
+                            subtitleGap: widget.wide ? 0 : 1,
                             minimumHeight: 62,
                             divider: divider,
                             contentPadding: EdgeInsets.fromLTRB(

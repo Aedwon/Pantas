@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 @immutable
 class MonthFirstDate {
@@ -234,6 +235,14 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         children: [
           Expanded(child: Text('$year', style: context.type.emphasized)),
           IconButton(
+            style: context.wideWeb
+                ? null
+                : IconButton.styleFrom(
+                    fixedSize: const Size(44, 44),
+                    minimumSize: const Size(44, 44),
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
             tooltip: 'Previous year',
             onPressed: year <= today.year
                 ? null
@@ -245,6 +254,14 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
             ),
           ),
           IconButton(
+            style: context.wideWeb
+                ? null
+                : IconButton.styleFrom(
+                    fixedSize: const Size(44, 44),
+                    minimumSize: const Size(44, 44),
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
             tooltip: 'Next year',
             onPressed: () => onChanged(MonthFirstDate(year: year + 1)),
             icon: Icon(PantasIcons.next, size: 22, color: c.accent),
@@ -345,6 +362,14 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         children: [
           Expanded(child: Text('$year', style: context.type.emphasized)),
           IconButton(
+            style: context.wideWeb
+                ? null
+                : IconButton.styleFrom(
+                    fixedSize: const Size(44, 44),
+                    minimumSize: const Size(44, 44),
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
             tooltip: 'Previous year',
             onPressed: year <= today.year
                 ? null
@@ -356,6 +381,14 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
             ),
           ),
           IconButton(
+            style: context.wideWeb
+                ? null
+                : IconButton.styleFrom(
+                    fixedSize: const Size(44, 44),
+                    minimumSize: const Size(44, 44),
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
             tooltip: 'Next year',
             onPressed: () => onChanged(MonthFirstDate(year: year + 1)),
             icon: Icon(PantasIcons.next, size: 22, color: c.accent),

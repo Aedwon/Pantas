@@ -187,7 +187,7 @@ class _ReportFormState extends State<ReportForm> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: Text(
-              "Saved. It sends when you're back online.",
+              'Saved on this device.',
               textAlign: TextAlign.center,
               style: context.type.subheadStrong,
             ),
@@ -253,7 +253,7 @@ class _ReportFormState extends State<ReportForm> {
                     fillColor: c.background,
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 14,
-                      vertical: 12,
+                      vertical: 12.5,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -267,11 +267,12 @@ class _ReportFormState extends State<ReportForm> {
                       _ready ? _send() : _load(),
                     ),
                   ),
-                const SizedBox(height: 14),
+                // QN_Report: the buttons sit 5 px under the field.
+                const SizedBox(height: 5),
                 ButtonPair(
                   secondary: _pill('Cancel', widget.onClose, primary: false),
                   primary: _pill(
-                    'Send',
+                    'Save',
                     _ready &&
                             !_busy &&
                             _limit == null &&
@@ -294,7 +295,7 @@ class _ReportFormState extends State<ReportForm> {
     if (_saved) {
       return WebCard(
         padding: const EdgeInsets.all(20),
-        child: Text("Saved. It sends when you're back online.", style: t.sub),
+        child: Text('Saved on this device.', style: t.sub),
       );
     }
     final canSend =
@@ -396,7 +397,7 @@ class _ReportFormState extends State<ReportForm> {
                 _ReportButton(label: 'Cancel', onPressed: widget.onClose),
                 const SizedBox(width: 8),
                 _ReportButton(
-                  label: 'Send',
+                  label: 'Save',
                   solid: true,
                   keyHint: 'Ctrl Enter',
                   busy: _busy,

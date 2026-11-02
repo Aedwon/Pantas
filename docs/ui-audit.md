@@ -2724,3 +2724,6 @@ Assessment: X color. Notes: `build/visual-pass/mobile/recheck-b.md`.
 
 ## Mobile fix batch 6, agent B (phone density)
 Earlier captures used compact density (the user agent does not change Flutter's platform; `navigator.platform` does). Re-measured at phone density: ST_Exam day circles 38 px; ST_Included expand button 47.5; Home "View full plan" 20 px link; question session top buttons and flag 44 px; QV_All and read-only question back row 44 px; mock Results X and title position; mock review rows 46 and filter row at 113; "How long?" sheet Done and Adjust no longer 48 px. Notes: `build/visual-pass/mobile/recheck-c.md`.
+
+## Mobile fix batch 6, agent D (phone, standard density)
+Rows re-measured at Android density: Plan day, Study, Bookmarks, Onboarding consent and date, note sheets, report, How long sheet, mock review viewer, assessment bar. Notes: build/visual-pass/mobile/recheck-d.md in the staging worktree.

@@ -42,8 +42,8 @@ void main() {
               .fontWeight,
           FontWeight.w700,
         );
-        expect(find.text('Send'), findsOneWidget);
-        final send = find.widgetWithText(TextButton, 'Send');
+        expect(find.text('Save'), findsOneWidget);
+        final send = find.widgetWithText(TextButton, 'Save');
         expect(tester.widget<TextButton>(send).onPressed, isNull);
         await tester.enterText(
           find.byType(TextField),
@@ -53,7 +53,7 @@ void main() {
         await tester.tap(send);
         await tester.pumpAndSettle();
         expect(
-          find.text("Saved. It sends when you're back online."),
+          find.text('Saved on this device.'),
           findsOneWidget,
         );
         expect((await queue.pending()).single.questionId, 'q');
@@ -87,7 +87,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Wrong answer key.');
     await tester.pump();
-    await tester.tap(find.text('Send'));
+    await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     expect((await ReportQueue(db).pending()).single.questionId, 'entry-q');
   });

@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
 
@@ -98,6 +99,10 @@ class BookmarksSection extends ConsumerWidget {
                                 color: context.colors.chevron,
                               ),
                               verticalPadding: 12.5,
+                              contentPadding: context.wideWeb
+                                  ? null
+                                  : const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                              subtitleGap: context.wideWeb ? 0 : 2,
                               divider: index < rows.take(3).length - 1,
                               dividerInset: 52,
                               onTap: () => context.push(

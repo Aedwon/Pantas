@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 
@@ -52,7 +53,7 @@ class StudySubjectSection extends ConsumerWidget {
                             : topic.readCount / topic.totalCount,
                         delay: ringDelay,
                       ),
-                verticalPadding: 12,
+                verticalPadding: context.wideWeb ? 12 : 11.75,
                 divider: topic != subject.topics.last,
                 dividerInset: 52,
                 trailingWidget: AnimatedRotation(
@@ -197,10 +198,16 @@ class StudyLessonRow extends StatelessWidget {
               ? Icon(PantasIcons.check, size: 18, color: context.colors.accent)
               : null,
         ),
-        verticalPadding: 12,
+        verticalPadding: context.wideWeb ? 12 : 11.75,
         // Boards (ST_TopicOpen): lessons sit 18 px in from their topic's
         // text, and the dividers start at the lesson title.
-        contentPadding: const EdgeInsets.fromLTRB(34, 12, 16, 12),
+        contentPadding: EdgeInsets.fromLTRB(
+          34,
+          context.wideWeb ? 12 : 11.75,
+          16,
+          context.wideWeb ? 12 : 11.75,
+        ),
+        naturalValue: !context.wideWeb,
         divider: divider,
         dividerInset: 70,
         valueWidget: !lesson.isRead || isToday

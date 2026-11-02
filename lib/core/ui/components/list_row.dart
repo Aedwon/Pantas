@@ -46,6 +46,7 @@ class ListRow extends StatelessWidget {
     this.naturalValue = false,
     this.dividerInset = 0,
     this.hideTrailing = false,
+    this.subtitleGap = 0,
     super.key,
   })  : content = null,
         _checkbox = false,
@@ -62,6 +63,7 @@ class ListRow extends StatelessWidget {
         naturalValue = false,
         dividerInset = 0,
         hideTrailing = false,
+        subtitleGap = 0,
         _checkbox = true,
         variant = ListRowVariant.check,
         value = null,
@@ -101,6 +103,7 @@ class ListRow extends StatelessWidget {
         naturalValue = false,
         dividerInset = 0,
         hideTrailing = false,
+        subtitleGap = 0,
         _exam = true,
         _checkbox = false,
         variant = ListRowVariant.check,
@@ -140,6 +143,9 @@ class ListRow extends StatelessWidget {
 
   /// Draws no trailing control or space after the value (ST_Exam date chip).
   final bool hideTrailing;
+
+  /// Space between the title and the subtitle (phone Plan day rows).
+  final double subtitleGap;
   final Widget? content;
   final String title;
   final Widget? titleWidget;
@@ -410,11 +416,14 @@ class ListRow extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             titleWidget ?? label,
-                            if (subtitle != null || richSubtitle != null)
+                            if (subtitle != null || richSubtitle != null) ...[
+                              if (subtitleGap > 0)
+                                SizedBox(height: subtitleGap),
                               Text.rich(
                                 richSubtitle ?? TextSpan(text: subtitle),
                                 style: context.type.footnote,
                               ),
+                            ],
                             if (footer != null) footer!,
                             if (stack && detail != null) detail,
                           ],

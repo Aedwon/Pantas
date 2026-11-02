@@ -585,7 +585,7 @@ void main() {
       'This choice is missing a unit.',
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Send'));
+    await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     await tester.pump(const Duration(milliseconds: 2300));
     await tester.pumpAndSettle();

@@ -255,7 +255,7 @@ void main() {
       done.complete();
       await tester.pumpAndSettle();
       expect(
-        find.text('Your account is deleted. Nothing of yours is left.'),
+        find.text('Your account is deleted.'),
         findsOneWidget,
       );
       expect(find.text('Close'), findsOneWidget);

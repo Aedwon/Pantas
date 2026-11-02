@@ -85,8 +85,13 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
   Widget build(BuildContext context) {
     final textStyle =
         context.type.body.copyWith(fontSize: 16, letterSpacing: 0, height: 1.4);
-    Widget plain(String text) =>
-        ExcludeSemantics(child: Text(text, style: textStyle));
+    final boardText = textStyle.copyWith(height: 1.45);
+    Widget plain(String text) => ExcludeSemantics(
+          child: Text(
+            text,
+            style: context.wideWeb ? textStyle : boardText,
+          ),
+        );
     Widget link(String text, String route) => TextButton(
           onPressed: () => context.push(route),
           style: TextButton.styleFrom(
@@ -96,7 +101,8 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
           ),
           child: Text(
             text,
-            style: textStyle.copyWith(color: context.colors.accent),
+            style: (context.wideWeb ? textStyle : boardText)
+                .copyWith(color: context.colors.accent),
           ),
         );
     return OnboardingWebPage(
@@ -121,11 +127,11 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                     value: _acceptedUsage,
                     wholeRow: true,
                     label:
-                        'Help improve Pantas by sharing anonymous usage data',
+                        'Help improve Pantas by sharing usage data',
                     onChanged: () =>
                         setState(() => _acceptedUsage = !_acceptedUsage),
                     child: plain(
-                      'Help improve Pantas by sharing anonymous usage data',
+                      'Help improve Pantas by sharing usage data',
                     ),
                   ),
                   Divider(
@@ -154,21 +160,23 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
             ),
           )
         else
-          // Board (O_Consent): 14 px between box and text, 14/16 padding and
-          // a half-point divider between the two rows.
+          // Board (O_Consent): 23.2 px lines, 13.5 px row padding, 14 px
+          // between box and text, a half-point divider between the rows.
           GroupedSection(
             children: [
               CheckboxRow(
-                title: 'Help improve Pantas by sharing anonymous usage data',
+                title: 'Help improve Pantas by sharing usage data',
                 selected: _acceptedUsage,
                 gap: 14,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 13.5),
                 standardDensity: true,
                 onTap: _saving
                     ? null
                     : () => setState(() => _acceptedUsage = !_acceptedUsage),
                 content: Text(
-                  'Help improve Pantas by sharing anonymous usage data',
-                  style: textStyle,
+                  'Help improve Pantas by sharing usage data',
+                  style: boardText,
                 ),
               ),
               Divider(
@@ -180,6 +188,8 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                 title: 'I agree to the Terms of Service and Privacy Policy.',
                 selected: _acceptedTerms,
                 gap: 14,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 13.5),
                 standardDensity: true,
                 interactiveContent: true,
                 onTap: _saving

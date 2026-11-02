@@ -34,21 +34,6 @@ void main() {
     expect(find.text('Send feedback'), findsOneWidget);
   });
 
-  testWidgets('the analytics lede describes usage data and crash reports',
-      (tester) async {
-    await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
-    await tester.pumpAndSettle();
-
-    expect(
-      find.text(
-        'Help improve the app shares anonymous usage data. Crash '
-        'reports are always sent. Contacting the officer opens your '
-        'mail app.',
-      ),
-      findsOneWidget,
-    );
-  });
-
   testWidgets('analytics is a switch, off until the student says yes',
       (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);

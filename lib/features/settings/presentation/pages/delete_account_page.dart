@@ -84,7 +84,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
           title: _isDeleted
               ? widget.isAnonymous
                   ? 'Your data is deleted.'
-                  : 'Your account is deleted. Nothing of yours is left.'
+                  : 'Your account is deleted.'
               : widget.isAnonymous
                   ? 'Deleting your data'
                   : 'Deleting your account',

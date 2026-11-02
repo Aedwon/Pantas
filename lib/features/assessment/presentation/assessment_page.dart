@@ -345,7 +345,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: context.wideWeb ? 20 : 24),
             Text(
               'Answers show at the end.',
               style: context.type.footnote
@@ -444,6 +444,14 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                         children: [
                           IconButton(
                             tooltip: 'Leave assessment',
+                            constraints: const BoxConstraints.tightFor(
+                              width: 44,
+                              height: 44,
+                            ),
+                            padding: EdgeInsets.zero,
+                            style: IconButton.styleFrom(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
                             onPressed: _completing ? null : _leave,
                             icon: Icon(
                               PantasIcons.close,
@@ -455,6 +463,14 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                           if (question != null)
                             IconButton(
                               tooltip: 'Report',
+                              constraints: const BoxConstraints.tightFor(
+                                width: 44,
+                                height: 44,
+                              ),
+                              padding: EdgeInsets.zero,
+                              style: IconButton.styleFrom(
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
                               onPressed: _completing
                                   ? null
                                   : () async {

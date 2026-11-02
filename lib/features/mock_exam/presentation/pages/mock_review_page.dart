@@ -7,6 +7,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
@@ -159,77 +160,85 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
               // instead of a centered title.
               // The route's own back arrow stays out; the green link is the
               // back control (MK_ReviewAll).
-              automaticallyImplyLeading: _viewerIndex != null,
-              toolbarHeight: _viewerIndex == null ? 46 : null,
-              leadingWidth: _viewerIndex == null ? 0 : null,
-              titleSpacing: _viewerIndex == null ? 4 : null,
+              // MK_ReviewQ: the viewer has the same green link as the list
+              // (QN_*): "< All questions" with the flag at the end.
+              automaticallyImplyLeading: false,
+              toolbarHeight: 46,
+              leadingWidth: 0,
+              titleSpacing: 4,
               centerTitle: false,
-              title: _viewerIndex == null
-                  ? Padding(
-                      // MK_ReviewAll: the link sits 5 px lower.
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: GestureDetector(
-                          behavior: HitTestBehavior.opaque,
-                          onTap: back,
-                          child: Semantics(
-                            button: true,
-                            label: 'Results',
-                            excludeSemantics: true,
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(minHeight: 44),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    PantasIcons.back,
-                                    size: 24,
-                                    color: context.colors.accent,
-                                  ),
-                                  const SizedBox(width: 2),
-                                  Text(
-                                    'Results',
-                                    style: context.type.body.copyWith(
-                                      color: context.colors.accent,
-                                    ),
-                                  ),
-                                ],
+              title: Padding(
+                // MK_ReviewAll: the link sits 5 px lower.
+                padding: const EdgeInsets.only(top: 8),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: back,
+                    child: Tooltip(
+                      message: _viewerIndex == null ? '' : 'Back to questions',
+                      child: Semantics(
+                        button: true,
+                        label:
+                            _viewerIndex == null ? 'Results' : 'All questions',
+                        excludeSemantics: true,
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 44),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                PantasIcons.back,
+                                size: 24,
+                                color: context.colors.accent,
                               ),
-                            ),
+                              const SizedBox(width: 2),
+                              Text(
+                                _viewerIndex == null
+                                    ? 'Results'
+                                    : 'All questions',
+                                style: context.type.body.copyWith(
+                                  color: context.colors.accent,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    )
-                  : const Text('All questions'),
+                    ),
+                  ),
+                ),
+              ),
               actions: [
                 if (viewed != null && savedFlags.hasValue)
-                  IconButton(
-                    tooltip:
-                        savedFlags.requireValue.contains(viewed.question.id)
-                            ? 'Unflag question'
-                            : 'Flag question',
-                    icon: Icon(
-                      PantasIcons.flag,
-                      size: 21,
-                      color:
+                  Padding(
+                    // MK_ReviewQ: the icon sits level with the link.
+                    padding: const EdgeInsets.only(top: 9),
+                    child: IconButton(
+                      constraints:
+                          const BoxConstraints.tightFor(width: 44, height: 44),
+                      padding: EdgeInsets.zero,
+                      style: IconButton.styleFrom(
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      tooltip:
                           savedFlags.requireValue.contains(viewed.question.id)
-                              ? context.colors.accent
-                              : context.colors.secondaryLabel,
+                              ? 'Unflag question'
+                              : 'Flag question',
+                      icon: Icon(
+                        PantasIcons.flag,
+                        size: 21,
+                        color:
+                            savedFlags.requireValue.contains(viewed.question.id)
+                                ? context.colors.accent
+                                : context.colors.secondaryLabel,
+                      ),
+                      onPressed: () => _toggleFlag(viewed.question.id),
                     ),
-                    onPressed: () => _toggleFlag(viewed.question.id),
                   ),
+                if (viewed != null && savedFlags.hasValue)
+                  const SizedBox(width: 8),
               ],
-              leading: _viewerIndex == null
-                  ? null
-                  : IconButton(
-                      icon: Icon(PantasIcons.back),
-                      tooltip: 'Back to questions',
-                      onPressed: () => setState(() {
-                        _viewerIndex = null;
-                        _noteOpen = false;
-                      }),
-                    ),
             ),
       body: reviewAsync.when(
         skipLoadingOnRefresh: false,
@@ -677,11 +686,11 @@ class _ReviewListBody extends StatelessWidget {
           const SizedBox(height: 19),
           _MockFilterRow(active: filter, counts: counts, onChanged: onFilter),
           if (proIsActive && filter == ReviewFilter.wrong) ...[
-            const SizedBox(height: 16),
+            const SizedBox(height: 22),
             _NotesPrompt(onPressed: onFinishNotes),
           ],
           if (showFlagOffer) ...[
-            const SizedBox(height: 16),
+            const SizedBox(height: 22),
             _FlagOffer(
               count: markedCount,
               onKeep: onKeepFlags,
@@ -779,7 +788,7 @@ class _NotesPrompt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
         decoration: BoxDecoration(
           color: context.colors.surface,
           borderRadius: BorderRadius.circular(14),
@@ -787,12 +796,21 @@ class _NotesPrompt extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
+            // MK_ReviewWrong: 15 px text on 22 px lines, a 44 px tinted pill.
+            Text(
               'Tell Pantas why you got each one wrong. The better your notes, '
               'the more every review helps.',
+              style: context.type.subhead.copyWith(height: 22 / 15),
             ),
-            const SizedBox(height: 12),
-            PantasButton(label: 'Finish the Notes', onPressed: onPressed),
+            const SizedBox(height: 10),
+            PantasButton(
+              label: 'Finish the Notes',
+              onPressed: onPressed,
+              variant: PantasButtonVariant.secondary,
+              height: 44,
+              radius: 99,
+              fontSize: 15,
+            ),
           ],
         ),
       );
@@ -821,6 +839,10 @@ class _FlagOffer extends StatelessWidget {
             Text(
               'You flagged $count questions while the clock was running. '
               'Do you want to save them?',
+              style: context.type.subhead.copyWith(
+                fontWeight: FontWeight.w500,
+                height: 22 / 15,
+              ),
             ),
             const SizedBox(height: 12),
             Row(
@@ -829,14 +851,21 @@ class _FlagOffer extends StatelessWidget {
                   child: PantasButton(
                     label: 'No Thanks',
                     onPressed: onDismiss,
-                    variant: PantasButtonVariant.tertiary,
+                    variant: PantasButtonVariant.neutral,
+                    height: 40,
+                    radius: 99,
+                    fontSize: 15,
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 10),
                 Expanded(
                   child: PantasButton(
                     label: 'Save All $count',
                     onPressed: onKeep,
+                    variant: PantasButtonVariant.secondary,
+                    height: 40,
+                    radius: 99,
+                    fontSize: 15,
                   ),
                 ),
               ],
@@ -1076,94 +1105,126 @@ class _QuestionViewer extends StatelessWidget {
         ),
       );
     }
-    return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          QuestionCard(
-            subject: entry.subjectName,
-            stem: entry.question.stem,
-            passage: entry.passage == null
-                ? null
-                : PassageCard(
-                    title: entry.passage!.title,
-                    text: entry.passage!.body,
-                  ),
-            figure: entry.question.figureSpecJson == null
-                ? null
-                : QuestionFigure(specJson: entry.question.figureSpecJson),
-            choices: [
-              for (final choice in entry.question.choices)
-                ChoiceRow(
-                  letter: choice.label,
-                  text: choice.text,
-                  state: choice.isCorrect
-                      ? ChoiceRowState.right
-                      : choice.id == entry.chosenChoiceId
-                          ? ChoiceRowState.wrong
-                          : ChoiceRowState.dimmed,
-                ),
-            ],
+    // MK_ReviewQ: the same page as the quiz viewer (QN_*): 16 px sides and
+    // a floating bar with the arrows, counter and note icon.
+    final colors = context.colors;
+    Widget arrow(String tooltip, IconData icon, VoidCallback? onPressed) =>
+        IconButton(
+          tooltip: tooltip,
+          style: IconButton.styleFrom(
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          const SizedBox(height: 16),
-          AnswerReveal(
-            correctLetter: entry.question.correctChoice.label,
-            explanation: entry.question.explanation,
-            pickedLetter: entry.question.choices
-                .where((c) => c.id == entry.chosenChoiceId)
-                .firstOrNull
-                ?.label,
-            wrongPick: proIsActive && !entry.isCorrect
-                ? entry.question.choices
+          constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+          padding: EdgeInsets.zero,
+          icon: Icon(icon, size: 20),
+          onPressed: onPressed,
+        );
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 118),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              QuestionCard(
+                subject: entry.subjectName,
+                stem: entry.question.stem,
+                passage: entry.passage == null
+                    ? null
+                    : PassageCard(
+                        title: entry.passage!.title,
+                        text: entry.passage!.body,
+                      ),
+                figure: entry.question.figureSpecJson == null
+                    ? null
+                    : QuestionFigure(specJson: entry.question.figureSpecJson),
+                choices: [
+                  for (final choice in entry.question.choices)
+                    ChoiceRow(
+                      letter: choice.label,
+                      text: choice.text,
+                      state: choice.isCorrect
+                          ? ChoiceRowState.right
+                          : choice.id == entry.chosenChoiceId
+                              ? ChoiceRowState.wrong
+                              : ChoiceRowState.dimmed,
+                    ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              AnswerReveal(
+                correctLetter: entry.question.correctChoice.label,
+                explanation: entry.question.explanation,
+                pickedLetter: entry.question.choices
                     .where((c) => c.id == entry.chosenChoiceId)
                     .firstOrNull
-                    ?.rationale
-                : null,
-          ),
-          if (noteOpen && proIsActive && !entry.isCorrect) ...[
-            const SizedBox(height: 16),
-            _ReasonPanel(
-              key: ValueKey(entry.question.id),
-              savedAnswer: savedAnswer,
-              isBlank: !entry.isAnswered,
-              onBlankReason: onBlankReason,
-              onMissReason: onMissReason,
-            ),
-          ],
-          const SizedBox(height: 24),
-          Row(
-            children: [
-              IconButton(
-                onPressed: onPrevious,
-                icon: Icon(PantasIcons.back),
-                tooltip: 'Previous question',
+                    ?.label,
+                wrongPick: proIsActive && !entry.isCorrect
+                    ? entry.question.choices
+                        .where((c) => c.id == entry.chosenChoiceId)
+                        .firstOrNull
+                        ?.rationale
+                    : null,
               ),
-              Expanded(
-                child: Text(
-                  '${index + 1} of ${entries.length}',
-                  textAlign: TextAlign.center,
-                  style: context.type.subhead
-                      .copyWith(fontWeight: FontWeight.w600),
+              if (noteOpen && proIsActive && !entry.isCorrect) ...[
+                const SizedBox(height: 16),
+                _ReasonPanel(
+                  key: ValueKey(entry.question.id),
+                  savedAnswer: savedAnswer,
+                  isBlank: !entry.isAnswered,
+                  onBlankReason: onBlankReason,
+                  onMissReason: onMissReason,
                 ),
-              ),
-              if (proIsActive)
-                IconButton(
-                  onPressed: onNote,
-                  icon: Icon(PantasIcons.addNote),
-                  tooltip: 'Add note',
-                )
-              else
-                const SizedBox(width: 48),
-              IconButton(
-                onPressed: onNext,
-                icon: Icon(PantasIcons.next),
-                tooltip: 'Next question',
-              ),
+              ],
             ],
           ),
-        ],
-      ),
+        ),
+        Positioned(
+          left: 16,
+          right: 16,
+          bottom: 26,
+          child: FloatingBar.content(
+            state: entry.isCorrect
+                ? FloatingBarState.right
+                : FloatingBarState.wrong,
+            inset: 0,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(4, 8, 8, 8),
+              child: Row(
+                children: [
+                  arrow('Previous question', PantasIcons.back, onPrevious),
+                  const SizedBox(width: 14),
+                  Text(
+                    '${index + 1} of ${entries.length}',
+                    style: context.type.subheadStrong.copyWith(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const Spacer(),
+                  if (proIsActive)
+                    IconButton(
+                      tooltip: 'Add note',
+                      style: IconButton.styleFrom(
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      constraints:
+                          const BoxConstraints.tightFor(width: 44, height: 44),
+                      padding: EdgeInsets.zero,
+                      icon: Icon(
+                        PantasIcons.addNote,
+                        size: 20,
+                        color: colors.label,
+                      ),
+                      onPressed: onNote,
+                    ),
+                  arrow('Next question', PantasIcons.next, onNext),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

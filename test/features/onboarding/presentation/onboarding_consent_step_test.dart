@@ -60,7 +60,7 @@ void main() {
             .toList();
         expect(
           rows.first.title,
-          'Help improve Pantas by sharing anonymous usage data',
+          'Help improve Pantas by sharing usage data',
         );
         expect(rows.first.selected, isFalse);
         expect(rows.last.selected, isFalse);

@@ -596,7 +596,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                   ? Row(
                                       children: [
                                         previous,
-                                        const SizedBox(width: 10),
+                                        const SizedBox(width: 14),
                                         counter,
                                         const Spacer(),
                                         trailing,

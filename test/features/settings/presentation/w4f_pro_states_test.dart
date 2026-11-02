@@ -540,7 +540,7 @@ void main() {
     expect(find.text('Waiting for your payment'), findsNothing);
     expect(find.text('Open Google Play'), findsNothing);
     expect(find.text('Manage in Google Play'), findsNothing);
-    expect(find.text('Subscribe for ₱149 a Month'), findsOneWidget);
+    expect(find.text('Buy 1 Month for ₱149'), findsOneWidget);
   });
   testWidgets('a grant has an end date and no renewal or management promise',
       (tester) async {

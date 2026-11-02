@@ -785,7 +785,8 @@ class _Breakdown extends StatelessWidget {
     return Container(
       padding: context.wideWeb
           ? const EdgeInsets.symmetric(vertical: 15)
-          : const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+          // MK_PastPro: 13 px above the name, 11 under it, 13.5 under the bar.
+          : const EdgeInsets.fromLTRB(16, 13, 16, 13.5),
       decoration: BoxDecoration(
         border: divider
             ? Border(
@@ -804,7 +805,7 @@ class _Breakdown extends StatelessWidget {
                 values,
               ],
             ),
-          const SizedBox(height: 9),
+          SizedBox(height: context.wideWeb ? 9 : 11),
           if (animatedAccuracy == null && !context.wideWeb)
             AccuracyBar(accuracy: section.accuracy)
           else

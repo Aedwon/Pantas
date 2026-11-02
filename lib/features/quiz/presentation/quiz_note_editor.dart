@@ -360,33 +360,42 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 if (_existing) SizedBox(width: removeWidth),
               ],
             ),
-            const SizedBox(height: 12),
-            for (final (tag, label) in const [
+            // QN_WrongOpen: 47 px rows with a hairline between them.
+            const SizedBox(height: 9.5),
+            for (final (index, (tag, label)) in const [
               (MistakeTag.misread, 'I misread'),
               (MistakeTag.slipped, 'I forgot'),
               (MistakeTag.unknown, "I didn't know"),
               (MistakeTag.other, 'Type my own'),
-            ])
+            ].indexed) ...[
+              if (index > 0)
+                Divider(
+                  height: .5,
+                  thickness: .5,
+                  color: colors.separator,
+                ),
               RadioRow(
                 title: label,
                 selected: _tag == tag,
                 onTap: _busy ? null : () => _choose(tag),
-                padding: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: 11.25),
               ),
+            ],
             if (_tag == MistakeTag.other) ...[
               const SizedBox(height: 8),
               TextField(
                 controller: _text,
                 focusNode: _focus,
                 enabled: !_busy,
-                minLines: 2,
+                minLines: 1,
                 maxLines: 4,
                 style: type.body.copyWith(fontSize: 16),
                 decoration: InputDecoration(
                   hintText: 'In your own words',
                   filled: true,
                   fillColor: colors.fill,
-                  contentPadding: const EdgeInsets.all(12),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -476,14 +485,18 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
         if (_existing)
           Positioned(
             top: 8,
-            right: 8,
+            right: 18,
             width: removeWidth,
             height: 44,
             child: TextButton(
               onPressed: _busy ? null : () => unawaited(_write(null, null)),
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                alignment: Alignment.centerRight,
+              ),
               child: Text(
                 'Remove',
-                style: type.subhead.copyWith(color: colors.wrongText),
+                style: type.subheadStrong.copyWith(color: colors.wrongText),
               ),
             ),
           ),

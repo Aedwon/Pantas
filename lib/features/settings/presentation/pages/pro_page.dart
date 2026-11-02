@@ -686,9 +686,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     ? 'Try 7 Days Free'
                     : lapsed
                         ? 'Get Pro Again'
-                        : 'Subscribe for '
-                            '${_money(selectedPackage.priceString)} '
-                            'a ${_period(selectedPackage.sku)}';
+                        : web
+                            ? 'Buy 1 ${_period(selectedPackage.sku)} for '
+                                '${_money(selectedPackage.priceString)}'
+                            : 'Subscribe for '
+                                '${_money(selectedPackage.priceString)} '
+                                'a ${_period(selectedPackage.sku)}';
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',

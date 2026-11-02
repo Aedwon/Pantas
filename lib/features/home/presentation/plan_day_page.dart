@@ -72,11 +72,14 @@ class PlanDayPage extends StatelessWidget {
                               emptyStrokeWidth: 2,
                               emptyTrackColor: context.colors.separator,
                             ),
+                      titleColor:
+                          lesson.read ? context.colors.secondaryLabel : null,
                       onTap: () => onLesson(lesson),
                       divider: true,
                       naturalValue: true,
                       dividerInset: 52,
-                      verticalPadding: 12.5,
+                      contentPadding: const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                      subtitleGap: 2,
                       valueStyle: context.type.subhead
                           .copyWith(color: context.colors.secondaryLabel),
                     ),
@@ -95,11 +98,15 @@ class PlanDayPage extends StatelessWidget {
                               emptyStrokeWidth: 2,
                               emptyTrackColor: context.colors.separator,
                             ),
+                      titleColor: past && reviewsDone == reviewsTotal
+                          ? context.colors.secondaryLabel
+                          : null,
                       variant: ListRowVariant.value,
                       divider: true,
                       naturalValue: true,
                       dividerInset: 52,
-                      verticalPadding: 12.5,
+                      contentPadding: const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                      subtitleGap: 2,
                       valueStyle: context.type.subhead
                           .copyWith(color: context.colors.secondaryLabel),
                     ),
@@ -118,10 +125,14 @@ class PlanDayPage extends StatelessWidget {
                               emptyStrokeWidth: 2,
                               emptyTrackColor: context.colors.separator,
                             ),
+                      titleColor: past && newDone == newTotal
+                          ? context.colors.secondaryLabel
+                          : null,
                       variant: ListRowVariant.value,
                       naturalValue: true,
                       dividerInset: 52,
-                      verticalPadding: 12.5,
+                      contentPadding: const EdgeInsets.fromLTRB(16, 11, 16, 12),
+                      subtitleGap: 2,
                       valueStyle: context.type.subhead
                           .copyWith(color: context.colors.secondaryLabel),
                     ),

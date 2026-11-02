@@ -166,9 +166,6 @@ class AboutPage extends ConsumerWidget {
         const SizedBox(height: 24),
         SettingsSection(
           header: 'Your data',
-          footer: 'Help improve the app shares anonymous usage data. Crash '
-              'reports are always sent. Contacting the officer opens your '
-              'mail app.',
           children: [
             SettingsRow(
               title: 'Help improve the app',
