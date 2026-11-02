@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -175,27 +176,30 @@ class WebCustomMockSetup extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 24),
-                          WebCard(
-                            radius: 16,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 6,
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'I know the section breakdown',
-                                      style: rowStyle,
+                          RowTapTarget(
+                            onTap: () => onBreakdown(!breakdown),
+                            child: WebCard(
+                              radius: 16,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 6,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'I know the section breakdown',
+                                        style: rowStyle,
+                                      ),
                                     ),
-                                  ),
-                                  PantasSwitch(
-                                    value: breakdown,
-                                    label: 'I know the section breakdown',
-                                    onChanged: onBreakdown,
-                                  ),
-                                ],
+                                    PantasSwitch(
+                                      value: breakdown,
+                                      label: 'I know the section breakdown',
+                                      onChanged: onBreakdown,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -231,25 +235,29 @@ class WebCustomMockSetup extends StatelessWidget {
                                         minutes: minutes,
                                       ),
                                     ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 16,
-                                      vertical: 6,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            'Time each section separately',
-                                            style: rowStyle,
+                                  RowTapTarget(
+                                    onTap: () => onTiming(!timedSeparately),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 6,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Time each section separately',
+                                              style: rowStyle,
+                                            ),
                                           ),
-                                        ),
-                                        PantasSwitch(
-                                          value: timedSeparately,
-                                          label: 'Time each section separately',
-                                          onChanged: onTiming,
-                                        ),
-                                      ],
+                                          PantasSwitch(
+                                            value: timedSeparately,
+                                            label:
+                                                'Time each section separately',
+                                            onChanged: onTiming,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],

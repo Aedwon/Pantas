@@ -132,6 +132,27 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(strict, false);
     });
+    testWidgets(
+        'wide strict mode card toggles from the text and the switch '
+        'once ($dark)', (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await pumpWide(
+        tester,
+        MockSetupPage(parsedBlueprint: blueprint, onStart: (_) {}),
+        dark: dark,
+      );
+      expect(find.textContaining('No pausing'), findsNothing);
+      await tester.tap(find.text('Strict mode'));
+      await tester.pump();
+      expect(find.textContaining('No pausing'), findsOneWidget);
+      await tester.tap(find.byType(PantasSwitch));
+      await tester.pump();
+      expect(find.textContaining('No pausing'), findsNothing);
+      await tester.tap(find.textContaining('Closest to the real exam'));
+      await tester.pump();
+      expect(find.textContaining('No pausing'), findsOneWidget);
+    });
     testWidgets('wide wrong and correct review, Pro and Free ($dark)',
         (tester) async {
       addTearDown(tester.view.resetPhysicalSize);

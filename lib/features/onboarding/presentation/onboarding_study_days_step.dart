@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
@@ -34,7 +35,7 @@ class OnboardingStudyDaysStep extends ConsumerStatefulWidget {
 
 class _OnboardingStudyDaysStepState
     extends ConsumerState<OnboardingStudyDaysStep> {
-  final Set<int> _days = {};
+  final Set<int> _days = {...?takeSeededStudyDays()};
   UserSettings? _settings;
   bool _saving = false;
   bool _failed = false;

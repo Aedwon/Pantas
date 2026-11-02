@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/beta_pro_provider.dart';
@@ -49,33 +50,36 @@ class _BetaProRowState extends ConsumerState<BetaProRow> {
           top: 0,
           child: Container(height: .5, color: context.colors.separator),
         ),
-        ListRow(
-          title: 'Beta: Pro Features',
-          leading: SizedBox(width: context.wideWeb ? 22 : 30),
-          contentPadding: context.wideWeb
-              ? null
-              : const EdgeInsets.fromLTRB(14, 11, 16, 11),
-          minimumHeight: 66,
-          verticalPadding: context.wideWeb ? 13 : 11,
-          titleWidget: Text(
-            'Beta: Pro Features',
-            style: context.type.body.copyWith(
-              fontSize: context.wideWeb ? 16 : 17,
+        RowTapTarget(
+          onTap: _pending ? null : () => _change(!beta.enabled),
+          child: ListRow(
+            title: 'Beta: Pro Features',
+            leading: SizedBox(width: context.wideWeb ? 22 : 30),
+            contentPadding: context.wideWeb
+                ? null
+                : const EdgeInsets.fromLTRB(14, 11, 16, 11),
+            minimumHeight: 66,
+            verticalPadding: context.wideWeb ? 13 : 11,
+            titleWidget: Text(
+              'Beta: Pro Features',
+              style: context.type.body.copyWith(
+                fontSize: context.wideWeb ? 16 : 17,
+              ),
             ),
-          ),
-          subtitle: _pending && _turningOn ? 'Turning On…' : null,
-          trailingWidget: Semantics(
-            enabled: !_pending,
-            child: ExcludeFocus(
-              excluding: _pending,
-              child: IgnorePointer(
-                ignoring: _pending,
-                child: Opacity(
-                  opacity: _pending ? .5 : 1,
-                  child: PantasSwitch(
-                    value: beta.enabled,
-                    label: 'Beta: Pro Features',
-                    onChanged: _change,
+            subtitle: _pending && _turningOn ? 'Turning On…' : null,
+            trailingWidget: Semantics(
+              enabled: !_pending,
+              child: ExcludeFocus(
+                excluding: _pending,
+                child: IgnorePointer(
+                  ignoring: _pending,
+                  child: Opacity(
+                    opacity: _pending ? .5 : 1,
+                    child: PantasSwitch(
+                      value: beta.enabled,
+                      label: 'Beta: Pro Features',
+                      onChanged: _change,
+                    ),
                   ),
                 ),
               ),

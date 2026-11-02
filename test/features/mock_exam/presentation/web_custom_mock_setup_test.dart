@@ -85,6 +85,40 @@ void main() {
       expect(saved?.effectiveQuestions, 135);
       expect(tester.takeException(), isNull);
     });
+    testWidgets(
+        'wide switch rows toggle from the label and the switch once '
+        'dark=$dark', (tester) async {
+      CustomBlueprint? saved;
+      await pump(tester, onSave: (value) => saved = value);
+      expect(find.text('SECTION BREAKDOWN'), findsNothing);
+      await tester.tap(find.text('I know the section breakdown'));
+      await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      await tester.tap(find.byType(PantasSwitch).first);
+      await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsNothing);
+      await tester.tap(find.byType(PantasSwitch).first);
+      await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      expect(find.byType(PantasSwitch), findsNWidgets(2));
+      await tester.tap(find.byType(PantasSwitch).last);
+      await tester.pump();
+      await tester.tap(find.text('Time each section separately'));
+      await tester.pump();
+      await tester.tap(find.text('Time each section separately'));
+      await tester.pump();
+      await tester.tap(find.byType(PantasSwitch).last);
+      await tester.pump();
+      var timed =
+          tester.widget<PantasSwitch>(find.byType(PantasSwitch).last).value;
+      // Switch (on), label (off), label (on), switch (off) is four flips.
+      expect(timed, isFalse);
+      await tester.tap(find.text('Time each section separately'));
+      await tester.pump();
+      timed = tester.widget<PantasSwitch>(find.byType(PantasSwitch).last).value;
+      expect(timed, isTrue);
+      expect(saved, isNull);
+    });
     testWidgets('CM_Ceiling retains requested count and blocks Save dark=$dark',
         (tester) async {
       await pump(

@@ -107,7 +107,7 @@ Future<SampleStudentProfile> seedLocalStudentOnServer(
 Future<bool> loadLocalStudentFromUrl(
   ProviderContainer container, {
   Uri? url,
-  LocalStudentSeed seed = seedLocalStudentOnServer,
+  LocalStudentSeed? seed,
   DateTime? today,
 }) async {
   // Both are compile-time constants: normal builds drop everything below.
@@ -125,7 +125,8 @@ Future<bool> loadLocalStudentFromUrl(
       _ => null,
     };
     if (uid == null) throw StateError('Sign in before loading a student.');
-    final profile = await seed(uid, student, state);
+    final profile =
+        await (seed ?? seedLocalStudentOnServer)(uid, student, state);
     await loadSampleStudentProfile(
       container.read(appDatabaseProvider),
       profile,

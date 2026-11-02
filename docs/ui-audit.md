@@ -2727,3 +2727,13 @@ Earlier captures used compact density (the user agent does not change Flutter's 
 
 ## Mobile fix batch 6, agent D (phone, standard density)
 Rows re-measured at Android density: Plan day, Study, Bookmarks, Onboarding consent and date, note sheets, report, How long sheet, mock review viewer, assessment bar. Notes: build/visual-pass/mobile/recheck-d.md in the staging worktree.
+
+## Local test panel and tappable rows (Nov 2)
+
+Local test panel: open `/local-panel.html` in a second tab of a local run. The Today tab and date patch are left out, because faking the browser clock breaks App Check. Without Today, the "too late" and "exam soon" cards pick days counted from the real date and name those days, so they read as on the board (Sun to Tue, Wed to Fri) only on a Wednesday. Mock start is not listed: it crashes without the blueprint Mock setup passes it, so 53 screens are listed.
+
+Exercised in the running app: Start fresh with and without an app tab, status line, Free, Pro and Real (Settings shows Monthly on Pro, Free on Free, no reload), search, all 19 onboarding cards, all 4 sample students, all 53 screen cards (ID cards with real and bad IDs). A student loaded on Pro uses the local Pro account; Free and Real use the local Free account. Aedwon has not yet compared the panel with the mockup.
+
+Some cards do not stay on their screen, because the app's own redirects apply: for a finished student, Onboarding (3 cards), Assessment and Update required go to Home; Quiz all and Quiz debrief with a bad ID go to Quiz; Wrapped goes to Record; Exam transfer goes to Exam. Open: Mock setup shows "Something went wrong" for Steady on the Free account. The cause is not confirmed. The same student's results page says the next Free mock opens Nov 26, which may be why.
+
+Tappable rows: whole row now toggles on Beta: Pro Features (phone and wide), Strict mode (phone and wide), and the two wide custom mock rows. Left alone by rule: the custom mock phone subject row (two pills, two actions), the reader bar back control and the Performance subject header (toolbar controls), and rows with a second action icon. All other rows checked in code already use the whole row. Checked by widget tests and code reading, not by tapping in the running app.

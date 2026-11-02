@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
@@ -42,7 +43,12 @@ class OnboardingAgeGateStep extends ConsumerStatefulWidget {
 class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   late final List<int> _years =
       List.generate(101, (i) => widget.currentYear - 100 + i);
-  late int _selectedYear = widget.currentYear - 14;
+  late int _selectedYear = takeSeededBirthYear(
+        () {
+          if (mounted) unawaited(_continue());
+        },
+      ) ??
+      widget.currentYear - 14;
   late final _yearController = TextEditingController(text: '$_selectedYear');
   @override
   void dispose() {

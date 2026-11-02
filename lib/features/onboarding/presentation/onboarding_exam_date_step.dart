@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -45,6 +46,7 @@ class _OnboardingExamDateStepState
   bool _failed = false;
   ExamDate? _retryDate;
   int _generation = 0;
+  final LocalPresetSeed? _seed = takeSeededExamDate();
 
   @override
   void initState() {
@@ -69,6 +71,8 @@ class _OnboardingExamDateStepState
                 day: date.day?.day,
               );
         _declined = date != null;
+        _value = _seed?.pickedDate ?? _value;
+        _declined = _seed?.differentDate ?? _declined;
         _loaded = true;
       });
     } catch (error, stack) {
