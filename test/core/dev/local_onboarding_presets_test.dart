@@ -55,14 +55,15 @@ void main() {
       expect(localPresetSeed.value, isNotNull);
     });
 
-    test('a step takes only its own answer and clears it', () {
+    test('a step takes only its own answer and leaves the seed in place', () {
       allowLocalPresetSeedForTest(allowed: true);
       localPresetSeed.value = const LocalPresetSeed(studyDays: {1, 2});
       expect(takeSeededCustomName(() {}), isNull);
       expect(localPresetSeed.value, isNotNull);
       expect(takeSeededStudyDays(), {1, 2});
-      expect(localPresetSeed.value, isNull);
-      expect(takeSeededStudyDays(), isNull);
+      // A second step built in the same window still reads the seed.
+      expect(localPresetSeed.value, isNotNull);
+      expect(takeSeededStudyDays(), {1, 2});
     });
 
     test('the picked date holds year, month and day', () {
@@ -112,11 +113,35 @@ void main() {
       await db.close();
     });
 
+    /// The seed the applier held while it ran. It clears the seed itself once
+    /// the screen has settled, so the value is read inside that window.
+    LocalPresetSeed? seen;
+
+    Future<LocalPresetSeed?> applyAndSee(
+      ProviderContainer target,
+      String id, {
+      DateTime? at,
+    }) async {
+      LocalPresetSeed? held;
+      var done = false;
+      final run = applyOnboardingPreset(target, id, now: at ?? now)
+          .whenComplete(() => done = true);
+      while (!done) {
+        held ??= localPresetSeed.value;
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+      }
+      await run;
+      return held;
+    }
+
     Future<void> apply(WidgetTester tester, String id) async {
       await tester.pumpWidget(MaterialApp.router(routerConfig: router));
-      await tester.runAsync(
-        () => applyOnboardingPreset(container, id, now: now),
-      );
+      seen = null;
+      await tester.runAsync(() async {
+        seen = await applyAndSee(container, id);
+        // The applier leaves nothing behind.
+        expect(localPresetSeed.value, isNull);
+      });
     }
 
     String where() => router.routerDelegate.currentConfiguration.uri.path;
@@ -174,11 +199,35 @@ void main() {
       await apply(tester, 'days');
       final prefs = AppPreferencesRepository(db);
       expect(await prefs.deviceValue(onboardingDateAnsweredKey), 'true');
-      expect(localPresetSeed.value!.studyDays, {1, 2, 3, 4, 5, 6});
+      expect(seen!.studyDays, {1, 2, 3, 4, 5, 6});
       final progress = (await tester.runAsync(
         () => container.read(onboardingProgressProvider.future),
       ))!;
       expect(progress.resumeStep, OnboardingStep.studyDays);
+    });
+
+    testWidgets('a second step built in the window still reads the seed',
+        (tester) async {
+      allowLocalPresetSeedForTest(allowed: true);
+      addTearDown(() => allowLocalPresetSeedForTest(allowed: false));
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.runAsync(() async {
+        var done = false;
+        final run = applyOnboardingPreset(container, 'days', now: now)
+            .whenComplete(() => done = true);
+        Set<int>? first;
+        Set<int>? second;
+        while (!done) {
+          first ??= takeSeededStudyDays();
+          if (first != null) second ??= takeSeededStudyDays();
+          await Future<void>.delayed(const Duration(milliseconds: 10));
+        }
+        await run;
+        expect(first, {1, 2, 3, 4, 5, 6});
+        expect(second, {1, 2, 3, 4, 5, 6});
+        expect(localPresetSeed.value, isNull);
+        expect(takeSeededStudyDays(), isNull);
+      });
     });
 
     testWidgets('name saves Mon to Sat through the settings action',
@@ -195,8 +244,8 @@ void main() {
 
     testWidgets('under13 seeds year 2020 to be submitted', (tester) async {
       await apply(tester, 'under13');
-      expect(localPresetSeed.value!.birthYearText, '2020');
-      expect(localPresetSeed.value!.submit, isTrue);
+      expect(seen!.birthYearText, '2020');
+      expect(seen!.submit, isTrue);
       expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
     });
 
@@ -211,8 +260,8 @@ void main() {
         (tester) async {
       await apply(tester, 'customSubjects');
       expect(where(), '/onboarding/custom/name');
-      expect(localPresetSeed.value!.customName, 'Nursing Board');
-      expect(localPresetSeed.value!.submit, isTrue);
+      expect(seen!.customName, 'Nursing Board');
+      expect(seen!.submit, isTrue);
     });
 
     for (final (id, differentDate, year, month, day) in [
@@ -225,7 +274,7 @@ void main() {
     ]) {
       testWidgets('$id seeds the date picker', (tester) async {
         await apply(tester, id);
-        final seed = localPresetSeed.value!;
+        final seed = seen!;
         expect(seed.differentDate, differentDate);
         expect(seed.year, year);
         expect(seed.month, month);
@@ -246,7 +295,7 @@ void main() {
         await apply(tester, id);
         final settings = await DriftSettingsRepository(db).readUserSettings();
         expect(settings.examDate!.day, DateTime(2026, 10, 17));
-        expect(localPresetSeed.value?.studyDays, days);
+        expect(seen?.studyDays, days);
         final progress = (await tester.runAsync(
           () => container.read(onboardingProgressProvider.future),
         ))!;
@@ -258,14 +307,10 @@ void main() {
         (tester) async {
       await tester.pumpWidget(MaterialApp.router(routerConfig: router));
       // Monday 2 November 2026.
-      await tester.runAsync(
-        () => applyOnboardingPreset(
-          container,
-          'daysTooLate',
-          now: DateTime(2026, 11, 2),
-        ),
+      final held = await tester.runAsync(
+        () => applyAndSee(container, 'daysTooLate', at: DateTime(2026, 11, 2)),
       );
-      expect(localPresetSeed.value!.studyDays, {5, 6, 7});
+      expect(held!.studyDays, {5, 6, 7});
     });
 
     testWidgets('gives up when the app never becomes ready', (tester) async {

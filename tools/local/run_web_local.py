@@ -214,12 +214,15 @@ window.fetch = (input, init) => {
   return localFetch(input, init);
 };
 window.pantasPwa = null;
-// The welcome splash (pantas_welcome.js) shows on a first visit. The test panel skips it for
-// every start except Start fresh and the Welcome card, by marking the splash as seen first.
+// The welcome splash (pantas_welcome.js) shows on a first visit. Start fresh and the Welcome card
+// stay on it. A sample student never sees it. An onboarding card presses Get Started, because the
+// app starts at Birth year only after that screen.
 try {
   const preset = localStorage.getItem('pantas.local.preset');
-  if (new URLSearchParams(location.search).has('localStudent') || (preset && preset !== 'welcome')) {
+  if (new URLSearchParams(location.search).has('localStudent')) {
     localStorage.setItem('pantas.welcome.seen', '1');
+  } else if (preset && preset !== 'welcome') {
+    window.addEventListener('load', () => document.getElementById('pw-start')?.click());
   }
 } catch (_) {}
 </script>'''

@@ -53,7 +53,8 @@ void main() {
           const LocalPresetSeed(birthYearText: '2020', submit: true);
       await pumpAge(tester);
       expect(find.text("Pantas isn't available yet"), findsOneWidget);
-      expect(localPresetSeed.value, isNull);
+      // The preset clears the seed after the screen settles, not the step.
+      expect(localPresetSeed.value, isNotNull);
     });
 
     testWidgets('an unsubmitted year only fills the field', (tester) async {
@@ -84,7 +85,7 @@ void main() {
       );
       await tester.pump();
       expect(find.text('Nursing Board'), findsOneWidget);
-      expect(localPresetSeed.value, isNull);
+      expect(localPresetSeed.value, isNotNull);
     });
 
     testWidgets("a submitted name runs the step's own Continue",

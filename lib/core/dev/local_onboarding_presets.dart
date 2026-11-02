@@ -64,8 +64,9 @@ bool _allowedInTests = false;
 void allowLocalPresetSeedForTest({required bool allowed}) =>
     _allowedInTests = allowed;
 
-/// Returns the seed if a step wants it, and clears it so no later step sees
-/// it. Returns null in every build that is not a local run in a browser.
+/// Returns the seed if a step wants it. The preset clears it once the screen
+/// has settled: a provider refresh can rebuild the step, and the new one needs
+/// it too. Returns null in every build that is not a local run in a browser.
 ///
 /// [wanted] says whether the seed holds an answer for the calling step.
 LocalPresetSeed? takeLocalPresetSeed(bool Function(LocalPresetSeed) wanted) {
@@ -73,7 +74,6 @@ LocalPresetSeed? takeLocalPresetSeed(bool Function(LocalPresetSeed) wanted) {
   if (!(localEmulators && kIsWeb) && !_allowedInTests) return null;
   final seed = localPresetSeed.value;
   if (seed == null || !wanted(seed)) return null;
-  localPresetSeed.value = null;
   return seed;
 }
 

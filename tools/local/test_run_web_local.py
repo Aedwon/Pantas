@@ -108,6 +108,7 @@ class LocalPanelTest(unittest.TestCase):
         self.assertIn("localStorage.setItem('pantas.welcome.seen', '1')", self.runner)
         self.assertIn("has('localStudent')", self.runner)
         self.assertIn("preset !== 'welcome'", self.runner)
+        self.assertIn("getElementById('pw-start')?.click()", self.runner)
         # The shim goes in before pantas_welcome.js runs, which is the first script after <head>.
         self.assertIn("replace('<head>', '<head>' + shim)", self.runner)
 

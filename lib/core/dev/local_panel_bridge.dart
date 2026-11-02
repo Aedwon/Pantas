@@ -156,6 +156,8 @@ class LocalPanelBridge {
     // An app path only: no address of another site.
     if (!requested.startsWith('/') || requested.startsWith('//')) return;
     var path = requested;
+    // Mock setup takes the exam as a query, not in its path.
+    if (path == '/quiz/mock/setup') path = '$path?examId=:examId';
     if (path.contains(':examId')) {
       final focus = await container.read(activeExamFocusProvider.future);
       final exam = focus.exam;
@@ -170,9 +172,13 @@ class LocalPanelBridge {
     final router = container.read(routerProvider);
     if (_isTabShellPath(path)) {
       router.go(path);
-    } else {
-      unawaited(router.push<Object?>(path));
+      return;
     }
+    // From Home each time. Pushed screens would pile up, and one on the root
+    // navigator would cover every later screen pushed in the tabs.
+    router.go('/home');
+    await Future<void>.delayed(const Duration(milliseconds: 100));
+    unawaited(router.push<Object?>(path));
   }
 
   void _setPlan(Object? value) {

@@ -35,6 +35,12 @@ void main() {
       expect(paths.where((path) => path.contains('/_')), isEmpty);
     });
 
+    test('leaves out Mock start, which crashes without its setup screen', () {
+      final paths = found.map((route) => route.path).toList();
+      expect(paths, isNot(contains('/quiz/mock/start')));
+      expect(paths, contains('/quiz/mock/setup'));
+    });
+
     test('names the cards the approved board shows', () {
       String label(String path) =>
           found.singleWhere((route) => route.path == path).label;
@@ -101,5 +107,6 @@ final a = [
         decoded.map((row) => (row! as Map<String, Object?>)['path']).toList();
     expect(paths, contains('/home'));
     expect(paths.toSet().length, paths.length);
+    expect(paths, isNot(contains('/quiz/mock/start')));
   });
 }

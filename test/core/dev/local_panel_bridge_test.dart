@@ -55,6 +55,7 @@ GoRouter _router() => GoRouter(
           '/lesson/:lessonId',
           '/quiz/today/:examId',
           '/settings/about',
+          '/quiz/mock/setup',
         ])
           GoRoute(path: path, builder: (_, __) => const SizedBox()),
       ],
@@ -116,6 +117,14 @@ void main() {
     return shown.lastOrNull?.matchedLocation ?? '';
   }
 
+  /// A jump to a screen outside the tab shell waits 100 ms of fake time.
+  Future<void> jump(WidgetTester tester, String path) async {
+    final done = bridge.handle({'type': 'go', 'path': path});
+    await tester.pump(const Duration(milliseconds: 150));
+    await done;
+    await tester.pumpAndSettle();
+  }
+
   routed('a normal build never opens the channel', (tester) async {
     expect(localEmulators, isFalse);
     await startLocalPanelBridge(container, channel: channel, page: page);
@@ -168,23 +177,42 @@ void main() {
       expect(router.canPop(), isFalse);
     });
 
-    routed('pushes a screen outside the tab shell so back works',
+    routed('pushes a screen outside the tab shell on top of Home',
         (tester) async {
-      await bridge.handle({'type': 'go', 'path': '/settings/about'});
-      await tester.pumpAndSettle();
+      await jump(tester, '/settings/about');
       expect(where(), '/settings/about');
       expect(router.canPop(), isTrue);
+      router.pop();
+      await tester.pumpAndSettle();
+      expect(where(), '/home');
+    });
+
+    routed('two jumps in a row do not stack', (tester) async {
+      await jump(tester, '/settings/about');
+      await jump(tester, '/lesson/lesson-12');
+      expect(where(), '/lesson/lesson-12');
+      router.pop();
+      await tester.pumpAndSettle();
+      expect(where(), '/home');
     });
 
     routed('fills :examId with the active exam', (tester) async {
-      await bridge.handle({'type': 'go', 'path': '/quiz/today/:examId'});
-      await tester.pumpAndSettle();
+      await jump(tester, '/quiz/today/:examId');
       expect(where(), '/quiz/today/exam_cse_pro');
     });
 
+    routed('opens Mock setup with the active exam as the examId query',
+        (tester) async {
+      await jump(tester, '/quiz/mock/setup');
+      final top = router.routerDelegate.currentConfiguration.last;
+      expect(top, isA<ImperativeRouteMatch>());
+      final pushed = (top as ImperativeRouteMatch).matches.uri;
+      expect(pushed.path, '/quiz/mock/setup');
+      expect(pushed.queryParameters, {'examId': 'exam_cse_pro'});
+    });
+
     routed('keeps an ID the panel already filled in', (tester) async {
-      await bridge.handle({'type': 'go', 'path': '/lesson/lesson-12'});
-      await tester.pumpAndSettle();
+      await jump(tester, '/lesson/lesson-12');
       expect(where(), '/lesson/lesson-12');
     });
 
