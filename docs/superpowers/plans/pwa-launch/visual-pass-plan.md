@@ -139,6 +139,31 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    boards (mock parts, Wrapped, weekday-dependent Home states), 8 pre-existing quiz/lesson test
    failures, second capture round to confirm all areas.
 
+13. Nov 2, handoff to another account (READ THIS FIRST, it supersedes 10 to 12 where they differ).
+   State: fixes branch `web/visual-check-fixes-r1` and staging `web/staging-candidate-r1` both at
+   04ff6e29, tree clean, local run stopped. Worktrees: `Pantas-wt-vc-fixes-r1` (edit here),
+   `Pantas-wt-staging-candidate-r1` (capture scripts in gitignored `build/visual-pass/`). Local-only and
+   not in git: phone boards in `web-design/pantas-handoff/mobile/project/` (278 boards, inline styles,
+   no `/_blob` mapping needed), `build/visual-pass/mobile/` (`final.md`, `remaining.md`, `diffs.md`,
+   `shots/`), briefs `Pantas-wt-vc-fixes-r1/build/vp-mobile-fix-*.md`.
+   Web pass: done. Mobile pass: fix batches 1 to 5 committed. Next task: strict row-by-row recheck,
+   brief `build/vp-mobile-fix-5.md` steps 2 and 3, append to `final.md`.
+   - Rechecked: Settings, Record, Home (17 Home boards measured only, see `final.md`).
+   - Not rechecked: Onboarding, Plan and day, Study and Performance, Reader, Bookmarks (an agent hit its
+     usage limit on these and saved nothing), Quiz, Question session, Mock, Assessment.
+   Do not trust a worker's "matches" note: the lead's spot check of 3 pairs found misses marked OK. View
+   pairs yourself. Split one area per worker; long workers run out of usage. Only one local run at a time.
+   Tests: full `flutter test` fails 37 known tests (30 `web_settings_layout_test.dart` overflows, the rest
+   quiz, lesson and metrics token boundaries), same names on base and head. New failures: compare names.
+   Rules from Aedwon: where a board shows it, follow the board without asking. Ask only on a conflict with
+   a hard rule, the pricing doc, another board, or a new feature, and show real board and app screenshots.
+   Always give Aedwon a way to open anything you mention. Launch exams: CSE Professional and Sub only.
+   Decisions log: `docs/superpowers/decisions/2026-10-19-pwa-launch-log.md` (Nov 1 and 2 entries).
+   Open for Aedwon: live note button in the question bar (needs new behavior); copy/behavior lists in
+   `final.md` and `docs/ui-audit.md`; his own visual pass after the recheck. Server changes for Count
+   Them (`getCarryableCount`, roadmap, studyInsights) deploy only with release approval. Also open: the 37
+   failures, and unreachable phone boards (mock parts, Wrapped, weekday-dependent Home states).
+
 ## Why
 
 Aedwon, Oct 31: "ui looks terrible. some parts do not look like what was presented to me in Claude
