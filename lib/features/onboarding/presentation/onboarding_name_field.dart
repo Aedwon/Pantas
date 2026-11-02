@@ -15,6 +15,7 @@ class OnboardingNameField extends StatelessWidget {
     this.textInputAction = TextInputAction.done,
     this.maxLength = 40,
     this.autofillHints,
+    this.restingBorder = false,
     super.key,
   });
   final TextEditingController controller;
@@ -26,6 +27,11 @@ class OnboardingNameField extends StatelessWidget {
   final TextInputAction textInputAction;
   final int maxLength;
   final Iterable<String>? autofillHints;
+
+  /// Board O_Name draws its one field in the accent color. With several
+  /// fields on a step that reads as all of them focused, so those steps rest
+  /// in the neutral outline and show the accent only on focus.
+  final bool restingBorder;
   @override
   Widget build(BuildContext context) {
     final field = TextField(
@@ -65,7 +71,9 @@ class OnboardingNameField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide(
-            color: context.colors.accent,
+            color: restingBorder
+                ? context.colors.controlOutline
+                : context.colors.accent,
             width: context.wideWeb ? 2 : 1.5,
           ),
         ),

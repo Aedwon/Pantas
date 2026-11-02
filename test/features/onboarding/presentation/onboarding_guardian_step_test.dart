@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_guardian_step.dart';
@@ -103,6 +104,26 @@ void main() {
       });
     }
   }
+
+  testWidgets('resting fields use the neutral outline, focus uses the accent',
+      (tester) async {
+    await pump(tester);
+    final context = tester.element(find.byType(OnboardingGuardianStep));
+    for (final label in [
+      "Parent or guardian's name",
+      "Parent or guardian's email",
+    ]) {
+      final decoration = tester.widget<TextField>(field(label)).decoration!;
+      final resting = decoration.enabledBorder! as OutlineInputBorder;
+      final focused = decoration.focusedBorder! as OutlineInputBorder;
+      expect(
+        resting.borderSide.color,
+        context.colors.controlOutline,
+        reason: label,
+      );
+      expect(focused.borderSide.color, context.colors.accent, reason: label);
+    }
+  });
 
   testWidgets('Send Link waits for a name and a plausible email',
       (tester) async {

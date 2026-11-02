@@ -103,6 +103,7 @@ class _OnboardingGuardianStepState
           OnboardingNameField(
             controller: _name,
             label: "Parent or guardian's name",
+            restingBorder: true,
             autofillHints: const [AutofillHints.name],
             textInputAction: TextInputAction.next,
             onChanged: (_) => setState(() {}),
@@ -114,6 +115,7 @@ class _OnboardingGuardianStepState
             keyboardType: TextInputType.emailAddress,
             textCapitalization: TextCapitalization.none,
             maxLength: 254,
+            restingBorder: true,
             autofillHints: const [AutofillHints.email],
             onChanged: (_) => setState(() {}),
             onSubmitted: (_) => _send(),
