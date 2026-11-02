@@ -67,7 +67,8 @@
     location.replace('/?localAccount=' + account + '&localStudent=' + encodeURIComponent(student));
   } else {
     var next = new URLSearchParams(location.search).get('next');
-    location.replace(next && /^\/(?!\/)/.test(next) ? next : '/');
+    if (next && /^\/(?!\/)/.test(next)) location.replace(next);
+    else location.replace('/');
   }
 })();
 </script>
