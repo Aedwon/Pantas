@@ -1,5 +1,5 @@
 import {createHmac, randomBytes} from 'node:crypto';
-import {defineSecret, defineString} from 'firebase-functions/params';
+import {defineInt, defineSecret, defineString} from 'firebase-functions/params';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -20,6 +20,8 @@ export const guardianHmacKey = defineSecret('GUARDIAN_HMAC_KEY');
 export const guardianMailKey = defineSecret('GUARDIAN_MAIL_API_KEY');
 export const guardianMailFrom = defineString('GUARDIAN_MAIL_FROM');
 export const guardianLinkOrigin = defineString('GUARDIAN_LINK_ORIGIN');
+/** Most guardian emails the whole service sends per Philippine day. */
+export const guardianDailyCap = defineInt('GUARDIAN_DAILY_SEND_CAP', {default: 500});
 
 export const GUARDIAN_WINDOW_MS = 7 * 86_400_000;
 const DAY_MS = 86_400_000;
@@ -37,6 +39,7 @@ export type ConsentDeps = {
   key: string;
   mailer: GuardianMailer;
   linkOrigin: string;
+  dailyCap?: number;
   now?: () => number;
   token?: () => string;
   allow?: (uid: string, key: string, max: number, windowMs: number) => Promise<boolean>;
@@ -60,17 +63,19 @@ export function maskEmail(email: string): string {
   return `${local[0]}***@${domain[0]}***.${labels[labels.length - 1]}`;
 }
 
+// Names go into the email body, so they carry no digits, links or addresses.
+const NAME = /^[\p{L}][\p{L}\p{M} '.\u2019-]*$/u;
+
 function cleanName(value: unknown, required: boolean): string | null {
   if (value === undefined || value === null || value === '') {
     if (required) throw new HttpsError('invalid-argument', 'A name is required.');
     return null;
   }
   // eslint-disable-next-line no-control-regex
-  if (typeof value !== 'string' || /[\u0000-\u001f\u007f-\u009f]/.test(value)) {
-    throw new HttpsError('invalid-argument', 'Enter a valid name.');
-  }
-  const trimmed = value.trim();
-  if (trimmed.length === 0 || trimmed.length > 60) {
+  const clean = typeof value === 'string' && !/[\u0000-\u001f\u007f-\u009f]/.test(value);
+  const trimmed = clean ? (value as string).trim().replace(/ +/g, ' ') : '';
+  // A dot followed by a letter reads as a web address, so it is refused.
+  if (trimmed.length === 0 || trimmed.length > 40 || !NAME.test(trimmed) || /\.\p{L}/u.test(trimmed)) {
     throw new HttpsError('invalid-argument', 'Enter a valid name.');
   }
   return trimmed;
@@ -134,9 +139,13 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const maskedEmail = maskEmail(rawEmail);
   const consent = consentRef(deps.db, uid);
   const emailLimit = deps.db.doc(`guardianLimits/${emailHash}`);
+  const cap = deps.dailyCap ?? 500;
+  if (!Number.isFinite(cap) || cap < 1) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  const day = new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Manila'}).format(now);
+  const globalLimit = deps.db.doc(`guardianLimits/global-${day}`);
 
   await deps.db.runTransaction(async (tx) => {
-    const [current, limit] = await Promise.all([tx.get(consent), tx.get(emailLimit)]);
+    const [current, limit, global] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit)]);
     const before = current.data();
     if (before?.status === 'confirmed') {
       throw new HttpsError('failed-precondition', 'Already confirmed.');
@@ -150,6 +159,9 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     if (count + 1 > SEND_LIMIT.perGuardianEmail) {
       throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
     }
+    const sentToday = (global.get('count') as number | undefined) ?? 0;
+    if (sentToday + 1 > cap) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+    tx.set(globalLimit, {count: sentToday + 1});
     tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1});
     if (typeof before?.tokenHash === 'string') {
       tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked'}, {merge: true});
@@ -261,6 +273,7 @@ function runtimeDeps(): ConsentDeps {
       ? (guardianHmacKey.value() || 'guardian-emulator-only-key') : guardianHmacKey.value(),
     mailer: mailerFor(process.env, {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}),
     linkOrigin,
+    dailyCap: guardianDailyCap.value(),
   };
 }
 

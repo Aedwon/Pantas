@@ -46,6 +46,21 @@ final guardianControllerProvider = Provider<GuardianController>(
   GuardianController.new,
 );
 
+// Letters, spaces, hyphens, apostrophes and periods, as the server requires.
+final _plainNamePattern =
+    RegExp(r"^\p{L}[\p{L}\p{M} '.\u2019-]*$", unicode: true);
+String? _plainName(String? name) {
+  final text = name?.trim();
+  if (text == null ||
+      text.isEmpty ||
+      text.length > 40 ||
+      !_plainNamePattern.hasMatch(text) ||
+      RegExp(r'\.\p{L}', unicode: true).hasMatch(text)) {
+    return null;
+  }
+  return text;
+}
+
 class GuardianController {
   GuardianController(this._ref);
   final Ref _ref;
@@ -62,7 +77,7 @@ class GuardianController {
     final status = await _ref.read(guardianGatewayProvider).sendLink(
           guardianName: name,
           guardianEmail: email,
-          studentName: studentName,
+          studentName: _plainName(studentName),
         );
     final prefs = _ref.read(appPreferencesRepositoryProvider);
     await prefs.setGuardianContact(name: name, email: email);

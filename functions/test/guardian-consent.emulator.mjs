@@ -157,6 +157,38 @@ test('bad input, no App Check and no sign-in are refused; a confirmed student ca
   assert.equal(await code(sendLink(req(uid, body()), h.deps)), 'failed-precondition');
 });
 
+test('names allow only letters, spaces, hyphens, apostrophes and periods, 40 at most', async () => {
+  const uid = 'g-names'; await reset(uid);
+  const h = harness();
+  const bad = ['Maria2', 'Visit http://x.co', 'a@b', 'Call 0917', 'www.evil.com now', 'x'.repeat(41), 'Maria_', 'Maria\u{1F600}', '<b>'];
+  for (const name of bad) {
+    assert.equal(await code(sendLink(req(uid, body({guardianName: name})), h.deps)), 'invalid-argument', `guardian ${name}`);
+    assert.equal(await code(sendLink(req(uid, body({studentName: name})), h.deps)), 'invalid-argument', `student ${name}`);
+  }
+  assert.equal(h.sent.length, 0);
+  for (const name of ["Mary-Ann O'Neil Jr.", 'José Niño', 'x'.repeat(40)]) {
+    h.advance(SEND_LIMIT.gapMs + 1);
+    assert.equal(await code(sendLink(req(uid, body({guardianName: name, guardianEmail: `n${h.sent.length}@mail.com`})), h.deps)), 'ok', name);
+  }
+  assert.equal(h.sent.at(-1).subject, "Review your child's Pantas account");
+});
+
+test('a global daily cap stops all sends and resets the next day', async () => {
+  await reset('g-cap1'); await reset('g-cap2'); await reset('g-cap3');
+  await db.recursiveDelete(db.collection('guardianLimits'));
+  const h = harness();
+  const deps = {...h.deps, dailyCap: 2};
+  assert.equal(await code(sendLink(req('g-cap1', body({guardianEmail: 'a1@mail.com'})), deps)), 'ok');
+  assert.equal(await code(sendLink(req('g-cap2', body({guardianEmail: 'a2@mail.com'})), deps)), 'ok');
+  assert.equal(await code(sendLink(req('g-cap3', body({guardianEmail: 'a3@mail.com'})), deps)), 'resource-exhausted');
+  assert.equal(h.sent.length, 2);
+  h.advance(DAY);
+  assert.equal(await code(sendLink(req('g-cap3', body({guardianEmail: 'a3@mail.com'})), deps)), 'ok');
+  for (const bad of [0, -1, NaN]) {
+    assert.equal(await code(sendLink(req('g-cap3', body({guardianEmail: 'a4@mail.com'})), {...h.deps, dailyCap: bad})), 'resource-exhausted', `cap ${bad}`);
+  }
+});
+
 test('unknown and malformed tokens reveal nothing', async () => {
   const h = harness();
   for (const token of [undefined, '', 'short', 'z'.repeat(64), 'a'.repeat(64), 5]) {

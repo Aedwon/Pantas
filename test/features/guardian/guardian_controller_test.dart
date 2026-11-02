@@ -65,6 +65,16 @@ void main() {
     expect(await repo.hasPassedAgeGate(), isFalse);
   });
 
+  test('a student name the server would refuse is left out', () async {
+    await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
+    await container.read(guardianControllerProvider).sendLink(
+          guardianName: 'Maria',
+          guardianEmail: 'maria@gmail.com',
+          studentName: 'Juan2 www.x.com',
+        );
+    expect(gateway.sent.single.student, isNull);
+  });
+
   test('a failed send keeps the student where they were', () async {
     final repo = container.read(appPreferencesRepositoryProvider);
     await repo.setAgeGroup('minor');
