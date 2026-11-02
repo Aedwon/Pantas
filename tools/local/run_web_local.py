@@ -102,6 +102,8 @@ def main():
     if not args.dry_run:
         for port in [8080, 9099, 9199, 5001, 4400, 4500, 9150, args.port]:
             with socket.socket() as probe:
+                # Connections from a run that just stopped must not count as busy.
+                probe.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
                 try:
                     probe.bind((host, port))
                 except OSError:
