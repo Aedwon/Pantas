@@ -84,8 +84,9 @@ def start(command, log):
     if args.dry_run:
         return
     with open(log, 'w') as output:
-        child = subprocess.Popen(list(map(str, command)), env=env, stdout=output,
-                                 stderr=subprocess.STDOUT, start_new_session=True)
+        # No stdin: from a terminal the emulator would otherwise stop to ask for params.
+        child = subprocess.Popen(list(map(str, command)), env=env, stdin=subprocess.DEVNULL,
+                                 stdout=output, stderr=subprocess.STDOUT, start_new_session=True)
     children.append(child)
 
 
@@ -123,7 +124,8 @@ def main():
             'TRIAL_IDENTITY_HMAC_KEY=local-emulator-only-not-a-secret\n'
             'PAYMONGO_SECRET_KEY=local-disabled\nPAYMONGO_WEBHOOK_SECRET=local-disabled\n')
         shutil.copy('tools/local/offline_guard.cjs', isolated)
-        (isolated / '.env.local').write_text(f'NODE_OPTIONS=--require={isolated}/offline_guard.cjs\nBETA_PRO_UNTIL={env.get("BETA_PRO_UNTIL", "")}\n')
+        (isolated / '.env.local').write_text(f'NODE_OPTIONS=--require={isolated}/offline_guard.cjs\nBETA_PRO_UNTIL={env.get("BETA_PRO_UNTIL", "")}\n'
+                                             'GUARDIAN_MAIL_FROM=local@pantas.local\nGUARDIAN_LINK_ORIGIN=http://127.0.0.1:7357\nGUARDIAN_DAILY_SEND_CAP=500\n')
     content_root = ROOT
     selected_corpus = args.corpus
     # Require the actual CSE teaching corpus, not just the empty exam roster.

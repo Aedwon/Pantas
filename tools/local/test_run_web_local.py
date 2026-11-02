@@ -98,6 +98,12 @@ class LocalPanelTest(unittest.TestCase):
         self.assertNotIn("Path('web/", self.runner)
         self.assertNotIn("'web/", self.runner.replace("'web/", "", 0) if False else '')
 
+    def test_emulator_cannot_stop_to_ask_for_params(self):
+        source = Path('tools/local/run_web_local.py').read_text()
+        self.assertIn('stdin=subprocess.DEVNULL', source)
+        for name in ('GUARDIAN_MAIL_FROM', 'GUARDIAN_LINK_ORIGIN', 'GUARDIAN_DAILY_SEND_CAP'):
+            self.assertIn(name + '=', source)
+
     def test_runner_has_no_date_patch(self):
         for text in [self.runner, self.page, self.reset]:
             self.assertNotIn('pantas.local.today', text)
