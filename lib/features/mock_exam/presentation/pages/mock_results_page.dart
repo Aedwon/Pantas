@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
-import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -758,77 +758,13 @@ class _Breakdown extends StatelessWidget {
   final double? animatedAccuracy;
   final bool divider;
   @override
-  Widget build(BuildContext context) {
-    final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
-    final values = Wrap(
-      spacing: 14,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        Text(
-          '${section.correct} / ${section.total}',
-          style: context.type.subhead
-              .copyWith(color: context.colors.secondaryLabel),
-        ),
-        Text(
-          '${(section.accuracy * 100).round()}%',
-          style: context.type.emphasized.copyWith(fontWeight: FontWeight.w700),
-        ),
-      ],
-    );
-    final title = Text(
-      section.name,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-      style: context.type.body,
-    );
-    return Container(
-      padding: context.wideWeb
-          ? const EdgeInsets.symmetric(vertical: 15)
-          // MK_PastPro: 13 px above the name, 11 under it, 13.5 under the bar.
-          : const EdgeInsets.fromLTRB(16, 13, 16, 13.5),
-      decoration: BoxDecoration(
-        border: divider
-            ? Border(
-                bottom: BorderSide(width: .5, color: context.colors.separator),
-              )
-            : null,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          if (large) ...[title, values] else
-            Row(
-              children: [
-                Expanded(child: title),
-                const SizedBox(width: 10),
-                values,
-              ],
-            ),
-          SizedBox(height: context.wideWeb ? 9 : 11),
-          if (animatedAccuracy == null && !context.wideWeb)
-            AccuracyBar(accuracy: section.accuracy)
-          else
-            // The wide boards draw an 8 px bar (the phone keeps 5 px).
-            ClipRRect(
-              borderRadius: BorderRadius.circular(99),
-              child: Container(
-                height: context.wideWeb ? 8 : 5,
-                color: context.colors.fill,
-                alignment: Alignment.centerLeft,
-                child: FractionallySizedBox(
-                  widthFactor:
-                      (animatedAccuracy ?? section.accuracy).clamp(0, 1),
-                  child: ColoredBox(
-                    color: context.colors.accuracyTint(section.accuracy),
-                    child: SizedBox(height: context.wideWeb ? 8 : 5),
-                  ),
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => ScoreBreakdownRow(
+        name: section.name,
+        correct: section.correct,
+        total: section.total,
+        divider: divider,
+        animatedAccuracy: animatedAccuracy,
+      );
 }
 
 class MockPastPoint {

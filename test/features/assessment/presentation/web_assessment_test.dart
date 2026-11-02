@@ -127,31 +127,21 @@ void main() {
       expect(find.text('45%'), findsOneWidget);
       expect(find.text('90%'), findsOneWidget);
       expect(find.text('in 24 minutes'), findsOneWidget);
-      expect(
-        find.byKey(const ValueKey('half-ring-paint')),
-        paints
-          ..arc(
-            rect: const Rect.fromLTWH(18, 16, 228, 228),
-            strokeWidth: 16,
-          ),
-      );
-      final score = tester.getRect(
+      // The mock results' card: the half ring and score, and the subjects.
+      final card = tester.getRect(
         find.byKey(const ValueKey('web-assessment-score')),
       );
-      final label = tester.getRect(find.text('correct'));
-      expect(label.bottom, lessThanOrEqualTo(score.bottom));
-      expect(label.top, greaterThan(score.top));
-      expect(
-        tester.getSize(find.byKey(const ValueKey('half-ring-paint'))),
-        const Size(264, 140),
-      );
+      expect(find.text('18 of 30 correct answers'), findsOneWidget);
+      expect(find.textContaining('60.0'), findsWidgets);
+      expect(find.text('9 / 20'), findsOneWidget);
+      final ring =
+          tester.getRect(find.byKey(const ValueKey('half-ring-paint')));
+      expect(card.contains(ring.center), isTrue);
       expect(find.text('Chemistry'), findsOneWidget);
       expect(
         tester.getTopLeft(find.text('BY SUBJECT · WEAKEST FIRST')).dx,
         greaterThan(
-          tester
-              .getTopLeft(find.byKey(const ValueKey('web-assessment-score')))
-              .dx,
+          ring.center.dx,
         ),
       );
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);

@@ -15,7 +15,6 @@ class HalfRingGauge extends StatefulWidget {
     this.web = false,
     super.key,
   })  : assessment = false,
-        progress = null,
         correct = null,
         total = null,
         mockSize = false,
@@ -46,7 +45,6 @@ class HalfRingGauge extends StatefulWidget {
     this.glowScale = 1,
     super.key,
   })  : assessment = false,
-        progress = null,
         correct = null,
         total = null,
         mockSize = true,
@@ -59,7 +57,6 @@ class HalfRingGauge extends StatefulWidget {
     this.assessment = false,
     this.labelOpacity = 1,
     this.web = false,
-    this.progress,
     super.key,
   })  : assert(
           correct >= 0 && total >= correct,
@@ -81,11 +78,6 @@ class HalfRingGauge extends StatefulWidget {
 
   final bool web;
   final bool assessment;
-
-  /// When set, the quiz-count ring and score follow this 0 to 1 value instead
-  /// of playing their own timeline. The owner holds it, so a rebuild or a
-  /// layout change does not replay the fill.
-  final Animation<double>? progress;
   final int? correct;
   final int? total;
   final double numberOpacity;
@@ -108,20 +100,14 @@ class HalfRingGauge extends StatefulWidget {
 
 class _HalfRingGaugeState extends State<HalfRingGauge>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1400),
+  );
   late Animation<double> _fill;
   late Animation<double> _count;
   bool? _still;
   _GaugePainter? _painter;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1400),
-    );
-  }
 
   @override
   void didChangeDependencies() {
@@ -138,8 +124,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
   @override
   void didUpdateWidget(HalfRingGauge oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.progress != widget.progress ||
-        oldWidget.fraction != widget.fraction ||
+    if (oldWidget.fraction != widget.fraction ||
         oldWidget.correct != widget.correct ||
         oldWidget.total != widget.total) {
       animate(_fill.value, beginCount: _count.value);
@@ -148,13 +133,6 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 
   void animate(double begin, {double beginCount = 0}) {
     final quiz = widget.correct != null;
-    final driver = widget.progress;
-    if (driver != null) {
-      _count =
-          driver.drive(Tween(begin: 0, end: (widget.correct ?? 0).toDouble()));
-      _fill = driver.drive(Tween(begin: 0, end: widget.fraction));
-      return;
-    }
     _controller.duration =
         Duration(milliseconds: quiz ? (widget.assessment ? 1500 : 1600) : 1400);
     final curve = quiz

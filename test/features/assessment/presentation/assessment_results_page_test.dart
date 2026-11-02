@@ -181,7 +181,9 @@ void main() {
     expect(find.textContaining('8 questions'), findsOneWidget);
     expect(find.textContaining('12 questions'), findsNothing);
     final ring = tester.widget<HalfRingGauge>(find.byType(HalfRingGauge));
-    expect((ring.correct, ring.total), (4, 8));
+    // 4 of 8 on the ring, as the mock results draw it.
+    expect(ring.fraction, .5);
+    expect(find.text('4 of 8 correct answers'), findsOneWidget);
   });
   testWidgets('a failed acknowledgement is reported and can be retried',
       (tester) async {

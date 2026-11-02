@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
+import 'package:pantas/core/ui/components/score_breakdown_row.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 
 /// One timeline for the results screen, held by the page so a rebuild or a
@@ -86,4 +88,73 @@ class ResultsReveal extends StatelessWidget {
           ),
         ),
       );
+}
+
+/// The mock results' half ring and score, driven by the entrance so the ring
+/// fills and the percent counts up on the page's own timeline. The caption
+/// reuses the mock's wording.
+class AssessmentScoreGauge extends StatelessWidget {
+  const AssessmentScoreGauge({
+    required this.correct,
+    required this.total,
+    this.sequence,
+    this.web = false,
+    super.key,
+  });
+  final int correct;
+  final int total;
+  final AssessmentResultsSequence? sequence;
+  final bool web;
+
+  @override
+  Widget build(BuildContext context) {
+    final target = total == 0 ? 0.0 : correct / total;
+    final ring = sequence?.ring ?? const AlwaysStoppedAnimation<double>(1);
+    return AnimatedBuilder(
+      animation: ring,
+      builder: (context, _) => MediaQuery(
+        // The page owns the timing, as the mock finale does.
+        data: MediaQuery.of(context).copyWith(disableAnimations: true),
+        child: HalfRingGauge.mock(
+          web: web,
+          fraction: target * ring.value,
+          displayedFraction: target * ring.value,
+          label: '$correct of $total correct answers',
+        ),
+      ),
+    );
+  }
+}
+
+/// A subject row from the mock results, with its bar grown by the entrance.
+class AssessmentSubjectRow extends StatelessWidget {
+  const AssessmentSubjectRow({
+    required this.name,
+    required this.correct,
+    required this.total,
+    required this.divider,
+    this.bar,
+    super.key,
+  });
+  final String name;
+  final int correct;
+  final int total;
+  final bool divider;
+  final Animation<double>? bar;
+
+  @override
+  Widget build(BuildContext context) {
+    final accuracy = total == 0 ? 0.0 : correct / total;
+    final grow = bar ?? const AlwaysStoppedAnimation<double>(1);
+    return AnimatedBuilder(
+      animation: grow,
+      builder: (context, _) => ScoreBreakdownRow(
+        name: name,
+        correct: correct,
+        total: total,
+        divider: divider,
+        animatedAccuracy: accuracy * grow.value,
+      ),
+    );
+  }
 }

@@ -179,11 +179,11 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 600));
       final gauge = find.byType(HalfRingGauge);
-      final during = tester.widget<HalfRingGauge>(gauge).progress!.value;
+      final during = tester.widget<HalfRingGauge>(gauge).fraction;
       expect(during, inInclusiveRange(0.01, 0.99));
       await tester.pumpAndSettle();
       final ring = tester.widget<HalfRingGauge>(gauge);
-      expect(ring.progress!.value, 1);
+      expect(ring.fraction, 1);
       for (final bar in tester.widgetList<LinearProgressIndicator>(
         find.byType(LinearProgressIndicator),
       )) {
@@ -200,7 +200,7 @@ void main() {
       await tester.pump();
       await tester.pump();
       final ring = tester.widget<HalfRingGauge>(find.byType(HalfRingGauge));
-      expect(ring.progress!.value, 1);
+      expect(ring.fraction, 1);
       final title = tester.widget<FadeTransition>(
         find
             .ancestor(
@@ -253,7 +253,7 @@ void main() {
     await answerAndFinish(tester, wide: true);
     await tester.pumpAndSettle();
     expect(
-      tester.widget<HalfRingGauge>(find.byType(HalfRingGauge)).progress!.value,
+      tester.widget<HalfRingGauge>(find.byType(HalfRingGauge)).fraction,
       1,
     );
     tester.view.physicalSize = const Size(390, 900);
@@ -261,7 +261,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 50));
     expect(
-      tester.widget<HalfRingGauge>(find.byType(HalfRingGauge)).progress!.value,
+      tester.widget<HalfRingGauge>(find.byType(HalfRingGauge)).fraction,
       1,
     );
     for (final bar in tester.widgetList<LinearProgressIndicator>(

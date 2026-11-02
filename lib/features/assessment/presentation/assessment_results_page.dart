@@ -10,7 +10,6 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -224,56 +223,6 @@ class _ResultsBodyState extends State<_ResultsBody>
     }
   }
 
-  Widget _subjectRow(
-    ({String name, int correct, int total}) subject,
-    int index,
-  ) {
-    final percent = subject.total == 0
-        ? 0
-        : (100 * subject.correct / subject.total).round();
-    // AS_Results: a half-point rule under every row, the last one too.
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: context.colors.separator, width: .5),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Semantics(
-          label: '${subject.name}, $percent percent',
-          excludeSemantics: true,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(child: Text(subject.name, style: context.type.body)),
-                  Text('$percent%', style: context.type.body),
-                ],
-              ),
-              const SizedBox(height: 8),
-              AnimatedBuilder(
-                animation: _sequence.bar(index),
-                builder: (context, _) => ClipRRect(
-                  borderRadius: BorderRadius.circular(99),
-                  child: LinearProgressIndicator(
-                    value: (subject.total == 0
-                            ? 0
-                            : subject.correct / subject.total) *
-                        _sequence.bar(index).value,
-                    minHeight: 5,
-                    backgroundColor: context.colors.fill,
-                    color: context.colors.chevron,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final result = widget.data.result!;
@@ -306,39 +255,30 @@ class _ResultsBodyState extends State<_ResultsBody>
         ),
       );
     }
-    final subjects = Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    final subjects = GroupedSection(
+      header: 'BY SUBJECT · WEAKEST FIRST',
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
-          child: Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            spacing: 12,
-            children: [
-              Text('BY SUBJECT', style: context.type.sectionHeader),
-              Text('WEAKEST FIRST', style: context.type.sectionHeader),
-            ],
+        for (final (index, subject) in widget.data.subjects.indexed)
+          AssessmentSubjectRow(
+            name: subject.name,
+            correct: subject.correct,
+            total: subject.total,
+            divider: index < widget.data.subjects.length - 1,
+            bar: _sequence.bar(index),
           ),
-        ),
-        GroupedSection(
-          children: [
-            for (final (index, subject) in widget.data.subjects.indexed)
-              _subjectRow(subject, index),
-          ],
-        ),
       ],
     );
     final gauge = Column(
       children: [
-        HalfRingGauge.quizCount(
-          correct: correct,
-          total: total,
-          assessment: true,
-          progress: _sequence.ring,
+        Center(
+          child: AssessmentScoreGauge(
+            correct: correct,
+            total: total,
+            sequence: _sequence,
+          ),
         ),
         if (elapsed != null) ...[
-          // AS_Results: "in 24 minutes" sits 20 px under "correct".
-          const SizedBox(height: 1),
+          const SizedBox(height: 8),
           Text(
             switch (elapsed.inMinutes) {
               0 => 'in under a minute',

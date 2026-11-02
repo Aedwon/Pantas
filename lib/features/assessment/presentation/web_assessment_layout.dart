@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -232,12 +231,6 @@ class WebAssessmentResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    final percentages = [
-      for (final subject in subjects)
-        subject.total == 0
-            ? 0
-            : (100 * subject.correct / subject.total).round(),
-    ];
     final sequence = this.sequence;
     Widget reveal(Animation<double>? animation, Widget child) =>
         animation == null
@@ -288,145 +281,73 @@ class WebAssessmentResults extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 36),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 10,
-                        child: reveal(
-                          sequence?.score,
-                          Column(
-                            children: [
-                              SizedBox(
-                                key: const ValueKey('web-assessment-score'),
-                                width: 264,
-                                height: 140,
-                                child: HalfRingGauge.quizCount(
-                                  correct: correct,
-                                  total: total,
-                                  assessment: true,
-                                  web: true,
-                                  progress: sequence?.ring,
-                                ),
-                              ),
-                              if (elapsed != null) ...[
-                                const SizedBox(height: 12),
-                                Text(
-                                  switch (elapsed!.inMinutes) {
-                                    0 => 'in under a minute',
-                                    1 => 'in 1 minute',
-                                    final minutes => 'in $minutes minutes',
-                                  },
-                                  style: t.sub,
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 32),
-                      Expanded(
-                        flex: 13,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            reveal(
-                              sequence?.subjects,
-                              Text('BY SUBJECT · WEAKEST FIRST', style: t.eb),
-                            ),
-                            const SizedBox(height: 9),
-                            reveal(
-                              sequence?.subjects,
-                              WebCard(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 22,
-                                  vertical: 4,
-                                ),
-                                child: Column(
-                                  children: [
-                                    for (final (i, subject) in subjects.indexed)
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 14,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          border: i == subjects.length - 1
-                                              ? null
-                                              : Border(
-                                                  bottom: BorderSide(
-                                                    color: t.colors.separator,
-                                                    width: .5,
-                                                  ),
-                                                ),
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    subject.name,
-                                                    style: t.style(
-                                                      17,
-                                                      height: 22 / 17,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${percentages[i]}%',
-                                                  style: t.style(
-                                                    17,
-                                                    weight: FontWeight.w700,
-                                                    height: 22 / 17,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 8),
-                                            AnimatedBuilder(
-                                              animation: sequence?.bar(i) ??
-                                                  const AlwaysStoppedAnimation(
-                                                    1,
-                                                  ),
-                                              builder: (context, _) {
-                                                final fraction =
-                                                    subject.total == 0
-                                                        ? 0.0
-                                                        : subject.correct /
-                                                            subject.total;
-                                                return ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(99),
-                                                  child:
-                                                      LinearProgressIndicator(
-                                                    minHeight: 8,
-                                                    value: fraction *
-                                                        (sequence
-                                                                ?.bar(i)
-                                                                .value ??
-                                                            1),
-                                                    backgroundColor:
-                                                        t.colors.fill,
-                                                    color: Color.lerp(
-                                                      t.colors.accent,
-                                                      t.colors.surface,
-                                                      .7 * (1 - fraction),
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                  reveal(
+                    sequence?.score,
+                    // The mock results' score card: the half ring and score
+                    // beside the subject breakdown.
+                    WebCard(
+                      key: const ValueKey('web-assessment-score'),
+                      radius: 20,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 10,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(24, 36, 24, 30),
+                              child: Column(
+                                children: [
+                                  AssessmentScoreGauge(
+                                    correct: correct,
+                                    total: total,
+                                    sequence: sequence,
+                                    web: true,
+                                  ),
+                                  if (elapsed != null) ...[
+                                    const SizedBox(height: 12),
+                                    Text(
+                                      switch (elapsed!.inMinutes) {
+                                        0 => 'in under a minute',
+                                        1 => 'in 1 minute',
+                                        final minutes => 'in $minutes minutes',
+                                      },
+                                      style: t.sub,
+                                    ),
                                   ],
-                                ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Expanded(
+                            flex: 13,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(30, 14, 30, 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 14),
+                                    child: Text(
+                                      'BY SUBJECT · WEAKEST FIRST',
+                                      style: t.eb,
+                                    ),
+                                  ),
+                                  for (final (i, subject) in subjects.indexed)
+                                    AssessmentSubjectRow(
+                                      name: subject.name,
+                                      correct: subject.correct,
+                                      total: subject.total,
+                                      divider: i < subjects.length - 1,
+                                      bar: sequence?.bar(i),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   const SizedBox(height: 36),
                   if (weakestTopic != null)
