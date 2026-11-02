@@ -33,6 +33,12 @@ test('a missing student name uses the one flagged fallback', () => {
   assert.ok(m.text.includes(UNNAMED_STUDENT));
 });
 
+test('the fallback wording starts a sentence with a capital', () => {
+  const m = guardianMessage({...input, studentName: null});
+  assert.ok(m.text.includes('Your child wants to use Pantas'));
+  assert.ok(!m.text.includes('. your child'));
+});
+
 test('dates are in Philippine time', () => {
   assert.equal(expiryLabel(Date.parse('2026-11-08T17:00:00Z')), 'Nov 9, 2026');
   assert.equal(expiryLabel(Date.parse('2026-11-08T15:59:00Z')), 'Nov 8, 2026');
@@ -70,4 +76,10 @@ test('the Resend mailer posts the message with a bearer key and fails on a refus
   assert.deepEqual(JSON.parse(calls[0].init.body).to, ['maria@gmail.com']);
   const bad = resendMailer('KEY', 'hello@pantas.test', async () => ({ok: false, status: 422}));
   await assert.rejects(() => bad.send(guardianMessage(input)), /422/);
+});
+
+test('outside the emulator a missing key or sender refuses to build a mailer', () => {
+  assert.throws(() => mailerFor({}, {apiKey: () => '', from: () => 'a@b.co'}), /not configured/);
+  assert.throws(() => mailerFor({}, {apiKey: () => 'k', from: () => ''}), /not configured/);
+  assert.doesNotThrow(() => mailerFor({}, {apiKey: () => 'k', from: () => 'a@b.co'}));
 });

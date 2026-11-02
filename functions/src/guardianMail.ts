@@ -53,7 +53,7 @@ export function guardianMessage(input: GuardianMailInput): GuardianMessage {
     ? `Confirm ${UNNAMED_STUDENT}'s Pantas account.`
     : `Confirm ${student}'s Pantas account.`;
   const greeting = `Hi ${input.guardianName},`;
-  const lead = `${student} wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. ` +
+  const lead = `${student[0].toUpperCase()}${student.slice(1)} wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. ` +
     'So far we have only their age group, and your name and email.';
   const notice = 'Opening the link alone does not confirm.';
   const label = 'Review and Confirm';
@@ -100,5 +100,8 @@ export function mailerFor(
   secrets: {apiKey: () => string; from: () => string},
 ): GuardianMailer {
   if (env.FUNCTIONS_EMULATOR === 'true') return emulatorMailer();
-  return resendMailer(secrets.apiKey(), secrets.from());
+  const apiKey = secrets.apiKey();
+  const from = secrets.from();
+  if (!apiKey || !from) throw new Error('Guardian mail is not configured.');
+  return resendMailer(apiKey, from);
 }

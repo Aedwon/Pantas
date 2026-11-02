@@ -6,6 +6,7 @@ import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'package:pantas/app/build_info.dart';
+import 'package:pantas/app/start_location.dart';
 import 'package:pantas/app/router_refresh_listenable.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/features/shell/presentation/update_required_page.dart';
@@ -41,7 +42,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     guardianGateProvider,
   ]);
   final router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: initialRouterLocation,
     refreshListenable: refreshListenable,
     redirect: (context, state) {
       // The stop comes first: a build the server has retired must not

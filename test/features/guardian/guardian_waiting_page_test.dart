@@ -136,6 +136,20 @@ void main() {
     expect(variantOf('Change Email'), PantasButtonVariant.tertiary);
   });
 
+  testWidgets('on wide web the actions sit centered under the text',
+      (tester) async {
+    await pump(tester, size: const Size(1440, 900), web: true);
+    final middle =
+        tester.getCenter(find.text('Waiting for your parent or guardian')).dx;
+    for (final label in ['Check Again', 'Resend Email', 'Change Email']) {
+      expect(
+        tester.getCenter(find.text(label)).dx,
+        closeTo(middle, 1),
+        reason: label,
+      );
+    }
+  });
+
   testWidgets('declined and expired keep the same screen', (tester) async {
     gateway.current = const GuardianStatus(
       status: GuardianConsentStatus.declined,

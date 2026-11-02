@@ -239,5 +239,9 @@ void main() {
     );
     await pump(tester);
     expect(find.text("Confirm your child's account"), findsOneWidget);
+    expect(
+      find.textContaining("run the app. Your child can't buy Pro."),
+      findsOneWidget,
+    );
   });
 }

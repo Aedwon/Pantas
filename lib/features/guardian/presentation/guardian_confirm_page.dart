@@ -164,8 +164,8 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         children: [
           Text(
             "Pantas keeps $student's answers and study progress to run the "
-            "app. $student can't buy Pro. Only you can, from your own "
-            'payment method.',
+            "app. ${GuardianCopy.atSentenceStart(student)} can't buy Pro. "
+            'Only you can, from your own payment method.',
             style: textStyle,
           ),
           const SizedBox(height: 8),

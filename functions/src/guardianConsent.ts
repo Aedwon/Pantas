@@ -18,8 +18,8 @@ import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js
 
 export const guardianHmacKey = defineSecret('GUARDIAN_HMAC_KEY');
 export const guardianMailKey = defineSecret('GUARDIAN_MAIL_API_KEY');
-export const guardianMailFrom = defineString('GUARDIAN_MAIL_FROM');
-export const guardianLinkOrigin = defineString('GUARDIAN_LINK_ORIGIN');
+export const guardianMailFrom = defineString('GUARDIAN_MAIL_FROM', {default: ''});
+export const guardianLinkOrigin = defineString('GUARDIAN_LINK_ORIGIN', {default: ''});
 /** Most guardian emails the whole service sends per Philippine day. */
 export const guardianDailyCap = defineInt('GUARDIAN_DAILY_SEND_CAP', {default: 500});
 
@@ -287,7 +287,9 @@ function runtimeDeps(): ConsentDeps {
     // Emulator only: a fixed key so a local run needs no secret file.
     key: process.env.FUNCTIONS_EMULATOR === 'true'
       ? (guardianHmacKey.value() || 'guardian-emulator-only-key') : guardianHmacKey.value(),
-    mailer: mailerFor(process.env, {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}),
+    // Built on first send, so reading or answering a link never needs mail settings.
+    mailer: {send: (message) => mailerFor(process.env,
+      {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}).send(message)},
     linkOrigin,
     dailyCap: guardianDailyCap.value(),
   };

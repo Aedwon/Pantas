@@ -10,6 +10,7 @@ import 'package:pantas/app/auth_bootstrap.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
+import 'package:pantas/app/start_location.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
@@ -236,6 +237,7 @@ Future<void> _bootstrap(
   AppDatabase? database;
   ContentDatabase? contentDatabase;
   ProviderContainer? ownedContainer;
+  rememberStartLocation(Uri.base);
   rememberLocalStudentUrl();
   rememberLocalAccount();
   try {

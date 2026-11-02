@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const { create, SEEN_KEY, GIVE_UP_MS } = require('../../web/pantas_welcome.js');
 
-function setup({ seen = false, wide = false, storageThrows = false } = {}) {
+function setup({ seen = false, wide = false, storageThrows = false, path = '/' } = {}) {
   const classes = new Set();
   const listeners = {};
   const timers = [];
@@ -59,6 +59,7 @@ function setup({ seen = false, wide = false, storageThrows = false } = {}) {
     setTimeout: (fn, ms) => timers.push({ fn, ms }),
     afterPaint: (fn) => fn(),
     wide: () => wide,
+    pathname: () => path,
   });
   const tap = () =>
     listeners.click({ target: { closest: (sel) => (sel === '#pw-start' ? {} : null) } });
@@ -147,4 +148,16 @@ test('blocked storage still shows the screen and never throws', () => {
   t.welcome.ready(true);
   t.tap();
   assert.equal(t.removed(), true);
+});
+
+test('a guardian link never shows the Welcome screen, on a first visit', () => {
+  for (const path of ['/guardian', '/guardian/', '/guardian/waiting']) {
+    const t = setup({ path });
+    assert.equal(t.welcome.isShown(), false, path);
+    assert.ok(!t.classes.has('pw-on'), path);
+    assert.equal(t.links.length, 0, path);
+    assert.equal(t.store.get(SEEN_KEY), undefined, 'the guardian visit is not remembered as a student visit');
+  }
+  assert.equal(setup({ path: '/guardianship' }).welcome.isShown(), true);
+  assert.equal(setup({ path: '/' }).welcome.isShown(), true);
 });

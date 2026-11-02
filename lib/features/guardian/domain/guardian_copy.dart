@@ -16,4 +16,8 @@ abstract final class GuardianCopy {
 
   /// Used when the student's name was not known when the link was sent.
   static const unnamedStudent = 'your child';
+
+  /// A name at the start of a sentence, so the fallback reads "Your child".
+  static String atSentenceStart(String name) =>
+      '${name[0].toUpperCase()}${name.substring(1)}';
 }

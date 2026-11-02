@@ -65,7 +65,8 @@ class GuardianScreen extends StatelessWidget {
           const SizedBox(height: 28),
           for (final (i, action) in actions.indexed) ...[
             if (i > 0) const SizedBox(height: 4),
-            action,
+            // Wide web buttons hug their label; center them under the text.
+            if (wide) Center(child: action) else action,
           ],
         ],
       ],

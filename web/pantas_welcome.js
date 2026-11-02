@@ -90,7 +90,17 @@
       if (!holdForTap || state.started) env.afterPaint(finish);
     }
 
-    if (!seen()) {
+    // A parent or guardian opening the emailed link is not a new student. The
+    // Welcome screen would hide the page they came for.
+    function guardianLink() {
+      try {
+        return /^\/guardian(\/|$)/.test(env.pathname ? env.pathname() : '');
+      } catch (_) {
+        return false;
+      }
+    }
+
+    if (!seen() && !guardianLink()) {
       state.shown = true;
       doc.documentElement.classList.add('pw-on');
       preloadFonts();
@@ -136,6 +146,9 @@
     },
     wide: function () {
       return root.matchMedia('(min-width: 1024px)').matches;
+    },
+    pathname: function () {
+      return root.location.pathname;
     },
   });
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -209,7 +209,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                           style: t.style(
                             15,
                             height: 1.45,
-                            color: t.colors.tertiaryLabel,
+                            color: t.colors.secondaryLabel,
                           ),
                         ),
                       ],
@@ -239,7 +239,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
             _blockedHelp,
             textAlign: TextAlign.center,
             style: context.type.subhead.copyWith(
-              color: context.colors.tertiaryLabel,
+              color: context.colors.secondaryLabel,
             ),
           ),
         ],
