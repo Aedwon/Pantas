@@ -2389,3 +2389,6 @@ Copy approved, "i hate wordy UI/UX": "Your account is deleted."; "Help improve P
 About footer removed; web "Buy 1 Month for ₱149"; report "Save", "Saved on this device." Lawyer to review the
 dropped disclosures. Legal drafts are local, not in git: staging worktree `build/legal/`.
 Release source recommended: a tagged staging commit (not yet chosen).
+
+Under-13 support stays out of the CSE launch (Aedwon, Nov 2). What PSHS-NCE still needs is in
+`docs/future/2026-08-02-parent-child-pairing-and-consent.md`, "Update, 2 November 2026".
