@@ -2394,3 +2394,5 @@ Under-13 support stays out of the CSE launch (Aedwon, Nov 2). What PSHS-NCE stil
 `docs/future/2026-08-02-parent-child-pairing-and-consent.md`, "Update, 2 November 2026".
 Known gap, left until after the beta (Aedwon, Nov 2): a student who turns 18 stays marked as a minor and keeps seeing
 the guardian checkout line. It does not block payment.
+
+Merged into `web/visual-check-fixes-r1` and `web/staging-candidate-r1` (Aedwon, Nov 2): the guardian flow with its approved wording (student name dropped, "your child" copy, three result screens, checkout line) and the local test panel with the row fixes. Content Pass is not merged while Aedwon refines it. Open: Mock setup error for the Steady student on Free; 968 questions marked unapproved are still exported.
