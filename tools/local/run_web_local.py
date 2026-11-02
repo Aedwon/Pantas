@@ -198,7 +198,8 @@ def main():
     run(['node', 'tools/local/seed_accounts.mjs'])
     run(['flutter', 'build', 'web', '--profile', '--no-web-resources-cdn', '-t', 'lib/main_dev.dart',
          f'--dart-define=LOCAL_EMULATOR_HOST={host}'])
-    print('+ install local App Check debug exchange and local account links in build/web only', flush=True)
+    print('+ install local App Check debug exchange, local account links and the test panel in build/web only', flush=True)
+    print('+ dart run tool/list_routes.dart > build/web/local-panel-routes.json', flush=True)
     if not args.dry_run:
         index = Path('build/web/index.html')
         shim = '''<script>
@@ -213,6 +214,14 @@ window.fetch = (input, init) => {
   return localFetch(input, init);
 };
 window.pantasPwa = null;
+// The welcome splash (pantas_welcome.js) shows on a first visit. The test panel skips it for
+// every start except Start fresh and the Welcome card, by marking the splash as seen first.
+try {
+  const preset = localStorage.getItem('pantas.local.preset');
+  if (new URLSearchParams(location.search).has('localStudent') || (preset && preset !== 'welcome')) {
+    localStorage.setItem('pantas.welcome.seen', '1');
+  }
+} catch (_) {}
 </script>'''
         index.write_text(index.read_text().replace('<head>', '<head>' + shim))
         # Do not register the production caching worker during a local visual check.
@@ -220,7 +229,15 @@ window.pantasPwa = null;
         Path('build/web/local-login.html').write_text(
             '<h1>Local visual check</h1><p><a href="/?localAccount=free">Free account</a></p>'
             '<p><a href="/?localAccount=pro">Pro account</a></p>'
+            '<p><a href="/local-panel.html">Test panel</a> (open it in a second tab)</p>'
             '<p>Checkout cannot complete locally. Install and offline need HTTPS and are tested after deploy.</p>')
+        # The test panel: a page, a reset page, and the list of app screens. Local runs only.
+        shutil.copy('tools/local/panel/index.html', 'build/web/local-panel.html')
+        shutil.copy('tools/local/panel/local-reset.html', 'build/web/local-reset.html')
+        routes = subprocess.run(['dart', 'run', 'tool/list_routes.dart'], env=env, check=True,
+                                capture_output=True, text=True).stdout
+        json.loads(routes)
+        Path('build/web/local-panel-routes.json').write_text(routes)
     print(f'+ serve build/web at http://{host}:{args.port} (SPA routes, no caching)', flush=True)
     print('+ local-only POST /local-seed runs tools/local/seed_student.mjs for a sample student', flush=True)
     print('+ curl served page and authenticated getContent through Functions emulator', flush=True)
@@ -300,6 +317,7 @@ window.pantasPwa = null;
         curl_config.unlink(missing_ok=True)
     print('PASS: served page and getContent CSE catalog through emulators.', flush=True)
     print(f'\nOpen {url}/local-login.html\n' + (state / 'logins.txt').read_text(), flush=True)
+    print(f'Test panel (second tab): {url}/local-panel.html', flush=True)
     print('Checkout cannot complete locally. Install and offline need HTTPS and are tested after deploy.', flush=True)
     if args.lan:
         # Use only an already installed package. Plain URL is the fallback.

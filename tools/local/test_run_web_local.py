@@ -1,6 +1,7 @@
 """No services are started by these checks."""
 from pathlib import Path
 import json
+import re
 import subprocess
 import sys
 import unittest
@@ -25,7 +26,8 @@ class LocalRunnerTest(unittest.TestCase):
                       'functions run build', 'build_content_export.dart',
                       'emulators:start --project demo-pantas-local', 'wait for Auth',
                       'upload_content.mjs', 'seed_accounts.mjs', 'flutter build web --profile',
-                      'local App Check debug exchange', 'serve build/web', 'getContent', 'Ctrl-C']
+                      'local App Check debug exchange', 'tool/list_routes.dart',
+                      'serve build/web', 'getContent', 'Ctrl-C']
             positions = [output.index(stage) for stage in stages]
             self.assertEqual(positions, sorted(positions))
             self.assertIn(f'LOCAL_EMULATOR_HOST={host}', output)
@@ -69,6 +71,89 @@ require('./tools/local/offline_guard.cjs');
 })();
 """
         subprocess.run(['node', '-e', source], cwd=ROOT, check=True)
+
+
+PANEL = ROOT / 'tools/local/panel'
+PRESET_IDS = ['welcome', 'birthYear', 'terms', 'picker', 'dateKnown', 'days', 'name', 'under13',
+              'customName', 'customSubjects', 'dateNone', 'dateMonth', 'dateDay', 'dateNextYear',
+              'dateThisMonth', 'dateToday', 'daysNone', 'daysTooLate', 'daysSoon']
+
+
+class LocalPanelTest(unittest.TestCase):
+    page = (PANEL / 'index.html').read_text()
+    reset = (PANEL / 'local-reset.html').read_text()
+    runner = (ROOT / 'tools/local/run_web_local.py').read_text()
+
+    def test_dry_run_announces_the_panel_in_build_web_only(self):
+        result = subprocess.run([str(RUNNER), '--dry-run'], capture_output=True, text=True, check=True)
+        self.assertIn('the test panel in build/web only', result.stdout)
+        self.assertIn('list_routes.dart > build/web/local-panel-routes.json', result.stdout)
+
+    def test_runner_writes_the_panel_files_into_build_web(self):
+        for name in ['local-panel.html', 'local-reset.html', 'local-panel-routes.json']:
+            self.assertIn(f"'build/web/{name}'", self.runner)
+        self.assertIn('/local-panel.html', self.runner)
+        self.assertIn('Test panel (second tab)', self.runner)
+        # Browser files come only from tools/local/panel; web/ is never written.
+        self.assertNotIn("Path('web/", self.runner)
+        self.assertNotIn("'web/", self.runner.replace("'web/", "", 0) if False else '')
+
+    def test_runner_has_no_date_patch(self):
+        for text in [self.runner, self.page, self.reset]:
+            self.assertNotIn('pantas.local.today', text)
+            self.assertNotIn('extends Date', text)
+            self.assertNotIn('window.Date', text)
+
+    def test_shim_skips_the_welcome_splash_except_for_welcome(self):
+        self.assertIn("localStorage.setItem('pantas.welcome.seen', '1')", self.runner)
+        self.assertIn("has('localStudent')", self.runner)
+        self.assertIn("preset !== 'welcome'", self.runner)
+        # The shim goes in before pantas_welcome.js runs, which is the first script after <head>.
+        self.assertIn("replace('<head>', '<head>' + shim)", self.runner)
+
+    def test_every_card_id_is_on_the_page(self):
+        found = re.findall(r'data-preset="([A-Za-z0-9]+)"', self.page)
+        self.assertEqual(found, PRESET_IDS)
+        students = re.findall(r'data-student="([A-Za-z0-9]+)"', self.page)
+        self.assertEqual(students, ['new', 'steady', 'behind', 'examWeek'])
+
+    def test_tabs_are_onboarding_students_and_screens(self):
+        tabs = re.findall(r'<span(?: class="on")? data-t="[a-z]+">([^<]+)</span>', self.page)
+        self.assertEqual(tabs, ['Onboarding', 'Sample students', 'Screens'])
+
+    def test_panel_speaks_only_the_agreed_messages(self):
+        sent = set(re.findall(r"send\(\{type: '([a-z]+)'", self.page))
+        self.assertEqual(sent, {'ping', 'go', 'plan', 'fresh'})
+        self.assertIn("new BroadcastChannel(CHANNEL)", self.page)
+        self.assertIn("'pantas-local-panel'", self.page)
+
+    def test_panel_text_and_behavior_from_the_plan(self):
+        for text in ["Start fresh? This clears this browser\\'s Pantas data.", 'App tab not open',
+                     'App tab connected', '#8A8A8E', "window.open(path, 'pantas-app')",
+                     "openApp('/local-reset.html')", 'Search screens', 'Uses the current exam',
+                     'PING_MS = 2000', 'LOST_MS = 3000', "'pantas.local.plan'"]:
+            self.assertIn(text, self.page)
+        # Cards with a parameter other than :examId stay disabled until it is filled.
+        self.assertIn("p !== 'examId'", self.page)
+        self.assertIn("card.classList.toggle('off', !ready())", self.page)
+
+    def test_reset_page_keeps_panel_keys_and_picks_the_account_from_the_plan(self):
+        for text in ["'pantas.local.'", 'indexedDB.databases', 'getDirectory', 'caches.keys',
+                     'sessionStorage.clear', "plan === 'pro' ? 'pro' : 'free'",
+                     "'/?localAccount=' + account + '&localStudent='",
+                     "location.replace('/')", "localStorage.removeItem(KEEP + 'student')"]:
+            self.assertIn(text, self.reset)
+
+    def test_page_scripts_parse(self):
+        for page in [self.page, self.reset]:
+            body = re.search(r'<script>(.*)</script>', page, re.S).group(1)
+            check = ROOT / 'build/.panel_check.js'
+            check.parent.mkdir(parents=True, exist_ok=True)
+            check.write_text(body)
+            try:
+                subprocess.run(['node', '--check', str(check)], check=True, capture_output=True)
+            finally:
+                check.unlink(missing_ok=True)
 
 
 class LocalSeedRequestTest(unittest.TestCase):

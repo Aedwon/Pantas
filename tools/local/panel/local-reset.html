@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starting fresh</title>
+<style>body{font:15px -apple-system,'Segoe UI',sans-serif;color:#6E6E73;background:#F5F5F7;padding:24px}</style>
+</head>
+<body>
+<p id="msg">Clearing this browser's Pantas data...</p>
+<script>
+// Local test panel only. Clears every Pantas store in this browser except the
+// panel's own pantas.local.* keys, then opens the app as a new student.
+(async function () {
+  'use strict';
+  var KEEP = 'pantas.local.';
+  var STUDENTS = ['new', 'steady', 'behind', 'examWeek'];
+
+  function within(promise, ms) {
+    return Promise.race([promise, new Promise(function (resolve) { setTimeout(resolve, ms); })]);
+  }
+
+  try {
+    if (indexedDB.databases) {
+      var dbs = await indexedDB.databases();
+      await Promise.all(dbs.map(function (db) {
+        return within(new Promise(function (resolve) {
+          var req = indexedDB.deleteDatabase(db.name);
+          req.onsuccess = req.onerror = req.onblocked = function () { resolve(); };
+        }), 3000);
+      }));
+    }
+  } catch (_) {}
+
+  try {
+    var root = await navigator.storage.getDirectory();
+    var names = [];
+    for await (var entry of root.entries()) names.push(entry[0]);
+    for (var name of names) await root.removeEntry(name, {recursive: true});
+  } catch (_) {}
+
+  try {
+    var keys = await caches.keys();
+    await Promise.all(keys.map(function (k) { return caches.delete(k); }));
+  } catch (_) {}
+
+  try { sessionStorage.clear(); } catch (_) {}
+
+  var student = null;
+  var plan = null;
+  try {
+    var drop = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (key.indexOf(KEEP) !== 0) drop.push(key);
+    }
+    drop.forEach(function (key) { localStorage.removeItem(key); });
+    student = localStorage.getItem(KEEP + 'student');
+    plan = localStorage.getItem(KEEP + 'plan');
+    localStorage.removeItem(KEEP + 'student');
+  } catch (_) {}
+
+  // A sample student signs in to a real local account so server-gated Pro
+  // content works. Pro when the panel's plan is Pro, otherwise Free.
+  if (STUDENTS.indexOf(student) !== -1) {
+    var account = plan === 'pro' ? 'pro' : 'free';
+    location.replace('/?localAccount=' + account + '&localStudent=' + encodeURIComponent(student));
+  } else {
+    location.replace('/');
+  }
+})();
+</script>
+</body>
+</html>

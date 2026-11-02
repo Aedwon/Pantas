@@ -117,7 +117,7 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
 });
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {
-  if (kDebugMode) {
+  if (devProOverrideEnabled) {
     // The switch `tools/pro` flips, which beats FAKE_PRO because it does not
     // need a rebuild to change.
     final override = ref.watch(devProOverrideProvider);
@@ -174,7 +174,7 @@ final examCatalogRepositoryProvider = Provider<ExamCatalogRepository>((ref) {
 });
 
 final proForActiveExamProvider = FutureProvider<bool>((ref) async {
-  if (kDebugMode) {
+  if (devProOverrideEnabled) {
     final override = ref.watch(devProOverrideProvider);
     if (override != null) return override;
   }
