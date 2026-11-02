@@ -16,16 +16,19 @@ const {getFirestore} = require('firebase-admin/firestore');
 initializeApp({projectId: project});
 const auth = getAuth();
 const password = 'Local-visual-check-123!';
-for (const name of ['free', 'pro']) {
+// free2 and pro2 let two capture scripts run at once without resetting each other's student.
+for (const name of ['free', 'pro', 'free2', 'pro2']) {
   await auth.createUser({uid: `local-${name}`, email: `${name}@pantas.local`, password, emailVerified: true});
 }
 process.env.TRIAL_IDENTITY_HMAC_KEY = 'local-emulator-only-not-a-secret';
 const {startTrial} = require(resolve('functions/lib/webTrial.js'));
-await startTrial({uid: 'local-pro', token: {email: 'pro@pantas.local', email_verified: true,
-  firebase: {sign_in_provider: 'password', identities: {password: ['pro@pantas.local']}}}},
-{db: getFirestore(), auth});
-const pro = await auth.getUser('local-pro');
-if (!pro.customClaims?.pro) throw Error('Server grant did not copy Pro claims');
+for (const name of ['pro', 'pro2']) {
+  await startTrial({uid: `local-${name}`, token: {email: `${name}@pantas.local`, email_verified: true,
+    firebase: {sign_in_provider: 'password', identities: {password: [`${name}@pantas.local`]}}}},
+  {db: getFirestore(), auth});
+  const pro = await auth.getUser(`local-${name}`);
+  if (!pro.customClaims?.pro) throw Error('Server grant did not copy Pro claims');
+}
 writeFileSync('build/local-web/logins.txt',
-  `EMULATOR ONLY. Reset each run. Pro uses the server's seven-day trial grant.\nFree: free@pantas.local\nPro: pro@pantas.local\nPassword (both): ${password}\n`, {mode: 0o600});
+  `EMULATOR ONLY. Reset each run. Pro uses the server's seven-day trial grant.\nFree: free@pantas.local, free2@pantas.local\nPro: pro@pantas.local, pro2@pantas.local\nPassword (both): ${password}\n`, {mode: 0o600});
 console.log('Created Free and Pro emulator accounts. Server grant and claims confirmed.');

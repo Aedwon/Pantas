@@ -40,7 +40,7 @@ Future<void> connectLocalFirebase() async {
   // The app uses Google sign-in. These local-only links select password test
   // accounts before the normal auth bootstrap, without adding a product UI.
   final account = _startAccount ?? Uri.base.queryParameters['localAccount'];
-  if (account == 'free' || account == 'pro') {
+  if (const {'free', 'pro', 'free2', 'pro2'}.contains(account)) {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: '$account@pantas.local',
       password: 'Local-visual-check-123!',
