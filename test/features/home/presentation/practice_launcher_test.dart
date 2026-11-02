@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
@@ -91,7 +92,7 @@ void main() {
   late _Preparer preparer;
   Object? extra;
 
-  Future<void> pump(WidgetTester tester) async {
+  Future<void> pump(WidgetTester tester, {bool limit = false}) async {
     extra = null;
     final router = GoRouter(
       routes: [
@@ -127,6 +128,7 @@ void main() {
         overrides: [
           todayQuizPreparerProvider.overrideWithValue(preparer),
           telemetryProvider.overrideWithValue(sink),
+          if (limit) contentLimitReachedProvider.overrideWith((_) => true),
         ],
         child: MaterialApp.router(
           theme: buildLightTheme(),
@@ -156,6 +158,17 @@ void main() {
     await pump(tester);
     expect(find.text('No questions are ready right now.'), findsOneWidget);
     expect(find.text('quiz'), findsNothing);
+  });
+
+  testWidgets('an empty plan under the daily limit says the limit',
+      (tester) async {
+    preparer.result = prepared(empty: true);
+    await pump(tester, limit: true);
+    expect(
+      find.text('Daily content limit reached. Try again tomorrow.'),
+      findsOneWidget,
+    );
+    expect(find.text('No questions are ready right now.'), findsNothing);
   });
 
   testWidgets('a failed preparation says so and does not navigate',

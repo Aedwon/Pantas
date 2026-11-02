@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -199,7 +200,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       if (mounted) {
         setState(() {
           _launchFailed = true;
-          _failure = 'Could not start your quiz.';
+          _failure = ref.read(contentLimitReachedProvider)
+              ? contentLimitMessage
+              : 'Could not start your quiz.';
         });
       }
     } finally {

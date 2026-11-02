@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
@@ -22,6 +23,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -566,14 +568,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: state is QuizFailure
-                ? errorFor(
-                    'quiz',
-                    () => _startForMode(
-                      ref.read(quizControllerProvider.notifier),
-                    ),
-                  )
-                : const SkeletonQuestionPage(),
+            child:
+                state is QuizFailure && ref.watch(contentLimitReachedProvider)
+                    ? const StateView(message: contentLimitMessage)
+                    : state is QuizFailure
+                        ? errorFor(
+                            'quiz',
+                            () => _startForMode(
+                              ref.read(quizControllerProvider.notifier),
+                            ),
+                          )
+                        : const SkeletonQuestionPage(),
           ),
         ),
       );
