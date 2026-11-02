@@ -2377,3 +2377,15 @@ Also Nov 1 to 2: "Count Them" built per the exam switching spec (mocks never car
 Home stats); prompt keeps the board copy with no figure.
 
 Nov 2: unselected checkbox and radio rings on phone use the board light gray #C7C7CC in light mode (Aedwon: "Board's light gray"), below 3:1 contrast; dark mode keeps 3:1.
+
+## Nov 2: legal, minors and app copy
+
+Aedwon approved a guardian flow adapted from pantas-web: 13 to 17 wait until a parent or guardian confirms by a
+one-use emailed link; under 13 blocked, and the block survives reload (replaces "Try a Different Year"); minimum
+age is per exam so PSHS-NCE can lower it. Screens approved; follow design tokens. Build on branch
+`web/guardian-consent`. Operator: Pantas Online Tutorial Services, sole proprietor (Aedwon), who is also DPO.
+DTI territorial scope covers name protection, not where the business may sell (BNRS FAQ). BIR COR pending.
+Copy approved, "i hate wordy UI/UX": "Your account is deleted."; "Help improve Pantas by sharing usage data";
+About footer removed; web "Buy 1 Month for ₱149"; report "Save", "Saved on this device." Lawyer to review the
+dropped disclosures. Legal drafts are local, not in git: staging worktree `build/legal/`.
+Release source recommended: a tagged staging commit (not yet chosen).
