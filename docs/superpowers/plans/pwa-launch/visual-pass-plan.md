@@ -164,6 +164,14 @@ State at Oct 31, 3:40 AM Manila (Opus on Aedwon's first account, weekly limit at
    Them (`getCarryableCount`, roadmap, studyInsights) deploy only with release approval. Also open: the 37
    failures, and unreachable phone boards (mock parts, Wrapped, weekday-dependent Home states).
 
+14. Nov 2 evening (supersedes 13). History rewritten to remove banned attribution trailers (Aedwon approved): main,
+   fixes and staging force-pushed; earlier SHAs in this file no longer exist. Never add attribution lines. Fixes and
+   staging at 412a389b; full suite passes (5,891, 0 failed). Captures must use the fixed harness: `. ./rc_env.sh`, because
+   Flutter reads `navigator.platform`. Mobile recheck: notes in `build/visual-pass/mobile/recheck-a,b,c,d.md`. Guardian
+   flow: local branch `web/guardian-consent` (worktree `Pantas-wt-guardian`), not pushed or merged; wording items and
+   screen capture open; needs GUARDIAN_MAIL_API_KEY and GUARDIAN_HMAC_KEY at deploy. Legal drafts and NPC packet: local,
+   `build/legal/` in the staging worktree, not in git. Cloudflare: wrangler login has email routing write, no DNS.
+
 ## Why
 
 Aedwon, Oct 31: "ui looks terrible. some parts do not look like what was presented to me in Claude
