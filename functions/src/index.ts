@@ -1,3 +1,4 @@
+import './_options.js';
 import './_admin.js';
 
 export { exportData } from './exportData.js';

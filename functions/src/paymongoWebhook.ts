@@ -8,6 +8,7 @@ import {examCatalog, type CatalogExam, type Sitting} from './revenuecatPasses.js
 import {commitPaymongoGrant, resolvePaymongoDispute, revokePaymongoPayment} from './paymongoGrants.js';
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {normalizePaymongoEvent, priceCentavos, verifyPaymongoSignature, webProduct} from './paymongoPolicy.js';
+import {WEBHOOK_MAX_INSTANCES} from './_options.js';
 
 const secretKey = defineSecret('PAYMONGO_SECRET_KEY');
 const webhookSecret = defineSecret('PAYMONGO_WEBHOOK_SECRET');
@@ -230,7 +231,7 @@ async function copyIfPending(deps: PaymongoWebhookDeps, uid: string) {
   }
 }
 
-export const paymongoWebhook = onRequest({region: 'asia-southeast1', secrets: [secretKey, webhookSecret]},
+export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [secretKey, webhookSecret]},
   async (req, res) => {
     if (req.method !== 'POST') {res.status(405).json({ok: false}); return;}
     const key = secretKey.value();

@@ -11,6 +11,7 @@ import {ledgerGrants, type Grant} from './grants.js';
 import {nativeRowsFor} from './entitlementInputs.js';
 import {reanchorQueued} from './paymongoGrants.js';
 import {preparePassReconciliation, examCatalog, type CatalogExam, type Pass} from './revenuecatPasses.js';
+import {WEBHOOK_MAX_INSTANCES} from './_options.js';
 export { verifyRevenueCatSignature } from './revenuecatPolicy.js';
 
 const apiSecret = defineSecret('REVENUECAT_SECRET_API_KEY');
@@ -113,7 +114,7 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
   }
 }
 
-export const revenuecatWebhook = onRequest({region:'asia-southeast1', secrets:[apiSecret, signingSecret]}, async (req,res) => {
+export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[apiSecret, signingSecret]}, async (req,res) => {
   const projectId = process.env.REVENUECAT_PROJECT_ID;
   const appId = process.env.REVENUECAT_APP_ID;
   if (!projectId || !appId) {res.status(500).send('RevenueCat configuration required'); return;}

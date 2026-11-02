@@ -8,10 +8,12 @@ import { retirePublicId } from './publicId.js';
 import { clearPassOwnership } from './revenuecatPasses.js';
 import { deleteGuardianRecords } from './guardianConsent.js';
 import { identityMarkers, trialIdentityKey } from './webTrial.js';
+import { ACCOUNT_DELETION_MAX_INSTANCES } from './_options.js';
 
 export const deleteAccount = onCall(
   {
     region: 'asia-southeast1',
+    maxInstances: ACCOUNT_DELETION_MAX_INSTANCES,
     enforceAppCheck: enforceAppCheck,
     consumeAppCheckToken: enforceAppCheck,
     secrets: [trialIdentityKey],
