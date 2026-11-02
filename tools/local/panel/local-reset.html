@@ -66,7 +66,8 @@
     var account = plan === 'pro' ? 'pro' : 'free';
     location.replace('/?localAccount=' + account + '&localStudent=' + encodeURIComponent(student));
   } else {
-    location.replace('/');
+    var next = new URLSearchParams(location.search).get('next');
+    location.replace(next && /^\/(?!\/)/.test(next) ? next : '/');
   }
 })();
 </script>

@@ -208,6 +208,14 @@ def main():
         index = Path('build/web/index.html')
         shim = '''<script>
 // WebDebugProvider still asks for an exchange. Return an unsigned emulator token locally.
+// Each run resets the emulators, so what this browser saved from an earlier run no longer matches
+// the server. Clear it once, then carry on to the same link.
+try {
+  if (localStorage.getItem('pantas.local.run') !== '__LOCAL_RUN__') {
+    localStorage.setItem('pantas.local.run', '__LOCAL_RUN__');
+    location.replace('/local-reset.html?next=' + encodeURIComponent(location.pathname + location.search));
+  }
+} catch (_) {}
 // A network address is not a secure context, so the browser leaves this out and App Check throws.
 if (!crypto.randomUUID) {
   crypto.randomUUID = () => ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -241,7 +249,7 @@ try {
   }
 } catch (_) {}
 </script>'''
-        shim = shim.replace('__LOCAL_HOST__', host)
+        shim = shim.replace('__LOCAL_HOST__', host).replace('__LOCAL_RUN__', str(time.time_ns()))
         index.write_text(index.read_text().replace('<head>', '<head>' + shim))
         # Do not register the production caching worker during a local visual check.
         Path('build/web/pantas_pwa.js').write_text('window.pantasPwa = null;\n')

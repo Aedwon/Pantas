@@ -104,6 +104,14 @@ class LocalPanelTest(unittest.TestCase):
         for name in ('GUARDIAN_MAIL_FROM', 'GUARDIAN_LINK_ORIGIN', 'GUARDIAN_DAILY_SEND_CAP'):
             self.assertIn(name + '=', source)
 
+    def test_a_new_run_clears_what_the_browser_saved(self):
+        source = Path('tools/local/run_web_local.py').read_text()
+        self.assertIn("localStorage.getItem('pantas.local.run')", source)
+        self.assertIn("/local-reset.html?next=", source)
+        self.assertIn("replace('__LOCAL_RUN__', str(time.time_ns()))", source)
+        reset = Path('tools/local/panel/local-reset.html').read_text()
+        self.assertIn("get('next')", reset)
+
     def test_runner_has_no_date_patch(self):
         for text in [self.runner, self.page, self.reset]:
             self.assertNotIn('pantas.local.today', text)
