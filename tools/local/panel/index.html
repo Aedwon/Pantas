@@ -26,10 +26,11 @@
   .tabs{display:flex;gap:4px;border-bottom:1px solid #E5E5EA;margin:10px 0 14px}
   .tabs span{padding:10px 14px;font-size:14px;font-weight:600;color:#6E6E73;border-bottom:2px solid transparent;cursor:pointer}
   .tabs span.on{color:#0B7A68;border-color:#0B7A68}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
   .sec{font-size:12px;font-weight:700;color:#8A8A8E;letter-spacing:.04em;text-transform:uppercase;margin:14px 0 8px}
   .sec:first-child{margin-top:0}
-  .rt{font:12px ui-monospace,Menlo,monospace;color:#8A8A8E;margin-top:2px}
+  #screens .sec:first-child{margin-top:14px}
+  .rt{font:12px ui-monospace,Menlo,monospace;color:#8A8A8E;margin-top:2px;overflow-wrap:anywhere}
   .idf{height:28px;width:100%;margin-top:8px;border-radius:8px;border:1.5px solid #D1D1D6;padding:0 8px;font-family:inherit;font-size:13px;box-sizing:border-box}
   .pane{display:none}.pane.on{display:block}
 </style>
