@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
@@ -38,11 +39,11 @@ final customMockSetupDataProvider =
 
   // Counted from the scoped topics, so it follows the track rather than
   // the whole corpus.
-  var available = 0;
-  for (final topic in topics) {
-    available +=
-        (await content.questionsByTopic(topic.id, examId: exam.id)).length;
-  }
+  final available = await countAvailableQuestions(
+    content,
+    [for (final topic in topics) topic.id],
+    examId: exam.id,
+  );
 
   final row = await ref.watch(customBlueprintRepositoryProvider).read(exam.id);
   return CustomMockSetupData(
@@ -53,6 +54,21 @@ final customMockSetupDataProvider =
     saved: row == null ? null : savedCustomBlueprint(row, subjects),
   );
 });
+
+/// How many questions the topics hold for [examId]. It reads the index rows
+/// only, so on web it does not fetch every question set from the server just
+/// to show a number.
+Future<int> countAvailableQuestions(
+  ContentRepository content,
+  List<TopicId> topicIds, {
+  required ExamId examId,
+}) async {
+  final grouped = await content.selectionRowsByTopics(
+    topicIds,
+    examId: examId,
+  );
+  return grouped.values.fold<int>(0, (sum, rows) => sum + rows.length);
+}
 
 /// Reads a saved setup back into what the form shows. The stored sections
 /// carry the subject's name, so a breakdown maps back to its subjects.

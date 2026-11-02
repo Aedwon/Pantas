@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_route.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -75,6 +76,14 @@ void main() {
   setUp(() async {
     db = openTestContentDatabase();
     await seedIndexRows();
+  });
+
+  test('the custom mock count reads index rows and fetches nothing', () async {
+    final hook = _Hook(db, {'q1', 'q2', 'q3'});
+    final repo = ContentRepository(db, fetchHook: hook);
+    final count = await countAvailableQuestions(repo, ['t1'], examId: 'e1');
+    expect(count, 3);
+    expect(hook.calls, isEmpty);
   });
 
   group('ContentRepository', () {
