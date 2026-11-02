@@ -208,9 +208,20 @@ def main():
         index = Path('build/web/index.html')
         shim = '''<script>
 // WebDebugProvider still asks for an exchange. Return an unsigned emulator token locally.
+// A network address is not a secure context, so the browser leaves this out and App Check throws.
+if (!crypto.randomUUID) {
+  crypto.randomUUID = () => ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+    (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16));
+}
 const localFetch = window.fetch.bind(window);
 window.fetch = (input, init) => {
   const url = new URL(typeof input === 'string' ? input : input.url, location.href);
+  // A saved session is checked while Firebase starts, before the emulator is connected. Without
+  // this it reaches real Google, is refused, and the student is signed out at random on reload.
+  if (url.hostname === 'identitytoolkit.googleapis.com' || url.hostname === 'securetoken.googleapis.com') {
+    const local = 'http://__LOCAL_HOST__:9099/' + url.hostname + url.pathname + url.search;
+    return localFetch(typeof input === 'string' ? local : new Request(local, input), init);
+  }
   if (url.hostname === 'firebaseappcheck.googleapis.com' || url.hostname === 'content-firebaseappcheck.googleapis.com') {
     return localFetch('/local-app-check', {method: 'GET'});
   }
@@ -230,7 +241,7 @@ try {
   }
 } catch (_) {}
 </script>'''
-        index.write_text(index.read_text().replace('<head>', '<head>' + shim))
+        index.write_text(index.read_text().replace('<head>', '<head>' + shim.replace('__LOCAL_HOST__', host)))
         # Do not register the production caching worker during a local visual check.
         Path('build/web/pantas_pwa.js').write_text('window.pantasPwa = null;\n')
         Path('build/web/local-login.html').write_text(
