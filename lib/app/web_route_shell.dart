@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -28,6 +29,10 @@ class WebRouteShell extends ConsumerWidget {
     if (!context.wideWeb) return child;
     // The guardian screens are full screen: no sidebar and no tabs.
     if (path.startsWith('/guardian')) return child;
+    // A legal page opened during onboarding has no main navigation.
+    if (path.startsWith('/legal/') && ref.watch(legalInOnboardingProvider)) {
+      return child;
+    }
     if (!webSidebarRoute(path) && context.webTier == WebLayoutTier.desktop) {
       return CallbackShortcuts(
         bindings: {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -12,10 +13,14 @@ class LegalDocumentPage extends StatelessWidget {
   const LegalDocumentPage({
     required this.documentId,
     required this.contact,
+    this.backLabel = 'About',
     super.key,
   });
   final String documentId;
   final LegalContact contact;
+
+  /// 'Back' during onboarding, where the student did not come from About.
+  final String backLabel;
   @override
   Widget build(BuildContext context) {
     final document = legalDocumentFallbacks[documentId];
@@ -23,7 +28,7 @@ class LegalDocumentPage extends StatelessWidget {
       title: documentId == 'privacy'
           ? 'Privacy policy'
           : document?.title ?? 'Legal',
-      backLabel: 'About',
+      backLabel: backLabel,
       onBack: () => Navigator.of(context).maybePop(),
       // ST_Privacy: a 28 px title 6 px above the updated line.
       backPadding: context.wideWeb
@@ -134,4 +139,88 @@ List<Widget> _documentChildren(
       ],
     ],
   ];
+}
+
+/// Wide web: a legal page opened during onboarding. It has the onboarding top
+/// bar and column, with Back and no main navigation around it.
+class OnboardingLegalPage extends StatelessWidget {
+  const OnboardingLegalPage({required this.documentId, super.key});
+  final String documentId;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final document = legalDocumentFallbacks[documentId];
+    return Material(
+      color: t.colors.background,
+      child: Column(
+        children: [
+          const WebTopBar(
+            leading: PantasLogo(size: 28),
+            title: Text(
+              'Pantas',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(40, 40, 40, 60),
+              child: Center(
+                child: SizedBox(
+                  width: 580,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextButton.icon(
+                          onPressed: () => Navigator.of(context).maybePop(),
+                          icon: Icon(
+                            Icons.chevron_left,
+                            size: 20,
+                            color: t.colors.accent,
+                          ),
+                          label: const Text('Back'),
+                          style: TextButton.styleFrom(
+                            foregroundColor: t.colors.accent,
+                            minimumSize: const Size(0, 36),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            padding: EdgeInsets.zero,
+                            textStyle: t.style(16),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 28),
+                      Text(
+                        documentId == 'privacy'
+                            ? 'Privacy policy'
+                            : document?.title ?? 'Legal',
+                        style: t
+                            .style(36, weight: FontWeight.w700, height: 1.12)
+                            .copyWith(letterSpacing: -.864),
+                      ),
+                      if (LegalDocumentBody.updatedLine(documentId)
+                          case final updated?) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          updated,
+                          style: t.style(
+                            17,
+                            height: 1.45,
+                            color: t.colors.secondaryLabel,
+                          ),
+                        ),
+                      ],
+                      const SizedBox(height: 28),
+                      LegalDocumentBody(documentId: documentId),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

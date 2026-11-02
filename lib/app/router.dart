@@ -76,10 +76,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (path.startsWith('/guardian/') && guardian != null) {
         return guardian == GuardianGate.needsContact ? '/onboarding' : '/home';
       }
-      if (path.startsWith('/legal/') &&
-          ref.read(passedAgeGateProvider).valueOrNull == false) {
-        return null;
-      }
+      // The legal pages open at any point in onboarding, for anyone. Going
+      // back returns to the step that linked to them.
+      if (path.startsWith('/legal/')) return null;
 
       final passedAsync = ref.read(passedAgeGateProvider);
       final focusAsync = ref.read(activeExamFocusProvider);

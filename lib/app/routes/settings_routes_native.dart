@@ -147,21 +147,28 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         path: '/legal/:doc',
         builder: (context, state) {
           final id = state.pathParameters['doc']!;
-          if (!context.wideWeb) {
-            return LegalDocumentPage(
-              documentId: id,
-              contact: ref.watch(legalContactProvider),
-            );
-          }
-          return SettingsPanePage(
-            section: 'About',
-            title: id == 'privacy'
-                ? 'Privacy policy'
-                : legalDocumentFallbacks[id]?.title ?? 'Legal',
-            description: LegalDocumentBody.updatedLine(id),
-            backLabel: 'About',
-            onBack: () => Navigator.of(context).maybePop(),
-            children: [LegalDocumentBody(documentId: id)],
+          return Consumer(
+            builder: (context, localRef, _) {
+              final onboarding = localRef.watch(legalInOnboardingProvider);
+              if (!context.wideWeb) {
+                return LegalDocumentPage(
+                  documentId: id,
+                  contact: ref.watch(legalContactProvider),
+                  backLabel: onboarding ? 'Back' : 'About',
+                );
+              }
+              if (onboarding) return OnboardingLegalPage(documentId: id);
+              return SettingsPanePage(
+                section: 'About',
+                title: id == 'privacy'
+                    ? 'Privacy policy'
+                    : legalDocumentFallbacks[id]?.title ?? 'Legal',
+                description: LegalDocumentBody.updatedLine(id),
+                backLabel: 'About',
+                onBack: () => Navigator.of(context).maybePop(),
+                children: [LegalDocumentBody(documentId: id)],
+              );
+            },
           );
         },
       ),
