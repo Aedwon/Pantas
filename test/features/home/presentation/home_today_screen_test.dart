@@ -94,7 +94,7 @@ void main() {
   }
   quietDayTests();
   auditTests();
-  testWidgets('lesson sheet starts the real lesson with its day context',
+  testWidgets('a lesson row starts the real lesson with its day context',
       (tester) async {
     LessonDayContext? context;
     final router = GoRouter(
@@ -166,9 +166,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Ratios'));
     await tester.pumpAndSettle();
-    expect(find.text('Start Lesson'), findsOneWidget);
-    await tester.tap(find.text('Start Lesson'));
-    await tester.pumpAndSettle();
+    expect(find.text('Start Lesson'), findsNothing);
     expect(find.text('reader'), findsOneWidget);
     expect(context?.lessonIds, ['l1', 'l2']);
     expect(context?.index, 0);

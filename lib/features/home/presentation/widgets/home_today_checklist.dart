@@ -29,7 +29,6 @@ class HomeTodayChecklist extends StatelessWidget {
     required this.canAdvance,
     required this.isMockDay,
     required this.onLesson,
-    required this.onStartLesson,
     required this.onLessons,
     required this.onReviews,
     required this.onNew,
@@ -58,9 +57,6 @@ class HomeTodayChecklist extends StatelessWidget {
   final bool canAdvance;
   final bool isMockDay;
   final ValueChanged<HomeTodayLesson> onLesson;
-
-  /// The main button's lesson step. It opens the lesson itself, not a panel.
-  final ValueChanged<HomeTodayLesson> onStartLesson;
   final VoidCallback onLessons;
   final VoidCallback onReviews;
   final VoidCallback onNew;
@@ -94,7 +90,7 @@ class HomeTodayChecklist extends StatelessWidget {
     if (next != null) {
       return (
         label: (next.fraction ?? 0) > 0 ? 'Resume Lesson' : 'Continue Lesson',
-        onPressed: () => onStartLesson(next),
+        onPressed: () => onLesson(next),
       );
     }
     if (reviewsDone < reviewsTotal) {

@@ -74,6 +74,9 @@ void main() {
       bool reviewsDue = true,
       bool newDue = true,
       bool lessonsRead = true,
+      int reviewCount = 6,
+      int newCount = 2,
+      int lessonCount = 2,
     }) async {
       tester.view.physicalSize =
           wide ? const Size(1440, 900) : const Size(390, 844);
@@ -87,8 +90,10 @@ void main() {
       final contentDb = inMemoryContentDatabase();
       addTearDown(contentDb.close);
       addTearDown(db.close);
-      final reviews = reviewsDue ? List.generate(6, (i) => 'r$i') : <String>[];
-      final news = newDue ? ['n0', 'n1'] : <String>[];
+      final reviews =
+          reviewsDue ? List.generate(reviewCount, (i) => 'r$i') : <String>[];
+      final news = newDue ? ['n0', 'n1'].take(newCount).toList() : <String>[];
+      final lessonIds = ['a', 'b', 'c', 'd'].take(lessonCount).toList();
       late RoadmapToday today;
       await tester.runAsync(() async {
         await seedContentTopicWithQuestions(
@@ -96,7 +101,7 @@ void main() {
           examId: 'e',
           topicId: 't',
           topicName: 'Topic',
-          lessonIds: ['a', 'b'],
+          lessonIds: ['a', 'b', 'c', 'd'],
           questionIds: [...List.generate(6, (i) => 'r$i'), 'n0', 'n1'],
           questionLessonMap: {'n0': 'a', 'n1': 'b'},
         );
@@ -109,7 +114,7 @@ void main() {
         await SyncActiveContextStore(db).clearStable();
         final plan = DayPlan(
           day: DateTime(2026, 10, 23),
-          lessonIds: const ['a', 'b'],
+          lessonIds: lessonIds,
           reviewQuestionIds: reviews,
           newQuestionIds: news,
           isMockDay: false,
@@ -139,7 +144,7 @@ void main() {
             (ref) => (examId, guard) async => HomeTodayData(
                   today: today,
                   lessons: [
-                    for (final id in ['a', 'b'])
+                    for (final id in lessonIds)
                       HomeTodayLesson(
                         id: id,
                         title: 'Lesson $id',
@@ -240,18 +245,110 @@ void main() {
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });
-    testWidgets('$layout: the Reviews row still opens the panel',
+    Future<void> finish(WidgetTester tester) async {
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    }
+
+    Future<void> waitFor(WidgetTester tester, String text) => settle(
+          tester,
+          () => find.text(text).evaluate().isNotEmpty,
+        );
+    testWidgets('$layout: the Reviews row opens the panel for two sessions',
         (tester) async {
       await pump(tester);
       await tester.tap(find.text('Reviews'));
-      await settle(
-        tester,
-        () => find.text('Session 1').evaluate().isNotEmpty,
-      );
+      await waitFor(tester, 'Session 1');
       expect(find.text('Session 1'), findsOneWidget);
+      expect(find.text('Session 2'), findsOneWidget);
       expect(find.text('Actual run opened'), findsNothing);
-      await tester.pumpWidget(const SizedBox());
-      await tester.pumpAndSettle();
+      await finish(tester);
+    });
+    testWidgets('$layout: the Reviews row starts straight in for one session',
+        (tester) async {
+      await pump(tester, reviewCount: 5);
+      await tester.tap(find.text('Reviews'));
+      await waitFor(tester, 'Actual run opened');
+      expect(find.text('Actual run opened'), findsOneWidget);
+      expect(find.text('Session 1'), findsNothing);
+      await finish(tester);
+    });
+    testWidgets('$layout: a one-session Reviews row ignores a second tap',
+        (tester) async {
+      final rig = await pump(tester, reviewCount: 5);
+      rig.content.blocked = true;
+      await tester.tap(find.text('Reviews'));
+      await settle(tester, () => rig.content.entered.isCompleted);
+      final before = rig.content.hydrations;
+      await tester.tap(find.text('Reviews'), warnIfMissed: false);
+      await tester.pump();
+      expect(rig.content.hydrations, before);
+      rig.content.release.complete();
+      await waitFor(tester, 'Actual run opened');
+      await finish(tester);
+    });
+    testWidgets('$layout: a failed one-session Reviews start shows the retry',
+        (tester) async {
+      final rig = await pump(tester, reviewCount: 5);
+      rig.content.fail = true;
+      await tester.tap(find.text('Reviews'));
+      await waitFor(tester, 'Could not start your quiz.');
+      expect(find.text('Could not start your quiz.'), findsOneWidget);
+      expect(find.text('Try Again'), findsOneWidget);
+      await finish(tester);
+    });
+    testWidgets('$layout: the New questions row opens the panel for two rows',
+        (tester) async {
+      await pump(tester);
+      await tester.tap(find.text('New questions'));
+      await waitFor(tester, 'Start New Questions');
+      expect(find.text('Start New Questions'), findsOneWidget);
+      expect(find.text('Actual run opened'), findsNothing);
+      await finish(tester);
+    });
+    testWidgets('$layout: the New questions row starts straight in for one row',
+        (tester) async {
+      await pump(tester, newCount: 1);
+      await tester.tap(find.text('New questions'));
+      await waitFor(tester, 'Actual run opened');
+      expect(find.text('Actual run opened'), findsOneWidget);
+      expect(find.text('Start New Questions'), findsNothing);
+      await finish(tester);
+    });
+    testWidgets('$layout: a lesson row opens its lesson, not a panel',
+        (tester) async {
+      await pump(tester, lessonsRead: false);
+      await tester.tap(find.text('Lesson b'));
+      await waitFor(tester, 'Lesson b opened');
+      expect(find.text('Lesson b opened'), findsOneWidget);
+      expect(lessonOpens, 1);
+      await finish(tester);
+    });
+    testWidgets('$layout: the only lesson row opens its lesson',
+        (tester) async {
+      await pump(tester, lessonsRead: false, lessonCount: 1);
+      await tester.tap(find.text('Lesson a'));
+      await waitFor(tester, 'Lesson a opened');
+      expect(find.text('Start Lesson'), findsNothing);
+      expect(lessonOpens, 1);
+      await finish(tester);
+    });
+    testWidgets('$layout: a read lesson row opens that lesson again',
+        (tester) async {
+      await pump(tester, lessonCount: 1);
+      await tester.tap(find.text('Lesson a'));
+      await waitFor(tester, 'Lesson a opened');
+      expect(lessonOpens, 1);
+      await finish(tester);
+    });
+    testWidgets('$layout: the Lessons row opens the panel for many lessons',
+        (tester) async {
+      await pump(tester, lessonsRead: false, lessonCount: 4);
+      await tester.tap(find.text('Lessons'));
+      await waitFor(tester, 'Lesson d');
+      expect(find.text('Lesson d'), findsOneWidget);
+      expect(lessonOpens, 0);
+      await finish(tester);
     });
     testWidgets('$layout: Continue Lesson opens the lesson with no panel',
         (tester) async {

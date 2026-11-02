@@ -162,6 +162,36 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     }
   }
 
+  /// A row opens a panel only when it lists two or more items. With exactly
+  /// one item it goes straight in. A row with nothing to start keeps its panel.
+  void _openLessons(HomeTodayData data) {
+    if (data.lessons.length == 1) {
+      unawaited(_openLesson(data, data.lessons.single));
+    } else {
+      _show('lessons');
+    }
+  }
+
+  void _openReviews(HomeTodayData data) {
+    final work = data.questionWork;
+    if (work != null && work.reviewSizes.length == 1) {
+      unawaited(_start(data, TodayQuestionKind.reviews));
+    } else {
+      _show('reviews');
+    }
+  }
+
+  void _openNew(HomeTodayData data) {
+    final work = data.questionWork;
+    if (work != null &&
+        work.newRows.length == 1 &&
+        work.newQuestions.isNotEmpty) {
+      unawaited(_start(data, TodayQuestionKind.newQuestions));
+    } else {
+      _show('new');
+    }
+  }
+
   Future<void> _start(HomeTodayData data, TodayQuestionKind kind) async {
     if (_busy || data.questionWork == null) return;
     final generation = _generation;
@@ -391,7 +421,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           reviewsTotal: data.questionWork?.reviewsTotal ?? 0,
           reviewsDone: data.questionWork?.reviewsDone ?? 0,
           busy: _busy,
-          onRow: () => _show('reviews'),
+          onRow: () => _openReviews(data),
           onStart: () => unawaited(_start(data, TodayQuestionKind.reviews)),
         ),
       HomeTodayKind.assessment || HomeTodayKind.noContent => HomeStateCard(
@@ -505,11 +535,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               '${work.preparedReviews.preferences.sessionLength}'
           : 'Questions due today',
       advancing: _busy,
-      onLesson: (lesson) => _show('lesson', lesson: lesson),
-      onStartLesson: (lesson) => unawaited(_openLesson(data, lesson)),
-      onLessons: () => _show('lessons'),
-      onReviews: () => _show('reviews'),
-      onNew: () => _show('new'),
+      onLesson: (lesson) => unawaited(_openLesson(data, lesson)),
+      onLessons: () => _openLessons(data),
+      onReviews: () => _openReviews(data),
+      onNew: () => _openNew(data),
       onStartReviews: () => unawaited(_start(data, TodayQuestionKind.reviews)),
       onStartNew: () => unawaited(_start(data, TodayQuestionKind.newQuestions)),
       reviewsStarted: work?.storedReviews != null,

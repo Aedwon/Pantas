@@ -149,7 +149,6 @@ void main() {
                 canAdvance: false,
                 isMockDay: false,
                 onLesson: (_) {},
-                onStartLesson: (_) {},
                 onLessons: () {},
                 onReviews: () {},
                 onNew: () {},
