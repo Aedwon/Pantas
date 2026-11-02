@@ -18,6 +18,7 @@ import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+import '../../../helpers/sync_token.dart';
 
 class _BlockedContent extends ContentRepository {
   _BlockedContent(super.db);
@@ -129,7 +130,7 @@ void main() {
           await container.read(activeExamFocusProvider.future);
         case 'token':
           // A queued token transition must prevent old publication.
-          final transition = SyncActiveContextStore(db).clearStable();
+          final transition = rotateSyncToken(SyncActiveContextStore(db));
           content.release.complete();
           await transition;
         case 'wipe':

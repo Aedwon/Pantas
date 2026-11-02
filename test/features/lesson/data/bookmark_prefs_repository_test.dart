@@ -11,6 +11,7 @@ import 'package:pantas/features/lesson/data/repos/reader_position_repository.dar
 import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/sync_token.dart';
 
 void main() {
   late AppDatabase db;
@@ -205,7 +206,7 @@ void main() {
     await bookmarks.mark('old');
     await repo.saveCustomOrder('e1', ['old']);
     final removal = await repo.remove('e1', {'old'});
-    await contexts.clearStable();
+    await rotateSyncToken(contexts);
     expect(await repo.restore(removal), isFalse);
     expect(await bookmarks.markedIds(), isEmpty);
     expect(await repo.readCustomOrder('e1'), isEmpty);

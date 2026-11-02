@@ -16,6 +16,8 @@ import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/providers/current_archetype_provider.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 
+import '../../../helpers/sync_token.dart';
+
 void main() {
   test(
       'account transition during initial context read keeps original ownership',
@@ -135,7 +137,7 @@ void main() {
       final rejected = expectLater(result, throwsStateError);
       await entered.future;
       if (change == 'wipe') {
-        await SyncActiveContextStore(db).clearStable();
+        await rotateSyncToken(SyncActiveContextStore(db));
       } else if (change == 'exam') {
         await AppPreferencesRepository(db).setSelectedExamId('other');
       } else {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -36,6 +37,14 @@ import '../../../helpers/pump_app.dart';
 import 'pro_page_payments_test.dart' show SettingsGateway;
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    final fonts = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await fonts.load();
+  });
   setUp(() => debugWebPlatformOverride = true);
   tearDown(() => debugWebPlatformOverride = null);
   testWidgets('large settings row wraps its label and stacks its value',

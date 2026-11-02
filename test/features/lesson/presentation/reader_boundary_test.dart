@@ -25,6 +25,7 @@ import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+import '../../../helpers/sync_token.dart';
 
 class _HeldBoundaryChecks extends ReaderPositionRepository {
   _HeldBoundaryChecks(AppDatabase db)
@@ -177,7 +178,7 @@ void main() {
     final cached = await container.read(readerContextProvider('l').future);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
-    await SyncActiveContextStore(db).clearStable();
+    await rotateSyncToken(SyncActiveContextStore(db));
     final next = (await SyncActiveContextStore(db).readSnapshot())!.token;
     await pump(
       tester,
@@ -499,7 +500,7 @@ void main() {
     final cached = await container.read(readerContextProvider('l2').future);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
-    await SyncActiveContextStore(db).clearStable();
+    await rotateSyncToken(SyncActiveContextStore(db));
     final token = (await SyncActiveContextStore(db).readSnapshot())!.token;
     await pump(
       tester,
@@ -1056,7 +1057,7 @@ void main() {
         .widget<LessonContentsSheet>(find.byType(LessonContentsSheet))
         .onSelectLesson('l3');
     await tester.pump();
-    await SyncActiveContextStore(db).clearStable();
+    await rotateSyncToken(SyncActiveContextStore(db));
     final replacement =
         (await SyncActiveContextStore(db).readSnapshot())!.token;
     target.completeError(StateError('late selected-load fixture'));

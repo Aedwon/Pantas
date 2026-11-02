@@ -17,6 +17,7 @@ import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+import '../../../helpers/sync_token.dart';
 
 class _BlockedContent extends ContentRepository {
   _BlockedContent(super.db);
@@ -104,7 +105,8 @@ void main() {
           container.read(exam.notifier).state = 'other';
           await container.read(activeExamFocusProvider.future);
         case 'token':
-          await SyncActiveContextStore(db).clearStable();
+          await rotateSyncToken(SyncActiveContextStore(db));
+
         case 'wipe':
           await SyncLocalStateWiper(db).wipeAll();
         case 'disposed':
