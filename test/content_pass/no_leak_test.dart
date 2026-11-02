@@ -12,7 +12,6 @@ final _directive =
 const _skipDirs = {
   '.dart_tool',
   '.git',
-  '.claude',
   '.gradle',
   'build',
   'Pods',
