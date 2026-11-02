@@ -188,8 +188,7 @@ questions:
     rationale: |
       Just compensation is payment for private property taken for public use. It does not describe release from custody.
   explanation: |
-    This is release on recognizance. It uses a lawful undertaking instead
-    of a bail bond and must be allowed by law. It does not decide guilt.
+    This is release on recognizance. It uses a lawful undertaking instead of a bail bond and must be allowed by law. It does not decide guilt.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0004
   type: single_choice
@@ -209,8 +208,7 @@ questions:
     rationale: |
       The Constitution protects access to quasi-judicial bodies as well as adequate legal assistance.
   explanation: |
-    A government body that hears facts and decides disputes outside the
-    courts is quasi-judicial. Poverty cannot be the reason to deny access.
+    A government body that hears facts and decides disputes outside the courts is quasi-judicial. Poverty cannot be the reason to deny access.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0005
   type: single_choice
@@ -251,8 +249,7 @@ questions:
   - text: The suspect's freedom is significantly restricted while he is questioned about an offense.
     correct: true
   explanation: |
-    Custodial investigation includes questioning a suspect whose freedom
-    is significantly restricted. A formal arrest label is not required.
+    Custodial investigation includes questioning a suspect whose freedom is significantly restricted. A formal arrest label is not required.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0007
   type: single_choice
@@ -272,8 +269,7 @@ questions:
     rationale: |
       The right to counsel applies during custodial investigation. It does not wait for a finding of guilt.
   explanation: |
-    Counsel must be competent and independent. A lawyer must protect the
-    suspect's interests and be free from the investigators' control.
+    Counsel must be competent and independent. A lawyer must protect the suspect's interests and be free from the investigators' control.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0008
   type: single_choice

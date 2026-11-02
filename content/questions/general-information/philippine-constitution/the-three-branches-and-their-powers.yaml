@@ -65,8 +65,7 @@ questions:
   type: presidential-succession-and-term-limits
   difficulty: easy
   stem: |
-    The President dies with five years remaining in the term. The Vice-President
-    succeeds and serves all five years. Which statement is correct?
+    The President dies with five years remaining in the term. The Vice-President succeeds and serves all five years. Which statement is correct?
   choices:
   - text: The Senate President becomes President immediately upon the death.
     rationale: The Vice-President succeeds when the President dies and the Vice-Presidency is occupied.
@@ -103,9 +102,7 @@ questions:
   type: elected-office-qualification
   difficulty: medium
   stem: |
-    On election day, Lea is 25, natural-born, able to read and write, and a
-    registered voter in the district she seeks to represent. She has lived
-    there for eight months immediately before election day. Which finding is correct?
+    On election day, Lea is 25, natural-born, able to read and write, and a registered voter in the district she seeks to represent. She has lived there for eight months immediately before election day. Which finding is correct?
   choices:
   - text: She meets the district residence rule because voter registration replaces it.
     rationale: District voter registration and district residence are separate requirements.
@@ -123,9 +120,7 @@ questions:
   type: elected-office-qualification
   difficulty: medium
   stem: |
-    Mario is a naturalized Philippine citizen seeking a Senate seat. On election
-    day, he is 40, can read and write, is a registered voter, and has lived in
-    the Philippines continuously for ten years. Which requirement does he fail?
+    Mario is a naturalized Philippine citizen seeking a Senate seat. On election day, he is 40, can read and write, is a registered voter, and has lived in the Philippines continuously for ten years. Which requirement does he fail?
   choices:
   - text: Natural-born citizenship
     correct: true
@@ -143,9 +138,7 @@ questions:
   type: elected-office-qualification
   difficulty: medium
   stem: |
-    Rosa seeks the Vice-Presidency. On election day, she is 40, natural-born,
-    a registered voter, and able to read and write. Her Philippine residence
-    covers only the nine years immediately before election day. Which assessment is correct?
+    Rosa seeks the Vice-Presidency. On election day, she is 40, natural-born, a registered voter, and able to read and write. Her Philippine residence covers only the nine years immediately before election day. Which assessment is correct?
   choices:
   - text: She meets the residence requirement because the Vice-President needs only two years.
     rationale: Two years is the Senate residence rule, not the Vice-Presidential rule.
@@ -182,8 +175,7 @@ questions:
   type: supreme-court-qualification
   difficulty: medium
   stem: |
-    Which candidate meets the stated age, citizenship, and experience requirements
-    for a Supreme Court seat? Assume each meets all other requirements.
+    Which candidate meets the stated age, citizenship, and experience requirements for a Supreme Court seat? Assume each meets all other requirements.
   choices:
   - text: A natural-born citizen, age 39, with 16 years of Philippine law practice
     rationale: Supreme Court Members must be at least 40.
@@ -202,9 +194,7 @@ questions:
   type: comelec-qualification
   difficulty: hard
   stem: |
-    A proposed seven-member COMELEC includes four lawyers with at least ten
-    years of law practice. The proposed Chair is one of the other three members
-    and is not a lawyer. All seven meet the other constitutional qualifications.
+    A proposed seven-member COMELEC includes four lawyers with at least ten years of law practice. The proposed Chair is one of the other three members and is not a lawyer. All seven meet the other constitutional qualifications.
     What is the defect in this proposed composition?
   choices:
   - text: The Chair must belong to the qualified lawyer majority.
@@ -223,9 +213,7 @@ questions:
   type: coa-qualification
   difficulty: hard
   stem: |
-    Two serving COA members are CPAs and are not lawyers. A vacancy is to be
-    filled. Which candidate satisfies the professional requirement without making
-    all three members belong to the same profession? Assume all other qualifications are met.
+    Two serving COA members are CPAs and are not lawyers. A vacancy is to be filled. Which candidate satisfies the professional requirement without making all three members belong to the same profession? Assume all other qualifications are met.
   choices:
   - text: A CPA with twelve years of auditing experience who is not a lawyer
     rationale: This candidate has enough auditing experience but would make all three members CPAs of the same profession.
@@ -244,9 +232,7 @@ questions:
   type: ombudsman-qualification-and-term
   difficulty: hard
   stem: |
-    A natural-born lawyer, age 45, has twelve years of Philippine law practice
-    and proven honesty and independence. She ran in the election immediately
-    before her proposed appointment as Ombudsman. Which statement is correct?
+    A natural-born lawyer, age 45, has twelve years of Philippine law practice and proven honesty and independence. She ran in the election immediately before her proposed appointment as Ombudsman. Which statement is correct?
   choices:
   - text: She may be appointed because only losing candidates are barred from this office.
     rationale: The Ombudsman qualification bars candidates in the immediately preceding election, not only those who lost.
@@ -285,9 +271,7 @@ questions:
   type: martial-law-limits
   difficulty: hard
   stem: |
-    Rebellion exists and public safety requires martial law. Without any
-    congressional extension, which pair gives the maximum initial period and
-    the President's deadline to report to Congress?
+    Rebellion exists and public safety requires martial law. Without any congressional extension, which pair gives the maximum initial period and the President's deadline to report to Congress?
   choices:
   - text: "30 days initially; report within 48 hours"
     rationale: The maximum initial period is 60 days, not 30 days.
@@ -326,8 +310,7 @@ questions:
   type: treaty-concurrence
   difficulty: exam
   stem: |
-    The Senate has 24 Members. At a treaty concurrence vote, 18 are present
-    and 15 vote in favor. Has the constitutional concurrence requirement been met?
+    The Senate has 24 Members. At a treaty concurrence vote, 18 are present and 15 vote in favor. Has the constitutional concurrence requirement been met?
   choices:
   - text: Yes, because 15 is more than half of the full Senate.
     rationale: A simple majority of all Senators is less than the required two-thirds.
@@ -345,9 +328,7 @@ questions:
   type: veto-and-override
   difficulty: exam
   stem: |
-    The President communicates a veto within 30 days of receiving a bill.
-    Assume the House has 300 Members and the Senate has 24. The override
-    receives 201 House votes and 15 Senate votes. What is the result?
+    The President communicates a veto within 30 days of receiving a bill. Assume the House has 300 Members and the Senate has 24. The override receives 201 House votes and 15 Senate votes. What is the result?
   choices:
   - text: The override fails because the Senate needs at least 16 votes.
     correct: true
@@ -366,8 +347,7 @@ questions:
   type: state-of-war-vote
   difficulty: exam
   stem: |
-    The President directs the armed forces during an invasion. Congress then
-    considers declaring the existence of a state of war. Which allocation of powers is correct?
+    The President directs the armed forces during an invasion. Congress then considers declaring the existence of a state of war. Which allocation of powers is correct?
   choices:
   - text: The President commands the armed forces and alone declares the existence of a state of war.
     rationale: Commander-in-Chief authority does not include Congress's exclusive power to declare a state of war.
@@ -386,9 +366,7 @@ questions:
   type: legislative-inquiry-and-budget-rules
   difficulty: exam
   stem: |
-    A Senate committee studies a proposed tax law through an inquiry.
-    Congress also reviews the President's recommended budget for government
-    operations. Which statement follows Article VI, Sections 21, 24, and 25?
+    A Senate committee studies a proposed tax law through an inquiry. Congress also reviews the President's recommended budget for government operations. Which statement follows Article VI, Sections 21, 24, and 25?
   choices:
   - text: The committee may disregard witnesses' rights because its inquiry supports lawmaking.
     rationale: An inquiry in aid of legislation must still respect the rights of people who appear or are affected.

@@ -1,0 +1,47 @@
+meta:
+  subject: testsubj
+  topic: testtopic
+  subtopic: line-breaks
+  exams: [cse-pro]
+questions:
+- id: q-testtopic-line-breaks-0001
+  type: single_choice
+  difficulty: easy
+  stem: |
+    Which action best reflects the principle that public office is a public
+    trust under Article XI, Section 1 of the Constitution?
+  choices:
+  - text: Serve with accountability
+    correct: true
+    rationale: |
+      This is the duty the clause states, so the action follows from it.
+  - text: Serve a private interest
+    rationale: |
+      A clerk may think office is a personal prize, but the clause rejects
+      that idea.
+  explanation: |
+    Public office is held for the people, so officials answer to them.
+- id: q-testtopic-line-breaks-0002
+  type: single_choice
+  difficulty: easy
+  stem: |
+    Read the data.
+
+    | Day | Passengers |
+    | :--- | :--- |
+    | Mon | 40 |
+
+    - 15 like Basketball and Volleyball
+    - 12 like Volleyball and Badminton
+
+    Step 1: $8 - 3 - x$
+    Step 2: The answer is $5 - x$.
+    The council approved the plan after a long public hearing.
+    Which statement is correct?
+  choices:
+  - text: Mon is 40
+    correct: true
+  - text: Mon is 50
+  explanation: |
+    The formula needs $x-2
+    e0$, so the denominator is not zero.

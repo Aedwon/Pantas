@@ -71,9 +71,7 @@ questions:
     type: "structure-function"
     difficulty: "easy"
     stem: |
-      A cell organelle modifies, sorts, and packages proteins, then ships
-      them to where they are needed inside or outside the cell. Which
-      organelle is this?
+      A cell organelle modifies, sorts, and packages proteins, then ships them to where they are needed inside or outside the cell. Which organelle is this?
     choices:
       - text: "Golgi apparatus"
         correct: true
@@ -94,8 +92,7 @@ questions:
     type: "structure-function"
     difficulty: "medium"
     stem: |
-      Which structure is covered in ribosomes and helps build and process
-      proteins?
+      Which structure is covered in ribosomes and helps build and process proteins?
     choices:
       - text: "Rough endoplasmic reticulum"
         correct: true
@@ -116,8 +113,7 @@ questions:
     type: "structure-function"
     difficulty: "medium"
     stem: |
-      Which structure acts as a thin, flexible barrier that controls which
-      substances enter and leave the cell?
+      Which structure acts as a thin, flexible barrier that controls which substances enter and leave the cell?
     choices:
       - text: "Cell membrane"
         correct: true

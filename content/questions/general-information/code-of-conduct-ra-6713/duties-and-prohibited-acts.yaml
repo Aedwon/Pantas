@@ -179,8 +179,7 @@ questions:
   type: single_choice
   difficulty: easy
   stem: |
-    A properly designated government volunteer serves without pay and is exempt
-    from SALN filing under the implementing rules. Which statement is correct?
+    A properly designated government volunteer serves without pay and is exempt from SALN filing under the implementing rules. Which statement is correct?
   choices:
   - text: The volunteer is also exempt from the Code's gift restrictions.
     rationale: The exemption covers financial disclosures. It does not remove gift restrictions.
@@ -191,15 +190,13 @@ questions:
   - text: The volunteer may choose which conduct rules to follow.
     rationale: The filing exemption gives no right to choose which duties and bans apply.
   explanation: |
-    Free-service volunteers need not file a SALN under Rule XII. They must still
-    follow the Code's duties and bans. The filing exemption is limited.
+    Free-service volunteers need not file a SALN under Rule XII. They must still follow the Code's duties and bans. The filing exemption is limited.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019
   type: single_choice
   difficulty: easy
   stem: |
-    An employee gives a friend a confidential agency file so the friend can gain
-    an unfair advantage in a private deal. The employee receives no payment.
+    An employee gives a friend a confidential agency file so the friend can gain an unfair advantage in a private deal. The employee receives no payment.
     Which assessment follows RA 6713?
   choices:
   - text: The disclosure is allowed because the employee received no payment.
@@ -218,9 +215,7 @@ questions:
   type: single_choice
   difficulty: easy
   stem: |
-    A business offers a public employee a low-value gift in exchange for favorable
-    action on its pending application. The employee argues that the gift is too
-    inexpensive to be prohibited. Which response is correct?
+    A business offers a public employee a low-value gift in exchange for favorable action on its pending application. The employee argues that the gift is too inexpensive to be prohibited. Which response is correct?
   choices:
   - text: The employee must refuse because the gift is offered for an official favor.
     correct: true
@@ -231,15 +226,13 @@ questions:
   - text: The employee may accept if the business gives the gift outside office hours.
     rationale: The link to official duties matters. Giving the gift outside office hours does not remove that link.
   explanation: |
-    The business offers the gift for favorable official action. The employee
-    must refuse it. A low price does not make that exchange acceptable.
+    The business offers the gift for favorable official action. The employee must refuse it. A low price does not make that exchange acceptable.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
   type: single_choice
   difficulty: medium
   stem: |
-    An office receives a written request but cannot proceed because required
-    papers are missing. Which response best meets its service duties?
+    An office receives a written request but cannot proceed because required papers are missing. Which response best meets its service duties?
   choices:
   - text: Keep the request unanswered until the applicant supplies every paper.
     rationale: Missing papers may delay completion. They do not automatically excuse silence about the request.
@@ -250,16 +243,13 @@ questions:
   - text: Return the request without explanation because incomplete requests require no reply.
     rationale: Incomplete papers do not remove the duty to answer and explain what the applicant must provide.
   explanation: |
-    The office should explain its action and list the missing papers. It should
-    give a reasonable period to submit them and name the worker in charge.
-    Missing papers can delay completion, but the office still needs to reply.
+    The office should explain its action and list the missing papers. It should give a reasonable period to submit them and name the worker in charge. Missing papers can delay completion, but the office still needs to reply.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022
   type: single_choice
   difficulty: medium
   stem: |
-    A regional office receives a written request that another government office
-    should handle. It knows which office has authority. What should it do?
+    A regional office receives a written request that another government office should handle. It knows which office has authority. What should it do?
   choices:
   - text: File the request without action because it was addressed to the wrong office.
     rationale: Lack of authority to decide the request does not justify ignoring it.
@@ -270,17 +260,13 @@ questions:
   - text: Decide the request itself to avoid the need for a referral.
     rationale: Prompt service does not give an office authority over a matter assigned to another office.
   explanation: |
-    The receiving office should send the request to the office that can act.
-    It should also tell the sender about the referral. A wrong address is not
-    a reason to ignore the request.
+    The receiving office should send the request to the office that can act. It should also tell the sender about the referral. A wrong address is not a reason to ignore the request.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023
   type: single_choice
   difficulty: medium
   stem: |
-    A visitor brings complete papers for a routine service during office hours.
-    The counter employee can attend immediately but tells the visitor to return
-    later, citing the written-reply period. Which assessment is correct?
+    A visitor brings complete papers for a routine service during office hours. The counter employee can attend immediately but tells the visitor to return later, citing the written-reply period. Which assessment is correct?
   choices:
   - text: The delay is allowed because the written-reply period applies to every service.
     rationale: The written-reply deadline does not authorize needless delays for visitors seeking service in person.
@@ -291,16 +277,13 @@ questions:
   - text: The employee must attend promptly because the stated deadline does not justify this delay.
     correct: true
   explanation: |
-    Workers must promptly attend to people seeking service in person. A routine
-    request that can be settled at once should not face an unjustified delay.
+    Workers must promptly attend to people seeking service in person. A routine request that can be settled at once should not face an unjustified delay.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024
   type: single_choice
   difficulty: hard
   stem: |
-    No law or valid rule sets a completion deadline for a certain document.
-    Employees disagree about how long processing should take. Under the
-    implementing rules, what is the proper approach?
+    No law or valid rule sets a completion deadline for a certain document. Employees disagree about how long processing should take. Under the implementing rules, what is the proper approach?
   choices:
   - text: The agency head must set a reasonable period through rules that consider the work and relevant conditions.
     correct: true
@@ -311,17 +294,13 @@ questions:
   - text: The office may leave completion open indefinitely because no law sets a deadline.
     rationale: The absence of a legal deadline requires agency rules setting a reasonable period. It does not permit endless delay.
   explanation: |
-    The agency head must set a reasonable period when no deadline already
-    applies. The rules must consider the work, its complexity, and relevant
-    conditions. Each worker cannot simply choose a deadline.
+    The agency head must set a reasonable period when no deadline already applies. The rules must consider the work, its complexity, and relevant conditions. Each worker cannot simply choose a deadline.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025
   type: single_choice
   difficulty: hard
   stem: |
-    A citizen requests an investigation record that would identify a confidential
-    source. Disclosure would expose that source. Which is the strongest lawful
-    basis for withholding the protected information?
+    A citizen requests an investigation record that would identify a confidential source. Disclosure would expose that source. Which is the strongest lawful basis for withholding the protected information?
   choices:
   - text: Every record about an unfinished matter is automatically secret.
     rationale: Unfinished status alone does not make every record secret. A lawful disclosure restriction must apply.
@@ -332,17 +311,13 @@ questions:
   - text: Public inspection is limited to employees of the investigating agency.
     rationale: Public access is not generally limited to agency employees. Specific lawful restrictions determine what may be withheld.
   explanation: |
-    Public access has lawful limits. The rules protect confidential sources in
-    investigations. The office must rely on that protection, not merely on the
-    fact that the matter is unfinished.
+    Public access has lawful limits. The rules protect confidential sources in investigations. The office must rely on that protection, not merely on the fact that the matter is unfinished.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026
   type: single_choice
   difficulty: hard
   stem: |
-    An employee holds a financial stake through a nominee in a transaction that
-    needs approval from the employee's office. The employee does not personally
-    sign the approval. Which statement correctly applies the Code?
+    An employee holds a financial stake through a nominee in a transaction that needs approval from the employee's office. The employee does not personally sign the approval. Which statement correctly applies the Code?
   choices:
   - text: The stake is allowed because it is held through another person.
     rationale: The ban covers indirect interests held through another person as well as direct interests.
@@ -353,17 +328,13 @@ questions:
   - text: The stake is prohibited only if the transaction has already earned a profit.
     rationale: A financial interest does not have to produce a profit before the prohibition applies.
   explanation: |
-    The Code bars a direct or indirect financial stake in a transaction requiring
-    the worker's office to approve it. Using a nominee does not remove the stake.
-    The worker need not be the person who signs the approval.
+    The Code bars a direct or indirect financial stake in a transaction requiring the worker's office to approve it. Using a nominee does not remove the stake. The worker need not be the person who signs the approval.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027
   type: single_choice
   difficulty: hard
   stem: |
-    An agency employee is offered a trustee role in a private business supervised
-    by that agency. The supervisor approves the arrangement, but no law expressly
-    permits it. Which assessment is correct?
+    An agency employee is offered a trustee role in a private business supervised by that agency. The supervisor approves the arrangement, but no law expressly permits it. Which assessment is correct?
   choices:
   - text: The arrangement is allowed because the supervisor approved it.
     rationale: A supervisor's approval cannot replace express permission in law for this covered role.
@@ -374,17 +345,14 @@ questions:
   - text: The arrangement is prohibited because trustee is a covered role and no law expressly permits it.
     correct: true
   explanation: |
-    The ban includes serving as a trustee for a business the office supervises.
-    Express permission in law is needed for the exception. A supervisor's
-    approval alone is not enough.
+    The ban includes serving as a trustee for a business the office supervises. Express permission in law is needed for the exception. A supervisor's approval alone is not enough.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028
   type: single_choice
   difficulty: exam
   stem: |
     A government professional has valid legal authority to serve private clients.
-    A proposed engagement would tend to conflict with public duties, although no
-    actual conflict has occurred yet. May the professional accept it on these facts?
+    A proposed engagement would tend to conflict with public duties, although no actual conflict has occurred yet. May the professional accept it on these facts?
   choices:
   - text: No, because private work must neither conflict nor tend to conflict with public duties.
     correct: true
@@ -395,17 +363,13 @@ questions:
   - text: No, because all private professional practice by government workers is prohibited.
     rationale: Authorized private practice can be allowed when it does not conflict or tend to conflict with public duties.
   explanation: |
-    Legal authority is only one requirement. The private work must also avoid
-    conflict with public duties. Work that tends to conflict fails this test
-    even before an actual conflict occurs.
+    Legal authority is only one requirement. The private work must also avoid conflict with public duties. Work that tends to conflict fails this test even before an actual conflict occurs.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029
   type: single_choice
   difficulty: exam
   stem: |
-    During the first year after leaving an agency, a lawyer proposes representing
-    a private client in a matter before that agency. The lawyer claims resignation
-    ended the restriction. Which statement correctly describes the applicable limit?
+    During the first year after leaving an agency, a lawyer proposes representing a private client in a matter before that agency. The lawyer claims resignation ended the restriction. Which statement correctly describes the applicable limit?
   choices:
   - text: Resignation immediately removes the restriction on matters before the former agency.
     rationale: The restriction continues for one year after departure. Resignation does not end it immediately.
@@ -416,16 +380,13 @@ questions:
   - text: The restriction applies only to former workers who were dismissed.
     rationale: The post-employment limit is not confined to dismissal. Leaving through resignation does not avoid it.
   explanation: |
-    For one year after leaving, the lawyer cannot practice on a matter before
-    the former office. This specific limit does not ban every private legal job.
+    For one year after leaving, the lawyer cannot practice on a matter before the former office. This specific limit does not ban every private legal job.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030
   type: single_choice
   difficulty: exam
   stem: |
-    An employment officer's assigned public duties require referring qualified
-    job seekers to employers. The officer makes such a referral to a business
-    with a pending agency transaction. Which statement best applies the rules?
+    An employment officer's assigned public duties require referring qualified job seekers to employers. The officer makes such a referral to a business with a pending agency transaction. Which statement best applies the rules?
   choices:
   - text: The referral is necessarily prohibited because every pending transaction defeats every exception.
     rationale: The rules recognize an exception for referrals required by assigned public duties. A pending transaction alone does not defeat it.
@@ -436,7 +397,5 @@ questions:
   - text: The referral is allowed because pending dealings are excluded from the recommendation ban.
     rationale: The general ban covers both regular and pending official dealings. Pending status is not an exemption.
   explanation: |
-    The general rule bars certain job recommendations to businesses dealing with
-    the office. The rules allow referrals required by assigned public duties.
-    The stated referral meets that exception.
+    The general rule bars certain job recommendations to businesses dealing with the office. The rules allow referrals required by assigned public duties. The stated referral meets that exception.
   approved: false
