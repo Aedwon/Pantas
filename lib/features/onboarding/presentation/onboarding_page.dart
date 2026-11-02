@@ -21,6 +21,7 @@ import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart'
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_guardian_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_study_days_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
@@ -295,6 +296,25 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             onAgeGatePassed: () {
               if (_step == OnboardingStep.age) {
                 _setStep(OnboardingStep.terms);
+              }
+            },
+            onGuardianNeeded: () {
+              if (_step == OnboardingStep.age) {
+                _setStep(OnboardingStep.guardian);
+              }
+            },
+          ),
+        );
+      case OnboardingStep.guardian:
+        return KeyedSubtree(
+          key: const ValueKey('guardian'),
+          child: OnboardingGuardianStep(
+            onBack: _back,
+            // The link is on its way. The router holds the student on the
+            // Waiting screen until a guardian confirms.
+            onSent: () {
+              if (_step == OnboardingStep.guardian) {
+                GoRouter.maybeOf(context)?.go('/guardian/waiting');
               }
             },
           ),

@@ -66,9 +66,12 @@ void main() {
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
       expect(find.text("Pantas isn't available yet"), findsOneWidget);
-      await tester.tap(find.text('Try a Different Year'));
-      await tester.pumpAndSettle();
-      expect(find.byType(TextField), findsOneWidget);
+      expect(find.text('Try a Different Year'), findsNothing);
+      expect(
+        find.text('Entered the wrong year? Email contact@pantas.study.'),
+        findsOneWidget,
+      );
+      expect(find.byType(TextField), findsNothing);
       expect(tester.takeException(), isNull);
     });
   }

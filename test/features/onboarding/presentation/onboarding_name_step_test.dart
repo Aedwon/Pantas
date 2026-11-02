@@ -57,6 +57,17 @@ void main() {
     expect(find.text('Skip'), findsNothing);
   });
 
+  testWidgets('the single Name field keeps the board accent border',
+      (tester) async {
+    await pumpStep(tester);
+    final context = tester.element(find.byType(OnboardingNameStep));
+    final resting = tester
+        .widget<TextField>(find.byType(TextField))
+        .decoration!
+        .enabledBorder! as OutlineInputBorder;
+    expect(resting.borderSide.color, context.colors.accent);
+  });
+
   testWidgets('the name field has a programmatic label', (tester) async {
     await pumpStep(tester);
 

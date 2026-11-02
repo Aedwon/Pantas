@@ -1,0 +1,148 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/guardian/presentation/guardian_screen.dart';
+
+/// The student waits here until a parent or guardian confirms. A declined or
+/// expired link looks the same: the student can resend or change the email.
+class GuardianWaitingPage extends ConsumerStatefulWidget {
+  const GuardianWaitingPage({this.onChangeEmail, this.onCleared, super.key});
+
+  /// Defaults to the contact form.
+  final VoidCallback? onChangeEmail;
+
+  /// Defaults to resuming onboarding.
+  final VoidCallback? onCleared;
+
+  @override
+  ConsumerState<GuardianWaitingPage> createState() =>
+      _GuardianWaitingPageState();
+}
+
+class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
+  GuardianStatus? _status;
+  String? _fallbackMask;
+  bool _loadFailed = false;
+  bool _busy = false;
+  bool _actionFailed = false;
+  Future<void> Function()? _lastAction;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_load());
+  }
+
+  void _changeEmail() {
+    final custom = widget.onChangeEmail;
+    if (custom != null) return custom();
+    unawaited(context.push('/guardian/contact'));
+  }
+
+  void _cleared() {
+    final custom = widget.onCleared;
+    if (custom != null) return custom();
+    context.go('/onboarding');
+  }
+
+  Future<void> _load() async {
+    setState(() => _loadFailed = false);
+    final contact =
+        await ref.read(appPreferencesRepositoryProvider).guardianContact();
+    if (contact != null) _fallbackMask = maskEmail(contact.email);
+    try {
+      final status = await ref.read(guardianControllerProvider).refresh();
+      if (!mounted) return;
+      if (status.status == GuardianConsentStatus.confirmed) return _cleared();
+      setState(() => _status = status);
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      if (mounted) setState(() => _loadFailed = true);
+    }
+  }
+
+  Future<void> _run(Future<void> Function() action) async {
+    if (_busy) return;
+    _lastAction = action;
+    setState(() {
+      _busy = true;
+      _actionFailed = false;
+    });
+    try {
+      await action();
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      if (mounted) setState(() => _actionFailed = true);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _checkAgain() => _run(() async {
+        final status = await ref.read(guardianControllerProvider).refresh();
+        if (!mounted) return;
+        if (status.status == GuardianConsentStatus.confirmed) return _cleared();
+        setState(() => _status = status);
+      });
+
+  Future<void> _resend() => _run(() async {
+        final status = await ref.read(guardianControllerProvider).resend();
+        if (!mounted) return;
+        if (status == null) return _changeEmail();
+        setState(() => _status = status);
+      });
+
+  String? get _body {
+    final status = _status;
+    final masked = status?.maskedEmail ?? _fallbackMask;
+    if (masked == null) return null;
+    final expiry = status?.expiresAt;
+    return [
+      'We emailed $masked.',
+      if (expiry != null) 'The link expires on ${guardianDateLabel(expiry)}.',
+      'Pantas opens here once they confirm.',
+    ].join(' ');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_loadFailed) {
+      return Scaffold(body: errorFor('status', _load));
+    }
+    if (_status == null) {
+      return Scaffold(body: loadingFor(const AsyncLoading<void>()));
+    }
+    return GuardianScreen(
+      title: 'Waiting for your parent or guardian',
+      detail: _body,
+      actions: [
+        if (_actionFailed && _lastAction != null)
+          saveFailureLine(() => unawaited(_run(_lastAction!))),
+        PantasButton(
+          label: 'Check Again',
+          variant: PantasButtonVariant.secondary,
+          busy: _busy,
+          onPressed: _busy ? null : _checkAgain,
+        ),
+        PantasButton(
+          label: 'Resend Email',
+          variant: PantasButtonVariant.tertiary,
+          onPressed: _busy ? null : _resend,
+        ),
+        PantasButton(
+          label: 'Change Email',
+          variant: PantasButtonVariant.tertiary,
+          onPressed: _busy ? null : _changeEmail,
+        ),
+      ],
+    );
+  }
+}

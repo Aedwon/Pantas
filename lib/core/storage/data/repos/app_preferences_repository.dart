@@ -77,6 +77,55 @@ class AppPreferencesRepository {
         );
   }
 
+  /// `minor` or `adult`. Only the group is kept, never the birth year.
+  Future<String?> ageGroup() => _deviceValue('age_group');
+
+  Future<void> setAgeGroup(String group) => _setDeviceValue('age_group', group);
+
+  /// The minimum age in force when a student was blocked, or null if never
+  /// blocked. The block lasts until support clears it, so it survives a reload.
+  Future<int?> blockedMinimumAge() async {
+    final raw = await _deviceValue('age_blocked_minimum');
+    return raw == null ? null : int.tryParse(raw);
+  }
+
+  Future<void> setBlockedMinimumAge(int minimumAge) =>
+      _setDeviceValue('age_blocked_minimum', '$minimumAge');
+
+  /// Kept on this device only, so the student can resend the link. The
+  /// server keeps hashes and a masked address.
+  Future<({String name, String email})?> guardianContact() async {
+    final name = await _deviceValue('guardian_contact_name');
+    final email = await _deviceValue('guardian_contact_email');
+    if (name == null || email == null) return null;
+    return (name: name, email: email);
+  }
+
+  Future<void> setGuardianContact({
+    required String name,
+    required String email,
+  }) async {
+    await _setDeviceValue('guardian_contact_name', name);
+    await _setDeviceValue('guardian_contact_email', email);
+  }
+
+  Future<void> clearGuardianContact() async {
+    await (_db.delete(_db.devicePrefs)
+          ..where(
+            (p) => p.key.isIn(
+              const ['guardian_contact_name', 'guardian_contact_email'],
+            ),
+          ))
+        .go();
+  }
+
+  /// The last status the server gave. The server stays the source of truth;
+  /// this only covers a start with no connection.
+  Future<String?> guardianStatusCache() => _deviceValue('guardian_status');
+
+  Future<void> setGuardianStatusCache(String status) =>
+      _setDeviceValue('guardian_status', status);
+
   Future<String?> installedContentSeedVersion() =>
       _deviceValue(_contentSeedVersionKey);
 

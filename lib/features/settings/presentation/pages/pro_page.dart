@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -676,6 +677,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
+    // Message only: it adds no check of who pays and blocks nothing.
+    final askGuardian =
+        showOffers && ref.watch(ageGroupProvider).valueOrNull == 'minor';
+    const askGuardianLine =
+        'Ask your parent or guardian to complete this payment';
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -726,6 +732,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
+                          if (askGuardian)
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text(
+                                askGuardianLine,
+                                textAlign: TextAlign.right,
+                                style: context.webTokens.sm,
+                              ),
+                            ),
                           if (showOffers)
                             if (web && anonymous)
                               WebButton(
@@ -806,6 +821,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     if (showOffers) ...[
+                      if (askGuardian) ...[
+                        Text(
+                          askGuardianLine,
+                          textAlign: TextAlign.center,
+                          style: context.type.footnote,
+                        ),
+                        const SizedBox(height: 8),
+                      ],
                       if (web && anonymous)
                         PantasButton(
                           label: 'Continue with Google',
@@ -1269,10 +1292,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     );
   }
 
-  /// Wide web drops ".00" so a whole amount shows no centavos (board ST_Pro).
-  /// The amount itself still comes from the price source.
-  String _money(String priceString) =>
-      context.wideWeb ? wholePesos(priceString) : priceString;
+  /// Drops ".00" so a whole amount shows no centavos, on phone and web (boards
+  /// ST_ProFree and ST_ProCSE). The amount itself still comes from the price
+  /// source; real centavos stay.
+  String _money(String priceString) => wholePesos(priceString);
 
   Widget _plan(
     BuildContext context,
@@ -1461,10 +1484,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    price,
-                    style: context.type.emphasized
-                        .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
+                  // A price never breaks across lines: it shrinks to fit.
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      price,
+                      maxLines: 1,
+                      softWrap: false,
+                      style: context.type.emphasized
+                          .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
+                    ),
                   ),
                   Text(
                     periodText,

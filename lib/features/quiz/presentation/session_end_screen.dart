@@ -259,8 +259,8 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       const SizedBox(height: 2),
                       Text(
                         source,
-                        style: type.subhead
-                            .copyWith(color: colors.secondaryLabel),
+                        style:
+                            type.subhead.copyWith(color: colors.secondaryLabel),
                       ),
                     ],
                   ],

@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -18,6 +19,16 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 import '../../../helpers/in_memory_database.dart';
 
 // ignore_for_file: cascade_invocations
+
+/// The wheel starts on a 14-year-old, who needs a guardian. These tests are
+/// about the steps after the age gate, so they pick an adult year.
+Future<void> continueAsAdult(WidgetTester tester) async {
+  final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+  wheel.onSelected(wheel.values.indexOf('2000'));
+  await tester.pump();
+  await tester.tap(find.text('Continue'));
+  await tester.pumpAndSettle();
+}
 
 void main() {
   late AppDatabase db;
@@ -94,8 +105,7 @@ void main() {
 
     // Step 2: Age gate
     expect(find.text('When were you born?'), findsOneWidget);
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
+    await continueAsAdult(tester);
 
     // Step 3: Consent
     expect(find.text('Terms and Privacy'), findsOneWidget);
@@ -139,14 +149,12 @@ void main() {
     expect(find.text('Welcome to Pantas'), findsOneWidget);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
+    await continueAsAdult(tester);
     expect(find.text('Terms and Privacy'), findsOneWidget);
     await tester.tap(find.text('Back'));
     await tester.pumpAndSettle();
     expect(find.text('When were you born?'), findsOneWidget);
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
+    await continueAsAdult(tester);
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
     expect(find.text('When were you born?'), findsOneWidget);
@@ -160,8 +168,7 @@ void main() {
     await pumpPage(tester, disableAnimations: true);
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
+    await continueAsAdult(tester);
     await tester.tap(find.text('I agree to the '));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));

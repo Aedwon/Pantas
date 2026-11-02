@@ -32,6 +32,14 @@ void main() {
     expect(read('http://localhost:7357/'), isNull);
   });
 
+  test('?localAgeGroup=minor is the only age group a link can set', () {
+    String? read(String url) => localAgeGroupFromUrl(Uri.parse(url));
+    expect(read('http://localhost:7357/?localAgeGroup=minor'), 'minor');
+    expect(read('http://localhost:7357/?localAgeGroup=adult'), isNull);
+    expect(read('http://localhost:7357/?localAgeGroup=x'), isNull);
+    expect(read('http://localhost:7357/'), isNull);
+  });
+
   test('a normal build does nothing, even with the link', () async {
     // These tests run without LOCAL_EMULATOR_HOST, as every normal build does.
     expect(localEmulators, isFalse);

@@ -9,6 +9,7 @@ enum OnboardingStep {
   launch,
   welcome,
   age,
+  guardian,
   terms,
   picker,
   customName,
@@ -21,7 +22,7 @@ enum OnboardingStep {
   // O_Flow: six segments count Age through Name. The custom branch keeps
   // the picker's third segment. Launch, Welcome and Reminders have no bar.
   int? get segment => switch (this) {
-        age => 1,
+        age || guardian => 1,
         terms => 2,
         picker || customName || customSubjects => 3,
         examDate => 4,
@@ -32,6 +33,7 @@ enum OnboardingStep {
 
   String get telemetryName => switch (this) {
         age => 'age_gate',
+        guardian => 'guardian',
         terms => 'consent',
         customName => 'custom_name',
         customSubjects => 'custom_subjects',
@@ -54,6 +56,8 @@ class OnboardingProgress {
     this.daysAnswered = false,
     this.nameAnswered = false,
     this.remindersShown = false,
+    this.minorAwaitingGuardian = false,
+    this.ageBlocked = false,
   });
 
   final bool agePassed;
@@ -64,8 +68,19 @@ class OnboardingProgress {
   final bool nameAnswered;
   final bool remindersShown;
 
+  /// Under 18, with the age gate not yet passed: a guardian has to agree.
+  final bool minorAwaitingGuardian;
+
+  /// Blocked for being under the minimum age. The block lasts.
+  final bool ageBlocked;
+
   OnboardingStep get resumeStep {
-    if (!agePassed) return OnboardingStep.welcome;
+    if (ageBlocked) return OnboardingStep.age;
+    if (!agePassed) {
+      return minorAwaitingGuardian
+          ? OnboardingStep.guardian
+          : OnboardingStep.welcome;
+    }
     if (!policyAccepted) return OnboardingStep.terms;
     if (!examPicked) return OnboardingStep.picker;
     if (!dateAnswered) return OnboardingStep.examDate;
@@ -113,6 +128,7 @@ class OnboardingFlow {
         : switch (step) {
             OnboardingStep.launch || OnboardingStep.welcome => null,
             OnboardingStep.age => OnboardingStep.welcome,
+            OnboardingStep.guardian => OnboardingStep.age,
             OnboardingStep.terms => OnboardingStep.age,
             OnboardingStep.picker => OnboardingStep.terms,
             OnboardingStep.customName => OnboardingStep.picker,
@@ -142,6 +158,8 @@ final onboardingProgressProvider =
       .getSingleOrNull();
   return OnboardingProgress(
     agePassed: await ref.watch(passedAgeGateProvider.future),
+    minorAwaitingGuardian: await preferences.ageGroup() == 'minor',
+    ageBlocked: await preferences.blockedMinimumAge() != null,
     policyAccepted: settings.acceptedTermsAt != null,
     examPicked: await preferences.selectedExamId() != null,
     dateAnswered: settings.examDate != null ||

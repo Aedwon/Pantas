@@ -2,6 +2,7 @@ import { getAuth, type UserRecord } from 'firebase-admin/auth';
 import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { deleteGuardianRecords } from './guardianConsent.js';
 
 function isOldAnonymous(user: UserRecord, cutoff: number): boolean {
   // Pantas anonymous identities have no linked provider, email, or phone.
@@ -53,6 +54,7 @@ export const cleanupOrphanAnons = onSchedule(
         }
         if (!isOldAnonymous(fresh, cutoff)) continue;
         // Synced answers, mock records and limits belong to an identity no one can sign in to again.
+        await deleteGuardianRecords(db, user.uid);
         await db.recursiveDelete(root);
         await auth.deleteUser(user.uid);
         deleted += 1;

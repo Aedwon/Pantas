@@ -20,6 +20,7 @@ void main() {
   Future<void> pump(
     WidgetTester tester, {
     VoidCallback? passed,
+    VoidCallback? guardianNeeded,
     Brightness brightness = Brightness.light,
     double scale = 1,
     AppPreferencesRepository? preferences,
@@ -36,6 +37,7 @@ void main() {
           child: OnboardingAgeGateStep(
             currentYear: 2026,
             onAgeGatePassed: passed ?? () {},
+            onGuardianNeeded: guardianNeeded,
           ),
         ),
         brightness: brightness,
@@ -69,31 +71,96 @@ void main() {
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
         expect(find.text("Pantas isn't available yet"), findsOneWidget);
+        expect(
+          find.text("Sorry, this app isn't available for users under 13."),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Entered the wrong year? Email contact@pantas.study.'),
+          findsOneWidget,
+        );
         expect(find.byType(ValueWheel), findsNothing);
-        expect(find.text('Try a Different Year'), findsOneWidget);
+        expect(find.text('Try a Different Year'), findsNothing);
+        expect(find.byType(PantasButton), findsNothing);
         expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
+        expect(await AppPreferencesRepository(db).blockedMinimumAge(), 13);
         expect(tester.takeException(), isNull);
-        await tester.tap(find.text('Try a Different Year'));
-        await tester.pumpAndSettle();
-        expect(find.byType(ValueWheel), findsOneWidget);
       });
     }
   }
-  testWidgets('age passes at 13 and stores no birth year', (tester) async {
+
+  testWidgets('the block survives a reload', (tester) async {
+    await AppPreferencesRepository(db).setBlockedMinimumAge(13);
+    await pump(tester);
+    await tester.pumpAndSettle();
+    expect(find.text("Pantas isn't available yet"), findsOneWidget);
+    expect(find.byType(ValueWheel), findsNothing);
+    expect(find.text('Try a Different Year'), findsNothing);
+  });
+
+  testWidgets('the blocked age comes from the stored setting', (tester) async {
+    await AppPreferencesRepository(db).setBlockedMinimumAge(11);
+    await pump(tester);
+    await tester.pumpAndSettle();
+    expect(
+      find.text("Sorry, this app isn't available for users under 11."),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('an adult year passes the gate and stores only the group',
+      (tester) async {
     var passed = 0;
-    await pump(tester, passed: () => passed++);
+    var guardian = 0;
+    await pump(
+      tester,
+      passed: () => passed++,
+      guardianNeeded: () => guardian++,
+    );
     final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2013'));
+    wheel.onSelected(wheel.values.indexOf('2000'));
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(passed, 1);
-    expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isTrue);
+    expect(guardian, 0);
+    final repo = AppPreferencesRepository(db);
+    expect(await repo.hasPassedAgeGate(), isTrue);
+    expect(await repo.ageGroup(), 'adult');
     expect(
-      (await db.select(db.devicePrefs).get()).any((row) => row.value == '2013'),
+      (await db.select(db.devicePrefs).get()).any((row) => row.value == '2000'),
       isFalse,
     );
   });
+
+  for (final year in ['2013', '2009', '2008']) {
+    testWidgets('$year is a minor: the gate stays shut and a guardian is asked',
+        (tester) async {
+      var passed = 0;
+      var guardian = 0;
+      await pump(
+        tester,
+        passed: () => passed++,
+        guardianNeeded: () => guardian++,
+      );
+      final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+      wheel.onSelected(wheel.values.indexOf(year));
+      await tester.pump();
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+      expect(passed, 0);
+      expect(guardian, 1);
+      final repo = AppPreferencesRepository(db);
+      expect(await repo.hasPassedAgeGate(), isFalse);
+      expect(await repo.ageGroup(), 'minor');
+      expect(
+        (await db.select(db.devicePrefs).get()).any((row) => row.value == year),
+        isFalse,
+        reason: 'no birth year is stored',
+      );
+    });
+  }
+
   testWidgets('failed age save keeps the year and retries the same write',
       (tester) async {
     var passed = 0;
@@ -103,7 +170,7 @@ void main() {
       preferences: _FailingAgePreferences(db),
     );
     final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    wheel.onSelected(wheel.values.indexOf('2013'));
+    wheel.onSelected(wheel.values.indexOf('2000'));
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -111,7 +178,7 @@ void main() {
     expect(find.textContaining('private details'), findsNothing);
     expect(passed, 0);
     final retained = tester.widget<ValueWheel>(find.byType(ValueWheel));
-    expect(retained.values[retained.selectedIndex], '2013');
+    expect(retained.values[retained.selectedIndex], '2000');
     expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
     await tester.ensureVisible(find.text('Try Again'));
     await tester.tap(find.text('Try Again'));
@@ -120,38 +187,23 @@ void main() {
     expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isTrue);
   });
 
-  testWidgets('blocked state fades as one frame and returning pushes the frame',
-      (tester) async {
+  testWidgets('the blocked state fades in as one frame', (tester) async {
     await pump(tester, disableAnimations: false);
     final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
     wheel.onSelected(wheel.values.indexOf('2014'));
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pump();
+    await tester.pump();
     final fade = find
         .ancestor(
-          of: find.text('Try a Different Year'),
+          of: find.text("Pantas isn't available yet"),
           matching: find.byType(Opacity),
         )
         .last;
     expect(fade, findsOneWidget);
     await tester.pump(const Duration(milliseconds: 150));
     expect(tester.widget<Opacity>(fade).opacity, closeTo(.802403, .002));
-    await tester.pump(const Duration(milliseconds: 150));
-    await tester.tap(find.text('Try a Different Year'));
-    await tester.pump();
-    final slide = find
-        .descendant(
-          of: find.byKey(const ValueKey('age-return-motion')),
-          matching: find.byType(Transform),
-        )
-        .first;
-    expect(slide, findsOneWidget);
-    await tester.pump(const Duration(milliseconds: 190));
-    expect(
-      tester.widget<Transform>(slide).transform.storage[12],
-      closeTo(2.00213, .03),
-    );
     await tester.pumpAndSettle();
   });
 

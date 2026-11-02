@@ -29,6 +29,11 @@ SampleStudent? localStudentFromUrl(Uri url) {
   return id == null ? null : SampleStudent.fromId(id);
 }
 
+/// `?localAgeGroup=minor` in [url], or null. Local checks only: it lets a
+/// sample student see what a 13 to 17 student sees.
+String? localAgeGroupFromUrl(Uri url) =>
+    url.queryParameters['localAgeGroup'] == 'minor' ? 'minor' : null;
+
 /// The Home states the local seed can set up, as `?localState=<id>` names
 /// them. `tools/local/seed_student.mjs` defines what each one does.
 const localHomeStates = {
@@ -126,6 +131,12 @@ Future<bool> loadLocalStudentFromUrl(
       profile,
       today: today ?? DateTime.now(),
     );
+    final ageGroup = localAgeGroupFromUrl(link);
+    if (ageGroup != null) {
+      await container
+          .read(appPreferencesRepositoryProvider)
+          .setAgeGroup(ageGroup);
+    }
     // Clear cached reads so every screen starts from the new records.
     for (final element in container.getAllProviderElements()) {
       element.invalidateSelf();

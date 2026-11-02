@@ -7,7 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
@@ -16,6 +15,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
@@ -23,10 +23,15 @@ class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   const OnboardingAgeGateStep({
     required this.onAgeGatePassed,
     required this.currentYear,
+    this.onGuardianNeeded,
     this.onBack,
     super.key,
   });
   final VoidCallback onAgeGatePassed;
+
+  /// Called for a student under 18. The age gate is not passed yet: a parent
+  /// or guardian has to agree first.
+  final VoidCallback? onGuardianNeeded;
   final VoidCallback? onBack;
   final int currentYear;
   @override
@@ -54,9 +59,31 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   }
 
   bool _blocked = false;
-  bool _returning = false;
+  int _blockedMinimum = AgePolicy.forExam(null).minimumAge;
   bool _saving = false;
   bool _failed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_restoreBlock());
+  }
+
+  /// The block outlasts a reload. Only support clears it.
+  Future<void> _restoreBlock() async {
+    try {
+      final minimum =
+          await ref.read(appPreferencesRepositoryProvider).blockedMinimumAge();
+      if (minimum != null && mounted) {
+        setState(() {
+          _blocked = true;
+          _blockedMinimum = minimum;
+        });
+      }
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    }
+  }
 
   bool get _validYear {
     final year = int.tryParse(_yearController.text);
@@ -67,21 +94,38 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
 
   Future<void> _continue() async {
     if (_saving || (context.wideWeb && !_validYear)) return;
-    if (_selectedYear > widget.currentYear - 13) {
-      setState(() => _blocked = true);
-      return;
-    }
+    final policy = AgePolicy.forExam(null);
+    final outcome = policy.evaluate(
+      birthYear: _selectedYear,
+      currentYear: widget.currentYear,
+    );
     final telemetry = ref.read(telemetryProvider);
+    final prefs = ref.read(appPreferencesRepositoryProvider);
     setState(() {
       _saving = true;
       _failed = false;
     });
     try {
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setPassedAgeGate(value: true);
-      ref.invalidate(appPreferencesRepositoryProvider);
-      if (mounted) widget.onAgeGatePassed();
+      switch (outcome) {
+        case AgeOutcome.underMinimum:
+          await prefs.setBlockedMinimumAge(policy.minimumAge);
+          if (mounted) {
+            setState(() {
+              _blocked = true;
+              _blockedMinimum = policy.minimumAge;
+            });
+          }
+        case AgeOutcome.minor:
+          // Only the group is kept, never the birth year.
+          await prefs.setAgeGroup('minor');
+          ref.invalidate(appPreferencesRepositoryProvider);
+          if (mounted) widget.onGuardianNeeded?.call();
+        case AgeOutcome.adult:
+          await prefs.setAgeGroup('adult');
+          await prefs.setPassedAgeGate(value: true);
+          ref.invalidate(appPreferencesRepositoryProvider);
+          if (mounted) widget.onAgeGatePassed();
+      }
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
@@ -89,6 +133,12 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       if (mounted) setState(() => _saving = false);
     }
   }
+
+  String get _blockedDetail =>
+      "Sorry, this app isn't available for users under $_blockedMinimum.";
+
+  static const _blockedHelp =
+      'Entered the wrong year? Email contact@pantas.study.';
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +194,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          "Sorry, this app isn't available for users under 13.",
+                          _blockedDetail,
                           textAlign: TextAlign.center,
                           style: t.style(
                             17,
@@ -153,34 +203,14 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                           ),
                         ),
                         const SizedBox(height: 22),
-                        TextButton(
-                          onPressed: () => setState(() => _blocked = false),
-                          style: ButtonStyle(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            minimumSize:
-                                const WidgetStatePropertyAll(Size(0, 46)),
-                            padding: const WidgetStatePropertyAll(
-                              EdgeInsets.symmetric(horizontal: 22),
-                            ),
-                            backgroundColor: WidgetStateProperty.resolveWith(
-                              (s) => s.contains(WidgetState.hovered)
-                                  ? t.secondaryHover
-                                  : t.colors.accentTint,
-                            ),
-                            foregroundColor: WidgetStatePropertyAll(t.tintText),
-                            overlayColor: const WidgetStatePropertyAll(
-                              Colors.transparent,
-                            ),
-                            shape: WidgetStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            textStyle: WidgetStatePropertyAll(
-                              t.style(16, weight: FontWeight.w600),
-                            ),
+                        Text(
+                          _blockedHelp,
+                          textAlign: TextAlign.center,
+                          style: t.style(
+                            15,
+                            height: 1.45,
+                            color: t.colors.secondaryLabel,
                           ),
-                          child: const Text('Try a Different Year'),
                         ),
                       ],
                     ),
@@ -198,20 +228,19 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         onBack: back,
         centerBody: true,
         surfaceBackground: true,
-        bottom: OnboardingButton(
-          label: 'Try a Different Year',
-          // Board (O_Age): a green text action with no fill on the phone.
-          variant: PantasButtonVariant.tertiary,
-          onPressed: () => setState(() {
-            _blocked = false;
-            _returning = true;
-          }),
-        ),
-        children: const [
+        children: [
           StateView.onboardingBlocked(
             message: "Pantas isn't available yet",
-            detail: "Sorry, this app isn't available for users under 13.",
-            icon: OnboardingLogo(size: 72),
+            detail: _blockedDetail,
+            icon: const OnboardingLogo(size: 72),
+          ),
+          const SizedBox(height: 22),
+          Text(
+            _blockedHelp,
+            textAlign: TextAlign.center,
+            style: context.type.subhead.copyWith(
+              color: context.colors.secondaryLabel,
+            ),
           ),
         ],
       );
@@ -350,18 +379,6 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         if (_failed) saveFailureLine(_continue),
       ],
     );
-    return _returning
-        ? KeyedSubtree(
-            key: const ValueKey('age-return-motion'),
-            child: PantasEffects.push(
-              duration: const Duration(milliseconds: 380),
-              builder: (_, progress, child) => IgnorePointer(
-                ignoring: progress == 0,
-                child: ExcludeFocus(excluding: progress == 0, child: child!),
-              ),
-              child: page,
-            ),
-          )
-        : page;
+    return page;
   }
 }

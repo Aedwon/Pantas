@@ -8,3 +8,8 @@ final passedAgeGateProvider = FutureProvider<bool>((ref) async {
 final onboardingCompleteProvider = FutureProvider<bool>((ref) async {
   return ref.watch(appPreferencesRepositoryProvider).hasCompletedOnboarding();
 });
+
+/// `minor`, `adult`, or null when no age was recorded on this device.
+final ageGroupProvider = FutureProvider<String?>((ref) async {
+  return ref.watch(appPreferencesRepositoryProvider).ageGroup();
+});

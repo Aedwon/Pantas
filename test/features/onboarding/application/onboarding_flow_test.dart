@@ -80,6 +80,33 @@ void main() {
     expect(OnboardingProgress(remindersShown: true).complete, isFalse);
   });
 
+  test('a minor who has not been cleared resumes at the guardian step', () {
+    expect(
+      OnboardingProgress(minorAwaitingGuardian: true).resumeStep,
+      OnboardingStep.guardian,
+    );
+    expect(
+      OnboardingProgress(agePassed: true, minorAwaitingGuardian: true)
+          .resumeStep,
+      OnboardingStep.terms,
+      reason: 'once cleared, the flow moves on',
+    );
+  });
+
+  test('a blocked student resumes at the age step, which shows the block', () {
+    expect(
+      OnboardingProgress(ageBlocked: true).resumeStep,
+      OnboardingStep.age,
+    );
+  });
+
+  test('the guardian step shares the first segment and backs to the age step',
+      () {
+    expect(OnboardingStep.guardian.segment, 1);
+    expect(OnboardingFlow(OnboardingStep.guardian).back(), OnboardingStep.age);
+    expect(OnboardingStep.guardian.telemetryName, 'guardian');
+  });
+
   test('the six board segments cover age, terms, picker, date, days and name',
       () {
     expect(OnboardingStep.launch.segment, isNull);

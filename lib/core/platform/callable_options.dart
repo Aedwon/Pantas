@@ -14,6 +14,8 @@ const replayProtectedCallables = <String>{
   'recomputePassEnds',
   'startMock',
   'updateMockReview',
+  'sendGuardianLink',
+  'answerGuardianRequest',
 };
 
 /// Options for calling [name]: limited-use App Check tokens for the callables

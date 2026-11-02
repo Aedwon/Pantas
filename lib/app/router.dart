@@ -6,6 +6,7 @@ import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'package:pantas/app/build_info.dart';
+import 'package:pantas/app/start_location.dart';
 import 'package:pantas/app/router_refresh_listenable.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/features/shell/presentation/update_required_page.dart';
@@ -22,6 +23,8 @@ import 'package:pantas/app/routes/quiz_routes.dart';
 import 'package:pantas/app/routes/mock_routes.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/app/routes/onboarding_routes.dart';
+import 'package:pantas/app/routes/guardian_routes.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/app/routes/wrapped_routes.dart';
 import 'package:pantas/app/routes/states_routes.dart';
 import 'package:pantas/app/routes/dev_routes.dart';
@@ -36,9 +39,10 @@ final routerProvider = Provider<GoRouter>((ref) {
     studyNeedsExamSettingsProvider,
     activeExamFocusProvider,
     entitlementProvider,
+    guardianGateProvider,
   ]);
   final router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: initialRouterLocation,
     refreshListenable: refreshListenable,
     redirect: (context, state) {
       // The stop comes first: a build the server has retired must not
@@ -53,6 +57,28 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (!blocked && atUpdateRequired) return '/home';
       if (context.wideWeb && state.uri.path.startsWith('/wrapped/')) {
         return '/record';
+      }
+
+      // The guardian's link works signed out and before onboarding, and the
+      // legal pages it links to must open for them too.
+      final path = state.matchedLocation;
+      if (path == '/guardian') return null;
+      final guardian = ref.read(guardianGateProvider).valueOrNull;
+      if (guardian == GuardianGate.waiting) {
+        // A minor is held on Waiting, or on the form to change the email,
+        // until a guardian confirms. Nothing else is reachable.
+        return path == '/guardian/waiting' ||
+                path == '/guardian/contact' ||
+                path.startsWith('/legal/')
+            ? null
+            : '/guardian/waiting';
+      }
+      if (path.startsWith('/guardian/') && guardian != null) {
+        return guardian == GuardianGate.needsContact ? '/onboarding' : '/home';
+      }
+      if (path.startsWith('/legal/') &&
+          ref.read(passedAgeGateProvider).valueOrNull == false) {
+        return null;
       }
 
       final passedAsync = ref.read(passedAgeGateProvider);
@@ -110,6 +136,7 @@ List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
     ...mockRoutes(ref),
     ...settings.where((route) => route != settingsRoot),
     ...onboardingRoutes(ref),
+    ...guardianRoutes(ref),
     ...wrappedRoutes(ref),
     ...statesRoutes(ref),
     ...devRoutes(includeDebugGallery: includeDebugGallery),
