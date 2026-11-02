@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -95,6 +96,12 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   bool _saving = false;
   bool _failed = false;
   bool get _settings => widget.mode == ExamPickerMode.settings;
+
+  /// With no exam content on the device, the daily limit is why every exam
+  /// reads "Coming soon", so say that instead.
+  bool _limitBlocks(List<ExamCatalogEntry> entries) =>
+      ref.watch(contentLimitReachedProvider) &&
+      !entries.any((entry) => entry.hasContent);
 
   void _back() {
     if (widget.onBack != null) {
@@ -399,6 +406,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               ),
             ),
             data: (catalogEntries) {
+              if (_limitBlocks(catalogEntries)) {
+                return const StateView(message: contentLimitMessage);
+              }
               final all = _orderedEntries(catalogEntries);
               if (all.isEmpty) {
                 return Padding(
@@ -576,6 +586,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         error: error,
                       ),
                       data: (catalogEntries) {
+                        if (_limitBlocks(catalogEntries)) {
+                          return const StateView(message: contentLimitMessage);
+                        }
                         final all = _orderedEntries(catalogEntries);
                         final visible = all
                             .where(
@@ -731,6 +744,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           error: error,
         ),
         data: (catalogEntries) {
+          if (_limitBlocks(catalogEntries)) {
+            return const StateView(message: contentLimitMessage);
+          }
           final all = _orderedEntries(catalogEntries);
           if (all.isEmpty) {
             return StateView(

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -71,6 +72,7 @@ void main() {
     Future<void> Function(String)? picked,
     Stream<List<ExamCatalogEntry>>? data,
     VoidCallback? back,
+    List<Override> extra = const [],
   }) =>
       pumpAccessibilitySurface(
         tester,
@@ -82,6 +84,7 @@ void main() {
             activeExamFocusProvider.overrideWith(
               (ref) async => const ActiveExamFocus.needsSelection(),
             ),
+            ...extra,
           ],
           child: ExamPickerScreen(
             mode: mode,
@@ -95,6 +98,62 @@ void main() {
         viewportSize: const Size(390, 844),
         disableAnimations: true,
       );
+
+  const message = 'Daily content limit reached. Try again tomorrow.';
+  final noContent = [
+    for (final entry in entries)
+      ExamCatalogEntry(
+        id: entry.id,
+        name: entry.name,
+        shortName: entry.shortName,
+        priceTier: entry.priceTier,
+        group: entry.group,
+        comingSoon: entry.comingSoon,
+        publishedSittings: const [],
+        hasContent: false,
+      ),
+  ];
+  for (final wide in [false, true]) {
+    for (final mode in ExamPickerMode.values) {
+      testWidgets('the daily limit with no cached catalog says so $wide $mode',
+          (tester) async {
+        debugWebPlatformOverride = wide;
+        addTearDown(() => debugWebPlatformOverride = null);
+        await pump(
+          tester,
+          mode: mode,
+          data: Stream.value(noContent),
+          extra: [contentLimitReachedProvider.overrideWith((ref) => true)],
+        );
+        await tester.pumpAndSettle();
+        expect(find.text(message), findsOneWidget);
+        expect(find.text('Coming soon'), findsNothing);
+      });
+      testWidgets(
+          'without the limit, exams not on the device stay Coming soon'
+          ' $wide $mode', (tester) async {
+        debugWebPlatformOverride = wide;
+        addTearDown(() => debugWebPlatformOverride = null);
+        await pump(tester, mode: mode, data: Stream.value(noContent));
+        await tester.pumpAndSettle();
+        expect(find.text(message), findsNothing);
+      });
+      testWidgets(
+          'a cached catalog still shows when the limit is reached'
+          ' $wide $mode', (tester) async {
+        debugWebPlatformOverride = wide;
+        addTearDown(() => debugWebPlatformOverride = null);
+        await pump(
+          tester,
+          mode: mode,
+          extra: [contentLimitReachedProvider.overrideWith((ref) => true)],
+        );
+        await tester.pumpAndSettle();
+        expect(find.text(message), findsNothing);
+        expect(find.text('UPCAT'), findsWidgets);
+      });
+    }
+  }
 
   for (final wide in [false, true]) {
     for (final cseOnly in [false, true]) {

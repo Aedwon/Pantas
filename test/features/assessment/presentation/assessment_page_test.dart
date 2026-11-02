@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -254,6 +255,32 @@ void main() {
     expect(find.text("Assessment isn't ready yet"), findsOneWidget);
     expect(find.textContaining('Bad state:'), findsNothing);
     expect(find.text('Retry'), findsNothing);
+  });
+
+  testWidgets('a daily content limit says so instead of "not ready"',
+      (tester) async {
+    await seedContentExam(
+      contentDb,
+      examId: 'empty',
+      code: 'ACET',
+      name: 'ACET',
+      ordering: 2,
+    );
+
+    await tester.pumpAppWithRouter(
+      _buildRouter('empty'),
+      overrides: [
+        ...databaseOverrides(),
+        contentLimitReachedProvider.overrideWith((ref) => true),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Daily content limit reached. Try again tomorrow.'),
+      findsOneWidget,
+    );
+    expect(find.text("Assessment isn't ready yet"), findsNothing);
   });
 
   testWidgets('back navigation shows confirm dialog', (tester) async {

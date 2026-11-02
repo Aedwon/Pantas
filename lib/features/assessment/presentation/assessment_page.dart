@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
@@ -318,8 +319,12 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
         ? null
         : ref.watch(passageByIdProvider(question!.passageId!));
     final passage = passageState?.valueOrNull;
+    final limitReached = ref.watch(contentLimitReachedProvider);
     Widget body;
-    if (_unavailable) {
+    if (limitReached && (_unavailable || _failed) && session == null) {
+      // The server refused for the daily limit, so the exam is not empty.
+      body = const StateView(message: contentLimitMessage);
+    } else if (_unavailable) {
       body = StateView(
         message: "Assessment isn't ready yet",
         detail: "We're still adding questions for this exam. "

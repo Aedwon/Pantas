@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -132,6 +134,12 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
                     detail: 'Pick the exam you are reviewing for.',
                     action: 'Choose Exam',
                     onAction: () => context.push('/settings/exam/change'),
+                  );
+                }
+                if (ref.watch(contentLimitReachedProvider)) {
+                  return const StateView(
+                    message: contentLimitMessage,
+                    boardLayout: true,
                   );
                 }
                 return WebStudyState(

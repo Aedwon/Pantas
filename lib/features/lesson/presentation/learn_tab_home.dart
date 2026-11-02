@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -232,6 +233,16 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           final exam = ref.watch(activeExamFocusProvider).valueOrNull?.exam;
           if (exam == null) {
             return _stateFrame(context, chooseExamFallback(context));
+          }
+          if (ref.watch(contentLimitReachedProvider)) {
+            return _stateFrame(
+              context,
+              StateView(
+                message: contentLimitMessage,
+                icon: Icon(PantasIcons.studyTab),
+                boardLayout: true,
+              ),
+            );
           }
           return _stateFrame(
             context,

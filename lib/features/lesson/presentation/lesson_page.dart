@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -383,7 +384,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
           onClose: widget.onPlanClose,
           origin: origin,
           child: StateView(
-            message: 'Could not load this lesson.',
+            message: lessonLoadFailureMessage(ref),
             icon: Icon(PantasIcons.studyTab),
             boardLayout: true,
           ),
@@ -414,7 +415,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
             error: failure.error,
             message: failure.error == null
                 ? 'Lesson not found.'
-                : 'Could not load this lesson.',
+                : lessonLoadFailureMessage(ref),
             icon: failure.error != null && context.wideWeb
                 ? const OwnIcon(OwnIconKind.warning)
                 : Icon(PantasIcons.studyTab),
@@ -476,7 +477,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
               'lesson',
               () => _invalidateLesson(lessonId),
               error: error,
-              message: 'Could not load this lesson.',
+              message: lessonLoadFailureMessage(ref),
               icon: context.wideWeb
                   ? const OwnIcon(OwnIconKind.warning)
                   : Icon(PantasIcons.studyTab),
@@ -1450,15 +1451,24 @@ class _LessonContent extends StatelessWidget {
               lessonId: reader.lesson.id,
             ),
             if (nextFailed)
-              errorFor(
-                'lesson',
-                onRetryNext,
-                message: 'Could not load this lesson.',
-                icon: Icon(PantasIcons.studyTab),
-                boardLayout: true,
+              Consumer(
+                builder: (context, ref, _) => errorFor(
+                  'lesson',
+                  onRetryNext,
+                  message: lessonLoadFailureMessage(ref),
+                  icon: Icon(PantasIcons.studyTab),
+                  boardLayout: true,
+                ),
               ),
             if (footer != null) footer!,
           ],
         ),
       );
 }
+
+/// What a lesson that failed to load says: the daily limit when that is why,
+/// otherwise the usual line.
+String lessonLoadFailureMessage(WidgetRef ref) =>
+    ref.watch(contentLimitReachedProvider)
+        ? contentLimitMessage
+        : 'Could not load this lesson.';
