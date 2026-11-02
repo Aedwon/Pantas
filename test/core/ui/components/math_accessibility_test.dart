@@ -137,9 +137,14 @@ void main() {
 
       expect(
         ratio,
-        inInclusiveRange(0.95, 1.05),
-        reason: 'Default-scale math should start from the same type size as '
-            'its surrounding body text. ratio=$ratio',
+        inInclusiveRange(
+          inlineMathSizeFactor - 0.05,
+          inlineMathSizeFactor + 0.05,
+        ),
+        reason:
+            'Default-scale math should start from its surrounding body size, '
+            'times the optical factor that matches KaTeX to Geist. '
+            'ratio=$ratio',
       );
     });
 
@@ -152,7 +157,10 @@ void main() {
 
       expect(
         ratio,
-        inInclusiveRange(0.95, 1.05),
+        inInclusiveRange(
+          inlineMathSizeFactor - 0.05,
+          inlineMathSizeFactor + 0.05,
+        ),
         reason: 'Inline math in an h2 must inherit the h2 effective type size, '
             'not generic body sizing. ratio=$ratio',
       );

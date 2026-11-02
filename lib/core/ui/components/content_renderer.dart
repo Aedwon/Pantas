@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
@@ -74,6 +75,89 @@ class ContentRenderer extends StatelessWidget {
     return [
       {'_type': 'block', 'style': 'normal', 'children': children},
     ];
+  }
+
+  /// Splits question text into plain runs and Markdown pipe tables.
+  ///
+  /// Lessons arrive with tables already parsed into blocks. Question stems are
+  /// plain strings, so a table written in a stem would otherwise show its
+  /// pipes as text. A table needs a header line and a delimiter line of
+  /// dashes, as in the lesson parser; anything else stays plain text.
+  static List<({String text, List<List<String>>? rows})> splitTables(
+    String text,
+  ) {
+    if (!text.contains('|')) return [(text: text, rows: null)];
+    final delimiter = RegExp(r'^:?-+:?$');
+    final lines = text.split('\n');
+    final out = <({String text, List<List<String>>? rows})>[];
+    final plain = <String>[];
+    void flushPlain() {
+      final joined = plain.join('\n').trim();
+      if (joined.isNotEmpty) out.add((text: joined, rows: null));
+      plain.clear();
+    }
+
+    var i = 0;
+    while (i < lines.length) {
+      final line = lines[i].trim();
+      if (line.startsWith('|') &&
+          i + 1 < lines.length &&
+          lines[i + 1].trim().startsWith('|')) {
+        final header = splitTableRow(line);
+        final rule = splitTableRow(lines[i + 1].trim());
+        if (rule.length == header.length && rule.every(delimiter.hasMatch)) {
+          flushPlain();
+          final rows = <List<String>>[header];
+          var next = i + 2;
+          while (next < lines.length && lines[next].trim().startsWith('|')) {
+            rows.add(splitTableRow(lines[next].trim()));
+            next++;
+          }
+          // A ragged row is padded so the table still draws.
+          final width =
+              rows.fold<int>(0, (m, r) => r.length > m ? r.length : m);
+          final padded = [
+            for (final r in rows)
+              [
+                ...r,
+                for (var k = r.length; k < width; k++) '',
+              ],
+          ];
+          out.add((text: '', rows: padded));
+          i = next;
+          continue;
+        }
+      }
+      plain.add(lines[i]);
+      i++;
+    }
+    flushPlain();
+    return out.isEmpty ? [(text: text, rows: null)] : out;
+  }
+
+  /// Cells of one table row. A pipe inside `$...$` belongs to the maths, as in
+  /// an absolute value, so it does not end the cell.
+  static List<String> splitTableRow(String line) {
+    var content = line.trim();
+    if (content.startsWith('|')) content = content.substring(1);
+    if (content.endsWith('|')) {
+      content = content.substring(0, content.length - 1);
+    }
+    final cells = <String>[];
+    final cell = StringBuffer();
+    var inMath = false;
+    for (var i = 0; i < content.length; i++) {
+      final char = content[i];
+      if (char == r'$') inMath = !inMath;
+      if (char == '|' && !inMath) {
+        cells.add(cell.toString().trim());
+        cell.clear();
+      } else {
+        cell.write(char);
+      }
+    }
+    cells.add(cell.toString().trim());
+    return cells;
   }
 
   String string(Object? value) => value is String ? value : '';
@@ -266,38 +350,81 @@ class ContentRenderer extends StatelessWidget {
     if (rows.any((r) => r.length != rows.first.length)) {
       return fallback(context);
     }
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Table(
-        defaultColumnWidth: const IntrinsicColumnWidth(),
-        border: TableBorder(
-          horizontalInside:
-              BorderSide(color: context.colors.separator, width: .5),
-          bottom: BorderSide(color: context.colors.separator, width: .5),
-        ),
-        children: [
-          for (var i = 0; i < rows.length; i++)
-            TableRow(
+    final numeric = [
+      for (var c = 0; c < rows.first.length; c++)
+        rows.length > 1 &&
+            rows.skip(1).every((r) => _numberCell.hasMatch(r[c].trim())),
+    ];
+    final line = BorderSide(color: context.colors.separator, width: .5);
+    return LayoutBuilder(
+      builder: (context, box) {
+        final available = box.maxWidth.isFinite ? box.maxWidth : 0.0;
+        // A column stops growing at three quarters of the page width, so a
+        // long cell wraps instead of pushing the table far off screen.
+        final cap = (available * .75).clamp(160.0, 320.0);
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: _FitWidth(
+            available: available,
+            child: Table(
+              defaultColumnWidth: MinColumnWidth(
+                const IntrinsicColumnWidth(flex: 1),
+                FixedColumnWidth(cap),
+              ),
+              border: TableBorder(horizontalInside: line, bottom: line),
               children: [
-                for (final cell in rows[i])
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 10,
-                    ),
-                    child: MathText(
-                      cell,
-                      style: context.type.subhead.copyWith(
-                        fontWeight: i == 0 ? FontWeight.w600 : FontWeight.w400,
-                      ),
-                    ),
+                for (var i = 0; i < rows.length; i++)
+                  TableRow(
+                    decoration: i == 0
+                        ? BoxDecoration(color: context.colors.fill)
+                        : null,
+                    children: [
+                      for (var c = 0; c < rows[i].length; c++)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 10,
+                          ),
+                          child: _cell(
+                            context,
+                            rows[i][c],
+                            header: i == 0,
+                            numeric: numeric[c],
+                          ),
+                        ),
+                    ],
                   ),
               ],
             ),
-        ],
-      ),
+          ),
+        );
+      },
     );
   }
+
+  Widget _cell(
+    BuildContext context,
+    String text, {
+    required bool header,
+    required bool numeric,
+  }) {
+    final cellStyle = context.type.subhead.copyWith(
+      fontWeight: header ? FontWeight.w600 : FontWeight.w400,
+      fontFeatures: numeric ? const [FontFeature.tabularFigures()] : null,
+    );
+    // Bold and italic marks in a cell, as in `**$T$**`, need the same parsing
+    // as a paragraph. Plain cells keep the lighter path.
+    if (text.contains('*')) {
+      return ContentRenderer(text: text, style: cellStyle);
+    }
+    return MathText(
+      text,
+      textAlign: numeric ? TextAlign.right : TextAlign.left,
+      style: cellStyle,
+    );
+  }
+
+  static final _numberCell = RegExp(r'^[+\-\u2212]?[₱$]?[\d,]+(\.\d+)?%?$');
 
   Widget example(BuildContext context, Map<String, Object?> block) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -409,7 +536,30 @@ class ContentRenderer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (blocks == null) {
-      return paragraph(context, _parseTextToBlocks(text!).first);
+      // A line limit means a list row showing a preview, which never carries
+      // a whole table.
+      final segments = maxLines == null
+          ? splitTables(text!)
+          : [(text: text!, rows: null as List<List<String>>?)];
+      if (segments.length == 1 && segments.first.rows == null) {
+        return paragraph(context, _parseTextToBlocks(text!).first);
+      }
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (var i = 0; i < segments.length; i++) ...[
+            if (i > 0) const SizedBox(height: 14),
+            if (segments[i].rows case final rows?)
+              table(context, {'rows': rows})
+            else
+              paragraph(
+                context,
+                _parseTextToBlocks(segments[i].text).first,
+              ),
+          ],
+        ],
+      );
     }
     final children = <Widget>[];
     final counters = <int, int>{};
@@ -502,6 +652,54 @@ class ContentRenderer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: children,
     );
+  }
+}
+
+/// Sizes a table to the page: as wide as the page when the table fits, narrower
+/// cells wrapping when they must, and only as wide as its narrowest layout
+/// (so it scrolls sideways) when even that is wider than the page.
+class _FitWidth extends SingleChildRenderObjectWidget {
+  const _FitWidth({required this.available, required super.child});
+  final double available;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderFitWidth(available);
+
+  @override
+  void updateRenderObject(BuildContext context, _RenderFitWidth renderObject) =>
+      renderObject.available = available;
+}
+
+class _RenderFitWidth extends RenderProxyBox {
+  _RenderFitWidth(this._available);
+  double _available;
+  double get available => _available;
+  set available(double value) {
+    if (value == _available) return;
+    _available = value;
+    markNeedsLayout();
+  }
+
+  double _width(RenderBox child) {
+    final min = child.getMinIntrinsicWidth(double.infinity);
+    return min > _available ? min : _available;
+  }
+
+  @override
+  Size computeDryLayout(BoxConstraints constraints) {
+    final child = this.child!;
+    return child.getDryLayout(BoxConstraints.tightFor(width: _width(child)));
+  }
+
+  @override
+  void performLayout() {
+    final child = this.child!;
+    child.layout(
+      BoxConstraints.tightFor(width: _width(child)),
+      parentUsesSize: true,
+    );
+    size = child.size;
   }
 }
 

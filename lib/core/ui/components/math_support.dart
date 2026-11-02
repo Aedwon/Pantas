@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 
 /// Renders one mathematical expression as a coherent, responsive unit.
@@ -45,24 +46,52 @@ class MathExpression extends StatelessWidget {
 
     // Preserve the package's malformed-TeX fallback rather than giving an
     // invalid expression a derived spoken label.
-    if (math.parseError != null) return math;
+    if (math.parseError != null) return _DryBaselineSafe(child: math);
 
     final authoredLabel = semanticsLabel?.trim();
     final label = authoredLabel == null || authoredLabel.isEmpty
         ? mathSemanticsLabel(latex)
         : authoredLabel;
 
-    return Semantics(
-      container: true,
-      label: label,
-      excludeSemantics: true,
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        alignment: fitAlignment,
-        child: math,
+    return _DryBaselineSafe(
+      child: Semantics(
+        container: true,
+        label: label,
+        excludeSemantics: true,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: fitAlignment,
+          child: math,
+        ),
       ),
     );
   }
+}
+
+/// Lets a TeX box answer a dry baseline query.
+///
+/// `flutter_math_fork` does not implement `computeDryBaseline`. A paragraph
+/// asks for it while it measures a cell for an intrinsic width, as a table
+/// does, and a debug build then throws. The answer given here is used only for
+/// that measuring pass. The real layout still reads the package's own
+/// baseline, so inline maths keeps its place on the line.
+class _DryBaselineSafe extends SingleChildRenderObjectWidget {
+  const _DryBaselineSafe({required Widget child}) : super(child: child);
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderDryBaselineSafe();
+}
+
+class _RenderDryBaselineSafe extends RenderProxyBox {
+  @override
+  double? computeDryBaseline(
+    BoxConstraints constraints,
+    TextBaseline baseline,
+  ) =>
+      // The box's bottom edge. Close enough for a measuring pass; it never
+      // positions anything on screen.
+      child?.getDryLayout(constraints).height ?? 0;
 }
 
 /// Produces a deterministic spoken fallback for the LaTeX used by Pantas.
@@ -338,6 +367,10 @@ List<InlineSpan> inlineMathSpans(
   return spans;
 }
 
+/// Inline maths is set this much larger than the sentence around it, to match
+/// the optical size of Geist. See [inlineMathSpan].
+const inlineMathSizeFactor = 1.1;
+
 /// Maths set on the surrounding line rather than under it.
 ///
 /// A `WidgetSpan` sits on the bottom of the line by default, which drops a
@@ -356,6 +389,14 @@ InlineSpan inlineMathSpan(
       builder: (context) {
         final inherited = DefaultTextStyle.of(context).style;
         final body = style ?? inherited;
+        // KaTeX figures stand 0.666 em tall and its x-height is 0.431 em.
+        // Geist figures stand 0.71 em and its x-height is 0.53 em. At the same
+        // font size the maths reads smaller and sits low against the words,
+        // although both share one baseline. Sizing it up evens the two.
+        final sized = body.copyWith(
+          fontSize: (body.fontSize ?? inherited.fontSize ?? 14) *
+              inlineMathSizeFactor,
+        );
 
         // Text.rich automatically scales every WidgetSpan child with its
         // active TextScaler. Keep the TeX source size unscaled here and disable
@@ -364,7 +405,7 @@ InlineSpan inlineMathSpan(
         return MathExpression(
           latex: displayFractions(latex),
           mathStyle: MathStyle.text,
-          textStyle: body,
+          textStyle: sized,
           textScaleFactor: 1,
           fitAlignment: Alignment.centerLeft,
           onErrorFallback: onErrorFallback,
