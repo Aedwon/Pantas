@@ -2396,3 +2396,5 @@ Known gap, left until after the beta (Aedwon, Nov 2): a student who turns 18 sta
 the guardian checkout line. It does not block payment.
 
 Merged into `web/visual-check-fixes-r1` and `web/staging-candidate-r1` (Aedwon, Nov 2): the guardian flow with its approved wording (student name dropped, "your child" copy, three result screens, checkout line) and the local test panel with the row fixes. Content Pass is not merged while Aedwon refines it. Open: Mock setup error for the Steady student on Free; 968 questions marked unapproved are still exported.
+
+Onboarding continuity (Aedwon, Nov 2, from using the running app; overrides `OB_Picker`, study days and exam date boards): the frame stays still between steps and only content moves; every framed step uses one 580 column on wide web; the exam picker is a single list with the same inline action as other steps. Quote: "this is me experiencing the app itself so there are things not foreseen during the design phase." Legal pages now open at any point in onboarding. Their text is still the short fallback, not the legal drafts.
