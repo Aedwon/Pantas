@@ -10,6 +10,7 @@ import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/content/remote/content_mirror.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
+import 'package:pantas/core/storage/data/content_check_store.dart';
 import 'package:pantas/core/storage/storage.dart';
 
 /// Built only when read, so native builds never construct it.
@@ -28,7 +29,7 @@ final contentServiceProvider = Provider<ContentService>((ref) {
     remote: ref.watch(contentRemoteProvider),
     cache: ref.watch(contentCacheProvider),
     checks: ContentChecks(
-      store: DevicePrefsCheckStore(ref.watch(appDatabaseProvider)),
+      store: AppDatabaseCheckStore(ref.watch(appDatabaseProvider)),
     ),
     onLimitReached: (reached) {
       if (limitFlag.mounted && limitFlag.state != reached) {

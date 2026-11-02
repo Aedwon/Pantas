@@ -57,10 +57,10 @@ export function firestoreCeilingStore(db: Firestore): CeilingStore {
       }, 0);
     },
     add: async (day, shard, amount) => {
-      // A blind increment: no read, no transaction. `expireAt` lets a TTL policy remove old days.
+      // A blind increment: no read, no transaction. `purgeAfter` lets a TTL policy remove old days.
       await shardRef(day, shard).set({
         count: FieldValue.increment(amount),
-        expireAt: Timestamp.fromMillis(Date.now() + 3 * 86_400_000),
+        purgeAfter: Timestamp.fromMillis(Date.now() + 3 * 86_400_000),
       }, {merge: true});
     },
   };

@@ -7,6 +7,7 @@ import 'package:pantas/core/content/remote/content_mirror.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/content_check_store.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -117,7 +118,7 @@ void main() {
   ContentService newService() => ContentService(
         remote: remote,
         cache: ContentCache(appDb),
-        checks: ContentChecks(store: DevicePrefsCheckStore(appDb)),
+        checks: ContentChecks(store: AppDatabaseCheckStore(appDb)),
         onLimitReached: flags.add,
       );
 

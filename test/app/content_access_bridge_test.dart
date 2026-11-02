@@ -10,6 +10,7 @@ import 'package:pantas/core/content/remote/content_mirror.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
 import 'package:pantas/core/content/remote/content_service_providers.dart';
+import 'package:pantas/core/storage/data/content_check_store.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 
@@ -74,7 +75,7 @@ void main() {
     final service = ContentService(
       remote: remote,
       cache: ContentCache(appDb),
-      checks: ContentChecks(store: DevicePrefsCheckStore(appDb)),
+      checks: ContentChecks(store: AppDatabaseCheckStore(appDb)),
     );
     final mirror = ContentMirror(db: contentDb, service: service);
     final entitlement = StreamController<Entitlement>();

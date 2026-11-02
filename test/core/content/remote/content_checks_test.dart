@@ -6,6 +6,7 @@ import 'package:pantas/core/content/remote/content_item.dart';
 import 'package:pantas/core/content/remote/content_remote.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/content_check_store.dart';
 
 class _Remote implements ContentRemote {
   final calls = <List<String>>[];
@@ -47,7 +48,7 @@ void main() {
   ContentService build() => ContentService(
         remote: remote,
         cache: ContentCache(db),
-        checks: ContentChecks(store: DevicePrefsCheckStore(db), now: () => now),
+        checks: ContentChecks(store: AppDatabaseCheckStore(db), now: () => now),
       );
 
   setUp(() {
@@ -196,7 +197,7 @@ void main() {
     final service = ContentService(
       remote: remote,
       cache: ContentCache(db),
-      checks: ContentChecks(store: DevicePrefsCheckStore(db), now: () => now),
+      checks: ContentChecks(store: AppDatabaseCheckStore(db), now: () => now),
       onLimitReached: flags.add,
     );
     remote.failWith = const ContentLimitReached();
@@ -215,7 +216,7 @@ void main() {
     final service = ContentService(
       remote: limited,
       cache: ContentCache(db),
-      checks: ContentChecks(store: DevicePrefsCheckStore(db), now: () => now),
+      checks: ContentChecks(store: AppDatabaseCheckStore(db), now: () => now),
       onLimitReached: flags.add,
     );
     await service.refresh(ContentKind.lessons, ['a']);
