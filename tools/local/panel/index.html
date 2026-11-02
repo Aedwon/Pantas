@@ -71,8 +71,8 @@
       <div class="card" data-preset="dateThisMonth"><b>Date: this month</b><div class="muted">Today's month</div></div>
       <div class="card" data-preset="dateToday"><b>Date: exam today</b><div class="muted">Today picked</div></div>
       <div class="card" data-preset="daysNone"><b>Study days: none</b><div class="muted">Continue off</div></div>
-      <div class="card" data-preset="daysTooLate"><b>Study days: too late</b><div class="muted">Exam in 3 days, Sun to Tue</div></div>
-      <div class="card" data-preset="daysSoon"><b>Study days: exam soon</b><div class="muted">Exam in 3 days, Wed to Fri</div></div>
+      <div class="card" data-preset="daysTooLate"><b>Study days: too late</b><div class="muted" data-days="4,6">Exam in 3 days, Sun to Tue</div></div>
+      <div class="card" data-preset="daysSoon"><b>Study days: exam soon</b><div class="muted" data-days="0,2">Exam in 3 days, Wed to Fri</div></div>
     </div>
   </div>
 
@@ -192,6 +192,15 @@
       store(PRESET_KEY, null);
       startFresh();
     });
+  });
+
+  // Those two presets pick days counted from the real today, so the state appears on
+  // any weekday. The text reads as on the board on a Wednesday.
+  document.querySelectorAll('[data-days]').forEach(function (el) {
+    var names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var today = new Date().getDay();
+    var span = el.dataset.days.split(',').map(function (n) { return names[(today + Number(n)) % 7]; });
+    el.textContent = 'Exam in 3 days, ' + span[0] + ' to ' + span[1];
   });
 
   // Tabs.

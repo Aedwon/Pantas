@@ -9,6 +9,7 @@ import 'package:pantas/app/app.dart';
 import 'package:pantas/app/auth_bootstrap.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/local_onboarding_preset_apply.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -334,6 +335,7 @@ Future<void> _bootstrap(
       // startup had signed in, so the account's Pro coverage was gone.
       await bootstrapRevenueCat(container);
     }
+    registerLocalOnboardingPresets();
     await startLocalPanelBridge(container);
 
     final notificationsLifecycleObserver = NotificationsLifecycleObserver(
