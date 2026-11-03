@@ -1,0 +1,79 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Four segments give MA $4$, and so on.",
+      "problem": "No example works a system with more than two supporting segments. Examples #2 and #3 use the same one-fixed, one-movable setup with MA 2, so they are near-duplicates in result. The core warning not to count pulleys, and Trap #1, are never shown on a system with several pulleys or with a free end leaving a movable block. The lesson has only 24 words of room under the ceiling, so adding this case without cuts makes it a possible split candidate. This is a note, not a request to split.",
+      "source": "Checklist L18 and L18 lead ruling, standard application of the brief's goal: ideal pulley effort and rope travel from supporting segments"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "They let you lift a load with less force.",
+      "problem": "The opening states this for all pulleys and levers with no limit. Later lines say a fixed pulley only changes direction with MA 1 and a third-class lever has MA below 1, so the two statements conflict. The base lesson said machines can reduce effort, and the rewrite dropped that limit.",
+      "source": "Checklist L27; lesson's own Pulleys and Levers sections"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "If a force is angled, use $rF\\sin\\theta$, not $rF$.",
+      "problem": "The heading of this trap names the moment arm, but the rewritten lesson never defines that term. It is the only use in the file. The base lesson defined it, and the rewrite removed the definition. Core Concept describes the perpendicular distance without the name.",
+      "source": "Checklist L25; base revision 7032eec5 of this lesson"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Know that $\\sin30^\\circ=\\dfrac12$ and $\\sin90^\\circ=1$.",
+      "problem": "Sine is used in the angled-force formula, but the lesson never says what sin means and names no prerequisite. The brief records that sine evaluation was not developed. A trigonometry lesson exists, yet this lesson does not point to it, so the reuse rule is not met.",
+      "source": "Checklist L25 and shared reuse rule; style guide, Teaching completeness; brief item on angled torque"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "its tension is the same everywhere",
+      "problem": "The word tension is not explained, and the supporting-segment rule rests on it. Example #1 uses rope tension again. A student needs its meaning, the pull along the rope, to see why each segment shares the load.",
+      "source": "Checklist L25; style guide, Teaching completeness"
+    },
+    {
+      "rule": "L23",
+      "severity": "Major",
+      "quote": "a lever with the fulcrum at the left end",
+      "problem": "The placeholder conflicts with Example #7. The stem puts the effort on the other side of the lever from the load, with a push down, so the fulcrum is between them. With the fulcrum at the left end, load and effort are on the same side and a downward push cannot balance a downward load.",
+      "source": "Checklist L23; Example #7 stem in the lesson"
+    },
+    {
+      "rule": "L02",
+      "severity": "Major",
+      "quote": "It changes the direction of the pull, not the ideal force magnitude.",
+      "problem": "Magnitude is a rare word for a Grade 5 reader, and it appears in a solution where simple language is required. It is not used or explained anywhere else in the lesson.",
+      "source": "Checklist L02 and L05; style guide, Voice"
+    },
+    {
+      "rule": "L20",
+      "severity": "Minor",
+      "quote": "Ideal MA depends on how many rope segments support the moving load, not on the number of pulleys.",
+      "problem": "Traps #1, #2, #3, #5 and #6 have only the one-line warning, with no short explanation of the mistake. Only Trap #4 has one. These five warnings mostly restate Core Concept. The base lesson had the same gap, so this is not teaching cut by the rewrite, but the ceiling leaves little room to fix it.",
+      "source": "Checklist L20; style guide, Traps section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Here $r$ is the distance from the fulcrum to where the force acts.",
+      "problem": "This paragraph has five sentences. The Torque and Balance paragraph has four. The limit is one to three short sentences.",
+      "source": "Checklist L22a; style guide, Formatting rules"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "$$F_\\text{effort}=588/2=294\\text{ N}.$$",
+      "problem": "A top-level fraction is written with a slash instead of \\dfrac.",
+      "source": "Checklist B08; AGENTS.md, Maths in content"
+    }
+  ],
+  "goodQuotesChecked": 10
+}

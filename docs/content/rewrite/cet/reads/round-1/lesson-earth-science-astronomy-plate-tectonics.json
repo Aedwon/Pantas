@@ -1,0 +1,79 @@
+{
+  "lesson": "lesson-earth-science-astronomy-plate-tectonics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Earthquakes send out two kinds of waves.",
+      "problem": "This is wrong as stated. Earthquakes also produce surface waves (Love and Rayleigh waves). P and S are the two kinds of body waves only. The outline section is \"Faults, Earthquakes, and Seismic Waves\".",
+      "source": "Checklist B01; Britannica, seismic wave, https://www.britannica.com/print/article/532925; USGS Earthquake Monitoring (archived), https://webarchive.library.unt.edu/eot2008/20081005215221/http:/earthquake.usgs.gov/learning/eqmonitoring/eq-mon-1.php"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Melt forms only in small amounts, under ridges and above sinking plates.",
+      "problem": "The word \"only\" makes this wrong. Melting also happens at hot spots away from plate boundaries, as under Hawaii. The base revision said melt occurs at these places but did not say only.",
+      "source": "Checklist B01; USGS, This Dynamic Earth, Hotspots, https://pubs.usgs.gov/gip/dynamic/hotspots.html (the page refused the fetch; checked through search excerpts); Wikipedia, Hawaii hotspot, https://en.wikipedia.org/wiki/Hawaii_hotspot; base revision 7032eec5 of this lesson"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "So when an oceanic plate meets another plate, it sinks.",
+      "problem": "The oceanic-oceanic convergent case is not taught or worked. The sentence does not say which plate sinks when both are oceanic, and Example #3 covers only oceanic-continental and continental-continental. The Grade 10 curriculum teaches all three, including the volcanic island arc that the oceanic-oceanic case forms. One DepEd module links that case to the origin of the Philippines.",
+      "source": "Checklist L18 with lead ruling 1; upcat-L163 (curriculum), dcat-L081 (official curriculum); DepEd Science 10 Q1 Modules 2 and 3, https://depedtambayan.net/wp-content/uploads/2021/10/Science10_q1_mod2_plate-boundaries_ver2.pdf and https://depedtambayan.net/wp-content/uploads/2021/10/Science10_q1_mod3_processes-and-landforms-along-plate-boundaries_ver2.pdf (checked through search excerpts; the PDF text could not be opened here)"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "For a map question, a trench with a volcanic chain beside it points to subduction.",
+      "problem": "The brief item on geographic boundary and event-distribution inference is still untaught. The lesson never shows how to infer a boundary from where earthquakes and volcanoes lie on a map, and no example works it. Example #7 reads depth along one line, which is not distribution. The shortcut refers to a map question the lesson has not prepared.",
+      "source": "Checklist L18 with lead ruling 1; brief, Thin, named-only or absent items; pupcet-L120 (official curriculum, exam inclusion unknown)"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "People lower the risk with hazard maps (which show areas at risk), safe building codes, drills, and evacuation plans.",
+      "problem": "Hazard mitigation gets this one sentence, and the only worked hazard is a tsunami. No example works a volcanic hazard or a choice of mitigation, and risk and exposure are not explained, though the brief names these limits. The lesson is at 1,691 of 1,700 words, so this and the other untaught cases may not fit. It may be a split candidate; none is requested.",
+      "source": "Checklist L18 with lead ruling 1; brief, Geologic hazard recognition and mitigation; dcat-L081, ustet-L127, acet-L128 (official curriculum); lead ruling 3"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Earthquake foci along a line",
+      "problem": "\"Foci\" is used in this question, its solution and its figure, but the lesson teaches only the singular \"focus\" and never says this is its plural. A Grade 5 reader cannot connect the two. The solution also keeps this hard form instead of simple language.",
+      "source": "Checklist L25; LSG Teaching completeness; LSG Voice"
+    },
+    {
+      "rule": "L04",
+      "severity": "Minor",
+      "quote": "Do not reduce the theory to one conveyor belt.",
+      "problem": "This analogy sits outside Core Concept and is never explained, so the warning has no clear meaning. The trap heading also treats seafloor spreading as a force, though Core Concept teaches it as a process.",
+      "source": "Checklist L04; LSG Voice"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The hanging wall moved down, so this is a normal fault.",
+      "problem": "The solution to Example #6 has two steps, naming the fault and then the stress, but they are not a numbered list. No step is skipped.",
+      "source": "Checklist L19; LSG Examples section"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "This is a transform boundary. Crust is not made or destroyed.",
+      "problem": "The solution to Example #5 answers two questions and adds a reason, but it is not a numbered list. No step is skipped.",
+      "source": "Checklist L19; LSG Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "At a convergent boundary, what happens depends on the two plates.",
+      "problem": "This paragraph has five sentences. Others have four: \"The **lithosphere** is the rigid outer shell\", \"Two clues support this model.\", \"When two continents meet\", \"A sinking oceanic plate carries\", and \"Earthquakes send out two kinds of waves.\"",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 10
+}

@@ -1,0 +1,72 @@
+{
+  "lesson": "lesson-physics-kinematics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "$$\\Delta x=x_f-x_i$$",
+      "problem": "The symbols $x_f$ and $x_i$ are not explained here. The words final and initial position first appear in Trap #2, after every example. The delta sign is also never explained as change in, although $\\Delta t$ and $\\Delta v$ follow.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "On a **position-time graph**, the slope is the velocity.",
+      "problem": "Slope carries all of the graph teaching but is never given a meaning here, and no prerequisite is named. Slope is taught in the linear equations lesson, but the lesson does not refer to it, so the reuse rule is not met. The text also does not show why slope gives velocity. Its first calculation appears only in Example #8.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness; brief: Motion graph slope/area interpretation"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "$$\\Delta y=\\dfrac12(9.8)(3^2)=44.1\\text{ m}$$",
+      "problem": "The symbol $\\Delta y$ first appears in this solution. Core Concept writes every equation with $\\Delta x$, and the Free Fall section does not say that vertical displacement uses $y$.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L19",
+      "severity": "Major",
+      "quote": "A rock is dropped and falls for $3$ s.",
+      "problem": "The solution never says that dropped means the starting velocity is zero, and the distance line drops the $v_0t$ term with no step. Example #3 gives this step for from rest, and Speed Tricks lists other hidden values but not dropped. This is the key inference of the case.",
+      "source": "content-checklist.md L19, Major because a step is skipped"
+    },
+    {
+      "rule": "L03",
+      "severity": "Minor",
+      "quote": "\"Calculate\" and \"find\" mean get a number answer.",
+      "problem": "Calculate and find are everyday words, and the guide names find as one that needs no explanation. The gloss should not be there.",
+      "source": "content-checklist.md L03; lesson-style-guide.md Voice"
+    },
+    {
+      "rule": "L13",
+      "severity": "Minor",
+      "quote": "Average velocity is displacement divided by time.",
+      "problem": "Key terms are defined here without bold: average velocity, average speed, and instantaneous velocity in the next paragraph. The guide bolds a key term at its first definition, and the other terms in this lesson follow that.",
+      "source": "content-checklist.md L13; lesson-style-guide.md Emphasis and de-AI rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "Average speed: $\\dfrac{50}{20}=2.5\\,\\mathrm{m/s}$.",
+      "problem": "Examples #1 and #10 keep all their key computations inline, with no display equation. No step is skipped, so this is Minor.",
+      "source": "content-checklist.md L19; lesson-style-guide.md Examples section"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$v_{\\text{avg}}=\\dfrac{\\Delta x}{\\Delta t}\\qquad\\text{average speed}=\\dfrac{\\text{distance}}{\\Delta t}$$",
+      "problem": "Two formulas with a wide gap and long words share one display line, which is likely too wide for a phone screen. This is an estimate from the source text, not checked on a rendered screen.",
+      "source": "content-checklist.md L21; lesson-style-guide.md Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Each equation leaves out one quantity.",
+      "problem": "This paragraph has six sentences. The limit is three. The paragraphs on displacement, speed and velocity, acceleration, velocity-time graphs and free fall also run over, with four to five sentences.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 9
+}

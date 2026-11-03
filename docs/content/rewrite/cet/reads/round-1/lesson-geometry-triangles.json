@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-geometry-triangles",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "**HL**: in right triangles, the hypotenuse and one leg match.",
+      "problem": "'Hypotenuse' and 'leg' are used here before any meaning is given, with no pointer ahead. The hypotenuse is defined only in the Pythagorean section, and 'leg' is never defined: nothing says the legs are the two sides that form the right angle.",
+      "source": "Checklist L25; lesson style guide, Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "corresponding sides are **proportional** (one scale factor)",
+      "problem": "The key term 'proportional' is glossed only by 'scale factor', which the lesson never explains. The base lesson said each side of the big triangle is the small triangle's side times the same scale factor. The rewrite cut that meaning, and the student needs it to use the similarity rules.",
+      "source": "Checklist L25; lesson at base 7032eec5, section Similarity and Proportionality"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "Expanding and subtracting $2ab$ leaves $a^2 + b^2 = c^2$.",
+      "problem": "This is the deciding step of the proof, and it is told, not shown. The expansion $(a+b)^2 = a^2 + 2ab + b^2$ never appears, and $4 \\cdot \\dfrac{1}{2}ab = 2ab$ is not stated. The brief names 'Prove the Pythagorean theorem' as absent at curriculum class (upcat-L191), so the proof must be followable. The step looks cut for length.",
+      "source": "Checklist L26; brief, upcat-L191"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "**isosceles** (two equal)",
+      "problem": "The lesson names isosceles and equilateral triangles but never teaches that the angles across equal sides are equal, or that an equilateral triangle has three $60^\\circ$ angles, and no example uses them. Finding an angle in an isosceles triangle is a standard application of the angle relationships in the goal. No other geometry lesson in the corpus mentions isosceles triangles, so nothing else covers it. The base lesson had the same gap.",
+      "source": "Lead ruling 1 on L18; brief, upcat-L192 (curriculum) and audit goal; search of content/lessons/mathematics/geometry"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Which congruence rule applies, and which side of",
+      "problem": "The brief's congruence gap is only partly closed. Example 5 shows correspondence, but it hands over every equal part and only asks which rule fits. No example finds an equal part from the figure, such as a shared side or vertical angles, and then proves congruence, though the heading says 'Proving Congruence'. The brief lists criterion-based proof as missing, with curriculum refs upcat-L192 and acet-L072, and upcat-L194 asks for geometric deductions.",
+      "source": "Brief, congruence item; lead ruling 1 on L18"
+    },
+    {
+      "rule": "L19",
+      "severity": "Major",
+      "quote": "The sun's rays make similar triangles, so heights and shadows are proportional.",
+      "problem": "The step that makes the triangles similar is skipped. The lesson teaches AA just above, and the reason here is AA: each triangle has a right angle and the same sun angle. This is the only similarity example, so no example shows a similarity rule being applied.",
+      "source": "Checklist L19; lesson's own Similarity section"
+    },
+    {
+      "rule": "L19",
+      "severity": "Major",
+      "quote": "x + 2x + 3x = 180 \\quad\\Rightarrow\\quad x = 30",
+      "problem": "The solution skips the step $6x = 180$. The base lesson showed it and then the division. It looks cut for length.",
+      "source": "Checklist L19; lesson at base 7032eec5, Example 1"
+    }
+  ],
+  "goodQuotesChecked": 7
+}

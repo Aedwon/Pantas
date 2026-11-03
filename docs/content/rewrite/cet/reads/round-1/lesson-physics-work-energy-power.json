@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-physics-work-energy-power",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L17",
+      "severity": "Major",
+      "quote": "$$F = mg = (500)(9.8) = 4900\\ \\text{N}$$",
+      "problem": "Weight as $F=mg$ is used in Example #7 but never appears in Core Concept, which gives only $PE=mgh$. The step says the crane force equals \"the weight\" without saying how weight is found.",
+      "source": "Checklist L17; LSG Per-subject section fit"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "$$W_{net} = \\Delta KE = KE_f - KE_i$$",
+      "problem": "The symbol $\\Delta$ and the subscripts $i$ and $f$ are never explained, though the examples depend on them ($KE_i=0$ in Examples #4 to #6). The lesson never says they mean initial and final. The later $\\Delta t$ in the power formula is also unexplained, and the prose never says it is the time taken.",
+      "source": "Checklist L25; LSG Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Near Earth's surface, use $g = 9.8\\ \\text{m/s}^2$",
+      "problem": "The lesson gives $g$ a value but never says what it is, and the unit $\\text{m/s}^2$ is never explained. The student substitutes it in five examples without knowing its meaning. No prerequisite lesson is named as supplying it.",
+      "source": "Checklist L25; LSG Teaching completeness; brief, necessary prior knowledge list does not include it"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "The push is the net force, along the motion.",
+      "problem": "Net work is defined as the total work of all forces, but the only worked case has one force doing work. No example adds works from two or more forces, for example a push and friction, or works a force directly against the motion with $\\theta=180^\\circ$. The brief proposes an angle and net-work application, and this is a standard application of the work-energy theorem.",
+      "source": "Checklist L18 with lead ruling 1; brief, Structure proposal; upcat-L162 (curriculum), dcat-L080 and ustet-L117 (official curriculum)"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "An electric hoist takes in $3500\\ \\text{J}$ of electrical energy.",
+      "problem": "This is the only efficiency case, and the input energy is given. No example finds the input from effort force times distance on a simple machine, which is a different step and not just new numbers. The brief says to share the simple-machine foundation with the pulleys-and-levers lesson before new efficiency teaching, and the lesson makes no connection to simple machines.",
+      "source": "Checklist L18 with lead ruling 1; brief, Structure proposal; dcat-L083 and ustet-L124 (official curriculum)"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "In Example #5, $v=\\sqrt{2gh}$ gives the same speed for any mass.",
+      "problem": "The formula appears with no derivation and without its condition. It holds only for an object starting from rest with no friction, and Core Concept does not contain it. The sentence before it speaks of any frictionless problem, so a student may apply it to an object that already has speed.",
+      "source": "Checklist L27; solved independently from $mgh=\\dfrac{1}{2}mv^2$"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Work is measured in **joules**",
+      "problem": "This paragraph has four sentences. \"For work, check the angle first.\" in Speed Tricks also has four.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 7
+}

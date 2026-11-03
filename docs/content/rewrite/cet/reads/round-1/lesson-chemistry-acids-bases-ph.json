@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-chemistry-acids-bases-ph",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "the net ionic equation is",
+      "problem": "The term \"net ionic equation\" is used here and Example #7 asks the student to write one, but the lesson never says what it is. The student is told which ions are spectators but not that a net ionic equation is the equation left after they are removed. The meaning is needed for the example.",
+      "source": "Checklist L25; LSG Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "\"salt plus water\" is not universal",
+      "problem": "The word \"salt\" appears only here, in a trap, and is never explained. The Core Concept never states the pattern acid plus base gives salt plus water, and never says that $NaCl$ in Example #7 is a salt. So the trap warns against a rule the lesson did not teach. The base revision tied spectator ions to a salt solution and stated the pattern; the rewrite dropped both.",
+      "source": "Checklist L25; LSG Teaching completeness; base revision 7032eec5 of this lesson"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "For a strong acid with one hydrogen, whose concentration is $1\\times10^{-n}\\ M$, the pH is $n$.",
+      "problem": "The shortcut has no lower limit on concentration. For $1\\times10^{-8}\\ M$ $HCl$ it gives pH $8$, a basic value for an acid solution. The real pH is about $6.98$, because water itself supplies hydronium near $10^{-7}\\ M$. The lesson states limits for temperature and for very concentrated solutions but not this one.",
+      "source": "Checklist L27; aqion, pH of an Extremely Dilute Acid, https://www.aqion.de/sd/182 (pH 6.978); solved independently from the water ion product"
+    },
+    {
+      "rule": "L02",
+      "severity": "Major",
+      "quote": "a proton moving from one species to another",
+      "problem": "\"Species\" is used in its chemistry sense with no explanation. A Grade 5 reader knows the word only for living things, so the sentence misleads at the point where the shortcut is stated.",
+      "source": "Checklist L02; LSG Voice"
+    },
+    {
+      "rule": "L24",
+      "severity": "Major",
+      "quote": "title: \"Acids, Bases, and pH\"",
+      "problem": "The outline title is \"Acids, Bases, and pH Scale\" and the guide says titles come from the outline. The mismatch is already in the base revision, and writer rule 6 keeps a title unless new content needs a change, so the lead may need to rule on it.",
+      "source": "Checklist L24; LSG Frontmatter; tools/lesson_author/outline.json line 534"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "At **25 °C**, pure water has",
+      "problem": "The number is outside inline math here, and the bold marks a value, not a key term being defined. The headings of Example #1, Trap #1 and Trap #2 also carry bare numbers (25, 0, 14, 7).",
+      "source": "Checklist B08; LSG Math notation"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The **Brønsted-Lowry** model is wider.",
+      "problem": "This paragraph has six sentences. Others also exceed three: \"The pH of a solution tells how acidic it is.\" (five), \"The numbers $7$ and $14$ hold only near\" (five), \"**Strength** is how much a substance ionizes.\" (five), \"A **strong acid** ionizes completely in water.\" (four), and \"If both are strong and they supply\" (four).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 7
+}

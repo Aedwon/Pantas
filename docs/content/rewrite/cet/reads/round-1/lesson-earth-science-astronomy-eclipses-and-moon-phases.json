@@ -1,0 +1,65 @@
+{
+  "lesson": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The name means the Moon is one quarter of the way around its orbit.",
+      "problem": "The sentence covers every quarter moon, and the paragraph above names both first quarter and last quarter. It is true only of first quarter. Last quarter comes when the Moon is three quarters of the way around from new moon, so a student would get last quarter's position wrong.",
+      "source": "U.S. Naval Observatory, Phases of the Moon FAQ (aa.usno.navy.mil/faq/moon_phases): the half phases occur when the Moon is 'respectively, one- and three-quarters of the way around the sky'. Checklist B01."
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Name any phase with two words",
+      "problem": "The shortcut says it names any phase, but new moon and full moon have no such two-word name of direction and amount. It also yields 'waxing quarter' and 'waning quarter', while the lesson teaches first quarter and last quarter as the names. The limit of the shortcut is not stated.",
+      "source": "Checklist L27; the lesson's own phase order in Core Concept"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Viewers in the umbra see a total eclipse. Viewers in the penumbra see a partial one.",
+      "problem": "The trap gives the umbra and penumbra rule without saying it applies to solar eclipses only. For a lunar eclipse the rule fails: a partial lunar eclipse is in the umbra, and the penumbra gives a penumbral eclipse, as Core Concept says. The lunar shadow distinction has no worked example or warning, so this is the case where a student will misapply it. Brief lists ustet-L118 (official curriculum) for shadow-region and eclipse-type distinctions.",
+      "source": "Checklist L27; brief, shadow-region item; the lesson's own definitions of partial and penumbral lunar eclipses"
+    },
+    {
+      "rule": "L02",
+      "severity": "Major",
+      "quote": "The order of the phases is: **new moon**",
+      "problem": "This sentence runs 56 words, with eight phase names and four bracketed explanations in one sentence. It carries the phase sequence, which is a main goal of the lesson, and a Grade 5 reader will lose the order in a sentence this long.",
+      "source": "Checklist L02; lesson style guide, Voice: short sentences; audit goal in the brief"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Four words describe the shapes.",
+      "problem": "Paragraph has 5 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The phase also tells you when the Moon is in the sky.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A **lunar eclipse** happens at full moon.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Ask who is in the middle.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 8
+}

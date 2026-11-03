@@ -151,3 +151,7 @@ Aedwon: "nah let's not wait for codex". Sonnet writes all 15 pilot lessons and C
 Aedwon: "what why fable, you can read it yourself can't you? or another opus 5.5 agent". The Fable readers were stopped and their partial output discarded. Opus 5.5 agents read instead.
 
 Post-pilot cross-vendor check. Lead proposed Astra on 3 to 5 Opus-passed lessons. Aedwon: "i think for now we can only afford a 6.1 Sol high audit. 5% weekly is about 30% of 1 5-hour session in codex". The check uses Sol at high effort, starting with 3 lessons. It runs through `codex-pick` after the Opus reads, as read-only.
+
+## November 3: round 1 reads (Opus)
+
+All 15 lessons had a Blocker or Major: 6 Blockers, 83 Majors, 52 Minors. Readers reported all worked answers correct in the batches that stated it. Top Major rules: L25 27, L18 22, L26 10, L27 8. This fails the first pilot criterion (15 of 15 against the line of 63%). Part A's fallback, a separate audit read, is on hold pending Aedwon. Round 2 runs on 5 lessons with added writer rules, to measure convergence.

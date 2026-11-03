@@ -1,0 +1,100 @@
+{
+  "lesson": "lesson-geometry-circles",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Circumference $C$ is the distance around. Area $A$ is the space inside.",
+      "problem": "The formulas use $\\pi$, but the lesson never says what it is or gives its value. The later line on 'in terms of $\\pi$' only says to leave it as a symbol. Teaching cut: the base lesson's guidance on when to multiply by $3.14$ was removed, so a student has no direction for a question that asks for a decimal. The measurement lesson does teach $\\pi$, but this lesson does not identify it, and the brief records no prerequisite.",
+      "source": "Checklist L25; LSG Teaching completeness (identified prerequisite); brief, Prerequisite status: none-found; base revision 7032eec5, Example 1 step 3."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "The radius, half the chord, and $d$ form a right triangle with hypotenuse $13$.",
+      "problem": "$d$ is never introduced in the visible text of Example 6; it appears only in the illustration marker, which students do not see. Core Concept has already fixed $d$ as the diameter with $d = 2r$, so here the same letter silently means a different length. Example 5 has a smaller form of the gap: $t$ is used without being tied to the tangent segment.",
+      "source": "Checklist L25; Checklist L23 (prose teaches without the image); LSG Illustration placeholders."
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "A special case: an angle inscribed in a semicircle is always $90^\\circ$.",
+      "problem": "The rule is stated with no reason, and the lesson does not show that this angle intercepts a $180^\\circ$ arc, so half of it is $90^\\circ$. It is called a special case of the inscribed angle rule, but the link is not made. Also, 'inscribed in a semicircle' and 'inscribed triangle' are not explained beyond an inscribed angle's vertex being on the circle.",
+      "source": "Checklist L26; LSG Teaching completeness."
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "Chords $AB$ and $CD$ crossing inside the circle at $P$ follow $PA \\cdot PB = PC \\cdot PD$.",
+      "problem": "This rule and the secant and tangent rules in the next bullet are given as formulas alone, with no meaning or reason. The guide says a formula alone is not an explanation. The brief lists general chord and secant applications as named-only at curriculum class, and this part of the gap is only partly closed.",
+      "source": "Checklist L26; LSG Teaching completeness; brief, General chord and secant applications."
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Equal chords cut equal arcs and are the same distance from the center.",
+      "problem": "The condition is missing: the rule holds only within one circle or in circles of equal size. As written it applies to equal chords in different circles, where it is false.",
+      "source": "Checklist L27; standard Euclidean result, verified by solving: a chord of length $6$ is at distance $4$ from the center in a circle of radius $5$ and at distance $8$ in a circle of radius $\\sqrt{73}$. DepEd Grade 10 M10GE-IIc-1 (via secondary copies)."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Equal chords cut equal arcs and are the same distance from the center.",
+      "problem": "Chord equality has one bullet and no worked example. The brief names 'No chord equality/distance reasoning' as the gap, and acet-L073 names relating chords and arcs at official curriculum class. Example 6 works chord distance only; nothing uses equal chords or the arcs they cut.",
+      "source": "Brief, General chord and secant applications; acet-L073; lead ruling 1; Checklist L18."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "A second secant, meeting at $C$ and $D$, gives $PA \\cdot PB = PC \\cdot PD$.",
+      "problem": "The two-secant rule has no worked example. Example 7 is crossing chords and Example 8 is tangent and secant. The brief names a secant worked procedure as the gap at curriculum class (upcat-L193, dcat-L054, acet-L073, ustet-L086). Note: the lesson is at 1,681 words of 1,700, with figure markers counted, so the open cases may not fit. No split is asked for.",
+      "source": "Brief, General chord and secant applications; lead ruling 1; Checklist L18."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Two tangents drawn from one outside point have equal lengths.",
+      "problem": "The tangent pair rule has one bullet and no worked example. The audit lists 'no tangent-pair or secant-power application' as a limit of the tangent facet for the same curriculum refs. It is a standard application in a lesson whose goal includes tangent relations.",
+      "source": "Audit lesson-structure-data.json, facet 'Tangent length through radius perpendicularity', refs upcat-L193 and others; lead ruling 1; Checklist L18."
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "An angle inscribed in a semicircle is $90^\\circ$, so angle $C$ is a right angle and $AB$ is the hypotenuse.",
+      "problem": "The key reasoning step sits above the numbered list, on the line right after '**Solution:**'. Examples 1, 2 and 5 use the same layout. Teaching cut: compared with the base lesson, Examples 4 and 5 now merge subtraction and square root into one numbered step. No step is skipped, so this is Minor.",
+      "source": "Checklist L19; LSG Examples section; reference lesson order-of-operations; base revision 7032eec5."
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$\\text{arc length} = \\dfrac{\\theta}{360}\\cdot 2\\pi r \\qquad \\text{sector area} = \\dfrac{\\theta}{360}\\cdot \\pi r^2$$",
+      "problem": "Two labeled formulas share one display line with a wide gap between them. This is likely too wide for a phone screen. This was judged from the source, not from a render.",
+      "source": "Checklist L21; LSG Examples section."
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "as in example 6",
+      "problem": "The number $6$ in this prose is not wrapped in inline math.",
+      "source": "Checklist B08; LSG Math notation."
+    },
+    {
+      "rule": "L13",
+      "severity": "Minor",
+      "quote": "*Perpendicular* means the two lines meet at $90^\\circ$.",
+      "problem": "A term is defined in italics. Bold is the form for a key term the first time it is defined. 'Circumference' and 'Area' are also defined with no bold.",
+      "source": "Checklist L13; LSG Emphasis and de-AI rules."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "From an outside point $P$, a secant meets the circle at $A$ (nearer) and $B$ (farther).",
+      "problem": "This bullet has five sentences and three separate rules; the limit is three short sentences. The paragraph opening 'In a right triangle' has four sentences.",
+      "source": "Checklist L22a; LSG Formatting rules."
+    }
+  ],
+  "goodQuotesChecked": 13
+}

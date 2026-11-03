@@ -91,3 +91,13 @@ check does not prove the lesson is right. It only blocks the mechanical failures
 - Facts you could not confirm and removed.
 - Whether the lesson is a split candidate, and why.
 - Any brief item you did not teach, and why (for example, class unknown).
+
+## Rules added after round 1
+
+Round 1: all 15 lessons had a Blocker or Major (6 Blockers, 83 Majors). Worked answers were correct. The main causes were terms used without a meaning (L25), cases taught but not worked (L18), and teaching cut to fit the ceiling.
+
+1. **Meanings come first.** Every term a student needs is explained in plain words on first use, or the lesson names the prerequisite lesson. Never cut a meaning, a step or a required case to save words. Cut repeated teaching, extra traps and near-duplicate examples first.
+2. **No false absolutes.** Before writing "only", "always", "never", "every" or "all", test the statement against the lesson's own later sections and against an exception you know of.
+3. **Keep what the base lesson taught correctly** unless the brief or a rule says to drop it. Compare with the base before you finish.
+4. **Word every shortcut and trap with its limit**, so it cannot be applied where it fails.
+5. **Round 2 and later:** fix every open Blocker and Major in the read file for your lesson, and any Minor in text you edit. If the finding is wrong, leave the text and report why, with a source. If all of it cannot fit under 1,700 words, fix the Blockers and the meanings first, then report what remains as a split candidate.

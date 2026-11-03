@@ -1,0 +1,114 @@
+{
+  "lesson": "lesson-biology-genetics-and-heredity",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Capital and small letters are only a classroom notation.",
+      "problem": "The lesson uses letters such as $T$ and $t$ but never says that a capital letter marks the dominant allele and a small letter the recessive one. This sentence calls them a notation without giving the meaning. Example 1 then depends on it: its stem says 'with complete dominance' but not which allele is dominant.",
+      "source": "Checklist L25; lesson style guide, Teaching completeness"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "The genes for height ($T$, $t$) and seed shape ($R$, $r$) are on different chromosomes.",
+      "problem": "Example 2 states that $R$ is dominant for round seeds but gives no such fact for height. It never says that $T$ gives tall plants or that $T$ is dominant, yet it asks for the probability of tall. Solved from its own question alone, the example lacks a necessary given.",
+      "source": "Checklist L05; lesson style guide, Examples section; blind solve of the example from its stem"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Two heterozygous parents give $3:1$ under complete dominance, and $1:2:1$ under incomplete dominance or codominance.",
+      "problem": "The shortcut does not say these are phenotype ratios. Under complete dominance the genotype ratio is also $1:2:1$, and the lesson never states it. A student asked for the genotype ratio of $Tt \\times Tt$ would answer $3:1$ from this line.",
+      "source": "Checklist L27; the $TT$, $Tt$, $Tt$, $tt$ result of the lesson's own Example 1"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "In **transcription**, the cell makes an mRNA copy of a gene from a DNA template strand.",
+      "problem": "The rewrite removed where these steps happen. The base lesson said nuclear genes are transcribed in the nucleus and that mature mRNA leaves the nucleus for translation. The lesson now gives no location, so the student cannot explain how the gene's instructions reach the ribosome. The cut also breaks the standing rule against removing teaching that tagged exams may use: this facet's refs include ustet-L116 at official curriculum class.",
+      "source": "Brief, standing rule and DNA facet refs; writer rules 3; lesson at base 7032eec5, sections DNA, RNA, and Protein Synthesis and Example 3"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "It holds for genes on different chromosomes.",
+      "problem": "The lesson uses 'chromosome' here, in linkage, and in sex-linked inheritance, but never says what a chromosome is or how it relates to a gene. It names no prerequisite lesson that teaches it. Independent assortment and linkage both need this meaning.",
+      "source": "Checklist L25; lesson style guide, Teaching completeness (shared reuse rule)"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "from a DNA template strand",
+      "problem": "'Template strand' and 'mRNA' are used without meaning. The rewrite removed the base lesson's statement that DNA is double-stranded, so the student is not told that DNA has two strands, or what the 'm' in mRNA stands for and what that RNA does. No prerequisite is identified.",
+      "source": "Checklist L25; lesson at base 7032eec5: 'In double-stranded DNA'"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "A pedigree can suggest whether a trait is autosomal dominant, autosomal recessive, or X-linked.",
+      "problem": "The brief's pedigree gap is still open: multigeneration tracing is untaught, and the only example describes one family in words and reaches autosomal recessive. No example shows how a pedigree points to autosomal dominant or X-linked, though this sentence promises it. Reading a pedigree is a standard application of the goal 'interpret simple cross/pedigree models', with refs at official curriculum class (ustet-L116, pupcet-L116, dost-sei-L098, sm-foundation-L138). The lesson is at 1,672 of 1,700 words and the audit marks it a split candidate, so this gap may not fit. Noted only, no split is asked for.",
+      "source": "Brief, pedigree item and split record; lead ruling 1 on L18; lead ruling 3 on splits"
+    },
+    {
+      "rule": "L20",
+      "severity": "Minor",
+      "quote": "Single-gene crosses are simple models.",
+      "problem": "The trap's explanation is one short sentence. It does not say what the wrong answer is or how the trap misleads a student.",
+      "source": "Checklist L20; lesson style guide, Traps section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "An organism's **genotype** is the alleles it carries.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The **Law of Independent Assortment** says genes for different traits are passed on separately.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A **Punnett square** shows the possible gametes of each parent along its sides.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A gene can have more than two alleles in a population.",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Females have two X chromosomes ($XX$).",
+      "problem": "Paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Each template base is matched to its pair.",
+      "problem": "Paragraph has 5 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A **pedigree** is a family chart for a trait.",
+      "problem": "Paragraph has 5 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 15
+}

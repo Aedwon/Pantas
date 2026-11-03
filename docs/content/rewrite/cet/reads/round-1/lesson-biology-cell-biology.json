@@ -1,0 +1,93 @@
+{
+  "lesson": "lesson-biology-cell-biology",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The wrapped parts are called **organelles**.",
+      "problem": "The lesson defines organelles as the parts wrapped in membranes, then heads a section 'Organelles and Their Functions' that includes ribosomes and, in Example 1, tells the student to match 'each organelle' including ribosomes. Ribosomes have no membrane. Read together, the lesson teaches that ribosomes are membrane-wrapped, or else it contradicts its own definition. Nothing in the lesson says ribosomes lack a membrane.",
+      "source": "OpenStax Biology 2e, 4.3 Eukaryotic Cells, https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells: eukaryotes have membrane-bound organelles; ribosomes are large protein and RNA complexes. Checklist B01."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Water moves toward the side with more solute, which means less free water.",
+      "problem": "'Solute' carries all of the osmosis and tonicity teaching but is never defined. 'Concentration' is also never defined: the gradient is defined only as 'a difference in concentration'. A Grade 5 reader cannot follow osmosis, hypotonic or hypertonic without these meanings. The brief records no prerequisite lesson, and the lesson names none.",
+      "source": "Checklist L25; LSG Teaching completeness; brief, Necessary prerequisites: none-found."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Others use energy stored in an ion gradient that another process built.",
+      "problem": "'Ion' is never explained, so this sentence and Trap #4 cannot be understood from the lesson. 'Net' has the same gap in 'net movement' and 'no net change in volume': the idea that particles move both ways and only the overall result counts is not taught, yet the isotonic case depends on it.",
+      "source": "Checklist L25; LSG Teaching completeness."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "The **plasma membrane** is selectively permeable.",
+      "problem": "The term is used in the plant and animal section before this point with no signpost, and the lesson never says what the plasma membrane is: the outer boundary of the cell. It also never says that it is the same thing as the 'cell membrane' in the summary and in the section heading, so two names for one part are left unlinked. 'Selectively permeable' gets only 'controls what moves', with no statement that some substances pass and others do not.",
+      "source": "Checklist L25; LSG Teaching completeness."
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "Match each organelle to its main function: (a) mitochondria, (b) ribosomes, (c) Golgi apparatus, (d) nucleus.",
+      "problem": "The stem says match but supplies no list of functions to match against, so it is not a matching item. It works only as a recall prompt, and the wording is not realistic exam wording.",
+      "source": "Checklist L05; LSG Examples section."
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "A cell from a plant root has a cellulose wall and a large central vacuole, but no chloroplasts. Is it still a plant cell?",
+      "problem": "The stem states that the cell comes from a plant root and then asks if it is a plant cell, so it supplies the answer. The student does not need the reasoning that the example is meant to teach.",
+      "source": "Checklist L05: example stems do not supply tested knowledge."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "- **Isotonic** solution: equal solute inside and out. There is no net change in volume.",
+      "problem": "Isotonic is one of three tonicity cases but has no worked example. Example 6 is titled 'Hypertonic, Hypotonic, or Isotonic?' and works only the hypertonic case, and Examples 7 and 8 cover hypotonic and hypertonic. Inferring isotonic from no volume change is a standard application of the goal's skill of inferring membrane movement from cell-volume changes.",
+      "source": "Checklist L18; lead ruling 1, standard application; brief, learning goal."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Some particles pass through special membrane proteins, but if they still move down the gradient, it is still passive.",
+      "problem": "Passive movement through a membrane protein gets one unnamed sentence and no worked example. Example 5 uses a transporter only with energy, so a student may take any transporter as active transport. This is the standard diffusion versus active transport edge case. Membrane transport is named in dost-sei-L105 at official curriculum class, and secondary copies of the DepEd General Biology 1 competency list facilitated transport. The official guide's own table could not be opened, so the competency wording needs confirming.",
+      "source": "Checklist L18; lead ruling 1; brief audit ref dost-sei-L105; DepEd K to 12 STEM Biology 1 Curriculum Guide, https://lrmds.deped.gov.ph/detail/14410 (via secondary copies, code STEM_BIO11/12-Ig-h-13)."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "The vesicle carries it to the plasma membrane, and the cell releases it.",
+      "problem": "Exocytosis is used here without its name, and endocytosis and exocytosis are not taught anywhere in the Biology lessons. Secondary copies of the DepEd General Biology 1 guide list them as a transport competency. The curriculum class is STEM-specific and exam depth is unknown, and the official table could not be opened, so the lead should confirm this before acting on it.",
+      "source": "Brief audit ref dost-sei-L105 and sm-foundation-L143 (membrane transport, official curriculum, STEM-specific); DepEd K to 12 STEM Biology 1 Curriculum Guide, https://lrmds.deped.gov.ph/detail/14410 (via secondary copies, code STEM_BIO11/12-Ig-h-14); lead ruling 1."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "The **cell** is the basic unit of life.",
+      "problem": "Gap report: microscope use is named at curriculum class in upcat-L160, a row in this brief. The audit records it as absent, cites this lesson's core as the evidence, and finds no lead in any of the 158 lessons. Limits: the audit assigns the facet to no lesson, it sits outside this lesson's recorded goal, and tested depth is unknown, so the lead decides if it belongs here. Note: the lesson is at 1,666 words of 1,700 and the audit marks it a split candidate, so this gap and the other open teaching may not fit. Report only; no split is asked for.",
+      "source": "Brief, upcat-L160 (curriculum); audit topics/science-biology-lessons.md, facet 'Microscope use and biological observation procedure'; lead rulings 1 and 3."
+    },
+    {
+      "rule": "L02",
+      "severity": "Major",
+      "quote": "Some transporters use ATP directly. Others use energy stored in an ion gradient that another process built.",
+      "problem": "Padding: these two sentences appear word for word in Core Concept and again as the paragraph of Trap #4. The trap's warning line has already made the point, so the repeat teaches nothing new and does not describe the wrong answer. It takes up room in a lesson near the ceiling that still has untaught cases.",
+      "source": "Checklist L02, no filler; LSG Voice ('Every sentence teaches something') and Traps section."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Some cells keep their DNA in a **nucleus** and have other parts wrapped in their own membranes.",
+      "problem": "This paragraph has five sentences; the limit is three. Other teaching paragraphs over the limit: the one opening 'The **endoplasmic reticulum (ER)**' (five), '**Diffusion** is the net movement' (four), '**Active transport** moves' (four), and 'A plant cell has a wall.' (five).",
+      "source": "Checklist L22a; LSG Formatting rules."
+    }
+  ],
+  "goodQuotesChecked": 12
+}

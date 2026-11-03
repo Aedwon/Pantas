@@ -1,0 +1,79 @@
+{
+  "lesson": "lesson-text-types-short-stories-and-novels",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "You can say what a style seems meant to do, but only from the words on the page.",
+      "problem": "Style gets a definition and no worked example, although the summary promises it. Author motivation is not taught at all, and mood is used without a meaning. The brief lists this item as absent with no examples. The lesson is at 1,688 of 1,700 words, so this gap and the others in this file may not fit without cuts, which makes it a possible split candidate. This is a note, not a request to split.",
+      "source": "Checklist L18 and L18 lead ruling; brief ref pupcet-L073 (official curriculum: analyze author motivation and writing style in literary texts)"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Look for what repeats. Lina goes from hiding the mat to sharing it, as others show interest.",
+      "problem": "The step says to look for what repeats, then describes one change. The scenes supply no repeated choice, image or result, so the method taught in Core Concept is still not worked. The brief records this same limit for the base lesson.",
+      "source": "Checklist L18; brief item Derive a theme from recurring patterns/consequences, refs upcat-L095 and upcat-L096 (curriculum)"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "**Third person limited:** an outside voice shows the thoughts of one character.",
+      "problem": "Example #7 works first person and third person omniscient only. No example identifies third person limited, or shows how it differs from omniscient, though Core Concept teaches it as one of three types.",
+      "source": "Checklist L18 and L18 lead ruling; brief item Narration and point-of-view interpretation, ref upcat-L095 (curriculum)"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "The **antagonistic force** is whatever opposes the protagonist.",
+      "problem": "No example names a protagonist or an antagonistic force, or reasons about either from the text. The brief marks both items as thin in examples, and the rewrite did not change that.",
+      "source": "Checklist L18; brief items Protagonist central goals/experience and Antagonistic force, ref upcat-L095 (curriculum)"
+    },
+    {
+      "rule": "L10",
+      "severity": "Major",
+      "quote": "What conflict is shown at the end?",
+      "problem": "Example #9 teaches Filipino reading, but its question, statements and solution are in English, and it glosses everyday Filipino words in English. Only the excerpt is in Filipino. The excerpt's own Filipino has no error found: spelling, nang as when, and word order all read as standard, though the nang usage rests on general knowledge because no KWF text was retrieved in this read.",
+      "source": "Checklist L10 and L08; style guide, Filipino-language lessons; AGENTS.md, Filipino-language content; brief refs upcat-L096, upcat-L097 (curriculum)"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "exposition (the start), rising action, climax, falling action, and resolution (the end)",
+      "problem": "Rising action and falling action are named but never explained. Exposition, climax and resolution each get a meaning, and Example #3 then uses both undefined labels as answers.",
+      "source": "Checklist L26; style guide, Teaching completeness"
+    },
+    {
+      "rule": "L23",
+      "severity": "Major",
+      "quote": "\"stages\":[\"introduction\",\"rising action\",\"climax\",\"resolution\"]",
+      "problem": "The figure has four stages, says introduction, and omits falling action. The text teaches five parts with the word exposition, and Trap #1 calls it the Five-Part Plot. The marker also sits after Theme and Style instead of in the Plot section. The base lesson had the same marker, but it no longer fits this text.",
+      "source": "Checklist L23; style guide, Illustration placeholders; writer rule 7"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "We know only what Rica says and thinks.",
+      "problem": "Passage A never names Rica, and the question does not say that A and B tell the same moment. The solution takes that as given here and in step 3. The lesson teaches that every claim needs evidence from the text.",
+      "source": "Checklist L05; Example #7 stem and passage A in the lesson"
+    },
+    {
+      "rule": "L20",
+      "severity": "Minor",
+      "quote": "The turning point matters more than the noise.",
+      "problem": "All six traps have only a warning, with no short explanation of the mistake or the wrong answer. Traps #1 to #6 mostly repeat Core Concept, and the strategy line about the open door repeats Example #9, while style and other gaps go untaught at the ceiling. The base lesson's traps also had no explanation.",
+      "source": "Checklist L20; style guide, Traps section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Plot** is the order in which a story tells its events.",
+      "problem": "This paragraph has four sentences. The paragraph that defines the protagonist and the Theme paragraph also have four. The limit is one to three short sentences.",
+      "source": "Checklist L22a; style guide, Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 10
+}

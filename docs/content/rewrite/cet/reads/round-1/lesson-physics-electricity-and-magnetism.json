@@ -1,0 +1,79 @@
+{
+  "lesson": "lesson-physics-electricity-and-magnetism",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "**Induction:** a charged object comes near a neutral conductor without touching.",
+      "problem": "This bullet is listed as a way to charge an object, but what it describes is polarization. A conductor near a charged rod stays neutral overall. It gains a net charge only if it is grounded or split before the rod is removed, and that charge is opposite to the rod's. That step is missing, and no example works the case, although the brief lists charging mechanisms at official curriculum class (dost-sei-L054).",
+      "source": "OpenStax College Physics for AP Courses, section 18.2 Conductors and Insulators: https://openstax.org/books/college-physics-ap-courses/pages/18-2-conductors-and-insulators; brief: Charging mechanisms"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "By the right-hand rule, the current is counterclockwise as seen from the magnet.",
+      "problem": "Core Concept teaches the right-hand rule only for a long straight wire, with the thumb along the current. This step needs the loop form, which is never taught, and the claim that the near face acts as a north pole in step 2 has no basis in the lesson. A student cannot reproduce the direction. The brief records Lenz direction as omitting the application method.",
+      "source": "Brief: Lenz direction; content-checklist.md L26; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "A **motor** uses this force to turn.",
+      "problem": "The motor is named in one clause, with no account of how the force turns a coil or of the energy change, and no example. The brief lists generators and motors as absent at official curriculum class (pupcet-L119), and the generator got its own teaching and example. The file is at 1,677 of 1,700 words, so this looks like teaching cut to fit. The brief records the lesson as a split candidate, not to apply.",
+      "source": "Brief: Generators and motors; content-checklist.md L26; lead ruling 3"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "A field of $0.50$ T is perpendicular to it.",
+      "problem": "The unit T is never named or explained. Core Concept gives $B$ as the field strength with no unit, and only the weber is introduced. Example #11 then needs T to reach Wb.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "The equivalent resistance of a parallel set is smaller than the smallest branch.",
+      "problem": "The term equivalent resistance and the symbol $R_{eq}$ are used but never given a meaning. The lesson does not say it is the single resistance that would draw the same current from the same voltage, yet Examples #6 and #7 rely on that when they divide the voltage by $R_{eq}$.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "a change in flux over time induces an emf",
+      "problem": "The word induces is a rare word for a Grade 5 reader and gets no meaning, yet induced current and induced field carry the Lenz teaching. The earlier charging bullet uses induction for a different process, with nothing to separate the two.",
+      "source": "content-checklist.md L25 and L02; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L13",
+      "severity": "Minor",
+      "quote": "opposes the **change** in flux",
+      "problem": "Bold is used for stress on a word that is not being defined, here and in Trap #4. The guide keeps bold for a key term at its first definition.",
+      "source": "content-checklist.md L13; lesson-style-guide.md Emphasis and de-AI rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "Total current: $\\dfrac{12}{4}=3$ A.",
+      "problem": "Examples #6, #7 and #9 keep all their key computations inline, with no display equation. No step is skipped, so this is Minor.",
+      "source": "content-checklist.md L19; lesson-style-guide.md Examples section"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$F=\\dfrac{(9\\times10^{9})(3.0\\times10^{-6})(2.0\\times10^{-6})}{0.30^2}=0.60\\ \\mathrm{N}$$",
+      "problem": "This display line is long, with three scientific-notation factors in the numerator and the result on the same line. It is likely too wide for a phone screen. This is an estimate from the source text, not checked on a rendered screen.",
+      "source": "content-checklist.md L21; lesson-style-guide.md Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Protons carry positive charge.",
+      "problem": "This paragraph has five sentences. The limit is three. The voltage, wire field and Lenz's law paragraphs also run over, with four to five sentences.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 10
+}

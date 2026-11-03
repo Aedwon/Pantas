@@ -1,0 +1,86 @@
+{
+  "lesson": "lesson-chemistry-chemical-bonding",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Polar substances tend to dissolve in polar liquids such as water, and nonpolar ones in nonpolar liquids.",
+      "problem": "Solubility from structure has this one sentence and no worked example. The brief names the missing worked structure-to-solubility case at official curriculum class (dcat-L079, dcat-L082, ustet-L123). Example #6 meanwhile only repeats the same two molecules and the same reasoning as the Core Concept polarity paragraph, and Trap #4 repeats it again, so the length is not serving a new case.",
+      "source": "Brief: Bonding model to material properties; content-checklist.md L18; lead ruling 1"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "the two $C=O$ dipoles pull in opposite directions",
+      "problem": "The word dipole appears here for the first time with no meaning, then carries the dipole-dipole forces and hydrogen bonding teaching. The bond polarity section teaches partial charges but never says what a dipole is, and no prerequisite is named for it.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "join the others to it with single bonds",
+      "problem": "The lesson never says that a single bond is one shared pair of two electrons, or that double and triple bonds are two and three pairs. The electron count of a Lewis structure and the B term of the formal charge formula depend on this. Example #3 only implies it by saying the two bonds use $4$ electrons, and no prerequisite teaches it.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness; search of content/lessons/science/chemistry"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "**London dispersion forces** act between all molecules.",
+      "problem": "London dispersion forces get a name, where they act and a size trend, but no account of what the attraction is or how it arises. The brief lists the missing force-type explanation at official curriculum class.",
+      "source": "Brief: Intermolecular forces and hydrogen bonding; content-checklist.md L26"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "Ionic solids have high melting points and are brittle.",
+      "problem": "These two properties are stated with no reason from the bonding model, so the link the brief asks for is missing for them. Brittle is not explained, and malleable in the next bullet is not tied to the earlier phrase about hammering. Only conductivity is explained.",
+      "source": "Brief: Bonding model to material properties; content-checklist.md L26"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "Find a Lewis structure for the carbonate ion",
+      "problem": "A Lewis structure is a drawing, but no drawing of carbonate or of its resonance forms is shown or marked for illustration. The structure of $CO_2$ in Example #3 is displayed without its lone pairs. A student never sees a complete Lewis structure, and the brief names the missing resonance worked structure.",
+      "source": "Brief: Lewis structures formal charge and resonance; content-checklist.md L26; lesson-style-guide.md Illustration placeholders"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Give the outer atoms lone pairs until each has an octet.",
+      "problem": "Followed as written, this step gives lone pairs to hydrogen in $NH_3$ and $H_2O$. Step 5, which moves a lone pair whenever the center atom has less than an octet, also gives a double bond in $BF_3$, which the lesson says has six electrons on boron. The steps do not state these limits or point to the exceptions.",
+      "source": "content-checklist.md L27; lesson-style-guide.md Teaching completeness"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "some period 3 atoms",
+      "problem": "The number 3 in prose is outside inline math.",
+      "source": "content-checklist.md B08; lesson-style-guide.md Math notation"
+    },
+    {
+      "rule": "L13",
+      "severity": "Minor",
+      "quote": "A single, double, or triple bond counts as **one** group.",
+      "problem": "Bold is used for stress on a word that is not being defined. The same happens with **between** in the section on attractions. The guide keeps bold for a key term at its first definition.",
+      "source": "content-checklist.md L13; lesson-style-guide.md Emphasis and de-AI rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "Formal charges: $C=4-0-4=0$.",
+      "problem": "The three formal charge computations are the key results of Example #4, but they run inline in one step. Example #2 also keeps its computations inline. No step is skipped, so this is Minor.",
+      "source": "content-checklist.md L19; lesson-style-guide.md Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Ionic bonding** is the attraction between oppositely charged ions.",
+      "problem": "This paragraph has six sentences. The limit is three. The covalent, bond polarity, octet and molecular polarity paragraphs also run over, with four, six, four and four sentences.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 11
+}

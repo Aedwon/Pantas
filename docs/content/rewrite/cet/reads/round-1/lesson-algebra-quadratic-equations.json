@@ -1,0 +1,51 @@
+{
+  "lesson": "lesson-algebra-quadratic-equations",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Also, $b^2$ is always positive, even when $b$ is negative.",
+      "problem": "The statement is false for b = 0, where b^2 = 0. A quadratic with b = 0 is valid, and the lesson itself uses x^2 - 9. The true fact is that b^2 is never negative.",
+      "source": "Checklist B01; solved directly: 0^2 = 0"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "If $a<0$, these swap.",
+      "problem": "A negative leading coefficient is a distinct variation of a quadratic inequality: the parabola opens down and the between and outside answers reverse. The lesson states it in three words, and all three worked inequalities and Trap #5 use a > 0. This is the only lesson on quadratic inequalities, and it has about 300 words of room under the ceiling.",
+      "source": "Checklist L18 and L18 lead ruling, standard application of a skill in the goal; brief refs upcat-L186 (curriculum), ustet-L084 (official curriculum)"
+    },
+    {
+      "rule": "L03",
+      "severity": "Minor",
+      "quote": "Leave the answer in simplest radical form.",
+      "problem": "This exam instruction first appears here and is not explained in one line. Example #4 also asks for simplest form, and no text says that simplest radical form means no perfect-square factor stays under the root.",
+      "source": "Checklist L03; style guide, Voice"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "A repeated real root requires $D=0$.",
+      "problem": "The solution to Example #5 has several steps (set D to 0, simplify, take both roots) but does not use a numbered list. No step is skipped, so the severity is Minor.",
+      "source": "Checklist L19; style guide, Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Factoring means writing the quadratic as a product.",
+      "problem": "This paragraph has four sentences. The next paragraph, which starts with the definition of a monic quadratic, also has four. The limit is one to three short sentences.",
+      "source": "Checklist L22a; style guide, Formatting rules"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "$$\\dfrac{4}{7/3}=4\\cdot\\dfrac37=\\dfrac{12}{7}$$",
+      "problem": "The fraction inside a fraction is written with a slash. The maths rule says a nested fraction is written as \\frac.",
+      "source": "Checklist B08; AGENTS.md, Maths in content"
+    }
+  ],
+  "goodQuotesChecked": 6
+}

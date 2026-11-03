@@ -1,0 +1,51 @@
+{
+  "lesson": "lesson-chemistry-stoichiometry",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "divide the compound's molar mass by the empirical formula mass",
+      "problem": "The term empirical formula mass is used in Core Concept and in the k formula but is never given a meaning. The mole concept lesson, the named prerequisite, does not use the term. Example #8 only shows the sum, with no pointer from Core Concept, so the reuse rule is not met.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness; search of content/lessons/science/chemistry"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "If the problem gives moles, skip step 1. If it asks for moles, skip step 3.",
+      "problem": "The numbers 1 and 3 in prose are outside inline math. The same fault occurs twice in the words Example #3, in Speed Tricks and in Trap #1.",
+      "source": "content-checklist.md B08; lesson-style-guide.md Math notation"
+    },
+    {
+      "rule": "L03",
+      "severity": "Minor",
+      "quote": "\"Calculate\" means find the answer with numbers.",
+      "problem": "Calculate is an everyday word with no exam-specific meaning, so it should not get a gloss. The gloss also sits inside the question of Example #2.",
+      "source": "content-checklist.md L03; lesson-style-guide.md Voice"
+    },
+    {
+      "rule": "L13",
+      "severity": "Minor",
+      "quote": "The coefficients give a ratio of **moles**, not of grams.",
+      "problem": "Bold is used for stress on a word that is not being defined. The same happens with **same product** and **all**. The guide keeps bold for a key term at its first definition.",
+      "source": "content-checklist.md L13; lesson-style-guide.md Emphasis and de-AI rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The theoretical yield is $0.25\\text{ mol}\\times40\\text{ g/mol}=10$ g $MgO$.",
+      "problem": "Key computations stay inline. Examples #3 and #4 have no display equation at all, although the product and excess amounts are their main results. No step is skipped, so this is Minor.",
+      "source": "content-checklist.md L19; lesson-style-guide.md Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Reactants are often not supplied in the exact ratio of the equation.",
+      "problem": "This paragraph in Limiting and Excess Reactants has four sentences. The limit is three.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 6
+}
