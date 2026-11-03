@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/motion/web_page_transitions.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
@@ -58,6 +59,7 @@ ThemeData _buildTheme(
     }),
   );
   return ThemeData(
+    pageTransitionsTheme: web ? webPageTransitionsTheme : null,
     splashFactory: web ? NoSplash.splashFactory : null,
     splashColor: web ? Colors.transparent : null,
     highlightColor: web ? Colors.transparent : null,
