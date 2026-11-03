@@ -275,10 +275,13 @@ on the completed feature. The lead owns final combined verification. Follow
 unchanged full suites merely because the reviewer changed. Evidence must still
 apply to the actual inputs and acceptance object. Fixes require relevant new checks.
 
-Approved release and high-risk verification requirements remain binding. Do not
-replace local execution with hosted Actions by default. Apply the compatible
-resource rules in
-`docs/superpowers/decisions/2026-08-23-github-actions-minute-conservation.md`.
+Approved release and high-risk verification requirements remain binding. This
+repository is public, so standard hosted runners are free: run full check sets on
+hosted Actions, and keep focused tests and debugging local (Aedwon, November 3,
+2026; launch log). Larger runners cost money. Logs and artifacts are public, so use
+test data and no secrets. The minute-rationing rules in
+`docs/superpowers/decisions/2026-08-23-github-actions-minute-conservation.md` date
+from when the repository was private; its other rules still apply.
 
 Aedwon performs visual checking. Do not initiate app screenshot capture or an
 autonomous visual-review workflow. He supplies screenshots when he wants
