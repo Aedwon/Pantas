@@ -350,3 +350,13 @@ Second run (`ob_pairs2.mjs`, pairs cropped to the top 640 px to save image cost)
 Usage note for estimates: this onboarding work (capture script, 6 comparisons, these notes) took
 about 1% of the Claude weekly limit on the Pro plan (95% to 96%), at about 32% of a 5-hour window. The second run (script, 4 cropped pairs, this note) stayed
 within the same 1% (96%). Rough rate: about 10 board comparisons per 1% weekly on Pro.
+
+## HANDOFF 15 (Nov 3, 2026): moving to T3 Code
+
+State: `web/visual-check-fixes-r1` and `web/staging-candidate-r1` at 02ed25b5, pushed. Content `content/cse-rewrite-r1` at 7032eec5, pushed. Nothing is deployed to production. Content Pass is on `claude/content-pass-r1-4eb59e` (c1b94901), not merged, and Aedwon is still refining it; rebuild it on the fixes branch to get the figure fixes.
+
+Run: `~/Applications/Pantas Local Test.app` runs `~/.local/bin/pantas-local-test` from the staging worktree on the network address (`--lan`); open `http://<Mac IP>:7357/local-login.html`, and `/local-panel.html` for the test panel. Each restart resets test data and clears the browser once. Checklist of flows: https://claude.ai/artifact/EPqSrmG4EpnY23gu4BTDVq (private to Aedwon).
+
+Next: Aedwon continues the visual pass. Aedwon's calls from using the app override boards (decision log, Nov 2). Open: confirm that tapping a read lesson reopens it; watch for the assessment glitch and inconsistent Free loading; the phone "Coming soon" label sits close to the card edge; 968 questions marked unapproved are still exported; check current Firebase docs on spend caps. The notes in `build/cost-controls.md` say there are none, but Firebase's docs recommend spend caps for Cloud Functions.
+
+Local-only, not in git, in the staging worktree `build/`: `cost-controls.md`, `legal/`, `beta-readiness.md`, `visual-pass/`. Launch items for Aedwon are in `build/beta-readiness.md`, `build/legal/REVIEW.md` and `build/cost-controls.md`.
