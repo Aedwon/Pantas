@@ -1,19 +1,43 @@
 import 'package:flutter/foundation.dart';
 
 String? _start;
+var _captured = false;
+var _taken = false;
 
 /// Records the page address before routing rewrites it, so a reload or an
 /// address opened directly keeps the student on that page. Native builds
 /// have no address and always start at Home.
+///
+/// Only the first call counts. A startup retry calls this again, but by then
+/// the startup screen has rewritten the address to the root.
 void rememberStartLocation(Uri url, {bool isWeb = kIsWeb}) {
+  if (_captured) return;
+  _captured = true;
   _start = startLocationFor(url, isWeb: isWeb);
 }
 
 @visibleForTesting
-void forgetStartLocation() => _start = null;
+void forgetStartLocation() {
+  _start = null;
+  _captured = false;
+  _taken = false;
+}
 
-/// Where the router starts.
+/// Where the first router starts. Looking does not use it up.
 String get initialRouterLocation => _start ?? '/home';
+
+/// Where a router being built starts. The address is for the first router
+/// only: error recovery rebuilds the router, and sending the student back to
+/// an old payment return or the page that just failed would repeat the
+/// problem. Later routers start at Home. The guardian link stays, so recovery
+/// on the guardian page stays there.
+String takeInitialRouterLocation() {
+  final start = initialRouterLocation;
+  final keeps = Uri.parse(start).path == '/guardian';
+  if (_taken && !keeps) return '/home';
+  _taken = true;
+  return start;
+}
 
 /// The router's first location for a page opened at [url].
 ///

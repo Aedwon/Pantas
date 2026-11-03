@@ -189,11 +189,54 @@ void main() {
       isWeb: true,
     );
     expect(initialRouterLocation, '/settings/about');
+    forgetStartLocation();
     rememberStartLocation(
       Uri.parse('https://app.example.test/quiz/retake/cse'),
       isWeb: true,
     );
     expect(initialRouterLocation, '/quiz');
+  });
+
+  group('the address is used once', () {
+    void remember(String address) => rememberStartLocation(
+          Uri.parse('https://app.example.test$address'),
+          isWeb: true,
+        );
+
+    test('a router rebuilt after the first starts at Home', () {
+      remember('/pro?checkout=success&ref=pm_1');
+      expect(takeInitialRouterLocation(), '/pro?checkout=success&ref=pm_1');
+      expect(takeInitialRouterLocation(), '/home');
+      expect(takeInitialRouterLocation(), '/home');
+    });
+
+    test('the guardian link stays, so recovery stays on the guardian page', () {
+      remember('/guardian?token=abc');
+      expect(takeInitialRouterLocation(), '/guardian?token=abc');
+      expect(takeInitialRouterLocation(), '/guardian?token=abc');
+    });
+
+    test('looking at the start does not use it', () {
+      remember('/settings/about');
+      expect(initialRouterLocation, '/settings/about');
+      expect(takeInitialRouterLocation(), '/settings/about');
+    });
+
+    test('a startup retry keeps the first address', () {
+      remember('/settings/about');
+      // The startup screen has rewritten the address to the root by then.
+      remember('/');
+      expect(initialRouterLocation, '/settings/about');
+      expect(takeInitialRouterLocation(), '/settings/about');
+    });
+
+    test('forgetting resets everything', () {
+      remember('/settings/about');
+      takeInitialRouterLocation();
+      forgetStartLocation();
+      remember('/study');
+      expect(takeInitialRouterLocation(), '/study');
+    });
   });
 
   test('a native build always starts at Home', () {

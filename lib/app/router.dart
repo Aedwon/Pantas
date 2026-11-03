@@ -42,7 +42,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     guardianGateProvider,
   ]);
   final router = GoRouter(
-    initialLocation: initialRouterLocation,
+    initialLocation: takeInitialRouterLocation(),
     refreshListenable: refreshListenable,
     // Every address is honored on the web, so one that matches no page
     // (a typo, a retired link) lands on Home, not go_router's error page.

@@ -147,6 +147,30 @@ void main() {
     });
   });
 
+  group('error recovery rebuilds the router', () {
+    String pathOf(WidgetTester tester) => ProviderScope.containerOf(
+          tester.element(find.byType(App)),
+        ).read(routerProvider).routeInformationProvider.value.uri.path;
+
+    testWidgets('at Home, not at the address the app first opened',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+      rememberStartLocation(
+        Uri.parse('https://app.example.test/settings/about'),
+        isWeb: true,
+      );
+      await pumpApp(tester);
+      expect(pathOf(tester), '/settings/about');
+      ProviderScope.containerOf(tester.element(find.byType(App)))
+          .invalidate(routerProvider);
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/home');
+    });
+  });
+
   group('guardian consent', () {
     String pathOf(WidgetTester tester) => ProviderScope.containerOf(
           tester.element(find.byType(App)),
