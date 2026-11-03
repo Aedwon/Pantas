@@ -178,15 +178,15 @@ Ask which physical property differs, then match the method:
 - Dissolved solid, and only the solid is wanted: evaporation or crystallization.
 - Liquids with different boiling points, or a solvent to be kept: distillation.
 - Parts that differ in how strongly a surface holds them: chromatography.
-- A magnetic part: a magnet. This works only when just one part is attracted.
+- A magnetic part: a magnet. This works when some parts are magnetic and others are not.
 
 In a question about a dissolved substance, check the particle size. A dissolved substance does not stay on ordinary filter paper, whatever it looked like before dissolving.
 
-For a chromatogram, count spots to count components. The number of spots shows the least number of components, since two components can overlap in one solvent.
+For a chromatogram, count spots to count components. The visible spots show the least number of components. Two components can overlap in one solvent, and some spots may be colorless.
 
 ## Traps to Watch For
 
-### #1: Mixing Up "Cloudy" and "Heterogeneous"
+### #1: Judging a Mixture by Its Looks
 
 > A mixture that looks uniform can still be a colloid, and a clear liquid can still be a mixture.
 

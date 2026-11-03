@@ -153,25 +153,25 @@
     "lessonPath": "content/lessons/science/chemistry/gas-laws.md",
     "lessonId": "lesson-chemistry-gas-laws",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/history-of-the-atom.md",
     "lessonId": "lesson-chemistry-history-of-the-atom",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/matter.md",
     "lessonId": "lesson-chemistry-matter",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/mixtures-and-separation.md",
     "lessonId": "lesson-chemistry-mixtures-and-separation",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/mole-concept.md",

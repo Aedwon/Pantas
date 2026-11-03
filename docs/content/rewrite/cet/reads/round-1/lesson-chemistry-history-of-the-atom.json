@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-history-of-the-atom",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Electric and magnetic fields bent the beam toward the positive side.",
+      "problem": "Only the electric field bends the beam toward the positive plate. A magnetic field has no positive side: it pushes a moving charge sideways, at right angles to both the field and the beam. The sentence says the magnetic field also bent the beam toward a positive side, which is false and supports the common misconception that magnetic poles are positive and negative charges. Thomson's inference of negative charge in this lesson rests on this sentence, so the evidence step is taught wrongly.",
+      "source": "Purdue General Chemistry history page on J. J. Thomson (chemed.chem.purdue.edu/genchem/history/thomson.html): the rays bent toward the positive plate in an electric field, and the magnetic deflection was balanced against it to find charge-to-mass; standard magnetic force on a moving charge (perpendicular to field and velocity); checklist B01"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The mass of an element on the periodic table is an average over its isotopes.",
+      "problem": "Stated for every element, this fails for elements with no standard atomic weight (for example technetium and promethium): periodic tables show a bracketed mass number of one isotope for them, not an average. The sister lesson on this branch (atomic-structure) states that exception. It also says only \"an average\", not a weighted average, so a student can take the plain mean of chlorine-35 and chlorine-37 and get 36 instead of about 35.45; Example #9 step 4 repeats the same unweighted wording.",
+      "source": "IUPAC/CIAAW standard atomic weights (no standard value for Tc, Pm and most elements past Bi; Cl is 35.45); content/lessons/science/chemistry/atomic-structure.md Average Atomic Mass section on this branch; checklist B01; reader-rules boundary test"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "This theory explained two patterns in measured masses.",
+      "problem": "The lesson goal is to connect each model to the observations it explained. The base named conservation of mass and definite and multiple proportions; the rewrite drops the law of definite proportions (a compound always has the same mass ratio of its elements), which Dalton's whole-number-ratio postulate explains, and now says the theory explained two patterns. A student asked which law Dalton's theory accounts for can reject definite proportions, a standard application within the goal that the base taught.",
+      "source": "Base 7032eec5 line 16 (\"conservation of mass and definite/multiple proportions\"); reader-rules step 6; writer-rules added rule 3; lead ruling L18 (standard application of a skill in the lesson's goal)"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "His book on it appeared in 1808.",
+      "problem": "Years in prose are bare numbers, not inline math: 1808, 1932, 1897, 1904, 1909, 1911, 1913, 1924, 1926 and 1927 all appear outside $...$. The guide says every number in prose is wrapped in inline math, even isolated ones.",
+      "source": "LSG: Math notation; checklist B08"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

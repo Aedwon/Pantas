@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-biology-taxonomy-and-classification",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "But no chlorophyll means it cannot make its own food by photosynthesis, so it is not Plantae.", "problem": "Example 5, step 2 teaches a false general rule: no chlorophyll, so not a plant. Some plants have no chlorophyll at all, such as Rafflesia (a parasitic plant well known in the Philippines) and the ghost plant Monotropa; the lesson itself says dodder is a plant that has lost most of its photosynthesis. The step also rules out a kingdom from one trait, which the lesson forbids on line 51 ('never one trait alone') and in Trap #5. A student who learns this step will rule out Plantae for a parasitic plant with no chlorophyll. The example's final answer (Fungi) is still right, because the chitin walls decide it.", "source": "Encyclopaedia Britannica, 'Rafflesia' (the plants lack leaves, stems, roots and chlorophyll and are parasites); reader-rules 'Added after the Sol audit' (a stated 'so' rule broken by a known exception is a Blocker); checklist B01"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Some books use $5$ kingdoms, with one kingdom called Monera for all prokaryotes.", "problem": "Round-1 L22a is partly fixed but still open. This paragraph has 4 sentences; the limit is one to three. Paragraphs at line 51 ('These are usual traits, not perfect rules.', 4 sentences), line 57 ('A **dichotomous key** is a tool', 4 sentences) and line 73 ('All protists descend from the first eukaryote.', 4 sentences) also break it.", "source": "checklist L22a; LSG Formatting rules"},
+    {"rule": "B08", "severity": "Minor", "quote": "Cells have a nucleus: go to step 2. Cells have no nucleus: Bacteria.", "problem": "Numbers in prose are not inside inline math. The key and the solution of Example 7 write 'step 2' and 'step 3' as bare digits (lines 174, 175, 182, 183).", "source": "checklist B08; LSG Math notation (every number in prose is wrapped in inline math)"},
+    {"rule": "L24", "severity": "Minor", "quote": "Taxonomy and Classification (Domains, Ranks, Binomial Nomenclature)", "problem": "The title says 'Ranks' but the outline title is 'Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)'. The mismatch is in the base and both titles name the same content, so by the final-run ruling on the same kind of mismatch this is Minor and the title is kept; listed for the final review.", "source": "tools/lesson_author/outline.json; checklist L24; final-run-rulings.md (lesson-chemistry-acids-bases-ph title ruling)"}
+  ],
+  "goodQuotesChecked": 4
+}

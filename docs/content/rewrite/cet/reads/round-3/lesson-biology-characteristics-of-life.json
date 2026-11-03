@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-biology-characteristics-of-life",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A seed is made of living cells, even when it looks inactive.", "problem": "This general rule fails at a known exception. A seed can die: an old stored seed loses viability, and a boiled or roasted seed is dead. Its cells are no longer living, so it will never sprout. The same absolute sits in Core Concept: 'A dry seed does not grow, move, or react for a long time. It is still alive.' The lesson then contradicts itself, because Example #5 step 3 gives a sprouting test ('If it sprouts and grows, it was alive'), which would be pointless if every seed were alive. A student who learns 'a dry seed is always alive' will call a dead or cooked seed living, and learns to decide by category instead of by evidence, which is the lesson's own goal.", "source": "OpenStax Biology 2e, 32.2 Pollination and Fertilization, Germination ('Many mature seeds enter a period of inactivity ... known as dormancy'; many, not all); seed viability declines in storage (standard seed-testing practice); content-checklist B01; reader-rules.md, Added after the Sol audit"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The conditions are kept within a range. They are not perfectly fixed.", "problem": "The Homeostasis paragraph has four sentences; paragraphs must be one to three short sentences. Three more paragraphs also have four: the first Speed Tricks paragraph (it was rewritten this round), the levels paragraph in Speed Tricks that starts 'To order the levels', and the paragraph under Trap #5. The round-2 L22a finding is fixed for the paragraphs it named but the rule still fails here.", "source": "content-checklist L22a; lesson-style-guide Formatting rules; writer-rules.md rule 8"}
+  ],
+  "goodQuotesChecked": 2
+}

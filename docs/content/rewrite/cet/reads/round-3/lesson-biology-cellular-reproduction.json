@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-biology-cellular-reproduction",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A cell with two of each kind of chromosome is **diploid**. We write this as $2n$.",
+      "problem": "This paragraph has four sentences, over the one to three short sentences the guide allows. The round-2 L22a Minor is fixed for the paragraphs it named (germ cells, homologous pair, replication, life cycle), but the rule still fails in three Speed Tricks paragraphs of four sentences each: 'For a mitosis or meiosis question, look at the **chromosome number and chromosome behavior**', 'To tell a metaphase, ask whether the chromosomes are in pairs.' and 'For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I.' Note, not a finding: the lesson is 3,127 words and stays a split candidate, already logged in final-run-rulings.md; I found no padding, and the base teaching is all kept. Round-2 L27 Major on the $2^n$ shortcut is fixed: the shortcut now limits $n$ to heterozygous gene pairs on different chromosomes and works the $AaBB$ case.",
+      "source": "Content checklist L22a; LSG Formatting rules."
+    }
+  ],
+  "goodQuotesChecked": 4
+}

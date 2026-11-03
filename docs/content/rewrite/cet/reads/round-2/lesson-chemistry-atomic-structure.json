@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-chemistry-atomic-structure",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Ions form when electrons move. The nucleus does not change, so $Z$ and $N$ stay the same.",
+      "problem": "This general statement fails for polyatomic ions, which the same section defines as ions (\"An **ion** is an atom or a group of bonded atoms\") and works in Example #8. The ammonium ion forms when ammonia accepts a hydrogen ion (NH3 + H+ gives NH4+), and the hydronium ion forms the same way: a proton moves, no electron is transferred, and the group gains a nucleus, so its proton count rises from 10 to 11. A student taught that every ion forms by electron movement with an unchanged nucleus will answer a question on how the ammonium ion forms wrongly. The base lesson limited the claim with \"Ordinary ion formation changes electron count\"; the rewrite dropped that limit. Trap #5 repeats the unlimited claim in \"A positive ion has lost electrons, so it has fewer electrons than protons.\" (the count part is always true; the \"has lost electrons\" part fails for NH4+).",
+      "source": "IUPAC Gold Book, \"ammonium\" and \"hydron\" (cation formed by addition of a hydron to ammonia or water); base lesson 7032eec5 line 54; reader-rules \"Added after the Sol audit\" boundary and exception test; checklist B01"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "3. The average atomic mass is $63.6",
+      "problem": "The display equation in step 2 stops at the unfinished sum 44.1 + 19.5, and step 3 states the result 63.6 u without showing that addition as a display computation. No reasoning step is missing, so this is Minor, but the key final computation is not displayed as the Examples rule asks.",
+      "source": "Checklist L19 (Major if a step is skipped, otherwise Minor); LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

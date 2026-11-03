@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-chemistry-gas-laws",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The molar volume of $22.4$ L applies at $0\\,^\\circ\\mathrm C$ and $1$ atm only.",
+      "problem": "False absolute. From $V=nRT/P$, one mole fills $22.4$ L at every condition with the same $T/P$ ratio, for example $2$ atm and $273.15\\,^\\circ\\mathrm C$ ($546.3$ K). The same 'only' appears in Example #10 ('The value $22.4$ L is for $0\\,^\\circ\\mathrm C$ and $1$ atm only.') and Trap #2 says 'At other conditions it is different again.' A student taught this would reject a correct molar-volume answer at such a condition.",
+      "source": "Checklist B01; reader-rules 'Added after the Sol audit' (boundary test of 'only'); ideal gas law $V_m=RT/P$ with R = 0.082057 L atm/(mol K) (CODATA/NIST R = 8.314462618 J/(mol K)); compare final-run ruling on 'SSA works only as HL'."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Celsius starts at the freezing point of water, which is not a true zero of temperature.",
+      "problem": "Read in parallel with 'The kelvin scale starts at absolute zero, the lowest possible temperature', this says the lowest Celsius value is the freezing point of water. That is false: Celsius continues below $0\\,^\\circ\\mathrm C$, as the lesson's own Example #1 shows ($-23.15\\,^\\circ\\mathrm C$, 'A Celsius temperature can be'). The fact needed is that Celsius puts its zero, not its start, at the freezing point.",
+      "source": "Checklist B01; reader-rules 'Added after the Sol audit' (test each stated rule against a known exception); BIPM SI Brochure 9th ed., section 2.3.1: Celsius temperature t = T - 273.15 K, which takes negative values."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Gases turn into liquids when cooled enough, so the law holds only while the sample stays a gas.",
+      "problem": "The general premise has a known exception in exactly this constant-pressure setting: carbon dioxide at $1$ atm turns straight into a solid (dry ice, about $-78.5\\,^\\circ\\mathrm C$) and never becomes a liquid. The lesson's own Trap #4 says 'turn to liquid or solid', so the two statements disagree. The conclusion (the law holds only while the sample is a gas) is right; the stated reason is not true of every gas.",
+      "source": "Checklist B01; reader-rules 'Added after the Sol audit'; NIST Chemistry WebBook, carbon dioxide phase data (triple point about 5.1 atm, sublimation at 1 atm near 194.7 K)."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Pressure comes from these collisions.",
+      "problem": "The Kinetic Molecular Theory is now taught in Core Concept and inside each law, but no worked example applies it: every one of the ten examples is a calculation or a variable naming task. Explaining a gas relationship with the particle model (for example, why a sealed rigid can's pressure rises when heated, or which KMT assumption fails for a real gas) is a distinct case, and the student never sees one solved.",
+      "source": "Brief: 'Kinetic Molecular Theory explanation of gas relationships: absent; examples none', requirement upcat-L161 at curriculum class ('gas behavior, the Kinetic Molecular Theory, and the gas laws (Grade 10)'); checklist L18; writer-rules lead ruling 1."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "This needs a container that can change size, such as a balloon or a piston.",
+      "problem": "This paragraph of the Charles's law section has five sentences, over the one-to-three limit. Other paragraphs also run to four sentences: the kelvin paragraph beginning 'Kinetic energy is proportional to the kelvin temperature', the variables paragraph beginning 'An investigation changes one quantity', the STP paragraph, the Avogadro mechanism paragraph and the Trap #5 paragraph.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)."
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "\\qquad R=8.314\\,\\dfrac{\\mathrm{L\\cdot kPa}}{\\mathrm{mol\\cdot K}}",
+      "problem": "Two full gas-constant values with unit fractions sit side by side on one display line joined by a wide space, which will overflow a phone screen. The display line with both temperatures in Example #5 ('T_1=300.15\\text{ K}\\qquad T_2=87+273.15=360.15\\text{ K}') has the same width problem.",
+      "source": "Checklist L21; LSG Examples section (keep each display equation narrow enough for a phone screen)."
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "changing from state 1 to state 2",
+      "problem": "The numbers 1 and 2 in teaching prose are not wrapped in inline math, unlike every other number in the lesson.",
+      "source": "Checklist B08; LSG Math notation (every number in prose is wrapped in inline math)."
+    }
+  ],
+  "goodQuotesChecked": 7
+}
