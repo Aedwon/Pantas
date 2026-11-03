@@ -175,3 +175,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done clean after round 3: circles, cell-biology. Round 2 reads: chemical-bonding (2 Blockers, 3 Majors), electricity-and-magnetism (1 Blocker); final fixes running. Genetics fixed after round 2.
 - Done at minor after round 3: kinematics (1 Minor). Pulleys-and-levers fixed after round 1.
 - Done at minor after round 3: quadratic-equations (2 Minors). Botany written; electricity and chemical-bonding fixed after round 2.
+- Done at minor after round 3: short-stories-and-novels (2 Minors). Written: cellular-reproduction (3,052 words) and cellular-metabolism (3,121 words), both split candidates.

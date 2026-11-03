@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-text-types-short-stories-and-novels",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "B08", "severity": "Minor", "quote": "Example 5 works both cases.", "problem": "A number in teaching prose is written as a bare digit. The guide says every number in prose goes inside inline math, even an isolated one, so this reference should be set as the number in math form. The sentence is new text in this rewrite, so the Minor must be fixed.", "source": "Checklist B08; LSG Math notation (every number in prose is wrapped in inline math); checklist pass rule (new or edited content fixes every minor)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "An excerpt can prepare an event without guaranteeing its outcome.", "problem": "This Reading Strategies paragraph has four sentences: the bold lead sentence, this sentence, the door sentence and the sentence about what happens next. The limit is one to three short sentences. The base paragraph had two; the rewrite added the rest.", "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences)"}
+  ],
+  "goodQuotesChecked": 2
+}

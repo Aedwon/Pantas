@@ -87,7 +87,7 @@
     "lessonPath": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
     "lessonId": "lesson-text-types-short-stories-and-novels",
     "group": "reading",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/biology/botany.md",
@@ -99,7 +99,7 @@
     "lessonPath": "content/lessons/science/biology/cellular-metabolism.md",
     "lessonId": "lesson-biology-cellular-metabolism",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/biology/cellular-reproduction.md",

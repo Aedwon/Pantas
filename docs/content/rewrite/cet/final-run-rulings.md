@@ -12,3 +12,4 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | Lesson | Words | Note |
 |---|---|---|
 | lesson-biology-cellular-reproduction | 3,052 | Writer taught every brief item, including meiotic variation; the brief's reorder candidate was not applied. |
+| lesson-biology-cellular-metabolism | 3,121 | Writer taught every brief item (photosynthesis stages, respiration stages, fermentation, enzymes, biomolecules). |
