@@ -33,7 +33,7 @@ Here $\lambda$ (the Greek letter lambda) stands for wavelength. A larger $z$ mea
 
 In the 1920s, astronomers found that most galaxies are redshifted. Edwin Hubble showed in $1929$ that, on large scales, farther galaxies have larger redshifts. This is what an expanding universe predicts. The light of a distant galaxy travels for a long time, and the space it crosses stretches meanwhile, so its wavelengths stretch too.
 
-<!-- ILLUSTRATION: two spectra of the same hydrogen lines stacked, the top from a nearby galaxy with lines at $600$ nm and the bottom from a farther galaxy with the same lines shifted to $660$ nm, arrow labeled "stretched toward red" -->
+<!-- ILLUSTRATION: two spectra of the same spectral line stacked, the top as measured in a laboratory at $600$ nm and the bottom from a distant galaxy shifted to $660$ nm, arrow labeled "stretched toward red" -->
 
 This rule has limits. Galaxies that are close together are held by gravity, and gravity beats the expansion at that scale. The Andromeda galaxy is blueshifted because it is moving toward the Milky Way. The expansion is not seen inside a galaxy, inside the Solar System, or between neighbors that gravity binds.
 
@@ -86,7 +86,7 @@ A diagram shows all matter exploding outward from one point into an already exis
 
 ### #2: Computing Redshift
 
-In a laboratory, a spectral line of hydrogen has a wavelength of $600$ nm. In the light of a distant galaxy, the same line is at $660$ nm. What is the redshift $z$, and what does it suggest?
+In a laboratory, one spectral line of a gas has a wavelength of $600$ nm. In the light of a distant galaxy, the same line is at $660$ nm. What is the redshift $z$, and what does it suggest?
 
 **Solution:**
 1. Find the change in wavelength.
