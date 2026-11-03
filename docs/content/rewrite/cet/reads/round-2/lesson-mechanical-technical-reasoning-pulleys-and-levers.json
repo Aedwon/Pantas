@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "In an ideal system, one rope runs through everything, and its tension is the same everywhere.", "problem": "This states as a fact that every ideal pulley system uses one rope. That is false. Line 18 defines ideal as no friction and weightless parts, and a frictionless system can use several ropes, such as the compound setup where each movable pulley hangs on its own rope (two movable pulleys give ideal MA 4, while the segments on the lowest pulley count only 2). The lesson's own next sentence limits the rule to 'an ideal system with one rope', which shows not every ideal system has one rope. A student who believes ideal means one rope will apply segment counting to a multi-rope system and get the wrong effort.", "source": "Checklist B01; reader-rules, Added after the Sol audit (general statement tested against a known exception); standard ideal pulley physics"},
+    {"rule": "B01", "severity": "Blocker", "quote": "If it does not, the real effort is larger.", "problem": "Trap #6 says real systems always need more effort because of friction and the weight of parts, and that when a question does not say ideal or ignore friction, the real effort is larger. Both fail. The weight of a lever bar can lower the effort: on a crowbar-style first-class lever whose longer side is the effort side, the bar's own weight adds turning effect on the effort side. The rule also conflicts with the lesson's own Examples #6, #8 and #9, which say neither 'ideal' nor 'ignore friction' yet give the ideal effort as the answer. A student told this may reject the ideal value that such questions expect, with no way to compute any other value.", "source": "Checklist B01 and L27; reader-rules, Added after the Sol audit; lesson Examples #6, #8, #9"}
+  ],
+  "goodQuotesChecked": 2
+}
