@@ -311,7 +311,9 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     }
   }
 
-  Future<void> _activate(ReaderContext next, {int? epoch}) async {
+  /// Returns whether the lesson changed. False when a newer navigation took
+  /// over, or the reader expired.
+  Future<bool> _activate(ReaderContext next, {int? epoch}) async {
     final request = epoch ?? ++_navigationEpoch;
     final boundary = _boundary;
     if (!_boundaryAlive ||
@@ -319,34 +321,43 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         request != _navigationEpoch ||
         next.boundary?.token != boundary.token ||
         next.examId != boundary.examId) {
-      return;
+      return false;
     }
     final valid = await _checkBoundary(
       boundary,
       isCurrent: () => _boundaryAlive && request == _navigationEpoch,
     );
-    if (!mounted || request != _navigationEpoch) return;
-    if (!valid) return _expire();
+    if (!mounted || request != _navigationEpoch) return false;
+    if (!valid) {
+      _expire();
+      return false;
+    }
     setState(() {
       _shown = next;
       _selectionFailure = null;
       _lessonId = next.lesson.id;
       _ending = null;
     });
+    return true;
   }
 
-  Future<void> _showEnding(LessonEnding ending, int epoch) async {
+  /// Returns whether the ending is now shown.
+  Future<bool> _showEnding(LessonEnding ending, int epoch) async {
     final boundary = _boundary;
     if (boundary == null || !_boundaryAlive || epoch != _navigationEpoch) {
-      return;
+      return false;
     }
     final valid = await _checkBoundary(
       boundary,
       isCurrent: () => _boundaryAlive && epoch == _navigationEpoch,
     );
-    if (!mounted || epoch != _navigationEpoch) return;
-    if (!valid) return _expire();
+    if (!mounted || epoch != _navigationEpoch) return false;
+    if (!valid) {
+      _expire();
+      return false;
+    }
     setState(() => _ending = ending);
+    return true;
   }
 
   LessonId? _destinationId(ReaderContext reader) {
@@ -522,9 +533,9 @@ class _LessonPageState extends ConsumerState<LessonPage> {
                 },
                 onPullStart: () => _pullEpoch = ++_navigationEpoch,
                 onPull: readyNext != null
-                    ? () => unawaited(_activate(readyNext, epoch: _pullEpoch))
+                    ? () => _activate(readyNext, epoch: _pullEpoch)
                     : endingTarget != null
-                        ? () => unawaited(_showEnding(endingTarget, _pullEpoch))
+                        ? () => _showEnding(endingTarget, _pullEpoch)
                         : null,
               );
             },
@@ -679,7 +690,7 @@ class _ReaderBody extends ConsumerStatefulWidget {
   final LessonEnding? endingTarget;
   final bool nextFailed;
   final VoidCallback onRetryNext;
-  final VoidCallback? onPull;
+  final Future<bool> Function()? onPull;
   final VoidCallback onPullStart;
   final bool Function() isCurrent;
   final VoidCallback onExpired;
@@ -1215,7 +1226,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
       void advance() {
         if (widget.onPull == null) return;
         widget.onPullStart();
-        widget.onPull!();
+        unawaited(widget.onPull!());
       }
 
       // Somewhere to go from this lesson, by a pull, the right arrow or the
