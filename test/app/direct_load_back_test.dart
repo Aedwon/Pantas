@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
@@ -214,8 +215,42 @@ void main() {
       ];
     });
 
+    // Direct loads exist only on web. Setting the picker's onBack turns off
+    // predictive back, so native keeps the picker's own handling.
+    Future<bool> pickerCanPop(WidgetTester tester, {required bool web}) async {
+      debugWebPlatformOverride = web;
+      addTearDown(() => debugWebPlatformOverride = null);
+      await open(
+        tester,
+        routes: _settingsRoutes,
+        location: '/settings/exam/change',
+        stubs: ['/settings/exam'],
+        overrides: overrides,
+      );
+      final scope = tester.widget<PopScope<void>>(
+        find
+            .descendant(
+              of: find.byType(ExamPickerScreen),
+              matching: find.byType(PopScope<void>),
+            )
+            .first,
+      );
+      return scope.canPop;
+    }
+
+    testWidgets('on native the picker keeps its own back handling',
+        (tester) async {
+      expect(await pickerCanPop(tester, web: false), isTrue);
+    });
+
+    testWidgets('on web the picker leaves through the helper', (tester) async {
+      expect(await pickerCanPop(tester, web: true), isFalse);
+    });
+
     testWidgets('Back goes to the exam page when opened directly',
         (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
       final router = await open(
         tester,
         routes: _settingsRoutes,
@@ -229,6 +264,8 @@ void main() {
     });
 
     testWidgets('Back returns to the page it was pushed from', (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
       final router = await open(
         tester,
         routes: _settingsRoutes,

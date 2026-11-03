@@ -282,13 +282,17 @@ class ChangeExamPage extends ConsumerWidget {
           respectPopScope: false,
         );
       },
-      // The picker's own Back is blocked by its PopScope once this is set, so
-      // leaving must not ask the PopScope again.
-      onBack: () => leavePage(
-        context,
-        fallback: '/settings/exam',
-        respectPopScope: false,
-      ),
+      // Only web opens this page directly, with nothing to pop to. Setting
+      // onBack also blocks the picker's own pop, which turns off predictive
+      // back, so native keeps its default. With it set, leaving must not ask
+      // the picker's PopScope again.
+      onBack: context.webPlatform
+          ? () => leavePage(
+                context,
+                fallback: '/settings/exam',
+                respectPopScope: false,
+              )
+          : null,
     );
     if (!context.wideWeb) return picker;
     return WebRootModal(
