@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-The **periodic table** lists the elements in order of increasing **atomic number**. The atomic number is the number of protons in an atom of the element. Electron arrangements repeat as the atomic number grows, so similar chemical behavior shows up again and again. This lesson uses the electron ideas from the atomic structure lesson.
+The **periodic table** lists the elements in order of increasing **atomic number**. The atomic number is the number of protons in an atom of the element. Electron arrangements repeat as the atomic number grows, so similar chemical behavior shows up again and again. A **shell** is a main energy level of electrons, numbered $1$, $2$, $3$ and so on outward from the nucleus. A shell is split into **subshells** named $s$, $p$, $d$ and $f$. A subshell is made of **orbitals**, and each orbital holds at most two electrons. The lesson on quantum numbers and electron configuration teaches these ideas in full.
 
 ### Groups and Periods
 
@@ -69,7 +69,7 @@ The trends below are most reliable for main-group elements. Each one has excepti
 
 **First ionization energy** is the energy needed to remove one electron from a gaseous atom. Removing an electron from a tightly held atom costs more energy. So first ionization energy generally rises across a period and falls down a group. Noble gases have the highest value in their period.
 
-Two dips interrupt the rise across a period.
+Two dips interrupt the rise across a period. Both are reliable in periods $2$ to $4$. In periods $5$ and $6$ they can fail, so check the data there.
 
 - Group $13$ is lower than group $2$ (boron below beryllium, aluminum below magnesium). The outer electron of group $13$ is in a $p$ subshell. That subshell is a little higher in energy and farther out than the $s$ subshell, and the $s$ electrons shield it.
 - Group $16$ is lower than group $15$ (oxygen below nitrogen, sulfur below phosphorus). In group $15$, each of the three $p$ orbitals holds one electron. In group $16$, one orbital holds a pair, and the two electrons in it repel each other, so one leaves more easily.
@@ -78,7 +78,7 @@ Two dips interrupt the rise across a period.
 
 **Electron affinity** is the energy change when a gaseous atom gains one electron. In the sign convention used here, a more negative value means more energy is released. Energy is measured in kilojoules per mole ($\text{kJ/mol}$), which means kilojoules for a fixed large number of atoms.
 
-Electron affinity generally becomes more negative across a period, but the exceptions are large. Groups $2$, $15$ and $18$ do not follow the pattern. The change down a group is not a simple line. Some books write the opposite sign, with a positive value meaning energy released, so check the sign convention first.
+Electron affinity generally becomes more negative across a period, but the exceptions are large. In periods $2$ and $3$, groups $2$, $15$ and $18$ do not follow the pattern, and later periods have exceptions too. The change down a group is not a simple line. Some books write the opposite sign, with a positive value meaning energy released, so check the sign convention first.
 
 ## Examples
 
@@ -173,7 +173,7 @@ Fluorine is above chlorine in group $17$. Does fluorine have the more negative e
 
 For covalent radius in main-group elements, larger atoms are generally down and to the left.
 
-For first ionization energy, think up and to the right, then check for the dips at groups $13$ and $16$.
+For first ionization energy, think up and to the right, then check for the dips at groups $13$ and $16$ in periods $2$ to $4$.
 
 For electronegativity, think up and to the right. Do not apply it to noble gases that have no value.
 
@@ -193,7 +193,7 @@ Groups $3$ to $12$ do not follow this rule. Helium has $2$, not $8$.
 
 > Radius, ionization energy and electron affinity all have exceptions.
 
-An adjacent pair can reverse the trend, as with nitrogen and oxygen. Use a trend to predict when no data is given.
+An adjacent pair can reverse the trend, as with nitrogen and oxygen in period $2$. Use a trend to predict when no data is given.
 
 ### #3: Calling Electron Affinity a Bonding Pull
 

@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-chemistry-matter",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "For a phase change, find the starting and ending states, then name the change.", "problem": "Round-1 L22a is still partly open. This Speed Tricks paragraph has five sentences. Other paragraphs have four: the one starting \"During a phase change, the added energy loosens the attractions between particles.\", the one starting \"**Temperature** measures the average energy of motion\", and the one starting \"Signs of a chemical change include\". Paragraphs should be one to three short sentences.", "source": "Checklist L22a; LSG Formatting rules"},
+    {"rule": "L13", "severity": "Minor", "quote": "Such a mixture is called a colloid.", "problem": "Colloid is defined here for the first time (a mixture that looks the same but holds tiny droplets) but is not in bold, while every other first-defined term in the lesson, such as solution and diffusion, is bold.", "source": "Checklist L13; LSG Emphasis and de-AI rules (bold for a key term the first time it is defined)"}
+  ],
+  "goodQuotesChecked": 2
+}

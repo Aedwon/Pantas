@@ -165,7 +165,7 @@
     "lessonPath": "content/lessons/science/chemistry/matter.md",
     "lessonId": "lesson-chemistry-matter",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/mixtures-and-separation.md",
@@ -189,7 +189,7 @@
     "lessonPath": "content/lessons/science/chemistry/periodic-table.md",
     "lessonId": "lesson-chemistry-periodic-table",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/solutions.md",
