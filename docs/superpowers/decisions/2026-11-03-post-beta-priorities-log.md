@@ -57,3 +57,21 @@ Aedwon's exact comment: "the last content audit i think included exams other tha
 Finding: it was the exam content coverage audit, coverage-r1, approved October 4 for nine exams. Levels 1 to 3 covered all nine (Level 3 approved October 9). Level 4 was built for all 158 lessons on October 10 and 11, and Aedwon narrowed it to CSE on October 19, before any lesson read ran. The outline is the SSOT tab Pantas Audited Corpus r1.
 
 Mistake corrected: the brief's "98 sets" came from older tags on question files and assumed that only sets tagged CSE were rewritten. By the accepted audit tags and the files actually changed, the four CETs use 132 lessons, 63 rewritten and 69 not. UPCAT alone is 65, so the bundle adds 4 lessons, not zero. The recommendation stays.
+
+## November 3, 2026: how to continue Levels 4 and 5 for the other exams
+
+Aedwon's exact question: "would you recommend I continue the rest of the exams for Level 4 and Level 5? i'd like the same process we did for CSE where, lessons were written/rewritten first and then the questions adjusted to the lessons. or would  you propose a better way?"
+
+Options offered, with costs:
+
+1. Repeat the CSE process: audit, triage, rewrite, then questions. Familiar, but about 132 lessons read and triaged before any fix; 233 of 866 CSE findings were judgment calls, and the rewrite got its own read anyway.
+2. Combine audit and rewrite (recommended): rewrite from the standards and Level 3 gaps, a different model reads, loop until clean, then questions, an Astra audit and Aedwon's review. Risk: writers may miss what a separate audit would catch; a pilot tests it.
+3. Ship the CET lessons as they are: least cost, but 69 lessons never checked against the standards.
+
+Aedwon's question on involvement: "is it possible to keep me out of this loop only until the end?"
+
+Answer given: yes, apart from approving the spec at the start. Tradeoff stated: a bad ruling could spread before he sees it, which costs rework at the end, not a bad release.
+
+Aedwon's answer: "okay, write the spec for option 2. codex for 6.1 Sol will reset in ~19h so i think we could use that eventually. if not, sonnet 5.5 would be good i think? let me know what's best here"
+
+Result: spec `docs/superpowers/specs/2026-11-03-cet-content-design.md` written, awaiting approval of Part A and a complexity level. Recommendation on models: Sonnet 5.5 writes and Codex GPT 6.1 Sol reads, with 5 of the 15 pilot lessons swapped to compare first reads. A tie goes to Sonnet. Checked at writing: Codex accounts at 100%, 95% and 96% weekly, resetting November 4 at 14:45, 18:20 and 14:51.
