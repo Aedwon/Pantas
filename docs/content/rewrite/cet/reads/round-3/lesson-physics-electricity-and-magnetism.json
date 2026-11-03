@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-physics-electricity-and-magnetism",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L18", "severity": "Major", "quote": "A **fuse** or circuit breaker opens the circuit when the current is too large.", "problem": "Electrical safety is a case named at official curriculum class in dcat-L083 (discuss electrical safety/energy efficiency) and ustet-L124 (electricity safety/efficiency). Efficiency is worked in Examples #10 and #15, but safety has three Core Concept sentences and no worked example. The audit recorded its examples as none, not as not-required. The student never applies the idea, for example why a short circuit or too many appliances on one line makes a fuse open. Core Concept also never says why a large current is a danger (wires heat up and can start a fire), so the example would have no reason to work from.", "source": "content-checklist.md L18; writer-rules.md lead ruling 1; brief: Electrical safety/energy efficiency, absent, examples none, refs dcat-L083 and ustet-L124 at official curriculum class"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The motor changes electrical energy to motion.", "problem": "Still open in part from round 2. The motor paragraph that ends with this sentence has four sentences, and the generator paragraph ending \"A generator changes motion to electrical energy.\" also has four. The limit is three.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}

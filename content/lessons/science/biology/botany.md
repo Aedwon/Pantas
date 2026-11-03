@@ -27,7 +27,11 @@ A **tissue** is a group of similar cells that work together. A plant body has th
 
 Phloem moves sugar from sources to sinks. Because sources and sinks sit in different places, different phloem tubes can carry sugar upward or downward.
 
-Xylem and phloem are made of different cells. The water-carrying xylem cells, called **tracheids** and **vessel elements**, are dead when mature. They are hollow tubes. Xylem also has living cells, called parenchyma cells. The sugar-carrying cells of phloem, called **sieve elements**, are alive when mature. Each works beside a living **companion cell**.
+Xylem and phloem are made of different cells. The water-carrying xylem cells are dead when mature. They are hollow tubes.
+
+All vascular plants have **tracheids**. Flowering plants also have wider tubes called **vessel elements**. Xylem also has living cells, called parenchyma cells.
+
+The sugar-carrying cells of phloem, called **sieve elements**, are alive when mature. In flowering plants, each sieve element works beside a living **companion cell**. Conifers and ferns have a different kind of sieve element and different helper cells, not companion cells.
 
 **Ground tissue** is everything else. It fills the space between the dermal tissue and the vascular tissue. Depending on the organ, it does photosynthesis (making sugar from light, water and carbon dioxide), stores food, or gives support.
 
@@ -72,7 +76,7 @@ After pollination, the pollen grain grows a thin tube, the **pollen tube**. The 
 
 After fertilization, the ovule becomes the **seed**. The ovary usually becomes the **fruit**. Some fruits, such as apples, also use other flower parts.
 
-So the order is: pollination, pollen tube growth, double fertilization, then seed and fruit. Fertilization needs successful pollination first, but pollination does not guarantee fertilization. For example, pollen of a different species usually fails to do it.
+So the order is: pollination, pollen tube growth, double fertilization, then seed and fruit. Fertilization needs successful pollination first, but pollination does not guarantee fertilization. For example, the pollen tube may stop growing before it reaches an ovule.
 
 ## Examples
 
@@ -169,7 +173,7 @@ For reproduction, keep the two names apart. Pollination is pollen transfer. Fert
 
 > The main water-carrying cells of xylem are dead when mature, but xylem tissue also holds living cells.
 
-Tracheids and vessel elements are the water-carrying pathways. Saying "all xylem cells are dead" is too broad.
+Tracheids and vessel elements are the water-carrying pathways (vessel elements are found in flowering plants). Saying "all xylem cells are dead" is too broad.
 
 ### #2: Assuming Phloem Only Moves Sugar Downward
 
