@@ -6,6 +6,8 @@
 
 **Spec:** `docs/superpowers/specs/2026-11-03-cet-content-design.md` (Part A approved November 3, balanced). Decisions: `docs/superpowers/decisions/2026-11-03-post-beta-priorities-log.md`.
 
+**State, November 3:** pilot done and verdict recorded. Sonnet writes and Opus reads; Sol audited 3 lessons. The final run follows `docs/content/rewrite/cet/goal-prompt.md` on `content/cet-rewrite-r1`, and the spec's "Revision after the pilot" wins over this plan.
+
 **Scope:** spec phases P0 and P1, lessons only. Figures, questions, tags and the final run get a plan revision after the verdict. Aedwon runs the final run as a `/goal` on another account.
 
 ## Global constraints
@@ -15,14 +17,14 @@
 - Standards: `docs/content/lesson-style-guide.md`, `docs/content/content-checklist.md`, `docs/content/source-policy.md` and `AGENTS.md` voice, read from `origin/main`.
 - A model never reads its own writing. If the other vendor is unavailable, the read waits.
 - Beta and Nov 3 work has priority on Codex. Codex runs use `codex-pick`, never bare `codex`.
-- Lesson ceiling: 1,700 words. `estimatedMinutes` stays 8 to 15. Frontmatter `_id` never changes.
+- No word ceiling (revised November 3; the earlier 1,700 limit was an error). Over about 3,000 words a lesson is a split candidate. `estimatedMinutes` stays 8 to 15. Frontmatter `_id` never changes.
 - Evidence classes from the audit: teach official and curriculum items; weak-only items only where they add little length; unknown items are neither taught nor claimed. No sentence says a specific exam tests something without a source.
 
 ## Lead rulings
 
 1. **L18 for CETs.** "Exam-relevant" means a case named in the accepted requirements for a tagged CET at official or curriculum class, or a standard application of a skill in the lesson's goal. Readers do not raise L18 for cases they only imagine an exam might use. This is the substitute spec B6 asks for.
 2. **Tagged exams.** Briefs list the audit's tags. A rewrite never removes a case that another tagged exam needs.
-3. **Splits.** The pilot makes no splits. If a lesson cannot fit the ceiling, it is reported as a split candidate and not forced.
+3. **Splits.** No splits in the pilot or the cloud run. Report split candidates.
 4. **Stoichiometry.** The audit's split candidate is recorded in its brief but not applied.
 
 ## Pilot lessons
