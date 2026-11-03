@@ -13,23 +13,29 @@ isActive: true
 
 **Genetics** is the study of heredity, which is how traits pass from parents to offspring. A **gene** is a section of DNA with the instructions to make a product, usually a protein. Different versions of the same gene are called **alleles**.
 
-An organism's **genotype** is the alleles it carries. Its **phenotype** is the trait we can observe. Genotype and the environment together shape the phenotype. Most traits depend on many genes, not just one.
+DNA is packed into **chromosomes**. A chromosome is one long piece of DNA that carries many genes. Human body cells have $46$ chromosomes, in $23$ pairs. One chromosome of each pair comes from each parent.
 
-Body cells carry two alleles of a gene, one from each parent. A person with two matching alleles is **homozygous** (for example $TT$ or $tt$). A person with two different alleles is **heterozygous** (for example $Tt$).
+An organism's **genotype** is the alleles it carries. Its **phenotype** is the trait we can observe. Genotype and the environment together shape the phenotype.
 
-In complete dominance, a **dominant** allele shows its trait even with one copy. A **recessive** allele shows its trait only when there is no dominant allele. Capital and small letters are only a classroom notation.
+Most traits depend on many genes, not just one. For a gene on a non-sex chromosome, a body cell carries two alleles, one from each parent. A person with two matching alleles is **homozygous** (for example $TT$ or $tt$). A person with two different alleles is **heterozygous** (for example $Tt$).
+
+In complete dominance, a **dominant** allele shows its trait even with one copy. A **recessive** allele shows its trait only when there is no dominant allele. By custom, a capital letter stands for the dominant allele and the small letter for the recessive allele. So $T$ is dominant over $t$, and $Tt$ shows the dominant trait.
 
 ### Mendel's Laws and Punnett Squares
 
 The **Law of Segregation** says the two alleles of a gene separate when **gametes** (egg and sperm) form. Each gamete gets one allele.
 
-The **Law of Independent Assortment** says genes for different traits are passed on separately. It holds for genes on different chromosomes. Genes close together on the same chromosome are **linked**. They tend to be inherited together, so the simple ratios do not hold for them.
+The **Law of Independent Assortment** says genes for different traits are passed on separately. It holds for genes on different chromosomes. Genes close together on the same chromosome are **linked**.
 
-A **Punnett square** shows the possible gametes of each parent along its sides. Each cell inside shows one offspring genotype. The probability of a trait is the number of cells with it divided by the total number of cells. It gives chances, not a promise for a small family.
+Linked genes tend to be inherited together, so the simple ratios do not hold for them.
+
+A **Punnett square** shows the possible gametes of each parent along its sides. Each cell inside shows one offspring genotype.
+
+The probability of a trait is the number of cells with it divided by the total number of cells. It gives chances, not a promise for a small family.
 
 <!-- ILLUSTRATION: 2 by 2 Punnett square for Tt x Tt, top row labeled T and t, left column labeled T and t, cells TT, Tt, Tt, tt -->
 
-For two independent genes, multiply their separate probabilities. Two parents who are $TtRr$ each make four kinds of gametes: $TR$, $Tr$, $tR$, and $tr$. With complete dominance, their offspring show a $9:3:3:1$ phenotype ratio.
+For two independent genes, multiply their separate probabilities. Two parents who are $TtRr$ each make four kinds of gametes: $TR$, $Tr$, $tR$, and $tr$. With complete dominance for both genes, their offspring show a $9:3:3:1$ phenotype ratio.
 
 ### Beyond Simple Dominance
 
@@ -37,11 +43,15 @@ In **incomplete dominance**, the heterozygote looks like a blend of the two homo
 
 In **codominance**, a heterozygote shows both traits fully and separately. In human blood type, the alleles $I^A$ and $I^B$ are codominant. A person with $I^AI^B$ has type AB.
 
-A gene can have more than two alleles in a population. Blood type has three: $I^A$, $I^B$, and $i$. Each person carries only two. Both $I^A$ and $I^B$ are dominant over $i$, so type O is $ii$.
+A gene can have more than two alleles in a population. Blood type has three: $I^A$, $I^B$, and $i$.
+
+Each person carries two of them. Both $I^A$ and $I^B$ are dominant over $i$, so type O is $ii$.
 
 ### Sex-Linked Inheritance
 
-Females have two X chromosomes ($XX$). Males have one X and one Y ($XY$). A **sex-linked** gene lies on a sex chromosome. Most such traits are **X-linked**, meaning the gene is on the X.
+One pair of chromosomes decides sex. Females have two X chromosomes ($XX$). Males have one X and one Y ($XY$).
+
+A **sex-linked** gene lies on a sex chromosome. Most such traits are **X-linked**, meaning the gene is on the X. A female with one recessive allele and one dominant allele is a **carrier**: she does not show the trait but can pass the allele on.
 
 A male has only one X, so one recessive allele on it shows. Red-green color blindness and hemophilia are X-linked recessive. A father passes his X to daughters and his Y to sons.
 
@@ -49,21 +59,37 @@ A male has only one X, so one recessive allele on it shows. Red-green color blin
 
 DNA has four bases: adenine ($A$), thymine ($T$), cytosine ($C$), and guanine ($G$). $A$ pairs with $T$, and $C$ pairs with $G$.
 
-RNA uses uracil ($U$) in place of $T$. In RNA, $A$ pairs with $U$.
+DNA is double-stranded: two strands pair up base to base. RNA is single-stranded and uses uracil ($U$) in place of $T$. In RNA, $A$ pairs with $U$.
 
-In **transcription**, the cell makes an mRNA copy of a gene from a DNA template strand. Each template base is matched to its pair. In **translation**, a ribosome reads the mRNA in groups of three bases called **codons**. Each codon stands for one amino acid or a stop signal. The amino acids join to form a protein.
+In **transcription**, the cell makes a copy of a gene in the form of **mRNA** (messenger RNA). The copy is built along one DNA strand of the gene, called the **template strand**. Each template base is matched to its pair.
+
+In a human cell, the DNA stays in the nucleus, so transcription happens there. The finished mRNA leaves the nucleus and goes to a **ribosome** in the cytoplasm. A ribosome is a small structure that builds proteins.
+
+In **translation**, the ribosome reads the mRNA in groups of three bases called **codons**. Each codon stands for one amino acid or a stop signal. The amino acids join to form a protein.
 
 ### Mutations
 
 A **mutation** is a change in the DNA sequence. A substitution swaps one base. An insertion or deletion adds or removes bases.
 
-A substitution may change one amino acid, change nothing (because several codons stand for the same amino acid), or make a stop codon too early. An insertion or deletion that is not a multiple of $3$ shifts every later codon. That is a **frameshift**.
+A substitution may change one amino acid, change nothing (because several codons stand for the same amino acid), or make a stop codon too early.
+
+Inside a gene's coding sequence, an insertion or deletion of a number of bases that is not a multiple of $3$ shifts every later codon. That is a **frameshift**.
 
 ### Pedigrees
 
-A **pedigree** is a family chart for a trait. Squares are males and circles are females. A shaded shape is an affected person. A line between a square and a circle joins parents. A line down from it leads to their children.
+A **pedigree** is a family chart for a trait. Squares are males and circles are females. A shaded shape is an affected person.
+
+A line between a square and a circle joins parents. A line down from it leads to their children. Rows are generations, labeled I, II, III from the oldest.
 
 A pedigree can suggest whether a trait is autosomal dominant, autosomal recessive, or X-linked. Autosomal means the gene is not on a sex chromosome.
+
+These clues work when the trait is rare, comes from one gene, and always shows when the genotype allows it.
+
+- Autosomal dominant: every affected child has an affected parent, and the trait appears in each generation.
+- Autosomal recessive: unaffected parents can have an affected child, and boys and girls are affected alike.
+- X-linked recessive: more males are affected. An affected son can have unaffected parents, and an affected daughter needs an affected father.
+
+A pedigree gives a best fit, not proof. A small family can fit more than one pattern.
 
 <!-- ILLUSTRATION: pedigree with two generations: Generation I, unaffected male square and unaffected female circle joined by a line; Generation II, one shaded circle labeled "affected daughter" and one unshaded square labeled "unaffected son" -->
 
@@ -71,7 +97,7 @@ A pedigree can suggest whether a trait is autosomal dominant, autosomal recessiv
 
 ### #1: Basic Punnett Square Cross
 
-Two heterozygous pea plants are crossed: $Tt \times Tt$. Allele $T$ gives tall plants and $t$ gives short plants, with complete dominance. What is the probability that an offspring is tall?
+Two heterozygous pea plants are crossed: $Tt \times Tt$. Allele $T$ is dominant and gives tall plants. Allele $t$ is recessive and gives short plants. What is the probability that an offspring is tall?
 
 **Solution:**
 
@@ -83,7 +109,7 @@ $$P(\text{tall})=\dfrac{3}{4}$$
 
 ### #2: Two Independent Genes
 
-A plant is $TtRr$, and so is its mate. The genes for height ($T$, $t$) and seed shape ($R$, $r$) are on different chromosomes. Allele $R$ is dominant for round seeds. What is the probability that an offspring is tall and round?
+A plant is $TtRr$, and so is its mate. The genes for height ($T$, $t$) and seed shape ($R$, $r$) are on different chromosomes. Allele $T$ is dominant and gives tall plants. Allele $R$ is dominant and gives round seeds. What is the probability that an offspring is tall and round?
 
 **Solution:**
 
@@ -168,9 +194,33 @@ Two unaffected parents have an affected daughter. Assume the trait is rare, caus
 
 The pattern is autosomal recessive.
 
+### #9: Dominant Pedigree
+
+A rare trait runs in one family, and all affected people have the genotype that allows it to show. An affected mother and an unaffected father have an affected daughter and an affected son. Assume one gene and no new mutations. Which pattern fits best: autosomal dominant, autosomal recessive, or X-linked recessive?
+
+**Solution:**
+
+1. An affected daughter under X-linked recessive needs an affected father. The father is unaffected, so X-linked recessive is out.
+2. Autosomal recessive needs the unaffected father to be a carrier. For a rare trait that is unlikely.
+3. Autosomal dominant fits: the affected mother passes a dominant allele to her children.
+
+The pattern is autosomal dominant.
+
+### #10: X-Linked Pedigree
+
+A rare trait affects two sons of unaffected parents. Their unaffected sister marries an unaffected man from a family with no history of the trait. Their son is affected. Assume one gene and a rare trait. Which pattern fits best?
+
+**Solution:**
+
+1. The trait skips the parents, so it is recessive.
+2. If it were autosomal recessive, the sister's husband would also need to be a carrier. For a rare trait from a family with no history, that is unlikely.
+3. If it is X-linked recessive, the sister is a carrier ($X^CX^c$). Her son gets her $X^c$ half of the time, so an affected son is likely.
+
+The pattern is X-linked recessive.
+
 ## Speed Tricks & Shortcuts
 
-Two heterozygous parents give $3:1$ under complete dominance, and $1:2:1$ under incomplete dominance or codominance.
+For one gene, two heterozygous parents ($Tt \times Tt$) always give a $1:2:1$ genotype ratio. The phenotype ratio is $3:1$ under complete dominance, and $1:2:1$ under incomplete dominance or codominance.
 
 For two independent genes, solve each cross alone and multiply. This is faster than a $16$-cell square.
 
@@ -182,7 +232,7 @@ For X-linked crosses, sons take their X from the mother. Daughters take one X fr
 
 > Most traits depend on many genes plus the environment.
 
-Single-gene crosses are simple models.
+Single-gene crosses are simple models. A question may ask for the chance of a trait that depends on many genes and the environment. A single-gene Punnett square then gives a wrong answer, because it ignores the other genes.
 
 ### #2: Reading a Punnett Ratio as a Promise
 
@@ -206,4 +256,4 @@ When DNA is copied into mRNA, $A$ becomes $U$. A choice that shows $T$ in mRNA i
 
 > A father cannot pass an X-linked allele to his son.
 
-A son gets his father's Y chromosome. His X comes from his mother.
+A son gets his father's Y chromosome, so he cannot get the father's X. His X comes from his mother. A choice that makes a father the source of a son's X-linked allele is wrong. A father's X-linked allele can reach a grandson only through his daughter.
