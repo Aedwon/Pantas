@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-physics-light-and-optics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Light in glass at an angle below $\\theta_c$ mostly leaves, with only a weak reflection.",
+      "problem": "General statement that fails at its boundary. Reflection grows sharply as the angle of incidence nears the critical angle and reaches 100% at it. By the Fresnel equations for n = 1.50 to air (unpolarized), about 38% reflects at 41 degrees and about 54% at 41.5 degrees, both below 41.8 degrees, so the light does not mostly leave and the reflection is not weak. A student is taught that total reflection switches on suddenly from a weak reflection.",
+      "source": "Fresnel equations (OpenStax University Physics Vol. 3, 1.4 and 1.5); The Physics Classroom, Total Internal Reflection: the reflected ray brightens as the angle approaches the critical angle; reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A **refracting telescope** also has two convex lenses.",
+      "problem": "Stated as a rule for every refracting telescope, but a known exception breaks it: the Galilean telescope (Galileo's own, and opera glasses) is a refracting telescope with a convex objective and a concave eyepiece. The parallel sentence \"A **microscope** has two convex lenses\" has the same gap: a simple microscope is one convex lens (the lesson's own magnifying glass), and only the compound microscope has two. Neither sentence names the type it describes.",
+      "source": "Encyclopaedia Britannica, telescope (refracting telescopes: Galilean and Keplerian) and microscope (simple and compound); reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Since $v=f\\lambda$, the wavelength in a material is",
+      "problem": "The symbols f and lambda, and the meanings of frequency and wavelength, are used here without being explained, and the lesson never names the prerequisite that teaches them (waves-and-sound teaches v = f lambda). The later line \"they differ in frequency $f$ and wavelength $\\lambda$\" only names them. Between the two, the lesson reuses f as focal length in the mirror and lens sections, then uses f for frequency again in Example #4, with no note that the symbol has two meanings. Units nm and Hz are also used without meaning. The brief lists wave speed, frequency and wavelength as necessary prior knowledge.",
+      "source": "Checklist L25; LSG Teaching completeness (explanation-reuse rule needs an identified prerequisite); brief, Necessary prior knowledge"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "This rule depends on the lens being denser than its surroundings.",
+      "problem": "The lesson never explains that \"denser\" here means optically denser (larger n). Read with its everyday meaning (mass density), the rule is false: an oil lens (n about 1.47, less dense than water) in water still converges when convex, because only n decides. This plants the common optical-density versus mass-density misconception, although the next sentence and Trap #7 correctly use n.",
+      "source": "Checklist L25; OpenStax College Physics 2e, 25.3 and 25.6 (refraction and lens behavior depend on index of refraction)"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "A ray that goes through $F$ comes out parallel to the axis.",
+      "problem": "The lesson says a thin lens has a focal point on each side, but the ray rules for a converging lens do not say which F each ray uses. The parallel ray passes through the focal point on the far side; this ray must pass through (or, for an object inside f, be aimed as if from) the focal point on the object's side. A student drawing a lens ray diagram with the far-side F gets the wrong image, so the ray-diagram method for lenses is not taught well enough to use.",
+      "source": "Checklist L26; OpenStax College Physics 2e, 25.6 (rules for ray tracing for thin lenses)"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "So $d_i=-20$ cm and $m=-\\dfrac{-20}{4}=+5$.",
+      "problem": "Key computations of Example #11 (the magnification in step 2, and d_i and m in step 4) are written inline, not as display equations as in the other examples. No step is skipped.",
+      "source": "Checklist L19; LSG Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Reflection** is light bouncing off a surface.",
+      "problem": "This paragraph has four sentences, above the one-to-three limit. The paragraphs starting \"The **magnification** $m$ tells the size\", \"Neighboring kinds overlap a little\", and in Trap #5 \"Beyond $f$, the image is real and inverted.\" also have four sentences.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 7
+}
