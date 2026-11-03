@@ -36,7 +36,9 @@ Odd roots, such as cube roots, accept negative numbers. A square root of $0$ is 
 
 Domains and ranges are often written as **intervals**. A square bracket includes the end number and a round bracket leaves it out. So $[2,\infty)$ means all $x\ge2$, and $(-\infty,3)$ means all $x<3$. The symbol $\infty$ always gets a round bracket. The symbol $\cup$ means "together with", so $[-1,2)\cup(2,\infty)$ is two pieces joined.
 
-To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line, the smallest and largest outputs come from the two ends of the domain. For a curve, also check the turning point if it lies inside the domain.
+To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line that is not horizontal, the smallest and largest outputs come from the two ends of the domain. If an end is left out of the domain, as in $1<x\le4$, the output at that end is left out too, so use a round bracket there. If the domain has no end on one side, the range has no end on that side.
+
+For a parabola, also check the **turning point**. This is the point where the curve stops falling and starts rising, or the reverse. For $y=a(x-h)^2+k$ it is at $x=h$, with output $k$. For $y=ax^2+bx+c$ it is at $x=-\dfrac{b}{2a}$. Use it only if it lies inside the domain.
 
 ### Function Evaluation
 
@@ -140,7 +142,7 @@ $$f(1)=3\qquad f(4)=9$$
 
 So the range is $[3,9]$.
 
-2. The curve $h$ has its turning point at $x=2$, which is inside $[0,5]$. There $h(2)=1$, the smallest output.
+2. The curve $h$ is a parabola written as $(x-2)^2+1$, so its turning point is at $x=2$. That is inside $[0,5]$. There $h(2)=1$, the smallest output.
 3. Check the two ends of the domain.
 
 $$h(0)=4+1=5\qquad h(5)=9+1=10$$
@@ -311,7 +313,7 @@ For a domain question, scan first for denominators, even roots, and logarithms. 
 
 For a composition at a number, such as $(f\circ g)(2)$, find $g(2)$ first and feed that value into $f$. Find the formula for the composition only when you need the whole function or its domain.
 
-To find a range on an interval, test the two end values. If the function is a curve, also test its turning point when it lies inside the interval. The ends alone are enough only when the function steadily rises or steadily falls on the interval.
+To find a range on an interval, test the two end values. Round-bracket any end the domain leaves out. If the function is a parabola, also test its turning point when it lies inside the interval. The ends alone are enough only when the function steadily rises or steadily falls on the interval.
 
 ## Traps to Watch For
 

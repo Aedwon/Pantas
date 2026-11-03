@@ -309,13 +309,13 @@
     "lessonPath": "content/lessons/mathematics/algebra/functions-and-relations.md",
     "lessonId": "lesson-algebra-functions-and-relations",
     "group": "mathematics",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
     "lessonId": "lesson-algebra-radicals-and-rationalization",
     "group": "mathematics",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/mathematics/algebra/sets-and-set-notation.md",

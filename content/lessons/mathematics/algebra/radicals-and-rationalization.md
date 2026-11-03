@@ -65,10 +65,13 @@ A **radical equation** has the unknown inside a radical. To solve it:
 
 1. Get one radical alone on one side.
 2. Raise both sides to the power equal to the index.
-3. Solve the new equation.
-4. Substitute each answer into the original equation.
+3. If a radical is still left, get it alone and raise both sides to the power again.
+4. Solve the new equation.
+5. Substitute each answer into the original equation.
 
-Step 4 matters for square roots. Squaring turns $a=b$ into $a^2=b^2$, and that is also true when $a=-b$. So squaring can add a false answer, called an **extraneous root**. Cubing does not add false real answers, because $a^3=b^3$ gives $a=b$ for real numbers.
+Two tools help in step 4. Squaring a binomial gives $(a-b)^2=a^2-2ab+b^2$. If a product is $0$, one of its factors is $0$, so $x(x-5)=0$ gives $x=0$ or $x=5$.
+
+Step $5$ matters for square roots. Squaring turns $a=b$ into $a^2=b^2$, and that is also true when $a=-b$. So squaring can add a false answer, called an **extraneous root**. Cubing does not add false real answers, because $a^3=b^3$ gives $a=b$ for real numbers.
 
 ### Nested Radicals
 
@@ -78,7 +81,7 @@ A **nested radical** goes on without end, such as $\sqrt{20+\sqrt{20+\cdots}}$. 
 
 ### #1: Radicals and Rational Exponents
 
-Evaluate $16^{3/4}$, and write $\sqrt[3]{x^2}$ as a power of $x$ for $x\ge0$.
+Evaluate $16^{3/4}$ (find its final value), and write $\sqrt[3]{x^2}$ as a power of $x$ for $x\ge0$.
 
 **Solution:**
 
@@ -228,7 +231,29 @@ So $x=0$ or $x=5$.
 
 The solution is $x=5$.
 
-### #10: A Cube-Root Equation
+### #10: A Radical Equation with Two Radicals
+
+Solve $\sqrt{3m+4}-\sqrt{m+2}=2$.
+
+**Solution:**
+
+1. Get one radical alone, then square both sides.
+
+$$\sqrt{3m+4}=2+\sqrt{m+2} \quad\Rightarrow\quad 3m+4=4+4\sqrt{m+2}+m+2$$
+
+2. A radical is still left. Get it alone and square again.
+
+$$2m-2=4\sqrt{m+2} \quad\Rightarrow\quad m-1=2\sqrt{m+2} \quad\Rightarrow\quad m^2-2m+1=4m+8$$
+
+3. Move everything to one side and factor.
+
+$$m^2-6m-7=0 \quad\Rightarrow\quad (m-7)(m+1)=0$$
+
+4. Check. For $m=7$: $\sqrt{25}-\sqrt9=2$, which is true. For $m=-1$: $\sqrt1-\sqrt1=0$, not $2$. So $m=-1$ is extraneous.
+
+The solution is $m=7$.
+
+### #11: A Cube-Root Equation
 
 Solve $\sqrt[3]{2x-1}=3$.
 
@@ -244,7 +269,7 @@ $$2x=28 \quad\Rightarrow\quad x=14$$
 
 3. Check: $\sqrt[3]{27}=3$, which is true.
 
-### #11: A Nested Radical
+### #12: A Nested Radical
 
 Assume $L=\sqrt{20+\sqrt{20+\cdots}}$ settles on a real value. Find $L$.
 
@@ -272,7 +297,7 @@ $$\dfrac{x}{\sqrt y}=\dfrac{x\sqrt y}{y}$$
 
 For example, $\dfrac{10}{\sqrt2}=\dfrac{10\sqrt2}{2}=5\sqrt2$.
 
-To spot perfect squares fast, know $4,9,16,25,36,49,64,81,100$. To simplify $\sqrt{n}$, look for the largest of these that divides $n$.
+To spot perfect squares fast, know $4,9,16,25,36,49,64,81,100,121,144$. To simplify $\sqrt{n}$, divide out the largest of these that divides $n$. Then check the number left inside for another square factor, and repeat. For example, if you take out $4$ first, $\sqrt{288}=2\sqrt{72}=2\cdot6\sqrt2=12\sqrt2$. The largest square, $144$, gives $12\sqrt2$ in one step. If no listed square divides $n$, the number may have a larger square factor, as in $\sqrt{338}=13\sqrt2$ because $338=169\cdot2$.
 
 For a nested radical, set up $L=\sqrt{k+L}$ only when the problem gives or assumes that the expression settles on a real value. Then discard any negative answer for $L$.
 

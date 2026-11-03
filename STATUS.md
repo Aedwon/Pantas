@@ -222,3 +222,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Paused: functions-and-relations round 1: 1 Blocker, 1 Major (fix not started).
 - Done at minor after round 1: sets-and-set-notation (2 Minors).
 - Stopped by the user after the usage-limit reset; no new agents. Open after 3 reads: fluid-mechanics (round 3: 1 Major, 'ideal flow' undefined; split candidate). Light-and-optics round 3 still running.
+- Resumed locally November 4. Fixed after round 1: functions-and-relations (range ends, turning point), radicals-and-rationalization (shortcut, two-radical equations). Light-and-optics and dynamics round 3 reads running.
