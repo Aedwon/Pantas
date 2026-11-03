@@ -143,3 +143,7 @@ This pilot adds none. They are left as they are.
 ## November 3: CET pilot, Sonnet writers done
 
 Ten Sonnet lessons pass `check_cet_lesson.py`. Words after: stoichiometry 1,640; chemical-bonding 1,644; kinematics 1,553; electricity-and-magnetism 1,677; eclipses-and-moon-phases 1,649; genetics-and-heredity 1,672; triangles 1,669; quadratic-equations 1,398; pulleys-and-levers 1,676; short-stories-and-novels 1,688. Most sit near the 1,700 ceiling, so readers should watch for padding and for cut teaching. Writer flags: the short stories lesson has no worked example for style and its Filipino excerpt is writer-composed; electricity has an unknown-class Kirchhoff item left out. Not read yet: Sol reads wait for the Codex reset. Sol's 5 lessons not written.
+
+## November 3: readers changed
+
+Aedwon: "nah let's not wait for codex". Sonnet writes all 15 pilot lessons and Claude Fable reads them. The rule that no model reads its own writing still holds, but the cross-vendor read and the Sol writer comparison are dropped from the pilot. The Astra audit stays as the cross-vendor check. Sol may read in the final run.
