@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-algebra-functions-and-relations",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Round-bracket any end the domain leaves out.", "problem": "This general range shortcut, which the same paragraph applies to parabolas, gives a wrong range when the left-out end's output is also reached at an included input. For y=x^2 on (-2,2], the left-out end x=-2 gives 4, so the shortcut round-brackets 4 and yields [0,4). But x=2 is in the domain and gives 4, so the true range is [0,4]. The same failure occurs for h(x)=(x-2)^2+1 on (0,4]: shortcut gives [1,5), true range [1,5]. The limit (round-bracket only when no included input reaches that output, which always holds for a non-horizontal line but not for a parabola) is not stated. The Core Concept version of the rule is correctly limited to straight lines; the shortcut drops that limit. The definition of range as outputs actually produced partly covers the case, which the lead may weigh.", "source": "reader-rules.md, Added after the Sol audit (general statement broken by a boundary case); writer-rules.md, rules added after round 1, rule 4 (word every shortcut with its limit); content-checklist B01, L27"},
+    {"rule": "B08", "severity": "Minor", "quote": "as in Example 9.", "problem": "The numbers in the cross-references \"Example 9\" and \"Example 6\" (Trap 3) are bare digits in prose. The style guide says every number in prose, even an isolated one, goes inside inline math.", "source": "lesson-style-guide, Math notation; content-checklist B08"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The symbol $\\infty$ always gets a round bracket.", "problem": "This interval paragraph has five sentences, over the one-to-three limit. The turning-point paragraph (\"For a parabola, also check the **turning point**.\") also has five, and the range paragraph after the intervals has four.", "source": "lesson-style-guide, Formatting rules; content-checklist L22a"}
+  ],
+  "goodQuotesChecked": 3
+}

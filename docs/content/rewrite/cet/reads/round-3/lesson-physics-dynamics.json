@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-physics-dynamics",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "connected objects have accelerations of the same size while the rope stays tight",
+      "problem": "The round-2 direction error is fixed, but the general claim still fails for a known exception: a movable pulley. The paragraph says 'Any pulley is ideal too' and gives tight rope as the only condition. With one end of an ideal rope fixed, the rope looped under a movable pulley, and a block hung from that pulley, the rope length 2y_pulley + y_end stays constant, so the block's acceleration is half the free end's acceleration. A student who applies this sentence to a movable-pulley problem sets the two accelerations equal and gets a wrong answer. The rule holds for objects tied to the rope's ends with only fixed pulleys between them; that condition is not stated.",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit' (test each general statement against a known exception); rope-length constraint derived directly: L = 2y_pulley + y_end constant gives a_pulley = -a_end/2"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A heavy rope or a rough pulley breaks this rule.",
+      "problem": "Still open from rounds 1 and 2. The ideal-rope paragraph has five sentences; the limit is three. The opening dynamics paragraph, the components paragraph, the first-law paragraph, the inertia paragraph, the second-law units paragraph, the static-friction paragraph and the Trap #1 explanation have four each. Note, not a request: the lesson is 3,310 words, the split candidate already logged in final-run-rulings.md. I found no padding; base figure markers and needed base teaching are all kept. No split is asked for. Round-2 status: B01 direction fixed (same size, own signs), L18 angled pull fixed (Example #12), L26 system reasoning fixed (Example #9), L13 bold fixed.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "N+20-98=0\\Rightarrow N=78\\,\\mathrm N.",
+      "problem": "Example #12 uses the weight 98 N without showing mg = 10 x 9.8 = 98 N. Every other example computes the weight as its own step. The value is easy to recover, so this is a missing display computation, not a skipped reasoning step.",
+      "source": "Checklist L19; LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

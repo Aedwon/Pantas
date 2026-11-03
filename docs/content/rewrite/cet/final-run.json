@@ -255,7 +255,7 @@
     "lessonPath": "content/lessons/science/physics/dynamics.md",
     "lessonId": "lesson-physics-dynamics",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/science/physics/fluid-mechanics.md",
@@ -267,7 +267,7 @@
     "lessonPath": "content/lessons/science/physics/light-and-optics.md",
     "lessonId": "lesson-physics-light-and-optics",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/science/physics/momentum-and-impulse.md",
@@ -309,7 +309,7 @@
     "lessonPath": "content/lessons/mathematics/algebra/functions-and-relations.md",
     "lessonId": "lesson-algebra-functions-and-relations",
     "group": "mathematics",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
