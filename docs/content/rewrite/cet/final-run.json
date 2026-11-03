@@ -27,7 +27,7 @@
     "lessonPath": "content/lessons/science/physics/electricity-and-magnetism.md",
     "lessonId": "lesson-physics-electricity-and-magnetism",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/work-energy-power.md",
@@ -51,7 +51,7 @@
     "lessonPath": "content/lessons/science/biology/genetics-and-heredity.md",
     "lessonId": "lesson-biology-genetics-and-heredity",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/biology/cell-biology.md",
