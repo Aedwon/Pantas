@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-physics-fluid-mechanics",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The part $\\rho gh$ alone is the **gauge pressure**, the pressure above the surface pressure.",
+      "problem": "This bold definition makes the surface the reference point for gauge pressure. The reference is atmospheric pressure. The two match only when the liquid's surface is open to the air, as in the lake just described, but the definition is written as a general one. Test it on a sealed tank whose surface gas is at 2 atm. The real gauge pressure at depth h is P0 - Patm + rho g h, but the lesson's definition gives rho g h alone. The same wrong number comes out for a liquid under a partial vacuum. A student who learns this definition will get gauge pressure wrong whenever the surface pressure is not atmospheric. This text is new in the rewrite.",
+      "source": "Checklist B01; OpenStax College Physics 2e, section 11.6, Gauge Pressure, Absolute Pressure, and Pressure Measurement ('Gauge pressure is the pressure relative to atmospheric pressure')"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "This rule needs the object to be floating at rest and to have the same density throughout.",
+      "problem": "The fraction rule does not need uniform density. For any object floating at rest, V_displaced = m / rho_fluid = (average density x V) / rho_fluid. So the fraction of the total volume below the surface is the average density divided by the fluid's density, even for a hollow ball or a boat. The lesson's own Example #6(a) uses the rule this way. That object is given only by its average density, and the lesson finds that 0.8/1.0 = 80% of its volume is below the surface. So the stated condition contradicts the example. It also tells the student not to use a valid rule on hollow or mixed objects, which are the lesson's own ship case (Trap #3).",
+      "source": "Checklist L27; LSG Teaching completeness (conditions of a rule); OpenStax College Physics 2e, section 11.7 (fraction submerged equals the object's average density over the fluid's density); the lesson's Example #6(a)"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "Find the pressure at point 2.",
+      "problem": "This number in prose is not inside inline math. The round-1 B08 finding is mostly fixed: the same example now writes point $1$ and point $2$ in math elsewhere. This one is still bare. The example is new text, so the Minor must be fixed.",
+      "source": "Checklist B08; LSG Math notation (every number in prose is wrapped in inline math); round-1 read B08"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Look at what the formula contains.",
+      "problem": "This paragraph has six sentences. Several other new paragraphs also go past the limit of one to three short sentences: the Trap #4 explanation (six), the Bernoulli terms paragraph (five), the special-case paragraph (five) and the wing paragraph (five). These paragraphs are new text, so the Minor must be fixed.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
