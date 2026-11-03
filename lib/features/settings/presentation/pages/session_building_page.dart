@@ -47,7 +47,6 @@ class SessionBuildingPage extends ConsumerWidget {
                     maxWidth: context.wideWeb ? 420 : double.infinity,
                   ),
                   child: SegmentedSwitch(
-                    unselectedFontWeight: FontWeight.w600,
                     labels: const ['5', '10', '20', 'All'],
                     selected: lengths.indexOf(length),
                     onChanged: (index) async {

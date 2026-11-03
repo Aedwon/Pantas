@@ -30,8 +30,9 @@ void main() {
         expect(active.style!.fontWeight, FontWeight.w600);
         expect(active.style!.height, 1.35);
         expect(active.style!.letterSpacing, 0);
+        // The selected look is the one sliding thumb since item 17.
         final background = tester
-            .widget<DecoratedBox>(find.byKey(ValueKey('segment-$selected')))
+            .widget<DecoratedBox>(find.byKey(const ValueKey('segment-thumb')))
             .decoration as BoxDecoration;
         expect(
           background.color,

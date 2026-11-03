@@ -1215,7 +1215,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           // QZE_*: the 36 px track starts 14 px under the title.
           SizedBox(height: context.wideWeb ? 12 : 6.5),
           SegmentedSwitch(
-            unselectedFontWeight: FontWeight.w600,
             labels: const ['Questions per lesson', 'Total time'],
             selected: _mode.index,
             onChanged: (i) {

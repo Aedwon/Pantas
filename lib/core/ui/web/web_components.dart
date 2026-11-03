@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -747,67 +748,104 @@ class WebSegmentedControl extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(2),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            for (var i = 0; i < labels.length; i++)
-              Expanded(
-                child: Semantics(
-                  selected: selected == i,
-                  child: TextButton(
-                    onPressed: () => onChanged(i),
-                    style: ButtonStyle(
-                      animationDuration: MediaQuery.disableAnimationsOf(context)
-                          ? Duration.zero
-                          : const Duration(milliseconds: 150),
-                      elevation: WidgetStatePropertyAll(selected == i ? 1 : 0),
-                      shadowColor: WidgetStatePropertyAll(
-                        Colors.black.withValues(alpha: .1),
-                      ),
-                      minimumSize: const WidgetStatePropertyAll(Size(0, 34)),
-                      visualDensity: VisualDensity.standard,
-                      overlayColor:
-                          const WidgetStatePropertyAll(Colors.transparent),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      padding: const WidgetStatePropertyAll(
-                        EdgeInsets.symmetric(horizontal: 12),
-                      ),
-                      foregroundColor: WidgetStatePropertyAll(
-                        accentLabels ? t.colors.accent : t.colors.label,
-                      ),
-                      backgroundColor: WidgetStatePropertyAll(
-                        selected == i ? t.segmentOn : Colors.transparent,
-                      ),
-                      shape: WidgetStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      textStyle: WidgetStatePropertyAll(
-                        t.style(
-                          14,
-                          weight: FontWeight.w600,
-                          height: 1.2,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final cell = constraints.maxWidth / labels.length;
+            return Stack(
+              children: [
+                // One thumb slides under the labels (item 17, demo 7): 240 ms
+                // on the shared ease. Only a translation changes.
+                Positioned.fill(
+                  child: ExcludeSemantics(
+                    child: IgnorePointer(
+                      child: SlidingMarker(
+                        key: const ValueKey('segmented-control-thumb'),
+                        offsets: [
+                          for (var i = 0; i < labels.length; i++) i * cell,
+                        ],
+                        lengths: List.filled(labels.length, cell),
+                        index: selected,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: t.segmentOn,
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: .1),
+                                blurRadius: 3,
+                                offset: const Offset(0, 1),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    child: suffixes?[i] == null
-                        ? Text(labels[i])
-                        : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Flexible(child: Text(labels[i])),
-                              if (suffixes?[i] != null) ...[
-                                const SizedBox(width: 6),
-                                suffixes![i]!,
-                              ],
-                            ],
-                          ),
                   ),
                 ),
-              ),
-          ],
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    for (var i = 0; i < labels.length; i++)
+                      Expanded(
+                        child: Semantics(
+                          selected: selected == i,
+                          child: TextButton(
+                            onPressed: () => onChanged(i),
+                            style: ButtonStyle(
+                              animationDuration:
+                                  MediaQuery.disableAnimationsOf(context)
+                                      ? Duration.zero
+                                      : const Duration(milliseconds: 150),
+                              minimumSize:
+                                  const WidgetStatePropertyAll(Size(0, 34)),
+                              visualDensity: VisualDensity.standard,
+                              overlayColor: const WidgetStatePropertyAll(
+                                Colors.transparent,
+                              ),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: const WidgetStatePropertyAll(
+                                EdgeInsets.symmetric(horizontal: 12),
+                              ),
+                              foregroundColor: WidgetStatePropertyAll(
+                                accentLabels ? t.colors.accent : t.colors.label,
+                              ),
+                              backgroundColor: const WidgetStatePropertyAll(
+                                Colors.transparent,
+                              ),
+                              shape: WidgetStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              textStyle: WidgetStatePropertyAll(
+                                t.style(
+                                  14,
+                                  weight: FontWeight.w600,
+                                  height: 1.2,
+                                ),
+                              ),
+                            ),
+                            child: suffixes?[i] == null
+                                ? Text(labels[i])
+                                : Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Flexible(child: Text(labels[i])),
+                                      if (suffixes?[i] != null) ...[
+                                        const SizedBox(width: 6),
+                                        suffixes![i]!,
+                                      ],
+                                    ],
+                                  ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

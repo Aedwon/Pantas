@@ -173,8 +173,17 @@ void main() {
     expect((decoration.border! as Border).top.color, const Color(0xFF2C2C2C));
     final buttons =
         tester.widgetList<TextButton>(find.byType(TextButton)).toList();
+    // The selected segment's fill is the sliding thumb since item 17.
     expect(
-      buttons[0].style!.backgroundColor!.resolve({}),
+      (tester
+              .widget<DecoratedBox>(
+                find.descendant(
+                  of: find.byKey(const ValueKey('segmented-control-thumb')),
+                  matching: find.byType(DecoratedBox),
+                ),
+              )
+              .decoration as BoxDecoration)
+          .color,
       const Color(0xFF4A4A4A),
     );
     expect(
