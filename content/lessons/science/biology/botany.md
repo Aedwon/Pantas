@@ -53,7 +53,9 @@ One plant can show more than one tropism at the same time. A shoot that grows up
 
 Flowering plants reproduce sexually. **Sexual reproduction** joins a male and a female **gamete**, a sex cell, into one new cell. Flowers are the parts where this happens. Each part below has a job.
 
-The **anther** is the part that makes **pollen**. Pollen is a powdery grain. Each pollen grain holds the cells that will make sperm, the male gametes. The anther sits on a thin stalk. Anther and stalk together are the **stamen**, the male part.
+The **anther** is the part that makes **pollen**. Pollen is a powdery grain. Each pollen grain holds the cells that will make sperm, the male gametes.
+
+The anther sits on a thin stalk. Anther and stalk together are the **stamen**, the male part.
 
 The female part is the **pistil**. It has three regions. The **stigma** is the sticky top that catches pollen. The **style** is the tube-like stalk below the stigma. The **ovary** is the swollen base.
 
@@ -65,7 +67,9 @@ Inside the ovary are one or more **ovules**. An ovule holds the female gamete, t
 
 Reproduction in a flowering plant is a chain of steps. Each step has its own name.
 
-**Pollination** is the arrival of pollen on a stigma of the same species. The pollen can come from the same flower, another flower on the same plant, or a flower on a different plant. Wind, water, insects and other animals can carry it. Pollination only moves pollen. It does not join any gametes.
+**Pollination** is the arrival of pollen on a stigma of the same species. The pollen can come from the same flower, another flower on the same plant, or a flower on a different plant. Wind, water, insects and other animals can carry it.
+
+Pollination only moves pollen. It does not join any gametes.
 
 After pollination, the pollen grain grows a thin tube, the **pollen tube**. The tube grows down through the style to an ovule. It carries two sperm cells.
 
@@ -93,14 +97,14 @@ Match each material to the vascular tissue that carries it.
 
 ### #2: Sugar Moving in Different Directions
 
-In a flowering plant, mature leaves near the top make sugar. A young fruit hangs high on the stem, and the roots are below. Which direction can phloem carry sugar from a mature leaf?
+In a flowering plant, a mature leaf makes sugar. A young fruit grows on a branch above that leaf, and the roots are below it. Which directions can phloem carry sugar from the mature leaf?
 
 **Solution:**
 Phloem follows sources and sinks, not up or down.
 
 1. The mature leaf is the source.
 2. The young fruit and the roots are both sinks.
-3. Sugar can move down to the roots and also up to the fruit, in different phloem tubes.
+3. The fruit is above the leaf and the roots are below it. So sugar can move up to the fruit and down to the roots, in different phloem tubes.
 
 ### #3: Identifying a Tropism
 
@@ -161,11 +165,18 @@ Follow each sperm and then the flower parts.
 
 ## Speed Tricks & Shortcuts
 
-For transport, start with the material. Water and minerals go with xylem. Sugars and other organic compounds go with phloem. For phloem, find the source and the sink, then follow the sugar from one to the other. Do not use "phloem goes down" as a rule, because it fails when the sink is above the source.
+For transport, start with the material. Water and minerals go with xylem. Sugars and other organic compounds go with phloem. For phloem, find the source and the sink, then follow the sugar from one to the other.
 
-For tropisms, name the stimulus first, then decide whether the part grows toward it (positive) or away (negative). Roots are typically positive for gravity and shoots negative. Shoots commonly grow toward light, but do not use a fixed rule for root light responses.
+Do not use "phloem goes down" as a rule, because it fails when the sink is above the source.
 
-For reproduction, keep the two names apart. Pollination is pollen transfer. Fertilization is gamete fusion. For flower parts, think of the path of the pollen: anther, stigma, down the style, into the ovary, to the ovule.
+
+For tropisms, name the stimulus first, then decide whether the part grows toward it (positive) or away (negative). Roots are typically positive for gravity and shoots negative.
+
+Shoots commonly grow toward light, but do not use a fixed rule for root light responses.
+
+For reproduction, keep the two names apart. Pollination is pollen transfer. Fertilization is gamete fusion.
+
+For flower parts, follow the pollen and then the tube. Pollen forms in the anther and lands on the stigma. Then the pollen tube grows down the style to an ovule in the ovary, and the sperm travel inside the tube.
 
 ## Traps to Watch For
 
