@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-work-energy-power"
 title: "Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy)"
-summary: "How to calculate work, kinetic and potential energy, power, and how energy conservation connects them."
+summary: "How to calculate work, kinetic and potential energy, power, and machine efficiency, and how energy conservation connects them."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 13
@@ -9,174 +9,249 @@ isActive: true
 ---
 ## Core Concept
 
-**Work** ($W$) is energy transferred by a force acting through a displacement. For a constant force,
+**Work** ($W$) is energy transferred by a force that moves an object. A force is a push or a pull, measured in newtons ($N$). The displacement ($d$) is how far the object moves in a straight line, from start to finish.
+
+For a constant force,
 
 $$W = Fd\cos\theta$$
 
-where $\theta$ is the angle between the force and the displacement. If the force points in exactly the same direction as the displacement, $\theta=0$ and this simplifies to $W=Fd$. If the force is perpendicular to the displacement, the work done by that force is zero.
+The angle $\theta$ is the angle between the force and the displacement. The factor $\cos\theta$ tells how much of the force points along the motion. Here are four values to know:
 
-Work is measured in **joules** ($J$). For a force that varies with position, work is found by adding the force's contribution over the path (mathematically, an integral) rather than by using one constant $F$ value.
+- $\cos 0^\circ = 1$: the force points along the motion, so $W=Fd$.
+- $\cos 60^\circ = 0.5$.
+- $\cos 90^\circ = 0$: the force is perpendicular to the motion, so it does zero work.
+- $\cos 180^\circ = -1$: the force points against the motion, so the work is negative. Friction does negative work.
+
+Work is measured in **joules** ($J$). One joule is the work of a $1\ N$ force over $1\ m$. This formula needs a force that stays constant. A force that changes along the path needs other methods.
 
 ### Kinetic and Potential Energy
 
-**Kinetic energy** ($KE$) is the energy associated with an object's motion:
+**Kinetic energy** ($KE$) is the energy of motion. Use mass $m$ in kilograms and speed $v$ in meters per second:
 
 $$KE = \dfrac{1}{2}mv^2$$
 
-**Gravitational potential energy** near Earth's surface, where $g$ can be treated as approximately constant, can be written relative to a chosen zero height as:
+**Gravitational potential energy** ($PE$) is stored energy from height. Near Earth's surface, use $g = 9.8\ \text{m/s}^2$ and height $h$ in meters above a level you choose as zero:
 
 $$PE = mgh$$
 
-The absolute zero of potential energy is a choice; changes in potential energy are what affect physical predictions. For large changes in distance from Earth or another massive body, the more general gravitational-potential-energy expression is needed instead of $mgh$.
+Only the change in $PE$ matters, so the zero level is your choice. The formula works only where gravity is about the same everywhere. For a very large change in height, such as an orbit, another formula is needed.
 
 ### The Work-Energy Theorem
 
-The **work-energy theorem** connects work directly to a change in kinetic energy: the net work done by all forces on an object equals its change in kinetic energy.
+The **net work** is the total work done by all forces together. The **work-energy theorem** says that net work equals the change in kinetic energy:
 
 $$W_{net} = \Delta KE = KE_f - KE_i$$
 
+Positive net work speeds an object up. Negative net work slows it down.
+
 ### Conservation of Energy
 
-The **law of conservation of energy** states that energy is transferred or transformed but the total energy of an isolated system remains constant. A narrower statement applies to **mechanical energy** ($KE+PE$): if nonconservative forces do no net work, mechanical energy remains constant.
+Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant.
+
+**Mechanical energy** is $KE+PE$. A **conservative force**, such as gravity, can give back the energy it takes. If only conservative forces do work, mechanical energy stays the same:
 
 $$KE_i + PE_i = KE_f + PE_f$$
 
-If nonconservative forces such as friction do work, mechanical energy can change even though total energy is still conserved. A useful accounting form is
+A **nonconservative force**, such as friction or air drag, changes mechanical energy into thermal energy and other forms. Then the work $W_{nc}$ done by these forces equals the change in mechanical energy:
 
 $$W_{nc} = \Delta(KE+PE)$$
 
-where $W_{nc}$ is the work done by nonconservative forces.
-
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"mechanical-energy","illustrationKey":"science/physics/work-energy-power#1","system":"pendulum","points":[{"position":"high","potential":"all","kinetic":"zero"},{"position":"midpoint","potential":"some","kinetic":"some"},{"position":"low","potential":"zero","kinetic":"all"}],"totalEnergy":"constant"} -->
+### Power and Efficiency
 
-### Power
-
-**Power** ($P$) is the rate at which work is done or energy is transferred, measured in **watts** ($W$, where $1 \text{ watt} = 1 \text{ joule/second}$):
+**Power** ($P$) is the rate of doing work. It is measured in **watts** ($W$), where $1\ \text{W} = 1\ \text{J/s}$:
 
 $$P_{avg} = \dfrac{W}{\Delta t}$$
 
-For a force acting on a moving object, instantaneous power can also be written as $P=\vec F\cdot\vec v$.
+If a force moves an object at a steady speed $v$ in the direction of the force, then $P = Fv$.
+
+**Efficiency** tells how much of the energy put into a machine becomes useful output:
+
+$$\text{efficiency} = \dfrac{\text{useful output}}{\text{total input}} \times 100\%$$
+
+A real machine wastes some energy as heat and sound. So its efficiency is always below $100\%$.
 
 ## Examples
 
-### #1: Calculating Kinetic Energy
+### #1: Work at an Angle
 
-Find the kinetic energy of a $2 \text{ kg}$ ball moving at $6 \text{ m/s}$.
+A student pulls a sled $10\ \text{m}$ along level ground with a rope. The rope pulls with $50\ \text{N}$ at $60^\circ$ above the ground. (a) Find the work done by the rope. (b) Find the work done by gravity on the sled.
+
+<!-- ILLUSTRATION: sled on level ground pulled to the right by a rope at 60 degrees above the ground, pull labeled 50 N, distance labeled 10 m -->
+**Solution:**
+
+1. The rope's force is not along the motion, so use the angle.
+
+$$W = Fd\cos\theta = (50)(10)\cos 60^\circ$$
+
+2. Compute, using $\cos 60^\circ = 0.5$.
+
+$$W = 500 \times 0.5 = 250\ \text{J}$$
+
+3. Gravity points straight down. The sled moves sideways. The angle is $90^\circ$ and $\cos 90^\circ = 0$, so gravity does $0\ \text{J}$ of work.
+
+### #2: Calculating Kinetic Energy
+
+Find the kinetic energy of a $2\ \text{kg}$ ball moving at $6\ \text{m/s}$.
 
 **Solution:**
-Apply the kinetic energy formula.
 
-1. Substitute the values.
+1. Square the speed first: $6^2 = 36$.
+2. Substitute.
 
-$$KE = \dfrac{1}{2}(2)(6)^2$$
+$$KE = \dfrac{1}{2}(2)(36) = 36\ \text{J}$$
 
-2. Compute the square first: $6^2 = 36$.
+### #3: Calculating Potential Energy
 
-$$KE = \dfrac{1}{2}(2)(36)$$
-
-3. Compute.
-
-$$KE = 36 \text{ J}$$
-
-### #2: Calculating Potential Energy
-
-Find the gravitational potential energy of a $5 \text{ kg}$ book held $2 \text{ m}$ above a chosen zero level near Earth's surface (use $g = 9.8 \text{ m/s}^2$).
+Find the gravitational potential energy of a $5\ \text{kg}$ book held $2\ \text{m}$ above the floor. Use $g = 9.8\ \text{m/s}^2$.
 
 **Solution:**
-Apply the near-Earth potential energy formula.
 
-1. Substitute the values.
+$$PE = mgh = (5)(9.8)(2) = 98\ \text{J}$$
 
-$$PE = (5)(9.8)(2)$$
+### #4: Using the Work-Energy Theorem
 
-2. Compute.
-
-$$PE = 98 \text{ J}$$
-
-### #3: Conservation of Energy on a Slide
-
-A $10 \text{ kg}$ child starts from rest at the top of a frictionless slide, $3 \text{ m}$ above the bottom. Find their speed at the bottom of the slide (use $g = 9.8 \text{ m/s}^2$).
+A $4.0\ \text{kg}$ block rests on a smooth floor. A constant horizontal force of $10\ \text{N}$ pushes it $5.0\ \text{m}$ in a straight line. Find its final speed.
 
 **Solution:**
-With friction neglected, no nonconservative work changes the child's mechanical energy. Choose the bottom as $PE=0$.
 
-1. Energy at the top.
+1. The push is the net force, along the motion. Find the net work.
 
-$$PE_i = mgh = (10)(9.8)(3) = 294 \text{ J}$$
+$$W_{net} = Fd = (10)(5.0) = 50\ \text{J}$$
 
-2. Since the child starts from rest, $KE_i = 0$. Mechanical-energy conservation gives
+2. The block starts at rest, so $KE_i = 0$ and $W_{net} = KE_f$.
 
-$$KE_f = 294 \text{ J}$$
+$$50 = \dfrac{1}{2}(4.0)v^2$$
 
-3. Set up the kinetic energy formula to solve for velocity.
+3. Simplify and solve.
+
+$$v^2 = 25 \quad\Rightarrow\quad v = 5.0\ \text{m/s}$$
+
+### #5: Conservation of Energy on a Slide
+
+A $10\ \text{kg}$ child starts from rest at the top of a frictionless slide, $3\ \text{m}$ above the bottom. Find the speed at the bottom. Use $g = 9.8\ \text{m/s}^2$.
+
+**Solution:**
+With no friction, mechanical energy stays constant. Choose the bottom as $PE=0$.
+
+1. Energy at the top. The child starts at rest, so $KE_i=0$.
+
+$$PE_i = (10)(9.8)(3) = 294\ \text{J}$$
+
+2. At the bottom, all of it is kinetic energy.
 
 $$294 = \dfrac{1}{2}(10)v^2$$
 
-4. Simplify.
+3. Solve for $v$.
 
-$$294 = 5v^2$$
+$$v^2 = 58.8 \quad\Rightarrow\quad v \approx 7.67\ \text{m/s}$$
 
-5. Divide both sides by $5$.
+### #6: Friction on a Ramp
 
-$$v^2 = 58.8$$
+A $2.0\ \text{kg}$ block slides from rest down a rough ramp. It starts $1.5\ \text{m}$ above the bottom. At the bottom its speed is $3.0\ \text{m/s}$. Find the work done by friction. Use $g = 9.8\ \text{m/s}^2$.
 
-6. Take the square root.
+<!-- ILLUSTRATION: ramp with a 2.0 kg block at the top, height labeled 1.5 m, speed 3.0 m/s labeled at the bottom -->
+**Solution:**
+Friction is the only nonconservative force. Choose the bottom as $PE=0$.
 
-$$v \approx 7.67 \text{ m/s}$$
+1. Initial mechanical energy. The block starts at rest.
 
-### #4: Calculating Power
+$$KE_i + PE_i = 0 + (2.0)(9.8)(1.5) = 29.4\ \text{J}$$
 
-A motor does $600 \text{ J}$ of work in $4$ seconds. Find its average power output over that interval.
+2. Final mechanical energy. The height is zero at the bottom.
+
+$$KE_f + PE_f = \dfrac{1}{2}(2.0)(3.0)^2 + 0 = 9.0\ \text{J}$$
+
+3. Friction's work equals the change in mechanical energy.
+
+$$W_{nc} = 9.0 - 29.4 = -20.4\ \text{J}$$
+
+Friction did $-20.4\ \text{J}$ of work. The $20.4\ \text{J}$ became thermal energy, not nothing.
+
+### #7: Calculating Power
+
+(a) A $60\ \text{kg}$ climber goes up $10\ \text{m}$ in $20\ \text{s}$. Find the average power. (b) A crane lifts a $500\ \text{kg}$ load at a steady $0.20\ \text{m/s}$. Find the power. Use $g = 9.8\ \text{m/s}^2$.
 
 **Solution:**
-Apply the average-power formula.
 
-1. Substitute the values.
+1. For (a), the work equals the gain in potential energy.
 
-$$P_{avg} = \dfrac{600}{4}$$
+$$W = mgh = (60)(9.8)(10) = 5880\ \text{J}$$
 
-2. Compute.
+2. Divide by the time.
 
-$$P_{avg} = 150 \text{ W}$$
+$$P_{avg} = \dfrac{5880}{20} = 294\ \text{W}$$
+
+3. For (b), the speed is steady, so the net force is zero. The crane's force equals the weight.
+
+$$F = mg = (500)(9.8) = 4900\ \text{N}$$
+
+4. Use $P=Fv$.
+
+$$P = (4900)(0.20) = 980\ \text{W}$$
+
+### #8: Machine Efficiency
+
+An electric hoist takes in $3500\ \text{J}$ of electrical energy. It lifts a $100\ \text{kg}$ load by $2.5\ \text{m}$. Find its efficiency. Use $g = 9.8\ \text{m/s}^2$.
+
+**Solution:**
+
+1. The useful output is the gain in potential energy.
+
+$$PE = (100)(9.8)(2.5) = 2450\ \text{J}$$
+
+2. Divide by the input.
+
+$$\text{efficiency} = \dfrac{2450}{3500} \times 100\% = 70\%$$
+
+The other $1050\ \text{J}$ was wasted as heat and sound.
 
 ## Speed Tricks & Shortcuts
 
-For constant-force work questions, first check the angle between the force and displacement. Same direction gives $W=Fd$; perpendicular gives zero; otherwise use $W=Fd\cos\theta$.
+For work, check the angle first. Same direction gives $W=Fd$. Perpendicular gives zero. Opposite gives a negative answer.
 
-For mechanical-energy problems, identify the system and ask whether any nonconservative force does work. If not, set $KE+PE$ equal between the two states. If friction or another nonconservative force does work, include that work instead of pretending the missing mechanical energy vanished.
+For a mechanical-energy problem, ask if friction does work. If not, set $KE+PE$ equal at the two states. If it does, include $W_{nc}$.
 
-For kinetic energy problems, always square the velocity first before multiplying by the other numbers: doubling speed quadruples kinetic energy.
+In a frictionless problem, mass cancels. In Example #5, $v=\sqrt{2gh}$ gives the same speed for any mass.
 
-Remember power's role as "how fast" energy transfer happens: the same amount of work done in less time means greater average power.
+Doubling the speed makes the kinetic energy four times as large.
+
+Power is how fast energy moves. The same work in less time means more power.
 
 ## Traps to Watch For
 
-### #1: Using $W=Fd$ When the Force Is Not Parallel to Motion
+### #1: Using $W=Fd$ at an Angle
 
 > For a constant force, the general expression is $W=Fd\cos\theta$.
 
-Only the component of force along the displacement contributes to work. A force perpendicular to the motion does zero work even if its magnitude is large.
+Only the part of the force along the displacement does work. A large force at $90^\circ$ does none.
 
-### #2: Forgetting to Square the Velocity in Kinetic Energy
+### #2: Forgetting to Square the Speed
 
-> $KE = \dfrac{1}{2}mv^2$: the velocity term is squared.
+> $KE = \dfrac{1}{2}mv^2$: the speed is squared.
 
-Since velocity is squared, doubling an object's speed quadruples its kinetic energy.
+Square the speed before you multiply by the other numbers.
 
 ### #3: Saying Energy Is "Lost" to Friction
 
-> Friction can reduce mechanical energy, but total energy is still conserved.
+> Friction lowers mechanical energy, but total energy is still conserved.
 
-Mechanical energy transformed into thermal energy, sound, deformation, or other forms has not been destroyed. If a problem includes friction, either track those forms explicitly or use the work done by nonconservative forces.
+The energy becomes thermal energy, sound, or other forms. It is not destroyed.
 
-### #4: Treating $mgh$ as the Universal Gravity Formula
+### #4: Using $mgh$ Everywhere
 
-> $PE=mgh$ is the near-Earth, approximately uniform-gravity expression.
+> $PE=mgh$ is for gravity that is about the same everywhere.
 
-For orbital or very large altitude changes, gravity varies significantly with distance, so the general gravitational-potential-energy relationship must be used.
+For orbits or very large height changes, gravity changes with distance.
 
 ### #5: Mixing Up Power and Energy
 
-> Energy or work measures an amount in joules; power measures a rate in watts (joules per second).
+> Energy is an amount in joules. Power is a rate in watts.
 
-A machine that transfers a lot of energy slowly can have lower power than one transferring less energy in a much shorter time.
+A machine that moves a lot of energy slowly can have less power than one that moves less energy very fast.
+
+### #6: Efficiency Above $100\%$
+
+> A machine cannot give out more useful energy than it takes in.
+
+If your answer is above $100\%$, you probably put the input and the output in the wrong places.
