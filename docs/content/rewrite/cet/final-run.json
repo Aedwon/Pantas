@@ -201,7 +201,7 @@
     "lessonPath": "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
     "lessonId": "lesson-chemistry-thermodynamics-and-kinetics",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-motions.md",
@@ -273,19 +273,19 @@
     "lessonPath": "content/lessons/science/physics/momentum-and-impulse.md",
     "lessonId": "lesson-physics-momentum-and-impulse",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/physics/scalars-and-vectors.md",
     "lessonId": "lesson-physics-scalars-and-vectors",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/physics/thermodynamics.md",
     "lessonId": "lesson-physics-thermodynamics",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/physics/two-dimensional-motion.md",

@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-chemistry-thermodynamics-and-kinetics",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "B08", "severity": "Minor", "quote": "Runs 1 and 2 differ only in", "problem": "Still open from rounds 1 and 2. Numbers in prose are not in inline math. The same happens in 'Runs 1 and 3', 'Use Run 1 to find' and the 'Run 1:', 'Run 2:', 'Run 3:' data lines of Example #7. A note, not a request: the whole file is 3,034 whitespace-separated words, so the lesson stays the borderline split candidate logged in final-run-rulings.md. I found no padding that should be cut. No split is asked for.", "source": "Checklist B08; LSG Math notation; reader-rules Length and splits"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The orders are found by experiment.", "problem": "Still open from round 2. This sentence is in a paragraph of five sentences (from 'The square brackets mean' to 'the steps of the reaction'). The spontaneity paragraph ('A reaction is spontaneous when' to 'the temperature decides') and the K paragraph ('Products are on top' to 'how fast equilibrium is reached') also have five. The rate paragraph, the fair-test paragraph and both dynamic-equilibrium paragraphs have four each, and the 'Add a substance' bullet has six. The guide allows one to three short sentences per paragraph.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}
