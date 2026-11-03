@@ -105,7 +105,7 @@
     "lessonPath": "content/lessons/science/biology/cellular-reproduction.md",
     "lessonId": "lesson-biology-cellular-reproduction",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/biology/characteristics-of-life.md",
@@ -135,7 +135,7 @@
     "lessonPath": "content/lessons/science/chemistry/atomic-structure.md",
     "lessonId": "lesson-chemistry-atomic-structure",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/basic-organic-chemistry.md",

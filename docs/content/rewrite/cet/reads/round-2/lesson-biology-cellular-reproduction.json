@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-biology-cellular-reproduction",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L27", "severity": "Major", "quote": "Use $2^n$ for assortment only for genes on different chromosome pairs, and ignore crossing over when you use it.", "problem": "The lesson defines $n$ as the number of homologous pairs (Core Concept: 'For $n$ pairs, there are $2^n$ ways to sort them'), but this shortcut moves $2^n$ onto genes without saying what $n$ then counts or when the count holds. A student who reads it as 'number of genes on different pairs' gets a wrong answer whenever a gene is homozygous: $AaBB$ on two pairs gives $2^2 = 4$ by the shortcut, but only $2$ gamete types ($AB$, $aB$). The missing limit is that only heterozygous genes on different pairs double the count. The shortcut also never says that a gene count and a chromosome-pair count are different numbers (two genes in a human still give $4$ allele combinations, not $2^{23}$). Allele-combination tracking is a brief item (meiotic variation, official curriculum class), so a student will use this shortcut on exactly those questions.", "source": "Content checklist L27; writer rules, Rules added after round 1, rule 4 (word every shortcut with its limit); reader rules, Added after the Sol audit (test each stated rule against a known exception)."},
+    {"rule": "L22a", "severity": "Minor", "quote": "In animals, meiosis happens in **germ cells**, the cells in the ovaries and testes that make gametes.", "problem": "This paragraph has five sentences, over the one to three short sentences the guide allows. The round-1 Minor is fixed for the opening paragraph and the 'typical meiosis' paragraph, but still open here. Other paragraphs over the limit: 'In most animals, a body cell holds chromosomes in pairs.' (four sentences), 'Before a cell divides, it copies its DNA.' (four) and 'In a life cycle with fertilization, two gametes fuse.' (four).", "source": "Content checklist L22a; LSG Formatting rules."}
+  ],
+  "goodQuotesChecked": 6
+}

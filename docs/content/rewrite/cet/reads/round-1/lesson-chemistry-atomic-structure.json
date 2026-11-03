@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-atomic-structure",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The mass of the atom in $u$ is close to $A$, but it is not exactly equal to $A$.",
+      "problem": "This general statement fails for carbon-12. The lesson itself defines one u as one twelfth of the mass of a carbon-12 atom, so a carbon-12 atom has a mass of exactly 12 u, which equals its A. A student asked for the mass of a carbon-12 atom in u would be taught that it cannot be exactly 12.",
+      "source": "Definition of the unified atomic mass unit (SI Brochure and IUPAC: 1 u = m(12C)/12), stated in the lesson's own Core Concept line \"One $u$ is one twelfth of the mass of a carbon-12 atom.\"; checklist B01; reader-rules boundary test"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "It is closer to the mass of the more common isotope.",
+      "problem": "The shortcut is stated for every element with no limit, but it holds only for two isotopes. With more isotopes it fails for real elements: germanium has standard atomic weight 72.630, and its most common isotope is Ge-74 (36.52%), yet the average is closer to Ge-72 (27.45%) than to Ge-74. A student using this shortcut to eliminate choices on a three-or-more-isotope problem can reject the correct answer. Writer rule 4 requires every shortcut to carry its limit.",
+      "source": "CIAAW, Germanium (ciaaw.org/germanium.htm, accessed 2026-11-03): Ar(Ge) = 72.630(8); abundances 70Ge 0.2052, 72Ge 0.2745, 73Ge 0.0776, 74Ge 0.3652, 76Ge 0.0775; checklist B01 and L27"
+    },
+    {
+      "rule": "B02",
+      "severity": "Blocker",
+      "quote": "Which two are isotopes of the same element?",
+      "problem": "The question expects one pair (P and Q), but Q (17 protons, 20 neutrons) and R (17 protons, 18 neutrons) also have the same proton number and different neutron numbers. By the lesson's own shortcut, \"A different neutron number with the same proton number is an isotope\", Q and R are isotopes too. The solution compares P with Q and P with R but never rules out Q and R, and the shortcut does not say what to call a pair that differs in both neutrons and electrons. The answer is ambiguous as taught.",
+      "source": "Checklist B02 (a wrong or ambiguous answer is a Blocker); lesson Speed Tricks line \"A different neutron number with the same proton number is an isotope.\""
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "is the average mass of the atoms in a natural sample of the element, in $u$",
+      "problem": "Relative atomic mass (standard atomic weight) is a ratio of the average atomic mass to the unified atomic mass unit, so it is a pure number with no unit. The lesson gives it the unit u, which teaches a wrong fact about the quantity it names. The base lesson did not attach a unit. Average atomic mass in u, as in Example #4, is a different and correct way to state the same value.",
+      "source": "IUPAC Quantities, Units and Symbols in Physical Chemistry (Green Book): relative atomic mass A_r is dimensionless; CIAAW standard atomic weights are listed as bare numbers (ciaaw.org/atomic-weights.htm, accessed 2026-11-03); checklist B01"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
