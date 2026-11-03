@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-geometry-coordinate-geometry",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L26", "severity": "Major", "quote": "For each variable, take half of its coefficient and square it. Add that number to both sides.", "problem": "Completing the square is named and only half taught. The lesson never says that the completed group becomes (x + half the coefficient)^2, yet Example #8 step 3 relies on it with only \"Write each group as a square\", so a student cannot turn x^2 - 6x + 9 into (x - 3)^2 from this lesson. \"its coefficient\" also does not say it is the coefficient of the x or y term, not of x^2. The Quadratic Equations lesson teaches the full method (step 4: write the left side as (x + p/2)^2), but this lesson does not name it as a prerequisite, so the shared reuse rule is not met. The circle center-and-radius item is a curriculum-class brief item (dcat-L054, upcat-L193).", "source": "Checklist L26 and LSG Teaching completeness (reuse only an identified prerequisite); brief item 'Circle equation center and radius'"},
+    {"rule": "L27", "severity": "Major", "quote": "the center is $(h, k)$, not the numbers as written.", "problem": "The trap warning is worded without its limit. For a center with positive coordinates, such as (x - 3)^2 + (y - 2)^2 = 4, the center (3, 2) is exactly the numbers as written, so the warning read plainly is false and can push a student to answer (-3, -2). The rule holds only if 'numbers as written' means the signed numbers inside the brackets, which the warning does not say. Writer rule 4 requires each trap to carry its limit.", "source": "Checklist L27; writer rules after round 1, rule 4; boundary test of the trap heading"},
+    {"rule": "L22a", "severity": "Minor", "quote": "On a straight line, the slope is the same for any two points you pick. A line that goes up from left to right has positive slope.", "problem": "This paragraph has five sentences. Other paragraphs also pass three sentences: the Pythagorean-theorem paragraph and the right-triangle paragraph (four each), the paragraph starting \"Read the center with the opposite signs\" (four), the paragraph starting \"If $x^2$ and $y^2$ share a coefficient\" (five), and the missing-endpoint speed trick (five).", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
