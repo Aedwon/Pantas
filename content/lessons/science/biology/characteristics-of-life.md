@@ -15,7 +15,11 @@ Biologists list a set of properties that living things show together. Use the li
 
 ### The Seven Properties
 
-**Cellular organization**: every known living organism is made of one or more **cells**. A cell is the smallest unit that can carry out the work of life. A bacterium is one cell. A human is made of a very large number of cells.
+**Cellular organization**: every known living organism is made of one or more **cells**. A cell is the smallest unit that can carry out the work of life.
+
+A bacterium is one cell. A human is made of a very large number of cells.
+
+Cells alone do not make something alive. A dead leaf is made of cells, but they no longer carry out the work of life.
 
 **Energy processing (metabolism)**: **metabolism** means all the chemical reactions inside an organism. These reactions take in energy and materials, change them, and use them to keep the organism going. Plants get energy from light, animals from food, and some bacteria from chemicals.
 
@@ -23,7 +27,9 @@ Biologists list a set of properties that living things show together. Use the li
 
 **Growth and development**: an organism grows by making more cells or by making its cells larger. It also develops, which means it changes in an ordered way, such as a tadpole becoming a frog. Genes and the environment both guide these changes.
 
-**Reproduction**: living things make new living things. In sexual reproduction, two **gametes** (sex cells, such as egg and sperm) fuse. They usually come from two parents, but one parent can supply both, as in self-pollination in pea plants. In asexual reproduction, no gametes fuse, and one parent makes offspring.
+**Reproduction**: living things make new living things. In sexual reproduction, two **gametes** (sex cells, such as egg and sperm) fuse.
+
+They usually come from two parents, but one parent can supply both, as in self-pollination in pea plants. In asexual reproduction, no gametes fuse, and one parent makes offspring.
 
 This property belongs to living things as a group. One individual can be alive and still not reproduce, for example if it is too young or **sterile**. Sterile means unable to have offspring.
 
@@ -39,7 +45,9 @@ Neither is made of cells, and neither regulates its inside conditions or reprodu
 
 ### Direct and Inferred Evidence
 
-Some properties can be seen in a short description. Others can only be **inferred**. To infer means to reach a conclusion from the evidence you have plus facts you already know. A question may ask which properties are directly shown. Then list only what the description states.
+Some properties can be seen in a short description. Others can only be **inferred**.
+
+To infer means to reach a conclusion from the evidence you have plus facts you already know. A question may ask which properties are directly shown. Then list only what the description states.
 
 ### Seeds and Other Resting Forms
 
@@ -74,7 +82,7 @@ A single-celled organism is one cell and one organism at once. It has no tissues
 
 Some books add one more level above the ecosystem, the biosphere, which is all of Earth's living things and their surroundings.
 
-<!-- ILLUSTRATION: ladder of levels from bottom to top: cell, tissue, organ, organ system, organism, population, community, ecosystem; example labels: muscle cell, muscle tissue, heart, circulatory system, one person, all the tilapia in a lake, all the fish, plants and microbes in the lake, the lake with its water, sunlight and soil -->
+<!-- ILLUSTRATION: ladder of levels from bottom to top: cell, tissue, organ, organ system, organism, population, community, ecosystem; example labels: muscle cell, muscle tissue, heart, circulatory system, one person, all the Nile tilapia in a lake, all the fish, plants and microbes in the lake, the lake with its water, sunlight and soil -->
 
 ## Examples
 
@@ -146,18 +154,18 @@ A farmer sprays an insecticide on a field. Most of the insects die. A few that c
 
 ### #7: Levels of Organization
 
-Arrange these from smallest to largest: ecosystem, organ, tissue, community, cell, population, organism, organ system. Then name the level of "all the tilapia in one lake."
+Arrange these from smallest to largest: ecosystem, organ, tissue, community, cell, population, organism, organ system. Then name the level of "all the Nile tilapia in one lake."
 
 **Solution:**
 
 1. Smallest to largest: cell, tissue, organ, organ system, organism, population, community, ecosystem.
-2. All tilapia in one lake are one species in one area, so that is a population.
+2. Nile tilapia is one species, so all the Nile tilapia in one lake are one species in one area. That is a population.
 3. All the fish, plants, and microbes in the lake would be a community.
 4. Adding the water, sunlight, and soil would make it an ecosystem.
 
 ## Speed Tricks & Shortcuts
 
-Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. A nonliving thing may copy some of them, but not cells and not all the rest. Living things show most of them together.
+Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. Fire and crystals may copy some of them, but they have no cells and lack the rest. Cells alone are not enough either: a dead leaf or a piece of wood is made of cells, or what is left of them, but shows none of the other properties. Judge the whole set together.
 
 For viruses, remember two groups. They evolve and carry genetic material. They are also acellular and need a host cell to copy themselves.
 

@@ -27,9 +27,9 @@ The digestive system breaks food into small molecules the body can absorb, and t
 
 The path of food is: **mouth** → **esophagus** → **stomach** → **small intestine** → **large intestine**. In the mouth, teeth chew and saliva contains salivary amylase, an enzyme that starts to split starch. The esophagus pushes food down by wave-like squeezing. The stomach churns food and adds acid and an enzyme that begins protein digestion.
 
-The **small intestine** is where most chemical digestion and most nutrient absorption happen. Its inner wall has tiny finger-like folds called villi. They give a very large surface for absorbing nutrients into the blood. The **large intestine** absorbs water and electrolytes (dissolved salts such as sodium and potassium) and compacts the leftover material into feces.
+The **small intestine** is where most chemical digestion and most nutrient absorption happen. Its inner wall has tiny finger-like folds called villi. They give a very large surface for absorbing nutrients into the blood. The **large intestine** absorbs water and electrolytes (dissolved salts) and compacts the leftover material into feces.
 
-Three **accessory organs** help but food does not pass through them. The **liver** makes **bile**. The **gallbladder** stores and concentrates bile. The **pancreas** sends digestive enzymes and bicarbonate (which neutralizes stomach acid) into the small intestine.
+**Accessory organs** help digestion but food does not pass through them. They include the salivary glands, liver, gallbladder, and pancreas. The **liver** makes **bile**. The **gallbladder** stores and concentrates bile. The **pancreas** sends digestive enzymes and bicarbonate (which neutralizes stomach acid) into the small intestine.
 
 Bile **emulsifies** fats, which means it breaks large fat drops into tiny droplets. This gives the fat-digesting enzyme **lipase** more surface to work on. Bile is not itself an enzyme.
 
@@ -51,11 +51,11 @@ The heart and blood vessels carry blood, which transports gases, nutrients, horm
 
 **Arteries** carry blood away from the heart. **Veins** carry blood toward the heart. **Capillaries** are the tiny thin-walled vessels between them, where materials pass between blood and tissues.
 
-Direction relative to the heart, not oxygen content, defines arteries and veins. This matters in the lungs. The **pulmonary arteries** carry oxygen-poor blood from the heart to the lungs. The **pulmonary veins** carry oxygen-rich blood from the lungs back to the heart. In the rest of the body the pattern is reversed: systemic arteries carry oxygen-rich blood and systemic veins carry oxygen-poor blood.
+Direction relative to the heart, not oxygen content, defines arteries and veins. This matters in the lungs. The **pulmonary arteries** carry oxygen-poor blood from the heart to the lungs. The **pulmonary veins** carry oxygen-rich blood from the lungs back to the heart. After birth, in the rest of the body the pattern is reversed: systemic arteries carry oxygen-rich blood and systemic veins carry oxygen-poor blood. (Before birth, the umbilical vein carries oxygen-rich blood to the fetus.)
 
 The blood travels in two circuits, one after the other. **Pulmonary circulation** goes between the heart and the lungs. **Systemic circulation** goes between the heart and the rest of the body.
 
-Full path: body → vena cavae (the large veins) → right atrium → right ventricle → pulmonary artery → lungs → pulmonary veins → left atrium → left ventricle → aorta (the large artery) → body.
+Full path: body → venae cavae (the large veins) → right atrium → right ventricle → pulmonary artery → lungs → pulmonary veins → left atrium → left ventricle → aorta (the large artery) → body.
 
 <!-- FIGURE: {"kind":"biology-diagram","type":"heart-circulation","illustrationKey":"science/biology/human-anatomy-physiology#1","layout":"atria-above-ventricles","chambers":["atrium","atrium","ventricle","ventricle"],"flows":[{"label":"pulmonary","destination":"lungs"},{"label":"systemic","destination":"body"}]} -->
 
@@ -73,13 +73,13 @@ A **reflex** is a fast, automatic response. In a reflex, the signal can turn aro
 
 The **cerebrum** handles perception, thinking, language, memory, and voluntary movement. The **cerebellum** helps with coordination, timing, and balance. The **brain stem** has centers that control breathing and blood pressure.
 
-Control of muscles has two branches. **Somatic** control is conscious and moves skeletal muscle. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart can beat on its own, but autonomic nerves speed it up or slow it down.
+Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart can beat on its own, but autonomic nerves speed it up or slow it down.
 
 ### Endocrine System
 
 Endocrine glands release **hormones**, which are chemical messengers carried by the blood. A hormone affects only its **target cells**, the cells that have a matching receptor. Compared with nerve signals, hormone effects are usually slower and last longer.
 
-A **negative feedback loop** keeps a body condition near a set level. When the condition moves away from the level, the body responds in the direction that reverses the change. This is how the body keeps steady conditions, a state called **homeostasis**.
+A **negative feedback loop** keeps a body condition near a set level. When the condition moves away from the level, the body responds in the direction that reverses the change. This is how the body keeps steady conditions, a state called **homeostasis**. In **positive feedback**, the response increases the change instead, as in the contractions of childbirth.
 
 Blood glucose shows a loop. After a meal, blood glucose rises. The pancreas releases **insulin**, which helps cells take in glucose and helps the liver store it as glycogen. Glucose falls, so less insulin is released. If glucose falls too low, the pancreas releases **glucagon**, which makes the liver release stored glucose into the blood.
 
@@ -121,7 +121,7 @@ The reproductive system makes **gametes**, which are sex cells (sperm and eggs),
 
 The testes make sperm and the hormone testosterone. Sperm leave the testis through the epididymis and the vas deferens, and exit through the urethra. The ovaries hold developing egg cells (**oocytes**) and make the hormones estrogen and progesterone.
 
-Each cycle, an ovary releases one oocyte (**ovulation**) and it enters the uterine tube, also called the fallopian tube. Fertilization most often happens in the uterine tube, when a sperm fuses with the oocyte. The oocyte completes its last division when the sperm enters.
+In most cycles, an ovary releases one oocyte (**ovulation**) and it enters the uterine tube, also called the fallopian tube. Fertilization most often happens in the uterine tube, when a sperm fuses with the oocyte. The oocyte completes its last division when the sperm enters.
 
 The fertilized cell is a **zygote** and has $46$ chromosomes. It divides as it moves along the tube. It reaches the **uterus** and attaches to the uterine lining. This attachment is **implantation**.
 
