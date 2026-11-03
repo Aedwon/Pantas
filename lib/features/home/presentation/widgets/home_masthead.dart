@@ -166,19 +166,46 @@ class HomeMasthead extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: WeekStrip(
-                  today: now,
-                  states: week.states,
-                  todayFraction: week.todayFraction,
-                  onSelected: (date) => unawaited(
-                    context.push<void>('/plan/day/${dayKey(date)}'),
-                  ),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    // The dots sit between the last day's number and the tile,
+                    // not between the last cell's edge and the tile. The last
+                    // number is centered in its cell, so the cell edge is
+                    // further right than the number the eye reads.
+                    final inset = WeekStrip.lastDayInset(
+                      context,
+                      width: constraints.maxWidth,
+                      today: now,
+                      states: week.states,
+                      todayFraction: week.todayFraction,
+                    );
+                    return Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        WeekStrip(
+                          today: now,
+                          states: week.states,
+                          todayFraction: week.todayFraction,
+                          onSelected: (date) => unawaited(
+                            context.push<void>('/plan/day/${dayKey(date)}'),
+                          ),
+                        ),
+                        Positioned(
+                          left: constraints.maxWidth +
+                              (_stripToChipGap - _BridgeDots.width - inset) / 2,
+                          top: 0,
+                          child: const _BridgeDots(
+                            key: ValueKey('masthead-bridge-dots'),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
-              const SizedBox(width: 6),
-              const _BridgeDots(),
-              const SizedBox(width: 8),
+              const SizedBox(width: _stripToChipGap),
               _ExamChip(
+                key: const ValueKey('masthead-exam-chip'),
                 examShortName: masthead.examShortName,
                 examDate: masthead.examDate,
                 now: now,
@@ -200,8 +227,15 @@ class HomeMasthead extends ConsumerWidget {
   }
 }
 
+/// Space between the week strip's right edge and the exam tile. The dots sit
+/// in it, centered between the last day's number and the tile.
+const double _stripToChipGap = 29;
+
 class _BridgeDots extends StatelessWidget {
-  const _BridgeDots();
+  const _BridgeDots({super.key});
+
+  /// Three 3 px dots with 3 px gaps.
+  static const double width = 15;
 
   @override
   Widget build(BuildContext context) {
@@ -234,6 +268,7 @@ class _ExamChip extends StatelessWidget {
     required this.examShortName,
     required this.examDate,
     required this.now,
+    super.key,
   });
 
   final String examShortName;
