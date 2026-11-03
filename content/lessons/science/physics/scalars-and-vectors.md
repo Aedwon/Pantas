@@ -68,7 +68,11 @@ The angle $\varphi$ is the angle between the arrows drawn tail to tail. It is no
 
 Take a right triangle and one of its acute angles, $\theta$. The **hypotenuse** is the longest side, across from the right angle. The **opposite** side faces $\theta$. The **adjacent** side touches $\theta$ and is not the hypotenuse.
 
-$$\sin\theta=\dfrac{\text{opposite}}{\text{hypotenuse}},\quad \cos\theta=\dfrac{\text{adjacent}}{\text{hypotenuse}},\quad \tan\theta=\dfrac{\text{opposite}}{\text{adjacent}}.$$
+$$\sin\theta=\dfrac{\text{opposite}}{\text{hypotenuse}},$$
+
+$$\cos\theta=\dfrac{\text{adjacent}}{\text{hypotenuse}},$$
+
+$$\tan\theta=\dfrac{\text{opposite}}{\text{adjacent}}.$$
 
 The **inverse tangent**, written $\tan^{-1}$, goes the other way. If $\tan\theta=k$, then $\theta=\tan^{-1}k$. Set the calculator to degrees.
 
@@ -80,7 +84,7 @@ Suppose a vector of magnitude $V$ points at angle $\theta$, measured countercloc
 
 $$V_x=V\cos\theta,\qquad V_y=V\sin\theta.$$
 
-These formulas work for any angle from $0^\circ$ to $360^\circ$, and the signs come out correctly by themselves. If the angle is measured from another line, such as the vertical, draw the right triangle and use opposite and adjacent sides again.
+These formulas also work for an angle from $0^\circ$ to $360^\circ$, and the signs come out correctly by themselves. Why: for an angle $\theta$ over $90^\circ$, $V\cos\theta$ is the horizontal part of the arrow. An arrow that points left has a negative horizontal part, so its cosine is negative. For example, at $150^\circ$ the arrow points up and to the left, so $\cos150^\circ=-\cos30^\circ$ and $\sin150^\circ=+\sin30^\circ$. The full unit-circle method is in the lesson The Unit Circle (Exact Values of Standard Angles). If the angle is measured from another line, such as the vertical, draw the right triangle and use opposite and adjacent sides again.
 
 ### Adding Vectors by Components
 
