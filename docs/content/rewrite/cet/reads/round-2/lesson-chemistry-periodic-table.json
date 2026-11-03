@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-chemistry-periodic-table",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "The new electron goes into the same shell, and electrons in the same shell shield each other only a little.", "problem": "This is stated for every step across any period, but it is false across the transition series. From calcium (4s2) to scandium (3d1 4s2), and on through zinc, the added electron enters the 3d subshell of shell 3, not the outer shell 4. The same happens in period 5 (4d) and periods 6 and 7 (4f or 5f, then 5d or 6d). The lesson itself says groups 3 to 12 fill the d subshell and that palladium has no fifth-shell electrons, so the sentence contradicts its own teaching. A student would wrongly think every element across a period adds an outer-shell electron. The main-group limit given two paragraphs later ('most reliable for main-group elements') is about the trends, not this mechanism sentence. Round-1 findings: the group 13 and group 16 ionization-energy dips now carry the period 2 to 4 limit (confirmed against NIST: Ca 6.1132 > Ga 5.9993 eV and As 9.7886 > Se 9.7524 eV hold; Sr 5.6949 < In 5.7864, Ba 5.2117 < Tl 6.1083, Sb 8.6084 < Te 9.0098, Bi 7.2855 < Po 8.4181 eV fail), so both are fixed. The electron-affinity exception is now limited to periods 2 and 3, which is correct, so it is fixed. The L25 prerequisite finding is fixed: shells, subshells and orbitals are defined briefly and the quantum numbers lesson, which teaches 2p notation, three p orbitals and pairing, is named.", "source": "Standard ground-state electron configurations (NIST Atomic Spectra Database, ground levels of Sc I to Zn I: [Ar]3d^n 4s^2 or 4s^1); NIST ASD ionization energies (physics.nist.gov/cgi-bin/ASD/ie.pl, accessed 2026-11-03); checklist B01; reader-rules Sol audit rule on general statements"}
+  ],
+  "goodQuotesChecked": 1
+}

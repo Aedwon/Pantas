@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-chemistry-nuclear-chemistry",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and are stopped by a thin sheet of aluminum.",
+      "problem": "Still open from round 1. This paragraph has five sentences, above the one-to-three limit. Four-sentence paragraphs remain at 'Two numbers describe a nucleus.', 'An electron has $A=0$ and $Z=-1$.', 'The released neutrons can strike more uranium-$235$ nuclei.' and 'Nuclei carry positive charge and push each other away.'",
+      "source": "Checklist L22a; lesson-style-guide Formatting rules (paragraphs are one to three short sentences)."
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "Step 1, alpha decay:",
+      "problem": "Numbers in prose are not in inline math. Example #6 writes 'Step 1, alpha decay:', 'Step 2, $\\beta^-$ decay:' and 'Check each step. Step 1:' and 'Step 2:' with bare digits, while the guide wraps every number in prose in $...$.",
+      "source": "Checklist B08; lesson-style-guide Math notation (every number in prose is wrapped in inline math)."
+    }
+  ],
+  "goodQuotesChecked": 2
+}
