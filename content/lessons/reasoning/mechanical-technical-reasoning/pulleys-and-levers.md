@@ -1,43 +1,68 @@
 ---
 _id: "lesson-mechanical-technical-reasoning-pulleys-and-levers"
 title: "Pulleys and Levers (Mechanical Advantage, Balance, Fulcrums)"
-summary: "Learn ideal pulley mechanical advantage from supporting rope segments and lever balance from torque."
+summary: "Learn ideal pulley mechanical advantage from supporting rope segments and lever balance from torque, including angled forces."
 subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
-estimatedMinutes: 11
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-**Pulleys** and **levers** are simple machines. In an ideal machine, they can reduce the effort force by increasing the distance through which that force acts; they do not reduce the total ideal work required. Real machines also lose energy through friction, bending, deformation, and other effects.
+**Pulleys** and **levers** are simple machines. They let you lift a load with less force.
+
+The **effort** is the force you apply. The **load** is the force you work against, such as a weight. The **mechanical advantage** (MA) tells how many times the machine multiplies your force:
+
+$$\text{MA}=\dfrac{F_\text{load}}{F_\text{effort}}$$
+
+A machine is **ideal** when it has no friction and its rope or bar has no weight. Then the work you put in equals the work you get out. Work is force times distance, so a smaller effort must act through a longer distance:
+
+$$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
+
+So MA is also the effort distance divided by the load distance. Real machines need more effort than the ideal value because of friction.
+
+Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\text{ m/s}^2$.
 
 ### Pulleys
 
-A single **fixed pulley** changes the direction of a pull but has ideal mechanical advantage $1$.
+A **fixed pulley** is fastened in place. It only changes the direction of a pull, so its ideal MA is $1$.
 
-For an ideal pulley system with one continuous rope and equal tension throughout that rope, a reliable rule is:
+A **movable pulley** moves with the load. In an ideal system, one rope runs through everything and its tension is the same everywhere. This gives a reliable rule:
 
-> **Ideal mechanical advantage = number of rope segments directly supporting the moving load or moving block.**
+> **Ideal MA = the number of rope segments that pull directly on the moving load.**
 
-If two tensioned rope segments support the moving load, the ideal mechanical advantage is $2$: the required effort is half the load force, and the free end must move twice as far as the load. Four supporting segments give ideal mechanical advantage $4$, and so on.
+Two supporting segments give MA $2$: the effort is half the load, and the free end moves twice as far as the load. Four segments give MA $4$, and so on.
 
-Do **not** determine mechanical advantage merely by counting movable pulleys. Different arrangements with the same number of pulleys can have different numbers of supporting rope segments.
-
+Do not count pulleys. Systems with the same number of pulleys can have different numbers of supporting segments.
 
 <!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "comparison": true, "semanticsLabel": "Two ideal pulley setups: a single fixed pulley with mechanical advantage 1 and a movable-load setup supported by two rope segments with mechanical advantage 2."} -->
-### Levers and Torque
+### Levers
 
-A **lever** is a rigid body that can rotate about a fulcrum or pivot. Rotational effect is measured by **torque**:
+A **lever** is a rigid bar that turns about a point called the **fulcrum**. The distance from the fulcrum to the effort is the **effort arm**. The distance from the fulcrum to the load is the **load arm**.
 
-$$\tau=rF\sin\theta=F d_\perp,$$
+The class of a lever depends on which of the three is in the middle.
 
-where $d_\perp$ is the perpendicular moment arm from the pivot to the force's line of action.
+- **First class:** the fulcrum is in the middle, as on a seesaw or scissors. The MA can be more than, equal to or less than $1$.
+- **Second class:** the load is in the middle, as on a wheelbarrow. The effort arm is longer, so the MA is more than $1$.
+- **Third class:** the effort is in the middle, as on tweezers. The MA is less than $1$, but the load moves farther than the effort.
 
-For a simple horizontal lever with forces applied perpendicular to the lever and in static balance,
+<!-- ILLUSTRATION: three levers on triangle fulcrums labeled First class (fulcrum in the middle), Second class (load in the middle), Third class (effort in the middle), each with effort, load and fulcrum marked -->
 
-$$F_\text{effort}d_\text{effort}=F_\text{load}d_\text{load}.$$
+### Torque and Balance
 
-A longer effort arm can therefore reduce the effort force needed to balance a given load, under the stated ideal assumptions.
+**Torque** is the turning effect of a force about the fulcrum, in newton-meters ($\text{N}\cdot\text{m}$). When a force pushes at a right angle ($90^\circ$) to the lever, $\tau=F\,d$, where $d$ is the distance from the fulcrum to the force. A lever is balanced when the torques turning it each way are equal. For a perpendicular load and effort:
+
+$$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
+
+This gives $\text{MA}=\dfrac{d_\text{effort}}{d_\text{load}}$. A longer effort arm needs a smaller effort.
+
+### Angled Forces
+
+If a force makes an angle $\theta$ with the lever, only part of it turns the lever:
+
+$$\tau=r\,F\sin\theta$$
+
+Here $r$ is the distance from the fulcrum to where the force acts. The product $r\sin\theta$ is the perpendicular distance from the fulcrum to the line the force acts along. Know that $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$. At $90^\circ$ the formula becomes $\tau=rF$. A smaller angle needs a bigger force for the same turning effect.
 
 ## Examples
 
@@ -58,7 +83,6 @@ It changes the direction of the pull, not the ideal force magnitude.
 
 A $60\text{ kg}$ mass is lifted by an ideal movable-pulley arrangement in which **two rope segments support the moving load**. Approximately what effort is required if $g=9.8\text{ m/s}^2$, and how much rope must be pulled to raise the load $2\text{ m}$?
 
-
 **Solution:**
 
 1. Load weight:
@@ -72,56 +96,127 @@ $$F_\text{effort}=588/2=294\text{ N}.$$
 3. The effort end must move twice the load distance, so raising the load $2\text{ m}$ requires pulling about $4\text{ m}$ of rope.
 
 <!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "An ideal movable pulley supporting a load with two rope segments; the free end moves twice the load distance."} -->
-### #3: Lever Balance
+### #3: Counting the Supporting Segments
 
-A downward load force of $980\text{ N}$ acts $2\text{ m}$ from a fulcrum. A perpendicular effort force is applied $5\text{ m}$ from the fulcrum on the other side. What effort balances the lever?
+A $900\text{ N}$ load hangs from one movable pulley. The rope is tied to the ceiling, runs down and under the movable pulley, then up over a fixed pulley on the ceiling, and down to the hand. Ignore friction. What effort is needed, and how much rope must be pulled to raise the load $0.5\text{ m}$?
 
 **Solution:**
 
+1. Two segments pull on the movable pulley: the one tied to the ceiling and the one running up to the fixed pulley. The segment from the fixed pulley to the hand does not touch the load.
+2. The ideal MA is $2$.
+
+$$F_\text{effort}=\dfrac{900}{2}=450\text{ N}$$
+
+3. The rope moves twice as far as the load: $2\times0.5=1\text{ m}$.
+
+<!-- ILLUSTRATION: a 900 N load on one movable pulley; the rope is tied to the ceiling, runs under the movable pulley, over a fixed pulley and down to a hand; the two segments on the movable pulley are marked 1 and 2, the hand segment "not counted" -->
+
+### #4: Lever Balance
+
+A downward load force of $980\text{ N}$ acts $2\text{ m}$ from a fulcrum. A perpendicular effort force is applied $5\text{ m}$ from the fulcrum on the other side. What effort balances the lever, and what is the MA?
+
+**Solution:**
+
+1. Set the torques equal.
+
 $$F_e(5)=980(2)$$
 
-$$F_e=392\text{ N}.$$
+2. Solve.
+
+$$F_e=392\text{ N}$$
+
+3. Check the MA: $\dfrac{980}{392}=2.5$, which equals $\dfrac52$, the ratio of the arms.
+
+If the load moved closer, to $1\text{ m}$, the effort would drop to $196\text{ N}$, because the MA would rise to $5$.
 
 <!-- FIGURE: {"kind":"lever-balance","loadDistance":2,"effortDistance":5,"semanticsLabel":"A lever with a 980 N load acting 2 m from the fulcrum and a perpendicular effort applied 5 m away; torque balance requires 392 N of effort."} -->
-### #4: Changing the Moment Arm
+### #5: Balancing a Seesaw
 
-If the same $980\text{ N}$ load is moved to $1\text{ m}$ from the fulcrum while the perpendicular effort remains applied $5\text{ m}$ away,
+Two children sit on a balanced seesaw. A $30\text{ kg}$ child sits $2.0\text{ m}$ from the fulcrum. A $40\text{ kg}$ child sits on the other side. Ignore the weight of the seesaw. How far from the fulcrum does the second child sit?
 
-$$F_e(5)=980(1),$$
+**Solution:**
 
-so
+1. The torques are equal.
 
-$$F_e=196\text{ N}.$$
+$$(30g)(2.0)=(40g)\,d$$
 
-The shorter load arm reduces the balancing effort required.
+2. The value of $g$ is on both sides, so it cancels. Solve for $d$.
 
-<!-- FIGURE: {"kind":"lever-balance","loadDistance":1,"effortDistance":5,"semanticsLabel":"The same 980 N load moved to 1 m from the fulcrum with the perpendicular effort still 5 m away; torque balance requires 196 N of effort."} -->
+$$d=\dfrac{(30)(2.0)}{40}=1.5\text{ m}$$
+
+<!-- ILLUSTRATION: a balanced seesaw on a central fulcrum; a 30 kg child 2.0 m to the left; a 40 kg child an unknown distance d to the right -->
+
+### #6: Finding the Class of a Lever
+
+A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ from the axle of the wheel. The handles are lifted straight up at $1.5\text{ m}$ from the axle. What class of lever is this, and what lifting force is needed?
+
+**Solution:**
+
+1. The axle is the fulcrum. The load is between the fulcrum and the effort, so this is a second-class lever.
+2. Set the torques equal.
+
+$$F_e(1.5)=600(0.5)$$
+
+3. Solve.
+
+$$F_e=200\text{ N}$$
+
+The MA is $\dfrac{600}{200}=3$.
+
+<!-- ILLUSTRATION: a wheelbarrow with the axle marked fulcrum, a 600 N load arrow 0.5 m from the axle, and an upward effort arrow at the handles 1.5 m from the axle -->
+
+### #7: An Angled Effort
+
+A $600\text{ N}$ load is $0.5\text{ m}$ from the fulcrum of a lever. A person pushes down on the other side of the lever, $2\text{ m}$ from the fulcrum. The push makes an angle of $30^\circ$ with the lever. What effort balances the load?
+
+**Solution:**
+
+1. Find the torque of the load.
+
+$$\tau_\text{load}=600(0.5)=300\text{ N}\cdot\text{m}$$
+
+2. Write the torque of the effort using the angle.
+
+$$\tau_\text{effort}=F_e(2)\sin30^\circ=F_e(2)\left(\dfrac12\right)=F_e$$
+
+3. Set the torques equal.
+
+$$F_e=300\text{ N}$$
+
+A right-angle push would need only $150\text{ N}$.
+
+<!-- ILLUSTRATION: a lever with the fulcrum at the left end; a 600 N load arrow down at 0.5 m; an effort arrow F at 2 m making a 30 degree angle with the lever, with the angle marked -->
+
 ## Speed Tricks & Shortcuts
 
-**For ideal pulleys, count supporting rope segments—not pulleys.** Count the tensioned segments that directly support the moving load/block.
+**For ideal pulleys, count supporting segments.** Divide the load by the count to get the effort.
 
-**Keep force and mass units separate.** Kilograms are mass; newtons are force. Convert with $W=mg$ when necessary.
-
-**For levers, use perpendicular moment arms.** The simple force-times-distance form assumes the forces are perpendicular to the lever.
+**If both sides are weights of masses, skip $g$.** It cancels, so compare mass times distance on each side.
 
 ## Traps to Watch For
 
 ### #1: "Each Movable Pulley Halves the Force"
 
-> That is not a general rule. Ideal mechanical advantage depends on how the rope is routed and how many rope segments support the moving load.
+> Ideal MA depends on how many rope segments support the moving load, not on the number of pulleys.
 
 ### #2: Counting a Fixed Pulley as Extra Mechanical Advantage
 
-> A fixed pulley used only to redirect the rope normally changes direction without increasing ideal mechanical advantage.
+> A fixed pulley that only redirects the rope adds no mechanical advantage.
 
 ### #3: Calling a 50 kg Mass a 50 kg Force
 
-> Use newtons for force, or explicitly state kilogram-force if a non-SI convention is intentionally being used.
+> Kilograms measure mass. Use newtons for force: $50\text{ kg}$ weighs $490\text{ N}$.
 
 ### #4: Using Ordinary Distance Instead of the Moment Arm
 
-> Torque depends on perpendicular distance to the force's line of action. If a force is angled, use $rF\sin\theta$ or the perpendicular moment arm.
+> If a force is angled, use $rF\sin\theta$, not $rF$.
 
-### #5: Ignoring Friction
+In example #7, using $\tau=Fd$ with $d=2$ gives $150\text{ N}$, which is wrong.
 
-> Ideal mechanical advantage is a model. Real pulley and lever systems require more input because of losses and component weight.
+### #5: Measuring the Whole Bar Instead of the Arms
+
+> Measure each arm from the fulcrum, not from the end of the bar.
+
+### #6: Ignoring Friction
+
+> Ideal MA is a model. Real systems need more effort because of friction and the weight of parts.

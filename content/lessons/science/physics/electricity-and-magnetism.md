@@ -1,162 +1,268 @@
 ---
 _id: "lesson-physics-electricity-and-magnetism"
 title: "Electricity and Magnetism"
-summary: "Coulomb's law, Ohm's law, how series and parallel resistor circuits behave, and the basics of magnetism and induction."
+summary: "Electric charge, Coulomb's law, current, voltage, Ohm's law, series and parallel circuits, electric power, magnetism, and electromagnetic induction."
 subject: "subject-science"
 topic: "topic-physics"
-estimatedMinutes: 14
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
+### Electric Charge
+
+Protons carry positive charge. Electrons carry negative charge. Like charges repel and opposite charges attract. Charge is never created or destroyed, only moved. The unit is the coulomb ($\mathrm{C}$).
+
+In a **conductor**, such as metal, charge moves easily. In an **insulator**, such as rubber, it does not.
+
+An object can be charged in three ways:
+
+- **Friction:** rubbing moves electrons from one material to the other. The material that gains electrons becomes negative. The other becomes positive.
+- **Contact:** a charged object touches a neutral one and shares its charge. Both end with the same sign.
+- **Induction:** a charged object comes near a neutral conductor without touching. Charges in the conductor shift, and the near side gets the opposite sign. That is why a charged rod attracts a neutral object.
+
 ### Coulomb's Law and Electric Fields
 
-For two stationary point charges, the magnitude of the electric force is
+For two small charges, the size of the electric force is
 
-$$F = k\dfrac{|q_1q_2|}{r^2}$$
+$$F=k\dfrac{|q_1q_2|}{r^2}$$
 
-where $q_1$ and $q_2$ are the charges, $r$ is the distance between them, and $k$ is Coulomb's constant. The force acts along the line joining the charges. Like charges repel; opposite charges attract.
+Here $r$ is the distance between the charges, and $k\approx9\times10^{9}\ \mathrm{N\cdot m^2/C^2}$. Double the distance and the force becomes one fourth.
 
-An **electric field** is defined by the force per unit positive test charge:
+An **electric field** is the force on each unit of positive test charge:
 
-$$\vec E=\dfrac{\vec F}{q}$$
+$$E=\dfrac{F}{q}$$
 
-Field lines point away from positive charges and toward negative charges. The field is a physical vector field, not a material substance surrounding the charge.
+Its unit is $\mathrm{N/C}$. It points the way a positive charge would be pushed: away from positive charges and toward negative ones. A point charge $Q$ makes a field $E=k\dfrac{|Q|}{r^2}$.
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"electric-field-pairs","illustrationKey":"science/physics/electricity-and-magnetism#1","cases":[{"charges":["positive","positive"],"fieldLines":"point away from each","force":"repel"},{"charges":["positive","negative"],"fieldLines":"connect positive to negative","force":"attract"}]} -->
 
-### Ohm's Law
+### Current, Voltage, and Resistance
 
-For an **ohmic** component under conditions where its resistance can be treated as constant,
+**Current** is the flow of charge: $I=\dfrac{Q}{t}$. Its unit is the ampere, $1\ \mathrm{A}=1\ \mathrm{C/s}$. By convention, current points the way positive charge would flow, from the positive terminal around the circuit to the negative one.
+
+**Voltage**, or potential difference, is the energy given to each coulomb of charge: $V=\dfrac{W}{q}$. Its unit is the volt, $1\ \mathrm{V}=1\ \mathrm{J/C}$. A battery supplies voltage. A resistor uses it up.
+
+**Resistance** $R$ measures how strongly a part opposes current. Its unit is the ohm ($\Omega$). For an **ohmic** part, whose resistance stays constant, **Ohm's law** applies:
 
 $$V=IR$$
 
-where $V$ is the potential difference across the component, $I$ is current through it, and $R$ is resistance.
+Ohm's law is not true for every device. A diode or a bulb filament whose resistance changes with temperature is not ohmic.
 
-Ohm's law is an empirical linear relationship, not a universal law obeyed by every electrical device. Diodes, lamps whose resistance changes strongly with temperature, and many semiconductor devices can be non-ohmic.
+### Series and Parallel Circuits
 
-### Electric Circuits
-
-For ideal resistors connected **in series**, the same current passes through each resistor and the equivalent resistance is
+Parts in **series** are in one loop, one after another. The same current passes through each part. The voltages add up to the source voltage, and the resistances add:
 
 $$R_{eq}=R_1+R_2+\cdots$$
 
-The source voltage equals the sum of the potential drops around the loop.
+Parts in **parallel** are on separate branches. Each branch has the same voltage. The branch currents add up to the total current, and the resistances combine like this:
 
-For ideal resistors connected **in parallel**, each branch has the same potential difference across it and
+$$\dfrac{1}{R_{eq}}=\dfrac{1}{R_1}+\dfrac{1}{R_2}+\cdots$$
 
-$$\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R_2}+\cdots$$
-
-The total current equals the sum of branch currents. Kirchhoff's junction and loop rules generalize these ideas to more complicated circuits.
+The equivalent resistance of a parallel set is smaller than the smallest branch.
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"series-parallel-circuit","illustrationKey":"science/physics/electricity-and-magnetism#2","bulbsPerCircuit":2,"seriesPath":"single loop one after another","parallelPath":"separate side-by-side branches","batteryShown":true} -->
 
-If a series component fails **open**, it breaks the only path and stops current everywhere. If one branch of a parallel circuit fails open, current can still flow through other complete branches. Real bulbs and devices are not always ideal resistors, so their brightness and current behavior can depend on source resistance and device characteristics.
+If one part of a series circuit fails open, the only path is broken and current stops everywhere. If one branch of a parallel circuit fails open, the other branches still work.
+
+### Electric Power, Energy, and Safety
+
+**Power** is energy used per second, in watts ($\mathrm{W}$):
+
+$$P=IV$$
+
+Energy is $E=Pt$. Utility bills use the kilowatt-hour ($\mathrm{kWh}$), the energy used by $1$ kW in $1$ hour. **Efficiency** is the useful energy out divided by the energy in, times $100\%$.
+
+A **fuse** or circuit breaker opens the circuit when the current is too large. A **short circuit** is a path with very low resistance, so the current is very large. A ground wire gives stray current a safe path.
 
 ### Magnetism and Electromagnetism
 
-Magnets have north and south poles. Like poles repel and unlike poles attract, but magnetic poles are not simply electric charges with different names: isolated magnetic monopoles have not been observed, and ordinary magnetic field lines form closed loops.
+Magnets have north and south poles. Like poles repel and unlike poles attract. A pole cannot be cut off alone, because a broken magnet gives two magnets, each with two poles.
 
-Electric current produces magnetic fields. For a long straight wire, the magnetic field circles the wire; point your right thumb along **conventional current**, and your curled fingers show the magnetic-field direction.
+A current makes a magnetic field. Around a long straight wire, point your right thumb along the conventional current. Your curled fingers show the field direction. A wire carrying current in a magnetic field feels a force. A **motor** uses this force to turn.
 
-A changing **magnetic flux** through a circuit induces an electromotive force (emf), described by Faraday's law:
+**Magnetic flux** is the amount of magnetic field passing through a loop:
 
-$$\mathcal{E}=-\dfrac{d\Phi_B}{dt}$$
+$$\Phi=BA\cos\theta$$
 
-The minus sign represents **Lenz's law**: the induced emf drives current, when a closed conducting path exists, in a direction whose magnetic effect opposes the change in flux that produced it. A changing magnetic field therefore induces an electric field even if no conducting loop is present; current requires a conducting path.
+Here $B$ is the field strength, $A$ is the loop area, and $\theta$ is the angle between the field and the line perpendicular to the loop. The unit is the weber ($\mathrm{Wb}$).
+
+**Faraday's law** says a change in flux over time induces an emf, a voltage, in a loop of $N$ turns:
+
+$$\mathcal{E}=-N\dfrac{\Delta\Phi}{\Delta t}$$
+
+**Lenz's law** gives the sign. The induced current makes a magnetic field that opposes the **change** in flux. Current flows only if the loop is a closed conductor. A **generator** turns a coil in a magnetic field. The flux keeps changing, so it makes an emf.
 
 ## Examples
 
-### #1: Applying Coulomb's Law Conceptually
+### #1: Coulomb's Law
 
-Two point charges are moved to twice their original separation while their charges stay unchanged. By what factor does the force magnitude change?
+Charges $+3.0\times10^{-6}\ \mathrm{C}$ and $-2.0\times10^{-6}\ \mathrm{C}$ are $0.30$ m apart. Find the force. Then find it if the distance is doubled.
 
 **Solution:**
 
-Because $F\propto1/r^2$,
+1. The charges are opposite, so the force is attraction.
+2. The size is:
 
-$$F_{new}=\frac{F_{old}}{2^2}=\frac14F_{old}$$
+$$F=\dfrac{(9\times10^{9})(3.0\times10^{-6})(2.0\times10^{-6})}{0.30^2}=0.60\ \mathrm{N}$$
 
-### #2: Applying Ohm's Law
+3. At $0.60$ m the force is one fourth: $0.15$ N.
 
-An ohmic resistor has resistance $10\ \Omega$ and carries a current of $2\text{ A}$. Find the potential difference across it.
+### #2: Electric Field
+
+A positive test charge of $2.0\times10^{-6}\ \mathrm{C}$ feels a force of $0.010$ N east. Find the field.
+
+**Solution:**
+
+$$E=\dfrac{F}{q}=\dfrac{0.010}{2.0\times10^{-6}}=5.0\times10^{3}\ \mathrm{N/C}$$
+
+The field points east, the same way as the force on a positive charge.
+
+### #3: Charging
+
+A rubber rod rubbed with wool becomes negative. What charge does the wool have? The rod then touches a neutral metal ball. What charge does the ball get?
+
+**Solution:**
+
+1. Electrons moved from the wool to the rod, so the wool is positive.
+2. Contact shares charge, so the ball becomes negative.
+
+### #4: Current, Voltage, and Energy
+
+A charge of $12$ C passes a point in $4.0$ s. A $12$ V battery moves $12$ C through a lamp. Find the current and the energy the battery gives.
+
+**Solution:**
+
+1. Current: $I=\dfrac{12}{4.0}=3.0$ A.
+2. From $V=\dfrac{W}{q}$, the energy is $W=qV=(12)(12)=144$ J.
+
+### #5: Ohm's Law
+
+An ohmic resistor has resistance $10\ \Omega$ and carries a current of $2$ A. Find the voltage across it.
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"ohms-law-circuit","illustrationKey":"science/physics/electricity-and-magnetism#3","resistanceOhms":10,"currentAmps":2,"voltageLabel":"?"} -->
 
 **Solution:**
 
-$$V=IR=(2)(10)=20\text{ V}$$
+$$V=IR=(2)(10)=20\ \mathrm{V}$$
 
-### #3: Series vs. Parallel Behavior
+### #6: Series Circuit
 
-Assume each bulb acts as a circuit element that fails by becoming an open circuit. In a two-bulb series circuit, one bulb fails. In a separate two-branch parallel circuit, one bulb fails. What happens to the other bulb?
+A $12$ V battery is connected to a $2\ \Omega$ and a $4\ \Omega$ resistor in series. Find the current and the voltage across each resistor.
+
+**Solution:**
+
+1. $R_{eq}=2+4=6\ \Omega$.
+2. $I=\dfrac{12}{6}=2$ A in both resistors.
+3. Across the $2\ \Omega$ resistor: $(2)(2)=4$ V. Across the $4\ \Omega$ resistor: $(2)(4)=8$ V. The sum is $12$ V.
+
+### #7: Parallel Circuit
+
+A $12$ V battery is connected to a $6\ \Omega$ and a $12\ \Omega$ resistor in parallel. Find the total current.
+
+**Solution:**
+
+1. $\dfrac{1}{R_{eq}}=\dfrac{1}{6}+\dfrac{1}{12}=\dfrac{3}{12}$, so $R_{eq}=4\ \Omega$.
+2. Total current: $\dfrac{12}{4}=3$ A.
+3. Check by branches: $\dfrac{12}{6}=2$ A and $\dfrac{12}{12}=1$ A. They add to $3$ A.
+
+### #8: Series vs. Parallel Failure
+
+Two bulbs are in series. In a separate circuit, two bulbs are in parallel. One bulb fails open in each circuit. What happens to the other bulb?
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"circuit-failure","illustrationKey":"science/physics/electricity-and-magnetism#4","seriesOutcome":"other bulb goes dark","parallelOutcome":"other bulb stays lit","burnedOutBulbsPerCircuit":1} -->
 
 **Solution:**
 
-1. **Series:** the failed bulb opens the only current path, so both bulbs go out.
-2. **Parallel:** only one branch is opened; the other complete branch can still carry current, so its bulb can remain lit.
+1. Series: the failed bulb breaks the only path, so the other bulb goes dark.
+2. Parallel: the other branch is still a complete path, so its bulb stays lit.
 
-### #4: Predicting Magnetic Field Direction
+### #9: Power, Energy, and Efficiency
 
-A long straight wire carries conventional current upward. Describe the magnetic-field direction using the right-hand rule.
-
-**Solution:**
-
-1. Point your right thumb upward, along the conventional current.
-2. Your fingers curl in the direction of the magnetic field around the wire.
-3. Viewed from above, looking toward the wire with the current pointing toward you, the field circles counterclockwise.
-
-### #5: Changing Magnetic Flux
-
-A bar magnet is pushed toward a conducting loop, increasing the magnetic flux through the loop. Why is an emf induced?
+A heater is rated $1{,}100$ W on a $220$ V supply. Find its current and the energy it uses in $3$ hours. Another device takes in $500$ J and gives out $400$ J of useful energy. Find its efficiency.
 
 **Solution:**
 
-1. The magnetic flux through the loop is changing with time.
-2. Faraday's law says a changing flux induces an emf.
-3. If the loop is closed, that emf can drive a current.
-4. By Lenz's law, the induced current's magnetic field opposes the **change** in flux, not necessarily the original magnetic field itself.
+1. Current: $I=\dfrac{P}{V}=\dfrac{1100}{220}=5.0$ A.
+2. Energy: $(1.1\ \mathrm{kW})(3\ \mathrm{h})=3.3\ \mathrm{kWh}$.
+3. Efficiency: $\dfrac{400}{500}\times100\%=80\%$.
+
+### #10: Magnetic Field Direction
+
+A long straight wire carries conventional current upward. Which way does the field go around the wire?
+
+**Solution:**
+
+1. Point your right thumb upward.
+2. Your fingers curl counterclockwise when you look down from above.
+
+### #11: Flux and Induced emf
+
+A coil of $10$ turns has area $0.20\ \mathrm{m^2}$. A field of $0.50$ T is perpendicular to it. The field drops to zero in $0.020$ s. Find the size of the emf.
+
+**Solution:**
+
+1. Flux at first: $\Phi=BA\cos0^\circ=(0.50)(0.20)=0.10$ Wb.
+2. The change in flux is $0.10$ Wb in $0.020$ s.
+3. Size of the emf:
+
+$$\mathcal{E}=10\times\dfrac{0.10}{0.020}=50\ \mathrm{V}$$
+
+### #12: Direction by Lenz's Law
+
+The north pole of a bar magnet moves toward a closed loop. Which way does the induced current go, as seen from the magnet's side?
+
+**Solution:**
+
+1. The flux from the north pole through the loop is growing.
+2. The loop opposes this by making a field that points back toward the magnet. Its near face acts as a north pole.
+3. By the right-hand rule, the current is counterclockwise as seen from the magnet.
+4. If the magnet moves away, the flux shrinks, so the current reverses.
+
+### #13: Generator
+
+A coil spins in a magnetic field and lights a bulb. Why is there an emf?
+
+**Solution:**
+
+As the coil turns, its tilt to the field changes, so the flux changes. By Faraday's law, a changing flux induces an emf.
 
 ## Speed Tricks & Shortcuts
 
-For Coulomb-law distance changes, use the inverse-square rule only when the charges stay fixed and the point-charge approximation applies.
+Series: same current, voltages add. Parallel: same voltage, currents add.
 
-Use $V=IR$ only after identifying the component as ohmic or being told to treat $R$ as constant.
+For two equal resistors in parallel, the equivalent resistance is half of one.
 
-For resistor networks: series means same current; parallel means same voltage. For circuits that cannot be reduced cleanly to series/parallel combinations, use Kirchhoff's rules.
-
-For induction, remember: Faraday tells you **how much emf** comes from changing flux; Lenz tells you the **direction**.
+Faraday's law gives how big the emf is. Lenz's law gives the direction.
 
 ## Traps to Watch For
 
-### #1: Dropping Direction from Coulomb's Law
+### #1: Forgetting the Square in Coulomb's Law
 
-> $k|q_1q_2|/r^2$ gives force magnitude; attraction or repulsion supplies the direction.
+> The force depends on $\dfrac{1}{r^2}$, not $\dfrac{1}{r}$.
 
-If using signed charges algebraically, a negative scalar result should not be confused with a negative force magnitude.
+Doubling the distance cuts the force to one fourth, not one half.
 
 ### #2: Treating Ohm's Law as Universal
 
-> Only ohmic components have a linear $V$-$I$ relationship with constant $R$ over the relevant conditions.
+> Only ohmic parts have a constant $R$.
 
-Many real devices are non-ohmic, especially when temperature or semiconductor behavior matters.
+Many real devices are not ohmic.
 
-### #3: Mixing Up Series and Parallel Resistor Rules
+### #3: Adding Parallel Resistances Directly
 
-> Series: same current, resistances add. Parallel: same voltage, reciprocals of resistance add.
+> In parallel, add the reciprocals.
 
-The simple rules assume components are actually connected in those topologies.
+Do not add the resistances. Check that the answer is smaller than the smallest branch.
 
-### #4: Saying Every Changing Magnetic Field "Creates Current"
+### #4: Saying Lenz's Law Opposes the Field
 
-> A changing magnetic flux induces an emf/electric field; current flows only if a suitable conducting path exists.
+> The induced effect opposes the **change** in flux.
 
-An open loop can have an induced emf without a sustained conduction current around the loop.
+If the flux shrinks, the induced field points the same way as the original field.
 
-### #5: Saying Lenz's Law Opposes the Magnetic Field
+### #5: Saying Any Changing Field Makes Current
 
-> The induced effect opposes the **change in magnetic flux**.
+> Changing flux induces an emf. Current needs a closed conducting path.
 
-If flux is decreasing, the induced field can point in the same direction as the original field in an attempt to oppose that decrease.
+An open loop has an emf but no steady current.

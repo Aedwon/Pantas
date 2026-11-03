@@ -139,3 +139,7 @@ facets of that exact id in `lesson-structure-data.json` and says so. No match is
 Known and not ours: `dart run tool/check_no_ai_attribution.dart` exits 1 on this branch from the base. The hits are
 the vendor name "chatgpt" in existing files under `tools/content_rewrite/relay/` and `tools/content_rewrite/tests/`.
 This pilot adds none. They are left as they are.
+
+## November 3: CET pilot, Sonnet writers done
+
+Ten Sonnet lessons pass `check_cet_lesson.py`. Words after: stoichiometry 1,640; chemical-bonding 1,644; kinematics 1,553; electricity-and-magnetism 1,677; eclipses-and-moon-phases 1,649; genetics-and-heredity 1,672; triangles 1,669; quadratic-equations 1,398; pulleys-and-levers 1,676; short-stories-and-novels 1,688. Most sit near the 1,700 ceiling, so readers should watch for padding and for cut teaching. Writer flags: the short stories lesson has no worked example for style and its Filipino excerpt is writer-composed; electricity has an unknown-class Kirchhoff item left out. Not read yet: Sol reads wait for the Codex reset. Sol's 5 lessons not written.
