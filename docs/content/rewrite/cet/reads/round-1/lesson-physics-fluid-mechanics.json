@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-physics-fluid-mechanics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The sloping or narrow walls of the container carry part of the liquid's weight",
+      "problem": "This reason for the hydrostatic paradox is wrong for the two cases the trap names. Vertical walls, narrow or wide, push only sideways and carry none of the liquid's weight; in a straight tube the bottom pressure is exactly weight over area. Walls that slope inward (a container narrower at the top) push down on the liquid, so the bottom force is larger than the liquid's weight. Walls carry part of the weight only when they slope outward. The correct reason is that pressure depends on depth, and the force on the bottom (pressure times area) can differ from the liquid's weight because sloped walls push up or down on the liquid. A student would learn a false explanation for a classic conceptual question. The text is new in this rewrite.",
+      "source": "Checklist B01; OpenStax University Physics Volume 1, section 14.2 (pressure depends only on depth; force of sloped walls on the fluid); Halliday, Resnick and Walker, Fundamentals of Physics, chapter 14, hydrostatic paradox"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "The buoyant force equals the object's own weight only when the object floats or hangs still in the fluid.",
+      "problem": "The condition is worded so that it covers the lesson's own Example #6, where the object 'hangs from a spring scale', still and fully submerged, yet the buoyant force (9.8 N) is far from its weight (26.46 N). Trap #2 repeats it as 'only when the object floats or is suspended at rest'. The real condition is that weight and buoyant force are the only vertical forces and the object is at rest, so the rule fails for any object held by a string, scale or support. A student can set F_B = W in a tension or scale question and get it wrong.",
+      "source": "Checklist L27; LSG Teaching completeness (conditions of a rule); the lesson's Example #6"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "If the average density is less than the fluid's, it floats. If it is more, it sinks.",
+      "problem": "Predicting float or sink from average density is the first application of the lesson's goal ('use density ... to predict buoyancy'), and the base worked it as Example #2 ('Will It Float or Sink?'). The rewrite cut that example and no example now asks the student to decide float, sink or suspend: Example #4 states 'It floats at rest in water' as a given. The rule is taught but the case is no longer worked. This is correct, needed teaching cut from the base.",
+      "source": "Checklist L18; LSG Examples section; reader-rules step 6; base 7032eec5 Example #2; brief goal and 'Buoyancy and force balance: explained, examples worked'"
+    },
+    {
+      "rule": "L23",
+      "severity": "Major",
+      "quote": "<!-- ILLUSTRATION: two beakers of water side by side; left shows a floating block",
+      "problem": "The base had an approved, rendered code figure at this spot (FIGURE marker, illustrationKey science/physics/fluid-mechanics#1, buoyancy-comparison: floating block with buoyant force equal to weight, sinking block with buoyant force smaller than weight). The rewrite deletes it and puts an unrendered placeholder for the same drawing in its place. The figure still fits, so writer rule 7 required keeping the marker. The student now sees no buoyancy figure in the app until an artist redraws one that already exists, and the illustration inventory still plans a code figure for this lesson. The prose teaches float and sink without the image, so this is not a missing required figure under B03, but the student loses a needed, approved visual for the lesson's central force balance.",
+      "source": "Writer rule 7 (writer-rules.md); checklist L23; docs/content/illustrations/strategy.tsv row for fluid-mechanics 1 (strategy code); docs/content/illustrations/review.json key science/physics/fluid-mechanics#1 (approved); base 7032eec5 line 38"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "from point 1 to point 2",
+      "problem": "Numbers in prose are not in inline math. Example #8 writes 'point 1' and 'point 2' as bare digits here, in 'The pressure at point 1 is' and in 'The pressure at point 2 is'. The example is new text, so the minor must be fixed.",
+      "source": "Checklist B08; LSG Math notation (every number in prose is wrapped in inline math)"
+    }
+  ],
+  "goodQuotesChecked": 5
+}
