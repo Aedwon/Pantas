@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/router.dart';
-import 'package:pantas/app/routes/study_routes.dart';
 
 /// On the web a lesson has to open above the shell, so it can cover the
 /// sidebar while the page and sidebar underneath stay put. Native builds have
