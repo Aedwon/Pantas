@@ -1,0 +1,39 @@
+# Post-beta priorities: decision log
+
+Policy read from `origin/main` at 875d78dd.
+
+## November 3, 2026: what to do beyond the beta
+
+Aedwon's exact request: "i feel like I'm heavily under-utilizing my Claude Max plan. I want to do things beyond the beta. what do you suggest? check the SSOT, the roadmaps or something. i think the SSOT is also stale"
+
+Findings given first:
+
+- The SSOT was stale. The readiness tab stopped on October 6, its top checkpoint was September 7, and neither it nor the Home tab mentioned the PWA or PayMongo. The Home tab also omitted the Civil Service weekly and yearly plans, and the beta tab still described Google Play.
+- The limit is Aedwon's approval time, not Claude capacity. Nine previews were waiting on him, and nothing was deployed for the November 9 beta (audit of November 2).
+- This session's usage tool reported a Pro plan at 29% weekly use, not Max, so Max usage could not be read from it.
+
+Options offered, in the lead's recommended order, with costs. None is approved for build:
+
+1. Question generator with abstract reasoning: unlocks PSHS-NCE and the four academy exams and reduces repeats in thin CSE pools. Cost: a large build, and generated questions need an independent audit.
+2. Smarter roadmap with knowledge map and readiness forecast: the clearest reason to buy Pro. Cost: a large build with heavy design input from Aedwon; forecasts must follow the rule against invented figures.
+3. Founder app: four tabs already chosen. Cost: a medium build; saves weekly time but adds no students.
+4. Next-exam brief: ranks exams by candidates, dates, overlap and price. Cost: low; runs without him.
+5. Funding brief: checks grants and credits. Cost: low; the SSOT listed no deadlines.
+
+Advised to skip for now: store releases (waiting on funds) and review center deals (parked). Timing advised: refresh the SSOT and run briefs 4 and 5 this week, and choose a build after November 15 using beta data.
+
+Question: "Should I refresh the SSOT and write the two post-beta briefs now?" Options: "Yes, start both" or "SSOT only".
+
+Aedwon's answer: "Yes, start both"
+
+Result:
+
+- SSOT refreshed: a Current status section and corrected Civil Service prices on Home, a new top checkpoint and a dated catch-up entry on the readiness tab, and a status note on the beta tab. The September 7 checkpoint's title now says SUPERSEDED; its text and all earlier entries are unchanged.
+- Briefs written: `docs/future/2026-11-03-next-exam-brief.md` and `docs/future/2026-11-03-funding-brief.md`. Neither is approved scope.
+
+Corrections made during lead review, before publishing:
+
+- The next-exam draft called UPCAT the largest official pool. PUPCET's official count is larger (181,598 against 147,437); both figures were rechecked on the official pages.
+- The next-exam draft said Student products are live, which holds only for store products. They have no web price, and Civil Service does. The draft also missed the rewrite of 98 non-CSE UPCAT sets, the required lesson links, and the deferred finales. UPCAT stayed first, as a judgment, with these costs stated.
+- The next-exam draft's NAPOLCOM "about 80,000 seats" was replaced by the registrations it cites, about 89,000 including promotional takers.
+- The funding draft said "take no equity" where the pages only do not mention equity. It told Aedwon to start BIR registration, which is already pending. It missed Google's exclusions (educational institutions, consultancies, agencies) and its funding-stage wording, which may affect Pantas.
