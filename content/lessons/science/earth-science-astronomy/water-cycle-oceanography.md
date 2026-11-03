@@ -46,13 +46,13 @@ The same rain can split between the two paths. More water soaks in when the soil
 
 A **reservoir** is a place where water is stored. The ocean is the largest reservoir. It holds about $96.5\%$ of Earth's water, according to the US Geological Survey.
 
-Nearly all the rest is fresh water. Most fresh water is frozen in glaciers and ice caps, and most of the remainder is groundwater. Lakes and rivers hold only a tiny share. Water stays in a reservoir for a short time in some places, such as the air, and for a very long time in others, such as deep groundwater and ice.
+About $2.5\%$ of Earth's water is fresh water, according to the US Geological Survey. The rest is salty, such as salty groundwater. Most fresh water is frozen in glaciers and ice caps, and most of the remainder is groundwater. Lakes and rivers hold only a tiny share. Water stays in a reservoir for a short time in some places, such as the air, and for a very long time in others, such as deep groundwater and ice.
 
 ### Ocean water and its layers
 
 Ocean water is **saline**, which means salty. Seawater has about $35$ grams of dissolved salt in every $1000$ grams of water. The saltiness changes a little from place to place.
 
-**Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. Cold water is denser than warm water. Salty water is denser than less salty water.
+**Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. For seawater, cold water is denser than warm water. Fresh water is different: it is densest at about $4\,^\circ\text{C}$ and gets less dense as it cools toward freezing, which is why ice floats. Salty water is denser than less salty water.
 
 The ocean forms layers because of density and sunlight. The top layer is warm and lit by the Sun. Sunlight reaches down to about $200$ meters. Below it, in most of the open ocean, the temperature falls fast with depth in a layer called the **thermocline**. Under that, the deep water is cold, dense, and dark.
 
@@ -72,7 +72,7 @@ Currents carry heat. A warm current, such as the Kuroshio that flows north past 
 
 A **tide** is the regular rise and fall of the ocean surface. It is caused by the gravity of the Moon and the Sun pulling on Earth's water. The Moon has the larger effect because it is so much closer. The Sun's effect is smaller but still real.
 
-The Moon pulls hardest on the water facing it. Water on the far side is pulled least. This makes two bulges of water, one facing the Moon and one on the opposite side of Earth. The bulges are **high tide**. The places between them have **low tide**.
+The Moon pulls hardest on the water facing it. Water on the far side is pulled least. Earth as a whole is pulled toward the Moon more than that far water is, so the far water is left behind and bulges away. This makes two bulges of water, one facing the Moon and one on the opposite side of Earth. The bulges are **high tide**. The places between them have **low tide**.
 
 Earth spins under the bulges. In most places, each spot passes through two high tides and two low tides a day. Some places get only one of each a day, because the shape of the coast and the sea changes the pattern. The **tidal range** is the difference in water height between high tide and low tide.
 
@@ -173,8 +173,8 @@ Four water samples are listed. Which sample is the densest and sinks below the o
 **Solution:**
 Use the two things that raise density.
 
-1. Cold water is denser than warm water, so C and D beat A and B on temperature.
-2. Saltier water is denser than less salty water, so B and D beat A and C on salt.
+1. Cold seawater is denser than warm seawater, so C and D beat A and B on temperature.
+2. Saltier seawater is denser than less salty seawater, so B and D beat A and C on salt.
 3. Sample D wins on both counts.
 
 The answer: D, cold and very salty. This is the kind of water that sinks near the poles and drives the deep currents.
@@ -230,7 +230,7 @@ For where water is stored, remember the ocean: about $96.5\%$ of Earth's water i
 
 For tides, link the phase to the line-up. A line (new moon and full moon) gives spring tides. A right angle (first and third quarter) gives neap tides. Use this for the large-scale pattern. The size of the tide at a given coast also depends on the shape of the coast.
 
-For density, ask two questions: Is it colder? Is it saltier? Each yes makes the water denser.
+For seawater density, ask two questions: Is it colder? Is it saltier? Each yes makes the water denser. Fresh water below about $4\,^\circ\text{C}$ is the exception.
 
 ## Traps to Watch For
 
