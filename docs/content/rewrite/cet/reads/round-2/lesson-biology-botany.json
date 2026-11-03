@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-biology-botany",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "For flower parts, think of the path of the pollen: anther, stigma, down the style, into the ovary, to the ovule.",
+      "problem": "The pollen grain does not travel down the style or into the ovary. It stays on the stigma and grows a pollen tube, and the tube grows down the style and carries the sperm to the ovule. The lesson itself says so (\"the pollen grain grows a thin tube\" and Trap #4 \"Pollen is what lands on the stigma\"), so this shortcut contradicts the lesson and plants the classic misconception that the pollen grain itself reaches the ovule. A student using it would pick \"pollen grain\" for a question asking what grows down the style.",
+      "source": "Campbell Biology, angiosperm reproduction (the pollen grain germinates on the stigma and its pollen tube extends down the style to the ovule); Raven, Biology of Plants; checklist B01"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "In a flowering plant, mature leaves near the top make sugar. A young fruit hangs high on the stem, and the roots are below.",
+      "problem": "The example exists to show that phloem can carry sugar upward, but the stem never places the fruit above the mature leaf. The leaves are \"near the top\" and the fruit is only \"high on the stem\", which a student can read as level with or below those leaves. The solution then states \"Sugar can move down to the roots and also up to the fruit\", a direction the givens do not supply. The necessary problem-specific given (the sink lies above the source) is missing, so the answer does not follow from the question.",
+      "source": "Checklist L05 (examples supply necessary problem-specific givens); LSG Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Pollination only moves pollen. It does not join any gametes.",
+      "problem": "Round-1 L22a is still open. This pollination paragraph has five sentences, above the one to three allowed. Others also run over three: the anther paragraph (five), the dermal tissue paragraph (four), the tropism definition paragraph (four), the opening flower paragraph (four), the pistil paragraph (four), the order paragraph after double fertilization (four), and all three Speed Tricks paragraphs (five, four and five).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
