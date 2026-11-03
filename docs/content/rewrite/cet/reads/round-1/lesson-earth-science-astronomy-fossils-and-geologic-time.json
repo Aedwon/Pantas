@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-earth-science-astronomy-fossils-and-geologic-time",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L23", "severity": "Major", "quote": "\"parentPercentages\":[100,50,25],\"halfLife\":\"1 billion years\"", "problem": "This figure marker sits at the end of Example #4, before the #5 heading, so the app draws it under Example #4. The renderer draws three bars (100%, 50%, 25%) labeled up to 2 half-lives, with the caption '25% remaining = 2 billion years'. Example #4 asks what is left after 3 half-lives, and its answer is 1/8. The figure under the example shows a different count and result, so a student who just found 1/8 sees a picture that seems to say 25%. The values belong to Example #5 (1 parent : 3 daughter, so 1/4 left, 2 billion years). The marker was already misplaced in the base, but the rewrite added Example #5 right after it and did not move it. Writer rule 7 keeps a marker only while it fits and asks for the exact values from the lesson.", "source": "Checklist L23; writer-rules.md rule 7; renderer lib/core/ui/figures/earth_science_diagram_figure.dart (case 'half-life-billion-years' draws fractions [1, .5, .25] and the text '25% remaining = 2 billion years')"}
+  ],
+  "goodQuotesChecked": 1
+}
