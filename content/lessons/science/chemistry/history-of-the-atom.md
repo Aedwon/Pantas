@@ -31,9 +31,17 @@ In the early $1800$s, **John Dalton** built an atomic theory from measured masse
 - in a chemical reaction, atoms join, separate, or rearrange, but are not created or destroyed;
 - atoms join in small whole-number ratios to form compounds.
 
-This theory explained three patterns in measured masses. The first is **conservation of mass**: the total mass stays the same during a chemical reaction. The second is the **law of definite proportions**: a compound always has the same mass ratio of its elements. Carbon dioxide always has $12$ g of carbon for every $32$ g of oxygen. Dalton explained this by saying that atoms of an element have a fixed mass and join in fixed whole-number ratios. The third is the **law of multiple proportions**: when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in small whole-number ratios.
+This theory explained three patterns in measured masses.
 
-Carbon and oxygen show this. In carbon monoxide, $12$ g of carbon combines with $16$ g of oxygen. In carbon dioxide, $12$ g of carbon combines with $32$ g of oxygen. The oxygen masses are in the ratio $16 : 32$, which is $1 : 2$. Dalton explained this by saying that carbon dioxide has twice as many oxygen atoms for each carbon atom.
+The first is **conservation of mass**: the total mass stays the same during a chemical reaction.
+
+The second is the **law of definite proportions**: a compound always has the same mass ratio of its elements. Carbon dioxide always has $12$ g of carbon for every $32$ g of oxygen.
+
+Dalton explained this by saying that atoms of an element have a fixed mass and join in fixed whole-number ratios. The third is the **law of multiple proportions**: when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in small whole-number ratios.
+
+Carbon and oxygen show this. In carbon monoxide, $12$ g of carbon combines with $16$ g of oxygen. In carbon dioxide, $12$ g of carbon combines with $32$ g of oxygen. The oxygen masses are in the ratio $16 : 32$, which is $1 : 2$.
+
+Dalton explained this by saying that carbon dioxide has twice as many oxygen atoms for each carbon atom.
 
 Some of Dalton's ideas are not correct today. Atoms are made of smaller particles. Atoms of the same element can have different masses. Atoms are rearranged in chemical reactions, but nuclear reactions can change one kind of atom into another.
 
@@ -45,7 +53,7 @@ Every atom has a center called the **nucleus**. The nucleus holds **protons**, w
 
 **Isotopes** are atoms with the same number of protons but different numbers of neutrons. Their masses differ. Chlorine-35 has $17$ protons and $18$ neutrons. Chlorine-37 has $17$ protons and $20$ neutrons.
 
-This contradicts Dalton's claim that all atoms of one element have the same mass. Isotopes of one element behave almost the same in chemical reactions, so Dalton's mass-based chemistry still worked. The mass of an element on the periodic table is usually a weighted average over its isotopes. Each isotope counts in proportion to how common it is. Chlorine is about $76\%$ chlorine-35 and $24\%$ chlorine-37, so its average mass is about $35.45$, not $36$. A few elements, such as technetium, have no stable isotopes. Tables show the mass number of one isotope in brackets for them.
+This contradicts Dalton's claim that all atoms of one element have the same mass. Isotopes of one element behave almost the same in chemical reactions, so Dalton's mass-based chemistry still worked. The mass of an element on the periodic table is usually a weighted average over its isotopes. Each isotope counts in proportion to how common it is. Chlorine is about $76\%$ chlorine-35 and $24\%$ chlorine-37, so its average mass is about $35.45$, not $36$.
 
 ### Thomson and the Electron
 

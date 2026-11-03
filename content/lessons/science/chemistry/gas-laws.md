@@ -301,18 +301,18 @@ Find the volume of $0.50$ mol of an ideal gas at $25\,^\circ\mathrm C$ and $101.
 
 $$V=\dfrac{nRT}{P}=\dfrac{(0.50)(8.314)(298.15)}{101.325}\approx12.2\text{ L}$$
 
-3. One mole would fill about $24.5$ L, not $22.4$ L. The value $22.4$ L is true at $0\,^\circ\mathrm C$ and $1$ atm. This gas is warmer at the same pressure, so it takes more space.
+3. Divide by the moles: $\dfrac{12.23}{0.50}\approx24.5$ L for one mole, not $22.4$ L. The value $22.4$ L is true at $0\,^\circ\mathrm C$ and $1$ atm. This gas is warmer at the same pressure, so it takes more space.
 
 ### #11: Explaining a Gas With Kinetic Molecular Theory
 
-A sealed rigid can holds gas at $25\,^\circ\mathrm C$. The can is heated to $100\,^\circ\mathrm C$. Use the Kinetic Molecular Theory to explain the pressure change. Then say which idea of the theory fails first if the same gas is squeezed to a very high pressure.
+A sealed rigid can holds gas at $25\,^\circ\mathrm C$. The can is heated to $100\,^\circ\mathrm C$. Use the Kinetic Molecular Theory to explain the pressure change. Then say which two ideas of the theory stop working well if the same gas is squeezed to a very high pressure.
 
 **Solution:**
 
 1. The can is sealed and rigid, so the number of particles and the volume stay the same.
 2. A higher kelvin temperature means a higher average kinetic energy, so the particles move faster.
 3. Faster particles hit the walls harder and more often. The many pushes add up to a larger force on each unit of area, so the pressure rises. This matches Gay-Lussac's law.
-4. At very high pressure the particles are squeezed close together. The idea that their own volume is zero then fails first, because their volume is no longer small compared with the space they fill.
+4. At very high pressure the particles are squeezed close together. Two ideas stop working well: the particles' own volume is no longer small compared with the space they fill, and the attractions between them are no longer negligible.
 
 ## Speed Tricks & Shortcuts
 
@@ -332,7 +332,7 @@ Use the combined law when a fixed amount of gas changes state. Use $PV=nRT$ when
 
 Problems often give Celsius values to test this. A gas that goes from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double its volume, because the kelvin temperatures are $283.15$ K and $293.15$ K. Some problems allow $273$ in place of $273.15$, but use $273.15$ unless the problem says otherwise.
 
-### #2: Using 22.4 L at Any Condition
+### #2: Using $22.4$ L at Any Condition
 
 > The molar volume of $22.4$ L is true at $0\,^\circ\mathrm C$ and $1$ atm. Do not use it at other conditions without checking.
 
@@ -344,7 +344,7 @@ At $25\,^\circ\mathrm C$ and $1$ atm, one mole fills about $24.5$ L. At most oth
 
 The equations are good approximations at ordinary conditions. A gas near the temperature where it becomes a liquid can be far from the ideal answer. Do not use the laws to find a volume at a temperature where the gas has already condensed.
 
-### #4: Thinking 0 K Means "No Energy"
+### #4: Thinking $0$ K Means "No Energy"
 
 > Absolute zero is the lower limit of the kelvin scale, but it is not a state of exactly zero energy.
 
