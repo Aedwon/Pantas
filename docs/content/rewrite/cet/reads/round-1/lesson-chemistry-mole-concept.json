@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-chemistry-mole-concept",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A final answer should not show more digits than the least precise given number.", "problem": "False as a general rule. Counting significant figures applies to multiplying and dividing. Adding uses the last shared decimal place, and exact counts such as subscripts never limit the answer. Molar mass is a sum, so the lesson's own Example 2 breaks the rule: with the given H = 1 (one significant figure), the rule would give 70 g/mol, but the lesson correctly reports 74 g/mol. Example 8 also gives 2(0.50) = 1.0, where the count 2 has one digit. A student who applies the rule as written to a molar mass rounds to a wrong value.", "source": "Reader rules, 'Added after the Sol audit' (a general statement that breaks at a boundary is a Blocker); checklist B01; standard significant-figure rules for addition and exact numbers (NIST SP 811 and general chemistry texts); lesson Example 2 and Example 8"},
+    {"rule": "B01", "severity": "Blocker", "quote": "This works for any formula, including ones with parentheses once you multiply through.", "problem": "False absolute. The method is 'multiply each element's molar mass by its subscript before you add', with only parentheses named as needing extra work. It fails for a hydrate such as CuSO4·5H2O, where the coefficient 5 multiplies the water, so H counts 10 and the water O counts 5, not the subscripts shown. A student who trusts 'any formula' gets 177.6 g/mol instead of 249.7 g/mol.", "source": "Reader rules, 'Added after the Sol audit'; checklist B01; IUPAC Red Book (2005) IR-4 on the centered dot and its multiplier in addition compounds"},
+    {"rule": "L25", "severity": "Major", "quote": "its count of protons plus neutrons", "problem": "Protons and neutrons are used to define isotope and mass number, but the lesson never says what they are and names no prerequisite lesson (the brief records no prerequisite). The definition of mass number is empty without them, and Trap #5 depends on that definition.", "source": "Checklist L25; LSG Teaching completeness; writer-rules 'Rules added after round 1', rule 1"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Moles are the middle step because $M$ and $N_A$ both connect to them.", "problem": "This paragraph has five sentences. Others also go past three: the relative atomic mass paragraph (five), the entity paragraph (four), the paragraph on molecular and ionic counting (four), and the significant figures paragraph (four).", "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences)"}
+  ],
+  "goodQuotesChecked": 4
+}
