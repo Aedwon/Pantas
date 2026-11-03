@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-geometry-parallel-perpendicular-lines",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Two equal angles in other positions prove nothing.",
+      "problem": "False at the 90 degree boundary. Two same-side interior angles (or two same-side exterior angles) that are equal at 90 degrees each sum to 180 degrees and do prove the lines parallel. The lesson's own Core Concept says two lines both perpendicular to one transversal are parallel, so the trap contradicts it. A student told that equal angles in a non-listed position prove nothing would reject a valid parallel proof.",
+      "source": "Checklist B01; same-side interior angle converse (supplementary same-side interior angles imply parallel lines), stated in the lesson's own reverse rule section"
+    },
+    {
+      "rule": "L23",
+      "severity": "Major",
+      "quote": "\"labels\": [\"Line l\", \"Line m\", \"Point P\", \"30°\", \"40°\", \"Angle P = 30° + 40° = 70°\"]",
+      "problem": "The Example 7 question marker is byte-identical to the base, so the writer's report that its labels were edited is wrong. The rewritten question now names points A, B, C, D and the solution names E, and the shortcut's limit depends on A and B lying left of P with the angles measured toward C and D. The marker has none of these points, does not fix which side each angle opens to, and prints the answer (70 degrees) in the question figure. The helper-line marker below it also says \"Top Line\" and \"Bottom Line\" instead of l and m and has no point E. An artist could draw a configuration the text does not describe, against the brief's instruction to preserve the intended helper-line configuration.",
+      "source": "Checklist L23; brief, Structure: \"preserve the intended helper-line configuration\"; base 7032eec5 lines 127 and 133"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Angle $CAP$ is $30^\\circ$ and angle $DBP$ is $40^\\circ$. Find angle $APB$.",
+      "problem": "Example 7 depends on three-letter angle names (CAP, DBP, APB, APE, EPB), where the middle letter is the vertex. The lesson never explains this and names no prerequisite lesson for it; the brief records the prerequisite status as none-found. The basic geometric concepts lesson teaches the convention, but it is not identified here, so a student without it cannot locate the angles.",
+      "source": "Checklist L25 and LSG Teaching completeness (identified prerequisite required); brief, Prerequisite status"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

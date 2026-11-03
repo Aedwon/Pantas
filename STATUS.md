@@ -236,3 +236,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Written: parallel-perpendicular-lines (2,060 words). Systems-of-equations fixed after round 2.
 - Done at minor after round 2: coordinate-geometry (1 Minor). Parallel-perpendicular-lines round 1 read running.
 - Pause requested by the user: no new agents. Running agents finish and are recorded (systems-of-equations round 3, parallel-perpendicular-lines round 1 read, quadrilaterals-and-polygons write).
+- Done clean after round 3: systems-of-equations.
