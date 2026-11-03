@@ -17,7 +17,9 @@ ATP has three phosphate groups (small units made of phosphorus and oxygen). When
 
 ### Words used in this lesson
 
-An **organic molecule** is a carbon-based molecule made by living things, such as glucose ($C_6H_{12}O_6$, a sugar). A **prokaryote** is a cell with no nucleus and no membrane-bound organelles. Bacteria are prokaryotes. A **eukaryote** is a cell with a nucleus and organelles. Plants, animals, fungi and algae are eukaryotes.
+An **organic molecule** is a carbon-based molecule built around chains or rings of carbon and hydrogen, such as glucose ($C_6H_{12}O_6$, a sugar). Carbon dioxide and carbonates are carbon compounds, but they are not called organic.
+
+A **prokaryote** is a cell with no nucleus and no membrane-bound organelles. Bacteria are prokaryotes. A **eukaryote** is a cell with a nucleus and organelles. Plants, animals, fungi and algae are eukaryotes.
 
 An **organelle** is a small part inside a cell with its own job. The **cytosol** is the watery fluid in a cell, outside the organelles. **Catabolic** means breaking big molecules down into smaller ones. **Anabolic** means building small molecules up into bigger ones.
 
@@ -119,7 +121,9 @@ Photosynthesis and aerobic respiration have complementary overall inputs and out
 
 Matter cycles: carbon, hydrogen and oxygen move between sugar, carbon dioxide, water and oxygen gas. Energy does not cycle. It enters mostly as light and leaves as heat.
 
-Plants do both processes. Respiration goes on in all living plant cells day and night, including roots, which need oxygen from the soil. Photosynthesis happens only in cells with chloroplasts, and only when there is light. In bright light a leaf makes more sugar and oxygen than it uses. In the dark it takes in oxygen and gives off carbon dioxide, like an animal cell.
+Plants do both processes. Respiration goes on in all living plant cells day and night, including roots, which need oxygen from the soil.
+
+Photosynthesis happens only in cells with chloroplasts, and only when there is light. In bright light a leaf makes more sugar and oxygen than it uses. In the dark, most plants take in oxygen and give off carbon dioxide, like an animal cell. CAM plants, such as pineapple, are an exception: they open their pores at night and take in carbon dioxide.
 
 ## Examples
 
@@ -296,7 +300,7 @@ Carbon dioxide gives its carbon to sugar. The water is split in the light reacti
 
 > This is true only while photosynthesis is faster than respiration.
 
-In the dark, or in cells without chloroplasts, a plant takes in oxygen and gives off carbon dioxide.
+In the dark, or in cells without chloroplasts, most plants take in oxygen and give off carbon dioxide. CAM plants, such as pineapple, also take in carbon dioxide at night.
 
 ### #7: Thinking an Enzyme Is Used Up
 

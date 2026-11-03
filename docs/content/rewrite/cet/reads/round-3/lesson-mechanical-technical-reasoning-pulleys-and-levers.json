@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A machine is **ideal** when it has no friction and its rope or bar has no weight.", "problem": "This definition leaves out the weight of the pulleys, and the next sentence ('Then the work you put in equals the work you get out') fails without that condition. Take a frictionless system with a weightless rope and a heavy movable pulley. By this definition it is ideal, yet part of the input work lifts the pulley, so the effort is (load + pulley weight) divided by the segment count, not the ideal value. The lesson itself says so in Trap #6 ('friction and the weight of the moving pulley raise the effort'), and Example #5 has to add 'the weight of the blocks' to its own conditions. A student given a pulley weight and told only to ignore friction would treat the system as ideal and report too small an effort.", "source": "Checklist B01; reader-rules, Added after the Sol audit (general statement tested against a known exception); standard ideal-machine physics (frictionless and massless parts); the lesson's Trap #6 and Example #5"},
+    {"rule": "B01", "severity": "Blocker", "quote": "A lever bar's own weight can raise or lower the effort, depending on which side its middle lies.", "problem": "A bar's weight acts at its center of gravity, which is the middle only for a uniform bar. In a non-uniform bar, such as one thicker at one end, the middle can lie on one side of the fulcrum and the center of gravity on the other, so the bar's weight then changes the effort in the opposite direction to the one this sentence predicts. The sentence states the rule for every bar and does not name the uniform-bar condition. The base lesson made no such claim.", "source": "Checklist B01 (L27 for the missing condition); reader-rules, Added after the Sol audit; standard statics: weight acts at the center of gravity"},
+    {"rule": "L22a", "severity": "Minor", "quote": "This lesson counts segments only for one-rope systems.", "problem": "The paragraph that ends with this sentence has five sentences, from 'A **movable pulley** moves with the load.' to here. The limit is one to three short sentences per paragraph.", "source": "Checklist L22a; lesson style guide, Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
