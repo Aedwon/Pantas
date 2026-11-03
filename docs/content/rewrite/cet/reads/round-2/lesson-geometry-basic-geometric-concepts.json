@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-geometry-basic-geometric-concepts",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "If the two lines are perpendicular, all four angles are $90^\\circ$. Check the positions in the figure before writing the equation.",
+      "problem": "Still open from round 1. The Trap #2 paragraph has four sentences (the set-equal rule, the neighbors sum, the perpendicular case, the check). The limit is one to three short sentences.",
+      "source": "Checklist L22a; LSG Formatting rules; round-1 read finding 3"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The two angles do not have to touch. Each angle in a complementary pair is acute, because the other angle takes up part of the $90^\\circ$.",
+      "problem": "The complementary/supplementary paragraph has four sentences, over the one-to-three limit. The angle paragraph that ends \"When only one angle sits at a vertex, we may write just $\\angle B$.\" also has four sentences.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

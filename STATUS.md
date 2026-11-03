@@ -231,3 +231,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Round 1 reads: systems-of-equations (1 Blocker: slope tests fail for vertical lines; 2 Majors), basic-geometric-concepts (2 Majors: 'undefined terms' cut, angles on a line untaught); fixes running.
 - Fixed after round 1: systems-of-equations, basic-geometric-concepts. Coordinate-geometry written (2,602 words); its round 1 read is running.
 - Coordinate-geometry round 1: 2 Majors (completing the square half taught; circle-center trap worded without its limit); fix running.
+- Done at minor after round 2: basic-geometric-concepts (2 Minors). Writing: parallel-perpendicular-lines.
