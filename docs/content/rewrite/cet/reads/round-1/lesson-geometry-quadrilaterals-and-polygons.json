@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-geometry-quadrilaterals-and-polygons",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A concave polygon can also be cut into $n - 2$ triangles, but you may need to start from a different vertex.", "problem": "The sentence follows the method of drawing every diagonal from one vertex and says a concave polygon only may need a different starting vertex. That is false in general. Some concave polygons have no vertex that sees every other vertex inside the shape, so no single-vertex fan works. Example: an H-shaped polygon with 12 vertices. Its interior angles still add to (12 - 2) x 180 = 1800 degrees, but the n - 2 triangles need diagonals from several vertices. The first half of the sentence is true; the remedy it gives is not.", "source": "Standard result: every simple polygon has a triangulation into n - 2 triangles, but a fan from one vertex exists only when the polygon is star-shaped from that vertex (an H shape has an empty kernel)."},
+    {"rule": "L17", "severity": "Major", "quote": "In a right triangle, the square of the longest side equals the sum of the squares of the other two sides.", "problem": "Example 10 introduces the Pythagorean theorem for the first time inside the solution. Core Concept never states it and does not name the prerequisite lesson. The Mathematics rule says every formula used in a solution must first appear in Core Concept. The sister lessons on circles and coordinate geometry state it in Core Concept before using it.", "source": "Checklist L17; LSG Per-subject section fit (Mathematics)"},
+    {"rule": "L19", "severity": "Minor", "quote": "$$x = 30$$", "problem": "In Example 7, step 2 is labeled Combine, but it goes from 5x + 30 = 180 to x = 30. It neither shows nor names the two operations (subtract 30, then divide by 5). Example 6 names its operations. The arithmetic is trivial for the audience, so this is a labeling gap rather than a missing method.", "source": "Checklist L19; LSG Examples section"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Some words you need. Two angles are **supplementary** if they add to $180^\\circ$.", "problem": "This paragraph has six sentences, and the limit is one to three short sentences. Other paragraphs also break the limit: Trap #3 has five sentences, Trap #5 has five, and the first Core Concept paragraph and the simple/convex paragraph have four each.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 4
+}

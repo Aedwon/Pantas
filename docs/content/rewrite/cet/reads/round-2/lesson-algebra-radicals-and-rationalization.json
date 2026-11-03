@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-algebra-radicals-and-rationalization",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L17", "severity": "Major", "quote": "3m+4=4+4\\sqrt{m+2}+m+2", "problem": "Example #10 squares 2+sqrt(m+2), which uses (a+b)^2=a^2+2ab+b^2. Core Concept gives only the (a-b)^2 expansion ('Squaring a binomial gives (a-b)^2=a^2-2ab+b^2'), and no prerequisite lesson is named. The middle term 4 sqrt(m+2) appears with no taught formula behind it. This is the round-1 L25 finding only partly closed.", "source": "content-checklist.md L17 (every formula appears in Core Concept before any example uses it); reader-rules.md 'Added after the Sol audit'; round-1 read L25"},
+    {"rule": "L25", "severity": "Major", "quote": "If a product is $0$, one of its factors is $0$", "problem": "Core Concept now teaches the zero-product step, but Examples #10 and #12 also need factoring a trinomial: m^2-6m-7=(m-7)(m+1) and L^2-L-20=(L-5)(L+4). The lesson neither teaches how to find these factors nor names the prerequisite lesson that does (the quadratic-equations lesson). Round-1 asked for the teaching or the named prerequisite; the factoring part is still open.", "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness (reuse only from an identified prerequisite); round-1 read L25"},
+    {"rule": "L22a", "severity": "Minor", "quote": "To spot perfect squares fast, know", "problem": "This Speed Tricks paragraph has six sentences, above the one-to-three limit. The paragraphs starting 'Step $5$ matters for square roots.' and 'A **nested radical** goes on without end' have four each.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"},
+    {"rule": "B08", "severity": "Minor", "quote": "Two tools help in step 4.", "problem": "The number 4 in prose is not wrapped in inline math. The round-1 fix wrapped the 5 in the next paragraph but missed this one.", "source": "content-checklist.md B08; lesson-style-guide.md Math notation"}
+  ],
+  "goodQuotesChecked": 4
+}
