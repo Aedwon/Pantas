@@ -91,9 +91,13 @@ For example, Orion is easy to see in the evening in the early months of the year
 
 **Precession** is the slow change in the direction that Earth's axis points. It is caused mainly by the pull of the Moon and the Sun on Earth's equatorial bulge. Earth is slightly wider at the equator than from pole to pole, and the pull acts on this bulge.
 
-Think of a spinning toy top that slowly wobbles in a circle. Earth's axis does the same in a very slow way. The tilt angle stays about the same, but the direction of the axis traces a cone. One full circle takes about $26{,}000$ years.
+Think of a spinning toy top that slowly wobbles in a circle. Earth's axis does the same in a very slow way.
 
-The **north celestial pole** is the point in the sky directly above Earth's North Pole. The axis points to it now, and it is close to the star Polaris, so Polaris is our "North Star". Because of precession, the pole slowly moves among the stars. Thousands of years ago a different star, Thuban, was nearest the pole, and in about $12{,}000$ years the star Vega will be. Precession is far too slow to affect days, seasons, or this year's calendar.
+The tilt angle stays about the same, but the direction of the axis traces a cone. One full circle takes about $26{,}000$ years.
+
+The **north celestial pole** is the point in the sky directly above Earth's North Pole. The axis points to it now, and it is close to the star Polaris, so Polaris is our "North Star".
+
+Because of precession, the pole slowly moves among the stars. Thousands of years ago a different star, Thuban, was nearest the pole, and in about $12{,}000$ years the star Vega will be. Precession is far too slow to affect days, seasons, or this year's calendar.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-motion-triptych","illustrationKey":"science/earth-science-astronomy/earths-motions#2","motions":[{"name":"rotation","effect":"day/night","motion":"spin on axis"},{"name":"revolution","effect":"seasons","motion":"orbit Sun with tilted axis"},{"name":"precession","effect":"axis wobble","motion":"slow wobble"}]} -->
 
@@ -222,8 +226,8 @@ The two values differ because Earth also moves along its orbit while it rotates.
 
 Century years such as $1900$ and $2100$ are skipped unless divisible by $400$. So $2000$ was a leap year, but $1900$ was not.
 
-### #6: Precession Is Not a Cause of Seasons or Night Sky Changes
+### #6: Precession Does Not Cause Yearly Seasons or Yearly Sky Changes
 
 > Precession changes the direction of the axis over thousands of years, not over months.
 
-The seasons come from tilt and revolution. The change in which constellations are seen across the year comes from revolution. Precession changes which star is closest to the celestial pole, but only over very long times.
+The seasons come from tilt and revolution. The change in which constellations are seen across one year comes from revolution. Precession does change which star is closest to the celestial pole, and over thousands of years it shifts which constellations are seen in each season.
