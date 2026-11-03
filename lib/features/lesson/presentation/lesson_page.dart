@@ -23,6 +23,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -545,7 +546,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   }
 }
 
-class _ReaderFallback extends StatelessWidget {
+class _ReaderFallback extends ConsumerWidget {
   const _ReaderFallback({
     required this.origin,
     required this.child,
@@ -556,7 +557,7 @@ class _ReaderFallback extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) => context.wideWeb
+  Widget build(BuildContext context, WidgetRef ref) => context.wideWeb
       ? CallbackShortcuts(
           bindings: {
             const SingleActivator(LogicalKeyboardKey.escape):
@@ -582,7 +583,19 @@ class _ReaderFallback extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Center(child: SizedBox(width: 680, child: child)),
+                  // The same column the lesson will fill, so a wider choice
+                  // does not jump when the lesson arrives.
+                  child: LayoutBuilder(
+                    builder: (context, box) => Center(
+                      child: SizedBox(
+                        width: WebReaderMetrics.columnWidth(
+                          box.maxWidth,
+                          fullWidth: ref.watch(readerFullWidthProvider),
+                        ),
+                        child: child,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
