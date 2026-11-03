@@ -11,7 +11,7 @@ isActive: true
 
 ### Minerals and Rocks
 
-A **mineral** is a solid that forms in nature, is inorganic, has its atoms arranged in an orderly pattern, and has a definite chemical makeup. "Inorganic" means it is not made by living things from the carbon compounds of life. Quartz, feldspar, calcite, and olivine are common minerals.
+A **mineral** is a solid that forms in nature, is inorganic, has its atoms arranged in an orderly pattern, and has a definite chemical makeup or a narrow range of makeups. "Inorganic" means it is not made by living things from the carbon compounds of life. Quartz, feldspar, calcite, and olivine are common minerals.
 
 A **rock** is a solid mass made of one or more minerals, or of other natural mineral-like matter, stuck together. Granite holds several minerals. Some rocks are made almost entirely of one mineral, such as quartzite, which is mostly quartz.
 
@@ -35,7 +35,9 @@ The Mohs scale only ranks minerals. The steps are not equal in size. A fingernai
 
 Some minerals also show a special property. Calcite fizzes in a drop of dilute acid. Magnetite is attracted to a magnet.
 
-No single test names every mineral. Use two or three tests together. <!-- ILLUSTRATION: a Mohs hardness ladder with ten rungs labeled $1$ talc, $2$ gypsum, $3$ calcite, $4$ fluorite, $5$ apatite, $6$ orthoclase, $7$ quartz, $8$ topaz, $9$ corundum, $10$ diamond, with a fingernail marked at $2.5$ and a glass plate at $5.5$ -->
+No single test names every mineral. Use two or three tests together.
+
+<!-- ILLUSTRATION: a Mohs hardness ladder with ten rungs labeled $1$ talc, $2$ gypsum, $3$ calcite, $4$ fluorite, $5$ apatite, $6$ orthoclase, $7$ quartz, $8$ topaz, $9$ corundum, $10$ diamond, with a fingernail marked at $2.5$ and a glass plate at $5.5$ -->
 
 ### Weathering, Erosion, and Deposition
 
@@ -62,7 +64,7 @@ Texture shows how fast a rock cooled. Color and mineral makeup show the kind of 
 
 Some sedimentary rocks form from pieces of older rock. Sandstone forms from sand, shale from very fine mud and clay, and conglomerate from rounded gravel. Other sedimentary rocks form when minerals **precipitate**, which means they come out of water as a solid. Rock salt forms when seawater evaporates. Limestone forms from shells and other calcium carbonate, which can build up from living things or from the water itself. Coal forms from buried plant remains.
 
-In undisturbed layers, the lowest layer is usually the oldest. Fossils are the preserved remains or traces of past life. They are common in sedimentary rock, because it forms at low temperatures and pressures that do not destroy them. A few fossils also occur in other rocks, such as in volcanic ash that hardened, but igneous rocks formed from melts do not contain them.
+In undisturbed layers, the lowest layer is usually the oldest. Fossils are the preserved remains or traces of past life. They are common in sedimentary rock, because it forms at low temperatures and pressures that do not destroy them. A few fossils also occur in other rocks, such as in volcanic ash that hardened. Fossils are rarely, if ever, found in igneous rock that formed from a melt, because the heat would destroy them.
 
 ### Metamorphic Rocks
 
@@ -97,11 +99,11 @@ Quartz is a mineral. Granite is a rock made of several minerals. Quartzite is al
 
 ### #2: Telling Two Minerals Apart
 
-A yellow metallic mineral scratches calcite but cannot scratch glass. It leaves a greenish-black streak. A student says it is gold. Is the student likely right?
+A yellow metallic mineral scratches a glass plate. It leaves a greenish-black streak. A student says it is gold. Is the student likely right?
 
 **Solution:**
-1. The mineral scratches calcite, so its hardness is above $3$. It cannot scratch glass, so its hardness is below about $5.5$.
-2. Gold is soft, with a hardness of about $2.5$ to $3$. A mineral that scratches calcite is too hard to be gold.
+1. The mineral scratches glass, so its hardness is above about $5.5$.
+2. Gold is soft, with a hardness of about $2.5$ to $3$. A mineral that scratches glass is too hard to be gold.
 3. Gold leaves a yellow streak, not a greenish-black one.
 
 The student is likely wrong. A yellow metallic mineral with a greenish-black streak is more likely pyrite.
@@ -129,14 +131,14 @@ The slowly cooled intrusive rock likely has larger crystals, because the crystal
 
 ### #6: A Controlled Cooling Test
 
-A student pours the same amount of the same hot, saturated salt solution into three identical dishes. Dish A cools in an ice bath. Dish B cools at room temperature. Dish C is kept warm. After the water evaporates and the salt crystals form, the student measures the crystals. What is the independent variable, the dependent variable, and two controlled variables?
+A student pours the same amount of the same hot, saturated salt solution into three identical dishes. Dish A cools in an ice bath. Dish B cools at room temperature. Dish C is kept warm. Later the student measures the size of the salt crystals in each dish. What is the independent variable, the dependent variable, and two controlled variables?
 
 **Solution:**
 1. The student changes the cooling condition, so cooling rate is the independent variable.
 2. The student measures crystal size, so crystal size is the dependent variable.
 3. The same solution and the same amount are kept constant, so they are controlled variables. The identical dishes are another.
 
-Slower cooling will probably give larger crystals. This model shows how cooling time affects crystal size in igneous rock.
+Only cooling differs between the dishes, so a difference in crystal size can be linked to cooling. This is a small model of how cooling time may affect crystal size in igneous rock.
 
 ### #7: From Loose Grains to Rock
 
