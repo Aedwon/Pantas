@@ -34,6 +34,8 @@ The number $\pi$ is the circumference divided by the diameter, for any circle. I
 
 ### Angles and Fractions of a Circle
 
+The **vertex** of an angle is the corner point where its two sides meet.
+
 The **intercepted arc** of an angle lies between its two sides.
 
 - A **central angle** (vertex at the center) equals its intercepted arc.
