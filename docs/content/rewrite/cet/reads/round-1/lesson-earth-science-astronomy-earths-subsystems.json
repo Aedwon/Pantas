@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-subsystems",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L25", "severity": "Major", "quote": "Temperature drops with height in the troposphere and the mesosphere.", "problem": "The trap's warning uses the mesosphere as a layer whose temperature pattern the student must know, but the lesson never says what or where the mesosphere is. Core Concept names only the troposphere and the stratosphere, and the trap places only the thermosphere ('higher up'). No prerequisite lesson is named, so a student cannot tell that the mesosphere lies between the stratosphere and the thermosphere, and the warning that the pattern 'changes from layer to layer' cannot be applied to it. The layer order is taught in weather-and-climate.md, which this lesson does not point to.", "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness (a prior mention alone does not count; reuse needs an identified prerequisite)"}
+  ],
+  "goodQuotesChecked": 1
+}
