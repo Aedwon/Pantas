@@ -104,6 +104,22 @@ void main() {
     expect(find.text('Back'), findsOneWidget);
   });
 
+  testWidgets(
+      'too few questions for the paper shows "Mock paper not ready", '
+      'not an error with Try Again', (tester) async {
+    await _open(
+      tester,
+      () async => throw const ServerMockException(
+        code: 'failed-precondition',
+        message: 'There are not enough questions for this mock yet.',
+      ),
+    );
+    expect(find.text('Mock paper not ready'), findsOneWidget);
+    expect(find.text('Something went wrong.'), findsNothing);
+    expect(find.text('Try Again'), findsNothing);
+    expect(find.text('Back'), findsOneWidget);
+  });
+
   testWidgets('a cooldown reply with no date is still an error',
       (tester) async {
     await _open(tester, () async => _reply('cooldown'));

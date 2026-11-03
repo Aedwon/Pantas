@@ -18,6 +18,7 @@ import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/server_mock_paper.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
@@ -116,9 +117,22 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
           return;
         }
       } else {
-        paper =
-            (await api.start(examId: widget.examId, strict: widget.strictMode))
-                .paper;
+        try {
+          paper = (await api.start(
+            examId: widget.examId,
+            strict: widget.strictMode,
+          ))
+              .paper;
+        } on ServerMockException catch (refusal) {
+          // The server refuses a start for reasons that are normal states, not
+          // failures: the Free limit, no paper yet, too few questions. Its
+          // status says which. Only that status is trusted, never the wording.
+          if (refusal.code != 'failed-precondition') rethrow;
+          final notOpen =
+              await serverMockNotOpenAfterRefusal(api, widget.examId);
+          if (notOpen == null) rethrow;
+          throw notOpen;
+        }
       }
       final restored = await _restoredIndexes(paper);
       final saved = await ref
@@ -156,7 +170,14 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
         await _close();
         return;
       }
-      unawaited(ref.read(telemetryProvider).recordError(error, stackTrace));
+      if (error is ServerMockNotOpen) {
+        // Quiz and setup read the same status; make them read it again.
+        ref
+          ..invalidate(serverMockAvailabilityProvider(widget.examId))
+          ..invalidate(serverMockSetupCountProvider(widget.examId));
+      } else {
+        unawaited(ref.read(telemetryProvider).recordError(error, stackTrace));
+      }
       setState(() => _loadError = error);
     }
   }
@@ -305,6 +326,9 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       return const MockSessionSkeleton();
     }
     final error = _loadError;
+    if (error is ServerMockNotOpen) {
+      return MockNotOpenView(error, onBack: () => context.go(mockExitLocation));
+    }
     if (error != null) {
       return Scaffold(
         body: errorFor(
