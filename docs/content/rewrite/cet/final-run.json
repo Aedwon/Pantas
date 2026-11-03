@@ -147,7 +147,7 @@
     "lessonPath": "content/lessons/science/chemistry/chemical-reactions.md",
     "lessonId": "lesson-chemistry-chemical-reactions",
     "group": "science",
-    "status": "round-2-read"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/gas-laws.md",
@@ -171,7 +171,7 @@
     "lessonPath": "content/lessons/science/chemistry/mixtures-and-separation.md",
     "lessonId": "lesson-chemistry-mixtures-and-separation",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/mole-concept.md",

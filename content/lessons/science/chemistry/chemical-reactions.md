@@ -75,11 +75,12 @@ Zinc is above copper, so $Zn+CuSO_4\rightarrow ZnSO_4+Cu$ works. The reverse doe
 
 ### Double Displacement and Driving Forces
 
-Swapping partners on paper does not prove that anything happens. A double displacement reaction happens only when a **driving force** removes ions from the solution. There are three common ones.
+Swapping partners on paper does not prove that anything happens. A double displacement reaction happens only when a **driving force** removes ions from the solution. There are four common ones.
 
 - A **precipitate** forms. This is a solid that appears when two solutions are mixed because it does not dissolve.
 - Water forms. This is what happens when an acid meets a base.
 - A gas escapes.
+- A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
 
 To predict a precipitate, use solubility. A substance is **soluble** if it dissolves in water. These are the usual classroom rules.
 
@@ -276,7 +277,9 @@ Solutions of lead(II) nitrate and potassium iodide are mixed. Write the balanced
 4. Add state symbols: $(aq)$ for the dissolved compounds and $(s)$ for the solid.
 5. Write each dissolved ionic compound as separate ions, with its coefficient. Keep the solid as one formula.
 
-$$Pb^{2+}+2NO_3^-+2K^++2I^-\rightarrow PbI_2(s)+2K^++2NO_3^-$$
+$$Pb^{2+}+2NO_3^-+2K^++2I^-$$
+
+$$\rightarrow PbI_2(s)+2K^++2NO_3^-$$
 
 6. $K^+$ and $NO_3^-$ appear unchanged on both sides. They are spectator ions. Cross them out.
 7. Write what is left. This is the net ionic equation.
@@ -300,7 +303,7 @@ Solutions of sodium chloride and potassium nitrate are mixed. Does a reaction oc
 **Solution:**
 
 1. The swap gives $NaNO_3$ and $KCl$.
-2. Both are soluble by the rules. Nothing forms a solid, a gas or water.
+2. Both are soluble by the rules. Nothing forms a solid, a gas, water or a weak electrolyte.
 3. All four ions stay in solution. Every ion is a spectator, so there is no net ionic equation.
 
 No reaction occurs. Writing the swapped formulas did not prove a reaction.
@@ -325,7 +328,7 @@ For a hydrocarbon in oxygen, balance C, then H, then O. If O comes out odd, doub
 
 Balance a bracketed group such as $SO_4$ or $OH$ as one unit. This works only if the group stays together on both sides.
 
-To test for a precipitate, find the two new compounds and look each up in the solubility rules. If both are soluble, no precipitate forms. The reaction can still happen if water or a gas forms, so check for those too. If the question asks about the activity series, check that the free metal is higher than the one it replaces.
+To test for a precipitate, find the two new compounds and look each up in the solubility rules. If both are soluble, no precipitate forms. The reaction can still happen if water, a gas or a weak electrolyte forms, so check for those too. If the question asks about the activity series, check that the free metal is higher than the one it replaces.
 
 ## Traps to Watch For
 
@@ -351,7 +354,7 @@ With too little oxygen you can get $CO$ or soot. A fuel with sulfur also gives $
 
 > A swap of ion partners needs a driving force.
 
-If both new compounds are soluble, no precipitate forms. Also check whether water or a gas forms, as in neutralization or carbonate with acid. If no precipitate, water or gas forms, there is no reaction.
+If both new compounds are soluble, no precipitate forms. Also check whether water, a gas or a weak electrolyte (such as a weak acid) forms, as in neutralization, carbonate with acid, or a strong acid with an acetate salt. If none of these forms, and every ion stays dissolved, there is no reaction.
 
 ### #5: Forgetting That Coefficients Multiply Everything
 
