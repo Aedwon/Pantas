@@ -9,13 +9,17 @@ isActive: true
 ---
 ## Core Concept
 
-A **polygon** is a closed plane figure made of straight line segments. The segments are its sides. The corners are its vertices. A polygon has at least $3$ sides.
+A **polygon** is a closed plane figure made of straight line segments. The segments are its sides. The corners are its vertices.
+
+A polygon has at least $3$ sides.
 
 A polygon is named by its side count: triangle ($3$), quadrilateral ($4$), pentagon ($5$), hexagon ($6$), heptagon ($7$), octagon ($8$), nonagon ($9$), decagon ($10$). A **regular** polygon has all sides equal and all interior angles equal. In this lesson, a regular polygon is also convex.
 
 ### Simple, Convex, and Concave
 
-A polygon is **simple** if its sides touch only at the vertices and never cross. A **convex** polygon is a simple polygon in which every interior angle is less than $180^\circ$. A **concave** polygon is a simple polygon with at least one interior angle greater than $180^\circ$. That angle makes a dent in the shape.
+A polygon is **simple** if its sides touch only at the vertices and never cross. A **convex** polygon is a simple polygon in which every interior angle is less than $180^\circ$. A **concave** polygon is a simple polygon with at least one interior angle greater than $180^\circ$.
+
+That angle makes a dent in the shape.
 
 A bow-tie is neither simple nor convex, because two of its sides cross.
 
@@ -27,7 +31,7 @@ An **interior angle** is an angle inside the polygon at a vertex. For a simple p
 
 $$S = (n - 2) \times 180^\circ$$
 
-To see why, pick a vertex and draw diagonals from it. A **diagonal** is a segment that joins two vertices that are not next to each other. In a convex polygon, these diagonals divide the polygon into $n - 2$ triangles, and each triangle has angle sum $180^\circ$. A concave polygon can also be cut into $n - 2$ triangles, but you may need to start from a different vertex.
+To see why, pick a vertex and draw diagonals from it. A **diagonal** is a segment that joins two vertices that are not next to each other. In a convex polygon, these diagonals divide the polygon into $n - 2$ triangles, and each triangle has angle sum $180^\circ$. A concave polygon can also be cut into $n - 2$ triangles. One vertex may not be enough, though. An H-shaped polygon has no single vertex that reaches all the others inside the shape, so it needs diagonals from more than one vertex. The sum is still $(n - 2) \times 180^\circ$.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon (n = 6)", "4 Triangles", "(6 - 2) × 180° = 720°"], "semanticsLabel": "Hexagon with diagonals drawn from one vertex dividing it into 4 triangles."} -->
 
@@ -49,7 +53,9 @@ For a regular polygon, divide the interior angle sum by $n$ to get each interior
 
 A quadrilateral has $n = 4$, so its interior angles add to $360^\circ$. This holds for convex and concave quadrilaterals.
 
-Some words you need. Two angles are **supplementary** if they add to $180^\circ$. **Consecutive** angles or sides are next to each other. **Opposite** angles or sides are not next to each other. To **bisect** is to cut into two equal parts. Lines are **perpendicular** if they meet at a right angle.
+Some words you need. Two angles are **supplementary** if they add to $180^\circ$. **Consecutive** angles or sides are next to each other.
+
+**Opposite** angles or sides are not next to each other. To **bisect** is to cut into two equal parts. Lines are **perpendicular** if they meet at a right angle.
 
 The special quadrilaterals form a family:
 
@@ -71,6 +77,8 @@ The diagonals give a quick test for the type of a quadrilateral:
 - A parallelogram whose diagonals are also equal is a rectangle.
 - A parallelogram whose diagonals are also perpendicular is a rhombus.
 - A parallelogram whose diagonals are both equal and perpendicular is a square.
+
+The diagonals of a rhombus cut it into right triangles. In a right triangle, the **hypotenuse** is the side opposite the right angle, and it is the longest side. Its square equals the sum of the squares of the other two sides.
 
 Check all the given properties before you name the shape. Choose the most specific name that every given property supports.
 
@@ -219,14 +227,18 @@ Angles $A$ and $D$ are at the two ends of leg $AD$. So they are supplementary.
 
 $$(2x + 10) + (3x + 20) = 180$$
 
-2. Combine.
+2. Combine the like terms.
 
 $$5x + 30 = 180$$
 
+3. Subtract $30$ from both sides, then divide by $5$.
+
+$$5x = 150$$
+
 $$x = 30$$
 
-3. Angle $A = 2(30) + 10 = 70^\circ$.
-4. Check: angle $D = 3(30) + 20 = 110^\circ$, and $70 + 110 = 180$. Correct.
+4. Angle $A = 2(30) + 10 = 70^\circ$.
+5. Check: angle $D = 3(30) + 20 = 110^\circ$, and $70 + 110 = 180$. Correct.
 
 ### #8: Quadrilateral Angles in a Ratio
 
@@ -275,7 +287,7 @@ The diagonals of a rhombus measure $16$ cm and $12$ cm. Find the length of one s
 <!-- ILLUSTRATION: rhombus ABCD with diagonals AC = 16 cm and BD = 12 cm crossing at O at a right angle, half-diagonals labeled 8 cm and 6 cm, side AB marked with a question mark -->
 
 **Solution:**
-The diagonals of a rhombus bisect each other at a right angle. Each side is the longest side of a right triangle. In a right triangle, the square of the longest side equals the sum of the squares of the other two sides.
+The diagonals of a rhombus bisect each other at a right angle. Each side is the hypotenuse of a right triangle. In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.
 
 1. The half-diagonals are $\dfrac{16}{2} = 8$ cm and $\dfrac{12}{2} = 6$ cm.
 2. Find one side.
@@ -317,7 +329,9 @@ For a regular polygon with a given interior angle, subtract it from $180$ to get
 
 > One exterior angle at each vertex of a convex polygon adds to $360^\circ$.
 
-Do not use $(n - 2) \times 180$ for exterior angles. That formula is for the interior angle sum. Do not count both exterior angles at a vertex, or the total doubles to $720^\circ$.
+Do not use $(n - 2) \times 180$ for exterior angles. That formula is for the interior angle sum.
+
+Do not count both exterior angles at a vertex, or the total doubles to $720^\circ$.
 
 ### #2: Consecutive Is Not Opposite
 
@@ -329,7 +343,9 @@ Setting two consecutive angles equal, or making opposite angles supplementary, b
 
 > Properties pass from the broader classes down to their special cases, not back up.
 
-A square is both a rectangle and a rhombus. A rhombus is a square only if it also has a right angle. A rectangle is a square only if two consecutive sides are equal. Under the exclusive convention, a parallelogram is not a trapezoid. Read the direction of a classification statement carefully.
+A square is both a rectangle and a rhombus. A rhombus is a square only if it also has a right angle. A rectangle is a square only if two consecutive sides are equal.
+
+Under the exclusive convention, a parallelogram is not a trapezoid. Read the direction of a classification statement carefully.
 
 ### #4: Whose Diagonals Do What
 
@@ -341,4 +357,6 @@ A rectangle that is not a square does not have perpendicular diagonals. A rhombu
 
 > Check that the diagonals bisect each other before you name a parallelogram type.
 
-Equal diagonals alone do not make a rectangle. An isosceles trapezoid, which has two equal legs, also has equal diagonals. Perpendicular diagonals alone do not make a rhombus. A kite, which has two pairs of equal consecutive sides, can have them too.
+Equal diagonals alone do not make a rectangle. An isosceles trapezoid, which has two equal legs, also has equal diagonals.
+
+Perpendicular diagonals alone do not make a rhombus. A kite, which has two pairs of equal consecutive sides, can have them too.
