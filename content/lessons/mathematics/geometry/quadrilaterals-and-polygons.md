@@ -31,7 +31,11 @@ An **interior angle** is an angle inside the polygon at a vertex. For a simple p
 
 $$S = (n - 2) \times 180^\circ$$
 
-To see why, pick a vertex and draw diagonals from it. A **diagonal** is a segment that joins two vertices that are not next to each other. In a convex polygon, these diagonals divide the polygon into $n - 2$ triangles, and each triangle has angle sum $180^\circ$. A concave polygon can also be cut into $n - 2$ triangles. One vertex may not be enough, though. An H-shaped polygon has no single vertex that reaches all the others inside the shape, so it needs diagonals from more than one vertex. The sum is still $(n - 2) \times 180^\circ$.
+To see why, pick a vertex and draw diagonals from it. A **diagonal** is a segment that joins two vertices that are not next to each other. In a convex polygon, these diagonals divide the polygon into $n - 2$ triangles, and each triangle has angle sum $180^\circ$.
+
+A concave polygon can also be cut into $n - 2$ triangles. One vertex may not be enough, though. An H-shaped polygon has no single vertex that reaches all the others inside the shape, so it needs diagonals from more than one vertex.
+
+The sum is still $(n - 2) \times 180^\circ$.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon (n = 6)", "4 Triangles", "(6 - 2) × 180° = 720°"], "semanticsLabel": "Hexagon with diagonals drawn from one vertex dividing it into 4 triangles."} -->
 
@@ -90,7 +94,7 @@ Typical problems ask you to use the polygon angle formulas forward or backward, 
 
 Find the sum of the interior angles of a hexagon.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon", "6 Interior Angles", "4 Triangles", "Sum = 720°"], "semanticsLabel": "Regular hexagon with six interior angles and dashed lines splitting it into 4 triangles."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon", "Sum of interior angles = ?"], "semanticsLabel": "Hexagon with its six interior angles marked and the sum of the angles marked with a question mark."} -->
 
 
 **Solution:**
@@ -154,7 +158,7 @@ $$n = 10$$
 
 Each exterior angle of a regular polygon measures $24^\circ$. How many sides does the polygon have?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-exterior", "labels": ["Exterior angle = 24°", "Sum of exterior = 360°", "Sides = 360° / 24°"], "semanticsLabel": "Regular polygon with one side extended to show an exterior angle of 24 degrees."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-exterior", "labels": ["Exterior angle = 24°", "Sides n = ?"], "semanticsLabel": "Regular polygon with one side extended to show an exterior angle of 24 degrees and the number of sides marked with a question mark."} -->
 
 
 **Solution:**
@@ -167,11 +171,9 @@ $$n = \dfrac{360}{24} = 15$$
 2. The polygon has $15$ sides.
 3. Each interior angle is $180 - 24 = 156^\circ$, since an interior angle and the adjacent exterior angle form a linear pair.
 
-### #5: A Concave Quadrilateral
+### #5: A Quadrilateral with Three Known Angles
 
 Three interior angles of a quadrilateral measure $30^\circ$, $45^\circ$, and $60^\circ$. The quadrilateral is simple. Find the fourth angle. Is the quadrilateral convex?
-
-<!-- ILLUSTRATION: arrowhead quadrilateral ABCD with interior angles A = 30°, B = 45°, C = 60° and the angle at D marked with a question mark on the inside of the dent -->
 
 **Solution:**
 The sum $(4 - 2) \times 180$ holds for any simple quadrilateral, convex or not.
@@ -186,6 +188,8 @@ $$30 + 45 + 60 = 135$$
 $$360 - 135 = 225$$
 
 4. The fourth angle is $225^\circ$. It is greater than $180^\circ$, so the quadrilateral is concave, not convex.
+
+<!-- ILLUSTRATION: arrowhead quadrilateral ABCD with interior angles A = 30°, B = 45°, C = 60° and the angle at D marked 225° on the inside of the dent -->
 
 ### #6: Parallelogram Angles with Algebra
 
@@ -244,7 +248,7 @@ $$x = 30$$
 
 The four angles of a quadrilateral are in the ratio $1 : 2 : 3 : 4$. Find the largest angle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral", "labels": ["x", "2x", "3x", "4x", "Sum = 360°"], "semanticsLabel": "Four-sided quadrilateral with interior angles labeled x, 2x, 3x, and 4x."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral", "labels": ["x", "2x", "3x", "4x", "Largest angle = ?"], "semanticsLabel": "Four-sided quadrilateral with interior angles labeled x, 2x, 3x, and 4x and the largest angle marked with a question mark."} -->
 
 
 **Solution:**
@@ -284,7 +288,7 @@ $$2 \times \text{angle } OAB = 180 - 70 = 110$$
 
 The diagonals of a rhombus measure $16$ cm and $12$ cm. Find the length of one side and the perimeter.
 
-<!-- ILLUSTRATION: rhombus ABCD with diagonals AC = 16 cm and BD = 12 cm crossing at O at a right angle, half-diagonals labeled 8 cm and 6 cm, side AB marked with a question mark -->
+<!-- ILLUSTRATION: rhombus ABCD with diagonals AC = 16 cm and BD = 12 cm crossing at O, side AB marked with a question mark -->
 
 **Solution:**
 The diagonals of a rhombus bisect each other at a right angle. Each side is the hypotenuse of a right triangle. In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.
