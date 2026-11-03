@@ -2460,3 +2460,7 @@ Offered on `nov3-previews/search-clip.html`: A title and field scroll away (chea
 Aedwon: "B: soft fade"
 
 Result: option B is built 1:1 from the preview. This closes the top clip part of item 11.
+
+## npm vulnerability updates (Nov 3)
+
+Aedwon started the proposed separate session. Result: `web/npm-vulnerability-updates` at 144939d3, not merged. OSV advisories 34 to 10, High 14 to 2. Functions tests passed locally and on Actions; Flutter and Android jobs were still running when recorded. Diff is `functions/package.json` and `functions/package-lock.json` only. Decisions waiting, with that session's recommendations: keep the separate `body-parser` and `qs` commit (keep); force new majors of `glob`, `minimatch`, `uuid` under the Firestore and Storage libraries (wait for `firebase-admin`); update `katex` to 0.18.2 for the local tool (update). Open: which `body-parser` production requests use needs the staging deploy's build log; `tools/build_content_seed` has no lockfile, so OSV cannot scan it.
