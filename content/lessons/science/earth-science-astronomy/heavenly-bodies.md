@@ -47,7 +47,7 @@ What happens next depends mostly on the star's mass, which is the amount of matt
 
 When a star like the Sun runs low on core hydrogen, it swells into a red giant. It then blows off its outer layers as a shell of gas called a planetary nebula, which has nothing to do with planets. The hot core left behind is a white dwarf, which slowly cools and fades.
 
-A star many times the Sun's mass swells into a supergiant. It ends in a huge explosion called a **supernova**. The core that remains is a neutron star, a tiny but very dense ball about $20$ km across, or a black hole.
+A star many times the Sun's mass swells into a supergiant. It ends in a huge explosion called a **supernova**. The core that remains is a neutron star, a tiny but very dense ball about $20$ km across, or a black hole. A **black hole** is an object so dense that its gravity is too strong for even light to escape.
 
 <!-- ILLUSTRATION: flow diagram from "nebula" to "protostar" to "main-sequence star", then two branches: "star like the Sun: red giant, planetary nebula, white dwarf" and "star many times the Sun's mass: supergiant, supernova, neutron star or black hole" -->
 
@@ -84,7 +84,7 @@ Some facts help in comparing planets:
 
 A **natural satellite**, or moon, is a natural object that orbits a planet, dwarf planet, or asteroid. Moons differ a lot. Earth's Moon is rocky and about one quarter as wide as Earth. Ganymede, Jupiter's largest moon, is wider than the planet Mercury.
 
-Many moons are not mostly rock. Europa, a moon of Jupiter, has an icy shell and is thought to hide a salty ocean beneath it. Titan, Saturn's largest moon, has a thick atmosphere. Io, another moon of Jupiter, has many active volcanoes. Mars has two small moons, Phobos and Deimos, which are lumpy and not round.
+Many moons are not plain rocky balls. Europa, a moon of Jupiter, has an icy shell over a rocky interior and is thought to hide a salty ocean under the ice. Titan, Saturn's largest moon, has a thick atmosphere. Io, another moon of Jupiter, has many active volcanoes. Mars has two small moons, Phobos and Deimos, which are lumpy and not round.
 
 <!-- ILLUSTRATION: line-up of the Sun and the eight planets in order from the Sun, labeled Mercury, Venus, Earth, Mars (brace "terrestrial planets"), Jupiter, Saturn (brace "gas giants"), Uranus, Neptune (brace "ice giants"), with the main asteroid belt marked between Mars and Jupiter -->
 
@@ -224,7 +224,7 @@ It is a gas giant, such as Jupiter or Saturn.
 A student says that every moon is a small, round, rocky ball like Earth's Moon. Give two moons that show the statement is wrong.
 
 **Solution:**
-1. Europa has an icy shell, so it is not mostly rock.
+1. Europa has an icy shell over its rocky interior, so it is not a plain rocky ball like Earth's Moon.
 2. Phobos, a moon of Mars, is small and lumpy, so it is not round.
 3. Ganymede is even wider than the planet Mercury, so moons are not always small.
 
