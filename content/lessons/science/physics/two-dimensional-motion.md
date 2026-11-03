@@ -75,7 +75,7 @@ This acceleration points toward the center of the circle. It is called **centrip
 
 $$a_c=\dfrac{v^2}{r}.$$
 
-A bigger speed or a smaller circle means a larger $a_c$.
+At the same radius, a bigger speed means a larger $a_c$. At the same speed, a smaller circle means a larger $a_c$. (At the same angular speed, a smaller circle means a smaller $a_c$. See $a_c=\omega^2r$ below.)
 
 By Newton's second law, a net force must cause this acceleration. The net force toward the center is
 
@@ -83,7 +83,9 @@ $$F_{\text{net, inward}}=ma_c=\dfrac{mv^2}{r}.$$
 
 "Centripetal force" is not a new force added to the list of forces. It is the name for the net inward force from the real forces. These can be gravity, tension in a string, friction, the normal force, or a mix.
 
-When you solve, first find the center. Then add up the parts of the real forces that point toward the center. That sum equals $mv^2/r$. Do not draw an extra arrow labeled "centripetal force" on a force diagram.
+Friction needs two terms. The **normal force** $N$ is the push of a surface on the object, at right angles to the surface. **Static friction** is the friction that stops two surfaces from sliding on each other. It has a largest value, $f_{s,\max}=\mu_sN$, where $\mu_s$ is the **coefficient of static friction**, a number set by the two surfaces. On a level road, $N=mg$.
+
+When you solve, first find the center. Then take each real force along the line to the center. Count a part toward the center as plus and a part away from the center as minus. The sum of these parts, inward minus outward, equals $mv^2/r$. For example, at the bottom of a swing, $T-mg=mv^2/r$. Do not draw an extra arrow labeled "centripetal force" on a force diagram.
 
 Without an inward net force, the object would not turn. It would move in a straight line along the tangent, the line touching the circle where the object is.
 
@@ -271,7 +273,7 @@ A $1000$ kg car turns on a level circular road of radius $50$ m at a steady $15\
 
 $$f=\dfrac{mv^2}{r}=\dfrac{(1000)(15)^2}{50}=4500\,\mathrm N.$$
 
-2. The largest static friction is $\mu_sN$. On a level road, $N=mg$. The needed friction must not be larger than this:
+2. The largest static friction is $f_{s,\max}=\mu_sN$. On a level road, $N=mg$. The needed friction must not be larger than this:
 
 $$\mu_s\ge\dfrac{f}{mg}=\dfrac{4500}{(1000)(9.8)}\approx0.46.$$
 
@@ -296,7 +298,7 @@ For a launch at a level start and end, the time to the top is half the flight ti
 
 At the highest point of a rising-then-falling projectile, $v_y=0$ but $a_y=-g$.
 
-For circular motion, find the center, then find which real forces have a part toward the center. Their sum equals $mv^2/r$, which is also $m\omega^2r$.
+For circular motion, find the center, then find the parts of the real forces along the line to the center. Inward parts count plus and outward parts count minus. The total equals $mv^2/r$, which is also $m\omega^2r$.
 
 To change units to radians per second, use $2\pi$ rad per turn. Divide by $60$ when the rate is per minute.
 
@@ -318,7 +320,7 @@ Gravity still gives $a_y=-g$. Also, the speed at the top is not zero unless the 
 
 > $R=\dfrac{v_0^2\sin2\theta}{g}$ and "$45^\circ$ gives the longest range" need equal launch and landing heights and no air resistance.
 
-If the ball lands lower, as in #4, use the basic equations. For a launch from a height onto lower ground, the angle for the longest range is a bit less than $45^\circ$.
+If the ball lands lower, as in #4, use the basic equations. For a launch from a height onto lower ground, the angle for the longest range is less than $45^\circ$, and how much less depends on the height. For #4 it is about $27^\circ$. For landing higher than the launch, it is more than $45^\circ$.
 
 ### #4: Treating Centripetal Force as a Separate Force
 

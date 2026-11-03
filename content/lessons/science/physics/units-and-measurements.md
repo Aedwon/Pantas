@@ -25,7 +25,9 @@ Scientists worldwide use the **International System of Units (SI)**. It is built
 
 Every other SI unit is a **derived unit**: a combination of base units. Speed is length per time, so its unit is $\text{m/s}$. Some derived units have their own names. Some other units, such as the hour and the liter, are not SI units but are still used with SI.
 
-Two terms are needed before we build more units. **Velocity** is how fast something moves, with a direction. **Acceleration** is how fast velocity changes, so it is a change in velocity per unit time. **Force** is a push or pull. Newton's second law says force equals mass times acceleration:
+Two terms are needed before we build more units.
+
+**Velocity** is how fast something moves, with a direction. **Acceleration** is how fast velocity changes, so it is a change in velocity per unit time. **Force** is a push or pull. Newton's second law says force equals mass times acceleration:
 
 $$F = ma$$
 
@@ -33,7 +35,7 @@ The unit of force is the **newton** ($\text{N}$), defined as $1\ \text{N} = 1\ \
 
 ### Prefixes and Scientific Notation
 
-A **prefix** goes in front of a unit and multiplies it by a power of $10$. A **power of $10$** such as $10^3$ means $10 \times 10 \times 10 = 1000$. A negative power such as $10^{-2}$ means $\dfrac{1}{10^2} = 0.01$. **Scientific notation** writes a number as a value times a power of $10$, such as $4.5 \times 10^{-6}$.
+A **prefix** goes in front of a unit and multiplies it by a power of $10$. A **power of $10$** such as $10^3$ means $10 \times 10 \times 10 = 1000$. A negative power such as $10^{-2}$ means $\dfrac{1}{10^2} = 0.01$. **Scientific notation** writes a number as $a \times 10^n$, where $a$ is at least $1$ and less than $10$, and $n$ is a whole number. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
 
 - giga ($\text{G}$): $10^9$
 - mega ($\text{M}$): $10^6$
@@ -91,7 +93,7 @@ A dimension check can show that an equation is wrong. It cannot prove an equatio
 A measured number carries only as many digits as the instrument can give. **Significant figures** are the digits that carry meaning in a measured number. The counting rules:
 
 - Every nonzero digit counts.
-- A zero between two other digits counts.
+- A zero between two nonzero digits counts: $1005$ has $4$ significant figures and $2.05$ has $3$.
 - A zero at the start of a number does not count: $0.0042$ has $2$ significant figures.
 - A zero at the end counts if the number has a decimal point: $2.50$ has $3$, and $1200.$ has $4$. In $1200$ with no decimal point, the zeros are unclear. Scientific notation settles it: $1.2 \times 10^3$ has $2$ and $1.200 \times 10^3$ has $4$.
 
@@ -229,7 +231,7 @@ The test also would pass $s = ut + at^2$ with the $\dfrac{1}{2}$ left out. Dimen
 
 ### #8: Significant Figures in a Calculation
 
-A metal plate is $4.2\ \text{cm}$ long and $3.15\ \text{cm}$ wide. Find its area. Then add $12.11\ \text{g}$ and $0.3\ \text{g}$.
+A metal plate is measured to be $4.2\ \text{cm}$ long and $3.15\ \text{cm}$ wide. Find its area, using the significant figures of the measurements. Then add two measured masses, $12.11\ \text{g}$ and $0.3\ \text{g}$, and round the sum correctly.
 
 **Solution:**
 The area is a multiplication. The sum is an addition. Each has its own rule.

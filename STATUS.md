@@ -216,3 +216,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Written: two-dimensional-motion, waves-and-sound (split candidate).
 - Done at minor after round 3: water-cycle-oceanography (2 Minors; borderline split candidate). Written: functions-and-relations, radicals-and-rationalization. Fluid-mechanics round 2: 1 Blocker, 1 Major; last fix running.
 - Done at minor after round 2: scalars-and-vectors (1 Minor). Round reads with Blockers: light-and-optics r2, two-dimensional-motion r1, units-and-measurements r1, waves-and-sound r1; fixes running.
+- Paused at the user's request: no new agents; running ones finish. Fixed after round 1: two-dimensional-motion, units-and-measurements, waves-and-sound. Written: basic-geometric-concepts, systems-of-equations. Their next reads are not started.

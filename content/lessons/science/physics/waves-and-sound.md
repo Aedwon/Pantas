@@ -29,7 +29,7 @@ $$v=f\lambda$$
 
 Check the units: hertz times meters gives meters per second. The speed is set by the medium and its conditions, not by the source. For a rope, a tighter rope gives a faster wave. For sound in air, a warmer day gives a faster wave.
 
-If the source frequency rises, the wavelength shrinks so that $f\lambda$ stays the same. This holds for sound in air and for waves on a rope. A few cases differ: light in glass and deep-water waves have a speed that depends a little on frequency. School problems keep the speed fixed unless they say otherwise.
+If the source frequency rises, the wavelength shrinks so that $f\lambda$ stays the same. This holds for sound in air and for waves on a rope. School problems keep the speed fixed unless they say otherwise.
 
 When a wave moves into a new medium, the source has not changed, so the frequency stays the same. The speed changes, so the wavelength changes by the same factor.
 
@@ -39,7 +39,7 @@ When a wave moves into a new medium, the source has not changed, so the frequenc
 
 A **mechanical wave** needs a medium. Sound, seismic waves (waves from earthquakes), waves on a string, and water-surface waves are mechanical. Sound cannot travel through empty space.
 
-An **electromagnetic wave** is a travelling disturbance in electric and magnetic fields. It needs no medium and can cross a vacuum (empty space). Radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays are all electromagnetic waves. In a vacuum, all of them travel at the same speed, about $3.00\times10^{8}\text{ m/s}$. This is the speed of light, written $c$.
+An **electromagnetic wave** is a traveling disturbance in electric and magnetic fields. It needs no medium and can cross a vacuum (empty space). Radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays are all electromagnetic waves. In a vacuum, all of them travel at the same speed, about $3.00\times10^{8}\text{ m/s}$. This is the speed of light, written $c$.
 
 In ordinary matter, light travels slower than $c$. The speed also differs between the colors of visible light in glass.
 
@@ -75,7 +75,7 @@ The speed of sound depends on the medium and its temperature. In dry air it is a
 
 **Pitch** is how high or low a sound seems. A higher frequency gives a higher pitch. Most young people hear from about $20\text{ Hz}$ to $20\,000\text{ Hz}$. Frequencies above that are called ultrasound, and those below are called infrasound.
 
-**Intensity** is the power the sound carries through each square meter. A larger amplitude means a larger intensity. **Loudness** is how strong the sound seems to a listener. It follows intensity but also depends on the pitch and on the listener's ears.
+**Intensity** is the power the sound carries through each square meter. At the same frequency, a larger amplitude means a larger intensity. **Loudness** is how strong the sound seems to a listener. It follows intensity but also depends on the pitch and on the listener's ears.
 
 So amplitude is linked to loudness and frequency is linked to pitch. These are two different properties.
 
@@ -85,7 +85,7 @@ Two waves can pass through each other. While they overlap, their displacements a
 
 If two waves are **in phase** (at the same stage of the cycle at that point), crest meets crest and they make a bigger wave. This is **constructive interference**. If they are exactly opposite, crest meets trough, and they weaken or cancel each other. This is **destructive interference**. Two equal waves that are exactly opposite cancel completely.
 
-For two matching sources that are in phase, the path difference at a listener decides which happens. A path difference of $0$, $\lambda$, $2\lambda$, and so on gives constructive interference. A path difference of $\dfrac{\lambda}{2}$, $\dfrac{3\lambda}{2}$, and so on gives destructive interference.
+For two matching sources that are in phase, the path difference at a listener decides which happens. The **path difference** is how much farther the listener is from one source than from the other. A path difference of $0$, $\lambda$, $2\lambda$, and so on gives constructive interference. A path difference of $\dfrac{\lambda}{2}$, $\dfrac{3\lambda}{2}$, and so on gives destructive interference.
 
 **Diffraction** is the spreading of a wave as it passes an edge or through an opening. The spreading is strong when the opening is about as wide as the wavelength or narrower. It is weak when the opening is much wider than the wavelength.
 
@@ -183,7 +183,7 @@ The wavelength is about $3.0\text{ m}$ in water, longer than in air because the 
 
 ### #6: Pitch and Loudness
 
-A speaker plays a note of $440\text{ Hz}$ in air at $20^\circ\text{C}$, where sound travels at $343\text{ m/s}$. Find the wavelength. Then the speaker plays $880\text{ Hz}$ at the same amplitude. Then it plays $440\text{ Hz}$ again at twice the amplitude. Describe each change.
+A speaker plays a note of $440\text{ Hz}$ in air at $20^\circ\text{C}$, where sound travels at $343\text{ m/s}$. Find the wavelength. Then the speaker plays $880\text{ Hz}$ at the same intensity. Then it plays $440\text{ Hz}$ again at twice the amplitude. Describe each change.
 
 **Solution:**
 
@@ -191,9 +191,9 @@ A speaker plays a note of $440\text{ Hz}$ in air at $20^\circ\text{C}$, where so
 
 $$\lambda=\dfrac{v}{f}=\dfrac{343}{440}\approx0.78\text{ m}$$
 
-2. At $880\text{ Hz}$ in the same air, the speed is unchanged, so the wavelength is halved, to about $0.39\text{ m}$. The pitch is higher. The intensity is the same, because the amplitude did not change.
+2. At $880\text{ Hz}$ in the same air, the speed is unchanged, so the wavelength is halved, to about $0.39\text{ m}$. The pitch is higher. The intensity was kept the same, so only the pitch changes.
 
-3. At twice the amplitude, the pitch and wavelength stay the same. The intensity is about $4$ times larger, so the sound is louder.
+3. At twice the amplitude and the same frequency, the pitch and wavelength stay the same. The intensity is about $4$ times larger, so the sound is louder.
 
 ### #7: Order on the Spectrum
 
@@ -228,9 +228,9 @@ Two speakers, in phase, play the same $343\text{ Hz}$ tone in air where sound tr
 
 $$\lambda=\dfrac{343}{343}=1.00\text{ m}$$
 
-2. At $5.5\text{ m}$, the path difference is $0.5\text{ m}$, which is $\dfrac{\lambda}{2}$. A crest from one speaker meets a trough from the other, so the sound is quiet: **destructive**.
+2. At $5.5\text{ m}$, the path difference is $5.5-5.0=0.5\text{ m}$, which is $\dfrac{\lambda}{2}$. A crest from one speaker meets a trough from the other, so the sound is quiet: **destructive**.
 
-3. At $6.0\text{ m}$, the path difference is $1.0\text{ m}$, which is $\lambda$. Crest meets crest, so the sound is louder: **constructive**.
+3. At $6.0\text{ m}$, the path difference is $6.0-5.0=1.0\text{ m}$, which is $\lambda$. Crest meets crest, so the sound is louder: **constructive**.
 
 ### #10: Diffraction Around an Opening
 
@@ -300,9 +300,9 @@ The source sets the frequency. The medium sets the speed, so the wavelength has 
 
 ### #3: Thinking Louder Means Higher
 
-> Pitch follows frequency. Loudness mostly follows intensity, which follows amplitude.
+> Pitch follows frequency. Loudness mostly follows intensity. At the same frequency, a bigger amplitude gives a bigger intensity.
 
-A bigger amplitude makes the same note louder. It does not make the note higher.
+At the same frequency, a bigger amplitude makes the note louder. It does not make the note higher.
 
 ### #4: Treating the Speed of Sound as the Same Everywhere
 
@@ -312,6 +312,6 @@ A value near $340\text{ m/s}$ is a common approximation for air at room temperat
 
 ### #5: Saying the Doppler Effect Changes the Siren or the Speed of Sound
 
-> The source keeps its own frequency. The speed of sound in the air stays the same. Only the frequency received changes.
+> The source keeps its own frequency. The speed of sound in the air stays the same. What changes is the frequency the observer receives.
 
 A person riding in the ambulance moves with the siren and hears its own pitch. Your pitch differs because the crests reach you more or less often.

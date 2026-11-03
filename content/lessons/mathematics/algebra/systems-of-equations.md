@@ -1,37 +1,75 @@
 ---
 _id: "lesson-algebra-systems-of-equations"
 title: "Systems of Linear and Non-Linear Equations (Substitution, Elimination, Graphing)"
-summary: "How to find the values that make two equations true at the same time."
+summary: "How to find the values that make two equations true at the same time, by substitution, elimination, or graphing."
 subject: "subject-mathematics"
 topic: "topic-algebra"
-estimatedMinutes: 12
+estimatedMinutes: 14
 isActive: true
 ---
 ## Core Concept
 
-A **system of equations** is a group of two or more equations that share the same variables. To "solve the system" means to find the values that make all the equations true at the same time.
+An **equation** says that two expressions are equal. A **variable** is a letter, like $x$ or $y$, that stands for an unknown number. A **system of equations** is a group of two or more equations that share the same variables.
 
-Think of it like finding a meeting place. Each equation is a road. The solution is the exact spot where the roads cross.
+To solve the system means to find the values that make all the equations true at the same time. With two variables, a solution is an **ordered pair** $(x, y)$: the $x$ value first, then the $y$ value. The pair is also a point on the coordinate plane.
+
+Think of it like finding a meeting place. Each equation is a road. The solution is the spot where the roads cross.
 
 There are three main ways to solve a system.
 
-**Substitution** means solving one equation for one variable, then swapping it into the other equation. Use this when one equation already has a lonely variable, like $y = x + 1$.
+### Substitution
 
-**Elimination** means adding or subtracting the equations to make one variable disappear. Use this when the equations line up nicely, like $2x + 3y = 12$ and $4x - 3y = 6$.
+**Substitution** means solving one equation for one variable, then putting that expression into the other equation. To substitute means to replace a letter with something equal to it.
 
-**Graphing** means drawing both equations as lines. The solution is the point where the lines cross.
+Use it when one equation already has a lonely variable, like $y = x + 1$. After you find one variable, put its value back into either equation to find the other.
+
+### Elimination
+
+**Elimination** means adding or subtracting the equations so that one variable disappears. Add and subtract the whole equations: left side with left side, right side with right side. This is allowed because you are adding equal amounts to equal amounts.
+
+A **coefficient** is the number multiplied by a variable. In $2x + 3y = 12$, the coefficients are $2$ and $3$.
+
+- If the coefficients of one variable are opposites, like $+3y$ and $-3y$, add the equations.
+- If they are equal, like $+10y$ and $+10y$, subtract the equations.
+- If they are neither, multiply a whole equation by a nonzero number first. Multiply every term, including the number on the right side. Choose the number that makes the coefficients match.
+
+### Graphing
+
+**Graphing** means drawing both equations as graphs on the same coordinate plane. A point on a graph makes its equation true. So a point on both graphs makes both equations true, and that crossing point is the solution.
+
+To draw a line, you need two points. Two easy ones are the **intercepts**: the $x$-intercept is where the line crosses the $x$-axis ($y = 0$), and the $y$-intercept is where it crosses the $y$-axis ($x = 0$).
+
+You can also rewrite the equation as $y = mx + b$. Here $m$ is the **slope**, how many units the line goes up (or down, if negative) for each $1$ unit to the right. The number $b$ is the $y$-intercept.
+
+The steps are:
+
+1. Draw both graphs on the same plane.
+2. Read the coordinates of the crossing point.
+3. Check the pair in both original equations.
+
+Reading a graph is exact only when the crossing sits clearly on grid lines. If the lines cross between grid lines, the reading is only an estimate, so use substitution or elimination to get the exact answer.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "system", "points": [[3, 4]], "formula": "Crossing at (3, 4)", "semanticsLabel": "A coordinate graph with two lines intersecting at the point (3, 4)."} -->
 
-A system of two lines can have three outcomes:
+### How many solutions?
 
-- **One solution**: the lines cross at exactly one point.
-- **No solution**: the lines are parallel. They never touch.
-- **Infinite solutions**: both equations are secretly the same line.
+Two lines can be related in three ways, so a linear system of two equations in two variables has one of three outcomes.
 
-A **non-linear system** has at least one equation that is not a straight line, like a parabola from $y = x^2 - 4$. A line can cross a parabola at two points, so these systems can have two solutions.
+- **One solution**: the lines cross at exactly one point. Their slopes are different.
+- **No solution**: the lines are parallel. They have the same slope but different intercepts, so they never touch.
+- **Infinitely many solutions**: both equations describe the same line. Every point on the line is a solution.
 
-CETs love systems because they can hide them inside word problems. If a problem gives you two facts about two unknown things, it is a system in disguise.
+You can often tell from the equations. If one equation is the other multiplied by a nonzero number on every term, including the right side, it is the same line. If the left sides match this way but the right sides do not, the lines are parallel.
+
+### Non-linear systems
+
+A **non-linear system** has at least one equation whose graph is not a straight line. One example is a **parabola**, the U-shaped graph of an equation like $y = x^2 - 4$.
+
+A curve can meet a line in more places than another line can. A line can cross a parabola at two points, touch it at one point, or miss it. So a non-linear system can have no solution, one, two, or more.
+
+Two curves can have even more. The curves $y = x^3$ and $y = x$ meet at three points: $(-1, -1)$, $(0, 0)$ and $(1, 1)$.
+
+CETs like to hide systems inside word problems. If a problem gives two facts about two unknown amounts, it is a system in disguise.
 
 ## Examples
 
@@ -40,13 +78,13 @@ CETs love systems because they can hide them inside word problems. If a problem 
 Solve the system: $y = x + 1$ and $x + y = 7$.
 
 **Solution:**
-The first equation already tells us what $y$ is. So we substitute, which means we swap $y$ for $x + 1$ in the second equation.
+The first equation already tells us what $y$ is. So we replace $y$ with $x + 1$ in the second equation.
 
 1. Replace $y$ in the second equation.
 
 $$x + (x + 1) = 7$$
 
-2. Combine the like terms.
+2. Combine the like terms. These are terms with the same variable, like $x$ and $x$.
 
 $$2x + 1 = 7$$
 
@@ -56,24 +94,24 @@ $$2x = 6$$
 
 $$x = 3$$
 
-4. Now find $y$ using the first equation.
+4. Find $y$ using the first equation.
 
 $$y = 3 + 1 = 4$$
 
-5. The solution is $x = 3$ and $y = 4$, or the point $(3, 4)$.
+5. The solution is $x = 3$ and $y = 4$, or the point $(3, 4)$. Check: $4 = 3 + 1$ is true, and $3 + 4 = 7$ is true.
 
 ### #2: Elimination by Adding
 
 Solve the system: $2x + 3y = 12$ and $4x - 3y = 6$.
 
 **Solution:**
-Look at the $y$ terms: $+3y$ and $-3y$. They are opposites. If we add the equations, the $y$ terms cancel out.
+The $y$ terms are $+3y$ and $-3y$. They are opposites, so adding the equations cancels them.
 
-1. Add the two equations together, left side plus left side, right side plus right side.
+1. Add the two equations, left side plus left side, right side plus right side.
 
 $$(2x + 3y) + (4x - 3y) = 12 + 6$$
 
-2. The $3y$ and $-3y$ cancel each other.
+2. The $3y$ and $-3y$ cancel.
 
 $$6x = 18$$
 
@@ -85,22 +123,20 @@ $$x = 3$$
 
 $$2(3) + 3y = 12$$
 
-$$6 + 3y = 12$$
-
 $$3y = 6$$
 
 $$y = 2$$
 
-5. The solution is $(3, 2)$. Check it in the second equation: $4(3) - 3(2) = 12 - 6 = 6$. Correct.
+5. The solution is $(3, 2)$. Check: $2(3) + 3(2) = 12$ and $4(3) - 3(2) = 6$. Both are true.
 
 ### #3: Elimination with Multiplication
 
 Solve the system: $3x + 2y = 16$ and $2x + 5y = 18$.
 
 **Solution:**
-Nothing cancels yet. We must multiply first to make matching terms. Let us make the $y$ terms match by turning both into $10y$.
+No variable has equal or opposite coefficients, so multiply first. We make both $y$ coefficients equal to $10$, the smallest number that both $2$ and $5$ divide into.
 
-1. Multiply the first equation by $5$.
+1. Multiply the first equation by $5$. Every term changes.
 
 $$15x + 10y = 80$$
 
@@ -108,7 +144,7 @@ $$15x + 10y = 80$$
 
 $$4x + 10y = 36$$
 
-3. Both have $+10y$, so we subtract the second from the first.
+3. Both have $+10y$, so subtract the second equation from the first. Subtract every term.
 
 $$(15x + 10y) - (4x + 10y) = 80 - 36$$
 
@@ -126,14 +162,64 @@ $$2y = 4$$
 
 $$y = 2$$
 
-6. The solution is $(4, 2)$. Check: $2(4) + 5(2) = 8 + 10 = 18$. Correct.
+6. The solution is $(4, 2)$. Check: $3(4) + 2(2) = 16$ and $2(4) + 5(2) = 18$. Both are true.
 
-### #4: A System Hiding in a Word Problem
+### #4: Solving by Graphing
+
+Solve by graphing: $x + y = 5$ and $y = 2x - 1$.
+
+**Solution:**
+Find two points for each line, plot them, and draw each line.
+
+1. For $x + y = 5$, find the intercepts. When $x = 0$, $y = 5$. When $y = 0$, $x = 5$. Plot $(0, 5)$ and $(5, 0)$.
+
+2. For $y = 2x - 1$, the $y$-intercept is $-1$ and the slope is $2$. Plot $(0, -1)$, then go right $1$ and up $2$ to plot $(1, 1)$. Going again gives $(2, 3)$.
+
+3. Draw both lines. They cross at $(2, 3)$.
+
+4. Check in both equations.
+
+$$2 + 3 = 5 \qquad 3 = 2(2) - 1$$
+
+Both are true, so the solution is $(2, 3)$.
+
+<!-- ILLUSTRATION: coordinate plane, x and y from -2 to 6; line x + y = 5 through (0, 5) and (5, 0); line y = 2x - 1 through (0, -1), (1, 1) and (2, 3); the two lines cross at the labeled point (2, 3) -->
+
+### #5: One, No, or Infinitely Many Solutions
+
+What happens when you solve each system?
+
+(a) $2x + y = 5$ and $2x + y = 9$
+
+(b) $2x + y = 5$ and $4x + 2y = 10$
+
+**Solution:**
+Try elimination on each one.
+
+1. For (a), the coefficients of both variables match, so subtract.
+
+$$(2x + y) - (2x + y) = 5 - 9$$
+
+$$0 = -4$$
+
+2. This is false for every $x$ and $y$. So (a) has no solution. Written as $y = -2x + 5$ and $y = -2x + 9$, the lines have the same slope $-2$ but different $y$-intercepts. They are parallel.
+
+3. For (b), multiply the first equation by $2$. Every term changes.
+
+$$4x + 2y = 10$$
+
+4. This is the second equation exactly. Subtracting the equations gives $0 = 0$, which is always true. So (b) has infinitely many solutions: every point on the line.
+
+5. Examples of solutions of (b) are $(0, 5)$ and $(1, 3)$. Check $(1, 3)$: $2(1) + 3 = 5$ and $4(1) + 2(3) = 10$. Both are true.
+
+<!-- ILLUSTRATION: coordinate plane with two parallel lines y = -2x + 5 and y = -2x + 9, y-intercepts labeled 5 and 9, no crossing -->
+
+### #6: A System Hiding in a Word Problem
 
 A movie house sold $50$ tickets. Adult tickets cost $100$ pesos and child tickets cost $60$ pesos. The total sales were $4{,}200$ pesos. How many adult tickets were sold?
 
 **Solution:**
-Two facts, two unknowns. Let $a$ be adult tickets and $c$ be child tickets.
+There are two facts and two unknowns. Let $a$ be the number of adult tickets and $c$ the number of child tickets.
 
 1. The ticket count gives the first equation.
 
@@ -157,14 +243,14 @@ $$40a = 1200$$
 
 $$a = 30$$
 
-6. There were $30$ adult tickets. Check: $30 + 20 = 50$ tickets, and $100(30) + 60(20) = 3000 + 1200 = 4200$ pesos. Correct.
+6. There were $30$ adult tickets, so $c = 20$. Check: $30 + 20 = 50$ tickets, and $100(30) + 60(20) = 3000 + 1200 = 4200$ pesos. Both are true.
 
-### #5: A Line Meets a Parabola
+### #7: A Line Meets a Parabola
 
 Solve the non-linear system: $y = x^2 - 4$ and $y = 3x - 6$.
 
 **Solution:**
-Both equations equal $y$, so we can set them equal to each other.
+Both equations equal $y$, so their right sides are equal to each other.
 
 1. Set the two right sides equal.
 
@@ -184,48 +270,77 @@ $$x = 1: \quad y = 3(1) - 6 = -3$$
 
 $$x = 2: \quad y = 3(2) - 6 = 0$$
 
-5. There are two solutions: $(1, -3)$ and $(2, 0)$. The line cuts through the parabola twice.
+5. There are two solutions: $(1, -3)$ and $(2, 0)$.
+
+6. Check both in $y = x^2 - 4$: $1 - 4 = -3$ and $4 - 4 = 0$. Both are true.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "system", "points": [[1, -3], [2, 0]], "formula": "y = x^2 - 4 and y = 3x - 6", "semanticsLabel": "A coordinate graph of a parabola and a line intersecting at (1, -3) and (2, 0)."} -->
 
+### #8: A Line That Touches or Misses the Parabola
+
+How many solutions does each system have?
+
+(a) $y = x^2 - 4$ and $y = -4$
+
+(b) $y = x^2 - 4$ and $y = -5$
+
+**Solution:**
+Set the right sides equal in each system.
+
+1. For (a), $x^2 - 4 = -4$, so $x^2 = 0$ and $x = 0$. The line touches the parabola at one point, $(0, -4)$. Check: $0 - 4 = -4$.
+
+2. For (b), $x^2 - 4 = -5$, so $x^2 = -1$. A real number squared is never negative, so there is no real $x$.
+
+3. The line $y = -5$ passes below the lowest point of the parabola, which is $(0, -4)$. So (b) has no solution.
+
+<!-- ILLUSTRATION: coordinate plane with parabola y = x^2 - 4 with lowest point (0, -4); horizontal line y = -4 touching it at (0, -4); horizontal line y = -5 below it, not touching -->
+
 ## Speed Tricks & Shortcuts
 
-Sometimes the test asks for $x + y$, not $x$ and $y$ separately. Do not solve the whole system! Try adding the equations first.
+Sometimes the question asks for $x + y$, not for $x$ and $y$ separately. Try adding or subtracting the equations first. This works when the sum or difference gives the same multiple of the target.
 
-For example: $3x + y = 10$ and $x + 3y = 6$. Add them:
+For example, $3x + y = 10$ and $x + 3y = 6$. Add them:
 
 $$4x + 4y = 16$$
 
-Divide everything by $4$:
+Divide everything by $4$.
 
 $$x + y = 4$$
 
-Done in two steps. Always read what the question actually asks before you start solving.
+Subtracting gives $2x - 2y = 4$, so $x - y = 2$. The solution is $(3, 1)$, and indeed $3 + 1 = 4$ and $3 - 1 = 2$. If the sum does not give equal coefficients, as in $2x + y$ and $x + 3y$, solve the system in the usual way.
 
-Another quick check: to know how many solutions a linear system has, compare the equations. If one equation is just the other multiplied by a number, there are infinite solutions. If only the left sides match that way but the right sides do not, the lines are parallel and there is no solution.
+To choose a method, look at the equations. Substitution is quick when a variable has coefficient $1$ or is already alone. Elimination is quick when the coefficients line up, or can be matched with one multiplication.
+
+To count solutions of a linear system, compare the equations as in the Core Concept. Same line means infinitely many solutions. Parallel means none.
 
 ## Traps to Watch For
 
 ### #1: Stopping at $x$
 
-> Find both variables, then re-read the question.
+> Find the variable the question asks for, then re-read the question.
 
-Many students solve for $x$, see their $x$ value in the choices, and shade it. But the question may ask for $y$, or for $x + y$, or for the product $xy$. The test-makers always put the plain $x$ value in the choices as bait.
+Many students solve for $x$, see their $x$ value among the choices, and stop. But the question may ask for $y$, for $x + y$, or for the product $xy$. A wrong choice built from the plain $x$ value is an easy bait.
 
 ### #2: Sign Mistakes When Subtracting Equations
 
 > Subtracting an equation means subtracting every term, signs included.
 
-When you subtract $4x + 10y = 36$ from $15x + 10y = 80$, students often write $80 - 36$ correctly but forget to subtract on the left side properly. Distribute the minus sign to every term: $15x - 4x$ and $10y - 10y$. One missed sign flips the whole answer.
+When you subtract $4x + 10y = 36$ from $15x + 10y = 80$, the right side is $80 - 36$. The left side needs the same care: $15x - 4x$ and $10y - 10y$. If the second equation had $-10y$, subtracting would turn it into $+10y$, and a missed sign changes the answer.
 
-### #3: Parallel Lines Pretending to Have an Answer
+### #3: Multiplying Only Part of an Equation
 
-> If both variables vanish and you get a false statement, there is no solution.
+> When you multiply an equation, multiply both sides, every term.
 
-Try solving $2x + y = 5$ and $2x + y = 9$ by subtraction. You get $0 = -4$, which is false. That means the lines are parallel and never cross. The answer is "no solution", not $0$ and not $-4$. If you instead get a true statement like $0 = 0$, the two equations are the same line and there are infinitely many solutions.
+To scale $3x + 2y = 16$ by $5$, write $15x + 10y = 80$. If you leave the $16$ unchanged, the new equation is no longer equal to the old one. The answer then comes out wrong.
 
-### #4: Finding Only One Point on a Curve
+### #4: Parallel Lines Pretending to Have an Answer
 
-> A line can hit a parabola twice. Find all solutions.
+> If every variable vanishes, check the statement that is left.
 
-In non-linear systems, students find $x = 1$, compute one point, and stop. But the quadratic had two roots. If the question asks for "the solutions" or "the sum of the $x$ values", you need both crossing points.
+Subtract $2x + y = 9$ from $2x + y = 5$ and you get $0 = -4$. This is false, so the lines are parallel and the answer is "no solution", not $0$ and not $-4$. If the leftover statement is true, like $0 = 0$, the equations describe the same line. Then there are infinitely many solutions.
+
+### #5: Finding Only One Point on a Curve
+
+> A line can hit a parabola twice. Check how many solutions there are.
+
+In a non-linear system, students may find one root, compute one point, and stop. The quadratic in Example #7 had two roots, so there were two crossing points. If the question asks for "the solutions" or "the sum of the $x$ values", use every root that gives a real point. A line may also touch the parabola once or miss it, as in Example #8.
