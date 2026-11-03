@@ -366,3 +366,7 @@ Nov 3 update: fixed the phone "Coming soon" label (16 px from the card edge, per
 ## HANDOFF 16 (Nov 3, 2026): Aedwon's 17 change requests
 
 Read `nov3-requests.md` next to this file. It lists Aedwon's 17 changes from using the app, grouped as bugs, clear fixes, motion, new features and performance, with screenshots in `nov3-requests/`. Nothing implemented. Waiting on Aedwon: complexity level (balanced recommended). He moves this work to his Max account.
+
+## HANDOFF 17 (Nov 3, 2026): hardened build of the 17 changes started
+
+Aedwon chose hardened (launch log). Code map: `nov3-map.md` next to this file. Full checks now run on GitHub Actions on pushes to `web/**` except staging (`.github/workflows/ci.yml` on the fixes branch, 9229eea1); focused tests stay local. Worker branches off 9229eea1: `web/nov3-small` (items 10, 13, 11 bottom), `web/nov3-onboarding` (3, 2), `web/nov3-mock` (14), merged into `web/visual-check-fixes-r1` by the lead after review. Previews pending his approval: 1, 4, 5, 6, 7, 9, 12, 15, 17.
