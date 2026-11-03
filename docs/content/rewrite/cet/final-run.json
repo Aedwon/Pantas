@@ -339,7 +339,7 @@
     "lessonPath": "content/lessons/mathematics/geometry/coordinate-geometry.md",
     "lessonId": "lesson-geometry-coordinate-geometry",
     "group": "mathematics",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/parallel-perpendicular-lines.md",
