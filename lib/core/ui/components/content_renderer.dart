@@ -198,32 +198,23 @@ class ContentRenderer extends StatelessWidget {
       _ => base,
     };
     final wide = readerFigures && context.wideWeb;
-    final core = name == 'h2' &&
-        maps(block['children'])
-                .map((run) => string(run['text']))
-                .join()
-                .toLowerCase() ==
-            'core concept';
-    final type = !wide
-        ? phoneType
-        : core
-            ? context.webTokens.eb
-            : name == 'h2'
-                ? context.webTokens.style(
-                    24,
-                    weight: FontWeight.w700,
-                    spacing: -.384,
-                    height: 1.3,
-                  )
-                : phoneType;
+    // Every section label is the same 24 px heading on wide web, Core
+    // Concept included. It was a small gray label that read as less than the
+    // sections after it (Aedwon, Nov 3).
+    final type = wide && name == 'h2'
+        ? context.webTokens.style(
+            24,
+            weight: FontWeight.w700,
+            spacing: -.384,
+            height: 1.3,
+          )
+        : phoneType;
     final spans = <InlineSpan>[];
     final spoken = StringBuffer();
     var hasMath = false;
     var validSpeech = true;
     for (final run in maps(block['children'])) {
-      final source = core && wide
-          ? string(run['text']).toUpperCase()
-          : string(run['text']);
+      final source = string(run['text']);
       final marks = run['marks'] is List<Object?>
           ? (run['marks']! as List<Object?>).whereType<String>().toSet()
           : <String>{};

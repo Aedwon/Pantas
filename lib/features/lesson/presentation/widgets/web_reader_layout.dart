@@ -3,17 +3,44 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
+
+/// Where the outline and the lesson column sit on wide web.
+///
+/// The outline margin is worked out from the standard 680 px column and does
+/// not change when the student widens the lesson, so the outline never moves
+/// or shrinks. The column takes what is left after the two margins and the
+/// two 56 px gaps, up to its own width.
+abstract final class WebReaderMetrics {
+  static const double gap = 56;
+
+  /// The outline margin on the left and the matching space on the right.
+  static double margin(double maxWidth) =>
+      ((maxWidth - readerStandardWidth - 2 * gap) / 2).clamp(120.0, 220.0);
+
+  /// The lesson column for a window [maxWidth] wide.
+  ///
+  /// Where the full width does not fit, the column is the room that is left.
+  /// Below 1032 px that is under 680 px in either mode, as it was before.
+  static double columnWidth(double maxWidth, {required bool fullWidth}) {
+    final wanted = fullWidth ? readerFullWidthMax : readerStandardWidth;
+    final room = maxWidth - 2 * margin(maxWidth) - 2 * gap;
+    return wanted < room ? wanted : room;
+  }
+}
 
 /// The owner keeps position, read marking and guarded writes.
-class WebReaderLayout extends StatefulWidget {
+class WebReaderLayout extends ConsumerStatefulWidget {
   const WebReaderLayout({
     required this.reader,
     required this.controller,
@@ -32,8 +59,12 @@ class WebReaderLayout extends StatefulWidget {
     this.onMenuChanged,
     this.resumed = false,
     this.ending,
+    this.pull,
     super.key,
   });
+
+  /// Lets the wheel pull up for the next lesson at the end of the column.
+  final WebPullController? pull;
   final ReaderContext reader;
   final ScrollController controller;
   final ValueListenable<double> scrollOffset;
@@ -52,10 +83,10 @@ class WebReaderLayout extends StatefulWidget {
   final bool resumed;
   final Widget? ending;
   @override
-  State<WebReaderLayout> createState() => _WebReaderLayoutState();
+  ConsumerState<WebReaderLayout> createState() => _WebReaderLayoutState();
 }
 
-class _WebReaderLayoutState extends State<WebReaderLayout> {
+class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   final _anchors = <GlobalKey>[];
   int _active = 0;
   bool _bookmarkNotice = false;
@@ -84,6 +115,9 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
     }
     if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
       _active = 0;
+      // A lesson that rose into place already showed its bar, so the bar
+      // stays put instead of sliding in a second time.
+      _showBar = true;
       _anchors.clear();
       _bookmarkNotice = false;
       _resumeVisible = widget.resumed;
@@ -375,11 +409,65 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
     );
   }
 
+  /// Lets the wheel pull up for the next lesson while it is over the column.
+  Widget _wheel(Widget column) {
+    final pull = widget.pull;
+    if (pull == null) return column;
+    return Listener(onPointerSignal: pull.handleSignal, child: column);
+  }
+
+  /// Widens the lesson column to 800 px and back, and remembers the choice.
+  Widget _widthControl(WebTokens t, {required bool fullWidth}) {
+    final tip = fullWidth ? 'Standard width' : 'Full width';
+    final color = fullWidth ? t.colors.accent : t.colors.tertiaryLabel;
+    return Semantics(
+      container: true,
+      button: true,
+      toggled: fullWidth,
+      label: tip,
+      excludeSemantics: true,
+      onTap: () => _setFullWidth(!fullWidth),
+      child: Tooltip(
+        message: tip,
+        excludeFromSemantics: true,
+        child: IconButton(
+          key: const ValueKey('web-reader-width-control'),
+          onPressed: () => _setFullWidth(!fullWidth),
+          style: IconButton.styleFrom(
+            fixedSize: const Size(44, 44),
+            padding: EdgeInsets.zero,
+            visualDensity: VisualDensity.standard,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            backgroundColor: fullWidth ? t.colors.accentTint : null,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          icon: CustomPaint(
+            size: const Size.square(22),
+            painter: _WidthIconPainter(fullWidth: fullWidth, color: color),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _setFullWidth(bool value) {
+    // The choice applies at once. A failed save leaves it on for this visit.
+    unawaited(
+      ref
+          .read(readerFullWidthProvider.notifier)
+          .setFullWidth(fullWidth: value)
+          .catchError((Object _) {}),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final secondary = t.colors.secondaryLabel;
     const compactTap = MaterialTapTargetSize.shrinkWrap;
+    final fullWidth = ref.watch(readerFullWidthProvider);
     final reader = widget.reader;
     final meta = '${reader.topicName} · '
         '${reader.lesson.estimatedMinutes} min';
@@ -432,13 +520,14 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                 child: ending ??
                     LayoutBuilder(
                       builder: (context, constraints) {
-                        final margin = ((constraints.maxWidth - 680 - 112) / 2)
-                            .clamp(120.0, 220.0);
+                        final margin =
+                            WebReaderMetrics.margin(constraints.maxWidth);
                         return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
+                              key: const ValueKey('web-reader-outline'),
                               width: margin,
                               child: SingleChildScrollView(
                                 padding: const EdgeInsets.only(top: 48),
@@ -589,74 +678,78 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 56),
+                            const SizedBox(width: WebReaderMetrics.gap),
                             Flexible(
                               child: SizedBox(
                                 key: const ValueKey('web-reader-column'),
-                                width: 680,
-                                child: SingleChildScrollView(
-                                  controller: widget.controller,
-                                  primary: false,
-                                  padding: const EdgeInsets.only(
-                                    top: 48,
-                                    bottom: 80,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      LessonTextScale(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
-                                          children: [
-                                            Text(
-                                              meta,
-                                              style: t.sub,
-                                            ),
-                                            const SizedBox(
-                                              height: 6,
-                                            ),
-                                            Text(
-                                              reader.lesson.title,
-                                              style: t.style(
-                                                42,
-                                                weight: FontWeight.w700,
-                                                height: 1.1,
-                                                spacing: -1.092,
+                                width: fullWidth
+                                    ? readerFullWidthMax
+                                    : readerStandardWidth,
+                                child: _wheel(
+                                  SingleChildScrollView(
+                                    controller: widget.controller,
+                                    primary: false,
+                                    padding: const EdgeInsets.only(
+                                      top: 48,
+                                      bottom: 80,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        LessonTextScale(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              Text(
+                                                meta,
+                                                style: t.sub,
                                               ),
-                                            ),
-                                            const SizedBox(
-                                              height: 28,
-                                            ),
-                                            for (var i = 0;
-                                                i < groups.length;
-                                                i++)
-                                              Padding(
-                                                key: _anchors[i],
-                                                padding: EdgeInsets.only(
-                                                  top: i == 0 ? 0 : 16,
+                                              const SizedBox(
+                                                height: 6,
+                                              ),
+                                              Text(
+                                                reader.lesson.title,
+                                                style: t.style(
+                                                  42,
+                                                  weight: FontWeight.w700,
+                                                  height: 1.1,
+                                                  spacing: -1.092,
                                                 ),
-                                                child: ContentRenderer(
-                                                  blocks: groups[i],
-                                                  readerFigures: true,
-                                                  style: t.style(
-                                                    18,
-                                                    height: 1.65,
+                                              ),
+                                              const SizedBox(
+                                                height: 28,
+                                              ),
+                                              for (var i = 0;
+                                                  i < groups.length;
+                                                  i++)
+                                                Padding(
+                                                  key: _anchors[i],
+                                                  padding: EdgeInsets.only(
+                                                    top: i == 0 ? 0 : 16,
+                                                  ),
+                                                  child: ContentRenderer(
+                                                    blocks: groups[i],
+                                                    readerFigures: true,
+                                                    style: t.style(
+                                                      18,
+                                                      height: 1.65,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      const SizedBox(height: 20),
-                                      widget.footer,
-                                    ],
+                                        const SizedBox(height: 20),
+                                        widget.footer,
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 56),
+                            const SizedBox(width: WebReaderMetrics.gap),
                             SizedBox(width: margin),
                           ],
                         );
@@ -664,6 +757,9 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                     ),
               ),
               Positioned(
+                // New for each lesson, so the bar of a lesson that rose into
+                // place does not slide in a second time.
+                key: ValueKey(('web-reader-bar', reader.lesson.id)),
                 top: 0,
                 left: 0,
                 right: 0,
@@ -728,6 +824,8 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
                                 const Spacer(),
                                 if (ending == null) ...[
                                   const SizedBox(width: 12),
+                                  _widthControl(t, fullWidth: fullWidth),
+                                  const SizedBox(width: 12),
                                   Tooltip(
                                     message: reader.isBookmarked
                                         ? 'Remove bookmark (B)'
@@ -763,6 +861,7 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
               ),
               if (ending == null)
                 AnimatedPositioned(
+                  key: ValueKey(('web-reader-progress', reader.lesson.id)),
                   duration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero
                       : Duration(milliseconds: _showBar ? 420 : 700),
@@ -861,6 +960,62 @@ class _WebReaderLayoutState extends State<WebReaderLayout> {
   }
 }
 
+/// Two arrows on one line. They point out to offer the full width and in to
+/// go back to the standard width. Drawn on the 24 px grid of the approved
+/// preview, 1.8 px stroke, round ends.
+class _WidthIconPainter extends CustomPainter {
+  const _WidthIconPainter({required this.fullWidth, required this.color});
+  final bool fullWidth;
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final path = Path();
+    if (fullWidth) {
+      path
+        ..moveTo(3.5, 12)
+        ..relativeLineTo(6, 0)
+        ..moveTo(20.5, 12)
+        ..relativeLineTo(-6, 0)
+        ..moveTo(7, 8.5)
+        ..lineTo(10.5, 12)
+        ..lineTo(7, 15.5)
+        ..moveTo(17, 8.5)
+        ..lineTo(13.5, 12)
+        ..lineTo(17, 15.5);
+    } else {
+      path
+        ..moveTo(3.5, 12)
+        ..relativeLineTo(7, 0)
+        ..moveTo(20.5, 12)
+        ..relativeLineTo(-7, 0)
+        ..moveTo(7, 8.5)
+        ..lineTo(3.5, 12)
+        ..lineTo(7, 15.5)
+        ..moveTo(17, 8.5)
+        ..lineTo(20.5, 12)
+        ..lineTo(17, 15.5);
+    }
+    canvas
+      ..save()
+      ..scale(size.width / 24, size.height / 24)
+      ..drawPath(
+        path,
+        Paint()
+          ..color = color
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.8
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round,
+      )
+      ..restore();
+  }
+
+  @override
+  bool shouldRepaint(_WidthIconPainter oldDelegate) =>
+      oldDelegate.fullWidth != fullWidth || oldDelegate.color != color;
+}
+
 class WebReaderNext extends StatelessWidget {
   const WebReaderNext({
     required this.label,
@@ -868,9 +1023,14 @@ class WebReaderNext extends StatelessWidget {
     this.detail,
     this.onPressed,
     this.topGap = 18,
+    this.pull,
     super.key,
   });
   final double topGap;
+
+  /// Shows the pull on the card: a ring around the arrow and words that
+  /// follow it. Without it the card is just the card.
+  final WebPullController? pull;
   final String label;
   final String title;
   final String? detail;
@@ -878,6 +1038,15 @@ class WebReaderNext extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final circle = CircleAvatar(
+      radius: 22,
+      backgroundColor: t.colors.accentFill,
+      child: const Icon(
+        Icons.arrow_forward,
+        color: Colors.white,
+        size: 20,
+      ),
+    );
     return CallbackShortcuts(
       bindings: {
         if (onPressed != null)
@@ -905,10 +1074,17 @@ class WebReaderNext extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          label.toUpperCase(),
-                          style: t.eb.copyWith(height: 1.45),
-                        ),
+                        if (pull == null)
+                          Text(
+                            label.toUpperCase(),
+                            style: t.eb.copyWith(height: 1.45),
+                          )
+                        else
+                          WebPullLabel(
+                            pull: pull!,
+                            label: label,
+                            style: t.eb.copyWith(height: 1.45),
+                          ),
                         const SizedBox(height: 2),
                         Text(
                           title,
@@ -929,15 +1105,15 @@ class WebReaderNext extends StatelessWidget {
                   const SizedBox(width: 16),
                   const WebKeyHint('→'),
                   const SizedBox(width: 16),
-                  CircleAvatar(
-                    radius: 22,
-                    backgroundColor: t.colors.accentFill,
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                      size: 20,
+                  if (pull == null)
+                    circle
+                  else
+                    WebPullCircle(
+                      pull: pull!,
+                      track: t.colors.separator,
+                      arc: t.colors.accent,
+                      child: circle,
                     ),
-                  ),
                 ],
               ),
             ),
