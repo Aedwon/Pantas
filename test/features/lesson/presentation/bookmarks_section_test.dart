@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_section.dart';
 
@@ -132,6 +135,39 @@ void main() {
     expect(find.text('BOOKMARKS'), findsOneWidget);
     expect(find.text('Bookmark a lesson to keep it here.'), findsOneWidget);
   });
+
+  // Nov 3, item 4: only wide web hides the empty section. The phone card, and
+  // the portrait tablet that shares it, stay as they were.
+  for (final width in [390.0, 768.0]) {
+    testWidgets('on web at $width wide the empty card is unchanged',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = Size(width, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpAppWithProviders(
+        const SingleChildScrollView(child: BookmarksSection()),
+        overrides: [
+          bookmarkRowsProvider.overrideWith((ref) async => const []),
+          bookmarkCountProvider.overrideWith((ref) async => 0),
+        ],
+      );
+      await tester.pumpAndSettle();
+
+      expect(
+        tester.element(find.byType(BookmarksSection)).wideWeb,
+        isFalse,
+      );
+      expect(find.text('BOOKMARKS'), findsOneWidget);
+      expect(find.text('Bookmark a lesson to keep it here.'), findsOneWidget);
+      expect(find.byIcon(PantasIcons.bookmark), findsOneWidget);
+      expect(find.byType(GroupedSection), findsOneWidget);
+      expect(find.text('See all'), findsNothing);
+    });
+  }
 
   testWidgets('three or fewer bookmarks hide See all', (tester) async {
     await pumpWith(tester, rows: 3);

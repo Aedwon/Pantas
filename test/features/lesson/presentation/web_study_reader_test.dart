@@ -234,7 +234,8 @@ void main() {
       expect(opened, 'l2');
       expect(tester.takeException(), isNull);
     });
-    testWidgets('wide study empty bookmarks and state copy $brightness',
+    testWidgets(
+        'wide study hides empty bookmarks and keeps state copy $brightness',
         (tester) async {
       const emptyMap = StudyMap(
         examShortName: 'CSE',
@@ -253,7 +254,9 @@ void main() {
         ),
         brightness,
       );
-      expect(find.text('Bookmark a lesson to keep it here.'), findsOneWidget);
+      // Nov 3, item 4: wide web draws no empty Bookmarks section.
+      expect(find.text('BOOKMARKS'), findsNothing);
+      expect(find.text('Bookmark a lesson to keep it here.'), findsNothing);
       for (final title in [
         'Choose your exam',
         'Nothing to study yet',
