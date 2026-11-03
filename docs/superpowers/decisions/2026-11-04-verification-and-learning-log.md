@@ -78,3 +78,16 @@ Open design questions, for whoever resumes:
 - Question reports stay on the student's device today. Does stage 4 include the app and copy change to send them?
 - Which errors reach us from web? Not yet checked.
 - Test first whether browser scripts can use the web app, which does not turn on its accessibility layer by default. The result may change the estimates.
+
+## November 4, 2026: design paused
+
+Question: "Should the remaining design questions wait until November 16?"
+
+Options offered, with costs:
+
+1. Pause until Nov 16 (recommended): his approval time stays on the beta, and real beta data can shape the daily review. Cost: the build starts a few days after November 16, once he approves the spec.
+2. Finish design now: about six more questions and a spec review before the beta, so the build can start on November 16. Cost: answers about the daily review may need redoing once beta data exists.
+
+Aedwon's exact answer: "Pause until Nov 16"
+
+Result: PAUSED. No spec, plan or build until he resumes it on or after November 16. Next action on resume: reread this log, refresh the policy from main and the facts from the then-current engineering branch, then continue with the open design questions above.
