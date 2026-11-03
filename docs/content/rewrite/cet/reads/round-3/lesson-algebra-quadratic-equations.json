@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-algebra-quadratic-equations",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "If $k=0$, the only answer is $x=0$. If $k<0$, there is no real answer.", "problem": "This paragraph in Zero-Product Property and Square Roots has four sentences: the k > 0 rule, the meaning of the plus-or-minus sign, the k = 0 case and the k < 0 case. The guide allows one to three short sentences in a paragraph.", "source": "origin/main docs/content/content-checklist.md, L22a; lesson-style-guide.md, Formatting rules"},
+    {"rule": "L22a", "severity": "Minor", "quote": "If $D=0$, it touches the axis at the one root and stays on one side, so the root itself needs care (see Example #13).", "problem": "The second paragraph after the Quadratic Inequalities steps has four sentences: a < 0 opens down, the sign between and outside, the D < 0 case and this D = 0 case. The guide allows one to three short sentences in a paragraph.", "source": "origin/main docs/content/content-checklist.md, L22a; lesson-style-guide.md, Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}
