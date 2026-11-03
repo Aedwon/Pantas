@@ -247,3 +247,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: radicals-and-rationalization (2 Minors). Parallel lines fixed after round 2. Writing: combinatorics.
 - Open after 3 reads: parallel-perpendicular-lines (1 Major: Example 4 figure label gives the answer).
 - Quadrilaterals round 2: 4 Majors (question figure markers give answers or methods); fix running.
+- Written: combinatorics (1,746 words), measures-of-variability (1,518). Quadrilaterals fixed after round 2; round 3 read running.

@@ -1,21 +1,39 @@
 ---
 _id: "lesson-statistics-and-probability-measures-of-variability"
 title: "Measures of Variability (Range, Variance, Standard Deviation)"
-summary: "How to measure how spread out a data set is using range, variance, and standard deviation."
+summary: "How to measure how spread out a data set is using range, variance, and standard deviation, and how shifting or scaling the data changes them."
 subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
-estimatedMinutes: 11
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-Two data sets can have the same mean and very different spreads. **Measures of variability** describe how dispersed the values are.
+Two data sets can have the same mean and very different spreads. The **mean** is the sum of the values divided by how many values there are. **Measures of variability** tell how far apart the values are.
 
-The **range** is:
+<!-- ILLUSTRATION: two dot plots on the same number line from 0 to 10; Set A has dots at 3, 4, 5, 6, 7; Set B has dots at 1, 3, 5, 7, 9; a vertical line marks the mean 5 on both plots -->
+
+Both sets above have mean $5$. Set B is more spread out.
+
+### Population and sample
+
+A **population** is the whole group you want to describe. A **sample** is a smaller part of that group, used to learn about it.
+
+A number that describes a population is a **parameter**. A number computed from a sample is a **statistic**. The sample mean is a statistic that estimates the population mean.
+
+### Range
+
+The **range** is the largest value minus the smallest value.
 
 $$\text{range}=\text{maximum}-\text{minimum}$$
 
-**Variance** and **standard deviation** use deviations from the mean. The exact denominator depends on whether the data represent an entire population or a sample used to estimate a larger population.
+The range uses only two values, so it ignores how the other values are placed. If there is only one value, or all values are equal, the range is $0$.
+
+### Deviation
+
+A **deviation** is a value minus the mean: $x-\text{mean}$. A value above the mean has a positive deviation. A value below the mean has a negative deviation.
+
+The deviations from the mean always add up to $0$. So their plain average cannot measure spread. Variance squares each deviation first, so none of them cancel.
 
 ### Population variance and standard deviation
 
@@ -25,6 +43,8 @@ $$\sigma^2=\dfrac{\sum (x-\mu)^2}{N}$$
 
 $$\sigma=\sqrt{\sigma^2}$$
 
+Here $\sum$ means "add up all of these". The **variance** $\sigma^2$ is the average squared deviation. The **standard deviation** $\sigma$ is its nonnegative square root.
+
 ### Sample variance and standard deviation
 
 For a sample of $n$ values with sample mean $\bar{x}$:
@@ -33,9 +53,26 @@ $$s^2=\dfrac{\sum (x-\bar{x})^2}{n-1}$$
 
 $$s=\sqrt{s^2}$$
 
-The standard deviation is in the same units as the original data; variance is in squared units. A smaller standard deviation means the observations are, in this sense, more tightly clustered around the mean. A larger one means greater spread around the mean.
+A sample mean sits closer to the sample's own values than the true mean does. Dividing by $n-1$ instead of $n$ corrects for this, so $s^2$ estimates the population variance better.
 
-Raw deviations from their own arithmetic mean sum to $0$. Squaring them prevents positive and negative deviations from cancelling in the variance calculation.
+A sample of one value has $n-1=0$, so $s^2$ is not defined. For the same values, the sample variance is larger than the population variance.
+
+### Reading the results
+
+Variance is in squared units. Standard deviation is in the same units as the data. A smaller standard deviation means the values sit closer to the mean. A larger one means more spread.
+
+Standard deviation compares spread only for data in the same units. A mean and a standard deviation do not give the full list of values.
+
+### Shifting and scaling the data
+
+Suppose each value $x$ becomes $ax+b$, where $a$ and $b$ are numbers. Then:
+
+- The new mean is $a\cdot\text{(old mean)}+b$.
+- The new standard deviation is $|a|$ times the old one.
+- The new variance is $a^2$ times the old one.
+- The new range is $|a|$ times the old one.
+
+The number $b$ moves every value the same distance, so the spread does not change. The number $a$ stretches the distances between values. A negative $a$ flips the data, but distances are never negative, so $|a|$ is used.
 
 ## Examples
 
@@ -44,105 +81,142 @@ Raw deviations from their own arithmetic mean sum to $0$. Squaring them prevents
 Find the range of $4,8,15,16,23,42$.
 
 **Solution:**
-1. Maximum $=42$, minimum $=4$.
+1. The maximum is $42$ and the minimum is $4$.
+2. Subtract.
 
 $$42-4=38$$
 
-2. The range is $38$.
+3. The range is $38$.
 
-### #2: Population Variance and Standard Deviation
+### #2: Population or Sample?
 
-Treat the complete data set $2,4,4,4,5,5,7,9$ as the population of interest. Find its population variance and population standard deviation.
+A teacher records the quiz scores of all $35$ students in her class to describe that class. A principal records the scores of $30$ students picked from the $1{,}200$ students of the school to estimate the school's average. For each, is the group a population or a sample? Is the mean a parameter or a statistic?
 
 **Solution:**
-1. The population mean is:
+1. The teacher describes only her class and has every score. Her $35$ scores are a population, and her mean is a parameter.
+2. The principal wants to learn about all $1{,}200$ students but has only $30$ scores. Her scores are a sample, and her mean is a statistic.
+3. Variance and standard deviation use $N$ for the teacher's data and $n-1$ for the principal's data.
 
-$$\mu=\dfrac{40}{8}=5$$
+### #3: Population Variance and Standard Deviation
 
-2. Deviations: $-3,-1,-1,-1,0,0,2,4$.
-3. Squared deviations: $9,1,1,1,0,0,4,16$, whose sum is $32$.
-4. Because these eight values are the entire population being described, divide by $N=8$.
+Treat the complete data set $2,4,4,4,5,5,7,9$ as a population. Find its variance and standard deviation.
+
+**Solution:**
+1. Find the mean.
+
+$$\mu=\dfrac{2+4+4+4+5+5+7+9}{8}=\dfrac{40}{8}=5$$
+
+2. The deviations are $-3,-1,-1,-1,0,0,2,4$. They add up to $0$.
+3. The squared deviations are $9,1,1,1,0,0,4,16$. Their sum is $32$.
+4. The data are the whole population, so divide by $N=8$.
 
 $$\sigma^2=\dfrac{32}{8}=4$$
 
 5. Take the square root.
 
-$$\sigma=2$$
+$$\sigma=\sqrt{4}=2$$
 
-If the same eight values were instead treated as a sample from a larger population, the sample variance would divide by $n-1=7$ instead.
+### #4: Sample Variance and Standard Deviation
 
-### #3: Zero Spread
-
-Find the standard deviation of $6,6,6,6$.
+A sample has the values $3,7,7,7$. Find the sample variance and sample standard deviation.
 
 **Solution:**
-1. Every value equals the mean, so every deviation is $0$.
-2. Whether treated as a population or a nontrivial sample, all squared deviations are $0$.
-3. The standard deviation is therefore $0$.
+1. Find the sample mean.
 
-A standard deviation of $0$ occurs exactly when all observations are identical.
+$$\bar{x}=\dfrac{3+7+7+7}{4}=\dfrac{24}{4}=6$$
 
-### #4: Comparing Consistency
+2. The deviations are $-3,1,1,1$. They add up to $0$.
+3. The squared deviations are $9,1,1,1$. Their sum is $12$.
+4. This is a sample with $n=4$, so divide by $n-1=3$.
 
-Two archers each have a mean score of $8$ per shot. Ana's scores have a standard deviation of $0.5$; Bella's have a standard deviation of $2.1$. Which archer has scores that are more tightly clustered around the mean? Can you determine from these two statistics alone which archer is more likely to score exactly $10$?
+$$s^2=\dfrac{12}{3}=4$$
+
+5. Take the square root.
+
+$$s=\sqrt{4}=2$$
+
+If the same four values were a whole population, the variance would be $\dfrac{12}{4}=3$.
+
+### #5: Zero Spread
+
+Find the standard deviation of the population $6,6,6,6$.
 
 **Solution:**
-1. Ana has the smaller standard deviation, so her scores are more tightly clustered around the common mean of $8$.
-2. Mean and standard deviation alone do **not** determine the full distribution of scores. Different distributions can share the same mean and standard deviation while assigning different probabilities to an exact score such as $10$.
-3. Therefore, the information given supports the conclusion that Ana is more consistent in spread, but it is insufficient to say which archer is more likely to score exactly $10$.
+1. The mean is $6$, so every deviation is $0$.
+2. Every squared deviation is $0$, so the variance is $0$.
+3. The standard deviation is $0$.
 
-### #5: Shifting and Scaling the Data
+If the values are not all equal, at least one deviation is not $0$, so the standard deviation is greater than $0$. A sample of at least two equal values also has $s=0$.
 
-A data set has mean $70$ and standard deviation $6$. Every score is increased by $5$. What are the new mean and standard deviation? What if every score is instead multiplied by $2$?
+### #6: Comparing Consistency
+
+Two archers each have a mean score of $8$ per shot. Ana's scores have a standard deviation of $0.5$. Bella's have a standard deviation of $2.1$. Which archer's scores are closer to the mean? Can you tell from these numbers which archer is more likely to score exactly $10$?
 
 **Solution:**
-1. Adding $5$ to every value raises the mean by $5$.
+1. Ana has the smaller standard deviation, so her scores are closer to $8$.
+2. A mean and a standard deviation do not give the full list of scores. Different sets of scores can share both numbers and still differ in how often they show $10$.
+3. So the numbers show that Ana is more consistent. They do not show who is more likely to score $10$.
 
-$$\text{new mean}=75$$
+### #7: Shifting and Scaling the Data
 
-2. Adding a constant leaves all deviations from the mean unchanged, so the standard deviation stays $6$.
-3. Multiplying every value by $2$ doubles both the mean and the magnitude of every deviation.
+A data set has mean $70$, standard deviation $6$, and variance $36$. Find the new mean and standard deviation if each score is (a) increased by $5$, (b) multiplied by $2$, (c) multiplied by $-3$.
 
-$$\text{new mean}=140\qquad\text{new SD}=12$$
+**Solution:**
+1. For (a), use $a=1$ and $b=5$. The mean becomes $70+5=75$. The standard deviation stays $6$.
+2. For (b), use $a=2$. The mean becomes $2\times70=140$.
 
-4. More generally, if every value is transformed by $Y=aX+b$, then the mean becomes $a\mu+b$ (or $a\bar{x}+b$) and the standard deviation becomes $|a|$ times the original standard deviation.
+$$\text{new SD}=|2|\times6=12$$
+
+3. For (c), use $a=-3$. The mean becomes $-3\times70=-210$.
+
+$$\text{new SD}=|-3|\times6=18$$
+
+4. The new variance in (c) is $(-3)^2\times36=324$, and $\sqrt{324}=18$ agrees with step 3.
 
 ## Speed Tricks & Shortcuts
 
-For hand calculations, check that deviations from the calculated mean sum to $0$ before squaring. If they do not, recheck the mean or subtraction.
+When you compute by hand, add the deviations before squaring. If the mean is exact, the sum must be $0$. If it is not, recheck the mean or a subtraction. A mean you rounded gives a sum slightly off $0$.
 
-For questions about which data set is more tightly clustered around the mean, compare standard deviations when the values are in the same units and context. A smaller SD means less spread around that mean.
+To compare spread, compare standard deviations of data in the same units. The smaller one is less spread out.
 
-Variance and standard deviation convert by squaring or taking the nonnegative square root, provided you keep straight whether the quantity is the sample version ($s^2,s$) or population version ($\sigma^2,\sigma$).
+To change between variance and standard deviation, square or take the nonnegative square root. Use the sample or the population version for both, not a mix.
+
+For $ax+b$, ignore $b$ for spread and use $|a|$ for standard deviation. Use $a^2$ for variance.
 
 ## Traps to Watch For
 
 ### #1: Using the Wrong Denominator
 
-> Population variance divides by $N$; sample variance divides by $n-1$.
+> Divide by $N$ for a population and by $n-1$ for a sample.
 
-A problem should tell you, directly or by context, whether the listed data are the complete population being described or a sample used to estimate a population.
+Check whether the listed data are the whole group being described or a sample from a larger group. The problem should say which, directly or by its wording.
 
 ### #2: Averaging Raw Deviations
 
-> Deviations from the arithmetic mean sum to zero; variance uses squared deviations.
+> The deviations from the mean add up to $0$, so square them first.
 
-A zero average raw deviation does not mean the data have zero spread.
+A zero average deviation does not mean zero spread. Only squared deviations measure spread.
 
-### #3: Reporting Variance as Standard Deviation
+### #3: Giving Variance as Standard Deviation
 
-> Variance is in squared units; standard deviation is its nonnegative square root and uses the original units.
+> Variance is in squared units. Standard deviation is its square root.
 
-If the population variance is $4$, the population standard deviation is $2$.
+If the variance is $4$, the standard deviation is $2$, not $4$.
 
-### #4: Range Uses Only the Extremes
+### #4: Trusting the Range Too Much
 
-> Range depends only on the maximum and minimum.
+> The range depends only on the largest and smallest values.
 
-Two data sets can have the same range and very different distributions among their interior values.
+Two data sets can have the same range and different spread among the other values. For example, $0,5,5,5,10$ and $0,0,5,10,10$ both have range $10$, but the second set is more spread out.
 
-### #5: Standard Deviation Does Not Determine Exact Probabilities
+### #5: Reading Too Much Into the Standard Deviation
 
-> A mean and standard deviation summarize location and spread; they do not specify the entire distribution.
+> A mean and a standard deviation do not give the full list of values.
 
-Without additional distribution information or assumptions, a larger SD does not by itself prove that a particular exact extreme value is more likely.
+Without more information about the data, a larger standard deviation does not show that one exact value is more likely.
+
+### #6: Forgetting the Absolute Value When Scaling
+
+> The new standard deviation is $|a|$ times the old one.
+
+Multiplying by a negative number never gives a negative standard deviation. Standard deviation is never below $0$.
