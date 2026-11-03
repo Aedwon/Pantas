@@ -45,7 +45,7 @@ A **functional group** is a small group of atoms that gives a compound its typic
 
 - **Alcohol**: a **hydroxyl** group, $-OH$, on a carbon that has only single bonds. Written $R-OH$. Name ending: **-ol**.
 - **Carbonyl** group: a carbon double-bonded to oxygen, $C=O$. It appears in the next three families.
-- **Aldehyde**: the carbonyl carbon sits at the end of the chain. It is bonded to one hydrogen and one carbon group. Written $R-CHO$. Name ending: **-al**.
+- **Aldehyde**: the carbonyl carbon sits at the end of the chain. It is bonded to at least one hydrogen. Its other bond goes to a carbon group, or to a second hydrogen in methanal, $HCHO$, the simplest aldehyde. Written $R-CHO$, where $R$ may be a hydrogen. Name ending: **-al**.
 - **Ketone**: the carbonyl carbon sits inside the chain. It is bonded to two carbon groups. Written $R-CO-R$. Name ending: **-one**.
 - **Carboxylic acid**: a carbonyl carbon that also carries an $-OH$ group. Written $R-COOH$. Name ending: **-oic acid**.
 - **Amine**: a compound derived from ammonia, $NH_3$, by replacing one or more hydrogens with carbon groups. A primary amine has $-NH_2$. Secondary and tertiary amines have $-NHR$ and $-NR_2$. Name ending: **-amine**.
@@ -57,7 +57,7 @@ An aldehyde and a ketone with the same atoms are different compounds. $C_3H_6O$ 
 
 ### How Groups Change Properties
 
-A bond is **polar** when the electrons are shared unevenly. The $O-H$ bond is polar. It lets an $-OH$ group form **hydrogen bonds** with neighboring molecules. A hydrogen bond is an attraction between a hydrogen attached to oxygen or nitrogen and an oxygen or nitrogen on another molecule.
+A bond is **polar** when the electrons are shared unevenly. The $O-H$ bond is polar. It lets an $-OH$ group form **hydrogen bonds** with neighboring molecules. A hydrogen bond is an attraction between a hydrogen attached to oxygen, nitrogen or fluorine and an oxygen, nitrogen or fluorine atom on another molecule. Alcohols, water and $HF$ all show it.
 
 Hydrogen bonds hold molecules together. More energy is then needed to boil the liquid, so the **boiling point** rises. Groups that form hydrogen bonds with water also help a compound dissolve in water.
 
@@ -98,7 +98,7 @@ Living things are built from large carbon compounds called **biomolecules**. Man
 
 - **Carbohydrates** contain carbon, hydrogen and oxygen. Sugars such as glucose, $C_6H_{12}O_6$, have many $-OH$ groups, so they dissolve in water. Starch, glycogen and cellulose are polymers made of glucose units.
 - **Proteins** are polymers of **amino acids**. Each amino acid has an amine group and a carboxylic acid group. A **peptide bond** joins the carboxylic acid of one to the amine of the next.
-- **Lipids** include fats and oils. A fat or oil is an ester of **glycerol**, an alcohol with three $-OH$ groups, with three **fatty acids**. A fatty acid is a carboxylic acid with a long hydrocarbon chain. The chains make fats mix poorly with water. Lipids are not all fats and oils, and not all are polymers.
+- **Lipids** include fats and oils. A fat or oil is an ester of **glycerol**, an alcohol with three $-OH$ groups, with three **fatty acids**. A fatty acid is a carboxylic acid with a long hydrocarbon chain. The chains make fats mix poorly with water. Lipids are not all fats and oils. Lipids are also not true polymers, because they are not long chains of repeating monomers.
 - **Nucleic acids**, DNA and RNA, are polymers of **nucleotides**. Each nucleotide has a sugar, a phosphate group and a nitrogen-containing base.
 
 How these molecules work inside cells belongs to biology.
@@ -183,7 +183,7 @@ $C_3H_6O$ has a carbonyl group. Give the two possible compounds and say how to t
 
 1. Place the $C=O$ at the end of the chain with a hydrogen on it: $CH_3CH_2CHO$, an aldehyde. It is named propanal.
 2. Place the $C=O$ on the middle carbon: $CH_3COCH_3$, a ketone. It is named propanone.
-3. Look at the carbonyl carbon. One hydrogen on it means an aldehyde. Two carbon groups on it means a ketone.
+3. Look at the carbonyl carbon, once you know it has no $-OH$ or $-O-R$ on it. A hydrogen on it means an aldehyde. Two carbon groups on it means a ketone.
 
 ### #8: Comparing Ethane, Ethanol and Ethanoic Acid
 
@@ -265,7 +265,7 @@ For a formula, test $C_nH_{2n+2}$ first. A match for an acyclic hydrocarbon mean
 
 To name an alkane, circle the longest chain first. Then number from the end nearest a branch. Use the carbon roots meth- to dec- and the endings -ane, -ene, -yne.
 
-For a carbonyl, ask whether the $C=O$ carbon has a hydrogen on it. If yes, it is an aldehyde. If it has two carbon groups, it is a ketone.
+First check the $C=O$ carbon for an $-OH$ or an $-O-R$. If it has one, the compound is a carboxylic acid or an ester, not an aldehyde or ketone. Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. If it has neither, a hydrogen on the carbon means an aldehyde, and two carbon groups mean a ketone.
 
 ## Traps to Watch For
 
@@ -303,4 +303,4 @@ Check both directions. In $3$-methylhexane, numbering from the other end would g
 
 > Both have $C=O$. The position of the carbonyl carbon decides.
 
-An aldehyde has the carbonyl carbon at the chain end, with a hydrogen on it. A ketone has it inside the chain, between two carbons.
+An aldehyde has the carbonyl carbon at the chain end, with at least one hydrogen on it. A ketone has it inside the chain, between two carbons.
