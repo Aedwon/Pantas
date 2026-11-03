@@ -15,7 +15,7 @@ isActive: true
 
 Look at $2H_2+O_2\rightarrow2H_2O$. The coefficients say that $2$ mol $H_2$ react with $1$ mol $O_2$ to form $2$ mol $H_2O$.
 
-The coefficients give a ratio of **moles**, not of grams. The equation must be balanced first. Then any two substances in it make a mole ratio, such as $\dfrac{2\text{ mol }H_2O}{1\text{ mol }O_2}$.
+The coefficients give a ratio of moles, not of grams. The equation must be balanced first. Then any two substances in it make a mole ratio, such as $\dfrac{2\text{ mol }H_2O}{1\text{ mol }O_2}$.
 
 ### From Mass to Mass in Three Steps
 
@@ -25,15 +25,17 @@ A balance measures grams, but the equation works in moles. So a mass problem has
 2. Use the mole ratio from the equation to find the moles of the substance you want.
 3. Change those moles to grams: $m=nM$.
 
-Here $n$ is moles, $m$ is mass, and $M$ is molar mass. If the problem gives moles, skip step 1. If it asks for moles, skip step 3.
+Here $n$ is moles, $m$ is mass, and $M$ is molar mass. If the problem gives moles, skip step $1$. If it asks for moles, skip step $3$.
 
 <!-- ILLUSTRATION: four boxes in a row joined by arrows: "grams of A", "moles of A", "moles of B", "grams of B"; the arrows are labeled "divide by molar mass of A", "multiply by mole ratio from the equation", "multiply by molar mass of B" -->
 
 ### Limiting and Excess Reactants
 
-Reactants are often not supplied in the exact ratio of the equation. The **limiting reactant** is the one that runs out first. It stops the reaction and sets how much product can form. A reactant that is left over is **in excess**.
+Reactants are often not supplied in the exact ratio of the equation. The **limiting reactant** is the one that runs out first. It stops the reaction and sets how much product can form.
 
-To find the limiting reactant, calculate how much of the **same product** each reactant could make if the others were unlimited. The reactant that gives the smaller amount is limiting.
+A reactant that is left over is **in excess**.
+
+To find the limiting reactant, calculate how much of the same product each reactant could make if the others were unlimited. The reactant that gives the smaller amount is limiting.
 
 ### Theoretical and Percent Yield
 
@@ -52,13 +54,15 @@ To find an empirical formula from composition data:
 1. Change each element's amount to moles. If you are given percents, assume a $100$ g sample, so each percent becomes grams.
 2. Divide all the mole amounts by the smallest one.
 3. If a ratio is very close to a whole number, such as $2.01$, round it.
-4. If a ratio is a simple fraction, multiply **all** ratios by the same small whole number: $\times2$ for $1.5$, $\times3$ for $1.33$ or $1.67$, and $\times4$ for $1.25$ or $1.75$.
+4. If a ratio is a simple fraction, multiply all the ratios by the same small whole number: $\times2$ for $1.5$, $\times3$ for $1.33$ or $1.67$, and $\times4$ for $1.25$ or $1.75$, and $\times5$ for $1.2$, $1.4$, $1.6$ or $1.8$.
 
-To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The answer $k$ should be close to a whole number:
+To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the mass of one empirical formula unit: add up the molar masses of its atoms, using each subscript. For $CH_2O$ it is $12+2(1)+16=30$ g/mol. The answer $k$ should be close to a whole number:
 
 $$k=\dfrac{\text{molar mass of compound}}{\text{empirical formula mass}}$$
 
-Multiply every subscript in the empirical formula by $k$. Ionic compounds have no separate molecules. Their written formula, such as $NaCl$, is the simplest ion ratio, so it is already an empirical formula.
+Multiply every subscript in the empirical formula by $k$.
+
+Ionic compounds have no separate molecules, so they have no molecular formula. The formula of most simple ionic compounds, such as $NaCl$, already shows the simplest ratio of atoms. An exception is a compound with a polyatomic ion made of two or more atoms. Sodium peroxide is written $Na_2O_2$, but its simplest atom ratio is $NaO$.
 
 ## Examples
 
@@ -81,7 +85,7 @@ $$4\text{ mol}\times17\text{ g/mol}=68\text{ g }NH_3$$
 
 ### #2: Mass to Mass
 
-For $2H_2+O_2\rightarrow2H_2O$, calculate the mass of water formed from $8.0$ g $H_2$ with excess $O_2$. The molar masses are $2.0$ g/mol for $H_2$ and $18$ g/mol for $H_2O$. "Calculate" means find the answer with numbers.
+For $2H_2+O_2\rightarrow2H_2O$, find the mass of water formed from $8.0$ g $H_2$ with excess $O_2$. The molar masses are $2.0$ g/mol for $H_2$ and $18$ g/mol for $H_2O$.
 
 **Solution:**
 
@@ -100,11 +104,15 @@ For $N_2+3H_2\rightarrow2NH_3$, a chemist mixes $4$ mol $N_2$ and $9$ mol $H_2$.
 
 **Solution:**
 
-1. From $4$ mol $N_2$: $4\times2=8$ mol $NH_3$ could form.
-2. From $9$ mol $H_2$: $9\times\dfrac{2}{3}=6$ mol $NH_3$ could form.
-3. $H_2$ gives the smaller amount, so $H_2$ is limiting and $6$ mol $NH_3$ can form.
-4. All $9$ mol $H_2$ react with $3$ mol $N_2$, because the ratio is $1:3$.
-5. The excess left is $4-3=1$ mol $N_2$.
+1. Find the $NH_3$ each reactant could make:
+
+$$4\text{ mol }N_2\times\dfrac{2\text{ mol }NH_3}{1\text{ mol }N_2}=8\text{ mol }NH_3$$
+
+$$9\text{ mol }H_2\times\dfrac{2\text{ mol }NH_3}{3\text{ mol }H_2}=6\text{ mol }NH_3$$
+
+2. $H_2$ gives the smaller amount, so $H_2$ is limiting and $6$ mol $NH_3$ can form.
+3. All $9$ mol $H_2$ react with $3$ mol $N_2$, because the ratio is $1:3$.
+4. The excess left is $4-3=1$ mol $N_2$.
 
 <!-- ILLUSTRATION: two bars of reactant amounts for N2 + 3H2 -> 2NH3, with N2 = 4 mol and H2 = 9 mol; show 3 mol N2 reacting with 9 mol H2, the used part shaded and 1 mol N2 left unshaded -->
 
@@ -115,11 +123,18 @@ For $2Mg+O_2\rightarrow2MgO$, $12$ g $Mg$ react with $4.0$ g $O_2$. The molar ma
 **Solution:**
 
 1. Moles of $Mg$: $\dfrac{12}{24}=0.50$ mol. Moles of $O_2$: $\dfrac{4.0}{32}=0.125$ mol.
-2. From $Mg$: $0.50\times\dfrac{2}{2}=0.50$ mol $MgO$ could form.
-3. From $O_2$: $0.125\times\dfrac{2}{1}=0.25$ mol $MgO$ could form.
-4. $O_2$ gives the smaller amount, so $O_2$ is limiting.
-5. The theoretical yield is $0.25\text{ mol}\times40\text{ g/mol}=10$ g $MgO$.
-6. $0.125$ mol $O_2$ react with $0.25$ mol $Mg$. That leaves $0.50-0.25=0.25$ mol $Mg$, which is $0.25\times24=6.0$ g.
+2. Find the $MgO$ each reactant could make:
+
+$$0.50\text{ mol }Mg\times\dfrac{2\text{ mol }MgO}{2\text{ mol }Mg}=0.50\text{ mol }MgO$$
+
+$$0.125\text{ mol }O_2\times\dfrac{2\text{ mol }MgO}{1\text{ mol }O_2}=0.25\text{ mol }MgO$$
+
+3. $O_2$ gives the smaller amount, so $O_2$ is limiting.
+4. The theoretical yield is:
+
+$$0.25\text{ mol}\times40\text{ g/mol}=10\text{ g }MgO$$
+
+5. $0.125$ mol $O_2$ react with $0.25$ mol $Mg$. That leaves $0.50-0.25=0.25$ mol $Mg$, which is $0.25\times24=6.0$ g.
 
 ### #5: Percent Yield from Reactant Data
 
@@ -129,7 +144,10 @@ Heating $50$ g $CaCO_3$ follows $CaCO_3\rightarrow CaO+CO_2$. A student collects
 
 1. Moles of $CaCO_3$: $\dfrac{50}{100}=0.50$ mol.
 2. The ratio is $1:1$, so the theoretical yield is $0.50$ mol $CaO$.
-3. Theoretical mass: $0.50\times56=28$ g.
+3. Theoretical mass:
+
+$$0.50\text{ mol}\times56\text{ g/mol}=28\text{ g }CaO$$
+
 4. Percent yield:
 
 $$\dfrac{21}{28}\times100\%=75\%$$
@@ -182,7 +200,7 @@ $$k=\dfrac{180}{30}=6$$
 
 To find the limiting reactant fast, divide each reactant's moles by its coefficient. The smaller result is limiting. In Example #3, $\dfrac{4}{1}=4$ for $N_2$ and $\dfrac{9}{3}=3$ for $H_2$, so $H_2$ is limiting.
 
-For empirical formulas, divide by the smallest first and then look at the ratios before you round. Ratios like $1.5$, $1.33$, and $1.25$ need a multiplier.
+For empirical formulas, divide by the smallest first and then look at the ratios before you round. Ratios like $1.5$, $1.33$, and $1.25$ need a multiplier. A value such as $2.01$ or $0.98$ is just rounding.
 
 The multiplier $k$ must be close to a whole number. If it is not, recheck the empirical formula or the molar mass.
 
@@ -222,4 +240,4 @@ If a measured mass gives more than $100\%$, the product was probably wet or impu
 
 > Ionic solids have formula units, not molecules.
 
-For an ionic compound such as $NaCl$, the formula shows the simplest ion ratio. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula.
+For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. Check for a polyatomic ion, as in $Na_2O_2$, before you reduce an ionic formula.

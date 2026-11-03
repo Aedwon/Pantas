@@ -17,11 +17,17 @@ An **ion** is an atom or group of atoms with an electric charge. In the **Arrhen
 
 A hydronium ion is a water molecule that has picked up a hydrogen ion, $H^+$. Many books write $H^+$ for it. In water, the two mean the same thing.
 
-The **Brønsted-Lowry** model is wider. A proton here means an $H^+$ ion. An acid is a **proton donor**. A base is a **proton acceptor**. So an acid-base reaction is a **proton transfer**, and it does not need $OH^-$. Water can act as an acid or as a base, depending on its partner.
+The **Brønsted-Lowry** model is wider. A proton here means an $H^+$ ion.
+
+An acid is a **proton donor**. A base is a **proton acceptor**. So an acid-base reaction is a **proton transfer**, and it does not need $OH^-$.
+
+Water can act as an acid or as a base, depending on its partner.
 
 ### pH
 
-The pH of a solution tells how acidic it is. First, some words. The unit $M$ (molar) means moles per liter. A mole is a counting unit for tiny particles. Square brackets mean concentration, so $[H_3O^+]$ is the concentration of hydronium ions, in $M$.
+The pH of a solution tells how acidic it is. First, some words.
+
+The unit $M$ (molar) means moles per liter. A mole is a counting unit for tiny particles. Square brackets mean concentration, so $[H_3O^+]$ is the concentration of hydronium ions, in $M$.
 
 In school problems, pH comes from the hydronium concentration:
 
@@ -29,7 +35,7 @@ $$\mathrm{pH}=-\log_{10}[H_3O^+]$$
 
 The $\log_{10}$ asks: what power of $10$ gives this number? For $10^{-3}$, the answer is $-3$. So when $[H_3O^+]=1\times10^{-n}\ M$, the pH is $n$.
 
-At **25 °C**, pure water has
+At $25\ ^\circ\mathrm C$, pure water has
 
 $$[H_3O^+]=[OH^-]=1.0\times10^{-7}\,M$$
 
@@ -45,7 +51,9 @@ For a base, use the hydroxide concentration. The **pOH** is $-\log_{10}[OH^-]$. 
 
 $$\mathrm{pH}+\mathrm{pOH}=14$$
 
-The numbers $7$ and $14$ hold only near $25\ ^\circ\mathrm C$. At other temperatures, pure water is still neutral, because $[H_3O^+]=[OH^-]$. But its pH is not exactly $7$. Very concentrated solutions can also have a pH below $0$ or above $14$. Advanced chemistry uses "activity" in place of concentration, but school problems use concentration.
+The numbers $7$ and $14$ hold only near $25\ ^\circ\mathrm C$. At other temperatures, pure water is still neutral, because $[H_3O^+]=[OH^-]$. But its pH is not exactly $7$.
+
+Very concentrated solutions can also have a pH below $0$ or above $14$. Advanced chemistry uses "activity" in place of concentration, but school problems use concentration.
 
 ### Strong and Weak
 
@@ -59,15 +67,19 @@ $$NH_3+H_2O\rightleftharpoons NH_4^++OH^-$$
 
 The double arrow means the reaction can go both ways.
 
-**Strength** is how much a substance ionizes. **Concentration** is how much is dissolved in each liter. They are different things. For a strong acid with one hydrogen, such as $HCl$, $[H_3O^+]$ equals the acid's concentration. For a weak acid, $[H_3O^+]$ is much smaller.
+**Strength** is how much a substance ionizes. **Concentration** is how much is dissolved in each liter. They are different things.
+
+For a strong acid with one hydrogen, such as $HCl$, $[H_3O^+]$ equals the acid's concentration. For a weak acid, $[H_3O^+]$ is much smaller.
 
 ### Neutralization
 
-**Neutralization** is the reaction of an acid with a base. For a strong acid and a strong hydroxide, the net ionic equation is
+**Neutralization** is the reaction of an acid with a base. A strong acid and a strong hydroxide make a **salt** and water. A salt is an ionic compound made of a positive ion from the base and a negative ion from the acid. Table salt, $NaCl$, is one.
+
+A **spectator ion** is an ion that is present before and after the reaction and does not change. A **net ionic equation** shows only the ions that change. It leaves out the spectator ions. For a strong acid and a strong hydroxide, it is
 
 $$H_3O^+ + OH^- \rightarrow 2H_2O$$
 
-A **spectator ion** is an ion that is present before and after the reaction and does not change.
+The spectator ions stay in the water as a salt solution.
 
 If both are strong and they supply equal amounts of $H_3O^+$ and $OH^-$, the solution is neutral. If acid is left over, it is acidic. If base is left over, it is basic. If one of them is weak, the final solution may not be neutral, even with equal amounts.
 
@@ -75,7 +87,7 @@ Making water is common, but not universal. In the reaction $NH_3 + HCl \rightarr
 
 ## Examples
 
-### #1: Classifying pH at 25 °C
+### #1: Classifying pH at $25\ ^\circ\mathrm C$
 
 At $25\ ^\circ\mathrm C$, classify aqueous solutions with pH $2$, $7$, and $11$.
 
@@ -179,7 +191,7 @@ $$H_3O^+ + OH^- \rightarrow 2H_2O$$
 
 ## Speed Tricks & Shortcuts
 
-For a strong acid with one hydrogen, whose concentration is $1\times10^{-n}\ M$, the pH is $n$.
+For a strong acid with one hydrogen, whose concentration is $1\times10^{-n}\ M$, the pH is $n$. This works when $n$ is not more than about $6$. In a more dilute solution, the water itself adds hydronium near $10^{-7}\ M$ and cannot be ignored. For example, $1\times10^{-8}\ M$ $HCl$ has a pH of about $6.98$, not $8$. An acid never makes a pH above $7$ at $25\ ^\circ\mathrm C$.
 
 For a strong base, find the pOH first, then use pH $=14-$ pOH. Count the $OH^-$ ions in each unit.
 
@@ -187,17 +199,17 @@ If the front number is not $1$, the pH sits between two whole numbers. For examp
 
 Use the pH $7$ divider only when the problem assumes about $25\ ^\circ\mathrm C$.
 
-For acid-base reactions, look for a proton moving from one species to another.
+For acid-base reactions, look for a proton moving from one particle to another. The particle can be a molecule or an ion.
 
 ## Traps to Watch For
 
-### #1: Treating 0 to 14 as Absolute Limits
+### #1: Treating the $0$ to $14$ Range as Absolute Limits
 
 > The familiar scale suits most dilute solutions. It is not a boundary.
 
 Very concentrated acids and bases can fall outside it.
 
-### #2: Saying Neutral Always Means pH 7
+### #2: Saying Neutral Always Means pH $7$
 
 > Neutral means equal $H_3O^+$ and $OH^-$. The value $7$ is for about $25\ ^\circ\mathrm C$.
 
@@ -213,7 +225,7 @@ Both affect pH. A very concentrated weak acid can have a lower pH than a very di
 
 > Brønsted-Lowry neutralization is proton transfer.
 
-A strong acid plus a hydroxide makes water. But $NH_3+HCl\rightarrow NH_4Cl$ shows that "salt plus water" is not universal.
+A strong acid plus a hydroxide makes a salt and water. But $NH_3+HCl\rightarrow NH_4Cl$ shows that "salt plus water" is not universal. Here the only product is a salt, and no water forms.
 
 ### #5: Forgetting the Hydroxide Count
 

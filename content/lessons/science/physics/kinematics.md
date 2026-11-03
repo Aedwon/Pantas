@@ -15,39 +15,49 @@ isActive: true
 
 Pick an origin and a positive direction, such as "east is positive." The **position** $x$ of an object is its place on that line, with a sign. A negative position is on the other side of the origin.
 
-**Displacement** is the change in position:
+**Displacement** is the change in position. The Greek letter $\Delta$ (delta) means "change in", final value minus starting value. Write $x_i$ for the initial (starting) position and $x_f$ for the final (ending) position:
 
 $$\Delta x=x_f-x_i$$
 
-It has a size and a direction. In one dimension the direction is the sign. **Distance** is the total length of the path, and it is never negative. If an object turns around, distance is bigger than the size of the displacement.
+Displacement has a size and a direction. In one dimension the direction is the sign.
+
+**Distance** is the total length of the path, and it is never negative. If the object turns around, the distance is bigger than the size of the displacement. If it never turns around, the two are equal.
 
 ### Speed and Velocity
 
-Average velocity is displacement divided by time. Average speed is distance divided by time:
+**Average velocity** is displacement divided by the time taken. **Average speed** is distance divided by the time taken. Here $\Delta t$ is the change in time, the time taken:
 
-$$v_{\text{avg}}=\dfrac{\Delta x}{\Delta t}\qquad\text{average speed}=\dfrac{\text{distance}}{\Delta t}$$
+$$v_{\text{avg}}=\dfrac{\Delta x}{\Delta t}$$
 
-Velocity has a sign, so it shows direction. Speed has no sign. Instantaneous velocity is the velocity at one moment. Its size is the speed at that moment. The units are meters per second, $\mathrm{m/s}$.
+$$\text{average speed}=\dfrac{\text{distance}}{\Delta t}$$
+
+Velocity has a sign, so it shows direction. Speed has no sign. The units are meters per second, $\mathrm{m/s}$.
+
+**Instantaneous velocity** is the velocity at one moment. Its size is the speed at that moment.
 
 ### Acceleration
 
-**Acceleration** is how fast velocity changes:
+**Acceleration** is how fast velocity changes. Its unit is $\mathrm{m/s^2}$:
 
 $$a=\dfrac{\Delta v}{\Delta t}$$
 
-Its unit is $\mathrm{m/s^2}$. If $a$ and $v$ have the same sign, the object speeds up. If they have opposite signs, it slows down. A negative $a$ does not always mean slowing down.
+If $a$ and $v$ have the same sign, the object speeds up. If they have opposite signs, it slows down. A negative $a$ does not always mean slowing down.
 
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"accelerated-motion","illustrationKey":"science/physics/kinematics#1","path":"straight road","moments":3,"velocityTrend":"increasing","acceleration":"constant"} -->
 
 ### Reading Motion Graphs
 
-On a **position-time graph**, the slope is the velocity. A flat line means the object is at rest. A line that slopes downward means negative velocity.
+**Slope** tells how much the vertical value changes for each $1$ unit across. It is rise divided by run, and the Linear Equations and Inequalities lesson teaches it. On a graph with time across the bottom, the run is $\Delta t$.
 
-On a **velocity-time graph**, the slope is the acceleration. The **signed area** between the line and the time axis is the displacement. Area above the axis is positive. Area below the axis is negative. When the line crosses the axis, the object turns around.
+On a **position-time graph**, the rise is $\Delta x$. So slope $=\dfrac{\Delta x}{\Delta t}$, which is the velocity. On a curved line, the slope at one point is the instantaneous velocity there. A flat line means the object is at rest. A line that slopes downward means negative velocity.
+
+On a **velocity-time graph**, the rise is $\Delta v$. So slope $=\dfrac{\Delta v}{\Delta t}$, which is the acceleration. The **signed area** between the line and the time axis is the displacement. A thin strip of width $\Delta t$ and height $v$ has area $v\,\Delta t$, which is the displacement in that short time.
+
+Area above the axis is positive. Area below the axis is negative. When the line crosses the axis, the velocity changes sign and the object turns around.
 
 ### Constant-Acceleration Equations
 
-When acceleration is constant, a straight velocity-time line shows it. Then these four equations apply, with signs:
+When acceleration is constant, the velocity-time graph is a straight line. Then these four equations apply, with signs:
 
 $$v=v_0+at$$
 
@@ -57,19 +67,23 @@ $$v^2=v_0^2+2a\Delta x$$
 
 $$\Delta x=\dfrac{v_0+v}{2}\,t$$
 
-Here $v_0$ is the starting velocity and $v$ is the final velocity. The last equation works because the average velocity is the middle value of $v_0$ and $v$.
+Here $v_0$ is the starting velocity and $v$ is the final velocity. When $a$ is constant, the velocity changes steadily. So the average velocity is the middle value of $v_0$ and $v$, and that is why the last equation works.
 
-Each equation leaves out one quantity. The first has no $\Delta x$. The second has no $v$. The third has no $t$. The fourth has no $a$. They do not work if the acceleration changes.
+Each equation leaves out one quantity. The first has no $\Delta x$. The second has no $v$. The third has no $t$. The fourth has no $a$.
+
+They do not work if the acceleration changes during the motion.
 
 ### Free Fall
 
-**Free fall** is motion with only gravity acting. Near Earth's surface, the acceleration is $g\approx9.8\,\mathrm{m/s^2}$ toward the ground. This ignores air resistance. All objects then fall with the same acceleration, whatever their mass.
+**Free fall** is motion with only gravity acting. This includes an object going up after a throw. Near Earth's surface, the acceleration is $g\approx9.8\,\mathrm{m/s^2}$ toward the ground. This ignores air resistance. Then all objects fall with the same acceleration, whatever their mass.
+
+For vertical motion we write the position as $y$ and the displacement as $\Delta y$. The equations above work the same way with $y$ in place of $x$.
 
 If up is positive, $a=-g$. If down is positive, $a=+g$. The acceleration stays the same on the way up, at the top, and on the way down.
 
 ## Examples
 
-"Calculate" and "find" mean get a number answer. "Uniformly" means with constant acceleration.
+"Uniformly" means with constant acceleration.
 
 ### #1: Distance, Displacement, Speed, and Velocity
 
@@ -79,8 +93,15 @@ A runner goes $40$ m east and then $10$ m back west. The whole run takes $20$ s.
 
 1. Distance: $40+10=50$ m.
 2. Displacement: $x_f-x_i=+30$ m, so $30$ m east.
-3. Average speed: $\dfrac{50}{20}=2.5\,\mathrm{m/s}$.
-4. Average velocity: $\dfrac{+30}{20}=+1.5\,\mathrm{m/s}$, east.
+3. Average speed:
+
+$$\dfrac{50}{20}=2.5\,\mathrm{m/s}$$
+
+4. Average velocity:
+
+$$\dfrac{+30}{20}=+1.5\,\mathrm{m/s}$$
+
+The sign is positive, so the direction is east.
 
 ### #2: Braking to a Stop
 
@@ -140,15 +161,16 @@ A rock is dropped and falls for $3$ s. Down is positive and $g=9.8\,\mathrm{m/s^
 
 **Solution:**
 
-1. Distance:
+1. "Dropped" means it is released, not pushed. So $v_0=0$.
+2. Distance, using $\Delta y=v_0t+\dfrac12at^2$ with $v_0t=0$:
 
 $$\Delta y=\dfrac12(9.8)(3^2)=44.1\text{ m}$$
 
-2. Velocity:
+3. Velocity:
 
 $$v=0+(9.8)(3)=29.4\,\mathrm{m/s}$$
 
-The rock moves downward.
+4. Down is positive, so the rock moves downward.
 
 ### #7: Thrown Upward
 
@@ -216,11 +238,11 @@ A position-time graph is a straight line from $0$ m at $0$ s to $8$ m at $4$ s. 
 
 Before you pick an equation, list $v_0$, $v$, $a$, $t$, and $\Delta x$. Mark which are known and which you want. Pick the equation that has these and leaves out the missing one.
 
-Words in the problem give hidden values. "Starts from rest" means $v_0=0$. "Comes to a stop" means $v=0$. At the top of a throw, $v=0$.
+Words in the problem give hidden values. "Starts from rest" or "is dropped" means $v_0=0$. "Comes to a stop" means $v=0$. At the top of a straight-up throw, $v=0$.
 
 Choose the positive direction first, then write every sign.
 
-For a straight-line velocity graph, area is often a triangle, rectangle, or trapezoid. Add the signed areas.
+For a velocity graph made of straight lines, the area is a triangle, a rectangle, or a trapezoid. Add the signed areas. For distance, add the sizes of the areas instead.
 
 ## Traps to Watch For
 
@@ -228,17 +250,17 @@ For a straight-line velocity graph, area is often a triangle, rectangle, or trap
 
 > The four equations need constant acceleration.
 
-If the velocity-time graph is curved, the acceleration is changing and the equations do not apply.
+If the velocity-time graph is curved, the acceleration is changing and the equations do not apply. If the motion has separate parts where $a$ is constant, use the equations on each part.
 
 ### #2: Mixing Up Distance and Displacement
 
 > Displacement is final position minus initial position. Distance is the path length.
 
-They are equal only when the object never turns around.
+In one dimension they are equal when the object never turns around. If it turns around, the distance is bigger.
 
 ### #3: Zero Velocity Means Zero Acceleration
 
-> At the top of a throw, $v=0$ but $a=-9.8\,\mathrm{m/s^2}$.
+> At the top of a straight-up throw, $v=0$ but $a=-9.8\,\mathrm{m/s^2}$ (up is positive).
 
 The velocity is changing at that instant, so the acceleration is not zero.
 
@@ -246,7 +268,7 @@ The velocity is changing at that instant, so the acceleration is not zero.
 
 > Compare the signs of $v$ and $a$.
 
-If $v$ is negative and $a$ is negative, the object speeds up in the negative direction.
+If $v$ is negative and $a$ is negative, the object speeds up in the negative direction. If $v$ is positive and $a$ is negative, it slows down.
 
 ### #5: Ignoring Signs
 

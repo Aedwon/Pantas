@@ -3,25 +3,25 @@
     "lessonPath": "content/lessons/science/chemistry/stoichiometry.md",
     "lessonId": "lesson-chemistry-stoichiometry",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/chemical-bonding.md",
     "lessonId": "lesson-chemistry-chemical-bonding",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/acids-bases-ph.md",
     "lessonId": "lesson-chemistry-acids-bases-ph",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/kinematics.md",
     "lessonId": "lesson-physics-kinematics",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/electricity-and-magnetism.md",
