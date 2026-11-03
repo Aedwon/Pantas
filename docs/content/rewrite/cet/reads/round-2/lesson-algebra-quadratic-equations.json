@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-algebra-quadratic-equations",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "If $D\\le0$, there are not two roots, so use $D$ and the sign of $a$ (see Example #11).",
+      "problem": "This sentence covers D = 0 but points only to Example #11, which has D < 0. The repeated-root inequality is a distinct edge case and is not worked. There the root itself decides the answer: x^2 - 2x + 1 > 0 is true for every real x except 1, and x^2 - 2x + 1 <= 0 is true only at x = 1. A student who follows Example #11 would answer every real number for the first one. Solving quadratic inequalities is named at curriculum class, and the lesson has about 130 words of room.",
+      "source": "Checklist L18 with lead ruling 1, standard application of a skill in the goal; brief, upcat-L186 (curriculum) and ustet-L084 (official curriculum); solved directly"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "A **root** of the equation is a value of $x$ that makes it true.",
+      "problem": "Correct teaching was cut. The base lesson said that the roots are also called zeros of the quadratic. The rewrite drops this, and no other algebra lesson explains zeros of a function. DepEd Grade 9 materials ask for the equation of a quadratic function from its zeros, so a student can meet the word without being told that it means the roots.",
+      "source": "Base revision 7032eec5, Core Concept; writer-rules.md, Rules added after round 1, item 3; brief, ustet-L085 (official curriculum); DepEd Grade 9 Quarter 1 Module 22, https://depedtambayan.net/wp-content/uploads/2021/10/Math9_Quarter1_Module22_FINAL-V3-1.pdf (search excerpt; code differs across copies)"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

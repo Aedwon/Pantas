@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-biology-cell-biology",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Water moves both ways at the same rate, so the solute amounts are equal.",
+      "problem": "This is wrong as stated. A cell in an isotonic solution has the same solute concentration as the solution, not the same amount of solute: a beaker holds far more solute than one red blood cell. The lesson defines concentration, then drops it where it matters. The same looseness is in \"**Isotonic** solution: equal solute inside and out.\" and \"**Hypotonic** solution: less solute outside than inside the cell.\" The base lesson compared concentrations.",
+      "source": "OpenStax Biology 2e, 5.2 Passive Transport, https://openstax.org/books/biology-2e/pages/5-2-passive-transport (isotonic means the same osmolarity, which is total solute concentration); base revision 7032eec5"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Some cells keep their DNA in a **nucleus**.",
+      "problem": "This paragraph has four sentences; the limit is three. Three others also have four: \"A **solute** is a substance\", \"**Diffusion** is the net movement\" and \"**Active transport** moves a substance\". Round 1 named this rule, and three of these paragraphs are still over the limit.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 7
+}

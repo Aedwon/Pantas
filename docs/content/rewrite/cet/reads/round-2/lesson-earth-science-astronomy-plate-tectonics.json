@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-earth-science-astronomy-plate-tectonics",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "The **lithosphere** is the rigid outer shell: the crust plus the top of the mantle.",
+      "problem": "The lithosphere is defined with two words the lesson never explains. Crust and mantle then carry later teaching: oceanic and continental crust, density, mantle rock melting, and mantle flow. The layers-of-the-earth lesson teaches both, but this lesson does not name it, and the reuse rule needs an identified prerequisite. The meaning cannot be recovered from the text.",
+      "source": "Checklist L25; LSG Teaching completeness; writer-rules.md, Rules added after round 1, item 1; content/lessons/science/earth-science-astronomy/layers-of-the-earth.md"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "In **seafloor spreading**, magma rises at a mid-ocean ridge, cools into new oceanic crust, and moves away from the ridge on both sides.",
+      "problem": "Magma is never said to be melted rock, and a mid-ocean ridge is not described in Core Concept: only the question of Example #1 implies it. The same gap affects the bolded term in \"It makes an ocean **trench**.\", which gives no meaning, though Example #4 and the map shortcut depend on trenches. Also, \"A lone volcano far from any boundary may be a hot spot.\" uses a term that only Trap #1 explains later, with no pointer to it.",
+      "source": "Checklist L25; LSG Teaching completeness (a later explanation must be clearly signposted); writer-rules.md, Rules added after round 1, item 1"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "The water lowers the melting point of the hot mantle rock above the plate.",
+      "problem": "Correct worked content was cut. The base lesson's Example #2 worked why a sinking plate causes volcanoes above it, and the audit lists this mechanism in the lesson's teaching and its goal. Now no example works it. Example #2 only names a volcanic arc as a result, and Example #4 only uses volcanoes as a map clue. The mechanism is a standard application of the goal and relates to dcat-L081 at official curriculum class. The lesson has 1,697 of 1,700 words, so room is tight.",
+      "source": "Checklist L18 with lead ruling 1; base revision 7032eec5, Example #2; brief, audit goal and dcat-L081; writer-rules.md, Rules added after round 1, item 3"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "**Strike-slip fault:** the two blocks slide sideways past each other.",
+      "problem": "The brief names fault types and stress associations as a thin item at curriculum class. The lesson gives the stress for a normal fault (extension) and a reverse fault (compression), and Example #3 asks for the kind of stress. It names no stress for a strike-slip fault, which forms under shear, so one of the three associations is missing.",
+      "source": "Checklist L26; brief, Fault types and stress associations, upcat-L163 (curriculum); Salt Lake Community College, Physical Geography, Tectonic Forces, https://slcc.pressbooks.pub/physicalgeography/chapter/4-2/"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "If an oceanic plate meets a continental plate, the oceanic plate sinks.",
+      "problem": "This paragraph has four sentences; the limit is three. The paragraph that starts \"The Philippines lies in the **Ring of Fire**\" also has four.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 8
+}

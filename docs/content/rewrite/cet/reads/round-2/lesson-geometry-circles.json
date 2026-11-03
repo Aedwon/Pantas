@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-geometry-circles",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "A **central angle** (vertex at the center) equals its intercepted arc.",
+      "problem": "The word vertex is never explained, and the lesson names no prerequisite. The next bullet uses it again, and where the vertex sits is the only thing that separates a central angle from an inscribed angle, so a student who lacks the word cannot use either rule from the text. The lesson glosses perpendicular and hypotenuse, which are similar basic terms. basic-geometric-concepts teaches vertex, but the lesson does not identify it and the brief records prerequisite status none-found. The lesson is at 1,697 of 1,700 words.",
+      "source": "Checklist L25; LSG Teaching completeness (identified prerequisite); writer rules, rules added after round 1, rule 1; brief, Prerequisite status: none-found"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

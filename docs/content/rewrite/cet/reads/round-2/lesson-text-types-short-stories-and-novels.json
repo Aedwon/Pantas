@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-text-types-short-stories-and-novels",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "**Short stories** and **novel excerpts** can be studied through plot",
+      "problem": "The lesson's title term is set in bold as if defined, but the lesson never says what an excerpt is: a part taken from a longer work. The word returns in the heading of Example 10. Compared with base 7032eec5, the rewrite also cut the base's excerpt teaching (Example 4 and the strategy line that an excerpt can prepare an event without guaranteeing its outcome), so nothing states why reading only a part limits what a reader can claim. Example 10 step 3 keeps the reasoning in one case but does not supply the meaning. The audit goal names excerpt inferences. The lesson is at 1,698 of 1,700 words.",
+      "source": "Checklist L25; LSG Teaching completeness; writer rules, rules added after round 1, rules 1 and 3; brief, audit Goal; base revision 7032eec5"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "A flat character can change, and a round character can stay the same.",
+      "problem": "This case is stated but never worked. Example 5 classifies only a round dynamic character (Dino) and a flat static one (Mrs. Reyes), the two pairs that fit the false equation Trap 1 warns about. No example shows a character whose two answers do not line up that way. The brief lists this item as: examples none, with possible combinations stated without separate demonstrated cases, at curriculum class through upcat-L095.",
+      "source": "Checklist L18; lead ruling 1; brief item Distinguish complexity from change, ref upcat-L095 (curriculum)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Plot** is the order in which a story tells its events.",
+      "problem": "This paragraph has four sentences; the limit is one to three short sentences. This is the round 1 L22a finding, still open for this paragraph.",
+      "source": "Checklist L22a; LSG Formatting rules; round 1 read of this lesson"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
