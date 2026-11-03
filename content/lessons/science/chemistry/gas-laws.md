@@ -36,15 +36,19 @@ Pressure comes from these collisions. Billions of particles hit the wall every s
 
 ### Kelvin: The Absolute Temperature Scale
 
-The **kelvin** scale starts at **absolute zero**, the lowest possible temperature, written $0$ K. Celsius starts at the freezing point of water, which is not a true zero of temperature. To convert, use:
+The **kelvin** scale starts at **absolute zero**, the lowest possible temperature, written $0$ K. Celsius puts its zero at the freezing point of water, which is not a true zero of temperature, so Celsius values can be negative. To convert, use:
 
 $$T(\mathrm K)=T(^\circ\mathrm C)+273.15$$
 
-Kinetic energy is proportional to the kelvin temperature, so the gas laws work with kelvin. Doubling the kelvin temperature doubles the average kinetic energy. Going from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double anything. Always convert to kelvin before using a gas law that contains $T$.
+Kinetic energy is proportional to the kelvin temperature, so the gas laws work with kelvin. Doubling the kelvin temperature doubles the average kinetic energy.
+
+Going from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double anything. Always convert to kelvin before using a gas law that contains $T$.
 
 ### Reading a Gas Investigation: Three Kinds of Variables
 
-An investigation changes one quantity and watches another. The **independent variable** is the quantity the investigator changes on purpose. The **dependent variable** is the quantity measured to see the effect. The **controlled variables** are the quantities kept the same so the test is fair.
+An investigation changes one quantity and watches another.
+
+The **independent variable** is the quantity the investigator changes on purpose. The **dependent variable** is the quantity measured to see the effect. The **controlled variables** are the quantities kept the same so the test is fair.
 
 Each gas law is one such investigation of a gas. The other two quantities are controlled. The list below gives the variables of each law.
 
@@ -67,7 +71,9 @@ For a fixed amount of gas at constant pressure, volume is **directly proportiona
 
 $$\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$$
 
-Hotter particles move faster and hit the walls harder. To keep the pressure the same, the container must grow, so the particles spread out and hit less often. This needs a container that can change size, such as a balloon or a piston. Gases turn into liquids when cooled enough, so the law holds only while the sample stays a gas.
+Hotter particles move faster and hit the walls harder. To keep the pressure the same, the container must grow, so the particles spread out and hit less often. This needs a container that can change size, such as a balloon or a piston.
+
+The law holds while the sample stays a gas. If cooling makes the sample condense into a liquid or a solid, the law no longer applies.
 
 ### Amontons's / Gay-Lussac's Law
 
@@ -83,13 +89,15 @@ At constant temperature and pressure, volume is directly proportional to the amo
 
 $$\dfrac{V_1}{n_1}=\dfrac{V_2}{n_2}$$
 
-More particles hit the walls more often. The container must grow to keep the pressure the same. This applies when the gas can change volume. Adding gas to a rigid container does not change $V$, so the pressure rises instead.
+More particles hit the walls more often. The container must grow to keep the pressure the same.
+
+This applies when the gas can change volume. Adding gas to a rigid container does not change $V$, so the pressure rises instead.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"gas-laws-gallery","illustrationKey":"science/chemistry/gas-laws#1","laws":[{"label":"Boyle's","scene":"piston compressed"},{"label":"Charles's","scene":"balloon expands when heated"},{"label":"Gay-Lussac's","scene":"sealed rigid can, pressure rises when heated"},{"label":"Avogadro's","scene":"container grows as more gas particles are added"}]} -->
 
 ### Combined and Ideal Gas Laws
 
-The three ratio laws above are parts of one rule. For the **same fixed amount** of gas changing from state 1 to state 2:
+The three ratio laws above are parts of one rule. For the **same fixed amount** of gas changing from state $1$ to state $2$:
 
 $$\dfrac{P_1V_1}{T_1}=\dfrac{P_2V_2}{T_2}$$
 
@@ -101,15 +109,21 @@ $$PV=nRT$$
 
 $R$ is the **gas constant**. Its value depends on the units of $P$ and $V$. Two common values are:
 
-$$R=0.082057\,\dfrac{\mathrm{L\cdot atm}}{\mathrm{mol\cdot K}}\qquad R=8.314\,\dfrac{\mathrm{L\cdot kPa}}{\mathrm{mol\cdot K}}$$
+$$R=0.082057\,\dfrac{\mathrm{L\cdot atm}}{\mathrm{mol\cdot K}}$$
+
+$$R=8.314\,\dfrac{\mathrm{L\cdot kPa}}{\mathrm{mol\cdot K}}$$
 
 Use the first value with atm and L. Use the second with kPa and L. In both, $T$ is in kelvin and $n$ is in moles.
 
 ### Molar Volume and STP
 
-The **molar volume** is the volume of one mole of gas. It changes with temperature and pressure. At $0\,^\circ\mathrm C$ and $1$ atm, one mole of ideal gas fills about $22.4$ L. This is where the number $22.4$ L comes from.
+The **molar volume** is the volume of one mole of gas. It changes with temperature and pressure.
 
-The conditions $0\,^\circ\mathrm C$ and $1$ atm are called **STP** (standard temperature and pressure) in many textbooks. Some sources define STP with a pressure of $100$ kPa instead. At $0\,^\circ\mathrm C$ and $100$ kPa, one mole fills about $22.7$ L. Check which pressure the problem gives.
+At $0\,^\circ\mathrm C$ and $1$ atm, one mole of ideal gas fills about $22.4$ L. This is where the number $22.4$ L comes from.
+
+The conditions $0\,^\circ\mathrm C$ and $1$ atm are called **STP** (standard temperature and pressure) in many textbooks.
+
+Some sources define STP with a pressure of $100$ kPa instead. At $0\,^\circ\mathrm C$ and $100$ kPa, one mole fills about $22.7$ L. Check which pressure the problem gives.
 
 ### When the Ideal Model Fails
 
@@ -194,7 +208,9 @@ A sealed rigid tank holds gas at $150$ kPa and $27\,^\circ\mathrm C$. The tank i
 
 1. The tank is sealed and rigid, so $n$ and $V$ are fixed. Use Gay-Lussac's law. Convert to kelvin.
 
-$$T_1=300.15\text{ K}\qquad T_2=87+273.15=360.15\text{ K}$$
+$$T_1=300.15\text{ K}$$
+
+$$T_2=87+273.15=360.15\text{ K}$$
 
 2. Write the law and solve for $P_2$.
 
@@ -285,7 +301,18 @@ Find the volume of $0.50$ mol of an ideal gas at $25\,^\circ\mathrm C$ and $101.
 
 $$V=\dfrac{nRT}{P}=\dfrac{(0.50)(8.314)(298.15)}{101.325}\approx12.2\text{ L}$$
 
-3. One mole would fill about $24.5$ L, not $22.4$ L. The value $22.4$ L is for $0\,^\circ\mathrm C$ and $1$ atm only. This gas is warmer, so it takes more space.
+3. One mole would fill about $24.5$ L, not $22.4$ L. The value $22.4$ L is true at $0\,^\circ\mathrm C$ and $1$ atm. This gas is warmer at the same pressure, so it takes more space.
+
+### #11: Explaining a Gas With Kinetic Molecular Theory
+
+A sealed rigid can holds gas at $25\,^\circ\mathrm C$. The can is heated to $100\,^\circ\mathrm C$. Use the Kinetic Molecular Theory to explain the pressure change. Then say which idea of the theory fails first if the same gas is squeezed to a very high pressure.
+
+**Solution:**
+
+1. The can is sealed and rigid, so the number of particles and the volume stay the same.
+2. A higher kelvin temperature means a higher average kinetic energy, so the particles move faster.
+3. Faster particles hit the walls harder and more often. The many pushes add up to a larger force on each unit of area, so the pressure rises. This matches Gay-Lussac's law.
+4. At very high pressure the particles are squeezed close together. The idea that their own volume is zero then fails first, because their volume is no longer small compared with the space they fill.
 
 ## Speed Tricks & Shortcuts
 
@@ -307,9 +334,9 @@ Problems often give Celsius values to test this. A gas that goes from $10\,^\cir
 
 ### #2: Using 22.4 L at Any Condition
 
-> The molar volume of $22.4$ L applies at $0\,^\circ\mathrm C$ and $1$ atm only.
+> The molar volume of $22.4$ L is true at $0\,^\circ\mathrm C$ and $1$ atm. Do not use it at other conditions without checking.
 
-At $25\,^\circ\mathrm C$ and $1$ atm, one mole fills about $24.5$ L. At other conditions it is different again. For any other condition, use $PV=nRT$.
+At $25\,^\circ\mathrm C$ and $1$ atm, one mole fills about $24.5$ L. At most other conditions it is different again. For any other condition, use $PV=nRT$ to find the molar volume.
 
 ### #3: Treating Ideal Gas Laws as Exact for Every Real Gas
 
@@ -321,13 +348,17 @@ The equations are good approximations at ordinary conditions. A gas near the tem
 
 > Absolute zero is the lower limit of the kelvin scale, but it is not a state of exactly zero energy.
 
-Matter at absolute zero still keeps a small amount of energy that cannot be removed. Real gases turn to liquid or solid long before they reach $0$ K, so Charles's law cannot be used to predict a zero volume. Kelvin is used here because the gas laws need a scale that starts at absolute zero.
+Matter at absolute zero still keeps a small amount of energy that cannot be removed.
+
+Real gases turn to liquid or solid long before they reach $0$ K, so Charles's law cannot be used to predict a zero volume. Kelvin is used here because the gas laws need a scale that starts at absolute zero.
 
 ### #5: Wrong Units for $R$ or Pressure
 
 > The unit of $R$ decides which units of $P$ and $V$ you may use.
 
-With $R=0.082057$ L$\cdot$atm/(mol$\cdot$K), pressure must be in atm and volume in L. Convert mL to L and kPa or mmHg to atm first. A tire gauge or similar gauge may show pressure above the outside air. The gas laws need the full pressure of the gas, so add the outside pressure to a gauge reading.
+With $R=0.082057$ L$\cdot$atm/(mol$\cdot$K), pressure must be in atm and volume in L. Convert mL to L and kPa or mmHg to atm first.
+
+A tire gauge or similar gauge may show pressure above the outside air. The gas laws need the full pressure of the gas, so add the outside pressure to a gauge reading.
 
 ### #6: Mixing Up Which Quantity Is Fixed
 
