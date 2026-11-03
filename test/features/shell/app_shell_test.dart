@@ -130,8 +130,7 @@ void main() {
   });
 
   for (final dark in [false, true]) {
-    testWidgets(
-        'active tab uses accent and approved caption weights, dark=$dark',
+    testWidgets('active tab uses accent and one caption weight, dark=$dark',
         (tester) async {
       await tester
           .pumpWidget(harness(currentIndex: 1, onTap: (_) {}, dark: dark));
@@ -140,9 +139,11 @@ void main() {
       expect(text.style!.fontSize, 10);
       expect(text.style!.fontWeight, FontWeight.w600);
       expect(text.style!.color, colors.accent);
+      // One weight for every tab, so the label cannot jump while the color
+      // fades (item 17, demo 1: the preview sets all labels at 600).
       expect(
         tester.widget<Text>(find.text('Home')).style!.fontWeight,
-        FontWeight.w500,
+        FontWeight.w600,
       );
     });
   }
@@ -174,20 +175,22 @@ void main() {
     }
   });
 
-  testWidgets('selection swaps immediately because the board has no tab motion',
-      (tester) async {
+  // Rewritten on purpose (Aedwon, Nov 3, item 17). This test used to say a
+  // selection swaps at once because the board has no tab motion, and forbade
+  // any AnimatedBuilder in the bar. He approved the tab pill glide in the
+  // motion preview, so the bar now moves; nav_motion_test.dart samples it.
+  testWidgets('selection glides the pill and fades the colors', (tester) async {
     await tester.pumpWidget(harness(currentIndex: 0, onTap: (_) {}));
     await tester.pumpWidget(harness(currentIndex: 2, onTap: (_) {}));
+    await tester.pump(const Duration(milliseconds: 60));
+    final midway = tester.widget<Text>(find.text('Quiz')).style!.color;
+    expect(midway, isNot(PantasColors.light.accent));
+    expect(midway, isNot(PantasColors.light.secondaryLabel));
+    expect(find.byKey(const ValueKey('nav-pill')), findsOneWidget);
+    await tester.pumpAndSettle();
     expect(
       tester.widget<Text>(find.text('Quiz')).style!.color,
       PantasColors.light.accent,
-    );
-    expect(
-      find.descendant(
-        of: find.byType(AppNavBar),
-        matching: find.byType(AnimatedBuilder),
-      ),
-      findsNothing,
     );
   });
 

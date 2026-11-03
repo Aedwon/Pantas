@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
@@ -234,32 +235,37 @@ class _PerformancePageState extends State<PerformancePage> {
             ),
           ),
         if (!gated)
-          GroupedSection(
-            children: [
-              for (final (index, row) in rows.indexed)
-                _PerformanceRow(
-                  title: row.title,
-                  subtitle: level == 0
-                      ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
-                      : [
-                          if (row.subtext != null) row.subtext!,
-                          '${row.answered} answered',
-                        ].join(' · '),
-                  accuracy: row.accuracy!,
-                  divider: index < rows.length - 1,
-                  onTap: () => setState(() {
-                    if (level == 0) {
-                      _subject = row.id;
-                      _level = 1;
-                      _publish();
-                    } else if (level == 1) {
-                      widget.onTopic(row.id);
-                    } else {
-                      widget.onLesson?.call(row.id);
-                    }
-                  }),
-                ),
-            ],
+          ViewSwap(
+            index: level,
+            // A phone list is nearly the whole screen: slide only, no fade.
+            fade: false,
+            child: GroupedSection(
+              children: [
+                for (final (index, row) in rows.indexed)
+                  _PerformanceRow(
+                    title: row.title,
+                    subtitle: level == 0
+                        ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
+                        : [
+                            if (row.subtext != null) row.subtext!,
+                            '${row.answered} answered',
+                          ].join(' · '),
+                    accuracy: row.accuracy!,
+                    divider: index < rows.length - 1,
+                    onTap: () => setState(() {
+                      if (level == 0) {
+                        _subject = row.id;
+                        _level = 1;
+                        _publish();
+                      } else if (level == 1) {
+                        widget.onTopic(row.id);
+                      } else {
+                        widget.onLesson?.call(row.id);
+                      }
+                    }),
+                  ),
+              ],
+            ),
           ),
         if (gated) ...[
           // Board (DT_Free): the card starts 7 px higher, content centered

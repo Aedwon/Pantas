@@ -173,8 +173,17 @@ void main() {
     expect((decoration.border! as Border).top.color, const Color(0xFF2C2C2C));
     final buttons =
         tester.widgetList<TextButton>(find.byType(TextButton)).toList();
+    // The selected segment's fill is the sliding thumb since item 17.
     expect(
-      buttons[0].style!.backgroundColor!.resolve({}),
+      (tester
+              .widget<DecoratedBox>(
+                find.descendant(
+                  of: find.byKey(const ValueKey('segmented-control-thumb')),
+                  matching: find.byType(DecoratedBox),
+                ),
+              )
+              .decoration as BoxDecoration)
+          .color,
       const Color(0xFF4A4A4A),
     );
     expect(
@@ -212,8 +221,24 @@ void main() {
       buttons[0].style!.backgroundColor!.resolve({WidgetState.hovered}),
       const Color(0xFFF7F7F9),
     );
+    // The selected tint is its own layer since item 17 (it fades), so the
+    // button itself paints nothing while the row is selected.
     expect(
       buttons[1].style!.backgroundColor!.resolve({}),
+      Colors.transparent,
+    );
+    expect(
+      tester
+          .widget<ColoredBox>(
+            find.descendant(
+              of: find.ancestor(
+                of: find.text('Selected'),
+                matching: find.byType(Stack),
+              ),
+              matching: find.byType(ColoredBox),
+            ),
+          )
+          .color,
       const Color(0xFFE4F1EE),
     );
     expect(buttons[2].onPressed, isNull);

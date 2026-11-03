@@ -16,12 +16,14 @@ import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
+import '../core/ui/motion/preview_curves.dart';
 import '../features/settings/presentation/pro_page_payments_test.dart'
     show SettingsGateway;
 import '../helpers/in_memory_database.dart';
@@ -42,6 +44,9 @@ void main() {
   tearDown(() => debugWebPlatformOverride = null);
 
   late GoRouter router;
+
+  Color webAccent(WidgetTester tester) =>
+      tester.element(find.byType(WebRow).first).webTokens.colors.accent;
 
   Future<void> pumpSettings(
     WidgetTester tester, {
@@ -309,6 +314,110 @@ void main() {
     expect(opacityOfDetail(tester, 0), 1);
     expect(tester.getTopLeft(details().last), detail.topLeft);
     await tester.pumpAndSettle();
+  });
+
+  // Item 17, demo 4 (and item 15's "row tint fades 160 ms, the label stops
+  // turning bold"): the page that opens rebuilds the list, so it starts with
+  // the old row tinted and fades to the new one.
+  group('item 17: the selected row fades', () {
+    Finder row(WidgetTester tester, String label) => find.ancestor(
+          of: find.descendant(of: lists().last, matching: find.text(label)),
+          matching: find.byType(WebRow),
+        );
+
+    double tint(WidgetTester tester, String label) => tester
+        .widget<ColoredBox>(
+          find.descendant(
+            of: find.descendant(
+              of: row(tester, label),
+              matching: find.byType(IgnorePointer),
+            ),
+            matching: find.byType(ColoredBox),
+          ),
+        )
+        .color
+        .a;
+
+    Color? value(WidgetTester tester, String label, String text) => tester
+        .widget<Text>(
+          find.descendant(of: row(tester, label), matching: find.text(text)),
+        )
+        .style
+        ?.color;
+
+    testWidgets('the old tint fades out as the new one fades in, 160 ms',
+        (tester) async {
+      await pumpSettings(tester, initial: '/settings/pro');
+      await tapRow(tester, 'Practice');
+      // The first frame is the old list: Pro still tinted, Practice not.
+      expect(tint(tester, 'Pantas Pro'), 1);
+      expect(tint(tester, 'Practice'), 0);
+      final accent = webAccent(tester);
+      var elapsed = 0;
+      for (final ms in [40, 40, 40]) {
+        await tester.pump(Duration(milliseconds: ms));
+        elapsed += ms;
+        final p = previewEase(elapsed / 160);
+        expect(tint(tester, 'Practice'), closeTo(p, .01), reason: '$elapsed');
+        expect(
+          tint(tester, 'Pantas Pro'),
+          closeTo(1 - p, .01),
+          reason: '$elapsed',
+        );
+        // The value turns accent together with the tint.
+        final shown = value(tester, 'Practice', '10 questions')!;
+        expect(shown.g, isNot(equals(accent.g)), reason: 'not yet at $elapsed');
+      }
+      await tester.pump(const Duration(milliseconds: 40));
+      expect(tint(tester, 'Practice'), 1);
+      expect(tint(tester, 'Pantas Pro'), 0);
+      expect(value(tester, 'Practice', '10 questions'), accent);
+      await tester.pumpAndSettle();
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('the label never turns bold', (tester) async {
+      await pumpSettings(tester, initial: '/settings/pro');
+      Iterable<FontWeight?> weights() => [
+            for (final label in ['Pantas Pro', 'Practice', 'Appearance'])
+              tester
+                  .widget<Text>(
+                    find.descendant(
+                      of: lists().last,
+                      matching: find.text(label),
+                    ),
+                  )
+                  .style
+                  ?.fontWeight,
+          ];
+      expect(weights().toSet(), {FontWeight.w400});
+      await tapRow(tester, 'Practice');
+      for (var i = 0; i < 5; i++) {
+        await tester.pump(const Duration(milliseconds: 40));
+        expect(weights().toSet(), {FontWeight.w400}, reason: 'frame $i');
+      }
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('reduced motion shows the final tint in one frame',
+        (tester) async {
+      await pumpSettings(tester, initial: '/settings/pro', reduced: true);
+      await tapRow(tester, 'Practice');
+      expect(tint(tester, 'Practice'), 1);
+      expect(tint(tester, 'Pantas Pro'), 0);
+      expect(
+        value(tester, 'Practice', '10 questions'),
+        webAccent(tester),
+      );
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('a deep link opens with the row already tinted',
+        (tester) async {
+      await pumpSettings(tester, initial: '/settings/practice');
+      expect(tint(tester, 'Practice'), 1);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
   });
 
   for (final platform in [TargetPlatform.macOS, TargetPlatform.iOS]) {

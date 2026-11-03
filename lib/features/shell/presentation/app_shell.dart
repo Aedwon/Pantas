@@ -6,6 +6,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -168,21 +169,53 @@ class AppNavBar extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final layout = _itemLayout(context, constraints.maxWidth - 6);
-          return Row(
+          // Where each tab starts, so the pill can glide to it.
+          final offsets = <double>[];
+          var x = 0.0;
+          for (final width in layout.widths) {
+            offsets.add(x);
+            x += width + 2;
+          }
+          return Stack(
             children: [
-              for (var i = 0; i < _tabs.length; i++) ...[
-                if (i > 0) const SizedBox(width: 2),
-                SizedBox(
-                  width: layout.widths[i],
-                  child: _NavItem(
-                    label: _tabs[i].label,
-                    glyph: _tabs[i].glyph,
-                    labelTextScaler: layout.textScaler,
-                    isActive: currentIndex == i,
-                    onTap: () => onTap(i),
+              // The pill is the one thing that moves: a translation, drawn
+              // behind the tabs, so a tap never rebuilds the screen.
+              Positioned.fill(
+                child: ExcludeSemantics(
+                  child: IgnorePointer(
+                    child: SlidingMarker(
+                      key: const ValueKey('nav-pill'),
+                      offsets: offsets,
+                      lengths: layout.widths,
+                      index: currentIndex,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: colors.accentTint,
+                          borderRadius:
+                              BorderRadius.circular(PantasShape.pillRadius),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ],
+              ),
+              Row(
+                children: [
+                  for (var i = 0; i < _tabs.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 2),
+                    SizedBox(
+                      width: layout.widths[i],
+                      child: _NavItem(
+                        label: _tabs[i].label,
+                        glyph: _tabs[i].glyph,
+                        labelTextScaler: layout.textScaler,
+                        isActive: currentIndex == i,
+                        onTap: () => onTap(i),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
             ],
           );
         },
@@ -236,31 +269,32 @@ class _NavItem extends StatelessWidget {
           behavior: HitTestBehavior.opaque,
           excludeFromSemantics: true,
           onTap: onTap,
-          child: Container(
+          child: ConstrainedBox(
             constraints: const BoxConstraints(minHeight: 52),
-            decoration: BoxDecoration(
-              color: isActive ? colors.accentTint : Colors.transparent,
-              borderRadius: BorderRadius.circular(PantasShape.pillRadius),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(glyph, color: color, size: 23),
-                const SizedBox(height: 2),
-                Text(
-                  label,
-                  textScaler: labelTextScaler,
-                  maxLines: 1,
-                  softWrap: false,
-                  overflow: TextOverflow.clip,
-                  textAlign: TextAlign.center,
-                  style: context.type.captionSmall.copyWith(
-                    color: color,
-                    fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+            // The icon and label fade between the two colors; the label keeps
+            // one weight so the text never jumps while it does.
+            child: FadingColor(
+              color: color,
+              builder: (context, color, _) => Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(glyph, color: color, size: 23),
+                  const SizedBox(height: 2),
+                  Text(
+                    label,
+                    textScaler: labelTextScaler,
+                    maxLines: 1,
+                    softWrap: false,
+                    overflow: TextOverflow.clip,
+                    textAlign: TextAlign.center,
+                    style: context.type.captionSmall.copyWith(
+                      color: color,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

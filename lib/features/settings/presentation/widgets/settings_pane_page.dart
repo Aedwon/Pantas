@@ -247,6 +247,11 @@ Widget _grayGlyph(WebTokens t, Widget glyph) => IconTheme(
 /// would then make the list jump, so the offset is carried across pages.
 final settingsListOffsetProvider = StateProvider<double>((ref) => 0);
 
+/// The row that was selected when another was tapped. The page that opens
+/// rebuilds the list, so it starts from this row and fades to its own (item 17,
+/// demo 4). Read once as the new list is built, then cleared.
+final settingsListFromProvider = StateProvider<String?>((ref) => null);
+
 class _SettingsListScroll extends ConsumerStatefulWidget {
   const _SettingsListScroll({required this.selected});
   final String selected;
@@ -258,6 +263,7 @@ class _SettingsListScroll extends ConsumerStatefulWidget {
 
 class _SettingsListScrollState extends ConsumerState<_SettingsListScroll> {
   late final ScrollController _controller;
+  late final String? _from = ref.read(settingsListFromProvider);
 
   @override
   void initState() {
@@ -265,6 +271,11 @@ class _SettingsListScrollState extends ConsumerState<_SettingsListScroll> {
     _controller = ScrollController(
       initialScrollOffset: ref.read(settingsListOffsetProvider),
     )..addListener(_remember);
+    if (_from != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) ref.read(settingsListFromProvider.notifier).state = null;
+      });
+    }
   }
 
   void _remember() {
@@ -282,13 +293,17 @@ class _SettingsListScrollState extends ConsumerState<_SettingsListScroll> {
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
         controller: _controller,
-        child: SettingsNavigation(selected: widget.selected),
+        child: SettingsNavigation(selected: widget.selected, from: _from),
       );
 }
 
 class SettingsNavigation extends ConsumerWidget {
-  const SettingsNavigation({required this.selected, super.key});
+  const SettingsNavigation({required this.selected, this.from, super.key});
   final String selected;
+
+  /// The row that was selected before this list was built, if any. Its tint
+  /// starts full and fades out while the new row's fades in.
+  final String? from;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -301,24 +316,25 @@ class SettingsNavigation extends ConsumerWidget {
     final length = ref.watch(settingsSessionLengthProvider).valueOrNull ?? 10;
     void open(String path) {
       final router = GoRouter.maybeOf(context);
-      if (router != null) unawaited(router.push<void>(path));
+      if (router == null) return;
+      ref.read(settingsListFromProvider.notifier).state = selected;
+      unawaited(router.push<void>(path));
     }
 
     Widget row(String label, String path, Widget glyph, {String? value}) =>
         WebRow(
           title: label,
-          titleStyle: t.style(
-            16,
-            weight: selected == label ? FontWeight.w600 : FontWeight.w400,
-          ),
+          // The label keeps one weight, so the text does not jump while the
+          // tint fades (item 17, demo 4).
+          titleStyle: t.style(16),
           horizontalPadding: 16,
           compact: true,
           leadingGap: 12,
           selected: selected == label,
+          enterFromSelected: from == null ? null : from == label,
           value: value,
-          valueStyle: t.sub.copyWith(
-            color: selected == label ? t.colors.accent : null,
-          ),
+          valueStyle: t.sub,
+          selectedValueColor: t.colors.accent,
           leading: glyph,
           onPressed: () => open(path),
           divider: label != 'Appearance' &&
@@ -341,6 +357,7 @@ class SettingsNavigation extends ConsumerWidget {
             verticalPadding: 14,
             leadingGap: 12,
             selected: selected == 'Account',
+            enterFromSelected: from == null ? null : from == 'Account',
             leading: SizedBox.square(
               dimension: 44,
               child: FittedBox(

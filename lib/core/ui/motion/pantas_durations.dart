@@ -8,6 +8,10 @@ abstract final class PantasDurations {
   /// Press down on tiles, chips and buttons. Curve: shared.
   static const tap = Duration(milliseconds: 120);
 
+  /// Letting go after a press (demos 5 and 8 of the preview: 120 ms down,
+  /// 180 ms up). Curve: shared.
+  static const release = Duration(milliseconds: 180);
+
   /// Color and tint fades on rows, chips and labels. Curve: ease.
   static const quick = Duration(milliseconds: 160);
 

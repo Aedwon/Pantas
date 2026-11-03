@@ -49,12 +49,13 @@ void main() {
           tester.getSize(find.byType(PantasButton)).height,
           scale == 1 ? 32 : 38,
         );
-        final style =
-            tester.widget<TextButton>(find.byType(TextButton).first).style!;
-        expectContrast(
-          label.style!.color!,
-          style.backgroundColor!.resolve({})!,
-        );
+        // The chip's fill is its own layer (it fades, item 17), so read it
+        // there and not from the button, which paints nothing.
+        final fill = (tester
+                .widget<DecoratedBox>(find.byKey(const ValueKey('chip-fill')))
+                .decoration as BoxDecoration)
+            .color!;
+        expectContrast(label.style!.color!, fill);
         final title = tester.widget<Text>(find.text('UPCAT'));
         final colors = tester.element(find.byType(ListRow)).colors;
         expectContrast(title.style!.color!, colors.surface);
