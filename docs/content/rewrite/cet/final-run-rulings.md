@@ -20,3 +20,4 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 
 - lesson-geometry-triangles, round-2 B01 on "SSA works only as HL": upheld. SSA also fixes a triangle when the given angle is right or obtuse, or lies opposite the longer given side. The fix may keep the school rule (SSA is not a congruence test; HL is the right-triangle case) but must not say HL is the only exception.
 - Lead error, gas laws: the lead's writer prompt said molar volume 22.4 L "applies only at 0 °C and 1 atm". The round-1 reader rightly flagged the resulting "only" as false (the same molar volume holds at other temperature and pressure pairs with the same ratio, and IUPAC STP at 1 bar gives about 22.7 L). Later prompts state the condition without "only".
+- lesson-chemistry-nuclear-chemistry: half-life calculation is not taught. The base never taught it and the brief marks the required depth unknown, so writer rule 1 keeps it out. Readers should not raise its absence.

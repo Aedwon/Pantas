@@ -1,114 +1,214 @@
 ---
 _id: "lesson-chemistry-periodic-table"
 title: "The Periodic Table"
-summary: "How the periodic table is organized and how electron structure produces useful—but not exceptionless—periodic trends."
+summary: "How the periodic table is organized, what the named families are like, and how electron structure explains the main periodic trends and their exceptions."
 subject: "subject-science"
 topic: "topic-chemistry"
-estimatedMinutes: 12
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-The **periodic table** arranges elements by increasing **atomic number**. Repetition in electron configurations produces recurring chemical patterns, which is why elements in a group often behave similarly.
+The **periodic table** lists the elements in order of increasing **atomic number**. The atomic number is the number of protons in an atom of the element. Electron arrangements repeat as the atomic number grows, so similar chemical behavior shows up again and again. This lesson uses the electron ideas from the atomic structure lesson.
 
 ### Groups and Periods
 
-Vertical columns are **groups**, numbered $1$ through $18$. Horizontal rows are **periods**.
+Vertical columns are **groups**. They are numbered $1$ to $18$. Horizontal rows are **periods**.
 
-For **main-group elements**, group position is closely related to valence-shell electron configuration. A common shortcut is that elements within a main group have the same number of valence electrons, but remember important qualifications: helium has $1s^2$ rather than an eight-electron valence shell, and transition-metal chemistry cannot be reduced to a single "group number = valence-electron count" rule.
+For main-group elements, the period number is the number of the outermost shell that holds electrons. Sodium is in period $3$, so its outer electron is in the third shell. Some transition metals break this simple link. Palladium, for example, is in period $5$ but has no electrons in its fifth shell.
 
-Elements are also broadly described as **metals**, **nonmetals**, and **metalloids**. These categories summarize patterns rather than rigidly defining every property. Metals are generally conductive and tend to form cations; nonmetals show a wider variety of physical properties and often form covalent bonds or anions; metalloids occupy a chemically intermediate region, but the exact membership of the metalloid category varies among references.
+A **valence electron** is an electron in the outermost shell. These electrons take part in bonding. For the main-group elements, the group tells you how many there are.
+
+- Groups $1$ and $2$ have $1$ and $2$ valence electrons.
+- Groups $13$ to $18$ have the group number minus $10$. Group $15$ has $5$ and group $17$ has $7$.
+- Helium is in group $18$ but has only $2$ valence electrons. Its first shell is full with two.
+
+Groups $3$ to $12$ are the **transition metals**. They fill the $d$ subshell, and their group number does not give a simple count of valence electrons. Many of them form more than one kind of ion, such as iron forming $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$.
+
+<!-- ILLUSTRATION: periodic table outline with groups 1 to 18 numbered across the top and periods 1 to 7 down the side; group 1 labeled alkali metals, group 2 alkaline-earth metals, group 17 halogens, group 18 noble gases, groups 3 to 12 labeled transition metals, hydrogen drawn separately above group 1 -->
+
+### Named Families
+
+Some groups have names. Elements in a family act alike because they have the same number of valence electrons.
+
+**Alkali metals** (group $1$: lithium, sodium, potassium, rubidium, cesium, francium) are soft metals. Each has $1$ valence electron and tends to lose it to form a $+1$ ion. They react strongly with water, and the reaction gets stronger down the group.
+
+**Alkaline-earth metals** (group $2$: beryllium, magnesium, calcium, strontium, barium, radium) are harder and less reactive than the alkali metal in the same period. Each has $2$ valence electrons and tends to form a $+2$ ion.
+
+**Halogens** (group $17$: fluorine, chlorine, bromine, iodine, astatine) are nonmetals (astatine is rare and its class is less certain) with $7$ valence electrons. They tend to gain one electron to form a $-1$ ion. Fluorine, chlorine, bromine and iodine exist as two-atom molecules such as $\text{Cl}_2$.
+
+**Noble gases** (group $18$: helium, neon, argon, krypton, xenon, radon) are gases whose atoms exist alone. Their outer shells are full, so they are very unreactive. A few compounds of krypton and xenon are known, so "very unreactive" is correct and "completely unreactive" is not.
+
+Hydrogen is drawn in the group $1$ position, but it is a nonmetal gas. It is not an alkali metal. Some tables place it apart from the groups for this reason.
+
+### Metals, Nonmetals and Metalloids
+
+Elements are also sorted as **metals**, **nonmetals** and **metalloids**. These labels describe patterns. They do not fix every property.
+
+Metals usually conduct electricity well and tend to lose electrons to form positive ions called cations. Nonmetals vary more. They often gain electrons to form negative ions called anions, or share electrons in covalent bonds. Metalloids sit between the two, along a staircase line in the table. Books differ on exactly which elements count as metalloids.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"periodic-regions","illustrationKey":"science/chemistry/periodic-table#1","regions":[{"label":"metals","location":"left and center"},{"label":"nonmetals","location":"far right"},{"label":"metalloids","location":"staircase boundary"}]} -->
 
+### Why Trends Happen: Nuclear Pull and Shielding
+
+A **periodic trend** is a pattern in a property as you move across a period or down a group. The trends come from two ideas.
+
+First, the nucleus pulls on electrons. More protons give a stronger pull.
+
+Second, **shielding**: electrons in inner shells push outer electrons away. This cancels part of the pull. The pull that an outer electron truly feels is called the **effective nuclear charge**. It is about the number of protons minus the shielding.
+
+Across a period, each step adds one proton. The new electron goes into the same shell, and electrons in the same shell shield each other only a little. So the effective nuclear charge rises, and the outer electrons are held more tightly.
+
+Down a group, each step adds a whole new shell. The outer electrons are farther from the nucleus and are shielded by more inner electrons. They are held less tightly.
+
+The trends below are most reliable for main-group elements. Each one has exceptions, so use them to predict, not to overrule known data.
+
 ### Periodic Trends
 
-Periodic trends describe broad patterns and have **exceptions**.
+**Atomic radius** is a measure of the size of an atom. Size can be defined in more than one way. For main-group elements, the covalent radius gets smaller from left to right across a period, because the effective nuclear charge rises and pulls the shell inward. It gets larger down a group, because each step adds a shell.
 
-**Atomic radius:** Atomic size can be defined in several ways. Covalent radius generally decreases from left to right across a period as effective nuclear charge increases, and increases down a group as electrons occupy shells with larger principal quantum numbers.
+**First ionization energy** is the energy needed to remove one electron from a gaseous atom. Removing an electron from a tightly held atom costs more energy. So first ionization energy generally rises across a period and falls down a group. Noble gases have the highest value in their period.
 
-**First ionization energy:** The energy required to remove an electron from a gaseous atom generally increases across a period and decreases down a group, but subshell structure produces recognizable exceptions.
+Two dips interrupt the rise across a period.
 
-**Electronegativity:** The tendency of a bonded atom to attract electron density generally increases across a period and decreases down a group. Fluorine is the most electronegative element on the Pauling scale.
+- Group $13$ is lower than group $2$ (boron below beryllium, aluminum below magnesium). The outer electron of group $13$ is in a $p$ subshell. That subshell is a little higher in energy and farther out than the $s$ subshell, and the $s$ electrons shield it.
+- Group $16$ is lower than group $15$ (oxygen below nitrogen, sulfur below phosphorus). In group $15$, each of the three $p$ orbitals holds one electron. In group $16$, one orbital holds a pair, and the two electrons in it repel each other, so one leaves more easily.
 
-**Electron affinity:** This is an energy change when an electron is added to a gaseous atom. On the OpenStax sign convention, a more negative value means more energy is released. Electron affinities tend to become more negative across a period, but the pattern has substantial exceptions (notably groups 2, 15, and 18), and the down-group trend is less simple than a single diagonal arrow.
+**Electronegativity** is how strongly an atom pulls on the shared electrons in a chemical bond. On the Pauling scale, it generally rises across a period and falls down a group. Fluorine has the highest value. Most noble gases are left out of the scale, because they form very few bonds.
 
-Do **not** bundle electron affinity into the same memorized arrow as electronegativity and ionization energy without checking the convention and exceptions.
+**Electron affinity** is the energy change when a gaseous atom gains one electron. In the sign convention used here, a more negative value means more energy is released. Energy is measured in kilojoules per mole ($\text{kJ/mol}$), which means kilojoules for a fixed large number of atoms.
+
+Electron affinity generally becomes more negative across a period, but the exceptions are large. Groups $2$, $15$ and $18$ do not follow the pattern. The change down a group is not a simple line. Some books write the opposite sign, with a positive value meaning energy released, so check the sign convention first.
 
 ## Examples
 
 ### #1: Same Group
 
-Two main-group elements lie in the same vertical group. What is reasonable to predict?
+Chlorine and bromine are in the same group. What can be predicted about them?
 
 **Solution:**
 
-1. They have analogous valence-electron configurations.
-2. They therefore often show similar chemical behavior.
-3. Their properties are not identical, because atomic size, ionization energy, metallic character, and other properties change down the group.
+1. Both are in group $17$, so both have $7$ valence electrons.
+2. They are both halogens and tend to form $-1$ ions.
+3. They are not identical. Bromine has more shells, so it has a larger radius and a lower first ionization energy.
 
-### #2: Atomic Radius Across Period 3
+### #2: Family From Position
+
+An element is in period $4$ and group $2$. Name it, its family, its valence electrons, and the ion it tends to form.
+
+**Solution:**
+
+1. Group $2$ is the alkaline-earth family.
+2. Period $4$ in group $2$ is calcium.
+3. Group $2$ elements have $2$ valence electrons.
+4. Losing both gives the ion $\text{Ca}^{2+}$.
+
+### #3: Element From Valence Electrons
+
+An element in period $3$ has $7$ valence electrons. Name it and its family.
+
+**Solution:**
+
+1. For groups $13$ to $18$, the valence electrons are the group number minus $10$.
+2. Seven valence electrons gives group $17$, the halogens.
+3. Period $3$ in group $17$ is chlorine.
+
+### #4: Atomic Radius Across a Period
 
 Which has the larger covalent radius, sodium or chlorine?
 
 **Solution:**
 
-1. Both are in period 3.
-2. Covalent radius generally decreases left to right.
+1. Both are in period $3$.
+2. Covalent radius generally falls from left to right.
 3. Sodium is farther left, so sodium has the larger radius.
 
-### #3: First Ionization Energy Down Group 1
+### #5: First Ionization Energy Down a Group
 
 Which has the higher first ionization energy, lithium or potassium?
 
 **Solution:**
 
-1. First ionization energy generally decreases down a group.
-2. Lithium lies above potassium.
-3. Lithium therefore has the higher first ionization energy.
+1. First ionization energy generally falls down a group.
+2. Lithium is above potassium in group $1$.
+3. Lithium's outer electron is in the second shell, closer to the nucleus than potassium's in the fourth shell.
+4. Lithium has the higher first ionization energy.
 
-### #4: Why Electron Affinity Needs Caution
+### #6: An Ionization Energy Dip
 
-Fluorine is above chlorine in group 17. Must fluorine have the most exothermic electron affinity simply because it is higher in the group?
+Which has the higher first ionization energy, nitrogen or oxygen?
 
 **Solution:**
 
-1. No. Electron affinity has exceptions to a simple top-right trend.
-2. On the OpenStax convention, chlorine's first electron affinity is more negative than fluorine's.
-3. Electron-electron repulsion in fluorine's compact $n=2$ shell helps explain the exception.
+1. Oxygen is right of nitrogen in period $2$, so the general trend points to oxygen.
+2. Nitrogen is in group $15$. Its $2p$ electrons are one in each of three orbitals.
+3. Oxygen is in group $16$. One of its $2p$ orbitals holds a pair that repel each other.
+4. The pair makes an electron easier to remove from oxygen.
+5. Nitrogen has the higher first ionization energy.
+
+Magnesium and aluminum show the other dip. Aluminum has the lower value because its outer electron is in a $3p$ subshell, which is shielded by the $3s$ electrons.
+
+### #7: Comparing Electronegativity
+
+Arrange magnesium, sulfur and oxygen in order of increasing electronegativity.
+
+**Solution:**
+
+1. Sulfur and oxygen are in group $16$. Electronegativity falls down a group, so oxygen is higher than sulfur.
+2. Magnesium and sulfur are in period $3$. Electronegativity rises left to right, so sulfur is higher than magnesium.
+3. The order from lowest to highest is magnesium, sulfur, oxygen.
+
+### #8: Why Electron Affinity Needs Caution
+
+Fluorine is above chlorine in group $17$. Does fluorine have the more negative electron affinity because it is higher in the group?
+
+**Solution:**
+
+1. No. Electron affinity does not follow a simple up-and-right trend.
+2. The first electron affinity of fluorine is about $-328\ \text{kJ/mol}$ and that of chlorine is about $-349\ \text{kJ/mol}$.
+3. Chlorine's value is more negative, so chlorine releases more energy.
+4. Fluorine's atom is small. The electrons in its compact second shell repel an incoming electron, which helps explain the exception.
 
 ## Speed Tricks & Shortcuts
 
-For **covalent radius**, think generally down-and-left for larger atoms.
+For covalent radius in main-group elements, larger atoms are generally down and to the left.
 
-For **first ionization energy** and **electronegativity**, think generally up-and-right, while remembering local exceptions and the special treatment of noble gases for electronegativity.
+For first ionization energy, think up and to the right, then check for the dips at groups $13$ and $16$.
 
-For **electron affinity**, use the actual trend taught by the problem/source rather than pretending it is perfectly monotonic.
+For electronegativity, think up and to the right. Do not apply it to noble gases that have no value.
 
-For same-group chemistry, apply the "same valence pattern" shortcut most confidently to **main-group elements**.
+For electron affinity, use the data or trend the problem gives. Do not treat it as a smooth line.
+
+For main-group elements, the group fixes the valence-electron count. Use the shortcut for groups $1$, $2$ and $13$ to $18$, and remember helium.
 
 ## Traps to Watch For
 
-### #1: Saying Every Group Has the Same Number of Valence Electrons
+### #1: Applying the Group Number to Valence Electrons Everywhere
 
-> That simple statement works mainly for representative/main-group chemistry and even needs the helium exception.
+> The group number gives valence electrons only for the main-group elements, and helium breaks it.
 
-Transition-metal valence behavior is more complicated.
+Groups $3$ to $12$ do not follow this rule. Helium has $2$, not $8$.
 
-### #2: Treating Trends as Exact Monotonic Rules
+### #2: Treating Trends as Exact Rules
 
-> Ionization energy, electron affinity, and atomic radius show periodic patterns with exceptions and definitional details.
+> Radius, ionization energy and electron affinity all have exceptions.
 
-Use trends to predict, not to override known data.
+An adjacent pair can reverse the trend, as with nitrogen and oxygen. Use a trend to predict when no data is given.
 
-### #3: Calling Electron Affinity "How Strongly an Atom Attracts Bonding Electrons"
+### #3: Calling Electron Affinity a Bonding Pull
 
-> That is electronegativity.
+> The pull on bonding electrons is electronegativity.
 
-Electron affinity is the energy change for adding an electron to an isolated gaseous atom.
+Electron affinity is the energy change when one isolated gaseous atom gains an electron.
 
-### #4: Assuming the Metalloid List Is Universally Fixed
+### #4: Treating Hydrogen as an Alkali Metal
 
-> The staircase is a useful classroom convention, but sources differ over borderline elements.
+> Hydrogen sits above group $1$, but it is a nonmetal.
 
-Use the list or diagram specified by the course or problem when a borderline element is involved.
+Its properties do not match those of lithium, sodium and the other alkali metals.
+
+### #5: Assuming the Metalloid List Is Fixed
+
+> The staircase is a convenient convention, and books differ on borderline elements.
+
+Use the list or diagram the course or problem gives when a borderline element appears.

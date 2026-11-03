@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-chemistry-history-of-the-atom",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A few elements, such as technetium, have no stable isotopes. Tables show the mass number of one isotope in brackets for them.", "problem": "The general statement fails a boundary test. Thorium, protactinium and uranium have no stable isotopes, but IUPAC gives them standard atomic weights (232.04, 231.04, 238.03), and periodic tables print those decimals, not a bracketed mass number. Bismuth is the same case. The elements with no stable isotopes are also not 'a few': technetium, promethium and every element from bismuth or polonium upward, about a third of the table. The rule a table follows is whether the element has a standard atomic weight, not whether it has a stable isotope. The sentence also uses 'mass number', which this lesson never defines and for which it names no prerequisite lesson (L25).", "source": "CIAAW/IUPAC standard atomic weights table (ciaaw.org/atomic-weights.htm): Th 232.0377, Pa 231.03588, U 238.02891, Bi 208.98040 listed; no value for Tc, Pm, Po to Ac, Np onward; checklist B01; reader-rules boundary test"},
+    {"rule": "L22a", "severity": "Minor", "quote": "This theory explained three patterns in measured masses. The first is **conservation of mass**: the total mass stays the same during a chemical reaction.", "problem": "This paragraph has seven sentences, and the isotope paragraph that begins 'This contradicts Dalton's claim' and the cathode-ray paragraph that begins 'In $1897$' have six each. Paragraphs should be one to three short sentences.", "source": "LSG: Formatting rules; checklist L22a; writer-rules rule 8"}
+  ],
+  "goodQuotesChecked": 2
+}

@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-biology-taxonomy-and-classification",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L24", "severity": "Minor", "quote": "Taxonomy and Classification (Domains, Ranks, Binomial Nomenclature)", "problem": "Still open from round 2. The title says 'Ranks' but the outline title is 'Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)'. The mismatch is in the base and both titles name the same content, so under the final-run ruling on the same kind of mismatch it stays Minor and the title is kept; listed for the final review.", "source": "tools/lesson_author/outline.json; checklist L24; final-run-rulings.md (lesson-chemistry-acids-bases-ph title ruling)"}
+  ],
+  "goodQuotesChecked": 1
+}

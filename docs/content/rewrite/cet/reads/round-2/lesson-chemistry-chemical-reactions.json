@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If no precipitate, water or gas forms, there is no reaction.",
+      "problem": "This is a false general statement about double displacement. A partner swap also goes ahead when a weak electrolyte forms, for example a weak acid: HCl(aq) + NaC2H3O2(aq) gives NaCl(aq) + HC2H3O2(aq), net ionic H+ + C2H3O2- -> HC2H3O2, with no precipitate, no water and no gas. A student using this trap would say 'no reaction' for a strong acid mixed with an acetate or fluoride salt. The base lesson taught this driving force ('formation of a precipitate, weak electrolyte/water, or gas'; 'check whether a precipitate, gas, or weak electrolyte forms'), so correct teaching was cut. The core text hedges with 'There are three common ones.', but the trap turns the three into a complete list. This sentence was already present in the round-1 text and was not raised then.",
+      "source": "Brown, LeMay et al., Chemistry: The Central Science, Section 4.2 (metathesis reactions proceed when an insoluble solid, a weak or nonelectrolyte, or a gas forms); base lesson 7032eec5 lines 27, 99 and 107; reader-rules.md, Added after the Sol audit; content-checklist B01"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$Pb^{2+}+2NO_3^-+2K^++2I^-\\rightarrow PbI_2(s)+2K^++2NO_3^-$$",
+      "problem": "The new complete ionic display line in Example #10 has seven species and renders at about 45 characters, wider than the full equation the writer split into two lines for phone width. It is likely to overflow a phone screen.",
+      "source": "content-checklist L21; LSG Examples section: keep each display equation narrow enough for a phone screen"
+    },
+    {
+      "rule": "L24",
+      "severity": "Minor",
+      "quote": "Chemical Reactions (Reaction Patterns, Balancing Equations)",
+      "problem": "The frontmatter title differs from the outline title 'Chemical Reactions (Types of Reactions, Balancing Equations)' in tools/lesson_author/outline.json. The mismatch is in the base and names the same content, so it is listed for the final review rather than as a Major.",
+      "source": "LSG Frontmatter (titles come from outline.json); final-run-rulings.md, lesson-chemistry-acids-bases-ph L24 ruling (base title mismatch downgraded to Minor), applied by analogy"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
