@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-physics-waves-and-sound",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B02",
+      "severity": "Blocker",
+      "quote": "The intensity is the same, because the amplitude did not change.",
+      "problem": "Example #6 doubles the frequency from 440 Hz to 880 Hz at the same amplitude and says the intensity is unchanged. The lesson defines amplitude as \"the largest displacement from equilibrium\" and itself limits the amplitude-squared rule to \"waves of the same frequency in the same medium\". For a fixed displacement amplitude, sound intensity grows with the square of the frequency (I = 1/2 rho v omega^2 s_max^2), so at 880 Hz the intensity is about 4 times larger, not the same. The worked answer is wrong and teaches that intensity depends on amplitude alone, which Trap #3 then repeats (\"Loudness mostly follows intensity, which follows amplitude.\").",
+      "source": "OpenStax University Physics Volume 1, 17.3 Sound Intensity: I = 1/2 beta k omega s_max^2 with k = omega/v; checklist B02"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "light in glass and deep-water waves have a speed that depends a little on frequency",
+      "problem": "The claim is right for light in glass but wrong for deep-water waves. In deep water the wave speed is c = gT/(2 pi) = g/(2 pi f), so doubling the frequency halves the speed. That is a strong dependence, not a little one. The sentence groups the two as small exceptions to a fixed speed, which misstates the deep-water case. The fact is not needed for the goal and could be stated correctly or left out.",
+      "source": "Linear water-wave theory, deep-water dispersion relation omega^2 = g k (Dispersion (water waves): c_p = sqrt(g lambda / 2 pi) = gT/(2 pi), \"in deep water the phase speed increases with the wavelength, and with the period\"); checklist B01"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Only the frequency received changes.",
+      "problem": "This trap is about a moving siren, and for a moving source the wavelength in the air also changes. The lesson's own Core Concept says \"In front of an approaching source, the crests are packed closer together, so the wavelength is shorter\", and its formula uses lambda' = (v - v_s)/f. The \"only\" is false in the very case the trap covers, and a student who memorizes this warning would reject a correct choice saying the wavelength changes in front of a moving source.",
+      "source": "Lesson Core Concept, The Doppler Effect (lambda' = (v - v_s)T); OpenStax University Physics Volume 1, 17.7 The Doppler Effect; reader-rules Sol-audit rule on general statements; checklist B01"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "the path difference at a listener decides which happens",
+      "problem": "The interference rule depends on the term path difference, but the lesson never says what it is: the difference between the listener's distances to the two sources. Example #9 then states \"the path difference is $0.5\\text{ m}$\" without showing 5.5 m minus 5.0 m. A student new to the term cannot apply the constructive and destructive conditions to a new problem from this lesson.",
+      "source": "Checklist L25; LSG Teaching completeness"
+    },
+    {
+      "rule": "B07",
+      "severity": "Minor",
+      "quote": "is a travelling disturbance in electric and magnetic fields",
+      "problem": "British spelling \"travelling\". American spelling is \"traveling\", which the lesson itself uses in Example #3.",
+      "source": "Checklist B07; AGENTS.md Voice (American spelling)"
+    }
+  ],
+  "goodQuotesChecked": 5
+}
