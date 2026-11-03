@@ -237,3 +237,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: coordinate-geometry (1 Minor). Parallel-perpendicular-lines round 1 read running.
 - Pause requested by the user: no new agents. Running agents finish and are recorded (systems-of-equations round 3, parallel-perpendicular-lines round 1 read, quadrilaterals-and-polygons write).
 - Done clean after round 3: systems-of-equations.
+- Parallel-perpendicular-lines round 1: 1 Blocker (equal angles 'prove nothing' fails at 90 degrees), 2 Majors (zigzag figure marker, three-letter angle names). Fix not started (paused).
