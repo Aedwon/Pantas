@@ -31,7 +31,9 @@ Evolution is any change in allele frequency over generations. Four things can ca
 
 A **mutation** is a change in DNA. It is the original source of new alleles. A mutation happens by chance. It does not appear because the organism needs it.
 
-A mutation reaches offspring when it is in the DNA that the offspring receive. In animals, that means the cells that make gametes. A mutation in a skin cell stays with that body. In a bacterium that splits in two, a mutation passes to both daughter cells.
+A mutation reaches offspring only when it is in the DNA that the offspring receive. In sexual reproduction, that means the cells that make gametes. In asexual reproduction, such as budding or splitting, it means the cells that form the offspring.
+
+A mutation in a human skin cell stays with that body. In a bacterium that splits in two, a mutation passes to both daughter cells.
 
 Many mutations have no effect on the trait. Some harm the organism, and a few help it in a certain environment.
 
@@ -132,7 +134,7 @@ A student says, "An animal built a useful body change by using it often, so its 
 
 ### #4: Chance Versus Selection
 
-A storm kills most of a beetle population at random, leaving $5$ beetles. Before the storm, the brown allele frequency was $0.30$. Among the $10$ gene copies in the survivors, $6$ are brown. The survivors were not browner or stronger than the beetles that died. Is this natural selection?
+A storm kills most of a beetle population at random, leaving $5$ beetles. Before the storm, the brown allele frequency was $0.30$. Among the $10$ gene copies in the survivors, $6$ are brown. Being brown did not help any beetle survive. Is this natural selection?
 
 **Solution:**
 
@@ -179,9 +181,13 @@ A plant species grows in one meadow. A mutation doubles the whole chromosome set
 
 ## Exam Strategies
 
-For a natural selection question, look for three things: variation, heritability, and different reproductive success. If variation, heritability or the difference in reproductive success is missing, it is not selection. The population often changes across generations. Under stabilizing selection, it stays about the same.
+For a natural selection question, look for three things: variation, heritability, and different reproductive success. If variation, heritability or the difference in reproductive success is missing, it is not selection. The population often changes across generations.
 
-For a question on causes of evolution, ask what changed the frequency. Chance in a small group points to drift. Movement of individuals or gametes between populations points to gene flow. A brand-new allele points to mutation. Better survival and reproduction because of a heritable trait points to selection.
+Under stabilizing selection, it stays about the same.
+
+For a question on causes of evolution, ask what changed the frequency.
+
+Chance in a small group points to drift. Movement of individuals or gametes between populations points to gene flow. A brand-new allele points to mutation. Better survival and reproduction because of a heritable trait points to selection.
 
 For a speciation question, find the reproductive isolation. A physical barrier suggests allopatric speciation. A new species without a barrier suggests sympatric speciation.
 
