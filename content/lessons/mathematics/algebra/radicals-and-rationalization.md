@@ -69,9 +69,13 @@ A **radical equation** has the unknown inside a radical. To solve it:
 4. Solve the new equation.
 5. Substitute each answer into the original equation.
 
-Two tools help in step 4. Squaring a binomial gives $(a-b)^2=a^2-2ab+b^2$. If a product is $0$, one of its factors is $0$, so $x(x-5)=0$ gives $x=0$ or $x=5$.
+Two tools help in step $4$. Squaring a binomial gives $(a+b)^2=a^2+2ab+b^2$ and $(a-b)^2=a^2-2ab+b^2$. If a product is $0$, one of its factors is $0$, so $x(x-5)=0$ gives $x=0$ or $x=5$.
 
-Step $5$ matters for square roots. Squaring turns $a=b$ into $a^2=b^2$, and that is also true when $a=-b$. So squaring can add a false answer, called an **extraneous root**. Cubing does not add false real answers, because $a^3=b^3$ gives $a=b$ for real numbers.
+For a trinomial such as $m^2-6m-7$, look for two numbers that multiply to $-7$ and add to $-6$. They are $-7$ and $1$, so it factors as $(m-7)(m+1)$. The Quadratic Equations lesson teaches factoring in full.
+
+Step $5$ matters for square roots. Squaring turns $a=b$ into $a^2=b^2$, and that is also true when $a=-b$.
+
+So squaring can add a false answer, called an **extraneous root**. Cubing does not add false real answers, because $a^3=b^3$ gives $a=b$ for real numbers.
 
 ### Nested Radicals
 
@@ -297,7 +301,11 @@ $$\dfrac{x}{\sqrt y}=\dfrac{x\sqrt y}{y}$$
 
 For example, $\dfrac{10}{\sqrt2}=\dfrac{10\sqrt2}{2}=5\sqrt2$.
 
-To spot perfect squares fast, know $4,9,16,25,36,49,64,81,100,121,144$. To simplify $\sqrt{n}$, divide out the largest of these that divides $n$. Then check the number left inside for another square factor, and repeat. For example, if you take out $4$ first, $\sqrt{288}=2\sqrt{72}=2\cdot6\sqrt2=12\sqrt2$. The largest square, $144$, gives $12\sqrt2$ in one step. If no listed square divides $n$, the number may have a larger square factor, as in $\sqrt{338}=13\sqrt2$ because $338=169\cdot2$.
+To spot perfect squares fast, know $4,9,16,25,36,49,64,81,100,121,144$. To simplify $\sqrt{n}$, divide out the largest of these that divides $n$.
+
+Then check the number left inside for another square factor, and repeat. For example, if you take out $4$ first, $\sqrt{288}=2\sqrt{72}=2\cdot6\sqrt2=12\sqrt2$. The largest square, $144$, gives $12\sqrt2$ in one step.
+
+If no listed square divides $n$, the number may have a larger square factor, as in $\sqrt{338}=13\sqrt2$ because $338=169\cdot2$.
 
 For a nested radical, set up $L=\sqrt{k+L}$ only when the problem gives or assumes that the expression settles on a real value. Then discard any negative answer for $L$.
 
