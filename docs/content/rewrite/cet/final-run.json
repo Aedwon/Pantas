@@ -21,7 +21,7 @@
     "lessonPath": "content/lessons/science/physics/kinematics.md",
     "lessonId": "lesson-physics-kinematics",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/physics/electricity-and-magnetism.md",
@@ -81,7 +81,7 @@
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
     "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
     "group": "reasoning",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",

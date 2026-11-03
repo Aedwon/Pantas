@@ -173,3 +173,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: plate-tectonics (1 Minor). Fixes: kinematics after round 2 (distance and displacement Blocker), triangles after round 1, cell-biology and circles after round 2 (round 3 reads running).
 - Done clean after round 3: stoichiometry.
 - Done clean after round 3: circles, cell-biology. Round 2 reads: chemical-bonding (2 Blockers, 3 Majors), electricity-and-magnetism (1 Blocker); final fixes running. Genetics fixed after round 2.
+- Done at minor after round 3: kinematics (1 Minor). Pulleys-and-levers fixed after round 1.
