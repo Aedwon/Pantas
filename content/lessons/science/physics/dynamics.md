@@ -15,7 +15,7 @@ The **net force** is the vector sum of all the forces on an object. Forces in op
 
 Suppose a force $F$ points at an angle $\theta$ from the $x$ axis. Its parts are $F_x=F\cos\theta$ along that axis and $F_y=F\sin\theta$ along the other. Cosine and sine are the side ratios of a right triangle: $\cos\theta$ is the side next to the angle divided by the long side, and $\sin\theta$ is the side opposite the angle divided by the long side. The Scalars and Vectors lesson teaches this in full.
 
-Newton's laws work in an **inertial reference frame**. This is a viewpoint that is not speeding up, slowing down, or turning. The ground is close enough for the problems in this lesson. A braking bus is not an inertial frame.
+Newton's laws work in an **inertial reference frame**, a viewpoint that is not speeding up, slowing down, or turning. The ground is close enough for the problems in this lesson. A braking bus is not an inertial frame.
 
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"newton-laws","illustrationKey":"science/physics/dynamics#1","laws":[{"label":"first law","scene":"book motionless on table","relationship":"balanced forces"},{"label":"second law","scene":"hand pushing cart","relationship":"force arrow and acceleration arrow"},{"label":"third law","scene":"swimmer pushes water backward","relationship":"water pushes swimmer forward equally"}]} -->
 ### Newton's Laws
@@ -32,7 +32,7 @@ Here $\sum \vec F$ is the net force in newtons, $m$ is the mass in kilograms ($\
 
 Forces and acceleration are vectors, so write the law once for each axis: $\sum F_x=ma_x$ and $\sum F_y=ma_y$. Choose a positive direction on each axis and give a force a minus sign if it points the other way. The first law is the case $\vec a=0$.
 
-**Third law:** if object A pushes or pulls on object B, then B pushes or pulls on A with a force of equal size in the opposite direction. The two forces are an **interaction pair**. They act at the same time, they are the same kind of force, and they act on **different objects**.
+**Third law:** if object A pushes or pulls on object B, then B pushes or pulls on A with a force of equal size in the opposite direction. The two forces are an **interaction pair**. They act at the same time, they are the same kind of force, and they act on different objects.
 
 To name a pair, say "A on B" and "B on A". The pair to "Earth pulls the book down" is "the book pulls Earth up".
 
@@ -52,7 +52,7 @@ The size of $N$ is not fixed by the weight. It adjusts so the object does not si
 
 **Tension** $T$ is the pull of a rope, string, or cable. It pulls along the rope, toward the rope, on whatever is attached to its ends. A rope can pull but cannot push.
 
-In problems, the rope is usually **ideal**: it has no mass and does not stretch. Any pulley is ideal too: it has no mass and no friction. For an ideal rope, the tension is the same all along it, and connected objects move with the same acceleration while the rope stays tight. A heavy rope or a rough pulley breaks this rule.
+In problems, the rope is usually **ideal**: it has no mass and does not stretch. Any pulley is ideal too: it has no mass and no friction. For an ideal rope, the tension is the same all along it, and connected objects have accelerations of the same size while the rope stays tight. Over a pulley the directions can differ: one object moves up while the other moves down, so give each its own sign. A heavy rope or a rough pulley breaks this rule.
 
 ### Friction
 
@@ -237,7 +237,7 @@ A $3\,\mathrm{kg}$ block A and a $2\,\mathrm{kg}$ block B are joined by an ideal
 
 **Solution:**
 
-1. The rope is tight, so both blocks have the same acceleration. Treat them together as one object of mass $3+2=5\,\mathrm{kg}$.
+1. The rope is tight, so both blocks have accelerations of the same size, and here they point the same way. Treat them together as one system of mass $3+2=5\,\mathrm{kg}$. The rope pulls B forward and pulls A back with equal force, and both forces are inside the system, so they cancel. Only the outside force, the $20\,\mathrm N$ pull, is left.
 
 $$a=\dfrac{20}{5}=4\,\mathrm{m/s^2}.$$
 
@@ -296,6 +296,27 @@ $$24.5-8.5=5a\Rightarrow a=\dfrac{16.0}{5}=3.2\,\mathrm{m/s^2}.$$
 
 The block accelerates down the slope at $3.2\,\mathrm{m/s^2}$. Here $N$ is $42.4\,\mathrm N$, less than the weight of $49\,\mathrm N$.
 
+### #12: Pulling at an Angle
+
+A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $40\,\mathrm N$ at $30^\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin 30^\circ=0.50$, and $\cos 30^\circ=0.866$. Find the acceleration.
+
+**Solution:**
+
+1. Split the pull. The part along the floor is $40\cos30^\circ=34.6\,\mathrm N$. The part up is $40\sin30^\circ=20\,\mathrm N$.
+2. The box does not move up or down, so $a_y=0$.
+
+$$N+20-98=0\Rightarrow N=78\,\mathrm N.$$
+
+3. The pull lifts part of the weight, so $N$ is less than $mg$.
+
+$$f_k=0.20\times 78=15.6\,\mathrm N.$$
+
+4. Apply the second law along the floor.
+
+$$a=\dfrac{34.6-15.6}{10}=1.9\,\mathrm{m/s^2}.$$
+
+The box accelerates at $1.9\,\mathrm{m/s^2}$ along the floor.
+
 ## Speed Tricks & Shortcuts
 
 Draw a free-body diagram before writing $\sum\vec F=m\vec a$. Then write one equation for each axis.
@@ -304,7 +325,7 @@ To check a third-law pair, test three things: both forces come from the same int
 
 For static friction, find the friction needed to keep the object still. Then compare it with $\mu_sN$. Use $f_s=\mu_sN$ only when the object is just about to slide.
 
-When blocks joined by a tight, ideal rope move together, find the acceleration of the whole group first. Then find the tension by applying the second law to one block.
+When blocks joined by a tight, ideal rope move together, find the acceleration of the whole group first. Only forces from outside the group count, because the rope forces inside cancel. Then find the tension by applying the second law to one block.
 
 For a block on a slope with angle $\theta$, with no other force perpendicular to the slope, $N=mg\cos\theta$. For a level surface with no other vertical force and no vertical acceleration, $N=mg$.
 
