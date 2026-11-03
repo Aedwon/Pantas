@@ -220,3 +220,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Paused: dynamics fixed after round 2 (round 3 read not started).
 - Paused: radicals-and-rationalization round 1: 3 Majors (fix not started).
 - Paused: functions-and-relations round 1: 1 Blocker, 1 Major (fix not started).
+- Done at minor after round 1: sets-and-set-notation (2 Minors).
