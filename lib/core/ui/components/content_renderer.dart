@@ -1,3 +1,6 @@
+import 'dart:math' as math;
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -994,11 +997,54 @@ class _FigureViewerState extends State<_FigureViewer> {
   String get credit => widget.credit;
   Animation<double> get arrival => widget.arrival;
   bool get followTheme => widget.followTheme;
-  void _scale(double factor) {
+
+  /// The window the figure is shown in. It is exactly as large as the figure,
+  /// so a zoom of one shows the whole figure.
+  final _window = GlobalKey();
+
+  static const double _maxZoom = 5;
+
+  /// Zooms by [factor] about [focal], a point in the window, between one and
+  /// [_maxZoom] times. The figure never leaves the window: a zoom out that
+  /// would show past an edge slides back until the edge meets the window.
+  void _zoomAt(Offset focal, double factor) {
+    final box = _window.currentContext?.findRenderObject() as RenderBox?;
+    if (box == null || !box.hasSize) return;
+    final size = box.size;
     final current = _zoom.value.getMaxScaleOnAxis();
-    final next = (current * factor).clamp(1.0, 5.0);
-    _zoom.value = _zoom.value.clone()
-      ..scaleByDouble(next / current, next / current, 1, 1);
+    final next = (current * factor).clamp(1.0, _maxZoom);
+    if (next == current) return;
+    final scene = _zoom.toScene(focal);
+    final x = (focal.dx - scene.dx * next).clamp(size.width * (1 - next), 0.0);
+    final y = (focal.dy - scene.dy * next).clamp(size.height * (1 - next), 0.0);
+    _zoom.value = Matrix4.identity()
+      ..translateByDouble(x, y, 0, 1)
+      ..scaleByDouble(next, next, 1, 1);
+  }
+
+  /// The keys zoom about the middle of the window.
+  void _scale(double factor) {
+    final box = _window.currentContext?.findRenderObject() as RenderBox?;
+    if (box == null || !box.hasSize) return;
+    _zoomAt(box.size.center(Offset.zero), factor);
+  }
+
+  /// The wheel and a trackpad pinch zoom wherever the pointer is on the
+  /// screen, not only over the figure. Over the figure, the viewer's own
+  /// handler registers first and wins.
+  void _signal(PointerSignalEvent event) {
+    final box = _window.currentContext?.findRenderObject() as RenderBox?;
+    if (box == null || !box.hasSize) return;
+    final factor = switch (event) {
+      PointerScrollEvent() => math.exp(-event.scrollDelta.dy / 200),
+      PointerScaleEvent() => event.scale,
+      _ => null,
+    };
+    if (factor == null) return;
+    GestureBinding.instance.pointerSignalResolver.register(
+      event,
+      (_) => _zoomAt(box.globalToLocal(event.position), factor),
+    );
   }
 
   @override
@@ -1020,9 +1066,10 @@ class _FigureViewerState extends State<_FigureViewer> {
                   children: [
                     Flexible(
                       child: InteractiveViewer(
+                        key: _window,
                         transformationController: _zoom,
                         minScale: 1,
-                        maxScale: 5,
+                        maxScale: _maxZoom,
                         child: Container(
                           key: const ValueKey('web-figure-card'),
                           padding: const EdgeInsets.all(40),
@@ -1090,85 +1137,89 @@ class _FigureViewerState extends State<_FigureViewer> {
           const SingleActivator(LogicalKeyboardKey.escape): () =>
               Navigator.of(context).pop(),
         },
-        child: context.wideWeb
-            ? _wideViewer(context)
-            : Material(
-                color: context.colors.figureViewerBackground,
-                child: SafeArea(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: SizedBox.square(
-                            dimension: 44,
-                            child: IconButton(
-                              tooltip: 'Close figure',
-                              onPressed: () => Navigator.of(context).pop(),
-                              icon: Icon(
-                                PantasIcons.close,
-                                size: 22,
-                                color: context.colors.onFigureViewer,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Center(
-                          child: InteractiveViewer(
-                            transformationController: _zoom,
-                            minScale: 1,
-                            maxScale: 5,
-                            child: AnimatedBuilder(
-                              animation: arrival,
-                              child: SizedBox(
-                                width: MediaQuery.sizeOf(context).width,
-                                child: ColoredBox(
-                                  color: followTheme
-                                      ? context.colors.surface
-                                      : context.colors.readerFigureBackground,
-                                  child: (followTheme
-                                      ? figure
-                                      : Theme(
-                                          data: buildLightTheme(),
-                                          child: figure,
-                                        )),
-                                ),
-                              ),
-                              builder: (context, child) => Transform.scale(
-                                key: const ValueKey(
-                                  'reader-viewer-scale',
-                                ),
-                                scale: .92 +
-                                    .08 *
-                                        const Cubic(.25, .9, .3, 1)
-                                            .transform(arrival.value),
-                                child: child,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      if (credit.isNotEmpty)
+        child: Listener(
+          onPointerSignal: _signal,
+          child: context.wideWeb
+              ? _wideViewer(context)
+              : Material(
+                  color: context.colors.figureViewerBackground,
+                  child: SafeArea(
+                    child: Column(
+                      children: [
                         Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Text(
-                            credit,
-                            textAlign: TextAlign.center,
-                            style: context.type.caption.copyWith(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                              color: context.colors.onFigureViewer
-                                  .withValues(alpha: .6),
+                          padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: SizedBox.square(
+                              dimension: 44,
+                              child: IconButton(
+                                tooltip: 'Close figure',
+                                onPressed: () => Navigator.of(context).pop(),
+                                icon: Icon(
+                                  PantasIcons.close,
+                                  size: 22,
+                                  color: context.colors.onFigureViewer,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                    ],
+                        Expanded(
+                          child: Center(
+                            child: InteractiveViewer(
+                              key: _window,
+                              transformationController: _zoom,
+                              minScale: 1,
+                              maxScale: _maxZoom,
+                              child: AnimatedBuilder(
+                                animation: arrival,
+                                child: SizedBox(
+                                  width: MediaQuery.sizeOf(context).width,
+                                  child: ColoredBox(
+                                    color: followTheme
+                                        ? context.colors.surface
+                                        : context.colors.readerFigureBackground,
+                                    child: (followTheme
+                                        ? figure
+                                        : Theme(
+                                            data: buildLightTheme(),
+                                            child: figure,
+                                          )),
+                                  ),
+                                ),
+                                builder: (context, child) => Transform.scale(
+                                  key: const ValueKey(
+                                    'reader-viewer-scale',
+                                  ),
+                                  scale: .92 +
+                                      .08 *
+                                          const Cubic(.25, .9, .3, 1)
+                                              .transform(arrival.value),
+                                  child: child,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        if (credit.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Text(
+                              credit,
+                              textAlign: TextAlign.center,
+                              style: context.type.caption.copyWith(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w400,
+                                color: context.colors.onFigureViewer
+                                    .withValues(alpha: .6),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+        ),
       );
 }
 
