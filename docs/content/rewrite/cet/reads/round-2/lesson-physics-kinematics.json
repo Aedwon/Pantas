@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-physics-kinematics",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "In one dimension they are equal when the object never turns around.",
+      "problem": "The general statement fails for motion in the negative direction. An object that moves $10$ m west with east positive never turns around, yet its distance is $10$ m and its displacement is $-10$ m. Only the size of the displacement equals the distance, which Core Concept states correctly. This trap exists to separate distance from displacement, and as written it tells the student they are equal in a case where the signs differ.",
+      "source": "content-checklist.md B01; reader-rules.md, Added after the Sol audit (test every general statement against a known exception)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Each equation leaves out one quantity. The first has no $\\Delta x$.",
+      "problem": "This paragraph has five sentences; the limit is three. Still open from round 1. The position-time graph paragraph (\"A flat line means the object is at rest. A line that slopes downward means negative velocity.\") also has five, the free-fall paragraph (\"This ignores air resistance. Then all objects fall with the same acceleration, whatever their mass.\") has five, and the velocity-time graph paragraph has four.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
