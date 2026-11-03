@@ -2444,3 +2444,11 @@ Offered: add one workflow on the fixes branch for the full checks and the releas
 Aedwon: "Yes, add both"
 
 Result: this replaces the minute-rationing part of the Aug 23 decision for this public repo (standard hosted runners only). Logs and artifacts are public, so workflows use test data and no secrets. Focused tests stay local during work.
+
+## Preview choices for the Nov 3 changes (Aedwon, Nov 3)
+
+Offered, with costs on the preview pages (`docs/superpowers/plans/pwa-launch/nov3-previews/`): item 4 options A spread the list until a topic is picked, B open a topic for the student, C smallest change; item 12 A button below the text, B two-line limit, C both; item 7 A Core Concept matches the other sections, B a line above later sections, C 28 px labels; item 6 control in the top bar or above the text, remembered or reset per lesson, maximum 800 px, 960 px or fill; item 1 A fade 240 ms, B content rise; item 15 A detail fades and rises 8 px, B fade only, C sliding row tint; item 5 A rise and settle with the sidebar staying, B short slide, C slide without fades; item 9 A pull and let go, B hold to go, C hint only; item 17 Core set or more.
+
+Aedwon: "okay go with your recommendations. however i'd like to emphasize on the bookmarks. on mobile i noticed it was okay-looking even though it's empty. on web it looks so awkward"
+
+Result: the first option of each item above is approved and built 1:1 from the preview pages, and the item 6 picks are top bar, remembered on this device, 800 px. Lead reading of the bookmarks comment: wide web hides the empty Bookmarks section (item 4 option A); the phone's empty Bookmarks stays exactly as it is. Mobile-style empty card on web is the alternative if he prefers it.

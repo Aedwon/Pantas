@@ -1,0 +1,1385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantas motion preview, Nov 3</title>
+<style>
+:root{
+  color-scheme:dark;
+  --p-bg:#0d0e10; --p-1:#15171a; --p-2:#1c1f23; --p-line:#2a2e34; --p-line2:#383d44;
+  --p-tx:#eceef0; --p-mut:#9aa1a9; --p-acc:#4cc3ac; --p-accf:#0f8571; --p-tint:#14302a;
+  --p-amber:#e2b455; --p-red:#e57873; --p-green:#62c99a;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:120px}
+body{margin:0;background:var(--p-bg);color:var(--p-tx);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--p-acc)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--p-acc);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:50;background:rgba(13,14,16,.94);border-bottom:1px solid var(--p-line);}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;padding-top:10px;padding-bottom:10px}
+.bar h1{margin:0;font-size:17px;font-weight:700;letter-spacing:-.2px;margin-right:auto}
+.seg{display:inline-flex;background:var(--p-2);border:1px solid var(--p-line);border-radius:9px;padding:2px}
+.seg button{border:0;background:none;padding:5px 12px;border-radius:7px;cursor:pointer;color:var(--p-mut);font-size:13px;font-weight:600}
+.seg button[aria-pressed=true]{background:var(--p-line2);color:var(--p-tx)}
+.chk{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--p-mut);cursor:pointer}
+.chk input{accent-color:var(--p-accf);width:16px;height:16px;margin:0}
+.nav{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;width:100%}
+.nav a{white-space:nowrap;font-size:13px;text-decoration:none;color:var(--p-mut);border:1px solid var(--p-line);border-radius:99px;padding:3px 11px}
+.nav a:hover{color:var(--p-tx);border-color:var(--p-line2)}
+
+/* intro */
+.intro{padding:34px 0 8px}
+.intro h2{font-size:30px;line-height:1.15;letter-spacing:-.6px;margin:0 0 10px;max-width:22em}
+.intro p{margin:0 0 10px;color:var(--p-mut);max-width:46em}
+.gaps{margin:18px 0 0;padding:16px 18px 6px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-1)}
+.gaps h3{margin:0 0 8px;font-size:15px}
+.gaps ul{margin:0 0 10px;padding-left:18px;color:var(--p-mut);font-size:14px}
+.gaps li{margin:0 0 6px;max-width:60em}
+.gaps b{color:var(--p-tx);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;font-size:13px;color:var(--p-mut)}
+
+/* sections */
+section.sec{padding:46px 0 6px;border-top:1px solid var(--p-line);margin-top:40px}
+.sec-h{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;margin-bottom:6px}
+.sec-h h2{margin:0;font-size:24px;letter-spacing:-.4px}
+.item{font-size:12.5px;font-weight:700;color:var(--p-acc);border:1px solid var(--p-tint);background:var(--p-tint);border-radius:6px;padding:1px 8px}
+.said{color:var(--p-mut);margin:0 0 6px;max-width:52em;font-size:14px}
+.said q{color:var(--p-tx)}
+.lead{max-width:52em;margin:0 0 18px;color:var(--p-mut);font-size:14px}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 14px}
+.stack{display:grid;gap:16px}
+
+/* variant card */
+.vc{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:6px 22px;padding:16px;border:1px solid var(--p-line);border-radius:14px;background:var(--p-1)}
+.vc.rec{border-color:var(--p-accf);box-shadow:0 0 0 1px var(--p-accf) inset}
+.vc-l{min-width:0}
+.vc-r{min-width:0;display:flex;flex-direction:column;gap:10px}
+.tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;color:var(--p-mut);margin-bottom:8px}
+.tag .pill{border:1px solid var(--p-line2);border-radius:99px;padding:1px 9px}
+.vc.rec .tag .pill.r{background:var(--p-accf);border-color:var(--p-accf);color:#fff}
+.vc h3{margin:0;font-size:17px;letter-spacing:-.2px}
+.vc p{margin:0;font-size:13.5px;color:var(--p-mut)}
+dl.spec{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:13px}
+dl.spec dt{color:var(--p-mut)}
+dl.spec dd{margin:0}
+code,.crv{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;background:var(--p-2);border:1px solid var(--p-line);border-radius:5px;padding:0 5px;white-space:nowrap}
+.cost{font-size:13px;border-left:3px solid var(--p-line2);padding:2px 0 2px 10px;color:var(--p-tx)}
+.cost.low{border-color:var(--p-green)} .cost.watch{border-color:var(--p-amber)} .cost.avoid{border-color:var(--p-red)}
+.cost b{font-weight:700}
+.cost.low b{color:var(--p-green)} .cost.watch b{color:var(--p-amber)} .cost.avoid b{color:var(--p-red)}
+.plot{display:block;width:100%;max-width:200px;height:auto;background:var(--p-2);border:1px solid var(--p-line);border-radius:8px}
+.plot path{fill:none;stroke:var(--p-mut);stroke-width:1.6}
+.plot line{stroke:var(--p-line2);stroke-width:1}
+.plot circle{fill:var(--p-acc)}
+.plot text{fill:var(--p-mut);font-size:9px}
+
+/* toolbar under a stage */
+.tb{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:10px}
+.btn{border:1px solid var(--p-line2);background:var(--p-2);border-radius:8px;padding:5px 13px;font-size:13px;font-weight:600;cursor:pointer}
+.btn:hover{border-color:var(--p-mut)}
+.btn.pri{background:var(--p-accf);border-color:var(--p-accf);color:#fff}
+.scrub{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--p-mut);flex:1 1 150px;min-width:130px}
+.scrub input{flex:1;accent-color:var(--p-acc);min-width:60px}
+.rmnote{font-size:12.5px;color:var(--p-amber);display:none}
+body.rm .rmnote{display:block}
+
+/* stage fit */
+.fit{position:relative;width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--p-line);background:#000}
+.fit.phone{max-width:250px;margin:0 auto}
+.fit.hidden{display:none}
+
+/* preview tokens (apply to stage and mini boxes; the page stays dark) */
+#previews[data-preview=light]{--bg:#F5F5F7;--card:#FFFFFF;--tx:#1D1D1F;--sec:#6E6E73;--mut:#8A8A8E;--hair:#E3E3E8;--acc:#0B7A68;--accf:#0B7A68;--tint:#E4F1EE;--hov:#F7F7F9;--fill:#EDEDF0;--segon:#FFFFFF;--edge:transparent;--shadow:rgba(29,29,31,.14);--scrim:rgba(10,10,12,.35);--onacc:#fff}
+#previews[data-preview=dark]{--bg:#151515;--card:#1F1F1F;--tx:#F5F5F5;--sec:#A3A3A3;--mut:#949494;--hair:#303030;--acc:#4CC3AC;--accf:#0F8571;--tint:#18332D;--hov:#2A2A2A;--fill:#2A2A2A;--segon:#4A4A4A;--edge:#2C2C2C;--shadow:rgba(0,0,0,.5);--scrim:rgba(0,0,0,.5);--onacc:#fff}
+.stage,.mini{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.35;user-select:none;-webkit-user-select:none}
+.stage{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;font-size:16px}
+.layer{position:absolute;inset:0;background:var(--bg)}
+.layer.t{background:transparent}
+.stage svg.ic{flex:none}
+
+/* mini app pieces (sizes are the app's own px) */
+.m-top{height:56px;display:flex;align-items:center;gap:10px;padding:0 24px;flex:none}
+.m-top b{font-size:18px;font-weight:700}
+.m-body{position:absolute;left:0;right:0;top:56px;bottom:0}
+.m-h1{font-size:38px;font-weight:700;letter-spacing:-.9px;line-height:1.1}
+.m-h2{font-size:26px;font-weight:700;letter-spacing:-.47px;line-height:1.2}
+.m-h3{font-size:20px;font-weight:700;letter-spacing:-.24px;line-height:1.3}
+.m-sub{font-size:14px;color:var(--sec)}
+.m-p{font-size:16px;line-height:1.5;margin:0 0 12px}
+.m-card{background:var(--card);border-radius:16px;box-shadow:0 0 0 1px var(--edge);overflow:hidden}
+.m-row{position:relative;display:flex;align-items:center;gap:12px;padding:0 16px;height:48px;font-size:16px}
+.m-row+.m-row::before{content:"";position:absolute;left:50px;right:0;top:0;height:.5px;background:var(--hair)}
+.m-row .v{margin-left:auto;font-size:14px;color:var(--sec);white-space:nowrap}
+.m-row .rb{position:absolute;inset:0;background:var(--tint);opacity:0;pointer-events:none}
+.m-row.on .rb{opacity:1}
+.m-row>*:not(.rb){position:relative}
+.m-row .v.hot{color:var(--acc)}
+.m-row.w6 .lb{font-weight:600}
+.dot{width:22px;height:22px;border-radius:7px;background:var(--tint);color:var(--acc);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.m-side{position:absolute;left:0;top:0;bottom:0;width:230px;padding:22px 14px 20px;display:flex;flex-direction:column;gap:4px}
+.m-brand{font-size:22px;font-weight:700;letter-spacing:-.44px;padding:4px 12px 18px}
+.m-search{display:flex;align-items:center;gap:8px;height:38px;padding:0 10px 0 12px;border:1px solid var(--hair);background:var(--card);border-radius:10px;font-size:15px;color:var(--mut);margin-bottom:6px}
+.m-search i{margin-left:auto;font-style:normal;font-size:11px;border:1px solid var(--hair);border-radius:5px;padding:0 5px;color:var(--mut)}
+.m-nav{display:flex;align-items:center;gap:10px;height:42px;padding:0 12px;border-radius:10px;font-size:16px;color:var(--tx);position:relative}
+.m-nav.on{background:var(--tint);color:var(--acc);font-weight:600}
+.m-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 22px;border-radius:12px;background:var(--accf);color:var(--onacc);font-weight:600;font-size:16px}
+.lnk{color:var(--acc);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.cb{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--hair);flex:none;background:var(--card)}
+.cb.on{background:var(--accf);border-color:var(--accf)}
+.m-rail{width:200px;padding-top:56px;flex:none}
+.m-rail div{display:flex;align-items:center;gap:10px;height:34px;font-size:15px;color:var(--sec)}
+.m-rail div::before{content:"";width:12px;height:12px;border-radius:50%;border:1.5px solid var(--hair);flex:none}
+.m-rail div.done::before{background:var(--accf);border-color:var(--accf)}
+.m-rail div.cur{color:var(--tx);font-weight:600}
+.m-rail div.cur::before{border-color:var(--acc);box-shadow:inset 0 0 0 3px var(--bg),inset 0 0 0 9px var(--acc)}
+.back{display:inline-flex;align-items:center;gap:2px;color:var(--acc);font-size:16px;cursor:pointer}
+.sub-h{font-size:20px;font-weight:700;margin:22px 0 6px}
+.m-split{display:flex;gap:28px;margin-top:26px}
+.m-list{width:225px;flex:none;display:flex;flex-direction:column;gap:18px;position:relative}
+.m-detail{flex:1;position:relative;height:470px}
+.m-detail>.dl{position:absolute;inset:0 0 auto 0}
+.m-dh{display:flex;gap:14px;align-items:center;padding:4px 4px 0}
+.m-av{width:44px;height:44px;border-radius:50%;background:var(--tint);color:var(--acc);font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.m-hl{position:absolute;left:0;right:0;height:48px;background:var(--tint);opacity:0;pointer-events:none}
+.m-seg{display:flex;background:var(--fill);border-radius:10px;padding:2px;position:relative}
+.m-seg span{flex:1;text-align:center;height:34px;line-height:34px;font-size:14px;font-weight:600;position:relative;border-radius:8px}
+.m-seg .th{position:absolute;top:2px;bottom:2px;border-radius:8px;background:var(--segon);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.m-bar{display:flex;gap:8px;align-items:center;height:28px;font-size:14px}
+.m-bar i{display:block;height:10px;border-radius:6px;background:var(--acc);opacity:.85}
+.m-ph{background:var(--bg)}
+
+/* phone pieces */
+.p-title{font-size:34px;font-weight:700;letter-spacing:-.8px;line-height:1.1;padding:0 20px}
+.p-tabbar{position:absolute;left:16px;right:16px;bottom:24px;height:64px;border-radius:99px;background:var(--card);box-shadow:0 10px 30px var(--shadow),0 0 0 .5px var(--shadow);padding:6px;display:flex;gap:2px}
+.p-tab{flex:1;border-radius:99px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;font-weight:600;color:var(--sec)}
+.p-tab.on{background:var(--tint);color:var(--acc)}
+
+/* mini demos for item 17 */
+.mini{position:relative;border:1px solid var(--p-line);border-radius:12px;overflow:hidden;font-size:15px}
+.mini.pad{padding:14px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;align-items:start}
+.dcell .cap{font-size:12.5px;font-weight:700;color:var(--p-mut);margin:0 0 6px;display:flex;gap:8px;align-items:center}
+.dcell .cap em{font-style:normal;border:1px solid var(--p-line2);border-radius:99px;padding:0 8px;font-weight:600}
+.dcell .cap em.g{border-color:var(--p-green);color:var(--p-green)}
+.dcell .cap em.a{border-color:var(--p-amber);color:var(--p-amber)}
+.dcell .cap em.r{border-color:var(--p-red);color:var(--p-red)}
+.chip{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:99px;background:var(--card);box-shadow:0 0 0 1px var(--hair);font-size:14px;font-weight:600;cursor:pointer;margin-right:8px;position:relative}
+.chip.on{background:var(--tx);color:var(--card);box-shadow:none}
+.tile{background:var(--card);border-radius:16px;box-shadow:0 0 0 1px var(--edge);padding:14px 16px;cursor:pointer;touch-action:manipulation}
+.sw{width:51px;height:31px;border-radius:99px;position:relative;cursor:pointer;display:inline-block}
+.sw i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+.swrow{display:flex;align-items:center;justify-content:space-between;padding:6px 4px}
+
+/* item 9 */
+.pull{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px}
+.pp{position:relative;height:420px;border-radius:12px;overflow:hidden;border:1px solid var(--p-line)}
+.pp .mini-bg{position:absolute;inset:0;background:var(--bg);color:var(--tx)}
+.pp-content{position:absolute;inset:0}
+.pp-scroll{position:absolute;inset:0;overflow-y:auto;padding:22px 34px 40px;overscroll-behavior:contain;scrollbar-width:none}
+.pp-scroll::-webkit-scrollbar{display:none}
+.pp-scroll:focus-visible{outline-offset:-3px}
+.pp-in{position:absolute;inset:0;background:var(--bg);color:var(--tx);padding:30px 34px;transform:translateY(100%);box-shadow:0 -10px 30px var(--shadow)}
+.nx{position:relative;display:flex;align-items:center;gap:16px;background:var(--card);border-radius:18px;box-shadow:0 0 0 1px var(--edge);padding:20px 20px 20px 24px;margin-top:22px;cursor:pointer}
+.nx .eb{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sec);position:relative;height:17px}
+.nx .eb span{position:absolute;left:0;top:0;white-space:nowrap;transition:opacity .15s}
+.nx .tt{font-size:22px;font-weight:700;letter-spacing:-.3px;line-height:1.3;margin-top:2px}
+.nx .kh{font-size:12px;border:1px solid var(--hair);border-radius:6px;padding:0 6px;color:var(--sec)}
+.nx .cir{position:relative;width:44px;height:44px;flex:none}
+.nx .cir .c{position:absolute;inset:0;border-radius:50%;background:var(--accf);display:flex;align-items:center;justify-content:center;color:#fff}
+.nx .cir svg.ring{position:absolute;left:-6px;top:-6px;width:56px;height:56px;overflow:visible}
+.pull-r{display:flex;flex-direction:column;gap:12px}
+.opts{display:grid;gap:8px}
+.opts label{display:block;border:1px solid var(--p-line);border-radius:10px;padding:9px 12px;cursor:pointer;background:var(--p-1)}
+.opts label:has(input:checked){border-color:var(--p-accf);box-shadow:0 0 0 1px var(--p-accf) inset}
+.opts input{accent-color:var(--p-accf);margin-right:8px}
+.opts b{font-size:14px}
+.opts small{display:block;color:var(--p-mut);font-size:12.5px;margin-left:24px}
+.state{border:1px solid var(--p-line);border-radius:10px;padding:10px 12px;background:var(--p-1);font-size:13px}
+.state b{font-size:15px}
+.meter{height:6px;border-radius:4px;background:var(--p-2);margin:8px 0 2px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--p-acc)}
+.log{font-size:12.5px;color:var(--p-mut);max-height:120px;overflow:auto;margin:0;padding-left:16px}
+.sims{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+.lad{border:1px solid var(--p-line);border-radius:10px;padding:10px;background:var(--p-1);font-size:12.5px;color:var(--p-mut)}
+.lad .lt{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.lad b{color:var(--p-tx);font-size:13px;display:block}
+.lad .rg{background:var(--card);border-radius:50%;width:48px;height:48px;flex:none;position:relative}
+
+/* audit + tables */
+table.t{border-collapse:collapse;width:100%;font-size:13.5px}
+table.t th,table.t td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--p-line)}
+table.t th{color:var(--p-mut);font-weight:600;font-size:12.5px}
+table.t td small{display:block;color:var(--p-mut);font-size:12px}
+.tw{overflow-x:auto;border:1px solid var(--p-line);border-radius:12px;background:var(--p-1)}
+.has{color:var(--p-green);font-weight:600} .miss{color:var(--p-red);font-weight:600} .part{color:var(--p-amber);font-weight:600}
+.cdemo{border:1px solid var(--p-line);border-radius:14px;background:var(--p-1);padding:16px;display:grid;gap:12px}
+.cdemo h3{margin:0;font-size:16px}
+.cdemo .row2{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:14px 22px}
+.sum{margin-top:40px}
+footer{padding:50px 0 80px;color:var(--p-mut);font-size:13px}
+
+@media (max-width:900px){
+  .vc,.pull,.cdemo .row2{grid-template-columns:1fr}
+  .intro h2{font-size:25px}
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .nx .eb span{transition:none} }
+body.rm .nx .eb span{transition:none}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <h1>Pantas motion preview, Nov 3</h1>
+    <div class="seg" role="group" aria-label="Preview theme (changes the app previews only)">
+      <button type="button" data-pv="light" aria-pressed="true">Paper</button>
+      <button type="button" data-pv="dark" aria-pressed="false">Dark</button>
+    </div>
+    <label class="chk"><input type="checkbox" id="rmToggle"> Simulate reduced motion</label>
+    <nav class="nav" aria-label="Sections">
+      <a href="#gaps">What this cannot show</a>
+      <a href="#s1">1 Legal page</a>
+      <a href="#s2">15 Settings detail</a>
+      <a href="#s3">5 Open a lesson</a>
+      <a href="#s4">9 Pull for next</a>
+      <a href="#s5">17 Motion set</a>
+      <a href="#sum">Summary</a>
+    </nav>
+  </div>
+</header>
+
+<main id="previews" data-preview="light" class="wrap">
+
+<div class="intro">
+  <h2>Judge the motion before anything is built.</h2>
+  <p>Each section shows the Current motion first, copied from the code's numbers. The options come after it. One option in each section is marked Recommended. Nothing here is built in the app.</p>
+  <p>Every demo has Replay, a 4x slow toggle, and the exact duration and curve beside it. Page transitions also have a scrub bar, so you can stop on any frame. The page header switches the app previews between Paper and Dark. It also simulates reduced motion.</p>
+
+  <div class="gaps" id="gaps">
+    <h3>What an HTML page cannot show faithfully</h3>
+    <ul>
+      <li><b>Frame rate on a phone.</b> This page runs in the browser's own renderer, not in Flutter. Dropped frames on iPhone Safari (item 16) only show on the device. The phone cost notes are rules of thumb, not measurements.</li>
+      <li><b>Flutter's own code.</b> Current demos copy its duration, curve and distances. The page slide shown is the iOS and macOS default, which is what you see. Windows and Android browsers get a different default. Its edge shadow is close but not identical.</li>
+      <li><b>The Geist font and exact layout.</b> The mini screens use the system font with the app's colors and sizes. Line breaks and small spacing differ.</li>
+      <li><b>Real wheel input in the app.</b> Flutter on the web may report wheel notches and trackpad momentum differently from this page. The pull demo judges by timing only. Its numbers need a trial on a real mouse and trackpad before sign-off.</li>
+      <li><b>Layout jumps when the sidebar leaves (item 5).</b> The demo removes the sidebar on the first frame and widens the page beneath. I did not trace every other layout change at that moment.</li>
+      <li><b>iPhone toolbar and rubber-band scrolling</b> around the tab bar (item 11). They are not shown here.</li>
+    </ul>
+    <div class="legend">
+      <span><b style="color:var(--p-green)">Low</b> phone cost: movement and color only</span>
+      <span><b style="color:var(--p-amber)">Watch</b>: fade on a large area</span>
+      <span><b style="color:var(--p-red)">Avoid</b>: blur, growing shadows, resizing big lists</span>
+    </div>
+  </div>
+</div>
+
+<section class="sec" id="s1">
+  <div class="sec-h"><span class="item">Item 1</span><h2>Opening a legal page from onboarding</h2></div>
+  <p class="said">You said: "the animation sweeps from right to left the entire page including the logo on the top left. this is a bit awkward. please make this more elegant, fade in maybe." The Nov 2 onboarding decision still applies: the frame stays still, only content moves.</p>
+  <p class="lead">Click "Terms of Service" in any preview, or press Replay. Back plays the motion in reverse.</p>
+  <div class="stack" id="s1-body"></div>
+</section>
+
+<section class="sec" id="s2">
+  <div class="sec-h"><span class="item">Item 15</span><h2>Settings on wide web: choosing a row</h2></div>
+  <p class="said">You said: "when selecting something, the entire section animates when I select a row. it should not be like that."</p>
+  <p class="lead">Click any of Pantas Pro, Practice or Appearance in a preview. Replay repeats the last change. "Try another row" picks the next one. All three options need the same change in the app: the detail becomes a pane inside one Settings page, and the address still changes.</p>
+  <div class="stack" id="s2-body"></div>
+</section>
+
+<section class="sec" id="s3">
+  <div class="sec-h"><span class="item">Item 5</span><h2>Opening a lesson</h2></div>
+  <p class="said">You said: "improve the animation when opening a lesson ... it's jarring and terrible." Pull-up to the next lesson keeps its upward motion and is not changed here.</p>
+  <div class="tools">
+    <span class="chk">Show</span>
+    <div class="seg" role="group" aria-label="Device">
+      <button type="button" data-dev="wide" aria-pressed="true">Wide web</button>
+      <button type="button" data-dev="phone" aria-pressed="false">Phone</button>
+    </div>
+    <span class="said" style="margin:0">Click a lesson in a preview, or press Replay.</span>
+  </div>
+  <div class="stack" id="s3-body"></div>
+</section>
+
+<section class="sec" id="s4">
+  <div class="sec-h"><span class="item">Item 9</span><h2>Pull up for the next lesson on wide web</h2></div>
+  <p class="said">You said the phone's pull-up "should also be in web, for better continuity", executed "intelligently". On web the Next lesson card stays visible as the fallback in every option.</p>
+  <p class="lead">Scroll the lesson with your real mouse wheel or trackpad. At the end, keep scrolling to pull. The buttons below send test input, so you can check a single notch and trackpad momentum without guessing.</p>
+  <div id="s4-body"></div>
+</section>
+
+<section class="sec" id="s5">
+  <div class="sec-h"><span class="item">Item 17</span><h2>Small missing motion across the app</h2></div>
+  <p class="said">You said: "some animations, even the most little ones that would greatly elevate the quality of the app, don't appear ... even the navbar doesn't have it. selections don't have it."</p>
+  <div id="s5-body"></div>
+</section>
+
+<section class="sum" id="sum">
+  <div class="sec-h"><h2>Recommendations</h2></div>
+  <div class="tw"><table class="t" id="sumtable"></table></div>
+</section>
+
+<footer>Preview only. Built from the code in the vc-fixes-r1 worktree and the handoff Motion notes. Numbers marked "from code" can be checked there. Choices need your approval before they are recorded and built.</footer>
+</main>
+<script>
+(function(){
+'use strict';
+
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+function h(tag,attrs,...kids){
+  const e=document.createElement(tag);
+  for(const k in (attrs||{})){
+    const v=attrs[k];
+    if(v==null||v===false) continue;
+    if(k==='class') e.className=v;
+    else if(k==='html') e.innerHTML=v;
+    else if(k==='style') e.setAttribute('style',v);
+    else e.setAttribute(k,v===true?'':v);
+  }
+  for(const c of kids.flat()){
+    if(c==null||c===false) continue;
+    e.append(c.nodeType?c:document.createTextNode(String(c)));
+  }
+  return e;
+}
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const ph=(ms,a,b)=>clamp((ms-a)/(b-a));
+const mix=(p)=>`color-mix(in srgb, var(--acc) ${(clamp(p)*100).toFixed(1)}%, var(--sec))`;
+
+/* ---------- curves (the app's own, ported from Flutter) ---------- */
+function bez(x1,y1,x2,y2){
+  return function(t){
+    if(t<=0) return 0;
+    if(t>=1) return 1;
+    let a=0,b=1,m=.5;
+    for(let i=0;i<48;i++){
+      m=(a+b)/2;
+      const x=3*x1*m*(1-m)*(1-m)+3*x2*m*m*(1-m)+m*m*m;
+      if(Math.abs(x-t)<1e-6) break;
+      if(x<t) a=m; else b=m;
+    }
+    return 3*y1*m*(1-m)*(1-m)+3*y2*m*m*(1-m)+m*m*m;
+  };
+}
+function three(a1,b1,mid,a2,b2){
+  const c1=bez(a1[0]/mid[0],a1[1]/mid[1],b1[0]/mid[0],b1[1]/mid[1]);
+  const sx=1-mid[0], sy=1-mid[1];
+  const c2=bez((a2[0]-mid[0])/sx,(a2[1]-mid[1])/sy,(b2[0]-mid[0])/sx,(b2[1]-mid[1])/sy);
+  return t=> t<mid[0] ? c1(t/mid[0])*mid[1] : c2((t-mid[0])/sx)*sy+mid[1];
+}
+const flip=f=>t=>1-f(1-t);
+const cb=(a,b,c,d,name)=>({fn:bez(a,b,c,d),css:`cubic-bezier(${a},${b},${c},${d})`,name});
+const CV={
+  shared:cb(.32,.72,0,1,'shared ease'),
+  ease:cb(.25,.1,.25,1,'ease'),
+  easeOutCubic:cb(.215,.61,.355,1,'easeOutCubic'),
+  easeInCubic:cb(.55,.055,.675,.19,'easeInCubic'),
+  slideA:cb(.22,1,.36,1,'slideA'),
+  houseOut:cb(.3,.9,.3,1,'houseOut'),
+  riseIn:cb(.2,.9,.3,1,'riseIn'),
+  popC:cb(.34,1.56,.64,1,'popC'),
+  easeOut:cb(0,0,.58,1,'easeOut'),
+  fos:cb(.4,0,.2,1,'fastOutSlowIn'),
+  cup:{fn:three([.056,.024],[.108,.3085],[.198,.541],[.3655,1],[.5465,.989]),css:'fastEaseInToSlowEaseOut (3-point curve)',name:'fastEaseInToSlowEaseOut'},
+  lin:{fn:t=>t,css:'linear',name:'linear'}
+};
+const crv=(c)=>`<code>${c.css}</code>`;
+
+/* ---------- reduced motion ---------- */
+const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+let simRM=false;
+const reduced=()=>simRM||mq.matches;
+function syncRM(){ document.body.classList.toggle('rm',reduced()); }
+mq.addEventListener&&mq.addEventListener('change',syncRM);
+
+/* ---------- animation driver ---------- */
+class Anim{
+  constructor(o,ctx){ this.o=o; this.ctx=ctx||{slow:false}; this.u=0; this.dir=1; this.raf=0; this.subs=[]; this.set(0,1); }
+  get dur(){ return (this.dir>0?this.o.dur:(this.o.revDur||this.o.dur))*(this.ctx.slow?4:1); }
+  set(u,dir){ if(dir!=null) this.dir=dir; this.u=u; this.o.render(u,this.dir); for(const f of this.subs) f(u,this.dir); }
+  stop(){ if(this.raf) cancelAnimationFrame(this.raf); this.raf=0; }
+  run(dir){
+    this.stop();
+    const to=dir>0?1:0;
+    if(reduced()){ this.set(to,dir); return; }
+    this.dir=dir;
+    const from=this.u, t0=performance.now();
+    const D=Math.max(1,this.dur*Math.abs(to-from));
+    const step=(now)=>{
+      const k=Math.min(1,(now-t0)/D);
+      this.set(from+(to-from)*k,dir);
+      this.raf=k<1?requestAnimationFrame(step):0;
+    };
+    this.raf=requestAnimationFrame(step);
+  }
+  replay(){ this.stop(); this.set(0,1); this.run(1); }
+  reverse(){ this.stop(); this.set(1,-1); this.run(-1); }
+}
+
+/* ---------- stage scaling ---------- */
+function fitOne(f){
+  const w=f.clientWidth; if(!w) return;
+  const k=w/(+f.dataset.lw);
+  f.firstElementChild.style.transform=`scale(${k})`;
+  f.style.height=(+f.dataset.lh*k+2)+'px';
+}
+const ro=new ResizeObserver(es=>es.forEach(e=>fitOne(e.target)));
+function mkStage(kind){
+  const dims=kind==='phone'?[390,760]:[1000,620];
+  const stage=h('div',{class:'stage'});
+  stage.style.width=dims[0]+'px'; stage.style.height=dims[1]+'px';
+  const fit=h('div',{class:'fit '+kind},stage);
+  fit.dataset.lw=dims[0]; fit.dataset.lh=dims[1];
+  ro.observe(fit);
+  return {fit,stage,W:dims[0],H:dims[1]};
+}
+
+/* ---------- card kit ---------- */
+function plotSVG(fn,anim){
+  const W=200,HH=110,pl=14,pr=8,pt=8,pb=16,iw=W-pl-pr,ih=HH-pt-pb,ymax=1.12;
+  let d='';
+  for(let i=0;i<=48;i++){ const t=i/48,y=fn(t); d+=(i?'L':'M')+(pl+t*iw).toFixed(1)+' '+(pt+ih-(y/ymax)*ih).toFixed(1); }
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox',`0 0 ${W} ${HH}`);
+  svg.setAttribute('class','plot');
+  svg.setAttribute('role','img');
+  svg.setAttribute('aria-label','Easing curve: time across, progress up');
+  const y1=pt+ih-(1/ymax)*ih;
+  svg.innerHTML=`<line x1="${pl}" y1="${pt+ih}" x2="${W-pr}" y2="${pt+ih}"/><line x1="${pl}" y1="${pt}" x2="${pl}" y2="${pt+ih}"/><line x1="${pl}" y1="${y1}" x2="${W-pr}" y2="${y1}" stroke-dasharray="3 3"/><path d="${d}"/><circle r="4" cx="${pl}" cy="${pt+ih}"/><text x="${pl+2}" y="${HH-4}">time</text><text x="${pl+4}" y="${pt+9}">progress</text>`;
+  const dot=svg.querySelector('circle');
+  if(anim) anim.subs.push(u=>{ const x=clamp(u); dot.setAttribute('cx',pl+x*iw); dot.setAttribute('cy',pt+ih-(fn(x)/ymax)*ih); });
+  return svg;
+}
+function spec(rows){
+  const dl=h('dl',{class:'spec'});
+  rows.forEach(([k,v])=>{ dl.append(h('dt',{},k),h('dd',{html:v})); });
+  return dl;
+}
+function cost(c){
+  if(!c) return null;
+  const label={low:'Low',watch:'Watch',avoid:'Avoid'}[c[0]];
+  return h('div',{class:'cost '+c[0],html:`<b>Phone cost: ${label}.</b> ${c[1]}`});
+}
+function controls(anim,ctx,o){
+  o=o||{};
+  const tb=h('div',{class:'tb'});
+  tb.append(h('button',{class:'btn pri',type:'button',onclick:()=>anim.replay()},'Replay'));
+  if(o.back) tb.append(h('button',{class:'btn',type:'button',onclick:()=>anim.reverse()},o.back));
+  (o.extra||[]).forEach(x=>tb.append(x));
+  const slow=h('input',{type:'checkbox'});
+  slow.addEventListener('change',()=>{ ctx.slow=slow.checked; });
+  tb.append(h('label',{class:'chk'},slow,'Slow motion 4x'));
+  if(o.scrub!==false){
+    const r=h('input',{type:'range',min:0,max:1000,value:0,'aria-label':'Scrub through the motion'});
+    r.addEventListener('input',()=>{ anim.stop(); anim.set(r.value/1000,1); });
+    anim.subs.push(u=>{ if(document.activeElement!==r) r.value=Math.round(u*1000); });
+    tb.append(h('label',{class:'scrub'},'Scrub',r));
+  }
+  tb.append(h('span',{class:'rmnote'},'Reduced motion is on: this jumps to the last frame.'));
+  return tb;
+}
+function vcard(o){
+  const left=h('div',{class:'vc-l'});
+  left.append(h('div',{class:'tag'},h('span',{class:'pill'},o.tag),o.rec?h('span',{class:'pill r'},'Recommended'):null));
+  left.append(o.fit);
+  left.append(controls(o.anim,o.ctx,o));
+  const right=h('div',{class:'vc-r'},h('h3',{},o.title),h('p',{},o.blurb),spec(o.spec),o.plot?plotSVG(o.plot,o.anim):null,cost(o.cost));
+  return h('div',{class:'vc'+(o.rec?' rec':'')},left,right);
+}
+
+/* ---------- mini UI pieces ---------- */
+const ICON={
+  home:'<path d="M4 11.5 12 4.5l8 7V20H4z"/>',
+  study:'<path d="M5 5.5A1.5 1.5 0 0 1 6.5 4H18v13H7a2 2 0 0 0-2 2z"/><path d="M5 19a2 2 0 0 1 2-2h11v3H7a2 2 0 0 1-2-1z"/>',
+  quiz:'<circle cx="12" cy="12" r="8.5"/><path d="M9.7 9.6a2.4 2.4 0 1 1 3.4 2.2c-.7.4-1.1.9-1.1 1.7M12 16.8h.01"/>',
+  settings:'<path d="M4 7h9M17 7h3M4 17h3M11 17h9M13 5v4M7 15v4"/>',
+  search:'<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/>',
+  pro:'<path d="m12 4 2.4 5 5.4.7-4 3.7 1 5.4L12 16.2 7.2 18.8l1-5.4-4-3.7 5.4-.7z"/>',
+  exam:'<path d="M4 6h16v12H4zM8 10h8M8 14h5"/>',
+  practice:'<circle cx="12" cy="12" r="8"/><path d="m9 12 2 2 4-4"/>',
+  appearance:'<circle cx="12" cy="12" r="8"/><path d="M12 4v16"/>',
+  about:'<circle cx="12" cy="12" r="8"/><path d="M12 11v5M12 8h.01"/>',
+  chev:'<path d="m14 6-6 6 6 6"/>',
+  next:'<path d="m9 6 6 6-6 6"/>',
+  arrow:'<path d="M12 19V5M6 11l6-6 6 6"/>',
+  arrowR:'<path d="M5 12h14M13 6l6 6-6 6"/>'
+};
+const ico=(k,s=22,sw=1.8)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`;
+const LOGO=(s=28)=>`<svg class="ic" width="${s}" height="${s}" viewBox="307 309 640 640" aria-hidden="true"><line x1="887" y1="515.69" x2="887" y2="664" stroke="var(--acc)" stroke-width="11" stroke-linecap="round"/><circle cx="887" cy="682" r="20" fill="var(--acc)"/><path fill="var(--acc)" d="M877 699L897 699L912 774Q915 790 899 791L875 791Q859 790 862 774Z"/><g fill="var(--tx)"><path d="M363.97 493.76L614.06 374.19A30 30 0 0 1 639.94 374.19L890.03 493.76A18 18 0 0 1 890.03 526.24L639.94 645.81A30 30 0 0 1 614.06 645.81L363.97 526.24A18 18 0 0 1 363.97 493.76Z"/><path d="M443.45 593.06L519.45 629.4A8 8 0 0 1 524 636.62L524 878A12 12 0 0 1 512 890L478 890A46 46 0 0 1 432 844L432 600.28A8 8 0 0 1 443.45 593.06Z"/><path d="M728 638.53Q728 632.53 734 629.63L814 591.44Q820 588.54 820 594.54L820 696A150 150 0 0 1 670 846L584 846A12 12 0 0 1 572 834L572 766A12 12 0 0 1 584 754L670 754A58 58 0 0 0 728 696Z"/></g></svg>`;
+const topbar=()=>`<div class="m-top">${LOGO(28)}<b>Pantas</b></div>`;
+const sidebar=(act)=>`<div class="m-side"><div class="m-brand">Pantas</div><div class="m-search">${ico('search',18)}<span>Search lessons</span><i>Ctrl K</i></div>${['Home','Study','Quiz','Settings'].map((l,i)=>`<div class="m-nav${i===act?' on':''}">${ico(['home','study','quiz','settings'][i])}<span>${l}</span></div>`).join('')}</div>`;
+const tabbar=(act)=>`<div class="p-tabbar">${[['home','Home'],['study','Study'],['quiz','Quiz'],['settings','Settings']].map((t,i)=>`<div class="p-tab${i===act?' on':''}">${ico(t[0],23)}<span>${t[1]}</span></div>`).join('')}</div>`;
+const lorem=[
+  'A digit has a value that depends on where it sits. In 3,482, the 4 means four hundreds.',
+  'To round a number, look at the digit to its right. If it is 5 or more, round up. If it is 4 or less, keep the digit.',
+  'Check your answer by asking if it is close to the number you started with.'
+];
+
+/* ---------- item 1 ---------- */
+const obBody=()=>`<div class="m-body" style="display:flex;justify-content:center"><div class="m-rail"><div class="done">Your age</div><div class="done">Your exam</div><div class="done">Study days</div><div class="done">Your name</div><div class="cur">Terms and privacy</div></div><div style="width:580px;padding-top:56px"><div class="m-h2">One last step</div><div style="font-size:17px;color:var(--sec);margin:6px 0 26px">Please read and accept to continue.</div><div class="m-card"><div class="m-row" style="height:58px"><span class="cb"></span><span>Help improve Pantas by sharing usage data</span></div><div class="m-row" style="height:58px"><span class="cb"></span><span>I agree to the <span class="lnk">Terms of Service</span> and <span class="lnk">Privacy Policy</span>.</span></div></div><div style="margin-top:28px"><span class="m-btn">Continue</span></div></div></div>`;
+const lgBody=()=>`<div class="m-body" style="display:flex;justify-content:center;padding-top:40px"><div style="width:580px"><div class="back">${ico('chev',20,2)}Back</div><div class="m-h1" style="font-size:36px;margin-top:26px;letter-spacing:-.86px">Terms of Service</div><div style="font-size:17px;color:var(--sec);margin:8px 0 26px">Updated May 23, 2026</div><div class="m-h3" style="margin-bottom:6px">Using Pantas</div><p class="m-p" style="color:var(--sec)">Pantas helps you study for your exam. Use it for your own learning. Do not share your account.</p><div class="m-h3" style="margin:20px 0 6px">Your content</div><p class="m-p" style="color:var(--sec)">Your answers and notes stay yours. We use them to plan your reviews.</p><div class="m-h3" style="margin:20px 0 6px">Paid plans</div><p class="m-p" style="color:var(--sec)">A paid plan renews until you cancel. You can cancel at any time in Settings.</p></div></div>`;
+
+function s1(){
+  const root=$('#s1-body');
+  const W=1000;
+  function build(v){
+    const ctx={slow:false};
+    const {fit,stage}=mkStage('wide');
+    let anim, render, d, plot;
+    const wire=()=>{
+      $$('.lnk',stage).forEach(a=>{ a.style.cursor='pointer'; a.addEventListener('click',()=>anim.replay()); });
+      $$('.back',stage).forEach(a=>a.addEventListener('click',()=>anim.reverse()));
+    };
+    if(v==='cur'){
+      const old=h('div',{class:'layer',html:topbar()+obBody()});
+      const nw=h('div',{class:'layer',html:topbar()+lgBody()});
+      const sh=h('div',{style:'position:absolute;left:0;top:0;bottom:0;width:50px;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.016))'});
+      stage.append(old,nw,sh);
+      render=(u,dir)=>{
+        const e=(dir>0?CV.cup.fn:flip(CV.cup.fn))(u);
+        nw.style.transform=`translateX(${(1-e)*W}px)`;
+        old.style.transform=`translateX(${-e*W/3}px)`;
+        sh.style.transform=`translateX(${(1-e)*W-50}px)`;
+        sh.style.opacity=e;
+      };
+      d=500; plot=CV.cup.fn;
+    } else if(v==='fade'){
+      const old=h('div',{class:'layer',html:topbar()+obBody()});
+      const nw=h('div',{class:'layer',html:topbar()+lgBody()});
+      stage.append(old,nw);
+      render=(u)=>{ nw.style.opacity=CV.ease.fn(u); nw.style.pointerEvents=u>.5?'auto':'none'; };
+      d=240; plot=CV.ease.fn;
+    } else {
+      const old=h('div',{class:'layer t',html:obBody()});
+      const nw=h('div',{class:'layer t',html:lgBody()});
+      const top=h('div',{class:'layer t',style:'bottom:auto;height:56px',html:topbar()});
+      stage.append(old,nw,top);
+      render=(u)=>{
+        const ms=u*240;
+        old.style.opacity=1-CV.ease.fn(ph(ms,0,100));
+        const o=CV.shared.fn(ph(ms,60,240));
+        nw.style.opacity=o;
+        nw.style.transform=`translateY(${(1-o)*12}px)`;
+      };
+      d=240; plot=CV.shared.fn;
+    }
+    anim=new Anim({dur:d,render},ctx);
+    wire();
+    const cfg={
+      cur:{tag:'Current, from the code',title:'Default page slide',blurb:'The legal page is a new page. It slides in from the right with the logo and top bar attached. The onboarding page moves a third of the way left.',
+        spec:[['Duration','500 ms'],['Curve',crv(CV.cup)+' in, flipped out'],['Moves','Whole legal page, logo included. Page behind moves 33% left.'],['Stays still','Nothing']],
+        cost:['low','The slide itself is cheap. It is the motion you called awkward.']},
+      fade:{tag:'Option A',title:'Fade in, frame untouched',blurb:'The legal page fades in over the onboarding page. Both pages draw the logo in the same place, so the logo never appears to move.',rec:true,
+        spec:[['Duration','240 ms'],['Curve',crv(CV.ease)+' (same as the quiz to results fade)'],['Moves','Nothing. Opacity only.'],['Stays still','Logo, top bar position, page edges']],
+        cost:['watch','A fade on a full page. Short, and the page is mostly flat color and text. Only runs once per tap.']},
+      rise:{tag:'Option B',title:'Content fades and rises, frame still',blurb:'The top bar with the logo is a fixed frame. Only the content below it changes: the old content fades out, the legal text fades in and rises a little. This matches how onboarding steps change.',
+        spec:[['Duration','240 ms'],['Curve',crv(CV.shared)],['Moves','Old content fades out 0 to 100 ms. New content fades in and rises 12 px from 60 to 240 ms.'],['Stays still','Logo and top bar']],
+        cost:['watch','Two fades on the content area, and the legal page must stop drawing its own top bar.']}
+    }[v];
+    return vcard({...cfg,fit,anim,ctx,back:'Back',plot,rec:cfg.rec});
+  }
+  ['cur','fade','rise'].forEach(v=>root.append(build(v)));
+}
+
+/* ---------- item 15: settings detail ---------- */
+const SET=[
+  {n:'Pantas Pro',ic:'pro',v:'Free',s:'Your plan and billing.'},
+  {n:'Practice',ic:'practice',v:'10 questions',s:'How long a session lasts.'},
+  {n:'Appearance',ic:'appearance',v:'Automatic',s:'Choose how Pantas looks.'}
+];
+const sRow=(i,sel,w6)=>{ const s=SET[i], on=sel===i; return `<div class="m-row${on?' on':''}${w6&&on?' w6':''}" data-i="${i}" style="cursor:pointer"><i class="rb"></i><span class="dot">${ico(s.ic,16)}</span><span class="lb">${s.n}</span><span class="v${on?' hot':''}">${s.v}</span></div>`; };
+const sList=(sel,w6,hl)=>`${hl?'<i class="m-hl" style="left:6px;right:6px;height:40px;border-radius:10px"></i>':''}<div class="m-card"><div class="m-row" style="height:68px"><div class="m-av">M</div><div><div style="font-weight:600;font-size:17px">Maria</div><div class="m-sub" style="font-size:13px">maria@example.com</div></div></div></div><div class="m-card">${sRow(0,sel,w6)}</div><div class="m-card"><div class="m-row"><span class="dot">${ico('exam',16)}</span><span class="lb">Your exam</span><span class="v">CSE Pro</span></div>${sRow(1,sel,w6)}${sRow(2,sel,w6)}</div><div class="m-card"><div class="m-row"><span class="dot">${ico('about',16)}</span><span class="lb">About</span></div></div>`;
+const sDet=(i)=>{
+  const T=SET[i];
+  const head=`<div class="m-dh"><span style="color:var(--acc)">${ico(T.ic,30)}</span><div><div class="m-h2">${T.n}</div><div class="m-sub">${T.s}</div></div></div><div style="height:24px"></div>`;
+  const body=[
+    `<div class="m-card"><div class="m-row"><span class="lb">Plan</span><span class="v">Free</span></div><div class="m-row"><span class="lb">Free trial</span><span class="v">7 days left</span></div><div class="m-row"><span class="lb">Renews</span><span class="v">Not applicable</span></div></div><div style="margin-top:18px"><span class="m-btn">See Pro</span></div>`,
+    `<div class="m-card" style="padding:16px"><div style="font-weight:600;margin-bottom:10px">Questions in a session</div><div class="m-seg"><i class="th" style="left:2px;width:calc(33.33% - 1.33px)"></i><span>10</span><span>20</span><span>All</span></div></div><div class="m-card" style="margin-top:18px"><div class="m-row"><span class="lb">Show the timer</span><span class="v">On</span></div><div class="m-row"><span class="lb">Explain every answer</span><span class="v">On</span></div></div>`,
+    `<div class="m-card"><div class="m-row"><span class="lb">Automatic</span><span class="v" style="color:var(--acc)">${ico('practice',18,2)}</span></div><div class="m-row"><span class="lb">Light</span></div><div class="m-row"><span class="lb">Dark</span></div></div>`
+  ][i];
+  return head+body;
+};
+const sPage=(list,detail)=>`<div><div class="m-h1" style="padding:0 4px">Settings</div><div class="m-split"><div class="m-list">${list}</div><div class="m-detail">${detail}</div></div></div>`;
+
+function s2(){
+  const root=$('#s2-body');
+  const CW=682, CH=548;
+  function build(v){
+    const ctx={slow:false};
+    const {fit,stage}=mkStage('wide');
+    stage.append(h('div',{class:'layer',html:sidebar(3)}));
+    const ca=h('div',{style:`position:absolute;left:274px;top:28px;width:${CW}px;height:${CH}px;overflow:hidden`});
+    stage.append(ca);
+    const S={from:0,to:1};
+    let anim, load, render, dur, plot;
+    const bindRows=(scope)=>$$('.m-row[data-i]',scope).forEach(r=>r.addEventListener('click',()=>pick(+r.dataset.i)));
+    const pick=(i)=>{ if(i===S.to&&anim.u>=1) return; S.from=S.to; S.to=i; load(); anim.replay(); };
+    if(v==='cur'){
+      const old=h('div',{class:'layer'}), nw=h('div',{class:'layer'});
+      const sh=h('div',{style:'position:absolute;left:0;top:0;bottom:0;width:34px;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.016))'});
+      ca.append(old,nw,sh);
+      load=()=>{
+        old.innerHTML=sPage(sList(S.from,true,false),`<div class="dl">${sDet(S.from)}</div>`);
+        nw.innerHTML=sPage(sList(S.to,true,false),`<div class="dl">${sDet(S.to)}</div>`);
+        bindRows(old); bindRows(nw);
+      };
+      render=(u,dir)=>{
+        const e=(dir>0?CV.cup.fn:flip(CV.cup.fn))(u);
+        nw.style.transform=`translateX(${(1-e)*CW}px)`;
+        old.style.transform=`translateX(${-e*CW/3}px)`;
+        sh.style.transform=`translateX(${(1-e)*CW-34}px)`;
+        sh.style.opacity=e;
+      };
+      dur=500; plot=CV.cup.fn;
+    } else {
+      const pg=h('div',{class:'layer'});
+      ca.append(pg);
+      let dF,dT,rows=[],hl=null,pos=[];
+      load=()=>{
+        pg.innerHTML=sPage(sList(-1,false,v==='slide'),`<div class="dl" data-r="f">${sDet(S.from)}</div><div class="dl" data-r="t">${sDet(S.to)}</div>`);
+        dF=$('[data-r=f]',pg); dT=$('[data-r=t]',pg);
+        rows=$$('.m-row[data-i]',pg); hl=$('.m-hl',pg);
+        pos=[];
+        bindRows(pg);
+      };
+      const paintRows=(ms)=>{
+        const f=CV.ease.fn(ph(ms,0,160));
+        rows.forEach((r,k)=>{
+          const o=(k===S.from?1-f:0)+(k===S.to?f:0);
+          if(v!=='slide') r.querySelector('.rb').style.opacity=o;
+          r.querySelector('.v').style.color=mix(o);
+        });
+      };
+      render=(u)=>{
+        if(!dF) return;
+        const ms=u*240;
+        const o=CV.shared.fn(ph(ms,70,240));
+        dF.style.opacity=1-CV.ease.fn(ph(ms,0,90));
+        if(v==='fade'){
+          dT.style.opacity=CV.ease.fn(ph(ms,60,240));
+        } else {
+          dT.style.opacity=o;
+          dT.style.transform=`translateY(${(1-o)*8}px)`;
+        }
+        if(v==='slide'&&hl&&stage.isConnected){
+          if(!pos.length) pos=rows.map(r=>r.offsetTop);
+          const t=CV.shared.fn(ph(ms,0,240));
+          hl.style.opacity=1;
+          hl.style.top=(lerp(pos[S.from],pos[S.to],t)+4)+'px';
+        }
+        paintRows(ms);
+      };
+      dur=240; plot=v==='fade'?CV.ease.fn:CV.shared.fn;
+    }
+    load();
+    anim=new Anim({dur,render},ctx);
+    const next=h('button',{class:'btn',type:'button',onclick:()=>pick((S.to+1)%3)},'Try another row');
+    const cfg={
+      cur:{tag:'Current, from the code',title:'Whole content area slides',blurb:'Choosing a row opens a new page. The heading, the list and the detail all slide in from the right as one page. The old page moves a third of the way left.',
+        spec:[['Duration','500 ms'],['Curve',crv(CV.cup)],['Moves','Heading, list and detail together'],['Stays still','Sidebar only']],
+        cost:['low','Cheap to draw. It is the motion you called not elegant.']},
+      detail:{tag:'Option A',title:'Detail fades and rises a little',blurb:'The heading and list stay still. The old detail fades out, the new detail fades in and rises 8 px. The row tint fades with it.',rec:true,
+        spec:[['Duration','240 ms in total'],['Curve',crv(CV.shared)+' in, '+crv(CV.ease)+' out'],['Moves','Detail pane only. Out 0 to 90 ms. In and up 8 px from 70 to 240 ms.'],['Stays still','Heading, list, sidebar. Row tint fades 160 ms.']],
+        cost:['low','Fades only on the detail pane, which is a small area.']},
+      fade:{tag:'Option B',title:'Detail fades, nothing moves',blurb:'The calmest option. The detail crossfades in place. No movement at all.',
+        spec:[['Duration','240 ms in total'],['Curve',crv(CV.ease)],['Moves','Detail pane opacity only. Out 0 to 90 ms. In 60 to 240 ms.'],['Stays still','Everything else. Row tint fades 160 ms.']],
+        cost:['low','Fades only on the detail pane.']},
+      slide:{tag:'Option C',title:'Sliding row tint plus detail fade',blurb:'As option A, and the selection tint is one pill that glides from the old row to the new one. This also gives the sidebar and tab bar the same sliding feel (item 17).',
+        spec:[['Duration','240 ms in total'],['Curve',crv(CV.shared)],['Moves','Detail as in A. Tint pill (6 px inset, 10 px corners) glides between rows.'],['Stays still','Heading, list, sidebar']],
+        cost:['low','One more small moving shape. Movement only.']}
+    }[v==='detail'?'detail':v];
+    const card=vcard({...cfg,fit,anim,ctx,plot,extra:[next]});
+    card.anim=anim;
+    return card;
+  }
+  ['cur','detail','fade','slide'].forEach(v=>{ const c=build(v); root.append(c); c.anim.set(c.anim.u,c.anim.dir); });
+}
+
+/* ---------- item 5: open a lesson ---------- */
+const LESSONS=['Place value and rounding','Fractions and decimals','Percent and ratio','Order of operations','Word problems'];
+const lrows=LESSONS.map((l,i)=>`<div class="m-row lrow" style="height:52px;cursor:pointer"><span class="lb">${l}</span><span class="v">${i===0?'New':'Done'}</span>${ico('next',16)}</div>`).join('');
+const eyebrow='font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--sec)';
+const studyW=(left)=>`<div class="oc" style="position:absolute;left:${left}px;right:44px;top:28px"><div class="m-h1">Study</div><div class="m-card" style="margin-top:22px;padding:16px 18px;display:flex;align-items:center;gap:14px"><div><div style="${eyebrow}">LAST OPENED</div><div style="font-size:18px;font-weight:600;margin-top:2px">Fractions and decimals</div><div class="m-sub">Numbers and Operations</div></div><span class="m-btn" style="margin-left:auto">Resume</span></div><div class="sub-h">Numbers and Operations</div><div class="m-card">${lrows}</div></div>`;
+const lessonText=lorem.map(t=>`<p class="m-p">${t}</p>`).join('');
+const lessonW=`<div style="position:absolute;left:0;right:0;top:0;height:4px;background:var(--hair)"><i style="display:block;height:100%;width:8%;background:var(--accf)"></i></div><div style="position:absolute;left:0;right:0;top:4px;height:52px;display:flex;align-items:center;padding:0 28px;gap:12px"><span class="back">${ico('chev',20,2)}Study</span><span class="m-sub" style="margin-left:auto">1 of 12</span></div><div style="position:absolute;top:80px;left:0;right:0;display:flex;justify-content:center;gap:40px;padding:0 40px"><div style="width:190px;padding-top:6px"><div class="m-sub" style="font-weight:600;margin-bottom:8px">In this lesson</div><div style="color:var(--acc);font-weight:600;margin-bottom:6px">Core concept</div><div style="color:var(--sec);margin-bottom:6px">Worked example</div><div style="color:var(--sec)">Try it</div></div><div style="width:640px"><div class="m-h1" style="font-size:36px">Place value and rounding</div><div style="${eyebrow};margin:26px 0 8px">CORE CONCEPT</div>${lessonText}</div></div>`;
+const studyP=`<div style="position:absolute;inset:0;padding-top:64px"><div class="p-title">Study</div><div style="padding:18px 16px 0"><div class="m-card" style="padding:14px 16px"><div style="${eyebrow}">LAST OPENED</div><div style="font-size:17px;font-weight:600;margin-top:2px">Fractions and decimals</div></div><div class="sub-h">Numbers and Operations</div><div class="m-card">${lrows}</div></div></div>${tabbar(1)}`;
+const lessonP=`<div style="position:absolute;left:0;right:0;top:0;height:4px;background:var(--hair)"><i style="display:block;height:100%;width:8%;background:var(--accf)"></i></div><div style="position:absolute;left:0;right:0;top:54px;height:46px;display:flex;align-items:center;padding:0 12px"><span class="back">${ico('chev',22,2)}Study</span><span class="m-sub" style="margin-left:auto;padding-right:8px">1 of 12</span></div><div style="position:absolute;left:0;right:0;top:116px;padding:0 20px"><div class="m-h1" style="font-size:30px">Place value and rounding</div><div style="${eyebrow};margin:22px 0 8px">CORE CONCEPT</div>${lessonText}</div>`;
+
+let s3dev='wide';
+function s3(){
+  const root=$('#s3-body');
+  root.textContent='';
+  const wide=s3dev==='wide';
+  const W=wide?1000:390;
+  const device=wide?'wide web':'phone';
+  function build(v){
+    const ctx={slow:false};
+    const {fit,stage}=mkStage(wide?'wide':'phone');
+    const old=h('div',{class:'layer',html:wide?sidebar(1)+studyW(274):studyP});
+    const nw=h('div',{class:'layer',html:wide?lessonW:lessonP});
+    stage.append(old,nw);
+    const sb=$('.m-side',old), oc=$('.oc',old);
+    const set=(el,tx,ty,op)=>{ el.style.transform=`translate(${tx}px,${ty}px)`; if(op!=null) el.style.opacity=op; };
+    let render,dur,plot;
+    if(v==='cur'){
+      render=(u,dir)=>{
+        const f=dir>0?CV.easeOutCubic.fn:CV.easeInCubic.fn, e=f(u);
+        set(nw,(1-e)*W,0,1);
+        set(old,-.34*W*e,0,1-.75*u);
+        if(wide){ const on=dir>0?u===0:u<1; sb.style.display=on?'':'none'; oc.style.left=(on?274:44)+'px'; }
+      };
+      dur=380; plot=CV.easeOutCubic.fn;
+    } else if(v==='rise'){
+      render=(u)=>{ const e=CV.shared.fn(u); set(nw,0,(1-e)*24,e); set(old,0,0,1); };
+      dur=320; plot=CV.shared.fn;
+    } else if(v==='short'){
+      render=(u)=>{ const e=CV.shared.fn(u); set(nw,(1-e)*.15*W,0,e); set(old,-.04*W*e,0,1-.3*e); };
+      dur=320; plot=CV.shared.fn;
+    } else {
+      render=(u)=>{ const e=CV.shared.fn(u); set(nw,(1-e)*W,0,1); set(old,-.1*W*e,0,1); };
+      dur=320; plot=CV.shared.fn;
+    }
+    const anim=new Anim({dur,render},ctx);
+    $$('.lrow',old).forEach(r=>r.addEventListener('click',()=>anim.replay()));
+    $$('.back',nw).forEach(r=>r.addEventListener('click',()=>anim.reverse()));
+    const sbTxt=wide?'sidebar':'tab bar';
+    const px=(f)=>Math.round(f*W)+' px';
+    const cfg={
+      cur:{tag:'Current, from the code',title:'Full-width slide, old page dims',
+        blurb:wide?'The lesson slides across the whole screen. The page behind moves left and fades almost out. The sidebar disappears on the first frame and the page behind widens.':'The lesson slides across the whole screen. The page behind, with its tab bar, moves left and fades almost out.',
+        spec:[['Duration','380 ms (back 380 ms)'],['Curve',crv(CV.easeOutCubic)+' in, '+crv(CV.easeInCubic)+' back'],['Moves','Lesson: full width from the right. Old page: 34% left, fades to 25% (linear).'],['The '+sbTxt,wide?'Vanishes at once on the first frame':'Moves and fades with the old page']],
+        cost:['watch','A whole old page fades while a second full page slides.']},
+      rise:{tag:'Option A',title:'Rise and settle, page stays',rec:true,
+        blurb:wide?'The lesson fades in while rising 24 px. The study page does not move or fade. The sidebar stays and is covered by the lesson, so nothing jumps.':'The lesson fades in while rising 24 px. The study page and its tab bar do not move.',
+        spec:[['Duration','320 ms (back 320 ms)'],['Curve',crv(CV.shared)],['Moves','Lesson: rises 24 px and fades in. Old page: nothing.'],['The '+sbTxt,wide?'Stays, then the lesson covers it':'Stays, then the lesson covers it']],
+        cost:['watch','One fade on a full page. If item 16 shows dropped frames, use option C on phone.']},
+      short:{tag:'Option B',title:'Short slide with fade',
+        blurb:'A forward feel without the sweep. The lesson slides '+px(.15)+' while it fades in. The page behind drifts '+px(.04)+' and dims to 70%.',
+        spec:[['Duration','320 ms (back 320 ms)'],['Curve',crv(CV.shared)],['Moves','Lesson: '+px(.15)+' from the right, fades in. Old page: '+px(.04)+' left, dims to 70%.'],['The '+sbTxt,'Moves and dims with the old page']],
+        cost:['watch','Two fades on big layers at once.']},
+      plain:{tag:'Option C',title:'Slide only, nothing fades',
+        blurb:'Keeps the full right-to-left slide, but shorter and softer. The page behind drifts '+px(.1)+' and never fades. No opacity changes anywhere.',
+        spec:[['Duration','320 ms (back 320 ms)'],['Curve',crv(CV.shared)],['Moves','Lesson: full width from the right. Old page: '+px(.1)+' left, no fade.'],['The '+sbTxt,'Moves with the old page']],
+        cost:['low','Movement only. The cheapest of the four.']}
+    }[v];
+    return vcard({...cfg,fit,anim,ctx,plot,back:'Back to Study'});
+  }
+  ['cur','rise','short','plain'].forEach(v=>root.append(build(v)));
+}
+
+/* ---------- item 9: pull up for the next lesson ---------- */
+const POPT={
+  A:{name:'Option A: Pull and let go',rec:true,
+    sum:'Distance pull with resistance. Same feel as the phone: the ring fills, the arrow pops, and you let go.',
+    rows:[
+      ['Ring is full at','Pull of 120. About 4 mouse notches (30 each) or a firm 240 px trackpad pull.'],
+      ['It opens','When you stop for 0.28 s after the ring is full.'],
+      ['One notch','Fills 25%, drops back after 0.45 s. Cannot open.'],
+      ['Momentum','Ignored. Only a scroll that begins after a 0.15 s rest at the end can pull.'],
+      ['Keyboard','Right arrow opens at once (as today). Nothing else.'],
+      ['Fallback','Next lesson card stays. A click opens.']
+    ],
+    cost:'Needs one stillness timer. A slow spinner might stop mid-pull, which only drops the ring back.',
+    lab:['Next lesson','Keep going','Let go to open'],
+    lad:[
+      {n:'Reading',f:0,t:'Next lesson',d:'Not at the end. The card is as it is today.'},
+      {n:'One notch',f:.25,t:'Next lesson',d:'Ring shows 25%, returns after 0.45 s. Nothing opens.'},
+      {n:'Pulling',f:.5,t:'Keep going',d:'The ring follows the pull and the lesson moves up with it.'},
+      {n:'Nearly',f:.85,t:'Keep going',d:'Same, close to full.'},
+      {n:'Armed',f:1,a:1,t:'Let go to open',d:'The arrow pops. Stop scrolling for 0.28 s.'},
+      {n:'Opening',f:1,a:1,t:'',d:'Next lesson rises, 480 ms, same as the phone.'},
+      {n:'Momentum',f:0,t:'Next lesson',d:'A scroll that began before the end changes nothing, even if it runs on.'}
+    ]},
+  B:{name:'Option B: Hold to go',
+    sum:'Time, not distance. Keep scrolling at the end, or hold the down arrow, for 0.7 s and it opens by itself.',
+    rows:[
+      ['Ring is full at','0.7 s of steady scrolling, or 0.7 s holding the down arrow.'],
+      ['It opens','The moment the ring is full. No need to let go.'],
+      ['One notch','Fills 23% in 0.16 s, then drains in 0.19 s. Cannot open.'],
+      ['Momentum','Ignored, same rule as A.'],
+      ['Keyboard','Right arrow opens at once. Down arrow held at the end fills the ring.'],
+      ['Fallback','Next lesson card stays. A click opens.']
+    ],
+    cost:'No stillness wait, but a plain mouse wheel is hard to keep spinning for 0.7 s. Best for trackpads and keys.',
+    lab:['Next lesson','Keep holding','Opening'],
+    lad:[
+      {n:'Reading',f:0,t:'Next lesson',d:'Not at the end.'},
+      {n:'One notch',f:.23,t:'Keep holding',d:'Ring fills 23% and drains in 0.19 s.'},
+      {n:'Holding',f:.45,t:'Keep holding',d:'Ring fills with time while you keep scrolling or holding the down arrow.'},
+      {n:'Full',f:1,a:1,t:'Opening',d:'Opens at once.'},
+      {n:'Stopped early',f:.3,t:'Next lesson',d:'You stopped. The ring drains in 0.19 s.'},
+      {n:'Momentum',f:0,t:'Next lesson',d:'A scroll that began before the end changes nothing.'}
+    ]},
+  C:{name:'Option C: Hint only',
+    sum:'The wheel never opens anything. It shows a short hint. Keys and clicks open.',
+    rows:[
+      ['Wheel at the end','Ring rises to 35% with a hint, then returns. Never opens.'],
+      ['It opens','Right arrow, Enter on the card, or a click.'],
+      ['One notch','Same hint as any pull.'],
+      ['Momentum','Ignored, same rule as A.'],
+      ['Keyboard','Right arrow opens at once (as today).'],
+      ['Fallback','This is the fallback, with a hint added.']
+    ],
+    cost:'Safest. It does not give the phone\'s pull feel, so it only partly answers "continuity".',
+    lab:['Next lesson','Press the right arrow or click','Press the right arrow or click'],
+    lad:[
+      {n:'Reading',f:0,t:'Next lesson',d:'Not at the end.'},
+      {n:'Pulling',f:.35,t:'Press the right arrow or click',d:'Ring rises to 35% and stops.'},
+      {n:'Released',f:0,t:'Next lesson',d:'Ring returns in 0.19 s.'},
+      {n:'Right arrow',f:1,a:1,t:'',d:'Opens at once.'},
+      {n:'Momentum',f:0,t:'Next lesson',d:'Ignored.'}
+    ]}
+};
+const ringSVG=(f,armed)=>`<svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" stroke="var(--hair)" stroke-width="2.5"/><circle cx="22" cy="22" r="19" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="${(f*119.38).toFixed(1)} 119.38" transform="rotate(-90 22 22)"/><g transform="translate(12 12) scale(${armed?.9:.8})" style="color:${armed?'var(--acc)':'var(--sec)'}">${ico('arrow',24,2.2)}</g></svg>`;
+
+function s4(){
+  const root=$('#s4-body');
+  const ctx={slow:false};
+  const PH=420;
+  let opt='A';
+  const P={lift:0,fill:0,armed:false,going:false,lastWheel:0,gEnd:false,gLogged:false,idle:0,holding:false,holdStart:0,lastFeed:0,keyDown:false,loop:0,tw:0,sims:[],reset:0};
+
+  /* option chooser */
+  const chooser=h('div',{class:'opts',style:'grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-bottom:14px'});
+  Object.keys(POPT).forEach(k=>{
+    const o=POPT[k];
+    const inp=h('input',{type:'radio',name:'popt',value:k});
+    if(k===opt) inp.checked=true;
+    inp.addEventListener('change',()=>{ opt=k; resetAll(); describe(); });
+    chooser.append(h('label',{},inp,h('b',{},o.name,o.rec?' (Recommended)':''),h('small',{},o.sum)));
+  });
+
+  /* pane */
+  const article=['A digit has a value that depends on where it sits. In 3,482, the 4 means four hundreds.','To round a number, look at the digit to its right. If it is 5 or more, round up. If it is 4 or less, keep the digit.','Check your answer by asking if it is close to the number you started with.','Rounding 3,482 to the nearest hundred gives 3,500. The 8 tells us to round up.','Rounding 3,449 to the nearest hundred gives 3,400. The 4 tells us to stay.','Try it with your own numbers. Round 7,615 to the nearest ten, then to the nearest hundred.'].map(t=>`<p class="m-p">${t}</p>`).join('');
+  const pane=h('div',{class:'pp'});
+  pane.innerHTML=`<div class="mini-bg"></div><div class="pp-content"><div class="pp-scroll" tabindex="0" aria-label="Lesson preview. Use your wheel, trackpad or keys."><div class="m-h1" style="font-size:32px">Place value and rounding</div><div style="${eyebrow};margin:22px 0 10px">CORE CONCEPT</div>${article}<div class="nx" role="button" tabindex="0" aria-label="Next lesson: Fractions and decimals"><div style="flex:1;min-width:0"><div class="eb"><span class="e0">Next lesson</span><span class="e1" style="opacity:0"></span><span class="e2" style="opacity:0"></span></div><div class="tt">Fractions and decimals</div><div class="m-sub">Numbers and Operations</div></div><span class="kh">&rarr;</span><div class="cir"><svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="trk" cx="28" cy="28" r="25" fill="none" stroke="var(--hair)" stroke-width="2.5" opacity="0"/><circle class="arc" cx="28" cy="28" r="25" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="0 157.08" transform="rotate(-90 28 28)"/></svg><div class="c">${ico('arrowR',22,2.2)}</div></div></div></div></div><div class="pp-in"><div style="${eyebrow};margin-bottom:6px">NEXT LESSON</div><div class="m-h1" style="font-size:32px">Fractions and decimals</div><p class="m-p" style="margin-top:18px">A fraction names a part of a whole. The bottom number says how many equal parts. The top number says how many you have.</p></div>`;
+  const content=$('.pp-content',pane), scroller=$('.pp-scroll',pane), incoming=$('.pp-in',pane), nx=$('.nx',pane);
+  const arc=$('.arc',pane), trk=$('.trk',pane), cir=$('.cir',pane), e0=$('.e0',pane), e1=$('.e1',pane), e2=$('.e2',pane);
+  incoming.style.transform=`translateY(${PH}px)`;
+
+  /* readouts */
+  const stTitle=h('b',{},'Reading'), stSub=h('div',{style:'color:var(--p-mut)'},'Scroll the lesson.');
+  const meter=h('i'); const state=h('div',{class:'state'},stTitle,stSub,h('div',{class:'meter'},meter));
+  const logEl=h('ul',{class:'log'});
+  const note=(t)=>{ const li=h('li',{},t); logEl.prepend(li); while(logEl.children.length>8) logEl.lastChild.remove(); };
+  const specBox=h('div',{});
+  const ladder=h('div',{class:'ladder'});
+
+  function describe(){
+    const o=POPT[opt];
+    specBox.textContent='';
+    specBox.append(h('h3',{style:'margin:0 0 8px;font-size:15px'},o.name),spec(o.rows.map(r=>[r[0],r[1]])),h('div',{class:'cost',style:'margin-top:10px'},h('b',{},'Cost. '),o.cost));
+    e1.textContent=o.lab[1]; e2.textContent=o.lab[2];
+    ladder.textContent='';
+    o.lad.forEach(s=>ladder.append(h('div',{class:'lad'},h('div',{class:'lt'},h('span',{class:'rg',html:ringSVG(s.f,s.a)}),h('div',{},h('b',{},s.n),s.t||'(card rises away)')),s.d)));
+  }
+
+  /* state painting */
+  const H=PH;
+  function fraction(){ return opt==='A'?clamp(P.lift/120):opt==='B'?clamp(P.fill):clamp(P.lift/114); }
+  function paint(){
+    const f=fraction();
+    arc.setAttribute('stroke-dasharray',`${(f*157.08).toFixed(1)} 157.08`);
+    trk.setAttribute('opacity',f>0?1:0);
+    const lab=P.armed||(opt==='B'&&f>=1)?2:f>0?1:0;
+    e0.style.opacity=lab===0?1:0; e1.style.opacity=lab===1?1:0; e2.style.opacity=lab===2?1:0;
+    const y=opt==='B'?P.fill*60:P.lift;
+    if(!P.going) content.style.transform=`translateY(${-y}px)`;
+    meter.style.width=(f*100).toFixed(0)+'%';
+    let t,s;
+    if(P.going){ t='Opening the next lesson'; s=''; }
+    else if(f===0){ const end=atEnd(); t=end?'At the end, resting':'Reading'; s=end?'The Next lesson card is in view.':'Scroll the lesson.'; }
+    else if(P.armed){ t='Armed'; s='Stop scrolling to open.'; }
+    else if(opt==='C'){ t='Hint shown'; s='This option never opens from the wheel.'; }
+    else t='Pulling '+Math.round(f*100)+'%';
+    stTitle.textContent=t; if(s!==undefined) stSub.textContent=s;
+  }
+  const atEnd=()=>scroller.scrollTop+scroller.clientHeight>=scroller.scrollHeight-2;
+  const pop=()=>{ if(reduced()||!cir.animate) return; cir.animate([{transform:'scale(1)'},{transform:'scale(1.2)',offset:.35},{transform:'scale(1)'}],{duration:260*(ctx.slow?4:1),easing:'ease-out'}); };
+
+  /* tweening the lift back to zero or into the open */
+  function tween(ms,step,done){
+    cancelAnimationFrame(P.tw);
+    if(reduced()||ms===0){ step(1); done&&done(); return; }
+    const t0=performance.now(), D=ms*(ctx.slow?4:1);
+    const f=(now)=>{ const k=Math.min(1,(now-t0)/D); step(k); if(k<1) P.tw=requestAnimationFrame(f); else done&&done(); };
+    P.tw=requestAnimationFrame(f);
+  }
+  function spring(){
+    const l0=P.lift, f0=P.fill;
+    P.armed=false;
+    tween(190,k=>{ const e=CV.ease.fn(k); P.lift=l0*(1-e); P.fill=f0*(1-e); paint(); },()=>{ P.lift=0; P.fill=0; paint(); });
+  }
+  function commit(how){
+    if(P.going) return;
+    P.going=true; clearTimeout(P.idle); cancelAnimationFrame(P.loop);
+    note('Opened by '+how+'.');
+    const from=opt==='B'?P.fill*60:P.lift;
+    tween(480,k=>{
+      const f=CV.slideA.fn(k);
+      content.style.transform=`translateY(${-(from+H*f)}px)`;
+      incoming.style.transform=`translateY(${(1-f)*H}px)`;
+    },()=>{ P.lift=0; P.fill=0; P.armed=false; paint(); P.reset=setTimeout(resetAll,1600); });
+    paint();
+  }
+  function resetAll(){
+    clearTimeout(P.idle); clearTimeout(P.reset); cancelAnimationFrame(P.loop); cancelAnimationFrame(P.tw);
+    P.sims.forEach(clearTimeout); P.sims=[];
+    Object.assign(P,{lift:0,fill:0,armed:false,going:false,holding:false,keyDown:false,gEnd:false,gLogged:false,lastWheel:0});
+    scroller.scrollTop=0; content.style.transform='translateY(0)'; incoming.style.transform=`translateY(${H}px)`;
+    paint();
+  }
+
+  /* feeding the pull */
+  function feed(dy){
+    const now=performance.now();
+    P.gLogged=false;
+    if(opt==='A'||opt==='C'){
+      const cap=opt==='A'?150:40;
+      P.lift=Math.min(cap,P.lift+Math.min(Math.abs(dy),60)*.5);
+      const was=P.armed;
+      P.armed=opt==='A'&&P.lift>=120;
+      if(P.armed&&!was) pop();
+      paint();
+      clearTimeout(P.idle);
+      P.idle=setTimeout(()=>{ if(P.going) return; if(P.armed) commit('letting go'); else spring(); },P.armed?280:450);
+    } else {
+      P.lastFeed=now;
+      if(!P.holding){ P.holding=true; P.holdStart=now-P.fill*700; cancelAnimationFrame(P.tw); runLoop(); }
+    }
+  }
+  function runLoop(){
+    cancelAnimationFrame(P.loop);
+    let last=performance.now();
+    const f=(now)=>{
+      if(P.going) return;
+      const dt=now-last; last=now;
+      const alive=(P.keyDown||now-P.lastFeed<160)&&atEnd();
+      if(alive){
+        P.fill=Math.min(1,(now-P.holdStart)/700);
+        if(P.fill>=1&&!P.armed){ P.armed=true; pop(); paint(); commit('holding'); return; }
+      } else {
+        P.holding=false;
+        P.fill=Math.max(0,P.fill-dt/(reduced()?1:190));
+      }
+      paint();
+      if(alive||P.fill>0) P.loop=requestAnimationFrame(f); else paint();
+    };
+    P.loop=requestAnimationFrame(f);
+  }
+  function relax(dy){
+    if(opt==='B') return;
+    P.lift=Math.max(0,P.lift-Math.min(Math.abs(dy),60)*.5);
+    P.armed=opt==='A'&&P.lift>=120;
+    paint();
+    clearTimeout(P.idle);
+    P.idle=setTimeout(()=>{ if(P.going) return; if(P.armed) commit('letting go'); else spring(); },P.armed?280:450);
+  }
+
+  /* one entry point for real and test wheel input; returns true when it consumed the event */
+  function onWheel(dy,native){
+    if(P.going) return true;
+    const now=performance.now();
+    const fresh=now-P.lastWheel>150;
+    P.lastWheel=now;
+    const endBefore=atEnd();
+    if(fresh){ P.gEnd=endBefore; P.gLogged=false; }
+    if(!endBefore){
+      if(!native) scroller.scrollTop+=dy;
+      if(P.lift>0&&dy<0) relax(dy);
+      paint();
+      return false;
+    }
+    if(dy<0){
+      if(P.lift>0||P.fill>0){ relax(dy); return true; }
+      if(!native) scroller.scrollTop+=dy;
+      paint();
+      return false;
+    }
+    if(!P.gEnd){
+      if(!P.gLogged){ note('Ignored: this scroll began before the end.'); P.gLogged=true; }
+      return true;
+    }
+    feed(dy);
+    return true;
+  }
+  scroller.addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
+    let dy=e.deltaY;
+    if(e.deltaMode===1) dy*=16; else if(e.deltaMode===2) dy*=scroller.clientHeight;
+    if(onWheel(dy,true)) e.preventDefault();
+  },{passive:false});
+  scroller.addEventListener('scroll',()=>{ if(!P.going&&P.lift===0&&P.fill===0) paint(); });
+  pane.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'){ e.preventDefault(); commit('the right arrow'); }
+    else if(e.key==='ArrowDown'&&opt==='B'&&!e.repeat&&atEnd()&&!P.going){ e.preventDefault(); P.keyDown=true; P.lastFeed=performance.now(); if(!P.holding){ P.holding=true; P.holdStart=performance.now()-P.fill*700; runLoop(); } }
+    else if((e.key==='Enter'||e.key===' ')&&e.target===nx){ e.preventDefault(); commit('the keyboard'); }
+  });
+  pane.addEventListener('keyup',e=>{ if(e.key==='ArrowDown') P.keyDown=false; });
+  nx.addEventListener('click',()=>commit('a click'));
+
+  /* test input */
+  const later=(fn,ms)=>{ P.sims.push(setTimeout(fn,ms)); };
+  function stream(n,gap,fn,t0){ for(let i=0;i<n;i++) later(()=>onWheel(fn(i),false),t0+i*gap); }
+  function prep(){ resetAll(); scroller.scrollTop=scroller.scrollHeight; paint(); return 260; }
+  const sims={
+    notch:()=>{ const t=prep(); note('Test: one mouse notch at the end.'); later(()=>onWheel(100,false),t); },
+    notches:()=>{ const t=prep(); note('Test: 5 mouse notches, 220 ms apart.'); stream(5,220,()=>100,t); },
+    track:()=>{ const t=prep(); note('Test: trackpad pull for 1 second.'); stream(62,16,i=>i<48?14:Math.max(2,14-(i-47)),t); },
+    momentum:()=>{ resetAll(); scroller.scrollTop=scroller.scrollHeight-scroller.clientHeight-700; note('Test: trackpad momentum that runs into the end.'); stream(130,16,i=>Math.max(2,60*Math.pow(.95,i)),50); },
+    end:()=>{ resetAll(); scroller.scrollTop=scroller.scrollHeight; paint(); note('Moved to the end.'); }
+  };
+  const btn=(label,fn,cls)=>h('button',{class:'btn'+(cls?' '+cls:''),type:'button',onclick:fn},label);
+  const simBar=h('div',{class:'sims'},btn('Replay: trackpad pull',()=>sims.track(),'pri'),btn('One notch',sims.notch),btn('5 notches',sims.notches),btn('Momentum into the end',sims.momentum),btn('Go to the end',sims.end),btn('Reset',()=>{ resetAll(); note('Reset.'); }));
+  const slow=h('input',{type:'checkbox'}); slow.addEventListener('change',()=>{ ctx.slow=slow.checked; });
+  simBar.append(h('label',{class:'chk'},slow,'Slow motion 4x (spring back, pop, opening)'),h('span',{class:'rmnote'},'Reduced motion is on: the ring still follows input, but the spring back, pop and opening jump.'));
+
+  const left=h('div',{},pane,simBar,h('p',{style:'font-size:12.5px;color:var(--p-mut);margin:8px 0 0'},'Click the lesson once to focus it. Right arrow opens. In option B, hold the down arrow at the end. Real wheel and trackpad input works here. At the end of the lesson the pane keeps the wheel, so move the pointer off it to scroll the page again.'));
+  const right=h('div',{class:'pull-r'},state,specBox,h('div',{},h('div',{style:'font-size:12.5px;font-weight:700;color:var(--p-mut);margin-bottom:4px'},'Event log'),logEl));
+  const kinds=h('p',{class:'lead',style:'margin-top:16px'},'Every option shares two guards. A pull can only start from a scroll that began after a 0.15 s rest at the end. The ring and hint sit on the existing Next lesson card, so the card stays the fallback. Timer values are starting points to tune on real devices.');
+  root.append(chooser,h('div',{class:'pull'},left,right),h('h3',{style:'margin:22px 0 0;font-size:16px'},'The ring at each stage'),ladder,kinds);
+  describe(); resetAll();
+}
+
+/* ---------- item 17: motion set ---------- */
+const AUDIT=[
+  ['Phone tab bar: selecting a tab','Pill tint, icon color and label weight change in one frame.','miss','Pill slides, color fades (demo 1)'],
+  ['Phone tab bar: the screen behind','Tabs sit in a stack. Switching swaps the screen in one frame.','miss','Keep it instant. A fade here is a full-screen fade (demo 2)'],
+  ['Wide sidebar: selecting a page','Row color fades 150 ms. No moving marker. The page swaps in one frame.','part','Sliding marker (demo 3)'],
+  ['Row selection (Settings, lists)','Tint fades 150 ms. The label turns bold and the value changes color in the same frame.','part','Tint and value color fade together, no weight change (demo 4)'],
+  ['Chips (exam picker filters)','Fill fades with the Material default (about 200 ms). The press shrink exists only in a native phone build. The web build has none.','part','Small press shrink and shared fill time (demo 5)'],
+  ['Checkbox and radio marks','Mark scales and fades in, 220 ms.','has','No change'],
+  ['Switches','Thumb 350 ms with overshoot, track color 250 ms.','has','No change (demo 6 shows it)'],
+  ['Segmented controls','Phone: the selected pill jumps. Wide: 150 ms color fade. Only the Bookmarks sort switch slides (300 ms). 8 of 9 uses do not slide.','miss','Sliding thumb (demo 7)'],
+  ['Tile, card and button presses','The web build, phone web included, has no press feedback: the ripple is off and the button shrink is native only.','miss','Press scale (demo 8)'],
+  ['Switching between related views (Day and Week, Practice modes, Bookmarks lists)','Content swaps in one frame.','miss','Directional fade and slide of the changing block (demo 9)'],
+  ['Opening a lesson, a legal page, a Settings detail','Default page slide or the reader slide.','miss','Items 5, 1 and 15 above'],
+  ['Onboarding steps, sheets, toasts, search, accordions, results','Have motion already.','has','No change']
+];
+const DUR=[
+  ['tap','120 ms','Press down on tiles, chips and buttons','shared ease'],
+  ['quick','160 ms','Color and tint fades on rows, chips, labels','ease'],
+  ['base','240 ms','Sliding markers, thumbs, view changes, detail panes, the legal fade','shared ease (movement) or ease (fade)'],
+  ['page','320 ms','Opening a lesson','shared ease']
+];
+
+function demoCard(o){
+  const ctx=o.ctx;
+  const cells=o.cells;
+  const grid=h('div',{class:'dgrid'});
+  cells.forEach(c=>{
+    const cap=h('div',{class:'cap'},c.cap,c.badge?h('em',{class:c.badge[0]},c.badge[1]):null);
+    grid.append(h('div',{class:'dcell'},cap,c.el));
+  });
+  const tb=h('div',{class:'tb'});
+  tb.append(h('button',{class:'btn pri',type:'button',onclick:()=>cells.forEach(c=>c.play&&c.play())},'Replay'));
+  const slow=h('input',{type:'checkbox'}); slow.addEventListener('change',()=>{ ctx.slow=slow.checked; });
+  tb.append(h('label',{class:'chk'},slow,'Slow motion 4x'));
+  tb.append(h('span',{class:'rmnote'},'Reduced motion is on: changes jump to the last frame.'));
+  const right=h('div',{class:'vc-r'},spec(o.spec),cost(o.cost));
+  const card=h('div',{class:'cdemo'},h('h3',{},o.title),h('div',{class:'row2'},h('div',{},grid,tb),right));
+  card.cells=cells;
+  return card;
+}
+function cellAnim(ctx,dur,render){ return new Anim({dur,render},ctx); }
+
+/* demo 1 and 3: tab bar and sidebar selection */
+function tabCell(mode,ctx){
+  const el=h('div',{class:'mini',style:'height:104px'});
+  const bar=h('div',{class:'p-tabbar',style:'left:12px;right:12px;bottom:16px'});
+  const pill=h('div',{style:'position:absolute;left:0;top:6px;bottom:6px;border-radius:99px;background:var(--tint)'});
+  if(mode==='pill') bar.append(pill);
+  const names=['Home','Study','Quiz','Settings'], ik=['home','study','quiz','settings'];
+  const tabs=names.map((l,i)=>h('div',{class:'p-tab',style:'position:relative;cursor:pointer',html:ico(ik[i],22)+`<span>${l}</span>`}));
+  tabs.forEach(t=>bar.append(t)); el.append(bar);
+  const S={from:0,to:0};
+  const anim=cellAnim(ctx,240,(u)=>{
+    const ms=u*240;
+    const f=mode==='pill'?CV.ease.fn(ph(ms,0,160)):(u>0?1:0);
+    tabs.forEach((t,i)=>{
+      const p=(i===S.from?1-f:0)+(i===S.to?f:0);
+      t.style.color=mix(p);
+      if(mode==='today') t.style.background=(u>0?i===S.to:i===S.from)?'var(--tint)':'transparent';
+    });
+    if(mode==='pill'&&el.isConnected){
+      const a=tabs[S.from], b=tabs[S.to], t=CV.shared.fn(ph(ms,0,240));
+      pill.style.width=lerp(a.offsetWidth,b.offsetWidth,t)+'px';
+      pill.style.transform=`translateX(${lerp(a.offsetLeft,b.offsetLeft,t)}px)`;
+    }
+  });
+  const go=(i)=>{ S.from=S.to; S.to=i; anim.replay(); };
+  tabs.forEach((t,i)=>t.addEventListener('click',()=>go(i)));
+  return {el,anim,play:()=>go((S.to+2)%4)};
+}
+function sideCell(mode,ctx){
+  const el=h('div',{class:'mini',style:'height:206px'});
+  const names=['Home','Study','Quiz','Settings'], ik=['home','study','quiz','settings'];
+  const mk=h('div',{style:'position:absolute;left:8px;right:8px;top:0;height:42px;border-radius:10px;background:var(--tint)'});
+  if(mode==='slide') el.append(mk);
+  const items=names.map((l,i)=>h('div',{class:'m-nav',style:`position:absolute;left:8px;right:8px;top:${8+i*46}px;cursor:pointer`,html:`<i style="position:absolute;inset:0;border-radius:10px;background:var(--tint);opacity:0"></i><span style="position:relative;display:flex;gap:10px;align-items:center">${ico(ik[i])}${l}</span>`}));
+  items.forEach(n=>el.append(n));
+  const S={from:0,to:0};
+  const anim=cellAnim(ctx,mode==='slide'?240:150,(u)=>{
+    const D=mode==='slide'?240:150, ms=u*D;
+    const f=mode==='slide'?CV.ease.fn(ph(ms,0,160)):CV.fos.fn(ph(ms,0,150));
+    items.forEach((n,i)=>{
+      const p=(i===S.from?1-f:0)+(i===S.to?f:0);
+      n.style.color=mix(p);
+      n.firstChild.style.opacity=mode==='slide'?0:p;
+    });
+    if(mode==='slide'){ const t=CV.shared.fn(ph(ms,0,240)); mk.style.top=(8+lerp(S.from,S.to,t)*46)+'px'; }
+  });
+  const go=(i)=>{ S.from=S.to; S.to=i; anim.replay(); };
+  items.forEach((n,i)=>n.addEventListener('click',()=>go(i)));
+  return {el,anim,play:()=>go((S.to+1)%4)};
+}
+/* demo 2: tab content */
+function contentCell(mode,ctx){
+  const el=h('div',{class:'mini',style:'height:150px'});
+  const pageA=h('div',{style:'position:absolute;inset:0;padding:14px',html:`<div style="font-weight:700;font-size:20px;margin-bottom:10px">Home</div><div class="m-card" style="padding:12px 14px">Today: 12 questions</div><div class="m-card" style="padding:12px 14px;margin-top:10px">Streak: 5 days</div>`});
+  const pageB=h('div',{style:'position:absolute;inset:0;padding:14px;background:var(--bg)',html:`<div style="font-weight:700;font-size:20px;margin-bottom:10px">Study</div><div class="m-card" style="padding:12px 14px">Last opened: Fractions</div><div class="m-card" style="padding:12px 14px;margin-top:10px">Numbers and Operations</div>`});
+  el.append(pageA,pageB);
+  const S={from:0,to:0};
+  const pages=[pageA,pageB];
+  const D=mode==='fade'?160:0;
+  const anim=cellAnim(ctx,Math.max(D,1),(u)=>{
+    const f=mode==='fade'?CV.ease.fn(u):(u>0?1:0);
+    pages.forEach((p,i)=>{ const o=(i===S.from?1-f:0)+(i===S.to?f:0); p.style.opacity=o; p.style.visibility=o>0?'visible':'hidden'; });
+  });
+  return {el,anim,play:()=>{ S.from=S.to; S.to=1-S.to; anim.replay(); }};
+}
+/* demo 4: row selection */
+function rowCell(mode,ctx){
+  const el=h('div',{class:'mini pad',style:'height:176px'});
+  const rows=['Pantas Pro','Practice','Appearance'].map((n,i)=>h('div',{class:'m-row',style:'cursor:pointer;height:46px',html:`<i class="rb"></i><span class="lb">${n}</span><span class="v">${['Free','10 questions','Automatic'][i]}</span>`}));
+  el.append(h('div',{class:'m-card'},...rows));
+  const S={from:0,to:0};
+  const D=mode==='today'?150:160;
+  const anim=cellAnim(ctx,D,(u)=>{
+    const f=mode==='today'?CV.fos.fn(u):CV.ease.fn(u);
+    rows.forEach((r,i)=>{
+      const p=(i===S.from?1-f:0)+(i===S.to?f:0);
+      r.querySelector('.rb').style.opacity=p;
+      r.querySelector('.v').style.color=mix(p);
+      const bold=mode==='today'?((u>0?i===S.to:i===S.from)):false;
+      r.querySelector('.lb').style.fontWeight=bold?'600':'400';
+    });
+  });
+  const go=(i)=>{ S.from=S.to; S.to=i; anim.replay(); };
+  rows.forEach((r,i)=>r.addEventListener('click',()=>go(i)));
+  return {el,anim,play:()=>go((S.to+1)%3)};
+}
+/* demo 5: chips */
+function chipCell(mode,ctx){
+  const el=h('div',{class:'mini pad',style:'height:96px;display:flex;align-items:center'});
+  const names=['All','Math','Language'];
+  const chips=names.map(n=>h('span',{class:'chip',style:'margin-right:8px'},n));
+  chips.forEach(c=>el.append(c));
+  const S={from:0,to:0};
+  const T=mode==='today'?{dn:0,up:0,fs:0,fe:200,D:200}:{dn:120,up:300,fs:120,fe:280,D:300};
+  const anim=cellAnim(ctx,T.D,(u)=>{
+    const ms=u*T.D;
+    const f=mode==='today'?CV.fos.fn(ph(ms,T.fs,T.fe)):CV.ease.fn(ph(ms,T.fs,T.fe));
+    const dn=ph(ms,0,T.dn), upk=ph(ms,T.dn,T.up);
+    const sc=mode==='today'?1:(1-.04*CV.shared.fn(dn)+.04*CV.shared.fn(upk));
+    chips.forEach((c,i)=>{
+      const p=(i===S.from?1-f:0)+(i===S.to?f:0);
+      c.style.background=`color-mix(in srgb, var(--tx) ${(p*100).toFixed(1)}%, var(--card))`;
+      c.style.color=`color-mix(in srgb, var(--card) ${(p*100).toFixed(1)}%, var(--tx))`;
+      c.style.boxShadow=`0 0 0 1px color-mix(in srgb, var(--hair) ${((1-p)*100).toFixed(1)}%, transparent)`;
+      c.style.transform=i===S.to&&S.to!==S.from?`scale(${sc})`:'none';
+    });
+  });
+  const go=(i)=>{ S.from=S.to; S.to=i; anim.replay(); };
+  chips.forEach((c,i)=>c.addEventListener('click',()=>go(i)));
+  return {el,anim,play:()=>go((S.to+1)%3)};
+}
+/* demo 6: switch (already built) */
+function switchCell(ctx){
+  const el=h('div',{class:'mini pad',style:'height:96px;display:flex;align-items:center'});
+  const trk=h('span',{class:'sw'},h('i'));
+  const thumb=trk.firstChild;
+  el.append(h('div',{class:'swrow',style:'width:100%'},h('span',{},'Show the timer'),trk));
+  let on=false;
+  const anim=cellAnim(ctx,350,(u)=>{
+    const ms=u*350;
+    const pos=CV.popC.fn(ph(ms,0,350)), col=CV.ease.fn(ph(ms,0,250));
+    const a=on?pos:1-pos, c=on?col:1-col;
+    thumb.style.transform=`translateX(${a*20}px)`;
+    trk.style.background=`color-mix(in srgb, var(--accf) ${(c*100).toFixed(1)}%, var(--hair))`;
+  });
+  const flip1=()=>{ on=!on; anim.replay(); };
+  trk.addEventListener('click',flip1);
+  anim.set(1,1);
+  return {el,anim,play:flip1};
+}
+/* demo 7: segmented control */
+function segCell(mode,ctx){
+  const el=h('div',{class:'mini pad',style:'height:80px;display:flex;align-items:center'});
+  const seg=h('div',{class:'m-seg',style:'width:100%'});
+  const th=h('i',{class:'th',style:'left:2px;width:calc((100% - 4px) / 3)'});
+  const spans=['Day','Week','Month'].map(n=>h('span',{style:'cursor:pointer'},n));
+  seg.append(th,...spans); el.append(seg);
+  const S={from:0,to:0};
+  const anim=cellAnim(ctx,mode==='today'?1:240,(u)=>{
+    const ms=u*240;
+    const t=mode==='today'?(u>0?1:0):CV.shared.fn(ph(ms,0,240));
+    const f=mode==='today'?(u>0?1:0):CV.ease.fn(ph(ms,0,160));
+    th.style.transform=`translateX(${lerp(S.from,S.to,t)*100}%)`;
+    spans.forEach((s,i)=>{ const p=(i===S.from?1-f:0)+(i===S.to?f:0); s.style.color=`color-mix(in srgb, var(--tx) ${(p*100).toFixed(1)}%, var(--sec))`; });
+  });
+  const go=(i)=>{ S.from=S.to; S.to=i; anim.replay(); };
+  spans.forEach((s,i)=>s.addEventListener('click',()=>go(i)));
+  return {el,anim,play:()=>go((S.to+1)%3)};
+}
+/* demo 8: tile press */
+function tileCell(mode,ctx){
+  const el=h('div',{class:'mini pad',style:'height:110px'});
+  const tile=h('div',{class:'tile',html:`<div style="font-weight:600;font-size:17px">Today's plan</div><div class="m-sub">12 questions, about 15 minutes</div>`});
+  el.append(tile);
+  const set=(sc,ms)=>{ tile.style.transition=reduced()||mode==='today'?'none':`transform ${ms*(ctx.slow?4:1)}ms ${CV.shared.css}`; tile.style.transform=mode==='today'?'none':`scale(${sc})`; };
+  let t=0;
+  const down=()=>{ set(.98,120); };
+  const up=()=>{ set(1,180); };
+  if(mode!=='today'){
+    tile.addEventListener('pointerdown',down);
+    ['pointerup','pointerleave','pointercancel'].forEach(ev=>tile.addEventListener(ev,up));
+  }
+  return {el,play:()=>{ clearTimeout(t); down(); t=setTimeout(up,(reduced()?0:120*(ctx.slow?4:1))+80); }};
+}
+/* demo 9: switching related views */
+function viewCell(mode,ctx){
+  const el=h('div',{class:'mini pad',style:'height:176px;overflow:hidden'});
+  const seg=h('div',{class:'m-seg'},h('span',{},'Day'),h('span',{},'Week'));
+  seg.firstChild.style.cssText='background:var(--segon);box-shadow:0 1px 3px rgba(0,0,0,.12)';
+  const bars=(n)=>Array.from({length:n},(_,i)=>`<div class="m-bar"><span style="width:44px;color:var(--sec)">${['Mon','Tue','Wed','Thu','Fri'][i]}</span><i style="width:${30+((i*37)%60)}%"></i></div>`).join('');
+  const blockA=h('div',{style:'position:absolute;left:14px;right:14px;top:70px',html:`<div style="font-weight:600;margin-bottom:4px">Today</div>${bars(3)}`});
+  const blockB=h('div',{style:'position:absolute;left:14px;right:14px;top:70px',html:`<div style="font-weight:600;margin-bottom:4px">This week</div>${bars(5)}`});
+  el.append(seg,blockA,blockB);
+  const blocks=[blockA,blockB];
+  const S={from:0,to:0};
+  const D=mode==='today'?1:240;
+  const anim=cellAnim(ctx,D,(u)=>{
+    const ms=u*240, dirn=S.to>=S.from?1:-1;
+    blocks.forEach((b,i)=>{
+      let o=0,x=0;
+      if(mode==='today'){ o=(u>0?i===S.to:i===S.from)?1:0; }
+      else if(mode==='fade'){
+        if(i===S.from&&S.from!==S.to){ const k=CV.ease.fn(ph(ms,0,100)); o=1-k; x=-12*dirn*k; }
+        else if(i===S.to){ const k=CV.shared.fn(ph(ms,60,240)); o=S.from===S.to?1:k; x=12*dirn*(1-k); }
+      } else {
+        if(i===S.from&&S.from!==S.to){ o=u>0?0:1; }
+        else if(i===S.to){ const k=CV.shared.fn(ph(ms,0,240)); o=1; x=24*dirn*(1-k); }
+      }
+      b.style.opacity=o; b.style.transform=`translateX(${x}px)`; b.style.visibility=o>0?'visible':'hidden';
+    });
+    const k=mode==='today'?(u>0?1:0):CV.shared.fn(ph(ms,0,240));
+    const pos=S.from===S.to?S.to:lerp(S.from,S.to,k);
+    seg.style.setProperty('--p',pos);
+    seg.firstChild.style.background=pos<.5?'var(--segon)':'transparent';
+    seg.lastChild.style.background=pos>=.5?'var(--segon)':'transparent';
+    seg.lastChild.style.boxShadow=pos>=.5?'0 1px 3px rgba(0,0,0,.12)':'none';
+    seg.firstChild.style.boxShadow=pos<.5?'0 1px 3px rgba(0,0,0,.12)':'none';
+  });
+  const go=(i)=>{ S.from=S.to; S.to=i; anim.replay(); };
+  seg.firstChild.addEventListener('click',()=>go(0));
+  seg.lastChild.addEventListener('click',()=>go(1));
+  return {el,anim,play:()=>go(1-S.to)};
+}
+
+function s5(){
+  const root=$('#s5-body');
+  const auditRows=AUDIT.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td class="${r[2]}">${{miss:'Missing',part:'Partly',has:'Has it'}[r[2]]}</td><td>${r[3]}</td></tr>`).join('');
+  root.append(
+    h('p',{class:'lead'},'I searched the code for every animation widget, then read the shared controls. A control with none is listed as missing. Behavior I did not open, such as the reader outline and the mock question list, is not listed.'),
+    h('h3',{style:'margin:0 0 8px;font-size:16px'},'Audited list'),
+    h('div',{class:'tw',html:`<table class="t"><thead><tr><th>Where</th><th>Today, from the code</th><th>Motion</th><th>Proposed</th></tr></thead><tbody>${auditRows}</tbody></table>`}),
+    h('h3',{style:'margin:26px 0 8px;font-size:16px'},'One small shared duration table'),
+    h('div',{class:'tw',html:`<table class="t"><thead><tr><th>Name</th><th>Duration</th><th>Used for</th><th>Curve</th></tr></thead><tbody>${DUR.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}</tbody></table>`}),
+    h('p',{class:'lead',style:'margin-top:10px',html:`Shared ease is <code>${CV.shared.css}</code>, the ease from the handoff. Ease is <code>${CV.ease.css}</code>. Back and close play the same motion in reverse. Existing motion that is not listed stays as it is.`}),
+    h('div',{class:'vc rec',style:'grid-template-columns:1fr;margin:18px 0 22px'},h('div',{},h('div',{class:'tag'},h('span',{class:'pill'},'Set choice'),h('span',{class:'pill r'},'Recommended')),h('h3',{},'Core set'),h('p',{style:'margin-top:4px'},'Build demos 1, 3, 4, 5, 7, 8 and 9 (with the fade and slide). Keep 2 and 6 as they are. Everything in the core set is a movement or a color change on a small area. The full set also fades the whole screen when you change tabs. I do not recommend that on phone web while item 16 is open.')))
+  );
+  const ctxs=[];
+  const mk=(title,cellsFn,specRows,costObj)=>{
+    const ctx={slow:false};
+    const cells=cellsFn(ctx);
+    const card=demoCard({title,cells,spec:specRows,cost:costObj,ctx});
+    root.append(card);
+    cells.forEach(c=>{ if(c.anim) c.anim.set(c.anim.u,c.anim.dir); });
+  };
+  const G=['g','Low'], A=['a','Watch'], R=['r','Avoid'];
+  root.append(h('h3',{style:'margin:26px 0 10px;font-size:16px'},'Live demos. Click inside any demo, or press Replay.'));
+  mk('1. Phone tab bar: selecting a tab',(c)=>[{cap:'Today',...tabCell('today',c)},{cap:'Proposed',badge:G,...tabCell('pill',c)}],
+    [['Duration','240 ms slide (base), 160 ms color (quick)'],['Curve',crv(CV.shared)+' slide, '+crv(CV.ease)+' color'],['Moves','One pill sliding between tabs. Icon and label colors fade.'],['Stays still','Tab bar, icons, labels']],
+    ['low','One element moves by transform. Colors only otherwise.']);
+  mk('2. Phone tab bar: the screen behind',(c)=>[{cap:'Today (keep)',badge:G,...contentCell('today',c)},{cap:'Crossfade 160 ms',badge:A,...contentCell('fade',c)}],
+    [['Duration','160 ms (quick) if added'],['Curve',crv(CV.ease)],['Moves','Whole screen opacity'],['Recommendation','Do not add. Keep the instant swap.']],
+    ['watch','A fade over a full-screen layer. It is the effect most likely to cost frames on phone web.']);
+  mk('3. Wide sidebar: selecting a page',(c)=>[{cap:'Today',...sideCell('today',c)},{cap:'Proposed',badge:G,...sideCell('slide',c)}],
+    [['Duration','240 ms marker (base), 160 ms color (quick)'],['Curve',crv(CV.shared)+' marker, '+crv(CV.ease)+' color'],['Moves','One tint marker slides between rows'],['Stays still','Labels and icons']],
+    ['low','Wide web only. One small element moves.']);
+  mk('4. Row selection in lists and Settings',(c)=>[{cap:'Today',...rowCell('today',c)},{cap:'Proposed',badge:G,...rowCell('prop',c)}],
+    [['Duration','160 ms (quick)'],['Curve',crv(CV.ease)],['Moves','Nothing. Tint and value color fade together.'],['Changes','Label no longer turns bold, so the text does not jump']],
+    ['low','Color only.']);
+  mk('5. Chip selection',(c)=>[{cap:'Today (web build)',...chipCell('today',c)},{cap:'Proposed',badge:G,...chipCell('prop',c)}],
+    [['Duration','Press 120 ms down, 180 ms up (tap). Fill 160 ms (quick).'],['Curve',crv(CV.shared)+' press, '+crv(CV.ease)+' fill'],['Moves','Chip shrinks to 96% and back'],['Today','Fill fade only, about 200 ms']],
+    ['low','Small scale change on one chip.']);
+  mk('6. Switch (already built, no change)',(c)=>[{cap:'Today and proposed',badge:G,...switchCell(c)}],
+    [['Duration','Thumb 350 ms, track 250 ms'],['Curve',crv(CV.popC)+' thumb, '+crv(CV.ease)+' track'],['Moves','Thumb slides with a small overshoot'],['Note','Shown so you can compare it with the new motion.']],
+    ['low','Already shipping.']);
+  mk('7. Segmented controls',(c)=>[{cap:'Today (phone)',...segCell('today',c)},{cap:'Proposed',badge:G,...segCell('prop',c)}],
+    [['Duration','240 ms thumb (base), 160 ms label color (quick)'],['Curve',crv(CV.shared)+' thumb, '+crv(CV.ease)+' label'],['Moves','One thumb slides under the labels'],['Stays still','Labels, track']],
+    ['low','One element moves by transform.']);
+  mk('8. Tile and card presses',(c)=>[{cap:'Today',...tileCell('today',c)},{cap:'Proposed (press and hold)',badge:G,...tileCell('prop',c)}],
+    [['Duration','120 ms down, 180 ms up (tap)'],['Curve',crv(CV.shared)],['Moves','Tile shrinks to 98%'],['Not added','No growing shadow and no lift on hover']],
+    ['low','Scale only. A shadow that grows would cost more on phone, so it is left out.']);
+  mk('9. Switching between related views',(c)=>[{cap:'Today',...viewCell('today',c)},{cap:'Fade and slide 12 px',badge:A,...viewCell('fade',c)},{cap:'Slide only 24 px',badge:G,...viewCell('slide',c)}],
+    [['Duration','240 ms (base)'],['Curve',crv(CV.shared)+' (out fade '+crv(CV.ease)+')'],['Fade and slide','Old block fades and drifts 12 px out over 100 ms. New block fades in and drifts 12 px in from 60 ms. Recommended.'],['Slide only','Old block leaves at once. New block slides 24 px. No fade.']],
+    ['watch','Fade only touches the changing block, not the screen. If a block is nearly full screen on phone, use slide only.']);
+}
+
+/* ---------- recommendations table ---------- */
+function summary(){
+  const rows=[
+    ['1','Legal page','A: Fade in, 240 ms, ease. Frame untouched.','Low. Route change only.'],
+    ['15','Settings detail','A: Detail fades and rises 8 px, 240 ms. List and heading still.','Medium. Detail becomes a pane in one page.'],
+    ['5','Open a lesson','A: Rise and settle, 320 ms. Sidebar stays and is covered.','Medium. Shell must keep the sidebar until the lesson covers it. Use C on phone if frames drop.'],
+    ['9','Pull for next','A: Pull and let go, ring full at 120, opens after 0.28 s stillness.','Medium. Needs real mouse and trackpad tuning.'],
+    ['17','Motion set','Core set: tab pill, sidebar marker, row, chip, segmented, press, view change.','Low to medium. Many small edits, all movement or color.']
+  ];
+  $('#sumtable').innerHTML='<thead><tr><th>Item</th><th>Section</th><th>Recommended</th><th>Cost</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')+'</tbody>';
+}
+
+/* ---------- init ---------- */
+function init(){
+  $$('[data-pv]').forEach(b=>b.addEventListener('click',()=>{
+    $('#previews').setAttribute('data-preview',b.dataset.pv);
+    $$('[data-pv]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  }));
+  const rm=$('#rmToggle');
+  rm.addEventListener('change',()=>{ simRM=rm.checked; syncRM(); });
+  if(mq.matches){ rm.checked=true; rm.disabled=true; rm.parentNode.append(' (your system already asks for it)'); }
+  $$('[data-dev]').forEach(b=>b.addEventListener('click',()=>{
+    s3dev=b.dataset.dev;
+    $$('[data-dev]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    s3();
+  }));
+  syncRM();
+  s1(); s2(); s3(); s4(); s5(); summary();
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+
+</script>
+</body>
+</html>
