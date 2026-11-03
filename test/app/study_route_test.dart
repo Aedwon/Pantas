@@ -665,6 +665,15 @@ void main() {
     container.read(routerProvider).go('/study/topic/t1');
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('no routes for location'), findsOneWidget);
+    expect(find.textContaining('no routes for location'), findsNothing);
+    expect(
+      container
+          .read(routerProvider)
+          .routerDelegate
+          .currentConfiguration
+          .uri
+          .path,
+      '/home',
+    );
   });
 }
