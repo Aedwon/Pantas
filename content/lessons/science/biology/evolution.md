@@ -13,9 +13,11 @@ isActive: true
 
 A **gene** is a section of DNA that helps control a trait. An **allele** is one version of a gene. For example, a beetle gene for color may have a green allele and a brown allele.
 
-A **genotype** is the pair of alleles an individual carries for a gene. A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
+A **genotype** is the set of alleles an individual carries for a gene. Most genes on non-sex chromosomes come as a pair, one allele from each parent. A male has only one allele for a gene on the X chromosome, and a haploid organism, such as a bacterium, has one copy of each gene.
 
-A **gamete** is a sex cell, such as a sperm or an egg. Parents pass alleles to their offspring only through gametes. The lesson on genetics and heredity explains this in full.
+A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
+
+A **gamete** is a sex cell, such as a sperm or an egg. In sexual reproduction, parents pass alleles to offspring through gametes. In asexual reproduction, such as a bacterium splitting in two, one parent passes its DNA to its offspring with no gametes. The lesson on genetics and heredity explains inheritance in full.
 
 ### What Evolution Is
 
@@ -27,9 +29,11 @@ Evolution is any change in allele frequency over generations. Four things can ca
 
 ### Mutation
 
-A **mutation** is a change in DNA. It is the only source of brand-new alleles. A mutation happens by chance. It does not appear because the organism needs it.
+A **mutation** is a change in DNA. It is the original source of new alleles. A mutation happens by chance. It does not appear because the organism needs it.
 
-Only a mutation in the cells that make gametes can pass to offspring. A mutation in a skin cell stays with that body. Many mutations have no effect on the trait. Some harm the organism, and a few help it in a certain environment.
+A mutation reaches offspring when it is in the DNA that the offspring receive. In animals, that means the cells that make gametes. A mutation in a skin cell stays with that body. In a bacterium that splits in two, a mutation passes to both daughter cells.
+
+Many mutations have no effect on the trait. Some harm the organism, and a few help it in a certain environment.
 
 ### Genetic Drift
 
@@ -55,9 +59,11 @@ Natural selection needs three things.
 2. **Heritability**: some of that variation is passed on through alleles.
 3. **Differential reproductive success**: in a given environment, some heritable variants leave more surviving offspring than others.
 
-When all three hold, the favored variants become more common over generations. **Fitness** means how many offspring survive to reproduce, compared with others in the population. It does not mean strength or a long life.
+When all three hold, the favored variants usually become more common over generations. **Fitness** means how many offspring survive to reproduce, compared with others in the population. It does not mean strength or a long life.
 
 An **adaptation** is a heritable trait that helps its bearers survive and reproduce in their environment. Selection works on the traits individuals have, but only the population changes.
+
+Selection does not always move a trait in one direction. In stabilizing selection, the middle form does best, so the population stays about the same. Human birth weight is a textbook case.
 
 If differences are not heritable, selection changes nothing in the next generation. A plant that grows tall because it got more water does not pass tallness to its seeds. If there is no variation, there is nothing for selection to favor.
 
@@ -77,7 +83,9 @@ A **species** is a kind of organism. Scientists use several definitions. The **b
 
 Reproductive isolation can take different forms. The groups may breed in different seasons or respond to different courtship signals. They may mate but produce no offspring, or sterile offspring. A mule, from a horse and a donkey, is sterile.
 
-In **allopatric speciation**, a physical barrier such as a rising sea or a mountain range splits one population into two. Gene flow stops. Each group then changes through its own mutations, drift and selection. If reproductive isolation evolves, they stay separate species even when they meet again.
+In **allopatric speciation**, a physical barrier such as a rising sea or a mountain range splits one population into two. Gene flow stops. 
+
+Each group then changes through its own mutations, drift and selection. If reproductive isolation evolves, they stay separate species even when they meet again.
 
 In **sympatric speciation**, a new species forms without a physical barrier. In plants, **polyploidy** is a common route. A polyploid has extra whole sets of chromosomes. It may be unable to breed with its parent species at once.
 
@@ -93,7 +101,7 @@ A beetle population has $50$ individuals. Together they carry $100$ copies of a 
 
 **Solution:**
 
-1. Each individual has two copies of the gene, so $50$ individuals carry $100$ copies.
+1. This gene is on a non-sex chromosome, so each individual has two copies. Then $50$ individuals carry $100$ copies.
 2. Divide the copies of the brown allele by all copies.
 
 $$\dfrac{30}{100} = 0.30$$
@@ -117,8 +125,8 @@ A student says, "An animal built a useful body change by using it often, so its 
 
 **Solution:**
 
-1. Natural selection needs heritable variation, which means variation in alleles passed through gametes.
-2. A change gained in a lifetime, such as larger muscles from exercise, does not change the alleles in the gametes.
+1. Natural selection needs heritable variation, which means variation in alleles that parents pass to offspring.
+2. A change gained in a lifetime, such as larger muscles from exercise, does not change the alleles that parents pass on.
 3. Offspring therefore do not inherit it.
 4. A population changes when heritable variants differ in reproductive success across generations.
 
@@ -171,7 +179,7 @@ A plant species grows in one meadow. A mutation doubles the whole chromosome set
 
 ## Exam Strategies
 
-For a natural selection question, look for three things: heritable variation, different reproductive success, and change across generations. If one is missing, it is not selection.
+For a natural selection question, look for three things: variation, heritability, and different reproductive success. If variation, heritability or the difference in reproductive success is missing, it is not selection. The population often changes across generations. Under stabilizing selection, it stays about the same.
 
 For a question on causes of evolution, ask what changed the frequency. Chance in a small group points to drift. Movement of individuals or gametes between populations points to gene flow. A brand-new allele points to mutation. Better survival and reproduction because of a heritable trait points to selection.
 
@@ -201,7 +209,7 @@ Variants arise by chance. Which ones spread depends on the present environment.
 
 > An individual does not evolve a new inherited trait in its lifetime.
 
-Individuals may change during life, but those changes are not passed on unless they alter gamete alleles. The population is what evolves.
+Individuals may change during life, but changes gained during life are not passed on. A mutation in the DNA that offspring receive is the exception. The population is what evolves.
 
 ### #5: Thinking Fitness Means Strength
 
