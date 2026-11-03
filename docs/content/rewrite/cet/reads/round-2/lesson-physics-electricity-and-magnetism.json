@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-physics-electricity-and-magnetism",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "The conductor must be connected to the ground, so electrons can flow to or from it.", "problem": "This is a false absolute. Charging by induction does not need a ground. Two neutral metal spheres in contact, with a charged rod brought near and the spheres separated before the rod is removed, each end with a net charge and no ground is used. A student taught that a ground is required will answer that the spheres stay neutral, which is wrong. The round-1 finding itself said grounded or split. The brief lists charging mechanisms at official curriculum class (dost-sei-L054).", "source": "OpenStax College Physics for AP Courses, section 18.2 Conductors and Insulators, Figure 18.13 (two spheres in contact, separated before the rod is removed, retain net charges) and Figure 18.14 (grounding): https://openstax.org/books/college-physics-ap-courses/pages/18-2-conductors-and-insulators; reader-rules.md, Added after the Sol audit"},
+    {"rule": "L19", "severity": "Minor", "quote": "Current: $I=\\dfrac{12}{4.0}=3.0$ A.", "problem": "Example #5 keeps both of its key computations, the current and the energy $W=qV$, inline instead of as display equations. No step is skipped, so this is Minor.", "source": "content-checklist.md L19; lesson-style-guide.md Examples section"},
+    {"rule": "L21", "severity": "Minor", "quote": "$$F=\\dfrac{(9\\times10^{9})(3.0\\times10^{-6})(2.0\\times10^{-6})}{0.30^2}=0.60\\ \\mathrm{N}$$", "problem": "Still open from round 1. Three scientific-notation factors in the numerator plus the result on one display line are likely too wide for a phone screen. Estimated from the source text, not checked on a rendered screen.", "source": "content-checklist.md L21; lesson-style-guide.md Examples section"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The motor must reverse the current every half turn to keep the coil turning the same way.", "problem": "The motor paragraph has five sentences. The emf paragraph (five), and the polarization, Lenz's law and generator paragraphs (four each) also run over the limit of three.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"}
+  ],
+  "goodQuotesChecked": 4
+}

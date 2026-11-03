@@ -13,13 +13,19 @@ isActive: true
 
 **Genetics** is the study of heredity, which is how traits pass from parents to offspring. A **gene** is a section of DNA with the instructions to make a product, usually a protein. Different versions of the same gene are called **alleles**.
 
-DNA is packed into **chromosomes**. A chromosome is one long piece of DNA that carries many genes. Human body cells have $46$ chromosomes, in $23$ pairs. One chromosome of each pair comes from each parent.
+DNA is packed into **chromosomes**. A chromosome is one long piece of DNA that carries many genes.
+
+Human body cells have $46$ chromosomes, in $23$ pairs. One chromosome of each pair comes from each parent.
 
 An organism's **genotype** is the alleles it carries. Its **phenotype** is the trait we can observe. Genotype and the environment together shape the phenotype.
 
-Most traits depend on many genes, not just one. For a gene on a non-sex chromosome, a body cell carries two alleles, one from each parent. A person with two matching alleles is **homozygous** (for example $TT$ or $tt$). A person with two different alleles is **heterozygous** (for example $Tt$).
+Most traits depend on many genes, not just one.
 
-In complete dominance, a **dominant** allele shows its trait even with one copy. A **recessive** allele shows its trait only when there is no dominant allele. By custom, a capital letter stands for the dominant allele and the small letter for the recessive allele. So $T$ is dominant over $t$, and $Tt$ shows the dominant trait.
+For a gene on a non-sex chromosome, a body cell carries two alleles, one from each parent. A person with two matching alleles is **homozygous** (for example $TT$ or $tt$). A person with two different alleles is **heterozygous** (for example $Tt$).
+
+In complete dominance, a **dominant** allele shows its trait even with one copy. A **recessive** allele shows its trait only when there is no dominant allele. 
+
+By custom, a capital letter stands for the dominant allele and the small letter for the recessive allele. So $T$ is dominant over $t$, and $Tt$ shows the dominant trait.
 
 ### Mendel's Laws and Punnett Squares
 
@@ -63,7 +69,9 @@ DNA is double-stranded: two strands pair up base to base. RNA is single-stranded
 
 In **transcription**, the cell makes a copy of a gene in the form of **mRNA** (messenger RNA). The copy is built along one DNA strand of the gene, called the **template strand**. Each template base is matched to its pair.
 
-In a human cell, the DNA stays in the nucleus, so transcription happens there. The finished mRNA leaves the nucleus and goes to a **ribosome** in the cytoplasm. A ribosome is a small structure that builds proteins.
+In a human cell, the genes on the chromosomes are in the nucleus, so their transcription happens there. A cell without a nucleus, such as a bacterium, transcribes in the cytoplasm. Mitochondria also hold a little DNA of their own, and they transcribe it inside the mitochondrion.
+
+The finished mRNA leaves the nucleus and goes to a **ribosome** in the cytoplasm. A ribosome is a small structure that builds proteins.
 
 In **translation**, the ribosome reads the mRNA in groups of three bases called **codons**. Each codon stands for one amino acid or a stop signal. The amino acids join to form a protein.
 
@@ -83,9 +91,9 @@ A line between a square and a circle joins parents. A line down from it leads to
 
 A pedigree can suggest whether a trait is autosomal dominant, autosomal recessive, or X-linked. Autosomal means the gene is not on a sex chromosome.
 
-These clues work when the trait is rare, comes from one gene, and always shows when the genotype allows it.
+These clues work when the trait is rare, comes from one gene, and always shows when the genotype allows it. Assume there are no new mutations unless the question says otherwise.
 
-- Autosomal dominant: every affected child has an affected parent, and the trait appears in each generation.
+- Autosomal dominant: an affected child usually has an affected parent, and the trait appears in each generation. A new mutation can give an affected child to unaffected parents, but this is rare.
 - Autosomal recessive: unaffected parents can have an affected child, and boys and girls are affected alike.
 - X-linked recessive: more males are affected. An affected son can have unaffected parents, and an affected daughter needs an affected father.
 
@@ -184,11 +192,11 @@ The protein does not change, so this is a silent substitution.
 
 ### #8: Reading a Pedigree
 
-Two unaffected parents have an affected daughter. Assume the trait is rare, caused by one gene, and always shows when the genotype allows it. Which inheritance pattern fits best: autosomal dominant, autosomal recessive, or X-linked recessive?
+Two unaffected parents have an affected daughter. Assume the trait is rare, caused by one gene, and always shows when the genotype allows it. Assume no new mutations. Which inheritance pattern fits best: autosomal dominant, autosomal recessive, or X-linked recessive?
 
 **Solution:**
 
-1. A dominant trait needs an affected parent. Both parents are unaffected, so dominant is out.
+1. With no new mutations, a dominant trait needs an affected parent. Both parents are unaffected, so dominant is out.
 2. An X-linked recessive daughter gets her father's X, so her father would be affected. He is not, so X-linked is out.
 3. Two unaffected carriers can each pass on a recessive allele.
 
@@ -256,4 +264,6 @@ When DNA is copied into mRNA, $A$ becomes $U$. A choice that shows $T$ in mRNA i
 
 > A father cannot pass an X-linked allele to his son.
 
-A son gets his father's Y chromosome, so he cannot get the father's X. His X comes from his mother. A choice that makes a father the source of a son's X-linked allele is wrong. A father's X-linked allele can reach a grandson only through his daughter.
+A son gets his father's Y chromosome, so he cannot get the father's X. His X comes from his mother.
+
+A choice that makes a father the source of a son's X-linked allele is wrong. A father's X-linked allele can reach a grandson only through his daughter.
