@@ -11,11 +11,15 @@ isActive: true
 
 **Short stories** and **novel excerpts** can be studied through plot, character, setting, conflict, narration, style, and theme. These are tools for reading, not rules every story must follow.
 
+An **excerpt** is a part taken from a longer work, such as one scene from a novel. You see only that part, so claim only what it shows.
+
 Every claim needs evidence: point to the words that show it. To **infer** means to work out something the text does not say directly, using clues.
 
 ### Plot
 
-**Plot** is the order in which a story tells its events. A common model has five parts: exposition (the start), rising action (events that build the problem), climax, falling action (events after the climax), and resolution (the end). Not every story fits it. A story can start in the middle, jump back in time, or end without an answer.
+**Plot** is the order in which a story tells its events.
+
+A common model has five parts: exposition (the start), rising action (events that build the problem), climax, falling action (events after the climax), and resolution (the end). Not every story fits it. A story can start in the middle, jump back in time, or end without an answer.
 
 <!-- FIGURE: {"kind":"reading-diagram","type":"plot-arc","illustrationKey":"reading-comprehension/text-types/short-stories-and-novels#1","shape":"rise-peak-fall","stages":["exposition","rising action","climax","falling action","resolution"]} -->
 
@@ -30,7 +34,7 @@ Two questions about a character are different:
 - **Round or flat?** This is about complexity. A round character has several sides, which may clash. A flat character shows only one or two traits.
 - **Dynamic or static?** This is about change. A dynamic character changes in a big way. A static character stays the same.
 
-A flat character can change, and a round character can stay the same.
+A flat character can change, and a round character can stay the same. Example 5 works both cases.
 
 ### Setting
 
@@ -118,6 +122,10 @@ The promise came first. The story starts with the sale, then jumps back. The ord
 
 > Mrs. Reyes, the landlady, appears only on rent day. She says "Next month" and nothing else.
 
+> Mr. Cruz, the guard, is only ever strict. In the last scene, he stops being strict and lets the late children in.
+
+> Lola Pilar is proud, funny, and fearful. At the end of the story she is still all three.
+
 Describe each character.
 
 **Solution:**
@@ -125,6 +133,8 @@ Describe each character.
 1. Dino is harsh but secretly kind. He has several sides, so he is round.
 2. He shouts at the clerks at first and asks their names later. That is a big change, so he is dynamic.
 3. Mrs. Reyes shows one trait and one action, so she is flat. She does not change, so she is static.
+4. Mr. Cruz shows one trait, so he is flat. His big change makes him dynamic. A flat character can change.
+5. Lola Pilar has several sides, so she is round. She stays the same, so she is static. A round character can stay the same.
 
 ### #6: Setting
 
@@ -189,6 +199,8 @@ Anong tunggalian ang makikita sa dulo? Alin ang may patunay sa teksto: "Tumakas 
 3. Hindi sinasabi ng teksto kung bakit wala si Ben o ano ang nasa sulat. Walang patunay na tumakas si Ben.
 
 ## Reading Strategies
+
+**For an excerpt, separate setup from certainty.** An excerpt can prepare an event without guaranteeing its outcome. If a character reaches for a door, you may infer she is about to act. You cannot say what happens next unless the text shows it.
 
 **Track goals, obstacles, and change.** They show the central conflict and the turning points better than the loudest scene does.
 

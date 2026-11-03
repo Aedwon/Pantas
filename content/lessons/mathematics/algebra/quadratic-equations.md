@@ -13,13 +13,15 @@ A **quadratic equation** in $x$ can be written in standard form:
 
 $$ax^2+bx+c=0,$$
 
-where $a\ne0$. A **root** of the equation is a value of $x$ that makes it true. "Solve" and "find the roots" mean the same thing: find every such value.
+where $a\ne0$. A **root** of the equation is a value of $x$ that makes it true. The roots are also called the **zeros** of $ax^2+bx+c$. "Solve" and "find the roots" mean the same thing: find every such value.
+
+A **coefficient** is the number that multiplies a variable term. In $2x^2-8x-2$, the coefficient of $x^2$ is $2$, and the coefficient of $x$ is $-8$.
 
 ### Zero-Product Property and Square Roots
 
 If two numbers multiply to $0$, at least one of them is $0$. So if $(x-3)(x+2)=0$, then $x-3=0$ or $x+2=0$.
 
-If $x^2=k$ and $k\ge0$, then $x=\pm\sqrt{k}$. The sign $\pm$ means "plus or minus", so there are two answers.
+If $x^2=k$ and $k>0$, then $x=\pm\sqrt{k}$. The sign $\pm$ means "plus or minus", so there are two answers. If $k=0$, the only answer is $x=0$. If $k<0$, there is no real answer.
 
 ### Factoring
 
@@ -70,6 +72,10 @@ $$r_1r_2=\dfrac{c}{a}$$
 
 To build an equation from its roots, use $x^2-(r_1+r_2)x+r_1r_2=0$.
 
+### Area of a Rectangle
+
+The area of a rectangle is its length times its width. Word problems about area often lead to a quadratic equation.
+
 ### Quadratic Inequalities
 
 A quadratic inequality uses $<$, $>$, $\le$ or $\ge$ instead of $=$. To solve it:
@@ -82,7 +88,7 @@ A quadratic inequality uses $<$, $>$, $\le$ or $\ge$ instead of $=$. To solve it
 
 Suppose the equation has two different real roots. If $a>0$, the graph is a parabola that opens up. It is below zero between the roots and above zero outside them.
 
-If $a<0$, the parabola opens down. It is above zero between the roots and below zero outside them. If $D\le0$, there are not two roots, so use $D$ and the sign of $a$ (see Example #11).
+If $a<0$, the parabola opens down. It is above zero between the roots and below zero outside them. If $D<0$, the parabola never touches the $x$-axis, so use the sign of $a$ (see Example #11). If $D=0$, it touches the axis at the one root and stays on one side, so the root itself needs care (see Example #13).
 
 ## Examples
 
@@ -320,10 +326,31 @@ $$-2\le x\le3$$
 
 4. Check with $x=0$: $-(0)^2+0+6=6$, and $6\ge0$ is true.
 
+### #13: Inequality With a Repeated Root
+
+Solve $x^2-2x+1>0$. Then solve $x^2-2x+1\le0$.
+
+**Solution:**
+
+1. Factor.
+
+$$x^2-2x+1=(x-1)^2$$
+
+2. A square is never negative, and it equals $0$ only at $x=1$. Here $D=0$ and $a=1>0$.
+3. For $>0$, every real number works except the root.
+
+$$x\ne1$$
+
+4. For $\le0$, only the root works.
+
+$$x=1$$
+
+5. Check: $x=0$ gives $1>0$, true. $x=1$ gives $0\le0$, true.
+
 ## Speed Tricks & Shortcuts
 
-- If the integers $a$, $b$ and $c$ are given, check whether $D$ is a perfect square. If it is, the quadratic factors over the integers. If not, go straight to the formula.
-- If $a+b+c=0$, then $x=1$ is a root. The product of the roots is $\dfrac{c}{a}$, so the other root is $\dfrac{c}{a}$.
+- With integers $a$, $b$ and $c$, check whether $D$ is a perfect square. A perfect square means the quadratic factors over the integers. Otherwise go straight to the formula.
+- When $a+b+c=0$, $x=1$ is a root. The product of the roots is $\dfrac{c}{a}$, so the other root is $\dfrac{c}{a}$.
 - For real roots, a positive product $\dfrac{c}{a}$ means the roots have the same sign. A negative product means they have opposite signs. Look at $\dfrac{c}{a}$, not at $c$ alone, because $a$ may be negative.
 
 ## Traps to Watch For
@@ -356,4 +383,6 @@ If $b=-5$, then $-b=5$. Also, $b^2$ is never negative: $(-5)^2=25$, not $-25$.
 
 > Read the sign, then pick the right parts of the number line.
 
-For $a>0$ and two roots, "less than zero" means between the roots, and "greater than zero" means outside them. For $a<0$, it is the other way around. Writing $-2<x<4$ for $x^2-2x-8>0$ is the common mistake. Test one value to be sure.
+For $a>0$ and two roots, "less than zero" means between the roots, and "greater than zero" means outside them. For $a<0$, it is the other way around.
+
+Writing $-2<x<4$ for $x^2-2x-8>0$ is the common mistake. Test one value to be sure.
