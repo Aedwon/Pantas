@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-earth-science-astronomy-heavenly-bodies",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "It shares its orbit with many other bodies, so it has not cleared its orbit.",
+      "problem": "This step states a false test for clearing an orbit. Sharing an orbit with many bodies does not mean a body has not cleared it: Jupiter shares its orbit with many thousands of Trojan asteroids, and Neptune with Pluto and the other plutinos, yet both are planets, because those bodies are held by the planet's own gravity. The lesson itself teaches that 'some share the orbit of a planet, such as the Trojan asteroids of Jupiter', so a student who applies this step to Jupiter would call it a dwarf planet. The Core Concept meaning feeds the same error: 'so other bodies were swept up, flung away, or became its moons' leaves out bodies the planet controls, such as Trojans. The example's answer (dwarf planet, Ceres) is right; what decides it is that Ceres is not the dominant body in the belt, not that the orbit is shared.",
+      "source": "IAU 2006 Resolution B5; Soter (2006), 'What is a planet?', Astronomical Journal 132:2513 (clearing means gravitational dominance; resonant bodies such as Jupiter's Trojans and Neptune's plutinos do not count against it); Wikipedia, Clearing the neighbourhood (accessed 2026-11-03); reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Scientists also sort stars into the spectral classes O, B, A, F, G, K, and M, from hottest to coolest. The Sun is class G.",
+      "problem": "Still open from round 1. This paragraph has four sentences, over the one-to-three limit. Others also run over: 'A star many times the Sun's mass swells into a supergiant' (4), 'Galaxies have three common shapes' (4), 'The giant planets are much larger' (4), 'A **natural satellite**, or moon' (4), 'Many moons are not plain rocky balls' (5), 'A **comet** is a small body of ice' (4), and 'The gas and dust form a glowing cloud' (4).",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

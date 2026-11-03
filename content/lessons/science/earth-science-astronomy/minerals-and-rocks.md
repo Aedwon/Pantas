@@ -163,7 +163,9 @@ A river carries sand and mud from a mountain slope and drops it where the river 
 A geologist finds a rock with bands of flat, aligned minerals. The minerals are the same ones that a nearby shale contains, but they are larger. Is the rock igneous, sedimentary, or metamorphic?
 
 **Solution:**
-The aligned bands mean foliation, which comes from heat and pressure on a solid rock. Shale has changed into a foliated rock such as slate or schist. The rock is metamorphic.
+Sedimentary layers are separate beds laid down one on another, often with rounded grains or fossils. Foliation is different: flat or long mineral grains are squashed or lined up in bands under pressure.
+
+This rock has aligned bands of flat minerals, and no separate beds, rounded grains, or fossils are described. The minerals are also larger than in the nearby shale. That shows they regrew in solid rock under heat and pressure. The rock is metamorphic, likely schist.
 
 ### #10: A Valid Rock-Cycle Pathway
 

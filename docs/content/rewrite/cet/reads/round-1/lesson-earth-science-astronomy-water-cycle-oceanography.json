@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-earth-science-astronomy-water-cycle-oceanography",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Nearly all the rest is fresh water.",
+      "problem": "False. After the ocean's 96.5%, about 3.5% of Earth's water remains, but only about 2.5% is fresh. Saline groundwater (0.93%) and saline lakes (0.006%) make up roughly a quarter of the rest. A student who takes 100 minus 96.5 as the fresh-water share gets 3.5% instead of the USGS figure of about 2.5%.",
+      "source": "USGS Water Science School, 'How Much Water is There on Earth?' (oceans 96.54%, saline groundwater 0.93%, saline lakes 0.006% of total water; fresh water about 2.5%); checklist B01"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Cold water is denser than warm water. Salty water is denser than less salty water.",
+      "problem": "Stated as a general rule, with no limit, and Speed Tricks repeats it as 'Each yes makes the water denser.' It holds for seawater, but fresh water is densest at about 4 °C. Below that it gets less dense as it cools, and ice floats. A student who applies the rule to lake water or to ice gets the wrong answer. The sentence and the shortcut need to be limited to seawater, or the fresh-water exception needs to be named (writer rule 4, reader rules 'Added after the Sol audit').",
+      "source": "USGS Water Science School, 'Water Density' (maximum density at about 4 °C; 0.99987 g/cm3 at 0 °C vs 1.00000 at 4 °C; ice less dense than liquid water); checklist B01"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "Water on the far side is pulled least. This makes two bulges of water, one facing the Moon and one on the opposite side of Earth.",
+      "problem": "The lesson does not explain how the far-side bulge forms. Weaker pull on its own does not raise water, and the missing step is that Earth is pulled toward the Moon more than the far-side water, so that water is left behind. NOAA's version says inertia beats the weaker pull there. As written, the student is handed a jump in logic and may come away believing that weak gravity raises water, which a question asking why high tide also happens on the side opposite the Moon would expose.",
+      "source": "NOAA Ocean Service, Tides and Water Levels tutorial, 'Gravity, Inertia, and the Two Bulges' (tides03_gravity); checklist L26"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "Add that to $6{:}00$ a.m. to get about $6{:}25$ p.m. on Monday.",
+      "problem": "Example #8's key time additions (6:00 plus 12 h 25 min, and 6:00 plus 24 h 50 min) appear only inline. None is shown as a display equation. No step is skipped, so this is Minor.",
+      "source": "Checklist L19; LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

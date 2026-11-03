@@ -206,3 +206,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: periodic-table (1 Minor). Written: minerals-and-rocks, origin-of-the-universe, water-cycle-oceanography. Fossils fixed after round 1; heavenly-bodies round 1: 1 Blocker (Europa), 1 Major.
 - Done at minor after round 2: layers-of-the-earth (1 Minor). Written: fluid-mechanics (3,261 words, split candidate). Origin-of-the-universe round 1: 1 Blocker (lithium problem). Earth's-motions fixed after round 2.
 - Written: dynamics, light-and-optics (split candidate). Thermodynamics fixed after round 2.
+- Done at minor after round 2: fossils-and-geologic-time (1 Minor). Minerals fixed after round 1; water-cycle round 1: 2 Blockers, 1 Major.

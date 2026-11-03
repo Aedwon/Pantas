@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-earth-science-astronomy-fossils-and-geologic-time",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "A **mass extinction** is a short span of time in which a large share of living species die out. Mass extinctions mark the end of the Paleozoic and of the Mesozoic.", "problem": "This paragraph in Geologic Time has four sentences, over the one-to-three limit. Several other new paragraphs also have four: the cross-cutting paragraph (\"Something must exist before it can be cut.\"), the index-fossil paragraph (\"An **index fossil** helps with this.\"), the half-life paragraph (\"Each half-life halves what remains:\"), and the Speed Tricks paragraphs on what the clue compares, the parent to daughter ratio and placing life on the time scale. New text must fix every Minor.", "source": "Checklist L22a; lesson-style-guide.md, Formatting rules (paragraphs of 1 to 3 short sentences)"}
+  ],
+  "goodQuotesChecked": 4
+}
