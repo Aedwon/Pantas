@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-physics-work-energy-power",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "For a mechanical-energy problem, ask if friction does work. If not, set $KE+PE$ equal at the two states.",
+      "problem": "This shortcut is false whenever a force other than friction does work, such as a push, a rope or crane pull, or a motor. The lesson's own examples break it. In Example #4 the floor is smooth, so no friction acts, yet $KE+PE$ rises from $0$ to $50\\ \\text{J}$ because of the push. In Example #8(b) the crane raises the load's $PE$ with no friction. A student who follows the shortcut sets $KE+PE$ equal and gets $v=0$ in Example #4. Core Concept supports the same wrong idea: \"A **nonconservative force**, such as friction or air drag, changes mechanical energy into thermal energy\" never says that an applied push or pull is also nonconservative work and can add mechanical energy. The base lesson's version, which asked whether any nonconservative force does work, was correct.",
+      "source": "Reader rules, Added after the Sol audit (a stated rule broken by a known case is a Blocker); checklist B01 and L27; the lesson's Examples #4 and #8(b); base lesson 7032eec5 Speed Tricks"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Friction on a sliding object does negative work.",
+      "problem": "Stated as a general rule, but it fails when the surface itself moves. Kinetic friction from a moving surface, such as a pulled rug or a moving conveyor belt, can point along the object's displacement and do positive work on a sliding object. Trap #3 repeats the same absolute: \"Sliding friction lowers mechanical energy\". It is true only when the surface the object slides on is at rest, and the lesson does not give that limit.",
+      "source": "OpenStax University Physics Volume 1, section 7.1 Work: \"kinetic friction exerted by the rug on the object could be in the same direction as the displacement of the object, relative to the floor, and do positive work\"; reader rules, Added after the Sol audit"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A **simple machine**, such as a lever or a pulley, changes the size or direction of a force.",
+      "problem": "This paragraph has four sentences. The limit is one to three short sentences per paragraph.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
