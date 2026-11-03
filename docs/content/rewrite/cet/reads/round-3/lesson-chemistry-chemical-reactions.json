@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "a fuel of only C, H and O burns **completely**. The products are carbon dioxide and water.",
+      "problem": "This general rule fails at its boundary. Hydrogen is a fuel made only of H, and it burns completely to water alone: the lesson itself shows this in its overlap section and in Example #7(a) ($2H_2+O_2\\rightarrow2H_2O$). Carbon (charcoal) and carbon monoxide are fuels made only of C, or of C and O, and burn completely to carbon dioxide alone, with no water. A student who learns the rule as written can answer 'carbon dioxide and water' for the complete burning of charcoal. Trap #3 repeats the same limit: 'That product set is for complete burning of a fuel with only C, H and O.' The base limited the rule to 'suitable carbon/hydrogen fuels' and 'introductory hydrocarbon/oxygen problems'; the rewrite widened it. This was not raised in rounds 1 or 2.",
+      "source": "Atom conservation as taught in the lesson's own Core Concept; lesson lines 126 and Example #7(a); base 7032eec5 lines 28 and 125; reader-rules.md, Added after the Sol audit; content-checklist B01"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "In $ZnCl_2$, Cl is $-1$, so Zn is $+2$.",
+      "problem": "Example #9 starts from the value Cl = -1, but the lesson's list of oxidation-number rules ('Use these rules.') covers only elements, single-atom ions, oxygen, hydrogen and the sum rule. It gives no rule for halogens, or for Group 1 and Group 2 metals, and it names no prerequisite lesson for ion charges. With only the taught rules, a student cannot find Zn in ZnCl2 on their own, because both Zn and Cl are unknown. The same gap blocks standard uses of the skill, such as K in KMnO4 or Na in NaCl. This was not raised in rounds 1 or 2.",
+      "source": "content-checklist L25 and LSG Teaching completeness (shared reuse rule); reader-rules.md, Added after the Sol audit (confirm every term an example uses is taught or its prerequisite named); OpenStax Chemistry 2e, Section 4.2, oxidation-number rules (halogens usually -1 except with oxygen or other halogens)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "In a chemical reaction, atoms are rearranged. They are not made or destroyed.",
+      "problem": "This paragraph has four sentences; the guide allows one to three. Nine other teaching paragraphs also have four sentences: the ones beginning 'A **chemical equation** shows this', 'A balanced equation is normally written', 'Letters in brackets after a formula', 'Chemists group reactions into patterns', 'Zinc is above copper', 'When oxygen is short', 'In a **redox** reaction', 'Patterns and redox cut across' and 'To test for a precipitate'.",
+      "source": "content-checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)"
+    },
+    {
+      "rule": "L24",
+      "severity": "Minor",
+      "quote": "Chemical Reactions (Reaction Patterns, Balancing Equations)",
+      "problem": "Still open from round 2. The frontmatter title differs from the outline title 'Chemical Reactions (Types of Reactions, Balancing Equations)' in tools/lesson_author/outline.json. The mismatch is in the base and names the same content, so it stays Minor and is listed for the final review.",
+      "source": "LSG Frontmatter; final-run-rulings.md, lesson-chemistry-acids-bases-ph L24 ruling, applied by analogy"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

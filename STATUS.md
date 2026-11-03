@@ -199,3 +199,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done clean after round 3: gas-laws. Open after 3 reads: history-of-the-atom (round 3: 1 Blocker, gold-foil scattering cannot show the charge's sign).
 - Done at minor after round 2: mixtures-and-separation (2 Minors).
 - Done at minor after round 2: solutions (1 Minor).
+- Open after 3 reads: chemical-reactions (round 3: 1 Blocker, combustion rule fails for H2 and charcoal; 1 Major, Cl = -1 used without a rule).
