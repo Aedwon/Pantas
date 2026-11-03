@@ -119,9 +119,29 @@ class SectionTests(unittest.TestCase):
     def test_heading_must_match_whole_id(self):
         self.assertIsNone(bc.find_section(TOPIC_MD, "lesson-chemistry-stoich"))
 
-    def test_other_heading_levels_are_not_accepted(self):
-        md = "## lesson-biology-cell-biology\n\ntext\n"
+    def test_level_two_heading_is_accepted_and_ends_at_the_next_level_two_heading(self):
+        md = ("# T\n\n## lesson-biology-cell-biology\n\n**Learning goal:** Identify parts.\n\n### Sub\n\nkept\n\n"
+              "**Structure: split-candidate.** Two goals.\n\n## lesson-biology-botany\n\nother\n")
+        heading, text = bc.find_section_with_heading(md, "lesson-biology-cell-biology")
+        self.assertEqual(heading, "## lesson-biology-cell-biology")
+        self.assertIn("kept", text)
+        self.assertNotIn("other", text)
+
+    def test_level_four_heading_is_not_accepted(self):
+        md = "#### lesson-biology-cell-biology\n\ntext\n"
         self.assertIsNone(bc.find_section(md, "lesson-biology-cell-biology"))
+        self.assertTrue(bc.id_in_a_heading(md, "lesson-biology-cell-biology"))
+
+    def test_id_named_only_in_body_text_is_not_a_heading(self):
+        md = "# T\n\n- `lesson-x-y`: path\n\n## Other\n"
+        self.assertFalse(bc.id_in_a_heading(md, "lesson-x-y"))
+
+    def test_bold_labels_parse(self):
+        info = bc.parse_section("**Pinned body:** a.md:1-2\n\n**Learning goal:** Identify parts.\n\n"
+                                "**Structure: split-candidate.** Two goals.\n")
+        self.assertEqual(info["goal"], "Goal: Identify parts.")
+        self.assertEqual(info["verdict"], "split-candidate")
+        self.assertTrue(info["structure"].startswith("Structure: split-candidate."))
 
     def test_where_lists_other_exact_id_headings(self):
         md = "# T\n\n## lesson-biology-cell-biology\n\ntext\n"
@@ -242,8 +262,65 @@ class BriefTests(unittest.TestCase):
         self.assertEqual(len(problems), 1)
         self.assertIn(LESSON_ID, problems[0])
 
-    def test_changed_section_heading_is_reported_not_guessed(self):
-        topic = TOPIC_MD.replace("### lesson-chemistry-stoichiometry", "## lesson-chemistry-stoichiometry")
+    def test_level_two_section_builds_a_brief(self):
+        topic = ("# T\n\n## lesson-chemistry-stoichiometry\n\n**Learning goal:** Use ratios.\n\n"
+                 "**Structure: retain.** Fine.\n\n## lesson-chemistry-other\n\nx\n")
+        shown = {
+            ("BASE", LESSON_PATH): LESSON_TEXT,
+            ("AUDIT", bc.AUDIT_DIR + "/lesson-exam-tags.json"): json.dumps(TAGS),
+            ("AUDIT", bc.AUDIT_DIR + "/topics/science-chemistry-lessons.md"): topic,
+            ("AUDIT", bc.AUDIT_DIR + "/requirement-teaching-findings.md"): ROWS_MD,
+            ("AUDIT", bc.AUDIT_DIR + "/lesson-structure-data.json"): json.dumps(STRUCTURE),
+        }
+        pilot = [{"lesson": "science/chemistry/stoichiometry", "writer": "sonnet", "reader": "sol"}]
+        briefs, problems = bc.build_all(pilot, lambda r, p: shown.get((r, p)), "BASE", "AUDIT")
+        self.assertEqual(problems, [])
+        text = briefs[LESSON_ID]
+        self.assertIn("section `## lesson-chemistry-stoichiometry`", text)
+        self.assertIn("**Learning goal:** Use ratios.", text)
+        self.assertIn("The audit recommends keeping the structure.", text)
+        self.assertIn("- Mole-to-mass products: absent", text)
+
+    def test_id_with_no_heading_uses_its_facets_and_says_so(self):
+        topic = "# T\n\n## Findings\n\n- `%s` is discussed here by id.\n" % LESSON_ID
+        structure = json.loads(json.dumps(STRUCTURE))
+        structure["topicRecords"][0]["lessons"][0]["goal"] = "Use balanced reaction ratios."
+        shown = {
+            ("BASE", LESSON_PATH): LESSON_TEXT,
+            ("AUDIT", bc.AUDIT_DIR + "/lesson-exam-tags.json"): json.dumps(TAGS),
+            ("AUDIT", bc.AUDIT_DIR + "/topics/science-chemistry-lessons.md"): topic,
+            ("AUDIT", bc.AUDIT_DIR + "/requirement-teaching-findings.md"): ROWS_MD,
+            ("AUDIT", bc.AUDIT_DIR + "/lesson-structure-data.json"): json.dumps(structure),
+        }
+        pilot = [{"lesson": "science/chemistry/stoichiometry", "writer": "sonnet", "reader": "sol"}]
+        briefs, problems = bc.build_all(pilot, lambda r, p: shown.get((r, p)), "BASE", "AUDIT")
+        self.assertEqual(problems, [])
+        text = briefs[LESSON_ID]
+        self.assertIn("NO TOPIC SECTION", text)
+        self.assertIn("which has no section for this lesson", text)
+        self.assertIn("Goal: Use balanced reaction ratios.", text)
+        self.assertIn("- Mole-to-mass products: absent; examples none.", text)
+        self.assertIn("None attached.", text)
+        self.assertNotIn("NOT TO APPLY", text)
+
+    def test_id_with_no_heading_and_no_facets_fails_loudly(self):
+        topic = "# T\n\nnothing\n"
+        structure = {"topicRecords": [{"subject": "science", "topic": "chemistry", "lessons": []}]}
+        shown = {
+            ("BASE", LESSON_PATH): LESSON_TEXT,
+            ("AUDIT", bc.AUDIT_DIR + "/lesson-exam-tags.json"): json.dumps(TAGS),
+            ("AUDIT", bc.AUDIT_DIR + "/topics/science-chemistry-lessons.md"): topic,
+            ("AUDIT", bc.AUDIT_DIR + "/requirement-teaching-findings.md"): ROWS_MD,
+            ("AUDIT", bc.AUDIT_DIR + "/lesson-structure-data.json"): json.dumps(structure),
+        }
+        pilot = [{"lesson": "science/chemistry/stoichiometry", "writer": "sonnet", "reader": "sol"}]
+        briefs, problems = bc.build_all(pilot, lambda r, p: shown.get((r, p)), "BASE", "AUDIT")
+        self.assertEqual(briefs, {})
+        self.assertEqual(len(problems), 1)
+        self.assertIn("no record of the lesson", problems[0])
+
+    def test_heading_at_an_unaccepted_level_is_reported_not_guessed(self):
+        topic = TOPIC_MD.replace("### lesson-chemistry-stoichiometry", "#### lesson-chemistry-stoichiometry")
         shown = {
             ("BASE", LESSON_PATH): LESSON_TEXT,
             ("AUDIT", bc.AUDIT_DIR + "/lesson-exam-tags.json"): json.dumps(TAGS),
@@ -255,8 +332,8 @@ class BriefTests(unittest.TestCase):
         briefs, problems = bc.build_all(pilot, lambda r, p: shown.get((r, p)), "BASE", "AUDIT")
         self.assertEqual(briefs, {})
         self.assertEqual(len(problems), 1)
-        self.assertIn("no '### %s' section" % LESSON_ID, problems[0])
-        self.assertIn("## lesson-chemistry-stoichiometry", problems[0])
+        self.assertIn("other than ## or ###", problems[0])
+        self.assertIn("#### lesson-chemistry-stoichiometry", problems[0])
 
     def test_frontmatter_id_must_match_the_tag_file(self):
         shown = {

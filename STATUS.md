@@ -122,3 +122,20 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
 | E7 duplicate question IDs (Oct 31) | done at 567f990c: 49 IDs shared by split lesson files (bill-of-rights x3, code-of-conduct, environment, grammar) fixed per engineering's list on main (`docs/content/2026-10-31-duplicate-question-ids.md`). IDs kept in the original file; 78 copies in the newer split files renamed to `q-<topic>-<file>-NNNN`; map in `docs/content/audit/2026-10-31-question-id-renames.tsv`. Checks with engineering's tools from `web/staging-candidate-r1` 0ad7883b: 3,246 question IDs, 0 duplicates in source and export; export 64 links and 116 tags; upload dry run no invalid sources | engineering's request |
 | E7 CSE mock blueprints (Nov 1) | added `content/mock/cse-pro.yaml` and `cse-sub.yaml`, byte-identical to `web/staging-candidate-r1` 9043ad48 (approved Oct 19, Aedwon: "proceed"; last change 20692945). The uploader and the export read blueprints only from `<root>/mock`, which held only `upcat.yaml`, so CSE students would have had no mock. Checks with engineering's tools from `web/staging-candidate-r1` 9043ad48: export 64 links and 116 tags, 3 blueprints; every blueprint topic has a pool from this root (server ids `topic_<exam>_<meta.topic>`); the server's compiled sampler fills every paper over 20 seeds (Professional 155: 20/55/35/45; Subprofessional 145: 36/36/36/37; tightest pools: Professional algebra 18 of 20, Subprofessional clerical 36 of 40); upload dry run no invalid sources, 170 lessons, 170 question sets, 3 mock blueprints, 9 catalog documents, 1 gap document, 170 pro documents | release blocker, decision log Nov 1 |
 | Open for Aedwon | confirm two lead rulings (penalties Section 11(c) framing; citizenship treated as English); review content; visual check of 11 figure questions; visual check of the figure gallery; build and upload (E7) | ledger |
+
+## CET pilot (branch content/cet-rewrite-r1, from 7032eec5)
+
+Plan: `docs/superpowers/plans/2026-11-03-cet-content-pilot.md` on main. Policy read from main 014461cb.
+
+| Task | State | Evidence |
+|---|---|---|
+| 1. Branch, briefs and rules | done, not reviewed | 15 of 15 briefs in `docs/content/rewrite/cet/briefs/`; tests for the builder (27) and the lesson check (7) pass; `check_cet_lesson.py` exits 0 on all 15 unchanged lessons (longest: triangles, 1,685 words) |
+| 2. Sonnet writes 10 lessons | not started | |
+
+Briefs: 12 lessons resolve by a `### <id>` section; genetics-and-heredity and cell-biology by a `## <id>` section
+(lead ruling, November 3); pulleys-and-levers has no section in its topic artifact, so its brief is built from the
+facets of that exact id in `lesson-structure-data.json` and says so. No match is made by name.
+
+Known and not ours: `dart run tool/check_no_ai_attribution.dart` exits 1 on this branch from the base. The hits are
+the vendor name "chatgpt" in existing files under `tools/content_rewrite/relay/` and `tools/content_rewrite/tests/`.
+This pilot adds none. They are left as they are.

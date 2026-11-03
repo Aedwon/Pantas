@@ -8,12 +8,14 @@ Inputs, all read with `git show`:
   the base revision                  the lesson file (its frontmatter _id)
   the audit revision, under docs/content/audit/coverage-r1/
     lesson-exam-tags.json            the tagged exams of each lesson
-    topics/<subject>-<topic>-lessons.md   the `### <lesson id>` section, kept verbatim
+    topics/<subject>-<topic>-lessons.md   the `### <lesson id>` or `## <lesson id>` section, kept verbatim
     lesson-structure-data.json       the Level 3 verdict of each facet of the lesson, by exact lesson id
     requirement-teaching-findings.md      rows that name the lesson's topic as a provider
 
 A lesson that does not resolve is reported and gets no brief. The script then exits 2.
-It never takes a section whose heading differs from `### <lesson id>`.
+A section is the one under the exact heading `### <lesson id>` or `## <lesson id>`. Nothing is matched by name.
+When an id has no heading at any level in its topic file, the brief is built from the facets of that exact id in
+lesson-structure-data.json and says so. An id found nowhere is reported and gets no brief.
 """
 import argparse
 import json
@@ -48,22 +50,28 @@ class BriefError(Exception):
 
 # ---- audit topic file ----------------------------------------------------------
 
-def find_section(md, lesson_id):
-    """The text under the exact heading `### <lesson id>`, up to the next heading of level 1 to 3, or None."""
+def find_section_with_heading(md, lesson_id):
+    """(heading, text) for the exact heading `### <lesson id>` or `## <lesson id>`, or None.
+
+    The text runs to the next heading of the same or a higher level.
+    """
     lines = md.split("\n")
-    start = None
-    for number, line in enumerate(lines):
-        if line.rstrip() == "### " + lesson_id:
-            start = number + 1
-            break
-    if start is None:
-        return None
-    end = len(lines)
-    for number in range(start, len(lines)):
-        if re.match(r"#{1,3} ", lines[number]):
-            end = number
-            break
-    return "\n".join(lines[start:end]).strip("\n")
+    for marker in ("###", "##"):
+        for number, line in enumerate(lines):
+            if line.rstrip() == "%s %s" % (marker, lesson_id):
+                end = len(lines)
+                for later in range(number + 1, len(lines)):
+                    head = re.match(r"(#{1,6}) ", lines[later])
+                    if head and len(head.group(1)) <= len(marker):
+                        end = later
+                        break
+                return "%s %s" % (marker, lesson_id), "\n".join(lines[number + 1:end]).strip("\n")
+    return None
+
+
+def find_section(md, lesson_id):
+    found = find_section_with_heading(md, lesson_id)
+    return found[1] if found else None
 
 
 def where_id_appears(md, lesson_id):
@@ -81,6 +89,10 @@ def where_id_appears(md, lesson_id):
     return found
 
 
+def id_in_a_heading(md, lesson_id):
+    return any(row.startswith("line") and ": #" in row for row in where_id_appears(md, lesson_id))
+
+
 def parse_section(section):
     """{"goal", "structure", "verdict"}: the Goal line and the Structure line of an audit section.
 
@@ -88,6 +100,10 @@ def parse_section(section):
     """
     goal = structure = verdict = None
     for line in section.split("\n"):
+        # Some topic files write "**Learning goal:**" and "**Structure: retain.**" with bold labels.
+        line = line.replace("**", "")
+        if line.startswith("Learning goal:"):
+            line = "Goal:" + line[len("Learning goal:"):]
         if line.startswith("Goal:") and goal is None:
             goal = line
         elif line.startswith("Structure:") and structure is None:
@@ -103,18 +119,24 @@ def parse_section(section):
     return {"goal": goal, "structure": structure, "verdict": verdict}
 
 
-def lesson_facets(data, subject, topic, lesson_id):
-    """The facets of one lesson from lesson-structure-data.json, found by exact subject, topic and id."""
+def lesson_record(data, subject, topic, lesson_id):
+    """The record of one lesson in lesson-structure-data.json, found by exact subject, topic and id."""
     for record in data["topicRecords"]:
         if record["subject"] == subject and record["topic"] == topic:
             for lesson in record["lessons"]:
                 if lesson["id"] == lesson_id:
-                    if not lesson["skills"]:
-                        raise BriefError("lesson-structure-data.json lists no facets for the lesson")
-                    return [{"name": s["name"], "teaching": s["teachingVerdict"], "examples": s["exampleVerdict"],
-                             "refs": list(s["requirementRefs"]), "limits": list(s["limitations"])}
-                            for s in lesson["skills"]]
+                    return lesson
     raise BriefError("lesson-structure-data.json has no record of the lesson under %s/%s" % (subject, topic))
+
+
+def lesson_facets(data, subject, topic, lesson_id):
+    """The facets of one lesson from lesson-structure-data.json, found by exact subject, topic and id."""
+    lesson = lesson_record(data, subject, topic, lesson_id)
+    if not lesson["skills"]:
+        raise BriefError("lesson-structure-data.json lists no facets for the lesson")
+    return [{"name": s["name"], "teaching": s["teachingVerdict"], "examples": s["exampleVerdict"],
+             "refs": list(s["requirementRefs"]), "limits": list(s["limitations"])}
+            for s in lesson["skills"]]
 
 
 # ---- requirement rows ----------------------------------------------------------
@@ -180,7 +202,7 @@ def class_tail(statement):
 
 # ---- brief ---------------------------------------------------------------------
 
-def render_brief(title, lesson_id, path, tags, section, info, facets, shown, total, all_rows, topic_file, base_ref,
+def render_brief(title, lesson_id, path, tags, heading, section, info, goal_text, facets, shown, total, all_rows, topic_file, base_ref,
                 audit_ref):
     scope = [e for e in SCOPE_EXAMS if e in tags]
     by_id = {}
@@ -194,13 +216,20 @@ def render_brief(title, lesson_id, path, tags, section, info, facets, shown, tot
            "",
            "Standing rule: a rewrite may add teaching, but no case that another tagged exam needs is removed.",
            "",
-           "Sources: lesson at base revision %s; audit revision %s, `%s/topics/%s`, section `### %s`, and "
+           "Sources: lesson at base revision %s; audit revision %s, %s, and "
            "`%s/lesson-structure-data.json` and `%s/requirement-teaching-findings.md`."
-           % (base_ref, audit_ref, AUDIT_DIR, topic_file, lesson_id, AUDIT_DIR, AUDIT_DIR),
+           % (base_ref, audit_ref,
+              "`%s/topics/%s`, section `%s`" % (AUDIT_DIR, topic_file, heading) if section is not None
+              else "`%s/topics/%s` (which has no section for this lesson)" % (AUDIT_DIR, topic_file),
+              AUDIT_DIR, AUDIT_DIR),
            "",
            "## Audit findings for this lesson", "",
-           "Verbatim from the audit section. Its line references point into the audit's pinned corpus, not into this "
-           "branch.", "", section.strip("\n"), ""]
+           ] + (["Verbatim from the audit section. Its line references point into the audit's pinned corpus, not into "
+                 "this branch.", "", section.strip("\n"), ""] if section is not None else
+                ["NO TOPIC SECTION. The topic artifact `%s` has no heading for this lesson id at any level. The "
+                 "findings below come from the facets of this exact id in lesson-structure-data.json. The artifact's "
+                 "general findings may discuss this lesson by name; they are not matched here." % topic_file, "",
+                 "Goal: %s" % goal_text, ""])
 
     out += ["## Thin, named-only or absent items", "",
             "From the audit's lesson-structure-data.json, by exact lesson id. Teaching verdict first, then the "
@@ -239,7 +268,10 @@ def render_brief(title, lesson_id, path, tags, section, info, facets, shown, tot
         out.append("")
 
     out += ["## Split or reorder candidate", ""]
-    if info["verdict"] == "retain":
+    if info is None:
+        out += ["None attached. The audit has no section for this lesson, so no Structure verdict can be tied to its "
+                "exact id. The pilot makes no splits or reorders in any case.", ""]
+    elif info["verdict"] == "retain":
         out += ["The audit recommends keeping the structure.", "", info["structure"], ""]
     else:
         out += ["NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the "
@@ -321,19 +353,25 @@ def build_all(pilot, show, base_ref, audit_ref):
         if topic_md is None:
             problems.append("%s: %s: topic file topics/%s not found" % (label, lesson_id, topic_file))
             continue
-        section = find_section(topic_md, lesson_id)
-        if section is None:
-            where = where_id_appears(topic_md, lesson_id)
-            problems.append("%s: %s: no '### %s' section in topics/%s. The id appears: %s"
-                            % (label, lesson_id, lesson_id, topic_file, "; ".join(where) or "nowhere"))
-            continue
-        try:
-            info = parse_section(section)
-        except BriefError as err:
-            problems.append("%s: %s: %s" % (label, lesson_id, err))
-            continue
+        found = find_section_with_heading(topic_md, lesson_id)
+        heading = section = info = None
+        if found is None:
+            if id_in_a_heading(topic_md, lesson_id):
+                where = where_id_appears(topic_md, lesson_id)
+                problems.append("%s: %s: the id is a heading in topics/%s at a level other than ## or ###: %s"
+                                % (label, lesson_id, topic_file, "; ".join(where)))
+                continue
+            # No heading at any level: the facets of this exact id in lesson-structure-data.json carry the findings.
+        else:
+            heading, section = found
+            try:
+                info = parse_section(section)
+            except BriefError as err:
+                problems.append("%s: %s: %s" % (label, lesson_id, err))
+                continue
         try:
             facets = lesson_facets(structure_data, parts[0], parts[1], lesson_id)
+            goal_text = lesson_record(structure_data, parts[0], parts[1], lesson_id).get("goal", "")
         except BriefError as err:
             problems.append("%s: %s: %s" % (label, lesson_id, err))
             continue
@@ -341,7 +379,7 @@ def build_all(pilot, show, base_ref, audit_ref):
         topic = "%s-%s" % (parts[0], parts[1])
         shown, total = select_rows(all_rows, topic, tags)
         title = entry.get("metadata_title") or lesson_id
-        briefs[lesson_id] = render_brief(title, lesson_id, path, tags, section, info, facets, shown, total,
+        briefs[lesson_id] = render_brief(title, lesson_id, path, tags, heading, section, info, goal_text, facets, shown, total,
                                          all_rows, topic_file, base_ref, audit_ref)
     return briefs, problems
 
@@ -369,9 +407,10 @@ def main(argv=None):
     for lesson_id, text in sorted(briefs.items()):
         shown = re.search(r"Matching rows: (\d+)\. Shown: (\d+)\.", text)
         section = text.split("## Audit findings for this lesson")[1].split("## Thin, named-only or absent items")[0]
+        source = "no topic section, facets only" if "NO TOPIC SECTION" in section else "section %d words" % len(section.split())
         gaps = text.split("## Thin, named-only or absent items")[1].split("## Split or reorder candidate")[0]
-        print("  %s: section %d words, gap lines %d, rows %s of %s"
-              % (lesson_id, len(section.split()), len(re.findall(r"^- .+: (?:thin|named-only|absent);", gaps, re.M)),
+        print("  %s: %s, gap lines %d, rows %s of %s"
+              % (lesson_id, source, len(re.findall(r"^- .+: (?:thin|named-only|absent);", gaps, re.M)),
                  shown.group(2), shown.group(1)))
     if problems:
         print("UNRESOLVED (%d). No brief was written for these:" % len(problems))
