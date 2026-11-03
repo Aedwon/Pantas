@@ -39,9 +39,13 @@ A **coefficient** is the number multiplied by a variable. In $2x + 3y = 12$, the
 
 To draw a line, you need two points. Two easy ones are the **intercepts**: the $x$-intercept is where the line crosses the $x$-axis ($y = 0$), and the $y$-intercept is where it crosses the $y$-axis ($x = 0$).
 
-Some lines do not give two intercepts. The line $y = 2x$ passes through the origin, so both intercepts are $(0, 0)$. The lines $y = 3$ and $x = 3$ have only one intercept each. For these, pick another $x$ value and find its $y$ value to get a second point.
+Some lines do not give two intercepts. The line $y = 2x$ passes through the origin, so both intercepts are $(0, 0)$. The lines $y = 3$ and $x = 3$ have only one intercept each.
 
-If the line is not vertical, you can also rewrite the equation as $y = mx + b$. Here $m$ is the **slope**, how many units the line goes up (or down, if negative) for each $1$ unit to the right. The number $b$ is the $y$-intercept. A vertical line, like $x = 3$, has no slope and cannot be written this way.
+For these lines, pick another $x$ value and find its $y$ value to get a second point.
+
+If the line is not vertical, you can also rewrite the equation as $y = mx + b$. Here $m$ is the **slope**, how many units the line goes up (or down, if negative) for each $1$ unit to the right.
+
+The number $b$ is the $y$-intercept. A vertical line, like $x = 3$, has no slope and cannot be written this way.
 
 The steps are:
 
@@ -69,7 +73,7 @@ A **non-linear system** has at least one equation whose graph is not a straight 
 
 A curve can meet a line in more places than another line can. A line can cross a parabola at two points, touch it at one point, or miss it. So a non-linear system can have no solution, one, two, or more.
 
-Two curves can have even more. The curves $y = x^3$ and $y = x$ meet at three points: $(-1, -1)$, $(0, 0)$ and $(1, 1)$.
+A curve can meet a line in even more places. The curve $y = x^3$ and the line $y = x$ meet at three points: $(-1, -1)$, $(0, 0)$ and $(1, 1)$.
 
 CETs like to hide systems inside word problems. If a problem gives two facts about two unknown amounts, it is a system in disguise.
 
@@ -262,7 +266,7 @@ $$x^2 - 4 = 3x - 6$$
 
 $$x^2 - 3x + 2 = 0$$
 
-3. Factor the quadratic. To **factor** means to write it as a product of brackets. Check: $(x - 1)(x - 2)$ multiplies out to $x^2 - 3x + 2$.
+3. Factor the quadratic. To **factor** means to write it as a product of brackets. To find the brackets, look for two numbers that multiply to $2$ and add to $-3$. These are $-1$ and $-2$, so the quadratic is $(x - 1)(x - 2)$. The Quadratic Equations lesson teaches this in full.
 
 $$(x - 1)(x - 2) = 0$$
 
@@ -339,10 +343,14 @@ To scale $3x + 2y = 16$ by $5$, write $15x + 10y = 80$. If you leave the $16$ un
 
 > If every variable vanishes, check the statement that is left.
 
-Subtract $2x + y = 9$ from $2x + y = 5$ and you get $0 = -4$. This is false, so the lines are parallel and the answer is "no solution", not $0$ and not $-4$. If the leftover statement is true, like $0 = 0$, the equations describe the same line. Then there are infinitely many solutions.
+Subtract $2x + y = 9$ from $2x + y = 5$ and you get $0 = -4$. This is false, so the lines are parallel and the answer is "no solution", not $0$ and not $-4$.
+
+If the leftover statement is true, like $0 = 0$, the equations describe the same line. Then there are infinitely many solutions.
 
 ### #5: Finding Only One Point on a Curve
 
 > A line can hit a parabola twice. Check how many solutions there are.
 
-In a non-linear system, students may find one root, compute one point, and stop. The quadratic in Example #7 had two roots (solutions), so there were two crossing points. If the question asks for "the solutions" or "the sum of the $x$ values", use every root that gives a real point. A line may also touch the parabola once or miss it, as in Example #8.
+In a non-linear system, students may find one root, compute one point, and stop. The quadratic in Example #7 had two roots (solutions), so there were two crossing points.
+
+If the question asks for "the solutions" or "the sum of the $x$ values", use every root that gives a real point. A line may also touch the parabola once or miss it, as in Example #8.
