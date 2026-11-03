@@ -8,7 +8,7 @@
     "test": "node --test illustration_review.test.mjs illustration_review_ui.test.mjs"
   },
   "dependencies": {
-    "katex": "^0.16.11",
+    "katex": "^0.18.2",
     "marked": "^14.1.2",
     "yaml": "^2.4.5"
   }
