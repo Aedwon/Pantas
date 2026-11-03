@@ -62,7 +62,7 @@ In one plane, two lines that are both perpendicular to the same transversal are 
 
 Lines $l$ and $m$ are parallel, cut by a transversal. At the top crossing, an interior angle measures $65^\circ$. Find its vertical angle, its linear pair neighbor, its corresponding angle, and its same-side interior angle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line l", "Line m", "65°", "Vertical: 65°", "Linear pair: 115°", "Corresponding: 65°", "Same-side int: 115°"], "semanticsLabel": "Parallel lines l and m cut by a transversal with an interior top angle of 65 degrees and its vertical angle, linear pair, corresponding, and same-side interior angles."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line l", "Line m", "65°", "Vertical: ?", "Linear pair: ?", "Corresponding: ?", "Same-side int: ?"], "semanticsLabel": "Parallel lines l and m cut by a transversal with an interior top angle of 65 degrees. Its vertical angle, linear pair neighbor, corresponding angle, and same-side interior angle are marked with question marks."} -->
 
 **Solution:**
 The angle is not $90^\circ$, so every angle in the figure is either $65^\circ$ or its supplement.
@@ -100,7 +100,7 @@ $$40 = x$$
 
 Lines $a$ and $b$ are parallel. Two same-side interior angles measure $(3x + 20)^\circ$ and $(2x - 15)^\circ$. Find both angles.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line a", "Line b", "(3x + 20)°", "(2x - 15)°", "Sum = 180°"], "semanticsLabel": "Parallel lines a and b with same-side interior angles labeled 3x plus 20 degrees and 2x minus 15 degrees summing to 180 degrees."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line a", "Line b", "(3x + 20)°", "(2x - 15)°"], "semanticsLabel": "Parallel lines a and b with same-side interior angles labeled 3x plus 20 degrees and 2x minus 15 degrees. The value of x is unknown."} -->
 
 **Solution:**
 Same-side interior angles are supplementary, so they add to $180^\circ$.
