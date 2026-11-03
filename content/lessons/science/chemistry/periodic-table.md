@@ -57,7 +57,7 @@ First, the nucleus pulls on electrons. More protons give a stronger pull.
 
 Second, **shielding**: electrons in inner shells push outer electrons away. This cancels part of the pull. The pull that an outer electron truly feels is called the **effective nuclear charge**. It is about the number of protons minus the shielding.
 
-Across a period, each step adds one proton. The new electron goes into the same shell, and electrons in the same shell shield each other only a little. So the effective nuclear charge rises, and the outer electrons are held more tightly.
+Across a period, each step adds one proton. Across the main-group elements, the new electron goes into the outer shell, and electrons in the same shell shield each other only a little. So the effective nuclear charge rises, and the outer electrons are held more tightly. Across the transition metals, the new electron goes into the $d$ subshell of the shell below, so the change in pull from one metal to the next is small.
 
 Down a group, each step adds a whole new shell. The outer electrons are farther from the nucleus and are shielded by more inner electrons. They are held less tightly.
 
