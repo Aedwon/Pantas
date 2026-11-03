@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-geometry-coordinate-geometry",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "To find the center and radius, rewrite it in standard form by **completing the square**. Group the $x$ terms and the $y$ terms.", "problem": "This paragraph has five sentences, over the one-to-three limit. Others also pass three: the Pythagorean-theorem paragraph and the right-triangle paragraph (four each), the paragraph starting \"After completing the square\" (four), the missing-endpoint and same-x speed tricks (five each), and the Trap #5 explanation (six). Round-1 L22a stays open in other paragraphs; the slope paragraph it quoted is fixed.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 1
+}

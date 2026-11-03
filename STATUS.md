@@ -233,3 +233,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Coordinate-geometry round 1: 2 Majors (completing the square half taught; circle-center trap worded without its limit); fix running.
 - Done at minor after round 2: basic-geometric-concepts (2 Minors). Writing: parallel-perpendicular-lines.
 - Systems-of-equations round 2: 2 Majors (factoring not shown; a line called a curve); fix running. Coordinate-geometry fixed after round 1; round 2 read running.
+- Written: parallel-perpendicular-lines (2,060 words). Systems-of-equations fixed after round 2.
