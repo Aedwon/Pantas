@@ -23,6 +23,8 @@ import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
+import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -215,76 +217,87 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       child: Semantics(
         inMutuallyExclusiveGroup: true,
         selected: chosen,
-        child: TextButton(
-          key: ValueKey('exam-${entry.id}'),
-          onPressed: onTap,
-          style: ButtonStyle(
-            minimumSize:
-                const WidgetStatePropertyAll(Size(double.infinity, 55)),
-            padding: const WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        // The chosen tint fades 160 ms on the ease (item 17, demo 4) and the
+        // label keeps one weight. It is a layer behind: Material does not
+        // animate a button's own fill.
+        child: FadingColor(
+          color: chosen
+              ? t.colors.accentTint
+              : t.colors.accentTint.withValues(alpha: 0),
+          builder: (context, fill, child) => DecoratedBox(
+            decoration: BoxDecoration(
+              color: fill,
+              borderRadius: BorderRadius.circular(12),
             ),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-            backgroundColor: WidgetStateProperty.resolveWith(
-              (s) => chosen
-                  ? t.colors.accentTint
-                  : s.contains(WidgetState.hovered) && enabled
-                      ? t.rowHover
-                      : Colors.transparent,
-            ),
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            ),
+            child: child,
           ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      entry.shortName,
-                      style: t.style(
-                        16,
-                        height: 1.3,
-                        weight: chosen ? FontWeight.w600 : FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      _organizations[entry.id] ?? entry.name,
-                      style: t.style(
-                        14,
-                        height: 1.3,
-                        color: t.colors.secondaryLabel,
-                      ),
-                    ),
-                  ],
-                ),
+          child: TextButton(
+            key: ValueKey('exam-${entry.id}'),
+            onPressed: onTap,
+            style: ButtonStyle(
+              minimumSize:
+                  const WidgetStatePropertyAll(Size(double.infinity, 55)),
+              padding: const WidgetStatePropertyAll(
+                EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
-              if (!enabled)
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: t.disabledBackground,
-                    borderRadius: BorderRadius.circular(99),
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              visualDensity: VisualDensity.standard,
+              overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+              backgroundColor: WidgetStateProperty.resolveWith(
+                (s) => !chosen && s.contains(WidgetState.hovered) && enabled
+                    ? t.rowHover
+                    : Colors.transparent,
+              ),
+              shape: WidgetStatePropertyAll(
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        entry.shortName,
+                        style: t.style(16, height: 1.3),
+                      ),
+                      Text(
+                        _organizations[entry.id] ?? entry.name,
+                        style: t.style(
+                          14,
+                          height: 1.3,
+                          color: t.colors.secondaryLabel,
+                        ),
+                      ),
+                    ],
                   ),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    child: Text(
-                      'Coming soon',
-                      style: t.style(
-                        12,
-                        weight: FontWeight.w600,
-                        color: t.colors.secondaryLabel,
+                ),
+                if (!enabled)
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: t.disabledBackground,
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
+                      child: Text(
+                        'Coming soon',
+                        style: t.style(
+                          12,
+                          weight: FontWeight.w600,
+                          color: t.colors.secondaryLabel,
+                        ),
                       ),
                     ),
-                  ),
-                )
-              else if (chosen)
-                Icon(PantasIcons.check, size: 16, color: t.colors.accent),
-            ],
+                  )
+                else if (chosen)
+                  Icon(PantasIcons.check, size: 16, color: t.colors.accent),
+              ],
+            ),
           ),
         ),
       ),
@@ -300,55 +313,60 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     String? active,
   ) {
     final enabled = widget.selectable(entry);
-    return WebCard(
-      radius: 14,
-      minHeight: 64,
-      selected: chosen,
-      child: RadioRow(
-        key: ValueKey('exam-${entry.id}'),
-        title: entry.shortName,
-        showMark: false,
+    return PressScale(
+      enabled: !_saving && enabled,
+      child: WebCard(
+        radius: 14,
+        minHeight: 64,
         selected: chosen,
-        onTap: _saving || !enabled ? null : () => _pick(entry, active),
-        padding: const EdgeInsets.fromLTRB(16, 11, 14, 11),
-        content: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              entry.shortName,
-              style: t.style(16, weight: FontWeight.w600),
-            ),
-            Text(
-              _organizations[entry.id] ?? entry.name,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: t.sm,
-            ),
-          ],
-        ),
-        trailing: enabled
-            ? null
-            : Padding(
-                padding: const EdgeInsets.only(right: 14),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: t.disabledBackground,
-                    borderRadius: BorderRadius.circular(99),
-                  ),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-                    child: Text(
-                      'Coming soon',
-                      style: t.style(
-                        11,
-                        weight: FontWeight.w600,
-                        color: t.colors.secondaryLabel,
+        child: RadioRow(
+          key: ValueKey('exam-${entry.id}'),
+          title: entry.shortName,
+          showMark: false,
+          selected: chosen,
+          onTap: _saving || !enabled ? null : () => _pick(entry, active),
+          padding: const EdgeInsets.fromLTRB(16, 11, 14, 11),
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                entry.shortName,
+                style: t.style(16, weight: FontWeight.w600),
+              ),
+              Text(
+                _organizations[entry.id] ?? entry.name,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: t.sm,
+              ),
+            ],
+          ),
+          trailing: enabled
+              ? null
+              : Padding(
+                  padding: const EdgeInsets.only(right: 14),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: t.disabledBackground,
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 7,
+                        vertical: 2,
+                      ),
+                      child: Text(
+                        'Coming soon',
+                        style: t.style(
+                          11,
+                          weight: FontWeight.w600,
+                          color: t.colors.secondaryLabel,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+        ),
       ),
     );
   }

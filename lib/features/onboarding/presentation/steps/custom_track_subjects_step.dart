@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -258,37 +259,40 @@ class _SubjectTileState extends State<_SubjectTile> {
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
-      child: Container(
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-          color: t.colors.surface,
-          borderRadius: BorderRadius.circular(14),
-          border: t.dark ? Border.all(color: t.cardEdge) : null,
-        ),
-        foregroundDecoration: _hovered && widget.onTap != null
-            ? BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: t.strongDivider, width: 1.5),
-              )
-            : null,
-        child: Material(
-          color: Colors.transparent,
-          // Desktop's compact density would take 8 px off the 56 minimum.
-          child: Theme(
-            data: Theme.of(context)
-                .copyWith(visualDensity: VisualDensity.standard),
-            child: CheckboxRow(
-              title: widget.name,
-              content: Text(
-                widget.name,
-                style: context.type.body.copyWith(fontSize: 16),
+      child: PressScale(
+        child: Container(
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(
+            color: t.colors.surface,
+            borderRadius: BorderRadius.circular(14),
+            border: t.dark ? Border.all(color: t.cardEdge) : null,
+          ),
+          foregroundDecoration: _hovered && widget.onTap != null
+              ? BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: t.strongDivider, width: 1.5),
+                )
+              : null,
+          child: Material(
+            color: Colors.transparent,
+            // Desktop's compact density would take 8 px off the 56 minimum.
+            child: Theme(
+              data: Theme.of(context)
+                  .copyWith(visualDensity: VisualDensity.standard),
+              child: CheckboxRow(
+                title: widget.name,
+                content: Text(
+                  widget.name,
+                  style: context.type.body.copyWith(fontSize: 16),
+                ),
+                selected: widget.selected,
+                onTap: widget.onTap,
+                gap: 14,
+                minHeight: 56,
+                hoverFill: false,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               ),
-              selected: widget.selected,
-              onTap: widget.onTap,
-              gap: 14,
-              minHeight: 56,
-              hoverFill: false,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             ),
           ),
         ),

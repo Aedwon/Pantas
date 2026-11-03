@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -291,85 +292,87 @@ class _ThemeTile extends StatelessWidget {
       excludeSemantics: true,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: onTap,
-          child: SizedBox(
-            width: 140,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: 128,
-                    height: 84,
-                    decoration: BoxDecoration(
-                      color: value == ThemePreference.dark
-                          ? const Color(0xFF151515)
-                          : const Color(0xFFF5F5F7),
-                      gradient: value == ThemePreference.system
-                          ? const LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color(0xFFF5F5F7),
-                                Color(0xFFF5F5F7),
-                                Color(0xFF151515),
-                                Color(0xFF151515),
-                              ],
-                              stops: [0, .5, .5, 1],
-                            )
-                          : null,
-                      borderRadius: BorderRadius.circular(14),
-                      border: selected
-                          ? null
-                          : Border.all(color: const Color(0xFFE3E3E8)),
-                      boxShadow: selected
-                          ? [
-                              BoxShadow(
-                                color: t.colors.accentFill,
-                                spreadRadius: 3,
-                              ),
-                            ]
-                          : null,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    spacing: 8,
-                    runSpacing: 2,
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: selected ? t.colors.accentFill : null,
-                          border: selected
-                              ? null
-                              : Border.all(
-                                  color: t.dark
-                                      ? t.colors.controlOutline
-                                      : const Color(0xFFC7C7CC),
-                                  width: 1.5,
-                                ),
-                        ),
-                        child: selected
-                            ? const Icon(
-                                Icons.check,
-                                size: 11,
-                                color: Colors.white,
+        child: PressScale(
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: onTap,
+            child: SizedBox(
+              width: 140,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 128,
+                      height: 84,
+                      decoration: BoxDecoration(
+                        color: value == ThemePreference.dark
+                            ? const Color(0xFF151515)
+                            : const Color(0xFFF5F5F7),
+                        gradient: value == ThemePreference.system
+                            ? const LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xFFF5F5F7),
+                                  Color(0xFFF5F5F7),
+                                  Color(0xFF151515),
+                                  Color(0xFF151515),
+                                ],
+                                stops: [0, .5, .5, 1],
                               )
                             : null,
+                        borderRadius: BorderRadius.circular(14),
+                        border: selected
+                            ? null
+                            : Border.all(color: const Color(0xFFE3E3E8)),
+                        boxShadow: selected
+                            ? [
+                                BoxShadow(
+                                  color: t.colors.accentFill,
+                                  spreadRadius: 3,
+                                ),
+                              ]
+                            : null,
                       ),
-                      Text(label, style: t.style(15)),
-                    ],
-                  ),
-                ],
+                    ),
+                    const SizedBox(height: 10),
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 8,
+                      runSpacing: 2,
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: selected ? t.colors.accentFill : null,
+                            border: selected
+                                ? null
+                                : Border.all(
+                                    color: t.dark
+                                        ? t.colors.controlOutline
+                                        : const Color(0xFFC7C7CC),
+                                    width: 1.5,
+                                  ),
+                          ),
+                          child: selected
+                              ? const Icon(
+                                  Icons.check,
+                                  size: 11,
+                                  color: Colors.white,
+                                )
+                              : null,
+                        ),
+                        Text(label, style: t.style(15)),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -417,66 +420,71 @@ class _PhoneTile extends StatelessWidget {
       inMutuallyExclusiveGroup: true,
       label: label,
       excludeSemantics: true,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 74,
-              height: 140,
-              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 14),
-              decoration: BoxDecoration(
-                color: dark ? const Color(0xFF151515) : Colors.white,
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: const Color(0xFFE3E3E8)),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: bar(
-                      9,
-                      dark ? const Color(0xFF3D3D3D) : const Color(0xFFD1D1D6),
-                      width: 40,
+      child: PressScale(
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onTap,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 74,
+                height: 140,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 9, vertical: 14),
+                decoration: BoxDecoration(
+                  color: dark ? const Color(0xFF151515) : Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: const Color(0xFFE3E3E8)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: bar(
+                        9,
+                        dark
+                            ? const Color(0xFF3D3D3D)
+                            : const Color(0xFFD1D1D6),
+                        width: 40,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 7),
-                  bar(34, soft, radius: 6),
-                  const SizedBox(height: 7),
-                  bar(6, soft),
-                  const SizedBox(height: 7),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: FractionallySizedBox(
-                      widthFactor: .7,
-                      child: bar(6, soft),
+                    const SizedBox(height: 7),
+                    bar(34, soft, radius: 6),
+                    const SizedBox(height: 7),
+                    bar(6, soft),
+                    const SizedBox(height: 7),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: FractionallySizedBox(
+                        widthFactor: .7,
+                        child: bar(6, soft),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(label, style: context.type.body.copyWith(fontSize: 15)),
-            const SizedBox(height: 8),
-            Container(
-              width: 22,
-              height: 22,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: selected ? context.colors.accentFill : null,
-                border: selected
-                    ? null
-                    : Border.all(color: const Color(0xFFC7C7CC), width: 1.5),
+              const SizedBox(height: 8),
+              Text(label, style: context.type.body.copyWith(fontSize: 15)),
+              const SizedBox(height: 8),
+              Container(
+                width: 22,
+                height: 22,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: selected ? context.colors.accentFill : null,
+                  border: selected
+                      ? null
+                      : Border.all(color: const Color(0xFFC7C7CC), width: 1.5),
+                ),
+                child: selected
+                    ? const Icon(Icons.check, size: 12, color: Colors.white)
+                    : null,
               ),
-              child: selected
-                  ? const Icon(Icons.check, size: 12, color: Colors.white)
-                  : null,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
