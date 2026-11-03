@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-biology-botany",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The female part is the **pistil**. It has three regions.",
+      "problem": "Round-2 L22a is still open, though the pollination paragraph it quoted is now fixed. This pistil paragraph has five sentences, above the one to three allowed. Four other paragraphs have four sentences: the one opening \"**Dermal tissue** is the outer covering of the plant.\", the one opening \"A **tropism** is growth of a plant part in a direction set by a stimulus.\", the one opening \"Flowering plants reproduce sexually.\", and the first Speed Tricks paragraph opening \"For transport, start with the material. Water and minerals go with xylem.\"",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences)"
+    },
+    {
+      "rule": "L13",
+      "severity": "Minor",
+      "quote": "a cell in the ovule that has two nuclei, called the central cell",
+      "problem": "A term defined here for the first time and used again in Example #7 is not bold, while the lesson bolds every other first definition. The same happens in \"Many flowers also have petals, which can attract animals, and sepals, which protect the bud.\" and in \"Xylem also has living cells, called parenchyma cells.\"",
+      "source": "Checklist L13 (bold for first definitions); LSG Emphasis and de-AI rules"
+    }
+  ],
+  "goodQuotesChecked": 9
+}
