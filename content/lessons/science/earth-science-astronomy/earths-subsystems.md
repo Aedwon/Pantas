@@ -35,7 +35,7 @@ Water vapor and clouds sit in the air. Some models count them as hydrosphere and
 
 The **atmosphere** is the layer of gases around Earth, held in place by gravity. Dry air is mostly nitrogen, about $78\%$, and oxygen, about $21\%$. It also holds small amounts of argon, carbon dioxide, and other gases, plus water vapor and tiny particles.
 
-The atmosphere shapes weather, spreads heat, and blocks part of the Sun's harmful ultraviolet light. It has layers. In the lowest layer, the troposphere, the air usually gets colder with height. In the next layer up, the stratosphere, it gets warmer with height, because the ozone there absorbs ultraviolet light.
+The atmosphere shapes weather, spreads heat, and blocks part of the Sun's harmful ultraviolet light. It has layers. In the lowest layer, the troposphere, the air usually gets colder with height. In the next layer up, the stratosphere, it gets warmer with height, because the ozone there absorbs ultraviolet light. Above it are the mesosphere, where the air gets colder with height again, and the thermosphere, the top layer listed here, where it gets warmer with height.
 
 ### Biosphere
 
@@ -154,8 +154,8 @@ Some books use the two words in a looser way. Follow the meaning in the question
 
 A glacier is solid, but it is water. Do not file it under the geosphere only because it is hard and cold. Some models list the cryosphere as a fifth sphere.
 
-### #4: Thinking Air Always Gets Colder Upward
+### #4: Thinking Air Gets Colder All the Way Up
 
-> Temperature drops with height in the troposphere and the mesosphere. It rises in the stratosphere.
+> From the ground up, the layers are the troposphere, stratosphere, mesosphere, and thermosphere. Air usually gets colder with height in the first and third, and warmer with height in the second and fourth.
 
-The pattern changes from layer to layer. The thermosphere, higher up, also warms with height.
+The pattern changes from layer to layer, so name the layer before you say whether the air warms or cools.
