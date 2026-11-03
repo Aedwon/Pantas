@@ -17,15 +17,28 @@ The Moon orbits Earth, so our view of that lit half keeps changing. Sometimes we
 
 One cycle, from one new moon to the next, takes about $29.5$ days. This time is called a **synodic month**.
 
-Four words describe the shapes. **Waxing** means the lit part is growing. **Waning** means it is shrinking. **Crescent** means less than half of the face is lit. **Gibbous** means more than half is lit.
+Four words describe the shapes. **Waxing** means the lit part is growing. **Waning** means it is shrinking.
 
-The order of the phases is: **new moon** (the lit half faces away from Earth, so the Moon looks dark), waxing crescent, **first quarter** (half of the face is lit), waxing gibbous, **full moon** (the whole face is lit), waning gibbous, **last quarter** (half of the face is lit), waning crescent, and then new moon again.
+**Crescent** means less than half of the face is lit. **Gibbous** means more than half is lit.
 
-A "quarter" moon is not one quarter lit. The name means the Moon is one quarter of the way around its orbit. Earth's shadow does not cause the phases.
+The order of the phases is below. Read it as one cycle that repeats.
+
+1. **New moon**: the lit half faces away from Earth, so the Moon looks dark.
+2. Waxing crescent.
+3. **First quarter**: half of the face is lit.
+4. Waxing gibbous.
+5. **Full moon**: the whole face is lit.
+6. Waning gibbous.
+7. **Last quarter**: half of the face is lit.
+8. Waning crescent, and then new moon again.
+
+A "quarter" moon is not one quarter lit. Half of its face is lit. The name counts the trip around the orbit: at first quarter the Moon is one quarter of the way around from new moon, and at last quarter it is three quarters of the way around. Earth's shadow does not cause the phases.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"moon-phases","illustrationKey":"science/earth-science-astronomy/eclipses-and-moon-phases#1","moonPositions":8,"sunlightFrom":"one side","phaseNames":["new moon","waxing crescent","first quarter","waxing gibbous","full moon","waning gibbous","last quarter","waning crescent"],"showEarthView":true} -->
 
-The phase also tells you when the Moon is in the sky. A waxing Moon shows in the evening sky. A waning Moon shows in the morning sky, before sunrise. A full moon rises near sunset and sets near sunrise.
+The phase also tells you when the Moon is in the sky. A waxing Moon shows in the evening sky. A waning Moon shows in the morning sky, before sunrise.
+
+A full moon rises near sunset and sets near sunrise.
 
 ### Eclipses
 
@@ -35,7 +48,9 @@ A shadow has two parts. The **umbra** is the dark center, where light is fully b
 
 A **solar eclipse** happens at new moon. The Moon is between the Sun and Earth. The Moon's shadow falls on a small part of Earth, so only people in that part see the eclipse.
 
-A **lunar eclipse** happens at full moon. Earth is between the Sun and the Moon. Earth's shadow falls on the Moon. Anyone on the night side of Earth, where the Moon is above the horizon, can see it.
+A **lunar eclipse** happens at full moon. Earth is between the Sun and the Moon, and Earth's shadow falls on the Moon.
+
+Anyone on the night side of Earth, where the Moon is above the horizon, can see it.
 
 <!-- ILLUSTRATION: solar eclipse, left to right: Sun, Moon labeled "new moon", Earth; Moon shadow cones labeled "umbra" and "penumbra" reach a small spot on Earth -->
 
@@ -155,9 +170,13 @@ Compare the Moon's orbit with Earth's orbit.
 
 ## Speed Tricks & Shortcuts
 
-Ask who is in the middle. If the Moon is in the middle, it is a solar eclipse at new moon. If Earth is in the middle, it is a lunar eclipse at full moon. If the timing does not match, that eclipse is impossible.
+Ask who is in the middle. If the Moon is in the middle, it is a solar eclipse at new moon. If Earth is in the middle, it is a lunar eclipse at full moon.
 
-Name any phase with two words: "waxing" or "waning" for direction, and "crescent," "quarter," or "gibbous" for the amount lit.
+If the timing does not match, that eclipse is impossible.
+
+Name a phase between new moon and full moon with two words: "waxing" or "waning" for direction, and "crescent," "quarter," or "gibbous" for the amount lit. For example, a lit part that is growing and less than half is a waxing crescent.
+
+This shortcut has limits. New moon and full moon have no direction word. For the quarter phases, the usual names are first quarter (waxing) and last quarter (waning), not "waxing quarter" or "waning quarter".
 
 ## Traps to Watch For
 
@@ -177,7 +196,9 @@ A choice may say that a lunar eclipse happens at every full moon. This is false.
 
 > The umbra is the dark, complete shadow. The penumbra is the lighter, partial shadow.
 
-Viewers in the umbra see a total eclipse. Viewers in the penumbra see a partial one. "The Sun is completely blocked" points to the umbra, and "partly covered" points to the penumbra.
+For a solar eclipse, viewers in the Moon's umbra see a total eclipse. Viewers in the Moon's penumbra see a partial one. "The Sun is completely blocked" points to the umbra, and "partly covered" points to the penumbra.
+
+This rule does not carry over to a lunar eclipse. For the Moon, the umbra gives a total eclipse when the whole Moon is inside it, and a partial eclipse when only part of the Moon is. A Moon that enters only the penumbra gives a penumbral eclipse, not a partial one.
 
 ### #4: Blaming Earth's Shadow for the Phases
 

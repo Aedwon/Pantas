@@ -33,19 +33,19 @@
     "lessonPath": "content/lessons/science/physics/work-energy-power.md",
     "lessonId": "lesson-physics-work-energy-power",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
     "lessonId": "lesson-earth-science-astronomy-plate-tectonics",
     "group": "science",
-    "status": "round-2-read"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/eclipses-and-moon-phases.md",
     "lessonId": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/biology/genetics-and-heredity.md",

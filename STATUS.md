@@ -167,3 +167,4 @@ Sol high audit done (stoichiometry, quadratic-equations, circles), 109,801 token
 Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round-N-fixed` means the writer closed round N's Blockers and Majors and the round N+1 read is pending. Rulings and rejected findings: `docs/content/rewrite/cet/final-run-rulings.md`.
 
 - Fixes after round 1: stoichiometry (also the Sol Blocker), chemical-bonding, acids-bases-ph, kinematics. All pass `check_cet_lesson.py`. Round 2 reads running.
+- Fixes: work-energy-power and eclipses-and-moon-phases after round 1; plate-tectonics after round 2 (its round 3 read is the last). All pass the check.
