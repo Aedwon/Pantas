@@ -33,7 +33,9 @@ The **Exterior Angle Theorem** says that if you extend one side, the exterior an
 
 ### Congruence (SSS, SAS, ASA, AAS, HL)
 
-Two triangles are **congruent** when they are exact copies. Their **corresponding** parts match. In $\triangle ABC \cong \triangle DEF$, point $A$ matches $D$, $B$ matches $E$, and $C$ matches $F$. So side $AB$ matches $DE$, and $\angle C$ matches $\angle F$.
+Two triangles are **congruent** when they are exact copies. Their **corresponding** parts match.
+
+In $\triangle ABC \cong \triangle DEF$, point $A$ matches $D$, $B$ matches $E$, and $C$ matches $F$. So side $AB$ matches $DE$, and $\angle C$ matches $\angle F$.
 
 Prove congruence with these shortcuts. The parts must match in the same places in both triangles:
 
@@ -43,15 +45,23 @@ Prove congruence with these shortcuts. The parts must match in the same places i
 - **AAS**: two angles and another side match.
 - **HL**: in right triangles, the hypotenuse and one leg match. (The legs and the hypotenuse are explained above.)
 
-Some equal parts are not given. Look for them in the figure. A side shared by both triangles is equal to itself. Vertical angles (the opposite angles where two lines cross) are equal. A midpoint splits a segment into two equal parts.
+Some equal parts are not given. Look for them in the figure.
+
+A side shared by both triangles is equal to itself. Vertical angles (the opposite angles where two lines cross) are equal. A midpoint splits a segment into two equal parts.
 
 Once the triangles are congruent, all their corresponding parts are equal. Use this to find a missing side or angle.
 
-SSA does not prove congruence in general. The one exception is HL, which is SSA in a right triangle. AAA does not prove congruence either. AAA gives the same shape but maybe a different size.
+SSA means two sides and an angle that is not between them. It is not a congruence test, because it can build two different triangles. HL is the right-triangle case that does work.
+
+SSA also fixes one triangle when the given side across from the given angle is at least as long as the other given side. For example, an angle of $120^\circ$ with a side $5$ next to it and a side $8$ across from it can make only one triangle. If the side across is shorter than the other given side and the angle is acute, two triangles may fit, so do not use SSA.
+
+AAA does not prove congruence either. AAA gives the same shape but maybe a different size.
 
 ### Similarity
 
-Two triangles are **similar** when they have the same shape but maybe different sizes. Corresponding angles are equal, and corresponding sides are **proportional**. This means each side of the big triangle is the matching side of the small triangle times the same number. That number is the **scale factor**.
+Two triangles are **similar** when they have the same shape but maybe different sizes. Corresponding angles are equal, and corresponding sides are **proportional**.
+
+This means each side of the big triangle is the matching side of the small triangle times the same number. That number is the **scale factor**.
 
 For example, a triangle with sides $3$, $4$, $5$ and a triangle with sides $6$, $8$, $10$ are similar. Each side doubles, so the scale factor is $2$. In any pair of corresponding sides, the ratios are equal: $\dfrac{6}{3} = \dfrac{8}{4} = \dfrac{10}{5}$.
 
@@ -65,7 +75,11 @@ $$a^2 + b^2 = c^2$$
 
 If a triangle's sides satisfy this, with $c$ as the longest side, it is a right triangle. If $a^2 + b^2$ is not equal to $c^2$, it is not.
 
-**Why it works.** Four copies of the right triangle fit inside a square of side $a + b$. A tilted square of side $c$ is left in the middle. Its corners are right angles, because the two acute angles of each triangle add to $90^\circ$.
+**Why it works.** Draw a big square with side $a + b$. On each side, mark a point that splits it into a piece of length $a$ and a piece of length $b$. Join the marked points in order.
+
+This cuts off four right triangles, one in each corner. Each has legs $a$ and $b$. Each long side of the middle shape is the hypotenuse of one of them, so all four sides of the middle shape equal $c$.
+
+Now check the corners of the middle shape. At each one, the corner angle and the two acute angles of the triangles next to it lie along a straight side of the big square, so they add to $180^\circ$. The two acute angles of a right triangle add to $90^\circ$. So each corner is $90^\circ$, and the middle shape is a square of side $c$.
 
 <!-- ILLUSTRATION: square of side a + b, four right triangles (legs a, b) in the corners, tilted square of side c in the middle -->
 
@@ -250,7 +264,9 @@ The answers are (a) $5$, $5$, and $5\sqrt{2}$; (b) $6$, $6\sqrt{3}$, and $12$.
 
 ## Speed Tricks & Shortcuts
 
-Scan for Pythagorean triples before squaring. If a right triangle has a leg $5$ and hypotenuse $13$, the missing leg is $12$. The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. A triple only helps when the sides match it exactly. Otherwise, square and subtract.
+Scan for Pythagorean triples before squaring. If a right triangle has a leg $5$ and hypotenuse $13$, the missing leg is $12$.
+
+The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. A triple only helps when the sides match it exactly. Otherwise, square and subtract.
 
 In a $30$-$60$-$90$ triangle, find the short leg first. The short leg is the side across from $30^\circ$.
 
@@ -259,7 +275,7 @@ In a $30$-$60$-$90$ triangle, find the short leg first. The short leg is the sid
 
 ### #1: The Fake Postulates
 
-> SSA and AAA do not prove congruence (SSA works only as HL in a right triangle).
+> SSA and AAA do not prove congruence (SSA fixes one triangle only in some cases, such as HL, so do not use it as a test).
 
 Two sides and an angle not between them can build two different triangles. AAA proves only similarity, because the size can differ.
 
@@ -267,7 +283,7 @@ Two sides and an angle not between them can build two different triangles. AAA p
 
 > The hypotenuse $c$ is always the longest side, across the right angle.
 
-With sides $9$ and $15$, students often compute $9^2 + 15^2$. If $15$ is the hypotenuse, as in Example 9, use $9^2 + b^2 = 15^2$.
+With sides $9$ and $15$, students often compute $9^2 + 15^2$. If $15$ is the hypotenuse, as in Example $9$, use $9^2 + b^2 = 15^2$.
 
 ### #3: Allowing the Boundary Values
 

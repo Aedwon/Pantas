@@ -33,7 +33,7 @@
     "lessonPath": "content/lessons/science/physics/work-energy-power.md",
     "lessonId": "lesson-physics-work-energy-power",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
@@ -63,7 +63,7 @@
     "lessonPath": "content/lessons/mathematics/geometry/triangles.md",
     "lessonId": "lesson-geometry-triangles",
     "group": "mathematics",
-    "status": "round-1-fixed"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/circles.md",
