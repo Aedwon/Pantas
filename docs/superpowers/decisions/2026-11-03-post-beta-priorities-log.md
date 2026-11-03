@@ -83,3 +83,7 @@ Question: "Do you approve Part A at balanced complexity?"
 Aedwon's answer: "balanced is approved but i want this done on another account. can I do that? it's Pro but I don't want to waste its usage"
 
 Result: Part A is approved at balanced. The work can resume on any account, because the spec, records and branch are in the repository. Nothing has started. Part A recommends Sonnet as the writer, which would spend the Pro account's usage, so the model split is put back to him as a specific revision.
+
+Aedwon's follow-up: "oh wait you can do the pilot now before the actual, final run that i can set as /goal. keep sonnet writer"
+
+Result: the 15-lesson pilot runs in this session on the Part A model split. The final run waits for the pilot verdict, and Aedwon starts it as a `/goal` on another account. Plan: `docs/superpowers/plans/2026-11-03-cet-content-pilot.md`. Sonnet writes 10 lessons now; Sol's reads and its 5 lessons wait for the Codex reset.
