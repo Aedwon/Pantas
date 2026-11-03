@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -449,6 +451,8 @@ class WebRow extends StatefulWidget {
     this.chevron = WebRowChevron.none,
     this.verticalPadding,
     this.subtitleStyle,
+    this.enterFromSelected,
+    this.selectedValueColor,
     super.key,
   });
   final String title;
@@ -484,6 +488,16 @@ class WebRow extends StatefulWidget {
 
   /// Overrides the 14 px secondary subtitle (Settings rows use 13 px).
   final TextStyle? subtitleStyle;
+
+  /// Whether this row was selected just before it was built. A page that
+  /// rebuilds its whole list (Settings opens each row as its own page) passes
+  /// the earlier choice, so the tint and value color fade from it instead of
+  /// appearing at once.
+  final bool? enterFromSelected;
+
+  /// The color the value text takes while the row is selected. The row fades
+  /// the value between its [valueStyle] color and this one, with the tint.
+  final Color? selectedValueColor;
   @override
   State<WebRow> createState() => _WebRowState();
 }
@@ -502,6 +516,20 @@ class _WebRowState extends State<WebRow> {
 
   final _states = WidgetStatesController();
 
+  // Only a row that is, or has been, selected carries the tint fade. Most rows
+  // in a list never are, and they pay nothing for it.
+  late bool _tracked = widget.selected || widget.enterFromSelected != null;
+  late bool _from = widget.enterFromSelected ?? widget.selected;
+
+  @override
+  void didUpdateWidget(WebRow oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!_tracked && oldWidget.selected != widget.selected) {
+      _tracked = true;
+      _from = oldWidget.selected;
+    }
+  }
+
   @override
   void dispose() {
     _states.dispose();
@@ -510,137 +538,176 @@ class _WebRowState extends State<WebRow> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_tracked) return _row(context, 0);
+    // Item 17, demo 4: the tint and the value color fade together, 160 ms on
+    // the ease. Nothing else moves, and only this row rebuilds.
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: _from ? 1 : 0, end: widget.selected ? 1 : 0),
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : PantasDurations.quick,
+      curve: PantasCurves.ease,
+      builder: (context, selection, _) => _row(context, selection),
+    );
+  }
+
+  Widget _row(BuildContext context, double selection) {
     final t = context.webTokens;
     final w = widget;
     final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final lineHeight = w.boardMetrics ? 1.3 : null;
     final hairline = w.boardMetrics ? webHairline(context) : .5;
+    final baseValue = w.valueStyle ?? t.sub;
+    final valueStyle = w.selectedValueColor == null
+        ? baseValue
+        : baseValue.copyWith(
+            color: Color.lerp(
+              baseValue.color,
+              w.selectedValueColor,
+              selection,
+            ),
+          );
+    final tint = t.colors.accentTint;
+    final button = TextButton(
+      statesController: _states,
+      onPressed: w.dimmed ? null : w.onPressed,
+      style: ButtonStyle(
+        animationDuration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 150),
+        padding: WidgetStatePropertyAll(
+          EdgeInsets.symmetric(horizontal: w.horizontalPadding),
+        ),
+        minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 0)),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.standard,
+        shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
+        // A selected row's tint is the layer behind, which fades.
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (s) => !w.selected &&
+                  (s.contains(WidgetState.hovered) ||
+                      s.contains(WidgetState.focused))
+              ? t.rowHover
+              : Colors.transparent,
+        ),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+      ),
+      child: Row(
+        children: [
+          if (w.leading != null) ...[
+            w.leading!,
+            SizedBox(width: w.leadingGap),
+          ],
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: w.verticalPadding ?? (w.compact ? 12 : 15),
+              ),
+              decoration: BoxDecoration(
+                border: w.divider
+                    ? Border(
+                        bottom: BorderSide(
+                          color: t.colors.separator,
+                          width: hairline,
+                        ),
+                      )
+                    : null,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (w.titleSuffix == null)
+                          _title(w, large, lineHeight, t)
+                        else
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Flexible(
+                                child: _title(w, large, lineHeight, t),
+                              ),
+                              const SizedBox(width: 6),
+                              w.titleSuffix!,
+                            ],
+                          ),
+                        if (w.subtitle != null)
+                          Text(
+                            w.subtitle!,
+                            maxLines: large || w.wrapTitle ? null : 1,
+                            overflow: large || w.wrapTitle
+                                ? TextOverflow.visible
+                                : TextOverflow.ellipsis,
+                            style: w.subtitleStyle ??
+                                t.style(
+                                  14,
+                                  color: t.colors.secondaryLabel,
+                                  height: lineHeight,
+                                ),
+                          ),
+                        if (large && w.value != null)
+                          Text(w.value!, style: valueStyle),
+                      ],
+                    ),
+                  ),
+                  if (!large && w.value != null) ...[
+                    const SizedBox(width: 12),
+                    Text(
+                      w.value!,
+                      style: valueStyle,
+                      textAlign: TextAlign.end,
+                    ),
+                  ],
+                  if (w.trailing != null) ...[
+                    const SizedBox(width: 12),
+                    w.trailing!,
+                  ],
+                  if (w.chevron != WebRowChevron.none) ...[
+                    const SizedBox(width: 12),
+                    if (w.chevron == WebRowChevron.always)
+                      const WebChevron()
+                    else
+                      ListenableBuilder(
+                        listenable: _states,
+                        builder: (context, child) => Opacity(
+                          opacity: _states.value
+                                      .contains(WidgetState.hovered) ||
+                                  _states.value.contains(WidgetState.focused)
+                              ? 1
+                              : 0,
+                          child: child,
+                        ),
+                        child: const WebChevron(),
+                      ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
     return Opacity(
       opacity: w.dimmed ? .45 : 1,
       child: Semantics(
         selected: w.selected,
-        child: TextButton(
-          statesController: _states,
-          onPressed: w.dimmed ? null : w.onPressed,
-          style: ButtonStyle(
-            animationDuration: MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : const Duration(milliseconds: 150),
-            padding: WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: w.horizontalPadding),
-            ),
-            minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 0)),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-            shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
-            backgroundColor: WidgetStateProperty.resolveWith(
-              (s) => w.selected
-                  ? t.colors.accentTint
-                  : s.contains(WidgetState.hovered) ||
-                          s.contains(WidgetState.focused)
-                      ? t.rowHover
-                      : Colors.transparent,
-            ),
-            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-          ),
-          child: Row(
-            children: [
-              if (w.leading != null) ...[
-                w.leading!,
-                SizedBox(width: w.leadingGap),
-              ],
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    vertical: w.verticalPadding ?? (w.compact ? 12 : 15),
-                  ),
-                  decoration: BoxDecoration(
-                    border: w.divider
-                        ? Border(
-                            bottom: BorderSide(
-                              color: t.colors.separator,
-                              width: hairline,
-                            ),
-                          )
-                        : null,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if (w.titleSuffix == null)
-                              _title(w, large, lineHeight, t)
-                            else
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Flexible(
-                                    child: _title(w, large, lineHeight, t),
-                                  ),
-                                  const SizedBox(width: 6),
-                                  w.titleSuffix!,
-                                ],
-                              ),
-                            if (w.subtitle != null)
-                              Text(
-                                w.subtitle!,
-                                maxLines: large || w.wrapTitle ? null : 1,
-                                overflow: large || w.wrapTitle
-                                    ? TextOverflow.visible
-                                    : TextOverflow.ellipsis,
-                                style: w.subtitleStyle ??
-                                    t.style(
-                                      14,
-                                      color: t.colors.secondaryLabel,
-                                      height: lineHeight,
-                                    ),
-                              ),
-                            if (large && w.value != null)
-                              Text(w.value!, style: w.valueStyle ?? t.sub),
-                          ],
-                        ),
+        child: !_tracked
+            ? button
+            : Stack(
+                fit: StackFit.passthrough,
+                children: [
+                  Positioned.fill(
+                    child: IgnorePointer(
+                      child: ColoredBox(
+                        color: tint.withValues(alpha: tint.a * selection),
                       ),
-                      if (!large && w.value != null) ...[
-                        const SizedBox(width: 12),
-                        Text(
-                          w.value!,
-                          style: w.valueStyle ?? t.sub,
-                          textAlign: TextAlign.end,
-                        ),
-                      ],
-                      if (w.trailing != null) ...[
-                        const SizedBox(width: 12),
-                        w.trailing!,
-                      ],
-                      if (w.chevron != WebRowChevron.none) ...[
-                        const SizedBox(width: 12),
-                        if (w.chevron == WebRowChevron.always)
-                          const WebChevron()
-                        else
-                          ListenableBuilder(
-                            listenable: _states,
-                            builder: (context, child) => Opacity(
-                              opacity:
-                                  _states.value.contains(WidgetState.hovered) ||
-                                          _states.value
-                                              .contains(WidgetState.focused)
-                                      ? 1
-                                      : 0,
-                              child: child,
-                            ),
-                            child: const WebChevron(),
-                          ),
-                      ],
-                    ],
+                    ),
                   ),
-                ),
+                  button,
+                ],
               ),
-            ],
-          ),
-        ),
       ),
     );
   }

@@ -212,8 +212,24 @@ void main() {
       buttons[0].style!.backgroundColor!.resolve({WidgetState.hovered}),
       const Color(0xFFF7F7F9),
     );
+    // The selected tint is its own layer since item 17 (it fades), so the
+    // button itself paints nothing while the row is selected.
     expect(
       buttons[1].style!.backgroundColor!.resolve({}),
+      Colors.transparent,
+    );
+    expect(
+      tester
+          .widget<ColoredBox>(
+            find.descendant(
+              of: find.ancestor(
+                of: find.text('Selected'),
+                matching: find.byType(Stack),
+              ),
+              matching: find.byType(ColoredBox),
+            ),
+          )
+          .color,
       const Color(0xFFE4F1EE),
     );
     expect(buttons[2].onPressed, isNull);

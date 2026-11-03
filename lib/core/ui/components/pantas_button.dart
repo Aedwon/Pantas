@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
+import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -151,116 +153,141 @@ class _PantasButtonState extends State<PantasButton> {
                     : variant == PantasButtonVariant.secondary
                         ? c.accentTint
                         : context.colors.transparent;
+    Widget labelText(Color color) => Text(
+          label,
+          textAlign: TextAlign.center,
+          style: context.type.emphasized.copyWith(
+            color: color,
+            fontSize: fontSize,
+            letterSpacing: fontSize < 17 ? 0 : -.204,
+          ),
+        );
+    final button = ConstrainedBox(
+      constraints: BoxConstraints(minHeight: height),
+      child: TextButton(
+        statesController: _states,
+        onPressed: busy ? null : onPressed,
+        style: ButtonStyle(
+          tapTargetSize:
+              widget._filterChip ? MaterialTapTargetSize.shrinkWrap : null,
+          minimumSize: WidgetStatePropertyAll(
+            Size(widget.fullWidth ? double.infinity : 0, height),
+          ),
+          padding: WidgetStatePropertyAll(
+            EdgeInsets.symmetric(
+              horizontal: widget.horizontalPadding,
+              vertical: widget._filterChip
+                  ? 0
+                  : height == 44
+                      ? 10
+                      : 12,
+            ),
+          ),
+          backgroundColor: WidgetStateProperty.resolveWith((states) {
+            // A phone layout has no hover: a mouse resting on a button
+            // in a narrow browser must not fill it (O_Age).
+            if (webFeedback &&
+                context.wideWeb &&
+                enabled &&
+                states.contains(WidgetState.hovered) &&
+                variant == PantasButtonVariant.primary &&
+                !widget._filterChip) {
+              return context.webTokens.accentHover;
+            }
+            if (webFeedback &&
+                context.wideWeb &&
+                enabled &&
+                states.contains(WidgetState.hovered) &&
+                !solid &&
+                !(widget._filterChip && widget._chipSelected)) {
+              return Theme.of(context).hoverColor;
+            }
+            // A chip's fill is the layer behind the button, which fades.
+            return widget._filterChip ? context.colors.transparent : background;
+          }),
+          foregroundColor: WidgetStatePropertyAll(foreground),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(radius),
+            ),
+          ),
+          overlayColor: webFeedback
+              ? WidgetStatePropertyAll(c.transparent)
+              : WidgetStatePropertyAll(
+                  foreground.withValues(alpha: .08),
+                ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
+          children: [
+            if (busy) ...[
+              SizedBox.square(
+                dimension: 18,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: foreground,
+                  value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
+                ),
+              ),
+              const SizedBox(width: 8),
+            ],
+            Flexible(
+              child: widget._filterChip
+                  ? FadingColor(
+                      color: foreground,
+                      builder: (context, color, _) => labelText(color),
+                    )
+                  : labelText(foreground),
+            ),
+            if (widget.trailing != null) ...[
+              const SizedBox(width: 2),
+              IconTheme(
+                data: IconThemeData(color: foreground, size: 16),
+                child: widget.trailing!,
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+    // Item 17, demo 5: the fill fades over 160 ms on the ease. Material does
+    // not animate a button's own fill, so the chip paints it behind.
+    final pressable = widget._filterChip
+        ? FadingColor(
+            color: background,
+            builder: (context, fill, child) => DecoratedBox(
+              key: const ValueKey('chip-fill'),
+              decoration: BoxDecoration(
+                color: fill,
+                borderRadius: BorderRadius.circular(radius),
+              ),
+              child: child,
+            ),
+            child: button,
+          )
+        : button;
     return Semantics(
       selected: widget._filterChip ? widget._chipSelected : null,
       child: Opacity(
         opacity: dimmed ? widget.disabledOpacity! : 1,
-        child: AnimatedScale(
-          key: const ValueKey('pantas-button-scale'),
-          scale: webFeedback || MediaQuery.disableAnimationsOf(context)
-              ? 1
-              : _pressed
-                  ? .97
-                  : 1,
-          duration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 140),
-          curve: PantasCurves.ease,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: height),
-            child: TextButton(
-              statesController: _states,
-              onPressed: busy ? null : onPressed,
-              style: ButtonStyle(
-                tapTargetSize: widget._filterChip
-                    ? MaterialTapTargetSize.shrinkWrap
-                    : null,
-                minimumSize: WidgetStatePropertyAll(
-                  Size(widget.fullWidth ? double.infinity : 0, height),
-                ),
-                padding: WidgetStatePropertyAll(
-                  EdgeInsets.symmetric(
-                    horizontal: widget.horizontalPadding,
-                    vertical: widget._filterChip
-                        ? 0
-                        : height == 44
-                            ? 10
-                            : 12,
-                  ),
-                ),
-                backgroundColor: WidgetStateProperty.resolveWith((states) {
-                  // A phone layout has no hover: a mouse resting on a button
-                  // in a narrow browser must not fill it (O_Age).
-                  if (webFeedback &&
-                      context.wideWeb &&
-                      enabled &&
-                      states.contains(WidgetState.hovered) &&
-                      variant == PantasButtonVariant.primary &&
-                      !widget._filterChip) {
-                    return context.webTokens.accentHover;
-                  }
-                  if (webFeedback &&
-                      context.wideWeb &&
-                      enabled &&
-                      states.contains(WidgetState.hovered) &&
-                      !solid &&
-                      !(widget._filterChip && widget._chipSelected)) {
-                    return Theme.of(context).hoverColor;
-                  }
-                  return background;
-                }),
-                foregroundColor: WidgetStatePropertyAll(foreground),
-                shape: WidgetStatePropertyAll(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(radius),
-                  ),
-                ),
-                overlayColor: webFeedback
-                    ? WidgetStatePropertyAll(c.transparent)
-                    : WidgetStatePropertyAll(
-                        foreground.withValues(alpha: .08),
-                      ),
+        child: widget._filterChip
+            // A chip shrinks to 96% under a press on every build, web
+            // included, then springs back (item 17, demo 5).
+            ? PressScale(scale: .96, enabled: enabled, child: pressable)
+            : AnimatedScale(
+                key: const ValueKey('pantas-button-scale'),
+                scale: webFeedback || MediaQuery.disableAnimationsOf(context)
+                    ? 1
+                    : _pressed
+                        ? .97
+                        : 1,
+                duration: MediaQuery.disableAnimationsOf(context)
+                    ? Duration.zero
+                    : const Duration(milliseconds: 140),
+                curve: PantasCurves.ease,
+                child: pressable,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize:
-                    widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-                children: [
-                  if (busy) ...[
-                    SizedBox.square(
-                      dimension: 18,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: foreground,
-                        value:
-                            MediaQuery.disableAnimationsOf(context) ? 1 : null,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                  ],
-                  Flexible(
-                    child: Text(
-                      label,
-                      textAlign: TextAlign.center,
-                      style: context.type.emphasized.copyWith(
-                        color: foreground,
-                        fontSize: fontSize,
-                        letterSpacing: fontSize < 17 ? 0 : -.204,
-                      ),
-                    ),
-                  ),
-                  if (widget.trailing != null) ...[
-                    const SizedBox(width: 2),
-                    IconTheme(
-                      data: IconThemeData(color: foreground, size: 16),
-                      child: widget.trailing!,
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
