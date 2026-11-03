@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-physics-fluid-mechanics",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Assume ideal flow. Find the pressure at point $2$.",
+      "problem": "Example #9 states its key condition only as 'ideal flow', and the Speed Tricks repeat 'steady, ideal flow', but the lesson never says what ideal flow means. The Bernoulli section lists the conditions (steady, incompressible, nonviscous) without tying the word 'ideal' to them. The only place 'ideal' gets a meaning is the hydraulic lift ('an ideal system: no friction, no trapped air'), which covers friction but not incompressible or steady flow. Example #9's step 1 relies on continuity, which needs incompressible, steady flow. Exam stems use 'ideal fluid' or 'ideal flow' as the cue that continuity and Bernoulli apply, and the brief goal is to compare pressure in 'ideal-flow models'. A student who meets the word cannot read the cue from this lesson. The term is new in the rewrite (the base said 'idealized steady streamline').",
+      "source": "Checklist L25; LSG Teaching completeness; reader-rules.md, Added after the Sol audit (confirm every term an example uses is taught); brief goal ('ideal-flow models')"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Some terms first. A **streamline** is the path a small bit of fluid follows.",
+      "problem": "The round-2 L22a Minor is fixed for the paragraphs it named except this one: the Bernoulli terms paragraph still has six sentences, over the limit of one to three. Other new teaching paragraphs also run over: the gauge and absolute pressure paragraph (six), the units paragraph (five), the hydraulic system paragraph (five), the average density paragraph (five), and four-sentence paragraphs on density, Archimedes' principle, the formula-uses paragraph, the floating-fraction rule, continuity and the Bernoulli energy terms. The text is new, so the Minor must be fixed. Note, not a finding: the lesson is 3,492 words and stays a logged split candidate. Continuity is needed to find the speeds in Examples #8 and #9, and apparent weight serves Example #7 and Trap #2, so I found no padding; the base teaching is all kept.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences); round-2 L22a finding; final-run-rulings.md split candidate table"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "P = P_0 + \\rho gh = 1.01 \\times 10^5 + 1.176 \\times 10^5 = 2.186 \\times 10^5 \\text{ Pa}",
+      "problem": "This display line chains three equalities with three numbers in scientific notation, about forty rendered symbols, too wide for a phone screen at display size. The same holds for the Example #8 line 'P_2 = P_1 + \\dfrac{1}{2}\\rho (v_1^2 - v_2^2) = 2.00 \\times 10^5 + \\dfrac{1}{2}(1000)(4.0 - 64)' and the Example #9 line 'P_2 = P_1 - \\rho g (h_2 - h_1) = 3.00 \\times 10^5 - (1000)(9.8)(5.0)'. These lines are new text, so the Minor must be fixed.",
+      "source": "Checklist L21; LSG Examples section (keep each display equation narrow enough for a phone screen)"
+    }
+  ],
+  "goodQuotesChecked": 7
+}
