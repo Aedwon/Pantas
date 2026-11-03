@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -125,6 +127,8 @@ class WebSidebar extends StatelessWidget {
     (label: 'Quiz', glyph: PantasIcons.quizTab),
     (label: 'Settings', glyph: PantasIcons.settingsTab),
   ];
+  static const _rowHeight = 40.0;
+  static const _rowGap = 4.0;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -200,89 +204,121 @@ class WebSidebar extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 18),
-              for (var i = 0; i < _tabs.length; i++) ...[
-                if (i > 0) const SizedBox(height: 4),
-                Semantics(
-                  selected: activeIndex == i,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: activeIndex == i && !t.dark
-                          ? [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: .06),
-                                blurRadius: 2,
-                                offset: const Offset(0, 1),
-                              ),
-                            ]
-                          : null,
-                    ),
-                    child: TextButton(
-                      onPressed: () => onNavigate(i),
-                      style: ButtonStyle(
-                        animationDuration:
-                            MediaQuery.disableAnimationsOf(context)
-                                ? Duration.zero
-                                : const Duration(milliseconds: 150),
-                        visualDensity: VisualDensity.standard,
-                        minimumSize: const WidgetStatePropertyAll(
-                          Size(0, 40),
-                        ),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        padding: const WidgetStatePropertyAll(
-                          EdgeInsets.symmetric(
-                            horizontal: 12,
-                          ),
-                        ),
-                        backgroundColor: WidgetStateProperty.resolveWith(
-                          (s) => activeIndex == i
-                              ? c.surface
-                              : s.contains(WidgetState.hovered) ||
-                                      s.contains(
-                                        WidgetState.focused,
-                                      )
-                                  ? t.dark
-                                      ? c.fill
-                                      : Colors.black.withValues(
-                                          alpha: .045,
-                                        )
-                                  : Colors.transparent,
-                        ),
-                        shape: WidgetStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        overlayColor:
-                            const WidgetStatePropertyAll(Colors.transparent),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            _tabs[i].glyph,
-                            size: 21,
-                            color:
-                                activeIndex == i ? c.accent : c.tertiaryLabel,
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              _tabs[i].label,
-                              style: t.style(
-                                15,
-                                height: 1.2,
-                                weight: activeIndex == i
-                                    ? FontWeight.w600
-                                    : FontWeight.w500,
-                              ),
+              // The selected row's fill is one marker that glides from row to
+              // row. Each row is 40 px tall with 4 px between.
+              Stack(
+                children: [
+                  Positioned.fill(
+                    child: ExcludeSemantics(
+                      child: IgnorePointer(
+                        child: SlidingMarker(
+                          key: const ValueKey('sidebar-marker'),
+                          axis: Axis.vertical,
+                          offsets: [
+                            for (var i = 0; i < _tabs.length; i++)
+                              i * (_rowHeight + _rowGap),
+                          ],
+                          lengths: List.filled(_tabs.length, _rowHeight),
+                          index: activeIndex,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: c.surface,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: t.dark
+                                  ? null
+                                  : [
+                                      BoxShadow(
+                                        color:
+                                            Colors.black.withValues(alpha: .06),
+                                        blurRadius: 2,
+                                        offset: const Offset(0, 1),
+                                      ),
+                                    ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      for (var i = 0; i < _tabs.length; i++) ...[
+                        if (i > 0) const SizedBox(height: _rowGap),
+                        Semantics(
+                          selected: activeIndex == i,
+                          child: TextButton(
+                            onPressed: () => onNavigate(i),
+                            style: ButtonStyle(
+                              animationDuration:
+                                  MediaQuery.disableAnimationsOf(context)
+                                      ? Duration.zero
+                                      : PantasDurations.quick,
+                              visualDensity: VisualDensity.standard,
+                              minimumSize: const WidgetStatePropertyAll(
+                                Size(0, _rowHeight),
+                              ),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: const WidgetStatePropertyAll(
+                                EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                ),
+                              ),
+                              // The selected fill is the marker behind.
+                              backgroundColor: WidgetStateProperty.resolveWith(
+                                (s) => activeIndex != i &&
+                                        (s.contains(WidgetState.hovered) ||
+                                            s.contains(WidgetState.focused))
+                                    ? t.dark
+                                        ? c.fill
+                                        : Colors.black.withValues(
+                                            alpha: .045,
+                                          )
+                                    : Colors.transparent,
+                              ),
+                              shape: WidgetStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              overlayColor: const WidgetStatePropertyAll(
+                                Colors.transparent,
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                FadingColor(
+                                  color: activeIndex == i
+                                      ? c.accent
+                                      : c.tertiaryLabel,
+                                  builder: (context, color, _) => Icon(
+                                    _tabs[i].glyph,
+                                    size: 21,
+                                    color: color,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Text(
+                                    _tabs[i].label,
+                                    style: t.style(
+                                      15,
+                                      height: 1.2,
+                                      weight: activeIndex == i
+                                          ? FontWeight.w600
+                                          : FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+              ),
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(
