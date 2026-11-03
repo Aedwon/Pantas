@@ -218,3 +218,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: scalars-and-vectors (1 Minor). Round reads with Blockers: light-and-optics r2, two-dimensional-motion r1, units-and-measurements r1, waves-and-sound r1; fixes running.
 - Paused at the user's request: no new agents; running ones finish. Fixed after round 1: two-dimensional-motion, units-and-measurements, waves-and-sound. Written: basic-geometric-concepts, systems-of-equations. Their next reads are not started.
 - Paused: dynamics fixed after round 2 (round 3 read not started).
+- Paused: radicals-and-rationalization round 1: 3 Majors (fix not started).
