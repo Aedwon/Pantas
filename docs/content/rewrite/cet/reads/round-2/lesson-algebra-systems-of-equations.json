@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-algebra-systems-of-equations",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L26", "severity": "Major", "quote": "Factor the quadratic. To **factor** means to write it as a product of brackets.", "problem": "Example #7 needs the student to find the factors of $x^2 - 3x + 2$, but the lesson only defines what factoring is and checks the answer by multiplying out. It never shows how to find $(x - 1)(x - 2)$ (two numbers that multiply to $2$ and add to $-3$) and does not name the quadratic-equations lesson as the prerequisite. Line-parabola systems are part of the goal, so a student without that skill cannot do step 3. This is the open part of round-1 L25: the meanings of quadratic equation, factor, roots and real number are now given, and the zero-product step is now stated.", "source": "Checklist L26 and LSG Teaching completeness (reuse a prerequisite with a reference); reader rules, Sol addition (confirm the lesson teaches each method an example uses or names its prerequisite); round-1 read, L25."},
+    {"rule": "L25", "severity": "Major", "quote": "Two curves can have even more. The curves $y = x^3$ and $y = x$ meet at three points", "problem": "The lesson defines a non-linear system by a graph that is not a straight line, and the sentence before contrasts a curve with a line. Here it calls $y = x$, a straight line, a curve, and offers a line-and-cubic system as the case of two curves. The facts ($3$ meeting points) are right, but the student is told a line is a curve in the paragraph that teaches the line versus curve distinction.", "source": "Checklist L25 (terms used with one meaning); lesson's own definition: \"at least one equation whose graph is not a straight line\"."},
+    {"rule": "L22a", "severity": "Minor", "quote": "Some lines do not give two intercepts. The line $y = 2x$ passes through the origin", "problem": "Several paragraphs run to four sentences, above the one-to-three limit: this one, the slope paragraph that begins \"If the line is not vertical\", Trap #4's explanation, and Trap #5's explanation.", "source": "Checklist L22a; LSG Formatting rules."}
+  ],
+  "goodQuotesChecked": 3
+}
