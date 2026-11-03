@@ -1,42 +1,35 @@
-name: CI (PR)
+name: CI
 
+# Standard hosted runners are free for this public repository, so the full
+# checks run here and focused tests stay local. Logs are public: use test data
+# and no secrets. Decision: docs/superpowers/decisions/2026-10-19-pwa-launch-log.md.
 on:
   pull_request:
     branches: [main]
+    paths-ignore: ['docs/**', '**.md']
+  push:
+    # Staging only fast-forwards to a commit that already ran here.
+    branches: [main, 'web/**', '!web/staging-candidate-r1']
+    paths-ignore: ['docs/**', '**.md']
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
-  ci:
+  static:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          flutter-version: '3.41.x'
-
-      - name: pub get
-        run: flutter pub get
-
-      - name: Generate code
-        run: |
-          dart run build_runner build --delete-conflicting-outputs
-          flutter gen-l10n
-
-      - name: Build the content asset
-        # Gitignored and built, never committed. Without it `flutter
-        # analyze` warns that a declared asset is missing and exits 1, and
-        # the bundled-database test has nothing to open. Built from the corpus.
-        run: |
-          mkdir -p build
-          dart run tools/build_content_export/build_content_export.dart build/export.json --assets-out assets/seed
-          dart run tools/build_content_seed/seed_writer.dart \
-            build/export.json \
-            assets/seed/content.db
+      - uses: ./.github/actions/setup-app
 
       - name: dart format check
         # lib and test only, which is what the repo formats. Generated
@@ -52,22 +45,138 @@ jobs:
       - name: AI-attribution check
         run: dart run tool/check_no_ai_attribution.dart
 
-      - name: Unit + widget tests
-        run: flutter test --coverage
-
-      - name: Backend static tests
-        run: npm test
-        working-directory: functions
-
-      - name: Coverage gate (overall >= 70%)
-        run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
-
       - name: gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           config-path: .gitleaks.toml
+
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Unit + widget tests
+        run: flutter test --coverage --total-shards 4 --shard-index ${{ matrix.shard }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lcov-${{ matrix.shard }}
+          path: coverage/lcov.info
+          retention-days: 1
+
+  coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+          cache: true
+
+      - run: flutter pub get
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lcov-*
+          path: shards
+
+      - name: Merge the shards
+        # A file can appear in several shards. The gate counts every DA line,
+        # so each line must appear once, with its hits summed.
+        run: |
+          mkdir -p coverage
+          cat shards/*/lcov.info | awk -F'[:,]' '
+            /^SF:/ { file = substr($0, 4); files[file] = 1; next }
+            /^DA:/ {
+              if (!((file, $2) in hits)) lines[file] = lines[file] " " $2
+              hits[file, $2] += $3
+            }
+            END {
+              for (file in files) {
+                print "SF:" file
+                count = split(lines[file], numbers, " ")
+                for (i = 1; i <= count; i++) print "DA:" numbers[i] "," hits[file, numbers[i]]
+                print "end_of_record"
+              }
+            }' > coverage/lcov.info
+
+      - name: Coverage gate (overall >= 70%)
+        run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
+
+  functions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+
+      - run: npm ci --no-audit --no-fund
+        working-directory: functions
+
+      - name: Backend and emulator tests
+        run: npm test
+        working-directory: functions
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Release web build
+        run: flutter build web --release --no-web-resources-cdn -t lib/main_dev.dart
+
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Write a placeholder Firebase config
+        # The real file is never tracked. This one only lets the debug build compile.
+        run: |
+          cat > android/app/src/dev/google-services.json <<'JSON'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "ci-placeholder",
+              "storage_bucket": "ci-placeholder.appspot.com"
+            },
+            "client": [{
+              "client_info": {
+                "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+                "android_client_info": { "package_name": "com.aedwon.pantas.dev" }
+              },
+              "api_key": [{ "current_key": "ci-placeholder" }]
+            }],
+            "configuration_version": "1"
+          }
+          JSON
+
+      - name: Build dev APK (debug, unsigned)
+        run: flutter build apk --debug --flavor dev -t lib/main_dev.dart
 
   sast:
     runs-on: ubuntu-latest
@@ -88,9 +197,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: google/osv-scanner-action/osv-scanner-action@v1
+      - uses: google/osv-scanner-action/osv-scanner-action@v2.7.0
         with:
           scan-args: |-
             --recursive
-            --skip-git
             ./

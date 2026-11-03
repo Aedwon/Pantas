@@ -1,0 +1,34 @@
+name: Set up the app
+description: Flutter with caching, generated code, and the built content asset.
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        flutter-version: '3.41.x'
+        cache: true
+
+    - name: pub get
+      shell: bash
+      run: flutter pub get
+
+    - name: Generate code
+      shell: bash
+      run: |
+        dart run build_runner build --delete-conflicting-outputs
+        flutter gen-l10n
+
+    - name: Build the content asset
+      # Gitignored and built, never committed. Without it `flutter
+      # analyze` warns that a declared asset is missing and exits 1, and
+      # the bundled-database test has nothing to open. Built from the corpus.
+      shell: bash
+      run: |
+        mkdir -p build
+        dart run tools/build_content_export/build_content_export.dart build/export.json --assets-out assets/seed
+        dart run tools/build_content_seed/seed_writer.dart \
+          build/export.json \
+          assets/seed/content.db
