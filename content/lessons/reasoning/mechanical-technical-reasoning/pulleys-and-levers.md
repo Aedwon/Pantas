@@ -19,7 +19,7 @@ A machine is **ideal** when it has no friction and its rope or bar has no weight
 
 $$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
 
-So MA is also the effort distance divided by the load distance. In a lever the ends move along arcs, and these distances are in the same ratio as the lever arms. Real machines need more effort than the ideal value because of friction.
+So MA is also the effort distance divided by the load distance. In a lever the ends move along arcs, and these distances are in the same ratio as the lever arms. Real machines usually need more effort than the ideal value because of friction.
 
 Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\text{ m/s}^2$.
 
@@ -27,7 +27,7 @@ Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\
 
 A **fixed pulley** is fastened in place. It only changes the direction of a pull, so its ideal MA is $1$.
 
-A **movable pulley** moves with the load. **Tension** is the pull along a rope. In an ideal system, one rope runs through everything, and its tension is the same everywhere.
+A **movable pulley** moves with the load. **Tension** is the pull along a rope. If one rope runs through the whole system and there is no friction, its tension is the same everywhere. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
 
 Each rope segment that pulls on the moving load carries that same tension. This gives a reliable rule for an ideal system with one rope and segments that hang straight up:
 
@@ -269,6 +269,6 @@ The fulcrum is not always at the end or the middle. In the wheelbarrow, the effo
 
 ### #6: Ignoring Friction
 
-> Ideal MA is a model. Real systems need more effort because of friction and the weight of parts.
+> Ideal MA is a model. Friction usually makes the real effort larger, and the weight of the parts can change it.
 
-If a question says "ideal" or "ignore friction," use the ideal value. If it does not, the real effort is larger.
+In a pulley system, friction and the weight of the moving pulley raise the effort. A lever bar's own weight can raise or lower the effort, depending on which side its middle lies. If a question gives no friction or bar weight to use, answer with the ideal value.
