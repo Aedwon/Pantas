@@ -37,7 +37,7 @@ Here $N$ is the number of neutrons. Rearranged:
 
 $$N=A-Z$$
 
-$A$ is a count, so it is always a whole number. The mass of the atom in $u$ is close to $A$, but it is not exactly equal to $A$.
+$A$ is a count, so it is always a whole number. The mass of an atom in $u$ is close to $A$. It equals $A$ exactly only for carbon-12, which is $12\ u$ by definition of the unit.
 
 A nuclide is written as the element symbol with $A$ at the upper left and $Z$ at the lower left. For chlorine with $A=35$ and $Z=17$, this is ${}^{35}_{17}\text{Cl}$. It can also be written as chlorine-35.
 
@@ -55,13 +55,13 @@ Neutral atoms of two isotopes of one element have the same number of electrons. 
 
 ### Average Atomic Mass
 
-Most elements in nature are a mixture of isotopes. The **relative atomic mass** (also called standard atomic weight) is the average mass of the atoms in a natural sample of the element, in $u$. It is the decimal number shown for the element on most periodic tables.
+Most elements in nature are a mixture of isotopes. The **average atomic mass** is the average mass of the atoms in a natural sample of the element, in $u$. The **relative atomic mass** (also called standard atomic weight) is the same average compared with $1\ u$, so it is a plain number with no unit. It is the decimal number shown for the element on most periodic tables.
 
 It is a **weighted average**. An isotope that is more common counts more. To find it, multiply each isotope's mass by its fraction of the sample, then add:
 
 $$\text{average mass}=\sum(\text{fraction}\times\text{isotope mass})$$
 
-A fraction is the percent divided by $100$. The fractions add up to $1$.
+A fraction is the percent divided by $100$. The fractions add up to $1$. This sum works for any number of isotopes.
 
 The average is not the mass number of any one atom. The exact abundances of isotopes can vary a little between samples. Some elements have no standard value, and many tables show a bracketed mass number for them instead of a decimal.
 
@@ -198,7 +198,7 @@ $$11-1=10$$
 
 ### #9: Telling Species Apart
 
-Each species below is described by its protons, neutrons and electrons. Which two are isotopes of the same element?
+Each species below is described by its protons, neutrons and electrons. Which two neutral atoms are isotopes of the same element?
 
 - P: $17$ protons, $18$ neutrons, $17$ electrons
 - Q: $17$ protons, $20$ neutrons, $17$ electrons
@@ -208,10 +208,9 @@ Each species below is described by its protons, neutrons and electrons. Which tw
 **Solution:**
 
 1. Isotopes have the same number of protons but different numbers of neutrons.
-2. P, Q and R all have $17$ protons, so they are the same element.
-3. P and Q have different neutron numbers ($18$ and $20$), so P and Q are isotopes.
-4. P and R have the same neutron number. R has one extra electron, so R is an ion of the same nuclide as P, with charge $17-18=-1$.
-5. S has $18$ protons, so it is a different element.
+2. A neutral atom has as many electrons as protons. R has $17$ protons and $18$ electrons, so R is not neutral. It is an ion, with charge $17-18=-1$. Leave R out.
+3. P, Q and S are neutral. S has $18$ protons, so it is a different element.
+4. P and Q both have $17$ protons and have different neutron numbers ($18$ and $20$), so P and Q are isotopes.
 
 ## Speed Tricks & Shortcuts
 
@@ -221,7 +220,7 @@ For any ion, use charge equals protons minus electrons. A positive charge means 
 
 To tell what changed, check which count differs. A different neutron number with the same proton number is an isotope. A different electron number with the same proton number is an ion. A different proton number is a different element.
 
-For an average atomic mass, the answer must lie between the lightest and heaviest isotope masses. It is closer to the mass of the more common isotope.
+For an average atomic mass, the answer must lie between the lightest and heaviest isotope masses. With only two isotopes, it is closer to the mass of the more common one. With three or more isotopes, this can fail, so calculate the sum.
 
 ## Traps to Watch For
 

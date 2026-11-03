@@ -15,7 +15,9 @@ A **eukaryotic cell** is a cell with a nucleus. The nucleus holds the cell's DNA
 
 A gene is a stretch of DNA that carries instructions for a trait. Different versions of the same gene are called **alleles**.
 
-In most animals, a body cell holds chromosomes in pairs. Each pair is a **homologous pair**. The two chromosomes in the pair are called **homologs**. One came from the mother and one from the father.
+In most animals, a body cell holds chromosomes in pairs. Each pair is a **homologous pair**.
+
+The two chromosomes in the pair are called **homologs**. One came from the mother and one from the father.
 
 Homologs carry the same genes in the same order. They are not copies of each other. At a given gene they may carry the same allele or different alleles.
 
@@ -25,7 +27,9 @@ A cell with two of each kind of chromosome is **diploid**. We write this as $2n$
 
 A haploid cell does not hold a random half of the chromosomes. It holds exactly one chromosome of each kind, so one from every homologous pair.
 
-Before a cell divides, it copies its DNA. This copying is called **replication**. Each chromosome becomes two identical DNA copies that stay stuck together, joined at a spot called the **centromere**. Each copy is a **sister chromatid**.
+Before a cell divides, it copies its DNA. This copying is called **replication**.
+
+Each chromosome becomes two identical DNA copies that stay stuck together, joined at a spot called the **centromere**. Each copy is a **sister chromatid**.
 
 Two sister chromatids joined at one centromere still count as one chromosome. To count chromosomes, count centromeres. When the sister chromatids pull apart, each one is then counted as its own chromosome.
 
@@ -82,7 +86,9 @@ Here is how the numbers change for a human body cell, with $2n = 46$:
 
 **Meiosis** is a special nuclear division that halves the number of chromosome sets. A diploid cell makes haploid products. It has one round of DNA replication followed by two divisions, called meiosis I and meiosis II.
 
-In animals, meiosis happens in **germ cells**, the cells in the ovaries and testes that make gametes. A **gamete** is a sex cell, such as a sperm or an egg. In plants and fungi, meiosis often makes **spores** instead. A spore is a small cell that can grow into a new organism. So it is too narrow to say that meiosis always makes sperm and eggs.
+In animals, meiosis happens in **germ cells**, the cells in the ovaries and testes that make gametes. A **gamete** is a sex cell, such as a sperm or an egg.
+
+In plants and fungi, meiosis often makes **spores** instead. A spore is a small cell that can grow into a new organism. So it is too narrow to say that meiosis always makes sperm and eggs.
 
 **Meiosis I** separates the homologs.
 
@@ -117,7 +123,9 @@ Meiosis gives each gamete a different mix of alleles in two ways.
 
 **Independent assortment.** At metaphase I, each homologous pair faces the poles in its own random way. This does not depend on how the other pairs face. So the maternal and paternal chromosomes are shuffled into the gametes.
 
-For $n$ pairs, there are $2^n$ ways to sort them. This count does not include crossing over. For humans, $n = 23$, so there are $2^{23} = 8{,}388{,}608$ ways.
+For $n$ pairs, there are $2^n$ ways to sort them. This count does not include crossing over.
+
+For humans, $n = 23$, so there are $2^{23} = 8{,}388{,}608$ ways.
 
 **Crossing over.** In prophase I, homologs swap pieces. This makes a chromosome that holds a mix of the mother's and father's alleles. It is new combinations on a single chromosome.
 
@@ -127,7 +135,9 @@ Independent assortment shuffles whole chromosomes. Crossing over shuffles pieces
 
 ### Why Meiosis Reduces the Number
 
-In a life cycle with fertilization, two gametes fuse. Each brings one set of chromosomes. If gametes were diploid, the number would double in every generation. Because meiosis halves the number, fertilization puts it back.
+In a life cycle with fertilization, two gametes fuse. Each brings one set of chromosomes.
+
+If gametes were diploid, the number would double in every generation. Because meiosis halves the number, fertilization puts it back.
 
 ### Mitosis and Meiosis Compared
 
@@ -272,7 +282,7 @@ Remember meiosis as **one copying, two divisions**. Homologs separate in meiosis
 
 To count chromosomes, count centromeres, not rods. A chromosome of two joined chromatids counts as one. Chromatids are counted as chromosomes only after they separate in anaphase.
 
-For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I. Use $2^n$ for assortment only for genes on different chromosome pairs, and ignore crossing over when you use it.
+For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I. $2^n$ counts gamete types only when $n$ is the number of gene pairs that are heterozygous (such as $Aa$) and sit on different chromosomes. A homozygous pair (such as $BB$) adds no choice, so $AaBB$ gives $2$ types, not $4$. Ignore crossing over when you use it.
 
 To tell a metaphase, ask whether the chromosomes are in pairs. Pairs mean metaphase I. Single file with a full set means mitosis. Single file with half the set means metaphase II.
 
