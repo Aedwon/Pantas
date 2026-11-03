@@ -10,6 +10,7 @@ void main() {
     expect(PantasCurves.slideB, const Cubic(0.2, 0.8, 0.25, 1));
     expect(PantasCurves.slideC, const Cubic(0.2, 1, 0.35, 1));
     expect(PantasCurves.edgeGrow, const Cubic(0.32, 0.72, 0, 1));
+    expect(PantasCurves.shared, const Cubic(0.32, 0.72, 0, 1));
     expect(PantasCurves.popA, const Cubic(0.3, 1.4, 0.5, 1));
     expect(PantasCurves.popB, const Cubic(0.3, 1.5, 0.5, 1));
     expect(PantasCurves.popC, const Cubic(0.34, 1.56, 0.64, 1));

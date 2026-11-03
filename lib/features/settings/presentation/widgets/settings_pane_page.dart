@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -115,8 +116,12 @@ class SettingsPanePage extends StatelessWidget {
               }
         : Icon(icon, size: 32, color: t.colors.accent);
     final nested = backLabel != null && backLabel != 'Settings';
+    // The page paints its own background in pieces rather than on the Material,
+    // because the detail pane must be able to show the pane behind it while it
+    // opens (see [PaneDetailMotion]).
+    final background = t.colors.background;
     return Material(
-      color: t.colors.background,
+      type: MaterialType.transparency,
       child: CallbackShortcuts(
         bindings: {
           if (nested && onBack != null)
@@ -125,74 +130,90 @@ class SettingsPanePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Text('Settings', style: t.h1),
+            ColoredBox(
+              color: background,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Text('Settings', style: t.h1),
+                  ),
+                  const SizedBox(height: 26),
+                ],
+              ),
             ),
-            const SizedBox(height: 26),
             Expanded(
               child: LayoutBuilder(
                 builder: (context, constraints) => Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: _listWidth(constraints.maxWidth),
-                      child: SingleChildScrollView(
-                        child: SettingsNavigation(selected: section),
+                    ColoredBox(
+                      color: background,
+                      child: SizedBox(
+                        width: _listWidth(constraints.maxWidth),
+                        height: constraints.maxHeight,
+                        child: _SettingsListScroll(selected: section),
                       ),
                     ),
-                    const SizedBox(width: 28),
+                    ColoredBox(
+                      color: background,
+                      child: SizedBox(width: 28, height: constraints.maxHeight),
+                    ),
                     Expanded(
-                      child: SingleChildScrollView(
-                        key: const ValueKey('settings-detail'),
-                        padding: const EdgeInsets.only(bottom: 24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            if (nested) ...[
-                              Row(
-                                children: [
-                                  WebBackLink(
-                                    label: backLabel!,
-                                    fontSize: 15,
-                                    tightIcon: true,
-                                    onPressed: onBack ?? () {},
-                                  ),
-                                  const SizedBox(width: 8),
-                                  const WebKeyHint('Esc'),
-                                ],
-                              ),
-                              const SizedBox(height: 14),
-                            ],
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
-                              child: Row(
-                                children: [
-                                  if (headingIcon != null) ...[
-                                    headingIcon,
-                                    const SizedBox(width: 14),
-                                  ],
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(title, style: t.h2),
-                                        if (description != null)
-                                          Text(description!, style: t.sub),
-                                      ],
+                      child: PaneDetailMotion(
+                        background: background,
+                        child: SingleChildScrollView(
+                          key: const ValueKey('settings-detail'),
+                          padding: const EdgeInsets.only(bottom: 24),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              if (nested) ...[
+                                Row(
+                                  children: [
+                                    WebBackLink(
+                                      label: backLabel!,
+                                      fontSize: 15,
+                                      tightIcon: true,
+                                      onPressed: onBack ?? () {},
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(width: 8),
+                                    const WebKeyHint('Esc'),
+                                  ],
+                                ),
+                                const SizedBox(height: 14),
+                              ],
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                                child: Row(
+                                  children: [
+                                    if (headingIcon != null) ...[
+                                      headingIcon,
+                                      const SizedBox(width: 14),
+                                    ],
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(title, style: t.h2),
+                                          if (description != null)
+                                            Text(description!, style: t.sub),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 24),
-                            ...children,
-                            if (bottom != null) ...[
                               const SizedBox(height: 24),
-                              bottom!,
+                              ...children,
+                              if (bottom != null) ...[
+                                const SizedBox(height: 24),
+                                bottom!,
+                              ],
                             ],
-                          ],
+                          ),
                         ),
                       ),
                     ),
@@ -220,6 +241,50 @@ Widget _grayGlyph(WebTokens t, Widget glyph) => IconTheme(
       data: IconThemeData(color: t.colors.secondaryLabel, size: 22),
       child: SizedBox.square(dimension: 22, child: glyph),
     );
+
+/// Where the list was last scrolled to. Every Settings row is its own page,
+/// and a new page would start the list back at the top. Opening the next row
+/// would then make the list jump, so the offset is carried across pages.
+final settingsListOffsetProvider = StateProvider<double>((ref) => 0);
+
+class _SettingsListScroll extends ConsumerStatefulWidget {
+  const _SettingsListScroll({required this.selected});
+  final String selected;
+
+  @override
+  ConsumerState<_SettingsListScroll> createState() =>
+      _SettingsListScrollState();
+}
+
+class _SettingsListScrollState extends ConsumerState<_SettingsListScroll> {
+  late final ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController(
+      initialScrollOffset: ref.read(settingsListOffsetProvider),
+    )..addListener(_remember);
+  }
+
+  void _remember() {
+    if (_controller.hasClients) {
+      ref.read(settingsListOffsetProvider.notifier).state = _controller.offset;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => SingleChildScrollView(
+        controller: _controller,
+        child: SettingsNavigation(selected: widget.selected),
+      );
+}
 
 class SettingsNavigation extends ConsumerWidget {
   const SettingsNavigation({required this.selected, super.key});

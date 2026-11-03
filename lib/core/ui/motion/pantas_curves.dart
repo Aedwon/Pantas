@@ -7,6 +7,10 @@ abstract final class PantasCurves {
   static const slideB = Cubic(0.2, 0.8, 0.25, 1);
   static const slideC = Cubic(0.2, 1, 0.35, 1);
   static const edgeGrow = Cubic(0.32, 0.72, 0, 1);
+
+  /// The handoff's shared ease, `cubic-bezier(.32,.72,0,1)`. Same curve as
+  /// [edgeGrow]; the Nov 3 motion preview and duration table call it "shared".
+  static const shared = edgeGrow;
   static const popA = Cubic(0.3, 1.4, 0.5, 1);
   static const popB = Cubic(0.3, 1.5, 0.5, 1);
   static const popC = Cubic(0.34, 1.56, 0.64, 1);
