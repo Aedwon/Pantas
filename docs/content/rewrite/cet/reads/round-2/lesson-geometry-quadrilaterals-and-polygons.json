@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-geometry-quadrilaterals-and-polygons",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"4 Triangles\", \"Sum = 720°\"",
+      "problem": "The Example 1 question figure prints the answer the question asks for (720 degrees) and the method (4 triangles). It sits between the question and the solution, so the student sees the answer before trying the example. Carried over from the base unchanged.",
+      "source": "Checklist L05; LSG Examples section (supply givens, not tested knowledge); same finding upheld in the round-2 parallel-lines read"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"Sum of exterior = 360°\", \"Sides = 360° / 24°\"",
+      "problem": "The Example 4 question figure states the exterior-sum fact and the exact division that solves the question. Choosing 360 divided by the exterior angle is the skill the example teaches, so the figure gives the method away. Carried over from the base unchanged.",
+      "source": "Checklist L05; LSG Examples section"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"4x\", \"Sum = 360°\"",
+      "problem": "The Example 8 question figure states that the angles add to 360 degrees. Knowing the quadrilateral angle sum is tested knowledge in this lesson's goal and is the key step of the solution, so the figure supplies it. Carried over from the base unchanged.",
+      "source": "Checklist L05; LSG Examples section"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "arrowhead quadrilateral ABCD with interior angles A = 30°, B = 45°, C = 60° and the angle at D marked with a question mark on the inside of the dent",
+      "problem": "Example 5 asks 'Is the quadrilateral convex?', but its question figure is drawn as an arrowhead with a visible dent, which answers that part before the student computes the 225 degree angle. The point of the example is to decide convexity from the computed angle. Added in this rewrite.",
+      "source": "Checklist L05; LSG Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "To see why, pick a vertex and draw diagonals from it.",
+      "problem": "This paragraph has seven sentences (from 'To see why' to 'The sum is still'). The limit is one to three short sentences. It grew in the round-1 fix of the H-shape finding.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 5
+}
