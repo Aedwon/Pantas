@@ -209,3 +209,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: fossils-and-geologic-time (1 Minor). Minerals fixed after round 1; water-cycle round 1: 2 Blockers, 1 Major.
 - Done at minor after round 3: thermodynamics-and-kinetics (2 Minors; borderline split candidate). Written: physics thermodynamics, momentum-and-impulse, scalars-and-vectors.
 - Open after 3 reads: earths-motions (round 3: 1 Blocker, seasonal-constellation rule ignores circumpolar stars). Origin-of-the-universe fixed after round 2.
+- Done at minor after round 2: minerals-and-rocks (2 Minors).

@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-minerals-and-rocks",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "breaks rock down where it sits. It does not move the pieces away.", "problem": "Still open from round 1. Many teaching paragraphs run past three sentences: the weathering paragraph has seven, the sedimentary-types paragraph seven, and the streak, cleavage, lithification, fossil and rock-network paragraphs four or five. New content must fix every Minor.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules; writer-rules.md rule 8"},
+    {"rule": "L19", "severity": "Minor", "quote": "Sedimentary layers are separate beds laid down one on another, often with rounded grains or fossils.", "problem": "The round-1 fix made Example #9 a multi-step solution (tell beds from foliation, check the rock against both, use the larger-mineral clue, conclude), but it is written as two prose paragraphs instead of a numbered list. No step is skipped, so this is Minor.", "source": "content-checklist.md L19; lesson-style-guide.md Examples section"}
+  ],
+  "goodQuotesChecked": 2
+}
