@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-biology-characteristics-of-life",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A nonliving thing may copy some of them, but not cells and not all the rest.", "problem": "This general rule says no nonliving thing has cells. It fails at a standard exception: dead organisms and once-living material (a dead leaf, a log, cork) are made of cells but are not alive. Hooke's first 'cells' were dead cork cells. The lesson never teaches dead or once-living things, so a student who uses this shortcut as a test will judge wood or a dry leaf to be living because it has cells.", "source": "OpenStax Biology 2e, 4.1 Studying Cells (Hooke observed cells in cork, dead plant tissue); content-checklist B01; reader-rules.md, Added after the Sol audit"},
+    {"rule": "B01", "severity": "Blocker", "quote": "All tilapia in one lake are one species in one area, so that is a population.", "problem": "Tilapia is not one species. It is the common name for nearly a hundred species of cichlid fish, and the Philippines has both Mozambique tilapia (introduced 1950) and Nile tilapia (introduced 1972). The worked step states a false fact as the reason the group is a population, and the same premise sits in the example's question and the illustration marker. A student who knows that several tilapia species share a lake gets a contradictory reason for the key.", "source": "Wikipedia, Tilapia (opening sentence and Philippine introductions), accessed 2026-11-03; content-checklist B01, B02"},
+    {"rule": "L22a", "severity": "Minor", "quote": "To infer means to reach a conclusion from the evidence you have plus facts you already know.", "problem": "This paragraph has five sentences; paragraphs must be one to three short sentences. The Cellular organization and Reproduction paragraphs each have four. Round-1 finding L22a is partly fixed but still open in these paragraphs.", "source": "content-checklist L22a; lesson-style-guide Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}

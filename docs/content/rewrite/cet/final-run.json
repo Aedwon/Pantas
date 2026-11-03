@@ -111,7 +111,7 @@
     "lessonPath": "content/lessons/science/biology/characteristics-of-life.md",
     "lessonId": "lesson-biology-characteristics-of-life",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/biology/evolution.md",
@@ -123,13 +123,13 @@
     "lessonPath": "content/lessons/science/biology/human-anatomy-physiology.md",
     "lessonId": "lesson-biology-human-anatomy-physiology",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/biology/taxonomy-and-classification.md",
     "lessonId": "lesson-biology-taxonomy-and-classification",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/atomic-structure.md",
@@ -153,13 +153,13 @@
     "lessonPath": "content/lessons/science/chemistry/gas-laws.md",
     "lessonId": "lesson-chemistry-gas-laws",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/history-of-the-atom.md",
     "lessonId": "lesson-chemistry-history-of-the-atom",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/matter.md",

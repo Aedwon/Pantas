@@ -182,3 +182,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Open after 3 reads: chemical-bonding (round 3: 1 Blocker, boron octet trap too broad; 1 Major, formal charge meaning). Characteristics-of-life fixed after round 1; taxonomy and atomic-structure written.
 - Open after 3 reads: triangles (round 3: 1 Blocker, 'square and subtract' shortcut gives a wrong hypotenuse). Round 1 reads: cellular-metabolism (2 Blockers), evolution (4 Blockers), all false absolutes.
 - Open after 3 reads: pulleys-and-levers (round 3: 2 Blockers, ideal-machine definition omits pulley weight; bar weight at the middle only for a uniform bar). All 15 pilot lessons finished: 3 clean, 7 minor, 5 open. Cellular-metabolism fixed after round 1.
+- Written: chemical-reactions, gas-laws, history-of-the-atom. Reads: taxonomy r1, human-anatomy r1 (6 Blockers), characteristics-of-life r2, cellular-reproduction r2, atomic-structure r1 (4 Blockers); fixes running.

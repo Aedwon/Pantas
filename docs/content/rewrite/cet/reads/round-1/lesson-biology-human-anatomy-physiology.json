@@ -1,0 +1,65 @@
+{
+  "lesson": "lesson-biology-human-anatomy-physiology",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "**Somatic** control is conscious and moves skeletal muscle.",
+      "problem": "This general statement is false, and the lesson's own reflex teaching breaks it. A withdrawal reflex uses somatic motor neurons and skeletal (arm) muscle with no conscious decision (lines on the reflex arc and Example #7). A student who learns 'somatic = conscious, autonomic = automatic' will call a knee-jerk or withdrawal reflex autonomic. The paragraph's opener 'Control of muscles has two branches' also leaves out that autonomic control acts on glands, which are not muscles. The base hedged this as 'usually under voluntary somatic control'.",
+      "source": "OpenStax Anatomy and Physiology 2e, 12.1: 'The somatic nervous system (SNS) is responsible for conscious perception and voluntary motor responses' and 'Some somatic motor responses are reflexes, and often happen without a conscious decision to perform them.' Reader rules, Sol audit addition (test every general statement)."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "In the rest of the body the pattern is reversed: systemic arteries carry oxygen-rich blood and systemic veins carry oxygen-poor blood.",
+      "problem": "General statement with a known exception: before birth, the umbilical vein carries oxygen-rich blood from the placenta to the fetus and the umbilical arteries carry oxygen-poor blood back. The sentence and Example #4 ('Which vessel carries oxygen-poor blood away from the heart?') teach the pulmonary vessels as the sole exception, so a student facing a choice between pulmonary vein and umbilical vein, or asked which veins carry oxygen-rich blood, is misled. The statement holds only after birth and should say so or name the umbilical case. This sentence is new; the base did not make the claim.",
+      "source": "OpenStax Anatomy and Physiology 2e, fig. 28.17 and 28.5 fetal circulation (umbilical vein carries oxygenated blood to the fetus; umbilical arteries return deoxygenated blood to the placenta). Reader rules, Sol audit addition."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Each cycle, an ovary releases one oocyte",
+      "problem": "Stated as a rule with no hedge, but it has known exceptions: some cycles release two oocytes (the cause of fraternal, dizygotic twins) and some cycles release none (anovulatory cycles). A student who learns it as a fixed rule cannot explain fraternal twins. The usual case is one oocyte per cycle. The writer added this sentence; the base did not make the claim.",
+      "source": "OpenStax Anatomy and Physiology 2e, ch. 28 (dizygotic twins arise from two oocytes released and fertilized in the same cycle); OpenStax 27.2, ovarian cycle (typically one oocyte ovulated). Reader rules, Sol audit addition."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Three **accessory organs** help but food does not pass through them.",
+      "problem": "The sentence gives a count, so a student learns that the accessory organs are three: liver, gallbladder and pancreas. Standard references also count the salivary glands (and many also the teeth and tongue), and the salivary glands fit the lesson's own definition: they help digestion, food does not pass through them, and the lesson names their enzyme, salivary amylase. A question asking which choice is an accessory digestive organ, with salivary glands as the key, would be missed. The base said 'Accessory organs include', which was correct.",
+      "source": "NCI SEER Training Modules, Digestive System, Accessory Organs: 'salivary glands, liver, gallbladder, and pancreas'; OpenStax Anatomy and Physiology 2e, 23.1 and 23.5 (teeth, tongue and salivary glands as accessory structures)."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "absorbs water and electrolytes (dissolved salts such as sodium and potassium)",
+      "problem": "The example names potassium as a salt the large intestine absorbs. In the healthy human colon, sodium and chloride are absorbed with water, while potassium is secreted into the lumen (net). The writer added this example without a source check. Sodium and chloride, or no named ions, would be correct; the base said only 'water and electrolytes'.",
+      "source": "Levitan, Fordtran, Burrows and Ingelfinger, 'Water and salt absorption in the human colon', J Clin Invest 1962 (whole-colon perfusion: sodium, chloride and water absorbed; potassium and bicarbonate secreted); OpenStax Anatomy and Physiology 2e, 23.5 says only 'water and salts'."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Full path: body → vena cavae (the large veins)",
+      "problem": "Anatomical naming error. The plural of vena cava is venae cavae; 'vena cavae' mixes the singular noun with the plural adjective. Students copy names exactly from the lesson, and source policy treats anatomy naming details as facts to check. The fix is one word.",
+      "source": "Source policy, What needs a source (anatomy and other naming details); OpenStax Anatomy and Physiology 2e, 20.5 (superior and inferior venae cavae)."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Negative feedback means the response reverses the change, not that the level goes down.",
+      "problem": "Trap #6's title contrasts 'Positive or Negative' feedback, but positive feedback is never defined anywhere in the lesson. The student is told what negative feedback is not, then left with a named term and no meaning, and may still guess that positive feedback means 'the level goes up'. Biological feedback is in ustet-L115 at official curriculum class, so the term the lesson itself introduces needs its one-line meaning (the response increases the change) before this trap relies on the contrast.",
+      "source": "Checklist L25; brief, ustet-L115 ('explain ... biological feedback', official curriculum)."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Gas exchange** happens by **diffusion**, the movement of a substance from where it is more concentrated to where it is less concentrated.",
+      "problem": "This paragraph has five sentences, over the one-to-three limit. Several other Core Concept paragraphs also have four or five (the opening levels paragraph, the heart-levels paragraph, the digestive paragraphs, the ventilation and arteries paragraphs). Note: the lesson is 3,478 words and is a split candidate already logged in final-run-rulings.md. I found no padding; the length comes from teaching the brief's items and 13 non-duplicate examples. No split is asked for.",
+      "source": "Checklist L22a; LSG Formatting rules; reader rules, Length and splits."
+    }
+  ],
+  "goodQuotesChecked": 8
+}

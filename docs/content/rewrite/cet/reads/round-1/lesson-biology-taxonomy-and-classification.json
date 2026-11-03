@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-biology-taxonomy-and-classification",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Its members do not all come from one ancestor, so \"protist\" is now only an informal word", "problem": "Wrong reason for why Protista is not a clade. All protists descend from one common ancestor, the ancestor of all eukaryotes. Protista fails as a clade because it leaves out some descendants of that ancestor (animals, land plants, fungi), so it is paraphyletic. The lesson's own definition on line 59 gives this correct reason, and the base said only that Protista 'is not one natural monophyletic lineage'. The sentence teaches that a group can have no shared ancestor, which contradicts common descent and points the student to a wrong choice on a 'why is Protista not monophyletic' question. Example 9's stem repeats the wording ('do not all come from one ancestor'), and its step 3 then calls this 'not a clade'.", "source": "OpenStax Biology 2e, Ch. 23 Protists (protists include their most recent common ancestor but only some of its descendants, so they are paraphyletic): https://courses.lumenlearning.com/suny-oneonta-osbiology2e-1/wp-json/pressbooks/v2/chapters/1065; checklist B01"},
+    {"rule": "L25", "severity": "Major", "quote": "It has no chlorophyll and absorbs food from the log.", "problem": "Example 5 uses chlorophyll, and step 2 uses it to rule out Plantae ('Many cells and no chlorophyll rule out Plantae'). The lesson never says what chlorophyll is or that plants use it to make food, and it names no prerequisite lesson. A student who does not know the term cannot follow step 2. Step 2 also lists 'many cells' as a reason, but plants have many cells too, so only the missing chlorophyll does the work.", "source": "checklist L25; LSG Teaching completeness; reader-rules 'Added after the Sol audit' (every term an example uses is taught or its prerequisite named)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Kingdoms are the next rank down, and textbooks do not all agree on them.", "problem": "This paragraph has 5 sentences. The limit is one to three short sentences. Other paragraphs also break it: line 22 (4 sentences, 'Each rank sits inside the one above it.'), line 47 (4), line 53 (4), line 67 (4) and line 77 (5, 'The epithet alone does not name a species').", "source": "checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
