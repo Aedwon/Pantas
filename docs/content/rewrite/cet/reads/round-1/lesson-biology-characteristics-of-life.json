@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-biology-characteristics-of-life",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "either with two parents (sexual) or with one parent (asexual)", "problem": "This defines sexual reproduction by the number of parents, and the definition fails at a standard exception: self-pollination and self-fertilization (Mendel's pea plants, hermaphrodite animals) are sexual reproduction with one parent, because gametes fuse. A student who learns this rule will call self-pollination asexual. The base lesson said only 'sexually or asexually' and had no such rule.", "source": "OpenStax Biology 2e, 32.2 Pollination and Fertilization (self-pollination) and 43.1 Reproduction Methods (sexual reproduction is the fusion of gametes, usually from two individuals; self-fertilization in hermaphrodites); reader-rules.md, Added after the Sol audit"},
+    {"rule": "B01", "severity": "Blocker", "quote": "Fire and crystals match one property each.", "problem": "False for fire, and it contradicts the lesson's own Core Concept, which says 'Fire consumes fuel, grows, and spreads': energy use and growth at least. Fire is the standard case of a nonliving thing that copies several properties of life. Telling students it copies only one invites them to judge life by counting properties instead of by the missing cells.", "source": "Lesson Core Concept line 'Fire consumes fuel, grows, and spreads.'; reader-rules.md, Added after the Sol audit (test each 'each' statement); content-checklist B01"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A dry seed does not grow, move, or react for a long time. It is still alive.", "problem": "This paragraph has six sentences. Paragraphs must be one to three short sentences. Other paragraphs also run over: the Core Concept opening, Cellular organization, Reproduction, Evolutionary adaptation, the first virus paragraph, and the paragraph after the levels list each have four or five sentences.", "source": "content-checklist L22a; lesson-style-guide Formatting rules; writer-rules.md rule 8"}
+  ],
+  "goodQuotesChecked": 3
+}
