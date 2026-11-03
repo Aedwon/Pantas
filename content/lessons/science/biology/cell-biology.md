@@ -9,21 +9,23 @@ isActive: true
 ---
 ## Core Concept
 
-The **cell** is the basic unit of life. Every living thing is made of one or more cells.
+The **cell** is the basic unit of life. Organisms are made of one or more cells.
 
-Some cells keep their DNA in a **nucleus** and have other parts wrapped in their own membranes. These are **eukaryotic** cells. Animals, plants, fungi, and protists are made of them. Bacteria have no nucleus. This lesson is about eukaryotic cells.
+Some cells keep their DNA in a **nucleus**. These are **eukaryotic** cells. Animals, plants, fungi, and protists are made of them. Bacteria have no nucleus.
 
-The wrapped parts are called **organelles**. Think of a cell as a small factory: each organelle is a department with its own job.
+A eukaryotic cell has **organelles**: small parts that each do a job. Most are wrapped in their own membrane. Ribosomes are an exception, because they have no membrane.
 
 ### Organelles and Their Functions
 
-The **nucleus** holds most of the cell's DNA. DNA carries the instructions for making proteins. The nucleus helps decide which genes the cell uses, so it helps run the cell.
+The **nucleus** holds most of the cell's DNA. DNA carries the instructions for making proteins. The nucleus helps decide which genes the cell uses.
 
-The **mitochondria** carry out most steps of aerobic cellular respiration, which uses oxygen to release energy from food. They make much of the cell's ATP. ATP is the molecule a cell uses as its energy for work.
+The **mitochondria** carry out most steps of aerobic cellular respiration, which uses oxygen to release energy from food. They make much of the cell's ATP, the molecule a cell uses as energy for work.
 
 **Ribosomes** build proteins. They read instructions copied from DNA and carried by messenger RNA (mRNA).
 
-The **endoplasmic reticulum (ER)** is a network of membrane tubes and flat sacs. The rough ER has ribosomes attached. It helps make and process many proteins that go into membranes, into other organelles, or out of the cell. The smooth ER has no ribosomes. Its jobs include making lipids (fats), breaking down harmful substances, and storing calcium, depending on the cell type.
+The **endoplasmic reticulum (ER)** is a network of membrane tubes and flat sacs. The rough ER has ribosomes attached. It helps make and process many proteins that go into membranes, into other organelles, or out of the cell.
+
+The smooth ER has no ribosomes. Its jobs include making lipids (fats), breaking down harmful substances, and storing calcium.
 
 The **Golgi apparatus** modifies, sorts, and packages proteins and lipids. It sends them in small sacs, called **vesicles**, to where they are needed.
 
@@ -33,7 +35,7 @@ The **Golgi apparatus** modifies, sorts, and packages proteins and lipids. It se
 
 ### Typical Plant vs. Animal Cells
 
-Both kinds of cell have a nucleus, mitochondria, ribosomes, ER, a Golgi apparatus, and a plasma membrane. A plant cell needs ATP too, so it has mitochondria.
+Typical plant and animal cells both have a nucleus, mitochondria, ribosomes, ER, and a Golgi apparatus. Both are bounded by a **plasma membrane**, also called the cell membrane. Plant cells need ATP too, so they have mitochondria.
 
 A typical plant cell also has structures that a typical animal cell lacks:
 
@@ -45,17 +47,21 @@ A typical plant cell also has structures that a typical animal cell lacks:
 
 These clues are not unique to plants. Fungi and most bacteria also have cell walls, made of other materials. Many algae have chloroplasts.
 
-A typical animal cell has a centrosome with centrioles, which help organize cell division. It commonly uses lysosomes for digestion. Most plant cells have no centrioles, and the central vacuole does much of their digesting.
+A typical animal cell has a centrosome with centrioles, which help organize cell division. It commonly uses lysosomes for digestion. Most plant cells have no centrioles, and their central vacuole does much of the digesting.
 
 ### Cell Membrane and Cellular Transport
 
-The **plasma membrane** is selectively permeable. It controls what moves between the cell and its surroundings.
+The plasma membrane is **selectively permeable**: some substances pass through it and others do not. It controls what moves between the cell and its surroundings.
 
-A **concentration gradient** is a difference in concentration between two places. Moving down the gradient means moving from higher to lower concentration.
+A **solute** is a substance dissolved in a liquid, such as salt in water. **Concentration** is how much solute is in a given amount of liquid. A **concentration gradient** is a difference in concentration between two places. Moving down the gradient means moving from higher to lower concentration.
 
-**Diffusion** is the net movement of particles down their concentration gradient. It happens because particles move randomly. It needs no energy from the cell, so it is **passive** transport. Some particles pass through special membrane proteins, but if they still move down the gradient, it is still passive.
+**Diffusion** is the net movement of particles down their concentration gradient. Particles move randomly in both directions. "Net" means the overall result: more go down the gradient than up. Diffusion needs no energy from the cell, so it is **passive** transport.
 
-**Active transport** moves a substance against its gradient, from lower to higher concentration. It always needs energy. Some transporters use ATP directly. Others use energy stored in an ion gradient that another process built.
+Some particles pass through special membrane proteins. If they still move down the gradient, the transport is passive too. It is called **facilitated diffusion**.
+
+**Active transport** moves a substance against its gradient, from lower to higher concentration. It always needs energy. Some transporters use ATP directly. Others use energy stored in a gradient of **ions** (charged particles, such as sodium) that another process built.
+
+In **exocytosis**, a vesicle joins the plasma membrane and releases its contents outside the cell. In **endocytosis**, the membrane folds inward and takes material into the cell in a vesicle. Both use energy.
 
 **Osmosis** is the diffusion of water across a selectively permeable membrane. Water moves toward the side with more solute, which means less free water. In the simple cases here, the solute cannot cross the membrane.
 
@@ -63,138 +69,97 @@ A **concentration gradient** is a difference in concentration between two places
 
 - **Hypotonic** solution: less solute outside than inside the cell. Water enters.
 - **Hypertonic** solution: more solute outside than inside the cell. Water leaves.
-- **Isotonic** solution: equal solute inside and out. There is no net change in volume.
+- **Isotonic** solution: equal solute inside and out. Water moves both ways at the same rate, so there is no net change in volume.
 
 <!-- ILLUSTRATION: three beakers labeled hypotonic, isotonic, hypertonic, each with an animal cell and arrows for water: arrows into the cell, equal arrows both ways, arrows out of the cell; the cell is swollen, normal, shrunken -->
 
 An animal cell has no wall. In a hypotonic solution it swells and may burst, which is called **lysis**. In a hypertonic solution it shrinks.
 
-A plant cell has a wall. In a hypotonic solution, water entering pushes the membrane against the wall. This pressure is **turgor pressure**, and it keeps the cell firm. In a hypertonic solution, the membrane pulls away from the wall. This is **plasmolysis**.
+A plant cell has a wall. In a hypotonic solution, water entering pushes the membrane against the wall. This pressure is **turgor pressure**, and it keeps the cell firm.
+
+In a hypertonic solution, the membrane of a plant cell pulls away from the wall. This is **plasmolysis**.
 
 ## Examples
 
 ### #1: Matching Organelles to Their Jobs
 
-Match each organelle to its main function: (a) mitochondria, (b) ribosomes, (c) Golgi apparatus, (d) nucleus.
+Match each organelle to its main function: (a) mitochondria, (b) ribosomes, (c) Golgi apparatus, (d) nucleus. The functions are: (1) builds proteins, (2) modifies and packages proteins, (3) holds most of the DNA, (4) makes most of the ATP using oxygen.
 
 **Solution:**
 
-1. Mitochondria: major site of aerobic ATP production.
-2. Ribosomes: protein synthesis.
-3. Golgi apparatus: modifying, sorting, and packaging proteins and lipids.
-4. Nucleus: holds most of the DNA and helps regulate gene use.
+1. Mitochondria make most of the ATP: (a) matches (4).
+2. Ribosomes build proteins: (b) matches (1).
+3. The Golgi apparatus modifies and packages proteins: (c) matches (2).
+4. The nucleus holds most of the DNA: (d) matches (3).
 
 ### #2: Following a Protein
 
-A cell makes a protein that it will send out of the cell. Name the organelles the protein passes through, in order.
+A cell makes a protein that it will send out of the cell. Name the organelles the protein passes through, in order, and the transport process that releases it.
 
 **Solution:**
 
-1. A ribosome on the rough ER builds the protein.
-2. The rough ER helps process it.
-3. The Golgi apparatus modifies and packages it into a vesicle.
-4. The vesicle carries it to the plasma membrane, and the cell releases it.
+1. A ribosome on the rough ER builds the protein, and the rough ER helps process it.
+2. The Golgi apparatus modifies and packages it into a vesicle.
+3. The vesicle joins the plasma membrane and releases the protein. This is exocytosis.
 
 ### #3: Plant Cell or Animal Cell?
 
-A eukaryotic cell has a cellulose cell wall, a large central vacuole, and chloroplasts. Is it more consistent with a plant cell or an animal cell?
+(a) A eukaryotic cell has a cellulose cell wall, a large central vacuole, and chloroplasts. (b) Another cell has a cellulose wall and a large central vacuole but no chloroplasts. It comes from tissue that grows in the dark. For each cell, is it more consistent with a plant cell or an animal cell?
 
 **Solution:**
 
-1. A cellulose wall is typical of plant cells.
-2. A large central vacuole is typical of plant cells.
-3. Chloroplasts show that the cell does photosynthesis.
-4. Together, these clues point to a plant cell.
+1. In (a), a cellulose wall, a large central vacuole, and chloroplasts are all typical of plant cells. It is a plant cell.
+2. In (b), the wall and the vacuole still point to a plant cell.
+3. Chloroplasts use light to make sugar. A cell in the dark has little use for them, so their absence does not rule out a plant cell.
 
-### #4: A Plant Cell Without Chloroplasts
+### #4: Diffusion or Active Transport?
 
-A cell from a plant root has a cellulose wall and a large central vacuole, but no chloroplasts. Is it still a plant cell?
-
-**Solution:**
-
-1. Chloroplasts are found only in cells that do photosynthesis.
-2. Root cells are underground and get no light, so they have none.
-3. The wall and vacuole still point to a plant cell.
-4. It is a plant cell. A missing chloroplast does not change that.
-
-### #5: Diffusion or Active Transport?
-
-(a) A cell takes in a nutrient that is already more concentrated inside than outside. It uses a membrane transporter and energy. (b) Oxygen enters a cell that has less oxygen than its surroundings. No energy is used. Name the type of transport in each case.
+Name the type of transport in each case. (a) A cell takes in a nutrient already more concentrated inside than outside, using a transporter and energy. (b) Oxygen enters a cell that has less oxygen than its surroundings. No energy is used. (c) Glucose enters a cell through a membrane protein, down its gradient, with no energy used.
 
 **Solution:**
 
 1. In (a), the nutrient moves against its gradient, and the cell spends energy. This is active transport.
 2. In (b), oxygen moves from higher to lower concentration with no energy. This is diffusion.
+3. In (c), glucose moves down its gradient with no energy, so it is passive. The protein only helps. This is facilitated diffusion.
 
-### #6: Hypertonic, Hypotonic, or Isotonic?
+### #5: Hypertonic, Hypotonic, or Isotonic?
 
-A red blood cell is placed in a salt solution and shrinks. What does this tell you about the solution's tonicity?
-
-**Solution:**
-
-1. Shrinking means water left the cell.
-2. Water moves toward the side with more solute that cannot cross the membrane.
-3. So the outside had more solute than the inside.
-4. The solution is hypertonic to the red blood cell.
-
-### #7: The Same Solution, Two Kinds of Cell
-
-An animal cell and a plant cell are each placed in pure water. Describe what happens to each.
+A red blood cell is placed in salt solution A and shrinks. In salt solution B, it stays the same size. What does each result tell you about the tonicity of the solution?
 
 **Solution:**
 
-1. Pure water has no solute, so it is hypotonic to both cells.
-2. Water enters both cells.
-3. The animal cell swells and may lyse.
-4. The plant cell's wall stops it from bursting. It becomes firm from turgor pressure.
+1. In A, the cell shrinks, so water left it. Water moves toward more solute, so the outside had more. Solution A is hypertonic.
+2. In B, there is no net change in volume. Water moves both ways at the same rate, so the solute amounts are equal. Solution B is isotonic.
 
-### #8: A Plant Cell in Strong Salt Water
+### #6: The Same Solutions, Two Kinds of Cell
 
-A plant cell is placed in a strong salt solution. Its membrane pulls away from the cell wall. Explain why.
+An animal cell and a plant cell are each placed in pure water, and then in a strong salt solution. Describe what happens to each.
 
 **Solution:**
 
-1. The salt solution is hypertonic to the cell.
-2. Water leaves the cell by osmosis.
-3. The cell contents shrink, but the wall stays rigid.
-4. The membrane pulls away from the wall. This is plasmolysis.
+1. Pure water has no solute, so it is hypotonic to both cells. Water enters both.
+2. The animal cell swells and may lyse. The plant cell's wall stops it from bursting, and it becomes firm from turgor pressure.
+3. The strong salt solution is hypertonic to both cells. Water leaves both by osmosis.
+4. The animal cell shrinks. The plant cell's contents shrink but its wall stays rigid, so the membrane pulls away from the wall. This is plasmolysis.
 
 ## Speed Tricks & Shortcuts
 
 For plant versus animal questions, look for **cellulose wall + chloroplasts + large central vacuole**. All three together strongly point to a plant cell.
 
-For osmosis questions, first ask which solutes can cross the membrane. If the solute cannot cross, water moves toward the side with more solute.
+For osmosis questions, first ask which solutes can cross the membrane. If the solute cannot cross, water moves toward more solute.
 
-For transport questions, ask if the movement is down or against the gradient. Against it always needs energy.
+For transport questions, ask if the movement is down or against the gradient. Against it needs energy.
 
 ## Traps to Watch For
 
-### #1: Treating Cell Walls as Plant-Only
+### #1: Treating Plant Clues as Plant-Only
 
 > Plant cell walls contain cellulose, but fungi and most bacteria also have cell walls, made of other materials.
 
-One wall does not make a plant cell. The combination of several structures identifies a typical plant cell.
+The combination of several structures identifies a typical plant cell.
 
-### #2: Thinking Plants Have No Mitochondria
-
-> Plant cells have chloroplasts and mitochondria.
-
-Chloroplasts make sugar. Mitochondria release energy from it as ATP. Plants need both.
-
-### #3: Mixing Up Hypertonic and Hypotonic
-
-> Hypertonic outside: animal cells lose water. Hypotonic outside: animal cells gain water.
-
-For plant cells, the wall changes the result. Water entry makes the cell firm, not burst.
-
-### #4: Saying Active Transport Always Uses ATP Directly
+### #2: Saying Active Transport Always Uses ATP Directly
 
 > Active transport always needs energy, but not every transporter breaks down ATP itself.
 
-Some transporters use ATP directly. Others use energy stored in an ion gradient that another process built.
-
-### #5: Assuming Chloroplasts Occur Only in Plants
-
-> Chloroplasts occur in plants and many algae. Photosynthetic bacteria work without chloroplasts.
-
-Use chloroplasts as a plant clue only within the typical plant-versus-animal comparison taught here.
+A transporter that runs on an ion gradient is still active transport. The cell paid for that gradient earlier.

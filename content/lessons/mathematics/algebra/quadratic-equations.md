@@ -23,9 +23,13 @@ If $x^2=k$ and $k\ge0$, then $x=\pm\sqrt{k}$. The sign $\pm$ means "plus or minu
 
 ### Factoring
 
-Factoring means writing the quadratic as a product. It works well when the numbers are friendly. First take out any common factor. Also watch for a difference of squares: $x^2-9=(x-3)(x+3)$.
+Factoring means writing the quadratic as a product. It works well when the numbers are friendly.
 
-A quadratic is **monic** when $a=1$. For a monic $x^2+bx+c$, find two numbers whose product is $c$ and whose sum is $b$. For $a\ne1$, find two numbers whose product is $ac$ and whose sum is $b$. Use them to split the middle term, then factor by grouping.
+First take out any common factor. Also watch for a difference of squares: $x^2-9=(x-3)(x+3)$.
+
+A quadratic is **monic** when $a=1$. For a monic $x^2+bx+c$, find two numbers whose product is $c$ and whose sum is $b$.
+
+For $a\ne1$, find two numbers whose product is $ac$ and whose sum is $b$. Use them to split the middle term, then factor by grouping.
 
 ### Completing the Square
 
@@ -35,6 +39,8 @@ This method works for any quadratic. It turns one side into a perfect square, su
 2. Move the constant term to the right side.
 3. Add $\left(\dfrac{p}{2}\right)^2$ to both sides, where $p$ is the coefficient of $x$.
 4. Write the left side as $\left(x+\dfrac{p}{2}\right)^2$ and use square roots.
+
+"Simplest radical form" means no perfect-square factor stays under the root. For example, write $\sqrt8$ as $2\sqrt2$.
 
 ### Quadratic Formula and Discriminant
 
@@ -74,7 +80,9 @@ A quadratic inequality uses $<$, $>$, $\le$ or $\ge$ instead of $=$. To solve it
 4. Test one value from each part. Keep the parts that make the inequality true.
 5. Include the roots only if the sign is $\le$ or $\ge$.
 
-If $a>0$, the graph is a parabola that opens up. It is below zero between the roots and above zero outside them. If $a<0$, these swap.
+Suppose the equation has two different real roots. If $a>0$, the graph is a parabola that opens up. It is below zero between the roots and above zero outside them.
+
+If $a<0$, the parabola opens down. It is above zero between the roots and below zero outside them. If $D\le0$, there are not two roots, so use $D$ and the sign of $a$ (see Example #11).
 
 ## Examples
 
@@ -167,11 +175,15 @@ For what values of $k$ does $x^2+kx+9=0$ have exactly one real root?
 
 **Solution:**
 
-A repeated real root requires $D=0$.
+1. One real root means a repeated root, so $D=0$.
 
 $$k^2-4(1)(9)=0$$
 
+2. Simplify.
+
 $$k^2=36$$
+
+3. Take square roots.
 
 $$k=6\quad\text{or}\quad k=-6$$
 
@@ -193,7 +205,7 @@ $$\dfrac1{r_1}+\dfrac1{r_2}=\dfrac{r_1+r_2}{r_1r_2}$$
 
 3. Substitute. The product is not $0$, so the division is allowed.
 
-$$\dfrac{4}{7/3}=4\cdot\dfrac37=\dfrac{12}{7}$$
+$$\dfrac{4}{\frac{7}{3}}=4\cdot\dfrac37=\dfrac{12}{7}$$
 
 ### #7: Equation From Its Roots
 
@@ -287,6 +299,27 @@ $$D=4^2-4(1)(5)=-4$$
 2. Since $D<0$, the parabola never touches the $x$-axis. Since $a=1>0$, it opens up, so it stays above the axis.
 3. The inequality is true for every real number $x$.
 
+### #12: Inequality With a Negative Leading Coefficient
+
+Solve $-x^2+x+6\ge0$.
+
+<!-- ILLUSTRATION: parabola y = -x^2 + x + 6 opening down, crossing the x-axis at x = -2 and x = 3, with the part of the curve on or above the x-axis between those two points marked -->
+
+**Solution:**
+
+1. Factor and find the roots.
+
+$$-(x-3)(x+2)=0$$
+
+$$x=3\quad\text{or}\quad x=-2$$
+
+2. Since $a=-1<0$, the parabola opens down. It is above zero between the roots.
+3. The sign is $\ge$, so include the roots.
+
+$$-2\le x\le3$$
+
+4. Check with $x=0$: $-(0)^2+0+6=6$, and $6\ge0$ is true.
+
 ## Speed Tricks & Shortcuts
 
 - If the integers $a$, $b$ and $c$ are given, check whether $D$ is a perfect square. If it is, the quadratic factors over the integers. If not, go straight to the formula.
@@ -317,10 +350,10 @@ Take $x^2=4x$. Dividing by $x$ gives only $x=4$. Instead write $x(x-4)=0$, which
 
 > The formula starts with $-b$, not $b$.
 
-If $b=-5$, then $-b=5$. Also, $b^2$ is always positive, even when $b$ is negative.
+If $b=-5$, then $-b=5$. Also, $b^2$ is never negative: $(-5)^2=25$, not $-25$.
 
 ### #5: Between or Outside
 
 > Read the sign, then pick the right parts of the number line.
 
-For $a>0$, "less than zero" means between the roots, and "greater than zero" means outside them. Writing $-2<x<4$ for $x^2-2x-8>0$ is the common mistake. Test one value to be sure.
+For $a>0$ and two roots, "less than zero" means between the roots, and "greater than zero" means outside them. For $a<0$, it is the other way around. Writing $-2<x<4$ for $x^2-2x-8>0$ is the common mistake. Test one value to be sure.
