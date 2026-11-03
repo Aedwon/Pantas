@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-motions",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "One trip takes about $365.24$ days, which is why a calendar year needs leap days.", "problem": "The lesson gives the wrong year for one trip around the Sun. One full orbit, measured against the stars, is the sidereal year: about 365.256 days. The figure 365.24 is the seasonal (tropical) year, from one March equinox to the next. That year is about 20 minutes shorter because of precession. The lesson repeats the error in 'Earth's trip takes about $365.24$ days' (Leap Years) and 'very close to the real $365.24$'. The leap-year reasoning depends on it: 'Adding a day every fourth year is slightly too much' holds only for the seasonal year, which the calendar follows. For the orbit, 365.256 is more than 365.25, so one leap day every four years would be too few, not too much. The base had this right ('A seasonal (tropical) year is about $365.24$ days'), and the rewrite cut that correct teaching.", "source": "Checklist B01; reader-rules.md step 6 (base 7032eec5 line 23); Wikipedia, 'Sidereal year' (sidereal year 365.256363 days, tropical year 365.242189 days, difference from precession of the equinoxes), https://en.wikipedia.org/wiki/Sidereal_year"},
+    {"rule": "L22a", "severity": "Minor", "quote": "It is about $4$ minutes shorter because Earth also moves along its orbit during the day.", "problem": "This paragraph in Rotation has four sentences, and the limit is one to three short sentences. Round 1 found this and it is still open. Three other paragraphs also have four sentences: 'Some words first. Earth's **axis** is...' (Core Concept), 'First, it changes how high the Sun climbs...' (How Tilt Makes Seasons), and 'For example, Orion is easy to see in the evening...' (Seasonal Constellations). This is new content, so these Minor findings must be fixed.", "source": "Checklist L22a; LSG: Formatting rules; round-1 read"}
+  ],
+  "goodQuotesChecked": 2
+}
