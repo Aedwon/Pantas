@@ -362,3 +362,7 @@ Next: Aedwon continues the visual pass. Aedwon's calls from using the app overri
 Local-only, not in git, in the staging worktree `build/`: `cost-controls.md`, `legal/`, `beta-readiness.md`, `visual-pass/`. Launch items for Aedwon are in `build/beta-readiness.md`, `build/legal/REVIEW.md` and `build/cost-controls.md`.
 
 Nov 3 update: fixed the phone "Coming soon" label (16 px from the card edge, per O_Picker; under the subtitle at large text sizes). Fixes and staging at c39cb87e, pushed. Not yet seen in the running app. Remaining open items from HANDOFF 15 are unchanged.
+
+## HANDOFF 16 (Nov 3, 2026): Aedwon's 17 change requests
+
+Read `nov3-requests.md` next to this file. It lists Aedwon's 17 changes from using the app, grouped as bugs, clear fixes, motion, new features and performance, with screenshots in `nov3-requests/`. Nothing implemented. Waiting on Aedwon: complexity level (balanced recommended). He moves this work to his Max account.
