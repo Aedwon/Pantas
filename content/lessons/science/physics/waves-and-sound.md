@@ -41,7 +41,7 @@ A **mechanical wave** needs a medium. Sound, seismic waves (waves from earthquak
 
 An **electromagnetic wave** is a travelling disturbance in electric and magnetic fields. It needs no medium and can cross a vacuum (empty space). Radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays are all electromagnetic waves. In a vacuum, all of them travel at the same speed, about $3.00\times10^{8}\text{ m/s}$. This is the speed of light, written $c$.
 
-In matter, light travels slower than $c$. The speed also differs between the colors of visible light in glass.
+In ordinary matter, light travels slower than $c$. The speed also differs between the colors of visible light in glass.
 
 The electromagnetic **spectrum** lists these waves in order. Starting from the longest wavelength, the order is: radio, microwave, infrared, visible light, ultraviolet, X-ray, gamma ray. Frequency runs the opposite way, so radio has the lowest frequency and gamma rays the highest. The edges between neighbors blur, and the X-ray and gamma ranges overlap.
 
@@ -69,7 +69,7 @@ Electromagnetic waves are called transverse because their electric and magnetic 
 
 ### Sound
 
-**Sound** is a longitudinal mechanical wave. A vibrating object pushes on the medium, and a pattern of compressions and rarefactions travels outward.
+**Sound** in air is a longitudinal mechanical wave. A vibrating object pushes on the medium, and a pattern of compressions and rarefactions travels outward.
 
 The speed of sound depends on the medium and its temperature. In dry air it is about $331\text{ m/s}$ at $0^\circ\text{C}$ and about $343\text{ m/s}$ at $20^\circ\text{C}$. Sound in water is much faster, about $1480\text{ m/s}$ at $20^\circ\text{C}$. Sound is usually faster in liquids and solids than in gases. This is a general pattern, not a law: some soft solids, such as foam or soft rubber, carry sound more slowly than water does.
 
@@ -81,7 +81,7 @@ So amplitude is linked to loudness and frequency is linked to pitch. These are t
 
 ### Interference and Diffraction
 
-Waves that meet pass through each other. Where they overlap, their displacements add. This adding is **interference**.
+Two waves can pass through each other. While they overlap, their displacements add. This adding is **interference**.
 
 If two waves are **in phase** (at the same stage of the cycle at that point), crest meets crest and they make a bigger wave. This is **constructive interference**. If they are exactly opposite, crest meets trough, and they weaken or cancel each other. This is **destructive interference**. Two equal waves that are exactly opposite cancel completely.
 
@@ -89,7 +89,7 @@ For two matching sources that are in phase, the path difference at a listener de
 
 **Diffraction** is the spreading of a wave as it passes an edge or through an opening. The spreading is strong when the opening is about as wide as the wavelength or narrower. It is weak when the opening is much wider than the wavelength.
 
-This is why you hear a person talking around a corner but cannot see them. Speech has wavelengths of around a meter, close to a doorway's width. Visible light has wavelengths of less than a millionth of a meter, so it hardly bends around the doorway.
+This is why you hear a person talking around a corner but cannot see them. Speech wavelengths run from about $0.1\text{ m}$ to several meters, close to a doorway's width. Visible light has wavelengths of less than a millionth of a meter, so it hardly bends around the doorway.
 
 Light shows both interference and diffraction, which is evidence that light behaves as a wave.
 
@@ -191,7 +191,7 @@ A speaker plays a note of $440\text{ Hz}$ in air at $20^\circ\text{C}$, where so
 
 $$\lambda=\dfrac{v}{f}=\dfrac{343}{440}\approx0.78\text{ m}$$
 
-2. At $880\text{ Hz}$ in the same air, the speed is unchanged, so the wavelength is halved, to about $0.39\text{ m}$. The pitch is higher. The loudness is about the same, because the amplitude did not change.
+2. At $880\text{ Hz}$ in the same air, the speed is unchanged, so the wavelength is halved, to about $0.39\text{ m}$. The pitch is higher. The intensity is the same, because the amplitude did not change.
 
 3. At twice the amplitude, the pitch and wavelength stay the same. The intensity is about $4$ times larger, so the sound is louder.
 
@@ -214,7 +214,7 @@ An FM station broadcasts at $100\text{ MHz}$. Find the wavelength of its signal 
 
 $$f=100\text{ MHz}=1.00\times10^{8}\text{ Hz}$$
 
-2. Radio waves are electromagnetic, so they travel at about $c=3.00\times10^{8}\text{ m/s}$ in air:
+2. Radio waves are electromagnetic, so they travel at about $c=3.00\times10^{8}\text{ m/s}$ in air or a vacuum:
 
 $$\lambda=\dfrac{c}{f}=\dfrac{3.00\times10^{8}}{1.00\times10^{8}}=3.00\text{ m}$$
 
@@ -272,16 +272,6 @@ $$f'=\dfrac{v}{v+v_s}\,f=\dfrac{343}{343+20}(700)=\dfrac{343}{363}(700)\approx66
 
 3. The pitch is about $743\text{ Hz}$ on approach and about $661\text{ Hz}$ on recession. Both differ from $700\text{ Hz}$.
 
-### #13: Moving Observer
-
-A cyclist rides toward a fixed speaker that plays $400\text{ Hz}$. Does the cyclist hear a higher or lower frequency than $400\text{ Hz}$? What happens to the wavelength in the air?
-
-**Solution:**
-
-1. The speaker is at rest, so the crests it sends out keep the same spacing in the air. The wavelength does not change.
-2. The cyclist moves into the crests and meets them more often than a person standing still.
-3. The cyclist hears a frequency **higher** than $400\text{ Hz}$. After passing the speaker and riding away, the cyclist would hear a lower frequency.
-
 ## Speed Tricks & Shortcuts
 
 Use $v=f\lambda$ only for the speed, frequency, and wavelength of the same wave in the same medium. Check that the units are hertz, meters, and meters per second.
@@ -310,7 +300,7 @@ The source sets the frequency. The medium sets the speed, so the wavelength has 
 
 ### #3: Thinking Louder Means Higher
 
-> Pitch follows frequency. Loudness follows intensity, which follows amplitude.
+> Pitch follows frequency. Loudness mostly follows intensity, which follows amplitude.
 
 A bigger amplitude makes the same note louder. It does not make the note higher.
 
@@ -320,14 +310,8 @@ A bigger amplitude makes the same note louder. It does not make the note higher.
 
 A value near $340\text{ m/s}$ is a common approximation for air at room temperature. It is not the speed in water, in steel, or in cold air.
 
-### #5: Thinking Amplitude and Energy Rise Together in Direct Proportion
-
-> For waves of the same frequency in the same medium, power is proportional to amplitude squared.
-
-Doubling the amplitude gives about four times the power. It does not give twice the power.
-
-### #6: Saying the Doppler Effect Changes the Siren or the Speed of Sound
+### #5: Saying the Doppler Effect Changes the Siren or the Speed of Sound
 
 > The source keeps its own frequency. The speed of sound in the air stays the same. Only the frequency received changes.
 
-The driver of the ambulance hears the siren at its true pitch. Your pitch differs because the crests reach you more or less often.
+A person riding in the ambulance moves with the siren and hears its own pitch. Your pitch differs because the crests reach you more or less often.
