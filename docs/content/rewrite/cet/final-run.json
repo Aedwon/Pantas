@@ -21,7 +21,7 @@
     "lessonPath": "content/lessons/science/physics/kinematics.md",
     "lessonId": "lesson-physics-kinematics",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/electricity-and-magnetism.md",
@@ -39,7 +39,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
     "lessonId": "lesson-earth-science-astronomy-plate-tectonics",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/eclipses-and-moon-phases.md",
@@ -63,7 +63,7 @@
     "lessonPath": "content/lessons/mathematics/geometry/triangles.md",
     "lessonId": "lesson-geometry-triangles",
     "group": "mathematics",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/circles.md",

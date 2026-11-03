@@ -170,3 +170,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Fixes: work-energy-power and eclipses-and-moon-phases after round 1; plate-tectonics after round 2 (its round 3 read is the last). All pass the check.
 - Fixes after round 1: electricity-and-magnetism (one unconfirmed field value removed) and genetics-and-heredity. Both pass the check.
 - Done at minor after round 2: acids-bases-ph (2 Minors), eclipses-and-moon-phases (1 Minor).
+- Done at minor after round 3: plate-tectonics (1 Minor). Fixes: kinematics after round 2 (distance and displacement Blocker), triangles after round 1, cell-biology and circles after round 2 (round 3 reads running).

@@ -21,7 +21,9 @@ $$\Delta x=x_f-x_i$$
 
 Displacement has a size and a direction. In one dimension the direction is the sign.
 
-**Distance** is the total length of the path, and it is never negative. If the object turns around, the distance is bigger than the size of the displacement. If it never turns around, the two are equal.
+**Distance** is the total length of the path, and it is never negative. On a straight line, if the object never turns around, the distance equals the size of the displacement. The displacement itself is negative if the motion is in the negative direction. If the object turns around, the distance is bigger than the size of the displacement.
+
+On a curved path, the distance is bigger than the size of the displacement even if the path never turns back.
 
 ### Speed and Velocity
 
@@ -49,7 +51,9 @@ If $a$ and $v$ have the same sign, the object speeds up. If they have opposite s
 
 **Slope** tells how much the vertical value changes for each $1$ unit across. It is rise divided by run, and the Linear Equations and Inequalities lesson teaches it. On a graph with time across the bottom, the run is $\Delta t$.
 
-On a **position-time graph**, the rise is $\Delta x$. So slope $=\dfrac{\Delta x}{\Delta t}$, which is the velocity. On a curved line, the slope at one point is the instantaneous velocity there. A flat line means the object is at rest. A line that slopes downward means negative velocity.
+On a **position-time graph**, the rise is $\Delta x$. So slope $=\dfrac{\Delta x}{\Delta t}$, which is the velocity. On a curved line, the slope at one point is the instantaneous velocity there. 
+
+A flat line means the object is at rest. A line that slopes downward means negative velocity.
 
 On a **velocity-time graph**, the rise is $\Delta v$. So slope $=\dfrac{\Delta v}{\Delta t}$, which is the acceleration. The **signed area** between the line and the time axis is the displacement. A thin strip of width $\Delta t$ and height $v$ has area $v\,\Delta t$, which is the displacement in that short time.
 
@@ -69,13 +73,17 @@ $$\Delta x=\dfrac{v_0+v}{2}\,t$$
 
 Here $v_0$ is the starting velocity and $v$ is the final velocity. When $a$ is constant, the velocity changes steadily. So the average velocity is the middle value of $v_0$ and $v$, and that is why the last equation works.
 
-Each equation leaves out one quantity. The first has no $\Delta x$. The second has no $v$. The third has no $t$. The fourth has no $a$.
+Each equation leaves out one quantity.
+
+The first has no $\Delta x$. The second has no $v$. The third has no $t$. The fourth has no $a$.
 
 They do not work if the acceleration changes during the motion.
 
 ### Free Fall
 
-**Free fall** is motion with only gravity acting. This includes an object going up after a throw. Near Earth's surface, the acceleration is $g\approx9.8\,\mathrm{m/s^2}$ toward the ground. This ignores air resistance. Then all objects fall with the same acceleration, whatever their mass.
+**Free fall** is motion with only gravity acting. This includes an object going up after a throw. Near Earth's surface, the acceleration is $g\approx9.8\,\mathrm{m/s^2}$ toward the ground. 
+
+This ignores air resistance. Then all objects fall with the same acceleration, whatever their mass.
 
 For vertical motion we write the position as $y$ and the displacement as $\Delta y$. The equations above work the same way with $y$ in place of $x$.
 
@@ -256,7 +264,7 @@ If the velocity-time graph is curved, the acceleration is changing and the equat
 
 > Displacement is final position minus initial position. Distance is the path length.
 
-In one dimension they are equal when the object never turns around. If it turns around, the distance is bigger.
+In one dimension, the distance equals the size of the displacement when the object never turns around. The displacement is negative for motion in the negative direction, but the distance is not. For example, $10$ m west with east positive gives distance $10$ m and displacement $-10$ m. If the object turns around, the distance is bigger than the size of the displacement.
 
 ### #3: Zero Velocity Means Zero Acceleration
 

@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-earth-science-astronomy-plate-tectonics",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "At a convergent boundary, what happens depends on the two plates.",
+      "problem": "This paragraph has four sentences; the limit is three. The paragraph that starts \"Earth has layers. The **crust** is the thin, rocky outer skin.\" also has four. The round-2 L22a finding is fixed in the two paragraphs it named, but these two paragraphs, new or reworked in this round, break the same rule.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
