@@ -179,3 +179,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Open after 3 reads: work-energy-power (round 3: 1 Blocker, Trap #3 omits 'sliding' for friction; 1 Major, spring PE untaught). Triangles fixed after round 2. Human anatomy written (3,478 words, split candidate).
 - Done at minor after round 3: genetics-and-heredity (1 Minor). Round reads: botany r1 (1 Blocker, 1 Major), pulleys-and-levers r2 (2 Blockers); fixes running.
 - Open after 3 reads: electricity-and-magnetism (round 3: 1 Major, electrical safety untaught and unworked). Botany fixed after round 1.
+- Open after 3 reads: chemical-bonding (round 3: 1 Blocker, boron octet trap too broad; 1 Major, formal charge meaning). Characteristics-of-life fixed after round 1; taxonomy and atomic-structure written.

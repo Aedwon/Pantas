@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-chemistry-chemical-bonding",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Hydrogen, boron compounds, odd-electron molecules, and some atoms from period $3$ down do not follow it.", "problem": "This sentence says boron compounds as a class break the octet rule. That is false for common boron species. In $BF_4^-$ the lesson's own method gives $3+4(7)+1=32$ electrons, four B-F bonds and three lone pairs on each F, so boron has an octet. $BH_4^-$ (8 electrons, four B-H bonds) and the $H_3N-BF_3$ adduct also give boron an octet. The sentence hedges period 3 atoms with 'some' but not boron. A standard item asks which of $BF_3$ and $BF_4^-$ breaks the octet rule, and a student who follows this trap cannot choose. Core Concept states the case correctly ('$BF_3$, where boron has six'); this trap generalizes it wrongly.", "source": "OpenStax Chemistry 2e, section 7.3, Exceptions to the Octet Rule (electron-deficient boron in $BF_3$; boron reaches an octet when it gains a fourth bond); the lesson's own Lewis steps 1 to 4 applied to $BF_4^-$; reader-rules.md, Added after the Sol audit"},
+    {"rule": "L26", "severity": "Major", "quote": "**Formal charge** helps you compare possible structures:", "problem": "Formal charge gets a name, a formula and a use, but the lesson never says what the number means: the charge an atom would have if every shared pair were split equally between the two bonded atoms. Without that meaning, $V-L-\\dfrac{B}{2}$ is a formula to memorize, and the student cannot see why lone-pair electrons count fully and bond electrons count by half. The lesson later relies on this meaning when it treats formal charge as a real uneven charge to explain ozone ('its center oxygen carries a positive formal charge while an end oxygen carries a negative one'). The brief lists formal charge as a named-only item at official curriculum class (dost-sei-L106), and L26 says a formula alone is not an explanation.", "source": "content-checklist.md L26; lesson-style-guide.md Teaching completeness; brief: Lewis structures formal charge and resonance; OpenStax Chemistry 2e, section 7.4, Formal Charges and Resonance"}
+  ],
+  "goodQuotesChecked": 3
+}

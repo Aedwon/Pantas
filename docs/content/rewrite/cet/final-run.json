@@ -9,7 +9,7 @@
     "lessonPath": "content/lessons/science/chemistry/chemical-bonding.md",
     "lessonId": "lesson-chemistry-chemical-bonding",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/acids-bases-ph.md",
@@ -111,7 +111,7 @@
     "lessonPath": "content/lessons/science/biology/characteristics-of-life.md",
     "lessonId": "lesson-biology-characteristics-of-life",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/biology/evolution.md",
@@ -129,7 +129,7 @@
     "lessonPath": "content/lessons/science/biology/taxonomy-and-classification.md",
     "lessonId": "lesson-biology-taxonomy-and-classification",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/atomic-structure.md",

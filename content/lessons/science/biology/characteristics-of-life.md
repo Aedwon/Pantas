@@ -9,7 +9,9 @@ isActive: true
 ---
 ## Core Concept
 
-Biology is the study of life. Defining "alive" is not as simple as checking one feature. Biologists list a set of properties that living things show together. Use the list as a framework. A living thing does not have to show every property at every moment.
+Biology is the study of life. Defining "alive" is not as simple as checking one feature.
+
+Biologists list a set of properties that living things show together. Use the list as a framework. A living thing does not have to show every property at every moment.
 
 ### The Seven Properties
 
@@ -21,13 +23,19 @@ Biology is the study of life. Defining "alive" is not as simple as checking one 
 
 **Growth and development**: an organism grows by making more cells or by making its cells larger. It also develops, which means it changes in an ordered way, such as a tadpole becoming a frog. Genes and the environment both guide these changes.
 
-**Reproduction**: living things make new living things, either with two parents (sexual) or with one parent (asexual). This property belongs to living things as a group. One individual can be alive and still not reproduce, for example if it is too young or **sterile**. Sterile means unable to have offspring.
+**Reproduction**: living things make new living things. In sexual reproduction, two **gametes** (sex cells, such as egg and sperm) fuse. They usually come from two parents, but one parent can supply both, as in self-pollination in pea plants. In asexual reproduction, no gametes fuse, and one parent makes offspring.
+
+This property belongs to living things as a group. One individual can be alive and still not reproduce, for example if it is too young or **sterile**. Sterile means unable to have offspring.
 
 **Response to stimuli**: a **stimulus** is a change in the surroundings that an organism can detect, such as light, touch, heat, or a chemical. Organisms detect stimuli and respond. A plant bending toward light is a response.
 
-**Evolutionary adaptation**: to **evolve** means that the inherited features of a **population** change over many generations. A population is a group of the same kind of organism living in one place. An **adaptation** is an inherited feature that helps its owners survive and reproduce. This is a change in a population over generations. One individual cannot make it happen by needing it.
+**Evolutionary adaptation**: to **evolve** means that the inherited features of a **population** change over many generations. A population is a group of the same kind of organism living in one place.
 
-A single life-like behavior is not enough. Fire consumes fuel, grows, and spreads. A crystal grows. Neither is made of cells, and neither regulates its inside conditions or reproduces as a living thing does.
+An **adaptation** is an inherited feature that helps its owners survive and reproduce. This is a change in a population over generations. One individual cannot make it happen by needing it.
+
+A single life-like behavior is not enough. Fire consumes fuel, grows, and spreads, so it copies several properties. A crystal grows.
+
+Neither is made of cells, and neither regulates its inside conditions or reproduces as a living thing does.
 
 ### Direct and Inferred Evidence
 
@@ -35,11 +43,17 @@ Some properties can be seen in a short description. Others can only be **inferre
 
 ### Seeds and Other Resting Forms
 
-A dry seed does not grow, move, or react for a long time. It is still alive. It is **dormant**, which means its life processes have slowed to a very low level. It still has living cells. When it gets enough water and warmth, it grows. So a property that is missing right now does not by itself mean something is not alive.
+A dry seed does not grow, move, or react for a long time. It is still alive.
+
+It is **dormant**, which means its life processes have slowed to a very low level. It still has living cells. When it gets enough water and warmth, it grows.
+
+So a property that is missing right now does not by itself mean something is not alive.
 
 ### Viruses at the Boundary
 
-A virus is a tiny particle made of genetic material inside a protein coat. **Genetic material** is the DNA or RNA that carries instructions. A virus is **acellular**, which means it has no cells. It cannot make copies of itself alone. It must enter a host cell and use that cell's machinery.
+A virus is a tiny particle made of genetic material inside a protein coat. **Genetic material** is the DNA or RNA that carries instructions.
+
+A virus is **acellular**, which means it has no cells. It cannot make copies of itself alone. It must enter a host cell and use that cell's machinery.
 
 Viruses do have genetic material, and virus populations evolve. Introductory biology usually does not count them as living organisms, because they lack cells and cannot carry out their own metabolism. Some scientists still debate where to draw the line.
 
@@ -56,7 +70,9 @@ Living things are built in levels. Each level is made of the level below it.
 - **Community**: all the populations of different species living in the same area.
 - **Ecosystem**: a community together with its nonliving surroundings, such as water, soil, air, and sunlight.
 
-A single-celled organism is one cell and one organism at once. It has no tissues or organs. Plants also have tissues, organs, and organ systems. Some books add one more level above the ecosystem, the biosphere, which is all of Earth's living things and their surroundings.
+A single-celled organism is one cell and one organism at once. It has no tissues or organs. Plants also have tissues, organs, and organ systems.
+
+Some books add one more level above the ecosystem, the biosphere, which is all of Earth's living things and their surroundings.
 
 <!-- ILLUSTRATION: ladder of levels from bottom to top: cell, tissue, organ, organ system, organism, population, community, ecosystem; example labels: muscle cell, muscle tissue, heart, circulatory system, one person, all the tilapia in a lake, all the fish, plants and microbes in the lake, the lake with its water, sunlight and soil -->
 
@@ -141,7 +157,7 @@ Arrange these from smallest to largest: ecosystem, organ, tissue, community, cel
 
 ## Speed Tricks & Shortcuts
 
-Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. A nonliving thing may copy one of them. Living things show most of them together.
+Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. A nonliving thing may copy some of them, but not cells and not all the rest. Living things show most of them together.
 
 For viruses, remember two groups. They evolve and carry genetic material. They are also acellular and need a host cell to copy themselves.
 
@@ -161,7 +177,7 @@ A sterile animal, such as a mule, or a young child, is still alive.
 
 > Growth, movement, or energy use alone does not prove that something is alive.
 
-Fire and crystals match one property each. Clouds also move. None of them is made of cells.
+Fire matches several properties: it uses fuel and grows. A crystal grows, and clouds move. None of them is made of cells.
 
 ### #3: Saying Viruses Are Simply "Dead"
 
