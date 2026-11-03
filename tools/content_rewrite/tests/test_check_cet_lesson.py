@@ -20,17 +20,29 @@ class CheckTests(unittest.TestCase):
         text = current()
         result = cc.check_text(REL, text, text)
         self.assertEqual(result["reasons"], [])
-        self.assertLessEqual(result["words"], cc.WORD_CEILING)
+        self.assertEqual(result["notes"], [])
         self.assertEqual(cc.exit_code(result), 0)
 
     def test_word_count_is_whitespace_words_of_the_whole_file(self):
         self.assertEqual(cc.count_words("---\na: b\n---\n\none two\nthree\n"), 7)
 
-    def test_over_ceiling_fails_even_with_no_other_reason(self):
+    def test_long_lesson_does_not_fail_on_length(self):
         text = current()
         result = cc.check_text(REL, text, text)
-        result["words"] = cc.WORD_CEILING + 1
-        self.assertEqual(cc.exit_code(result), 1)
+        result["words"] = 5000
+        self.assertEqual(cc.exit_code(result), 0)
+        self.assertEqual(cc.exit_code(dict(result, words=cc.SPLIT_TRIPWIRE + 1)), 0)
+
+    def test_over_tripwire_prints_split_note_and_is_not_a_failure(self):
+        out = cc.format_report(REL, {"reasons": [], "notes": [], "words": cc.SPLIT_TRIPWIRE + 1})
+        self.assertTrue(out.startswith("OK "))
+        self.assertIn("split candidate", out)
+        self.assertNotIn("ceiling", out)
+
+    def test_tripwire_is_over_3000_words_only(self):
+        self.assertEqual(cc.SPLIT_TRIPWIRE, 3000)
+        at = cc.format_report(REL, {"reasons": [], "notes": [], "words": 3000})
+        self.assertNotIn("split candidate", at)
 
     def test_changed_id_is_a_reason(self):
         text = current()
@@ -52,7 +64,7 @@ class CheckTests(unittest.TestCase):
         self.assertIn("r1", out)
         self.assertIn("n1", out)
         self.assertIn("1701", out)
-        self.assertIn("over the 1700-word ceiling", out)
+        self.assertNotIn("ceiling", out)
 
     def test_path_outside_lessons_is_refused(self):
         with self.assertRaises(cc.CheckError):

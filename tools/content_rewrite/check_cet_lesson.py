@@ -6,9 +6,10 @@ Usage: python3 -I tools/content_rewrite/check_cet_lesson.py <lesson path> [--bas
 The lesson is the file in the worktree, for example content/lessons/science/chemistry/stoichiometry.md.
 It is compared with the same file at the base revision. The comparison is the CSE hand-in check
 (relay/checks.py check_rewrite_text): frontmatter _id, length share, definite style findings, structure,
-device and figure-marker sweeps. The script also counts words and applies the 1,700-word ceiling.
+device and figure-marker sweeps. The script also counts words. A lesson takes the length its teaching needs, so
+length never fails. Over 3,000 words the report prints a note that the lesson is a split candidate.
 
-Exit 0 when there is no reason and the lesson is within the ceiling, 1 when a check fails, 64 on a bad request.
+Exit 0 when there is no reason, 1 when a check fails, 64 on a bad request.
 Python 3.9 standard library only.
 """
 import argparse
@@ -23,7 +24,7 @@ import rw_lib  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE_REF = "7032eec5b8fbdac51cef7e7b6dc7272d0e965f9a"  # origin/content/cse-rewrite-r1, the branch point
-WORD_CEILING = 1700
+SPLIT_TRIPWIRE = 3000  # words; over this the report notes a split candidate. It is not a failure.
 
 
 class CheckError(Exception):
@@ -46,7 +47,7 @@ def lesson_rel_path(arg):
 
 def count_words(text):
     """Whitespace-separated words of the whole file. This is how the 372 to 1,685 word range of the CSE
-    lessons was counted, so the ceiling means the same thing here."""
+    lessons was counted, so the tripwire means the same thing here."""
     return len(text.split())
 
 
@@ -56,16 +57,17 @@ def check_text(rel, base, new):
 
 
 def exit_code(result):
-    return 1 if result["reasons"] or result["words"] > WORD_CEILING else 0
+    return 1 if result["reasons"] else 0
 
 
 def format_report(rel, result):
     lines = ["%s %s" % ("FAIL" if exit_code(result) else "OK", rel),
-             "words: %d (ceiling %d)" % (result["words"], WORD_CEILING)]
-    if result["words"] > WORD_CEILING:
-        lines.append("reason: %d words, over the %d-word ceiling" % (result["words"], WORD_CEILING))
+             "words: %d" % result["words"]]
     lines += ["reason: " + r for r in result["reasons"]]
     lines += ["note: " + n for n in result["notes"]]
+    if result["words"] > SPLIT_TRIPWIRE:
+        lines.append("note: %d words, over %d. This lesson is a split candidate. Report it and make no split."
+                     % (result["words"], SPLIT_TRIPWIRE))
     return "\n".join(lines)
 
 

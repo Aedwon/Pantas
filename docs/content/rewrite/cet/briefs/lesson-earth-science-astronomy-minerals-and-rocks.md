@@ -1,0 +1,104 @@
+# Brief: Minerals and Rocks (Igneous, Sedimentary, Metamorphic, Rock Cycle)
+
+Lesson id: `lesson-earth-science-astronomy-minerals-and-rocks`
+Lesson path: `content/lessons/science/earth-science-astronomy/minerals-and-rocks.md`
+
+Tagged exams (as the audit writes them): dost-sei, pupcet, sm-foundation, upcat, ustet
+Exams used for the requirement rows below: upcat, ustet
+
+Standing rule: a rewrite may add teaching, but no case that another tagged exam needs is removed.
+
+Sources: lesson at base revision 7032eec5b8fbdac51cef7e7b6dc7272d0e965f9a; audit revision ecbfa88b4e550fd5853d9ff74c1ae17425a1cdba, `docs/content/audit/coverage-r1/topics/science-earth-science-astronomy-lessons.md`, section `### lesson-earth-science-astronomy-minerals-and-rocks`, and `docs/content/audit/coverage-r1/lesson-structure-data.json` and `docs/content/audit/coverage-r1/requirement-teaching-findings.md`.
+
+## Audit findings for this lesson
+
+Verbatim from the audit section. Its line references point into the audit's pinned corpus, not into this branch.
+
+Goal: Distinguish minerals and rocks, infer rock types from formation, and trace a valid rock-cycle pathway.
+
+Teaching covers Mineral versus rock, Igneous formation and cooling-texture inference, Sedimentary deposition and lithification, Metamorphism without wholesale melting, Rock-cycle process pathways. Detailed skill verdicts and evidence occur once in the appendix.
+
+
+Structure: retain. Teaching and examples support a coherent local goal. Proposal: Keep one shared core; do not infer exam excess from unknown depth. Cost: No reorganization cost beyond later authorized maintenance. Evidence: content/lessons/science/earth-science-astronomy/minerals-and-rocks.md:10-87.
+
+Prerequisites: none-found. No necessary existing-lesson link found.
+
+Load-bearing figure dependencies: none encountered. Markers do not establish rendered availability.
+
+## Thin, named-only or absent items
+
+From the audit's lesson-structure-data.json, by exact lesson id. Teaching verdict first, then the verdict on the examples.
+
+- Mineral identification from physical tests: absent; examples none. Limits: Definition/class examples do not teach hardness, streak, cleavage or other test-based identification; exact exam mineral-test demand unknown. Requirement refs: ustet-L122, dost-sei-L103.
+- Weathering and erosion processes: thin; examples thin. Limits: Pathway names weathering/erosion but does not distinguish breakdown from transport or explain landform formation. Requirement refs: upcat-L132, ustet-L127, pupcet-L120.
+- Controlled cooling comparison: thin; examples worked. Limits: Example holds composition similar and compares cooling; no explicit experimental-variable/control identification. Requirement refs: dcat-L077, ustet-L113.
+
+Evidence class, as the audit writes it in the accepted statement of each ref above (the last bracket and what follows it):
+
+- ustet-L122: [13; official curriculum, inferred relevance, track/completion limited]
+- dost-sei-L103: [10, competency listing; official curriculum, track/completion conditional]
+- upcat-L132: [6]; **weak**
+- ustet-L127: [17, PDF pp. 7-8; official curriculum, inferred relevance, prior pilot version unverified]
+- pupcet-L120: [8, PDF p. 16; official curriculum, exam inclusion unknown]
+- dcat-L077: [4, page 4; official curriculum, inferred preparation]
+- ustet-L113: [6, PDF pp. 4, 7, 106; official curriculum, inferred relevance]
+
+## Split or reorder candidate
+
+The audit recommends keeping the structure.
+
+Structure: retain. Teaching and examples support a coherent local goal. Proposal: Keep one shared core; do not infer exam excess from unknown depth. Cost: No reorganization cost beyond later authorized maintenance. Evidence: content/lessons/science/earth-science-astronomy/minerals-and-rocks.md:10-87.
+
+## Requirement rows
+
+Rows of the audit's requirement-teaching-findings.md whose providers include `science-earth-science-astronomy`, for the tagged exams among upcat, dcat, ustet and acet, whose Level 3 finding counts thin, named-only or absent facets. The counts cover every provider of the row, not only this topic. Within an exam, rows with more such facets come first; the cap of 25 is shared across exams. Source record ids and evidence class words are as the audit wrote them.
+
+Matching rows: 11. Shown: 11.
+
+### upcat
+
+- upcat-L163
+  - Accepted statement: - Earth and space: Philippine resources; breezes, monsoons, and the ITCZ; seasons and eclipses; faults and earthquakes; tropical cyclones; members of the solar system; volcanoes; global climatic phenomena; seasonal constellations; plate boundaries. [19]; **curriculum**
+  - Level 3 finding: Observed local facets: explained=11, absent=7, thin=1, named-only=1. Complete compound scope/depth remains unestablished.
+
+- upcat-L131
+  - Accepted statement: - Explain plate boundaries, rock cycling, weather, climate, water cycling, and tides. [8]; **weak**
+  - Level 3 finding: Observed local facets: explained=18, thin=1, absent=1. Complete compound scope/depth remains unestablished.
+
+- upcat-L132
+  - Accepted statement: - Interpret landforms, strata, fossils, geologic time, earthquakes, and volcanoes. [6]; **weak**
+  - Level 3 finding: Observed local facets: explained=7, thin=2. Complete compound scope/depth remains unestablished.
+
+- upcat-L136
+  - Accepted statement: - Describe universe and solar-system origins and Earth's motions. [6]; **weak**
+  - Level 3 finding: Observed local facets: explained=5, thin=2. Complete compound scope/depth remains unestablished.
+
+- upcat-L134
+  - Accepted statement: - Identify solar-system bodies and stars. [7]; **weak**
+  - Level 3 finding: Observed local facets: explained=4, absent=1. Complete compound scope/depth remains unestablished.
+
+- upcat-L135
+  - Accepted statement: - Explain Moon phases, eclipses, seasons, and stellar development. [8]; **weak**
+  - Level 3 finding: Observed local facets: explained=7, absent=1. Complete compound scope/depth remains unestablished.
+
+### ustet
+
+- ustet-L113
+  - Accepted statement: - Scientific inquiry: identify variables, controls, evidence, and conclusions in an investigation; read data and representations. [6, PDF pp. 4, 7, 106; official curriculum, inferred relevance]
+  - Level 3 finding: Observed local facets: absent=12, thin=10, explained=6. Complete compound scope/depth remains unestablished.
+
+- ustet-L123
+  - Accepted statement: - Existing Physical Science: relate atomic and molecular structure to properties, calculate reaction quantities, yield and limiting reactants, explain reaction rates/energy, interpret motion, light, and astronomy models. Track substitutions and pre-test completion remain unverified. [14; official curriculum, inferred relevance, track/completion limited]
+  - Level 3 finding: Observed local facets: absent=4, thin=5, explained=20. Complete compound scope/depth remains unestablished.
+
+- ustet-L126
+  - Accepted statement: - Strengthened curriculum candidates, biology: relate structures to functions, cellular energy, coordinated organ systems, and ecosystem/climate effects. [17, PDF p. 6; official curriculum, inferred relevance, prior pilot version unverified]
+  - Level 3 finding: Observed local facets: explained=6, thin=5, named-only=1. Complete compound scope/depth remains unestablished.
+
+- ustet-L127
+  - Accepted statement: - Strengthened curriculum candidates, Earth and space: explain Earth's life-supporting conditions, Philippine geology, Earth materials, and hazard mitigation. [17, PDF pp. 7-8; official curriculum, inferred relevance, prior pilot version unverified]
+  - Level 3 finding: Observed local facets: thin=2, absent=3. Complete compound scope/depth remains unestablished.
+
+- ustet-L122
+  - Accepted statement: - Existing Earth and Life Science: explain Earth systems, rocks/minerals, resources, geologic hazards, cellular energy, heredity, evolution, and ecosystems. The official catalog calls it core, but does not establish universal delivery without track substitutions or Grades 11/12 scheduling checks. [13; official curriculum, inferred relevance, track/completion limited]
+  - Level 3 finding: Observed local facets: explained=9, absent=2. Complete compound scope/depth remains unestablished.

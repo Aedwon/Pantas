@@ -24,9 +24,7 @@ Then, for each lesson: its brief, then the current lesson file.
   code, or any file under `docs/content/rewrite/cet/`.
 - Do not stage, commit or push. The lead commits.
 - Do not run a build, `flutter pub get`, or any test suite. Disk and CPU are limited.
-- A model never reads its own writing. You write; a different model reads. Do not review your own output as a
-  reader would.
-- Codex runs use `codex-pick`, never bare `codex`.
+- Sonnet writes and Opus reads. A model never reads its own writing. Do not review your own output as a reader would.
 
 ## Rules for the rewrite
 
@@ -39,10 +37,11 @@ Then, for each lesson: its brief, then the current lesson file.
 3. **Never remove a case that another tagged exam needs.** The brief lists the audit's tagged exams. A rewrite may add
    cases. It may not take away a case or fact that any tagged exam uses.
 4. **Split and reorder candidates are not applied.** The pilot makes no splits. If the brief marks a candidate, record it
-   in your report and leave the lesson one lesson. If you cannot fit the ceiling, report the lesson as a split candidate
-   and do not force it.
-5. **Length.** The ceiling is 1,700 words for the whole file, counted as whitespace-separated words. Aim lower when the
-   content allows.
+   in your report and leave the lesson one lesson. If the lesson runs over about 3,000 words, report it as a split
+   candidate and make no split.
+5. **Length.** A lesson takes the length the teaching needs, with no padding. The check counts
+   whitespace-separated words for the whole file. Over about 3,000 words, report the lesson as a split candidate and make
+   no split.
 6. **Frontmatter.** Keep the `_id` line exactly as it is. Keep every frontmatter key in the same order. Change `title` or
    `summary` only when the new content needs it. Keep `estimatedMinutes` from 8 to 15.
 7. **Figures.** Where a figure would help the student, add one marker on its own line, as one line:
@@ -80,8 +79,8 @@ After each full write, run from the worktree root:
 python3 -I tools/content_rewrite/check_cet_lesson.py content/lessons/<subject>/<topic>/<slug>.md
 ```
 
-It compares the lesson with the base revision and prints reasons, notes and the word count. Exit 0 means no reason and
-within the ceiling. Fix every reason and write again until it exits 0. A note is for you to judge, not a failure. The
+It compares the lesson with the base revision and prints reasons, notes and the word count. Over 3,000 words it
+also prints a split-candidate note, which is not a failure. Exit 0 means no reason. Fix every reason and write again until it exits 0. A note is for you to judge, not a failure. The
 check does not prove the lesson is right. It only blocks the mechanical failures.
 
 ## Report, per lesson
@@ -94,10 +93,11 @@ check does not prove the lesson is right. It only blocks the mechanical failures
 
 ## Rules added after round 1
 
-Round 1: all 15 lessons had a Blocker or Major (6 Blockers, 83 Majors). Worked answers were correct. The main causes were terms used without a meaning (L25), cases taught but not worked (L18), and teaching cut to fit the ceiling.
+Round 1: all 15 lessons had a Blocker or Major (6 Blockers, 83 Majors). Worked answers were correct. The main causes were terms used without a meaning (L25), cases taught but not worked (L18), and teaching cut to fit a word limit.
 
 1. **Meanings come first.** Every term a student needs is explained in plain words on first use, or the lesson names the prerequisite lesson. Never cut a meaning, a step or a required case to save words. Cut repeated teaching, extra traps and near-duplicate examples first.
 2. **No false absolutes.** Before writing "only", "always", "never", "every" or "all", test the statement against the lesson's own later sections and against an exception you know of.
 3. **Keep what the base lesson taught correctly** unless the brief or a rule says to drop it. Compare with the base before you finish.
 4. **Word every shortcut and trap with its limit**, so it cannot be applied where it fails.
-5. **Round 2 and later:** fix every open Blocker and Major in the read file for your lesson, and any Minor in text you edit. If the finding is wrong, leave the text and report why, with a source. If all of it cannot fit under 1,700 words, fix the Blockers and the meanings first, then report what remains as a split candidate.
+5. **Round 2 and later:** fix every open Blocker and Major in the read file for your lesson, and any Minor in text you edit. If the finding is wrong, leave the text and report why, with a source.
+6. **The 1,700-word limit was a lead error.** It is removed. Teaching cut for it should be restored from the base (`git show 7032eec5:<path>`) wherever the checklist needs it. Do not cut correct, needed teaching for length. If the lesson passes about 3,000 words, report it as a split candidate and make no split.

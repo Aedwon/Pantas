@@ -72,7 +72,7 @@ Evidence class, as the audit writes it in the accepted statement of each ref abo
 
 ## Split or reorder candidate
 
-NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the 1,700-word ceiling, report it as a split candidate.
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
 
 Structure: split-candidate. Inheritance probability/pedigree reasoning and DNA-to-product information flow are distinct learning goals (L01/L17). Separate teaching permits focused applications while preserving a shared gene/allele foundation. Keep inheritance patterns and pedigrees together. Make gene expression a focused separate lesson, using one shared definition of gene/allele; do not create a lesson per genetics term. Cost: Moderate: new identity, shared-foundation placement, example/trap movement and future tag/practice remapping. Evidence: content/lessons/science/biology/genetics-and-heredity.md:12-39 (Inheritance core); content/lessons/science/biology/genetics-and-heredity.md:41-51 (Molecular expression core); content/lessons/science/biology/genetics-and-heredity.md:59-104 (Examples switch between crosses, expression and pedigrees)
 

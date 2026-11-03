@@ -3,7 +3,7 @@
 Plan: `docs/superpowers/plans/2026-11-03-cet-content-pilot.md`. Pilot table: `docs/content/rewrite/cet/pilot.json`.
 
 You read a rewritten lesson of the Pantas exam review app and report what is wrong with it. You write no lesson text and
-you change no lesson file. The reader is always a different model from the writer of that lesson.
+you change no lesson file. Sonnet writes and Opus reads. A model never reads its own writing.
 
 ## Read first
 
@@ -19,13 +19,18 @@ Also read `docs/content/rewrite/cet/writer-rules.md`, because the lead rulings i
 
 ## What to do
 
-1. Read the lesson in full.
+1. Read the lesson in full and do a full independent read first, before you open any earlier read file.
 2. Judge it against every rule of the checklist that applies to lessons.
 3. Check every fact. For anything hard to remember, check an official source before you call it right or wrong. Solve each
    worked example yourself from its question alone, then compare with the lesson's solution.
 4. Check the lesson against its brief: the thin, named-only and absent items the writer was to teach (by evidence class),
    and the rule that no case another tagged exam needs was removed.
-5. Report findings. A finding is a rule that fails, with an exact quote.
+5. Then check the previous round's read file for this lesson (`reads/round-N/`, N one lower than yours). Confirm each
+   earlier finding is fixed, wrong, or still open.
+6. Compare the lesson with the base: `git show 7032eec5:<path>`. Report correct, needed teaching that was cut.
+7. Report findings. A finding is a rule that fails, with an exact quote.
+8. Do not raise a Major for polish. Raise a Major only for a rule that fails and harms the student. A clean verdict is
+   valid. Do not search for a finding to fill the file.
 
 ## Lead rulings that bind the reader
 
@@ -34,8 +39,8 @@ Also read `docs/content/rewrite/cet/writer-rules.md`, because the lead rulings i
   imagine an exam might use. Changing only numbers or nouns is not a new case.
 - **Evidence classes.** A weak-only item need not be taught. An item of class unknown must be neither taught nor
   claimed. A sentence that says a specific exam tests something, without a source, is a finding.
-- **Splits.** The pilot makes no splits. A lesson that cannot fit 1,700 words is a split candidate. Report it as a
-  finding of rule L01 or as a note, and do not ask for a split to be applied.
+- **Length and splits.** A lesson takes the length the teaching needs, with no padding. Over
+  about 3,000 words, the lesson is a split candidate. Report it as a note, and do not ask for a split to be applied.
 - **Severity follows the checklist.** Do not invent stricter rules and do not excuse a clear breach.
 
 ## Output
@@ -56,7 +61,7 @@ exactly this shape and nothing else in the file:
 }
 ```
 
-- `lesson` is the frontmatter `_id`. `round` is an integer. `reader` is `opus`, or `sol` in the final run.
+- `lesson` is the frontmatter `_id`. `round` is an integer. `reader` is `opus`.
 - `verdict` is one of `clean`, `minor`, `major`, `blocker`. It is the highest severity among the findings: `clean` when
   there are none, `minor` when the worst is Minor, `major` when the worst is Major, `blocker` when any is a Blocker.
 - Every finding quotes the lesson exactly: at least 8 characters, copied character for character from the lesson, with no

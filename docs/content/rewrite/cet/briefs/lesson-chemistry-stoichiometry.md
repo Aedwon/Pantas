@@ -57,7 +57,7 @@ Evidence class, as the audit writes it in the accepted statement of each ref abo
 
 ## Split or reorder candidate
 
-NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the 1,700-word ceiling, report it as a split candidate.
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
 
 Structure: split-candidate. Reaction amounts and composition-to-formula inference have distinct goals and do not require each other. The base reaction-quantity route is currently thin (L01/L17/L19). Proposal: Keep one shared reaction-quantity core with simple mole/mass chains, then limiting/yield extensions. Move empirical/molecular formula inference into a separate composition lesson without duplicating mole conversion. Cost: Requires new approved lesson identity/routing, moving examples and traps, adding missing reaction-quantity examples and composition teaching, plus later linked-practice review.
 

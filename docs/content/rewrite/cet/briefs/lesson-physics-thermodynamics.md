@@ -1,0 +1,144 @@
+# Brief: Thermodynamics (Heat Transfer Mechanisms, Laws of Thermodynamics, Specific Heat Capacity)
+
+Lesson id: `lesson-physics-thermodynamics`
+Lesson path: `content/lessons/science/physics/thermodynamics.md`
+
+Tagged exams (as the audit writes them): dcat, dost-sei, pupcet, upcat, ustet
+Exams used for the requirement rows below: upcat, dcat, ustet
+
+Standing rule: a rewrite may add teaching, but no case that another tagged exam needs is removed.
+
+Sources: lesson at base revision 7032eec5b8fbdac51cef7e7b6dc7272d0e965f9a; audit revision ecbfa88b4e550fd5853d9ff74c1ae17425a1cdba, `docs/content/audit/coverage-r1/topics/science-physics-lessons.md`, section `### lesson-physics-thermodynamics`, and `docs/content/audit/coverage-r1/lesson-structure-data.json` and `docs/content/audit/coverage-r1/requirement-teaching-findings.md`.
+
+## Audit findings for this lesson
+
+Verbatim from the audit section. Its line references point into the audit's pinned corpus, not into this branch.
+
+Goal: Distinguish heat-transfer mechanisms, apply sensible-heat relationships and interpret thermodynamic law statements.
+
+- Heat versus internal energy: explained, examples thin. content/lessons/science/physics/thermodynamics.md:12-14; example 108-112. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Conduction: explained, examples worked. content/lessons/science/physics/thermodynamics.md:20-20; example 54-64. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Convection: explained, examples worked. content/lessons/science/physics/thermodynamics.md:22-22; example 54-64. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Radiation: explained, examples worked. content/lessons/science/physics/thermodynamics.md:24-24; example 54-64. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Zeroth law and thermal equilibrium: thin, examples thin. content/lessons/science/physics/thermodynamics.md:30-30; example 66-74. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- First law and work convention: explained, examples none. content/lessons/science/physics/thermodynamics.md:32-36; no matching worked example recorded. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Second law direction: explained, examples worked. content/lessons/science/physics/thermodynamics.md:38-38; example 66-74. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Third law/entropy: thin, examples none. content/lessons/science/physics/thermodynamics.md:40-40; no matching worked example recorded. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Specific heat calculation: explained, examples worked. content/lessons/science/physics/thermodynamics.md:42-48; example 76-96. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Latent heat: named-only, examples none. content/lessons/science/physics/thermodynamics.md:50-50; no matching worked example recorded. Requirement facets: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Controlled-variable comparison: thin, examples thin. content/lessons/science/physics/thermodynamics.md:84-96; example 84-96. Requirement facets: dcat-L077, acet-L126, ustet-L113.
+
+Structure: split-candidate. Heat-transfer and calorimetry share direct applications; four-law/entropy statements add a different system-level task with only a second-law example. Proposal: Keep thermal transfer and calorimetry as common preparation; make first-law system work and thermodynamic-law reasoning an extension after energy/work foundations. Cost: Move law content and examples, add first-law work/sign example and latent-heat teaching if retained; exact required law depth is unknown. Rules: B03/L01/L17/L19, structural use only.
+
+Necessary prior knowledge: Energy transfer, work, mass and temperature change.
+
+Availability: unknown, corpus-bound runtime not verified. Practice: deferred Level 5.
+
+## Thin, named-only or absent items
+
+From the audit's lesson-structure-data.json, by exact lesson id. Teaching verdict first, then the verdict on the examples.
+
+- Zeroth law and thermal equilibrium: thin; examples thin. Limits: Local authored facet or extension; exact exam method/depth is unknown. A broad source row does not explicitly require this particular method; Example only classifies, states a result, or omits the distinct application method; this is a structural L19 limit, not a standards pass. Requirement refs: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Third law/entropy: thin; examples none. Limits: Local authored facet or extension; exact exam method/depth is unknown. A broad source row does not explicitly require this particular method; No developed matching worked application. Requirement refs: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Latent heat: named-only; examples none. Limits: Local authored facet or extension; exact exam method/depth is unknown. A broad source row does not explicitly require this particular method; No developed matching worked application. Requirement refs: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- Controlled-variable comparison: thin; examples thin. Limits: Example only classifies, states a result, or omits the distinct application method; this is a structural L19 limit, not a standards pass. Requirement refs: dcat-L077, acet-L126, ustet-L113.
+
+Explained, but the examples are thin or missing:
+
+- Heat versus internal energy: examples thin. Limits: Example only classifies, states a result, or omits the distinct application method; this is a structural L19 limit, not a standards pass. Requirement refs: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+- First law and work convention: examples none. Limits: No developed matching worked application. Requirement refs: upcat-L148, upcat-L162, dcat-L085, ustet-L117, pupcet-L119, dost-sei-L100, dost-sei-L107.
+
+Evidence class, as the audit writes it in the accepted statement of each ref above (the last bracket and what follows it):
+
+- upcat-L148: [7]; **weak**
+- upcat-L162: [19]; **curriculum**
+- dcat-L085: [7; weak]
+- ustet-L117: [6, PDF p. 14; official curriculum, inferred relevance]
+- pupcet-L119: [8, PDF p. 14; official curriculum, exam inclusion unknown]
+- dost-sei-L100: [5, PDF pp. 7-8, 120, 125-126, 168-169; official curriculum, inferred preparation]
+- dost-sei-L107: [14, competency listing; official curriculum, STEM-specific/completion conditional]
+- dcat-L077: [4, page 4; official curriculum, inferred preparation]
+- acet-L126: [12, pp. 2-4,7; official curriculum, ACET relevance unconfirmed]
+- ustet-L113: [6, PDF pp. 4, 7, 106; official curriculum, inferred relevance]
+
+## Split or reorder candidate
+
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
+
+Structure: split-candidate. Heat-transfer and calorimetry share direct applications; four-law/entropy statements add a different system-level task with only a second-law example. Proposal: Keep thermal transfer and calorimetry as common preparation; make first-law system work and thermodynamic-law reasoning an extension after energy/work foundations. Cost: Move law content and examples, add first-law work/sign example and latent-heat teaching if retained; exact required law depth is unknown. Rules: B03/L01/L17/L19, structural use only.
+
+## Requirement rows
+
+Rows of the audit's requirement-teaching-findings.md whose providers include `science-physics`, for the tagged exams among upcat, dcat, ustet and acet, whose Level 3 finding counts thin, named-only or absent facets. The counts cover every provider of the row, not only this topic. Within an exam, rows with more such facets come first; the cap of 25 is shared across exams. Source record ids and evidence class words are as the audit wrote them.
+
+Matching rows: 16. Shown: 16.
+
+### upcat
+
+- upcat-L162
+  - Accepted statement: - Physics: motion in terms of distance and speed, with graphs and equations; laws of motion; work; heat and energy transfer; conservation of energy and momentum; balance and stability of objects; energy transfer through media. [19]; **curriculum**
+  - Level 3 finding: Observed local facets: explained=46, thin=8, absent=4, named-only=1. Complete compound scope/depth remains unestablished.
+
+- upcat-L149
+  - Accepted statement: - Apply Newton's laws; reason about momentum, collisions, machines, waves, optics, and simple circuits. [8]; **weak**
+  - Level 3 finding: Observed local facets: thin=7, explained=35, named-only=3, absent=2. Complete compound scope/depth remains unestablished.
+
+- upcat-L148
+  - Accepted statement: - Analyze motion, forces, work, energy, heat, and electricity. [7]; **weak**
+  - Level 3 finding: Observed local facets: explained=30, named-only=5, thin=5. Complete compound scope/depth remains unestablished.
+
+- upcat-L150
+  - Accepted statement: - Distinguish scalar and vector quantities; interpret relative motion, fluids, magnetism, and introductory relativity. [6]; **weak**
+  - Level 3 finding: Observed local facets: explained=22, absent=2, named-only=3, thin=4. Complete compound scope/depth remains unestablished.
+
+- upcat-L190
+  - Accepted statement: - Geometry and measurement. [7, 11, 16]; **curriculum**
+  - Level 3 finding: Observed local facets: explained=22, absent=1. Complete compound scope/depth remains unestablished.
+
+### dcat
+
+- dcat-L077
+  - Accepted statement: - Supported, curriculum: scientific inquiry; identify controlled variables, measure effects, and draw evidence-based conclusions. [4, page 4; official curriculum, inferred preparation]
+  - Level 3 finding: Observed local facets: absent=12, thin=9, explained=6. Complete compound scope/depth remains unestablished.
+
+- dcat-L083
+  - Accepted statement: - Supported, curriculum, strengthened SHS pathway only: applied physics; compare translational/rotational motion, explain simple machines and hydraulic systems, discuss electrical safety/energy efficiency, and apply properties of light and sound. [14, PDF pages 2 to 3; official curriculum, inferred preparation]
+  - Level 3 finding: Observed local facets: explained=32, thin=6, absent=10, named-only=1. Complete compound scope/depth remains unestablished.
+
+- dcat-L082
+  - Accepted statement: - Supported, curriculum, legacy SHS with strand/cohort/timing limitations: physical science; relate molecular structure and polarity to properties, calculate reactants/products and yields, interpret motion graphs and conservation principles, and explain light-wave behavior. Legacy core labeling does not prove universal exposure. [12, Competencies; official curriculum, inferred preparation]
+  - Level 3 finding: Observed local facets: explained=21, absent=4, thin=7. Complete compound scope/depth remains unestablished.
+
+- dcat-L085
+  - Accepted statement: - Supported, weak: geology, chemistry, physics, biology, and some astronomy are recalled. Examples include mole conversions, chemical-equation balancing, gas laws, motion, force, electricity, thermal/mechanical energy, cell organelles, DNA/RNA, and cellular respiration. These examples do not establish universal or current scope. [7; weak]
+  - Level 3 finding: Observed local facets: explained=24, thin=5, absent=2, named-only=4. Complete compound scope/depth remains unestablished.
+
+- dcat-L080
+  - Accepted statement: - Supported, curriculum: physics; interpret one-dimensional motion, explain force with Newton's laws, relate work and energy, and distinguish mechanical/electromagnetic and transverse/longitudinal waves. [4, pages 14, 118; official curriculum, inferred preparation]
+  - Level 3 finding: Observed local facets: thin=3, absent=2, explained=24. Complete compound scope/depth remains unestablished.
+
+### ustet
+
+- ustet-L113
+  - Accepted statement: - Scientific inquiry: identify variables, controls, evidence, and conclusions in an investigation; read data and representations. [6, PDF pp. 4, 7, 106; official curriculum, inferred relevance]
+  - Level 3 finding: Observed local facets: absent=12, thin=10, explained=6. Complete compound scope/depth remains unestablished.
+
+- ustet-L117
+  - Accepted statement: - Force, motion, and energy: interpret motion graphs; apply Newton's laws, work, momentum, mechanical energy, heat transfer, waves/light, and electricity/magnetism. [6, PDF p. 14; official curriculum, inferred relevance]
+  - Level 3 finding: Observed local facets: thin=10, absent=3, explained=47, named-only=4. Complete compound scope/depth remains unestablished.
+
+- ustet-L124
+  - Accepted statement: - Strengthened curriculum candidates, physics: apply linear/rotational motion, machine efficiency, fluid principles, electricity safety/efficiency, and light/sound properties. [17, PDF pp. 2-3; official curriculum, inferred relevance, prior pilot version unverified]
+  - Level 3 finding: Observed local facets: explained=27, thin=5, absent=10, named-only=1. Complete compound scope/depth remains unestablished.
+
+- ustet-L083
+  - Accepted statement: - Numbers and measurement: use integers, fractions, decimals, ratios/proportions, and percentages; use sets and the real-number system; convert measurement units. These include Grade 6 prerequisites as well as Grade 7 concepts. [5, PDF p. 8; official curriculum, inferred relevance]
+  - Level 3 finding: Observed local facets: explained=58, thin=9, absent=3. Complete compound scope/depth remains unestablished.
+
+- ustet-L123
+  - Accepted statement: - Existing Physical Science: relate atomic and molecular structure to properties, calculate reaction quantities, yield and limiting reactants, explain reaction rates/energy, interpret motion, light, and astronomy models. Track substitutions and pre-test completion remain unverified. [14; official curriculum, inferred relevance, track/completion limited]
+  - Level 3 finding: Observed local facets: absent=4, thin=5, explained=20. Complete compound scope/depth remains unestablished.
+
+- ustet-L095
+  - Accepted statement: - Strengthened curriculum candidates: solve percentage/payroll problems, sequences/series, financial applications, measurement/conversion, function models, descriptive statistics, practical trigonometry, and basic random-variable/normal-distribution/sampling problems. Exact prior pilot revision applicability remains unverified. [16, PDF pp. 2-6; official curriculum, inferred relevance, version limited]
+  - Level 3 finding: Observed local facets: explained=46, absent=6, thin=2. Complete compound scope/depth remains unestablished.

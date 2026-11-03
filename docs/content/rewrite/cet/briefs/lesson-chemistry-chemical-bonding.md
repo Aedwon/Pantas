@@ -55,7 +55,7 @@ Evidence class, as the audit writes it in the accepted statement of each ref abo
 
 ## Split or reorder candidate
 
-NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the 1,700-word ceiling, report it as a split candidate.
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
 
 Structure: reorder. Bond models are coherent, but geometry assumes Lewis-building knowledge that the lesson only names (L01/L17/L19). Proposal: Teach valence-count and Lewis construction before VSEPR; keep the shared core together. Consider a separate molecular-properties extension only after defining its teaching. Cost: Add procedural teaching and revise geometry examples; a new unit would need separate approval and shared-core routing.
 

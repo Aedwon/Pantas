@@ -50,7 +50,7 @@ None. Every facet is explained.
 
 ## Split or reorder candidate
 
-NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the 1,700-word ceiling, report it as a split candidate.
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
 
 Structure: split-candidate. Organelle recognition and comparative cell structures differ from gradient/tonicity reasoning (L01/L17). Keeping a basic cell core separates detailed membrane additions without repeating it. Keep organelles and plant/animal comparisons together. Move detailed transport and tonicity into a membrane-transport lesson only if later restructuring is approved; retain a brief membrane function in the core. Cost: Moderate: new identity, moved examples/traps and future prerequisite/tag/practice remapping. Evidence: content/lessons/science/biology/cell-biology.md:12-38 (Cell-parts core); content/lessons/science/biology/cell-biology.md:40-56 (Membrane concentration/tonicity reasoning)
 

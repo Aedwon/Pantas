@@ -274,8 +274,8 @@ def render_brief(title, lesson_id, path, tags, heading, section, info, goal_text
     elif info["verdict"] == "retain":
         out += ["The audit recommends keeping the structure.", "", info["structure"], ""]
     else:
-        out += ["NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the "
-                "1,700-word ceiling, report it as a split candidate.", "", info["structure"], ""]
+        out += ["NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about "
+                "3,000 words, report it as a split candidate.", "", info["structure"], ""]
 
     out += ["## Requirement rows", "",
             "Rows of the audit's requirement-teaching-findings.md whose providers include `%s`, for the tagged "

@@ -59,7 +59,7 @@ Evidence class, as the audit writes it in the accepted statement of each ref abo
 
 ## Split or reorder candidate
 
-NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the 1,700-word ceiling, report it as a split candidate.
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
 
 Structure: reorder. Graph interpretation is a curriculum-supported preparation facet but appears only as a shortcut after exclusively numerical equations. Proposal: Move graph meaning into core teaching; show slope/area interpretation and a reversal before graph-dependent use elsewhere. Cost: Add one coherent graph-reading sequence and worked application; keep one-dimensional motion together. Rules: B03/L01/L17/L19, structural use only.
 

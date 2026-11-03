@@ -79,7 +79,7 @@ Evidence class, as the audit writes it in the accepted statement of each ref abo
 
 ## Split or reorder candidate
 
-NOT TO APPLY. Record it only. The pilot makes no splits or reorders. If the lesson cannot fit the 1,700-word ceiling, report it as a split candidate.
+NOT TO APPLY. Record it only. The run makes no splits or reorders. If the lesson runs over about 3,000 words, report it as a split candidate.
 
 Structure: split-candidate. Electrostatic force, circuit calculations and induction are distinct tasks. Current/voltage are only symbols; magnetic flux appears without meaning or a non-calculus relationship. Proposal: Separate electrostatics, DC circuits, and magnetism/induction; keep shared charge/current foundations once and link them. Explain flux before induction; move Kirchhoff to a worked network extension. Cost: Reassign examples and dependencies across three focused units; add current/voltage/flux foundations and network computations. Exact exam need for additions remains unknown. Rules: B03/L01/L17/L19, structural use only.
 
