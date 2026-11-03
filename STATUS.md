@@ -245,3 +245,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Radicals fixed after round 2. Quadrilaterals round 1: 1 Blocker (single-corner split fails for an H-shaped polygon), 1 Major (Pythagorean theorem first stated in a solution); fix running.
 - Parallel-perpendicular-lines round 2: 2 Majors (base question figures in Examples 1 and 3 print the answers); fix running. Quadrilaterals fixed after round 1; round 2 read running.
 - Done at minor after round 3: radicals-and-rationalization (2 Minors). Parallel lines fixed after round 2. Writing: combinatorics.
+- Open after 3 reads: parallel-perpendicular-lines (1 Major: Example 4 figure label gives the answer).

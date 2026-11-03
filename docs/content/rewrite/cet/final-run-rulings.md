@@ -42,3 +42,5 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 - lesson-physics-two-dimensional-motion: done at minor after round 3 (1 Minor, paragraph length).
 - lesson-algebra-systems-of-equations: done clean after round 3.
 - lesson-geometry-parallel-perpendicular-lines, round 1: the reader found the writer's report wrong (the base has 7 figure markers, not 8, and the zigzag marker is unchanged from the base, so its labels no longer match the rewritten Example 7). The Major stands; the fixer must update that marker's labels to the new question and keep the answer out of the question figure.
+- lesson-algebra-radicals-and-rationalization: done at minor after round 3 (2 Minors).
+- lesson-geometry-parallel-perpendicular-lines, round-3 L23 Major: upheld. The Example 4 question figure's semanticsLabel, from the base, says the angles are equal while the example asks whether they are equal or supplementary. The lesson stays open after 3 reads with this finding; the fix is a one-line marker edit. Rounds 2 and 3 found answer-revealing base figure markers one at a time, so the final review should check every question marker in this lesson.

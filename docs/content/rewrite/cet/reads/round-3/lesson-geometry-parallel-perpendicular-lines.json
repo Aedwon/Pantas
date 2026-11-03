@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-geometry-parallel-perpendicular-lines",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L05", "severity": "Major", "quote": "\"semanticsLabel\": \"Parallel lines l and m cut by a transversal with equal alternate interior angles labeled 4x degrees and 3x plus 18 degrees.\"", "problem": "Example 4 is titled \"Which Rule Applies?\" and its solution opens with the choice \"equal pair or supplementary pair?\". The question figure's label tells the student the angles are equal, so it supplies the relationship the student must select. This is the same giveaway the round-2 read raised for Example 3's \"Sum = 180°\", which was fixed there. Screen-reader users hear this label before solving. Carried over from the base, not raised in rounds 1 or 2.", "source": "Checklist L05 (do not supply methods students are expected to select); brief, Goal: choose equal versus supplementary transversal relationships"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The letters help your eye. Alternate interior angles sit in the corners of a Z or a backward Z.", "problem": "This paragraph has five sentences. The rule allows one to three short sentences per paragraph.", "source": "Checklist L22a; LSG Formatting rules"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Corresponding angles sit in matching corners, one inside and one outside the lines. Alternate interior angles are both inside.", "problem": "This Trap 3 paragraph has four sentences, over the one-to-three limit. The Core Concept paragraph on linear pairs and vertical angles also has four.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
