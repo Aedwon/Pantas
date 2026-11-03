@@ -37,7 +37,9 @@ The average of two numbers is the number halfway between them. So the midpoint i
 
 $$m = \dfrac{y_2 - y_1}{x_2 - x_1}, \quad x_2 \neq x_1$$
 
-On a straight line, the slope is the same for any two points you pick. A line that goes up from left to right has positive slope. A line that goes down has negative slope. A horizontal line has slope $0$. A vertical line has an undefined slope, because its run is $0$ and we cannot divide by $0$.
+On a straight line, the slope is the same for any two points you pick. A line that goes up from left to right has positive slope. A line that goes down has negative slope.
+
+A horizontal line has slope $0$. A vertical line has an undefined slope, because its run is $0$ and we cannot divide by $0$.
 
 Two lines can be related in two ways:
 
@@ -74,9 +76,13 @@ A circle equation may also come in expanded form, with $x^2$ and $y^2$ each havi
 
 $$x^2 + y^2 + Dx + Ey + F = 0$$
 
-To find the center and radius, rewrite it in standard form by **completing the square**. For each variable, take half of its coefficient and square it. Add that number to both sides.
+To find the center and radius, rewrite it in standard form by **completing the square**. Group the $x$ terms and the $y$ terms. For the $x$ group, take the number that multiplies $x$ (not the one that multiplies $x^2$), halve it, and square it. Add that square to both sides. Do the same for $y$.
 
-If $x^2$ and $y^2$ share a coefficient other than $1$, divide the whole equation by it first. After completing the square, the right side is $r^2$. It must be positive. If it is $0$, the graph is a single point. If it is negative, no point satisfies the equation.
+A group of the form $x^2 + bx + \left(\dfrac{b}{2}\right)^2$ is the perfect square $\left(x + \dfrac{b}{2}\right)^2$. So the number inside the bracket is half of $b$, with the same sign as $b$. For example, $x^2 - 6x + 9 = (x - 3)^2$.
+
+If $x^2$ and $y^2$ share a coefficient other than $1$, divide the whole equation by it first.
+
+After completing the square, the right side is $r^2$. It must be positive. If it is $0$, the graph is a single point. If it is negative, no point satisfies the equation.
 
 The Conic Sections lesson covers circles and other curves in more depth.
 
@@ -283,7 +289,7 @@ $$(x^2 - 6x) + (y^2 + 4y) = 12$$
 
 $$(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$$
 
-3. Write each group as a square.
+3. Write each group as a square. Half of $-6$ gives $(x - 3)^2$, and half of $4$ gives $(y + 2)^2$.
 
 $$(x - 3)^2 + (y + 2)^2 = 25$$
 
@@ -298,7 +304,7 @@ Before using the distance formula, check whether the points share an $x$ or a $y
 
 To read the slope from standard form $Ax + By = C$ without rearranging, use $m = -\dfrac{A}{B}$ when $B \neq 0$. If $B = 0$, the equation describes a vertical line and its slope is undefined.
 
-To get the center of a circle from an equation like $(x - 3)^2 + (y + 2)^2 = 25$, change the sign of each number inside the brackets. The radius is the square root of the right side.
+To get the center of a circle from an equation like $(x - 3)^2 + (y + 2)^2 = 25$, change the sign of each number after $x$ and $y$ inside the brackets. The radius is the square root of the right side.
 
 ## Traps to Watch For
 
@@ -330,6 +336,6 @@ These are different things: $0$ is a defined number, while a vertical slope woul
 
 ### #5: Wrong Signs in the Circle Center
 
-> In $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$, not the numbers as written.
+> In $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$: flip the sign of the number written after $x$ and after $y$.
 
-The circle $(x + 3)^2 + (y - 1)^2 = 16$ has center $(-3, 1)$, not $(3, -1)$. Its radius is $4$, not $16$. The right side is $r^2$, so take its square root.
+The circle $(x + 3)^2 + (y - 1)^2 = 16$ has center $(-3, 1)$, not $(3, -1)$. A minus in the bracket gives a positive coordinate: $(x - 3)^2$ means $h = 3$. If no number follows $x$, as in $x^2$, then $h = 0$. Its radius is $4$, not $16$. The right side is $r^2$, so take its square root.
