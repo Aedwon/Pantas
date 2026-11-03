@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-chemistry-solutions",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "It also fails for mixing two solutions of the same solute at different concentrations, where you add the moles from each.", "problem": "This sentence ends a five-sentence paragraph in the Dilution section, and it holds the densest teaching in the lesson. Several other paragraphs also run past the one-to-three-sentence limit: the gas paragraph that begins 'Gases behave differently.' (five sentences), the solubility-curve paragraph (four), the ethanol volume paragraph that begins 'Use the measured final volume.' (four), the supersaturated paragraph (four), the first two Speed Tricks paragraphs (five each), and the Trap #5 explanation (four). The facts are right; only the paragraph length breaks the rule.", "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)"}
+  ],
+  "goodQuotesChecked": 1
+}
