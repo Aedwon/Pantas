@@ -155,3 +155,7 @@ Post-pilot cross-vendor check. Lead proposed Astra on 3 to 5 Opus-passed lessons
 ## November 3: round 1 reads (Opus)
 
 All 15 lessons had a Blocker or Major: 6 Blockers, 83 Majors, 52 Minors. Readers reported all worked answers correct in the batches that stated it. Top Major rules: L25 27, L18 22, L26 10, L27 8. This fails the first pilot criterion (15 of 15 against the line of 63%). Part A's fallback, a separate audit read, is on hold pending Aedwon. Round 2 runs on 5 lessons with added writer rules, to measure convergence.
+
+## November 3: pilot verdict and final run
+
+Verdict: first criterion failed (15 of 15 had a Blocker or Major). Convergence: Blockers and Majors fell from 35 to 10 in round 2 on 5 lessons. Aedwon approved skipping the audit fallback, dropping the 1,700 limit, and spending the cloud credit in order. The lead read stoichiometry in full and spot-read two others; the third full read named in the plan was not done because of the November 5 credit deadline. A Sol audit of 3 lessons is running; its result will be added here. Next: the cloud run from `docs/content/rewrite/cet/goal-prompt.md`.

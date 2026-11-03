@@ -358,7 +358,7 @@ class MainTests(unittest.TestCase):
             pilot = json.load(f)["lessons"]
         self.assertEqual(len(pilot), 15)
         self.assertEqual(len({p["lesson"] for p in pilot}), 15)
-        self.assertEqual(sum(1 for p in pilot if p["writer"] == "sonnet"), 5)
+        self.assertEqual(sum(1 for p in pilot if p["writer"] == "sonnet"), 15)
         for p in pilot:
             self.assertNotEqual(p["writer"], p["reader"])
 
