@@ -21,7 +21,9 @@ An ionic solid is a lattice, a repeating pattern of many ions, not separate pair
 
 A shared pair is two electrons. A single bond is one shared pair ($2$ electrons), a double bond is two pairs ($4$ electrons), and a triple bond is three pairs ($6$ electrons).
 
-**Metallic bonding** is found in metals. The valence electrons spread through the whole solid and move freely around the metal ions. Free electrons carry charge and energy, so metals conduct electricity and heat. When the metal is hammered, layers of ions slide past each other and the electrons keep holding them together, so metals can be shaped without breaking.
+**Metallic bonding** is found in metals. The valence electrons spread through the whole solid and move freely around the metal ions. Free electrons carry charge and energy, so metals conduct electricity and heat.
+
+When the metal is hammered, layers of ions slide past each other and the electrons keep holding them together, so metals can be shaped without breaking.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"bond-types","illustrationKey":"science/chemistry/chemical-bonding#1","bondTypes":[{"label":"ionic","participants":["metal","nonmetal"],"electronAction":"transfer","result":"positive and negative ions"},{"label":"covalent","participants":["nonmetal","nonmetal"],"electronAction":"share a pair of electrons"},{"label":"metallic","participants":["metal atoms"],"electronAction":"sea of free-moving electrons"}]} -->
 
@@ -29,7 +31,9 @@ A shared pair is two electrons. A single bond is one shared pair ($2$ electrons)
 
 **Electronegativity** is how strongly an atom pulls shared electrons toward itself. It rises toward the upper right of the periodic table, leaving out the noble gases, and fluorine is highest.
 
-If two bonded atoms differ in electronegativity, the shared electrons sit closer to one atom. That atom is partly negative ($\delta^-$) and the other is partly positive ($\delta^+$). The bond is **polar**. The bigger the difference, the more polar the bond.
+If two bonded atoms differ in electronegativity, the shared electrons sit closer to one atom. That atom is partly negative ($\delta^-$) and the other is partly positive ($\delta^+$). The bond is **polar**.
+
+The bigger the difference, the more polar the bond.
 
 A polar bond is a **dipole**: two equal and opposite partial charges a short distance apart. We picture it as a pull of electrons toward the more electronegative atom. A very large difference gives an ionic bond, and books use different cutoffs, so treat any cutoff as a guide.
 
@@ -43,11 +47,13 @@ Exceptions include $BF_3$, where boron has six, and odd-electron molecules such 
 
 A **Lewis structure** shows bonds and **lone pairs**, which are valence electron pairs that are not shared. Each bond line is a shared pair of electrons.
 
-1. Add the valence electrons of all atoms. For an ion, add one for each negative charge and subtract one for each positive charge.
-2. Put the least electronegative atom in the center and join the others to it with single bonds. Hydrogen is never the center, because it forms only one bond.
+1. Add the valence electrons of all atoms. For a main-group atom, the valence electrons equal the last digit of its group number: carbon (group $14$) has $4$, nitrogen (group $15$) has $5$, oxygen (group $16$) has $6$, and hydrogen (group $1$) has $1$. Helium has $2$. For an ion, add one for each negative charge and subtract one for each positive charge.
+2. For a molecule with one center atom bonded to all the others, usually put the least electronegative atom in the center and join the others to it with single bonds. Hydrogen is never the center, because it forms only one bond.
 3. Give the outer atoms lone pairs until each has an octet. Hydrogen gets none, because one bond already fills its duet.
 4. Put any electrons left over on the center atom. A center from period $3$ or below may end with more than eight.
-5. If a period $2$ center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Do not do this for the known exceptions such as $BF_3$, where boron stays at six.
+5. If the center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Do not do this for boron or beryllium, as in $BF_3$, where the center stays below eight.
+
+Step 2 is a guide, not a law. In HOCl the order is H-O-Cl, and molecules with two centers, such as $H_2O_2$ and $C_2H_4$, are given with their atom order.
 
 **Formal charge** helps you compare possible structures:
 
@@ -59,7 +65,9 @@ Some species need **resonance**. Two or more valid Lewis structures differ only 
 
 ### VSEPR: Predicting Shape
 
-**VSEPR** says that electron groups around a central atom repel and spread as far apart as possible. A **group** is a lone pair or a bond. A single, double, or triple bond counts as one group. This lesson covers up to $4$ groups.
+**VSEPR** says that electron groups around a central atom repel and spread as far apart as possible.
+
+A **group** is a lone pair or a bond. A single, double, or triple bond counts as one group. This lesson covers up to $4$ groups.
 
 Count the groups, then count how many are lone pairs:
 
@@ -73,9 +81,13 @@ The **molecular shape** names only where the atoms are, so lone pairs are not na
 
 ### Molecular Polarity and Attractions Between Molecules
 
-A molecule is **polar** if its bond dipoles do not cancel. Look at the shape. In linear $CO_2$ the two $C=O$ dipoles pull in opposite directions and cancel, so $CO_2$ is nonpolar. In bent $H_2O$ they do not cancel, so water is polar.
+A molecule is **polar** if its bond dipoles do not cancel. Look at the shape.
+
+In linear $CO_2$ the two $C=O$ dipoles pull in opposite directions and cancel, so $CO_2$ is nonpolar. In bent $H_2O$ they do not cancel, so water is polar.
 
 For the shapes in this lesson, the pulls cancel only when the outer atoms are all the same and the shape is symmetric, as in linear $CO_2$, trigonal planar $BF_3$, and tetrahedral $CH_4$ and $CCl_4$. A lone pair on the center atom, as in $NH_3$, or different outer atoms, as in $CH_3Cl$, leave the molecule polar. A molecule with no polar bonds, such as $H_2$, is nonpolar.
+
+One exception is ozone, $O_3$. It has only O-O bonds, but it is bent, and its center oxygen carries a positive formal charge while an end oxygen carries a negative one. So $O_3$ is slightly polar.
 
 Attractions between molecules are weaker than the bonds inside them:
 
@@ -151,9 +163,18 @@ Find a Lewis structure for the carbonate ion, $CO_3^{2-}$, with its formal charg
 1. Valence electrons: $4+3(6)+2=24$.
 2. Carbon is in the center with three single bonds. Each oxygen gets three lone pairs. That uses all $24$ electrons, but carbon has only six.
 3. Make one oxygen a double bond to carbon. That oxygen keeps two lone pairs.
-4. Use $FC=V-L-\dfrac{B}{2}$ for carbon: $4-0-4=0$.
-5. For the double-bond oxygen: $6-4-2=0$.
-6. For each single-bond oxygen: $6-6-1=-1$.
+4. Use $FC=V-L-\dfrac{B}{2}$, where $B$ counts the bonding electrons. Carbon has four bonds, so $B=8$:
+
+$$FC_{C}=4-0-\dfrac{8}{2}=0$$
+
+5. The double-bond oxygen has $L=4$ and $B=4$:
+
+$$FC_{O}=6-4-\dfrac{4}{2}=0$$
+
+6. Each single-bond oxygen has $L=6$ and $B=2$:
+
+$$FC_{O}=6-6-\dfrac{2}{2}=-1$$
+
 7. The total is $0+0-1-1=-2$, which matches the ion.
 8. Any of the three oxygens can be the double-bond one. So there are three resonance structures, and the real ion has three equal $C-O$ bonds.
 
@@ -193,7 +214,27 @@ $CH_4$ and $H_2O$ have about the same size. Why does water boil at a much higher
 2. $H_2O$ has hydrogen bonds between molecules, because H is bonded to O.
 3. Hydrogen bonds are much stronger, so more energy is needed to separate the molecules. Water boils at the higher temperature.
 
-### #9: Bonding and Conductivity
+### #9: Comparing London Forces
+
+Which has the higher boiling point, $Cl_2$ or $Br_2$?
+
+**Solution:**
+
+1. Both are nonpolar and have the same shape, so only London dispersion forces act.
+2. $Br_2$ has more electrons ($70$) than $Cl_2$ ($34$), so it is easier to distort.
+3. The London forces are stronger in $Br_2$, so it needs more energy to separate. $Br_2$ has the higher boiling point.
+
+### #10: Dipole-Dipole Forces
+
+$HCl$ and $F_2$ each have $18$ electrons. Which has the higher boiling point?
+
+**Solution:**
+
+1. $F_2$ is nonpolar, so only London forces act.
+2. $HCl$ is polar, so it also has dipole-dipole forces.
+3. With similar London forces, the extra dipole-dipole attraction makes $HCl$ the one with the higher boiling point.
+
+### #11: Bonding and Conductivity
 
 Solid $NaCl$ does not conduct electricity, but melted $NaCl$ does. Explain.
 
@@ -201,7 +242,7 @@ Solid $NaCl$ does not conduct electricity, but melted $NaCl$ does. Explain.
 
 In the solid, the ions are fixed in the lattice. When melted, they move and carry charge.
 
-### #10: Structure and Solubility in Water
+### #12: Structure and Solubility in Water
 
 Which dissolves better in water, $NH_3$ or $CCl_4$? Use shape and polarity.
 
