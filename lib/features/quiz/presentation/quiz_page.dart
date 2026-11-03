@@ -1379,9 +1379,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       case QuizPageMode.resume:
         unawaited(
           controller.resumeToday(examId: widget.examId).then((_) {
-            // Resume never creates a session, so a failure means none is
-            // open. Retrying cannot help: go back to the Quiz tab.
-            if (mounted && ref.read(quizControllerProvider) is QuizFailure) {
+            // With no open session retrying cannot help: go back to the Quiz
+            // tab. A read error keeps the retry screen.
+            if (mounted &&
+                ref.read(quizControllerProvider) is QuizNothingToResume) {
               _leave(context);
             }
           }),

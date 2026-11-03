@@ -65,6 +65,11 @@ class QuizFailure extends QuizControllerState {
   final String message;
 }
 
+/// Resume found no open session. Unlike a read error, retrying cannot help.
+class QuizNothingToResume extends QuizFailure {
+  const QuizNothingToResume() : super('There is no session to pick up.');
+}
+
 final quizControllerProvider =
     StateNotifierProvider<QuizController, QuizControllerState>(
   QuizController.new,
@@ -178,7 +183,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
                 ),
               );
       if (session == null) {
-        state = const QuizFailure('There is no session to pick up.');
+        state = const QuizNothingToResume();
         return;
       }
       state = QuizRunning(

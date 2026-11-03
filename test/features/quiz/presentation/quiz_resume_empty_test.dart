@@ -67,4 +67,38 @@ void main() {
       expect(router.routeInformationProvider.value.uri.path, '/quiz');
     });
   }
+
+  // A read error is not "nothing to resume": the student keeps the retry.
+  testWidgets('a read error on resume keeps the retry screen', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final launch = _MockLaunchCoordinator();
+    when(() => launch.resumeToday(any())).thenThrow(StateError('offline'));
+    final router = GoRouter(
+      initialLocation: '/quiz/resume/e',
+      routes: [
+        GoRoute(
+          path: '/quiz',
+          builder: (_, __) => const Scaffold(body: Text('quiz tab')),
+        ),
+        GoRoute(
+          path: '/quiz/resume/:examId',
+          builder: (_, __) =>
+              const QuizPage(examId: 'e', mode: QuizPageMode.resume),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        quizLaunchCoordinatorProvider.overrideWithValue(launch),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(router.routeInformationProvider.value.uri.path, '/quiz/resume/e');
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(find.text('quiz tab'), findsNothing);
+  });
 }
