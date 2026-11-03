@@ -203,3 +203,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Written: heavenly-bodies (3,171 words, split candidate), fossils-and-geologic-time, layers-of-the-earth. Periodic-table round 2: 1 Blocker; last fix running.
 - Done at minor after round 2: nuclear-chemistry (2 Minors). Thermodynamics-and-kinetics fixed after round 1 (3,013 words, borderline split candidate).
 - Done at minor after round 2: earths-subsystems (2 Minors). Layers-of-the-earth round 1: 1 Major (S-wave reason); fix running.
+- Done at minor after round 3: periodic-table (1 Minor). Written: minerals-and-rocks, origin-of-the-universe, water-cycle-oceanography. Fossils fixed after round 1; heavenly-bodies round 1: 1 Blocker (Europa), 1 Major.

@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-chemistry-periodic-table",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "A shell is split into **subshells** named $s$, $p$, $d$ and $f$. A subshell is made of **orbitals**, and each orbital holds at most two electrons.", "problem": "The opening Core Concept paragraph has seven sentences, over the one-to-three-sentence limit. Other paragraphs also run over: the Groups and Periods paragraph on period number (4 sentences), Metals, Nonmetals and Metalloids (5), the shielding and across-a-period paragraphs (4 each), and the atomic radius, first ionization energy, electronegativity and second electron-affinity paragraphs (4 each). Style only; the teaching is complete. Round-2 Blocker on the shielding sentence is fixed: the lesson now says the new electron enters the outer shell only across the main-group elements and the d subshell of the shell below across the transition metals.", "source": "Checklist L22a; lesson-style-guide Formatting rules (paragraphs of 1 to 3 short sentences); writer-rules rule 8"}
+  ],
+  "goodQuotesChecked": 1
+}

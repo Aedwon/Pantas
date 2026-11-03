@@ -134,7 +134,6 @@ $$1\to\dfrac12\to\dfrac14\to\dfrac18$$
 
 2. After $3$ half-lives, $\dfrac18$ of the original parent remains.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-billion-years","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#3","parentPercentages":[100,50,25],"halfLife":"1 billion years","halfLifeLabels":["1 half-life","2 half-lives"],"result":"2 billion years"} -->
 ### #5: Inferring a Numerical Age from Parent and Daughter
 
 An igneous rock holds a parent isotope with a half-life of $1$ billion years. A measurement finds $3$ daughter atoms for every $1$ parent atom. The rock started with no daughter atoms, and it stayed a closed system. How old is the rock?
@@ -152,6 +151,8 @@ $$\dfrac14=\left(\dfrac12\right)^{2}$$
 $$\text{age}=2\times 1\text{ billion years}=2\text{ billion years}$$
 
 The rock is about $2$ billion years old.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-billion-years","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#3","parentPercentages":[100,50,25],"halfLife":"1 billion years","halfLifeLabels":["1 half-life","2 half-lives"],"result":"2 billion years"} -->
 
 ### #6: Carbon-14 Dating and Its Limit
 

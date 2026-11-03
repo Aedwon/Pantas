@@ -189,7 +189,7 @@
     "lessonPath": "content/lessons/science/chemistry/periodic-table.md",
     "lessonId": "lesson-chemistry-periodic-table",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/solutions.md",
@@ -219,13 +219,13 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/fossils-and-geologic-time.md",
     "lessonId": "lesson-earth-science-astronomy-fossils-and-geologic-time",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/heavenly-bodies.md",
     "lessonId": "lesson-earth-science-astronomy-heavenly-bodies",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/layers-of-the-earth.md",
@@ -249,7 +249,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
     "lessonId": "lesson-earth-science-astronomy-water-cycle-oceanography",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/physics/dynamics.md",

@@ -32,7 +32,7 @@ Sunlight supplies the heat that powers the upward steps. Gravity pulls water dow
 
 **Infiltration and runoff**: when precipitation reaches the ground, it has two main paths. Water that soaks into the soil is **infiltration**. Water that flows over the ground surface into streams and rivers is **runoff**. Runoff often ends in the ocean, but it can also end in a lake or in dry land inland.
 
-Soaked-in water can sink deeper and become **groundwater**, which is water held in the spaces of soil and rock underground. Groundwater moves very slowly and can come out again in springs, rivers, or the ocean. Plant roots can also take it up for transpiration.
+Soaked-in water can sink deeper and become **groundwater**, which is water held in the spaces of soil and rock underground. Groundwater usually moves slowly and can come out again in springs, rivers, or the ocean. Plant roots can also take it up for transpiration.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"water-cycle","illustrationKey":"science/earth-science-astronomy/water-cycle-oceanography#1","steps":["Sun heats ocean","evaporation","water vapor rises","condensation into clouds","precipitation over mountains","runoff to ocean","groundwater to ocean"]} -->
 
@@ -54,7 +54,7 @@ Ocean water is **saline**, which means salty. Seawater has about $35$ grams of d
 
 **Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. Cold water is denser than warm water. Salty water is denser than less salty water.
 
-The ocean forms layers because of density and sunlight. The top layer is warm and lit by the Sun. Sunlight reaches down to about $200$ meters. Below it the temperature falls fast with depth in a layer called the **thermocline**. Under that, the deep water is cold, dense, and dark.
+The ocean forms layers because of density and sunlight. The top layer is warm and lit by the Sun. Sunlight reaches down to about $200$ meters. Below it, in most of the open ocean, the temperature falls fast with depth in a layer called the **thermocline**. Under that, the deep water is cold, dense, and dark.
 
 ### Ocean currents
 
@@ -64,7 +64,7 @@ A **current** is a steady flow of ocean water. There are two main kinds.
 
 **Deep currents** are driven by differences in density. Near the poles, surface water gets very cold, and sea ice formation leaves extra salt in the water below. This cold, salty water is dense and sinks. It then spreads slowly along the ocean floor, and other water flows in to replace it.
 
-Currents carry heat. A warm current, such as the Kuroshio that flows north past the east coast of the Philippines, carries heat from the tropics toward higher latitudes. A cold current carries cool water toward the tropics.
+Currents carry heat. A warm current, such as the Kuroshio that flows north past Taiwan and Japan, carries heat from the tropics toward higher latitudes. A cold current, such as the Humboldt Current off western South America, brings cool water toward the tropics.
 
 <!-- ILLUSTRATION: world map with the North Pacific and North Atlantic gyres drawn as clockwise loops, the South Pacific and South Atlantic gyres as counterclockwise loops, warm currents in red and cold currents in blue, labels Kuroshio and Gulf Stream -->
 
@@ -210,6 +210,8 @@ The answer: about $6{:}25$ p.m. on Monday and about $6{:}50$ a.m. on Tuesday. Lo
 
 On what Moon phases do spring tides happen, and on what phases do neap tides happen? Explain the difference in the pull.
 
+<!-- ILLUSTRATION: three top-view sketches of Sun, Earth, and Moon: new moon (Moon between Sun and Earth), full moon (Earth between Sun and Moon), and first quarter (Moon at a right angle to the Sun-Earth line), each labeled spring or neap -->
+
 **Solution:**
 Place the Sun, Moon, and Earth for each phase.
 
@@ -250,7 +252,7 @@ Questions may list the stages in a set order starting at the ocean. Real water c
 
 Transpiration is specifically plant water loss through the leaves. Evaporation from lakes, wet soil, and the ocean is not transpiration. Both together are evapotranspiration.
 
-### #4: Thinking the Ocean's Water Is Easy to Use
+### #4: Forgetting That Most Water Is Salty or Frozen
 
 > The ocean holds about $96.5\%$ of Earth's water, but that water is salty.
 
@@ -272,4 +274,4 @@ Spring tides happen about twice a month, in every season. They are named for the
 
 > A tide is a rise and fall of water level. A current is a flow of water.
 
-Tides come from the pull of the Moon and the Sun. Surface currents are driven mainly by wind, and deep currents by density. Tides can also make water flow, for example in narrow bays, but the rise and fall is what defines a tide.
+Tides come from the pull of the Moon and the Sun. Surface currents are driven mainly by wind, and deep currents by density.

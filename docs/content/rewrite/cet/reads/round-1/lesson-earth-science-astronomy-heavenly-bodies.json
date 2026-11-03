@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-earth-science-astronomy-heavenly-bodies",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Europa has an icy shell, so it is not mostly rock.", "problem": "Europa is mostly rock. NASA describes an iron core and a rocky mantle under a water and ice layer roughly 100 km deep, on a moon of radius 1,561 km; its mean density is 3,010 kg/m3, close to rock and far above ice. An icy surface does not make a moon 'not mostly rock'. The same error is in Core Concept: 'Many moons are not mostly rock. Europa, a moon of Jupiter, has an icy shell'. The example's conclusion still holds through Phobos and Ganymede, but its first step teaches a false fact and a false inference (surface ice means not mostly rock). Ganymede (1,940 kg/m3) or Callisto (1,830 kg/m3) would fit the claim.", "source": "NASA Science, Europa Facts (science.nasa.gov/jupiter/jupiter-moons/europa/europa-facts); NASA NSSDCA Jovian Satellite Fact Sheet (nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html)"},
+    {"rule": "L25", "severity": "Major", "quote": "a tiny but very dense ball about $20$ km across, or a black hole.", "problem": "Black hole is used as an end state of massive stars here and as part of the answer in Example #7, but the lesson never says what a black hole is (a collapsed object whose gravity is so strong that not even light escapes). Neutron star, white dwarf and the other end states get a meaning; black hole is named only, so a student cannot recognize one from a description, which the lesson's classification goal needs. No prerequisite lesson is named.", "source": "content-checklist L25 and L26; lesson-style-guide Teaching completeness"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Scientists also sort stars into the spectral classes O, B, A, F, G, K, and M, from hottest to coolest. The Sun is class G.", "problem": "This paragraph has four sentences, over the one-to-three-sentence limit. Other paragraphs also run over: 'Galaxies have three common shapes' (4), 'The giant planets are much larger' (4), 'A **natural satellite**, or moon' (4), 'Many moons are not mostly rock' (5), 'A **comet** is a small body of ice' (4), and 'The gas and dust form a glowing cloud' (4).", "source": "content-checklist L22a; lesson-style-guide Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
