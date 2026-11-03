@@ -10,9 +10,6 @@ import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-/// The lesson's path, named because the router lifts it out of the web shell.
-const lessonRoutePath = '/lesson/:lessonId';
-
 /// [web] is true when the lesson sits above the web shell instead of inside it.
 /// It then brings its own shell wrapper, which is the one it always had.
 List<RouteBase> studyRoutes(Ref ref, {bool web = false}) => [
@@ -33,7 +30,7 @@ List<RouteBase> studyRoutes(Ref ref, {bool web = false}) => [
         ),
       ),
       GoRoute(
-        path: lessonRoutePath,
+        path: '/lesson/:lessonId',
         pageBuilder: (_, state) {
           final lesson = LessonPage(
             lessonId: state.pathParameters['lessonId']!,

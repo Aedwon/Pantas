@@ -152,7 +152,7 @@ List<RouteBase> buildAppRoutes(
   // exactly as they were. Native builds already work this way.
   final lesson = routes
       .whereType<GoRoute>()
-      .singleWhere((route) => route.path == lessonRoutePath);
+      .singleWhere((route) => route.path == '/lesson/:lessonId');
   return [
     ShellRoute(
       builder: (context, state, child) =>

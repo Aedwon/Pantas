@@ -9,7 +9,7 @@ import 'package:pantas/app/routes/study_routes.dart';
 /// no web shell and keep the flat list.
 void main() {
   bool isLesson(RouteBase route) =>
-      route is GoRoute && route.path == lessonRoutePath;
+      route is GoRoute && route.path == '/lesson/:lessonId';
 
   bool holdsLesson(RouteBase route) =>
       isLesson(route) || route.routes.any(holdsLesson);
@@ -48,7 +48,7 @@ void main() {
   test('the lesson path is still reachable on both', () {
     expect(
       collectRoutePaths(includeDebugGallery: false),
-      contains(lessonRoutePath),
+      contains('/lesson/:lessonId'),
     );
   });
 }
