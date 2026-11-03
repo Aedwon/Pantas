@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-physics-scalars-and-vectors",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "These formulas work for any angle from $0^\\circ$ to $360^\\circ$, and the signs come out correctly by themselves.",
+      "problem": "The lesson defines sine and cosine only for an acute angle of a right triangle (\"Take a right triangle and one of its acute angles\"). It then applies them to any angle and works Example #8 with $20\\cos150^\\circ\\approx -17.32$, but never explains what the cosine of an angle over $90^\\circ$ means or why it is negative there. It names no prerequisite either, although the unit-circle lesson (lesson-trigonometry-unit-circle) teaches reference angles and quadrant signs. A student who knows only SOH-CAH-TOA cannot see where the negative sign comes from, and cannot get the value without a calculator. The brief also says general quadrant direction needs more than right-triangle sine and cosine.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness (shared reuse rule); brief: Necessary prior knowledge"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$\\sin\\theta=\\dfrac{\\text{opposite}}{\\text{hypotenuse}},\\quad \\cos\\theta=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}},\\quad \\tan\\theta=\\dfrac{\\text{opposite}}{\\text{adjacent}}.$$",
+      "problem": "Three ratios, each with the long word hypotenuse or adjacent, share one display line. This is likely too wide for a phone screen. The width is estimated from the source text, not checked on a rendered screen.",
+      "source": "content-checklist.md L21; lesson-style-guide.md Examples section"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

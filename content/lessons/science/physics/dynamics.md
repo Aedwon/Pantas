@@ -13,9 +13,11 @@ isActive: true
 
 The **net force** is the vector sum of all the forces on an object. Forces in opposite directions subtract. Forces at an angle are added by components: first split each force into a part along $x$ and a part along $y$, then add the parts along each axis.
 
+Suppose a force $F$ points at an angle $\theta$ from the $x$ axis. Its parts are $F_x=F\cos\theta$ along that axis and $F_y=F\sin\theta$ along the other. Cosine and sine are the side ratios of a right triangle: $\cos\theta$ is the side next to the angle divided by the long side, and $\sin\theta$ is the side opposite the angle divided by the long side. The Scalars and Vectors lesson teaches this in full.
+
 Newton's laws work in an **inertial reference frame**. This is a viewpoint that is not speeding up, slowing down, or turning. The ground is close enough for the problems in this lesson. A braking bus is not an inertial frame.
 
-<!-- ILLUSTRATION: three small panels labeled "first law", "second law", "third law": a book at rest on a table with equal up and down arrows; a hand pushing a cart with a force arrow F and a longer acceleration arrow a pointing the same way; a swimmer pushing water backward with an arrow, and the water pushing the swimmer forward with an equal arrow -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"newton-laws","illustrationKey":"science/physics/dynamics#1","laws":[{"label":"first law","scene":"book motionless on table","relationship":"balanced forces"},{"label":"second law","scene":"hand pushing cart","relationship":"force arrow and acceleration arrow"},{"label":"third law","scene":"swimmer pushes water backward","relationship":"water pushes swimmer forward equally"}]} -->
 ### Newton's Laws
 
 **First law:** if the net force on an object is zero, its velocity does not change. A resting object stays at rest. A moving object keeps moving in a straight line at the same speed. The reverse also holds: if the velocity is constant, the net force is zero.
@@ -26,7 +28,7 @@ Newton's laws work in an **inertial reference frame**. This is a viewpoint that 
 
 $$\sum \vec F=m\vec a.$$
 
-Here $\sum \vec F$ is the net force in newtons, $m$ is the mass in kilograms ($\mathrm{kg}$), and $\vec a$ is the acceleration in $\mathrm{m/s^2}$. The acceleration points in the same direction as the net force.
+Here $\sum \vec F$ is the net force in newtons, $m$ is the mass in kilograms ($\mathrm{kg}$), and $\vec a$ is the acceleration in $\mathrm{m/s^2}$. Velocity tells how fast and in which direction an object moves. Acceleration is how fast the velocity changes (see the Kinematics lesson). The acceleration points in the same direction as the net force.
 
 Forces and acceleration are vectors, so write the law once for each axis: $\sum F_x=ma_x$ and $\sum F_y=ma_y$. Choose a positive direction on each axis and give a force a minus sign if it points the other way. The first law is the case $\vec a=0$.
 
@@ -40,9 +42,11 @@ To name a pair, say "A on B" and "B on A". The pair to "Earth pulls the book dow
 
 $$W=mg,$$
 
-where $g\approx 9.8\,\mathrm{m/s^2}$. Mass is the amount of matter and is the same everywhere. Weight is a force, so it changes if $g$ changes.
+where $g\approx 9.8\,\mathrm{m/s^2}$ is the acceleration of a falling object near Earth's surface when air resistance is ignored. Mass is the amount of matter and is the same everywhere. Weight is a force, so it changes if $g$ changes.
 
-**Normal force** $N$ is the push of a surface on an object that touches it. "Normal" means perpendicular: the force points straight away from the surface. A surface can push but cannot pull, so $N$ is never negative. If $N$ would have to be zero or less, the object has left the surface.
+**Normal force** $N$ is the push of a surface on an object that touches it. "Normal" means perpendicular: the force points straight away from the surface. A surface can push but cannot pull, so $N$ is never negative.
+
+If the force balance gives $N=0$, the object just touches the surface and is about to leave it. If the balance would need a negative $N$, the surface cannot supply it, so the object lifts off.
 
 The size of $N$ is not fixed by the weight. It adjusts so the object does not sink into the surface. You find it from the force balance, using the second law along the line perpendicular to the surface.
 
@@ -60,7 +64,7 @@ $$f_s\le\mu_sN$$
 
 $$f_{s,\max}=\mu_sN.$$
 
-If the push is smaller than the maximum, static friction equals the push and the object stays at rest. It is not always equal to $\mu_sN$.
+Suppose the only other force along the surface is a horizontal push, and it is smaller than the maximum. Then static friction equals the push and the object stays at rest. If other forces act along the surface, for example on a slope or with an angled push, find $f_s$ from the force balance along the surface. It must still be at most $\mu_sN$, and it is not always equal to $\mu_sN$.
 
 **Kinetic friction** acts while the surfaces slide. In the model,
 
@@ -82,7 +86,7 @@ To build one:
 3. Look at everything that touches the object: a surface gives a normal force and maybe friction, a rope gives tension, and a hand gives a push.
 4. Draw each arrow in its true direction and label it.
 5. Choose axes. On a slope, put one axis along the slope and one perpendicular to it.
-6. Split any arrow that is not along an axis into components.
+6. Split any arrow that is not along an axis into components, using $F\cos\theta$ and $F\sin\theta$ with $\theta$ measured from an axis.
 7. Write $\sum F=ma$ for each axis.
 
 Do not draw the forces that the chosen object exerts on other things. Do not draw $m\vec a$ as a force. It is the result of the forces, not one of them.
@@ -123,7 +127,7 @@ $$F_{\text{net}}=1500-900=600\,\mathrm N.$$
 
 $$a=\dfrac{600}{1200}=0.5\,\mathrm{m/s^2}.$$
 
-The resistive force is $900\,\mathrm N$ and the acceleration is $0.5\,\mathrm{m/s^2}$ forward. The car needed no net force to keep its velocity. The $900\,\mathrm N$ only cancelled the resistance.
+The resistive force is $900\,\mathrm N$ and the acceleration is $0.5\,\mathrm{m/s^2}$ forward. The car needed no net force to keep its velocity. The $900\,\mathrm N$ only canceled the resistance.
 
 ### #3: Mass and Weight
 
@@ -162,7 +166,7 @@ $$N+30-98=0\Rightarrow N=68\,\mathrm N.$$
 
 So $N$ equals the weight only in case (a). It is positive in case (c), so the box is still touching the table.
 
-<!-- ILLUSTRATION: three side-by-side free-body diagrams of a box on a level table: (a) N = 98 N up and W = 98 N down; (b) N = 128 N up, W = 98 N down, hand force 30 N down; (c) N = 68 N up, rope tension 30 N up, W = 98 N down -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "free-body", "forces": [{"label": "Normal Force (Fn)", "direction": "up"}, {"label": "Weight (Fg)", "direction": "down"}], "semanticsLabel": "A free body diagram of a box with an upward normal force arrow and an equal downward gravity arrow."} -->
 ### #5: Interaction Pair vs. Balanced Forces
 
 A book rests on a level table. Which forces on the book balance? What is the third-law partner of the table's push on the book?
@@ -316,7 +320,7 @@ The normal force and the weight on a resting book are equal and opposite, but th
 
 > In an inertial frame, constant velocity means the net force is zero, not that no force acts.
 
-A car at constant speed still has an engine force. That force is cancelled by drag and friction. If the opposing forces were absent, no force would be needed.
+A car at constant speed still has an engine force. That force is canceled by drag and friction. If the opposing forces were absent, no force would be needed.
 
 ### #3: Using $\mu_sN$ as the Friction Every Time
 

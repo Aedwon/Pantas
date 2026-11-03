@@ -17,7 +17,9 @@ You will use the **sine** of an angle. For angles from $0^\circ$ to $90^\circ$, 
 
 ### Reflection
 
-**Reflection** is light bouncing off a surface. The **normal** is an imaginary line at $90^\circ$ to the surface, drawn at the point where the ray lands. The **angle of incidence** $\theta_i$ is the angle between the incoming ray and the normal. The **angle of reflection** $\theta_r$ is the angle between the bounced ray and the normal.
+**Reflection** is light bouncing off a surface. The **normal** is an imaginary line at $90^\circ$ to the surface, drawn at the point where the ray lands.
+
+The **angle of incidence** $\theta_i$ is the angle between the incoming ray and the normal. The **angle of reflection** $\theta_r$ is the angle between the bounced ray and the normal.
 
 The **law of reflection** says the two angles are equal. The incoming ray, the reflected ray and the normal all lie in one flat plane.
 
@@ -49,7 +51,9 @@ Use Snell's law to find the direction:
 - If $n_2<n_1$, the light speeds up and bends **away from the normal**.
 - If $n_2=n_1$, or the ray travels along the normal ($\theta_1=0$), the direction does not change. The speed still changes if $n_2\ne n_1$.
 
-When light crosses a boundary, its frequency stays the same. The speed changes, so the wavelength changes too. Since $v=f\lambda$, the wavelength in a material is
+A wave has a **frequency** $f$, the number of wave crests that pass a point each second, measured in hertz (Hz). It also has a **wavelength** $\lambda$, the distance between two neighboring crests, measured in meters or nanometers (nm, where $1$ nm $=10^{-9}$ m). Wave speed, frequency and wavelength are linked by $v=f\lambda$, from the waves and sound lesson. Later, $f$ also stands for focal length, so check which one is meant.
+
+When light crosses a boundary, its frequency stays the same. The speed changes, so the wavelength changes too. In a material, the wavelength is
 
 $$\lambda=\dfrac{\lambda_0}{n}$$
 
@@ -97,7 +101,7 @@ For a glass or plastic lens in air, a convex lens is converging and a concave le
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"lens-comparison","illustrationKey":"science/physics/light-and-optics#2","convexBehavior":"parallel rays bend inward to one focus point","concaveBehavior":"parallel rays spread outward"} -->
 
-This rule depends on the lens being denser than its surroundings. A convex-shaped lens made of a material with a lower $n$ than the medium around it diverges light instead. An air bubble shaped like a convex lens inside water is one case.
+This rule depends on the lens having a larger $n$ than its surroundings. Here "denser" means optically denser (larger $n$), not heavier. A convex-shaped lens made of a material with a lower $n$ than the medium around it diverges light instead. An air bubble shaped like a convex lens inside water is one case.
 
 ### Finding the Image: Sign Convention and Equations
 
@@ -113,12 +117,14 @@ $$\dfrac{1}{f}=\dfrac{1}{d_o}+\dfrac{1}{d_i}$$
 
 $$m=\dfrac{h_i}{h_o}=-\dfrac{d_i}{d_o}$$
 
-The **magnification** $m$ tells the size and direction of the image. If $m$ is negative, the image is **inverted** (upside down). If $m$ is positive, it is **upright**. If $|m|>1$, the image is bigger than the object.
+The **magnification** $m$ tells the size and direction of the image. If $m$ is negative, the image is **inverted** (upside down).
+
+If $m$ is positive, it is **upright**. If $|m|>1$, the image is bigger than the object.
 
 You can also find an image by drawing two or three rays from the top of the object. For a converging device in air, these three rays work:
 
-- A ray parallel to the axis goes through $F$ after reflecting or refracting.
-- A ray that goes through $F$ comes out parallel to the axis.
+- A ray parallel to the axis goes through $F$ after reflecting. After a lens, it goes through the focal point on the far side.
+- A ray that goes through $F$ comes out parallel to the axis. For a lens, this is the focal point on the object's side. If the object is inside $f$, aim the ray along the line that would pass through that point.
 - For a mirror, a ray aimed at $C$ bounces straight back. For a thin lens, a ray through the center goes straight on.
 
 The image sits where the rays meet. For a virtual image, extend the rays backward to find where they seem to meet.
@@ -145,8 +151,8 @@ Simple instruments use the same image rules.
 - A **camera** uses a convex lens to put a real, inverted, smaller image of a faraway scene on a sensor or film.
 - A **projector** is the case where the slide is between $f$ and $2f$. It puts a real, inverted, larger image on a screen.
 - The **human eye** has a lens that puts a real, inverted image on the retina, the light-sensitive layer at the back. The brain turns it right way up.
-- A **microscope** has two convex lenses. The first (the objective) makes an enlarged real image of a tiny object. The second (the eyepiece) works as a magnifying glass on that image.
-- A **refracting telescope** also has two convex lenses. The objective makes a real image of a faraway object. The eyepiece magnifies that image.
+- A **compound microscope** has two convex lenses. The first (the objective) makes an enlarged real image of a tiny object. The second (the eyepiece) works as a magnifying glass on that image. A simple microscope is just one convex lens, like a magnifying glass.
+- A simple **refracting telescope** of the common (Keplerian) kind also has two convex lenses. The objective makes a real image of a faraway object. The eyepiece magnifies that image. Galileo's telescope used a concave eyepiece instead.
 
 Eyeglasses fix focus problems. In **myopia** (nearsightedness), distant objects focus in front of the retina, and a diverging (concave) lens moves the focus back. In **hyperopia** (farsightedness), near objects would focus behind the retina, and a converging (convex) lens brings it forward.
 
@@ -162,7 +168,9 @@ In vacuum, a higher frequency means a shorter wavelength. From longest wavelengt
 
 **radio → microwave → infrared → visible → ultraviolet → X-ray → gamma**
 
-Neighboring kinds overlap a little at their edges. Visible light covers roughly $400$ nm to $700$ nm. Red light has the longest wavelength in this range and violet the shortest. Frequency runs in the opposite order, from radio (lowest) to gamma (highest).
+Neighboring kinds overlap a little at their edges.
+
+Visible light covers roughly $400$ nm to $700$ nm. Red light has the longest wavelength in this range and violet the shortest. Frequency runs in the opposite order, from radio (lowest) to gamma (highest).
 
 ## Examples
 
@@ -268,7 +276,7 @@ $$\theta_c=\sin^{-1}(0.667)\approx41.8^\circ$$
 
 3. Compare: $45^\circ>41.8^\circ$. The light does not leave. It is totally reflected back into the glass at $45^\circ$ from the normal.
 
-At $30^\circ$, which is below $41.8^\circ$, most of the light would leave into air.
+At $30^\circ$, which is below $41.8^\circ$, the light would leave into air, with a small reflected part.
 
 ### #6: Explaining Refraction with a Straw in Water
 
@@ -358,12 +366,20 @@ The object is between $f$ and $2f$. The image is real, inverted and three times 
 
 $$\dfrac{1}{d_i}=\dfrac{1}{5}-\dfrac{1}{4}=-\dfrac{1}{20}$$
 
-2. So $d_i=-20$ cm and $m=-\dfrac{-20}{4}=+5$. The image is virtual, upright and five times larger, because the object is inside $f$.
+2. So $d_i=-20$ cm. Find the magnification:
+
+$$m=-\dfrac{-20}{4}=+5$$
+
+The image is virtual, upright and five times larger, because the object is inside $f$.
 3. For part (b), use the lens equation:
 
 $$\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$$
 
-4. So $d_i=-7.5$ cm and $m=-\dfrac{-7.5}{30}=+0.25$. The image is virtual, upright and one quarter the size.
+4. So $d_i=-7.5$ cm. Find the magnification:
+
+$$m=-\dfrac{-7.5}{30}=+0.25$$
+
+The image is virtual, upright and one quarter the size.
 
 ### #12: Ordering the Electromagnetic Spectrum
 
@@ -374,7 +390,7 @@ Arrange X-rays, radio waves, visible light, and gamma rays from longest to short
 **Solution:**
 
 1. Use the usual order of the spectrum: radio waves, then visible light, then X-rays, then gamma rays.
-2. Change $100$ MHz to hertz: $100\times10^{6}=1.00\times10^{8}$ Hz.
+2. Change $100$ MHz (megahertz, millions of hertz) to hertz: $100\times10^{6}=1.00\times10^{8}$ Hz.
 3. Use $c=f\lambda$ and solve for the wavelength:
 
 $$\lambda=\dfrac{c}{f}=\dfrac{3.00\times10^{8}}{1.00\times10^{8}}=3.00\text{ m}$$
@@ -413,7 +429,7 @@ A ray along the normal keeps its direction but still changes speed and wavelengt
 
 > Total internal reflection needs light going from larger $n$ to smaller $n$, and an angle above $\theta_c$.
 
-Light going from air into glass never has a critical angle. Light in glass at an angle below $\theta_c$ mostly leaves, with only a weak reflection.
+Light going from air into glass never has a critical angle. Light in glass at an angle below $\theta_c$ leaves into air, but part of it also reflects. The reflected part grows as the angle nears $\theta_c$.
 
 ### #4: Thinking the Frequency Changes in Refraction
 
@@ -425,7 +441,9 @@ A student may say the color changes because the wavelength changes in glass. The
 
 > The image from a concave mirror depends on where the object is.
 
-Beyond $f$, the image is real and inverted. Inside $f$, it is virtual, upright and larger. At $f$, no image forms. A convex mirror with a real object never makes a real or inverted image.
+Beyond $f$, the image is real and inverted.
+
+Inside $f$, it is virtual, upright and larger. At $f$, no image forms. A convex mirror with a real object never makes a real or inverted image.
 
 ### #6: Dropping the Signs
 
