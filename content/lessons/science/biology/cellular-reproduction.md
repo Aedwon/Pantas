@@ -11,11 +11,15 @@ isActive: true
 
 ### Chromosomes, Chromatids, and Sets
 
-A **eukaryotic cell** is a cell with a nucleus. The nucleus holds the cell's DNA. DNA is packaged into **chromosomes**, and each chromosome carries many **genes**. A gene is a stretch of DNA that carries instructions for a trait. Different versions of the same gene are called **alleles**.
+A **eukaryotic cell** is a cell with a nucleus. The nucleus holds the cell's DNA. DNA is packaged into **chromosomes**, and each chromosome carries many **genes**.
+
+A gene is a stretch of DNA that carries instructions for a trait. Different versions of the same gene are called **alleles**.
 
 In most animals, a body cell holds chromosomes in pairs. Each pair is a **homologous pair**. The two chromosomes in the pair are called **homologs**. One came from the mother and one from the father.
 
 Homologs carry the same genes in the same order. They are not copies of each other. At a given gene they may carry the same allele or different alleles.
+
+The sex chromosomes are the exception. In human males, X and Y pair up in meiosis, but they are not fully homologous. They share only a small matching region and carry mostly different genes.
 
 A cell with two of each kind of chromosome is **diploid**. We write this as $2n$. A cell with one of each kind is **haploid**, written $n$. In humans, $n = 23$ and $2n = 46$.
 
@@ -103,7 +107,9 @@ For a human germ cell, the numbers are:
 - After meiosis I: two cells, each with $23$ chromosomes and $46$ chromatids.
 - After meiosis II: four cells, each with $23$ chromosomes and $23$ chromatids.
 
-A typical meiosis gives four haploid cells. There are developmental exceptions. In human **oogenesis**, the making of egg cells, the cytoplasm divides very unequally. One large egg cell is formed, along with small cells called polar bodies. In human **spermatogenesis**, the making of sperm, one germ cell makes four sperm cells.
+A typical meiosis gives four haploid cells. There are developmental exceptions.
+
+In human **oogenesis**, the making of egg cells, the cytoplasm divides very unequally. One large egg cell is formed, along with one to three small cells called polar bodies. In human **spermatogenesis**, the making of sperm, one germ cell makes four sperm cells.
 
 ### How Meiosis Makes Variation
 
@@ -253,10 +259,10 @@ One human germ cell completes meiosis. How many functional gametes does it usual
 
 **Solution:**
 
-1. Meiosis divides the nucleus into four haploid nuclei.
+1. Meiosis divides the nucleus into haploid nuclei. In spermatogenesis there are four.
 2. In spermatogenesis, the cytoplasm divides equally. The result is $4$ sperm cells.
 3. In oogenesis, the cytoplasm divides very unequally. Most of it goes to one cell.
-4. The result is $1$ functional egg cell, plus small polar bodies.
+4. The result is $1$ functional egg cell, plus one to three small polar bodies.
 
 ## Speed Tricks & Shortcuts
 
@@ -276,7 +282,7 @@ To tell a metaphase, ask whether the chromosomes are in pairs. Pairs mean metaph
 
 > Meiosis usually makes four haploid cells, but gamete development can change the result.
 
-Human spermatogenesis makes four sperm cells. Oogenesis normally makes one functional egg and small polar bodies.
+Human spermatogenesis makes four sperm cells. Oogenesis normally makes one functional egg and one to three small polar bodies.
 
 ### #2: Calling Cytokinesis a Phase of Mitosis
 
