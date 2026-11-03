@@ -107,9 +107,13 @@ final routerProvider = Provider<GoRouter>((ref) {
   return router;
 });
 
-List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
+List<RouteBase> buildAppRoutes(
+  Ref ref, {
+  bool includeDebugGallery = true,
+  bool web = kIsWeb,
+}) {
   final home = homeRoutes(ref);
-  final study = studyRoutes(ref);
+  final study = studyRoutes(ref, web: web);
   final quiz = quizRoutes(ref);
   final settings = settingsRoutes(ref);
   final homeRoot = _tabRoot(home, '/home');
@@ -140,13 +144,22 @@ List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
     ...statesRoutes(ref),
     ...devRoutes(includeDebugGallery: includeDebugGallery),
   ];
-  if (!kIsWeb) return routes;
+  if (!web) return routes;
+  // A lesson sits above the web shell, not inside it. Inside, it could only
+  // cover the page beside the sidebar, so the shell had to drop the sidebar
+  // the moment a lesson opened and the page behind jumped wider. Above it, the
+  // lesson covers the whole window and the page and sidebar underneath stay
+  // exactly as they were. Native builds already work this way.
+  final lesson = routes
+      .whereType<GoRoute>()
+      .singleWhere((route) => route.path == lessonRoutePath);
   return [
     ShellRoute(
       builder: (context, state, child) =>
           WebRouteShell(path: state.uri.path, child: child),
-      routes: routes,
+      routes: routes.where((route) => route != lesson).toList(),
     ),
+    lesson,
   ];
 }
 
