@@ -197,3 +197,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: matter (2 Minors). Written: thermodynamics-and-kinetics. Periodic-table fixed after round 1.
 - Open after 3 reads: basic-organic-chemistry (round 3: parent-chain rule, ruled Major; see rulings). Written: earths-motions. Nuclear-chemistry fixed after round 1.
 - Done clean after round 3: gas-laws. Open after 3 reads: history-of-the-atom (round 3: 1 Blocker, gold-foil scattering cannot show the charge's sign).
+- Done at minor after round 2: mixtures-and-separation (2 Minors).
