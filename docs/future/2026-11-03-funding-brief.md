@@ -24,7 +24,7 @@ Evidence: **O** official page read; **S** official page, read through a search e
 |---|---|---|---|---|---|
 | Google for Startups Cloud | Rolling. No deadline stated | Credits: up to 100,000 USD in year 1 (250,000 USD for AI startups), plus 20% of year-2 spend. Equity not mentioned | Eligible now, likely. Needs a working MVP, a company domain and a Billing ID. Entity type and Philippine availability not stated | Low | O |
 | startup.gov.ph registration | Open. No deadline | Free listing; access to grants and investors. No equity | Eligible now. "Open to all Filipino tech-enabled startups." Required documents not seen | Very low | O |
-| QBO Innovation Hub | Rolling. No cohort date | Free mentorship, workshops, investor pitches, co-working. Equity not mentioned | Eligible after beta. Needs a working prototype or MVP; interview follows | Low | O |
+| QBO Innovation Hub | Rolling. No cohort date | Free mentorship, workshops, investor pitches, co-working. Equity not mentioned | Eligible now, probably. The For Startups page says stage agnostic and all free; the incubation program is for select startups. Interview reported | Low | O |
 | DOST-PCIEERD Startup Grant Fund | Closed 31 Jul 2026. No date published | Up to 5 million pesos, 18 months, R&D only. Grant | Eligible after BIR registration, plus about 1 year of filings (see note 1) | High | S |
 | DICT Startup Grant Fund | No date published for the next cohort | 500,000 to 1 million pesos, equity-free | Eligible after startup.gov.ph registration, probably. Rules unconfirmed | Medium | T |
 | Presidential Filipinnovation Awards (DEPDev) | Closed 15 Mar 2026. No date published | Cash grants; amounts not stated | Eligible after launch, probably. Needs a Filipino-owned entity "entering early-stage commercialization" | Medium | T |
@@ -64,7 +64,7 @@ Apply to Google first, on 16 November, once the beta shows a working product. Re
 
 ## Could not verify
 
-- Current SGF guidelines, the 2027 date, and the education-technology priority status (PCIEERD site blocked direct fetch).
+- Current SGF guidelines, the 2027 date, and the education-technology priority status. PCIEERD's site also stops at a security check in a browser. It was not bypassed, so these still rest on search excerpts until a person opens the page.
 - Startup.gov.ph registration requirements; DICT SGF current eligibility (third-party only).
 - Whether sole proprietors, or Philippine companies, qualify for Google, Microsoft, AWS or Anthropic credits.
 - TECHNiCOM 2026 deadline and funding cap; Microsoft tiers; OpenAI program.

@@ -37,3 +37,15 @@ Corrections made during lead review, before publishing:
 - The next-exam draft said Student products are live, which holds only for store products. They have no web price, and Civil Service does. The draft also missed the rewrite of 98 non-CSE UPCAT sets, the required lesson links, and the deferred finales. UPCAT stayed first, as a judgment, with these costs stated.
 - The next-exam draft's NAPOLCOM "about 80,000 seats" was replaced by the registrations it cites, about 89,000 including promotional takers.
 - The funding draft said "take no equity" where the pages only do not mention equity. It told Aedwon to start BIR registration, which is already pending. It missed Google's exclusions (educational institutions, consultancies, agencies) and its funding-stage wording, which may affect Pantas.
+
+## November 3, 2026: UPCAT with other CETs, and official sites
+
+Aedwon's exact comment: "upcat, and other CETs also? also official sites you can check in the browser here. you are the max account, and in claude app rn in macos"
+
+Result, as a recommendation only (he has not approved it):
+
+- The next-exam brief now recommends UPCAT, DCAT, USTET and ACET together. The four use 137 sets, and the 98 not shared with CSE are the same 98 UPCAT alone needs. The current cycle is too soon, so the target is the next one, from March 2027 by past pattern.
+- PUPCET and DOST-SEI stay in a second wave. PUP has no published schedule or format.
+- Aedwon's comment was taken as permission to read official pages in the built-in browser for this research, an exception to the computer-control rule in `WORKFLOW.md`, which is unchanged. UP, DLSU, UST, Ateneo, PUP, PSHS, CSC, PRC, QBO, Microsoft and startup.gov.ph were read. This resolved the ACET date conflict and gave official USTET and PSHS dates.
+- PCIEERD's security check was not bypassed. DOST's scholarship site showed no readable text. Those items stay marked as unverified.
+- On the account: this session's usage tool still reported "Pro" at 31% weekly after his comment. Aedwon says this is the Max account; the reason for the difference is unknown.
