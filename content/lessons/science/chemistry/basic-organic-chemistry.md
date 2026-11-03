@@ -13,7 +13,9 @@ isActive: true
 
 Not every carbon compound counts as organic. Carbon monoxide, carbon dioxide and carbonates are usually treated as inorganic. Pure carbon, such as diamond, is not a compound at all.
 
-Carbon forms four covalent bonds. It also bonds strongly to other carbon atoms. Think of each carbon as a building block with four connectors. The blocks join into chains, rings and branches.
+Carbon forms four covalent bonds. It also bonds strongly to other carbon atoms.
+
+Think of each carbon as a building block with four connectors. The blocks join into chains, rings and branches.
 
 <!-- ILLUSTRATION: a carbon atom drawn as a block with four connectors, then a straight chain, a branched chain and a six-carbon ring built from such blocks -->
 
@@ -41,7 +43,9 @@ Benzene, $C_6H_6$, is a hydrocarbon with a special ring of shared electrons. It 
 
 ### Functional Groups
 
-A **functional group** is a small group of atoms that gives a compound its typical reactions and its name ending. The letter $R$ stands for the rest of the molecule, a carbon group.
+A **functional group** is a small group of atoms that gives a compound its typical reactions. The letter $R$ stands for the rest of the molecule, a carbon group.
+
+Names treat groups in different ways. Some groups set a name ending, called a **suffix**, as listed below. Halogen groups such as $-Cl$ and $-Br$ appear only as a prefix, as in chloromethane. Ethers, $R-O-R$, take no suffix in common names, as in diethyl ether.
 
 - **Alcohol**: a **hydroxyl** group, $-OH$, on a carbon that has only single bonds. Written $R-OH$. Name ending: **-ol**.
 - **Carbonyl** group: a carbon double-bonded to oxygen, $C=O$. It appears in the next three families.
@@ -49,17 +53,23 @@ A **functional group** is a small group of atoms that gives a compound its typic
 - **Ketone**: the carbonyl carbon sits inside the chain. It is bonded to two carbon groups. Written $R-CO-R$. Name ending: **-one**.
 - **Carboxylic acid**: a carbonyl carbon that also carries an $-OH$ group. Written $R-COOH$. Name ending: **-oic acid**.
 - **Amine**: a compound derived from ammonia, $NH_3$, by replacing one or more hydrogens with carbon groups. A primary amine has $-NH_2$. Secondary and tertiary amines have $-NHR$ and $-NR_2$. Name ending: **-amine**.
-- **Ester**: the carbonyl carbon is bonded to an $-O-R$ group. It forms when a carboxylic acid joins an alcohol.
+- **Ester**: the carbonyl carbon is bonded to an $-O-R$ group. It forms when a carboxylic acid joins an alcohol. Name ending: **-oate**, as in ethyl ethanoate.
 
 <!-- ILLUSTRATION: five structures side by side with the functional group circled and labeled: CH3CH2OH (alcohol), CH3CH2CHO (aldehyde), CH3COCH3 (ketone), CH3COOH (carboxylic acid), CH3NH2 (amine) -->
+
+When a compound has more than one group, only the main one sets the suffix. The others are named as prefixes, such as hydroxy- for $-OH$ and amino- for $-NH_2$.
 
 An aldehyde and a ketone with the same atoms are different compounds. $C_3H_6O$ can be propanal, $CH_3CH_2CHO$, with the $C=O$ at the chain end. It can also be propanone, $CH_3COCH_3$, with the $C=O$ in the middle. Compounds with the same formula and a different arrangement are called **isomers**.
 
 ### How Groups Change Properties
 
-A bond is **polar** when the electrons are shared unevenly. The $O-H$ bond is polar. It lets an $-OH$ group form **hydrogen bonds** with neighboring molecules. A hydrogen bond is an attraction between a hydrogen attached to oxygen, nitrogen or fluorine and an oxygen, nitrogen or fluorine atom on another molecule. Alcohols, water and $HF$ all show it.
+A bond is **polar** when the electrons are shared unevenly. The $O-H$ bond is polar. It lets an $-OH$ group form **hydrogen bonds** with neighboring molecules.
+
+A hydrogen bond is an attraction between a hydrogen attached to oxygen, nitrogen or fluorine and an oxygen, nitrogen or fluorine atom on another molecule. Alcohols, water and $HF$ all show it.
 
 Hydrogen bonds hold molecules together. More energy is then needed to boil the liquid, so the **boiling point** rises. Groups that form hydrogen bonds with water also help a compound dissolve in water.
+
+A carboxylic acid group has an $O-H$ and also a polar $C=O$ oxygen. Two acid molecules can pair up through two hydrogen bonds. So an acid usually holds together more strongly than an alcohol of similar size.
 
 Size also matters. A long carbon chain behaves like a hydrocarbon and mixes poorly with water. The same $-OH$ group gives good water solubility to a small alcohol and much less to a large one.
 
@@ -88,7 +98,7 @@ For a simple branched alkane, follow these steps:
 
 The name is written as locants, then branches, then the parent: $2$-methylbutane.
 
-When a compound has a double bond, a triple bond or a main functional group, the parent must contain it. Number the chain from the end that gives the group or bond the lowest number. The longest chain is not always the parent. For example, the group $-OH$ makes an alcohol, and the parent must contain the carbon that holds it.
+When a compound has a double bond, a triple bond or a main functional group, the parent must contain it. Halogen groups are the exception: they are only prefixes, so the parent need not contain them. Number the chain from the end that gives the group or bond the lowest number. The longest chain is not always the parent. For example, the group $-OH$ makes an alcohol, and the parent must contain the carbon that holds it.
 
 <!-- ILLUSTRATION: the carbon skeleton of CH3-CH(CH3)-CH2-CH3 with the four-carbon chain highlighted, numbered 1 to 4 from the left, and the methyl branch on carbon 2 labeled -->
 
@@ -193,7 +203,7 @@ Ethane is $CH_3CH_3$, ethanol is $CH_3CH_2OH$, and ethanoic acid is $CH_3COOH$. 
 
 1. Ethane has only nonpolar $C-C$ and $C-H$ bonds. It cannot form hydrogen bonds, so it boils at a very low temperature.
 2. Ethanol has an $-OH$ group. Its molecules form hydrogen bonds, so more energy is needed to separate them.
-3. Ethanoic acid has $-COOH$, which gives stronger attraction between molecules. It has the highest boiling point.
+3. Ethanoic acid has $-COOH$, with both an $O-H$ and a polar $C=O$. Two molecules pair up through two hydrogen bonds, which is stronger attraction than ethanol's. It has the highest boiling point.
 
 The three molecules have a similar size. The functional group causes the difference.
 
@@ -265,7 +275,9 @@ For a formula, test $C_nH_{2n+2}$ first. A match for an acyclic hydrocarbon mean
 
 To name an alkane, circle the longest chain first. Then number from the end nearest a branch. Use the carbon roots meth- to dec- and the endings -ane, -ene, -yne.
 
-First check the $C=O$ carbon for an $-OH$ or an $-O-R$. If it has one, the compound is a carboxylic acid or an ester, not an aldehyde or ketone. Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. If it has neither, a hydrogen on the carbon means an aldehyde, and two carbon groups mean a ketone.
+First check the $C=O$ carbon for an $-OH$ or an $-O-R$. If it has one, the compound is a carboxylic acid or an ester, not an aldehyde or ketone.
+
+Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. If the carbon has neither group, a hydrogen on it means an aldehyde, and two carbon groups mean a ketone.
 
 ## Traps to Watch For
 
@@ -291,7 +303,7 @@ All amines have nitrogen bonded to carbon groups, as in ammonia with some hydrog
 
 > Longest chain is the rule for simple alkanes. It does not decide the parent when a main group is present.
 
-If a double bond, triple bond or functional group is present, the parent must contain it. A longer chain that leaves it out is the wrong parent.
+If a double bond, triple bond or functional group is present, the parent must contain it. A longer chain that leaves it out is the wrong parent. A halogen is the exception: it is only a prefix.
 
 ### #5: Numbering from the Wrong End
 
