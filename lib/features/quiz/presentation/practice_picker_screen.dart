@@ -19,6 +19,7 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -678,79 +679,90 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   },
                 ),
                 const SizedBox(height: 16),
-                Text(
-                  _mode == PracticeUnitMode.questions
-                      ? 'You set the questions. Time follows.'
-                      : 'You set the time. Questions follow.',
-                  style: t.sm,
-                ),
-                const SizedBox(height: 16),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: t.colors.background,
-                    borderRadius: BorderRadius.circular(11),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(3),
-                    child: Row(
-                      children: [
-                        for (final value in (<int>{
-                          ...(_mode == PracticeUnitMode.questions
-                              ? const [3, 4, 5, 6, 8, 10, 15, 20, 30, 50]
-                              : const [5, 10, 15, 20, 30, 45, 60]),
-                          // Keep saved phone values visible.
-                          _value,
-                        }.toList()
-                          ..sort()))
-                          Expanded(
-                            child: SizedBox(
-                              height: 34,
-                              child: TextButton(
-                                onPressed: _invalid(summary.unitCount, pace)
-                                        .contains(_values.indexOf(value))
-                                    ? null
-                                    : () => _change(() {
-                                          _value = value;
-                                          _adjustments = {};
-                                        }),
-                                style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  minimumSize: Size.zero,
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  backgroundColor: _value == value
-                                      ? t.colors.accentFill
-                                      : Colors.transparent,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(9),
+                ViewSwap(
+                  index: _mode.index,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        _mode == PracticeUnitMode.questions
+                            ? 'You set the questions. Time follows.'
+                            : 'You set the time. Questions follow.',
+                        style: t.sm,
+                      ),
+                      const SizedBox(height: 16),
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: t.colors.background,
+                          borderRadius: BorderRadius.circular(11),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(3),
+                          child: Row(
+                            children: [
+                              for (final value in (<int>{
+                                ...(_mode == PracticeUnitMode.questions
+                                    ? const [3, 4, 5, 6, 8, 10, 15, 20, 30, 50]
+                                    : const [5, 10, 15, 20, 30, 45, 60]),
+                                // Keep saved phone values visible.
+                                _value,
+                              }.toList()
+                                ..sort()))
+                                Expanded(
+                                  child: SizedBox(
+                                    height: 34,
+                                    child: TextButton(
+                                      onPressed: _invalid(
+                                        summary.unitCount,
+                                        pace,
+                                      ).contains(_values.indexOf(value))
+                                          ? null
+                                          : () => _change(() {
+                                                _value = value;
+                                                _adjustments = {};
+                                              }),
+                                      style: TextButton.styleFrom(
+                                        padding: EdgeInsets.zero,
+                                        minimumSize: Size.zero,
+                                        tapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        backgroundColor: _value == value
+                                            ? t.colors.accentFill
+                                            : Colors.transparent,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(9),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        '$value',
+                                        style: t
+                                            .style(
+                                              15,
+                                              weight: FontWeight.w600,
+                                              color: _value == value
+                                                  ? Colors.white
+                                                  : t.colors.secondaryLabel,
+                                            )
+                                            .copyWith(
+                                              decoration: _invalid(
+                                                summary.unitCount,
+                                                pace,
+                                              ).contains(
+                                                _values.indexOf(value),
+                                              )
+                                                  ? TextDecoration.lineThrough
+                                                  : null,
+                                            ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                child: Text(
-                                  '$value',
-                                  style: t
-                                      .style(
-                                        15,
-                                        weight: FontWeight.w600,
-                                        color: _value == value
-                                            ? Colors.white
-                                            : t.colors.secondaryLabel,
-                                      )
-                                      .copyWith(
-                                        decoration: _invalid(
-                                          summary.unitCount,
-                                          pace,
-                                        ).contains(
-                                          _values.indexOf(value),
-                                        )
-                                            ? TextDecoration.lineThrough
-                                            : null,
-                                      ),
-                                ),
-                              ),
-                            ),
+                            ],
                           ),
-                      ],
-                    ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -1240,26 +1252,33 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             },
           ),
           const SizedBox(height: 8),
-          ValueWheel.horizontal(
-            key: ValueKey(_mode),
-            values: [for (final n in _values) '$n'],
-            selectedIndex: _values.indexOf(_value),
-            invalidIndices: _invalid(summary.unitCount, pace),
-            label: _mode == PracticeUnitMode.questions
-                ? 'Questions per lesson'
-                : 'Total minutes',
-            onSelected: (i) => _change(() {
-              _value = _values[i];
-              _adjustments = {};
-            }),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            _mode == PracticeUnitMode.questions
-                ? 'You set the questions. Time follows.'
-                : 'You set the time. Questions follow.',
-            textAlign: TextAlign.center,
-            style: context.type.footnote,
+          ViewSwap(
+            index: _mode.index,
+            child: Column(
+              children: [
+                ValueWheel.horizontal(
+                  key: ValueKey(_mode),
+                  values: [for (final n in _values) '$n'],
+                  selectedIndex: _values.indexOf(_value),
+                  invalidIndices: _invalid(summary.unitCount, pace),
+                  label: _mode == PracticeUnitMode.questions
+                      ? 'Questions per lesson'
+                      : 'Total minutes',
+                  onSelected: (i) => _change(() {
+                    _value = _values[i];
+                    _adjustments = {};
+                  }),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  _mode == PracticeUnitMode.questions
+                      ? 'You set the questions. Time follows.'
+                      : 'You set the time. Questions follow.',
+                  textAlign: TextAlign.center,
+                  style: context.type.footnote,
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 14),
           Divider(height: .5, thickness: .5, color: context.colors.separator),

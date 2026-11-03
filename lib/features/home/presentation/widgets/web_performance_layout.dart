@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -179,60 +180,71 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                             },
                           ),
                           const SizedBox(height: 16),
-                          if (!gated) ...[
-                            WebText(
-                              heading,
-                              kind: WebTextKind.eyebrow,
-                            ),
-                            WebCard(
+                          if (!gated)
+                            ViewSwap(
+                              index: widget.level,
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  for (final row in widget.rows) ...[
-                                    _row(
-                                      context,
-                                      row,
-                                      subtitle: widget.level == 0
-                                          ? _topicCount(row.id)
-                                          : row.subtext,
-                                      expanded: widget.level == 0 &&
-                                          _expanded.contains(row.id),
-                                      onPressed: () {
-                                        if (widget.level == 0 && widget.pro) {
-                                          setState(
-                                            () => _expanded.contains(row.id)
-                                                ? _expanded.remove(row.id)
-                                                : _expanded.add(row.id),
-                                          );
-                                        } else if (widget.level == 0) {
-                                          widget.onLevel(1);
-                                        } else if (widget.level == 1) {
-                                          widget.onTopic(row.id);
-                                        } else {
-                                          widget.onLesson?.call(row.id);
-                                        }
-                                      },
-                                    ),
-                                    if (widget.level == 0 &&
-                                        _expanded.contains(row.id))
-                                      for (final topic in _topicsFor(row.id))
-                                        ColoredBox(
-                                          color: t.dark
-                                              ? t.rowHover
-                                              : const Color(0xFFFBFBFC),
-                                          child: _row(
+                                  WebText(
+                                    heading,
+                                    kind: WebTextKind.eyebrow,
+                                  ),
+                                  WebCard(
+                                    child: Column(
+                                      children: [
+                                        for (final row in widget.rows) ...[
+                                          _row(
                                             context,
-                                            topic,
-                                            indent: true,
-                                            onPressed: () => widget.onTopic(
-                                              topic.id,
-                                            ),
+                                            row,
+                                            subtitle: widget.level == 0
+                                                ? _topicCount(row.id)
+                                                : row.subtext,
+                                            expanded: widget.level == 0 &&
+                                                _expanded.contains(row.id),
+                                            onPressed: () {
+                                              if (widget.level == 0 &&
+                                                  widget.pro) {
+                                                setState(
+                                                  () => _expanded
+                                                          .contains(row.id)
+                                                      ? _expanded.remove(row.id)
+                                                      : _expanded.add(row.id),
+                                                );
+                                              } else if (widget.level == 0) {
+                                                widget.onLevel(1);
+                                              } else if (widget.level == 1) {
+                                                widget.onTopic(row.id);
+                                              } else {
+                                                widget.onLesson?.call(row.id);
+                                              }
+                                            },
                                           ),
-                                        ),
-                                  ],
+                                          if (widget.level == 0 &&
+                                              _expanded.contains(row.id))
+                                            for (final topic
+                                                in _topicsFor(row.id))
+                                              ColoredBox(
+                                                color: t.dark
+                                                    ? t.rowHover
+                                                    : const Color(0xFFFBFBFC),
+                                                child: _row(
+                                                  context,
+                                                  topic,
+                                                  indent: true,
+                                                  onPressed: () =>
+                                                      widget.onTopic(
+                                                    topic.id,
+                                                  ),
+                                                ),
+                                              ),
+                                        ],
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
-                          ],
                           if (!widget.pro) ...[
                             const SizedBox(height: 20),
                             WebCard(
