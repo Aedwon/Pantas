@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-biology-human-anatomy-physiology",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Its cells are **neurons**, which carry electrical signals.",
+      "problem": "This general statement says the nervous system's cells are neurons. A known exception breaks it: nervous tissue also has glial cells (neuroglia), which support and protect neurons. A student who learns this sentence will answer that the nervous system is made only of neurons and will miss a question on neuroglia. The base did not make this claim. Stating that neurons are the signaling cells would be correct.",
+      "source": "OpenStax Anatomy and Physiology 2e, 12.2 Nervous Tissue: 'Nervous tissue is composed of two types of cells, neurons and glial cells.' Reader rules, Sol audit addition (test every general statement)."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "releases hormones that control the thyroid, the adrenal glands, and the gonads",
+      "problem": "The term 'gonads' is used here, in Example #9 and in Speed Tricks, but the lesson never says that the gonads are the testes and ovaries. The Reproductive System section names the testes and ovaries without linking them to this word. A student who does not know the term cannot tell which organs the pituitary controls, cannot connect this to 'The pituitary hormones FSH and LH act on the ovary', and cannot check the Speed Tricks claim that the gonads serve more than one system. The same Speed Tricks line also names the thymus, which the lesson never teaches. The base had the same gap; round 1 did not report it.",
+      "source": "Checklist L25; LSG Teaching completeness; brief, endocrine regulation and reproductive hormonal pathway (ustet-L115, dost-sei-L108, official curriculum)."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Gas exchange** happens by **diffusion**, the movement of a substance from where it is more concentrated to where it is less concentrated.",
+      "problem": "Still open from round 1. This paragraph has five sentences, over the limit of one to three. Other Core Concept paragraphs also have four or five sentences, for example the accessory organs, arteries and veins, blood glucose, skeleton, nephron and systems-together paragraphs. Note, not a request: the checker counts 3,525 words, so the lesson remains a split candidate as logged in final-run-rulings.md. I found no padding. No split is asked for. Round-1 status: all six Blockers (somatic control, systemic arteries, one oocyte each cycle, three accessory organs, potassium, vena cavae) and the L25 Major (positive feedback) are fixed.",
+      "source": "Checklist L22a; LSG Formatting rules; reader rules, Length and splits."
+    }
+  ],
+  "goodQuotesChecked": 3
+}
