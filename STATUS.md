@@ -180,3 +180,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: genetics-and-heredity (1 Minor). Round reads: botany r1 (1 Blocker, 1 Major), pulleys-and-levers r2 (2 Blockers); fixes running.
 - Open after 3 reads: electricity-and-magnetism (round 3: 1 Major, electrical safety untaught and unworked). Botany fixed after round 1.
 - Open after 3 reads: chemical-bonding (round 3: 1 Blocker, boron octet trap too broad; 1 Major, formal charge meaning). Characteristics-of-life fixed after round 1; taxonomy and atomic-structure written.
+- Open after 3 reads: triangles (round 3: 1 Blocker, 'square and subtract' shortcut gives a wrong hypotenuse). Round 1 reads: cellular-metabolism (2 Blockers), evolution (4 Blockers), all false absolutes.

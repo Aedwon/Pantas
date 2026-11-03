@@ -63,7 +63,7 @@
     "lessonPath": "content/lessons/mathematics/geometry/triangles.md",
     "lessonId": "lesson-geometry-triangles",
     "group": "mathematics",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/circles.md",
@@ -99,7 +99,7 @@
     "lessonPath": "content/lessons/science/biology/cellular-metabolism.md",
     "lessonId": "lesson-biology-cellular-metabolism",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/biology/cellular-reproduction.md",
@@ -117,7 +117,7 @@
     "lessonPath": "content/lessons/science/biology/evolution.md",
     "lessonId": "lesson-biology-evolution",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/biology/human-anatomy-physiology.md",

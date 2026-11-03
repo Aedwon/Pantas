@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-geometry-triangles",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A triple only helps when the sides match it exactly. Otherwise, square and subtract.", "problem": "The fallback rule breaks when the missing side is the hypotenuse. This paragraph follows the general advice 'Scan for Pythagorean triples before squaring', so 'Otherwise' covers every right triangle whose sides fit no triple. For legs $5$ and $7$ the hypotenuse is $\\sqrt{25 + 49} = \\sqrt{74}$, but 'square and subtract' gives $\\sqrt{49 - 25} = \\sqrt{24}$. Subtracting is right only when the missing side is a leg. A student who uses this shortcut as written gets a wrong hypotenuse.", "source": "Checklist B01 (also L27, a shortcut stated without its limit); reader rules, Added after the Sol audit (test each stated rule against a known exception, record a Blocker when one breaks it); writer rules after round 1, rule 4; the lesson's own Core Concept, $a^2 + b^2 = c^2$"},
+    {"rule": "L22a", "severity": "Minor", "quote": "In any triangle, equal sides sit across from equal angles.", "problem": "This paragraph has four sentences, over the limit of three. The proof paragraph that starts 'Now check the corners of the middle shape.' and the Example 8 solution paragraph that starts 'The sun's rays make similar triangles.' also have four. Round 2's L22a finding is partly fixed: the paragraphs it named first are now within the limit.", "source": "Checklist L22a; lesson style guide, Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}
