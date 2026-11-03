@@ -3,83 +3,83 @@
   "base": "7032eec5b8fbdac51cef7e7b6dc7272d0e965f9a",
   "models": {
     "sonnet": "Sonnet 5.5",
-    "fable": "Fable 5.1"
+    "opus": "Opus 5.5"
   },
   "lessons": [
     {
       "lesson": "science/chemistry/stoichiometry",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/chemistry/chemical-bonding",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/chemistry/acids-bases-ph",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/physics/kinematics",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/physics/electricity-and-magnetism",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/physics/work-energy-power",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/earth-science-astronomy/plate-tectonics",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/earth-science-astronomy/eclipses-and-moon-phases",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/biology/genetics-and-heredity",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "science/biology/cell-biology",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "mathematics/geometry/triangles",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "mathematics/geometry/circles",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "mathematics/algebra/quadratic-equations",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "reasoning/mechanical-technical-reasoning/pulleys-and-levers",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     },
     {
       "lesson": "reading-comprehension/text-types/short-stories-and-novels",
       "writer": "sonnet",
-      "reader": "fable"
+      "reader": "opus"
     }
   ]
 }

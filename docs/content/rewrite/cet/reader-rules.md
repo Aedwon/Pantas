@@ -47,7 +47,7 @@ exactly this shape and nothing else in the file:
 {
   "lesson": "lesson-chemistry-stoichiometry",
   "round": 1,
-  "reader": "fable",
+  "reader": "opus",
   "verdict": "clean",
   "findings": [
     {"rule": "B01", "severity": "Major", "quote": "text copied exactly from the lesson", "problem": "what is wrong and why", "source": "the official source or the checklist row that decides it"}
@@ -56,7 +56,7 @@ exactly this shape and nothing else in the file:
 }
 ```
 
-- `lesson` is the frontmatter `_id`. `round` is an integer. `reader` is `fable`, or `sol` in the final run.
+- `lesson` is the frontmatter `_id`. `round` is an integer. `reader` is `opus`, or `sol` in the final run.
 - `verdict` is one of `clean`, `minor`, `major`, `blocker`. It is the highest severity among the findings: `clean` when
   there are none, `minor` when the worst is Minor, `major` when the worst is Major, `blocker` when any is a Blocker.
 - Every finding quotes the lesson exactly: at least 8 characters, copied character for character from the lesson, with no
