@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -98,7 +99,10 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
 
     void back() {
       if (_viewerIndex == null) {
-        Navigator.maybePop(context);
+        leavePage(
+          context,
+          fallback: '/mock/results/${widget.attemptId}',
+        );
       } else {
         setState(() {
           _viewerIndex = null;

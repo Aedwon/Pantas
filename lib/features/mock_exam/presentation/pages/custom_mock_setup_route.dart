@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
@@ -118,7 +119,11 @@ class CustomMockSetupRoute extends ConsumerWidget {
 
     return CustomMockSetupPage(
       data: data,
-      onBack: () => context.pop(),
+      onBack: () => leavePage(
+        context,
+        fallback: '/quiz',
+        respectPopScope: false,
+      ),
       onTickMoreSubjects: () => context.push('/settings/exam/included'),
       onSave: (blueprint) async {
         await ref.read(customBlueprintRepositoryProvider).save(
@@ -129,7 +134,9 @@ class CustomMockSetupRoute extends ConsumerWidget {
               },
               now: DateTime.now(),
             );
-        if (context.mounted) context.pop();
+        if (context.mounted) {
+          leavePage(context, fallback: '/quiz', respectPopScope: false);
+        }
       },
     );
   }

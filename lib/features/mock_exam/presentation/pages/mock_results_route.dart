@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
@@ -123,8 +125,26 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
       data: (entry) {
         if (entry == null) {
           _interruptFinale();
-          return const Scaffold(
-            body: Center(child: Text('Results not available')),
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Results not available'),
+                  const SizedBox(height: 16),
+                  PantasButton(
+                    label: 'Back',
+                    variant: PantasButtonVariant.tertiary,
+                    fullWidth: false,
+                    onPressed: () => leavePage(
+                      context,
+                      fallback: '/quiz',
+                      respectPopScope: false,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           );
         }
         final attempt = entry.attempt;
@@ -139,7 +159,11 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
               proPaused: paused,
               fromRecord: fromRecord,
               forfeitedPart: endedPart,
-              onDone: () => context.pop(),
+              onDone: () => leavePage(
+                context,
+                fallback: '/quiz',
+                respectPopScope: false,
+              ),
               onFullRecord: fromRecord && context.wideWeb
                   ? () =>
                       context.canPop() ? context.pop() : context.go('/record')

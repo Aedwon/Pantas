@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -80,7 +81,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                       alignment: Alignment.centerLeft,
                       child: GestureDetector(
                         behavior: HitTestBehavior.opaque,
-                        onTap: () => Navigator.maybePop(context),
+                        onTap: () => leavePage(context, fallback: '/quiz'),
                         child: Semantics(
                           button: true,
                           label: 'Quiz',
@@ -429,7 +430,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                 child: Transform.translate(
                   offset: const Offset(-6, 0),
                   child: TextButton.icon(
-                    onPressed: () => Navigator.maybePop(context),
+                    onPressed: () => leavePage(context, fallback: '/quiz'),
                     style: TextButton.styleFrom(
                       minimumSize: const Size(0, 40),
                       padding: EdgeInsets.zero,
