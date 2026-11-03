@@ -9,7 +9,9 @@ isActive: true
 ---
 ## Core Concept
 
-Physics describes the world with numbers attached to units. A **quantity** is something you can measure, such as length, mass, or time. A **unit** is the standard amount you count it in. Saying a rope is "$5$ long" tells you nothing until you know if that means $5$ meters or $5$ centimeters.
+Physics describes the world with numbers attached to units.
+
+A **quantity** is something you can measure, such as length, mass, or time. A **unit** is the standard amount you count it in. Saying a rope is "$5$ long" tells you nothing until you know if that means $5$ meters or $5$ centimeters.
 
 ### The Seven SI Base Units
 
@@ -23,11 +25,15 @@ Scientists worldwide use the **International System of Units (SI)**. It is built
 - **Amount of substance**: mole ($\text{mol}$)
 - **Luminous intensity** (how bright a light source looks): candela ($\text{cd}$)
 
-Every other SI unit is a **derived unit**: a combination of base units. Speed is length per time, so its unit is $\text{m/s}$. Some derived units have their own names. Some other units, such as the hour and the liter, are not SI units but are still used with SI.
+Every other SI unit is a **derived unit**: a combination of base units. Speed is length per time, so its unit is $\text{m/s}$.
+
+Some derived units have their own names. Some other units, such as the hour and the liter, are not SI units but are still used with SI.
 
 Two terms are needed before we build more units.
 
-**Velocity** is how fast something moves, with a direction. **Acceleration** is how fast velocity changes, so it is a change in velocity per unit time. **Force** is a push or pull. Newton's second law says force equals mass times acceleration:
+**Velocity** is how fast something moves, with a direction. **Acceleration** is how fast velocity changes, so it is a change in velocity per unit time.
+
+**Force** is a push or pull. Newton's second law says force equals mass times acceleration:
 
 $$F = ma$$
 
@@ -35,7 +41,9 @@ The unit of force is the **newton** ($\text{N}$), defined as $1\ \text{N} = 1\ \
 
 ### Prefixes and Scientific Notation
 
-A **prefix** goes in front of a unit and multiplies it by a power of $10$. A **power of $10$** such as $10^3$ means $10 \times 10 \times 10 = 1000$. A negative power such as $10^{-2}$ means $\dfrac{1}{10^2} = 0.01$. **Scientific notation** writes a number as $a \times 10^n$, where $a$ is at least $1$ and less than $10$, and $n$ is a whole number. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
+A **prefix** goes in front of a unit and multiplies it by a power of $10$. A **power of $10$** such as $10^3$ means $10 \times 10 \times 10 = 1000$. A negative power such as $10^{-2}$ means $\dfrac{1}{10^2} = 0.01$.
+
+**Scientific notation** writes a number as $a \times 10^n$, where $a$ is at least $1$ and less than $10$, and $n$ is an integer, such as $3$, $0$ or $-6$. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
 
 - giga ($\text{G}$): $10^9$
 - mega ($\text{M}$): $10^6$
@@ -57,7 +65,9 @@ A temperature change is the same size on both scales: a rise of $5\ ^\circ\text{
 
 ### Dimensional Analysis: Converting Units
 
-**Dimensional analysis** is a method for converting between units by multiplying by **conversion factors**. A conversion factor is a fraction equal to $1$, built from two equal amounts. For example, $1\ \text{m} = 100\ \text{cm}$ gives $\dfrac{1\ \text{m}}{100\ \text{cm}}$. Multiplying by it changes the units, not the actual size of the quantity.
+**Dimensional analysis** is a method for converting between units by multiplying by **conversion factors**. A conversion factor is a fraction equal to $1$, built from two equal amounts. For example, $1\ \text{m} = 100\ \text{cm}$ gives $\dfrac{1\ \text{m}}{100\ \text{cm}}$.
+
+Multiplying by it changes the units, not the actual size of the quantity.
 
 Arrange each factor so the unwanted unit appears once on top and once on the bottom. It then cancels, and only the wanted unit is left.
 
@@ -118,7 +128,9 @@ The **percent uncertainty** compares the uncertainty with the reading:
 
 $$\text{percent uncertainty} = \dfrac{\text{uncertainty}}{\text{measured value}} \times 100\%$$
 
-**Accuracy** and **precision** are different. A measurement is **accurate** when it is close to the true value. A set of repeated measurements is **precise** when the readings are close to each other. A set can be precise but not accurate, if a scale is set wrong and gives the same wrong reading each time.
+**Accuracy** and **precision** are different. A measurement is **accurate** when it is close to the true value.
+
+A set of repeated measurements is **precise** when the readings are close to each other. A set can be precise but not accurate, if a scale is set wrong and gives the same wrong reading each time.
 
 <!-- ILLUSTRATION: two targets. Left target: three dots tightly grouped far from the center, labeled "precise, not accurate". Right target: three dots spread around the center, labeled "accurate on average, not precise" -->
 

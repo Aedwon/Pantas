@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-algebra-functions-and-relations",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "If the domain has no end on one side, a line's range has no end on that side.", "problem": "Read as written, the rule is false for a falling line. For f(x)=-2x+1 on x>=0 the domain has no end on the right (large) side, but the range is (-infinity,1]: it has the end 1 on the large side and no end on the small side. A student applying the rule would write [1,infinity). It also fails for a horizontal line, which this sentence does not exclude: y=3 on x>=0 has range {3}, with an end on both sides. Every worked line in the lesson rises (Example 3, the 2x+1 case), so nothing corrects the misreading. The true statement is that an endless side of the domain gives an endless side of the range, which is the same side only when the line rises.", "source": "reader-rules.md, Added after the Sol audit (test each stated rule against a known exception); content-checklist B01, L27; standard algebra (a linear function with negative slope is decreasing)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The symbol $\\infty$ always gets a round bracket.", "problem": "Still open from round 2. This interval paragraph has four sentences, over the one-to-three limit. Others also run over: the range paragraph starting \"To find the range from a rule\" (four), the parabola paragraph starting \"A parabola can give the same output twice\" (four), the branch paragraph starting \"If $f$ is not one-to-one\" (five), the range shortcut (four) and Trap 5 (four).", "source": "lesson-style-guide, Formatting rules; content-checklist L22a"},
+    {"rule": "B08", "severity": "Minor", "quote": "Step 3 can then give two branches", "problem": "The number 3 in this cross-reference is a bare digit in prose. The style guide says every number in prose goes inside inline math. The round-2 cases (Example 9, Example 6) are fixed; this one remains.", "source": "lesson-style-guide, Math notation; content-checklist B08"}
+  ],
+  "goodQuotesChecked": 3
+}

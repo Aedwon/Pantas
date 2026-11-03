@@ -225,3 +225,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Resumed locally November 4. Fixed after round 1: functions-and-relations (range ends, turning point), radicals-and-rationalization (shortcut, two-radical equations). Light-and-optics and dynamics round 3 reads running.
 - Open after 3 reads: light-and-optics (600 nm called red), dynamics (equal-acceleration rule fails for a movable pulley). Functions-and-relations round 2: 1 Blocker (range bracket rule); fix running.
 - Round 2 reads: two-dimensional-motion (1 Blocker: every ideal path a parabola; 1 Major), units-and-measurements (1 Blocker: exponent called a whole number); fixes running. Functions fixed after round 2.
+- Open after 3 reads: functions-and-relations (unbounded-domain rule fails for a falling line). Fixed after round 2: two-dimensional-motion, units-and-measurements; their round 3 reads and the waves-and-sound round 2 read are running.

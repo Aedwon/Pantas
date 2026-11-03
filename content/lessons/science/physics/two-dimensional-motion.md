@@ -43,7 +43,7 @@ In the ideal model, three things follow:
 
 - The horizontal velocity stays constant. With air resistance it would slowly drop.
 - The vertical motion is the same as free fall. The time to fall does not depend on the horizontal speed. A ball rolled off a table and a ball dropped from the same height land at the same time.
-- Removing $t$ from the two position equations gives a **parabola**. With air resistance, the real path is not a parabola.
+- Removing $t$ from the two position equations gives a **parabola**, when $v_{x0}\ne0$. If $v_{x0}=0$, such as a ball dropped or thrown straight up, the path is a vertical straight line. With air resistance, the real path is not a parabola.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "projectile-motion", "path": "parabola", "velocityVectors": true, "semanticsLabel": "A parabolic projectile path showing constant horizontal velocity arrows and vertical velocity shrinking at the peak."} -->
 
@@ -83,9 +83,13 @@ $$F_{\text{net, inward}}=ma_c=\dfrac{mv^2}{r}.$$
 
 "Centripetal force" is not a new force added to the list of forces. It is the name for the net inward force from the real forces. These can be gravity, tension in a string, friction, the normal force, or a mix.
 
-Friction needs two terms. The **normal force** $N$ is the push of a surface on the object, at right angles to the surface. **Static friction** is the friction that stops two surfaces from sliding on each other. It has a largest value, $f_{s,\max}=\mu_sN$, where $\mu_s$ is the **coefficient of static friction**, a number set by the two surfaces. On a level road, $N=mg$.
+Friction needs two terms. The **normal force** $N$ is the push of a surface on the object, at right angles to the surface.
 
-When you solve, first find the center. Then take each real force along the line to the center. Count a part toward the center as plus and a part away from the center as minus. The sum of these parts, inward minus outward, equals $mv^2/r$. For example, at the bottom of a swing, $T-mg=mv^2/r$. Do not draw an extra arrow labeled "centripetal force" on a force diagram.
+**Static friction** is the friction that stops two surfaces from sliding on each other. It has a largest value, $f_{s,\max}=\mu_sN$, where $\mu_s$ is the **coefficient of static friction**, a number set by the two surfaces. On a level road, $N=mg$.
+
+When you solve, first find the center. Then take each real force along the line to the center. Count a part toward the center as plus and a part away from the center as minus.
+
+The sum of these parts, inward minus outward, equals $mv^2/r$. For example, at the bottom of a swing, $F_T-mg=mv^2/r$. Here $F_T$ is the **tension**, the pull of the rope, and it points up toward the center. Do not draw an extra arrow labeled "centripetal force" on a force diagram.
 
 Without an inward net force, the object would not turn. It would move in a straight line along the tangent, the line touching the circle where the object is.
 

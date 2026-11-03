@@ -291,13 +291,13 @@
     "lessonPath": "content/lessons/science/physics/two-dimensional-motion.md",
     "lessonId": "lesson-physics-two-dimensional-motion",
     "group": "science",
-    "status": "round-2-read"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/units-and-measurements.md",
     "lessonId": "lesson-physics-units-and-measurements",
     "group": "science",
-    "status": "round-2-read"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/waves-and-sound.md",
@@ -309,7 +309,7 @@
     "lessonPath": "content/lessons/mathematics/algebra/functions-and-relations.md",
     "lessonId": "lesson-algebra-functions-and-relations",
     "group": "mathematics",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
