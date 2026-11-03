@@ -1,0 +1,85 @@
+{
+ "plan": "docs/superpowers/plans/2026-11-03-cet-content-pilot.md",
+ "base": "7032eec5b8fbdac51cef7e7b6dc7272d0e965f9a",
+ "models": {
+  "sonnet": "Sonnet 5.5",
+  "sol": "Codex GPT 6.1 Sol (gpt-6.1-sol)"
+ },
+ "lessons": [
+  {
+   "lesson": "science/chemistry/stoichiometry",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "science/chemistry/chemical-bonding",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "science/chemistry/acids-bases-ph",
+   "writer": "sol",
+   "reader": "sonnet"
+  },
+  {
+   "lesson": "science/physics/kinematics",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "science/physics/electricity-and-magnetism",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "science/physics/work-energy-power",
+   "writer": "sol",
+   "reader": "sonnet"
+  },
+  {
+   "lesson": "science/earth-science-astronomy/plate-tectonics",
+   "writer": "sol",
+   "reader": "sonnet"
+  },
+  {
+   "lesson": "science/earth-science-astronomy/eclipses-and-moon-phases",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "science/biology/genetics-and-heredity",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "science/biology/cell-biology",
+   "writer": "sol",
+   "reader": "sonnet"
+  },
+  {
+   "lesson": "mathematics/geometry/triangles",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "mathematics/geometry/circles",
+   "writer": "sol",
+   "reader": "sonnet"
+  },
+  {
+   "lesson": "mathematics/algebra/quadratic-equations",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "reasoning/mechanical-technical-reasoning/pulleys-and-levers",
+   "writer": "sonnet",
+   "reader": "sol"
+  },
+  {
+   "lesson": "reading-comprehension/text-types/short-stories-and-novels",
+   "writer": "sonnet",
+   "reader": "sol"
+  }
+ ]
+}
