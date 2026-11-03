@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 
 /// The reader advances upward, because that is the direction it is pulled.
 ///
@@ -18,6 +18,19 @@ import 'package:go_router/go_router.dart';
 /// where the eye expects the page it has finished with to be.
 const Duration readerAdvanceDuration = Duration(milliseconds: 380);
 
+/// How long a lesson takes to rise into place, and to drop away again.
+///
+/// 320 ms is the page-level time on the approved motion board (item 5). There
+/// is no shared duration table on this branch yet, so the value is named here.
+const Duration readerRiseDuration = Duration(milliseconds: 320);
+
+/// How far a lesson rises while it fades in, in logical pixels.
+const double readerRiseTravel = 24;
+
+/// The board's "shared ease". The back motion runs the same curve with the
+/// animation value falling, so leaving is the exact reverse of arriving.
+const Curve readerRiseCurve = PantasCurves.edgeGrow;
+
 /// How a lesson arrived, which is what decides how it moves.
 ///
 /// **The motion describes the relationship, not the destination.** Tapping a
@@ -26,28 +39,21 @@ const Duration readerAdvanceDuration = Duration(milliseconds: 380);
 /// Pulling up at the end of a lesson is advancing to the next sheet, so that
 /// one keeps coming from below. Same screen, two entrances, each matching the
 /// gesture that opened it.
-enum ReaderEntry { forward, advance }
+///
+/// `rise` is a lesson opened from anywhere that is not a lesson: a list, a
+/// plan, a search. The page behind stays exactly where it is, with its sidebar
+/// or tab bar, and the lesson fades in while it rises a short way and settles.
+/// It is never asked for directly: [readerPage] turns `forward` into `rise`
+/// when no lesson is underneath, so a caller only says how the lesson was
+/// opened.
+enum ReaderEntry { forward, advance, rise }
 
-CustomTransitionPage<void> readerPage({
+Page<void> readerPage({
   required LocalKey key,
   required Widget child,
   ReaderEntry entry = ReaderEntry.forward,
-}) {
-  return _ReaderPage(
-    key: key,
-    child: child,
-    transitionDuration: readerAdvanceDuration,
-    reverseTransitionDuration: readerAdvanceDuration,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return ReaderAdvanceTransition(
-        animation: animation,
-        secondaryAnimation: secondaryAnimation,
-        entry: entry,
-        child: child,
-      );
-    },
-  );
-}
+}) =>
+    _ReaderPage(key: key, child: child, entry: entry);
 
 /// A lesson moves aside for another lesson and for nothing else.
 ///
@@ -56,21 +62,40 @@ CustomTransitionPage<void> readerPage({
 /// 34% to the side and faded it. Declining here leaves the secondary animation
 /// at rest for every route that is not a lesson. Dialogs and sheets were
 /// already still, because they are not page routes.
-class _ReaderPage extends CustomTransitionPage<void> {
+class _ReaderPage extends Page<void> {
   const _ReaderPage({
-    required super.key,
-    required super.child,
-    required super.transitionsBuilder,
-    required super.transitionDuration,
-    required super.reverseTransitionDuration,
+    required LocalKey super.key,
+    required this.child,
+    required this.entry,
   });
 
+  final Widget child;
+  final ReaderEntry entry;
+
   @override
-  Route<void> createRoute(BuildContext context) => _ReaderRoute(this);
+  Route<void> createRoute(BuildContext context) =>
+      _ReaderRoute(this, _resolve(context));
+
+  /// Which entrance this lesson gets, decided before the route exists because
+  /// the route's duration is fixed when it is created.
+  ///
+  /// Only a plain `forward` is open to change. A lesson opened over another
+  /// lesson keeps the slide it always had.
+  ReaderEntry _resolve(BuildContext context) {
+    if (entry != ReaderEntry.forward) return entry;
+    // The context is the navigator's own, so its widget lists the pages.
+    final navigator = context.widget;
+    if (navigator is! Navigator) return ReaderEntry.rise;
+    final at = navigator.pages.indexOf(this);
+    final overLesson = at > 0 && navigator.pages[at - 1] is _ReaderPage;
+    return overLesson ? ReaderEntry.forward : ReaderEntry.rise;
+  }
 }
 
 class _ReaderRoute extends PageRoute<void> {
-  _ReaderRoute(_ReaderPage page) : super(settings: page);
+  _ReaderRoute(_ReaderPage page, this._entry) : super(settings: page);
+
+  final ReaderEntry _entry;
 
   _ReaderPage get _page => settings as _ReaderPage;
 
@@ -79,13 +104,14 @@ class _ReaderRoute extends PageRoute<void> {
       nextRoute is _ReaderRoute;
 
   @override
-  Duration get transitionDuration => _page.transitionDuration;
+  Duration get transitionDuration =>
+      _entry == ReaderEntry.rise ? readerRiseDuration : readerAdvanceDuration;
 
   @override
-  Duration get reverseTransitionDuration => _page.reverseTransitionDuration;
+  Duration get reverseTransitionDuration => transitionDuration;
 
   @override
-  bool get maintainState => _page.maintainState;
+  bool get maintainState => true;
 
   @override
   Color? get barrierColor => null;
@@ -112,7 +138,12 @@ class _ReaderRoute extends PageRoute<void> {
     Animation<double> secondaryAnimation,
     Widget child,
   ) =>
-      _page.transitionsBuilder(context, animation, secondaryAnimation, child);
+      ReaderAdvanceTransition(
+        animation: animation,
+        secondaryAnimation: secondaryAnimation,
+        entry: _entry,
+        child: child,
+      );
 }
 
 /// Public so a test can drive it without a router.
@@ -143,22 +174,13 @@ class ReaderAdvanceTransition extends StatelessWidget {
       return child;
     }
 
-    final from =
-        entry == ReaderEntry.advance ? const Offset(0, 1) : const Offset(1, 0);
-    final to = entry == ReaderEntry.advance
-        ? const Offset(0, -_departingTravel)
-        : const Offset(-_departingTravel, 0);
-
-    final arriving = Tween<Offset>(
-      begin: from,
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: animation,
-        curve: Curves.easeOutCubic,
-        reverseCurve: Curves.easeInCubic,
-      ),
-    );
+    // `rise` has no direction of its own to leave in, so a lesson that was
+    // opened this way and is later covered moves aside as `forward` does.
+    final sideways = entry != ReaderEntry.advance;
+    final from = sideways ? const Offset(1, 0) : const Offset(0, 1);
+    final to = sideways
+        ? const Offset(-_departingTravel, 0)
+        : const Offset(0, -_departingTravel);
 
     final departing = Tween<Offset>(
       begin: Offset.zero,
@@ -171,15 +193,50 @@ class ReaderAdvanceTransition extends StatelessWidget {
       ),
     );
 
-    return SlideTransition(
+    final beneath = SlideTransition(
       position: departing,
       child: FadeTransition(
         // Not to nothing: a sheet that vanishes reads as deleted rather than
         // passed.
         opacity: Tween<double>(begin: 1, end: 0.25).animate(secondaryAnimation),
-        child: SlideTransition(
-          position: arriving,
-          child: child,
+        child: entry == ReaderEntry.rise
+            ? child
+            : SlideTransition(
+                position: Tween<Offset>(
+                  begin: from,
+                  end: Offset.zero,
+                ).animate(
+                  CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOutCubic,
+                    reverseCurve: Curves.easeInCubic,
+                  ),
+                ),
+                child: child,
+              ),
+      ),
+    );
+
+    return entry == ReaderEntry.rise ? _rise(beneath) : beneath;
+  }
+
+  /// Fade in while rising a few pixels, then settle.
+  ///
+  /// One opacity and one translation, nothing else: no blur, no resize and no
+  /// change to the page behind. The lesson is already its own repaint
+  /// boundary, so each frame only moves and blends a picture that is already
+  /// drawn. The same curve runs both ways, so leaving is the arrival played
+  /// backward.
+  Widget _rise(Widget lesson) {
+    final eased = CurveTween(curve: readerRiseCurve).animate(animation);
+    return FadeTransition(
+      opacity: eased,
+      child: AnimatedBuilder(
+        animation: eased,
+        child: lesson,
+        builder: (context, lesson) => Transform.translate(
+          offset: Offset(0, (1 - eased.value) * readerRiseTravel),
+          child: lesson,
         ),
       ),
     );
