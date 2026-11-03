@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-biology-human-anatomy-physiology",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Every cell needs oxygen and nutrients and must lose wastes.",
+      "problem": "This general statement fails for a known exception. Mature red blood cells have no mitochondria, rely on anaerobic respiration, and do not use the oxygen they carry. A student who learns 'every cell needs oxygen' can answer wrongly on a question about which cells do not use oxygen, or about why red blood cells deliver all their oxygen. The sentence was new in the rewrite; the base did not make this claim. Saying body cells generally need oxygen, or most cells, would be correct.",
+      "source": "OpenStax Anatomy and Physiology 2e, 18.3 Erythrocytes: 'Lacking mitochondria, for example, they rely on anaerobic respiration' and 'they do not utilize any of the oxygen they are transporting'. Reader rules, Sol audit addition (test every general statement)."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "uses **enzymes**, which are proteins that speed up chemical reactions",
+      "problem": "This defines enzymes as proteins with no limit. A known exception breaks it: some enzymes are RNA (ribozymes), so the standard reference says almost all enzymes are proteins. The sibling lesson on this branch, lesson-biology-cellular-metabolism, already says 'Almost all enzymes are proteins', so the two lessons now teach conflicting rules and a student could mark 'all enzymes are proteins' as true. The base did not define enzymes this way.",
+      "source": "OpenStax Biology 2e, 6.5 Enzymes: 'Almost all enzymes are proteins, comprised of amino acid chains.' content/lessons/science/biology/cellular-metabolism.md on this branch. Reader rules, Sol audit addition."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Diffusion is the movement of a substance from where it is more concentrated to where it is less concentrated.",
+      "problem": "Round-2 L22a is still open in a new place. The gas exchange paragraph was split, but this paragraph still has five sentences, over the limit of one to three. Other paragraphs also run four to six sentences, for example the levels-of-organization paragraph, the arteries and veins paragraph (six), the accessory organs paragraph, the blood glucose paragraph, the nephron paragraph and the systems-together paragraph.",
+      "source": "Checklist L22a; LSG Formatting rules."
+    },
+    {
+      "rule": "L15",
+      "severity": "Minor",
+      "quote": "For nerve pathways, name the parts in order: stimulus, receptor, sensory neuron, CNS, motor neuron, effector.",
+      "problem": "All five Speed Tricks paragraphs open with 'For': arteries and veins, the pancreas, immunity, nerve pathways and organ systems. The guide asks that three sentences in a row not start the same way. The rewrite added this fifth 'For' opener to the four in the base.",
+      "source": "Checklist L15; LSG Emphasis and de-AI rules (vary sentence openings)."
+    }
+  ],
+  "goodQuotesChecked": 4
+}
