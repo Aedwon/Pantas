@@ -2741,3 +2741,15 @@ Tappable rows: whole row now toggles on Beta: Pro Features (phone and wide), Str
 ## Phone exam picker "Coming soon" label (Nov 3)
 
 Open item from HANDOFF 15: on phones the label sat against the card's right edge. Cause: the row placed it after the tappable area, outside the row's padding. Now it follows O_Picker: 8 px after the text, 16 px from the card edge, 13 px medium weight in tertiary gray, not dimmed. At text scale above 1.5x it moves under the subtitle instead (secondary gray), because the padded label overflowed at 2x. Wide web cards and the Settings picker are unchanged. Checked by analyzer and the core UI and onboarding tests (1,035 pass), not yet in the running app.
+
+## Nov 3 change requests (hardened build)
+
+Aedwon's 17 requests: `docs/superpowers/plans/pwa-launch/nov3-requests.md`. Approved previews: `nov3-previews/` on main. Automated checks pass at 9f748984 (CI: format, analyze, layering, attribution, tests, coverage 91.3%, Functions and emulators, release web build, Android debug build). Visual acceptance is Aedwon's and is pending for every item.
+
+- Fixed with a regression test: 3 custom exam stuck (exam list not reloaded), 10, 11 bottom and top fade, 13, 14 start path, 8 lesson shift and zoom keys.
+- Built from approved previews: 1, 4, 5, 6, 7, 9, 12, 15, 17.
+- Item 2: no long wait remains in tests; real web timing unmeasured.
+- Item 8 crop: not reproduced on one figure at 1440 and 390 in headless Chrome. Needs Safari and Brave.
+- Item 14: the Quiz panel error in the screenshot did not reproduce across seven student and plan combinations. Not confirmed fixed.
+- Item 16: repaint causes fixed and pinned by tests. iPhone frame rate unmeasured; use `?localFps=1` on the local run. Item 9 thresholds need real mouse and trackpad tuning.
+- Phone segmented control's unselected label is about 4.3:1 contrast, under AA 4.5, as in the approved preview. Waiting on Aedwon.
