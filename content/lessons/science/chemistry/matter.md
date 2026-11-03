@@ -24,12 +24,16 @@ A **pure substance** has one fixed chemical composition, and it is the same all 
 - **Element**: a pure substance made of one kind of atom. Oxygen gas, $O_2$, is an element. Its molecules have two atoms, but both are oxygen atoms.
 - **Compound**: a pure substance made of two or more elements joined chemically in a fixed ratio. Water, $H_2O$, always has $2$ hydrogen atoms for each oxygen atom.
 
-A compound can be broken down into simpler substances by a chemical reaction. An element cannot be broken down this way. A compound also has properties different from the elements in it. Sodium is a soft, reactive metal and chlorine is a poisonous gas, but sodium chloride is the table salt we eat.
+A compound can be broken down into simpler substances by a chemical reaction. An element cannot be broken down this way.
+
+A compound also has properties different from the elements in it. Sodium is a soft, reactive metal and chlorine is a poisonous gas, but sodium chloride is the table salt we eat.
 
 A **mixture** has two or more substances that are only mixed together, not chemically joined. The amounts can vary. Each substance keeps its own properties.
 
-- A **homogeneous mixture** looks the same throughout. Salt dissolved in water and air are examples. A homogeneous mixture is often called a **solution**.
+- A **homogeneous mixture** has the same composition in every part, even down to the particles. Salt dissolved in water and air are examples. A homogeneous mixture is often called a **solution**.
 - A **heterogeneous mixture** has parts you can tell apart, such as sand mixed with iron filings.
+
+Looking the same is not enough. Milk looks the same throughout, but it holds tiny droplets of fat mixed in water, so it is not a solution. Such a mixture is called a colloid.
 
 Some mixtures are not liquid or gas. An alloy such as brass is a solid mixture of copper and zinc. Its amounts can vary, so it is a mixture and not a compound.
 
@@ -56,13 +60,17 @@ The three common states are solid, liquid, and gas. The **particle model** expla
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"particle-states","illustrationKey":"science/chemistry/matter#1","states":[{"label":"solid","arrangement":"tightly packed fixed grid"},{"label":"liquid","arrangement":"close together disordered"},{"label":"gas","arrangement":"spread far apart moving freely"}]} -->
 
-The spacing also explains other behavior. A gas can be squeezed into a smaller space because most of it is empty space between particles. A liquid or solid is hard to squeeze because the particles already touch. Gas particles also spread out and mix with other gases by themselves. This spreading is called **diffusion**.
+The spacing also explains other behavior. A gas can be squeezed into a smaller space because most of it is empty space between particles. A liquid or solid is hard to squeeze because the particles already touch.
 
-**Temperature** measures the average energy of motion of the particles. Warmer particles move faster. Heating a sample therefore makes its particles move faster.
+Gas particles also spread out and mix with other gases by themselves. This spreading is called **diffusion**.
+
+**Temperature** measures the average energy of motion of the particles. Warmer particles move faster. Heating a sample usually raises its temperature, so its particles move faster. The exception is a phase change, explained below, where heat goes in and the temperature stays the same.
 
 Solids come in two kinds. A **crystalline solid**, such as salt, has particles in a repeating pattern. An **amorphous solid**, such as glass, has particles close and fixed but not in a repeating pattern.
 
-A fourth state is **plasma**. It is a gas in which many atoms have lost or gained electrons, so it contains charged particles. Plasma is found in stars, lightning, and fluorescent lamps. Very high temperature can make a plasma, but plasma is defined by its charged particles, not by being hot.
+A fourth state is **plasma**. It is a gas in which many atoms have lost or gained electrons, so it contains charged particles. Plasma is found in stars, lightning, and fluorescent lamps.
+
+Very high temperature can make a plasma, but plasma is defined by its charged particles, not by being hot.
 
 ### Phase Changes
 
@@ -77,9 +85,13 @@ A **phase change** is a change from one state to another. Each phase change has 
 
 A phase change is a **physical change**, because the particles stay the same. Only their arrangement and movement change. Which state is stable depends on temperature and pressure.
 
-Energy explains the direction. Melting, vaporization, and sublimation take in energy from the surroundings. A change that takes in energy is **endothermic**. Freezing, condensation, and deposition give energy out to the surroundings. A change that gives out energy is **exothermic**.
+Energy explains the direction. Melting, vaporization, and sublimation take in energy from the surroundings, because attractions between particles must be loosened or broken. A change that takes in energy is **endothermic**.
 
-During a phase change, the added energy is used to pull particles away from each other, not to speed them up. So the temperature of a pure substance stays constant while it melts or boils, if the pressure stays constant. Ice at $0^\circ\text{C}$ stays at $0^\circ\text{C}$ until all of it has melted. At normal air pressure, water boils at $100^\circ\text{C}$. At lower pressure, such as on a high mountain, water boils at a lower temperature.
+Freezing, condensation, and deposition give energy out to the surroundings, because attractions form. A change that gives out energy is **exothermic**. This follows the attractions, not the spacing: ice is less dense than liquid water, yet melting ice still takes in energy.
+
+During a phase change, the added energy loosens the attractions between particles. It does not speed them up. So the temperature of a pure substance stays constant while it melts or boils, if the pressure stays constant. Ice at $0^\circ\text{C}$ stays at $0^\circ\text{C}$ until all of it has melted.
+
+At normal air pressure, water boils at $100^\circ\text{C}$. At lower pressure, such as on a high mountain, water boils at a lower temperature.
 
 <!-- ILLUSTRATION: heating curve graph, x-axis "energy added", y-axis "temperature in degrees Celsius", water from ice below 0 degrees C: slanted line labeled "ice warming", flat line at 0 degrees C labeled "melting", slanted line labeled "liquid water warming", flat line at 100 degrees C labeled "boiling", slanted line labeled "steam warming" -->
 
@@ -93,7 +105,9 @@ A **physical change** changes the form, state, or arrangement of a substance, bu
 
 Dissolving is usually a physical change too. Salt or sugar stirred into water can be recovered by evaporating the water.
 
-A **chemical change**, also called a chemical reaction, turns the starting substances into new substances with different properties. The starting substances are the **reactants** and the new substances are the **products**. Burning wood, rusting iron, cooking an egg, and digesting food are chemical changes.
+A **chemical change**, also called a chemical reaction, turns the starting substances into new substances with different properties. The starting substances are the **reactants** and the new substances are the **products**.
+
+Burning wood, rusting iron, cooking an egg, and digesting food are chemical changes.
 
 Signs of a chemical change include a new color, a new gas, a solid forming in a liquid, a new smell, and heat or light given off. These signs are only clues. Boiling water makes bubbles and ice melting takes in heat, yet both are physical. The real test is whether a new substance forms.
 
@@ -158,7 +172,7 @@ A pure sample of ice at $-10^\circ\text{C}$ is heated steadily at normal air pre
 
 1. The ice warms up to $0^\circ\text{C}$ because its particles move faster.
 2. At $0^\circ\text{C}$ it melts. The temperature stays at $0^\circ\text{C}$ until all the ice is liquid.
-3. The energy added during melting pulls particles away from each other, so it does not raise the temperature.
+3. The energy added during melting loosens the attractions that hold particles in place, so it does not raise the temperature.
 4. After all the ice has melted, the liquid warms above $0^\circ\text{C}$.
 
 ### #7: Sublimation
@@ -197,7 +211,7 @@ Classify each change. (a) Sugar dissolves in tea. (b) A candle burns. (c) Wax ne
 
 To classify a sample, first ask whether it is pure. If it is not pure, it is a mixture. If it is pure, ask whether it has one kind of atom (element) or more than one (compound).
 
-For a phase change, find the starting and ending states, then name the change. If the particles move apart (solid to liquid to gas), energy goes in. If they come closer, energy comes out. This holds when the substance is not reacting.
+For a phase change, find the starting and ending states, then name the change. Melting, vaporization, and sublimation take in energy. Freezing, condensation, and deposition give out energy. The reason is the attractions between particles, not the spacing, so this holds even for water, where ice is less dense than liquid. It holds when the substance is not reacting.
 
 For property and change questions, ask whether a new substance forms. A change that makes a new substance is chemical. A property that describes the ability to make a new substance is a chemical property.
 
@@ -219,9 +233,13 @@ The picture of particles in a neat grid fits crystals, not every solid.
 
 > Plasma has many charged particles. Heat is one way to make them, but it is not the definition.
 
+A very hot gas can still have no charged particles. Plasma is defined by the charges.
+
 ### #4: Mixing Up Evaporation and Boiling
 
 > Both are vaporization, but evaporation happens at the surface at any temperature, and boiling happens throughout the liquid at the boiling point.
+
+A puddle dries without ever reaching $100^\circ\text{C}$. That is evaporation, not boiling.
 
 ### #5: Treating Bubbles or Color as Proof of a Chemical Change
 
