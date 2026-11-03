@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-physics-units-and-measurements",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "The shortcut applies to this pair of units only. To go from $\\text{m/s}$ to $\\text{km/h}$, multiply by $3.6$.", "problem": "Round-2 L22a is fixed in Core Concept, but this Speed Tricks paragraph on chained conversions has four sentences, over the one-to-three-sentence limit.", "source": "Checklist L22a; LSG Formatting rules"},
+    {"rule": "L21", "severity": "Minor", "quote": "$$1000\\ \\dfrac{\\text{kg}}{\\text{m}^3} \\times \\dfrac{1000\\ \\text{g}}{1\\ \\text{kg}} \\times \\dfrac{1\\ \\text{m}^3}{10^6\\ \\text{cm}^3}", "problem": "The single display line in Example #5 holds three stacked fractions, two equals signs and two more results. At display size it is wider than a phone screen and will scroll or shrink. It could be split across two display lines.", "source": "Checklist L21; LSG Examples section (keep each display equation narrow enough for a phone screen)"},
+    {"rule": "L03", "severity": "Minor", "quote": "A sample has a mass of $4.5\\ \\text{mg}$. Express it in kilograms.", "problem": "First use of the exam instruction word \"express\", which the style guide names as needing a one-line meaning on first use. The lesson never says that \"express\" here means convert and give the value in that unit.", "source": "Checklist L03; LSG Voice (exam instruction words such as express)"}
+  ],
+  "goodQuotesChecked": 3
+}
