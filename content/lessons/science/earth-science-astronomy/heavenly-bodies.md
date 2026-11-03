@@ -65,7 +65,9 @@ Galaxies have three common shapes: spiral, elliptical, and irregular. Nearly all
 
 The **Solar System** is the Sun and all the objects that orbit it. An **AU** (astronomical unit) is the average distance from Earth to the Sun, about $150$ million km.
 
-The International Astronomical Union (IAU) is the group that sets official names in astronomy. It says a **planet** orbits the Sun, has enough gravity to pull itself into a nearly round shape, and has cleared its orbit. To clear its orbit means its gravity has become the main force there, so other bodies were swept up, flung away, or became its moons.
+The International Astronomical Union (IAU) is the group that sets official names in astronomy. It says a **planet** orbits the Sun, has enough gravity to pull itself into a nearly round shape, and has cleared its orbit.
+
+To clear its orbit means the planet is far more massive than everything else near its orbit and controls it. Other bodies there were swept up, flung away, or became its moons. A few small bodies may stay, held in steady paths by the planet's gravity, such as Jupiter's Trojan asteroids.
 
 A **dwarf planet** orbits the Sun and is nearly round, but has not cleared its orbit. It is also not a moon. Pluto and Ceres are examples.
 
@@ -199,12 +201,13 @@ Star X has about the same mass as the Sun. Star Y has many times the mass of the
 
 ### #8: Planet or Dwarf Planet?
 
-An object orbits the Sun, is nearly round, and shares its orbit with many other objects in the asteroid belt. How does the IAU classify it?
+An object orbits the Sun, is nearly round, and moves among many other objects in the asteroid belt. It is not far more massive than they are, and it does not control the belt. How does the IAU classify it?
 
 **Solution:**
 1. It orbits the Sun and is nearly round.
-2. It shares its orbit with many other bodies, so it has not cleared its orbit.
-3. A round body that orbits the Sun and has not cleared its orbit is a dwarf planet.
+2. It is not far more massive than the other bodies near its orbit, and it does not control them, so it has not cleared its orbit.
+3. Sharing space with other bodies does not decide this alone. Jupiter has Trojan asteroids in its orbit, but it controls them.
+4. A round body that orbits the Sun and has not cleared its orbit is a dwarf planet.
 
 It is a dwarf planet. Ceres is an example.
 
