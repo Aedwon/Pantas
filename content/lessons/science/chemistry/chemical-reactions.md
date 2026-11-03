@@ -85,8 +85,8 @@ To predict a precipitate, use solubility. A substance is **soluble** if it disso
 
 - Compounds of Group $1$ metals (Li, Na, K) and of the ammonium ion $NH_4^+$ are soluble.
 - Nitrates $NO_3^-$ are soluble.
-- Chlorides, bromides and iodides are soluble, except those of $Ag^+$ and $Pb^{2+}$. Lead(II) chloride dissolves only slightly.
-- Sulfates are soluble, except those of $Ba^{2+}$ and $Pb^{2+}$. Calcium sulfate dissolves only slightly.
+- Chlorides, bromides and iodides are soluble, except those of $Ag^+$, $Pb^{2+}$ and mercury(I), $Hg_2^{2+}$. Lead(II) chloride dissolves only slightly.
+- Sulfates are soluble, except those of $Ba^{2+}$, $Pb^{2+}$, $Sr^{2+}$, $Ag^+$ and $Hg_2^{2+}$. Calcium sulfate dissolves only slightly.
 - Carbonates and phosphates are insoluble, except those of Group $1$ metals and $NH_4^+$.
 - Hydroxides are insoluble, except those of Group $1$ metals and $Ba^{2+}$. Calcium hydroxide dissolves only slightly.
 
@@ -273,12 +273,23 @@ Solutions of lead(II) nitrate and potassium iodide are mixed. Write the balanced
 1. Swap partners: $Pb(NO_3)_2+KI\rightarrow PbI_2+KNO_3$.
 2. Balance. Put $2$ before $KI$ for the iodine, and then $2$ before $KNO_3$.
 3. Use the rules. $KNO_3$ is soluble. $PbI_2$ is an iodide of $Pb^{2+}$, an exception in the rules, so it forms a yellow solid.
-4. The ions $K^+$ and $NO_3^-$ do not change. They are spectator ions.
-5. Check charge on the net equation. Left: $+2-2=0$. Right: $0$.
+4. Add state symbols: $(aq)$ for the dissolved compounds and $(s)$ for the solid.
+5. Write each dissolved ionic compound as separate ions, with its coefficient. Keep the solid as one formula.
 
-$$Pb(NO_3)_2(aq)+2KI(aq)\rightarrow PbI_2(s)+2KNO_3(aq)$$
+$$Pb^{2+}+2NO_3^-+2K^++2I^-\rightarrow PbI_2(s)+2K^++2NO_3^-$$
+
+6. $K^+$ and $NO_3^-$ appear unchanged on both sides. They are spectator ions. Cross them out.
+7. Write what is left. This is the net ionic equation.
 
 $$Pb^{2+}(aq)+2I^-(aq)\rightarrow PbI_2(s)$$
+
+8. Check charge. Left: $+2-2=0$. Right: $0$.
+
+The full equation, with state symbols, is below. Read it in two lines.
+
+$$Pb(NO_3)_2(aq)+2KI(aq)$$
+
+$$\rightarrow PbI_2(s)+2KNO_3(aq)$$
 
 <!-- ILLUSTRATION: Two beakers labeled Pb(NO3)2(aq) and KI(aq) pouring into one beaker that shows yellow solid PbI2(s) at the bottom, with K+ and NO3- labeled as spectator ions in the liquid -->
 
@@ -314,7 +325,7 @@ For a hydrocarbon in oxygen, balance C, then H, then O. If O comes out odd, doub
 
 Balance a bracketed group such as $SO_4$ or $OH$ as one unit. This works only if the group stays together on both sides.
 
-To test a precipitate, find the two new compounds and look each up in the solubility rules. If both are soluble, there is no reaction. If the question asks about the activity series, check that the free metal is higher than the one it replaces.
+To test for a precipitate, find the two new compounds and look each up in the solubility rules. If both are soluble, no precipitate forms. The reaction can still happen if water or a gas forms, so check for those too. If the question asks about the activity series, check that the free metal is higher than the one it replaces.
 
 ## Traps to Watch For
 
@@ -340,7 +351,7 @@ With too little oxygen you can get $CO$ or soot. A fuel with sulfur also gives $
 
 > A swap of ion partners needs a driving force.
 
-If both new compounds are soluble, no precipitate forms. Also check that no gas or water forms. If none of these happens, there is no reaction.
+If both new compounds are soluble, no precipitate forms. Also check whether water or a gas forms, as in neutralization or carbonate with acid. If no precipitate, water or gas forms, there is no reaction.
 
 ### #5: Forgetting That Coefficients Multiply Everything
 
