@@ -224,3 +224,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Stopped by the user after the usage-limit reset; no new agents. Open after 3 reads: fluid-mechanics (round 3: 1 Major, 'ideal flow' undefined; split candidate). Light-and-optics round 3 still running.
 - Resumed locally November 4. Fixed after round 1: functions-and-relations (range ends, turning point), radicals-and-rationalization (shortcut, two-radical equations). Light-and-optics and dynamics round 3 reads running.
 - Open after 3 reads: light-and-optics (600 nm called red), dynamics (equal-acceleration rule fails for a movable pulley). Functions-and-relations round 2: 1 Blocker (range bracket rule); fix running.
+- Round 2 reads: two-dimensional-motion (1 Blocker: every ideal path a parabola; 1 Major), units-and-measurements (1 Blocker: exponent called a whole number); fixes running. Functions fixed after round 2.

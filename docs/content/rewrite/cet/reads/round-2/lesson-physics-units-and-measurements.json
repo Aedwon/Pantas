@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-physics-units-and-measurements",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "and $n$ is a whole number", "problem": "The round-1 fix for the scientific-notation definition added a false condition. In school mathematics, whole numbers are $0, 1, 2, 3, \\dots$, so negative values are excluded. Scientific notation needs $n$ to be an integer, which can be negative. The lesson's own next sentence gives $4.5 \\times 10^{-6}$ as valid scientific notation, and the prefix list uses $10^{-2}$ to $10^{-9}$. A student who uses the stated definition would reject every value below $1$ written in scientific notation, such as $3.2 \\times 10^{-4}$, which is a standard 'which is in scientific notation' item.", "source": "OpenStax Elementary Algebra 2e, Section 6.7 (scientific notation: $a \\times 10^n$ with $1 \\le a < 10$ and $n$ an integer); OpenStax Prealgebra 2e, Section 1.1 (whole numbers are the counting numbers and zero)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A **prefix** goes in front of a unit and multiplies it by a power of $10$.", "problem": "Still open from round 1. This paragraph has five sentences, over the one-to-three-sentence limit. Four-sentence paragraphs remain at the opening (\"Physics describes the world with numbers attached to units.\"), the derived-unit paragraph, the velocity, acceleration and force paragraph, the conversion-factor paragraph, and the accuracy and precision paragraph.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}

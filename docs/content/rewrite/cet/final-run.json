@@ -291,13 +291,13 @@
     "lessonPath": "content/lessons/science/physics/two-dimensional-motion.md",
     "lessonId": "lesson-physics-two-dimensional-motion",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/physics/units-and-measurements.md",
     "lessonId": "lesson-physics-units-and-measurements",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/physics/waves-and-sound.md",

@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-physics-two-dimensional-motion",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Removing $t$ from the two position equations gives a **parabola**.", "problem": "Stated as a general result of the ideal model, but it fails at the boundary $v_{x0}=0$. A ball dropped or thrown straight up moves along a vertical straight line, not a parabola (and $t$ cannot be removed through $x=x_0$). The lesson names both exceptions itself: the bullet just above cites 'a ball dropped from the same height', and The Highest Point section cites 'a ball thrown straight up'. A student asked for the path of a ball thrown vertically upward gets 'parabola' from this sentence. The base had the same unqualified sentence; the round-1 read did not raise it.", "source": "Checklist B01; reader rules, Added after the Sol audit (boundary test); OpenStax University Physics Vol. 1, 4.3 Projectile Motion, trajectory equation $y=(\\tan\\theta_0)x-\\dfrac{g}{2(v_0\\cos\\theta_0)^2}x^2$, which is undefined at $\\theta_0=90^\\circ$"},
+    {"rule": "L25", "severity": "Major", "quote": "For example, at the bottom of a swing, $T-mg=mv^2/r$.", "problem": "The symbol $T$ is never defined as tension. Earlier the lesson defines $T$ as the total flight time, and later it defines $T$ as the period; Example #7 writes tension as $F_T$. The one equation that shows how to subtract an outward force part uses a symbol whose only meaning so far is a time, so the student cannot read the rule without guessing.", "source": "Checklist L25 (symbols explained before their meanings are needed); LSG Teaching completeness"},
+    {"rule": "L22a", "severity": "Minor", "quote": "When you solve, first find the center. Then take each real force along the line to the center.", "problem": "This paragraph has six sentences, above the one-to-three limit. The friction paragraph just before it has five.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
