@@ -21,13 +21,17 @@ An object can be charged in three ways. In solids, only electrons move, because 
 
 - **Friction:** rubbing moves electrons from one material to the other. The material that gains electrons becomes negative. The other becomes positive.
 - **Contact:** a charged object touches a neutral one and shares its charge. Both end with the same sign.
-- **Induction:** a charged rod comes near a neutral conductor without touching. The conductor must be connected to the ground, so electrons can flow to or from it.
+- **Induction:** a charged rod comes near a neutral conductor without touching. While the rod is near, the conductor must be able to send electrons to or from another conductor. That other conductor can be the ground, or a second neutral conductor that touches it and is then separated.
 
 Here is how charging by induction works. Say a negative rod comes near a neutral metal ball. Electrons in the ball are pushed away to the far side, so the near side is positive.
 
 Now touch the ball to the ground. Electrons flow away from the ball into the ground. Remove the ground connection first, then the rod. The ball is left with a net positive charge, the opposite of the rod's charge.
 
-If the ball is not grounded, it only shifts its charges. This is called polarization. The ball is still neutral overall, but its near side is closer to the rod, so the rod attracts it. This is why a charged rod can pick up bits of neutral paper.
+You can also use two neutral metal spheres that touch. The negative rod pushes electrons to the far sphere. Separate the spheres while the rod is still near, then remove the rod. The near sphere is left positive and the far sphere negative.
+
+If a single ball has no path for electrons to leave, it only shifts its charges. This is called polarization. The ball is still neutral overall, but its near side is closer to the rod, so the rod attracts it.
+
+This is why a charged rod can pick up bits of neutral paper.
 
 ### Coulomb's Law and Electric Fields
 
@@ -111,7 +115,9 @@ Here $A$ is the loop area. The angle $\theta$ is between the field and the line 
 
 This works for a flat loop in an even field. Flux is largest when the field is perpendicular to the loop ($\theta=0^\circ$). It is zero when the field runs along the loop ($\theta=90^\circ$).
 
-An **emf** (electromotive force) is a voltage made by a source, in volts. A battery has an emf. Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging by induction above.
+An **emf** (electromotive force) is a voltage made by a source, in volts. A battery has an emf.
+
+Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging by induction above.
 
 **Faraday's law** says a change in flux over time induces an emf in a loop of $N$ turns:
 
@@ -119,13 +125,17 @@ $$\mathcal{E}=-N\dfrac{\Delta\Phi}{\Delta t}$$
 
 This gives the average emf over the time $\Delta t$. The flux can change if $B$, $A$ or $\theta$ changes.
 
-**Lenz's law** gives the sign. The induced current makes a magnetic field that opposes the change in flux. If the flux grows, the induced field points against the original field. If the flux shrinks, it points the same way.
+**Lenz's law** gives the sign. The induced current makes a magnetic field that opposes the change in flux.
+
+If the flux grows, the induced field points against the original field. If the flux shrinks, it points the same way.
 
 An emf appears even in an open loop. Current flows only if the loop is a closed conductor.
 
 A wire with current in a magnetic field feels a force. The force is greatest when the wire is perpendicular to the field. It is zero when the wire is parallel to the field.
 
-A **motor** uses this force to turn. A coil sits in a magnetic field. The current goes opposite ways in the two sides of the coil, so the two forces are opposite and the coil turns. The motor changes electrical energy to motion. The motor must reverse the current every half turn to keep the coil turning the same way.
+A **motor** uses this force to turn. A coil sits in a magnetic field. The current goes opposite ways in the two sides of the coil, so the two forces are opposite and the coil turns. The motor changes electrical energy to motion.
+
+The motor must reverse the current every half turn to keep the coil turning the same way.
 
 A **generator** does the reverse. Something turns a coil in a magnetic field. The angle $\theta$ keeps changing, so the flux keeps changing and the coil makes an emf. A generator changes motion to electrical energy.
 
@@ -140,7 +150,9 @@ Charges $+3.0\times10^{-6}\ \mathrm{C}$ and $-2.0\times10^{-6}\ \mathrm{C}$ are 
 1. The charges are opposite, so the force is attraction.
 2. The size is:
 
-$$F=\dfrac{(9\times10^{9})(3.0\times10^{-6})(2.0\times10^{-6})}{0.30^2}=0.60\ \mathrm{N}$$
+$$F=\dfrac{(9\times10^{9})(3.0\times10^{-6})(2.0\times10^{-6})}{0.30^2}$$
+
+$$F=0.60\ \mathrm{N}$$
 
 3. At $0.60$ m the force is one fourth: $0.15$ N.
 
@@ -165,14 +177,14 @@ A rubber rod rubbed with wool becomes negative. What charge does the wool have? 
 
 ### #4: Charging by Induction
 
-A negatively charged rod is brought near a neutral metal ball on an insulating stand. The ball is touched to the ground. The ground connection is removed, then the rod is removed. What is the final charge of the ball? What happens if the ground is never connected?
+A negatively charged rod is brought near a neutral metal ball on an insulating stand. The ball is touched to the ground. The ground connection is removed, then the rod is removed. What is the final charge of the ball? What happens if this single ball is never given any path for electrons to leave?
 
 **Solution:**
 
 1. The negative rod pushes electrons in the ball to the far side. The near side is positive.
 2. The ground lets electrons flow out of the ball. The ball now has fewer electrons than protons.
 3. Removing the ground first, then the rod, traps this. The ball is left positive, the opposite of the rod.
-4. Without the ground, no electrons leave. The ball stays neutral overall and is only polarized.
+4. With no path out, no electrons leave. The ball stays neutral overall and is only polarized.
 
 ### #5: Current, Voltage, and Energy
 
@@ -180,8 +192,13 @@ A charge of $12$ C passes a point in $4.0$ s. A $12$ V battery moves $12$ C thro
 
 **Solution:**
 
-1. Current: $I=\dfrac{12}{4.0}=3.0$ A.
-2. From $V=\dfrac{W}{q}$, the energy is $W=qV=(12)(12)=144$ J.
+1. Current:
+
+$$I=\dfrac{12}{4.0}=3.0\ \mathrm{A}$$
+
+2. From $V=\dfrac{W}{q}$, the energy is:
+
+$$W=qV=(12)(12)=144\ \mathrm{J}$$
 
 ### #6: Ohm's Law
 
