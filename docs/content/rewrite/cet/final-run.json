@@ -81,7 +81,7 @@
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
     "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
     "group": "reasoning",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
@@ -93,7 +93,7 @@
     "lessonPath": "content/lessons/science/biology/botany.md",
     "lessonId": "lesson-biology-botany",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/biology/cellular-metabolism.md",

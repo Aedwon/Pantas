@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-biology-botany",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Each works beside a living **companion cell**.",
+      "problem": "General statement fails a known exception inside the lesson's own stated scope. Line 12 says the lesson covers \"flowering and other vascular plants\", and \"sieve elements\" is the general term. Companion cells occur only with the sieve-tube elements of flowering plants. The sieve cells of conifers and ferns have no companion cells (they work with albuminous or Strasburger cells), and even in flowering plants some early protophloem sieve elements lack them. A student is taught that every vascular plant's phloem has companion cells.",
+      "source": "Evert, Esau's Plant Anatomy, 3rd ed., chapters on phloem (sieve cells of seedless vascular plants and gymnosperms vs. sieve-tube elements with companion cells of angiosperms); Raven, Biology of Plants; Campbell Biology, plant tissues section (companion cells described for angiosperm sieve-tube elements); checklist B01"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "For example, pollen of a different species usually fails to do it.",
+      "problem": "The example given for \"pollination does not guarantee fertilization\" is not a case of pollination under the lesson's own definition: \"Pollination is the arrival of pollen on a stigma of the same species.\" Pollen of another species landing on a stigma is, by that definition, not pollination at all. The limit of the rule is illustrated with a case outside the rule, so the two sentences contradict each other on the very term the learning goal asks students to tell apart from fertilization.",
+      "source": "Checklist L27 (conditions and limits of a rule explained correctly); the lesson's own definition in the Pollination, Fertilization, Seed and Fruit section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Xylem and phloem are made of different cells.",
+      "problem": "This paragraph has six sentences; the limit is one to three short sentences. Other teaching paragraphs also run over three: the dermal tissue paragraph (four), the anther paragraph (five), the pistil paragraph (four), the pollination paragraph (five) and the first Speed Tricks paragraph (five).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
