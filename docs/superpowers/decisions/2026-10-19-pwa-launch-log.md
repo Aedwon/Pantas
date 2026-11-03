@@ -2468,3 +2468,11 @@ Aedwon started the proposed separate session. Result: `web/npm-vulnerability-upd
 Aedwon asked the lead to decide these on Nov 4. Lead decision: keep the `body-parser` and `qs` commit, wait for `firebase-admin` on `glob`, `minimatch` and `uuid`, and update `katex` to 0.18.2 for the local lesson tool. CI run 41652278610 finished green on 144939d3 apart from the non-blocking OSV report. The branch sits on top of the fixes branch, so it cannot go to main before those fixes. Not merged.
 
 KaTeX 0.18.2 for the local lesson tool landed on the same branch at 692493c8. CI run 41680584629 passed apart from the non-blocking OSV report, which is down to 9 advisories, none from KaTeX. Not merged.
+
+## Direct page loads (Aedwon, Nov 4)
+
+Offered: payment return only (recommended now) or all addresses. Aedwon: "All addresses".
+
+Result: on web, a reload or direct address now stays on that page, including the payment return, on `web/visual-check-fixes-r1` and `web/staging-candidate-r1` at 5558a1c3. CI run 41690236515 passed apart from the non-blocking OSV report. A start-only table sends addresses that would start or discard something, or that cannot stand alone, to a safe page: quick, retake and inline quizzes and mock start to Quiz, practice run to its picker, exam upgrade to exam change, account delete to account, debug to Settings, custom track steps to onboarding, assessment and Wrapped to Home, guardian contact to waiting, study ending to Study. In-app navigation to those routes is unchanged. A test fails on any new route until it is classified. Unknown addresses go to Home. The onboarding gates settle before a page other than Home mounts. Back on directly opened pages falls back to the parent page. The first address is used once and survives a startup retry; guardian links stay as they were.
+
+Live on a local profile build at 1440 and 390 px: 27 addresses landed as expected at each size, students who have not finished onboarding went to onboarding, legal and guardian links opened for them, and reload kept the page. Back was exercised on six pages. Not tested: a real PayMongo checkout, a real paid exam switch, a hosted build, Safari or an iPhone. Estimate grew from half a day: 28 of 59 routes needed a change.
