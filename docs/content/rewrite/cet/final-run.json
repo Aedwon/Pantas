@@ -291,7 +291,7 @@
     "lessonPath": "content/lessons/science/physics/two-dimensional-motion.md",
     "lessonId": "lesson-physics-two-dimensional-motion",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/physics/units-and-measurements.md",
@@ -303,7 +303,7 @@
     "lessonPath": "content/lessons/science/physics/waves-and-sound.md",
     "lessonId": "lesson-physics-waves-and-sound",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/mathematics/algebra/functions-and-relations.md",

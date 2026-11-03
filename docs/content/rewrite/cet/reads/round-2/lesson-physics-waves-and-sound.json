@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-physics-waves-and-sound",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Minor",
+      "quote": "The intensity was kept the same, so only the pitch changes.",
+      "problem": "The \"only\" fails on the lesson's own teaching. The same step says the wavelength is halved, and Core Concept says loudness \"follows intensity but also depends on the pitch\", so equal intensity does not guarantee equal loudness at 880 Hz. The intended answer (higher pitch, loudness unchanged to first order) is the standard school answer, so the harm is small. Ruled Minor on the precedent of the thermodynamics B01 downgrade for a standard school statement; the lead may rule otherwise.",
+      "source": "Lesson Core Concept, Sound (Loudness sentence) and Example #6 step 2; ISO 226 equal-loudness contours; final-run-rulings.md (thermodynamics B01 downgrade precedent)"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-physics-two-dimensional-motion",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "The sum of these parts, inward minus outward, equals $mv^2/r$.", "problem": "This paragraph has four sentences, above the one-to-three limit. The round-2 six-sentence paragraph was split, but this half still runs over. The opening Uniform Circular Motion paragraph and the Trap #3 explanation paragraph also have four sentences each.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 1
+}
