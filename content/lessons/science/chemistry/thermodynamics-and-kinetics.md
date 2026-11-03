@@ -58,7 +58,7 @@ A catalyst does not change $\Delta H$, the equilibrium constant, or the equilibr
 
 ### Factors That Change the Rate
 
-- **Temperature:** for the reactions you meet in school, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often. The first effect is the larger one.
+- **Temperature:** for the reactions you meet in school, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often.
 - **Concentration or gas pressure:** more particles in the same space means more collisions. How much the rate changes is given by the rate law, explained next.
 - **Surface area:** this matters when the reactants are in different phases, such as a solid and a liquid. Only particles at the surface of a solid can meet the other reactant. Crushing the solid exposes more of them.
 - **Catalyst:** it lowers the activation energy, as above.
@@ -69,7 +69,7 @@ A **rate law** is an equation that tells how the rate depends on concentrations.
 
 $$\text{rate}=k[A]^m[B]^n$$
 
-The square brackets mean concentration in $\text{mol/L}$. The exponents $m$ and $n$ are the **orders** in $A$ and $B$. The **overall order** is $m+n$. The orders are found by experiment. They are not read from the coefficients of the balanced equation.
+The square brackets mean concentration in $\text{mol/L}$. The exponents $m$ and $n$ are the **orders** in $A$ and $B$. The **overall order** is $m+n$. The orders are found by experiment. They are not read from the coefficients of the balanced equation, because the equation does not show the steps of the reaction.
 
 If the order in $A$ is $m$, then multiplying $[A]$ by a factor $f$ multiplies the rate by $f^m$. The other concentrations and the temperature must stay fixed.
 
@@ -156,7 +156,7 @@ Marble chips react with hydrochloric acid at their surface. The same mass of mar
 
 1. Crushing exposes more marble surface to the acid.
 2. More particles can collide with the acid at one time.
-3. The rate is faster. The total amount of gas that forms is the same, since the same mass of marble reacts.
+3. The rate is faster. If the acid is in excess, the total amount of gas that forms is the same, since the same mass of marble reacts.
 
 ### #5: Comparing Two Temperatures
 
@@ -245,11 +245,11 @@ The same reversible reaction is run at the same temperature, once without and on
 
 Sort each quantity by the question it answers. $\Delta H$ answers how much heat. $\Delta G$ and $K$ answer where the reaction can go. $E_a$, the rate law and catalysts answer how fast.
 
-For an exponent in a rate law, multiply the concentration factor raised to the order. This works when the other concentrations and the temperature stay the same.
+To find the effect of a concentration change, raise the factor to the order, as in $f^m$. This works when the other concentrations and the temperature stay the same.
 
 For a pressure change in an equilibrium question, count the moles of gas on each side first. Use this when the pressure changes because the volume changes. If the counts are equal, there is no shift.
 
-For a temperature change in an equilibrium question, read the sign of $\Delta H$ first. Use the heat as if it were a reactant for an endothermic reaction, or a product for an exothermic one.
+For a temperature change in an equilibrium question, read the sign of $\Delta H$ first. Treat heat as a reactant in an endothermic reaction and as a product in an exothermic one, then shift away from what you add.
 
 ## Traps to Watch For
 
