@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -151,9 +152,15 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
                   onAction: () => startQuickQuiz(context, examId: exam.id),
                 );
               }
+              // The list takes the whole width until a topic is open, so wait
+              // for the saved topic rather than flash the wrong layout.
+              final openTopic = ref.watch(openTopicProvider);
+              if (!openTopic.hasValue && !openTopic.hasError) {
+                return const WebStudyLoading();
+              }
               return WebStudyMap(
                 map: map,
-                openTopicId: ref.watch(openTopicProvider).valueOrNull,
+                openTopicId: openTopic.valueOrNull,
                 today: today,
                 lastLessonId: last?.id,
                 lastTitle: last?.title,
@@ -257,184 +264,228 @@ class WebStudyMap extends StatelessWidget {
         }
       }
     }
+    final hasCard = lastLessonId != null && lastTitle != null;
     return LayoutBuilder(
-      builder: (context, constraints) => Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            // The board's map column grows from 300 px by a thousandth of the
-            // spare width, up to 340.
-            width: (300 + (constraints.maxWidth - 784).clamp(0, 40000) / 1000)
-                .clamp(300.0, 340.0),
-            child: ListView(
-              key: const ValueKey('web-study-map'),
-              children: [
-                if (lastLessonId != null && lastTitle != null) ...[
-                  WebCard(
-                    padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'LAST OPENED',
-                                style: t.eb.copyWith(fontSize: 12),
-                              ),
-                              const SizedBox(height: 3),
-                              Text(
-                                lastTitle!,
-                                style: t.style(17, weight: FontWeight.w600),
-                              ),
-                              if (lastTopic != null)
-                                Text(
-                                  lastTopic,
-                                  style: t.style(
-                                    14,
-                                    color: t.colors.secondaryLabel,
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        WebButton(
-                          label: 'Resume',
-                          variant: WebButtonVariant.secondary,
-                          onPressed: () =>
-                              onLesson(lastLessonId!, resume: true),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 22),
-                ],
-                Row(
-                  children: [
-                    Expanded(child: _label(context, 'BOOKMARKS')),
-                    if (bookmarks.isNotEmpty)
-                      TextButton(
-                        onPressed: onBookmarks,
-                        child: Text(
-                          'See all',
-                          style: t.style(
-                            14,
-                            color: t.colors.accent,
-                            weight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-                if (bookmarks.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
-                    child: Text(
-                      'Bookmark a lesson to keep it here.',
-                      style: t.sm,
-                    ),
-                  ),
-                for (final lesson in bookmarks.take(3))
-                  _mapRow(
-                    context,
-                    lesson.title,
-                    leading: Icon(
-                      PantasIcons.bookmark,
-                      size: 16,
-                      color: t.colors.accent,
-                    ),
-                    onPressed: () => onLesson(lesson.id, resume: false),
-                  ),
-                for (final subject in map.subjects) ...[
-                  const SizedBox(height: 18),
-                  _label(context, subject.name.toUpperCase()),
-                  for (final topic in subject.topics)
-                    _mapRow(
-                      context,
-                      topic.name,
-                      selected: topic.id == openTopicId,
-                      leading: SizedBox.square(
-                        dimension: 18,
-                        child: topic.isComplete
-                            ? Icon(
-                                PantasIcons.check,
-                                size: 18,
-                                color: t.colors.accent,
-                              )
-                            : CircularProgressIndicator(
-                                value: topic.totalCount == 0
-                                    ? 0
-                                    : topic.readCount / topic.totalCount,
-                                strokeWidth: 2,
-                                backgroundColor: t.colors.separator,
-                                color: t.colors.accent,
-                              ),
-                      ),
-                      onPressed: () => onTopic(topic.id),
-                    ),
-                ],
-              ],
+      builder: (context, constraints) {
+        // The board's map column grows from 300 px by a thousandth of the
+        // spare width, up to 340.
+        final column =
+            (300 + (constraints.maxWidth - 784).clamp(0, 40000) / 1000)
+                .clamp(300.0, 340.0);
+        // Above the subjects: the Last opened card, then Bookmarks. Bookmarks
+        // is drawn only once there is a bookmark (Nov 3, item 4).
+        final head = <Widget>[
+          if (hasCard) ...[
+            WebLastOpenedCard(
+              title: lastTitle!,
+              topic: lastTopic,
+              onResume: () => onLesson(lastLessonId!, resume: true),
             ),
-          ),
-          const SizedBox(width: 24),
-          Expanded(
-            child: selected == null
-                ? const SizedBox.shrink()
-                : SingleChildScrollView(
-                    key: const ValueKey('web-study-topic'),
-                    child: WebCard(
-                      padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  selectedSubject!.toUpperCase(),
-                                  style: t.eb.copyWith(height: 1.45),
-                                ),
-                                Text(
-                                  selected.name,
-                                  style: t.style(
-                                    30,
-                                    weight: FontWeight.w700,
-                                    height: 1.2,
-                                    spacing: -.6,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          for (final lesson in selected.lessons)
-                            _WideStudyLessonRow(
-                              lesson: lesson,
-                              today: today.contains(lesson.id),
-                              resume: lesson.id == lastLessonId,
-                              onPressed: () => onLesson(
-                                lesson.id,
-                                resume: lesson.id == lastLessonId,
-                              ),
-                              onBookmark: onBookmark == null
-                                  ? null
-                                  : () => onBookmark!(lesson.id),
-                            ),
-                          if (saveFailed)
-                            WebButton(
-                              label: 'Try Saving Again',
-                              onPressed: onRetry,
-                            ),
-                        ],
-                      ),
+            const SizedBox(height: 22),
+          ],
+          if (bookmarks.isNotEmpty) ..._bookmarkRows(context, bookmarks),
+        ];
+        // The first subject sits flush under the card when Bookmarks is
+        // hidden, and 18 px under Bookmarks when it shows.
+        final firstGap = bookmarks.isEmpty ? 0.0 : 18.0;
+        if (selected == null) {
+          return ListView(
+            key: const ValueKey('web-study-map'),
+            children: [
+              if (head.isNotEmpty)
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: SizedBox(
+                    width: column,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: head,
                     ),
                   ),
+                ),
+              if (bookmarks.isNotEmpty) const SizedBox(height: 18),
+              _subjectColumns(context, map.subjects),
+            ],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: column,
+              child: ListView(
+                key: const ValueKey('web-study-map'),
+                children: [
+                  ...head,
+                  for (final (index, subject) in map.subjects.indexed) ...[
+                    SizedBox(height: index == 0 ? firstGap : 18),
+                    ..._subjectBlock(context, subject),
+                  ],
+                ],
+              ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: SingleChildScrollView(
+                key: const ValueKey('web-study-topic'),
+                child: WebCard(
+                  padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              selectedSubject!.toUpperCase(),
+                              style: t.eb.copyWith(height: 1.45),
+                            ),
+                            Text(
+                              selected.name,
+                              style: t.style(
+                                30,
+                                weight: FontWeight.w700,
+                                height: 1.2,
+                                spacing: -.6,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      for (final lesson in selected.lessons)
+                        _WideStudyLessonRow(
+                          lesson: lesson,
+                          today: today.contains(lesson.id),
+                          resume: lesson.id == lastLessonId,
+                          onPressed: () => onLesson(
+                            lesson.id,
+                            resume: lesson.id == lastLessonId,
+                          ),
+                          onBookmark: onBookmark == null
+                              ? null
+                              : () => onBookmark!(lesson.id),
+                        ),
+                      if (saveFailed)
+                        WebButton(
+                          label: 'Try Saving Again',
+                          onPressed: onRetry,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// Subjects in two columns across the full width, for when no topic is
+  /// open (preview study-reader section 1, Option A). A subject never splits
+  /// across columns. The columns balance like CSS columns: the first column
+  /// takes as many whole subjects as it can without the page growing taller
+  /// than the shortest balanced split.
+  Widget _subjectColumns(BuildContext context, List<StudySubject> subjects) {
+    // Row 36 px, label 21 px, 18 px between subjects. Only the order of the
+    // heights matters, so the label is an estimate.
+    double height(Iterable<StudySubject> group) =>
+        group.fold<double>(
+          0,
+          (sum, subject) => sum + 21 + subject.topics.length * 36,
+        ) +
+        18 * (group.length - 1).clamp(0, subjects.length);
+    var split = subjects.length;
+    var best = double.infinity;
+    for (var k = 1; k < subjects.length; k++) {
+      final taller = math.max(
+        height(subjects.take(k)),
+        height(subjects.skip(k)),
+      );
+      // A tie keeps more subjects in the first column.
+      if (taller <= best) {
+        best = taller;
+        split = k;
+      }
+    }
+    Widget stack(List<StudySubject> group) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final subject in group) ...[
+              ..._subjectBlock(context, subject),
+              const SizedBox(height: 18),
+            ],
+          ],
+        );
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(child: stack(subjects.take(split).toList())),
+        const SizedBox(width: 24),
+        Expanded(child: stack(subjects.skip(split).toList())),
+      ],
+    );
+  }
+
+  List<Widget> _bookmarkRows(
+    BuildContext context,
+    List<StudyLesson> bookmarks,
+  ) {
+    final t = context.webTokens;
+    return [
+      Row(
+        children: [
+          Expanded(child: _label(context, 'BOOKMARKS')),
+          TextButton(
+            onPressed: onBookmarks,
+            child: Text(
+              'See all',
+              style: t.style(
+                14,
+                color: t.colors.accent,
+                weight: FontWeight.w600,
+              ),
+            ),
           ),
         ],
       ),
-    );
+      for (final lesson in bookmarks.take(3))
+        _mapRow(
+          context,
+          lesson.title,
+          leading: Icon(PantasIcons.bookmark, size: 16, color: t.colors.accent),
+          onPressed: () => onLesson(lesson.id, resume: false),
+        ),
+    ];
+  }
+
+  List<Widget> _subjectBlock(BuildContext context, StudySubject subject) {
+    final t = context.webTokens;
+    return [
+      _label(context, subject.name.toUpperCase()),
+      for (final topic in subject.topics)
+        _mapRow(
+          context,
+          topic.name,
+          selected: topic.id == openTopicId,
+          leading: SizedBox.square(
+            dimension: 18,
+            child: topic.isComplete
+                ? Icon(PantasIcons.check, size: 18, color: t.colors.accent)
+                : CircularProgressIndicator(
+                    value: topic.totalCount == 0
+                        ? 0
+                        : topic.readCount / topic.totalCount,
+                    strokeWidth: 2,
+                    backgroundColor: t.colors.separator,
+                    color: t.colors.accent,
+                  ),
+          ),
+          onPressed: () => onTopic(topic.id),
+        ),
+    ];
   }
 
   Widget _label(BuildContext context, String label) => Padding(
@@ -476,6 +527,57 @@ class WebStudyMap extends StatelessWidget {
           ),
           if (selected)
             Icon(PantasIcons.next, size: 14, color: t.colors.tertiaryLabel),
+        ],
+      ),
+    );
+  }
+}
+
+/// The Last opened card (board SD_MapEmpty).
+class WebLastOpenedCard extends StatelessWidget {
+  const WebLastOpenedCard({
+    required this.title,
+    required this.onResume,
+    this.topic,
+    super.key,
+  });
+  final String title;
+  final String? topic;
+  final VoidCallback onResume;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return WebCard(
+      padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
+      // Resume sits under the text at its natural width, so a long title and
+      // topic wrap in full (preview study-reader, section 2 Option A).
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('LAST OPENED', style: t.eb.copyWith(fontSize: 12)),
+                const SizedBox(height: 3),
+                Text(title, style: t.style(17, weight: FontWeight.w600)),
+                if (topic != null)
+                  Text(
+                    topic!,
+                    style: t.style(14, color: t.colors.secondaryLabel),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          WebButton(
+            label: 'Resume',
+            variant: WebButtonVariant.secondary,
+            onPressed: onResume,
+          ),
         ],
       ),
     );
