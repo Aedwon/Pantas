@@ -9,6 +9,10 @@ import 'package:go_router/go_router.dart';
 /// would be dead. [result] goes to whoever pushed the page and is dropped when
 /// the page goes to [fallback].
 ///
+/// On web a page has its own Navigator inside the shell, so the page just
+/// pushed from above the shell (a lesson) can be first in it while the router
+/// can still go back. Then the router pops, and ignores any PopScope.
+///
 /// A PopScope on the page is respected unless [respectPopScope] is false. A
 /// page whose own PopScope calls this must pass false, or it would ask itself
 /// again. Only for pages, not dialogs or sheets, which always have a page
@@ -31,5 +35,11 @@ void leavePage(
     }
     return;
   }
-  GoRouter.maybeOf(context)?.go(fallback);
+  final router = GoRouter.maybeOf(context);
+  if (router == null) return;
+  if (router.canPop()) {
+    router.pop(result);
+  } else {
+    router.go(fallback);
+  }
 }

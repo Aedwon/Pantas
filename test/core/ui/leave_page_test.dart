@@ -102,6 +102,64 @@ void main() {
     });
   });
 
+  // On web the shell gives a page its own Navigator, so a page pushed from
+  // above (a lesson) can be first in that Navigator while the router can
+  // still pop. go_router 17.5 asserts on a ShellRoute pushed above a page,
+  // so the shell's Navigator is stood in for by one in the page builder.
+  group('a page that is first in a nested Navigator', () {
+    testWidgets('goes back through the router, with the result',
+        (tester) async {
+      final results = <Object?>[];
+      final router = GoRouter(
+        initialLocation: '/lesson',
+        routes: [
+          GoRoute(
+            path: '/lesson',
+            builder: (context, _) => Scaffold(
+              body: TextButton(
+                onPressed: () async =>
+                    results.add(await context.push<Object?>('/page')),
+                child: const Text('lesson'),
+              ),
+            ),
+          ),
+          GoRoute(
+            path: '/page',
+            builder: (_, __) => Navigator(
+              onGenerateRoute: (_) => MaterialPageRoute<void>(
+                builder: (context) => Scaffold(
+                  body: TextButton(
+                    onPressed: () => leavePage(
+                      context,
+                      fallback: '/fallback',
+                      result: 'saved',
+                    ),
+                    child: const Text('leave'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          GoRoute(
+            path: '/fallback',
+            builder: (_, __) => const Scaffold(body: Text('fallback page')),
+          ),
+        ],
+      );
+      addTearDown(router.dispose);
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.tap(find.text('lesson'));
+      await tester.pumpAndSettle();
+      expect(Navigator.canPop(tester.element(find.text('leave'))), isFalse);
+      expect(router.canPop(), isTrue);
+      await tester.tap(find.text('leave'));
+      await tester.pumpAndSettle();
+      expect(find.text('lesson'), findsOneWidget);
+      expect(router.routeInformationProvider.value.uri.path, '/lesson');
+      expect(results, ['saved']);
+    });
+  });
+
   group('with no router above', () {
     testWidgets('pops when the Navigator can, with the result', (tester) async {
       Object? result;
