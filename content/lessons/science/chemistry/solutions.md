@@ -73,6 +73,8 @@ $$\%\text{ by volume}=\dfrac{\text{volume of solute}}{\text{volume of solution}}
 
 Use the measured final volume. Do not add the volumes of the parts. When ethanol and water are mixed, the final volume is a little less than the sum. The molecules pack more closely.
 
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"solution-concentration","illustrationKey":"science/chemistry/solutions#1","solute":"sugar","solvent":"water","measures":["molarity","molality","percent by mass","percent by volume"]} -->
+
 ### Which Measures Change with Temperature
 
 Mass does not change when a sealed solution is warmed. So molality and percent by mass stay the same.
@@ -262,7 +264,7 @@ Pressure has little effect on the solubility of most solids and liquids in water
 
 > Molarity divides by solution volume. Molality divides by solvent mass.
 
-The volume of solvent alone is not the denominator of molarity. Mixing $1$ mol of solute with $1$ L of water does not give a $1\,M$ solution, because the final volume may not be $1$ L.
+The volume of solvent alone is not the denominator of molarity. Mixing $1$ mol of solute with $1$ L of water may not give a $1\,M$ solution, because the final volume may not be $1$ L.
 
 ### #4: Adding Liquid Volumes
 

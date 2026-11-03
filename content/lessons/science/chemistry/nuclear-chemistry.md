@@ -23,7 +23,7 @@ The number of neutrons is $A-Z$. You can review protons and neutrons in the atom
 
 Some nuclei are unstable. An unstable nucleus can change by itself and give off radiation. This is **radioactive decay**. The nucleus before the change is the **parent**. The nucleus after the change is the **daughter**.
 
-Every decay mode below has a different effect on $A$ and $Z$. Learn those effects, because they let you find the daughter.
+Each decay mode below has a known effect on $A$ and $Z$. Learn those effects, because they let you find the daughter.
 
 ### Nuclear Equations
 
@@ -73,13 +73,13 @@ Positron emission and electron capture give the same daughter, but the electron 
 
 The element does not change in gamma emission. Gamma emission often follows another decay, because that decay can leave the daughter excited. An excited nucleus that lasts long enough is marked with an $m$, as in technetium-$99$m.
 
-<!-- ILLUSTRATION: a small table-like diagram of four boxes in a row labeled alpha, beta-minus, positron or electron capture, gamma, each showing the change in Z and A: alpha Z minus 2 and A minus 4; beta-minus Z plus 1 and A same; positron or electron capture Z minus 1 and A same; gamma Z same and A same -->
+<!-- ILLUSTRATION: a diagram of four boxes in a row labeled alpha, beta-minus, positron or electron capture, gamma, each showing the change in Z and A: alpha Z minus 2 and A minus 4; beta-minus Z plus 1 and A same; positron or electron capture Z minus 1 and A same; gamma Z same and A same -->
 
 ### How Far Each Radiation Travels
 
 Radiation can knock electrons off the atoms it hits. This is called **ionizing** radiation, and it can damage living cells.
 
-Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and are stopped by a thin sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but the amount reached never has to be exactly zero.
+Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and are stopped by a thin sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but some gamma rays can still get through.
 
 Low penetration does not mean low hazard. An alpha emitter that is inhaled or swallowed sits next to living cells and can damage them. Outside the body, the skin shields most of the alpha particles.
 

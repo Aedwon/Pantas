@@ -183,7 +183,7 @@
     "lessonPath": "content/lessons/science/chemistry/nuclear-chemistry.md",
     "lessonId": "lesson-chemistry-nuclear-chemistry",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/periodic-table.md",
@@ -195,7 +195,7 @@
     "lessonPath": "content/lessons/science/chemistry/solutions.md",
     "lessonId": "lesson-chemistry-solutions",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
