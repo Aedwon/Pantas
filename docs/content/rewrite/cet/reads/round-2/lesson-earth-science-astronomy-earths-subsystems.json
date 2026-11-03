@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-subsystems",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "Above it are the mesosphere, where the air gets colder with height again, and the thermosphere, the top layer listed here, where it gets warmer with height.", "problem": "This sentence, added in the round-2 fix, makes its paragraph five sentences long (from 'The atmosphere shapes weather' to this one). The guide allows one to three short sentences per paragraph, and this added sentence alone runs to 27 words. Edited text must fix its Minor findings.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules (paragraphs of 1 to 3 short sentences); writer-rules.md round-2 rule 5"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The four spheres are a model, a simple picture of something complex.", "problem": "The paragraph that holds this sentence has four sentences (from 'The most common split has four spheres' to 'They are not sealed boxes.'). The guide allows one to three short sentences per paragraph.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}
