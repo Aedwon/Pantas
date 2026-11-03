@@ -58,14 +58,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The release runner tests read an older commit's files.
+          fetch-depth: 0
 
       - uses: ./.github/actions/setup-app
 
       - name: Unit + widget tests
-        run: flutter test --coverage --total-shards 4 --shard-index ${{ matrix.shard }}
+        run: flutter test --coverage --total-shards 6 --shard-index ${{ matrix.shard }}
 
       - uses: actions/upload-artifact@v4
         with:
