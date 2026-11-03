@@ -20,7 +20,7 @@ The angle $\theta$ is the angle between the force and the displacement. The fact
 - $\cos 0^\circ = 1$: the force points along the motion, so $W=Fd$.
 - $\cos 60^\circ = 0.5$.
 - $\cos 90^\circ = 0$: the force is perpendicular to the motion, so it does zero work.
-- $\cos 180^\circ = -1$: the force points against the motion, so the work is negative. Friction on a sliding object does negative work.
+- $\cos 180^\circ = -1$: the force points against the motion, so the work is negative. Friction on an object sliding over a surface at rest does negative work.
 
 Work is measured in **joules** ($J$). One joule is the work of a $1\ N$ force over $1\ m$.
 
@@ -62,7 +62,7 @@ Energy is never created or destroyed. It changes form or moves from place to pla
 
 $$KE_i + PE_i = KE_f + PE_f$$
 
-A **nonconservative force**, such as friction or air drag, changes mechanical energy into thermal energy and other forms. Then the work $W_{nc}$ done by these forces equals the change in mechanical energy:
+A **nonconservative force**, such as friction, air drag, or an applied push, pull or motor, can change mechanical energy. Friction and drag turn it into thermal energy. A push or a motor can add to it. The work $W_{nc}$ done by these forces equals the change in mechanical energy:
 
 $$W_{nc} = \Delta(KE+PE)$$
 
@@ -83,7 +83,7 @@ $$\text{efficiency} = \dfrac{\text{useful output}}{\text{total input}} \times 10
 
 A real machine wastes some energy as heat and sound. So its efficiency is below $100\%$. Only an ideal machine with no waste reaches $100\%$.
 
-A **simple machine**, such as a lever or a pulley, changes the size or direction of a force. Its input work is the effort force times the distance the effort moves. Its output work is the load force times the distance the load moves. The pulleys-and-levers lesson explains effort, load and the ideal case.
+A **simple machine**, such as a lever or a pulley, changes the size or direction of a force. Input work is effort force times effort distance, and output work is load force times load distance. The pulleys-and-levers lesson explains effort, load and the ideal case.
 
 $$\text{efficiency} = \dfrac{F_{load}\,d_{load}}{F_{effort}\,d_{effort}} \times 100\%$$
 
@@ -262,9 +262,9 @@ The other $420\ \text{J}$ was wasted, mostly as heat from friction. An ideal sys
 
 For work by a constant force, check the angle first. Same direction gives $W=Fd$, perpendicular gives zero, and opposite gives a negative answer.
 
-For a mechanical-energy problem, ask if friction does work. If not, set $KE+PE$ equal at the two states. If it does, include $W_{nc}$.
+For a mechanical-energy problem, ask if any force other than gravity or a spring does work. Friction, air drag, a push, a pull and a motor all count. If none does, set $KE+PE$ equal at the two states. If one does, include $W_{nc}$.
 
-If an object starts from rest and only gravity does work, mass cancels. Then $mgh=\dfrac{1}{2}mv^2$ gives $v=\sqrt{2gh}$, where $h$ is the drop in height. It fails if the object already has speed or if friction does work.
+If an object starts from rest and only gravity does work, mass cancels. Then $mgh=\dfrac{1}{2}mv^2$ gives $v=\sqrt{2gh}$, where $h$ is the drop in height. It fails if the object already has speed or if any other force does work.
 
 Doubling the speed makes the kinetic energy four times as large.
 
@@ -286,7 +286,7 @@ Square the speed before you multiply by the other numbers.
 
 ### #3: Saying Energy Is "Lost" to Friction
 
-> Sliding friction lowers mechanical energy, but total energy is still conserved.
+> Friction from a surface at rest lowers mechanical energy, but total energy is still conserved.
 
 The energy becomes thermal energy, sound, or other forms. It is not destroyed.
 
