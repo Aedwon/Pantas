@@ -56,13 +56,13 @@ To find an empirical formula from composition data:
 3. If a ratio is very close to a whole number, such as $2.01$, round it.
 4. If a ratio is a simple fraction, multiply all the ratios by the same small whole number: $\times2$ for $1.5$, $\times3$ for $1.33$ or $1.67$, and $\times4$ for $1.25$ or $1.75$, and $\times5$ for $1.2$, $1.4$, $1.6$ or $1.8$.
 
-To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the mass of one empirical formula unit: add up the molar masses of its atoms, using each subscript. For $CH_2O$ it is $12+2(1)+16=30$ g/mol. The answer $k$ should be close to a whole number:
+To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the mass of one empirical formula unit, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
 
 $$k=\dfrac{\text{molar mass of compound}}{\text{empirical formula mass}}$$
 
 Multiply every subscript in the empirical formula by $k$.
 
-Ionic compounds have no separate molecules, so they have no molecular formula. The formula of most simple ionic compounds, such as $NaCl$, already shows the simplest ratio of atoms. An exception is a compound with a polyatomic ion made of two or more atoms. Sodium peroxide is written $Na_2O_2$, but its simplest atom ratio is $NaO$.
+Ionic compounds have no separate molecules, so they have no molecular formula. Their formulas are usually already in the simplest ratio, as in $NaCl$, $CaCO_3$ and $Na_2SO_4$. A few are not: sodium peroxide is written $Na_2O_2$, but its simplest atom ratio is $NaO$.
 
 ## Examples
 
@@ -240,4 +240,4 @@ If a measured mass gives more than $100\%$, the product was probably wet or impu
 
 > Ionic solids have formula units, not molecules.
 
-For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. Check for a polyatomic ion, as in $Na_2O_2$, before you reduce an ionic formula.
+For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. Reduce an ionic formula only when its subscripts share a common factor, as in $Na_2O_2$.
