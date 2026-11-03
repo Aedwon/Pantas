@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-biology-cellular-metabolism",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "The problem is that glycolysis turns NAD+ into NADH, and the cell runs out of NAD+.", "problem": "Round-1 L22a is still open. This fermentation paragraph has five sentences, over the limit of one to three. Other paragraphs also run long: the electron paragraph (five), the paragraph beginning 'One glucose gives only' (five), and the prokaryote, organelle, enzyme-pH, anaerobic respiration and 'Photosynthesis happens only in cells with chloroplasts' paragraphs (four each).", "source": "Checklist L22a; LSG Formatting rules: paragraphs (1-3 short sentences)."}
+  ],
+  "goodQuotesChecked": 1
+}

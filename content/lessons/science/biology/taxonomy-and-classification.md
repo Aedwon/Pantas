@@ -19,7 +19,9 @@ A **rank** is a level in the classification. A group of organisms at any rank is
 
 **Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species**
 
-Each rank sits inside the one above it. A genus holds one or more species. A family holds one or more genera (the plural of genus). The ranks are nested like boxes inside boxes.
+Each rank sits inside the one above it.
+
+A genus holds one or more species. A family holds one or more genera (the plural of genus). The ranks are nested like boxes inside boxes.
 
 These $8$ ranks are a classroom simplification. Scientists also use ranks such as subphylum, subclass, and subspecies. Many groups are also described without any rank at all.
 
@@ -35,12 +37,14 @@ The **three-domain system** has $3$ domains: Bacteria, Archaea, and Eukarya. Bac
 
 Eukarya are **eukaryotes**. Their cells have a nucleus and other membrane-bound parts. A few specialized cells lose the nucleus later, such as mature human red blood cells, but the organism's other cells keep it.
 
-Kingdoms are the next rank down, and textbooks do not all agree on them. Some books use $5$ kingdoms, with one kingdom called Monera for all prokaryotes. Some use $6$ kingdoms, which split the prokaryotes into two. This lesson uses the three domains and, inside Eukarya, the $4$ traditional kingdoms: Animalia, Plantae, Fungi, and Protista. If your textbook differs, learn its scheme too.
+Kingdoms are the next rank down, and textbooks do not all agree on them.
+
+Some books use $5$ kingdoms, with one kingdom called Monera for all prokaryotes. Some use $6$ kingdoms, which split the prokaryotes into two. This lesson uses the three domains and, inside Eukarya, the $4$ traditional kingdoms: Animalia, Plantae, Fungi, and Protista. If your textbook differs, learn its scheme too.
 
 Here are the usual traits of the $4$ eukaryote kingdoms:
 
 - **Animalia:** many cells, no cell walls, and the organism takes in food by eating.
-- **Plantae:** many cells, cell walls made of cellulose, and the organism makes its own food by photosynthesis.
+- **Plantae:** many cells, cell walls made of cellulose, and the organism makes its own food by photosynthesis. Plants use a green pigment called chlorophyll to capture light for this.
 - **Fungi:** cell walls made of chitin, and the organism absorbs food from its surroundings. Most are many-celled, but yeasts have one cell.
 - **Protista:** a mixed group of eukaryotes that are not animals, plants, or fungi. Most have one cell, but some, such as kelp, have many.
 
@@ -64,7 +68,9 @@ Scientists show ancestry in a branching tree. Each branch point stands for a com
 
 Similar looks do not always mean close ancestry. In **convergent evolution**, unrelated lineages end up with similar traits because they live in similar ways. The wings of a bat and a bird are an example. Both fly, but the two lineages gained wings separately.
 
-This is why a classification can change. If molecular data show that a group is not one clade, taxonomists may split it, merge it, or redefine it. The old catch-all Kingdom Protista is an example. Its members do not all come from one ancestor, so "protist" is now only an informal word for eukaryotes that are not animals, land plants, or fungi.
+This is why a classification can change. If molecular data show that a group is not one clade, taxonomists may split it, merge it, or redefine it. The old catch-all Kingdom Protista is an example.
+
+All protists descend from the first eukaryote. But the group leaves out other descendants of that ancestor: animals, land plants, and fungi. A group like this is called **paraphyletic**, so it is not a clade. "Protist" is now only an informal word for eukaryotes that are not animals, land plants, or fungi.
 
 ### Binomial Nomenclature
 
@@ -74,7 +80,9 @@ Together they form the species name. In *Homo sapiens*, *Homo* is the genus and 
 
 Type the name in italics. When you write it by hand, underline it. After the full name has been given once, the genus may be shortened to its first letter, as in *H. sapiens*.
 
-The epithet alone does not name a species, because the same epithet can appear in different genera. *Escherichia coli* is a bacterium. *Entamoeba coli* is a different organism, a protist. A genus name can also be used alone, such as *Panthera*, to mean the whole genus.
+The epithet alone does not name a species, because the same epithet can appear in different genera.
+
+*Escherichia coli* is a bacterium. *Entamoeba coli* is a different organism, a protist. A genus name can also be used alone, such as *Panthera*, to mean the whole genus.
 
 Naming follows international codes of nomenclature. Animals, plants with algae and fungi, and bacteria each have their own code. Names can change when new evidence shows a species belongs in a different genus.
 
@@ -136,12 +144,12 @@ Scientific names reduce confusion between researchers in different places.
 
 ### #5: Placing an Organism from Its Traits
 
-An organism grows on a fallen log. Its cells have a nucleus. It is made of many cells with cell walls of chitin. It has no chlorophyll and absorbs food from the log. Which domain and kingdom does it belong to?
+An organism grows on a fallen log. Its cells have a nucleus. It is made of many cells with cell walls of chitin. It has no chlorophyll, the green pigment that plants use to make food from light. It absorbs food from the log. Which domain and kingdom does it belong to?
 
 **Solution:**
 
 1. The cells have a nucleus, so the domain is Eukarya.
-2. Many cells and no chlorophyll rule out Plantae, which makes its own food.
+2. Having many cells does not decide it, because plants have many cells too. But no chlorophyll means it cannot make its own food by photosynthesis, so it is not Plantae.
 3. Cell walls of chitin and absorbing food match Fungi.
 4. An animal has no cell walls and eats food, so it does not fit.
 
@@ -192,7 +200,7 @@ B is closest to A, and D is the most distant. The order of branching tells relat
 
 ### #9: Why Can Classification Change?
 
-A molecular study finds that some organisms, grouped together because they look alike, do not all come from one ancestor. Why might taxonomists revise the group?
+A molecular study finds that a group of organisms, put together because they look alike, is not a clade. The group either leaves out some descendants of its ancestor or mixes in separate lineages. Why might taxonomists revise the group?
 
 **Solution:**
 
@@ -201,7 +209,7 @@ A molecular study finds that some organisms, grouped together because they look 
 3. The study shows the old group is not a clade.
 4. Taxonomists may split the group, merge it with others, or redefine it.
 
-The old Kingdom Protista changed in this way.
+The old Kingdom Protista changed in this way: it is paraphyletic, so it is not a clade.
 
 ## Exam Strategies
 

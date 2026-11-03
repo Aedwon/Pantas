@@ -99,7 +99,7 @@
     "lessonPath": "content/lessons/science/biology/cellular-metabolism.md",
     "lessonId": "lesson-biology-cellular-metabolism",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/biology/cellular-reproduction.md",
@@ -129,7 +129,7 @@
     "lessonPath": "content/lessons/science/biology/taxonomy-and-classification.md",
     "lessonId": "lesson-biology-taxonomy-and-classification",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/atomic-structure.md",
