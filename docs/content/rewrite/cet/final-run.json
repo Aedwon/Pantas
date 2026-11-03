@@ -111,13 +111,13 @@
     "lessonPath": "content/lessons/science/biology/characteristics-of-life.md",
     "lessonId": "lesson-biology-characteristics-of-life",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/biology/evolution.md",
     "lessonId": "lesson-biology-evolution",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/biology/human-anatomy-physiology.md",

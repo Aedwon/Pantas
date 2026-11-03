@@ -13,3 +13,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 |---|---|---|
 | lesson-biology-cellular-reproduction | 3,052 | Writer taught every brief item, including meiotic variation; the brief's reorder candidate was not applied. |
 | lesson-biology-cellular-metabolism | 3,121 | Writer taught every brief item (photosynthesis stages, respiration stages, fermentation, enzymes, biomolecules). |
+
+## Rulings during the run (continued)
+
+- lesson-geometry-triangles, round-2 B01 on "SSA works only as HL": upheld. SSA also fixes a triangle when the given angle is right or obtuse, or lies opposite the longer given side. The fix may keep the school rule (SSA is not a congruence test; HL is the right-triangle case) but must not say HL is the only exception.
