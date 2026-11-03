@@ -20,7 +20,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | lesson-physics-fluid-mechanics | 3,492 | Writer added continuity and apparent weight beyond the brief; check for padding. |
 | lesson-physics-light-and-optics | 3,826 | Mirror and lens ray diagrams and image cases. |
 | lesson-earth-science-astronomy-water-cycle-oceanography | 3,080 | Crossed 3,000 in the round-1 fix (density limits and the far-side tide). Borderline. |
-| lesson-physics-dynamics | 3,125 | Crossed 3,000 in the round-1 fix (restored figures, component splitting, term meanings). |
+| lesson-physics-dynamics | 3,310 | Crossed 3,000 in the round-1 fix (restored figures, component splitting, term meanings). |
 | lesson-physics-waves-and-sound | 3,242 | Interference, diffraction and spectrum order added from the brief. |
 
 ## Rulings during the run (continued)
