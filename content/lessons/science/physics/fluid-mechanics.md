@@ -73,7 +73,7 @@ Pressure is higher at the bottom of an object in a fluid than at the top. This d
 
 $$F_B = \rho_{fluid}\, g\, V_{displaced}$$
 
-Look at what this formula uses. It uses the density of the fluid, not the density of the object. The buoyant force equals the object's own weight only when the object floats or hangs still in the fluid.
+Look at what this formula uses. It uses the density of the fluid, not the density of the object. The buoyant force equals the object's own weight when the object is at rest and only these two forces act on it, as when it floats freely. If a string, a scale, or a hand also pulls on the object, the two forces are not equal (see Example #7).
 
 Now think about the forces on an object. Weight pulls down and the buoyant force pushes up.
 
@@ -91,7 +91,7 @@ A floating object with uniform density also has a simple rule. The fraction of i
 
 The density rule works for an object that is free to move and surrounded by fluid. It does not predict what happens if the object is tied down, pushed by another force, or sealed against the container floor with no fluid under it. For those cases, draw the forces and work out the displaced volume.
 
-<!-- ILLUSTRATION: two beakers of water side by side; left shows a floating block with arrows "weight W down" and "buoyant force F_B up" of equal length; right shows a sinking block with F_B arrow shorter than the W arrow -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"buoyancy-comparison","illustrationKey":"science/physics/fluid-mechanics#1","cases":[{"state":"floating","density":"less dense than water","buoyantForce":"equal to weight"},{"state":"sinking","density":"denser than water","buoyantForce":"smaller than weight"}]} -->
 
 ### Continuity: Flow Speed in a Pipe
 
@@ -201,7 +201,16 @@ $$F_B = \rho_{fluid} g V = (1000)(9.8)(3.0 \times 10^{-4}) = 2.94 \text{ N}$$
 
 3. The buoyant force is $2.94 \text{ N}$ upward. It does not depend on what the block is made of.
 
-### #6: Apparent Weight Under Water
+### #6: Will It Float or Sink?
+
+A solid object is placed freely in water of density $1.0 \text{ g/cm}^3$. Neglect trapped bubbles and other external forces. Will it float or sink if its average density is (a) $0.8 \text{ g/cm}^3$, (b) $2.7 \text{ g/cm}^3$?
+
+**Solution:**
+
+1. In (a), the average density is lower than the water's density. The object displaces a volume of water whose weight equals its own weight before it is fully under. It floats, partly submerged, with $\dfrac{0.8}{1.0} = 80\%$ of its volume below the surface.
+2. In (b), the average density is higher than the water's density. Even fully submerged, the buoyant force is less than the weight. The object sinks.
+
+### #7: Apparent Weight Under Water
 
 A solid object has a mass of $2.7 \text{ kg}$ and a volume of $1.0 \times 10^{-3} \text{ m}^3$. It hangs from a spring scale and is fully submerged in water. What does the scale read in newtons?
 
@@ -221,7 +230,7 @@ $$W_{apparent} = W - F_B = 26.46 - 9.8 = 16.66 \text{ N}$$
 
 The scale reads about $16.7 \text{ N}$.
 
-### #7: Continuity and Bernoulli in a Horizontal Pipe
+### #8: Continuity and Bernoulli in a Horizontal Pipe
 
 Water flows steadily through a horizontal pipe. In the wide section, the area is $4.0 \times 10^{-3} \text{ m}^2$, the speed is $2.0 \text{ m/s}$, and the pressure is $2.00 \times 10^5 \text{ Pa}$. The pipe narrows to an area of $1.0 \times 10^{-3} \text{ m}^2$. Assume the water is incompressible and nonviscous. Find the speed and the pressure in the narrow section.
 
@@ -243,9 +252,9 @@ $$P_2 = 2.00 \times 10^5 - 3.0 \times 10^4 = 1.70 \times 10^5 \text{ Pa}$$
 
 4. The water in the narrow section moves at $8.0 \text{ m/s}$ and has the lower pressure, $1.70 \times 10^5 \text{ Pa}$.
 
-### #8: Bernoulli When the Height Changes
+### #9: Bernoulli When the Height Changes
 
-Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point 1 to point 2. The pressure at point 1 is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow. Find the pressure at point 2.
+Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow. Find the pressure at point 2.
 
 **Solution:**
 
@@ -261,7 +270,7 @@ $$P_2 = P_1 - \rho g (h_2 - h_1) = 3.00 \times 10^5 - (1000)(9.8)(5.0)$$
 
 $$P_2 = 3.00 \times 10^5 - 0.49 \times 10^5 = 2.51 \times 10^5 \text{ Pa}$$
 
-4. The pressure at point 2 is $2.51 \times 10^5 \text{ Pa}$. The speed did not change here, yet the pressure fell because the water is higher.
+4. The pressure at point $2$ is $2.51 \times 10^5 \text{ Pa}$. The speed did not change here, yet the pressure fell because the water is higher.
 
 ## Speed Tricks & Shortcuts
 
@@ -269,11 +278,11 @@ For buoyancy, use the **displaced fluid**, not the object's material:
 
 $$F_B = \rho_{fluid}\, g\, V_{displaced}$$
 
-For a floating object, set $F_B = W$. For a fully submerged object, the displaced volume is the object's volume.
+For an object floating freely at rest, set $F_B = W$. For a fully submerged object, the displaced volume is the object's volume.
 
 For a float or sink question about a free object, compare its average density with the fluid's density. For tied-down objects, extra forces, or sealed bases, analyze the actual forces.
 
-For a hydraulic lift, the force ratio equals the area ratio: $\dfrac{F_2}{F_1} = \dfrac{A_2}{A_1}$. Use the same area unit for both pistons. The distance ratio is the inverse of the area ratio, and the work stays equal in the ideal case.
+For a hydraulic lift, in the ideal case the force ratio equals the area ratio: $\dfrac{F_2}{F_1} = \dfrac{A_2}{A_1}$. Use the same area unit for both pistons. The distance ratio is the inverse of the area ratio, and the work stays equal in the ideal case.
 
 For a liquid at rest, pressure at depth depends on the depth, the liquid's density, and $g$. Ignore container width and shape.
 
@@ -289,9 +298,9 @@ The object's density helps predict floating, but it does not go into $F_B = \rho
 
 ### #2: Saying Buoyant Force Always Equals the Object's Weight
 
-> The buoyant force equals the object's weight only when the object floats or is suspended at rest.
+> The buoyant force equals the object's weight when the object is at rest and only weight and buoyant force act on it, as for a free floating object.
 
-A sinking object has $F_B < W$. What does not change is that the buoyant force equals the weight of the displaced fluid.
+A sinking object has $F_B < W$. An object hanging from a scale or string has $F_B < W$ too, because the scale or string pulls up as well. What does not change is that the buoyant force equals the weight of the displaced fluid.
 
 ### #3: Assuming Bigger Objects Sink
 
@@ -303,7 +312,7 @@ A large hollow ship floats because its average density, with all the air inside,
 
 > For a liquid at rest, pressure depends on depth, density, and $g$, not on the container's shape or the amount of liquid.
 
-A narrow tube and a wide tank filled to the same height give the same pressure at the bottom. The sloping or narrow walls of the container carry part of the liquid's weight, so the bottom pressure is not set by the total amount of liquid.
+A narrow tube and a wide tank filled to the same height give the same pressure at the bottom. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight. In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. The pressure at the bottom is still set by depth alone.
 
 ### #5: Expecting Free Work from a Hydraulic Lift
 
