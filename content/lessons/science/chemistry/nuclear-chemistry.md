@@ -21,7 +21,9 @@ The number of neutrons is $A-Z$. You can review protons and neutrons in the atom
 
 ### Radioactive Decay
 
-Some nuclei are unstable. An unstable nucleus can change by itself and give off radiation. This is **radioactive decay**. The nucleus before the change is the **parent**. The nucleus after the change is the **daughter**.
+Some nuclei are unstable. An unstable nucleus can change by itself and give off radiation. This is **radioactive decay**.
+
+The nucleus before the change is the **parent**. The nucleus after the change is the **daughter**.
 
 Each decay mode below has a known effect on $A$ and $Z$. Learn those effects, because they let you find the daughter.
 
@@ -32,7 +34,9 @@ A nuclear equation shows the parent on the left and the daughter and the emitted
 - The mass numbers on the left add up to the mass numbers on the right.
 - The atomic numbers (charges) on the left add up to the atomic numbers on the right.
 
-Small particles get $A$ and $Z$ values too. An electron has $A=0$ and $Z=-1$. A positron has $A=0$ and $Z=+1$. A **neutrino** and an **antineutrino** are tiny uncharged particles with $A=0$ and $Z=0$, so they do not change either check. A gamma photon also has $A=0$ and $Z=0$.
+Small particles get $A$ and $Z$ values too.
+
+An electron has $A=0$ and $Z=-1$. A positron has $A=0$ and $Z=+1$. A **neutrino** and an **antineutrino** are tiny uncharged particles with $A=0$ and $Z=0$, so they do not change either check. A gamma photon also has $A=0$ and $Z=0$.
 
 ### Common Radioactive-Decay Modes
 
@@ -99,13 +103,19 @@ The released neutrons can strike more uranium-$235$ nuclei. This can start a **c
 
 $$^2_1 H +\ ^3_1 H \rightarrow\ ^4_2 He +\ ^1_0 n$$
 
+Here $^2_1 H$ is **deuterium**, a hydrogen isotope with $1$ proton and $1$ neutron. $^3_1 H$ is **tritium**, a hydrogen isotope with $1$ proton and $2$ neutrons.
+
 Nuclei carry positive charge and push each other away. Fusion needs extremely high temperature and pressure to push them together. The Sun does not join hydrogen into helium in one step. Its net result is that four hydrogen nuclei become one helium-$4$ nucleus, plus other particles and energy, through several steps.
 
 ### Why Fission and Fusion Release Energy
 
-Holding a nucleus together takes energy. The **binding energy** is the energy needed to pull the nucleus apart into separate protons and neutrons. A larger binding energy per proton or neutron (per **nucleon**) means a more tightly held, more stable nucleus.
+The **binding energy** is the energy needed to pull a nucleus apart into separate protons and neutrons. The same amount of energy is released when those particles come together to form the nucleus.
 
-Binding energy per nucleon is highest near iron-$56$. Splitting a very heavy nucleus gives smaller nuclei with more binding energy per nucleon. Joining very light nuclei also gives a nucleus with more binding energy per nucleon. In both cases the difference is released as energy.
+A proton or neutron in a nucleus is called a **nucleon**. A larger binding energy per nucleon means a more tightly held, more stable nucleus.
+
+Binding energy per nucleon is highest near iron-$56$. Splitting a very heavy nucleus gives smaller nuclei with more binding energy per nucleon.
+
+Joining very light nuclei also gives a nucleus with more binding energy per nucleon. In both cases the products are more tightly bound, and the difference is released as energy.
 
 ### Comparing Fission and Fusion
 
@@ -206,7 +216,15 @@ Uranium-$238$ ($Z=92$) emits an alpha particle. The daughter then emits a $\beta
 2. The $\beta^-$ step keeps $A=234$ and raises $Z$ to $90+1=91$.
 3. $Z=91$ is protactinium, so the final nuclide is protactinium-$234$.
 
-$$^{238}_{92}U \rightarrow\ ^{234}_{90}Th +\ ^4_2He \rightarrow\ ^{234}_{91}Pa +\ ^{\ 0}_{-1}e + \bar{\nu}$$
+Step 1, alpha decay:
+
+$$^{238}_{92}U \rightarrow\ ^{234}_{90}Th +\ ^4_2He$$
+
+Step 2, $\beta^-$ decay:
+
+$$^{234}_{90}Th \rightarrow\ ^{234}_{91}Pa +\ ^{\ 0}_{-1}e + \bar{\nu}$$
+
+4. Check each step. Step 1: $238=234+4$ and $92=90+2$. Step 2: $234=234+0$ and $90=91+(-1)$.
 
 ### #7: Balancing a Fission Equation
 
@@ -231,7 +249,7 @@ $$Z=92-56=36$$
 Name each process.
 
 (a) A uranium nucleus absorbs a neutron, divides into medium-mass fragments, and releases neutrons.
-(b) Hydrogen isotopes combine to form helium and a neutron.
+(b) Deuterium and tritium (hydrogen isotopes) combine to form helium and a neutron.
 
 **Solution:**
 
@@ -292,7 +310,7 @@ Paper stops alpha particles from outside. An alpha emitter that is inhaled or sw
 
 > An energy comparison needs a basis: per reaction, per mole, or per kilogram of fuel.
 
-Fusion gives more energy per kilogram of fuel, but one fission event of uranium-$235$ releases more than one deuterium-tritium fusion event. A statement without a basis cannot be judged.
+For these two reactions, fusion gives more energy per kilogram of fuel, but one fission event of uranium-$235$ releases more than one deuterium-tritium fusion event. A statement without a basis cannot be judged.
 
 ### #5: Thinking Gamma Emission Changes the Element
 

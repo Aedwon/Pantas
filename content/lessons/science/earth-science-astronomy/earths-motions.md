@@ -107,6 +107,8 @@ Classify each statement as caused mainly by Earth's rotation or Earth's revoluti
 1. The daily rising and setting happens because Earth spins once a day. This is rotation.
 2. The yearly cycle of seasons comes from Earth's trip around the Sun with a tilted axis. This is revolution, together with the axial tilt.
 
+<!-- ILLUSTRATION: Earth shown twice: left, a curved arrow around the axis labeled "rotation: day and night"; right, Earth at two points on its orbit around the Sun labeled "revolution: seasons and the year" -->
+
 ### #2: Why Seasons Are Opposite
 
 Why can the Northern Hemisphere have summer while the Southern Hemisphere has winter at the same time?
@@ -125,6 +127,8 @@ A student says, "It is summer in the north because Earth is closest to the Sun i
 1. If distance caused the seasons, both hemispheres would have summer at the same time. They do not.
 2. Earth is closest to the Sun in early January, when the Northern Hemisphere has winter.
 3. The seasons come from axial tilt, which changes the sunlight angle and day length. The reasoning is wrong.
+
+<!-- ILLUSTRATION: Earth's orbit around the Sun, slightly oval, with Earth in early January labeled "closest to the Sun, Northern winter" and in early July labeled "farthest from the Sun, Northern summer" -->
 
 ### #4: Solar Day and Sidereal Day
 
@@ -165,6 +169,8 @@ Orion is seen high in the evening sky from the Philippines in the early months o
 3. By then, Orion lies near the Sun's direction and is lost in daylight. So Orion is not seen in the evening.
 4. Rotation alone cannot explain this, because rotation repeats every day.
 
+<!-- ILLUSTRATION: top view of Earth at two points on opposite sides of its orbit, six months apart; the night side of each is shaded and Orion is drawn on the night side in one and on the Sun side in the other -->
+
 ### #8: Precession
 
 Which statement about precession is correct? (A) Earth's axis changes direction slowly, over about $26{,}000$ years. (B) Earth's tilt angle changes from $0^\circ$ to $90^\circ$ every year. (C) Earth's spin reverses direction every century. (D) Earth's orbit changes from circle to line over a year.
@@ -173,6 +179,8 @@ Which statement about precession is correct? (A) Earth's axis changes direction 
 1. Precession is a slow change in the direction the axis points, with the tilt angle staying about the same.
 2. One full cycle takes about $26{,}000$ years.
 3. Only choice (A) says this.
+
+<!-- ILLUSTRATION: Earth with its axis tilted $23.4^\circ$ drawing a slow circle in space, a cone, labeled "one cycle about 26,000 years"; the axis points toward Polaris now and toward Vega later -->
 
 ## Speed Tricks & Shortcuts
 

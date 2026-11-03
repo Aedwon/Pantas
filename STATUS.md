@@ -195,3 +195,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: mole-concept (1 Minor). Mixtures fixed after round 1.
 - Round 1 reads: periodic-table (3 Blockers, 1 Major), nuclear-chemistry (2 Blockers, 1 Major); fixes running. Written: earths-subsystems.
 - Done at minor after round 2: matter (2 Minors). Written: thermodynamics-and-kinetics. Periodic-table fixed after round 1.
+- Open after 3 reads: basic-organic-chemistry (round 3: parent-chain rule, ruled Major; see rulings). Written: earths-motions. Nuclear-chemistry fixed after round 1.
