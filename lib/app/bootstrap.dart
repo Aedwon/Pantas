@@ -13,6 +13,7 @@ import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/local_onboarding_preset_apply.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/start_location.dart';
+import 'package:pantas/app/startup_gates.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
@@ -340,6 +341,12 @@ Future<void> _bootstrap(
     }
     registerLocalOnboardingPresets();
     await startLocalPanelBridge(container);
+    // A page opened directly must not mount before the onboarding redirect
+    // can see where the student is.
+    await settleGatesBeforeFirstPage(
+      container,
+      startLocation: initialRouterLocation,
+    );
 
     final notificationsLifecycleObserver = NotificationsLifecycleObserver(
       service: container.read(notificationServiceProvider),
