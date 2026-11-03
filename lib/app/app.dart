@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/no_scroll_bars.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
@@ -42,6 +43,7 @@ class App extends ConsumerWidget {
       theme: appLightTheme(),
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
+      scrollBehavior: const NoScrollBarsBehavior(),
       routerConfig: router,
       builder: (context, child) => WebLayoutTheme(
         child: AppErrorRecovery(
