@@ -25,6 +25,8 @@ At one crossing, two angles that sit side by side on a straight line are a **lin
 
 Linear pairs and vertical angles come from any two lines that cross. The lines do not need to be parallel.
 
+A three-letter name such as angle $CAP$ names an angle by its corner. The middle letter is the corner. The angle opens toward the other two letters, $C$ and $P$.
+
 ### Pairs formed by parallel lines
 
 If $l \parallel m$, these pairs are equal:
@@ -188,12 +190,12 @@ Now a check on a different figure. Two same-side interior angles measure $112^\c
 
 Lines $l$ and $m$ are parallel. Point $A$ is on $l$ and point $B$ is on $m$, and both lie to the left of a point $P$ between the lines. Point $C$ is on $l$ to the right of $A$, and point $D$ is on $m$ to the right of $B$. Angle $CAP$ is $30^\circ$ and angle $DBP$ is $40^\circ$. Find angle $APB$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallel-zigzag", "labels": ["Line l", "Line m", "Point P", "30°", "40°", "Angle P = 30° + 40° = 70°"], "semanticsLabel": "Zigzag between parallel lines l and m with segments meeting at point P forming angles of 30 and 40 degrees with a parallel helper line."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallel-zigzag", "labels": ["Line l", "Line m", "Point A on l", "Point C on l, right of A", "Point B on m", "Point D on m, right of B", "Point P between the lines, right of A and B", "Angle CAP = 30°", "Angle DBP = 40°", "Angle APB = ?"], "semanticsLabel": "Parallel lines l and m with a zigzag A to P to B. Point P is between the lines and to the right of A and B. Angle CAP is 30 degrees, angle DBP is 40 degrees, and angle APB is the unknown."} -->
 
 **Solution:**
 Draw a helper line through $P$, parallel to both lines. Let $E$ be a point on it to the left of $P$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallel-zigzag", "labels": ["Top Line", "Bottom Line", "Point P", "Helper Line through P"], "semanticsLabel": "Two parallel lines with point P between them and a dashed helper line parallel to both splitting the vertex angle."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallel-zigzag", "labels": ["Line l", "Line m", "Point A", "Point B", "Point P", "Point E on the helper line, left of P", "Helper line through P, parallel to l and m", "Angle APE = 30°", "Angle EPB = 40°"], "semanticsLabel": "Parallel lines l and m with point P between them and a dashed helper line through P parallel to both. Point E is on the helper line to the left of P. The helper line splits angle APB into angle APE of 30 degrees and angle EPB of 40 degrees."} -->
 
 1. The helper line splits angle $APB$ into angle $APE$ and angle $EPB$.
 2. Angle $APE$ and angle $CAP$ are alternate interior angles for the parallel lines $l$ and the helper line. So angle $APE$ is $30^\circ$.
@@ -236,6 +238,8 @@ Corresponding angles sit in matching corners, one inside and one outside the lin
 
 ### #4: Equal Angles in the Wrong Places
 
-> Only certain equal pairs prove lines parallel.
+> Check the position of two equal angles before you call the lines parallel.
 
-Equal corresponding, alternate interior, or alternate exterior angles prove it, and so do same-side interior angles that add to $180^\circ$. Two equal angles in other positions prove nothing. For example, a linear pair is equal only when both are $90^\circ$, and that says nothing about parallel lines.
+Equal corresponding, alternate interior, or alternate exterior angles prove it. Same-side interior angles prove it when they add to $180^\circ$. Equal same-side interior angles do this only when each is $90^\circ$, so otherwise check their sum.
+
+Vertical angles are always equal, and a linear pair is equal when both are $90^\circ$. Both come from two crossing lines, so neither says anything about parallel lines.

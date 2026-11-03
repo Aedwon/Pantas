@@ -240,3 +240,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Parallel-perpendicular-lines round 1: 1 Blocker (equal angles 'prove nothing' fails at 90 degrees), 2 Majors (zigzag figure marker, three-letter angle names). Fix not started (paused).
 - Written: quadrilaterals-and-polygons (2,787 words). Paused here at the user's request: no agents running.
 - Resumed at the user's request (5-hour usage at 72%). Running: radicals round 2 read, parallel-perpendicular-lines round 1 fix, quadrilaterals round 1 read.
+- Parallel-perpendicular-lines fixed after round 1 (lead sent Trap #4 back once: the first fix kept 'prove nothing').
