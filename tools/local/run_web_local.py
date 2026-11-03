@@ -204,6 +204,7 @@ def main():
          f'--dart-define=LOCAL_EMULATOR_HOST={host}'])
     print('+ install local App Check debug exchange, local account links and the test panel in build/web only', flush=True)
     print('+ dart run tool/list_routes.dart > build/web/local-panel-routes.json', flush=True)
+    print('+ copy tools/local/panel/local-fps.js to build/web only (shown with ?localFps=1)', flush=True)
     if not args.dry_run:
         index = Path('build/web/index.html')
         shim = '''<script>
@@ -248,6 +249,14 @@ try {
     window.addEventListener('load', () => document.getElementById('pw-start')?.click());
   }
 } catch (_) {}
+// ?localFps=1 shows a small frames-per-second readout. Local runs only, for testing on a phone.
+try {
+  if (new URLSearchParams(location.search).get('localFps') === '1') {
+    const fps = document.createElement('script');
+    fps.src = '/local-fps.js';
+    document.head.appendChild(fps);
+  }
+} catch (_) {}
 </script>'''
         shim = shim.replace('__LOCAL_HOST__', host).replace('__LOCAL_RUN__', str(time.time_ns()))
         index.write_text(index.read_text().replace('<head>', '<head>' + shim))
@@ -261,6 +270,7 @@ try {
         # The test panel: a page, a reset page, and the list of app screens. Local runs only.
         shutil.copy('tools/local/panel/index.html', 'build/web/local-panel.html')
         shutil.copy('tools/local/panel/local-reset.html', 'build/web/local-reset.html')
+        shutil.copy('tools/local/panel/local-fps.js', 'build/web/local-fps.js')
         routes = subprocess.run(['dart', 'run', 'tool/list_routes.dart'], env=env, check=True,
                                 capture_output=True, text=True).stdout
         json.loads(routes)
