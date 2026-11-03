@@ -15,7 +15,7 @@
     "lessonPath": "content/lessons/science/chemistry/acids-bases-ph.md",
     "lessonId": "lesson-chemistry-acids-bases-ph",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/physics/kinematics.md",
@@ -45,7 +45,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/eclipses-and-moon-phases.md",
     "lessonId": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/biology/genetics-and-heredity.md",

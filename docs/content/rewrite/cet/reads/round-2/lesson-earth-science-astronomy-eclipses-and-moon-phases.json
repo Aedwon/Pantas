@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A \"quarter\" moon is not one quarter lit. Half of its face is lit.",
+      "problem": "This paragraph has 4 sentences, and its third sentence runs about 35 words with a colon and two clauses. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-chemistry-acids-bases-ph",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L24",
+      "severity": "Minor",
+      "quote": "title: \"Acids, Bases, and pH\"",
+      "problem": "The outline title is \"Acids, Bases, and pH Scale\", and the guide says titles come from the outline. The mismatch is in the base. The final-run lead ruling downgraded this round-1 Major to Minor and kept the title; it stays open as a Minor for the final review.",
+      "source": "Checklist L24; LSG Frontmatter; tools/lesson_author/outline.json line 534; final-run-rulings.md (lesson-chemistry-acids-bases-ph row)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For a strong acid with one hydrogen, whose concentration is $1\\times10^{-n}\\ M$, the pH is $n$.",
+      "problem": "This Speed Tricks paragraph has five sentences, above the one-to-three limit. Others still run to four: \"A **strong acid** ionizes completely in water.\", \"**Neutralization** is the reaction of an acid with a base.\", \"A **spectator ion** is an ion that is present\", \"If both are strong and they supply equal amounts\" and \"For a base, use the hydroxide concentration.\" Round-1 L22a is partly fixed, still open.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

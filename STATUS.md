@@ -169,3 +169,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Fixes after round 1: stoichiometry (also the Sol Blocker), chemical-bonding, acids-bases-ph, kinematics. All pass `check_cet_lesson.py`. Round 2 reads running.
 - Fixes: work-energy-power and eclipses-and-moon-phases after round 1; plate-tectonics after round 2 (its round 3 read is the last). All pass the check.
 - Fixes after round 1: electricity-and-magnetism (one unconfirmed field value removed) and genetics-and-heredity. Both pass the check.
+- Done at minor after round 2: acids-bases-ph (2 Minors), eclipses-and-moon-phases (1 Minor).
