@@ -6,19 +6,19 @@
 
 ## Summary
 
-**Recommendation: add the four main college entrance tests together: UPCAT, DCAT (listed here as DLSUCET), USTET and ACET.** The three beyond UPCAT add no lesson or question sets to rewrite. Together the four use 137 sets, and 98 of those have not had the CSE rewrite. UPCAT alone needs the same 98. One Student plan covers all four. UPCAT has the largest official count among exams that can be ready in time (147,437). PUPCET's is larger (181,598), but PUP has not published its next schedule or a format.
+**Recommendation: add the four main college entrance tests together: UPCAT, DCAT (listed here as DLSUCET), USTET and ACET.** The three beyond UPCAT add little lesson work. By the accepted audit tags, the four use 132 of the audit's 158 lessons, and 69 of those have not been rewritten. UPCAT alone needs 65. One Student plan covers all four. UPCAT has the largest official count among exams that can be ready in time (147,437). PUPCET's is larger (181,598), but PUP has not published its next schedule or a format.
 
 **Timing:** the current cycle is already testing and ends in early 2027, which is too soon. Build for the next cycle. By past pattern, UPCAT filing opens in March 2027 and its test is in early August 2027. DCAT, USTET and ACET follow from August 2027 to about January 2028. No school has announced these dates yet.
 
 **Runner-up: NAPOLCOM.** It sells in the Civil Service tier, with higher prices and web prices already set. The two 2026 sittings had about 89,000 registrations, including promotional exam takers. It needs new police content and has no 2027 dates yet.
 
-**Main cost:** rewriting the 98 sets, whose size is not estimated here. Also: Student web prices, a web exam picker change, required lesson links for the roadmap, mock blueprints for DCAT and USTET, and each exam's deferred end-of-mock screens. Student yearly earns ₱799 per payer against Civil Service's ₱1,199.
+**Main cost:** the 69 lessons (science 46, mathematics 18, reasoning 3, reading 2) have had no Level 4 standards read, no rewrite, and no CET teaching gaps placed; that size is not estimated here. The 63 rewritten lessons were fixed for CSE, so CET depth is still unchecked there too. Also: the CET question check, Student web prices, a web exam picker change, required lesson links for the roadmap, mock blueprints for DCAT and USTET, and each exam's deferred end-of-mock screens. Student yearly earns ₱799 per payer against Civil Service's ₱1,199.
 
 **Decision for you:** approve the four-test bundle as the next exams, and choose minimal, balanced or hardened scope for the content and web work.
 
 ## Comparison
 
-Candidate counts are annual. "Official" means the testing body or a government source. Everything else is secondary. Tags are counted from `origin/content/cse-rewrite-r1`. Rank is my judgment (logic below). Rank 1 is the four-test bundle. Dates and formats marked official were read on the school's own page in a browser on 3 November.
+Candidate counts are annual. "Official" means the testing body or a government source. Everything else is secondary. The Tagged column counts the older tags on question files on `origin/content/cse-rewrite-r1`; those are wider than the accepted audit tags (see method). Rank is my judgment (logic below). Rank 1 is the four-test bundle. Dates and formats marked official were read on the school's own page in a browser on 3 November.
 
 | Rank | Exam | Latest candidates | 2027 dates | Official format | Tagged sets / questions | Tier |
 |---|---|---|---|---|---|---|
@@ -45,7 +45,7 @@ Candidate counts are annual. "Official" means the testing body or a government s
 
 **NAPOLCOM.** Judgment: shared with CSE are language (20 sets, 400 questions), the Constitution (10 sets, 200), arithmetic (9 sets, 180), logical reasoning (5 sets, 100) and reading (13 sets, 260). Missing: PNP law, criminal justice, current events. Non-verbal logic may trigger the abstract reasoning generator rule in `docs/pricing.md`; coverage is not confirmed. Existing CSE payers already hold the Civil Service tier, so NAPOLCOM reaches new buyers only.
 
-**DCAT, USTET, ACET.** They add no sets beyond the 98 UPCAT needs, because the extra USTET and ACET sets are all CSE sets. Each still needs its own work. DCAT and USTET have no mock blueprint in the repo. DLSU publishes no DCAT subtests, so a DCAT mock would not be an official format. ACET has a blueprint on the staging candidate, and its time values began as placeholders in October, so recheck them. ACET and USTET cover abstract reasoning using the existing static sets. `docs/pricing.md` applies the generator rule to academy exams and PSHS-NCE only, not these two.
+**DCAT, USTET, ACET.** They add 4 lessons beyond the 65 UPCAT needs. Each still needs its own work. DCAT and USTET have no mock blueprint in the repo. DLSU publishes no DCAT subtests, so a DCAT mock would not be an official format. ACET has a blueprint on the staging candidate, and its time values began as placeholders in October, so recheck them. ACET and USTET cover abstract reasoning using the existing static sets. `docs/pricing.md` applies the generator rule to academy exams and PSHS-NCE only, not these two.
 
 **DOST-SEI.** It adds 5 sets to the bundle. Its test is in 11 days; its next date is unknown, and its schedule moved from February to November. Second wave.
 
@@ -83,7 +83,19 @@ Source: `origin/content/cse-rewrite-r1` (7032eec5), read with `git archive` into
 | dost-sei | 85 | 1,703 | 1,289 |
 | pupcet | 44 | 880 | 0 (688 unset) |
 
-Sets tagged for both CSE (Pro or Sub) and the exam: UPCAT 30 sets (600 questions), DLSUCET 30 (600), USTET 39 (780), ACET 39 (780), DOST-SEI 29 (580), PUPCET 10 (200). Exams without tags: overlap is a judgment from official coverage and is labeled so above. Tags show intended coverage, not release readiness. The approved mark is also a weak signal: CSE Professional shows 438 of 1,303 approved, although CSE passed its audits and 968 unapproved questions are still exported. Sets tagged UPCAT but not CSE: 98 of 128, recounted independently. The four tests together: 137 sets, 39 shared with CSE and 98 not (science 51, mathematics 34, reading comprehension 13). All four tests share 77 sets. Adding PUPCET leaves the total at 137; adding DOST-SEI makes it 142.
+Sets tagged for both CSE (Pro or Sub) and the exam: UPCAT 30 sets (600 questions), DLSUCET 30 (600), USTET 39 (780), ACET 39 (780), DOST-SEI 29 (580), PUPCET 10 (200). Exams without tags: overlap is a judgment from official coverage and is labeled so above. Tags show intended coverage, not release readiness. The approved mark is also a weak signal: CSE Professional shows 438 of 1,303 approved, although CSE passed its audits and 968 unapproved questions are still exported. By question-file tags, the four tests use 137 sets. These tags are older and wider than the audit's, so they are not the basis for the recommendation.
+
+**Accepted audit tags and rewrite status.** The accepted Level 1 exam maps of the coverage audit (`docs/content/audit/coverage-r1` on `docs/content-coverage-audit-r1`, shown in the SSOT tab Pantas Audited Corpus r1) tag 158 lessons. All 158 titles were matched to files at corpus commit 765c5dc0. "Rewritten" means the lesson file changed between 765c5dc0 and `content/cse-rewrite-r1` (90 lessons, the CSE rewrite's scope). The audit predates 12 lessons added since, which have no audit tags.
+
+| Exam | Audit-tagged lessons | Rewritten | Not rewritten |
+|---|---|---|---|
+| UPCAT | 121 | 56 | 65 |
+| DCAT | 84 | 49 | 35 |
+| USTET | 102 | 49 | 53 |
+| ACET | 79 | 55 | 24 |
+| Any of the four | 132 | 63 | 69 |
+
+**Audit state.** Levels 1 to 3 (exam maps, overlap, lesson structure) covered all nine exams. Level 4 packets exist for all 158 lessons, but Aedwon narrowed Levels 4 and 5 to CSE on October 19, before any lesson read ran. Level 3's per-exam teaching findings already list thin and missing skills for each CET, including Filipino and scientific investigation; those are leads, not confirmed requirements.
 
 ## Could not verify
 
@@ -95,7 +107,7 @@ Sets tagged for both CSE (Pro or Sub) and the exam: UPCAT 30 sets (600 questions
 
 ## What would change the recommendation
 
-- UP announces a UPCAT date later than August 2027, or the rewrite of the 98 non-CSE sets proves costly: NAPOLCOM moves first.
+- UP announces a UPCAT date later than August 2027, or the work on the 69 lessons proves costly: NAPOLCOM moves first.
 - Beta data shows CSE students need something else first: revisit the order.
 - NAPOLCOM announces an April 2027 date and an official coverage list without non-verbal items: NAPOLCOM becomes a close first.
 - PRC publishes a 2027 calendar and you accept new content for ₱249 monthly: LET or PNLE becomes worth scoping.

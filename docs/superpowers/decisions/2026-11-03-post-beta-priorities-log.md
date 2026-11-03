@@ -49,3 +49,11 @@ Result, as a recommendation only (he has not approved it):
 - Aedwon's comment was taken as permission to read official pages in the built-in browser for this research, an exception to the computer-control rule in `WORKFLOW.md`, which is unchanged. UP, DLSU, UST, Ateneo, PUP, PSHS, CSC, PRC, QBO, Microsoft and startup.gov.ph were read. This resolved the ACET date conflict and gave official USTET and PSHS dates.
 - PCIEERD's security check was not bypassed. DOST's scholarship site showed no readable text. Those items stay marked as unverified.
 - On the account: this session's usage tool still reported "Pro" at 31% weekly after his comment. Aedwon says this is the Max account; the reason for the difference is unknown.
+
+## November 3, 2026: which audit covered the other exams
+
+Aedwon's exact comment: "the last content audit i think included exams other than CSE, it was only after level 4 (or at the start of level 4) that I decided to narrow down to only CSE. can you check which that was? there should be an outline of subjects/topics/lessons already in the SSOT"
+
+Finding: it was the exam content coverage audit, coverage-r1, approved October 4 for nine exams. Levels 1 to 3 covered all nine (Level 3 approved October 9). Level 4 was built for all 158 lessons on October 10 and 11, and Aedwon narrowed it to CSE on October 19, before any lesson read ran. The outline is the SSOT tab Pantas Audited Corpus r1.
+
+Mistake corrected: the brief's "98 sets" came from older tags on question files and assumed that only sets tagged CSE were rewritten. By the accepted audit tags and the files actually changed, the four CETs use 132 lessons, 63 rewritten and 69 not. UPCAT alone is 65, so the bundle adds 4 lessons, not zero. The recommendation stays.
