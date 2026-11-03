@@ -243,13 +243,13 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
     "lessonId": "lesson-earth-science-astronomy-origin-of-the-universe",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
     "lessonId": "lesson-earth-science-astronomy-water-cycle-oceanography",
     "group": "science",
-    "status": "round-2-read"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/physics/dynamics.md",
@@ -279,13 +279,13 @@
     "lessonPath": "content/lessons/science/physics/scalars-and-vectors.md",
     "lessonId": "lesson-physics-scalars-and-vectors",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/physics/thermodynamics.md",
     "lessonId": "lesson-physics-thermodynamics",
     "group": "science",
-    "status": "written"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/physics/two-dimensional-motion.md",
@@ -297,7 +297,7 @@
     "lessonPath": "content/lessons/science/physics/units-and-measurements.md",
     "lessonId": "lesson-physics-units-and-measurements",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/physics/waves-and-sound.md",

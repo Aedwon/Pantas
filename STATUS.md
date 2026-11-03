@@ -212,3 +212,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: minerals-and-rocks (2 Minors).
 - Done at minor after round 3: heavenly-bodies (1 Minor; split candidate). Round 1 reads: fluid-mechanics, light-and-optics, dynamics (Blockers); fixes running.
 - Done clean after round 1: momentum-and-impulse.
+- Done at minor: physics thermodynamics (round 1), origin-of-the-universe (round 3). Written: units-and-measurements. Water-cycle fixed after round 2; scalars-and-vectors round 1: 1 Major.

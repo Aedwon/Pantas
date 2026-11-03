@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-origin-of-the-universe",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "In the 1920s, astronomers found that most galaxies are redshifted. Edwin Hubble showed in $1929$ that, on large scales, farther galaxies have larger redshifts. This is what an expanding universe predicts.", "problem": "Still open from rounds 1 and 2. This paragraph has four sentences, and the limit is one to three. Other paragraphs also run to four or five sentences: the opening paragraph ('Two different questions are easy to mix up.'), the Big Bang paragraph, the misleading-name paragraph, 'This rule has limits', 'That light is still arriving', 'The Solar System formed' (five), 'The spinning flattens', 'Near the Sun' and 'Several observations'.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"},
+    {"rule": "B08", "severity": "Minor", "quote": "ideas of Immanuel Kant and Pierre-Simon Laplace in the 1700s", "problem": "Still open from rounds 1 and 2. The numbers 1700s here and 1920s in 'In the 1920s, astronomers found' are not wrapped in inline math, while the same lesson wraps $1929$ and $1965$.", "source": "content-checklist.md B08; lesson-style-guide.md Math notation"}
+  ],
+  "goodQuotesChecked": 2
+}

@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-physics-thermodynamics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "B01", "severity": "Minor", "quote": "A smaller $c$ gives a larger $\\Delta T$ only when the heat and the mass are the same.", "problem": "Read literally, the \"only when\" is false. With equal heat, a smaller-c sample that also has less mass still has the larger temperature change (for example 1 kg of water, c = 4186, against 0.5 kg of oil, c = 2000, each given 4186 J: 1 °C against about 4.2 °C). The intended meaning, that c alone decides the comparison only when Q and m are equal, is right. The trap's own warning line, Q/(mc), covers the counterexample, so the harm is small. The base said \"for the same heat input and the same mass\" with no \"only\".", "source": "Reader rules, Sol-audit boundary test; severity follows the lead's final-run ruling on lesson-chemistry-thermodynamics-and-kinetics (a counterexample covered by the lesson's own rule is Minor)"},
+    {"rule": "L19", "severity": "Minor", "quote": "$$0.50\\,c\\,(T_f-20)=0.25\\,c\\,(80-T_f)$$", "problem": "Core Concept defines $\\Delta T=T_f-T_i$ and says cooling gives $Q<0$. The calorimetry example then writes the hot water's heat as $(80-T_f)$, a positive amount lost, without saying so. The equation and the answer are correct, and step 4 shows the hot water losing heat over a 40 °C drop. But no clause links the signed Q of Core Concept to the positive \"heat lost\" used here. A student who keeps $T_f-T_i$ on both sides gets $T_f=-40$ °C.", "source": "content-checklist L19 (solution steps shown); LSG Examples section"},
+    {"rule": "B08", "severity": "Minor", "quote": "A scientist cools a gas in 50 steps and reaches", "problem": "The number 50 in prose is not wrapped in inline math.", "source": "content-checklist B08; LSG Math notation: every number in prose is wrapped in inline math"},
+    {"rule": "L22a", "severity": "Minor", "quote": "If heat leaves the system, $Q<0$. If the surroundings do work on the system, such as squeezing a gas, $W<0$. Some books define $W$ as work done on the system and write $\\Delta U=Q+W$. Always check which convention a question uses.", "problem": "This paragraph has five sentences, over the one-to-three limit. The Conduction paragraph (four sentences) and the Specific Heat Capacity definition paragraph (four sentences) also run over.", "source": "content-checklist L22a; LSG Formatting rules; writer-rules rule 8"}
+  ],
+  "goodQuotesChecked": 4
+}
