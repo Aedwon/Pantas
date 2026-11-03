@@ -118,8 +118,8 @@ Why is the cosmic microwave background evidence for the Big Bang model?
 Which observation about the elements supports the Big Bang model, and which elements does it not explain?
 
 **Solution:**
-1. The model predicts that early fusion made about one quarter helium by mass, most of the rest hydrogen, and tiny amounts of deuterium and lithium.
-2. Observations of very old gas clouds match these amounts.
+1. The model predicts that early fusion made about one quarter helium by mass, and most of the rest hydrogen.
+2. Observations of very old gas clouds match these helium and hydrogen amounts well.
 3. The universe cooled too fast to build heavy elements. Carbon, oxygen, and iron formed mainly in stars, so the match does not cover them.
 
 ### #6: From Cloud to Planets

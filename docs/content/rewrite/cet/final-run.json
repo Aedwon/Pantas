@@ -237,13 +237,13 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/minerals-and-rocks.md",
     "lessonId": "lesson-earth-science-astronomy-minerals-and-rocks",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
     "lessonId": "lesson-earth-science-astronomy-origin-of-the-universe",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
