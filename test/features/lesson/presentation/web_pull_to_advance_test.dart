@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -118,7 +120,10 @@ void main() {
               contentKey: contentKey,
               destinationKey: 'l2',
               onCommit: () => commits++,
-              onAdvance: () => advances++,
+              onAdvance: () {
+                advances++;
+                return true;
+              },
               incomingBuilder: incoming
                   ? (_) => const ColoredBox(
                         key: ValueKey('incoming-sheet'),
@@ -543,9 +548,11 @@ void main() {
     });
   });
 
-  testWidgets('the wide lesson page opens the next lesson from a pull', (
-    tester,
-  ) async {
+  /// The wide lesson page on lesson one of a two-lesson day.
+  Future<void> pumpLessonPage(
+    WidgetTester tester, {
+    List<Override> overrides = const [],
+  }) async {
     final content = openTestContentDatabase();
     await seedContentExam(
       content,
@@ -603,6 +610,7 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(content),
+          ...overrides,
           studyMapProvider.overrideWith(
             (_) async => const StudyMap(
               examShortName: 'CSE',
@@ -644,6 +652,12 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+  }
+
+  testWidgets('the wide lesson page opens the next lesson from a pull', (
+    tester,
+  ) async {
+    await pumpLessonPage(tester);
     expect(find.text('1 of 2'), findsOneWidget);
     // The lesson is empty, so it is already at its end. One notch does
     // nothing.
@@ -660,6 +674,41 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('2 of 2'), findsOneWidget);
     expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+  });
+
+  testWidgets('a pull whose move is dropped gives the lesson back', (
+    tester,
+  ) async {
+    final pending = Completer<ReaderContext?>();
+    await pumpLessonPage(
+      tester,
+      overrides: [
+        readerContextProvider('slow').overrideWith((_) => pending.future),
+      ],
+    );
+    await tester.pump(webPullGestureGap * 2);
+    for (var i = 0; i < 4; i++) {
+      await send(tester, 100);
+      await tester.pump(const Duration(milliseconds: 220));
+    }
+    await tester.pump(webPullOpenAfter);
+    // The sheet is rising. A newer navigation, one that has not loaded yet,
+    // takes over before the rise ends, so the pull's move is dropped.
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(find.byKey(const ValueKey('pull-incoming')), findsOneWidget);
+    tester
+        .widget<WebReaderLayout>(find.byType(WebReaderLayout).first)
+        .onLesson('slow');
+    await tester.pump(webPullRise);
+    await tester.pumpAndSettle();
+    expect(find.text('1 of 2'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('pull-incoming')),
+      findsNothing,
+      reason: 'the inert sheet is still on top of the lesson',
+    );
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
   });

@@ -539,7 +539,9 @@ class _WebRowState extends State<WebRow> {
 
   @override
   Widget build(BuildContext context) {
-    if (!_tracked) return _row(context, 0);
+    // One tree for every row, so the first selection flip does not remount the
+    // button and drop its focus and hover. A row that never is selected holds
+    // a tween that does not move, and runs no animation.
     // Item 17, demo 4: the tint and the value color fade together, 160 ms on
     // the ease. Nothing else moves, and only this row rebuilds.
     return TweenAnimationBuilder<double>(
@@ -694,21 +696,21 @@ class _WebRowState extends State<WebRow> {
       opacity: w.dimmed ? .45 : 1,
       child: Semantics(
         selected: w.selected,
-        child: !_tracked
-            ? button
-            : Stack(
-                fit: StackFit.passthrough,
-                children: [
-                  Positioned.fill(
-                    child: IgnorePointer(
+        child: Stack(
+          fit: StackFit.passthrough,
+          children: [
+            Positioned.fill(
+              child: _tracked
+                  ? IgnorePointer(
                       child: ColoredBox(
                         color: tint.withValues(alpha: tint.a * selection),
                       ),
-                    ),
-                  ),
-                  button,
-                ],
-              ),
+                    )
+                  : const SizedBox.shrink(),
+            ),
+            button,
+          ],
+        ),
       ),
     );
   }

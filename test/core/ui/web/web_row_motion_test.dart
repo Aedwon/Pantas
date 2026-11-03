@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -119,5 +120,27 @@ void main() {
       ),
       findsNothing,
     );
+  });
+
+  testWidgets('the first selection flip keeps the focused button',
+      (tester) async {
+    await tester.pumpWidget(_row(selected: false));
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    final focused = FocusManager.instance.primaryFocus;
+    final button = tester.element(find.byType(TextButton));
+    expect(focused, isNotNull);
+
+    await tester.pumpWidget(_row(selected: true));
+    await tester.pump();
+    expect(FocusManager.instance.primaryFocus, same(focused));
+    expect(focused!.hasPrimaryFocus, isTrue);
+    expect(
+      identical(tester.element(find.byType(TextButton)), button),
+      isTrue,
+      reason: 'the button was rebuilt as a new element',
+    );
+    await tester.pumpAndSettle();
+    expect(FocusManager.instance.primaryFocus, same(focused));
   });
 }

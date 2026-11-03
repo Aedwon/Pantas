@@ -57,6 +57,9 @@ const Duration webPullLabelFade = Duration(milliseconds: 150);
 /// wheel that can still scroll the lesson is never taken for a pull.
 const double webPullEndTolerance = 2;
 
+/// What happens when the next lesson has risen. True if the lesson changed.
+typedef WebPullAdvance = FutureOr<bool> Function();
+
 /// What the pull is doing, for the lesson and for the Next card.
 ///
 /// Owned by [WebPullToAdvance]. The reader layout listens to it for the
@@ -81,7 +84,7 @@ class WebPullController extends ChangeNotifier {
   Object? destination;
   ScrollController? scroll;
   VoidCallback? onCommit;
-  VoidCallback? onAdvance;
+  WebPullAdvance? onAdvance;
   Widget? Function()? incomingFactory;
 
   /// The next lesson, drawn from below once the pull commits.
@@ -140,7 +143,7 @@ class WebPullController extends ChangeNotifier {
     required Object? destination,
     required ScrollController? scroll,
     required VoidCallback? onCommit,
-    required VoidCallback? onAdvance,
+    required WebPullAdvance? onAdvance,
     required Widget? Function()? incomingFactory,
   }) {
     final changed = this.contentKey != contentKey;
@@ -310,11 +313,37 @@ class WebPullController extends ChangeNotifier {
     _committing = false;
     _done = true;
     notifyListeners();
-    onAdvance?.call();
+    final key = contentKey;
+    final moved = onAdvance?.call();
+    if (moved is Future<bool>) {
+      unawaited(_settle(moved, key));
+    } else if (moved == false) {
+      _release(key);
+    }
   }
+
+  Future<void> _settle(Future<bool> moved, Object key) async {
+    var changed = false;
+    try {
+      changed = await moved;
+    } finally {
+      if (!changed) _release(key);
+    }
+  }
+
+  /// The advance did not change the lesson, so nothing will clear the sheet.
+  /// Gives the lesson back its input and the wheel.
+  void _release(Object key) {
+    if (_disposed || !_done || contentKey != key) return;
+    _reset();
+    notifyListeners();
+  }
+
+  bool _disposed = false;
 
   @override
   void dispose() {
+    _disposed = true;
     _gestureTimer?.cancel();
     _idleTimer?.cancel();
     _motion.dispose();
@@ -353,8 +382,10 @@ class WebPullToAdvance extends StatefulWidget {
   /// dropped.
   final Object? destinationKey;
 
-  /// Runs when the next lesson has risen into place.
-  final VoidCallback? onAdvance;
+  /// Runs when the next lesson has risen into place. It returns whether the
+  /// lesson changed. If the move was dropped, the sheet goes and the lesson
+  /// shows again.
+  final WebPullAdvance? onAdvance;
 
   /// Runs the moment the pull commits, before the next lesson rises.
   final VoidCallback? onCommit;
@@ -474,12 +505,13 @@ class WebPullLabel extends StatelessWidget {
                 ),
               ),
             );
+        // All three phrases size the stack, so the widest shows in full. They
+        // share one line height, so the card does not move.
         return Stack(
           children: [
-            // The card's own phrase sets the size, so the card does not move.
             phrase(0, label),
-            Positioned(left: 0, top: 0, child: phrase(1, 'Keep going')),
-            Positioned(left: 0, top: 0, child: phrase(2, 'Let go to open')),
+            phrase(1, 'Keep going'),
+            phrase(2, 'Let go to open'),
           ],
         );
       },
