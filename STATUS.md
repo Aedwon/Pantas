@@ -177,3 +177,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: quadratic-equations (2 Minors). Botany written; electricity and chemical-bonding fixed after round 2.
 - Done at minor after round 3: short-stories-and-novels (2 Minors). Written: cellular-reproduction (3,052 words) and cellular-metabolism (3,121 words), both split candidates.
 - Open after 3 reads: work-energy-power (round 3: 1 Blocker, Trap #3 omits 'sliding' for friction; 1 Major, spring PE untaught). Triangles fixed after round 2. Human anatomy written (3,478 words, split candidate).
+- Done at minor after round 3: genetics-and-heredity (1 Minor). Round reads: botany r1 (1 Blocker, 1 Major), pulleys-and-levers r2 (2 Blockers); fixes running.

@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-biology-genetics-and-heredity",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "B08", "severity": "Minor", "quote": "In the gene from Example 6, the last template base changes from", "problem": "The number 6 in prose is not inside inline math. The rule puts every number in prose inside $...$, even isolated ones.", "source": "Checklist B08; lesson style guide, Math notation"}
+  ],
+  "goodQuotesChecked": 1
+}
