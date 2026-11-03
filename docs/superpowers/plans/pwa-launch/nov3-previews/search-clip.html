@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study search and list edge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#101214; --panel:#181b1e; --line:#2a2f33; --ink:#eceff1; --mute:#9aa4ab; --accent:#4cc3ac; --warn:#e0a63a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--page);color:var(--ink);font-family:'Geist',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1780px;margin:0 auto;padding:28px 24px 64px}
+h1{font-size:24px;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+.lede{color:var(--mute);margin:0 0 18px;font-size:15px;line-height:1.5;max-width:900px}
+.gap{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:14px 18px;margin:0 0 20px;max-width:1100px}
+.gap b{display:block;margin-bottom:6px;font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:var(--warn)}
+.gap ul{margin:0;padding-left:18px;color:#cfd6da;font-size:14px;line-height:1.55}
+.bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:0 0 24px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel)}
+.seg button{all:unset;cursor:pointer;padding:7px 16px;font-size:13px;color:var(--mute)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#06241e;font-weight:600}
+.bar .lbl{font-size:13px;color:var(--mute)}
+.btn{all:unset;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:7px 16px;font-size:13px}
+.btn:hover{border-color:var(--accent)}
+.how{color:var(--mute);font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.col{width:390px}
+.cap{margin:0 0 12px}
+.cap .t{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700}
+.badge{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 9px;background:#2a2f33;color:var(--mute)}
+.badge.rec{background:var(--accent);color:#06241e}
+.cap p{margin:6px 0 0;font-size:14px;line-height:1.45;color:#cfd6da}
+.cap p.cost{color:var(--mute)}
+.cap p.cost b{color:var(--ink);font-weight:600}
+.col.rec .shellbox{outline:2px solid var(--accent);outline-offset:6px;border-radius:44px}
+
+/* Preview-only theme: set on .stage, never on html or body. */
+.stage[data-pv="light"]{
+  --bg:#F5F5F7;--card:#FFFFFF;--cardedge:transparent;--text:#1D1D1F;--sub:#6E6E73;--teal:#0B7A68;--btn:#0B7A68;
+  --field:#EDEDF0;--fieldtext:#8E8E93;--div:#E3E3E8;--chev:#C7C7CC;--track:#E3E3E8;
+  --tab:#FFFFFF;--tabon:#E4F1EE;--tabonfg:#0B7A68;--taboff:#8A8A8E;--tabedge:rgba(29,29,31,.08);--shadow:rgba(29,29,31,.14);
+  --bezel:#2b2b2e;
+}
+.stage[data-pv="dark"]{
+  --bg:#151515;--card:#1F1F1F;--cardedge:#2C2C2C;--text:#F5F5F5;--sub:#A3A3A3;--teal:#4CC3AC;--btn:#0F8571;
+  --field:#2C2C2C;--fieldtext:#A3A3A3;--div:#2C2C2C;--chev:#4A4A4A;--track:#303030;
+  --tab:#1F1F1F;--tabon:#18332D;--tabonfg:#4CC3AC;--taboff:#949494;--tabedge:rgba(255,255,255,.08);--shadow:rgba(0,0,0,.5);
+  --bezel:#0b0b0c;
+}
+.shellbox{width:390px;padding:0}
+.phone{width:390px;height:844px;position:relative;overflow:hidden;border-radius:38px;background:var(--bg);color:var(--text);
+  box-shadow:0 0 0 7px var(--bezel),0 18px 40px rgba(0,0,0,.5);isolation:isolate}
+.scroll{overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior:contain;position:relative;cursor:grab;-webkit-overflow-scrolling:touch}
+.scroll::-webkit-scrollbar{display:none}
+.scroll.drag{cursor:grabbing;user-select:none}
+.fill{position:absolute;inset:0}
+.flexcol{position:absolute;inset:0;display:flex;flex-direction:column}
+.listwrap{position:relative;flex:1;min-height:0}
+.listwrap .scroll{position:absolute;inset:0}
+
+.hdr{background:var(--bg);flex:none;padding:8px 16px 0;position:relative;z-index:2}
+.title{font-size:34px;font-weight:700;line-height:1.12;letter-spacing:-.022em;padding-left:4px;margin-bottom:14px}
+.field{height:38px;border-radius:11px;background:var(--field);display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--fieldtext);font-size:17px;letter-spacing:-.012em}
+.field svg{flex:none}
+
+.body{padding:0 16px;display:flex;flex-direction:column;gap:24px}
+.tail{height:112px;flex:none}
+.card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--cardedge)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--sub);letter-spacing:.02em;line-height:1.35}
+.sechead{display:flex;justify-content:space-between;align-items:baseline;padding:0 16px 7px}
+.resume{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.resume .name{font-size:22px;font-weight:700;letter-spacing:-.012em;line-height:1.3;margin-top:4px}
+.resume .subj{font-size:15px;color:var(--sub)}
+.resume .go{height:52px;border-radius:14px;background:var(--btn);color:#fff;font-size:17px;font-weight:600;letter-spacing:-.012em;display:flex;align-items:center;justify-content:center}
+.empty{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 16px;color:var(--sub);font-size:15px;text-align:center}
+.trow{display:flex;align-items:center;gap:12px;padding-left:16px}
+.trow .tx{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:12px 16px 12px 0;border-bottom:.5px solid var(--div)}
+.trow:last-child .tx{border-bottom:0}
+.trow .nm{flex:1;min-width:0;font-size:17px;letter-spacing:-.012em;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trow.read .nm{color:var(--sub)}
+
+.fade{position:absolute;left:0;right:0;top:0;height:18px;z-index:3;pointer-events:none;background:linear-gradient(to bottom,var(--bg),color-mix(in srgb,var(--bg) 0%,transparent))}
+
+.sticky{position:sticky;top:8px;z-index:4;padding:0 16px;margin-bottom:18px}
+.sticky .field{transition:box-shadow .15s}
+.sticky.stuck .field{box-shadow:0 10px 30px var(--shadow),0 0 0 .5px var(--tabedge)}
+
+.tabbar{position:absolute;left:16px;right:16px;bottom:24px;height:64px;border-radius:999px;background:var(--tab);
+  box-shadow:0 10px 30px var(--shadow),0 0 0 .5px var(--tabedge);display:flex;align-items:center;padding:0 6px;gap:2px;z-index:10}
+.tab{flex:1 1 0;height:52px;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--taboff);font-size:10px;font-weight:500}
+.tab.on{background:var(--tabon);color:var(--tabonfg);font-weight:600}
+.tab svg{stroke:currentColor}
+
+.foot{margin-top:28px;color:var(--mute);font-size:13px;line-height:1.55;max-width:900px}
+@media (max-width:520px){.wrap{padding:20px 16px 48px}.col{width:100%;max-width:390px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Study: search field and list edge</h1>
+  <p class="lede">Phone Study page at 390 by 844. Today the list is cut at a hard line under the search field. Four live phones: Current, then three ways to let content pass under or fade out. Scroll each phone with the wheel, a swipe, or by dragging.</p>
+
+  <div class="gap">
+    <b>What this page cannot show</b>
+    <ul>
+      <li>Real frame rate. The browser scrolls this page, not Flutter. Item 16 must be measured on a phone, in a release build.</li>
+      <li>How Flutter draws the shadow, the fade and text. Edges can differ by a pixel or two.</li>
+      <li>Search mode: typing, the keyboard, results, and the Bookmarks sheet. The open-topic bar and entry animations are left out.</li>
+      <li>iPhone overscroll bounce, browser bars, and the bottom safe area.</li>
+      <li>Live content. Topic names come from the Brave screenshot and board ST_Map, not the exam data.</li>
+    </ul>
+  </div>
+
+  <div class="bar">
+    <span class="lbl">Phone preview only:</span>
+    <div class="seg" role="group" aria-label="Phone preview theme">
+      <button type="button" data-pv="light" aria-pressed="true">Light</button>
+      <button type="button" data-pv="dark" aria-pressed="false">Dark</button>
+    </div>
+    <button type="button" class="btn" id="reset">Scroll all to top</button>
+    <span class="how">This page stays dark. Nothing here is a choice button; tell me which option.</span>
+  </div>
+
+  <div class="stage" data-pv="light" id="stage">
+    <div class="row">
+      <div class="col" id="c-current"></div>
+      <div class="col" id="c-a"></div>
+      <div class="col" id="c-b"></div>
+      <div class="col rec" id="c-c"></div>
+    </div>
+  </div>
+
+  <p class="foot">Common to all four: no blur anywhere (item 16 reports low frame rate on phones), the real floating tab bar, and 104 px of clearance so the last row scrolls clear of it. The tab bar keeps its own shadow in every option.</p>
+</div>
+
+<script>
+(function(){
+  var SVG = {
+    search:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m20 20-4.6-4.6"/></svg>',
+    chev:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--chev)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>',
+    mark:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sub)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h11v17l-5.5-3.8-5.5 3.8z"/></svg>',
+    home:'<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.2 12 3.5l8.5 6.7V20a.8.8 0 0 1-.8.8H15v-6H9v6H4.3a.8.8 0 0 1-.8-.8z"/></svg>',
+    study:'<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 3.5 4.8v13.7c4-.3 6.5.2 8.5 1.7 2-1.5 4.5-2 8.5-1.7V4.8c-4-.3-6.5.2-8.5 1.7z"/><path d="M12 6.5v13.7"/></svg>',
+    quiz:'<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.2 12.2 2.6 2.6 5-5.3"/></svg>',
+    gear:'<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+  };
+
+  // Names: Brave screenshot 11-brave-phone-study.png and board ST_Map.
+  var SUBJECTS = [
+    ['Reasoning', [['Logical & Verbal Reasoning',0],['Spatial & Abstract (Non-Verbal) Reasoning',.25],['Mechanical & Technical Reasoning',0],['Clerical Ability',0],['Verbal Logic',0]]],
+    ['Verbal Ability', [['Vocabulary',0]]],
+    ['General Information', [['Philippine Constitution',0]]],
+    ['Mathematics', [['Algebra',1],['Geometry',.5],['Statistics',0],['Trigonometry',0]]],
+    ['Science', [['Biology',0],['Chemistry',0],['Physics',0]]],
+    ['Reading Comprehension', [['Main idea',0],['Inference',0]]]
+  ];
+
+  function ring(p){
+    if(p>=1) return '<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="12" fill="var(--teal)"/><path d="m6.5 12.5 4 4 7-8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var c = 66, d = (c*p).toFixed(1)+' '+c;
+    return '<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;display:block"><circle cx="12" cy="12" r="10.5" fill="none" stroke="var(--track)" stroke-width="2"/>'+
+      (p>0?'<circle cx="12" cy="12" r="10.5" fill="none" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="'+d+'" transform="rotate(-90 12 12)"/>':'')+'</svg>';
+  }
+  function topicRows(list){
+    return list.map(function(t){
+      return '<div class="trow'+(t[1]>=1?' read':'')+'">'+ring(t[1])+'<div class="tx"><div class="nm">'+t[0].replace(/&/g,'&amp;')+'</div>'+SVG.chev+'</div></div>';
+    }).join('');
+  }
+  function head(){
+    return '<div class="card resume"><div><div class="eyebrow">LAST OPENED</div><div class="name">Spatial &amp; Abstract (Non-Verbal) Reasoning</div><div class="subj">Reasoning</div></div><div class="go">Resume</div></div>';
+  }
+  function bookmarks(){
+    return '<div><div class="sechead"><div class="eyebrow">BOOKMARKS</div></div><div class="card empty">'+SVG.mark+'<div>Bookmark a lesson to keep it here.</div></div></div>';
+  }
+  function subjects(){
+    return SUBJECTS.map(function(s){
+      return '<div><div class="sechead"><div class="eyebrow">'+s[0].toUpperCase()+'</div></div><div class="card">'+topicRows(s[1])+'</div></div>';
+    }).join('');
+  }
+  function content(){ return head()+bookmarks()+subjects(); }
+  function title(){ return '<div class="title">Study</div>'; }
+  function field(){ return '<div class="field">'+SVG.search+'<span>Lessons, topics</span></div>'; }
+  function tabbar(){
+    return '<div class="tabbar" aria-hidden="true"><div class="tab">'+SVG.home+'<span>Home</span></div><div class="tab on">'+SVG.study+'<span>Study</span></div><div class="tab">'+SVG.quiz+'<span>Quiz</span></div><div class="tab">'+SVG.gear+'<span>Settings</span></div></div>';
+  }
+  function caption(label, badge, what, cost, rec){
+    return '<div class="cap"><div class="t"><span>'+label+'</span>'+(badge?'<span class="badge'+(rec?' rec':'')+'">'+badge+'</span>':'')+'</div><p>'+what+'</p><p class="cost"><b>Phone cost:</b> '+cost+'</p></div>';
+  }
+  function mount(id, cap, phoneHtml){
+    document.getElementById(id).innerHTML = cap + '<div class="shellbox"><div class="phone">'+phoneHtml+tabbar()+'</div></div>';
+  }
+
+  // Current: header fixed, list starts below it and is cut there.
+  mount('c-current',
+    caption('Current','Today','Title and field stay put. The list is cut at a hard line under the field. Watch the rows slice off there.',
+      '<b>None.</b> This is what ships now.'),
+    '<div class="flexcol"><div class="hdr">'+title()+field()+'</div><div style="height:18px;flex:none;background:var(--bg);position:relative;z-index:2"></div><div class="listwrap"><div class="scroll"><div class="body">'+content()+'</div><div class="tail"></div></div></div></div>');
+
+  // A: everything scrolls, title and field included.
+  mount('c-a',
+    caption('Option A','Scrolls away','Title and field are the first things in the list. They scroll off, so content reaches the top edge.',
+      '<b>Lowest.</b> No extra layer. But search is out of reach after you scroll; the student swipes back up.'),
+    '<div class="scroll fill" style="padding-top:8px"><div style="padding:0 16px">'+title()+field()+'</div><div style="height:18px"></div><div class="body">'+content()+'</div><div class="tail"></div></div>');
+
+  // B: header fixed, short fade at the top of the list.
+  mount('c-b',
+    caption('Option B','Short fade','Title and field stay put. Rows fade out over 18 px under the field instead of being cut.',
+      '<b>Low.</b> One flat gradient strip, drawn over the list. Do not use a shader mask, which adds an offscreen layer. Edge is soft, not truly under.'),
+    '<div class="flexcol"><div class="hdr">'+title()+field()+'</div><div class="listwrap"><div class="fade"></div><div class="scroll"><div style="height:18px"></div><div class="body">'+content()+'</div><div class="tail"></div></div></div></div>');
+
+  // C: title scrolls, field sticks and floats over the list on a solid background.
+  mount('c-c',
+    caption('Option C','Recommended','Title scrolls away. The field sticks at the top and floats over the list like the tab bar. Rows pass under it.',
+      '<b>Low, one static shadow</b> like the tab bar, no blur. The most code: the title must be split out of the search field.', true),
+    '<div class="scroll fill" id="c-scroll" style="padding-top:8px"><div style="padding:0 16px">'+title()+'</div><div class="sticky" id="c-sticky">'+field()+'</div><div class="body">'+content()+'</div><div class="tail"></div></div>');
+
+  // Sticky field shadow only while it floats over content.
+  var cs = document.getElementById('c-scroll'), st = document.getElementById('c-sticky');
+  function stuck(){ st.classList.toggle('stuck', cs.scrollTop > (st.offsetTop - 8) + 1); }
+  cs.addEventListener('scroll', stuck, {passive:true}); stuck();
+
+  // Preview theme: phones only.
+  var stage = document.getElementById('stage');
+  document.querySelectorAll('.seg button').forEach(function(b){
+    b.addEventListener('click', function(){
+      stage.setAttribute('data-pv', b.getAttribute('data-pv'));
+      document.querySelectorAll('.seg button').forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    document.querySelectorAll('.scroll').forEach(function(s){ s.scrollTo({top:0, behavior:'smooth'}); });
+  });
+
+  // Mouse drag scrolling, so a desktop can drag like a phone.
+  document.querySelectorAll('.scroll').forEach(function(s){
+    var down=false, y0=0, t0=0;
+    s.addEventListener('pointerdown', function(e){ if(e.pointerType!=='mouse') return; down=true; y0=e.clientY; t0=s.scrollTop; s.classList.add('drag'); s.setPointerCapture(e.pointerId); });
+    s.addEventListener('pointermove', function(e){ if(down) s.scrollTop = t0 - (e.clientY - y0); });
+    function up(){ down=false; s.classList.remove('drag'); }
+    s.addEventListener('pointerup', up); s.addEventListener('pointercancel', up);
+  });
+})();
+</script>
+</body>
+</html>

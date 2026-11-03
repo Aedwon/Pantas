@@ -2452,3 +2452,11 @@ Offered, with costs on the preview pages (`docs/superpowers/plans/pwa-launch/nov
 Aedwon: "okay go with your recommendations. however i'd like to emphasize on the bookmarks. on mobile i noticed it was okay-looking even though it's empty. on web it looks so awkward"
 
 Result: the first option of each item above is approved and built 1:1 from the preview pages, and the item 6 picks are top bar, remembered on this device, 800 px. Lead reading of the bookmarks comment: wide web hides the empty Bookmarks section (item 4 option A); the phone's empty Bookmarks stays exactly as it is. Mobile-style empty card on web is the alternative if he prefers it.
+
+## Study search field on phones (Aedwon, Nov 3)
+
+Offered on `nov3-previews/search-clip.html`: A title and field scroll away (cheapest; search out of reach once scrolled); B title and field stay, with an 18 px flat fade at the top of the list (soft edge, content not truly under); C field floats like the tab bar with one static shadow and no blur (recommended; most code).
+
+Aedwon: "B: soft fade"
+
+Result: option B is built 1:1 from the preview. This closes the top clip part of item 11.
