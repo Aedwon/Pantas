@@ -75,3 +75,11 @@ Answer given: yes, apart from approving the spec at the start. Tradeoff stated: 
 Aedwon's answer: "okay, write the spec for option 2. codex for 6.1 Sol will reset in ~19h so i think we could use that eventually. if not, sonnet 5.5 would be good i think? let me know what's best here"
 
 Result: spec `docs/superpowers/specs/2026-11-03-cet-content-design.md` written, awaiting approval of Part A and a complexity level. Recommendation on models: Sonnet 5.5 writes and Codex GPT 6.1 Sol reads, with 5 of the 15 pilot lessons swapped to compare first reads. A tie goes to Sonnet. Checked at writing: Codex accounts at 100%, 95% and 96% weekly, resetting November 4 at 14:45, 18:20 and 14:51.
+
+## November 3, 2026: spec approved; work moves to another account
+
+Question: "Do you approve Part A at balanced complexity?"
+
+Aedwon's answer: "balanced is approved but i want this done on another account. can I do that? it's Pro but I don't want to waste its usage"
+
+Result: Part A is approved at balanced. The work can resume on any account, because the spec, records and branch are in the repository. Nothing has started. Part A recommends Sonnet as the writer, which would spend the Pro account's usage, so the model split is put back to him as a specific revision.

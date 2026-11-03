@@ -1,6 +1,6 @@
 # CET content pass: design
 
-Date: November 3, 2026. Status: Part A awaiting Aedwon's approval.
+Date: November 3, 2026. Status: Part A approved by Aedwon on November 3, 2026, at balanced complexity. The model split may be revised because the work moves to a Pro account; see the decision record.
 Policy revision read: origin/main 875d78dd, rechecked at 625ad2ca.
 Decision record: `docs/superpowers/decisions/2026-11-03-post-beta-priorities-log.md`.
 Evidence: `docs/future/2026-11-03-next-exam-brief.md`.
