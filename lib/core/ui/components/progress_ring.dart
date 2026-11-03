@@ -207,19 +207,23 @@ class _ProgressRingState extends State<ProgressRing>
     return Semantics(
       label: complete ? 'Done' : '${(widget.fraction * 100).round()} percent',
       excludeSemantics: complete,
-      child: SizedBox.square(
-        dimension: widget.size,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            CustomPaint(
-              key: const ValueKey('progress-ring-paint'),
-              size: Size.square(widget.size),
-              painter: _painter,
-              child: Center(child: widget.child),
-            ),
-            if (complete) CheckMark(progress: _check),
-          ],
+      // The fill animates every frame. Its own layer keeps that from
+      // repainting the row's text and everything else beside the ring.
+      child: RepaintBoundary(
+        child: SizedBox.square(
+          dimension: widget.size,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CustomPaint(
+                key: const ValueKey('progress-ring-paint'),
+                size: Size.square(widget.size),
+                painter: _painter,
+                child: Center(child: widget.child),
+              ),
+              if (complete) CheckMark(progress: _check),
+            ],
+          ),
         ),
       ),
     );

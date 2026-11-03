@@ -171,6 +171,98 @@ class LocalPanelTest(unittest.TestCase):
                 check.unlink(missing_ok=True)
 
 
+class LocalFpsReadoutTest(unittest.TestCase):
+    script = PANEL / 'local-fps.js'
+    runner = (ROOT / 'tools/local/run_web_local.py').read_text()
+
+    def node(self, source):
+        result = subprocess.run(['node', '-e', source], cwd=ROOT, capture_output=True, text=True, check=True)
+        return json.loads(result.stdout)
+
+    def test_runner_loads_the_readout_only_for_local_fps_one(self):
+        self.assertIn("get('localFps') === '1'", self.runner)
+        self.assertIn("fps.src = '/local-fps.js'", self.runner)
+        self.assertIn("shutil.copy('tools/local/panel/local-fps.js', 'build/web/local-fps.js')", self.runner)
+
+    def test_the_copy_is_in_the_non_dry_run_build_web_block_only(self):
+        copy = self.runner.index("'build/web/local-fps.js'")
+        self.assertGreater(copy, self.runner.index("if not args.dry_run:\n        index = Path('build/web/index.html')"))
+        self.assertLess(copy, self.runner.index("print(f'+ serve build/web"))
+        self.assertNotIn("Path('web/", self.runner)
+
+    def test_dry_run_announces_the_readout_in_build_web_only(self):
+        result = subprocess.run([str(RUNNER), '--dry-run'], capture_output=True, text=True, check=True)
+        self.assertIn('local-fps.js to build/web only', result.stdout)
+        self.assertIn('?localFps=1', result.stdout)
+
+    def test_nothing_that_ships_mentions_the_readout(self):
+        for folder in ['lib', 'web', '.github']:
+            for path in (ROOT / folder).rglob('*'):
+                if path.is_file() and path.suffix in {'.dart', '.html', '.js', '.json', '.yml', '.yaml'}:
+                    text = path.read_text(errors='ignore')
+                    self.assertNotIn('localFps', text, path)
+                    self.assertNotIn('local-fps', text, path)
+
+    def test_script_parses(self):
+        subprocess.run(['node', '--check', str(self.script)], check=True, capture_output=True)
+
+    def test_script_does_not_start_itself_without_a_browser(self):
+        # Under node there is no document or requestAnimationFrame, so loading it draws nothing.
+        out = self.node(f"require('{self.script}'); console.log(JSON.stringify(typeof globalThis.pantasLocalFps))")
+        self.assertEqual(out, 'object')
+
+    def test_numbers_for_steady_fifty_and_one_stall(self):
+        source = f"""
+require('{self.script}');
+const s = new globalThis.pantasLocalFps.FrameStats();
+let t = 1000;
+for (let i = 0; i < 51; i++) {{ s.frame(t); t += 20; }}
+const steady = s.snapshot();
+t += 400; s.frame(t);
+const stalled = s.snapshot();
+console.log(JSON.stringify({{steady, stalled}}));
+"""
+        out = self.node(source)
+        self.assertEqual(out['steady']['fps'], 50)
+        self.assertEqual(out['steady']['p95'], 20)
+        self.assertEqual(out['steady']['long'], 0)
+        self.assertEqual(out['stalled']['long'], 1)
+        
+    def test_p95_picks_the_slow_tail_and_long_counts_over_50_ms(self):
+        source = f"""
+require('{self.script}');
+const s = new globalThis.pantasLocalFps.FrameStats();
+let t = 0; s.frame(t);
+const gaps = [...Array(90).fill(16), ...Array(10).fill(60)];
+for (const g of gaps) {{ t += g; s.frame(t); }}
+console.log(JSON.stringify(s.snapshot()));
+"""
+        out = self.node(source)
+        self.assertEqual(out['p95'], 60)
+        self.assertEqual(out['long'], 10)
+
+    def test_start_draws_one_ignored_box_and_updates_it(self):
+        source = f"""
+require('{self.script}');
+const made = [];
+const doc = {{
+  createElement: () => {{ const e = {{style: {{}}, setAttribute() {{}}, textContent: ''}}; made.push(e); return e; }},
+  body: {{appendChild: (e) => {{ e.attached = true; }}}},
+}};
+let queued = null;
+globalThis.pantasLocalFps.start(doc, (f) => {{ queued = f; }});
+for (let i = 0; i <= 80; i++) {{ const f = queued; queued = null; f(i * 16); }}
+console.log(JSON.stringify({{count: made.length, attached: made[0].attached, id: made[0].id,
+  pointer: made[0].style.cssText.includes('pointer-events:none'), text: made[0].textContent}}));
+"""
+        out = self.node(source)
+        self.assertEqual(out['count'], 1)
+        self.assertTrue(out['attached'])
+        self.assertEqual(out['id'], 'local-fps')
+        self.assertTrue(out['pointer'])
+        self.assertRegex(out['text'], r'fps \d+\np95 [\d.]+ ms\nlong 0')
+
+
 class LocalSeedRequestTest(unittest.TestCase):
     ok = json.dumps({'uid': 'local-free', 'profile': 'steady'}).encode()
 

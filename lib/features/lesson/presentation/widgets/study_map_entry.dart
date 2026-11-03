@@ -29,6 +29,8 @@ class StudyMapEntry extends StatelessWidget {
             ),
           ),
         ),
-        child: child,
+        // The fade changes only the layer's opacity. Without a layer of its
+        // own, the whole section was repainted for every frame of it.
+        child: RepaintBoundary(child: child),
       );
 }

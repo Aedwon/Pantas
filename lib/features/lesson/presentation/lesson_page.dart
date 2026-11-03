@@ -1543,52 +1543,57 @@ class _LessonContent extends StatelessWidget {
         controller: controller,
         primary: false,
         padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            LessonTextScale(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    reader.topicName.toUpperCase(),
-                    style:
-                        context.type.sectionHeader.copyWith(letterSpacing: .52),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    reader.lesson.title,
-                    style: context.type.pageTitle.copyWith(height: 1.15),
-                  ),
-                  const SizedBox(height: 33),
-                  ContentRenderer(
-                    blocks: reader.lesson.bodyJson,
-                    readerFigures: true,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
-            if (resumeFailed) errorFor('reading position', onResume),
-            if (positionFailed) saveFailureLine(onSave),
-            if (activityFailed) saveFailureLine(onRetryActivity),
-            ReaderGap(
-              isRead: reader.isRead,
-              examId: reader.examId,
-              lessonId: reader.lesson.id,
-            ),
-            if (nextFailed)
-              Consumer(
-                builder: (context, ref, _) => errorFor(
-                  'lesson',
-                  onRetryNext,
-                  message: lessonLoadFailureMessage(ref),
-                  icon: Icon(PantasIcons.studyTab),
-                  boardLayout: true,
+        // A scroll view repaints its whole child on every scroll frame unless
+        // the child has a layer of its own. Without this, each frame re-drew
+        // every paragraph and formula in the lesson, on screen or not.
+        child: RepaintBoundary(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              LessonTextScale(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      reader.topicName.toUpperCase(),
+                      style: context.type.sectionHeader
+                          .copyWith(letterSpacing: .52),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      reader.lesson.title,
+                      style: context.type.pageTitle.copyWith(height: 1.15),
+                    ),
+                    const SizedBox(height: 33),
+                    ContentRenderer(
+                      blocks: reader.lesson.bodyJson,
+                      readerFigures: true,
+                    ),
+                  ],
                 ),
               ),
-            if (footer != null) footer!,
-          ],
+              const SizedBox(height: 24),
+              if (resumeFailed) errorFor('reading position', onResume),
+              if (positionFailed) saveFailureLine(onSave),
+              if (activityFailed) saveFailureLine(onRetryActivity),
+              ReaderGap(
+                isRead: reader.isRead,
+                examId: reader.examId,
+                lessonId: reader.lesson.id,
+              ),
+              if (nextFailed)
+                Consumer(
+                  builder: (context, ref, _) => errorFor(
+                    'lesson',
+                    onRetryNext,
+                    message: lessonLoadFailureMessage(ref),
+                    icon: Icon(PantasIcons.studyTab),
+                    boardLayout: true,
+                  ),
+                ),
+              if (footer != null) footer!,
+            ],
+          ),
         ),
       );
 }
