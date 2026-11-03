@@ -11,7 +11,9 @@ isActive: true
 
 The **cell** is the basic unit of life. Organisms are made of one or more cells.
 
-Some cells keep their DNA in a **nucleus**. These are **eukaryotic** cells. Animals, plants, fungi, and protists are made of them. Bacteria have no nucleus.
+Some cells keep their DNA in a **nucleus**. These are **eukaryotic** cells.
+
+Animals, plants, fungi, and protists are made of them. Bacteria have no nucleus.
 
 A eukaryotic cell has **organelles**: small parts that each do a job. Most are wrapped in their own membrane. Ribosomes are an exception, because they have no membrane.
 
@@ -53,13 +55,19 @@ A typical animal cell has a centrosome with centrioles, which help organize cell
 
 The plasma membrane is **selectively permeable**: some substances pass through it and others do not. It controls what moves between the cell and its surroundings.
 
-A **solute** is a substance dissolved in a liquid, such as salt in water. **Concentration** is how much solute is in a given amount of liquid. A **concentration gradient** is a difference in concentration between two places. Moving down the gradient means moving from higher to lower concentration.
+A **solute** is a substance dissolved in a liquid, such as salt in water.
 
-**Diffusion** is the net movement of particles down their concentration gradient. Particles move randomly in both directions. "Net" means the overall result: more go down the gradient than up. Diffusion needs no energy from the cell, so it is **passive** transport.
+**Concentration** is how much solute is in a given amount of liquid. A **concentration gradient** is a difference in concentration between two places. Moving down the gradient means moving from higher to lower concentration.
+
+**Diffusion** is the net movement of particles down their concentration gradient. Particles move randomly in both directions.
+
+"Net" means the overall result: more go down the gradient than up. Diffusion needs no energy from the cell, so it is **passive** transport.
 
 Some particles pass through special membrane proteins. If they still move down the gradient, the transport is passive too. It is called **facilitated diffusion**.
 
-**Active transport** moves a substance against its gradient, from lower to higher concentration. It always needs energy. Some transporters use ATP directly. Others use energy stored in a gradient of **ions** (charged particles, such as sodium) that another process built.
+**Active transport** moves a substance against its gradient, from lower to higher concentration. It always needs energy.
+
+Some transporters use ATP directly. Others use energy stored in a gradient of **ions** (charged particles, such as sodium) that another process built.
 
 In **exocytosis**, a vesicle joins the plasma membrane and releases its contents outside the cell. In **endocytosis**, the membrane folds inward and takes material into the cell in a vesicle. Both use energy.
 
@@ -67,9 +75,9 @@ In **exocytosis**, a vesicle joins the plasma membrane and releases its contents
 
 **Tonicity** describes how a surrounding solution changes a cell's volume. It depends on solutes that cannot freely cross the membrane. A solute that crosses easily does not keep water moving.
 
-- **Hypotonic** solution: less solute outside than inside the cell. Water enters.
-- **Hypertonic** solution: more solute outside than inside the cell. Water leaves.
-- **Isotonic** solution: equal solute inside and out. Water moves both ways at the same rate, so there is no net change in volume.
+- **Hypotonic** solution: a lower concentration of solute outside than inside the cell. Water enters.
+- **Hypertonic** solution: a higher concentration of solute outside than inside the cell. Water leaves.
+- **Isotonic** solution: the same concentration of solute inside and out. Water moves both ways at the same rate, so there is no net change in volume.
 
 <!-- ILLUSTRATION: three beakers labeled hypotonic, isotonic, hypertonic, each with an animal cell and arrows for water: arrows into the cell, equal arrows both ways, arrows out of the cell; the cell is swollen, normal, shrunken -->
 
@@ -128,8 +136,8 @@ A red blood cell is placed in salt solution A and shrinks. In salt solution B, i
 
 **Solution:**
 
-1. In A, the cell shrinks, so water left it. Water moves toward more solute, so the outside had more. Solution A is hypertonic.
-2. In B, there is no net change in volume. Water moves both ways at the same rate, so the solute amounts are equal. Solution B is isotonic.
+1. In A, the cell shrinks, so water left it. Water moves toward more solute, so the outside had a higher solute concentration. Solution A is hypertonic.
+2. In B, there is no net change in volume. Water moves both ways at the same rate, so the solute concentrations are equal. Solution B is isotonic.
 
 ### #6: The Same Solutions, Two Kinds of Cell
 
