@@ -101,3 +101,7 @@ Round 1: all 15 lessons had a Blocker or Major (6 Blockers, 83 Majors). Worked a
 4. **Word every shortcut and trap with its limit**, so it cannot be applied where it fails.
 5. **Round 2 and later:** fix every open Blocker and Major in the read file for your lesson, and any Minor in text you edit. If the finding is wrong, leave the text and report why, with a source.
 6. **The 1,700-word limit was a lead error.** It is removed. Teaching cut for it should be restored from the base (`git show 7032eec5:<path>`) wherever the checklist needs it. Do not cut correct, needed teaching for length. If the lesson passes about 3,000 words, report it as a split candidate and make no split.
+
+## Added after the Sol audit
+
+Before you finish a lesson, test every general statement against boundary values and a known exception. When you fix a lesson, also close every Blocker and Major for it in `docs/content/rewrite/cet/reads/sol-audit/`, if there is a file there.

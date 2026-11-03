@@ -77,3 +77,9 @@ exactly this shape and nothing else in the file:
 - Use `[]` for no findings and `""` for an empty text, never `null`.
 
 Do not fix anything. Do not suggest rewritten text. Report the finding and stop.
+
+## Added after the Sol audit
+
+Sol at high effort audited 3 lessons and found 2 Blockers that Opus reads had missed. Both were general statements with an exception: "already an empirical formula" fails for $Na_2O_2$, and "two answers" fails at $k=0$.
+
+Test every general statement. For each "only", "always", "never", "every", "so", "if" and each stated rule, try the boundary values (such as zero) and a known exception, and record a Blocker when one breaks it. Also list every formula or term that an example uses and confirm the lesson teaches it or names its prerequisite.

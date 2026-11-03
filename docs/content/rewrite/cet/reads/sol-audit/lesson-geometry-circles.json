@@ -1,0 +1,15 @@
+{
+  "lesson": "lesson-geometry-circles",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "A **central angle** (vertex at the center) equals its intercepted arc.",
+      "problem": "Vertex is needed to distinguish central and inscribed angles. The lesson uses the term without explaining it and identifies no prerequisite that teaches it.",
+      "source": "origin/main:docs/content/content-checklist.md, L25; lesson-style-guide.md, Teaching completeness."
+    }
+  ],
+  "reader": "sol-high",
+  "round": "audit"
+}

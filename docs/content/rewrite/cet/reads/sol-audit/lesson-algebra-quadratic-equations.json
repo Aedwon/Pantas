@@ -1,0 +1,50 @@
+{
+  "lesson": "lesson-algebra-quadratic-equations",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If $x^2=k$ and $k\\ge0$, then $x=\\pm\\sqrt{k}$. The sign $\\pm$ means \"plus or minus\", so there are two answers.",
+      "problem": "The stated condition includes k = 0. Then both signs give x = 0, so there is only one distinct answer.",
+      "source": "origin/main:docs/content/content-checklist.md, B01; direct verification with k = 0."
+    },
+    {
+      "rule": "L17",
+      "severity": "Major",
+      "quote": "1. Let $w$ be the width. The length is $w+3$, so the area gives an equation.\n\n$$w(w+3)=40$$",
+      "problem": "Example #8 uses the rectangle-area formula, length times width. That formula never appears in Core Concept.",
+      "source": "origin/main:docs/content/content-checklist.md, L17; lesson-style-guide.md, Per-subject section fit."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "If $D\\le0$, there are not two roots, so use $D$ and the sign of $a$ (see Example #11).",
+      "problem": "There is no worked inequality with a repeated root, D = 0. Example #11 covers only D < 0. A repeated-root inequality is a standard application of the stated inequality skill and requires handling a root where the sign does not change.",
+      "source": "docs/content/rewrite/cet/briefs/lesson-algebra-quadratic-equations.md, quadratic inequalities and sign intervals, curriculum requirements upcat-L186 and ustet-L084; checklist L18 and the supplied L18 ruling."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "1. Divide the equation by $a$ so the $x^2$ term has coefficient $1$.",
+      "problem": "The completing-the-square instructions require the meaning of coefficient. The lesson never explains that term and identifies no prerequisite that teaches it.",
+      "source": "origin/main:docs/content/content-checklist.md, L25; lesson-style-guide.md, Teaching completeness."
+    },
+    {
+      "rule": "L15",
+      "severity": "Minor",
+      "quote": "If the integers $a$, $b$ and $c$ are given, check whether $D$ is a perfect square. If it is, the quadratic factors over the integers. If not, go straight to the formula.",
+      "problem": "Three consecutive sentences begin with \"If\". The guide explicitly prohibits three consecutive sentences with the same opening.",
+      "source": "origin/main:docs/content/content-checklist.md, L15; lesson-style-guide.md, Emphasis and de-AI rules."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For $a>0$ and two roots, \"less than zero\" means between the roots, and \"greater than zero\" means outside them. For $a<0$, it is the other way around. Writing $-2<x<4$ for $x^2-2x-8>0$ is the common mistake. Test one value to be sure.",
+      "problem": "This paragraph has four sentences. The guide allows one to three short sentences per paragraph.",
+      "source": "origin/main:docs/content/content-checklist.md, L22a; lesson-style-guide.md, Formatting rules."
+    }
+  ],
+  "reader": "sol-high",
+  "round": "audit"
+}

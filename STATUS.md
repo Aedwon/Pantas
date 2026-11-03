@@ -159,3 +159,5 @@ All 15 lessons had a Blocker or Major: 6 Blockers, 83 Majors, 52 Minors. Readers
 ## November 3: pilot verdict and final run
 
 Verdict: first criterion failed (15 of 15 had a Blocker or Major). Convergence: Blockers and Majors fell from 35 to 10 in round 2 on 5 lessons. Aedwon approved skipping the audit fallback, dropping the 1,700 limit, and spending the cloud credit in order. The lead read stoichiometry in full and spot-read two others; the third full read named in the plan was not done because of the November 5 credit deadline. A Sol audit of 3 lessons is running; its result will be added here. Next: the cloud run from `docs/content/rewrite/cet/goal-prompt.md`.
+
+Sol high audit done (stoichiometry, quadratic-equations, circles), 109,801 tokens. It found 2 Blockers Opus had missed, both false general statements, plus 2 Majors in quadratic-equations that Opus had not raised in that form. It also agreed with Opus on the circles "vertex" finding. Results are in `reads/sol-audit/`. Reader and writer rules now require testing general statements. Cross-vendor reads catch what Opus misses, so the final audit should sample widely.

@@ -1,0 +1,29 @@
+{
+  "lesson": "lesson-chemistry-stoichiometry",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Ionic compounds have no separate molecules. Their written formula, such as $NaCl$, is the simplest ion ratio, so it is already an empirical formula.",
+      "problem": "A simplest ion ratio is not always a simplest atom ratio. NIST lists sodium peroxide as Na2O2. Applying the empirical-formula definition gives NaO. The general claim is false.",
+      "source": "[IUPAC: empirical formula](https://old.goldbook.iupac.org/html/E/E02063.html); [NIST: sodium peroxide](https://webbook.nist.gov/cgi/cbook.cgi?ID=C1313606&Units=CAL)"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "Here $n$ is moles, $m$ is mass, and $M$ is molar mass. If the problem gives moles, skip step 1. If it asks for moles, skip step 3.",
+      "problem": "The numbers 1 and 3 appear in prose outside math delimiters.",
+      "source": "origin/main:docs/content/content-checklist.md, B08; lesson-style-guide.md, Math notation."
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "1. From $4$ mol $N_2$: $4\\times2=8$ mol $NH_3$ could form.\n2. From $9$ mol $H_2$: $9\\times\\dfrac{2}{3}=6$ mol $NH_3$ could form.",
+      "problem": "Example #3 keeps both key product calculations inline. Examples #4 and #5 also keep the theoretical-yield calculations inline. The steps are present, so this is a formatting finding.",
+      "source": "origin/main:docs/content/content-checklist.md, L19; lesson-style-guide.md, Examples section."
+    }
+  ],
+  "reader": "sol-high",
+  "round": "audit"
+}
