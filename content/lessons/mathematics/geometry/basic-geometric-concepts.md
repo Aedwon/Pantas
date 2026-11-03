@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-In school geometry, point, line, and plane are basic ideas. We describe them but do not define them with simpler words.
+In school geometry, point, line, and plane are the **undefined terms**. They are basic ideas that we describe but do not define with simpler words.
 
 A **point** is an exact location. It has no size at all. We name it with a capital letter, like point $A$.
 
@@ -19,7 +19,9 @@ A **line segment** is the part of a line between two endpoints. Segment $AB$, wr
 
 A **ray** has one endpoint and goes on forever in one direction. Ray $AB$, written $\overrightarrow{AB}$, starts at $A$ and passes through $B$. The order of the letters matters: $\overrightarrow{AB}$ and $\overrightarrow{BA}$ are different rays.
 
-A **plane** is a flat surface that extends forever in all directions, like an endless tabletop. Points on the same line are **collinear**. Points on the same plane are **coplanar**. Any two points are collinear, and any three points are coplanar. Three points are collinear only when one line passes through all of them.
+A **plane** is a flat surface that extends forever in all directions, like an endless tabletop. Points on the same line are **collinear**. Points on the same plane are **coplanar**.
+
+Any two points are collinear, and any three points are coplanar. Three points are collinear when one line passes through all of them.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "basic-concepts", "labels": ["Point A", "Line AB", "Segment CD", "Ray EF", "Plane P"], "semanticsLabel": "Diagram of basic geometric elements showing point A, line AB with arrows at both ends, segment CD with endpoints, ray EF starting at E, and a flat plane drawn as a parallelogram."} -->
 
@@ -40,6 +42,8 @@ Angles also come in pairs with special sums.
 **Complementary angles** are two angles whose measures add up to $90^\circ$. **Supplementary angles** are two angles whose measures add up to $180^\circ$. The two angles do not have to touch. Each angle in a complementary pair is acute, because the other angle takes up part of the $90^\circ$.
 
 **Adjacent angles** share a vertex and one side, and they do not overlap. A **linear pair** is two adjacent angles whose other two sides are opposite rays. Because those outer sides form a straight line, the pair adds up to $180^\circ$.
+
+Angles that sit side by side add up to the bigger angle they make together. So side-by-side angles that fill a straight line add up to $180^\circ$, and parts that fill a right angle add up to $90^\circ$.
 
 **Vertical angles** are the angles that face each other when two lines cross, like the top and bottom angles of the letter X. Two crossing lines make two pairs of vertical angles. The angles in each pair are equal.
 
@@ -167,7 +171,7 @@ Three angles sit side by side on a straight line. They measure $(2x)^\circ$, $(3
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "angles-on-line", "labels": ["(2x)°", "(3x + 10)°", "(x + 20)°", "180°"], "semanticsLabel": "A straight line with two rays creating three adjacent angles labeled 2x degrees, 3x plus 10 degrees, and x plus 20 degrees summing to 180 degrees."} -->
 
 **Solution:**
-Angles that sit side by side along a straight line fill a straight angle, so they add up to $180^\circ$.
+Angles side by side along a straight line fill a straight angle, so they add up to $180^\circ$.
 
 1. Write the sum.
 
@@ -257,7 +261,7 @@ Swapping these is a common error. Before answering, ask yourself: corner or stra
 
 > At a crossing, opposite angles are equal and neighbors add to $180^\circ$.
 
-Set two expressions equal only when they label opposite (vertical) angles. Neighbors that share a side along a line add to $180^\circ$, so use a sum, not an equal sign. If the two lines are perpendicular, all four angles are $90^\circ$, so the neighbors are also equal. Check the positions in the figure before writing the equation.
+Set two expressions equal only when they label opposite (vertical) angles. Neighbors that share a side along a line add to $180^\circ$, so use a sum. If the two lines are perpendicular, all four angles are $90^\circ$. Check the positions in the figure before writing the equation.
 
 ### #3: Giving Half When Asked for the Whole
 

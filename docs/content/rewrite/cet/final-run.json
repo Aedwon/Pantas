@@ -327,13 +327,13 @@
     "lessonPath": "content/lessons/mathematics/algebra/systems-of-equations.md",
     "lessonId": "lesson-algebra-systems-of-equations",
     "group": "mathematics",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/basic-geometric-concepts.md",
     "lessonId": "lesson-geometry-basic-geometric-concepts",
     "group": "mathematics",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/mathematics/geometry/coordinate-geometry.md",

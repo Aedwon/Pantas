@@ -39,7 +39,9 @@ A **coefficient** is the number multiplied by a variable. In $2x + 3y = 12$, the
 
 To draw a line, you need two points. Two easy ones are the **intercepts**: the $x$-intercept is where the line crosses the $x$-axis ($y = 0$), and the $y$-intercept is where it crosses the $y$-axis ($x = 0$).
 
-You can also rewrite the equation as $y = mx + b$. Here $m$ is the **slope**, how many units the line goes up (or down, if negative) for each $1$ unit to the right. The number $b$ is the $y$-intercept.
+Some lines do not give two intercepts. The line $y = 2x$ passes through the origin, so both intercepts are $(0, 0)$. The lines $y = 3$ and $x = 3$ have only one intercept each. For these, pick another $x$ value and find its $y$ value to get a second point.
+
+If the line is not vertical, you can also rewrite the equation as $y = mx + b$. Here $m$ is the **slope**, how many units the line goes up (or down, if negative) for each $1$ unit to the right. The number $b$ is the $y$-intercept. A vertical line, like $x = 3$, has no slope and cannot be written this way.
 
 The steps are:
 
@@ -55,8 +57,8 @@ Reading a graph is exact only when the crossing sits clearly on grid lines. If t
 
 Two lines can be related in three ways, so a linear system of two equations in two variables has one of three outcomes.
 
-- **One solution**: the lines cross at exactly one point. Their slopes are different.
-- **No solution**: the lines are parallel. They have the same slope but different intercepts, so they never touch.
+- **One solution**: the lines cross at exactly one point. If neither line is vertical, their slopes are different.
+- **No solution**: the lines are parallel, so they never touch. Two parallel lines that are not vertical have the same slope but different $y$-intercepts. Two vertical lines, like $x = 1$ and $x = 2$, are also parallel.
 - **Infinitely many solutions**: both equations describe the same line. Every point on the line is a solution.
 
 You can often tell from the equations. If one equation is the other multiplied by a nonzero number on every term, including the right side, it is the same line. If the left sides match this way but the right sides do not, the lines are parallel.
@@ -256,15 +258,15 @@ Both equations equal $y$, so their right sides are equal to each other.
 
 $$x^2 - 4 = 3x - 6$$
 
-2. Move everything to one side to get a quadratic equation.
+2. Move everything to one side to get a **quadratic equation**. This is an equation whose highest power of the variable is $x^2$.
 
 $$x^2 - 3x + 2 = 0$$
 
-3. Factor the quadratic.
+3. Factor the quadratic. To **factor** means to write it as a product of brackets. Check: $(x - 1)(x - 2)$ multiplies out to $x^2 - 3x + 2$.
 
 $$(x - 1)(x - 2) = 0$$
 
-4. So $x = 1$ or $x = 2$. Find $y$ for each using $y = 3x - 6$.
+4. If a product is zero, one of its factors is zero. So $x - 1 = 0$ or $x - 2 = 0$, which gives $x = 1$ or $x = 2$. These two values are the **roots** of the quadratic. Find $y$ for each using $y = 3x - 6$.
 
 $$x = 1: \quad y = 3(1) - 6 = -3$$
 
@@ -289,7 +291,7 @@ Set the right sides equal in each system.
 
 1. For (a), $x^2 - 4 = -4$, so $x^2 = 0$ and $x = 0$. The line touches the parabola at one point, $(0, -4)$. Check: $0 - 4 = -4$.
 
-2. For (b), $x^2 - 4 = -5$, so $x^2 = -1$. A real number squared is never negative, so there is no real $x$.
+2. For (b), $x^2 - 4 = -5$, so $x^2 = -1$. A **real number** is any number on the number line, such as $-3$, $0.5$ or $2$. A real number squared is never negative, so there is no real $x$.
 
 3. The line $y = -5$ passes below the lowest point of the parabola, which is $(0, -4)$. So (b) has no solution.
 
@@ -343,4 +345,4 @@ Subtract $2x + y = 9$ from $2x + y = 5$ and you get $0 = -4$. This is false, so 
 
 > A line can hit a parabola twice. Check how many solutions there are.
 
-In a non-linear system, students may find one root, compute one point, and stop. The quadratic in Example #7 had two roots, so there were two crossing points. If the question asks for "the solutions" or "the sum of the $x$ values", use every root that gives a real point. A line may also touch the parabola once or miss it, as in Example #8.
+In a non-linear system, students may find one root, compute one point, and stop. The quadratic in Example #7 had two roots (solutions), so there were two crossing points. If the question asks for "the solutions" or "the sum of the $x$ values", use every root that gives a real point. A line may also touch the parabola once or miss it, as in Example #8.
