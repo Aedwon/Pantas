@@ -87,3 +87,17 @@ Result: Part A is approved at balanced. The work can resume on any account, beca
 Aedwon's follow-up: "oh wait you can do the pilot now before the actual, final run that i can set as /goal. keep sonnet writer"
 
 Result: the 15-lesson pilot runs in this session on the Part A model split. The final run waits for the pilot verdict, and Aedwon starts it as a `/goal` on another account. Plan: `docs/superpowers/plans/2026-11-03-cet-content-pilot.md`. Sonnet writes 10 lessons now; Sol's reads and its 5 lessons wait for the Codex reset.
+
+## November 3, 2026: pilot results and changes for the cloud run
+
+Aedwon's constraints, in order: "for full disclosure i'm planning, after this pilot and things are settled, to use the remaining $100 i have in cloud sessions for hill climbing this goal as much work as it can do. i think that should be plenty"; "also to add, when Claude models have finish their job we can use the resetted claude accounts to audit. is this fair for you or do you have a better way"; "i think for now we can only afford a 6.1 Sol high audit. 5% weekly is about 30% of 1 5-hour session in codex"; "the /goal using the cloud session has to run tonight or tomorrow because it expires Nov 5"; "nah let's not wait for codex"; "what why fable, you can read it yourself can't you? or another opus 5.5 agent".
+
+Mistake: the lead chose Fable readers without asking. Aedwon objected, and they were stopped with their partial output discarded.
+
+Mistake: the lead set a 1,700-word limit taken from a CSE pilot note and an outline tripwire. It is not in the style guide. 37 of the 90 rewritten CSE lessons exceed it, with a median of 1,611 and a maximum of 4,047. It forced writers to cut correct teaching and caused many findings.
+
+Result: all 15 first reads had a Blocker or Major (6 Blockers, 83 Majors, 52 Minors). Round 2 on 5 lessons cut Blockers and Majors from 35 to 10, with new findings still appearing. Measured cost at API prices per lesson: write $0.40, read $0.71, fix $0.64, re-read $0.76. The lead told him $100 would not be plenty: about 25 to 40 lessons and no questions.
+
+Options offered as one approval: skip the audit fallback; replace the 1,700 limit with a split note over about 3,000 words; spend the $100 in order, pilot lessons, then science, mathematics, reasoning and reading, with questions and any remainder moved to reset accounts.
+
+Aedwon's answer: "Approve all three"

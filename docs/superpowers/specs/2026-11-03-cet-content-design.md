@@ -1,6 +1,6 @@
 # CET content pass: design
 
-Date: November 3, 2026. Status: Part A approved by Aedwon on November 3, 2026, at balanced complexity. The model split may be revised because the work moves to a Pro account; see the decision record.
+Date: November 3, 2026. Status: Part A approved by Aedwon on November 3, 2026, at balanced complexity, and revised the same day after the pilot; see "Revision after the pilot". Where the revision differs from the text below, the revision wins.
 Policy revision read: origin/main 875d78dd, rechecked at 625ad2ca.
 Decision record: `docs/superpowers/decisions/2026-11-03-post-beta-priorities-log.md`.
 Evidence: `docs/future/2026-11-03-next-exam-brief.md`.
@@ -90,6 +90,16 @@ Claude and Codex subscription usage is the only spend. No new subscription is ne
 - The content builds and passes the existing import and export checks.
 - CSE lesson text is unchanged, shown by a file comparison.
 - You receive one review package and approve or return it.
+
+### Revision after the pilot (November 3, approved: "Approve all three")
+
+Pilot result: all 15 lessons had a Blocker or Major at first read (6 Blockers, 83 Majors), so the first pilot criterion failed. Round 2 on 5 lessons cut Blockers and Majors from 35 to 10. Most worked answers were correct.
+
+1. **No audit fallback.** The separate audit read is dropped. First reads already find these problems, and it would add about $0.71 per lesson.
+2. **No 1,700-word limit.** That limit was the lead's error: it is not in the style guide, and 37 of the 90 rewritten CSE lessons exceed it. Lessons take the length the teaching needs. Over about 3,000 words a lesson becomes a split candidate; the run makes no split.
+3. **Spend in order.** The final run uses Aedwon's $100 cloud credit, which expires November 5: the 15 pilot lessons first, then science, mathematics, reasoning and reading, stopping each lesson at clean or minor-only, with at most 3 rounds in this run. Lessons still open go to a list for later. Questions and any remaining lessons use reset accounts afterward.
+
+Models for the final run: Sonnet 5.5 writes and Opus 5.5 reads, because Aedwon chose not to wait for Codex. The final audit stays cross-vendor: Astra on the risk set, Sol blind-solves questions, and Opus on a random sample and on checking Astra's findings. Measured cost at API prices, per lesson: writing $0.40, first read $0.71, fix $0.64, re-read $0.76. $100 likely covers about 25 to 40 lessons.
 
 ### Facts to know
 
