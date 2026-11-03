@@ -1377,7 +1377,15 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           ),
         );
       case QuizPageMode.resume:
-        unawaited(controller.resumeToday(examId: widget.examId));
+        unawaited(
+          controller.resumeToday(examId: widget.examId).then((_) {
+            // Resume never creates a session, so a failure means none is
+            // open. Retrying cannot help: go back to the Quiz tab.
+            if (mounted && ref.read(quizControllerProvider) is QuizFailure) {
+              _leave(context);
+            }
+          }),
+        );
       case QuizPageMode.drill:
         final topicId = widget.topicId;
         if (topicId == null) {
