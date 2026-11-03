@@ -247,6 +247,10 @@ class ListRow extends StatelessWidget {
         variant == ListRowVariant.radio) {
       final radio =
           _exam || mutuallyExclusive || variant == ListRowVariant.radio;
+      // At large text sizes "Coming soon" no longer fits beside the title, so
+      // it moves under the subtitle (same 1.5x threshold as the rows below).
+      final stackComingSoon =
+          comingSoon && MediaQuery.textScalerOf(context).scale(17) > 25.5;
       final body = content ??
           Column(
             mainAxisSize: MainAxisSize.min,
@@ -269,6 +273,14 @@ class ListRow extends StatelessWidget {
               if (subtitle != null)
                 Text(subtitle!, style: context.type.footnote),
               if (footer != null) footer!,
+              if (stackComingSoon)
+                Text(
+                  'Coming soon',
+                  style: context.type.footnote.copyWith(
+                    fontWeight: FontWeight.w500,
+                    color: c.secondaryLabel,
+                  ),
+                ),
             ],
           );
       final padding = contentPadding ??
@@ -284,8 +296,19 @@ class ListRow extends StatelessWidget {
               onTap: action,
               content: body,
               padding: padding,
-              trailing: comingSoon
-                  ? Text('Coming soon', style: context.type.footnote)
+              // O_Picker: the label sits inside the row's 16 px right inset,
+              // 8 px after the text, in medium-weight tertiary gray.
+              trailing: comingSoon && !stackComingSoon
+                  ? Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 16),
+                      child: Text(
+                        'Coming soon',
+                        style: context.type.footnote.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: c.tertiaryLabel,
+                        ),
+                      ),
+                    )
                   : trailingWidget,
             )
           : CheckboxRow(
