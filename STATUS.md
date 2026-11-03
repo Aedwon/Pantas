@@ -149,3 +149,5 @@ Ten Sonnet lessons pass `check_cet_lesson.py`. Words after: stoichiometry 1,640;
 Aedwon: "nah let's not wait for codex". Sonnet writes all 15 pilot lessons and Claude Fable reads them. The rule that no model reads its own writing still holds, but the cross-vendor read and the Sol writer comparison are dropped from the pilot. The Astra audit stays as the cross-vendor check. Sol may read in the final run.
 
 Aedwon: "what why fable, you can read it yourself can't you? or another opus 5.5 agent". The Fable readers were stopped and their partial output discarded. Opus 5.5 agents read instead.
+
+Post-pilot cross-vendor check. Lead proposed Astra on 3 to 5 Opus-passed lessons. Aedwon: "i think for now we can only afford a 6.1 Sol high audit. 5% weekly is about 30% of 1 5-hour session in codex". The check uses Sol at high effort, starting with 3 lessons. It runs through `codex-pick` after the Opus reads, as read-only.
