@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-earth-science-astronomy-layers-of-the-earth",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L25", "severity": "Major", "quote": "They cannot travel through a liquid, because a liquid cannot be sheared.", "problem": "This sentence gives the reason behind the lesson's main inference (S waves stop, so the outer core is liquid), and it rests on the word 'sheared', which the lesson never explains. The wording is also wrong as stated. A liquid can be sheared: it flows when you stir it. What a liquid lacks is shear rigidity, so it does not spring back and cannot pass on a side-to-side wave. The base said this correctly ('S waves require material with shear rigidity'). A student is left with an undefined term and a misleading reason.", "source": "Checklist L25 and LSG Teaching completeness; base 7032eec5 Example #1 step 1; standard definition of a fluid as matter that deforms continuously under shear stress (no shear strength)"},
+    {"rule": "L04", "severity": "Minor", "quote": "Think of cold honey or putty that flows if you wait long enough.", "problem": "This is a second analogy in Core Concept. The peach analogy ('Think of a peach.') comes earlier, and the guide allows at most one per lesson.", "source": "Checklist L04; LSG Voice"},
+    {"rule": "L22a", "severity": "Minor", "quote": "At the center, pressure is so high that the metal cannot melt, even at that high temperature.", "problem": "The inner-core paragraph has five sentences, and the guide allows one to three. The asthenosphere paragraph ('Below it is the asthenosphere', five sentences) and the Kola paragraph (four sentences) also go over the limit.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
