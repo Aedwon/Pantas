@@ -116,7 +116,11 @@ class _CustomTrackSubjectsStepState
       await prefs.setCompletedOnboarding(value: false);
       await prefs.setSelectedExamId(id);
       if (!mounted || generation != _generation) return;
+      // The exam list was read before this track existed. Without a fresh
+      // read, the focus finds no chosen exam and the router never lets the
+      // student leave onboarding.
       ref
+        ..invalidate(examListProvider)
         ..invalidate(activeExamFocusProvider)
         ..invalidate(scopedTopicsProvider)
         ..invalidate(scopedSubjectsProvider);
