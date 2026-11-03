@@ -193,3 +193,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done clean after round 3: atomic-structure. Round 2 Blockers: history-of-the-atom (technetium sentence), gas-laws (Example 11, which ideal-gas assumption fails first); last fixes running.
 - Open after 3 reads: human-anatomy-physiology (round 3: 2 Blockers, mature red blood cells need no oxygen; RNA enzymes; split candidate). History-of-the-atom and gas-laws fixed after round 2.
 - Done at minor after round 2: mole-concept (1 Minor). Mixtures fixed after round 1.
+- Round 1 reads: periodic-table (3 Blockers, 1 Major), nuclear-chemistry (2 Blockers, 1 Major); fixes running. Written: earths-subsystems.

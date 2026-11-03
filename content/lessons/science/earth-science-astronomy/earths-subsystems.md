@@ -1,93 +1,161 @@
 ---
 _id: "lesson-earth-science-astronomy-earths-subsystems"
 title: "The Earth's Subsystems (Lithosphere, Hydrosphere, Atmosphere, Biosphere)"
-summary: "How Earth's solid, water, air, and living systems interact as parts of one connected Earth system."
+summary: "The four Earth spheres, what each one holds, and how matter and energy move between them."
 subject: "subject-science"
 topic: "topic-earth-science-astronomy"
-estimatedMinutes: 9
+estimatedMinutes: 11
 isActive: true
 ---
 ## Core Concept
 
-Earth can be studied as a system of interacting **spheres** or subsystems. Different scientific and classroom schemes draw the boundaries slightly differently, so the categories are useful models rather than perfectly isolated boxes.
+A **system** is a group of parts that affect one another. The Earth system is the whole planet seen this way. Scientists split it into big parts called **spheres** or subsystems so that it is easier to study.
 
-### Lithosphere / Geosphere
+The most common split has four spheres: the lithosphere, the hydrosphere, the atmosphere, and the biosphere. Books and teachers draw the borders a little differently. The four spheres are a model, a simple picture of something complex. They are not sealed boxes.
 
-The **lithosphere** is the rigid outer mechanical layer made of the crust and the rigid uppermost mantle. The broader term **geosphere** includes Earth's solid materials and interior more generally: rocks, sediments, landforms, crust, mantle, and core. Soil lies at an important interface among the solid Earth, water, air, and living organisms.
+### Lithosphere and Geosphere
+
+The **geosphere** is all of the solid Earth: rocks, minerals, sediments, soil minerals, landforms, and the crust, mantle, and core below them. Many four-sphere models use the word geosphere for the whole solid planet.
+
+The **lithosphere** is a smaller part of it. It is the cool, rigid outer shell made of the crust and the uppermost mantle. It is broken into pieces called tectonic plates. Below it is a hotter, weaker part of the mantle that can flow very slowly.
+
+Some books use "lithosphere" for the solid-Earth sphere in the four-sphere model. Follow the meaning that the question or the lesson gives.
+
+**Soil** is a mix of broken rock, dead plant and animal matter, water, air, and living organisms. It touches all four spheres.
 
 ### Hydrosphere
 
-The **hydrosphere** concerns Earth's water and its movement. It includes oceans, lakes, rivers, groundwater, snow and ice in many introductory four-sphere models, and some classifications also include atmospheric water vapor. NASA Earth-system research treats water cycling across land, ocean, and atmosphere as interconnected, so atmospheric water can legitimately participate in both hydrosphere and atmosphere discussions.
+The **hydrosphere** is all of Earth's water, in any state. It includes oceans, lakes, rivers, and groundwater, which is water held in the spaces of soil and rock. Oceans cover about $71\%$ of Earth's surface.
+
+Ice is water too. Glaciers, ice sheets, and sea ice are part of the hydrosphere. Many books give frozen water its own name, the **cryosphere**.
+
+Water vapor and clouds sit in the air. Some models count them as hydrosphere and some as atmosphere. Both are fair, because water keeps moving between the two.
 
 ### Atmosphere
 
-The **atmosphere** is the envelope of gases surrounding Earth. It contains the air we breathe, supports weather and climate processes, absorbs and scatters incoming radiation, and exchanges water, carbon, and other materials with the other spheres.
+The **atmosphere** is the layer of gases around Earth, held in place by gravity. Dry air is mostly nitrogen, about $78\%$, and oxygen, about $21\%$. It also holds small amounts of argon, carbon dioxide, and other gases, plus water vapor and tiny particles.
+
+The atmosphere shapes weather, spreads heat, and blocks part of the Sun's harmful ultraviolet light. It has layers. In the lowest layer, the troposphere, the air usually gets colder with height. In the next layer up, the stratosphere, it gets warmer with height, because the ozone there absorbs ultraviolet light.
 
 ### Biosphere
 
-The **biosphere** encompasses living organisms and the regions and ecosystems in which life occurs. Life exists on land, in water, and in parts of the atmosphere and subsurface, which is one reason sphere boundaries overlap.
+The **biosphere** is all living things and the places where they live. It reaches from deep soil and ocean floors up to the lower air, where birds fly and microbes drift.
+
+Living things are made of matter from the other spheres: minerals from rocks, water, and gases such as carbon dioxide and oxygen. The biosphere is therefore closely tied to the other three.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-subsystems","illustrationKey":"science/earth-science-astronomy/earths-subsystems#1","features":[{"label":"lithosphere","feature":"rocky ground"},{"label":"hydrosphere","feature":"ocean water"},{"label":"atmosphere","feature":"surrounding air"},{"label":"biosphere","feature":"plants/animals living across all three"}]} -->
 
-The central Earth-system idea is **interaction**. A volcanic eruption (geosphere/lithosphere) releases gases and particles into the atmosphere. Rain (atmosphere/hydrosphere) weathers rock (geosphere). Plants (biosphere) draw water from soil and return water vapor to the atmosphere. Ocean organisms connect the biosphere and hydrosphere. A single real-world object or process can therefore involve several spheres at once.
+### How the Spheres Interact
+
+Spheres swap **matter** (stuff, such as water, rock, and gases) and **energy** (the ability to cause change, such as heat and light). The Sun is the main outside source of energy at Earth's surface. Heat from inside Earth drives volcanoes and moving plates.
+
+Here are some common links:
+- Rain (atmosphere and hydrosphere) slowly breaks down rock (geosphere). This is **weathering**.
+- Plants (biosphere) take in carbon dioxide from the air and water from the soil, and use sunlight to make food. This is **photosynthesis**. They release water vapor and oxygen back to the air.
+- A volcano (geosphere) throws gases and ash into the atmosphere. Some of them cool the air or fall as ash over land and sea.
+- Sunlight warms the ocean, so water evaporates. The vapor rises, cools, and falls again as rain. This is the **water cycle**.
+
+One object or event can belong to several spheres at once. Groundwater is both water and part of the ground. A coral reef is living animals on a limestone base in the sea.
+
+<!-- ILLUSTRATION: four-sphere cycle diagram with the Sun at the top, arrows labeled "evaporation" from ocean (hydrosphere) to air (atmosphere), "rain" from air to land, "weathering" from rain to rock (lithosphere), "photosynthesis" from air to a tree (biosphere), and "volcanic gases" from a volcano to air -->
 
 ## Examples
 
-### #1: Primary Sphere Classification
+### #1: Sorting Items by Sphere
 
-For each item, identify the sphere most directly emphasized, while recognizing possible overlaps: (a) a granite outcrop, (b) ocean water, (c) nitrogen gas in the air, (d) a living mangrove tree.
-
-**Solution:**
-1. Granite outcrop: geosphere/lithosphere.
-2. Ocean water: hydrosphere.
-3. Nitrogen gas in the air: atmosphere.
-4. Living mangrove tree: biosphere.
-
-The tree also exchanges water with the hydrosphere and gases with the atmosphere, so the labels identify the primary feature rather than excluding interactions.
-
-### #2: A Volcanic Eruption
-
-Name at least three Earth-system interactions during a volcanic eruption that releases ash and gases, melts snow, and affects nearby vegetation.
+For each item, name the sphere it is mainly part of: (a) a granite outcrop, (b) ocean water, (c) nitrogen gas in the air, (d) a living mangrove tree. Then say which item clearly touches another sphere as well.
 
 **Solution:**
-1. Magma and rock belong to the geosphere/lithosphere.
-2. Ash and volcanic gases enter the atmosphere.
-3. Heat can melt snow and move water through the hydrosphere.
-4. Ash, gases, heat, and flowing material can affect plants, animals, and ecosystems in the biosphere.
-5. The event is therefore best understood as a multi-sphere interaction, not as belonging to only one subsystem.
+1. A granite outcrop is solid rock: geosphere.
+2. Ocean water is liquid water: hydrosphere.
+3. Nitrogen gas in the air is part of the atmosphere.
+4. A living mangrove is an organism: biosphere.
+5. The mangrove also takes water from the hydrosphere, and takes in and releases gases with the atmosphere. Its roots hold soil of the geosphere.
 
-### #3: Atmospheric Water
+The label shows the main feature of the item. It does not say that the item has no links to other spheres.
 
-Cloud droplets and water vapor are physically located in the atmosphere. Can they also be discussed as part of the hydrosphere?
+### #2: Sphere of Origin of Groundwater
+
+A well taps groundwater held in the spaces of sandstone. Which sphere or spheres does the groundwater belong to?
 
 **Solution:**
-Yes, depending on the classification convention being used.
+1. The water is liquid water in the Earth, so it is hydrosphere.
+2. It sits inside the pores of rock, so it is also found inside the geosphere.
+3. Both answers are right. The best answer names the water as hydrosphere and notes that it is held by rock.
 
-1. Their location is in the atmosphere.
-2. They are also water participating in the global water cycle.
-3. Some four-sphere definitions include atmospheric water in the hydrosphere, while other teaching schemes classify water vapor primarily with the atmosphere or separate frozen water into a cryosphere.
-4. The important scientific point is that the spheres exchange matter continuously and their boundaries are model-dependent.
+### #3: A Volcanic Eruption
 
-## Speed Tricks & Shortcuts
+A volcano erupts. It throws out ash and gases, melts snow on its slopes, and buries nearby forest. Name the sphere that each effect involves.
 
-For a straightforward classification item, first ask what material or process is being emphasized: solid Earth, water, air, or life. Then check whether the question is actually asking about an **interaction**, in which case more than one sphere may be involved.
+**Solution:**
+1. Magma, lava, and rock are geosphere.
+2. Ash and gases enter the air: atmosphere.
+3. Melted snow becomes flowing water: hydrosphere.
+4. The buried forest is living things: biosphere.
+5. The event involves all four spheres, so it is not "a geosphere event only".
+
+### #4: Tracing Carbon
+
+Carbon dioxide is taken from the air by a tree and later released again. Trace one path of carbon through the spheres.
+
+**Solution:**
+1. Carbon dioxide gas in the air is atmosphere.
+2. A tree takes it in and uses it to build its body by photosynthesis: the carbon moves to the biosphere.
+3. When the tree dies and rots, or is burned, much of the carbon returns to the air as carbon dioxide.
+4. Some carbon dissolves in the ocean (hydrosphere). Some ends up in shells that become limestone rock over a long time (geosphere).
+
+Carbon moves between all four spheres, so it does not stay in one place.
+
+### #5: Water and Weathering
+
+Rain falls on a hillside, runs into a stream, and carries away tiny bits of rock. Which spheres took part, and what matter and energy moved?
+
+**Solution:**
+1. Rain forms from water vapor in the air: atmosphere and hydrosphere.
+2. Flowing water breaks rock and carries it away: hydrosphere acts on geosphere.
+3. The Sun's heat first evaporated the water, which gave the water energy to rise. Gravity then pulls it back down.
+4. Matter moved: water from air to land, rock bits from hillside to stream.
+
+### #6: Water Vapor and the Models
+
+Clouds float in the air. A student says they belong to the atmosphere. Another says they belong to the hydrosphere. Is one of them wrong?
+
+**Solution:**
+1. Clouds are located in the atmosphere.
+2. Clouds are also water that takes part in the water cycle.
+3. Some models count atmospheric water as hydrosphere. Others keep it with the atmosphere.
+4. Neither student is wrong. The answer depends on the model, so use the one the question gives.
+
+## Exam Strategies
+
+When you must name a sphere, ask what the item is made of: solid Earth, water, air, or living things. That is usually the main label.
+
+If the question asks about an interaction, expect more than one sphere. Name each part and say what moves between them.
+
+If the answer choices differ only because of the model, such as clouds or ice, look at how the question defines the term.
 
 ## Traps to Watch For
 
-### #1: Treating the Spheres as Mutually Exclusive Containers
+### #1: Treating the Spheres as Separate Boxes
 
-> Earth-system spheres overlap and exchange matter and energy.
+> The spheres overlap and trade matter and energy.
 
-Soil, clouds, coral reefs, wetlands, and organisms are common examples where more than one subsystem is relevant.
+Soil, clouds, groundwater, wetlands, and coral reefs involve more than one sphere. A choice that says an event happens in "only one sphere" is often wrong when matter or energy clearly crosses a boundary.
 
-### #2: Confusing Lithosphere and the Entire Geosphere
+### #2: Mixing Up Lithosphere and Geosphere
 
-> The lithosphere is the rigid crust plus rigid uppermost mantle; the geosphere is a broader solid-Earth concept.
+> The lithosphere is the rigid shell of crust and uppermost mantle. The geosphere is the whole solid Earth.
 
-A lesson or exam may use one term or the other, so follow the definition supplied in the question.
+Some books use the two words in a looser way. Follow the meaning in the question, and note that the core and most of the mantle lie below the lithosphere.
 
-### #3: Water Can Cross Sphere Boundaries
+### #3: Leaving Out Ice
 
-> Water evaporates from the surface into the atmosphere, condenses, precipitates, infiltrates rock and soil, and moves through living organisms.
+> Ice is part of the hydrosphere, and many books call it the cryosphere.
 
-Its movement illustrates why Earth-system science focuses on interactions instead of isolated categories.
+A glacier is solid, but it is water. Do not file it under the geosphere only because it is hard and cold. Some models list the cryosphere as a fifth sphere.
+
+### #4: Thinking Air Always Gets Colder Upward
+
+> Temperature drops with height in the troposphere and the mesosphere. It rises in the stratosphere.
+
+The pattern changes from layer to layer. The thermosphere, higher up, also warms with height.

@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-nuclear-chemistry",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Holding a nucleus together takes energy.",
+      "problem": "False fact. No energy is used up to hold a nucleus together. A bound nucleus has less energy than its separate protons and neutrons, and energy is released when nucleons join; it takes energy only to pull the nucleus apart, which is what the next sentence correctly says. The false lead sentence plants the classic misconception that a nucleus stores energy to stay together, and it clashes with the lesson's own reasoning that moving to more binding energy per nucleon releases energy (if holding together took energy, a more tightly held nucleus would need more, not release some). A student who keeps it would answer that forming a nucleus from nucleons absorbs energy.",
+      "source": "Checklist B01; OpenStax Chemistry 2e, section 21.1 Nuclear Structure and Stability: nuclear binding energy is the energy required to break a nucleus into its protons and neutrons, and the same energy is released when the nucleus forms (mass defect)."
+    },
+    {
+      "rule": "B02",
+      "severity": "Blocker",
+      "quote": "$$^{238}_{92}U \\rightarrow\\ ^{234}_{90}Th +\\ ^4_2He \\rightarrow\\ ^{234}_{91}Pa +\\ ^{\\ 0}_{-1}e + \\bar{\\nu}$$",
+      "problem": "The worked equation of Example #6 is not balanced as written. Read as an equation, the second arrow has thorium-234 plus helium-4 on its left (A = 238, Z = 92) and protactinium-234 plus an electron and an antineutrino on its right (A = 234, Z = 90), and it shows the alpha particle being used up. The lesson tells students to make A and Z add up on both sides of any nuclear equation, so a student who checks this line finds it fails, or learns that a chained equation need not balance. The final answer, protactinium-234, is right; the displayed equation is wrong.",
+      "source": "Checklist B02 (every worked answer is correct, solved independently: 238U -> 234Th + 4He, then 234Th -> 234Pa + e- + antineutrino, each balanced on its own); the lesson's own rule 'To balance any nuclear equation, make the $A$ values add up on both sides'."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "One deuterium-tritium fusion releases about $17.6$ MeV.",
+      "problem": "The terms deuterium and tritium are used here, in Example #9 and in Trap #4, but the lesson never says what they are. The fusion equation shows $^2_1 H$ and $^3_1 H$ only by symbol, and Example #8 says only 'Hydrogen isotopes'. The student needs the meaning to connect 'deuterium-tritium fusion' to that equation and to see where Example #9's 'Fusion uses $5$ nucleons' comes from, and a fusion question that names deuterium or tritium would leave them stuck. The base lesson did not use these names; the rewrite added them without a meaning.",
+      "source": "Checklist L25; lesson-style-guide Teaching completeness (explain terms before students need their meanings); writer-rules 'Rules added after round 1' item 1 (meanings come first)."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Some nuclei are unstable. An unstable nucleus can change by itself and give off radiation. This is **radioactive decay**.",
+      "problem": "This paragraph has five sentences, above the one-to-three limit. Others also run long: the paragraph beginning 'Small particles get $A$ and $Z$ values too.' (five), 'Alpha particles are heavy and stopped by a sheet of paper' (five), 'Two numbers describe a nucleus.' (four), 'The released neutrons can strike more uranium-$235$ nuclei.' (four), 'Nuclei carry positive charge and push each other away.' (four) and 'Binding energy per nucleon is highest near iron-$56$.' (four).",
+      "source": "Checklist L22a; lesson-style-guide Formatting rules (paragraphs 1 to 3 short sentences)."
+    }
+  ],
+  "goodQuotesChecked": 4
+}

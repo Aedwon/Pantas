@@ -183,13 +183,13 @@
     "lessonPath": "content/lessons/science/chemistry/nuclear-chemistry.md",
     "lessonId": "lesson-chemistry-nuclear-chemistry",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/periodic-table.md",
     "lessonId": "lesson-chemistry-periodic-table",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/solutions.md",
@@ -213,7 +213,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-subsystems.md",
     "lessonId": "lesson-earth-science-astronomy-earths-subsystems",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/fossils-and-geologic-time.md",

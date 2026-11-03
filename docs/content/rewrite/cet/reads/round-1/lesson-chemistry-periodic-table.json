@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-periodic-table",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Group $13$ is lower than group $2$ (boron below beryllium, aluminum below magnesium).",
+      "problem": "Stated as a general rule for every period, but it fails in periods 5 and 6: indium's first ionization energy (5.786 eV) is higher than strontium's (5.695 eV), and thallium's (6.108 eV) is higher than barium's (5.212 eV). The dip holds in periods 2 to 4 only, so a student applying the rule to In and Sr or Tl and Ba gets the wrong answer.",
+      "source": "NIST Atomic Spectra Database, ground-state ionization energies of Sr I, In I, Ba I, Tl I, Ca I, Ga I (physics.nist.gov/cgi-bin/ASD/ie.pl, accessed 2026-11-03); checklist B01; reader-rules Sol audit rule on general statements"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Group $16$ is lower than group $15$ (oxygen below nitrogen, sulfur below phosphorus).",
+      "problem": "Stated as a general rule for every period, but it fails in periods 5 and 6: tellurium's first ionization energy (9.010 eV) is higher than antimony's (8.608 eV), and polonium's (8.418 eV) is higher than bismuth's (7.286 eV). The dip holds in periods 2 to 4 only (As 9.789 eV, Se 9.752 eV).",
+      "source": "NIST Atomic Spectra Database, ground-state ionization energies of As I, Se I, Sb I, Te I, Bi I, Po I (physics.nist.gov/cgi-bin/ASD/ie.pl, accessed 2026-11-03); checklist B01; reader-rules Sol audit rule on general statements"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Groups $2$, $15$ and $18$ do not follow the pattern.",
+      "problem": "Group 15 is stated as an exception in every period, but in period 6 it follows the across-period pattern: bismuth releases about 91 kJ/mol on gaining an electron, far more than lead (about 34 kJ/mol). The base wording (\"notably groups 2, 15, and 18\") was hedged; the rewrite turned it into an absolute that a known value breaks.",
+      "source": "Measured first electron affinities, Pb 0.3567 eV (34.4 kJ/mol) and Bi 0.9424 eV (90.9 kJ/mol), as tabulated in Wikipedia 'Electron affinity (data page)' citing Bresteau et al. and Bilodeau et al. (accessed 2026-11-03); base 7032eec5 line 34; checklist B01"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "This lesson uses the electron ideas from the atomic structure lesson.",
+      "problem": "The lesson uses shells, the s, p and d subshells, 2p and 3p orbitals and paired electrons in orbitals (Groups and Periods, the two ionization-energy dips, Example 6) without explaining them, and points to the atomic structure lesson for them. That lesson teaches orbitals only in one line and never teaches shells, subshells or orbital pairing; they are taught in lesson-chemistry-quantum-numbers-electron-configuration. The identified prerequisite does not supply the meanings the dip explanations need, so a student cannot follow why nitrogen beats oxygen.",
+      "source": "Checklist L25 and lesson-style-guide Teaching completeness (reuse only explanations actually taught in an identified prerequisite); content/lessons/science/chemistry/atomic-structure.md lines 20-24; content/lessons/science/chemistry/quantum-numbers-electron-configuration.md lines 12-56"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
