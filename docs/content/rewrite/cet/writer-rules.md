@@ -24,7 +24,7 @@ Then, for each lesson: its brief, then the current lesson file.
   code, or any file under `docs/content/rewrite/cet/`.
 - Do not stage, commit or push. The lead commits.
 - Do not run a build, `flutter pub get`, or any test suite. Disk and CPU are limited.
-- A model never reads its own writing. You write; a reader of the other vendor reads. Do not review your own output as a
+- A model never reads its own writing. You write; a different model reads. Do not review your own output as a
   reader would.
 - Codex runs use `codex-pick`, never bare `codex`.
 

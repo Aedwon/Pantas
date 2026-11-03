@@ -3,83 +3,83 @@
   "base": "7032eec5b8fbdac51cef7e7b6dc7272d0e965f9a",
   "models": {
     "sonnet": "Sonnet 5.5",
-    "sol": "Codex GPT 6.1 Sol (gpt-6.1-sol)"
+    "fable": "Fable 5.1"
   },
   "lessons": [
     {
       "lesson": "science/chemistry/stoichiometry",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/chemistry/chemical-bonding",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/chemistry/acids-bases-ph",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/physics/kinematics",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/physics/electricity-and-magnetism",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/physics/work-energy-power",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/earth-science-astronomy/plate-tectonics",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/earth-science-astronomy/eclipses-and-moon-phases",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/biology/genetics-and-heredity",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "science/biology/cell-biology",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "mathematics/geometry/triangles",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "mathematics/geometry/circles",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "mathematics/algebra/quadratic-equations",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "reasoning/mechanical-technical-reasoning/pulleys-and-levers",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     },
     {
       "lesson": "reading-comprehension/text-types/short-stories-and-novels",
-      "writer": "Sonnet",
-      "reader": "Fable"
+      "writer": "sonnet",
+      "reader": "fable"
     }
   ]
 }
