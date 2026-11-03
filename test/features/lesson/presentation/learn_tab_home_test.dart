@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -136,6 +137,46 @@ void main() {
     expect(find.byType(PantasPage), findsOneWidget);
     expect(find.text('VERBAL'), findsOneWidget);
     expect(find.text('Language Proficiency'), findsNothing);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
+  });
+
+  testWidgets('the list fades under the search field instead of cutting',
+      (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final fade = find.byKey(const ValueKey('study-list-fade'));
+    expect(tester.getSize(fade).height, 18);
+    final list = find.byType(ListView).first;
+    expect(tester.getTopLeft(fade).dy, tester.getTopLeft(list).dy);
+    // The list reaches the field, so rows pass under the fade, and the same
+    // 18 px keeps the first row where it was at rest.
+    expect(
+      tester.getTopLeft(list).dy,
+      tester.getBottomLeft(find.byType(SearchFieldBar)).dy,
+    );
+    final box = tester.widget<DecoratedBox>(
+      find.descendant(of: fade, matching: find.byType(DecoratedBox)),
+    );
+    final colors =
+        ((box.decoration as BoxDecoration).gradient! as LinearGradient).colors;
+    expect(colors.first.a, 1);
+    expect(colors.last.a, 0);
+    expect(
+      find.ancestor(of: fade, matching: find.byType(IgnorePointer)),
+      findsWidgets,
+    );
+
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(Duration.zero);
     await tester.runAsync(db.close);

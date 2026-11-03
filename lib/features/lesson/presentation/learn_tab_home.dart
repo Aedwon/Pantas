@@ -29,6 +29,9 @@ import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.
 import 'package:pantas/features/lesson/presentation/widgets/web_study_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
+/// The gap under the search field, which the list's rows fade through.
+const double _studyListFadeHeight = 18;
+
 class StudyTabHome extends ConsumerStatefulWidget {
   const StudyTabHome({
     this.openTopicId,
@@ -303,7 +306,6 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                   onEditingChanged: (editing) =>
                       setState(() => _searching = editing),
                 ),
-                const SizedBox(height: 18),
                 Expanded(
                   child: Stack(
                     fit: StackFit.expand,
@@ -336,6 +338,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                               // The last topic scrolls clear of the floating
                               // tab bar.
                               padding: EdgeInsets.only(
+                                top: _studyListFadeHeight,
                                 bottom: FloatingTabBarScope.clearance(context),
                               ),
                               children: [
@@ -384,9 +387,33 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                                   ),
                               ],
                             ),
+                            // Rows fade out under the search field instead of
+                            // being cut at a hard line (Aedwon, Nov 3).
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              height: _studyListFadeHeight,
+                              child: IgnorePointer(
+                                key: const ValueKey('study-list-fade'),
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: [
+                                        context.colors.background,
+                                        context.colors.background
+                                            .withValues(alpha: 0),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                             if (_pinnedTopic != null)
                               Positioned(
-                                top: 0,
+                                top: _studyListFadeHeight,
                                 left: 0,
                                 right: 0,
                                 child: ValueListenableBuilder<bool>(
@@ -425,7 +452,11 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                           ],
                         ),
                       ),
-                      if (_searching) const SearchResults(),
+                      if (_searching)
+                        const Padding(
+                          padding: EdgeInsets.only(top: _studyListFadeHeight),
+                          child: SearchResults(),
+                        ),
                     ],
                   ),
                 ),
