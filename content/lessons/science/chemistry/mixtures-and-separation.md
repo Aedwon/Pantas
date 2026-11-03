@@ -17,13 +17,17 @@ The parts of a mixture can still attract each other. Salt ions in water are held
 
 ### Kinds of mixtures
 
-A **homogeneous mixture** has the same composition throughout, even when you look closely. Sugar fully dissolved in water and clean air are examples. A homogeneous mixture of a solute in a solvent is a **solution**. The **solute** is the substance that dissolves. The **solvent** is the substance that does the dissolving. A solution does not have to be a liquid: air is a gas solution, and brass is a solid solution.
+A **homogeneous mixture** has the same composition throughout, even when you look closely. Sugar fully dissolved in water and clean air are examples. A homogeneous mixture of a solute in a solvent is a **solution**. The **solute** is the substance that dissolves. The **solvent** is the substance that does the dissolving. 
+
+A solution does not have to be a liquid. Air is a gas solution, and brass is a solid solution.
 
 A **heterogeneous mixture** has parts you can tell apart, with different composition in different places. Sand in water and vegetable soup are examples.
 
-A **suspension** is a heterogeneous mixture with particles big enough to settle out if left alone. Muddy water is one. Its particles are caught by filter paper.
+A **suspension** is a heterogeneous mixture with particles big enough to settle out if left alone. Muddy water is one. Its larger particles are caught by filter paper.
 
-A **colloid** is in between. Its particles are too small to settle or to be seen, but large enough to scatter a beam of light. Milk and fog are colloids. A light beam shining through a colloid shows its path, which is called the Tyndall effect. A true solution does not scatter light this way.
+A **colloid** is in between. Its particles are too small to settle or to be seen, but large enough to scatter a beam of light. Milk and fog are colloids.
+
+A light beam shining through a colloid shows its path, which is called the Tyndall effect. A true solution does not scatter light this way.
 
 Colloid particles are small enough to pass through ordinary filter paper. So a colloid cannot be separated by ordinary filtering, even though it is not a true solution.
 
@@ -35,27 +39,37 @@ A separation method uses a physical property in which the parts differ. Common p
 
 **Filtration** pours a mixture through a porous barrier, such as filter paper. Particles larger than the pores stay on the barrier. The liquid that passes through is the **filtrate**. The solid left behind is the **residue**.
 
-Filtration separates an undissolved solid from a liquid, such as sand from water. It can also remove solid particles from a gas, as an air filter does.
+Filtration separates an undissolved solid from a liquid, such as sand from water, when the solid particles are bigger than the pores. It can also remove solid particles from a gas, as an air filter does.
 
 Dissolved particles are far smaller than the pores. They pass through ordinary filter paper with the solvent. So filtration cannot take dissolved salt out of saltwater.
 
-Two simple relatives of filtration are worth knowing. **Decanting** means pouring off the liquid after a solid has settled. A **separating funnel** separates two liquids that do not mix, such as oil and water. The denser liquid collects at the bottom and is drained off first.
+Two simple relatives of filtration are worth knowing.
+
+**Decanting** means pouring off the liquid after a solid has settled. It works only when the solid really settles, as in a suspension. Some liquid stays with the solid, so the separation is not complete.
+
+A **separating funnel** separates two liquids that do not mix, such as oil and water. Liquids that do not mix are called **immiscible**. Liquids that mix completely are **miscible**.
+
+In a separating funnel, the denser liquid collects at the bottom. The tap at the bottom lets it be drained off first. This works for immiscible liquids only. It does not work for miscible liquids, which stay mixed, or for an emulsion, where tiny drops stay spread through the other liquid.
 
 ### Evaporation and crystallization
 
 **Evaporation** means a liquid turns to vapor at its surface and leaves. If a solid is dissolved in the liquid and does not turn to vapor easily, the solid stays behind. Evaporation gets the solid, and the vapor escapes into the air.
 
-**Crystallization** makes a solid form crystals out of a solution. It works because many solids dissolve less in cold solvent than in hot solvent. A hot, nearly full solution is cooled, and crystals form while most impurities stay dissolved. Doing this again to make the crystals purer is **recrystallization**.
+**Crystallization** makes a solid form crystals out of a solution. It works for solids that dissolve less in cold solvent than in hot solvent. A hot, nearly full solution is cooled, and crystals form while most impurities stay dissolved.
+
+Doing this again to make the crystals purer is **recrystallization**. A few solids, such as table salt, dissolve almost as well cold as hot. Cooling does not work well for them.
 
 Strong heating to dryness can leave a messy solid, and some solids break down when heated hard. Crystallization from a cooling solution gives purer crystals in many cases.
 
 ### Distillation
 
-**Distillation** separates liquids by boiling point. The liquid is heated, the vapor travels through a cooled tube, and the vapor **condenses** (turns back to liquid) and is collected. The collected liquid is the **distillate**. The more easily a liquid turns to vapor, the more **volatile** it is. At the same temperature, a liquid with the lower boiling point is usually the more volatile one.
+**Distillation** separates liquids by boiling point. The liquid is heated, the vapor travels through a cooled tube, and the vapor **condenses** (turns back to liquid) and is collected.
+
+The collected liquid is the **distillate**. The more easily a liquid turns to vapor, the more **volatile** it is. At the same temperature, a liquid with the lower boiling point is usually the more volatile one.
 
 In **simple distillation**, one heating and condensing step is used. It works well to take a volatile liquid away from a dissolved solid that does not evaporate, such as fresh water from seawater. It also works when the two liquids have very different boiling points.
 
-When two liquids mix, both give off vapor. The vapor is richer in the more volatile liquid than the boiling liquid is. It is not made of that liquid alone. So one step gives only partial separation.
+When two miscible liquids are mixed, both give off vapor. The vapor is richer in the more volatile liquid than the boiling liquid is. It is not made of that liquid alone. So one step gives only partial separation.
 
 **Fractional distillation** repeats the evaporate-and-condense cycle many times inside a column placed above the flask. Each cycle makes the vapor richer in the more volatile liquid. This is how liquids with closer boiling points are separated.
 
@@ -65,15 +79,19 @@ Distillation has limits. Some liquid pairs form an **azeotrope**: a mixture at o
 
 ### Chromatography
 
-**Chromatography** separates the parts of a mixture as a moving liquid or gas carries them across or through a solid or other fixed material. The fixed material is the **stationary phase**. The moving fluid is the **mobile phase**. Each part spends a different share of its time held by the stationary phase and carried by the mobile phase, so the parts travel at different speeds.
+**Chromatography** separates the parts of a mixture as a moving liquid or gas carries them across or through a solid or other fixed material. The fixed material is the **stationary phase**. The moving fluid is the **mobile phase**. Each part spends a different share of its time held by the stationary phase and carried by the mobile phase. So the parts travel at different speeds.
 
 In **paper chromatography**, the paper is the stationary phase and a solvent rising up the paper is the mobile phase. A part held weakly by the paper and dissolving well in the solvent travels far. A part held strongly by the paper travels a short way. Other kinds of chromatography use other forces, so this is a rule for simple paper and similar adsorption setups.
 
-To set up the paper, draw a starting line (the **baseline**) in pencil near the bottom. Pencil is used because its graphite does not dissolve and move, while many inks do. Put a small spot of the mixture on the line. Stand the paper in a little solvent, with the solvent level below the baseline. If the baseline is under the solvent, the spots dissolve into the container.
+To set up the paper, draw a starting line (the **baseline**) in pencil near the bottom. Pencil is used because its graphite does not dissolve and move, while many inks do. Put a small spot of the mixture on the line. Stand the paper in a little solvent, with the solvent level below the baseline.
+
+If the baseline is under the solvent, the spots dissolve into the container.
 
 When the solvent has risen, mark the highest point it reached. This is the **solvent front**. The result is a **chromatogram**: the paper with its separated spots.
 
-Compare spots with known substances run on the same paper. A spot that sits at the same height as a known substance matches it. A mixture that gives several spots contains several components. A pure substance usually gives one spot in a given solvent, but two different substances can sometimes give the same spot in one solvent. So another solvent is a better test.
+Compare spots with known substances run on the same paper. A spot at the same height as a known substance may match it. A mixture that gives several spots contains several components.
+
+A pure substance usually gives one spot in a given solvent. But two different substances can sometimes give the same spot in one solvent. So another solvent is a better test.
 
 For a spot, the **retention factor** compares the distance it moved with the distance the solvent moved. Both distances are measured from the baseline, and the spot is measured at its center.
 
@@ -146,7 +164,19 @@ Ethanol boils at about $78\,^\circ\text{C}$ and water boils at $100\,^\circ\text
 3. Fractional distillation repeats the step and gives a better separation than simple distillation.
 4. Ethanol and water form an azeotrope at about $95\%$ ethanol by mass. Distillation cannot go beyond this point.
 
-### #7: Reading a Chromatogram
+### #7: Oil and Water
+
+A cook mixes 50 mL of cooking oil with 50 mL of water and shakes it. After standing, two clear layers form. The oil is on top. The oil has a density of $0.92\ \text{g/mL}$ and water has $1.00\ \text{g/mL}$. How can the two liquids be separated, and why not filtration or distillation?
+
+**Solution:**
+
+1. Two layers form, so the liquids do not mix. They are immiscible. The oil is less dense, so it floats on top of the water.
+2. Pour the mixture into a separating funnel and let it settle. Open the tap and drain the denser layer, the water, into one beaker.
+3. Close the tap when the boundary between the layers reaches it. The oil stays in the funnel. Pour it out of the top into a second beaker.
+4. Filtration is for a solid, and there is no solid here. Distillation is for liquids that mix, and it would waste heat on liquids that already form two layers.
+5. A thin layer may stay at the boundary, so the separation is close but not perfect.
+
+### #8: Reading a Chromatogram
 
 A black ink is run on paper. The solvent front moves $6.0$ cm from the baseline. The ink gives three spots. One spot, A, is $3.0$ cm from the baseline. A known blue dye run on the same paper gives a spot at $3.0$ cm. What do the results show, and what is the $R_f$ of A?
 
@@ -158,7 +188,7 @@ A black ink is run on paper. The solvent front moves $6.0$ cm from the baseline.
 
 $$R_f = \dfrac{3.0}{6.0} = 0.50$$
 
-### #8: A Three-Part Mixture
+### #9: A Three-Part Mixture
 
 A mixture has iron filings, sand, and salt. Describe a way to get all three.
 
@@ -173,11 +203,11 @@ A mixture has iron filings, sand, and salt. Describe a way to get all three.
 
 Ask which physical property differs, then match the method:
 
-- Undissolved solid in a liquid or gas: filtration. A solid that settled can be decanted instead.
-- Two liquids that do not mix: separating funnel.
-- Dissolved solid, and only the solid is wanted: evaporation or crystallization.
-- Liquids with different boiling points, or a solvent to be kept: distillation.
-- Parts that differ in how strongly a surface holds them: chromatography.
+- Undissolved solid in a liquid or gas: filtration, if the particles are big enough to stay on the paper (a suspension). A colloid or a dissolved solid passes through. A solid that settled can be decanted instead.
+- Two liquids that do not mix: separating funnel. Not for liquids that mix, and not for an emulsion.
+- Dissolved solid, and only the solid is wanted: evaporation, if the solid does not break down or vaporize when heated. Crystallization, if the solid is much less soluble when cold.
+- Liquids that mix and have different boiling points, or a solvent to be kept: distillation. It stops improving purity at an azeotrope.
+- Parts that differ in how strongly a surface holds them: chromatography. Use it to compare small samples. Paper chromatography alone does not give a large amount of pure part.
 - A magnetic part: a magnet. This works when some parts are magnetic and others are not.
 
 In a question about a dissolved substance, check the particle size. A dissolved substance does not stay on ordinary filter paper, whatever it looked like before dissolving.
@@ -196,7 +226,7 @@ Clear tap water or air is a mixture even though it looks like one thing. A collo
 
 > Dissolved particles pass through ordinary filter paper.
 
-A question may say salt "is a solid, so filter it." After dissolving, the particles are far smaller than the pores. Use evaporation or distillation. The same goes for a colloid.
+A question may say salt "is a solid, so filter it." After dissolving, the particles are far smaller than the pores. Use evaporation or distillation. A colloid also passes through ordinary filter paper, so filtering does not separate it.
 
 ### #3: Saying Only the Lower-Boiling Liquid Evaporates
 

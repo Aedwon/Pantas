@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-chemistry-mole-concept",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "A molecular substance such as water is counted in molecules.", "problem": "This paragraph has four sentences, more than the one to three allowed. The entity paragraph (four sentences, from 'An **entity** is the kind of particle') and the molar mass paragraph (four sentences, from '**Molar mass**, symbol $M$') also run past three. Round 1 raised this L22a finding; this round fixed some of the paragraphs but not these three.", "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences)"}
+  ],
+  "goodQuotesChecked": 1
+}

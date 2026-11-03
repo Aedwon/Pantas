@@ -171,13 +171,13 @@
     "lessonPath": "content/lessons/science/chemistry/mixtures-and-separation.md",
     "lessonId": "lesson-chemistry-mixtures-and-separation",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/mole-concept.md",
     "lessonId": "lesson-chemistry-mole-concept",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/nuclear-chemistry.md",
