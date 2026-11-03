@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-geometry-basic-geometric-concepts",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L25", "severity": "Major", "quote": "In school geometry, point, line, and plane are basic ideas. We describe them but do not define them with simpler words.", "problem": "The base named point, line and plane as the basic undefined terms. The rewrite keeps the idea but cuts the term itself. \"Undefined term\" is the curriculum's name for these three, and a question that asks \"Which is an undefined term?\" uses that exact phrase. Without the name, the student cannot connect the stem to this teaching. This is correct, needed base teaching that was cut (writer rule 3 after round 1).", "source": "Base 7032eec5 line 12 (\"treated as basic undefined terms\"); DepEd Grade 7 Mathematics Learner's Material (2013), Quarter 3, competency M7GE-IIIa-1, which teaches the three undefined terms: point, line and plane"},
+    {"rule": "L17", "severity": "Major", "quote": "Angles that sit side by side along a straight line fill a straight angle, so they add up to $180^\\circ$.", "problem": "Example 5 rests on the rule that three or more adjacent angles that fill a straight angle add to 180 degrees. That rule first appears in this solution. Core Concept teaches only the straight angle (180 degrees) and the linear pair, which has exactly two angles. It never says that the parts of an angle add up to the whole angle, so a student cannot carry the two-angle rule to three angles from Core Concept alone.", "source": "Checklist L17; LSG Per-subject section fit (Mathematics: every formula used in a solution must first appear in Core Concept)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Any two points are collinear, and any three points are coplanar. Three points are collinear only when one line passes through all of them.", "problem": "This paragraph has five sentences (plane, collinear, coplanar, any two or three points, the collinear condition). The limit is one to three short sentences. The Trap #2 paragraph has four sentences and breaks the same rule.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}

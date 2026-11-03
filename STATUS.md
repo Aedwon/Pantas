@@ -228,3 +228,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Open after 3 reads: functions-and-relations (unbounded-domain rule fails for a falling line). Fixed after round 2: two-dimensional-motion, units-and-measurements; their round 3 reads and the waves-and-sound round 2 read are running.
 - Done at minor: two-dimensional-motion (round 3), waves-and-sound (round 2; split candidate, 3,242 words). Systems-of-equations round 1 read running.
 - Done at minor after round 3: units-and-measurements (3 Minors). Writing: coordinate-geometry.
+- Round 1 reads: systems-of-equations (1 Blocker: slope tests fail for vertical lines; 2 Majors), basic-geometric-concepts (2 Majors: 'undefined terms' cut, angles on a line untaught); fixes running.

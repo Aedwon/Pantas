@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-algebra-systems-of-equations",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "They have the same slope but different intercepts, so they never touch.", "problem": "Stated as the general test for a no-solution system, but it fails for vertical lines: $x = 1$ and $x = 2$ are parallel and the system has no solution, yet neither line has a slope (and neither has a y-intercept). The same gap breaks two nearby general statements: \"Their slopes are different\" for one solution (the system $x = 2$, $y = 3$ has one solution, but $x = 2$ has no slope), and \"You can also rewrite the equation as $y = mx + b$\", which is impossible for $x = c$. The slope statements need the condition that the lines are not vertical, or a stated vertical-line case.", "source": "Verified by solving; OpenStax Elementary Algebra 2e, 4.5 (parallel lines have the same slope and different y-intercepts; parallel vertical lines have different x-intercepts). Reader rules: test every general statement against a named exception."},
+    {"rule": "L27", "severity": "Major", "quote": "To draw a line, you need two points. Two easy ones are the **intercepts**", "problem": "The graph-construction method (the brief's thin item) gives intercepts as the two points without its limits. For a line through the origin, such as $y = 2x$, both intercepts are the same point $(0, 0)$, so they do not give two points. A horizontal line ($y = 3$) or a vertical line ($x = 3$) has only one intercept. The lesson gives no fallback, such as choosing another $x$ value and finding its $y$, for these cases.", "source": "Checklist L27; brief: graphing a system, thin (upcat-L188 curriculum, acet-L067)."},
+    {"rule": "L25", "severity": "Major", "quote": "Move everything to one side to get a quadratic equation.", "problem": "Example #7 and Trap #5 need terms the lesson never explains and for which it names no prerequisite lesson: \"quadratic equation\", \"Factor the quadratic\", and \"roots\" (\"The quadratic in Example #7 had two roots\"). Example #8 also relies on \"real number\" and \"no real $x$\" without a meaning. A student without the quadratic-equations lesson cannot follow why $(x - 1)(x - 2) = 0$ gives $x = 1$ or $x = 2$.", "source": "Checklist L25; writer rules added after round 1, rule 1 (explain the term or name the prerequisite lesson)."}
+  ],
+  "goodQuotesChecked": 3
+}
