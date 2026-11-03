@@ -190,6 +190,8 @@ $$40^\circ+40^\circ=80^\circ$$
 
 A ray in air ($n=1.00$) strikes glass ($n=1.50$) at an angle of incidence of $30^\circ$. Find the angle of refraction.
 
+<!-- ILLUSTRATION: ray going from air into glass at a flat boundary, normal drawn, incident angle 30 degrees in air, refracted angle 19.5 degrees in glass bent toward the normal -->
+
 **Solution:**
 
 1. Write Snell's law and solve for $\sin\theta_2$:
@@ -209,6 +211,8 @@ The ray bends toward the normal, as expected for entering a larger $n$.
 ### #3: Bending Into a Faster Medium
 
 A ray in glass ($n=1.50$) meets a glass-air boundary at $20^\circ$ from the normal. Find the angle of refraction in air ($n=1.00$).
+
+<!-- ILLUSTRATION: ray going from glass up into air at a flat boundary, normal drawn, incident angle 20 degrees in glass, refracted angle 30.9 degrees in air bent away from the normal -->
 
 **Solution:**
 
@@ -249,6 +253,8 @@ Check in glass: $\dfrac{2.00\times10^{8}}{400\times10^{-9}}=5.0\times10^{14}$ Hz
 ### #5: Critical Angle and Total Internal Reflection
 
 A ray inside glass ($n=1.50$) travels toward a glass-air boundary at an angle of incidence of $45^\circ$. Will it leave the glass?
+
+<!-- ILLUSTRATION: ray in glass (n = 1.50) hitting the glass-air boundary at 45 degrees from the normal and reflecting back into the glass at 45 degrees, critical angle 41.8 degrees noted -->
 
 **Solution:**
 
@@ -363,6 +369,8 @@ $$\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$$
 
 Arrange X-rays, radio waves, visible light, and gamma rays from longest to shortest wavelength. Then find the wavelength of a radio wave of frequency $100$ MHz in vacuum.
 
+<!-- ILLUSTRATION: horizontal bar of the spectrum from radio (longest wavelength) through microwave, infrared, visible, ultraviolet, X-ray to gamma (shortest), with the radio wave of 3.00 m wavelength marked -->
+
 **Solution:**
 
 1. Use the usual order of the spectrum: radio waves, then visible light, then X-rays, then gamma rays.
@@ -377,7 +385,7 @@ For reflection, measure angles from the **normal**. If you are given the angle t
 
 For refraction, compare $n_1$ and $n_2$. Entering a larger $n$ bends toward the normal. Entering a smaller $n$ bends away. This fails only when the ray travels along the normal or the two $n$ values are equal, because then there is no bend.
 
-In Snell's law, the medium with the larger $n$ always has the smaller angle, for angles between $0^\circ$ and $90^\circ$.
+In Snell's law, the medium with the larger $n$ has the smaller angle (when the ray is slanted).
 
 For total internal reflection, check two things in order. First, is the light going into a smaller $n$? Then compare the angle of incidence with $\theta_c$. For a material in air, $\sin\theta_c=\dfrac{1}{n}$.
 

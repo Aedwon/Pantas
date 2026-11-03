@@ -334,7 +334,7 @@ It equals $mg$ on a level surface with no other vertical force and no vertical a
 
 > Mass is in kilograms and does not change with place. Weight is in newtons and depends on $g$.
 
-An object on another planet has the same mass but a different weight. A bathroom scale marked in kilograms reports mass. A force in newtons is a weight.
+An object on another planet has the same mass but a different weight.
 
 ### #6: Setting Tension Equal to Weight
 

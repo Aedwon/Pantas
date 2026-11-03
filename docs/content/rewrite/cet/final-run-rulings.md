@@ -18,6 +18,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | lesson-earth-science-astronomy-heavenly-bodies | 3,171 | Every brief item taught, including the weak-class stellar-stage item. |
 | lesson-chemistry-thermodynamics-and-kinetics | 3,013 | Crossed 3,000 in the round-1 fix. Borderline. |
 | lesson-physics-fluid-mechanics | 3,261 | Writer added continuity and apparent weight beyond the brief; check for padding. |
+| lesson-physics-light-and-optics | 3,627 | Mirror and lens ray diagrams and image cases. |
 
 ## Rulings during the run (continued)
 

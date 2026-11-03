@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-minerals-and-rocks",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L27", "severity": "Major", "quote": "The aligned bands mean foliation, which comes from heat and pressure on a solid rock.", "problem": "Example #9 states a rule with no limit: layers or bands of aligned flat minerals mean foliation. Sedimentary rock is also layered (the lesson itself says sediment is laid down in layers called strata), and shale's own clay grains lie flat and aligned, so the rule as worded would also call a layered shale or sandstone metamorphic. The lesson never says how to tell sedimentary layers from metamorphic foliation, and the solution skips the clue that actually decides this case: the minerals are larger than in the nearby shale, which shows they regrew in solid rock. Telling layered sedimentary rock from foliated metamorphic rock is a standard part of inferring rock type from formation, the lesson's goal. The solution also offers slate, whose grains are too fine to see as bands.", "source": "content-checklist.md L27 (Major); lesson-style-guide.md Teaching completeness; writer-rules.md rules added after round 1, rule 4; Tarbuck and Lutgens, Earth Science, metamorphic textures (foliation versus sedimentary bedding)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "breaks rock down where it sits. It does not move the pieces away.", "problem": "Many teaching paragraphs run past three sentences. The weathering paragraph has seven sentences, and others in Core Concept run four to six: the streak, cleavage, crystal, sedimentary (two paragraphs), fossil, foliation, rock-cycle (three paragraphs) and variable paragraphs. New content must fix every Minor.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules; writer-rules.md rule 8"}
+  ],
+  "goodQuotesChecked": 2
+}
