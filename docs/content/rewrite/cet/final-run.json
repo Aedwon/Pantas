@@ -135,7 +135,7 @@
     "lessonPath": "content/lessons/science/chemistry/atomic-structure.md",
     "lessonId": "lesson-chemistry-atomic-structure",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "clean"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/basic-organic-chemistry.md",
@@ -153,13 +153,13 @@
     "lessonPath": "content/lessons/science/chemistry/gas-laws.md",
     "lessonId": "lesson-chemistry-gas-laws",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/history-of-the-atom.md",
     "lessonId": "lesson-chemistry-history-of-the-atom",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/matter.md",

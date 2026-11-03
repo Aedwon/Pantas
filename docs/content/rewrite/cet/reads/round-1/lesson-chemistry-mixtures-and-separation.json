@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-chemistry-mixtures-and-separation",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Undissolved solid in a liquid or gas: filtration.",
+      "problem": "Stated rule with a known exception that the lesson itself teaches. Colloid particles are undissolved, yet the Core Concept says 'Colloid particles are small enough to pass through ordinary filter paper. So a colloid cannot be separated by ordinary filtering', and Trap #2 repeats it. The shortcut list, which the lesson tells the student to use first ('Ask which physical property differs, then match the method'), sends an undissolved solid in a colloid (for example a starch or clay sol) to filtration with no limit. The limit that applies (particles large enough to settle, as in a suspension) is not stated in the shortcut, so a student using it picks a method the lesson says fails. Writer rule 4 requires each shortcut to carry its limit.",
+      "source": "Checklist B01 and L27; reader-rules 'Added after the Sol audit' (test each stated rule against a known exception); writer-rules 'Rules added after round 1', rule 4; the lesson's own colloid paragraph and Trap #2."
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "A **separating funnel** separates two liquids that do not mix, such as oil and water.",
+      "problem": "Separating two liquids that do not mix is a distinct case of the lesson's goal (choose a separation method from the mixture type), and the lesson teaches it here and lists it in Speed Tricks ('Two liquids that do not mix: separating funnel.'). No worked example applies it: Example #6 works only 'Two Liquids That Mix', and Example #8 does not use it. The student never sees a solved question that tells immiscible liquids (separating funnel) from miscible liquids (distillation). Decanting, taught in the same paragraph, is also never worked.",
+      "source": "Checklist L18; writer-rules lead ruling 1 (standard application of a skill in the lesson's goal); brief goal: 'Choose a physical separation method from mixture type and component properties'."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A solution does not have to be a liquid: air is a gas solution, and brass is a solid solution.",
+      "problem": "This paragraph (homogeneous mixture, solution, solute, solvent) has six sentences, over the one-to-three limit. Other paragraphs also run long: the colloid paragraph (five), the distillation paragraph containing 'separates liquids by boiling point' (five), the baseline paragraph (five), the spot-comparison paragraph (five), and the decanting, crystallization, vapor, and two chromatography-phase paragraphs (four each).",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences)."
+    }
+  ],
+  "goodQuotesChecked": 3
+}
