@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
 
 /// Where the outline and the lesson column sit on wide web.
 ///
@@ -58,8 +59,12 @@ class WebReaderLayout extends ConsumerStatefulWidget {
     this.onMenuChanged,
     this.resumed = false,
     this.ending,
+    this.pull,
     super.key,
   });
+
+  /// Lets the wheel pull up for the next lesson at the end of the column.
+  final WebPullController? pull;
   final ReaderContext reader;
   final ScrollController controller;
   final ValueListenable<double> scrollOffset;
@@ -110,6 +115,9 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     }
     if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
       _active = 0;
+      // A lesson that rose into place already showed its bar, so the bar
+      // stays put instead of sliding in a second time.
+      _showBar = true;
       _anchors.clear();
       _bookmarkNotice = false;
       _resumeVisible = widget.resumed;
@@ -401,6 +409,13 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     );
   }
 
+  /// Lets the wheel pull up for the next lesson while it is over the column.
+  Widget _wheel(Widget column) {
+    final pull = widget.pull;
+    if (pull == null) return column;
+    return Listener(onPointerSignal: pull.handleSignal, child: column);
+  }
+
   /// Widens the lesson column to 800 px and back, and remembers the choice.
   Widget _widthControl(WebTokens t, {required bool fullWidth}) {
     final tip = fullWidth ? 'Standard width' : 'Full width';
@@ -670,64 +685,66 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                 width: fullWidth
                                     ? readerFullWidthMax
                                     : readerStandardWidth,
-                                child: SingleChildScrollView(
-                                  controller: widget.controller,
-                                  primary: false,
-                                  padding: const EdgeInsets.only(
-                                    top: 48,
-                                    bottom: 80,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      LessonTextScale(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
-                                          children: [
-                                            Text(
-                                              meta,
-                                              style: t.sub,
-                                            ),
-                                            const SizedBox(
-                                              height: 6,
-                                            ),
-                                            Text(
-                                              reader.lesson.title,
-                                              style: t.style(
-                                                42,
-                                                weight: FontWeight.w700,
-                                                height: 1.1,
-                                                spacing: -1.092,
+                                child: _wheel(
+                                  SingleChildScrollView(
+                                    controller: widget.controller,
+                                    primary: false,
+                                    padding: const EdgeInsets.only(
+                                      top: 48,
+                                      bottom: 80,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        LessonTextScale(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              Text(
+                                                meta,
+                                                style: t.sub,
                                               ),
-                                            ),
-                                            const SizedBox(
-                                              height: 28,
-                                            ),
-                                            for (var i = 0;
-                                                i < groups.length;
-                                                i++)
-                                              Padding(
-                                                key: _anchors[i],
-                                                padding: EdgeInsets.only(
-                                                  top: i == 0 ? 0 : 16,
+                                              const SizedBox(
+                                                height: 6,
+                                              ),
+                                              Text(
+                                                reader.lesson.title,
+                                                style: t.style(
+                                                  42,
+                                                  weight: FontWeight.w700,
+                                                  height: 1.1,
+                                                  spacing: -1.092,
                                                 ),
-                                                child: ContentRenderer(
-                                                  blocks: groups[i],
-                                                  readerFigures: true,
-                                                  style: t.style(
-                                                    18,
-                                                    height: 1.65,
+                                              ),
+                                              const SizedBox(
+                                                height: 28,
+                                              ),
+                                              for (var i = 0;
+                                                  i < groups.length;
+                                                  i++)
+                                                Padding(
+                                                  key: _anchors[i],
+                                                  padding: EdgeInsets.only(
+                                                    top: i == 0 ? 0 : 16,
+                                                  ),
+                                                  child: ContentRenderer(
+                                                    blocks: groups[i],
+                                                    readerFigures: true,
+                                                    style: t.style(
+                                                      18,
+                                                      height: 1.65,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      const SizedBox(height: 20),
-                                      widget.footer,
-                                    ],
+                                        const SizedBox(height: 20),
+                                        widget.footer,
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -740,6 +757,9 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                     ),
               ),
               Positioned(
+                // New for each lesson, so the bar of a lesson that rose into
+                // place does not slide in a second time.
+                key: ValueKey(('web-reader-bar', reader.lesson.id)),
                 top: 0,
                 left: 0,
                 right: 0,
@@ -841,6 +861,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
               ),
               if (ending == null)
                 AnimatedPositioned(
+                  key: ValueKey(('web-reader-progress', reader.lesson.id)),
                   duration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero
                       : Duration(milliseconds: _showBar ? 420 : 700),
@@ -1002,9 +1023,14 @@ class WebReaderNext extends StatelessWidget {
     this.detail,
     this.onPressed,
     this.topGap = 18,
+    this.pull,
     super.key,
   });
   final double topGap;
+
+  /// Shows the pull on the card: a ring around the arrow and words that
+  /// follow it. Without it the card is just the card.
+  final WebPullController? pull;
   final String label;
   final String title;
   final String? detail;
@@ -1012,6 +1038,15 @@ class WebReaderNext extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final circle = CircleAvatar(
+      radius: 22,
+      backgroundColor: t.colors.accentFill,
+      child: const Icon(
+        Icons.arrow_forward,
+        color: Colors.white,
+        size: 20,
+      ),
+    );
     return CallbackShortcuts(
       bindings: {
         if (onPressed != null)
@@ -1039,10 +1074,17 @@ class WebReaderNext extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          label.toUpperCase(),
-                          style: t.eb.copyWith(height: 1.45),
-                        ),
+                        if (pull == null)
+                          Text(
+                            label.toUpperCase(),
+                            style: t.eb.copyWith(height: 1.45),
+                          )
+                        else
+                          WebPullLabel(
+                            pull: pull!,
+                            label: label,
+                            style: t.eb.copyWith(height: 1.45),
+                          ),
                         const SizedBox(height: 2),
                         Text(
                           title,
@@ -1063,15 +1105,15 @@ class WebReaderNext extends StatelessWidget {
                   const SizedBox(width: 16),
                   const WebKeyHint('→'),
                   const SizedBox(width: 16),
-                  CircleAvatar(
-                    radius: 22,
-                    backgroundColor: t.colors.accentFill,
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                      size: 20,
+                  if (pull == null)
+                    circle
+                  else
+                    WebPullCircle(
+                      pull: pull!,
+                      track: t.colors.separator,
+                      arc: t.colors.accent,
+                      child: circle,
                     ),
-                  ),
                 ],
               ),
             ),

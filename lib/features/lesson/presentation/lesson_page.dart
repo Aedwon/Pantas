@@ -33,6 +33,7 @@ import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
@@ -40,6 +41,7 @@ import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_skeletons.dart';
+import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
@@ -1216,88 +1218,129 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
         widget.onPull!();
       }
 
-      return WebReaderLayout(
-        reader: reader,
-        controller: _scrollController,
-        scrollOffset: _scrollOffset,
-        progress: _progress,
-        onBack: () => widget.origin.leave(context),
-        backLabel: widget.origin.backLabel(context),
-        onBookmark: () =>
-            unawaited(_saveBookmark(reader, !reader.isBookmarked, activation)),
-        onLesson: widget.onAdvance,
-        onNext: ending == null &&
-                (widget.destinationTitle != null ||
-                    widget.endingTarget != null) &&
-                widget.onPull != null
-            ? advance
-            : null,
-        onMenuChanged: (open) {
-          _contentsCovering = open;
-          _updateVisibility();
-        },
-        position: day == null ? null : day.index + 1,
-        total: day?.lessonIds.length,
-        lessons: dayLessons,
-        menuTitle: day == null ? null : PantasDates.relativeDay(day.date),
-        resumed: widget.resume,
-        ending: ending == null
-            ? null
-            : EndingContent(
-                ending: ending,
-                onLesson: widget.onAdvance,
-                onHome: () => context.go('/home'),
-                nextTopic: reader.nextTopic,
-                nextDetail: next?.lesson.summary,
-                onNext: widget.onPull == null ? null : advance,
-              ),
-        footer: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (_resumeFailed)
-              errorFor(
-                'reading position',
-                () => unawaited(_resumePosition(reader, activation)),
-              ),
-            if (failedPosition != null)
-              saveFailureLine(
-                () => unawaited(
-                  _savePosition(
-                    failedPosition.reader,
-                    failedPosition.offset,
-                    failedPosition.fraction,
-                    activation: failedPosition.activation,
-                    positionIntent: failedPosition.intent,
-                    retry: true,
+      // Somewhere to go from this lesson, by a pull, the right arrow or the
+      // Next card.
+      final canAdvance = ending == null &&
+          (widget.destinationTitle != null || widget.endingTarget != null) &&
+          widget.onPull != null;
+      final backLabel = widget.origin.backLabel(context);
+      Widget? incomingSheet() {
+        final next = widget.incoming;
+        if (next != null) {
+          return _InertWideReader(
+            reader: next,
+            backLabel: backLabel,
+            position: day == null ? null : day.index + 2,
+            total: day?.lessonIds.length,
+            lessons: dayLessons,
+            menuTitle: day == null ? null : PantasDates.relativeDay(day.date),
+          );
+        }
+        final target = widget.endingTarget;
+        if (target == null) return null;
+        return _InertWideReader(
+          reader: reader,
+          backLabel: backLabel,
+          ending: EndingContent(
+            ending: target,
+            onLesson: (_) {},
+            onHome: () {},
+            nextTopic: reader.nextTopic,
+          ),
+        );
+      }
+
+      return WebPullToAdvance(
+        scrollController: _scrollController,
+        enabled: canAdvance,
+        contentKey: reader.lesson.id,
+        destinationKey: widget.destinationKey,
+        onCommit: widget.onPullStart,
+        onAdvance: widget.onPull,
+        incomingBuilder: (_) => incomingSheet(),
+        builder: (context, pull) => WebReaderLayout(
+          reader: reader,
+          controller: _scrollController,
+          scrollOffset: _scrollOffset,
+          progress: _progress,
+          pull: pull,
+          onBack: () => widget.origin.leave(context),
+          backLabel: backLabel,
+          onBookmark: () => unawaited(
+            _saveBookmark(reader, !reader.isBookmarked, activation),
+          ),
+          onLesson: widget.onAdvance,
+          onNext: canAdvance ? pull.commit : null,
+          onMenuChanged: (open) {
+            _contentsCovering = open;
+            _updateVisibility();
+          },
+          position: day == null ? null : day.index + 1,
+          total: day?.lessonIds.length,
+          lessons: dayLessons,
+          menuTitle: day == null ? null : PantasDates.relativeDay(day.date),
+          resumed: widget.resume,
+          ending: ending == null
+              ? null
+              : EndingContent(
+                  ending: ending,
+                  onLesson: widget.onAdvance,
+                  onHome: () => context.go('/home'),
+                  nextTopic: reader.nextTopic,
+                  nextDetail: next?.lesson.summary,
+                  onNext: widget.onPull == null ? null : advance,
+                ),
+          footer: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (_resumeFailed)
+                errorFor(
+                  'reading position',
+                  () => unawaited(_resumePosition(reader, activation)),
+                ),
+              if (failedPosition != null)
+                saveFailureLine(
+                  () => unawaited(
+                    _savePosition(
+                      failedPosition.reader,
+                      failedPosition.offset,
+                      failedPosition.fraction,
+                      activation: failedPosition.activation,
+                      positionIntent: failedPosition.intent,
+                      retry: true,
+                    ),
                   ),
                 ),
+              if (_activityFailed || _bookmarkRetry != null)
+                saveFailureLine(
+                  () => unawaited(_retryActivity(reader, activation)),
+                ),
+              ReaderGap(
+                isRead: reader.isRead,
+                examId: reader.examId,
+                lessonId: reader.lesson.id,
               ),
-            if (_activityFailed || _bookmarkRetry != null)
-              saveFailureLine(
-                () => unawaited(_retryActivity(reader, activation)),
-              ),
-            ReaderGap(
-              isRead: reader.isRead,
-              examId: reader.examId,
-              lessonId: reader.lesson.id,
-            ),
-            if (widget.nextFailed)
-              WebButton(label: 'Try Again', onPressed: widget.onRetryNext),
-            if (widget.destinationTitle != null || widget.endingTarget != null)
-              WebReaderNext(
-                label: widget.endingTarget is DayFinished
-                    ? "That's everything on today's list"
-                    : widget.endingTarget != null
-                        ? 'Topic'
-                        : 'Next in ${reader.topicName}',
-                title: widget.endingTarget is DayFinished
-                    ? 'Finish today'
-                    : widget.destinationTitle ?? reader.topicName,
-                detail:
-                    next == null ? null : '${next.lesson.estimatedMinutes} min',
-                onPressed: widget.onPull == null ? null : advance,
-              ),
-          ],
+              if (widget.nextFailed)
+                WebButton(label: 'Try Again', onPressed: widget.onRetryNext),
+              if (widget.destinationTitle != null ||
+                  widget.endingTarget != null)
+                WebReaderNext(
+                  label: widget.endingTarget is DayFinished
+                      ? "That's everything on today's list"
+                      : widget.endingTarget != null
+                          ? 'Topic'
+                          : 'Next in ${reader.topicName}',
+                  title: widget.endingTarget is DayFinished
+                      ? 'Finish today'
+                      : widget.destinationTitle ?? reader.topicName,
+                  detail: next == null
+                      ? null
+                      : '${next.lesson.estimatedMinutes} min',
+                  pull: pull,
+                  onPressed: widget.onPull == null ? null : pull.commit,
+                ),
+            ],
+          ),
         ),
       );
     }
@@ -1397,6 +1440,63 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
       ),
     );
   }
+}
+
+/// The next lesson laid out as the wide reader, for a pull to raise over the
+/// lesson being left. It reads nothing, saves nothing and takes no input.
+class _InertWideReader extends StatefulWidget {
+  const _InertWideReader({
+    required this.reader,
+    required this.backLabel,
+    this.position,
+    this.total,
+    this.lessons,
+    this.menuTitle,
+    this.ending,
+  });
+
+  final ReaderContext reader;
+  final String backLabel;
+  final int? position;
+  final int? total;
+  final List<StudyLesson>? lessons;
+  final String? menuTitle;
+  final Widget? ending;
+
+  @override
+  State<_InertWideReader> createState() => _InertWideReaderState();
+}
+
+class _InertWideReaderState extends State<_InertWideReader> {
+  final _controller = ScrollController();
+  final _offset = ValueNotifier<double>(0);
+  final _progress = ValueNotifier<double>(0);
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _offset.dispose();
+    _progress.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => WebReaderLayout(
+        reader: widget.reader,
+        controller: _controller,
+        scrollOffset: _offset,
+        progress: _progress,
+        onBack: () {},
+        onBookmark: () {},
+        onLesson: (_) {},
+        backLabel: widget.backLabel,
+        position: widget.position,
+        total: widget.total,
+        lessons: widget.lessons,
+        menuTitle: widget.menuTitle,
+        ending: widget.ending,
+        footer: const SizedBox.shrink(),
+      );
 }
 
 /// Pure layout shared by the active reader and the inert incoming preview.
