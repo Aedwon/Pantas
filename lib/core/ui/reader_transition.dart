@@ -33,7 +33,7 @@ CustomTransitionPage<void> readerPage({
   required Widget child,
   ReaderEntry entry = ReaderEntry.forward,
 }) {
-  return CustomTransitionPage<void>(
+  return _ReaderPage(
     key: key,
     child: child,
     transitionDuration: readerAdvanceDuration,
@@ -47,6 +47,72 @@ CustomTransitionPage<void> readerPage({
       );
     },
   );
+}
+
+/// A lesson moves aside for another lesson and for nothing else.
+///
+/// Flutter gives a route's `secondaryAnimation` to any page route pushed on
+/// top of it, so the figure viewer, which is a page route, carried the lesson
+/// 34% to the side and faded it. Declining here leaves the secondary animation
+/// at rest for every route that is not a lesson. Dialogs and sheets were
+/// already still, because they are not page routes.
+class _ReaderPage extends CustomTransitionPage<void> {
+  const _ReaderPage({
+    required super.key,
+    required super.child,
+    required super.transitionsBuilder,
+    required super.transitionDuration,
+    required super.reverseTransitionDuration,
+  });
+
+  @override
+  Route<void> createRoute(BuildContext context) => _ReaderRoute(this);
+}
+
+class _ReaderRoute extends PageRoute<void> {
+  _ReaderRoute(_ReaderPage page) : super(settings: page);
+
+  _ReaderPage get _page => settings as _ReaderPage;
+
+  @override
+  bool canTransitionTo(TransitionRoute<dynamic> nextRoute) =>
+      nextRoute is _ReaderRoute;
+
+  @override
+  Duration get transitionDuration => _page.transitionDuration;
+
+  @override
+  Duration get reverseTransitionDuration => _page.reverseTransitionDuration;
+
+  @override
+  bool get maintainState => _page.maintainState;
+
+  @override
+  Color? get barrierColor => null;
+
+  @override
+  String? get barrierLabel => null;
+
+  @override
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) =>
+      Semantics(
+        scopesRoute: true,
+        explicitChildNodes: true,
+        child: _page.child,
+      );
+
+  @override
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) =>
+      _page.transitionsBuilder(context, animation, secondaryAnimation, child);
 }
 
 /// Public so a test can drive it without a router.
