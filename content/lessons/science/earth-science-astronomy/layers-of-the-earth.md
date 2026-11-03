@@ -33,7 +33,7 @@ The **mantle** lies below the crust and reaches a depth of about $2{,}900$ km. I
 
 The boundary between crust and mantle is called the **Mohorovičić discontinuity**, or the Moho. Seismic waves change speed there because the rock changes.
 
-The mantle is mostly solid, but it is not rigid like a brick. Under heat and great pressure, solid rock can creep very slowly over millions of years. Think of cold honey or putty that flows if you wait long enough. Scientists say the mantle **flows**, and they do not mean it is a liquid.
+The mantle is mostly solid, but it is not rigid like a brick. Under heat and great pressure, solid rock can creep very slowly over millions of years. Scientists say the mantle **flows**, and they do not mean it is a liquid.
 
 ### Outer Core and Inner Core
 
@@ -66,7 +66,7 @@ So scientists use indirect evidence. The most important kind is **seismic waves*
 There are two main kinds of body waves, which travel through the inside of Earth:
 
 - **P waves** (primary waves) are pushing and pulling waves. They travel through solids and through liquids. They arrive first.
-- **S waves** (secondary waves) are side-to-side shaking waves. They need a solid. They cannot travel through a liquid, because a liquid cannot be sheared. S waves arrive after P waves.
+- **S waves** (secondary waves) are side-to-side shaking waves. They need a material that springs back when it is pushed sideways. A solid does this. A liquid just flows out of the way and does not spring back, so it cannot pass on a side-to-side wave. S waves arrive after P waves.
 
 Waves change speed and bend (this is called **refraction**) when the material changes. They can also bounce back (**reflection**). By timing the waves at many seismographs, scientists work out where the layers are and what they are like.
 
@@ -87,7 +87,7 @@ Other evidence supports the picture. These include gravity measurements, Earth's
 Seismographs on the far side of Earth from an earthquake record P waves but no S waves. What does this show about the outer core?
 
 **Solution:**
-1. S waves cannot travel through a liquid.
+1. S waves cannot travel through a liquid, because a liquid does not spring back when pushed sideways.
 2. The S waves from the earthquake did not come out through the core, so the core must contain a liquid region.
 3. P waves can travel through liquids, but they slow down and bend at the core boundary. This also fits a liquid outer core.
 
