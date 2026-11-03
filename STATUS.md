@@ -210,3 +210,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: thermodynamics-and-kinetics (2 Minors; borderline split candidate). Written: physics thermodynamics, momentum-and-impulse, scalars-and-vectors.
 - Open after 3 reads: earths-motions (round 3: 1 Blocker, seasonal-constellation rule ignores circumpolar stars). Origin-of-the-universe fixed after round 2.
 - Done at minor after round 2: minerals-and-rocks (2 Minors).
+- Done at minor after round 3: heavenly-bodies (1 Minor; split candidate). Round 1 reads: fluid-mechanics, light-and-optics, dynamics (Blockers); fixes running.
