@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Chlorides, bromides and iodides are soluble, except those of $Ag^+$ and $Pb^{2+}$.",
+      "problem": "The sentence gives Ag+ and Pb2+ as the exceptions for chlorides, bromides and iodides, so a student reads the list as complete. Mercury(I), Hg2 2+, is a standard listed exception: Hg2Cl2 is insoluble. A student using this rule predicts no precipitate where one forms. The school rule can stay, but it must not present these two ions as the only exceptions.",
+      "source": "OpenStax Chemistry 2e, Section 4.2, Table 4.1: Cl-, Br-, I- soluble, exceptions compounds with Ag+, Hg2 2+ and Pb2+; reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Sulfates are soluble, except those of $Ba^{2+}$ and $Pb^{2+}$.",
+      "problem": "The sentence names Ba2+ and Pb2+ as the exceptions for sulfates and adds only Ca2+ as slightly soluble. Standard tables also list Sr2+, Ag+ and Hg2 2+. SrSO4 is insoluble, so the rule as written predicts that SrSO4 dissolves, which is wrong. This is a false general statement with a known exception.",
+      "source": "OpenStax Chemistry 2e, Section 4.2, Table 4.1: SO4 2- soluble, exceptions compounds with Ag+, Ba2+, Ca2+, Hg2 2+, Pb2+ and Sr2+; reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If both are soluble, there is no reaction.",
+      "problem": "This shortcut claims there is no reaction whenever both swapped compounds are soluble. That is false when water or a gas forms. The lesson itself lists three driving forces, and its Example #12 and Trap #4 show that neutralization and carbonate with acid react. With the solubility rules as given, NH4Cl + NaOH gives NaCl and an NH4+ compound, both 'soluble', yet ammonia forms. The shortcut can only conclude 'no precipitate'. The base lesson's wording ('check whether a precipitate, gas, or weak electrolyte forms') did not have this error.",
+      "source": "Lesson's own Double Displacement and Driving Forces section and Trap #4; content-checklist B01; writer-rules.md rule 4 after round 1; reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "L19",
+      "severity": "Major",
+      "quote": "The ions $K^+$ and $NO_3^-$ do not change. They are spectator ions.",
+      "problem": "Example #10 goes from the balanced equation straight to naming spectator ions and then to the net ionic equation. The step that writes each dissolved compound as separate ions, with its coefficients (Pb2+ + 2NO3- + 2K+ + 2I- -> PbI2(s) + 2K+ + 2NO3-), is skipped. The lesson never says that a dissolved ionic compound is written as separate ions while the solid is kept as one formula. Without this step a student cannot build the net ionic equation for a new pair of solutions. The audit named the missing net-ionic derivation as a limit.",
+      "source": "content-checklist L19 (Major if a step is skipped); brief, Double displacement limits: 'No concrete precipitation or net-ionic derivation'"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$Pb(NO_3)_2(aq)+2KI(aq)\\rightarrow PbI_2(s)+2KNO_3(aq)$$",
+      "problem": "This display line has four formulas, each with a state symbol, and renders at about 40 characters wide. That is likely too wide for a phone screen at display size.",
+      "source": "content-checklist L21; LSG Examples section: keep each display equation narrow enough for a phone screen"
+    }
+  ],
+  "goodQuotesChecked": 5
+}
