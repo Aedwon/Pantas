@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-chemistry-mixtures-and-separation",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "Each part spends a different share of its time held by the stationary phase and carried by the mobile phase.", "problem": "Round-1 L22a is still open in part. This chromatography paragraph has five sentences, over the one-to-three limit. Others also run long: the homogeneous-mixture paragraph that defines solution, solute and solvent (five), and the separating-funnel tap paragraph, the paper-chromatography paragraph, the baseline paragraph and the miscible-vapor paragraph (four each).", "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences); round-1 read L22a."},
+    {"rule": "B08", "severity": "Minor", "quote": "A cook mixes 50 mL of cooking oil with 50 mL of water and shakes it.", "problem": "The two numbers 50 in this example stem are bare prose numbers, not wrapped in inline math, while the rest of the lesson writes numbers as $...$ (for example the densities in the same stem).", "source": "Checklist B08; LSG Math notation (every number in prose is wrapped in inline math)."}
+  ],
+  "goodQuotesChecked": 2
+}
