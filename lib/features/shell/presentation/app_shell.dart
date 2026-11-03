@@ -18,7 +18,9 @@ class AppShell extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         extendBody: true,
-        body: navigationShell,
+        body: context.wideWeb
+            ? navigationShell
+            : FloatingTabBarScope(child: navigationShell),
         bottomNavigationBar: context.wideWeb
             ? null
             : ValueListenableBuilder<bool>(

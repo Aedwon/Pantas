@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
+import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -270,6 +271,9 @@ class PantasPage extends StatelessWidget {
         backgroundColor: context.colors.background,
         bottomNavigationBar: bottom,
         body: SafeArea(
+          // Under the floating tab bar the bottom padding is room for the
+          // content to scroll through, not an inset to stay out of.
+          bottom: !FloatingTabBarScope.of(context),
           child: contentBody != null
               ? Padding(padding: contentPadding, child: contentBody)
               : Column(
@@ -340,7 +344,10 @@ class PantasPage extends StatelessWidget {
                           16,
                           fixedTitle ? 0 : 2,
                           16,
-                          bottomInset,
+                          FloatingTabBarScope.clearance(
+                            context,
+                            minimum: bottomInset,
+                          ),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
