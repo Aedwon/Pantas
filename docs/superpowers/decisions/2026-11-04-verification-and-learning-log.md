@@ -55,3 +55,26 @@ Aedwon's exact answer: "i think we go hardened on this. also wdym workflow bars 
 Result: hardened, as described in the costs above, with the shared log, the proof rule and the history mining included. This is a choice of scope; the spec's approval section is still pending.
 
 Mistake: the lead said the workflow "bars new parallel tracking" and that the log needs an exception. The sentence is "Reuse existing records, not a new parallel tracking system," in the section on status and decision records. It is aimed at duplicate status and decision trackers, so "bars" overstated it. The overlap is real, because decision logs already hold mistakes and reversals. Proposed: decision logs remain the record, the new log holds one-line entries that point to them, and the spec adds a one-line clarification to the workflow.
+
+## November 4, 2026: timing
+
+Stages proposed, in one spec so he approves once: (1) content and navigation checks and the reviewer proof rule; (2) the shared log and backfill; (3) browser checks for every page and the feature map; (4) daily review of real use.
+
+Options offered, with costs:
+
+1. Staged around beta (recommended): stage 1 and five core journeys by Nov 7, the rest of stages 2 and 3 during beta week, stage 4 after Nov 15. Cost: full scope finishes after the beta.
+2. All before beta: everything by Nov 7. Cost: competes with deployment for his approval time, and stage 4 gets built without real data.
+3. All after beta: starts Nov 16. Cost: no disruption, but the beta runs without these checks.
+
+Aedwon's exact answer: "All after beta"
+
+Result: no stage starts before November 16. The beta (Nov 9 to 15) runs without these checks. Mistakes from beta week are not lost, because the backfill reads the same records.
+
+Open design questions, for whoever resumes:
+
+- Approve the policy change: scripted pass or fail only, with screenshots saved only when a check fails. CI logs and artifacts are public, so test data only.
+- Does a failed journey block a merge into the staging branch?
+- Daily review: report only, or may it also draft fixes? Where does student data live, given the public repository? Which quota does it spend?
+- Question reports stay on the student's device today. Does stage 4 include the app and copy change to send them?
+- Which errors reach us from web? Not yet checked.
+- Test first whether browser scripts can use the web app, which does not turn on its accessibility layer by default. The result may change the estimates.
