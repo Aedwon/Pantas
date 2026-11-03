@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
+import 'package:pantas/app/start_location.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -49,7 +50,10 @@ void main() {
     );
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    forgetStartLocation();
+    await db.close();
+  });
 
   Future<void> pumpApp(
     WidgetTester tester, {
@@ -95,6 +99,52 @@ void main() {
       '/onboarding',
     );
     expect(find.text('Which exam are you taking?'), findsOneWidget);
+  });
+
+  group('an address that matches no page', () {
+    Future<void> finishOnboarding() async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+    }
+
+    String pathOf(WidgetTester tester) => ProviderScope.containerOf(
+          tester.element(find.byType(App)),
+        ).read(routerProvider).routeInformationProvider.value.uri.path;
+
+    testWidgets('opened directly starts at Home, not the default error page',
+        (tester) async {
+      await finishOnboarding();
+      rememberStartLocation(
+        Uri.parse('https://app.example.test/nowhere/at/all'),
+        isWeb: true,
+      );
+      await pumpApp(tester);
+      expect(pathOf(tester), '/home');
+      expect(find.byType(AppShell), findsOneWidget);
+    });
+
+    testWidgets('reached from inside the app goes to Home', (tester) async {
+      await finishOnboarding();
+      await pumpApp(tester);
+      ProviderScope.containerOf(tester.element(find.byType(App)))
+          .read(routerProvider)
+          .go('/settings/not-a-page');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/home');
+      expect(find.byType(AppShell), findsOneWidget);
+    });
+
+    testWidgets('a redirect-based route still redirects', (tester) async {
+      await finishOnboarding();
+      await pumpApp(tester);
+      ProviderScope.containerOf(tester.element(find.byType(App)))
+          .read(routerProvider)
+          .go('/pro?checkout=success&ref=pm_1');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/settings/pro');
+    });
   });
 
   group('guardian consent', () {

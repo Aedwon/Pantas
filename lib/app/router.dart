@@ -44,6 +44,9 @@ final routerProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
     initialLocation: initialRouterLocation,
     refreshListenable: refreshListenable,
+    // Every address is honored on the web, so one that matches no page
+    // (a typo, a retired link) lands on Home, not go_router's error page.
+    onException: (context, state, router) => router.go('/home'),
     redirect: (context, state) {
       // The stop comes first: a build the server has retired must not
       // reach any route, including a deep link.
