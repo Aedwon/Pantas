@@ -12,6 +12,7 @@ import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -480,7 +481,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
           "What you're preparing for, when it is, and which days you study.",
       backLabel: 'Settings',
       hero: true,
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         SettingsSection(
           // ST_DaysLast: on the wide layout the message is the footer.

@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -155,6 +156,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
                   documentId: id,
                   contact: ref.watch(legalContactProvider),
                   backLabel: onboarding ? 'Back' : 'About',
+                  backFallback: onboarding ? '/onboarding' : '/settings/about',
                 );
               }
               if (onboarding) return OnboardingLegalPage(documentId: id);
@@ -165,7 +167,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
                     : legalDocumentFallbacks[id]?.title ?? 'Legal',
                 description: LegalDocumentBody.updatedLine(id),
                 backLabel: 'About',
-                onBack: () => Navigator.of(context).maybePop(),
+                onBack: () => leavePage(context, fallback: '/settings/about'),
                 children: [LegalDocumentBody(documentId: id)],
               );
             },
@@ -269,14 +271,24 @@ class ChangeExamPage extends ConsumerWidget {
         final exams = await ref.read(examListProvider.future);
         if (!context.mounted) return;
         final route = ModalRoute.of(context);
-        Navigator.of(context).pop(
-          ExamChangeResult(
+        leavePage(
+          context,
+          fallback: '/settings/exam',
+          result: ExamChangeResult(
             examShortName: exams.firstWhere((e) => e.id == examId).shortName,
             carryableCount: count,
             routeSettled: route?.completed ?? Future<void>.value(),
           ),
+          respectPopScope: false,
         );
       },
+      // The picker's own Back is blocked by its PopScope once this is set, so
+      // leaving must not ask the PopScope again.
+      onBack: () => leavePage(
+        context,
+        fallback: '/settings/exam',
+        respectPopScope: false,
+      ),
     );
     if (!context.wideWeb) return picker;
     return WebRootModal(
@@ -286,7 +298,7 @@ class ChangeExamPage extends ConsumerWidget {
         children: [
           ModalBarrier(
             color: const Color(0x521D1D1F),
-            onDismiss: () => Navigator.of(context).maybePop(),
+            onDismiss: () => leavePage(context, fallback: '/settings/exam'),
           ),
           Center(
             child: Dialog(

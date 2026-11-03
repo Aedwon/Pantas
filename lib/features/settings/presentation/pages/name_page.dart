@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -49,7 +50,13 @@ class _NamePageState extends ConsumerState<NamePage> {
     final telemetry = ref.read(telemetryProvider);
     try {
       await ref.read(settingsActionsProvider).setName(_controller.text);
-      if (mounted) Navigator.of(context).pop();
+      if (mounted) {
+        leavePage(
+          context,
+          fallback: '/settings/account',
+          respectPopScope: false,
+        );
+      }
     } catch (error, stack) {
       await telemetry.recordError(error, stack);
       if (mounted) setState(() => _failed = true);

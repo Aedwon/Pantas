@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -149,7 +150,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       titleLineHeight: 1.2,
       titleGap: 6,
       backLabel: 'Your exam',
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings/exam'),
       children: [
         if (data == null)
           const WhatsIncludedSkeleton()

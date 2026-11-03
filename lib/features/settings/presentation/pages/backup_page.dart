@@ -6,6 +6,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -50,7 +51,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
         section: 'Account',
         title: 'Backup',
         backLabel: 'Account',
-        onBack: () => Navigator.of(context).maybePop(),
+        onBack: () => leavePage(context, fallback: '/settings/account'),
         children: const [Text('Your progress is saved to your account.')],
       );
     }
@@ -97,7 +98,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
       section: 'Account',
       title: 'Backup',
       backLabel: 'Account',
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings/account'),
       children: [
         SettingsSection(
           header: 'Backup',

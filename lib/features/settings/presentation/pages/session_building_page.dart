@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -29,7 +30,7 @@ class SessionBuildingPage extends ConsumerWidget {
       description: 'How your sessions are put together.',
       backLabel: 'Settings',
       hero: true,
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         SettingsSection(
           header: 'Session length',

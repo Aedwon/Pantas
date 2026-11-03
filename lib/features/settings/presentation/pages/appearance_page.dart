@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
@@ -135,7 +136,7 @@ class AppearancePage extends ConsumerWidget {
       title: 'Appearance',
       backLabel: 'Settings',
       hero: true,
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         // ST_Appearance: one card holds the two phone previews and the
         // Automatic switch.

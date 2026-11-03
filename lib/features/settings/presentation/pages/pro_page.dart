@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -498,7 +499,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (sameAccount &&
         widget.targetExam != null &&
         status == PaymentOperationStatus.success) {
-      Navigator.of(context).pop(true);
+      leavePage(
+        context,
+        fallback: '/settings',
+        result: true,
+        respectPopScope: false,
+      );
       return;
     }
     setState(() {
@@ -902,7 +908,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
             ),
       backLabel: upgrade ? 'Exam' : 'Settings',
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(
+        context,
+        fallback: upgrade ? '/settings/exam' : '/settings',
+      ),
       children: [
         if (widget.checkoutReturnUri?.queryParameters['benefit'] == 'diagnosis')
           Padding(

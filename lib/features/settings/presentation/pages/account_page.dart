@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -249,7 +250,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       title: context.wideWeb ? 'Account' : '',
       noHeading: true,
       backLabel: 'Settings',
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         // ST_Account: a centered 84 px avatar over a 24 px name and the email.
         Padding(

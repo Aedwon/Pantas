@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -127,7 +128,7 @@ class AboutPage extends ConsumerWidget {
       title: context.wideWeb ? 'About' : '',
       noHeading: true,
       backLabel: 'Settings',
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         if (context.wideWeb)
           WebCard(

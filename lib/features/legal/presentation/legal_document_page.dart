@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -14,6 +15,7 @@ class LegalDocumentPage extends StatelessWidget {
     required this.documentId,
     required this.contact,
     this.backLabel = 'About',
+    this.backFallback = '/settings/about',
     super.key,
   });
   final String documentId;
@@ -21,6 +23,10 @@ class LegalDocumentPage extends StatelessWidget {
 
   /// 'Back' during onboarding, where the student did not come from About.
   final String backLabel;
+
+  /// Where Back goes when the page was opened directly and has nothing to
+  /// pop to.
+  final String backFallback;
   @override
   Widget build(BuildContext context) {
     final document = legalDocumentFallbacks[documentId];
@@ -29,7 +35,7 @@ class LegalDocumentPage extends StatelessWidget {
           ? 'Privacy policy'
           : document?.title ?? 'Legal',
       backLabel: backLabel,
-      onBack: () => Navigator.of(context).maybePop(),
+      onBack: () => leavePage(context, fallback: backFallback),
       // ST_Privacy: a 28 px title 6 px above the updated line.
       backPadding: context.wideWeb
           ? const EdgeInsets.fromLTRB(8, 0, 16, 0)
@@ -174,7 +180,8 @@ class OnboardingLegalPage extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: TextButton.icon(
-                          onPressed: () => Navigator.of(context).maybePop(),
+                          onPressed: () =>
+                              leavePage(context, fallback: '/onboarding'),
                           icon: Icon(
                             Icons.chevron_left,
                             size: 20,
