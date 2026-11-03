@@ -243,3 +243,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Parallel-perpendicular-lines fixed after round 1 (lead sent Trap #4 back once: the first fix kept 'prove nothing').
 - Radicals round 2: 2 Majors ((a+b)^2 untaught; trinomial factoring with no prerequisite named); fix running.
 - Radicals fixed after round 2. Quadrilaterals round 1: 1 Blocker (single-corner split fails for an H-shaped polygon), 1 Major (Pythagorean theorem first stated in a solution); fix running.
+- Parallel-perpendicular-lines round 2: 2 Majors (base question figures in Examples 1 and 3 print the answers); fix running. Quadrilaterals fixed after round 1; round 2 read running.

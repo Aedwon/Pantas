@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-geometry-parallel-perpendicular-lines",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L05", "severity": "Major", "quote": "\"Vertical: 65°\", \"Linear pair: 115°\", \"Corresponding: 65°\", \"Same-side int: 115°\"", "problem": "The Example 1 question figure prints all four answers the question asks the student to find (65, 115, 65, 115). The figure must name which angle is which, but the values should be unknowns, as the round-1 ruling required for the Example 7 question figure. With the answers shown, the student cannot try the example before reading the solution. Carried over from the base.", "source": "Checklist L05 (supply necessary givens, not the tested result); final-run-rulings.md, round-1 ruling: keep the answer out of the question figure"},
+    {"rule": "L05", "severity": "Major", "quote": "\"(3x + 20)°\", \"(2x - 15)°\", \"Sum = 180°\"", "problem": "The Example 3 question figure states the relationship the student must choose: that same-side interior angles add to 180 degrees. Choosing equal versus supplementary is the lesson's goal, and Trap 2 names setting them equal as the mistake. The figure gives that choice away. Carried over from the base.", "source": "Checklist L05 (do not supply methods students are expected to select); brief, Goal: choose equal versus supplementary transversal relationships"}
+  ],
+  "goodQuotesChecked": 2
+}
