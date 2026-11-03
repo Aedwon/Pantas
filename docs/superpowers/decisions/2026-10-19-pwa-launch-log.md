@@ -2426,3 +2426,13 @@ Requested changes from using the app (Aedwon, Nov 3). Noted only; no changes unt
 15. Settings detail transition on wide web. Quote: "in Settings, when selecting something, the entire [screenshot] section animates when I select a row. it should not be like that. you can animate this frame by frame. the current animation is not elegant" (screenshot: wide web Settings, left list of rows, right detail pane showing Pantas Pro; the whole right pane animates on each row change)
 16. Phone web performance. Quote: "performance improvements. it feels choppy in mobile, low fps. not a good experience" (iPhone Safari against the local run; note the local run is a profile build served over LAN, so measure a release build before judging)
 17. Missing motion across the app. Quote: "lastly, animation improvements. some animations, even the most little ones that would greatly elevate the quality of the app, don't appear. for example, sliding animations. even the navbar doesn't have it. selections don't have it. please fully explore all parts where there should be animations that don't have" Needs a full audit of every screen for missing motion (tab bar selection, row and chip selection, slides), with a preview before building.
+
+## Complexity for the Nov 3 changes (Aedwon, Nov 3)
+
+Offered: minimal (only what he described, about a day), balanced (all 17 with previews, about 3 to 4 days plus his approvals; recommended), hardened (balanced plus motion and performance regression tests, about a week).
+
+Aedwon: "hardened, but what are some things we can give to github actions? the repo is open and public, so there are no github action minutes limits i think? do correct me if i'm misunderstanding something"
+
+Earlier in the same request: "spawn as many subagents as you need to get these done with quality and fast. i would even permit you to spawn opus sub-orchestrators if needed. careful of my storage and cpu throttling please"
+
+Result: all 17 items proceed at hardened. Checked Nov 3: the repo is public, GitHub's billing docs list standard hosted runners in public repositories as free, larger runners are billed, and limits are 20 concurrent jobs and 6 hours per job on the Free plan. The Aug 23 minute-conservation decision was written while the repo was private. Moving checks to Actions awaits his answer.
