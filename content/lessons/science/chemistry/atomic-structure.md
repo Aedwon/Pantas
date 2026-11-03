@@ -77,9 +77,11 @@ $$\text{charge}=\text{protons}-\text{electrons}$$
 
 The charge is written at the upper right, with the number first and then the sign, as in $\text{Mg}^{2+}$. A charge of $1$ is written as just $+$ or $-$, as in $\text{Na}^{+}$.
 
-Ions form when electrons move. The nucleus does not change, so $Z$ and $N$ stay the same. The hydrogen ion $\text{H}^{+}$ is a hydrogen-1 atom that has lost its only electron, so it has $1$ proton and no electrons.
+A single atom becomes an ion when it gains or loses electrons. Its nucleus does not change, so $Z$ and $N$ stay the same. The hydrogen ion $\text{H}^{+}$ is a hydrogen-1 atom that has lost its only electron, so it has $1$ proton and no electrons.
 
 A **polyatomic ion** is a group of bonded atoms with a net charge, such as $\text{NH}_4^{+}$ and $\text{SO}_4^{2-}$. The same formula works if you add up the protons of all the atoms and the electrons of the whole group.
+
+Some polyatomic ions form another way. Ammonia, $\text{NH}_3$, picks up a hydrogen ion $\text{H}^{+}$ (a proton) to make $\text{NH}_4^{+}$. The group gains a proton, so its proton count rises by $1$.
 
 <!-- ILLUSTRATION: two labeled panels comparing "isotopes of one element" (two atoms, each with 17 protons, one with 18 neutrons and one with 20 neutrons, both with 17 electrons) and "ion of one atom" (the 18-neutron atom again, but with 18 electrons and charge 1-), to show that isotopes differ in neutrons and ions differ in electrons -->
 
@@ -132,7 +134,11 @@ A made-up element has two natural isotopes. Mass $63\ u$ makes up $70\%$ of the 
 
 $$0.70\times63+0.30\times65=44.1+19.5$$
 
-3. The average atomic mass is $63.6\ u$.
+3. Add the two parts:
+
+$$44.1+19.5=63.6$$
+
+The average atomic mass is $63.6\ u$.
 
 The answer is between $63$ and $65$ and closer to $63$, because the lighter isotope is more common.
 
@@ -240,7 +246,7 @@ Use the value that the problem names. If the problem gives "chlorine-35", use $A
 
 > If the proton number changes, the element changes.
 
-Isotopes differ in neutron number. Ions differ in electron number. Both keep the same $Z$.
+Isotopes differ in neutron number. A single atom that becomes an ion differs in electron number. Both keep the same $Z$.
 
 ### #4: Forgetting That Ions Can Be Groups of Atoms
 
@@ -250,6 +256,6 @@ Examples are $\text{Na}^{+}$, $\text{SO}_4^{2-}$ and $\text{NH}_4^{+}$. For a gr
 
 ### #5: Reading the Sign of the Charge Backwards
 
-> A positive ion has lost electrons, so it has fewer electrons than protons.
+> A positive ion has fewer electrons than protons.
 
 A charge of $3+$ means $3$ electrons fewer than protons, not $3$ more. Check the sign before you subtract.

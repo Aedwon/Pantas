@@ -39,7 +39,9 @@ Eukarya are **eukaryotes**. Their cells have a nucleus and other membrane-bound 
 
 Kingdoms are the next rank down, and textbooks do not all agree on them.
 
-Some books use $5$ kingdoms, with one kingdom called Monera for all prokaryotes. Some use $6$ kingdoms, which split the prokaryotes into two. This lesson uses the three domains and, inside Eukarya, the $4$ traditional kingdoms: Animalia, Plantae, Fungi, and Protista. If your textbook differs, learn its scheme too.
+Some books use $5$ kingdoms, with one kingdom called Monera for all prokaryotes. Some use $6$ kingdoms, which split the prokaryotes into two.
+
+This lesson uses the three domains and, inside Eukarya, the $4$ traditional kingdoms: Animalia, Plantae, Fungi, and Protista. If your textbook differs, learn its scheme too.
 
 Here are the usual traits of the $4$ eukaryote kingdoms:
 
@@ -48,13 +50,17 @@ Here are the usual traits of the $4$ eukaryote kingdoms:
 - **Fungi:** cell walls made of chitin, and the organism absorbs food from its surroundings. Most are many-celled, but yeasts have one cell.
 - **Protista:** a mixed group of eukaryotes that are not animals, plants, or fungi. Most have one cell, but some, such as kelp, have many.
 
-These are usual traits, not perfect rules. A dodder is a plant that has lost most of its ability to photosynthesize. A yeast is a fungus with only one cell. So decide with several traits together, never one trait alone.
+These are usual traits, not perfect rules. A dodder is a plant that has lost most of its ability to photosynthesize. A yeast is a fungus with only one cell.
+
+So decide with several traits together, never one trait alone.
 
 ### Classifying an Unfamiliar Organism
 
 To classify an organism, list its traits, then move from the broad rank to the narrow rank. First ask if the cells have a nucleus. Then ask about the number of cells, the cell wall, and how it gets food.
 
-A **dichotomous key** is a tool that does this in steps. Each step gives two choices. You pick the one that fits, and it sends you to the next step or to a name. A key only works for the group of organisms it was written for.
+A **dichotomous key** is a tool that does this in steps. Each step gives two choices. You pick the one that fits, and it sends you to the next step or to a name.
+
+A key only works for the group of organisms it was written for.
 
 ### Evolutionary Relationships
 
@@ -70,7 +76,9 @@ Similar looks do not always mean close ancestry. In **convergent evolution**, un
 
 This is why a classification can change. If molecular data show that a group is not one clade, taxonomists may split it, merge it, or redefine it. The old catch-all Kingdom Protista is an example.
 
-All protists descend from the first eukaryote. But the group leaves out other descendants of that ancestor: animals, land plants, and fungi. A group like this is called **paraphyletic**, so it is not a clade. "Protist" is now only an informal word for eukaryotes that are not animals, land plants, or fungi.
+All protists descend from the first eukaryote. But the group leaves out other descendants of that ancestor: animals, land plants, and fungi.
+
+A group like this is called **paraphyletic**, so it is not a clade. "Protist" is now only an informal word for eukaryotes that are not animals, land plants, or fungi.
 
 ### Binomial Nomenclature
 
@@ -149,7 +157,7 @@ An organism grows on a fallen log. Its cells have a nucleus. It is made of many 
 **Solution:**
 
 1. The cells have a nucleus, so the domain is Eukarya.
-2. Having many cells does not decide it, because plants have many cells too. But no chlorophyll means it cannot make its own food by photosynthesis, so it is not Plantae.
+2. Having many cells does not decide it, because plants have many cells too. Plants have cellulose walls and most make food by photosynthesis, but this organism has chitin walls and absorbs its food. Together these traits do not fit Plantae. Lacking chlorophyll alone would not rule out Plantae, because a few parasitic plants such as Rafflesia have none.
 3. Cell walls of chitin and absorbing food match Fungi.
 4. An animal has no cell walls and eats food, so it does not fit.
 
@@ -171,16 +179,16 @@ Yeast is a fungus. One trait alone can mislead, so use several traits together.
 
 Use this key written for a bacterium, a mango tree, a mushroom, and a goat.
 
-1. Cells have a nucleus: go to step 2. Cells have no nucleus: Bacteria.
-2. Makes its own food by photosynthesis: Plantae. Does not: go to step 3.
+1. Cells have a nucleus: go to step $2$. Cells have no nucleus: Bacteria.
+2. Makes its own food by photosynthesis: Plantae. Does not: go to step $3$.
 3. Cell walls of chitin and absorbs food: Fungi. No cell walls and eats food: Animalia.
 
 Where does the mushroom go? Would kelp, a many-celled organism that photosynthesizes, be placed correctly?
 
 **Solution:**
 
-1. The mushroom has a nucleus, so go to step 2.
-2. It does not photosynthesize, so go to step 3.
+1. The mushroom has a nucleus, so go to step $2$.
+2. It does not photosynthesize, so go to step $3$.
 3. It has chitin walls and absorbs food, so it is Fungi.
 4. Kelp has a nucleus and photosynthesizes, so this key stops at Plantae.
 

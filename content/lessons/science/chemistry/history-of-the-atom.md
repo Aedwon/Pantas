@@ -23,7 +23,7 @@ A good model explains all the observations. It also predicts what a new experime
 
 An **atom** is the smallest piece of an element that still has the element's properties. An **element** is a pure substance made of only one kind of atom, such as oxygen or carbon.
 
-In the early 1800s, **John Dalton** built an atomic theory from measured masses. His book on it appeared in 1808. He proposed, among other things, that:
+In the early $1800$s, **John Dalton** built an atomic theory from measured masses. His book on it appeared in $1808$. He proposed, among other things, that:
 
 - matter is made of tiny atoms;
 - atoms of one element are identical in mass and properties;
@@ -31,7 +31,7 @@ In the early 1800s, **John Dalton** built an atomic theory from measured masses.
 - in a chemical reaction, atoms join, separate, or rearrange, but are not created or destroyed;
 - atoms join in small whole-number ratios to form compounds.
 
-This theory explained two patterns in measured masses. The first is **conservation of mass**: the total mass stays the same during a chemical reaction. The second is the **law of multiple proportions**: when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in small whole-number ratios.
+This theory explained three patterns in measured masses. The first is **conservation of mass**: the total mass stays the same during a chemical reaction. The second is the **law of definite proportions**: a compound always has the same mass ratio of its elements. Carbon dioxide always has $12$ g of carbon for every $32$ g of oxygen. Dalton explained this by saying that atoms of an element have a fixed mass and join in fixed whole-number ratios. The third is the **law of multiple proportions**: when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in small whole-number ratios.
 
 Carbon and oxygen show this. In carbon monoxide, $12$ g of carbon combines with $16$ g of oxygen. In carbon dioxide, $12$ g of carbon combines with $32$ g of oxygen. The oxygen masses are in the ratio $16 : 32$, which is $1 : 2$. Dalton explained this by saying that carbon dioxide has twice as many oxygen atoms for each carbon atom.
 
@@ -41,25 +41,25 @@ The solid sphere often drawn for Dalton's atom is a teaching picture. Dalton did
 
 ### Isotopes and Dalton's Identical-Mass Claim
 
-Every atom has a center called the **nucleus**. The nucleus holds **protons**, which have positive charge, and **neutrons**, which have no charge. The number of protons decides which element the atom is. The neutron was identified by James Chadwick in 1932.
+Every atom has a center called the **nucleus**. The nucleus holds **protons**, which have positive charge, and **neutrons**, which have no charge. The number of protons decides which element the atom is. The neutron was identified by James Chadwick in $1932$.
 
 **Isotopes** are atoms with the same number of protons but different numbers of neutrons. Their masses differ. Chlorine-35 has $17$ protons and $18$ neutrons. Chlorine-37 has $17$ protons and $20$ neutrons.
 
-This contradicts Dalton's claim that all atoms of one element have the same mass. Isotopes of one element behave almost the same in chemical reactions, so Dalton's mass-based chemistry still worked. The mass of an element on the periodic table is an average over its isotopes.
+This contradicts Dalton's claim that all atoms of one element have the same mass. Isotopes of one element behave almost the same in chemical reactions, so Dalton's mass-based chemistry still worked. The mass of an element on the periodic table is usually a weighted average over its isotopes. Each isotope counts in proportion to how common it is. Chlorine is about $76\%$ chlorine-35 and $24\%$ chlorine-37, so its average mass is about $35.45$, not $36$. A few elements, such as technetium, have no stable isotopes. Tables show the mass number of one isotope in brackets for them.
 
 ### Thomson and the Electron
 
-In 1897, **J. J. Thomson** studied **cathode rays**. These are beams that travel through a glass tube with most of the air removed, from the negative metal plate to the positive one. Electric and magnetic fields bent the beam toward the positive side. So the beam carries negative charge.
+In $1897$, **J. J. Thomson** studied **cathode rays**. These are beams that travel through a glass tube with most of the air removed, from the negative metal plate to the positive one. An electric field bent the beam toward the positive plate. So the beam carries negative charge. A magnetic field also bent the beam, but sideways, at right angles to both the field and the beam. Thomson used the two bends together to compare the particle's charge with its mass.
 
 The beam was the same when the negative plate was made of different metals. Thomson inferred that every atom contains the same negative particle. It was much lighter than the lightest atom, hydrogen. This particle is the **electron**. It showed that atoms are not indivisible.
 
-An atom is neutral overall. So Thomson proposed in 1904 that the atom has a ball of positive charge with electrons embedded in it. This is the **plum pudding model**.
+An atom is neutral overall. So Thomson proposed in $1904$ that the atom has a ball of positive charge with electrons embedded in it. This is the **plum pudding model**.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"atomic-models","illustrationKey":"science/chemistry/history-of-the-atom#1","models":[{"label":"Dalton","model":"solid sphere"},{"label":"Thomson","model":"plum pudding with embedded electrons"},{"label":"Rutherford","model":"electrons orbiting a tiny dense nucleus"},{"label":"modern","model":"electron cloud around a nucleus"}]} -->
 
 ### Rutherford, Geiger, Marsden, and the Nucleus
 
-**Alpha particles** are fast, positively charged particles. They are helium nuclei, and each is much heavier than an electron. Around 1909, **Hans Geiger and Ernest Marsden** aimed alpha particles at a very thin gold foil. They worked in the research group led by **Ernest Rutherford**. A screen around the foil flashed where an alpha particle hit it.
+**Alpha particles** are fast, positively charged particles. They are helium nuclei, and each is much heavier than an electron. Around $1909$, **Hans Geiger and Ernest Marsden** aimed alpha particles at a very thin gold foil. They worked in the research group led by **Ernest Rutherford**. A screen around the foil flashed where an alpha particle hit it.
 
 They observed three things:
 
@@ -67,7 +67,7 @@ They observed three things:
 - a small number were deflected through large angles;
 - a very few came almost straight back.
 
-Rutherford explained the results in 1911. Only a strong push from a concentrated positive charge could turn a heavy, fast alpha particle through a large angle. In the plum pudding model, the positive charge is spread out, so it could not do this. Rutherford inferred that:
+Rutherford explained the results in $1911$. Only a strong push from a concentrated positive charge could turn a heavy, fast alpha particle through a large angle. In the plum pudding model, the positive charge is spread out, so it could not do this. Rutherford inferred that:
 
 - nearly all of the atom's positive charge and mass is in a very small nucleus;
 - most of the atom's volume is empty space with the light electrons in it.
@@ -80,7 +80,7 @@ Rutherford's model had a limit. It did not explain why atoms give off light of o
 
 Hot hydrogen gas gives off light. When this light is split by a prism, it is not a smooth rainbow. It is a few thin bright lines of single colors, called a **line spectrum**. Hydrogen has four lines in the visible range.
 
-In 1913, **Niels Bohr** added a new idea to the nuclear atom: an electron can have only certain energies. Each allowed energy is an **energy level**. This is called **quantization**, because the energy comes in fixed amounts and not in any amount. A **photon** is one packet of light, and its energy decides its color.
+In $1913$, **Niels Bohr** added a new idea to the nuclear atom: an electron can have only certain energies. Each allowed energy is an **energy level**. This is called **quantization**, because the energy comes in fixed amounts and not in any amount. A **photon** is one packet of light, and its energy decides its color.
 
 In Bohr's model, an electron in a level does not give off light. When it drops to a lower level, it gives off a photon whose energy equals the difference between the two levels. When it absorbs a photon of exactly that energy, it rises to a higher level. Only certain energy differences exist, so only certain colors appear. This matches the lines of hydrogen.
 
@@ -90,7 +90,7 @@ The Bohr model works well for hydrogen and for ions with one electron, such as H
 
 ### The Quantum-Mechanical Model
 
-In the 1920s, scientists including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others developed **quantum mechanics**. De Broglie suggested in 1924 that electrons can behave like waves. Schrödinger wrote his wave equation in 1926. Born showed that it gives the probability of finding an electron somewhere. Heisenberg's uncertainty principle (1927) says that an electron's exact position and exact motion cannot both be known at the same time.
+In the years after $1920$, scientists including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others developed **quantum mechanics**. De Broglie suggested in $1924$ that electrons can behave like waves. Schrödinger wrote his wave equation in $1926$. Born showed that it gives the probability of finding an electron somewhere. Heisenberg's uncertainty principle ($1927$) says that an electron's exact position and exact motion cannot both be known at the same time.
 
 Because of this, an electron has no fixed path. The model gives an **orbital**: a region around the nucleus where an electron is likely to be found. An orbital has a shape. An s orbital is a sphere. A p orbital has two lobes, like a dumbbell. An orbital is not the same as Bohr's orbit.
 
@@ -138,7 +138,7 @@ In a cathode-ray tube, the beam bends toward the positive plate. It is the same 
 **Solution:**
 
 1. Observations: the beam bends toward the positive plate, and the metal does not change the beam.
-2. Inference from the bending: the beam carries negative charge.
+2. Inference from the bending toward the positive plate: the beam carries negative charge.
 3. Inference from the metals: the same negative particle is in the atoms of different elements.
 4. This particle is the electron. It showed that atoms have parts.
 
@@ -206,7 +206,7 @@ Dalton said all atoms of one element have the same mass. Chlorine-35 has $17$ pr
 1. Both atoms have $17$ protons, so both are chlorine.
 2. The neutron numbers are $18$ and $20$, so the masses differ.
 3. Atoms of one element can have different masses, so the claim is not literally true.
-4. The periodic table mass of chlorine is an average of its isotopes.
+4. The periodic table mass of chlorine is a weighted average of its isotopes, about $35.45$.
 
 ## Speed Tricks & Shortcuts
 
@@ -216,7 +216,7 @@ Use this evidence chain:
 - Thomson: electron, from cathode rays.
 - Geiger-Marsden-Rutherford: nucleus, from alpha scattering.
 - Bohr: energy levels, from the hydrogen line spectrum.
-- 1920s quantum mechanics: orbitals and probability.
+- quantum mechanics after $1920$: orbitals and probability.
 
 When a question names a historical model, answer with what that model proposed at the time. Do not mix it up with the current model.
 
