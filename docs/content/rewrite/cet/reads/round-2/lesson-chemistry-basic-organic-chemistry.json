@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-chemistry-basic-organic-chemistry",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "a small group of atoms that gives a compound its typical reactions and its name ending", "problem": "The definition says a functional group gives the compound its name ending. That fails for standard groups and for compounds in this lesson. A halogen group is named only as a prefix, as in chloromethane, which ends in -ane from the parent. An ether takes no ending. With two groups, only the main one gives the ending: an amino acid has an amine group that sets no -amine ending, and glucose has many -OH groups but no -ol ending. Line 91 of the lesson itself speaks of a 'main functional group', which contradicts the definition. A student who uses the definition may decide that a halogen is not a functional group, or may expect every group to show in the ending.", "source": "IUPAC Nomenclature of Organic Chemistry (2013), P-33 and P-41: only the principal characteristic group is cited as a suffix, and halogens are expressed only as prefixes (P-61.3); checklist B01; reader-rules boundary test (Sol audit)"},
+    {"rule": "L26", "severity": "Major", "quote": "Ethanoic acid has $-COOH$, which gives stronger attraction between molecules.", "problem": "This step is the lesson's only structure-property comparison between two functional groups, which the brief lists as thin. It states that -COOH gives stronger attraction but does not say how. Step 2 explains ethanol through hydrogen bonds, but nothing says why the acid attracts more strongly than the alcohol. The usual reason is that -COOH has both a polar C=O and an O-H, so pairs of acid molecules hold together by two hydrogen bonds. Without that reason the student can rank the three compounds but cannot explain the order the question asks about.", "source": "Checklist L26; brief, 'Functional groups and structure-property reasoning: thin' (no property comparison derived from a named pair), requirement refs upcat-L161 and dcat-L079 at curriculum class"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A bond is **polar** when the electrons are shared unevenly. The $O-H$ bond is polar.", "problem": "This paragraph has five sentences, more than the one to three the guide allows. The Speed Tricks paragraph that begins 'First check the $C=O$ carbon' also has five sentences, and line 16 has four.", "source": "Checklist L22a; lesson-style-guide, Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}

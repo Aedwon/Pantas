@@ -39,7 +39,9 @@ The respiratory system moves air in and out and exchanges gases. Air passes thro
 
 **Ventilation** is the movement of air in and out. At rest, the **diaphragm**, a sheet of muscle under the lungs, contracts and flattens. The chest space gets bigger, the pressure inside drops, and air flows in. When the diaphragm relaxes, the chest space gets smaller and air flows out.
 
-**Gas exchange** happens by **diffusion**, the movement of a substance from where it is more concentrated to where it is less concentrated. Alveolar air has more oxygen than the blood arriving in the lung capillaries. So oxygen diffuses into the blood. The arriving blood has more carbon dioxide than the alveolar air. So carbon dioxide diffuses out.
+**Gas exchange** happens by **diffusion**.
+
+Diffusion is the movement of a substance from where it is more concentrated to where it is less concentrated. Alveolar air has more oxygen than the blood arriving in the lung capillaries. So oxygen diffuses into the blood. The arriving blood has more carbon dioxide than the alveolar air. So carbon dioxide diffuses out.
 
 The exchange is fast because the alveolus wall and the capillary wall are each very thin, and many alveoli give a huge surface. Most oxygen then travels inside red blood cells, bound to a protein called **hemoglobin**.
 
@@ -61,7 +63,7 @@ Full path: body → venae cavae (the large veins) → right atrium → right ven
 
 ### Nervous System
 
-The nervous system detects changes, processes the information, and sends signals that coordinate a response. Its cells are **neurons**, which carry electrical signals. At a junction between two neurons, called a **synapse**, a chemical messenger passes the signal across.
+The nervous system detects changes, processes the information, and sends signals that coordinate a response. Its signaling cells are **neurons**, which carry electrical signals. Support cells called glial cells protect and feed the neurons. At a junction between two neurons, called a **synapse**, a chemical messenger passes the signal across.
 
 The **central nervous system (CNS)** is the brain and spinal cord. The **peripheral nervous system (PNS)** is all the nerves outside them. **Sensory neurons** carry signals toward the CNS. **Motor neurons** carry signals away from it to muscles and glands.
 
@@ -85,7 +87,7 @@ Blood glucose shows a loop. After a meal, blood glucose rises. The pancreas rele
 
 <!-- ILLUSTRATION: two-loop feedback diagram for blood glucose: "blood glucose rises" → "pancreas releases insulin" → "glucose falls"; and "blood glucose falls" → "pancreas releases glucagon" → "glucose rises" -->
 
-The **pituitary** gland sits under the brain. It is nicknamed the "master gland" because its anterior (front) part releases hormones that control the thyroid, the adrenal glands, and the gonads. But the **hypothalamus**, a brain region above it, controls the pituitary. Feedback from the target glands also adjusts the pituitary.
+The **pituitary** gland sits under the brain. It is nicknamed the "master gland" because its anterior (front) part releases hormones that control the thyroid, the adrenal glands, and the **gonads** (the testes and ovaries). But the **hypothalamus**, a brain region above it, controls the pituitary. Feedback from the target glands also adjusts the pituitary.
 
 The thyroid sets the pace of metabolism, the body's chemical reactions. The adrenal glands release hormones for stress responses, salt balance, and metabolism. The posterior (back) pituitary releases **antidiuretic hormone (ADH)** and oxytocin that the hypothalamus makes. ADH tells the kidneys to keep more water.
 
@@ -296,7 +298,7 @@ For immunity, separate fast, general innate defenses from slower, antigen-specif
 
 For nerve pathways, name the parts in order: stimulus, receptor, sensory neuron, CNS, motor neuron, effector.
 
-For organ systems, do not assume an organ belongs to exactly one system. The pancreas, gonads, thymus, skin, and bones each serve more than one system.
+For organ systems, do not assume an organ belongs to exactly one system. The pancreas, gonads, skin, and bones each serve more than one system.
 
 ## Traps to Watch For
 
