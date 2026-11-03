@@ -8,7 +8,7 @@ runs:
       uses: subosito/flutter-action@v2
       with:
         channel: stable
-        flutter-version: '3.41.x'
+        flutter-version: '3.44.6'
         cache: true
 
     - name: pub get
@@ -32,3 +32,6 @@ runs:
         dart run tools/build_content_seed/seed_writer.dart \
           build/export.json \
           assets/seed/content.db
+        # The signed package needs release keys. Non-web asset bundles only need
+        # these declared files to exist, and no test reads their bytes.
+        touch assets/seed/content.manifest.json assets/seed/content.manifest.sig
