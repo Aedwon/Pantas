@@ -39,15 +39,25 @@ The mole also tells you how many atoms are inside the particles. One mole of $H_
 
 ### Atomic Mass and Molar Mass
 
+Every atom has a center called the nucleus. The nucleus holds **protons**, which carry a positive charge, and **neutrons**, which carry no charge. The number of protons decides which element the atom is.
+
 Atoms of one element can differ slightly in mass. Atoms of the same element with different numbers of neutrons are **isotopes**. The **mass number** of one isotope is a whole number: its count of protons plus neutrons.
 
-The **relative atomic mass** of an element compares the average mass of its atoms, over the natural mix of isotopes, with the unified atomic mass unit. That unit is one twelfth of the mass of a carbon-$12$ atom. Relative atomic mass is a ratio, so it has no unit. The periodic table lists it, and it is rarely a whole number. Carbon is about $12.011$ and chlorine is about $35.45$.
+The **relative atomic mass** of an element compares the average mass of its atoms, over the natural mix of isotopes, with the unified atomic mass unit. That unit is one twelfth of the mass of a carbon-$12$ atom, the carbon isotope with mass number $12$.
+
+Relative atomic mass is a ratio, so it has no unit. The periodic table lists it, and it is rarely a whole number. Carbon is about $12.011$ and chlorine is about $35.45$.
 
 **Molar mass**, symbol $M$, is the mass of one mole of a substance. It equals mass divided by amount of substance, and it is usually given in $\mathrm{g/mol}$. For an element, the molar mass in $\mathrm{g/mol}$ has the same number as the relative atomic mass, to a very close approximation. So carbon is about $12.011\ \mathrm{g/mol}$.
 
 Since the $2019$ SI redefinition, the mole is fixed by the exact value of $N_A$, not by the mass of carbon-$12$. The numbers still agree to about nine significant digits, so school calculations are not affected.
 
 To get the molar mass of a compound, add the molar masses of all the atoms in its formula. Multiply each element's molar mass by its subscript first. If parentheses have a subscript, it multiplies every atom inside them.
+
+A **hydrate** is a crystal that holds water molecules inside it, written with a dot, as in $CuSO_4\cdot5H_2O$. The number before $H_2O$ is a coefficient, not a subscript. It multiplies every atom in $H_2O$, so $1$ formula unit has $5$ water molecules, which is $10$ H atoms and $5$ O atoms in the water alone.
+
+For $CuSO_4\cdot5H_2O$, use $Cu=63.55$, $S=32.06$, $O=16.00$, and $M(H_2O)=18.02$, all in $\mathrm{g/mol}$.
+
+$$M=63.55+32.06+4(16.00)+5(18.02)=249.7\ \mathrm{g/mol}$$
 
 ### Converting Between Mass, Moles, and Entities
 
@@ -63,13 +73,19 @@ $$N=nN_A$$
 
 so the amount in moles is $n=\dfrac{N}{N_A}$.
 
-To go from mass to entities, use both relations: mass to moles with $M$, then moles to entities with $N_A$. To go from entities to mass, do the reverse. Moles are the middle step because $M$ and $N_A$ both connect to them. You can write it as one line of **dimensional analysis**, which means arranging conversion factors so the unwanted units cancel. The setup must have the units cancel correctly.
+To go from mass to entities, use both relations: mass to moles with $M$, then moles to entities with $N_A$. To go from entities to mass, do the reverse.
+
+Moles are the middle step because $M$ and $N_A$ both connect to them. You can write the steps as one line of **dimensional analysis**, which means arranging conversion factors so the unwanted units cancel.
 
 <!-- ILLUSTRATION: conversion map with three boxes in a row: "mass m (g)", "amount n (mol)", "number of entities N". Arrow from mass to amount labeled "divide by M (g/mol)", arrow back labeled "multiply by M". Arrow from amount to entities labeled "multiply by N_A (6.022 x 10^23 per mol)", arrow back labeled "divide by N_A". -->
 
 ### Significant Figures
 
-**Significant figures** are the digits of a measured number that carry meaning. A final answer should not show more digits than the least precise given number. The Avogadro constant is exact, so it never limits this. The measured mass and the molar mass values you are given decide how many digits to report.
+**Significant figures** are the digits of a measured number that carry meaning. Two rules cover most work here.
+
+When you multiply or divide, give the answer the same number of significant figures as the given number with the fewest. When you add or subtract, such as when you add atomic masses, keep the fewest decimal places of the numbers added.
+
+Exact numbers never limit an answer. Subscripts, coefficients, counts such as the $2$ in $2$ H atoms, and the defined $N_A$ are exact. Only measured or supplied data, such as the mass and the atomic masses, decide how many digits to report.
 
 ## Examples
 
@@ -84,7 +100,7 @@ What is the molar mass of water, $H_2O$? Use $H=1.008\ \mathrm{g/mol}$ and $O=16
 
 $$M(H_2O)=2(1.008)+16.00=18.016\approx18.02\ \mathrm{g/mol}$$
 
-A problem may round the atomic masses to $1$ and $16$, which gives $18\ \mathrm{g/mol}$. Follow the values the problem supplies.
+The sum is $18.016$, but $16.00$ has only $2$ decimal places, so the answer keeps $2$ decimal places. A problem may round the atomic masses to $1$ and $16$, which gives $18\ \mathrm{g/mol}$. Follow the values the problem supplies.
 
 ### #2: Formula With Parentheses
 
@@ -114,7 +130,9 @@ What is the mass of $2.5$ mol of oxygen gas, $O_2$? Use $O=16.00\ \mathrm{g/mol}
 1. Oxygen gas is made of $O_2$ molecules. Each molecule has $2$ atoms, so $M(O_2)=2(16.00)=32.00\ \mathrm{g/mol}$.
 2. Use $m=nM$.
 
-$$m=(2.5\ \mathrm{mol})(32.00\ \mathrm{g/mol})=80\ \mathrm g$$
+$$m=(2.5\ \mathrm{mol})(32.00\ \mathrm{g/mol})=80.\ \mathrm g$$
+
+The factor $2.5$ has $2$ significant figures, so the answer does too. The decimal point after $80$ shows that the zero is significant.
 
 If the problem meant $2.5$ mol of $O$ atoms, the molar mass would be $16.00\ \mathrm{g/mol}$ and the mass would be $40$ g. The entity must be named.
 
@@ -128,7 +146,7 @@ $$N=nN_A=(2.0\ \mathrm{mol})(6.022\times10^{23}\ \mathrm{mol^{-1}})$$
 
 $$N\approx1.2\times10^{24}\ \text{molecules}$$
 
-The data have $2$ significant figures, so the answer does too.
+The data have $2$ significant figures, so the answer does too. The constant $N_A$ is exact and does not limit it.
 
 ### #6: Mass to Molecules
 
@@ -166,7 +184,7 @@ How many hydrogen atoms are in $9.0$ g of water? Use $M=18\ \mathrm{g/mol}$ and 
 **Solution:**
 
 1. Moles of water: $n=\dfrac{9.0}{18}=0.50\ \mathrm{mol}$ of $H_2O$.
-2. Each molecule has $2$ H atoms, so the moles of H atoms are $2(0.50)=1.0$ mol.
+2. Each molecule has $2$ H atoms, so the moles of H atoms are $2(0.50)=1.0$ mol. The $2$ is an exact count, so the $2$ significant figures of $0.50$ decide the answer.
 3. Convert to atoms.
 
 $$N=(1.0\ \mathrm{mol})(6.022\times10^{23}\ \mathrm{mol^{-1}})\approx6.0\times10^{23}\ \text{atoms}$$
@@ -192,7 +210,7 @@ $$N=(0.100)(6.02\times10^{23})=6.02\times10^{22}\ \text{formula units}$$
 
 Set up with dimensional analysis. Write each conversion factor so the unit you do not want sits on the opposite side from where it started, and it cancels.
 
-For a compound, multiply each element's molar mass by its subscript before you add. This works for any formula, including ones with parentheses once you multiply through.
+For a compound, multiply each element's molar mass by its subscript before you add. A subscript outside parentheses multiplies every atom inside them. In a hydrate, the coefficient before $H_2O$ multiplies the water, so count that water separately.
 
 A quick check for a gas or other molecular element: if the formula has a subscript $2$, such as $O_2$, double the atomic molar mass. This applies only to the diatomic elements listed above, and only when the problem means the molecule.
 
@@ -210,7 +228,7 @@ The value $6.022\times10^{23}$ is a rounding. It is fine for most problems, but 
 
 > $N_A$ is exact in the SI.
 
-The final significant figures come from the measured or given data, such as the mass. The exact value of $N_A$ does not limit them.
+The final significant figures come from the measured or given data, such as the mass. The exact value of $N_A$ does not limit them, and neither do subscripts.
 
 ### #3: Calling Every Particle a Molecule
 
