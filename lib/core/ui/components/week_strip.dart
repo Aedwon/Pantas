@@ -45,7 +45,8 @@ class WeekStrip extends StatefulWidget {
     if (lastIsToday) {
       visible = todayFraction > 0 ? size : size - 6;
     } else {
-      final last = PantasDates.weekStart(today).add(const Duration(days: 6));
+      final start = PantasDates.weekStart(today);
+      final last = DateTime(start.year, start.month, start.day + 6);
       final painter = TextPainter(
         text: TextSpan(
           text: '${last.day}',
@@ -55,6 +56,7 @@ class WeekStrip extends StatefulWidget {
         textScaler: scale,
       )..layout(maxWidth: size); // The cell lets the number use `size`.
       visible = painter.width;
+      painter.dispose();
     }
     final maxScroll = (cell * 7 - width).clamp(0.0, double.infinity);
     final startScroll = (today.weekday % 7 * cell).clamp(0.0, maxScroll);
