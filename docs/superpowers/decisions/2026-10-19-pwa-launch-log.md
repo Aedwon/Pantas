@@ -2436,3 +2436,11 @@ Aedwon: "hardened, but what are some things we can give to github actions? the r
 Earlier in the same request: "spawn as many subagents as you need to get these done with quality and fast. i would even permit you to spawn opus sub-orchestrators if needed. careful of my storage and cpu throttling please"
 
 Result: all 17 items proceed at hardened. Checked Nov 3: the repo is public, GitHub's billing docs list standard hosted runners in public repositories as free, larger runners are billed, and limits are 20 concurrent jobs and 6 hours per job on the Free plan. The Aug 23 minute-conservation decision was written while the repo was private. Moving checks to Actions awaits his answer.
+
+## Moving checks to Actions and CI cleanup (Aedwon, Nov 3)
+
+Offered: add one workflow on the fixes branch for the full checks and the release web build, plus a small CI cleanup (checks on fixes-branch pushes, cancel outdated runs, find why main CI last failed), and leave CD alone because nothing deploys yet; or keep checks local. Aedwon also asked: "and while you're at it perhaps you can also optimize the CI/CD? or is that not needed"
+
+Aedwon: "Yes, add both"
+
+Result: this replaces the minute-rationing part of the Aug 23 decision for this public repo (standard hosted runners only). Logs and artifacts are public, so workflows use test data and no secrets. Focused tests stay local during work.
