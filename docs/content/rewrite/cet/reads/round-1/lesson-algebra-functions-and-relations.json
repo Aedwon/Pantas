@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-algebra-functions-and-relations",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "For a straight line, the smallest and largest outputs come from the two ends of the domain.", "problem": "The rule fails when an end of the stated domain is excluded or missing. For f(x)=2x+1 on 1<x<=4 there is no smallest output: the range is (3,9], not [3,9], because x=1 is not an input. On an unbounded domain such as x>=1 there is no largest output. The lesson never says that an excluded end gives an excluded output, and the shortcut \"test the two end values\" repeats the gap. A student given a domain written with < (common in range questions) would include an output the function never produces. Example 3 uses only closed intervals, so nothing else in the lesson corrects this.", "source": "reader-rules.md, Added after the Sol audit (stated rule broken at a boundary value); content-checklist B01; brief item 'Find range from a rule and stated input domain' (attained outputs under a restricted domain)"},
+    {"rule": "L25", "severity": "Major", "quote": "The curve $h$ has its turning point at $x=2$, which is inside $[0,5]$.", "problem": "\"Turning point\" is used in Core Concept, Example 3, Example 10 and the range shortcut, but the lesson never says what it is or how to find it. The solution states x=2 with no step: the student must already know that (x-h)^2+k turns at x=h, or the vertex formula. Neither is taught here and no prerequisite lesson is named. The vertex is taught in Types of Functions, which comes after this lesson in the outline and is not referenced. Without it, a student cannot apply the lesson's range method to any quadratic, which is the main curve case of the brief's range item.", "source": "content-checklist L25; lesson-style-guide, Teaching completeness (reuse needs an identified prerequisite); reader-rules.md, list every term an example uses"}
+  ],
+  "goodQuotesChecked": 2
+}

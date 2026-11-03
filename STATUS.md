@@ -219,3 +219,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Paused at the user's request: no new agents; running ones finish. Fixed after round 1: two-dimensional-motion, units-and-measurements, waves-and-sound. Written: basic-geometric-concepts, systems-of-equations. Their next reads are not started.
 - Paused: dynamics fixed after round 2 (round 3 read not started).
 - Paused: radicals-and-rationalization round 1: 3 Majors (fix not started).
+- Paused: functions-and-relations round 1: 1 Blocker, 1 Major (fix not started).
