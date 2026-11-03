@@ -1,0 +1,51 @@
+{
+  "lesson": "lesson-biology-genetics-and-heredity",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "In a human cell, the DNA stays in the nucleus, so transcription happens there.",
+      "problem": "This general statement fails at a known exception. Human cells also have DNA in their mitochondria (mitochondrial DNA), and those genes are transcribed inside the mitochondria, not in the nucleus. A student could take from this line that DNA is found only in the nucleus. The base lesson limited the claim correctly ('nuclear genes are transcribed in the nucleus') and also taught that prokaryotes, having no nucleus, transcribe in the cytoplasm; the rewrite dropped the word 'nuclear' and the prokaryote case. This sentence is the fix for round-1 finding L26 (location of transcription), so that finding is closed but this one replaces it.",
+      "source": "Reader rules, 'Added after the Sol audit' (test each general statement against a known exception); standard cell biology reference: human mitochondria carry their own DNA (mtDNA) with genes transcribed in the mitochondrial matrix (e.g., NCBI Bookshelf, Alberts, Molecular Biology of the Cell, 'The Genetic Systems of Mitochondria and Chloroplasts'); base 7032eec5 line 47"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Autosomal dominant: every affected child has an affected parent, and the trait appears in each generation.",
+      "problem": "A new (de novo) mutation breaks this rule inside the lesson's own stated conditions. The conditions list says only that the trait is rare, comes from one gene and always shows when the genotype allows it; it does not exclude new mutations. A rare, single-gene, fully penetrant dominant trait such as achondroplasia often appears in a child of two unaffected parents through a new mutation. Example 8 repeats the absolute ('A dominant trait needs an affected parent.'). The lesson knows the limit, because Example 9 adds 'no new mutations' to its own stem, but the Core Concept rule and Example 8 do not state it. The base lesson taught this exception (its Trap #4 and Example 4, step 4), and the rewrite cut it.",
+      "source": "Reader rules, 'Added after the Sol audit'; writer rules after round 1, rule 3 (keep what the base taught correctly); MedlinePlus Genetics, Achondroplasia: about 80 percent of cases come from new mutations in families with no history of the condition; base 7032eec5 lines 104 and 136-140"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "DNA is packed into **chromosomes**.",
+      "problem": "This paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Most traits depend on many genes, not just one.",
+      "problem": "This paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "By custom, a capital letter stands for the dominant allele and the small letter for the recessive allele.",
+      "problem": "This paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A son gets his father's Y chromosome, so he cannot get the father's X.",
+      "problem": "This trap explanation paragraph has 4 sentences. The rule allows one to three short sentences in a paragraph.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 6
+}
