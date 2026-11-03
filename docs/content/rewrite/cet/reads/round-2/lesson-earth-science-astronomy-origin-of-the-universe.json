@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-earth-science-astronomy-origin-of-the-universe",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "a spectral line of hydrogen has a wavelength of $600$ nm", "problem": "Example #2 states a false fact about hydrogen. Hydrogen has no spectral line near 600 nm. Its visible lines are at about 656.3, 486.1, 434.0, 410.2 and 397.0 nm (the red line is 656.3 nm). A student who keeps this stem as a fact learns a wrong wavelength for hydrogen. The illustration marker before 'This rule has limits' repeats the same 600 nm hydrogen line. The arithmetic of the example (z = 0.1) is right; the named element and wavelength are not. This was not raised in round 1.", "source": "NIST Handbook of Basic Atomic Spectroscopic Data, Hydrogen, strong lines in air (physics.nist.gov/PhysRefData/Handbook/Tables/hydrogentable2.htm): 6562.71, 4861.29, 4340.46, 4101.74, 3970.07 angstroms, nothing near 6000 angstroms; content-checklist.md B01"},
+    {"rule": "L04", "severity": "Minor", "quote": "an ice skater pulling in her arms shows the same effect", "problem": "Still open from round 1. Core Concept already uses the raisin bread analogy for expanding space. The ice skater is a second analogy, and the rule allows at most one per lesson.", "source": "content-checklist.md L04; lesson-style-guide.md Voice"},
+    {"rule": "L22a", "severity": "Minor", "quote": "In the 1920s, astronomers found that most galaxies are redshifted. Edwin Hubble showed in $1929$ that, on large scales, farther galaxies have larger redshifts. This is what an expanding universe predicts.", "problem": "Still open from round 1. This paragraph has four sentences, and the limit is one to three. Other four-sentence paragraphs remain: the opening paragraph, the Big Bang paragraph, 'This rule has limits', and the nebular paragraphs beginning 'The Solar System formed', 'The spinning flattens', 'Near the Sun' and 'Several observations'.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"},
+    {"rule": "B08", "severity": "Minor", "quote": "ideas of Immanuel Kant and Pierre-Simon Laplace in the 1700s", "problem": "Still open from round 1. The numbers 1700s here and 1920s in Evidence 1 are not wrapped in inline math, while the same lesson wraps $1929$ and $1965$.", "source": "content-checklist.md B08; lesson-style-guide.md Math notation"}
+  ],
+  "goodQuotesChecked": 4
+}
