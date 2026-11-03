@@ -474,12 +474,13 @@ class WebPullLabel extends StatelessWidget {
                 ),
               ),
             );
+        // All three phrases size the stack, so the widest shows in full. They
+        // share one line height, so the card does not move.
         return Stack(
           children: [
-            // The card's own phrase sets the size, so the card does not move.
             phrase(0, label),
-            Positioned(left: 0, top: 0, child: phrase(1, 'Keep going')),
-            Positioned(left: 0, top: 0, child: phrase(2, 'Let go to open')),
+            phrase(1, 'Keep going'),
+            phrase(2, 'Let go to open'),
           ],
         );
       },
