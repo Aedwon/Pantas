@@ -89,7 +89,7 @@ Let $M_1$ and $V_1$ be the molarity and volume before. Let $M_2$ and $V_2$ be th
 
 $$M_1V_1=M_2V_2$$
 
-Use the same volume unit on both sides, such as mL. The relation works in the same way for any concentration measure that is "amount per volume". It does not work when two different solutions with different solutes are mixed, or when a reaction happens.
+Use the same volume unit on both sides, such as mL. The relation works in the same way for any concentration measure that is "amount per volume". It holds for each solute whose amount does not change, even when non-reacting solutions of different solutes are mixed, but then $V_2$ is the total volume. It fails for a solute whose amount changes in a reaction. It also fails for mixing two solutions of the same solute at different concentrations, where you add the moles from each.
 
 ### Reading Product Labels and Handling Chemicals Safely
 
@@ -238,7 +238,7 @@ A sealed solution is warmed with nothing lost or added. Why can its molarity cha
 
 ## Speed Tricks & Shortcuts
 
-Read the denominator first. Liters of solution means molarity. Kilograms of solvent means molality. Mass of solution means percent by mass. Volume of solution means percent by volume.
+Read the denominator first. Liters of solution with moles of solute on top means molarity. Kilograms of solvent means molality. Mass of solution means percent by mass. Volume of solution with volume of solute on top means percent by volume.
 
 Before using a mass or volume, check its unit. Molarity needs liters. Molality needs kilograms. Change mL and g first.
 
@@ -276,7 +276,7 @@ Volumes of liquids may not add exactly. Percent by volume and molarity both need
 
 > $M_1V_1=M_2V_2$ works only when the amount of solute is the same before and after.
 
-It fits adding solvent to one solution. It does not fit mixing two solutions of different solutes, or a reaction that uses up the solute. Also, $V_2$ is the final volume, not the volume of water added.
+It fits adding solvent to one solution. It fits each solute whose amount stays the same, including non-reacting solutions of different solutes mixed together, if $V_2$ is the total volume. It does not fit a solute that a reaction uses up or makes, or two solutions of the same solute mixed together. Also, $V_2$ is the final volume, not the volume of water added.
 
 ### #6: Mixing Products to Make Them Stronger
 
