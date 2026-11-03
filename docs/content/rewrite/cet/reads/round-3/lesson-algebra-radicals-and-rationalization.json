@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-algebra-radicals-and-rationalization",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "goes on without end, such as",
+      "problem": "The nested-radical paragraph in Core Concept still has four sentences (open from round 2). Two other paragraphs also have four: the one starting 'Rationalizing a denominator means rewriting a fraction' and the Trap #6 paragraph starting 'For a binomial denominator'. The limit is one to three short sentences.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules; round-2 read L22a"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "m-1=2\\sqrt{m+2} \\quad\\Rightarrow\\quad m^2-2m+1=4m+8",
+      "problem": "Example #10 chains three equations on one display line here, and step 1 does the same ('2+\\sqrt{m+2} \\quad\\Rightarrow\\quad 3m+4=4+4\\sqrt{m+2}+m+2'). Each line runs about 40 symbols plus wide arrows, which is too wide for a phone screen and will scroll or shrink.",
+      "source": "content-checklist.md L21; lesson-style-guide.md Examples section (keep each display equation narrow enough for a phone screen)"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
