@@ -17,7 +17,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | lesson-chemistry-basic-organic-chemistry | 3,005 | Crossed 3,000 in the round-2 fix (naming rules and the boiling-point reason). Borderline. |
 | lesson-earth-science-astronomy-heavenly-bodies | 3,171 | Every brief item taught, including the weak-class stellar-stage item. |
 | lesson-chemistry-thermodynamics-and-kinetics | 3,013 | Crossed 3,000 in the round-1 fix. Borderline. |
-| lesson-physics-fluid-mechanics | 3,471 | Writer added continuity and apparent weight beyond the brief; check for padding. |
+| lesson-physics-fluid-mechanics | 3,492 | Writer added continuity and apparent weight beyond the brief; check for padding. |
 | lesson-physics-light-and-optics | 3,797 | Mirror and lens ray diagrams and image cases. |
 | lesson-earth-science-astronomy-water-cycle-oceanography | 3,080 | Crossed 3,000 in the round-1 fix (density limits and the far-side tide). Borderline. |
 | lesson-physics-dynamics | 3,125 | Crossed 3,000 in the round-1 fix (restored figures, component splitting, term meanings). |

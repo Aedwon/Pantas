@@ -37,9 +37,11 @@ For a fluid with constant density, the pressure at depth $h$ is:
 
 $$P = P_0 + \rho gh$$
 
-Here $P_0$ is the pressure at the top surface, and $h$ is the depth below that surface. For a lake open to the air, $P_0$ is the **atmospheric pressure**, about $1.01 \times 10^5 \text{ Pa}$ near sea level. This full value is the **absolute pressure**. The part $\rho gh$ alone is the **gauge pressure**, the pressure above the surface pressure.
+Here $P_0$ is the pressure at the top surface, and $h$ is the depth below that surface. For a lake open to the air, $P_0$ is the **atmospheric pressure**, about $1.01 \times 10^5 \text{ Pa}$ near sea level. This full value is the **absolute pressure**. The **gauge pressure** is the pressure above atmospheric pressure. For this open lake, it equals $\rho gh$ alone. If the surface gas is not at atmospheric pressure, the gauge pressure is $P - P_{atm}$.
 
-Look at what the formula contains. It has the fluid's density, $g$, and the depth. It does not contain the shape of the container or the amount of liquid. Two points at the same depth in the same connected liquid at rest have the same pressure, even if one container is wide and the other is narrow. The formula assumes the density stays constant, so it is good for liquids over small depth ranges. For a tall column of gas, density changes with height and this formula does not hold.
+Look at what the formula contains. It has the fluid's density, $g$, and the depth. It does not contain the shape of the container or the amount of liquid.
+
+Two points at the same depth in the same connected liquid at rest have the same pressure, even if one container is wide and the other is narrow. The formula assumes the density stays constant, so it is good for liquids over small depth ranges. For a tall column of gas, density changes with height and this formula does not hold.
 
 <!-- ILLUSTRATION: three connected containers of different shapes (narrow tube, wide tank, slanted tube) all filled with water to the same level, with a horizontal dashed line at depth h below the surface marked in each container and the label "same depth h, same pressure" -->
 
@@ -87,7 +89,7 @@ $$W_{apparent} = W - F_B$$
 
 For a solid object let go in a fluid, you can compare densities. The object's **average density** is its total mass divided by its total volume, including any hollow spaces. If the average density is less than the fluid's, it floats. If it is more, it sinks. If it is equal, it stays suspended.
 
-A floating object with uniform density also has a simple rule. The fraction of its volume below the surface is $\dfrac{\rho_{object}}{\rho_{fluid}}$. This rule needs the object to be floating at rest and to have the same density throughout.
+A floating object also has a simple rule. The fraction of its volume below the surface is $\dfrac{\rho_{object}}{\rho_{fluid}}$. The same rule holds for any object floating at rest, if $\rho_{object}$ means its average density. This includes a hollow object or a boat.
 
 The density rule works for an object that is free to move and surrounded by fluid. It does not predict what happens if the object is tied down, pushed by another force, or sealed against the container floor with no fluid under it. For those cases, draw the forces and work out the displaced volume.
 
@@ -115,9 +117,13 @@ To compare two points on the same streamline, write:
 
 $$P_1 + \dfrac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \dfrac{1}{2}\rho v_2^2 + \rho g h_2$$
 
-A useful special case is two points at the same height. The $\rho gh$ terms cancel. Then the point with the higher speed has the lower static pressure. This comparison holds only when the stated assumptions hold. Height changes, viscosity, pumps, turbulence, compressibility, and comparing different streamlines can all change the result.
+A useful special case is two points at the same height. The $\rho gh$ terms cancel. Then the point with the higher speed has the lower static pressure.
 
-Bernoulli's equation helps explain the pressure around a wing. Airplane lift should not be explained by saying air must travel faster over the curved top because that path is longer. Air that splits at the front of the wing does not have to meet again at the back. Real lift comes from the pressure pattern around the wing and from the wing pushing air downward. Angle of attack, wing shape, and viscosity matter too.
+This comparison holds only when the stated assumptions hold. Height changes, viscosity, pumps, turbulence, compressibility, and comparing different streamlines can all change the result.
+
+Bernoulli's equation helps explain the pressure around a wing. Do not explain lift by saying air must travel faster over the curved top because that path is longer. Air that splits at the front of the wing does not have to meet again at the back.
+
+Real lift comes from the pressure pattern around the wing and from the wing pushing air downward. Angle of attack, wing shape, and viscosity matter too.
 
 <!-- ILLUSTRATION: horizontal pipe that narrows from a wide section (point 1, area A1, slow arrows, speed v1) to a narrow section (point 2, area A2, fast arrows, speed v2), with two vertical pressure gauges above points 1 and 2 where the gauge at point 2 shows a lower liquid column -->
 
@@ -254,7 +260,7 @@ $$P_2 = 2.00 \times 10^5 - 3.0 \times 10^4 = 1.70 \times 10^5 \text{ Pa}$$
 
 ### #9: Bernoulli When the Height Changes
 
-Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow. Find the pressure at point 2.
+Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow. Find the pressure at point $2$.
 
 **Solution:**
 
@@ -312,7 +318,9 @@ A large hollow ship floats because its average density, with all the air inside,
 
 > For a liquid at rest, pressure depends on depth, density, and $g$, not on the container's shape or the amount of liquid.
 
-A narrow tube and a wide tank filled to the same height give the same pressure at the bottom. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight. In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. The pressure at the bottom is still set by depth alone.
+A narrow tube and a wide tank filled to the same height give the same pressure at the bottom. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight.
+
+In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. The pressure at the bottom is still set by depth alone.
 
 ### #5: Expecting Free Work from a Hydraulic Lift
 
