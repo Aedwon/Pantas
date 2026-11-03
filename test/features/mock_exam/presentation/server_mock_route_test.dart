@@ -42,6 +42,8 @@ class _Server {
   bool resumed = false;
   bool completed = false;
   String availability = 'available';
+  int? nextEligibleAt;
+  Exception? failAvailability;
   List<Map<String, Object?>> answers = [];
   final calls = <(String, Map<String, Object?>)>[];
   Exception? failStart;
@@ -84,12 +86,14 @@ class _Server {
         }
         return {...view(), 'resumed': resumed};
       case 'getMockAvailability':
+        final unreadable = failAvailability;
+        if (unreadable != null) throw unreadable;
         return {
           'examId': examId,
           'serverNow': 1790000000000,
           'status': availability,
           'proCovered': false,
-          'nextEligibleAt': null,
+          'nextEligibleAt': nextEligibleAt,
           'lastMockId': null,
           if (availability == 'in-progress')
             'open': {'mockId': _mockId, 'examId': examId, 'paused': paused},
@@ -475,29 +479,131 @@ void main() {
     expect(fixture.router.canPop(), isFalse);
   });
 
-  testWidgets('a server refusal hides raw text and offers Retry',
-      (tester) async {
-    final server = _Server()
-      ..failStart = const ServerMockException(
-        code: 'failed-precondition',
-        message: 'Free accounts can take one mock every 30 days.',
-      );
-    await _open(tester, server: server);
+  group('a refusal to start', () {
+    const freeLimit = ServerMockException(
+      code: 'failed-precondition',
+      message: 'Free accounts can take one mock every 30 days.',
+    );
 
-    expect(
-      find.text('Free accounts can take one mock every 30 days.'),
-      findsNothing,
-    );
-    expect(find.text('Could not load your mock.'), findsOneWidget);
-    expect(server.telemetry.errors.single, isA<ServerMockException>());
-    expect(
-      (server.telemetry.errors.single as ServerMockException).message,
-      'Free accounts can take one mock every 30 days.',
-    );
-    await tester.tap(find.text('Try Again'));
-    await advance(tester, 100);
-    expect(find.text('Question q1?'), findsOneWidget);
-    expect(server.named('startMock'), hasLength(2));
+    testWidgets(
+        'the Free limit shows the waiting state with its date, not an error',
+        (tester) async {
+      final server = _Server()
+        ..failStart = freeLimit
+        ..availability = 'cooldown'
+        ..nextEligibleAt = 1790000000000 + 30 * 86400000;
+      await _open(tester, server: server);
+
+      expect(
+        find.text('Free includes one mock every 30 days.'),
+        findsOneWidget,
+      );
+      expect(find.textContaining('Your next one opens '), findsOneWidget);
+      expect(find.text('Could not load your mock.'), findsNothing);
+      expect(find.text('Try Again'), findsNothing);
+      expect(
+        find.text('Free accounts can take one mock every 30 days.'),
+        findsNothing,
+      );
+      // A normal refusal is not a failure to report.
+      expect(server.telemetry.errors, isEmpty);
+      expect(server.named('startMock'), hasLength(1));
+    });
+
+    testWidgets('the waiting state goes back to the Quiz tab', (tester) async {
+      final server = _Server()
+        ..failStart = freeLimit
+        ..availability = 'cooldown'
+        ..nextEligibleAt = 1790000000000 + 30 * 86400000;
+      await _open(tester, server: server);
+
+      await tester.tap(find.text('Back'));
+      await advance(tester, 500);
+      expect(find.text('Quiz tab'), findsOneWidget);
+    });
+
+    testWidgets('an exam with no mock yet shows "Mock paper not ready"',
+        (tester) async {
+      final server = _Server()
+        ..failStart = const ServerMockException(
+          code: 'failed-precondition',
+          message: 'This exam has no mock yet.',
+        )
+        ..availability = 'no-blueprint';
+      await _open(tester, server: server);
+
+      expect(find.text('Mock paper not ready'), findsOneWidget);
+      expect(find.text('Could not load your mock.'), findsNothing);
+      expect(find.text('Try Again'), findsNothing);
+      expect(server.telemetry.errors, isEmpty);
+    });
+
+    testWidgets(
+        'too few questions, with the exam open and no limit, '
+        'shows "Mock paper not ready"', (tester) async {
+      final server = _Server()
+        ..failStart = const ServerMockException(
+          code: 'failed-precondition',
+          message: 'There are not enough questions for this mock yet.',
+        )
+        ..availability = 'available';
+      await _open(tester, server: server);
+
+      expect(find.text('Mock paper not ready'), findsOneWidget);
+      expect(find.text('Could not load your mock.'), findsNothing);
+      expect(find.text('Try Again'), findsNothing);
+    });
+
+    testWidgets('a network failure still shows the error with Try Again',
+        (tester) async {
+      final server = _Server()
+        ..failStart = const ServerMockException(code: 'unavailable');
+      await _open(tester, server: server);
+
+      expect(find.text('Could not load your mock.'), findsOneWidget);
+      expect(server.named('getMockAvailability'), isEmpty);
+      expect(server.telemetry.errors.single, isA<ServerMockException>());
+      await tester.tap(find.text('Try Again'));
+      await advance(tester, 100);
+      expect(find.text('Question q1?'), findsOneWidget);
+      expect(server.named('startMock'), hasLength(2));
+    });
+
+    testWidgets(
+        'a refusal that cannot be explained keeps the error and hides raw text',
+        (tester) async {
+      final server = _Server()
+        ..failStart = freeLimit
+        ..failAvailability = const ServerMockException(code: 'unavailable');
+      await _open(tester, server: server);
+
+      expect(
+        find.text('Free accounts can take one mock every 30 days.'),
+        findsNothing,
+      );
+      expect(find.text('Could not load your mock.'), findsOneWidget);
+      expect(
+        (server.telemetry.errors.single as ServerMockException).message,
+        'Free accounts can take one mock every 30 days.',
+      );
+      await tester.tap(find.text('Try Again'));
+      await advance(tester, 100);
+      expect(find.text('Question q1?'), findsOneWidget);
+    });
+
+    testWidgets('another refusal code keeps the error and offers Try Again',
+        (tester) async {
+      final server = _Server()
+        ..failStart = const ServerMockException(
+          code: 'resource-exhausted',
+          message: 'Too many attempts. Try again later.',
+        );
+      await _open(tester, server: server);
+
+      expect(find.text('Too many attempts. Try again later.'), findsNothing);
+      expect(find.text('Could not load your mock.'), findsOneWidget);
+      expect(server.named('getMockAvailability'), isEmpty);
+    });
   });
 
   testWidgets('without a signed-in account nothing is called', (tester) async {

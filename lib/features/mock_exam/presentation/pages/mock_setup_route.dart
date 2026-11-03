@@ -85,7 +85,7 @@ class MockSetupRoute extends ConsumerWidget {
     final notOpen = countAsync.error;
     if (notOpen is ServerMockNotOpen) {
       firstScreenReady(context, ref);
-      return _MockNotOpen(notOpen);
+      return MockNotOpenView(notOpen);
     }
 
     final error = parsedAsync.error ?? settingsAsync.error ?? countAsync.error;
@@ -138,10 +138,13 @@ class MockSetupRoute extends ConsumerWidget {
 
 /// Shown instead of setup while the server will not start a mock. The wording
 /// comes from the Quiz card (board QZ_Free) and the mock status card.
-class _MockNotOpen extends StatelessWidget {
-  const _MockNotOpen(this.notOpen);
+class MockNotOpenView extends StatelessWidget {
+  const MockNotOpenView(this.notOpen, {this.onBack, super.key});
 
   final ServerMockNotOpen notOpen;
+
+  /// Where Back goes. By default one step back, or the Quiz tab.
+  final VoidCallback? onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +157,8 @@ class _MockNotOpen extends StatelessWidget {
               opens == null ? 'Mock paper not ready' : freeMockIntervalLine(30),
           detail: opens == null ? null : mockNextOpensLine(opens),
           actionLabel: 'Back',
-          onRetry: () => context.canPop() ? context.pop() : context.go('/quiz'),
+          onRetry: onBack ??
+              () => context.canPop() ? context.pop() : context.go('/quiz'),
         ),
       ),
     );

@@ -158,9 +158,50 @@ class ServerMockNotOpen implements Exception {
       'ServerMockNotOpen(${noBlueprint ? 'no-blueprint' : 'cooldown'})';
 }
 
+/// After startMock refuses with `failed-precondition`, asks the server what
+/// state the exam is in. The server's status, not the refusal's wording, says
+/// why: `cooldown` (the Free limit, with its date), `no-blueprint`, or
+/// `available`. Available after a refusal means the paper could not be built
+/// from the questions there are. Returns null when the answer cannot be read
+/// or does not explain the refusal, so the caller keeps its error.
+Future<ServerMockNotOpen?> serverMockNotOpenAfterRefusal(
+  ServerMockApi api,
+  String examId,
+) async {
+  try {
+    final reply = await api.availability(examId);
+    if (reply['examId'] != examId) return null;
+    switch (reply['status']) {
+      case 'cooldown':
+        return ServerMockNotOpen.cooldown(
+          DateTime.fromMillisecondsSinceEpoch(
+            serverMockWhole(reply['nextEligibleAt']),
+            isUtc: true,
+          ),
+        );
+      case 'no-blueprint':
+      case 'available':
+        return const ServerMockNotOpen.noBlueprint();
+    }
+    return null;
+  } on Object {
+    return null;
+  }
+}
+
 final serverMockSetupCountProvider = FutureProvider.family<int, String>(
   (ref, examId) => guardedMockRead(ref, (api, check) async {
-    final reply = await api.availability(examId, includeSetup: true);
+    final Map<String, Object?> reply;
+    try {
+      reply = await api.availability(examId, includeSetup: true);
+    } on ServerMockException catch (refusal) {
+      // The server builds the setup preview only when the exam is open, so a
+      // failed-precondition here means the paper could not be built.
+      if (refusal.code == 'failed-precondition') {
+        throw const ServerMockNotOpen.noBlueprint();
+      }
+      rethrow;
+    }
     check();
     if (reply['examId'] != examId) {
       throw const ServerMockException(code: 'failed-precondition');
