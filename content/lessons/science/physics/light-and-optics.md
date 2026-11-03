@@ -33,7 +33,7 @@ A flat (plane) mirror makes an image that is upright and the same size as the ob
 
 ### Refraction
 
-**Refraction** is a change in the speed of light when it crosses a boundary. If the ray meets the boundary at a slant, the change in speed also turns the ray. The **angle of incidence** and the **angle of refraction** are again measured from the normal.
+**Refraction** is the bending of light, a change in its direction, as it passes from one medium into another. It is caused by the change in the speed of light at the boundary. If the ray meets the boundary at a slant, the change in speed turns the ray. A ray along the normal changes speed but does not bend. The **angle of incidence** and the **angle of refraction** are again measured from the normal.
 
 The **index of refraction** $n$ of a material tells how much it slows light. Here $c$ is the speed of light in vacuum, about $3.00\times10^{8}$ m/s, and $v$ is the speed in the material.
 
