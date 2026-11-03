@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-motions",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Night Sky Changes\n\n> Precession changes the direction of the axis over thousands of years", "problem": "The trap heading says outright that precession does not cause night-sky changes. That is false, and the lesson contradicts it. The Precession section teaches that precession moves the north celestial pole among the stars, so the pole star changes from Thuban to Polaris to Vega. The trap's own body says precession 'changes which star is closest to the celestial pole'. Over thousands of years, precession also shifts which constellations are seen in each season. The intended point is only that precession does not cause the change across a single year. As written, the heading is a false absolute that fails against a case the lesson itself teaches. Reader rules (after the Sol audit) say to record a Blocker when a general statement breaks.", "source": "Checklist B01; reader-rules.md 'Added after the Sol audit'; the lesson's own Precession section; Britannica, 'precession of the equinoxes' (pole star moves from Thuban to Polaris to Vega)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "is the point in the sky directly above Earth's North Pole. The axis points to it now", "problem": "This paragraph has five sentences, and the limit is one to three short sentences. Other paragraphs also run to four: 'Relative to the distant stars, one turn takes about...' (Rotation), 'First, it changes how high the Sun climbs...' (How Tilt Makes Seasons), 'For example, Orion is easy to see...' (Seasonal Constellations) and 'Think of a spinning toy top...' (Precession). This is new content, so these Minors are to be fixed.", "source": "Checklist L22a; LSG: Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}

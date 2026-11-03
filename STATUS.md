@@ -201,3 +201,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 2: solutions (1 Minor).
 - Open after 3 reads: chemical-reactions (round 3: 1 Blocker, combustion rule fails for H2 and charcoal; 1 Major, Cl = -1 used without a rule).
 - Written: heavenly-bodies (3,171 words, split candidate), fossils-and-geologic-time, layers-of-the-earth. Periodic-table round 2: 1 Blocker; last fix running.
+- Done at minor after round 2: nuclear-chemistry (2 Minors). Thermodynamics-and-kinetics fixed after round 1 (3,013 words, borderline split candidate).

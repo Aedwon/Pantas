@@ -183,7 +183,7 @@
     "lessonPath": "content/lessons/science/chemistry/nuclear-chemistry.md",
     "lessonId": "lesson-chemistry-nuclear-chemistry",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/periodic-table.md",
@@ -201,7 +201,7 @@
     "lessonPath": "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
     "lessonId": "lesson-chemistry-thermodynamics-and-kinetics",
     "group": "science",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-motions.md",

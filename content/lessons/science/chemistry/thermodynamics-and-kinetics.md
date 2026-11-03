@@ -42,7 +42,7 @@ The **rate of a reaction** is how fast the concentration of a reactant falls or 
 
 $$k=Ae^{-E_a/(RT)}$$
 
-Here $A$ is a factor for how often collisions have the right orientation, $R$ is the gas constant, and $T$ is the temperature in kelvin. You need only the pattern. A lower $E_a$ or a higher $T$ gives a bigger $k$. A bigger $k$ means a faster reaction at the same concentrations.
+Here $A$ is a factor for how often collisions have the right orientation, $R$ is the gas constant, and $T$ is the temperature in kelvin. You need only the pattern. For a reaction without enzymes, a lower $E_a$ or a higher $T$ gives a bigger $k$. A bigger $k$ means a faster reaction at the same concentrations.
 
 A higher $E_a$ does not always mean a slower reaction, because $A$, $T$ and the concentrations also matter. When two reactions are compared, the same temperature and concentrations must be used.
 
@@ -58,7 +58,7 @@ A catalyst does not change $\Delta H$, the equilibrium constant, or the equilibr
 
 ### Factors That Change the Rate
 
-- **Temperature:** for the reactions you meet in school, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often.
+- **Temperature:** for most reactions, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often. Enzyme-catalyzed reactions are the exception: the rate rises up to the enzyme's best temperature, then falls, because heat denatures the enzyme.
 - **Concentration or gas pressure:** more particles in the same space means more collisions. How much the rate changes is given by the rate law, explained next.
 - **Surface area:** this matters when the reactants are in different phases, such as a solid and a liquid. Only particles at the surface of a solid can meet the other reactant. Crushing the solid exposes more of them.
 - **Catalyst:** it lowers the activation energy, as above.
@@ -105,7 +105,7 @@ For a given equation, $K$ changes only with temperature.
 
 **Le Chatelier's principle** says: when a change is applied to a system at equilibrium, the system shifts in the direction that partly cancels the change. Shifting right means making more products. Shifting left means making more reactants.
 
-- **Add a substance:** the system shifts away from it. **Remove a substance:** it shifts toward it. $K$ does not change.
+- **Add a substance:** the system shifts away from it. **Remove a substance:** it shifts toward it. $K$ does not change. This works for gases and dissolved substances. Adding or removing a pure solid or pure liquid does not shift the equilibrium, because it is not in $K$.
 - **Change the pressure by changing the volume:** shrinking the volume favors the side with fewer moles of gas. Enlarging it favors the side with more. If both sides have equal moles of gas, nothing shifts. $K$ does not change.
 - **Add an unreactive gas at constant volume:** the concentrations do not change, so nothing shifts.
 - **Raise the temperature:** the system shifts in the endothermic direction. Lowering it favors the exothermic direction. This changes $K$.
@@ -285,6 +285,6 @@ The forward and reverse rates match, and the concentrations stay constant. The c
 
 ### #6: A Pressure Change Always Shifts the Equilibrium
 
-> A pressure change shifts the position only when the moles of gas differ on the two sides, and only when the volume changes.
+> A pressure change made by changing the volume shifts the position only when the moles of gas differ on the two sides.
 
-If the moles of gas are equal, such as in $\text{H}_2+\text{I}_2\rightleftharpoons2\text{HI}$, nothing shifts. Adding an unreactive gas at constant volume does not shift it either.
+If the moles of gas are equal, such as in $\text{H}_2+\text{I}_2\rightleftharpoons2\text{HI}$, nothing shifts. Adding an unreactive gas at constant volume does not shift it either. Adding a reacting gas is an add-a-substance change, so it does shift the equilibrium.
