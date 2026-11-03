@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-earth-science-astronomy-water-cycle-oceanography",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The Moon pulls hardest on the water facing it. Water on the far side is pulled least.",
+      "problem": "Still open from round 2. This tide paragraph has six sentences, over the one-to-three limit. Others still run over: the 'Surface currents are driven mainly by wind' paragraph (6), the 'Density is how much mass fits' paragraph (6), the 'About $2.5\\%$ of Earth's water is fresh water' paragraph (5), the 'The ocean forms layers' paragraph (5), and the first and third Speed Tricks paragraphs (5 each), plus several of four sentences.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "Add that to $6{:}00$ a.m. to get about $6{:}25$ p.m. on Monday.",
+      "problem": "Still open from rounds 1 and 2. Example #8's key time additions (6:00 plus 12 h 25 min, and 6:00 plus 24 h 50 min) appear only inline, with no display equation. No step is skipped and both answers are correct, so this is Minor.",
+      "source": "content-checklist.md L19; lesson-style-guide.md Examples section"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
