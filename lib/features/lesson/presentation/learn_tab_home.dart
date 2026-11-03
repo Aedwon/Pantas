@@ -174,6 +174,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
       Scaffold(
         backgroundColor: context.colors.background,
         body: SafeArea(
+          bottom: !FloatingTabBarScope.of(context),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -191,7 +192,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
               Expanded(
                 child: loading
                     ? SingleChildScrollView(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: EdgeInsets.fromLTRB(
+                          16,
+                          0,
+                          16,
+                          FloatingTabBarScope.clearance(context),
+                        ),
                         child: state,
                       )
                     : state,
@@ -327,6 +333,11 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                           children: [
                             ListView(
                               controller: _scrollController,
+                              // The last topic scrolls clear of the floating
+                              // tab bar.
+                              padding: EdgeInsets.only(
+                                bottom: FloatingTabBarScope.clearance(context),
+                              ),
                               children: [
                                 StudyHeadBlock(map: map),
                                 StudyMapEntry(

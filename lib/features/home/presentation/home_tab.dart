@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
@@ -45,6 +46,8 @@ class HomeTab extends ConsumerWidget {
 
     return Scaffold(
       body: SafeArea(
+        // The floating tab bar covers the bottom; the list scrolls under it.
+        bottom: !FloatingTabBarScope.of(context),
         child: asyncFocus.when(
           loading: () => const HomePageSkeleton(),
           error: (_, __) => errorFor(

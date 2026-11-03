@@ -21,6 +21,68 @@ class WeekStrip extends StatefulWidget {
   final ValueChanged<DateTime> onSelected;
   final double todayFraction;
   final DateTime? selectedDate;
+
+  /// How far the last day's visible mark ends before the strip's right edge.
+  ///
+  /// The last day sits centered in its cell, so there is empty space between
+  /// its number (or today's mark) and the strip's edge. A neighbor that wants
+  /// to be spaced from what the eye reads as the last day, not from the cell
+  /// edge, adds this inset. It follows where the strip starts scrolled, so
+  /// when the last cell starts partly out of view the inset shrinks to zero
+  /// instead of going negative.
+  static double lastDayInset(
+    BuildContext context, {
+    required double width,
+    required DateTime today,
+    required List<WeekDayState> states,
+    double todayFraction = 0,
+  }) {
+    final scale = MediaQuery.textScalerOf(context);
+    final cell = _cellWidth(scale, width);
+    final size = _markSize(scale);
+    final lastIsToday = states.last == WeekDayState.today;
+    final double visible;
+    if (lastIsToday) {
+      visible = todayFraction > 0 ? size : size - 6;
+    } else {
+      final last = PantasDates.weekStart(today).add(const Duration(days: 6));
+      final painter = TextPainter(
+        text: TextSpan(
+          text: '${last.day}',
+          style: _digitStyle(context, today: false),
+        ),
+        textDirection: TextDirection.ltr,
+        textScaler: scale,
+      )..layout(maxWidth: size); // The cell lets the number use `size`.
+      visible = painter.width;
+    }
+    final maxScroll = (cell * 7 - width).clamp(0.0, double.infinity);
+    final startScroll = (today.weekday % 7 * cell).clamp(0.0, maxScroll);
+    final cutOff = cell * 7 - width - startScroll;
+    final inset = (cell - visible) / 2 - cutOff;
+    return inset < 0 ? 0 : inset;
+  }
+
+  static double _cellWidth(TextScaler scale, double maxWidth) =>
+      (maxWidth / 7).clamp(scale.scale(10) * 3.5, double.infinity);
+
+  static double _markSize(TextScaler scale) {
+    final markSize = scale.scale(15) * 1.35 + 4;
+    return markSize > 34 ? markSize : 34.0;
+  }
+
+  static TextStyle _digitStyle(
+    BuildContext context, {
+    required bool today,
+    Color? color,
+  }) =>
+      context.type.body.copyWith(
+        fontSize: today ? 14 : 15,
+        fontWeight: today ? FontWeight.w700 : FontWeight.w500,
+        letterSpacing: 0,
+        color: color,
+      );
+
   @override
   State<WeekStrip> createState() => _WeekStripState();
 }
@@ -38,12 +100,10 @@ class _WeekStripState extends State<WeekStrip> {
     final start = PantasDates.weekStart(widget.today);
     final c = context.colors;
     final scale = MediaQuery.textScalerOf(context);
-    final markSize = scale.scale(15) * 1.35 + 4;
-    final size = markSize > 34 ? markSize : 34.0;
+    final size = WeekStrip._markSize(scale);
     return LayoutBuilder(
       builder: (context, constraints) {
-        final width = (constraints.maxWidth / 7)
-            .clamp(scale.scale(10) * 3.5, double.infinity);
+        final width = WeekStrip._cellWidth(scale, constraints.maxWidth);
         _scroll ??= ScrollController(
           initialScrollOffset: (widget.today.weekday % 7) * width,
         );
@@ -67,10 +127,9 @@ class _WeekStripState extends State<WeekStrip> {
                 final selected = widget.selectedDate == date;
                 final digit = Text(
                   '${date.day}',
-                  style: context.type.body.copyWith(
-                    fontSize: today ? 14 : 15,
-                    fontWeight: today ? FontWeight.w700 : FontWeight.w500,
-                    letterSpacing: 0,
+                  style: WeekStrip._digitStyle(
+                    context,
+                    today: today,
                     color: dayOff
                         ? c.inactiveDateLabel
                         : today
