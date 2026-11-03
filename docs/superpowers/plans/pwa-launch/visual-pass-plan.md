@@ -360,3 +360,5 @@ Run: `~/Applications/Pantas Local Test.app` runs `~/.local/bin/pantas-local-test
 Next: Aedwon continues the visual pass. Aedwon's calls from using the app override boards (decision log, Nov 2). Open: confirm that tapping a read lesson reopens it; watch for the assessment glitch and inconsistent Free loading; the phone "Coming soon" label sits close to the card edge; 968 questions marked unapproved are still exported; check current Firebase docs on spend caps. The notes in `build/cost-controls.md` say there are none, but Firebase's docs recommend spend caps for Cloud Functions.
 
 Local-only, not in git, in the staging worktree `build/`: `cost-controls.md`, `legal/`, `beta-readiness.md`, `visual-pass/`. Launch items for Aedwon are in `build/beta-readiness.md`, `build/legal/REVIEW.md` and `build/cost-controls.md`.
+
+Nov 3 update: fixed the phone "Coming soon" label (16 px from the card edge, per O_Picker; under the subtitle at large text sizes). Fixes and staging at c39cb87e, pushed. Not yet seen in the running app. Remaining open items from HANDOFF 15 are unchanged.
