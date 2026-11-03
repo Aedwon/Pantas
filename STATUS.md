@@ -189,3 +189,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Done at minor after round 3: cellular-reproduction (1 Minor; split candidate). Open after 3 reads: characteristics-of-life (1 Blocker: 'a seed is made of living cells' ignores dead seeds). Round 2 Blockers: atomic-structure (NH4+ ion formation), taxonomy (Rafflesia); last fixes running.
 - Open after 3 reads: evolution (round 3: 2 Blockers, parthenogenesis uses eggs; Trap #3 contradicts the drift examples).
 - Written: nuclear-chemistry, solutions, periodic-table. Ruling: half-life stays out of nuclear chemistry (unknown class, not in base).
+- Done at minor after round 3: taxonomy (1 Minor, title vs outline). Round reads: chemical-reactions r2 (1 Blocker), matter r1 (2 Blockers, 1 Major); fixes running.

@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-chemistry-gas-laws",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B02", "severity": "Blocker", "quote": "The idea that their own volume is zero then fails first", "problem": "The worked answer in Example #11 states an order of failure that is false for most gases. The stem names no gas. As a real gas such as N2, O2, CH4 or CO2 is compressed, attractions show up first: Z falls below 1 before it rises above 1. The zero-volume assumption only dominates at very high pressure, and only H2 shows the volume effect from the start. A student would learn a wrong rule and could reject 'attractions become significant' as an answer. The Core Concept sentence 'At high pressure the particles are squeezed close and their own volume matters' is correct. The error is the word 'first', which makes a general claim with known exceptions.", "source": "Checklist B02 and B01; reader-rules 'Added after the Sol audit'; OpenStax Chemistry 2e, section 9.6 Non-Ideal Gas Behavior: 'The attractive force between molecules initially makes the gas more compressible than an ideal gas' and Figure 9.35 (N2, O2, CH4, CO2 dip below Z = 1 before rising; H2 does not)."},
+    {"rule": "L19", "severity": "Minor", "quote": "One mole would fill about $24.5$ L, not $22.4$ L.", "problem": "The molar-volume step (V divided by n) is not shown. From the values shown, $12.2/0.50$ gives $24.4$ L, not $24.5$ L. The $24.5$ comes from the unrounded $12.23$ L, so a student checking the step gets a different number and may think they made a mistake. The worked answer is correct, so this is Minor.", "source": "Checklist L19; LSG Examples section (key computations as display equations)."},
+    {"rule": "B08", "severity": "Minor", "quote": "Using 22.4 L at Any Condition", "problem": "This trap heading has a bare number outside inline math, as does the heading 'Thinking 0 K Means \"No Energy\"'. The base lesson wrapped its heading number in math ('Using $+273$'), and this lesson's own Trap #5 heading renders '$R$'.", "source": "Checklist B08; LSG Math notation (every number in prose is wrapped in inline math)."}
+  ],
+  "goodQuotesChecked": 3
+}

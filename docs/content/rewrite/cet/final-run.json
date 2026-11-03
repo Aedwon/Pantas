@@ -129,7 +129,7 @@
     "lessonPath": "content/lessons/science/biology/taxonomy-and-classification.md",
     "lessonId": "lesson-biology-taxonomy-and-classification",
     "group": "science",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/atomic-structure.md",
@@ -147,7 +147,7 @@
     "lessonPath": "content/lessons/science/chemistry/chemical-reactions.md",
     "lessonId": "lesson-chemistry-chemical-reactions",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "round-2-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/gas-laws.md",
@@ -165,7 +165,7 @@
     "lessonPath": "content/lessons/science/chemistry/matter.md",
     "lessonId": "lesson-chemistry-matter",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/mixtures-and-separation.md",
