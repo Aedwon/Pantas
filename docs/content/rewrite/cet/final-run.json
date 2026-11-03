@@ -207,7 +207,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-motions.md",
     "lessonId": "lesson-earth-science-astronomy-earths-motions",
     "group": "science",
-    "status": "round-2-read"
+    "status": "round-2-fixed"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/earths-subsystems.md",
@@ -231,7 +231,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/layers-of-the-earth.md",
     "lessonId": "lesson-earth-science-astronomy-layers-of-the-earth",
     "group": "science",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/minerals-and-rocks.md",
@@ -243,7 +243,7 @@
     "lessonPath": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
     "lessonId": "lesson-earth-science-astronomy-origin-of-the-universe",
     "group": "science",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
@@ -261,7 +261,7 @@
     "lessonPath": "content/lessons/science/physics/fluid-mechanics.md",
     "lessonId": "lesson-physics-fluid-mechanics",
     "group": "science",
-    "status": "not-written"
+    "status": "written"
   },
   {
     "lessonPath": "content/lessons/science/physics/light-and-optics.md",

@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-earth-science-astronomy-layers-of-the-earth",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "At the center, pressure is so high that the metal cannot melt, even at that high temperature.", "problem": "Still open from round 1. The inner-core paragraph has five sentences, and the guide allows one to three. The asthenosphere paragraph ('A small amount of melted rock may exist in parts of it'), the Kola paragraph ('No one has seen the inside of Earth directly'), and the two crust-type paragraphs ('There are two kinds of crust', 'Its thickness varies a lot') each have four sentences.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 1
+}

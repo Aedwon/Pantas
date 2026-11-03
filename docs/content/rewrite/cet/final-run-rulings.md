@@ -17,6 +17,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | lesson-chemistry-basic-organic-chemistry | 3,005 | Crossed 3,000 in the round-2 fix (naming rules and the boiling-point reason). Borderline. |
 | lesson-earth-science-astronomy-heavenly-bodies | 3,171 | Every brief item taught, including the weak-class stellar-stage item. |
 | lesson-chemistry-thermodynamics-and-kinetics | 3,013 | Crossed 3,000 in the round-1 fix. Borderline. |
+| lesson-physics-fluid-mechanics | 3,261 | Writer added continuity and apparent weight beyond the brief; check for padding. |
 
 ## Rulings during the run (continued)
 

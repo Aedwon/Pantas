@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-earth-science-astronomy-origin-of-the-universe",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Observations of very old gas clouds match these amounts.", "problem": "Step 1 of Example #5 lists helium, hydrogen, deuterium and lithium, and step 2 then says observations match all of these amounts. A known exception breaks this: the 'lithium problem'. Primordial lithium is measured in old metal-poor halo stars, not in gas clouds, and it comes out about 3 times lower than the BBN prediction (a 4.4 sigma gap). Only deuterium and helium-4 agree. The base hedged this as 'broadly match'. The Core Concept sentence 'Observations of very old gas clouds match this.' refers only to helium and is fine.", "source": "Particle Data Group, Review of Particle Physics 2024, ch. 24 Big Bang Nucleosynthesis, sections 24.4 and 24.5 ('This discrepancy marks the lithium problem'; stellar Li/H 'a factor 3.1' off the prediction; 'If however we exclude the lithium constraint ... then D/H and 4He are in agreement'); reader-rules.md, Added after the Sol audit"},
+    {"rule": "L04", "severity": "Minor", "quote": "an ice skater pulling in her arms shows the same effect", "problem": "Core Concept already uses one analogy, the raisin bread for expanding space. The ice skater is a second analogy, and the rule allows at most one per lesson.", "source": "content-checklist.md L04; lesson-style-guide.md Voice"},
+    {"rule": "L22a", "severity": "Minor", "quote": "In the 1920s, astronomers found that most galaxies are redshifted. Edwin Hubble showed in $1929$ that, on large scales, farther galaxies have larger redshifts. This is what an expanding universe predicts.", "problem": "This paragraph has four sentences, and the limit is one to three. Several other paragraphs also have four sentences: the opening paragraph, the Big Bang paragraph, the limits-of-redshift paragraph, and the nebular-model paragraphs that begin 'The Solar System formed', 'The spinning flattens', 'Near the Sun' and 'Several observations'.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"},
+    {"rule": "B08", "severity": "Minor", "quote": "ideas of Immanuel Kant and Pierre-Simon Laplace in the 1700s", "problem": "These numbers in the prose are not wrapped in inline math, and 'In the 1920s' in Evidence 1 has the same problem. The same lesson does wrap $1929$ and $1965$.", "source": "content-checklist.md B08; lesson-style-guide.md Math notation"}
+  ],
+  "goodQuotesChecked": 4
+}

@@ -28,7 +28,7 @@ The same fact explains why a star rises about $4$ minutes earlier each night. Af
 
 ### Revolution and Axial Tilt
 
-**Revolution** is Earth's trip around the Sun along its orbit. One trip takes about $365.24$ days, which is why a calendar year needs leap days. The flat surface that the orbit lies on is the **orbital plane**.
+**Revolution** is Earth's trip around the Sun along its orbit. One trip measured against the stars takes about $365.26$ days. Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below). The flat surface that the orbit lies on is the **orbital plane**.
 
 Earth's axis is not upright to this plane. It leans by about $23.4^\circ$ from the upright line. This lean is the **axial tilt**. During the whole orbit, the axis keeps pointing toward the same spot in the sky (near the star Polaris), so the tilt does not follow the Sun.
 
@@ -67,7 +67,7 @@ Near the poles the effect is strongest. Places inside the polar circles, about $
 
 ### Leap Years
 
-A calendar year has a whole number of days, but Earth's trip takes about $365.24$ days. The extra $0.24$ of a day adds up to about one day every four years. A **leap year** has $366$ days, with February $29$, to catch up.
+A calendar year has a whole number of days, but the seasonal (tropical) year is about $365.24$ days. The extra $0.24$ of a day adds up to about one day every four years. A **leap year** has $366$ days, with February $29$, to catch up.
 
 The **Gregorian calendar**, the one in common use today, sets this rule:
 
@@ -75,7 +75,7 @@ The **Gregorian calendar**, the one in common use today, sets this rule:
 2. But a year divisible by $100$ (a century year) is not a leap year.
 3. Unless it is also divisible by $400$. Then it is a leap year.
 
-Adding a day every fourth year is slightly too much, so the century rule removes a few. Over $400$ years there are $97$ leap years, which gives an average year of $365.2425$ days, very close to the real $365.24$.
+Adding a day every fourth year is slightly too much, so the century rule removes a few. Over $400$ years there are $97$ leap years, which gives an average year of $365.2425$ days, very close to the seasonal year of $365.24$ days.
 
 ### Seasonal Constellations
 

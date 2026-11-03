@@ -105,7 +105,7 @@ For a given equation, $K$ changes only with temperature.
 
 **Le Chatelier's principle** says: when a change is applied to a system at equilibrium, the system shifts in the direction that partly cancels the change. Shifting right means making more products. Shifting left means making more reactants.
 
-- **Add a substance:** the system shifts away from it. **Remove a substance:** it shifts toward it. $K$ does not change. This works for gases and dissolved substances. Adding or removing a pure solid or pure liquid does not shift the equilibrium, because it is not in $K$.
+- **Add a substance:** the system shifts away from it. **Remove a substance:** it shifts toward it. $K$ does not change. This works for gases and dissolved substances. Adding more of a pure solid, or of a pure liquid that is a reactant or product, does not shift the equilibrium, because it is not in $K$. Adding water to a solution dilutes the dissolved substances and can shift it.
 - **Change the pressure by changing the volume:** shrinking the volume favors the side with fewer moles of gas. Enlarging it favors the side with more. If both sides have equal moles of gas, nothing shifts. $K$ does not change.
 - **Add an unreactive gas at constant volume:** the concentrations do not change, so nothing shifts.
 - **Raise the temperature:** the system shifts in the endothermic direction. Lowering it favors the exothermic direction. This changes $K$.
