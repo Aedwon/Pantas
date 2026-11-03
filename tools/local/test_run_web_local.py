@@ -295,11 +295,22 @@ class LocalSeedRequestTest(unittest.TestCase):
         for state in local_seed.STATES:
             self.assertIn(f'  {state}: {{', script)
 
-    def test_refuses_other_machines_pages_and_lan_runs(self):
+    def test_lan_run_accepts_only_its_own_page_on_the_private_network(self):
+        def lan(**kwargs):
+            request = {'ip': '192.168.1.20', 'origin': 'http://192.168.1.194:7357', **kwargs}
+            return local_seed.check(self.ok, 'application/json', request['ip'],
+                                    '192.168.1.194', 7357, request['origin'], True)
+        self.assertEqual(lan(), ('local-free', 'steady', None))
+        for bad in [{'origin': None}, {'origin': 'http://127.0.0.1:7357'},
+                    {'origin': 'http://evil.example'}, {'ip': '8.8.8.8'}, {'ip': 'nonsense'}]:
+            with self.assertRaises(local_seed.Refused) as caught:
+                lan(**bad)
+            self.assertEqual(caught.exception.status, 403)
+
+    def test_refuses_other_machines_and_pages(self):
         self.refused(403, ip='192.168.1.20')
         self.refused(403, origin='http://evil.example')
         self.refused(403, origin='http://localhost:9999')
-        self.refused(403, lan=True)
         self.refused(415, content_type='text/plain')
 
     def test_refuses_bad_bodies(self):

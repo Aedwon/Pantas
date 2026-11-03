@@ -21,14 +21,19 @@ class Refused(Exception):
 
 
 def check(body, content_type, client_ip, host, port, origin, lan):
-    """Returns (uid, profile, state). Raises Refused. Only this machine's own page may ask."""
-    if lan:
-        raise Refused(403, 'Sample students are not available with --lan.')
+    """Returns (uid, profile, state). Raises Refused. Only this run's own page may ask.
+
+    A --lan run has to answer the phone, so it accepts a private network address, but only
+    from the page it serves. It reseeds emulator accounts and reaches no real data.
+    """
     try:
-        if not ipaddress.ip_address(client_ip.split('%')[0]).is_loopback:
+        address = ipaddress.ip_address(client_ip.split('%')[0])
+        if not (address.is_private if lan else address.is_loopback):
             raise ValueError
     except ValueError:
         raise Refused(403, 'Local requests only.') from None
+    if lan and origin != f'http://{host}:{port}':
+        raise Refused(403, 'Not from this page.')
     # A JSON content type forces a cross-site page to ask first; the origin must be this server.
     if (content_type or '').split(';')[0].strip() != 'application/json':
         raise Refused(415, 'Send JSON.')
