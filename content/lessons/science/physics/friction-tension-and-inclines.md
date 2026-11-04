@@ -17,7 +17,11 @@ Friction, tension and the slope of a surface each change the net force on an obj
 
 **Tension** $T$ is the pull of a rope, string, or cable. It pulls along the rope, toward the rope, on whatever is attached to its ends. A rope can pull but cannot push.
 
-In problems, the rope is usually **ideal**: it has no mass and does not stretch. Any pulley is ideal too: it has no mass and no friction. For an ideal rope, the tension is the same all along it, and connected objects have accelerations of the same size while the rope stays tight. Over a pulley the directions can differ: one object moves up while the other moves down, so give each its own sign. A heavy rope or a rough pulley breaks this rule.
+In problems, the rope is usually **ideal**: it has no mass and does not stretch. Any pulley is ideal too: it has no mass and no friction. For an ideal rope, the tension is the same all along it.
+
+Two objects tied to the ends of a tight rope have accelerations of the same size, if the rope passes only over fixed pulleys. Over a pulley the directions can differ: one object moves up while the other moves down, so give each its own sign.
+
+A movable pulley changes this. If one end of the rope is fixed and a block hangs from a movable pulley, that block's acceleration is half the acceleration of the free end. A heavy rope or a rough pulley also breaks these rules.
 
 ### Friction
 
@@ -29,7 +33,9 @@ $$f_s\le\mu_sN$$
 
 $$f_{s,\max}=\mu_sN.$$
 
-Suppose the only other force along the surface is a horizontal push, and it is smaller than the maximum. Then static friction equals the push and the object stays at rest. If other forces act along the surface, for example on a slope or with an angled push, find $f_s$ from the force balance along the surface. It must still be at most $\mu_sN$, and it is not always equal to $\mu_sN$.
+Suppose the only other force along the surface is a horizontal push, and it is smaller than the maximum. Then static friction equals the push and the object stays at rest.
+
+If other forces act along the surface, for example on a slope or with an angled push, find $f_s$ from the force balance along the surface. It must still be at most $\mu_sN$, and it is not always equal to $\mu_sN$.
 
 **Kinetic friction** acts while the surfaces slide. In the model,
 
@@ -155,7 +161,7 @@ A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $40\,\mathrm N
 **Solution:**
 
 1. Split the pull. The part along the floor is $40\cos30^\circ=34.6\,\mathrm N$. The part up is $40\sin30^\circ=20\,\mathrm N$.
-2. The box does not move up or down, so $a_y=0$.
+2. The weight is $mg=10\times 9.8=98\,\mathrm N$. The box does not move up or down, so $a_y=0$.
 
 $$N+20-98=0\Rightarrow N=78\,\mathrm N.$$
 
@@ -173,7 +179,9 @@ The box accelerates at $1.9\,\mathrm{m/s^2}$ along the floor.
 
 For static friction, find the friction needed to keep the object still. Then compare it with $\mu_sN$. Use $f_s=\mu_sN$ only when the object is just about to slide.
 
-When blocks joined by a tight, ideal rope move together, find the acceleration of the whole group first. Only forces from outside the group count, because the rope forces inside cancel. Then find the tension by applying the second law to one block.
+When blocks joined by a tight, ideal rope move along one line in the same direction, find the acceleration of the whole group first. Only forces from outside the group count, because the rope forces inside cancel. Then find the tension by applying the second law to one block.
+
+Do not use this over a pulley, where one block moves up and the other moves down. Write the second law for each block, with its own sign for the direction it moves.
 
 For a block on a slope with angle $\theta$, with no other force perpendicular to the slope, $N=mg\cos\theta$.
 
