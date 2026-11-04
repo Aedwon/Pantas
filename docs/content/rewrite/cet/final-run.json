@@ -381,7 +381,7 @@
     "lessonPath": "content/lessons/mathematics/trigonometry/solving-right-triangles.md",
     "lessonId": "lesson-trigonometry-solving-right-triangles",
     "group": "mathematics",
-    "status": "round-2-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/mathematics/trigonometry/trigonometric-identities.md",

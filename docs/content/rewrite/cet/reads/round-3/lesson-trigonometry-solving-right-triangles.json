@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-trigonometry-solving-right-triangles",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Put your calculator in degree mode first. In a right triangle the other angles are acute, so the calculator's answer is the angle you want.",
+      "problem": "Round-1 and round-2 finding still open. The Finding an angle paragraph has five sentences, over the one-to-three limit. The paragraph starting \"The angle is always measured from the horizontal, never from the vertical.\" still has four.",
+      "source": "Content checklist L22a; LSG Formatting rules; round-2 read"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$\\sin\\theta=\\dfrac{\\text{opposite}}{\\text{hypotenuse}}\\qquad\\cos\\theta=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}\\qquad\\tan\\theta=\\dfrac{\\text{opposite}}{\\text{adjacent}}$$",
+      "problem": "Round-2 finding still open. All three ratios, with word numerators and denominators and two wide gaps, sit on one display line, which is far wider than a phone screen and will overflow or shrink to an unreadable size.",
+      "source": "Content checklist L21; LSG Examples section; round-2 read"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

@@ -254,3 +254,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Measures-of-variability open after 3 reads (2 Majors). Basic-trigonometric-ratios fixed after round 1; round 2 read running. Fluid-pressure round 1: 1 Blocker, 2 Majors; fix running.
 - Fluid-pressure done at minor. Basic-trigonometric-ratios done at minor. Written: laws-of-sines-and-cosines (2,985 words, round 1 read running), solving-right-triangles (2,339).
 - Laws-of-sines-and-cosines done at minor. Solving-right-triangles fixed after round 1; round 2 read running. Trig identities written (2,164 words); round 1 read running.
+- Trig identities and solving-right-triangles done at minor. Unit circle written (3,001 words, split candidate); round 1 read running.
