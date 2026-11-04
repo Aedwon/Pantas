@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
@@ -90,5 +91,57 @@ void main() {
 
     expect(find.text('Welcome to Pantas'), findsOneWidget);
     expect(handover.readyCalls, isEmpty);
+  });
+
+  group('a return visit under the HTML splash (4P-2)', () {
+    late VoidCallback? splashLeft;
+    final welcomeFade = find.byKey(const ValueKey('welcome-after-splash'));
+
+    setUp(() {
+      splashLeft = null;
+      final probe = splashProbe;
+      final gone = splashGoneProbe;
+      splashProbe = () => true;
+      splashGoneProbe = (action) => splashLeft = action;
+      addTearDown(() {
+        splashProbe = probe;
+        splashGoneProbe = gone;
+      });
+    });
+
+    double fade(WidgetTester tester) => tester
+        .widget<FadeTransition>(
+          find.descendant(
+            of: welcomeFade,
+            matching: find.byType(FadeTransition),
+          ),
+        )
+        .opacity
+        .value;
+
+    testWidgets('Welcome opens with no second logo launch and stays hidden',
+        (tester) async {
+      await pumpPage(tester, _FakeHandover(shownThisVisit: false));
+
+      expect(
+        find.byKey(const ValueKey('launch-page-fade')),
+        findsNothing,
+        reason: 'the splash already played the logo',
+      );
+      expect(find.text('Welcome to Pantas'), findsOneWidget);
+      expect(fade(tester), 0, reason: 'the splash is still fading out');
+      expect(splashLeft, isNotNull);
+    });
+
+    testWidgets('Welcome fades in once the splash has left', (tester) async {
+      await pumpPage(tester, _FakeHandover(shownThisVisit: false));
+
+      splashLeft!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(fade(tester), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(fade(tester), 1);
+    });
   });
 }

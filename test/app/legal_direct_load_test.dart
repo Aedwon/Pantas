@@ -83,10 +83,7 @@ void main() {
       isWeb: true,
     );
     await tester.runAsync(
-      () => settleGatesBeforeFirstPage(
-        container,
-        startLocation: initialRouterLocation,
-      ),
+      () => settleGatesBeforeFirstPage(container),
     );
     await tester.pumpWidget(
       UncontrolledProviderScope(

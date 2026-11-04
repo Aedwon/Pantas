@@ -5,7 +5,9 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_hover.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_page_heading.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 import 'package:pantas/features/home/presentation/widgets/plan_skeletons.dart';
@@ -49,18 +51,11 @@ class PlanWebFrame extends StatelessWidget {
                     // fades.
                     ColoredBox(
                       color: context.webTokens.colors.background,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          WebBackLink(label: backLabel, onPressed: onBack),
-                          const SizedBox(height: 6),
-                          WebText(title, kind: WebTextKind.h1),
-                          if (subtitle != null) ...[
-                            const SizedBox(height: 6),
-                            WebText(subtitle!, kind: WebTextKind.lead),
-                          ],
-                          const SizedBox(height: 26),
-                        ],
+                      child: WebPageHeading(
+                        title: title,
+                        backLabel: backLabel,
+                        subtitle: subtitle,
+                        onBack: onBack,
                       ),
                     ),
                     child,
@@ -475,31 +470,46 @@ class PlanWebHistory extends StatelessWidget {
                     ),
                     child: InkWell(
                       onTap: loading ? null : onMore,
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            top: BorderSide(
-                              color: t.colors.separator,
-                              width: hairline,
+                      // The row's tint is its own fill: the card's fill is
+                      // opaque, so the InkWell's ink would paint under it and
+                      // the row showed no hover (5Q-8).
+                      child: WebHover(
+                        builder: (context, hovered) => DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: hovered && !loading
+                                ? t.rowHover
+                                : Colors.transparent,
+                            borderRadius: const BorderRadius.vertical(
+                              bottom: Radius.circular(18),
                             ),
                           ),
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                loading ? 'Loading' : 'See more',
-                                style: t.style(
-                                  16,
-                                  weight: FontWeight.w600,
-                                  color: t.colors.accent,
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                top: BorderSide(
+                                  color: t.colors.separator,
+                                  width: hairline,
                                 ),
                               ),
                             ),
-                            const WebChevron(),
-                          ],
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    loading ? 'Loading' : 'See more',
+                                    style: t.style(
+                                      16,
+                                      weight: FontWeight.w600,
+                                      color: t.colors.accent,
+                                    ),
+                                  ),
+                                ),
+                                const WebChevron(),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ),

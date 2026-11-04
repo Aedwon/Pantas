@@ -263,7 +263,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                 leading: Row(
                   children: [
                     WebBackLink(label: 'Quiz', onPressed: _back),
-                    const SizedBox(width: 10),
+                    // No gap: the link's own right padding is the room.
                     const WebKeyHint('Esc'),
                   ],
                 ),

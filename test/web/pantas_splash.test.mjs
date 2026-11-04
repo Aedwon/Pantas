@@ -85,6 +85,33 @@ test('ready data fades the splash out, then removes it', () => {
   assert.ok(!t.classes.has('ps-out'));
 });
 
+test('a screen under the splash can wait until the splash is gone (4P-2)', () => {
+  const t = setup();
+  let ran = 0;
+  t.splash.afterGone(() => ran++);
+  t.splash.ready();
+  assert.equal(ran, 0, 'the splash is still fading');
+  t.timers.find((x) => x.ms === FADE_MS).fn();
+  assert.equal(ran, 1);
+  t.splash.afterGone(() => ran++);
+  assert.equal(ran, 2, 'asking after it left runs at once');
+});
+
+test('without a splash there is nothing to wait for', () => {
+  const t = setup({ welcomeShown: true });
+  let ran = 0;
+  t.splash.afterGone(() => ran++);
+  assert.equal(ran, 1);
+});
+
+test('a splash that gives up also releases the waiting screen', () => {
+  const t = setup({ reduced: true });
+  let ran = 0;
+  t.splash.afterGone(() => ran++);
+  t.timers.find((x) => x.ms === NEVER_STARTED_MS).fn();
+  assert.equal(ran, 1);
+});
+
 test('reduced motion removes the splash at once, with no fade', () => {
   const t = setup({ reduced: true });
   t.splash.ready();

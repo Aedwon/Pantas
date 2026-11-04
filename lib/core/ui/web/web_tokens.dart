@@ -38,7 +38,12 @@ class WebTokens {
           floatingRight: const Color(0xFFEEF8F5),
         );
 
-  Color get accentHover => dark ? colors.accentFill : const Color(0xFF086A5A);
+  /// A primary button under the pointer. Light darkens by the board's step.
+  /// Dark has no board value, so it takes the step the danger button's dark
+  /// hover makes (9 percent darker), which a dark button needs to show at all
+  /// (5Q-7).
+  Color get accentHover =>
+      dark ? const Color(0xFF0E7967) : const Color(0xFF086A5A);
   Color get tintText => colors.accentTintText;
   Color get figureScrim => const Color.fromRGBO(10, 10, 12, .88);
   Color get figureCaption => const Color(0xFFD1D1D6);

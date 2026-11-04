@@ -29,7 +29,11 @@ Widget errorFor(
       error: error,
     );
 
-Widget saveFailureLine(VoidCallback onRetry) => Builder(
+Widget saveFailureLine(
+  VoidCallback onRetry, {
+  String message = 'Could not save your progress.',
+}) =>
+    Builder(
       builder: (context) => Semantics(
         liveRegion: true,
         child: Wrap(
@@ -38,7 +42,7 @@ Widget saveFailureLine(VoidCallback onRetry) => Builder(
           spacing: 8,
           children: [
             Text(
-              'Could not save your progress.',
+              message,
               style: context.type.subhead
                   .copyWith(color: context.colors.secondaryLabel),
             ),

@@ -286,40 +286,39 @@ class HomeTodayChecklist extends StatelessWidget {
         );
     Widget check() =>
         const SizedBox.square(dimension: 26, child: Center(child: CheckMark()));
-    Widget lesson(HomeTodayLesson l, {bool upNext = false}) => Tooltip(
-          message: l.title,
-          child: WebRow(
-            boardMetrics: true,
-            chevron: upNext ? WebRowChevron.none : WebRowChevron.hover,
-            title: l.title,
-            subtitle: l.subject,
-            titleColor: l.read ? t.colors.secondaryLabel : null,
-            titleSuffix: !upNext
-                ? null
-                : Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: t.colors.accentTint,
-                      borderRadius: BorderRadius.circular(99),
-                    ),
-                    child: Text(
-                      'Up next',
-                      style: t.style(
-                        12,
-                        weight: FontWeight.w600,
-                        color: t.tintText,
-                      ),
+    Widget lesson(HomeTodayLesson l, {bool upNext = false}) => WebRow(
+          // The full title shows only when the row cuts it (5Q-16).
+          tooltipWhenCut: true,
+          boardMetrics: true,
+          chevron: upNext ? WebRowChevron.none : WebRowChevron.hover,
+          title: l.title,
+          subtitle: l.subject,
+          titleColor: l.read ? t.colors.secondaryLabel : null,
+          titleSuffix: !upNext
+              ? null
+              : Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: t.colors.accentTint,
+                    borderRadius: BorderRadius.circular(99),
+                  ),
+                  child: Text(
+                    'Up next',
+                    style: t.style(
+                      12,
+                      weight: FontWeight.w600,
+                      color: t.tintText,
                     ),
                   ),
-            value: l.read
-                ? 'Read'
-                : (l.fraction ?? 0) > 0
-                    ? 'Resume'
-                    : '${l.minutes} min',
-            leading: l.read ? check() : ring(l.fraction ?? 0),
-            onPressed: () => onLesson(l),
-          ),
+                ),
+          value: l.read
+              ? 'Read'
+              : (l.fraction ?? 0) > 0
+                  ? 'Resume'
+                  : '${l.minutes} min',
+          leading: l.read ? check() : ring(l.fraction ?? 0),
+          onPressed: () => onLesson(l),
         );
     Widget questions(
       String title,

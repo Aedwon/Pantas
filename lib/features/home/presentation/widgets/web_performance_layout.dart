@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_hover.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -613,25 +614,29 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       itemBuilder: (_) => [
         _KeyboardMenuList<T>(values: values, selected: selected),
       ],
-      child: Container(
-        height: 38,
-        padding: const EdgeInsets.only(left: 14, right: 12),
-        decoration: BoxDecoration(
-          color: t.colors.surface,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: t.colors.separator),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(label, style: t.style(15, weight: FontWeight.w600)),
-            const SizedBox(width: 8),
-            Icon(
-              Icons.keyboard_arrow_down,
-              size: 16,
-              color: t.colors.label,
-            ),
-          ],
+      // The pill's own fill is opaque, so the popup's ink would paint under
+      // it. The fill takes the row hover tint itself (5Q-10).
+      child: WebHover(
+        builder: (context, hovered) => Container(
+          height: 38,
+          padding: const EdgeInsets.only(left: 14, right: 12),
+          decoration: BoxDecoration(
+            color: hovered ? t.rowHover : t.colors.surface,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: t.colors.separator),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(label, style: t.style(15, weight: FontWeight.w600)),
+              const SizedBox(width: 8),
+              Icon(
+                Icons.keyboard_arrow_down,
+                size: 16,
+                color: t.colors.label,
+              ),
+            ],
+          ),
         ),
       ),
     );

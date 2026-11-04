@@ -29,8 +29,8 @@ import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
-void _back(BuildContext context) =>
-    context.canPop() ? context.pop() : context.go('/home');
+void _back(BuildContext context, {String fallback = '/home'}) =>
+    context.canPop() ? context.pop() : context.go(fallback);
 
 /// Leaves the plan the way it was entered, so Home slides back into place,
 /// from a day or week pane as well as from the plan itself.
@@ -45,9 +45,19 @@ void _backToHome(BuildContext context) {
 }
 
 class PlanScreen extends ConsumerStatefulWidget {
-  const PlanScreen({this.webPane, this.selectedWeek, super.key});
+  const PlanScreen({
+    this.webPane,
+    this.selectedWeek,
+    this.onPaneClose,
+    super.key,
+  });
   final Widget? webPane;
   final String? selectedWeek;
+
+  /// Closes the pane beside the plan. Esc on the plan closes an open pane
+  /// instead of leaving the plan, also when the pane was opened directly and
+  /// holds no focus (5Q-13).
+  final VoidCallback? onPaneClose;
   @override
   ConsumerState<PlanScreen> createState() => _PlanScreenState();
 }
@@ -154,7 +164,9 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
           ? errorFor('plan', () => ref.invalidate(planViewProvider(_limit)))
           : null,
       onMore: () => setState(() => _limit += 10),
-      onBack: () => _back(context),
+      onBack: () => widget.webPane != null && widget.onPaneClose != null
+          ? widget.onPaneClose!()
+          : _back(context),
       onToday: () => context.wideWeb ? _backToHome(context) : _back(context),
       onWeek: (start) => unawaited(context.push<void>('/plan/week/$start')),
       onPro: () => unawaited(context.push<void>('/settings/pro')),
@@ -417,8 +429,10 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
       newDone: plan.newQuestionIds.length -
           (remaining?.newQuestionIds.length ?? plan.newQuestionIds.length),
       newTotal: plan.newQuestionIds.length,
-      onBack: () =>
-          widget.popover ? Navigator.of(context).pop() : _back(context),
+      // A day opened directly has no page behind it. Its parent is the plan.
+      onBack: () => widget.popover
+          ? Navigator.of(context).pop()
+          : _back(context, fallback: context.wideWeb ? '/plan' : '/home'),
       onLesson: (lesson) async {
         if (!await (await _guard!)() || !mounted || !context.mounted) return;
         final dayContext = LessonDayContext(
@@ -449,6 +463,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     );
     if (context.wideWeb && !widget.popover) {
       return PlanScreen(
+        onPaneClose: () => _back(context, fallback: '/plan'),
         webPane: page,
         selectedWeek: dayKey(
           DateTime(
@@ -533,7 +548,9 @@ class PlanWeekScreen extends ConsumerWidget {
       ],
       studyDaysLabel:
           studyDays == null ? '' : planStudyDaysLabel(studyDays.weekdays),
-      onBack: () => _back(context),
+      // A week opened directly has no page behind it, and its parent is the
+      // plan, not Home (5Q-13).
+      onBack: () => _back(context, fallback: '/plan'),
       onChange: context.wideWeb
           ? () => unawaited(context.push<void>('/settings/exam'))
           : null,
@@ -544,7 +561,13 @@ class PlanWeekScreen extends ConsumerWidget {
         ),
       ),
     );
-    if (context.wideWeb) return PlanScreen(webPane: page, selectedWeek: start);
+    if (context.wideWeb) {
+      return PlanScreen(
+        webPane: page,
+        selectedWeek: start,
+        onPaneClose: () => _back(context, fallback: '/plan'),
+      );
+    }
     return page;
   }
 }

@@ -17,6 +17,14 @@ bool pageBeganFromSplash() => splashProbe();
 @visibleForTesting
 bool Function() splashProbe = platform.pageBeganFromSplash;
 
+/// Runs [action] once the HTML splash has left the page, at once when none
+/// covers it. A screen that must not show under the fading splash waits here
+/// (4P-2). Tests replace the probe.
+void afterSplashGone(VoidCallback action) => splashGoneProbe(action);
+
+@visibleForTesting
+void Function(VoidCallback) splashGoneProbe = platform.afterSplashGone;
+
 final firstScreenSignalProvider = Provider<FirstScreenSignal>(
   (ref) => FirstScreenSignal(platform.sendFirstScreenReady),
 );

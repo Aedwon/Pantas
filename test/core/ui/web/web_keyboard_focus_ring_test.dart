@@ -181,9 +181,22 @@ void main() {
       find.text('Plain'),
       find.text('See more'),
     ];
+    final backRing = find.byWidgetPredicate(
+      (w) =>
+          w is DecoratedBox &&
+          w.decoration is ShapeDecoration &&
+          (w.decoration as ShapeDecoration).shape is StadiumBorder,
+    );
     for (final stop in stops) {
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.pump();
+      if (stop == stops.first) {
+        // The back link is nudged out of the page's clip, so its ring is
+        // drawn above the page (5Q-11), not on its button.
+        expect(backRing, findsOneWidget);
+        continue;
+      }
+      expect(backRing, findsNothing);
       expect(sideOf(stop).width, 2, reason: 'ring on $stop');
       expect(sideOf(stop).color, const Color(0xFF0B7A68));
     }

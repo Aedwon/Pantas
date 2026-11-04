@@ -77,17 +77,39 @@ void main() {
       }
     });
 
-    testWidgets('a page that began from the splash shows them settled (4P-2)',
-        (tester) async {
-      final original = splashProbe;
+    testWidgets(
+        'a page that began from the splash waits, then shows settled '
+        '(4P-2)', (tester) async {
+      final probe = splashProbe;
+      final gone = splashGoneProbe;
+      VoidCallback? splashLeft;
       splashProbe = () => true;
-      addTearDown(() => splashProbe = original);
+      splashGoneProbe = (action) => splashLeft = action;
+      addTearDown(() {
+        splashProbe = probe;
+        splashGoneProbe = gone;
+      });
       await pumpWide(tester, OnboardingWelcomeStep(onAdvance: () {}));
       await tester.pump();
+      const cover = ValueKey('welcome-after-splash');
+      double shown() => tester
+          .widget<FadeTransition>(
+            find.descendant(
+              of: find.byKey(cover),
+              matching: find.byType(FadeTransition),
+            ),
+          )
+          .opacity
+          .value;
+      expect(shown(), 0, reason: 'two logos must not show while it fades');
       for (final key in [logo, title]) {
-        expect(opacity(tester, key), 1, reason: '$key');
+        expect(opacity(tester, key), 1, reason: '$key settled, no second pop');
         expect(scale(tester, key), 1, reason: '$key');
       }
+
+      splashLeft!();
+      await tester.pumpAndSettle();
+      expect(shown(), 1);
       expect(tester.hasRunningAnimations, isFalse);
     });
 

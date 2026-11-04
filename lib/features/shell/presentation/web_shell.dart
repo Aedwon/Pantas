@@ -71,6 +71,80 @@ class WebShellFrame extends StatelessWidget {
         ),
       );
     }
+    return _DesktopShell(
+      activeIndex: activeIndex,
+      person: person,
+      exam: exam,
+      plan: plan,
+      onNavigate: onNavigate,
+      onSearch: onSearch,
+      child: child,
+    );
+  }
+}
+
+/// The desktop shell: the sidebar beside the page.
+///
+/// Tab starts in the sidebar, as the screen reads left to right (5Q-12). A
+/// page holds focus on its own key node until something is focused, and Tab
+/// from that node went to the page's controls and reached the sidebar last.
+/// The first Tab from such a node now goes to the sidebar's first control;
+/// Tab on from the sidebar's last control enters the page.
+class _DesktopShell extends StatefulWidget {
+  const _DesktopShell({
+    required this.child,
+    required this.activeIndex,
+    required this.person,
+    required this.exam,
+    required this.plan,
+    required this.onNavigate,
+    required this.onSearch,
+  });
+  final Widget child;
+  final int activeIndex;
+  final String person;
+  final String exam;
+  final String plan;
+  final ValueChanged<int> onNavigate;
+  final VoidCallback onSearch;
+
+  @override
+  State<_DesktopShell> createState() => _DesktopShellState();
+}
+
+class _DesktopShellState extends State<_DesktopShell> {
+  final _sidebarEntry = FocusNode(debugLabel: 'sidebar entry');
+
+  @override
+  void dispose() {
+    _sidebarEntry.dispose();
+    super.dispose();
+  }
+
+  KeyEventResult _onKey(FocusNode node, KeyEvent event) {
+    if (event is! KeyDownEvent || event.logicalKey != LogicalKeyboardKey.tab) {
+      return KeyEventResult.ignored;
+    }
+    final keyboard = HardwareKeyboard.instance;
+    if (keyboard.isShiftPressed ||
+        keyboard.isControlPressed ||
+        keyboard.isAltPressed ||
+        keyboard.isMetaPressed) {
+      return KeyEventResult.ignored;
+    }
+    // Only from a node that exists to hold keys: a page's own key node, or
+    // this one. A real control keeps Flutter's own order.
+    final primary = FocusManager.instance.primaryFocus;
+    if (primary == null || !primary.skipTraversal) {
+      return KeyEventResult.ignored;
+    }
+    _sidebarEntry.requestFocus();
+    return KeyEventResult.handled;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final onSearch = widget.onSearch;
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.keyK, control: true): onSearch,
@@ -79,16 +153,18 @@ class WebShellFrame extends StatelessWidget {
       child: Focus(
         autofocus: true,
         skipTraversal: true,
+        onKeyEvent: _onKey,
         child: Scaffold(
           body: Row(
             children: [
               WebSidebar(
-                activeIndex: activeIndex,
-                person: person,
-                exam: exam,
-                plan: plan,
-                onNavigate: onNavigate,
+                activeIndex: widget.activeIndex,
+                person: widget.person,
+                exam: widget.exam,
+                plan: widget.plan,
+                onNavigate: widget.onNavigate,
                 onSearch: onSearch,
+                entryFocus: _sidebarEntry,
               ),
               Expanded(
                 child: Padding(
@@ -106,7 +182,7 @@ class WebShellFrame extends StatelessWidget {
                       child: Semantics(
                         container: true,
                         explicitChildNodes: true,
-                        child: child,
+                        child: widget.child,
                       ),
                     ),
                   ),
@@ -128,6 +204,7 @@ class WebSidebar extends StatelessWidget {
     required this.plan,
     required this.onNavigate,
     required this.onSearch,
+    this.entryFocus,
     super.key,
   });
   final int activeIndex;
@@ -136,6 +213,9 @@ class WebSidebar extends StatelessWidget {
   final String plan;
   final ValueChanged<int> onNavigate;
   final VoidCallback onSearch;
+
+  /// The search field's focus node, so the shell can send the first Tab here.
+  final FocusNode? entryFocus;
   static final _tabs = [
     (label: 'Home', glyph: PantasIcons.homeTab),
     (label: 'Study', glyph: PantasIcons.studyTab),
@@ -173,6 +253,7 @@ class WebSidebar extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               TextButton(
+                focusNode: entryFocus,
                 onPressed: onSearch,
                 style: ButtonStyle(
                   animationDuration: MediaQuery.disableAnimationsOf(context)

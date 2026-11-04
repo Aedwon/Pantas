@@ -13,7 +13,18 @@
 
   function create(env) {
     var doc = env.document;
-    var state = { shown: false, done: false };
+    var state = { shown: false, done: false, gone: false };
+    var waiting = [];
+
+    // Runs each waiting callback once the splash is out of the page. A page
+    // that never had the splash counts as already gone.
+    function afterGone(fn) {
+      if (!state.shown || state.gone) {
+        fn();
+        return;
+      }
+      waiting.push(fn);
+    }
 
     // Starts Geist Bold downloading now, through the font loading API. A
     // <link rel="preload"> did the same, but WebKit warned that it was
@@ -31,6 +42,14 @@
       doc.documentElement.classList.remove('ps-on', 'ps-out');
       var splash = doc.getElementById('pantas-splash');
       if (splash && splash.remove) splash.remove();
+      state.gone = true;
+      var callbacks = waiting;
+      waiting = [];
+      callbacks.forEach(function (fn) {
+        try {
+          fn();
+        } catch (_) {}
+      });
     }
 
     function finish() {
@@ -77,6 +96,7 @@
     }
 
     return {
+      afterGone: afterGone,
       isShown: function () {
         return state.shown;
       },

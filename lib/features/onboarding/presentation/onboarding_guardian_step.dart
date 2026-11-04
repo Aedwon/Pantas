@@ -7,6 +7,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
@@ -26,8 +27,13 @@ class _OnboardingGuardianStepState
     extends ConsumerState<OnboardingGuardianStep> {
   final _name = TextEditingController();
   final _email = TextEditingController();
+  final _nameFocus = FocusNode();
   bool _sending = false;
   bool _failed = false;
+
+  /// The server refused because too many links went to this address or from
+  /// this student. A retry now fails the same way, so the line says so.
+  bool _rateLimited = false;
 
   @override
   void initState() {
@@ -54,6 +60,7 @@ class _OnboardingGuardianStepState
 
   @override
   void dispose() {
+    _nameFocus.dispose();
     _name.dispose();
     _email.dispose();
     super.dispose();
@@ -68,6 +75,7 @@ class _OnboardingGuardianStepState
     setState(() {
       _sending = true;
       _failed = false;
+      _rateLimited = false;
     });
     try {
       await ref.read(guardianControllerProvider).sendLink(
@@ -77,7 +85,12 @@ class _OnboardingGuardianStepState
       if (mounted) widget.onSent();
     } on Object catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
-      if (mounted) setState(() => _failed = true);
+      if (mounted) {
+        setState(() {
+          _failed = true;
+          _rateLimited = error is GuardianRateLimitedException;
+        });
+      }
     } finally {
       if (mounted) setState(() => _sending = false);
     }
@@ -89,10 +102,19 @@ class _OnboardingGuardianStepState
         detail:
             "You're under 18. We'll email them a link to review and confirm.",
         progress: 1,
+        // The first field takes the keys, so the guardian's name can be typed
+        // at once, as on the Year and Name steps (5S-8).
+        focusTarget: _nameFocus,
         onBack: widget.onBack ?? () => Navigator.of(context).maybePop(),
         bottom: OnboardingActions(
           children: [
-            if (_failed) saveFailureLine(_send),
+            if (_failed)
+              saveFailureLine(
+                _send,
+                message: _rateLimited
+                    ? 'Too many tries. Wait a while, then try again.'
+                    : 'Could not save your progress.',
+              ),
             OnboardingButton(
               label: 'Send Link',
               busy: _sending,
@@ -103,6 +125,7 @@ class _OnboardingGuardianStepState
         children: [
           OnboardingNameField(
             controller: _name,
+            focusNode: _nameFocus,
             label: "Parent or guardian's name",
             // Wide web draws the label above the field, so the placeholder
             // gives an example instead of repeating it.

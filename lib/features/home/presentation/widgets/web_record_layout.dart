@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_page_heading.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
@@ -38,15 +39,10 @@ class WebMyPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // The same back link as Plan and Performance, so the
-                      // arrow stands at the same x on every page (4N-11).
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4),
-                        child: WebBackLink(label: 'Home', onPressed: onBack),
-                      ),
-                      const SizedBox(height: 10),
-                      WebText(title, kind: WebTextKind.h1),
-                      const SizedBox(height: 24),
+                      // The same heading as Plan and Performance, so the back
+                      // link and the title stand at the same x and y on every
+                      // page (4N-11, 5Q-2).
+                      WebPageHeading(title: title, onBack: onBack),
                       child,
                     ],
                   ),

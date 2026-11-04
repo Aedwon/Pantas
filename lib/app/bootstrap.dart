@@ -343,12 +343,9 @@ Future<void> _bootstrap(
     }
     registerLocalOnboardingPresets();
     await startLocalPanelBridge(container);
-    // A page opened directly must not mount before the onboarding redirect
-    // can see where the student is.
-    await settleGatesBeforeFirstPage(
-      container,
-      startLocation: initialRouterLocation,
-    );
+    // No page, Home included, may mount before the onboarding redirect can
+    // see where the student is.
+    await settleGatesBeforeFirstPage(container);
 
     final notificationsLifecycleObserver = NotificationsLifecycleObserver(
       service: container.read(notificationServiceProvider),

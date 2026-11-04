@@ -183,33 +183,34 @@ void main() {
 
   for (final window in [1440.0, 1280.0]) {
     testWidgets(
-        'month-only chips stay inside the 18 px padding at $window '
-        '(4N-4)', (tester) async {
+        'month-only chips are whole and inside the 18 px padding at $window '
+        '(4N-4, 5Q-1)', (tester) async {
       await mountStrip(tester, window);
       final card = tester.getRect(find.byType(HomeWebNotice));
-      final scroller = tester.getRect(
-        find.ancestor(
-          of: find.byKey(const ValueKey('notice-day-5')),
-          matching: find.byType(SingleChildScrollView),
-        ),
-      );
-      // Same left and right edges as the text and the buttons.
-      expect(scroller.left, card.left + 18);
-      expect(scroller.right, card.right - 18);
+      // Same left and right edges as the text and the buttons, and no chip is
+      // cut: every chip is whole inside them (5Q-1).
       expect(
         tester.getTopLeft(find.byKey(const ValueKey('notice-day-5'))).dx,
         card.left + 18,
       );
+      final chips = find.byWidgetPredicate(
+        (widget) =>
+            widget.key is ValueKey<String> &&
+            (widget.key! as ValueKey<String>).value.startsWith('notice-day-'),
+      );
+      expect(chips, findsWidgets);
+      for (final element in chips.evaluate()) {
+        final rect = tester.getRect(find.byWidget(element.widget));
+        expect(rect.right, lessThanOrEqualTo(card.right - 18));
+        expect(rect.left, greaterThanOrEqualTo(card.left + 18));
+      }
+      // The row wraps instead of scrolling or clipping.
       expect(
-        tester
-            .widget<SingleChildScrollView>(
-              find.ancestor(
-                of: find.byKey(const ValueKey('notice-day-5')),
-                matching: find.byType(SingleChildScrollView),
-              ),
-            )
-            .clipBehavior,
-        Clip.hardEdge,
+        find.ancestor(
+          of: find.byKey(const ValueKey('notice-day-5')),
+          matching: find.byType(SingleChildScrollView),
+        ),
+        findsNothing,
       );
     });
   }

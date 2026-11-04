@@ -72,78 +72,79 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
     final month = DateTime.parse(notice.dismissalToken);
     final now = ref.read(nowProvider)();
     final today = DateTime(now.year, now.month, now.day);
+    final chips = <Widget>[
+      for (var day = 1;
+          day <= DateTime(month.year, month.month + 1, 0).day;
+          day++)
+        if (!DateTime(month.year, month.month, day).isBefore(today))
+          SizedBox(
+            width: 44,
+            child: TextButton(
+              key: ValueKey('notice-day-$day'),
+              onPressed: _saving
+                  ? null
+                  : () => setState(
+                        () =>
+                            _pickedDay = DateTime(month.year, month.month, day),
+                      ),
+              style: TextButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                minimumSize: const Size(44, 52),
+                backgroundColor: _pickedDay?.day == day
+                    ? context.colors.accentFill
+                    : context.colors.surface,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(color: context.colors.separator),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    DateFormat('EEE', 'en_US').format(
+                      DateTime(month.year, month.month, day),
+                    ),
+                    style: context.type.caption.copyWith(
+                      fontSize: 10,
+                      color: _pickedDay?.day == day
+                          ? context.colors.onAccent
+                          : context.colors.secondaryLabel,
+                    ),
+                  ),
+                  Text(
+                    '$day',
+                    style: context.type.body.copyWith(
+                      fontWeight: _pickedDay?.day == day
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      color: _pickedDay?.day == day
+                          ? context.colors.onAccent
+                          : context.colors.label,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          // On the wide page the row stays inside the notice's 18 px padding
-          // like the text and the buttons, and a chip past the edge is cut
-          // there (4N-4). The phone's runs on to the card's own edge, so a
-          // cut chip reads as a scrolling row.
-          clipBehavior: context.wideWeb ? Clip.hardEdge : Clip.none,
-          child: Row(
-            children: [
-              for (var day = 1;
-                  day <= DateTime(month.year, month.month + 1, 0).day;
-                  day++)
-                if (!DateTime(month.year, month.month, day).isBefore(today))
-                  Padding(
-                    padding: const EdgeInsets.only(right: 6),
-                    child: SizedBox(
-                      width: 44,
-                      child: TextButton(
-                        key: ValueKey('notice-day-$day'),
-                        onPressed: _saving
-                            ? null
-                            : () => setState(
-                                  () => _pickedDay =
-                                      DateTime(month.year, month.month, day),
-                                ),
-                        style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          minimumSize: const Size(44, 52),
-                          backgroundColor: _pickedDay?.day == day
-                              ? context.colors.accentFill
-                              : context.colors.surface,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            side: BorderSide(color: context.colors.separator),
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              DateFormat('EEE', 'en_US').format(
-                                DateTime(month.year, month.month, day),
-                              ),
-                              style: context.type.caption.copyWith(
-                                fontSize: 10,
-                                color: _pickedDay?.day == day
-                                    ? context.colors.onAccent
-                                    : context.colors.secondaryLabel,
-                              ),
-                            ),
-                            Text(
-                              '$day',
-                              style: context.type.body.copyWith(
-                                fontWeight: _pickedDay?.day == day
-                                    ? FontWeight.w600
-                                    : FontWeight.w500,
-                                color: _pickedDay?.day == day
-                                    ? context.colors.onAccent
-                                    : context.colors.label,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-            ],
+        if (context.wideWeb)
+          // On the wide page the chips wrap inside the notice's 18 px padding
+          // like the text and the buttons, so every chip is whole and the
+          // row ends at the padding (4N-4, 5Q-1). A clipped row cut the last
+          // chip with no edge and no cue that it scrolls.
+          Wrap(spacing: 6, runSpacing: 6, children: chips)
+        else
+          // The phone's row runs on to the card's own edge, so a cut chip
+          // reads as a scrolling row.
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            clipBehavior: Clip.none,
+            child: Row(spacing: 6, children: chips),
           ),
-        ),
         if (_failed) saveFailureLine(() => unawaited(_saveDay())),
       ],
     );

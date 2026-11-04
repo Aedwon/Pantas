@@ -123,23 +123,13 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      TextButton.icon(
+                      WebBackLink(
+                        label:
+                            _viewerIndex == null ? 'Results' : 'All questions',
                         onPressed: back,
-                        style: TextButton.styleFrom(
-                          minimumSize: const Size(0, 40),
-                          padding: EdgeInsets.zero,
-                          foregroundColor: context.webTokens.colors.accent,
-                          overlayColor: Colors.transparent,
-                          visualDensity: VisualDensity.standard,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          textStyle: context.webTokens.style(17),
-                        ),
-                        icon: const Icon(Icons.chevron_left, size: 20),
-                        label: Text(
-                          _viewerIndex == null ? 'Results' : 'All questions',
-                        ),
+                        nudge: false,
                       ),
-                      const SizedBox(width: 10),
+                      // No gap: the link's own right padding is the room.
                       const WebKeyHint('Esc'),
                     ],
                   ),

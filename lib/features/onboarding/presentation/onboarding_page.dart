@@ -213,7 +213,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         );
       } else if (first == OnboardingStep.welcome &&
           !MediaQuery.disableAnimationsOf(context) &&
-          !context.wideWeb) {
+          !context.wideWeb &&
+          // The splash already played the logo. Launch would play it again
+          // under the splash as it fades (4P-2).
+          !pageBeganFromSplash()) {
         first = OnboardingStep.launch;
       }
       if (first.index >= OnboardingStep.examDate.index &&

@@ -157,15 +157,16 @@ void main() {
     expect(note.top - title.bottom, greaterThanOrEqualTo(2));
   });
 
-  testWidgets('Record, Tendencies and Plan put the arrow at one x (4N-11)',
-      (tester) async {
+  testWidgets(
+      'Record, Tendencies and Plan put the back link and title at one x and y '
+      '(4N-11, 5Q-2)', (tester) async {
     debugWebPlatformOverride = true;
     addTearDown(() => debugWebPlatformOverride = null);
     tester.view.physicalSize = const Size(1440, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    Future<double> arrowX(Widget page) async {
+    Future<(Offset, Offset, Offset)> places(Widget page, String title) async {
       await tester.pumpWidget(
         MaterialApp(
           theme: buildDarkTheme(web: true),
@@ -179,16 +180,32 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      return tester.getTopLeft(find.byIcon(Icons.chevron_left)).dx;
+      return (
+        tester.getTopLeft(find.byIcon(Icons.chevron_left)),
+        tester.getTopLeft(find.text(title)),
+        tester.getTopLeft(find.text('Content')),
+      );
     }
 
-    final plan = await arrowX(
-      PlanWebFrame(title: 'Your plan', onBack: () {}, child: const SizedBox()),
+    final plan = await places(
+      PlanWebFrame(
+        title: 'Your plan',
+        onBack: () {},
+        child: const Text('Content'),
+      ),
+      'Your plan',
     );
-    final record = await arrowX(
-      WebMyPage(title: 'Your record', onBack: () {}, child: const SizedBox()),
+    final record = await places(
+      WebMyPage(
+        title: 'Your record',
+        onBack: () {},
+        child: const Text('Content'),
+      ),
+      'Your record',
     );
-    expect(record, plan);
+    expect(record.$1, plan.$1, reason: 'back link');
+    expect(record.$2, plan.$2, reason: 'title');
+    expect(record.$3, plan.$3, reason: 'first content');
   });
 }
 

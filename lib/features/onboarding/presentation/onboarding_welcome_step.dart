@@ -16,7 +16,9 @@ class OnboardingWelcomeStep extends StatelessWidget {
   final VoidCallback onAdvance;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => _AfterSplash(child: _content(context));
+
+  Widget _content(BuildContext context) {
     if (context.wideWeb) {
       final t = context.webTokens;
       return OnboardingShortcuts(
@@ -127,6 +129,50 @@ class OnboardingWelcomeStep extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Keeps the step invisible while the HTML splash still fades out, then
+/// brings it in. A page that began from the splash used to show this step
+/// settled underneath, so two logos and two titles overlapped for the length
+/// of the fade (4P-2). With no splash, or reduced motion, it shows at once.
+class _AfterSplash extends StatefulWidget {
+  const _AfterSplash({required this.child});
+  final Widget child;
+
+  @override
+  State<_AfterSplash> createState() => _AfterSplashState();
+}
+
+class _AfterSplashState extends State<_AfterSplash> {
+  bool _covered = false;
+  bool _checked = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_checked) return;
+    _checked = true;
+    if (MediaQuery.disableAnimationsOf(context) || !pageBeganFromSplash()) {
+      return;
+    }
+    _covered = true;
+    afterSplashGone(() {
+      if (mounted) setState(() => _covered = false);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => IgnorePointer(
+        ignoring: _covered,
+        child: AnimatedOpacity(
+          key: const ValueKey('welcome-after-splash'),
+          opacity: _covered ? 0 : 1,
+          duration:
+              _covered ? Duration.zero : const Duration(milliseconds: 300),
+          curve: PantasCurves.ease,
+          child: widget.child,
+        ),
+      );
 }
 
 /// The wide welcome's logo and title: the launch logo's 750 ms pop, the same

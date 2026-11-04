@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -22,6 +23,7 @@ import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  weekFallbackTests();
   testWidgets('today deep link waits for Home data after its guard',
       (tester) async {
     final pending = Completer<HomeTodayData>();
@@ -595,4 +597,66 @@ class _PlanLauncher extends TodayQuestionLauncher {
     required bool Function() isAlive,
   }) async =>
       () async => isAlive();
+}
+
+// QA 5Q-13: a week opened directly has no page behind it, and closing it goes
+// to the plan, not Home.
+void weekFallbackTests() {
+  testWidgets('a week opened directly goes back to the plan', (tester) async {
+    final days = [
+      for (var i = 0; i < 7; i++)
+        PlanDayView(
+          date: DateTime(2026, 10, 25 + i),
+          plan: DayPlan(
+            day: DateTime(2026, 10, 25 + i),
+            lessonIds: const ['l'],
+            reviewQuestionIds: const [],
+            newQuestionIds: const [],
+            isMockDay: false,
+            advancedIds: const {},
+          ),
+          remaining: null,
+          lessons: const [
+            HomeTodayLesson(
+              id: 'l',
+              title: 'Cells',
+              subject: 'Science',
+              minutes: 8,
+              read: false,
+            ),
+          ],
+          kind: 'future',
+        ),
+    ];
+    final router = GoRouter(
+      initialLocation: '/plan/week/2026-10-25',
+      routes: [
+        GoRoute(
+          path: '/plan/week/:start',
+          builder: (_, state) =>
+              PlanWeekScreen(start: state.pathParameters['start']!),
+        ),
+        GoRoute(path: '/plan', builder: (_, __) => const Text('PLAN PAGE')),
+        GoRoute(path: '/home', builder: (_, __) => const Text('HOME PAGE')),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWithValue(true),
+          planWeekViewProvider('2026-10-25').overrideWith((_) async => days),
+        ],
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Your plan').first);
+    await tester.pumpAndSettle();
+    expect(find.text('PLAN PAGE'), findsOneWidget);
+    expect(find.text('HOME PAGE'), findsNothing);
+  });
 }

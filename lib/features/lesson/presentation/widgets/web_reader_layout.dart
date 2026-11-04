@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -692,10 +693,33 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   }
 
   /// Lets the wheel pull up for the next lesson while it is over the column.
+  /// The pull stays on the column: over the outline or a margin it would be
+  /// a surprise.
   Widget _wheel(Widget column) {
     final pull = widget.pull;
     if (pull == null) return column;
     return Listener(onPointerSignal: pull.handleSignal, child: column);
+  }
+
+  /// The wheel scrolls the lesson anywhere on the page, not only over the
+  /// lesson column.
+  ///
+  /// A scroll view only hears the wheel while the pointer is over it. The
+  /// outline and the two side margins sit outside the lesson's scroll view,
+  /// so over them the page went dead. This listener covers the whole page and
+  /// offers the lesson's scroll as a fallback. The fallback is registered
+  /// with the pointer signal resolver, which keeps the first registration it
+  /// gets: the lesson's own scroll view, the pull at the end of the lesson,
+  /// or an outline that scrolls, all win when the pointer is over them.
+  void _onWheel(PointerSignalEvent event) {
+    if (event is! PointerScrollEvent) return;
+    final delta = event.scrollDelta;
+    if (delta.dy == 0 || delta.dx.abs() > delta.dy.abs()) return;
+    if (!widget.controller.hasClients) return;
+    GestureBinding.instance.pointerSignalResolver.register(event, (_) {
+      if (!widget.controller.hasClients) return;
+      widget.controller.position.pointerScroll(delta.dy);
+    });
   }
 
   /// Widens the lesson column to 800 px and back, and remembers the choice.
@@ -837,254 +861,160 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         autofocus: true,
         child: ColoredBox(
           color: t.colors.background,
-          child: Stack(
-            children: [
-              AnimatedPositioned(
-                key: const ValueKey('web-reader-viewport'),
-                duration: insetDuration,
-                curve: _barCurve,
-                top: inset,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: ending ??
-                    TweenAnimationBuilder<double>(
-                      tween: Tween(end: inset),
-                      duration: insetDuration,
-                      curve: _barCurve,
-                      builder: (context, shown, _) {
-                        // The window's top edge follows the bar's bottom
-                        // edge, so no hard line cuts the lesson under a bar
-                        // that has gone. What the window gives up is added
-                        // to the lesson's own top padding, so the text stays
-                        // exactly where it was.
-                        final lift = _barHeight - shown;
-                        return LayoutBuilder(
-                          builder: (context, constraints) {
-                            final margin =
-                                WebReaderMetrics.margin(constraints.maxWidth);
-                            return Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                if (margin > 0) ...[
-                                  SizedBox(
-                                    key: const ValueKey('web-reader-outline'),
-                                    width: margin,
-                                    child: SingleChildScrollView(
-                                      padding: EdgeInsets.only(top: 48 + lift),
-                                      child: _outline(context, headings),
+          child: Listener(
+            behavior: HitTestBehavior.translucent,
+            onPointerSignal: ending == null ? _onWheel : null,
+            child: Stack(
+              children: [
+                AnimatedPositioned(
+                  key: const ValueKey('web-reader-viewport'),
+                  duration: insetDuration,
+                  curve: _barCurve,
+                  top: inset,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: ending ??
+                      TweenAnimationBuilder<double>(
+                        tween: Tween(end: inset),
+                        duration: insetDuration,
+                        curve: _barCurve,
+                        builder: (context, shown, _) {
+                          // The window's top edge follows the bar's bottom
+                          // edge, so no hard line cuts the lesson under a bar
+                          // that has gone. What the window gives up is added
+                          // to the lesson's own top padding, so the text stays
+                          // exactly where it was.
+                          final lift = _barHeight - shown;
+                          return LayoutBuilder(
+                            builder: (context, constraints) {
+                              final margin =
+                                  WebReaderMetrics.margin(constraints.maxWidth);
+                              return Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  if (margin > 0) ...[
+                                    SizedBox(
+                                      key: const ValueKey('web-reader-outline'),
+                                      width: margin,
+                                      child: SingleChildScrollView(
+                                        padding:
+                                            EdgeInsets.only(top: 48 + lift),
+                                        child: _outline(context, headings),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                                const SizedBox(width: WebReaderMetrics.gap),
-                                Flexible(
-                                  child: SizedBox(
-                                    key: const ValueKey('web-reader-column'),
-                                    width: WebReaderMetrics.columnWidth(
-                                      constraints.maxWidth,
-                                      fullWidth: fullWidth,
-                                    ),
-                                    child: _wheel(
-                                      SingleChildScrollView(
-                                        controller: widget.controller,
-                                        primary: false,
-                                        padding: EdgeInsets.only(
-                                          top: 48 + lift,
-                                          bottom: 80,
+                                  ],
+                                  const SizedBox(width: WebReaderMetrics.gap),
+                                  Flexible(
+                                    child: SizedBox(
+                                      key: const ValueKey('web-reader-column'),
+                                      width: WebReaderMetrics.columnWidth(
+                                        constraints.maxWidth,
+                                        fullWidth: fullWidth,
+                                      ),
+                                      child: _wheel(
+                                        SingleChildScrollView(
+                                          controller: widget.controller,
+                                          primary: false,
+                                          padding: EdgeInsets.only(
+                                            top: 48 + lift,
+                                            bottom: 80,
+                                          ),
+                                          child: columnBody,
                                         ),
-                                        child: columnBody,
                                       ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(width: WebReaderMetrics.gap),
-                                if (margin > 0) SizedBox(width: margin),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    ),
-              ),
-              Positioned(
-                // New for each lesson, so the bar of a lesson that rose into
-                // place does not slide in a second time.
-                key: ValueKey(('web-reader-bar', reader.lesson.id)),
-                top: 0,
-                left: 0,
-                right: 0,
-                child: AnimatedSlide(
-                  key: const ValueKey('web-reader-focus-slide'),
-                  duration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : Duration(milliseconds: _showBar ? 420 : 700),
-                  curve: const Cubic(.32, .72, 0, 1),
-                  offset: _showBar || _menuOpen || ending != null
-                      ? Offset.zero
-                      : const Offset(0, -1),
-                  child: Material(
-                    key: _barKey,
-                    color: t.colors.background,
-                    child: SizedBox(
-                      height: _barHeight,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
-                        ),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Row(
-                              children: [
-                                WebReaderBackControl(
-                                  label: widget.backLabel,
-                                  onPressed: widget.onBack,
-                                ),
-                                if (ending == null) ...[
-                                  const SizedBox(width: 12),
-                                  const Spacer(),
-                                  const SizedBox(width: 12),
-                                  _lessonControl(context),
-                                  const SizedBox(width: 12),
+                                  const SizedBox(width: WebReaderMetrics.gap),
+                                  if (margin > 0) SizedBox(width: margin),
                                 ],
-                                const Spacer(),
-                                if (ending == null) ...[
-                                  const SizedBox(width: 12),
-                                  _widthControl(t, fullWidth: fullWidth),
-                                  const SizedBox(width: 12),
-                                  Tooltip(
-                                    message: reader.isBookmarked
-                                        ? 'Remove bookmark (B)'
-                                        : 'Bookmark this lesson (B)',
-                                    child: IconButton(
-                                      onPressed: _bookmark,
-                                      style: IconButton.styleFrom(
-                                        fixedSize: const Size(44, 44),
-                                        padding: EdgeInsets.zero,
-                                        visualDensity: VisualDensity.standard,
-                                        tapTargetSize: compactTap,
-                                      ),
-                                      icon: ReaderBookmarkPop(
-                                        key: ValueKey(
-                                          (
-                                            'web-reader-bookmark',
-                                            reader.lesson.id
+                              );
+                            },
+                          );
+                        },
+                      ),
+                ),
+                Positioned(
+                  // New for each lesson, so the bar of a lesson that rose into
+                  // place does not slide in a second time.
+                  key: ValueKey(('web-reader-bar', reader.lesson.id)),
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: AnimatedSlide(
+                    key: const ValueKey('web-reader-focus-slide'),
+                    duration: MediaQuery.disableAnimationsOf(context)
+                        ? Duration.zero
+                        : Duration(milliseconds: _showBar ? 420 : 700),
+                    curve: const Cubic(.32, .72, 0, 1),
+                    offset: _showBar || _menuOpen || ending != null
+                        ? Offset.zero
+                        : const Offset(0, -1),
+                    child: Material(
+                      key: _barKey,
+                      color: t.colors.background,
+                      child: SizedBox(
+                        height: _barHeight,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  WebReaderBackControl(
+                                    label: widget.backLabel,
+                                    onPressed: widget.onBack,
+                                  ),
+                                  if (ending == null) ...[
+                                    const SizedBox(width: 12),
+                                    const Spacer(),
+                                    const SizedBox(width: 12),
+                                    _lessonControl(context),
+                                    const SizedBox(width: 12),
+                                  ],
+                                  const Spacer(),
+                                  if (ending == null) ...[
+                                    const SizedBox(width: 12),
+                                    _widthControl(t, fullWidth: fullWidth),
+                                    const SizedBox(width: 12),
+                                    Tooltip(
+                                      message: reader.isBookmarked
+                                          ? 'Remove bookmark (B)'
+                                          : 'Bookmark this lesson (B)',
+                                      child: IconButton(
+                                        onPressed: _bookmark,
+                                        style: IconButton.styleFrom(
+                                          fixedSize: const Size(44, 44),
+                                          padding: EdgeInsets.zero,
+                                          visualDensity: VisualDensity.standard,
+                                          tapTargetSize: compactTap,
+                                        ),
+                                        icon: ReaderBookmarkPop(
+                                          key: ValueKey(
+                                            (
+                                              'web-reader-bookmark',
+                                              reader.lesson.id
+                                            ),
+                                          ),
+                                          bookmarked: reader.isBookmarked,
+                                          child: Icon(
+                                            reader.isBookmarked
+                                                ? Icons.bookmark
+                                                : Icons.bookmark_border,
+                                            size: 22,
+                                            color: reader.isBookmarked
+                                                ? t.colors.accent
+                                                : t.colors.tertiaryLabel,
                                           ),
                                         ),
-                                        bookmarked: reader.isBookmarked,
-                                        child: Icon(
-                                          reader.isBookmarked
-                                              ? Icons.bookmark
-                                              : Icons.bookmark_border,
-                                          size: 22,
-                                          color: reader.isBookmarked
-                                              ? t.colors.accent
-                                              : t.colors.tertiaryLabel,
-                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ],
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              if (ending == null)
-                AnimatedPositioned(
-                  key: ValueKey(('web-reader-progress', reader.lesson.id)),
-                  duration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : Duration(milliseconds: _showBar ? 420 : 700),
-                  curve: const Cubic(.32, .72, 0, 1),
-                  top: _showBar || _menuOpen || ending != null ? 58 : 0,
-                  left: 0,
-                  right: 0,
-                  child: ValueListenableBuilder<double>(
-                    valueListenable: widget.progress,
-                    builder: (_, value, __) => LinearProgressIndicator(
-                      value: value,
-                      minHeight: 2,
-                      backgroundColor: t.colors.separator,
-                      color: t.colors.accent,
-                    ),
-                  ),
-                ),
-              if (_bookmarkNoticeMounted && ending == null)
-                Positioned(
-                  bottom: 28,
-                  left: 0,
-                  right: 0,
-                  child: Center(
-                    child: Toast(
-                      message: 'Bookmarked',
-                      keyHint: 'B',
-                      web: true,
-                      visible: _bookmarkNotice,
-                    ),
-                  ),
-                ),
-              if (_resumeMounted && ending == null)
-                Positioned(
-                  top: 76,
-                  left: 0,
-                  right: 0,
-                  child: Center(
-                    child: _NoticeTransition(
-                      visible: _resumeVisible,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF1D1D1F),
-                          borderRadius: BorderRadius.circular(14),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0x33000000),
-                              blurRadius: 30,
-                              offset: Offset(0, 10),
-                            ),
-                          ],
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'Picked up where you left off',
-                                style: t.style(15, color: Colors.white),
-                              ),
-                              const SizedBox(width: 14),
-                              TextButton(
-                                onPressed: () {
-                                  widget.controller.jumpTo(0);
-                                  setState(_hideResume);
-                                },
-                                style: TextButton.styleFrom(
-                                  minimumSize: Size.zero,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 6,
-                                  ),
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  visualDensity: VisualDensity.standard,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Start Over',
-                                  style: t.style(
-                                    15,
-                                    weight: FontWeight.w600,
-                                    color: const Color(0xFF7FD6C5),
-                                  ),
-                                ),
                               ),
                             ],
                           ),
@@ -1093,7 +1023,106 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                     ),
                   ),
                 ),
-            ],
+                if (ending == null)
+                  AnimatedPositioned(
+                    key: ValueKey(('web-reader-progress', reader.lesson.id)),
+                    duration: MediaQuery.disableAnimationsOf(context)
+                        ? Duration.zero
+                        : Duration(milliseconds: _showBar ? 420 : 700),
+                    curve: const Cubic(.32, .72, 0, 1),
+                    top: _showBar || _menuOpen || ending != null ? 58 : 0,
+                    left: 0,
+                    right: 0,
+                    child: ValueListenableBuilder<double>(
+                      valueListenable: widget.progress,
+                      builder: (_, value, __) => LinearProgressIndicator(
+                        value: value,
+                        minHeight: 2,
+                        backgroundColor: t.colors.separator,
+                        color: t.colors.accent,
+                      ),
+                    ),
+                  ),
+                if (_bookmarkNoticeMounted && ending == null)
+                  Positioned(
+                    bottom: 28,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Toast(
+                        message: 'Bookmarked',
+                        keyHint: 'B',
+                        web: true,
+                        visible: _bookmarkNotice,
+                      ),
+                    ),
+                  ),
+                if (_resumeMounted && ending == null)
+                  Positioned(
+                    top: 76,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: _NoticeTransition(
+                        visible: _resumeVisible,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF1D1D1F),
+                            borderRadius: BorderRadius.circular(14),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color(0x33000000),
+                                blurRadius: 30,
+                                offset: Offset(0, 10),
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'Picked up where you left off',
+                                  style: t.style(15, color: Colors.white),
+                                ),
+                                const SizedBox(width: 14),
+                                TextButton(
+                                  onPressed: () {
+                                    widget.controller.jumpTo(0);
+                                    setState(_hideResume);
+                                  },
+                                  style: TextButton.styleFrom(
+                                    minimumSize: Size.zero,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                      vertical: 6,
+                                    ),
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    visualDensity: VisualDensity.standard,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Start Over',
+                                    style: t.style(
+                                      15,
+                                      weight: FontWeight.w600,
+                                      color: const Color(0xFF7FD6C5),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

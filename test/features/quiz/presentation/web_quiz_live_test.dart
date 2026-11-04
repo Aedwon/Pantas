@@ -861,6 +861,31 @@ void main() {
       expect(cell.contains(tester.getCenter(mark(1))), isTrue);
     });
 
+    testWidgets('5R-5: the grid is a floating card, clear of the bar',
+        (tester) async {
+      await pump(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      final card = find.ancestor(
+        of: find.text('Questions'),
+        matching: find.byType(WebCard),
+      );
+      expect(tester.widget<WebCard>(card).floating, isTrue);
+      final decoration = tester
+          .widget<Container>(
+            find.descendant(of: card, matching: find.byType(Container)).first,
+          )
+          .decoration! as BoxDecoration;
+      expect(decoration.border, isNotNull);
+      expect(decoration.boxShadow, isNotEmpty);
+      // It sits 12 px above the bar.
+      final bar = find.byType(WebBottomBar);
+      expect(
+        tester.getRect(bar).top - tester.getRect(card).bottom,
+        closeTo(12, 1),
+      );
+    });
+
     testWidgets('4O-12: the next question opens with no choice focused',
         (tester) async {
       await pump(tester, checkable: true);

@@ -51,6 +51,10 @@ class WebAssessmentLayout extends StatelessWidget {
           LogicalKeyboardKey.keyB,
           LogicalKeyboardKey.keyC,
           LogicalKeyboardKey.keyD,
+          // Some questions have five choices, and the letter must work for
+          // each one the page shows.
+          LogicalKeyboardKey.keyE,
+          LogicalKeyboardKey.keyF,
         ].indexed)
           SingleActivator(key): () {
             if (i < question.choices.length) onPick(question.choices[i].id);
@@ -71,11 +75,14 @@ class WebAssessmentLayout extends StatelessWidget {
           children: [
             Column(
               children: [
-                WebTopBar(
+                // The title is centered on the page, as the quiz's is.
+                WebCenteredTopBar(
+                  titleKey: const ValueKey('assessment-top-title'),
+                  title: 'Assessment · $examName',
                   leading: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton(
+                      WebTopBarButton(
                         tooltip: 'Leave assessment',
                         onPressed: onLeave,
                         icon: Icon(
@@ -87,11 +94,6 @@ class WebAssessmentLayout extends StatelessWidget {
                       const SizedBox(width: 10),
                       const WebKeyHint('Esc'),
                     ],
-                  ),
-                  title: Text(
-                    'Assessment · $examName',
-                    textAlign: TextAlign.center,
-                    style: t.style(14, color: t.colors.tertiaryLabel),
                   ),
                   // The existing Report action remains available on web.
                   trailing: report ?? const SizedBox(width: 44),

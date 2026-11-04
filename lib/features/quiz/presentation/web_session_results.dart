@@ -475,21 +475,12 @@ class WebQuizQuestionList extends StatelessWidget {
             WebTopBar(
               leading: Row(
                 children: [
-                  TextButton.icon(
+                  WebBackLink(
+                    label: 'Session',
                     onPressed: onBack,
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(0, 40),
-                      padding: EdgeInsets.zero,
-                      foregroundColor: t.colors.accent,
-                      overlayColor: Colors.transparent,
-                      visualDensity: VisualDensity.standard,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      textStyle: t.style(17),
-                    ),
-                    icon: const Icon(Icons.chevron_left, size: 20),
-                    label: const Text('Session'),
+                    nudge: false,
                   ),
-                  const SizedBox(width: 10),
+                  // No gap: the link's own right padding is the room.
                   const WebKeyHint('Esc'),
                 ],
               ),

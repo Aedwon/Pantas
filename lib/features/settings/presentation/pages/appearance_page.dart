@@ -115,7 +115,7 @@ class AppearancePage extends ConsumerWidget {
             children: [
               SettingsRow(
                 title: 'Remember table order',
-                subtitle: 'Keeps how you sorted “See all topics and lessons” '
+                subtitle: 'Keeps how you sorted "See all topics and lessons" '
                     'for next time.',
                 variant: ListRowVariant.switchControl,
                 selected: retain,

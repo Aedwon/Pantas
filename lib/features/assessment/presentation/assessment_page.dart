@@ -238,6 +238,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
           _index = index + 1;
           _picked = null;
         });
+        // The ring on the answer just given must not carry to the same
+        // place on the next question (the quiz does the same).
+        releaseChoiceFocus(this);
         return;
       }
       setState(() => _session = updated);
@@ -430,7 +433,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                     onPick: (id) => setState(() => _picked = id),
                     onNext: _next,
                     onLeave: _leave,
-                    report: IconButton(
+                    report: WebTopBarButton(
                       tooltip: 'Report',
                       icon: IconTheme(
                         data: IconThemeData(

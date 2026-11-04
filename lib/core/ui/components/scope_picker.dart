@@ -250,7 +250,13 @@ class _ScopePickerState extends State<ScopePicker>
                         child: Icon(
                           PantasIcons.next,
                           size: 16,
-                          color: c.controlOutline,
+                          // The board's chevron gray (#8A8A8E light, the
+                          // dark boards' #949494). The web dark outline gray
+                          // is for checkbox rims and left this at 1.4:1 on
+                          // the card (5Q-3).
+                          color: context.wideWeb
+                              ? web.colors.tertiaryLabel
+                              : c.controlOutline,
                         ),
                       ),
                     ),

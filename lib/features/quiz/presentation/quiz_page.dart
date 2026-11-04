@@ -981,113 +981,65 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             backgroundColor: t.colors.background,
             body: Column(
               children: [
-                SizedBox(
-                  height: 64,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    // The title is centered on the page, not between the two
-                    // ends (QS_Grid and QS_Flag). It stays put while the
-                    // "Saved on this device." line comes and goes.
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Padding(
-                          key: const ValueKey('quiz-top-title'),
-                          padding: const EdgeInsets.symmetric(horizontal: 200),
-                          child: Text(
-                            source,
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: t.style(
-                              14,
-                              color: t.colors.tertiaryLabel,
+                WebCenteredTopBar(
+                  titleKey: const ValueKey('quiz-top-title'),
+                  title: source,
+                  leading: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      WebTopBarButton(
+                        tooltip: 'Leave session',
+                        onPressed: () => unawaited(_confirmLeave()),
+                        icon: Icon(PantasIcons.close, size: 22),
+                      ),
+                      const SizedBox(width: 10),
+                      const WebKeyHint('Esc'),
+                    ],
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (_reportStatus == question.id)
+                        Text(
+                          'Saved on this device.',
+                          style: t.sm,
+                        ),
+                      WebTopBarButton(
+                        tooltip: 'Report a question',
+                        onPressed: () async {
+                          final saved = await openQuestionReport(
+                            context,
+                            question.id,
+                            queue: ReportQueue(
+                              ref.read(appDatabaseProvider),
                             ),
+                          );
+                          if ((saved ?? false) && mounted) {
+                            _reportTimer?.cancel();
+                            setState(() {
+                              _reported.add(question.id);
+                              _reportStatus = question.id;
+                            });
+                            _reportTimer = Timer(
+                              const Duration(seconds: 4),
+                              () {
+                                if (mounted) {
+                                  setState(() => _reportStatus = null);
+                                }
+                              },
+                            );
+                          }
+                        },
+                        icon: IconTheme(
+                          data: IconThemeData(
+                            color: _reported.contains(question.id)
+                                ? t.colors.accent
+                                : t.colors.secondaryLabel,
                           ),
+                          child: PantasIcons.report,
                         ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                tooltip: 'Leave session',
-                                onPressed: () => unawaited(_confirmLeave()),
-                                constraints: const BoxConstraints.tightFor(
-                                  width: 44,
-                                  height: 44,
-                                ),
-                                visualDensity: VisualDensity.standard,
-                                style: IconButton.styleFrom(
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                ),
-                                icon: Icon(PantasIcons.close, size: 22),
-                              ),
-                              const SizedBox(width: 10),
-                              const WebKeyHint('Esc'),
-                            ],
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              if (_reportStatus == question.id)
-                                Text(
-                                  'Saved on this device.',
-                                  style: t.sm,
-                                ),
-                              IconButton(
-                                tooltip: 'Report a question',
-                                constraints: const BoxConstraints.tightFor(
-                                  width: 44,
-                                  height: 44,
-                                ),
-                                visualDensity: VisualDensity.standard,
-                                style: IconButton.styleFrom(
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                ),
-                                onPressed: () async {
-                                  final saved = await openQuestionReport(
-                                    context,
-                                    question.id,
-                                    queue: ReportQueue(
-                                      ref.read(appDatabaseProvider),
-                                    ),
-                                  );
-                                  if ((saved ?? false) && mounted) {
-                                    _reportTimer?.cancel();
-                                    setState(() {
-                                      _reported.add(question.id);
-                                      _reportStatus = question.id;
-                                    });
-                                    _reportTimer = Timer(
-                                      const Duration(seconds: 4),
-                                      () {
-                                        if (mounted) {
-                                          setState(() => _reportStatus = null);
-                                        }
-                                      },
-                                    );
-                                  }
-                                },
-                                icon: IconTheme(
-                                  data: IconThemeData(
-                                    color: _reported.contains(question.id)
-                                        ? t.colors.accent
-                                        : t.colors.secondaryLabel,
-                                  ),
-                                  child: PantasIcons.report,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -1258,6 +1210,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                               width: 376,
                               child: WebCard(
                                 radius: 14,
+                                floating: true,
                                 padding: const EdgeInsets.all(18),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -1431,27 +1384,13 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           _viewIndex = null;
           _poppingFlag = null;
         });
-        _releaseChoiceFocus();
+        releaseChoiceFocus(this);
       });
-
-  /// A new question starts with no choice focused. The ring that sat on the
-  /// answer just given must not carry to the same place on the next one,
-  /// where it reads as a half-made pick. The page takes the focus back.
-  void _releaseChoiceFocus() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      final focused = FocusManager.instance.primaryFocus;
-      final onChoice =
-          focused?.context?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
-              null;
-      if (onChoice) focused!.unfocus();
-    });
-  }
 
   void _lookAt(int? index) {
     setState(() => _viewIndex = index);
     if (_questionScroll.hasClients) _questionScroll.jumpTo(0);
-    _releaseChoiceFocus();
+    releaseChoiceFocus(this);
   }
 
   void _startForMode(QuizController controller) {
