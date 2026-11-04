@@ -16,16 +16,18 @@ class ProgressRing extends StatefulWidget {
     this.emptyTrackColor,
     super.key,
     this.delay = Duration.zero,
-  })  : studyStyle = false,
+  })  : animateIn = true,
+        studyStyle = false,
         pullStyle = false,
         assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
   const ProgressRing.study({
     required this.fraction,
     this.delay = Duration.zero,
+    this.size = 24,
+    this.animateIn = true,
     super.key,
   })  : emptyStrokeWidth = null,
         emptyTrackColor = null,
-        size = 24,
         child = null,
         showCheck = false,
         fillDuration = null,
@@ -41,6 +43,7 @@ class ProgressRing extends StatefulWidget {
         emptyTrackColor = null,
         size = 44,
         delay = Duration.zero,
+        animateIn = true,
         showCheck = false,
         fillDuration = null,
         fillDelay = Duration.zero,
@@ -52,6 +55,11 @@ class ProgressRing extends StatefulWidget {
   final bool pullStyle;
   final bool studyStyle;
   final Duration delay;
+
+  /// False when the ring comes back to a screen that has already shown it
+  /// (a list laid out again, a row scrolled back into view): it stands at
+  /// [fraction] at once and fills only when [fraction] changes.
+  final bool animateIn;
   final double fraction;
   final double size;
   final Widget? child;
@@ -70,13 +78,16 @@ class _ProgressRingState extends State<ProgressRing>
   bool? _still;
   _RingPainter? _painter;
   bool _animated = false;
+  bool _arrived = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final still = MediaQuery.disableAnimationsOf(context);
     if (_still != still) {
-      final begin = _still == null ? 0.0 : _fill.value;
+      final begin = _still == null
+          ? (widget.animateIn ? 0.0 : widget.fraction)
+          : _fill.value;
       _still = still;
       animate(begin);
     }
@@ -138,7 +149,9 @@ class _ProgressRingState extends State<ProgressRing>
         ),
       ),
     );
-    if (_still!) {
+    final standing = !_arrived && !widget.animateIn;
+    _arrived = true;
+    if (_still! || standing) {
       _controller
         ..stop()
         ..value = 1;
@@ -201,7 +214,10 @@ class _ProgressRingState extends State<ProgressRing>
         radius: widget.fraction == 0 && widget.emptyStrokeWidth != null
             ? (widget.size - stroke) / 2
             : null,
-        trackStroke: widget.size == 24 && widget.fraction > 0 ? 2 : stroke,
+        trackStroke:
+            widget.studyStyle || (widget.size == 24 && widget.fraction > 0)
+                ? 2
+                : stroke,
       );
     }
     return Semantics(

@@ -27,6 +27,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -1033,13 +1034,15 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           ),
                         ),
                       ),
-                      if (_gridOpen)
-                        Positioned.fill(
-                          child: GestureDetector(
+                      Positioned.fill(
+                        child: _Popover(
+                          open: _gridOpen,
+                          builder: (_) => GestureDetector(
                             onTap: () => setState(() => _gridOpen = false),
                             behavior: HitTestBehavior.translucent,
                           ),
                         ),
+                      ),
                       Positioned(
                         bottom: 28,
                         left: 24,
@@ -1129,15 +1132,18 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           ),
                         ),
                       ),
-                      if (_gridOpen)
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          child: CompositedTransformFollower(
-                            link: _barLink,
-                            followerAnchor: Alignment.bottomLeft,
-                            offset: const Offset(.8, -12),
-                            child: SizedBox(
+                      Positioned(
+                        left: 0,
+                        top: 0,
+                        // The follower stays outside the fade: a box between
+                        // it and the Stack would refuse taps away from (0, 0).
+                        child: CompositedTransformFollower(
+                          link: _barLink,
+                          followerAnchor: Alignment.bottomLeft,
+                          offset: const Offset(.8, -12),
+                          child: _Popover(
+                            open: _gridOpen,
+                            builder: (_) => SizedBox(
                               width: 376,
                               child: WebCard(
                                 radius: 14,
@@ -1261,6 +1267,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                             ),
                           ),
                         ),
+                      ),
                       if (_toastMessage != null)
                         Positioned(
                           bottom: 108,
@@ -1581,4 +1588,60 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       context.go('/quiz');
     }
   }
+}
+
+/// Keeps a wide popover on screen through its exit, with the popover motion the
+/// other wide overlays use. [builder] runs only while it is open or leaving.
+/// Opening it again during the exit turns it round from where it is.
+class _Popover extends StatefulWidget {
+  const _Popover({required this.open, required this.builder});
+  final bool open;
+  final WidgetBuilder builder;
+
+  @override
+  State<_Popover> createState() => _PopoverState();
+}
+
+class _PopoverState extends State<_Popover>
+    with SingleTickerProviderStateMixin {
+  static const _motion = WebOverlayMotion.popover;
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: _motion.open,
+    reverseDuration: _motion.close,
+    value: widget.open ? 1 : 0,
+  );
+
+  @override
+  void didUpdateWidget(_Popover oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.open == oldWidget.open) return;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.value = widget.open ? 1 : 0;
+    } else if (widget.open) {
+      unawaited(_controller.forward());
+    } else {
+      unawaited(_controller.reverse());
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) {
+          if (!widget.open && _controller.isDismissed) {
+            return const SizedBox.shrink();
+          }
+          return IgnorePointer(
+            ignoring: !widget.open,
+            child: _motion.transition(_controller, widget.builder(context)),
+          );
+        },
+      );
 }

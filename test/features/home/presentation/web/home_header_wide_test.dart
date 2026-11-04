@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -89,9 +90,17 @@ void main() {
           expect(
             find.descendant(
               of: find.byKey(const ValueKey('web-week-day-3')),
-              matching: find.byIcon(Icons.check),
+              matching: find.byType(CheckMark),
             ),
             findsOneWidget,
+          );
+          expect(
+            tester
+                .widget<ProgressRing>(
+                  find.byKey(const ValueKey('web-today-progress')),
+                )
+                .fraction,
+            1,
           );
         } else {
           expect(
@@ -162,7 +171,11 @@ void main() {
   }
 
   group('wide today ring motion', () {
-    Future<void> pumpHeader(WidgetTester tester, {required bool still}) async {
+    Future<void> pumpHeader(
+      WidgetTester tester, {
+      required bool still,
+      double fraction = .5,
+    }) async {
       tester.view.physicalSize = const Size(1440, 900);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
@@ -188,7 +201,7 @@ void main() {
                   WeekDayState.plain,
                   WeekDayState.plain,
                 ],
-                todayFraction: .5,
+                todayFraction: fraction,
               ),
             ),
           ],
@@ -238,6 +251,35 @@ void main() {
       expect(mid, lessThan(math.pi));
       await tester.pumpAndSettle();
       expect(sweep(tester), closeTo(math.pi, .001));
+    });
+
+    double checkScale(WidgetTester tester) => tester
+        .widget<Transform>(find.byKey(const ValueKey('check-mark-scale')))
+        .transform
+        .entry(0, 0);
+
+    testWidgets('at 100% the ring stays and the check pops in over the digit',
+        (tester) async {
+      await pumpHeader(tester, still: false, fraction: 1);
+      expect(find.byKey(const ValueKey('web-today-progress')), findsOneWidget);
+      expect(find.text('14'), findsOneWidget);
+      // The pop begins 100 ms before the 1200 ms fill ends, after its delay.
+      await tester.pump(const Duration(milliseconds: 1000));
+      final before = checkScale(tester);
+      await tester.pump(const Duration(milliseconds: 300));
+      final mid = checkScale(tester);
+      expect(mid, isNot(before));
+      await tester.pumpAndSettle();
+      expect(checkScale(tester), closeTo(1, .001));
+      expect(sweep(tester), closeTo(2 * math.pi, .001));
+    });
+
+    testWidgets('at 100% reduced motion shows the finished check at once',
+        (tester) async {
+      await pumpHeader(tester, still: true, fraction: 1);
+      expect(checkScale(tester), closeTo(1, .001));
+      expect(sweep(tester), closeTo(2 * math.pi, .001));
+      expect(tester.hasRunningAnimations, isFalse);
     });
 
     testWidgets('reduced motion shows the end state at once', (tester) async {

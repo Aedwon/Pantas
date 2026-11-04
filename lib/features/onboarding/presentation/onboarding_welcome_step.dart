@@ -117,7 +117,10 @@ class OnboardingWelcomeStep extends StatelessWidget {
 }
 
 /// The wide welcome's logo and title: the launch logo's 750 ms pop, the same
-/// rise, overshoot and settle on `popC`.
+/// rise, overshoot and settle on `popC`. It waits [_splashFade] so the page's
+/// logo has faded before this one rises, and two logos never show at once.
+const _splashFade = 250;
+
 class _WelcomePop extends StatefulWidget {
   const _WelcomePop({required this.child, super.key});
   final Widget child;
@@ -130,7 +133,7 @@ class _WelcomePopState extends State<_WelcomePop>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 750),
+    duration: const Duration(milliseconds: 750 + _splashFade),
   );
   bool _started = false;
 
@@ -155,7 +158,8 @@ class _WelcomePopState extends State<_WelcomePop>
   Widget build(BuildContext context) => AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
-          final milliseconds = _controller.value * 750;
+          final milliseconds =
+              _controller.value * (750 + _splashFade) - _splashFade;
           final rising = ((milliseconds - 150) / 360).clamp(0.0, 1.0);
           final settling = ((milliseconds - 510) / 240).clamp(0.0, 1.0);
           final scale = milliseconds <= 510

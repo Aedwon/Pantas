@@ -615,19 +615,21 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             children: [
               Expanded(child: Text('YOUR QUIZ', style: t.eb)),
               if (!summary.isEmpty)
-                TextButton(
-                  onPressed: () => selection(const PracticeSelection.empty()),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    minimumSize: Size.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-                  child: Text(
-                    'Clear',
-                    style: t.style(
-                      14,
-                      weight: FontWeight.w600,
-                      color: t.colors.secondaryLabel,
+                _fadeIn(
+                  TextButton(
+                    onPressed: () => selection(const PracticeSelection.empty()),
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      'Clear',
+                      style: t.style(
+                        14,
+                        weight: FontWeight.w600,
+                        color: t.colors.secondaryLabel,
+                      ),
                     ),
                   ),
                 ),
@@ -641,270 +643,322 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              if (summary.isEmpty) ...[
-                Text('Nothing picked yet', style: t.h3),
-                const SizedBox(height: 14),
-                Text('Pick a topic or a lesson', style: t.sub),
-              ] else ...[
-                Text(
-                  pickedLabel,
-                  style: t.sm.copyWith(fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Text(
-                      '${_mode == PracticeUnitMode.minutes ? '~' : ''}'
-                      '${summary.totalQuestions}',
-                      style: t.big,
-                    ),
-                    const SizedBox(width: 8),
-                    Flexible(
-                      child: Text(
-                        'questions',
-                        overflow: TextOverflow.ellipsis,
-                        style: t.style(
-                          17,
-                          height: 1.45,
-                          color: t.colors.secondaryLabel,
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Text(
-                      '${_mode == PracticeUnitMode.questions ? '~' : ''}'
-                      '$timeLabel',
-                      style: t.sub,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                Divider(height: .5, thickness: .5, color: t.colors.separator),
-                const SizedBox(height: 16),
-                Text(
-                  'How long?',
-                  style: t.sm.copyWith(fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 16),
-                WebSegmentedControl(
-                  labels: const ['Questions per lesson', 'Total time'],
-                  selected: _mode.index,
-                  onChanged: (i) {
-                    if (i == _mode.index) return;
-                    _change(
-                      () {
-                        _conversionTarget ??= summary.totalQuestions;
-                        _mode = PracticeUnitMode.values[i];
-                        _value = BuildPracticeSummary.closestValue(
-                              units: _selection.units(index),
-                              index: index,
-                              totalQuestions: _conversionTarget!,
-                              values: _values,
-                              mode: _mode,
-                              averageResponseMs: pace,
-                            ) ??
-                            _snap(_value, summary.unitCount, pace);
-                        _adjustments = {};
-                      },
-                      modeOnly: true,
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                ViewSwap(
-                  index: _mode.index,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text(
-                        _mode == PracticeUnitMode.questions
-                            ? 'You set the questions. Time follows.'
-                            : 'You set the time. Questions follow.',
-                        style: t.sm,
-                      ),
-                      const SizedBox(height: 16),
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: t.colors.background,
-                          borderRadius: BorderRadius.circular(11),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(3),
-                          child: Row(
-                            children: [
-                              for (final value in (<int>{
-                                ...(_mode == PracticeUnitMode.questions
-                                    ? const [3, 4, 5, 6, 8, 10, 15, 20, 30, 50]
-                                    : const [5, 10, 15, 20, 30, 45, 60]),
-                                // Keep saved phone values visible.
-                                _value,
-                              }.toList()
-                                ..sort()))
-                                Expanded(
-                                  child: SizedBox(
-                                    height: 34,
-                                    child: TextButton(
-                                      onPressed: _invalid(
-                                        summary.unitCount,
-                                        pace,
-                                      ).contains(_values.indexOf(value))
-                                          ? null
-                                          : () => _change(() {
-                                                _value = value;
-                                                _adjustments = {};
-                                              }),
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                        minimumSize: Size.zero,
-                                        tapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        backgroundColor: _value == value
-                                            ? t.colors.accentFill
-                                            : Colors.transparent,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(9),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        '$value',
-                                        style: t
-                                            .style(
-                                              15,
-                                              weight: FontWeight.w600,
-                                              color: _value == value
-                                                  ? Colors.white
-                                                  : t.colors.secondaryLabel,
-                                            )
-                                            .copyWith(
-                                              decoration: _invalid(
-                                                summary.unitCount,
-                                                pace,
-                                              ).contains(
-                                                _values.indexOf(value),
-                                              )
-                                                  ? TextDecoration.lineThrough
-                                                  : null,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 4),
-                        child: Text(
-                          'Split by lesson',
+              _swap(
+                empty: summary.isEmpty,
+                children: summary.isEmpty
+                    ? [
+                        Text('Nothing picked yet', style: t.h3),
+                        const SizedBox(height: 14),
+                        Text('Pick a topic or a lesson', style: t.sub),
+                      ]
+                    : [
+                        Text(
+                          pickedLabel,
                           style: t.sm.copyWith(fontWeight: FontWeight.w600),
                         ),
-                      ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        minimumSize: const Size(0, 30),
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        textStyle: t.style(14, weight: FontWeight.w600),
-                      ),
-                      onPressed: () {
-                        if (_adjusting) {
-                          _change(() {
-                            _adjustments = {};
-                            _adjusting = false;
-                          });
-                        } else {
-                          setState(() => _adjusting = true);
-                        }
-                      },
-                      child: Text(_adjusting ? 'Reset' : 'Adjust'),
-                    ),
-                  ],
-                ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxHeight: 280),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        for (final (ri, row) in rows.indexed)
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(4, 12, 4, 12),
-                            decoration: BoxDecoration(
-                              border: ri + 1 < rows.length
-                                  ? Border(
-                                      bottom: BorderSide(
-                                        color: t.colors.separator,
-                                      ),
-                                    )
-                                  : null,
+                        const SizedBox(height: 16),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              '${_mode == PracticeUnitMode.minutes ? '~' : ''}'
+                              '${summary.totalQuestions}',
+                              style: t.big,
                             ),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                            const SizedBox(width: 8),
+                            Flexible(
+                              child: Text(
+                                'questions',
+                                overflow: TextOverflow.ellipsis,
+                                style: t.style(
+                                  17,
+                                  height: 1.45,
+                                  color: t.colors.secondaryLabel,
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                            Text(
+                              _mode == PracticeUnitMode.questions
+                                  ? '~$timeLabel'
+                                  : timeLabel,
+                              style: t.sub,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        Divider(
+                          height: .5,
+                          thickness: .5,
+                          color: t.colors.separator,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'How long?',
+                          style: t.sm.copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 16),
+                        WebSegmentedControl(
+                          labels: const ['Questions per lesson', 'Total time'],
+                          selected: _mode.index,
+                          onChanged: (i) {
+                            if (i == _mode.index) return;
+                            _change(
+                              () {
+                                _conversionTarget ??= summary.totalQuestions;
+                                _mode = PracticeUnitMode.values[i];
+                                _value = BuildPracticeSummary.closestValue(
+                                      units: _selection.units(index),
+                                      index: index,
+                                      totalQuestions: _conversionTarget!,
+                                      values: _values,
+                                      mode: _mode,
+                                      averageResponseMs: pace,
+                                    ) ??
+                                    _snap(_value, summary.unitCount, pace);
+                                _adjustments = {};
+                              },
+                              modeOnly: true,
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        ViewSwap(
+                          index: _mode.index,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                _mode == PracticeUnitMode.questions
+                                    ? 'You set the questions. Time follows.'
+                                    : 'You set the time. Questions follow.',
+                                style: t.sm,
+                              ),
+                              const SizedBox(height: 16),
+                              DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: t.colors.background,
+                                  borderRadius: BorderRadius.circular(11),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(3),
+                                  child: Row(
                                     children: [
-                                      Text(
-                                        row.title,
-                                        style: t.style(16, height: 21 / 16),
-                                      ),
-                                      if (row.meta != null)
-                                        Text(
-                                          row.meta!,
-                                          style: t.style(
-                                            14,
-                                            height: 18 / 14,
-                                            color: t.colors.secondaryLabel,
+                                      for (final value in (<int>{
+                                        ...(_mode == PracticeUnitMode.questions
+                                            ? const [
+                                                3,
+                                                4,
+                                                5,
+                                                6,
+                                                8,
+                                                10,
+                                                15,
+                                                20,
+                                                30,
+                                                50,
+                                              ]
+                                            : const [
+                                                5,
+                                                10,
+                                                15,
+                                                20,
+                                                30,
+                                                45,
+                                                60,
+                                              ]),
+                                        // Keep saved phone values visible.
+                                        _value,
+                                      }.toList()
+                                        ..sort()))
+                                        Expanded(
+                                          child: SizedBox(
+                                            height: 34,
+                                            child: TextButton(
+                                              onPressed: _invalid(
+                                                summary.unitCount,
+                                                pace,
+                                              ).contains(_values.indexOf(value))
+                                                  ? null
+                                                  : () => _change(() {
+                                                        _value = value;
+                                                        _adjustments = {};
+                                                      }),
+                                              style: TextButton.styleFrom(
+                                                padding: EdgeInsets.zero,
+                                                minimumSize: Size.zero,
+                                                tapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                backgroundColor: _value == value
+                                                    ? t.colors.accentFill
+                                                    : Colors.transparent,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(9),
+                                                ),
+                                              ),
+                                              child: Text(
+                                                '$value',
+                                                style: t
+                                                    .style(
+                                                      15,
+                                                      weight: FontWeight.w600,
+                                                      color: _value == value
+                                                          ? Colors.white
+                                                          : t.colors
+                                                              .secondaryLabel,
+                                                    )
+                                                    .copyWith(
+                                                      decoration: _invalid(
+                                                        summary.unitCount,
+                                                        pace,
+                                                      ).contains(
+                                                        _values.indexOf(value),
+                                                      )
+                                                          ? TextDecoration
+                                                              .lineThrough
+                                                          : null,
+                                                    ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                     ],
                                   ),
                                 ),
-                                if (_adjusting) ...[
-                                  _webStep(summary, row.keys, -1, row.title),
-                                  const SizedBox(width: 12),
-                                ],
-                                if (_adjusting)
-                                  SizedBox(
-                                    width: 28,
-                                    child: Text(
-                                      '${_count(summary, row.keys)}',
-                                      textAlign: TextAlign.center,
-                                      style: t.style(
-                                        16,
-                                        weight: FontWeight.w600,
-                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 4),
+                                child: Text(
+                                  'Split by lesson',
+                                  style: t.sm
+                                      .copyWith(fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                minimumSize: const Size(0, 30),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                textStyle: t.style(14, weight: FontWeight.w600),
+                              ),
+                              onPressed: () {
+                                if (_adjusting) {
+                                  _change(() {
+                                    _adjustments = {};
+                                    _adjusting = false;
+                                  });
+                                } else {
+                                  setState(() => _adjusting = true);
+                                }
+                              },
+                              child: Text(_adjusting ? 'Reset' : 'Adjust'),
+                            ),
+                          ],
+                        ),
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxHeight: 280),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                for (final (ri, row) in rows.indexed)
+                                  Container(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(4, 12, 4, 12),
+                                    decoration: BoxDecoration(
+                                      border: ri + 1 < rows.length
+                                          ? Border(
+                                              bottom: BorderSide(
+                                                color: t.colors.separator,
+                                              ),
+                                            )
+                                          : null,
                                     ),
-                                  )
-                                else
-                                  Text(
-                                    '${_count(summary, row.keys)}',
-                                    style: t.style(16, weight: FontWeight.w600),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                row.title,
+                                                style: t.style(
+                                                  16,
+                                                  height: 21 / 16,
+                                                ),
+                                              ),
+                                              if (row.meta != null)
+                                                Text(
+                                                  row.meta!,
+                                                  style: t.style(
+                                                    14,
+                                                    height: 18 / 14,
+                                                    color:
+                                                        t.colors.secondaryLabel,
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                        if (_adjusting) ...[
+                                          _webStep(
+                                            summary,
+                                            row.keys,
+                                            -1,
+                                            row.title,
+                                          ),
+                                          const SizedBox(width: 12),
+                                        ],
+                                        if (_adjusting)
+                                          SizedBox(
+                                            width: 28,
+                                            child: Text(
+                                              '${_count(summary, row.keys)}',
+                                              textAlign: TextAlign.center,
+                                              style: t.style(
+                                                16,
+                                                weight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          )
+                                        else
+                                          Text(
+                                            '${_count(summary, row.keys)}',
+                                            style: t.style(
+                                              16,
+                                              weight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        if (_adjusting) ...[
+                                          const SizedBox(width: 12),
+                                          _webStep(
+                                            summary,
+                                            row.keys,
+                                            1,
+                                            row.title,
+                                          ),
+                                        ],
+                                      ],
+                                    ),
                                   ),
-                                if (_adjusting) ...[
-                                  const SizedBox(width: 12),
-                                  _webStep(summary, row.keys, 1, row.title),
-                                ],
                               ],
                             ),
                           ),
+                        ),
                       ],
-                    ),
-                  ),
-                ),
-              ],
+              ),
               if (_failure != null) ...[
                 const SizedBox(height: 14),
                 if (_launchFailed)
@@ -980,6 +1034,50 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// Fades [child] in over 200 ms as it appears, as the phone's Clear does.
+  Widget _fadeIn(Widget child) {
+    if (MediaQuery.disableAnimationsOf(context)) return child;
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: const Duration(milliseconds: 200),
+      child: child,
+      builder: (context, value, child) => IgnorePointer(
+        ignoring: value == 0,
+        child: Opacity(opacity: value, child: child),
+      ),
+    );
+  }
+
+  /// The Your quiz card changes between nothing picked and a pick. Its body
+  /// cross-fades and the card sizes to it over 200 ms.
+  Widget _swap({required bool empty, required List<Widget> children}) {
+    final body = Column(
+      key: ValueKey(empty),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: children,
+    );
+    if (MediaQuery.disableAnimationsOf(context)) return body;
+    const duration = Duration(milliseconds: 200);
+    return AnimatedSize(
+      duration: duration,
+      alignment: Alignment.topCenter,
+      child: AnimatedSwitcher(
+        duration: duration,
+        // The body that is leaving lies over the new one and takes no room,
+        // so the card sizes to what is arriving.
+        layoutBuilder: (current, previous) => Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            for (final old in previous)
+              Positioned(left: 0, right: 0, top: 0, child: old),
+            if (current != null) current,
+          ],
+        ),
+        child: body,
       ),
     );
   }

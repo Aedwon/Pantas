@@ -485,26 +485,39 @@ class WebTendencyFinding extends StatelessWidget {
             borderRadius: BorderRadius.circular(99),
             child: SizedBox(
               height: 12,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: math.max(1, (share * 1000).round()),
-                    child: ColoredBox(
-                      color: clear ? t.colors.accent : t.strongDivider,
-                      child: const SizedBox.expand(),
+              // The phone's chart draw: 900 ms from empty to the value.
+              child: TweenAnimationBuilder<double>(
+                tween: Tween(
+                  begin: MediaQuery.disableAnimationsOf(context) ? 1 : 0,
+                  end: 1,
+                ),
+                duration: const Duration(milliseconds: 900),
+                curve: PantasCurves.houseOut,
+                builder: (_, grow, child) => Align(
+                  alignment: Alignment.centerLeft,
+                  child: FractionallySizedBox(widthFactor: grow, child: child),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: math.max(1, (share * 1000).round()),
+                      child: ColoredBox(
+                        color: clear ? t.colors.accent : t.strongDivider,
+                        child: const SizedBox.expand(),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 2),
-                  Expanded(
-                    flex: math.max(1, ((1 - share) * 1000).round()),
-                    child: ColoredBox(
-                      color: clear
-                          ? t.colors.accent.withValues(alpha: .35)
-                          : t.colors.separator,
-                      child: const SizedBox.expand(),
+                    const SizedBox(width: 2),
+                    Expanded(
+                      flex: math.max(1, ((1 - share) * 1000).round()),
+                      child: ColoredBox(
+                        color: clear
+                            ? t.colors.accent.withValues(alpha: .35)
+                            : t.colors.separator,
+                        child: const SizedBox.expand(),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

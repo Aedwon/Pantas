@@ -1,8 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+
+import '../motion/preview_curves.dart';
 
 void _still(WidgetTester tester) {
   tester.platformDispatcher.accessibilityFeaturesTestValue =
@@ -238,6 +242,295 @@ void main() {
         tester.getCenter(find.byKey(const Key('dialog'))),
         const Offset(720, 450),
       );
+    });
+  });
+
+  group('WebRootModal exit', () {
+    Future<void> mountModal(
+      WidgetTester tester, {
+      required WebOverlayExit exit,
+      VoidCallback? onBack,
+      bool still = false,
+    }) async {
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: MediaQuery(
+            data: MediaQueryData(
+              size: const Size(1440, 900),
+              disableAnimations: still,
+            ),
+            child: WebRootModal(
+              exit: exit,
+              onBack: onBack,
+              onDismiss: () {},
+              modal: (_) => const SizedBox(
+                key: Key('dialog'),
+                width: 400,
+                height: 200,
+              ),
+              child: const Scaffold(body: Text('Page')),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump();
+    }
+
+    double fade(WidgetTester tester) => tester
+        .widget<Opacity>(
+          find
+              .ancestor(
+                of: find.byKey(const Key('dialog')),
+                matching: find.byType(Opacity),
+              )
+              .first,
+        )
+        .opacity;
+
+    testWidgets('the dialog fades out and the page leaves after it',
+        (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      await mountModal(tester, exit: exit);
+      await tester.pumpAndSettle();
+      expect(fade(tester), 1);
+      exit.close(() => left++);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+      expect(fade(tester), inExclusiveRange(0, 1));
+      expect(left, 0);
+      await tester.pumpAndSettle();
+      expect(left, 1);
+      expect(fade(tester), 0);
+    });
+
+    testWidgets('system Back plays the exit, then runs onBack once',
+        (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      await mountModal(tester, exit: exit, onBack: () => left++);
+      await tester.pumpAndSettle();
+      final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+      await navigator.maybePop();
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+      expect(fade(tester), inExclusiveRange(0, 1));
+      expect(left, 0);
+      await navigator.maybePop();
+      await tester.pumpAndSettle();
+      expect(left, 1);
+    });
+
+    testWidgets('reduced motion leaves at once', (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      await mountModal(tester, exit: exit, onBack: () => left++, still: true);
+      exit.close(() => left++);
+      expect(left, 1);
+      await tester.pump();
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+  });
+
+  group('WebCard selected', () {
+    Widget card({required bool selected, bool still = false}) => MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: MediaQuery(
+            data: MediaQueryData(disableAnimations: still),
+            child: Scaffold(
+              body: WebCard(
+                selected: selected,
+                child: const SizedBox(width: 200, height: 60),
+              ),
+            ),
+          ),
+        );
+
+    Container box(WidgetTester tester) => tester.widget<Container>(
+          find
+              .descendant(
+                of: find.byType(WebCard),
+                matching: find.byType(Container),
+              )
+              .first,
+        );
+    Color fill(WidgetTester tester) =>
+        (box(tester).decoration! as BoxDecoration).color!;
+    double outline(WidgetTester tester) {
+      final decoration = box(tester).foregroundDecoration as BoxDecoration?;
+      return decoration == null
+          ? 0
+          : (decoration.border! as Border).top.color.a;
+    }
+
+    testWidgets('the tint and outline fade in over 160 ms', (tester) async {
+      await tester.pumpWidget(card(selected: false));
+      final start = fill(tester);
+      expect(outline(tester), 0);
+      await tester.pumpWidget(card(selected: true));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 80));
+      final p = previewEase(.5);
+      expect(outline(tester), closeTo(p, .02));
+      expect(fill(tester), isNot(start));
+      expect(fill(tester), isNot(const Color(0xFFE4F1EE)));
+      await tester.pump(const Duration(milliseconds: 90));
+      expect(fill(tester), const Color(0xFFE4F1EE));
+      expect(outline(tester), 1);
+      await tester.pumpAndSettle();
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('a card that starts selected is not animated', (tester) async {
+      await tester.pumpWidget(card(selected: true));
+      expect(fill(tester), const Color(0xFFE4F1EE));
+      expect(outline(tester), 1);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('reduced motion changes it at once', (tester) async {
+      await tester.pumpWidget(card(selected: false, still: true));
+      await tester.pumpWidget(card(selected: true, still: true));
+      await tester.pump();
+      expect(fill(tester), const Color(0xFFE4F1EE));
+      expect(outline(tester), 1);
+    });
+  });
+
+  group('WebRow hover chevron', () {
+    Widget row({bool still = false}) => MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: MediaQuery(
+            data: MediaQueryData(disableAnimations: still),
+            child: Scaffold(
+              body: SizedBox(
+                width: 400,
+                child: WebRow(
+                  title: 'Practice',
+                  chevron: WebRowChevron.hover,
+                  onPressed: () {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+    double shown(WidgetTester tester) => tester
+        .widget<FadeTransition>(
+          find
+              .ancestor(
+                of: find.byType(WebChevron),
+                matching: find.byType(FadeTransition),
+              )
+              .first,
+        )
+        .opacity
+        .value;
+
+    Future<TestGesture> hover(WidgetTester tester) async {
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      await mouse.addPointer(location: const Offset(1000, 800));
+      addTearDown(mouse.removePointer);
+      await tester.pump();
+      await mouse.moveTo(tester.getCenter(find.text('Practice')));
+      await tester.pump();
+      return mouse;
+    }
+
+    testWidgets('fades in over 160 ms on hover and out on leaving',
+        (tester) async {
+      await tester.pumpWidget(row());
+      expect(shown(tester), 0);
+      final mouse = await hover(tester);
+      await tester.pump(const Duration(milliseconds: 80));
+      expect(shown(tester), closeTo(previewEase(.5), .02));
+      await tester.pump(const Duration(milliseconds: 90));
+      expect(shown(tester), 1);
+      await mouse.moveTo(const Offset(1000, 800));
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 80));
+      expect(shown(tester), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(shown(tester), 0);
+    });
+
+    testWidgets('reduced motion shows it at once', (tester) async {
+      await tester.pumpWidget(row(still: true));
+      await hover(tester);
+      await tester.pump();
+      expect(shown(tester), 1);
+    });
+  });
+
+  group('WebPickerColumn', () {
+    final values = [for (var i = 0; i < 30; i++) 'v$i'];
+
+    Widget column(int selected, {bool still = false}) => MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: MediaQuery(
+            data: MediaQueryData(disableAnimations: still),
+            child: Scaffold(
+              body: Center(
+                child: WebPickerColumn(
+                  values: values,
+                  selectedIndex: selected,
+                  label: 'Day',
+                  onSelected: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+    double top(WidgetTester tester, String text) =>
+        tester.getTopLeft(find.text(text)).dy;
+
+    testWidgets('rows slide a row to the new value over 240 ms',
+        (tester) async {
+      await tester.pumpWidget(column(10));
+      final settled = top(tester, 'v10');
+      await tester.pumpWidget(column(11));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      // v11 was one row below the middle and v10 is leaving it upward.
+      expect(top(tester, 'v10'), inExclusiveRange(settled - 40, settled));
+      expect(top(tester, 'v11'), greaterThan(settled));
+      await tester.pump(const Duration(milliseconds: 160));
+      expect(top(tester, 'v11'), settled);
+      expect(top(tester, 'v10'), settled - 40);
+      expect(find.text('v8'), findsNothing);
+      await tester.pumpAndSettle();
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('quick picks never fall more than a row behind',
+        (tester) async {
+      await tester.pumpWidget(column(10));
+      final middle = top(tester, 'v10');
+      for (var i = 11; i <= 20; i++) {
+        await tester.pumpWidget(column(i));
+        await tester.pump(const Duration(milliseconds: 16));
+        // The row now chosen is within one row of the middle.
+        expect(top(tester, 'v$i') - middle, lessThanOrEqualTo(40.001));
+      }
+      await tester.pumpAndSettle();
+      expect(top(tester, 'v20'), middle);
+    });
+
+    testWidgets('reduced motion moves the rows at once', (tester) async {
+      await tester.pumpWidget(column(10, still: true));
+      final settled = top(tester, 'v10');
+      await tester.pumpWidget(column(14, still: true));
+      expect(top(tester, 'v14'), settled);
+      await tester.pumpAndSettle();
+      expect(tester.hasRunningAnimations, isFalse);
     });
   });
 }

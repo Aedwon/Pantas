@@ -180,6 +180,104 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.getTopLeft(panel).dx, 960);
   });
+  group('a topic drawer opened by address leaves with an exit', () {
+    Future<void> openByAddress(
+      WidgetTester tester, {
+      bool still = false,
+    }) async {
+      debugWebPlatformOverride = true;
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      if (still) {
+        tester.platformDispatcher.accessibilityFeaturesTestValue =
+            const FakeAccessibilityFeatures(disableAnimations: true);
+        addTearDown(
+          tester.platformDispatcher.clearAccessibilityFeaturesTestValue,
+        );
+      }
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await fixtures.pump(
+        tester,
+        initialPath: '/performance/topic/Geometry',
+        realTopic: true,
+      );
+      await tester.pumpAndSettle();
+      expect(drawerLeft(tester), 960);
+    }
+
+    testWidgets('a scrim tap slides it out, then goes home', (tester) async {
+      await openByAddress(tester);
+      await tester.tapAt(const Offset(100, 100));
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(drawerLeft(tester), inExclusiveRange(960, 1440));
+      expect(find.text('open'), findsNothing);
+      await tester.pumpAndSettle();
+      expect(find.text('open'), findsOneWidget);
+      expect(find.byKey(drawerKey), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('Esc in the drawer does the same', (tester) async {
+      await openByAddress(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(drawerLeft(tester), inExclusiveRange(960, 1440));
+      expect(find.text('open'), findsNothing);
+      await tester.pumpAndSettle();
+      expect(find.text('open'), findsOneWidget);
+    });
+
+    testWidgets('a second tap while it leaves does nothing more',
+        (tester) async {
+      await openByAddress(tester);
+      await tester.tapAt(const Offset(100, 100));
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.tapAt(const Offset(100, 100));
+      await tester.pumpAndSettle();
+      expect(find.text('open'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('reduced motion goes home at once', (tester) async {
+      await openByAddress(tester, still: true);
+      await tester.tapAt(const Offset(100, 100));
+      await tester.pump();
+      await tester.pump();
+      expect(find.text('open'), findsOneWidget);
+    });
+
+    testWidgets('Back on a pushed topic page plays the exit, then pops',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await fixtures.pump(tester, realTopic: true);
+      await tester.pumpAndSettle();
+      GoRouter.of(tester.element(find.byType(PerformanceScreen)))
+          .push<void>('/performance/topic/Geometry')
+          .ignore();
+      await tester.pumpAndSettle();
+      expect(drawerLeft(tester), 960);
+      final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+      await navigator.maybePop();
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(drawerLeft(tester), inExclusiveRange(960, 1440));
+      await tester.pumpAndSettle();
+      expect(find.byKey(drawerKey), findsNothing);
+      expect(find.text('Your performance'), findsOneWidget);
+    });
+  });
   testWidgets('reduced motion shows a topic drawer at once', (tester) async {
     debugWebPlatformOverride = true;
     tester.view.physicalSize = const Size(1440, 900);

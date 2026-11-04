@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import '../../../helpers/pump_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,13 +13,13 @@ import 'package:pantas/features/home/application/plan_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
+import 'package:pantas/features/home/presentation/plan_day_page.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 import 'package:pantas/features/home/presentation/plan_screen.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
-import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
-import '../../../helpers/pump_app.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 void main() {
   testWidgets('today deep link waits for Home data after its guard',
@@ -136,6 +137,44 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Home'), findsOneWidget);
     expect(find.text('Cells'), findsOneWidget);
+  });
+  testWidgets('a week that starts before the plan shows the days it has',
+      (tester) async {
+    DayPlan plan(int day) => DayPlan(
+          day: DateTime(2026, 10, day),
+          lessonIds: const [],
+          reviewQuestionIds: const [],
+          newQuestionIds: const [],
+          isMockDay: false,
+          advancedIds: const {},
+        );
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWith((_) => true),
+          planWeekViewProvider('2026-10-18').overrideWith(
+            (_) async => [
+              for (var i = 0; i < 7; i++)
+                PlanDayView(
+                  date: DateTime(2026, 10, 18 + i),
+                  plan: i < 2 ? null : plan(18 + i),
+                  remaining: null,
+                  lessons: const [],
+                  kind: i < 2 ? 'unknown' : 'future',
+                ),
+            ],
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanWeekScreen(start: '2026-10-18'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Could not load your plan.'), findsNothing);
+    expect(tester.widget<PlanWeekPage>(find.byType(PlanWeekPage)).days,
+        hasLength(5));
   });
   testWidgets('a week with unknown stored days shows a recoverable error',
       (tester) async {

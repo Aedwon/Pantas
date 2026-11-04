@@ -527,7 +527,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             state is SessionPanelAvailable && n.reviewsTotal > n.reviewsDone;
         final showFoot = canStart || _saveFailed || _questionFailed;
         // The board's ring is a 24 px circle in a 26 px box, 2 px empty stroke.
-        Widget ring(int done, int total) {
+        // The fill takes the phone's 700 ms, and each row starts after the
+        // phone's delay (`TodayQuestionRow`).
+        Widget ring(int done, int total, Duration fillDelay) {
           if (total > 0 && done >= total) {
             return const SizedBox.square(
               dimension: 26,
@@ -539,11 +541,18 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             dimension: 26,
             child: Center(
               child: fraction > 0
-                  ? ProgressRing(fraction: fraction, size: 25)
+                  ? ProgressRing(
+                      fraction: fraction,
+                      size: 25,
+                      fillDuration: const Duration(milliseconds: 700),
+                      fillDelay: fillDelay,
+                    )
                   : ProgressRing(
                       fraction: 0,
                       emptyStrokeWidth: 2,
                       emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
+                      fillDuration: const Duration(milliseconds: 700),
+                      fillDelay: fillDelay,
                     ),
             ),
           );
@@ -608,7 +617,14 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                 'of ${progress.total}',
                         value: '${progress?.done ?? n.reviewsDone} of '
                             '${progress?.questions ?? n.reviewsTotal}',
-                        leading: ring(n.reviewsDone, n.reviewsTotal),
+                        leading: ring(
+                          progress?.done ?? n.reviewsDone,
+                          progress?.questions ?? n.reviewsTotal,
+                          Duration(
+                            milliseconds:
+                                state is SessionPanelInProgress ? 600 : 500,
+                          ),
+                        ),
                         onPressed: () =>
                             _showQuestions(examId, TodayQuestionKind.reviews),
                       ),
@@ -620,7 +636,11 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                         subtitle: "From today's lessons",
                         value: '${n.newDone} of ${n.newTotal}',
                         divider: showFoot,
-                        leading: ring(n.newDone, n.newTotal),
+                        leading: ring(
+                          n.newDone,
+                          n.newTotal,
+                          const Duration(milliseconds: 620),
+                        ),
                         onPressed: () => _showQuestions(
                           examId,
                           TodayQuestionKind.newQuestions,

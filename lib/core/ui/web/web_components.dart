@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -361,27 +363,35 @@ class WebCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      constraints:
-          minHeight == null ? null : BoxConstraints(minHeight: minHeight!),
-      alignment: minHeight == null ? null : Alignment.centerLeft,
-      decoration: BoxDecoration(
-        color: selected
-            ? (t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE))
-            : t.colors.surface,
-        borderRadius: BorderRadius.circular(radius),
-        border: t.dark && !selected ? Border.all(color: t.cardEdge) : null,
+    // Item 17, demo 4: the tint and the outline fade 160 ms on the ease. The
+    // dark edge goes at once, since it takes up room the outline would cover.
+    return FadingColor(
+      color: selected
+          ? (t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE))
+          : t.colors.surface,
+      builder: (context, fill, _) => FadingColor(
+        color: t.colors.accent.withValues(alpha: selected ? 1 : 0),
+        builder: (context, outline, _) => Container(
+          clipBehavior: Clip.antiAlias,
+          constraints:
+              minHeight == null ? null : BoxConstraints(minHeight: minHeight!),
+          alignment: minHeight == null ? null : Alignment.centerLeft,
+          decoration: BoxDecoration(
+            color: fill,
+            borderRadius: BorderRadius.circular(radius),
+            border: t.dark && !selected ? Border.all(color: t.cardEdge) : null,
+          ),
+          // Drawn on top like the board inset outline; content stays put.
+          foregroundDecoration: outline.a == 0
+              ? null
+              : BoxDecoration(
+                  borderRadius: BorderRadius.circular(radius),
+                  border: Border.all(color: outline, width: 2),
+                ),
+          padding: padding,
+          child: child,
+        ),
       ),
-      // Drawn on top like the board inset outline; content stays put.
-      foregroundDecoration: selected
-          ? BoxDecoration(
-              borderRadius: BorderRadius.circular(radius),
-              border: Border.all(color: t.colors.accent, width: 2),
-            )
-          : null,
-      padding: padding,
-      child: child,
     );
   }
 }
@@ -682,12 +692,16 @@ class _WebRowState extends State<WebRow> {
                     else
                       ListenableBuilder(
                         listenable: _states,
-                        builder: (context, child) => Opacity(
+                        builder: (context, child) => AnimatedOpacity(
                           opacity: _states.value
                                       .contains(WidgetState.hovered) ||
                                   _states.value.contains(WidgetState.focused)
                               ? 1
                               : 0,
+                          duration: MediaQuery.disableAnimationsOf(context)
+                              ? Duration.zero
+                              : PantasDurations.quick,
+                          curve: PantasCurves.ease,
                           child: child,
                         ),
                         child: const WebChevron(),
@@ -1409,8 +1423,10 @@ class WebTextAction extends StatelessWidget {
 /// One column of the board's date picker (`.pk`): five 38 px rows 2 px apart
 /// around the chosen value, 120 px wide. The chosen row is accent on the tint
 /// and bold; the rest are muted. A row is picked by tapping it or by the
-/// mouse wheel over the column.
-class WebPickerColumn extends StatelessWidget {
+/// mouse wheel over the column. The rows slide a row to the new value, 240 ms
+/// on the shared ease, as the phone's wheel glides. A pick made while one is
+/// sliding takes over from where the rows are, never more than a row away.
+class WebPickerColumn extends StatefulWidget {
   const WebPickerColumn({
     required this.values,
     required this.selectedIndex,
@@ -1428,91 +1444,154 @@ class WebPickerColumn extends StatelessWidget {
   final Set<int> disabledIndices;
 
   @override
-  Widget build(BuildContext context) {
+  State<WebPickerColumn> createState() => _WebPickerColumnState();
+}
+
+class _WebPickerColumnState extends State<WebPickerColumn>
+    with SingleTickerProviderStateMixin {
+  static const _row = 38.0;
+  static const _pitch = _row + 2;
+  static const _height = _row * 5 + 2 * 4;
+
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: PantasDurations.base,
+    value: 1,
+  );
+  late double _from = widget.selectedIndex.toDouble();
+
+  /// Where the rows are, as the index shown in the middle slot.
+  double get _position {
+    final to = widget.selectedIndex.toDouble();
+    return _from +
+        (to - _from) * PantasCurves.shared.transform(_controller.value);
+  }
+
+  @override
+  void didUpdateWidget(WebPickerColumn oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.selectedIndex == oldWidget.selectedIndex) return;
+    final to = widget.selectedIndex.toDouble();
+    final here = _from +
+        (oldWidget.selectedIndex - _from) *
+            PantasCurves.shared.transform(_controller.value);
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _from = to;
+      _controller.value = 1;
+      return;
+    }
+    _from = here.clamp(to - 1, to + 1);
+    unawaited(_controller.forward(from: 0));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Widget _rowAt(BuildContext context, int index) {
     final t = context.webTokens;
-    Widget row(int slot) {
-      final index = selectedIndex + slot;
-      if (index < 0 || index >= values.length) {
-        return const SizedBox(height: 38);
-      }
-      final chosen = slot == 0;
-      final disabled = disabledIndices.contains(index);
-      return Semantics(
-        button: true,
-        selected: chosen,
-        enabled: !disabled,
-        label: '$label ${values[index]}',
-        excludeSemantics: true,
-        child: TextButton(
-          onPressed: disabled || chosen ? null : () => onSelected(index),
-          style: ButtonStyle(
-            minimumSize: const WidgetStatePropertyAll(Size(120, 38)),
-            maximumSize: const WidgetStatePropertyAll(Size(120, 38)),
-            padding: const WidgetStatePropertyAll(EdgeInsets.zero),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-            backgroundColor: WidgetStateProperty.resolveWith(
-              (s) => chosen
-                  ? t.colors.accentTint
-                  : s.contains(WidgetState.hovered) && !disabled
-                      ? t.rowHover
-                      : Colors.transparent,
-            ),
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
-            ),
+    final chosen = index == widget.selectedIndex;
+    final disabled = widget.disabledIndices.contains(index);
+    return Semantics(
+      button: true,
+      selected: chosen,
+      enabled: !disabled,
+      label: '${widget.label} ${widget.values[index]}',
+      excludeSemantics: true,
+      child: TextButton(
+        onPressed: disabled || chosen ? null : () => widget.onSelected(index),
+        style: ButtonStyle(
+          minimumSize: const WidgetStatePropertyAll(Size(120, _row)),
+          maximumSize: const WidgetStatePropertyAll(Size(120, _row)),
+          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: VisualDensity.standard,
+          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          backgroundColor: WidgetStateProperty.resolveWith(
+            (s) => chosen
+                ? t.colors.accentTint
+                : s.contains(WidgetState.hovered) && !disabled
+                    ? t.rowHover
+                    : Colors.transparent,
           ),
-          child: Text(
-            values[index],
-            style: t.style(
-              17,
-              weight: chosen ? FontWeight.w700 : FontWeight.w400,
-              color: chosen
-                  ? t.colors.accent
-                  : disabled
-                      ? t.disabledText
-                      : t.colors.tertiaryLabel,
-            ),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
           ),
         ),
-      );
-    }
-
-    return Listener(
-      onPointerSignal: (event) {
-        if (event is! PointerScrollEvent) return;
-        final next = selectedIndex + (event.scrollDelta.dy > 0 ? 1 : -1);
-        if (next >= 0 &&
-            next < values.length &&
-            !disabledIndices.contains(next)) {
-          onSelected(next);
-        }
-      },
-      child: SizedBox(
-        width: 120,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            for (var slot = -2; slot <= 2; slot++) ...[
-              if (slot > -2) const SizedBox(height: 2),
-              row(slot),
-            ],
-          ],
+        child: Text(
+          widget.values[index],
+          style: t.style(
+            17,
+            weight: chosen ? FontWeight.w700 : FontWeight.w400,
+            color: chosen
+                ? t.colors.accent
+                : disabled
+                    ? t.disabledText
+                    : t.colors.tertiaryLabel,
+          ),
         ),
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) => Listener(
+        onPointerSignal: (event) {
+          if (event is! PointerScrollEvent) return;
+          final next =
+              widget.selectedIndex + (event.scrollDelta.dy > 0 ? 1 : -1);
+          if (next >= 0 &&
+              next < widget.values.length &&
+              !widget.disabledIndices.contains(next)) {
+            widget.onSelected(next);
+          }
+        },
+        child: SizedBox(
+          width: 120,
+          height: _height,
+          child: AnimatedBuilder(
+            animation: _controller,
+            builder: (context, _) {
+              final position = _position;
+              return Stack(
+                children: [
+                  for (var index = position.floor() - 3;
+                      index <= position.ceil() + 3;
+                      index++)
+                    if (index >= 0 && index < widget.values.length)
+                      if ((index - position + 2) * _pitch case final top
+                          when top + _row > 0 && top < _height)
+                        Positioned(
+                          top: top,
+                          left: 0,
+                          width: 120,
+                          height: _row,
+                          child: _rowAt(context, index),
+                        ),
+                ],
+              );
+            },
+          ),
+        ),
+      );
 }
 
 /// Draws [modal] over the whole window, sidebar included, on the root overlay.
 /// The boards' scrim covers the page and centers its dialog in the window, not
 /// in the pane that opened it. [child] stays in place underneath.
+///
+/// The dialog fades and rises in as the phone's form sheet does, and leaves the
+/// same way. A page that leaves from here asks [exit] to close with what
+/// leaving does, so the route waits for the dialog to go before it pops.
 class WebRootModal extends StatefulWidget {
   const WebRootModal({
     required this.child,
     required this.modal,
     this.onDismiss,
+    this.exit,
+    this.onBack,
     super.key,
   });
   final Widget child;
@@ -1522,12 +1601,22 @@ class WebRootModal extends StatefulWidget {
 
   /// Called when the scrim is tapped. Null leaves the scrim inert.
   final VoidCallback? onDismiss;
+
+  /// Plays the dialog's exit before the page leaves. Without one the modal
+  /// keeps its own, which only [onBack] uses.
+  final WebOverlayExit? exit;
+
+  /// What system Back does once the dialog has left. Null leaves Back to the
+  /// route and to any PopScope inside the dialog.
+  final VoidCallback? onBack;
   @override
   State<WebRootModal> createState() => _WebRootModalState();
 }
 
 class _WebRootModalState extends State<WebRootModal> {
   final _controller = OverlayPortalController();
+  final _own = WebOverlayExit();
+  WebOverlayExit get _exit => widget.exit ?? _own;
   @override
   void initState() {
     super.initState();
@@ -1536,21 +1625,31 @@ class _WebRootModalState extends State<WebRootModal> {
     });
   }
 
-  // The page leaves with its route, so the dialog has no exit of its own; it
-  // fades and rises in as the phone's form sheet does.
   @override
-  Widget build(BuildContext context) => OverlayPortal(
-        controller: _controller,
-        overlayLocation: OverlayChildLocation.rootOverlay,
-        overlayChildBuilder: (context) => WebOverlayLayer(
-          motion: WebOverlayMotion.dialog,
-          alignment: Alignment.center,
-          barrierColor: const Color(0x521D1D1F),
-          onDismiss: widget.onDismiss,
-          child: widget.modal(context),
-        ),
-        child: widget.child,
-      );
+  Widget build(BuildContext context) {
+    final portal = OverlayPortal(
+      controller: _controller,
+      overlayLocation: OverlayChildLocation.rootOverlay,
+      overlayChildBuilder: (context) => WebOverlayLayer(
+        motion: WebOverlayMotion.dialog,
+        alignment: Alignment.center,
+        barrierColor: const Color(0x521D1D1F),
+        onDismiss: widget.onDismiss,
+        exit: _exit,
+        child: widget.modal(context),
+      ),
+      child: widget.child,
+    );
+    final onBack = widget.onBack;
+    if (onBack == null) return portal;
+    return PopScope<void>(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _exit.close(onBack);
+      },
+      child: portal,
+    );
+  }
 }
 
 /// Full-page notice on wide web (boards SY_Error, SY_Update): a 60 px "P"

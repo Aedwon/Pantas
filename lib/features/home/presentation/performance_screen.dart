@@ -184,9 +184,18 @@ class PerformanceScreen extends ConsumerWidget {
 
 /// `/performance/topic/:topicId`.
 class TopicScreen extends ConsumerWidget {
-  const TopicScreen({required this.topicId, this.inDrawer = false, super.key});
+  const TopicScreen({
+    required this.topicId,
+    this.inDrawer = false,
+    this.exit,
+    super.key,
+  });
   final String topicId;
   final bool inDrawer;
+
+  /// Set when the drawer is this route's own page: leaving plays its exit
+  /// first.
+  final WebOverlayExit? exit;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -196,24 +205,16 @@ class TopicScreen extends ConsumerWidget {
         reportReady: !ref.watch(studyCoverageLoadingProvider),
       );
     }
-    if (context.wideWeb && !inDrawer) {
-      return Stack(
-        children: [
-          const PerformanceScreen(initialLevel: 1, reportReady: false),
-          Positioned.fill(
-            child: WebOverlayLayer(
-              motion: WebOverlayMotion.drawerOf(480),
-              barrierLabel: 'Close topic',
-              onDismiss: () => _back(context),
-              child: SizedBox(
-                width: 480,
-                child: TopicScreen(topicId: topicId, inDrawer: true),
-              ),
-            ),
-          ),
-        ],
-      );
+    if (context.wideWeb && !inDrawer) return _TopicDrawerPage(topicId: topicId);
+    void leave() {
+      final exit = this.exit;
+      if (exit == null) {
+        _back(context);
+      } else {
+        exit.close(() => _back(context));
+      }
     }
+
     final detail = ref.watch(topicDetailProvider(topicId));
     firstScreenReady(context, ref, ready: !detail.isLoading);
     final data = detail.unwrapPrevious().asData?.value;
@@ -221,7 +222,7 @@ class TopicScreen extends ConsumerWidget {
       return PantasPage(
         title: 'Topic',
         backLabel: 'Your performance',
-        onBack: () => _back(context),
+        onBack: leave,
         children: [
           if (detail.hasError)
             errorFor(
@@ -235,7 +236,7 @@ class TopicScreen extends ConsumerWidget {
     }
     return TopicDetailPage(
       detail: data,
-      onBack: () => _back(context),
+      onBack: leave,
       onLesson: (id) =>
           unawaited(context.push('/lesson/${Uri.encodeComponent(id)}')),
       onPractice: () {
@@ -247,4 +248,52 @@ class TopicScreen extends ConsumerWidget {
       },
     );
   }
+}
+
+/// A topic opened by address on wide web: the drawer over Performance is the
+/// route's own page, so it plays its exit before the route pops. Back does too,
+/// except at the start of the stack, where it still leaves the app.
+class _TopicDrawerPage extends StatefulWidget {
+  const _TopicDrawerPage({required this.topicId});
+  final String topicId;
+
+  @override
+  State<_TopicDrawerPage> createState() => _TopicDrawerPageState();
+}
+
+class _TopicDrawerPageState extends State<_TopicDrawerPage> {
+  final _exit = WebOverlayExit();
+
+  @override
+  Widget build(BuildContext context) => PopScope<void>(
+        canPop: !(GoRouter.maybeOf(context)?.canPop() ?? false),
+        onPopInvokedWithResult: (didPop, _) {
+          if (!didPop) _exit.close(() => _back(context));
+        },
+        child: Stack(
+          children: [
+            // The page behind is covered, so Esc and focus belong to the
+            // drawer, which plays its exit before leaving.
+            const ExcludeFocus(
+              child: PerformanceScreen(initialLevel: 1, reportReady: false),
+            ),
+            Positioned.fill(
+              child: WebOverlayLayer(
+                motion: WebOverlayMotion.drawerOf(480),
+                barrierLabel: 'Close topic',
+                onDismiss: () => _exit.close(() => _back(context)),
+                exit: _exit,
+                child: SizedBox(
+                  width: 480,
+                  child: TopicScreen(
+                    topicId: widget.topicId,
+                    inDrawer: true,
+                    exit: _exit,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 }

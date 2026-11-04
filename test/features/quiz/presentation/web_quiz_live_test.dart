@@ -80,4 +80,142 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  group('question navigator motion', () {
+    Future<void> pumpLive(WidgetTester tester, {bool still = false}) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final completed = completedSession(batch: true);
+      final session = completed.copyWith(
+        currentIndex: 3,
+        outcomes: completed.outcomes.take(3).toList(),
+      );
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            flaggedIdsProvider.overrideWith((_) async => <String>{}),
+            quizControllerProvider
+                .overrideWith((ref) => _Controller(ref, session)),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(disableAnimations: still),
+              child: child!,
+            ),
+            home: const QuizPage(examId: 'e', proIsActive: false),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    final popover = find.text('Questions');
+
+    double shown(WidgetTester tester) {
+      var value = 1.0;
+      for (final element in find
+          .ancestor(of: popover, matching: find.byType(Opacity))
+          .evaluate()) {
+        value *= (element.widget as Opacity).opacity;
+      }
+      return value;
+    }
+
+    Future<void> key(WidgetTester tester, LogicalKeyboardKey key) async {
+      await tester.sendKeyEvent(key);
+      await tester.pump();
+      await tester.pump();
+    }
+
+    testWidgets('opens and closes over 240 ms, and stays until it ends',
+        (tester) async {
+      await pumpLive(tester);
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(shown(tester), inExclusiveRange(0, 1));
+      final rising = tester.getTopLeft(popover).dy;
+      await tester.pumpAndSettle();
+      expect(shown(tester), 1);
+      expect(tester.getTopLeft(popover).dy, lessThan(rising));
+
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(popover, findsOneWidget);
+      expect(shown(tester), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(popover, findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('Esc closes it the same way', (tester) async {
+      await pumpLive(tester);
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      await key(tester, LogicalKeyboardKey.escape);
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(popover, findsOneWidget);
+      expect(shown(tester), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(popover, findsNothing);
+      expect(find.text('Leave this session?'), findsNothing);
+    });
+
+    testWidgets('a click away closes it and the catcher stops answering',
+        (tester) async {
+      await pumpLive(tester);
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      await tester.tapAt(const Offset(1300, 200));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(popover, findsOneWidget);
+      expect(shown(tester), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(popover, findsNothing);
+    });
+
+    testWidgets('opening it again while it closes turns it round',
+        (tester) async {
+      await pumpLive(tester);
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pump(const Duration(milliseconds: 100));
+      final closing = shown(tester);
+      expect(closing, inExclusiveRange(0, 1));
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pump(const Duration(milliseconds: 60));
+      expect(shown(tester), greaterThan(closing));
+      await tester.pumpAndSettle();
+      expect(popover, findsOneWidget);
+      expect(shown(tester), 1);
+    });
+
+    testWidgets('once open, it stays put and runs nothing', (tester) async {
+      await pumpLive(tester);
+      await key(tester, LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(shown(tester), 1);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('reduced motion opens and closes at once', (tester) async {
+      await pumpLive(tester, still: true);
+      await key(tester, LogicalKeyboardKey.keyG);
+      expect(popover, findsOneWidget);
+      expect(shown(tester), 1);
+      await key(tester, LogicalKeyboardKey.keyG);
+      expect(popover, findsNothing);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+  });
 }

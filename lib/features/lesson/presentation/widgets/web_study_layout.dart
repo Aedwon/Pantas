@@ -6,10 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -18,7 +21,9 @@ import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_map_flip.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
@@ -39,6 +44,9 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
   String? _failedTopic;
   String? _bookmarkFailure;
   final _bookmarkPending = <String>{};
+
+  /// True while the Bookmarks drawer is open, so the page behind it recedes.
+  bool _bookmarksOpen = false;
   @override
   void initState() {
     super.initState();
@@ -73,6 +81,32 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
     }
   }
 
+  Future<void> _openBookmarks() async {
+    setState(() => _bookmarksOpen = true);
+    await showWebOverlay<void>(
+      context: context,
+      motion: WebOverlayMotion.drawerOf(480),
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierColor: Colors.black.withValues(alpha: .28),
+      builder: (context) => Align(
+        alignment: Alignment.centerRight,
+        child: SizedBox(
+          width: 480,
+          height: double.infinity,
+          child: Material(
+            child: BookmarksSheet(
+              wide: true,
+              onClose: () => Navigator.pop(context),
+            ),
+          ),
+        ),
+      ),
+    );
+    // The route reports its pop as the drawer starts to leave, so the page
+    // comes back in step with it.
+    if (mounted) setState(() => _bookmarksOpen = false);
+  }
+
   Future<void> _bookmark(String id) async {
     if (!_bookmarkPending.add(id)) return;
     try {
@@ -98,7 +132,10 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      _PageRecede(receded: _bookmarksOpen, child: _page(context));
+
+  Widget _page(BuildContext context) {
     final value = ref.watch(studyMapProvider);
     final map = value.valueOrNull;
     final last = ref.watch(lastOpenedLessonProvider).valueOrNull;
@@ -173,26 +210,7 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
                 onLesson: (id, {required resume}) => context.push(
                   '/lesson/$id?from=study${resume ? '&resume=true' : ''}',
                 ),
-                onBookmarks: () => showWebOverlay<void>(
-                  context: context,
-                  motion: WebOverlayMotion.drawerOf(480),
-                  barrierLabel: MaterialLocalizations.of(context)
-                      .modalBarrierDismissLabel,
-                  barrierColor: const Color(0x381D1D1F),
-                  builder: (context) => Align(
-                    alignment: Alignment.centerRight,
-                    child: SizedBox(
-                      width: 480,
-                      height: double.infinity,
-                      child: Material(
-                        child: BookmarksSheet(
-                          wide: true,
-                          onClose: () => Navigator.pop(context),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                onBookmarks: () => unawaited(_openBookmarks()),
                 saveFailed: _saveFailed,
                 onRetry: () {
                   final id = _failedTopic;
@@ -221,6 +239,36 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
             onPressed: () => ref.invalidate(studyTodayLessonIdsProvider),
           ),
       ],
+    );
+  }
+}
+
+/// The page behind the Bookmarks drawer, as the phone's sheet leaves it: it
+/// shifts 10 px down and scales to .985 over 450 ms in and 400 ms out,
+/// `slideA`. With reduced motion it changes at once. Only a transform moves,
+/// so the page is not laid out again.
+class _PageRecede extends StatelessWidget {
+  const _PageRecede({required this.receded, required this.child});
+  final bool receded;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    final still = MediaQuery.disableAnimationsOf(context);
+    return TweenAnimationBuilder<double>(
+      tween: Tween(end: receded ? 1.0 : 0.0),
+      duration:
+          still ? Duration.zero : Duration(milliseconds: receded ? 450 : 400),
+      curve: PantasCurves.slideA,
+      child: child,
+      builder: (context, progress, child) => Transform.translate(
+        key: const ValueKey('web-study-page-shift'),
+        offset: Offset(0, 10 * progress),
+        child: Transform.scale(
+          key: const ValueKey('web-study-page-scale'),
+          scale: 1 - .015 * progress,
+          child: child,
+        ),
+      ),
     );
   }
 }
@@ -256,18 +304,62 @@ class WebStudyMap extends StatefulWidget {
   State<WebStudyMap> createState() => _WebStudyMapState();
 }
 
-class _WebStudyMapState extends State<WebStudyMap> {
+class _WebStudyMapState extends State<WebStudyMap>
+    with SingleTickerProviderStateMixin {
   /// The parts that stand on the map's first frame. Each comes in once, on the
   /// phone's delays. A part that arrives later, or that has finished, is just
   /// there, so scrolling it back in or opening a topic never replays it.
   final _entering = <String>{};
   final _keys = <String, GlobalKey>{};
+
+  /// One key for each subject's block, so the block keeps its rings and marks
+  /// when opening or closing a topic moves it to the other layout.
+  final _blockKeys = <String, GlobalKey>{};
+
+  /// Topics already shown as done. A mark pops only for one that becomes done.
+  final _doneTopics = <String>{};
   bool _settled = false;
+
+  /// The subjects sliding to their new places when a topic opens or closes:
+  /// 240 ms on the shared ease, as the topic card arriving beside them.
+  late final AnimationController _flip;
+  late final CurvedAnimation _flipCurve;
 
   @override
   void initState() {
     super.initState();
+    _flip = AnimationController(vsync: this, duration: PantasDurations.base);
+    _flipCurve = CurvedAnimation(parent: _flip, curve: PantasCurves.shared);
+    _doneTopics.addAll(_doneIn(widget.map));
     WidgetsBinding.instance.addPostFrameCallback((_) => _settled = true);
+  }
+
+  Iterable<String> _doneIn(StudyMap map) => [
+        for (final subject in map.subjects)
+          for (final topic in subject.topics)
+            if (topic.isComplete) topic.id,
+      ];
+
+  @override
+  void didUpdateWidget(WebStudyMap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if ((oldWidget.openTopicId == null) != (widget.openTopicId == null) &&
+        !MediaQuery.disableAnimationsOf(context)) {
+      // Opening or closing a topic changes the columns. Note where each
+      // subject stands now; the new layout then slides it into place.
+      for (final key in _blockKeys.values) {
+        (key.currentContext?.findRenderObject() as RenderStudyMapFlip?)
+            ?.capture();
+      }
+      unawaited(_flip.forward(from: 0));
+    }
+  }
+
+  @override
+  void dispose() {
+    _flipCurve.dispose();
+    _flip.dispose();
+    super.dispose();
   }
 
   /// [child] entering as the phone's [delayMs] says. The key follows it from
@@ -307,6 +399,11 @@ class _WebStudyMapState extends State<WebStudyMap> {
       }
     }
     final hasCard = lastLessonId != null && lastTitle != null;
+    // A mark pops once, when its topic becomes done. After this frame it is
+    // simply there.
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _doneTopics.addAll(_doneIn(widget.map)),
+    );
     return LayoutBuilder(
       builder: (context, constraints) {
         // The board's map column grows from 300 px by a thousandth of the
@@ -412,6 +509,7 @@ class _WebStudyMapState extends State<WebStudyMap> {
                         ),
                         for (final lesson in selected.lessons)
                           _WideStudyLessonRow(
+                            key: ValueKey(lesson.id),
                             lesson: lesson,
                             today: widget.today.contains(lesson.id),
                             resume: lesson.id == lastLessonId,
@@ -519,37 +617,54 @@ class _WebStudyMapState extends State<WebStudyMap> {
   }
 
   /// A subject's label and topics, entering on the phone's delay for the
-  /// subject at [index]: 520 ms, then 120 ms for each one after it.
+  /// subject at [index]: 520 ms, then 120 ms for each one after it. The rings
+  /// fill 300 ms after the subject arrives, as on the phone.
   Widget _subjectBlock(BuildContext context, StudySubject subject, int index) {
     final t = context.webTokens;
+    final slot = 'subject-${subject.id}';
+    // A ring fills in only with the subject's first arrival. One that is
+    // built again later (scrolled back into view) stands at its fraction.
+    final arriving = !_settled || _entering.contains(slot);
     return _enter(
-      'subject-${subject.id}',
+      slot,
       520 + 120 * index,
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _label(context, subject.name.toUpperCase()),
-          for (final topic in subject.topics)
-            _mapRow(
-              context,
-              topic.name,
-              selected: topic.id == widget.openTopicId,
-              leading: SizedBox.square(
-                dimension: 18,
-                child: topic.isComplete
-                    ? Icon(PantasIcons.check, size: 18, color: t.colors.accent)
-                    : CircularProgressIndicator(
-                        value: topic.totalCount == 0
-                            ? 0
-                            : topic.readCount / topic.totalCount,
-                        strokeWidth: 2,
-                        backgroundColor: t.colors.separator,
-                        color: t.colors.accent,
-                      ),
-              ),
-              onPressed: () => widget.onTopic(topic.id),
-            ),
-        ],
+      StudyMapFlip(
+        key: _blockKeys.putIfAbsent(slot, GlobalKey.new),
+        progress: _flipCurve,
+        child: RepaintBoundary(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _label(context, subject.name.toUpperCase()),
+              for (final topic in subject.topics)
+                _mapRow(
+                  context,
+                  topic.name,
+                  selected: topic.id == widget.openTopicId,
+                  leading: SizedBox.square(
+                    dimension: 18,
+                    child: topic.isComplete
+                        ? CheckMark.glyph(
+                            key: ValueKey('study-done-${topic.id}'),
+                            size: 18,
+                            color: t.colors.accent,
+                            animate: !_doneTopics.contains(topic.id),
+                          )
+                        : ProgressRing.study(
+                            key: ValueKey('study-ring-${topic.id}'),
+                            size: 18,
+                            fraction: topic.totalCount == 0
+                                ? 0
+                                : topic.readCount / topic.totalCount,
+                            delay: Duration(milliseconds: 820 + 120 * index),
+                            animateIn: arriving,
+                          ),
+                  ),
+                  onPressed: () => widget.onTopic(topic.id),
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -591,8 +706,22 @@ class _WebStudyMapState extends State<WebStudyMap> {
               ),
             ),
           ),
-          if (selected)
-            Icon(PantasIcons.next, size: 14, color: t.colors.tertiaryLabel),
+          // The chevron fades in on the quick ease and out again.
+          AnimatedSwitcher(
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : PantasDurations.quick,
+            switchInCurve: PantasCurves.ease,
+            switchOutCurve: PantasCurves.ease,
+            child: selected
+                ? Icon(
+                    PantasIcons.next,
+                    key: const ValueKey('web-study-selected-chevron'),
+                    size: 14,
+                    color: t.colors.tertiaryLabel,
+                  )
+                : const SizedBox.shrink(),
+          ),
         ],
       ),
     );
@@ -683,6 +812,7 @@ class _WideStudyLessonRow extends StatefulWidget {
     required this.resume,
     required this.onPressed,
     this.onBookmark,
+    super.key,
   });
   final StudyLesson lesson;
   final bool today;
@@ -783,17 +913,20 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                         radius: 16,
                         child: SizedBox.square(
                           dimension: 32,
-                          child: Icon(
-                            lesson.isBookmarked
-                                ? Icons.bookmark
-                                : Icons.bookmark_border,
-                            size: 18,
-                            color: lesson.isBookmarked
-                                ? t.colors.accent
-                                // W_Study: lesson-row bookmark is #8A8A8E.
-                                : t.dark
-                                    ? t.colors.tertiaryLabel
-                                    : const Color(0xFF8A8A8E),
+                          child: ReaderBookmarkPop(
+                            bookmarked: lesson.isBookmarked,
+                            child: Icon(
+                              lesson.isBookmarked
+                                  ? Icons.bookmark
+                                  : Icons.bookmark_border,
+                              size: 18,
+                              color: lesson.isBookmarked
+                                  ? t.colors.accent
+                                  // W_Study: lesson-row bookmark is #8A8A8E.
+                                  : t.dark
+                                      ? t.colors.tertiaryLabel
+                                      : const Color(0xFF8A8A8E),
+                            ),
                           ),
                         ),
                       ),

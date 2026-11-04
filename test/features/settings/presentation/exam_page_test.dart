@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,6 +13,9 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
@@ -635,5 +640,126 @@ void main() {
       carryableCount: 0,
     );
     expect(result, isNull);
+  });
+
+  group('change exam on wide web', () {
+    Future<GoRouter> pumpWide(
+      WidgetTester tester, {
+      bool still = false,
+    }) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final router = GoRouter(
+        initialLocation: '/settings/exam',
+        routes: [
+          settingsCarryOverRoute(),
+          GoRoute(
+            path: '/settings/exam',
+            builder: (_, __) => const Scaffold(body: Text('Exam page')),
+          ),
+          GoRoute(
+            path: '/settings/exam/change',
+            builder: (_, __) => const ChangeExamPage(),
+          ),
+        ],
+      );
+      addTearDown(router.dispose);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            ...createOverrides(),
+            carryableCountProvider.overrideWith((ref, examId) async => 3),
+          ],
+          child: MaterialApp.router(
+            theme: buildLightTheme(web: true),
+            routerConfig: router,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(disableAnimations: still),
+              child: child!,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      unawaited(router.push<Object?>('/settings/exam/change'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ChangeExamPage), findsOneWidget);
+      return router;
+    }
+
+    double dialogFade(WidgetTester tester) {
+      var value = 1.0;
+      for (final element in find
+          .ancestor(
+            of: find.byType(Dialog),
+            matching: find.byType(Opacity),
+          )
+          .evaluate()) {
+        value *= (element.widget as Opacity).opacity;
+      }
+      return value;
+    }
+
+    // The route stays on the stack until the dialog has gone.
+    bool onChangePage(GoRouter router) => router.canPop();
+
+    testWidgets('a scrim tap fades the dialog before the route pops',
+        (tester) async {
+      final router = await pumpWide(tester);
+      expect(dialogFade(tester), 1);
+      await tester.tapAt(const Offset(20, 20));
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+      expect(onChangePage(router), isTrue);
+      expect(find.byType(ChangeExamPage), findsOneWidget);
+      expect(dialogFade(tester), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(onChangePage(router), isFalse);
+      expect(find.byType(ChangeExamPage), findsNothing);
+    });
+
+    testWidgets('system Back plays the same exit, once', (tester) async {
+      final router = await pumpWide(tester);
+      final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+      await navigator.maybePop();
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+      expect(onChangePage(router), isTrue);
+      expect(dialogFade(tester), inExclusiveRange(0, 1));
+      await navigator.maybePop();
+      await tester.pumpAndSettle();
+      expect(onChangePage(router), isFalse);
+      expect(find.byType(ChangeExamPage), findsNothing);
+    });
+
+    testWidgets('picking an exam fades the dialog, then pops with the result',
+        (tester) async {
+      final router = await pumpWide(tester);
+      await tester.tap(find.text('DOST').first);
+      var sawExit = false;
+      for (var i = 0; i < 80; i++) {
+        await tester.pump(const Duration(milliseconds: 16));
+        if (find.byType(ChangeExamPage).evaluate().isNotEmpty &&
+            onChangePage(router)) {
+          final fade = dialogFade(tester);
+          if (fade > 0 && fade < 1) sawExit = true;
+        }
+      }
+      expect(sawExit, isTrue);
+      await tester.pumpAndSettle();
+      expect(find.byType(ChangeExamPage), findsNothing);
+    });
+
+    testWidgets('reduced motion pops at once', (tester) async {
+      final router = await pumpWide(tester, still: true);
+      await tester.tapAt(const Offset(20, 20));
+      await tester.pump();
+      expect(onChangePage(router), isFalse);
+    });
   });
 }

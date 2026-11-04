@@ -480,29 +480,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                         (null, 'All'),
                         ..._groups.map((g) => (g.$1, g.$2)),
                       ])
-                        TextButton(
+                        _WideGroupChip(
+                          label: group.$2,
+                          selected: _group == group.$1,
                           onPressed: () => setState(() => _group = group.$1),
-                          style: TextButton.styleFrom(
-                            backgroundColor: _group == group.$1
-                                ? t.colors.label
-                                : t.colors.surface,
-                            foregroundColor: _group == group.$1
-                                ? t.colors.surface
-                                : t.colors.label,
-                            textStyle: t.style(
-                              14,
-                              weight: _group == group.$1
-                                  ? FontWeight.w600
-                                  : FontWeight.w500,
-                            ),
-                            shape: const StadiumBorder(),
-                            minimumSize: const Size(0, 34),
-                            padding: const EdgeInsets.symmetric(horizontal: 14),
-                          ),
-                          child: _ChipLabel(
-                            label: group.$2,
-                            style: t.style(14, weight: FontWeight.w600),
-                          ),
                         ),
                     ],
                   ),
@@ -844,6 +825,68 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
 
 /// A filter chip label that always takes the width of its heaviest (selected)
 /// weight, so no chip moves or wraps when another is picked.
+/// A group chip on the wide picker. It keeps its wide look and takes the
+/// phone chip's motion (item 17, demo 5): the fill and label fade over 160 ms
+/// on the ease, and a press shrinks it to 96%.
+class _WideGroupChip extends StatelessWidget {
+  const _WideGroupChip({
+    required this.label,
+    required this.selected,
+    required this.onPressed,
+  });
+  final String label;
+  final bool selected;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final fill = selected ? t.colors.label : t.colors.surface;
+    final ink = selected ? t.colors.surface : t.colors.label;
+    // Material does not animate a button's own fill, so the chip paints it
+    // behind a transparent button.
+    return PressScale(
+      scale: .96,
+      child: FadingColor(
+        color: fill,
+        builder: (context, fill, child) => DecoratedBox(
+          key: const ValueKey('wide-chip-fill'),
+          decoration: ShapeDecoration(
+            color: fill,
+            shape: const StadiumBorder(),
+          ),
+          child: child,
+        ),
+        child: TextButton(
+          onPressed: onPressed,
+          style: TextButton.styleFrom(
+            foregroundColor: ink,
+            textStyle: t.style(
+              14,
+              weight: selected ? FontWeight.w600 : FontWeight.w500,
+            ),
+            shape: const StadiumBorder(),
+            minimumSize: const Size(0, 34),
+            // The fill is painted around the button, so no hit padding.
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+          ),
+          child: FadingColor(
+            color: ink,
+            builder: (context, color, child) => DefaultTextStyle.merge(
+              style: TextStyle(color: color),
+              child: child!,
+            ),
+            child: _ChipLabel(
+              label: label,
+              style: t.style(14, weight: FontWeight.w600),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _ChipLabel extends StatelessWidget {
   const _ChipLabel({required this.label, required this.style});
   final String label;

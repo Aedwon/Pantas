@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -186,6 +187,133 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.getSize(lessons).height, 0);
       expect(turns(), 0);
+    });
+
+    testWidgets('Q8 wide Today rings fill like the phone, $mode',
+        (tester) async {
+      wide(tester);
+      await tester.pumpWidget(
+        app(
+          const Scaffold(
+            body: Padding(
+              padding: EdgeInsets.fromLTRB(288, 28, 44, 44),
+              child: QuizTabScreen(),
+            ),
+          ),
+          still: still,
+          overrides: [
+            activeExamFocusProvider.overrideWith(
+              (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+            ),
+            sessionPanelProvider('e').overrideWith(
+              (_) async => const SessionPanelCaughtUp(
+                answeredToday: 25,
+                correctToday: 20,
+              ),
+            ),
+            todayQuestionWorkProvider('e')
+                .overrideWith((_) async => _ReviewWork()),
+            quizTodayCountsProvider('e').overrideWith(
+              (_) async => const QuizTodayCounts(
+                reviewsDone: 18,
+                reviewsTotal: 32,
+                newDone: 3,
+                newTotal: 7,
+              ),
+            ),
+            quizPracticeCountsProvider('e')
+                .overrideWith((_) async => (mistakes: 28, flags: 12)),
+          ],
+        ),
+      );
+      for (var i = 0;
+          i < 30 && find.byType(ProgressRing).evaluate().isEmpty;
+          i++) {
+        await tester.pump(const Duration(milliseconds: 16));
+      }
+      final rings = tester.widgetList<ProgressRing>(find.byType(ProgressRing));
+      expect(rings, hasLength(2));
+      expect(
+        [for (final ring in rings) ring.fillDuration],
+        everyElement(const Duration(milliseconds: 700)),
+      );
+      expect(
+        [for (final ring in rings) ring.fillDelay],
+        const [Duration(milliseconds: 500), Duration(milliseconds: 620)],
+      );
+      await tester.pumpAndSettle();
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('Q7 wide Your quiz card and Clear change like the phone, $mode',
+        (tester) async {
+      wide(tester);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await tester.pumpWidget(
+        app(
+          const Scaffold(
+            body: Padding(
+              padding: EdgeInsets.fromLTRB(288, 28, 44, 44),
+              child: PracticePickerScreen(examId: 'e'),
+            ),
+          ),
+          still: still,
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            practicePreferencesRepositoryProvider
+                .overrideWithValue(PracticePreferencesRepository(db)),
+            practiceIndexProvider('e').overrideWith((_) async => index),
+            practicePaceProvider('e').overrideWith((_) async => 50000),
+          ],
+        ),
+      );
+      await tester.pumpAndSettle();
+      final empty = find.text('Nothing picked yet');
+      final picked = find.text('2 lessons picked');
+      final clear = find.text('Clear');
+      // The topic unfolds also use an AnimatedSize; the card's is top aligned.
+      final card = find.byWidgetPredicate(
+        (w) => w is AnimatedSize && w.alignment == Alignment.topCenter,
+      );
+      double cardHeight() => tester.getSize(card).height;
+      expect(clear, findsNothing);
+      final emptyHeight = still ? 0.0 : cardHeight();
+      await tester.tap(find.text('Algebra'));
+      await tester.pump();
+      if (still) {
+        expect(empty, findsNothing);
+        expect(shown(tester, picked), 1);
+        expect(shown(tester, clear), 1);
+        await tester.tap(clear);
+        await tester.pump();
+        expect(picked, findsNothing);
+        expect(shown(tester, empty), 1);
+        expect(clear, findsNothing);
+        return;
+      }
+      // Both bodies fade over 200 ms and the card sizes to the new one.
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(shown(tester, empty), inExclusiveRange(0, 1));
+      expect(shown(tester, picked), inExclusiveRange(0, 1));
+      expect(shown(tester, clear), inExclusiveRange(0, 1));
+      final sizing = cardHeight();
+      expect(sizing, greaterThan(emptyHeight));
+      await tester.pumpAndSettle();
+      expect(empty, findsNothing);
+      expect(shown(tester, picked), 1);
+      expect(shown(tester, clear), 1);
+      expect(cardHeight(), greaterThan(sizing));
+      await tester.tap(clear);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(picked, findsOneWidget);
+      expect(shown(tester, picked), inExclusiveRange(0, 1));
+      expect(shown(tester, empty), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(picked, findsNothing);
+      expect(clear, findsNothing);
+      expect(tester.hasRunningAnimations, isFalse);
     });
 
     testWidgets('Q4 wide note editor fades and sizes with the phone, $mode',

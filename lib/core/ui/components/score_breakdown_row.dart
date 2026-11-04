@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -73,24 +74,41 @@ class ScoreBreakdownRow extends StatelessWidget {
           if (animatedAccuracy == null && !context.wideWeb)
             AccuracyBar(accuracy: accuracy)
           else
-            // The wide boards draw an 8 px bar (the phone keeps 5 px).
+            // The wide boards draw an 8 px bar (the phone keeps 5 px). With no
+            // entrance clock it fills like `AccuracyBar`: 600 ms, houseOut.
             ClipRRect(
               borderRadius: BorderRadius.circular(99),
               child: Container(
                 height: context.wideWeb ? 8 : 5,
                 color: context.colors.fill,
                 alignment: Alignment.centerLeft,
-                child: FractionallySizedBox(
-                  widthFactor: (animatedAccuracy ?? accuracy).clamp(0, 1),
-                  child: ColoredBox(
-                    color: context.colors.accuracyTint(accuracy),
-                    child: SizedBox(height: context.wideWeb ? 8 : 5),
-                  ),
-                ),
+                child: animatedAccuracy == null
+                    ? TweenAnimationBuilder<double>(
+                        tween: Tween(
+                          begin: MediaQuery.disableAnimationsOf(context)
+                              ? accuracy
+                              : 0,
+                          end: accuracy.clamp(0, 1),
+                        ),
+                        duration: MediaQuery.disableAnimationsOf(context)
+                            ? Duration.zero
+                            : const Duration(milliseconds: 600),
+                        curve: PantasCurves.houseOut,
+                        builder: (context, value, _) => _fill(context, value),
+                      )
+                    : _fill(context, animatedAccuracy!.clamp(0, 1)),
               ),
             ),
         ],
       ),
     );
   }
+
+  Widget _fill(BuildContext context, double factor) => FractionallySizedBox(
+        widthFactor: factor,
+        child: ColoredBox(
+          color: context.colors.accuracyTint(accuracy),
+          child: SizedBox(height: context.wideWeb ? 8 : 5),
+        ),
+      );
 }

@@ -64,7 +64,7 @@ void main() {
         expect(opacity(tester, key), 0, reason: '$key');
         expect(scale(tester, key), closeTo(.4, .001), reason: '$key');
       }
-      await tester.pump(const Duration(milliseconds: 200));
+      await tester.pump(const Duration(milliseconds: 450));
       for (final key in [logo, title]) {
         expect(opacity(tester, key), inExclusiveRange(0, 1));
         expect(scale(tester, key), greaterThan(.4));

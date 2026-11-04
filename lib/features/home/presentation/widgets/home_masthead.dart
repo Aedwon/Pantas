@@ -611,6 +611,29 @@ class _WebWeekDayState extends State<_WebWeekDay> {
       WeekDayState.partial => null,
       _ => Colors.transparent,
     };
+    final disc = Container(
+      width: 26,
+      height: 26,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: today ? t.colors.accentFill : null,
+        shape: BoxShape.circle,
+      ),
+      child: Text(
+        '${widget.day}',
+        style: today
+            ? t.style(
+                14,
+                weight: FontWeight.w700,
+                color: Colors.white,
+              )
+            : t.style(
+                15,
+                weight: FontWeight.w500,
+                color: dayOff ? widget.off : null,
+              ),
+      ),
+    );
     return MouseRegion(
       onEnter: (_) => setState(() => _hover = true),
       onExit: (_) => setState(() => _hover = false),
@@ -652,42 +675,17 @@ class _WebWeekDayState extends State<_WebWeekDay> {
                   alignment: Alignment.center,
                   clipBehavior: Clip.none,
                   children: [
-                    if (today && fraction > 0 && fraction < 1)
+                    // The ring stays through 100%. The check pops in over the
+                    // digit as the ring finishes (420 ms, popC).
+                    if (today && fraction > 0)
                       ProgressRing(
                         key: const ValueKey('web-today-progress'),
                         size: 34,
                         fraction: fraction,
-                        showCheck: false,
-                      ),
-                    Container(
-                      width: 26,
-                      height: 26,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: today ? t.colors.accentFill : null,
-                        shape: BoxShape.circle,
-                      ),
-                      child: today && fraction >= 1
-                          ? const Icon(
-                              Icons.check,
-                              size: 15,
-                              color: Colors.white,
-                            )
-                          : Text(
-                              '${widget.day}',
-                              style: today
-                                  ? t.style(
-                                      14,
-                                      weight: FontWeight.w700,
-                                      color: Colors.white,
-                                    )
-                                  : t.style(
-                                      15,
-                                      weight: FontWeight.w500,
-                                      color: dayOff ? widget.off : null,
-                                    ),
-                            ),
-                    ),
+                        child: disc,
+                      )
+                    else
+                      disc,
                   ],
                 ),
               ),

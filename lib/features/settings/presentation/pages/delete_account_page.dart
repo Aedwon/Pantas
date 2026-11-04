@@ -4,6 +4,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -36,6 +37,17 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
   bool _isDeleting = false;
   bool _isDeleted = false;
   bool _failed = false;
+
+  // On wide web the dialog plays its exit before the route pops.
+  final _exit = WebOverlayExit();
+
+  void _leave() {
+    if (mounted) Navigator.of(context).pop();
+  }
+
+  void _close() {
+    if (Navigator.of(context).canPop()) _exit.close(_leave);
+  }
 
   Future<void> _delete() async {
     if (_isDeleting || _isDeleted) return;
@@ -103,6 +115,10 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
         );
       }
       return WebRootModal(
+        exit: _exit,
+        // Opened by address, there is no page to go back to, so Back is left
+        // to the browser.
+        onBack: Navigator.of(context).canPop() ? _leave : null,
         child: const AccountPage(),
         modal: (context) => Dialog(
           insetPadding: const EdgeInsets.all(24),
@@ -176,7 +192,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                           label:
                               widget.isAnonymous ? 'Cancel' : 'Keep My Account',
                           variant: WebButtonVariant.tertiary,
-                          onPressed: () => Navigator.of(context).maybePop(),
+                          onPressed: _close,
                         ),
                         WebButton(
                           label: _failed ? 'Try Again' : 'Delete My Data',

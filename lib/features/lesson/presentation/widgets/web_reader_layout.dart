@@ -105,15 +105,20 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   final _anchors = <GlobalKey>[];
   int _active = 0;
   bool _bookmarkNotice = false;
+  bool _bookmarkNoticeMounted = false;
   Timer? _noticeTimer;
+  Timer? _noticeExitTimer;
   bool _menuOpen = false;
   bool _showBar = true;
   bool _resumeVisible = false;
+  bool _resumeMounted = false;
+  Timer? _resumeExitTimer;
   double _previousOffset = 0;
   @override
   void initState() {
     super.initState();
     _resumeVisible = widget.resumed;
+    _resumeMounted = widget.resumed;
     widget.scrollOffset.addListener(_onScroll);
   }
 
@@ -121,11 +126,17 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   void didUpdateWidget(WebReaderLayout oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (!oldWidget.reader.isBookmarked && widget.reader.isBookmarked) {
+      _noticeExitTimer?.cancel();
       _bookmarkNotice = true;
-      _resumeVisible = false;
+      _bookmarkNoticeMounted = true;
+      _hideResume();
       _noticeTimer?.cancel();
       _noticeTimer = Timer(const Duration(seconds: 3), () {
-        if (mounted) setState(() => _bookmarkNotice = false);
+        if (!mounted) return;
+        setState(() {
+          _bookmarkNotice = false;
+          _noticeExitTimer = _afterExit(() => _bookmarkNoticeMounted = false);
+        });
       });
     }
     if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
@@ -134,8 +145,13 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       // stays put instead of sliding in a second time.
       _showBar = true;
       _anchors.clear();
+      _noticeTimer?.cancel();
+      _noticeExitTimer?.cancel();
+      _resumeExitTimer?.cancel();
       _bookmarkNotice = false;
+      _bookmarkNoticeMounted = false;
       _resumeVisible = widget.resumed;
+      _resumeMounted = widget.resumed;
     }
     if (oldWidget.scrollOffset != widget.scrollOffset) {
       oldWidget.scrollOffset.removeListener(_onScroll);
@@ -147,7 +163,30 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   void dispose() {
     widget.scrollOffset.removeListener(_onScroll);
     _noticeTimer?.cancel();
+    _noticeExitTimer?.cancel();
+    _resumeExitTimer?.cancel();
     super.dispose();
+  }
+
+  /// Runs [remove] once a notice has finished leaving: the toast's 300 ms.
+  /// With reduced motion it leaves at once and no timer is left pending. Call
+  /// it where a rebuild follows.
+  Timer? _afterExit(VoidCallback remove) {
+    if (MediaQuery.disableAnimationsOf(context)) {
+      remove();
+      return null;
+    }
+    return Timer(const Duration(milliseconds: 300), () {
+      if (mounted) setState(remove);
+    });
+  }
+
+  /// Fades the "Picked up where you left off" banner out and then removes it.
+  void _hideResume() {
+    if (!_resumeVisible) return;
+    _resumeVisible = false;
+    _resumeExitTimer?.cancel();
+    _resumeExitTimer = _afterExit(() => _resumeMounted = false);
   }
 
   void _onScroll() {
@@ -905,8 +944,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                     ),
                   ),
                 ),
-              if (_bookmarkNotice && ending == null)
-                const Positioned(
+              if (_bookmarkNoticeMounted && ending == null)
+                Positioned(
                   bottom: 28,
                   left: 0,
                   right: 0,
@@ -915,64 +954,69 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                       message: 'Bookmarked',
                       keyHint: 'B',
                       web: true,
+                      visible: _bookmarkNotice,
                     ),
                   ),
                 ),
-              if (_resumeVisible && ending == null)
+              if (_resumeMounted && ending == null)
                 Positioned(
                   top: 76,
                   left: 0,
                   right: 0,
                   child: Center(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF1D1D1F),
-                        borderRadius: BorderRadius.circular(14),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0x33000000),
-                            blurRadius: 30,
-                            offset: Offset(0, 10),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Picked up where you left off',
-                              style: t.style(15, color: Colors.white),
-                            ),
-                            const SizedBox(width: 14),
-                            TextButton(
-                              onPressed: () {
-                                widget.controller.jumpTo(0);
-                                setState(() => _resumeVisible = false);
-                              },
-                              style: TextButton.styleFrom(
-                                minimumSize: Size.zero,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 6,
-                                ),
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                visualDensity: VisualDensity.standard,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: Text(
-                                'Start Over',
-                                style: t.style(
-                                  15,
-                                  weight: FontWeight.w600,
-                                  color: const Color(0xFF7FD6C5),
-                                ),
-                              ),
+                    child: _NoticeTransition(
+                      visible: _resumeVisible,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF1D1D1F),
+                          borderRadius: BorderRadius.circular(14),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0x33000000),
+                              blurRadius: 30,
+                              offset: Offset(0, 10),
                             ),
                           ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Picked up where you left off',
+                                style: t.style(15, color: Colors.white),
+                              ),
+                              const SizedBox(width: 14),
+                              TextButton(
+                                onPressed: () {
+                                  widget.controller.jumpTo(0);
+                                  setState(_hideResume);
+                                },
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.zero,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 6,
+                                  ),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  visualDensity: VisualDensity.standard,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Start Over',
+                                  style: t.style(
+                                    15,
+                                    weight: FontWeight.w600,
+                                    color: const Color(0xFF7FD6C5),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -982,6 +1026,46 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// A notice that fades in and rises 12 px, and fades out as it leaves, on the
+/// toast's numbers: 250 ms in, 300 ms out, `houseOut`. The owner keeps it
+/// mounted until the 300 ms are over. With reduced motion it is simply there.
+class _NoticeTransition extends StatelessWidget {
+  const _NoticeTransition({required this.visible, required this.child});
+  final bool visible;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    final still = MediaQuery.disableAnimationsOf(context);
+    return TweenAnimationBuilder<double>(
+      tween: Tween(
+        begin: still ? (visible ? 1 : 0) : 0,
+        end: visible ? 1 : 0,
+      ),
+      duration:
+          still ? Duration.zero : Duration(milliseconds: visible ? 250 : 300),
+      curve: PantasCurves.houseOut,
+      builder: (context, value, child) => ExcludeFocus(
+        excluding: !visible,
+        child: IgnorePointer(
+          ignoring: !visible,
+          child: ExcludeSemantics(
+            excluding: !visible,
+            child: Opacity(
+              opacity: value,
+              child: Transform.translate(
+                key: const ValueKey('web-reader-notice-rise'),
+                offset: Offset(0, 12 * (1 - value)),
+                child: child,
+              ),
+            ),
+          ),
+        ),
+      ),
+      child: child,
     );
   }
 }

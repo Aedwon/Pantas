@@ -15,6 +15,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/leave_page.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
@@ -205,10 +206,19 @@ Future<void> _deleteAccount(WidgetRef ref, {required bool isAnonymous}) async {
   );
 }
 
-class ChangeExamPage extends ConsumerWidget {
+class ChangeExamPage extends ConsumerStatefulWidget {
   const ChangeExamPage({super.key});
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ChangeExamPage> createState() => _ChangeExamPageState();
+}
+
+class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
+  // On wide web the picker is a dialog. It plays its exit before the route
+  // pops, so leaving goes through here.
+  final _exit = WebOverlayExit();
+
+  @override
+  Widget build(BuildContext context) {
     final picker = ExamPickerScreen(
       mode: ExamPickerMode.settings,
       onPicked: (examId) async {
@@ -271,15 +281,18 @@ class ChangeExamPage extends ConsumerWidget {
         final exams = await ref.read(examListProvider.future);
         if (!context.mounted) return;
         final route = ModalRoute.of(context);
-        leavePage(
-          context,
-          fallback: '/settings/exam',
-          result: ExamChangeResult(
-            examShortName: exams.firstWhere((e) => e.id == examId).shortName,
-            carryableCount: count,
-            routeSettled: route?.completed ?? Future<void>.value(),
+        final result = ExamChangeResult(
+          examShortName: exams.firstWhere((e) => e.id == examId).shortName,
+          carryableCount: count,
+          routeSettled: route?.completed ?? Future<void>.value(),
+        );
+        _exit.close(
+          () => leavePage(
+            context,
+            fallback: '/settings/exam',
+            result: result,
+            respectPopScope: false,
           ),
-          respectPopScope: false,
         );
       },
       // Only web opens this page directly, with nothing to pop to. Setting
@@ -287,17 +300,25 @@ class ChangeExamPage extends ConsumerWidget {
       // back, so native keeps its default. With it set, leaving must not ask
       // the picker's PopScope again.
       onBack: context.webPlatform
-          ? () => leavePage(
-                context,
-                fallback: '/settings/exam',
-                respectPopScope: false,
+          ? () => _exit.close(
+                () => leavePage(
+                  context,
+                  fallback: '/settings/exam',
+                  respectPopScope: false,
+                ),
               )
           : null,
     );
     if (!context.wideWeb) return picker;
+    void leave() => leavePage(
+          context,
+          fallback: '/settings/exam',
+          respectPopScope: false,
+        );
     return WebRootModal(
-      child: const ExamPage(),
-      onDismiss: () => leavePage(context, fallback: '/settings/exam'),
+      exit: _exit,
+      onDismiss: () => _exit.close(leave),
+      onBack: leave,
       modal: (modalContext) => Dialog(
         insetPadding: const EdgeInsets.all(24),
         backgroundColor: Colors.transparent,
@@ -308,6 +329,7 @@ class ChangeExamPage extends ConsumerWidget {
           child: picker,
         ),
       ),
+      child: const ExamPage(),
     );
   }
 }

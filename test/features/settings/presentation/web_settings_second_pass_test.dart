@@ -31,6 +31,7 @@ Future<void> _pump(
   AuthUser? user,
   PublicIdState publicId = const PublicIdState.notReady(),
   double scale = 1,
+  bool still = true,
 }) async {
   tester.view.physicalSize = const Size(1440, 1000);
   tester.view.devicePixelRatio = 1;
@@ -46,7 +47,7 @@ Future<void> _pump(
         data: MediaQueryData(
           size: const Size(1440, 1000),
           textScaler: TextScaler.linear(scale),
-          disableAnimations: true,
+          disableAnimations: still,
         ),
         child: page,
       ),
@@ -167,6 +168,50 @@ void main() {
         findsOneWidget,
       );
       expect(tester.takeException(), isNull);
+    });
+    testWidgets('the date editor opens and closes over 300 ms dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const ExamPage(),
+        dark: dark,
+        examDay: DateTime(DateTime.now().year + 1, 11, 11),
+        still: false,
+      );
+      final editor = find.byType(AnimatedSize);
+      expect(find.text('Month only'), findsNothing);
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final opening = tester.getSize(editor.first).height;
+      expect(opening, greaterThan(0));
+      await tester.pumpAndSettle();
+      final open = tester.getSize(editor.first).height;
+      expect(open, greaterThan(opening));
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final closing = tester.getSize(editor.first).height;
+      expect(closing, lessThan(open));
+      await tester.pumpAndSettle();
+      expect(find.byType(WebPickerColumn), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('reduced motion opens the date editor at once dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const ExamPage(),
+        dark: dark,
+        examDay: DateTime(DateTime.now().year + 1, 6, 15),
+      );
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      expect(find.byType(WebPickerColumn), findsNWidgets(3));
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      expect(find.byType(WebPickerColumn), findsNothing);
+      expect(tester.hasRunningAnimations, isFalse);
     });
     for (final scale in [1.0, 2.0]) {
       testWidgets('past exam keeps warning color dark=$dark scale=$scale',

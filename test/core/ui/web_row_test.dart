@@ -51,16 +51,31 @@ void main() {
         ),
       ),
     );
-    double opacity() => tester
-        .widgetList<Opacity>(find.byType(Opacity))
+    // The chevron fades (160 ms), so read where it is going and how far it is.
+    double target() => tester
+        .widgetList<AnimatedOpacity>(find.byType(AnimatedOpacity))
         .singleWhere((o) => o.child is WebChevron)
         .opacity;
-    expect(opacity(), 0);
+    double shown() => tester
+        .widget<FadeTransition>(
+          find
+              .ancestor(
+                of: find.byType(WebChevron),
+                matching: find.byType(FadeTransition),
+              )
+              .first,
+        )
+        .opacity
+        .value;
+    expect(target(), 0);
+    expect(shown(), 0);
     final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
     addTearDown(mouse.removePointer);
     await mouse.moveTo(tester.getCenter(find.byType(WebRow)));
     await tester.pump();
-    expect(opacity(), 1);
+    expect(target(), 1);
+    await tester.pumpAndSettle();
+    expect(shown(), 1);
   });
 
   testWidgets('a maths title shows no dollar signs and stays on one line',

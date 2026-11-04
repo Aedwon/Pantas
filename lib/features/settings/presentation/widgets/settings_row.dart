@@ -163,11 +163,28 @@ class SettingsRow extends StatelessWidget {
             onPressed: onTap,
           ),
         ),
-        if (variant == ListRowVariant.inlineEditor && expanded)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 6, 16, 16),
-            child: editor,
-          ),
+        // The phone's row opens its editor over 300 ms (`ListRow`). With
+        // reduced motion it opens at once, without an AnimatedSize, which
+        // cannot size in zero time.
+        if (variant == ListRowVariant.inlineEditor)
+          if (MediaQuery.disableAnimationsOf(context))
+            if (expanded)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 6, 16, 16),
+                child: editor,
+              )
+            else
+              const SizedBox.shrink()
+          else
+            AnimatedSize(
+              duration: const Duration(milliseconds: 300),
+              child: expanded
+                  ? Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 6, 16, 16),
+                      child: editor,
+                    )
+                  : const SizedBox.shrink(),
+            ),
       ],
     );
   }

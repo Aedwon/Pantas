@@ -131,10 +131,42 @@ class WebOverlayMotion {
       );
 }
 
+/// Lets a page play a [WebOverlayLayer]'s exit before it leaves. The page keeps
+/// one, passes it to the layer, and calls [close] with what leaving does. The
+/// layer runs that once its exit has ended. With no layer to play it, or with
+/// reduced motion, [close] leaves at once. A second [close] does nothing.
+class WebOverlayExit {
+  _WebOverlayLayerState? _layer;
+  VoidCallback? _leave;
+  bool _closing = false;
+
+  /// True from the first [close], so the page can stop taking input.
+  bool get closing => _closing;
+
+  void close(VoidCallback leave) {
+    if (_closing) return;
+    final layer = _layer;
+    if (layer == null) {
+      leave();
+      return;
+    }
+    _closing = true;
+    _leave = leave;
+    layer._play();
+  }
+
+  void _finish() {
+    final leave = _leave;
+    _leave = null;
+    leave?.call();
+  }
+}
+
 /// Draws a scrim and [child] over its parent and plays [motion] once, as the
 /// layer first appears. A page that opens with the overlay already in place (a
 /// direct address, a root modal) uses it, since no route is there to animate.
-/// With reduced motion it is in place at once.
+/// With reduced motion it is in place at once. Give it an [exit] to play the
+/// motion backward before the page leaves.
 class WebOverlayLayer extends StatefulWidget {
   const WebOverlayLayer({
     required this.motion,
@@ -143,6 +175,7 @@ class WebOverlayLayer extends StatefulWidget {
     this.barrierColor = const Color(0x47000000),
     this.barrierLabel,
     this.onDismiss,
+    this.exit,
     super.key,
   });
 
@@ -155,6 +188,10 @@ class WebOverlayLayer extends StatefulWidget {
   /// Tapping the scrim calls this. Null makes the scrim ignore taps.
   final VoidCallback? onDismiss;
 
+  /// Asks the layer to play its exit. The scrim and [child] ignore input once
+  /// it is closing.
+  final WebOverlayExit? exit;
+
   @override
   State<WebOverlayLayer> createState() => _WebOverlayLayerState();
 }
@@ -164,8 +201,26 @@ class _WebOverlayLayerState extends State<WebOverlayLayer>
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: widget.motion.open,
+    reverseDuration: widget.motion.close,
   );
   bool _started = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.exit?._layer = this;
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) widget.exit?._finish();
+    });
+  }
+
+  @override
+  void didUpdateWidget(WebOverlayLayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.exit == widget.exit) return;
+    if (oldWidget.exit?._layer == this) oldWidget.exit!._layer = null;
+    widget.exit?._layer = this;
+  }
 
   @override
   void didChangeDependencies() {
@@ -179,35 +234,53 @@ class _WebOverlayLayerState extends State<WebOverlayLayer>
     }
   }
 
+  /// Plays the exit. The exit's callback runs when the controller reaches 0.
+  void _play() {
+    setState(() {});
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.value = 0;
+    } else {
+      unawaited(_controller.reverse());
+    }
+    if (mounted && _controller.isDismissed) widget.exit?._finish();
+  }
+
   @override
   void dispose() {
+    if (widget.exit?._layer == this) widget.exit!._layer = null;
     _controller.dispose();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => Stack(
-        fit: StackFit.expand,
-        children: [
-          AnimatedModalBarrier(
-            color: _controller
-                .drive(CurveTween(curve: widget.motion.routeScrimCurve))
-                .drive(
-                  ColorTween(
-                    begin: widget.barrierColor.withValues(alpha: 0),
-                    end: widget.barrierColor,
-                  ),
+  Widget build(BuildContext context) {
+    final closing = widget.exit?.closing ?? false;
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        AnimatedModalBarrier(
+          color: _controller
+              .drive(CurveTween(curve: widget.motion.routeScrimCurve))
+              .drive(
+                ColorTween(
+                  begin: widget.barrierColor.withValues(alpha: 0),
+                  end: widget.barrierColor,
                 ),
-            dismissible: widget.onDismiss != null,
-            onDismiss: widget.onDismiss,
-            semanticsLabel: widget.barrierLabel,
-          ),
-          Align(
-            alignment: widget.alignment,
+              ),
+          dismissible: widget.onDismiss != null && !closing,
+          onDismiss: widget.onDismiss,
+          semanticsLabel: widget.barrierLabel,
+        ),
+        Align(
+          alignment: widget.alignment,
+          child: IgnorePointer(
+            ignoring: closing,
             child: widget.motion.transition(_controller, widget.child),
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
 
 /// Shows [builder] over the window with [motion]. Use it in place of

@@ -42,12 +42,19 @@ class PlanScreen extends ConsumerStatefulWidget {
 class _PlanScreenState extends ConsumerState<PlanScreen> {
   int _limit = 5;
   int _displayLimit = 5;
+
+  /// The last plan shown. A reload after a lesson closes keeps it on screen, so
+  /// the page does not blank and replay its entrance behind the closing drawer.
+  PlanView? _lastView;
   @override
   Widget build(BuildContext context) {
     final displayed = ref.watch(planViewProvider(_displayLimit));
     final value = ref.watch(planViewProvider(_limit));
     final arrived = value.unwrapPrevious().asData?.value;
-    final view = arrived ?? displayed.unwrapPrevious().asData?.value;
+    final view = arrived ??
+        displayed.unwrapPrevious().asData?.value ??
+        (value.hasError ? null : _lastView);
+    _lastView = view;
     if (arrived != null) _displayLimit = _limit;
     final pro = ref.watch(currentStudyCoverageProvider);
     if (!pro && ref.watch(studyCoverageLoadingProvider)) {
@@ -170,6 +177,9 @@ class PlanDayScreen extends ConsumerStatefulWidget {
 
 class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
   PlanDayView? _opened;
+
+  /// The last day shown, kept through a reload as [_PlanScreenState] does.
+  PlanDayView? _lastView;
   Future<Future<bool> Function()>? _guard;
   String? _guardExamId;
 
@@ -186,8 +196,17 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     final date = widget.date;
     final value = ref.watch(planDayViewProvider(date));
     firstScreenReady(context, ref, ready: value.hasError);
-    final view = value.unwrapPrevious().asData?.value;
+    final held = _lastView;
+    final view = value.unwrapPrevious().asData?.value ??
+        (held != null && !value.hasError && dayKey(held.date) == date
+            ? held
+            : null);
+    _lastView = view;
     if (view == null) {
+      // The popover is a small card: a page heading there flashes as a ghost.
+      if (widget.popover && !value.hasError) {
+        return const WebPlanLoading(kind: PlanSkeletonKind.day);
+      }
       return _waiting(
         context,
         value,
@@ -225,6 +244,9 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
               (owner.data != true || shown.kind != 'today'),
         );
         if (owner.data != true) {
+          if (widget.popover && owner.connectionState != ConnectionState.done) {
+            return const WebPlanLoading(kind: PlanSkeletonKind.day);
+          }
           return _waiting(
             context,
             owner.connectionState == ConnectionState.done
@@ -349,7 +371,9 @@ class PlanWeekScreen extends ConsumerWidget {
     }
     if (days.any((day) => day.kind == 'locked')) return const PlanScreen();
     firstScreenReady(context, ref);
-    if (days.length != 7 || days.any((day) => day.plan == null)) {
+    // A student who started mid-week has no plan for the days before the start.
+    final planned = days.where((day) => day.plan != null).toList();
+    if (days.length != 7 || planned.isEmpty) {
       return _waiting(
         context,
         const AsyncError<void>('Unknown stored week', StackTrace.empty),
@@ -360,7 +384,7 @@ class PlanWeekScreen extends ConsumerWidget {
     final page = PlanWeekPage(
       title: planWeekTitle(localDay(DateTime.parse(start))),
       days: [
-        for (final d in days)
+        for (final d in planned)
           PlanWeekDay(
             date: d.date,
             rest: d.plan?.isRestDay ?? false,

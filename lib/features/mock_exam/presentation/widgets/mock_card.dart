@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -401,7 +402,7 @@ class _MockActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    return TextButton(
+    final button = TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
         animationDuration: MediaQuery.disableAnimationsOf(context)
@@ -447,6 +448,7 @@ class _MockActionButton extends StatelessWidget {
       ),
       child: Text(label),
     );
+    return PressScale(scale: .96, enabled: onPressed != null, child: button);
   }
 }
 

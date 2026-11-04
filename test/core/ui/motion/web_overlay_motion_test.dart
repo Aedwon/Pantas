@@ -114,7 +114,12 @@ void main() {
   group('WebOverlayLayer', () {
     const layer = Key('layer');
 
-    Future<void> mount(WidgetTester tester, {bool still = false}) async {
+    Future<void> mount(
+      WidgetTester tester, {
+      bool still = false,
+      WebOverlayExit? exit,
+      VoidCallback? onDismiss,
+    }) async {
       tester.view.physicalSize = const Size(1440, 900);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.reset);
@@ -132,7 +137,8 @@ void main() {
                     child: WebOverlayLayer(
                       key: layer,
                       motion: WebOverlayMotion.drawer,
-                      onDismiss: () {},
+                      onDismiss: onDismiss ?? () {},
+                      exit: exit,
                       child: const SizedBox(key: _panel, width: 400),
                     ),
                   ),
@@ -169,6 +175,86 @@ void main() {
     testWidgets('reduced motion puts it in place at once', (tester) async {
       await mount(tester, still: true);
       expect(tester.getTopLeft(find.byKey(_panel)).dx, 1040);
+    });
+
+    Color scrim(WidgetTester tester) => tester
+        .widget<AnimatedModalBarrier>(find.byType(AnimatedModalBarrier))
+        .color
+        .value!;
+
+    testWidgets('closing plays the slide backward, then leaves once',
+        (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      var dismissed = 0;
+      await mount(tester, exit: exit, onDismiss: () => dismissed++);
+      await tester.pumpAndSettle();
+      exit.close(() => left++);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(left, 0);
+      expect(exit.closing, isTrue);
+      final middle = tester.getTopLeft(find.byKey(_panel)).dx;
+      expect(middle, inExclusiveRange(1040, 1440));
+      expect(scrim(tester).a, inExclusiveRange(0, .28));
+      // The scrim no longer answers while the layer leaves.
+      await tester.tapAt(const Offset(100, 100));
+      expect(dismissed, 0);
+      // A second close changes nothing.
+      exit.close(() => left += 10);
+      await tester.pumpAndSettle();
+      expect(left, 1);
+      expect(tester.getTopLeft(find.byKey(_panel)).dx, greaterThan(1440));
+      expect(scrim(tester).a, 0);
+    });
+
+    testWidgets('closing takes the drawer close time', (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      await mount(tester, exit: exit);
+      await tester.pumpAndSettle();
+      exit.close(() => left++);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 399));
+      expect(left, 0);
+      await tester.pump(const Duration(milliseconds: 2));
+      await tester.pump();
+      expect(left, 1);
+    });
+
+    testWidgets('reduced motion leaves at once with nothing pending',
+        (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      await mount(tester, still: true, exit: exit);
+      await tester.pump();
+      exit.close(() => left++);
+      expect(left, 1);
+      await tester.pump();
+      expect(tester.hasRunningAnimations, isFalse);
+      expect(scrim(tester).a, 0);
+    });
+
+    testWidgets('a layer that is not showing leaves at once', (tester) async {
+      var left = 0;
+      WebOverlayExit().close(() => left++);
+      expect(left, 1);
+    });
+
+    testWidgets('closing before the slide-in ends turns it round',
+        (tester) async {
+      final exit = WebOverlayExit();
+      var left = 0;
+      await mount(tester, exit: exit);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final inFlight = tester.getTopLeft(find.byKey(_panel)).dx;
+      exit.close(() => left++);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 16));
+      expect(tester.getTopLeft(find.byKey(_panel)).dx, greaterThan(inFlight));
+      await tester.pumpAndSettle();
+      expect(left, 1);
     });
   });
 }
