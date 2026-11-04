@@ -160,8 +160,7 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
         kind: HomeNoticeKind.monthOnly,
         title:
             'Do you know the day of your ${focus.exam?.shortName ?? "exam"}?',
-        detail: "It's $month. Your plan is paced to the end of the month "
-            'until you pick the day.',
+        detail: 'Until then, your plan is paced to the end of $month.',
         dismissalToken: date.storageValue,
         primaryLabel: 'Save',
         secondaryLabel: 'Not Yet',

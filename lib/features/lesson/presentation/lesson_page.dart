@@ -580,19 +580,20 @@ class _ReaderFallback extends ConsumerWidget {
             autofocus: true,
             child: Column(
               children: [
-                WebTopBar(
-                  leading: Row(
-                    children: [
-                      WebBackLink(
+                // The same bar the lesson draws, in the same place.
+                SizedBox(
+                  height: 60,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: WebReaderBackControl(
                         label: onClose == null
                             ? origin.backLabel(context)
                             : 'Close',
-                        tightIcon: true,
                         onPressed: onClose ?? () => origin.leave(context),
                       ),
-                      const SizedBox(width: 2),
-                      const WebKeyHint('Esc'),
-                    ],
+                    ),
                   ),
                 ),
                 Expanded(

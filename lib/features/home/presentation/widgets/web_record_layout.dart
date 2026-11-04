@@ -27,6 +27,8 @@ class WebMyPage extends StatelessWidget {
           child: Scaffold(
             backgroundColor: context.webTokens.colors.background,
             body: SingleChildScrollView(
+              // Rows scroll through the shell's padding, not into a hard line.
+              clipBehavior: Clip.none,
               padding: EdgeInsets.zero,
               child: Center(
                 child: ConstrainedBox(
@@ -118,8 +120,14 @@ class WebRecordLayout extends StatelessWidget {
         label: 'questions answered'
       ),
       (value: time, label: 'time in sessions'),
-      (value: '${record.lessonsRead}', label: 'lessons read'),
-      (value: '${record.daysActive}', label: 'days active'),
+      (
+        value: '${record.lessonsRead}',
+        label: record.lessonsRead == 1 ? 'lesson read' : 'lessons read'
+      ),
+      (
+        value: '${record.daysActive}',
+        label: record.daysActive == 1 ? 'day active' : 'days active'
+      ),
       (value: '${record.longestStreak}', label: 'longest streak'),
       if (record.bestMockPercent != null)
         (value: '${record.bestMockPercent}%', label: 'best mock'),

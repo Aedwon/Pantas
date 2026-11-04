@@ -560,17 +560,25 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                     _shown.length > 1
                                 ? ReorderableDragStartListener(
                                     index: index,
-                                    child: Tooltip(
-                                      message: 'Move bookmark: Alt ↑ or Alt ↓',
-                                      child: SizedBox.square(
-                                        dimension: 32,
-                                        child: IconTheme(
-                                          key: const ValueKey('bookmark-grip'),
-                                          data: IconThemeData(
-                                            size: 16,
-                                            color: context.colors.tertiaryLabel,
+                                    // A click on the grip focuses the row for
+                                    // Alt and arrow keys. It does not open it.
+                                    child: _GripFocus(
+                                      child: Tooltip(
+                                        message:
+                                            'Move bookmark: Alt ↑ or Alt ↓',
+                                        child: SizedBox.square(
+                                          dimension: 32,
+                                          child: IconTheme(
+                                            key: const ValueKey(
+                                              'bookmark-grip',
+                                            ),
+                                            data: IconThemeData(
+                                              size: 16,
+                                              color:
+                                                  context.colors.tertiaryLabel,
+                                            ),
+                                            child: PantasIcons.reorder,
                                           ),
-                                          child: PantasIcons.reorder,
                                         ),
                                       ),
                                     ),
@@ -650,47 +658,55 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             ? Border(bottom: BorderSide(color: t.colors.separator))
             : null,
       ),
-      child: CheckboxRow(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        gap: 16,
-        minHeight: 70,
-        standardDensity: true,
-        title: row.title,
-        selected: checked,
-        onTap: activate,
-        content: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              row.title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: t.style(17, height: 22 / 17),
-            ),
-            Text(
-              row.topicName,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style:
-                  t.style(14, height: 18 / 14, color: t.colors.secondaryLabel),
-            ),
-          ],
-        ),
-        trailing: _shown.length > 1
-            ? ReorderableDragStartListener(
-                index: index,
-                child: Tooltip(
-                  message: 'Move bookmark: Alt ↑ or Alt ↓',
-                  child: SizedBox.square(
-                    dimension: 16,
-                    child: CustomPaint(
-                      key: const ValueKey('bookmark-grip'),
-                      painter: _GripDots(t.colors.tertiaryLabel),
+      // The grip sits outside the row's button, so the row's own hover fill
+      // would stop short of the edge. This one covers the whole row.
+      child: _RowHover(
+        child: CheckboxRow(
+          hoverFill: false,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          gap: 16,
+          minHeight: 70,
+          standardDensity: true,
+          title: row.title,
+          selected: checked,
+          onTap: activate,
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                row.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(17, height: 22 / 17),
+              ),
+              Text(
+                row.topicName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(
+                  14,
+                  height: 18 / 14,
+                  color: t.colors.secondaryLabel,
+                ),
+              ),
+            ],
+          ),
+          trailing: _shown.length > 1
+              ? ReorderableDragStartListener(
+                  index: index,
+                  child: Tooltip(
+                    message: 'Move bookmark: Alt ↑ or Alt ↓',
+                    child: SizedBox.square(
+                      dimension: 16,
+                      child: CustomPaint(
+                        key: const ValueKey('bookmark-grip'),
+                        painter: _GripDots(t.colors.tertiaryLabel),
+                      ),
                     ),
                   ),
-                ),
-              )
-            : null,
+                )
+              : null,
+        ),
       ),
     );
   }
@@ -1271,6 +1287,55 @@ class _FoldRow extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      );
+}
+
+/// Fills the whole row with the hover tint while the pointer is over it.
+class _RowHover extends StatefulWidget {
+  const _RowHover({required this.child});
+  final Widget child;
+  @override
+  State<_RowHover> createState() => _RowHoverState();
+}
+
+class _RowHoverState extends State<_RowHover> {
+  bool _hover = false;
+  @override
+  Widget build(BuildContext context) => MouseRegion(
+        onEnter: (_) => setState(() => _hover = true),
+        onExit: (_) => setState(() => _hover = false),
+        child: ColoredBox(
+          color: _hover ? context.webTokens.rowHover : Colors.transparent,
+          child: widget.child,
+        ),
+      );
+}
+
+/// Takes a click on a row's grip so it focuses the row, without Tab stopping
+/// on every grip, and keeps the click from reaching the row's button.
+class _GripFocus extends StatefulWidget {
+  const _GripFocus({required this.child});
+  final Widget child;
+  @override
+  State<_GripFocus> createState() => _GripFocusState();
+}
+
+class _GripFocusState extends State<_GripFocus> {
+  final _node = FocusNode(debugLabel: 'bookmark grip', skipTraversal: true);
+  @override
+  void dispose() {
+    _node.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Focus(
+        focusNode: _node,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: _node.requestFocus,
+          child: widget.child,
         ),
       );
 }

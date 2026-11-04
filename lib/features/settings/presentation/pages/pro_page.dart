@@ -352,12 +352,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         PaymentOperationStatus.networkFailure =>
           'No internet connection. Please try again.',
         PaymentOperationStatus.entitlementNotActive =>
-          'We found a purchase, but Pro couldn’t be confirmed yet. '
+          "We found a purchase, but Pro couldn't be confirmed yet. "
               'Try again in a moment.',
         PaymentOperationStatus.storeFailure => ref.read(paymentsOnWebProvider)
-            ? 'We couldn’t confirm your subscription. Try again.'
-            : 'Google Play couldn’t complete this purchase. Try again.',
-        _ => 'We couldn’t confirm your subscription. Try again.',
+            ? "We couldn't confirm your subscription. Try again."
+            : "Google Play couldn't complete this purchase. Try again.",
+        _ => "We couldn't confirm your subscription. Try again.",
       };
   Future<void> _restore() async {
     if (_busy) return;
@@ -533,7 +533,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       setState(() {
         _busy = false;
         if (!opened) {
-          _feedback = 'We couldn’t open Google Play. You can manage your '
+          _feedback = "We couldn't open Google Play. You can manage your "
               'subscription in the Google Play app.';
         }
       });
@@ -892,7 +892,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       ),
                     if (!upgrade)
                       PantasButton(
-                        label: 'Restore purchases',
+                        label: 'Restore Purchases',
                         variant: PantasButtonVariant.tertiary,
                         busy: _busy,
                         onPressed: _busy ? null : _restore,
@@ -949,12 +949,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           if (!upgrade)
             Text(
               owned
-                  ? 'You’re on Pro.'
+                  ? "You're on Pro."
                   : lapsed
                       ? passEnded
                           ? 'Your Season Pass ended'
                           : 'Your Pro plan ended'
-                      : 'See exactly what’s losing you points.',
+                      : "See exactly what's losing you points.",
               style: context.type.pageTitle,
             ),
           if (upgrade)
@@ -997,7 +997,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           if (owned) ...[
             const SizedBox(height: 8),
             Text(
-              'Thanks for backing Pantas. Here’s everything that’s yours.',
+              "Thanks for backing Pantas. Here's everything that's yours.",
               style: context.type.body,
             ),
           ],
@@ -1015,7 +1015,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
               (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
               (PantasIcons.studyHabits, 'The figures behind your study habits'),
-              (PantasIcons.proBackup, 'Progress that’s always backed up'),
+              (PantasIcons.proBackup, "Progress that's always backed up"),
               (PantasIcons.topicResults, 'Results by topic and lesson'),
             ])
               Padding(
@@ -1045,7 +1045,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             footer: web && entitlement.isTrial && planDate != null
                 ? 'Your free trial ends on '
                     '${DateFormat.yMMMd().format(planDate)}. '
-                    'You won’t be charged.'
+                    "You won't be charged."
                 : null,
             children: [
               SettingsRow(
@@ -1148,9 +1148,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           SizedBox(height: context.wideWeb ? 6 : 12),
           if (offering.isLoading) const Text('Loading subscriptions...'),
           if (packages.isNotEmpty)
-            Row(
-              spacing: context.wideWeb ? 12 : 0,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            _plansRow(
+              context,
               children: [
                 for (final package in packages)
                   Expanded(
@@ -1351,6 +1350,24 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     );
   }
 
+  /// The plan cards side by side. On wide web they share one height, as the
+  /// board's grid does, so the bottoms line up whatever each card holds.
+  Widget _plansRow(BuildContext context, {required List<Widget> children}) {
+    if (!context.wideWeb) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children,
+      );
+    }
+    return IntrinsicHeight(
+      child: Row(
+        spacing: 12,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+      ),
+    );
+  }
+
   Widget _choiceCard(
     BuildContext context, {
     required String label,
@@ -1372,6 +1389,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           borderRadius: BorderRadius.circular(16),
           child: Stack(
             clipBehavior: Clip.none,
+            fit: StackFit.passthrough,
             children: [
               Container(
                 width: double.infinity,

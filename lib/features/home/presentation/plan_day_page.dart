@@ -70,7 +70,8 @@ class PlanDayPage extends StatelessWidget {
                           : ProgressRing(
                               fraction: 0,
                               emptyStrokeWidth: 2,
-                              emptyTrackColor: context.colors.separator,
+                              emptyTrackColor:
+                                  ProgressRing.phoneEmptyTrack(context),
                             ),
                       titleColor:
                           lesson.read ? context.colors.secondaryLabel : null,
@@ -96,7 +97,8 @@ class PlanDayPage extends StatelessWidget {
                                   ? reviewsDone / reviewsTotal
                                   : 0,
                               emptyStrokeWidth: 2,
-                              emptyTrackColor: context.colors.separator,
+                              emptyTrackColor:
+                                  ProgressRing.phoneEmptyTrack(context),
                             ),
                       titleColor: past && reviewsDone == reviewsTotal
                           ? context.colors.secondaryLabel
@@ -123,7 +125,8 @@ class PlanDayPage extends StatelessWidget {
                               fraction:
                                   past && newTotal > 0 ? newDone / newTotal : 0,
                               emptyStrokeWidth: 2,
-                              emptyTrackColor: context.colors.separator,
+                              emptyTrackColor:
+                                  ProgressRing.phoneEmptyTrack(context),
                             ),
                       titleColor: past && newDone == newTotal
                           ? context.colors.secondaryLabel
@@ -293,10 +296,22 @@ class PlanWeekDay {
     required this.date,
     required this.rest,
     required this.lessonTitles,
+    this.mock = false,
   });
   final DateTime date;
   final bool rest;
   final List<String> lessonTitles;
+  final bool mock;
+
+  /// What the row says. After new material stops a day has no lessons, only
+  /// reviews, and the mock day is named, so no row is ever blank.
+  String get label => rest
+      ? 'Rest day'
+      : lessonTitles.isNotEmpty
+          ? lessonTitles.join(', ')
+          : mock
+              ? 'Mock exam'
+              : 'Reviews only';
 }
 
 class PlanWeekPage extends StatelessWidget {
@@ -329,9 +344,7 @@ class PlanWeekPage extends StatelessWidget {
               children: [
                 for (var i = 0; i < days.length; i++)
                   ListRow(
-                    title: days[i].rest
-                        ? 'Rest day'
-                        : days[i].lessonTitles.join(', '),
+                    title: days[i].label,
                     // Board (DP_Week): 15 px names and titles, the title
                     // column starts at 108, rest days are gray with a small
                     // moon before the words and no chevron.
@@ -347,9 +360,7 @@ class PlanWeekPage extends StatelessWidget {
                         ],
                         Expanded(
                           child: Text(
-                            days[i].rest
-                                ? 'Rest day'
-                                : days[i].lessonTitles.join(', '),
+                            days[i].label,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: context.type.subhead.copyWith(
@@ -425,9 +436,7 @@ class PlanWeekPage extends StatelessWidget {
                   for (var i = 0; i < days.length; i++)
                     WebRow(
                       boardMetrics: true,
-                      title: days[i].rest
-                          ? 'Rest day'
-                          : days[i].lessonTitles.join(', '),
+                      title: days[i].label,
                       dimmed: days[i].rest,
                       divider: i < days.length - 1,
                       leading: SizedBox(

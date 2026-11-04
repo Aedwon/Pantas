@@ -164,7 +164,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
               return SettingsPanePage(
                 section: 'About',
                 title: id == 'privacy'
-                    ? 'Privacy policy'
+                    ? 'Privacy Policy'
                     : legalDocumentFallbacks[id]?.title ?? 'Legal',
                 description: LegalDocumentBody.updatedLine(id),
                 backLabel: 'About',
@@ -250,7 +250,7 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
               builder: (dialogContext) => CenteredDialog(
                 title: 'Your pass stays with ${from.shortName}',
                 inlineActions: true,
-                message: 'On ${to.shortName} you’ll be on Free. '
+                message: "On ${to.shortName} you'll be on Free. "
                     'Switch back any time before '
                     '${DateFormat.yMMMd().format(ends.toLocal())} '
                     'and your pass is still there.',

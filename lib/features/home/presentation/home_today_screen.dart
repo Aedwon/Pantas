@@ -38,13 +38,29 @@ import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:uuid/uuid.dart';
 
-String? homeDayNoteLabel(HomeTodayData data) => switch (data.extras.note) {
-      HomeDayNote.carried => 'Unfinished items are added to today.',
-      HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
-      HomeDayNote.mockMoved =>
-        'Your ${data.examShortName} simulation moved to today.',
-      null => null,
-    };
+/// The calm line above Today. The boards print it only above a plan that still
+/// has work: a day off, an exam day, a quiet day or a finished day has no line,
+/// because "Unfinished items are added to today" would contradict what it says.
+String? homeDayNoteLabel(HomeTodayData data) {
+  final snapshot = data.today.snapshot;
+  final view = homeTodayViewFor(
+    state: snapshot.state,
+    plan: snapshot.plan,
+    originalDone: data.today.originalDone,
+    canAdvance: data.canAdvance,
+    examDate: snapshot.digest.examDate,
+  );
+  if (view.kind != HomeTodayKind.checklist || data.today.originalDone) {
+    return null;
+  }
+  return switch (data.extras.note) {
+    HomeDayNote.carried => 'Unfinished items are added to today.',
+    HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
+    HomeDayNote.mockMoved =>
+      'Your ${data.examShortName} simulation moved to today.',
+    null => null,
+  };
+}
 
 /// Owns one Home request, including its retries and every asynchronous launch.
 /// Closing the page invalidates the original captured account/exam boundary.
@@ -491,7 +507,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           examShortName: data.examShortName,
           hasExamDate: data.today.snapshot.digest.examDate.isNotEmpty,
           examDateLabel: passed && examDay != null
-              ? DateFormat('d MMMM', 'en_US').format(examDay)
+              ? DateFormat('MMMM d', 'en_US').format(examDay)
               : null,
           onPrimary: switch (view.kind) {
             HomeTodayKind.dayOff =>
@@ -549,7 +565,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
-  Widget _lessonRow(HomeTodayData data, HomeTodayLesson lesson) =>
+  Widget _lessonRow(
+    HomeTodayData data,
+    HomeTodayLesson lesson, {
+    bool last = false,
+  }) =>
       context.wideWeb
           ? WebRow(
               title: lesson.title,
@@ -559,6 +579,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                 height: 1.3,
               ),
               boardMetrics: true,
+              divider: !last,
               value: lesson.read ? null : '${lesson.minutes} min',
               leading: _drawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
@@ -614,7 +635,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                           child: Column(
                             children: [
                               for (final lesson in group.value)
-                                _lessonRow(data, lesson),
+                                _lessonRow(
+                                  data,
+                                  lesson,
+                                  last: lesson == group.value.last,
+                                ),
                             ],
                           ),
                         ),
@@ -640,7 +665,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                         ),
                       ),
                     ),
-                  for (final lesson in group.value) _lessonRow(data, lesson),
+                  for (final lesson in group.value)
+                    _lessonRow(data, lesson, last: lesson == shown.last),
                 ],
               ],
         startLabel: _sheet == 'lesson'
@@ -673,11 +699,17 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                   'Session ${i + 1}',
                   work.reviewProgress[i],
                   work.reviewSizes[i],
+                  last: i == work.reviewSizes.length - 1,
                 ),
             ]
           : [
               for (final row in work.newRows)
-                _questionRow(row.title, row.done, row.total),
+                _questionRow(
+                  row.title,
+                  row.done,
+                  row.total,
+                  last: row == work.newRows.last,
+                ),
             ],
       startLabel: reviews
           ? work.storedReviews == null
@@ -731,28 +763,35 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
       );
 
-  Widget _questionRow(String title, int done, int total) => context.wideWeb
-      ? WebRow(
-          title: title,
-          titleStyle: context.webTokens.style(16, height: 1.3),
-          boardMetrics: true,
-          value: '$total',
-          compact: true,
-          leading: _drawerRing(
-            total == 0 ? 0 : done / total,
-            done: done == total,
-          ),
-        )
-      : ListRow(
-          title: title,
-          value: '$total',
-          variant: ListRowVariant.value,
-          leading: done == total
-              ? const CheckMark()
-              : ProgressRing(fraction: total == 0 ? 0 : done / total),
-          contentPadding: const EdgeInsets.symmetric(vertical: 9),
-          minimumHeight: 0,
-          valueStyle: context.type.subhead
-              .copyWith(color: context.colors.secondaryLabel),
-        );
+  Widget _questionRow(
+    String title,
+    int done,
+    int total, {
+    bool last = false,
+  }) =>
+      context.wideWeb
+          ? WebRow(
+              title: title,
+              titleStyle: context.webTokens.style(16, height: 1.3),
+              boardMetrics: true,
+              divider: !last,
+              value: '$total',
+              compact: true,
+              leading: _drawerRing(
+                total == 0 ? 0 : done / total,
+                done: done == total,
+              ),
+            )
+          : ListRow(
+              title: title,
+              value: '$total',
+              variant: ListRowVariant.value,
+              leading: done == total
+                  ? const CheckMark()
+                  : ProgressRing(fraction: total == 0 ? 0 : done / total),
+              contentPadding: const EdgeInsets.symmetric(vertical: 9),
+              minimumHeight: 0,
+              valueStyle: context.type.subhead
+                  .copyWith(color: context.colors.secondaryLabel),
+            );
 }

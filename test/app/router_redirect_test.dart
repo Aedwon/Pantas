@@ -449,7 +449,7 @@ void main() {
     router.go('/legal/privacy');
     await tester.pumpAndSettle();
 
-    expect(find.text('Privacy policy'), findsWidgets);
+    expect(find.text('Privacy Policy'), findsWidgets);
     expect(find.text('Your rights'), findsOneWidget);
     expect(find.textContaining('Legal: privacy'), findsNothing);
   });

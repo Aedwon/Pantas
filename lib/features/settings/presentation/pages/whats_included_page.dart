@@ -144,7 +144,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     firstScreenReady(context, ref, ready: data != null && !data.isLoading);
     return SettingsPanePage(
       section: 'Your exam',
-      title: 'What’s included',
+      title: "What's included",
       description: focus.valueOrNull?.exam?.shortName,
       compactTitle: true,
       titleLineHeight: 1.2,
@@ -205,9 +205,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                         ? EdgeInsets.zero
                         : const EdgeInsets.fromLTRB(16, 7, 16, 0),
                     child: Text(
-                      'Untick what you don’t need. '
+                      "Untick what you don't need. "
                       'It gets removed from your plan, '
-                      'and your answers on it won’t be deleted.',
+                      "and your answers on it won't be deleted.",
                       style: context.type.footnote,
                     ),
                   ),

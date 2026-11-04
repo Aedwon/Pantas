@@ -139,11 +139,10 @@ class HomeMasthead extends ConsumerWidget {
               now,
             ),
             monthAbbreviation: _monthAbbreviation,
-            onDay: (date) => unawaited(
-              date.isBefore(DateTime(now.year, now.month, now.day))
-                  ? showPlanPastDay(context, date)
-                  : context.push<void>('/plan/day/${dayKey(date)}'),
-            ),
+            onDay: (date) =>
+                date.isBefore(DateTime(now.year, now.month, now.day))
+                    ? showPlanPastDay(context, date)
+                    : context.push<void>('/plan/day/${dayKey(date)}'),
           ),
         ],
       );
@@ -468,7 +467,7 @@ String greetingFor(DateTime now, [AppLocalizations? l10n]) {
 }
 
 /// Board `.week`: day cells 44 px wide with 4 px gaps, then the exam tile.
-class _WebWeekCard extends StatelessWidget {
+class _WebWeekCard extends StatefulWidget {
   const _WebWeekCard({
     required this.now,
     required this.start,
@@ -484,11 +483,35 @@ class _WebWeekCard extends StatelessWidget {
   final HomeMastheadData masthead;
   final String footer;
   final String Function(int month) monthAbbreviation;
-  final ValueChanged<DateTime> onDay;
+
+  /// Resolves when what the tap opened is closed again.
+  final Future<void> Function(DateTime) onDay;
+
+  @override
+  State<_WebWeekCard> createState() => _WebWeekCardState();
+}
+
+class _WebWeekCardState extends State<_WebWeekCard> {
+  /// The day whose popover is open: board PL_DayPast marks it in the strip.
+  DateTime? _open;
+
+  Future<void> _tap(DateTime date) async {
+    setState(() => _open = date);
+    try {
+      await widget.onDay(date);
+    } finally {
+      if (mounted) setState(() => _open = null);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final start = widget.start;
+    final week = widget.week;
+    final masthead = widget.masthead;
+    final footer = widget.footer;
+    final monthAbbreviation = widget.monthAbbreviation;
     final off = t.dark ? t.colors.tertiaryLabel : const Color(0xFFC7C7CC);
     final date = masthead.examDate;
     return WebCard(
@@ -505,7 +528,8 @@ class _WebWeekCard extends StatelessWidget {
               state: week.states[i],
               todayFraction: week.todayFraction,
               off: off,
-              onPressed: () => onDay(start.add(Duration(days: i))),
+              selected: _open == start.add(Duration(days: i)),
+              onPressed: () => unawaited(_tap(start.add(Duration(days: i)))),
             ),
           ],
           // `.exam`: margin-left 4 after the 4 px gap, 12 px padding.
@@ -586,8 +610,10 @@ class _WebWeekDay extends StatefulWidget {
     required this.todayFraction,
     required this.off,
     required this.onPressed,
+    this.selected = false,
     super.key,
   });
+  final bool selected;
   final String label;
   final int day;
   final WeekDayState state;
@@ -647,7 +673,7 @@ class _WebWeekDayState extends State<_WebWeekDay> {
           width: 44,
           padding: const EdgeInsets.symmetric(vertical: 4),
           decoration: BoxDecoration(
-            color: _hover
+            color: _hover || widget.selected
                 ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
                 : null,
             borderRadius: BorderRadius.circular(12),

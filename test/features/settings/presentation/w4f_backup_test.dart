@@ -34,6 +34,41 @@ void main() {
     expect(find.text('Last backed up'), findsNothing);
     expect(find.text('Waiting to back up'), findsNothing);
   });
+  testWidgets('web says progress stays in this browser unless Pro is signed in',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const BackupPage(),
+      overrides: [
+        paymentsOnWebProvider.overrideWithValue(true),
+        isAnonymousProvider.overrideWith((ref) async => true),
+        entitlementProvider
+            .overrideWith((ref) => Stream.value(const Entitlement.free())),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.textContaining('stays in this browser only'), findsOneWidget);
+    expect(find.text('Your progress is saved to your account.'), findsNothing);
+  });
+  testWidgets('web says progress is saved to the account for signed-in Pro',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const BackupPage(),
+      overrides: [
+        paymentsOnWebProvider.overrideWithValue(true),
+        isAnonymousProvider.overrideWith((ref) async => false),
+        entitlementProvider.overrideWith(
+          (ref) =>
+              Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Your progress is saved to your account.'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('stays in this browser'), findsNothing);
+  });
   testWidgets('Back Up Now calls the current runtime and blocks duplicate taps',
       (tester) async {
     final runtime = _Runtime();

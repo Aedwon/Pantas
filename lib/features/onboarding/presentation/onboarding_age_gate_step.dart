@@ -51,8 +51,10 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       ) ??
       widget.currentYear - 14;
   late final _yearController = TextEditingController(text: '$_selectedYear');
+  final _yearFocus = FocusNode();
   @override
   void dispose() {
+    _yearFocus.dispose();
     _yearController.dispose();
     super.dispose();
   }
@@ -74,6 +76,12 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   void initState() {
     super.initState();
     unawaited(_restoreBlock());
+    // The board draws the year field focused, so typing and Enter work as soon
+    // as the step opens, with no click first. The step's own Continue button
+    // also asks for focus when it builds, so this asks once that is done.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && !_blocked && context.wideWeb) _yearFocus.requestFocus();
+    });
   }
 
   /// The block outlasts a reload. Only support clears it.
@@ -248,27 +256,57 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       );
     }
     if (_blocked) {
-      final page = OnboardingWebPage(
-        title: '',
-        onBack: back,
-        centerBody: true,
-        surfaceBackground: true,
-        children: [
-          StateView.onboardingBlocked(
-            message: "Pantas isn't available yet",
-            detail: _blockedDetail,
-            icon: const OnboardingLogo(size: 72),
+      final blocked = [
+        StateView.onboardingBlocked(
+          message: "Pantas isn't available yet",
+          detail: _blockedDetail,
+          icon: const OnboardingLogo(size: 72),
+        ),
+        const SizedBox(height: 22),
+        Text(
+          _blockedHelp,
+          textAlign: TextAlign.center,
+          style: context.type.subhead.copyWith(
+            color: context.colors.secondaryLabel,
           ),
-          const SizedBox(height: 22),
-          Text(
-            _blockedHelp,
-            textAlign: TextAlign.center,
-            style: context.type.subhead.copyWith(
-              color: context.colors.secondaryLabel,
-            ),
-          ),
-        ],
-      );
+        ),
+      ];
+      final host = OnboardingFrameScope.hostOf(context);
+      // Wide web has no way back from the block (it replaced "Try a Different
+      // Year"), so the phone draws no Back either. Only support clears it.
+      final page = host != null
+          ? OnboardingFrameClaim(
+              host: host,
+              spec: const OnboardingFrameSpec(
+                surfaceBackground: true,
+                hideBack: true,
+              ),
+              onBack: null,
+              child: LayoutBuilder(
+                builder: (context, constraints) => SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: (constraints.maxHeight - 36)
+                          .clamp(0, double.infinity),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: blocked,
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : OnboardingWebPage(
+              title: '',
+              onBack: back,
+              centerBody: true,
+              surfaceBackground: true,
+              children: blocked,
+            );
       return PantasEffects.fade(
         duration: const Duration(milliseconds: 300),
         builder: (_, progress, child) => IgnorePointer(
@@ -307,6 +345,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                 },
                 child: TextField(
                   controller: _yearController,
+                  focusNode: _yearFocus,
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,

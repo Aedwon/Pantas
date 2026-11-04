@@ -36,9 +36,12 @@ class MathExpression extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final math = Math.tex(
-      latex,
+      groupedThousands(latex),
       mathStyle: mathStyle,
-      textStyle: textStyle,
+      // The package turns any weight other than normal into an upright serif
+      // override of every letter, so a bold line or a callout set its math
+      // upright. KaTeX math keeps the regular weight and its own italics.
+      textStyle: textStyle?.copyWith(fontWeight: FontWeight.normal),
       textScaleFactor: textScaleFactor,
       onErrorFallback: (_) =>
           onErrorFallback?.call(context) ?? Text(latex, style: textStyle),
@@ -382,6 +385,13 @@ InlineSpan inlineMathSpan(
   TextStyle? style,
   WidgetBuilder? onErrorFallback,
 }) {
+  // A bare number such as 1987 or 22 has nothing to typeset. Set in KaTeX it
+  // switches to a serif face in the middle of a sans sentence, so it stays text
+  // in the body font. Any real expression keeps the math face.
+  final numeral = latex.trim();
+  if (_bareNumeral.hasMatch(numeral)) {
+    return TextSpan(text: numeral, style: style);
+  }
   return WidgetSpan(
     alignment: PlaceholderAlignment.baseline,
     baseline: TextBaseline.alphabetic,
@@ -414,6 +424,24 @@ InlineSpan inlineMathSpan(
     ),
   );
 }
+
+final _bareNumeral = RegExp(
+  r'^(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$',
+);
+
+final _thousandsRun = RegExp(r'(?<![\d,])\d{1,3}(?:,\d{3})+(?!\d)');
+
+/// Binds the commas of a number written with thousands separators, so TeX does
+/// not add the space it puts after a punctuation comma ("27, 000").
+///
+/// Only a run of one to three digits followed by comma groups of exactly three
+/// counts, so a list such as `20,22,25,26,300` keeps its list spacing.
+String groupedThousands(String latex) => latex.contains(',')
+    ? latex.replaceAllMapped(
+        _thousandsRun,
+        (match) => match.group(0)!.replaceAll(',', '{,}'),
+      )
+    : latex;
 
 const _fracCommands = <String>[r'\dfrac', r'\tfrac', r'\frac'];
 

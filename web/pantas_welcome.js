@@ -110,10 +110,20 @@
         var target = event.target;
         if (target && target.closest && target.closest('#pw-start')) start();
       });
-      // The Enter hint on the button only exists on wide screens.
-      doc.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' && env.wide()) start();
-      });
+      // The Enter hint on the button only exists on wide screens. Flutter's view
+      // holds keyboard focus under the cover and does not pass keys on, so this
+      // listens in the capture phase, ahead of it, and keeps Enter from also
+      // reaching the app's own first step.
+      doc.addEventListener(
+        'keydown',
+        function (event) {
+          if (event.key !== 'Enter' || state.done || !env.wide()) return;
+          if (event.preventDefault) event.preventDefault();
+          if (event.stopPropagation) event.stopPropagation();
+          start();
+        },
+        true,
+      );
     }
 
     return {

@@ -499,7 +499,7 @@ void main() {
           overrides: [appDatabaseProvider.overrideWithValue(db)],
         );
 
-    const title = 'EARTH SCIENCE · 2 LESSONS';
+    const title = 'EARTH SCIENCE';
 
     testWidgets('the contents list drops in and lifts out on slideC',
         (tester) async {

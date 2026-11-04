@@ -80,6 +80,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
         child: Scaffold(
           backgroundColor: t.colors.background,
           body: SingleChildScrollView(
+            // Rows scroll through the shell's padding, not into a hard line.
+            clipBehavior: Clip.none,
             padding: const EdgeInsets.only(bottom: 44),
             child: Center(
               child: ConstrainedBox(
@@ -199,6 +201,11 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                           _row(
                                             context,
                                             row,
+                                            // No hairline under the card's last
+                                            // row, unless its topics follow.
+                                            divider: row != widget.rows.last ||
+                                                (widget.level == 0 &&
+                                                    _expanded.contains(row.id)),
                                             subtitle: widget.level == 0
                                                 ? _topicCount(row.id)
                                                 : row.subtext,
@@ -223,7 +230,11 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                             },
                                           ),
                                           if (widget.level == 0)
-                                            _topics(context, row),
+                                            _topics(
+                                              context,
+                                              row,
+                                              last: row == widget.rows.last,
+                                            ),
                                         ],
                                       ],
                                     ),
@@ -389,24 +400,31 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
   }
 
   /// A subject's topics, sliding open and shut in 240 ms.
-  Widget _topics(BuildContext context, PerformanceRow row) {
+  Widget _topics(
+    BuildContext context,
+    PerformanceRow row, {
+    required bool last,
+  }) {
     final t = context.webTokens;
+    final shown = _expanded.contains(row.id)
+        ? _topicsFor(row.id)
+        : const <PerformanceRow>[];
     // Full width, so only the height animates as topics come and go.
     final topics = SizedBox(
       width: double.infinity,
       child: Column(
         children: [
-          if (_expanded.contains(row.id))
-            for (final topic in _topicsFor(row.id))
-              ColoredBox(
-                color: t.dark ? t.rowHover : const Color(0xFFFBFBFC),
-                child: _row(
-                  context,
-                  topic,
-                  indent: true,
-                  onPressed: () => widget.onTopic(topic.id),
-                ),
+          for (final topic in shown)
+            ColoredBox(
+              color: t.dark ? t.rowHover : const Color(0xFFFBFBFC),
+              child: _row(
+                context,
+                topic,
+                indent: true,
+                divider: !(last && topic == shown.last),
+                onPressed: () => widget.onTopic(topic.id),
               ),
+            ),
         ],
       ),
     );
@@ -432,6 +450,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     String? subtitle,
     bool indent = false,
     bool expanded = false,
+    bool divider = true,
   }) {
     final t = context.webTokens;
     // The board indents a topic row 40 px left and keeps 20 px right.
@@ -440,6 +459,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       child: LayoutBuilder(
         builder: (context, constraints) => WebRow(
           boardMetrics: !indent,
+          divider: divider,
           title: row.title,
           compact: indent,
           subtitle: subtitle,
@@ -520,7 +540,13 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       offset: const Offset(0, 10),
       menuPadding: const EdgeInsets.all(6),
       constraints: BoxConstraints.tightFor(width: width),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      // Board (PF_Sort): a clear edge and a soft shadow, so the menu stands
+      // off the white list card in light mode too.
+      elevation: 12,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: BorderSide(color: t.colors.separator),
+      ),
       shadowColor: Colors.black.withValues(alpha: .16),
       surfaceTintColor: Colors.transparent,
       initialValue: (selected,),
@@ -542,7 +568,14 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
               ),
               child: Row(
                 children: [
-                  Expanded(child: Text(e.value, style: t.style(16))),
+                  Expanded(
+                    child: Text(
+                      e.value,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: t.style(16),
+                    ),
+                  ),
                   if (e.key == selected)
                     Icon(Icons.check, size: 18, color: t.colors.accent),
                 ],

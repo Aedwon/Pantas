@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -231,10 +232,16 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       barrierColor: Colors.transparent,
       builder: (context) {
         final t = context.webTokens;
+        // RD_FocusOpen hangs the menu from the page's centre line to the
+        // right, kept inside the window on a narrow one.
+        final width = MediaQuery.sizeOf(context).width;
         return Align(
-          alignment: Alignment.topCenter,
+          alignment: Alignment.topLeft,
           child: Padding(
-            padding: const EdgeInsets.only(top: 56),
+            padding: EdgeInsets.only(
+              top: 56,
+              left: (width / 2).clamp(16, math.max(width - 396 - 16, 16)),
+            ),
             child: SizedBox(
               width: 396,
               child: DecoratedBox(
@@ -270,10 +277,24 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                               12,
                               6,
                             ),
-                            child: Text(
-                              '$menuTitle · '
-                              '${lessons.length} LESSONS',
-                              style: t.eb.copyWith(height: 1.45),
+                            // One line: a long topic name ends in an
+                            // ellipsis and the count stays whole.
+                            child: Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    menuTitle,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: t.eb.copyWith(height: 1.45),
+                                  ),
+                                ),
+                                Text(
+                                  ' · ${lessons.length} LESSONS',
+                                  maxLines: 1,
+                                  style: t.eb.copyWith(height: 1.45),
+                                ),
+                              ],
                             ),
                           ),
                           for (var i = 0; i < lessons.length; i++)
@@ -845,35 +866,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                           children: [
                             Row(
                               children: [
-                                TextButton(
+                                WebReaderBackControl(
+                                  label: widget.backLabel,
                                   onPressed: widget.onBack,
-                                  style: TextButton.styleFrom(
-                                    minimumSize: const Size(0, 40),
-                                    padding: EdgeInsets.zero,
-                                    tapTargetSize: compactTap,
-                                    visualDensity: VisualDensity.standard,
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        PantasIcons.back,
-                                        size: 20,
-                                        color: t.colors.accent,
-                                      ),
-                                      const SizedBox(width: 2),
-                                      Text(
-                                        widget.backLabel,
-                                        style: t.style(
-                                          17,
-                                          color: t.colors.accent,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                const SizedBox(width: 12),
-                                const WebKeyHint('Esc'),
                                 if (ending == null) ...[
                                   const SizedBox(width: 12),
                                   const Spacer(),
@@ -1030,6 +1026,46 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// The reader bar's back button and its Esc hint. The loading and error bars
+/// use it too, so the bar does not move when the lesson arrives.
+class WebReaderBackControl extends StatelessWidget {
+  const WebReaderBackControl({
+    required this.label,
+    required this.onPressed,
+    super.key,
+  });
+  final String label;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        TextButton(
+          onPressed: onPressed,
+          style: TextButton.styleFrom(
+            minimumSize: const Size(0, 40),
+            padding: EdgeInsets.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(PantasIcons.back, size: 20, color: t.colors.accent),
+              const SizedBox(width: 2),
+              Text(label, style: t.style(17, color: t.colors.accent)),
+            ],
+          ),
+        ),
+        const SizedBox(width: 12),
+        const WebKeyHint('Esc'),
+      ],
     );
   }
 }

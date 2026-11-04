@@ -52,6 +52,13 @@ class ProgressRing extends StatefulWidget {
         assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
   final double? emptyStrokeWidth;
   final Color? emptyTrackColor;
+
+  /// The empty ring on the phone's rows. Light keeps the board's pale gray;
+  /// dark uses the 3:1 gray, because the pale one disappears into the card.
+  static Color phoneEmptyTrack(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark
+          ? context.colors.chevron
+          : context.colors.separator;
   final bool pullStyle;
   final bool studyStyle;
   final Duration delay;

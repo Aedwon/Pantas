@@ -560,7 +560,7 @@ void quietDayTests() {
     );
     expect(find.text('Did you take UPCAT?'), findsOneWidget);
     expect(
-      find.text("Your UPCAT date was 11 November. Tell us what's next."),
+      find.text("Your UPCAT date was November 11. Tell us what's next."),
       findsOneWidget,
     );
     await tester.tap(find.text('Set a New Date'));
@@ -577,6 +577,21 @@ void quietDayTests() {
     );
     expect(find.text('Unfinished items are added to today.'), findsOneWidget);
     expect(find.text('View full plan'), findsOneWidget);
+  });
+  testWidgets('the calm line is dropped on a day off and on a finished day',
+      (tester) async {
+    const carried = HomeDayExtras(note: HomeDayNote.carried);
+    await pumpData(
+      tester,
+      dataFor(todayFor(dayPlan: emptyPlan(rest: true)), extras: carried),
+    );
+    expect(find.text('Day off'), findsOneWidget);
+    expect(find.text('Unfinished items are added to today.'), findsNothing);
+    await pumpData(
+      tester,
+      dataFor(todayFor(originalDone: true), extras: carried),
+    );
+    expect(find.text('Unfinished items are added to today.'), findsNothing);
   });
   testWidgets('a moved mock names the exam simulation', (tester) async {
     await pumpData(

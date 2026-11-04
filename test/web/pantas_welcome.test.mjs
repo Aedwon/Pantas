@@ -9,6 +9,7 @@ const { create, SEEN_KEY, GIVE_UP_MS } = require('../../web/pantas_welcome.js');
 function setup({ seen = false, wide = false, storageThrows = false, path = '/' } = {}) {
   const classes = new Set();
   const listeners = {};
+  const captures = {};
   const timers = [];
   const store = new Map(seen ? [[SEEN_KEY, '1']] : []);
   const button = {
@@ -41,7 +42,10 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/' }
         : id === 'pantas-welcome' && !screenRemoved
           ? { remove: () => (screenRemoved = true) }
           : null,
-    addEventListener: (type, fn) => (listeners[type] = fn),
+    addEventListener: (type, fn, capture) => {
+      listeners[type] = fn;
+      captures[type] = capture === true;
+    },
   };
   const storage = {
     getItem: (key) => {
@@ -64,7 +68,7 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/' }
   const tap = () =>
     listeners.click({ target: { closest: (sel) => (sel === '#pw-start' ? {} : null) } });
   return {
-    welcome, classes, store, button, timers, links, tap, listeners,
+    welcome, classes, store, button, timers, links, tap, listeners, captures,
     removed: () => screenRemoved,
   };
 }
@@ -140,6 +144,29 @@ test('Enter starts only on wide screens', () => {
   const desktop = setup({ wide: true });
   desktop.listeners.keydown({ key: 'Enter' });
   assert.equal(desktop.welcome.state.started, true);
+});
+
+test('Enter is heard ahead of Flutter and kept from the app underneath', () => {
+  const t = setup({ wide: true });
+  assert.equal(t.captures.keydown, true);
+  const event = {
+    key: 'Enter',
+    prevented: false,
+    stopped: false,
+    preventDefault() {
+      this.prevented = true;
+    },
+    stopPropagation() {
+      this.stopped = true;
+    },
+  };
+  t.listeners.keydown(event);
+  assert.equal(t.welcome.state.started, true);
+  assert.equal(event.prevented && event.stopped, true);
+  t.welcome.ready(false);
+  const later = { key: 'Enter', stopped: false, stopPropagation() { this.stopped = true; } };
+  t.listeners.keydown(later);
+  assert.equal(later.stopped, false, 'once the screen has gone the app gets Enter');
 });
 
 test('blocked storage still shows the screen and never throws', () => {

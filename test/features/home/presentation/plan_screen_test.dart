@@ -178,6 +178,73 @@ void main() {
       hasLength(5),
     );
   });
+  testWidgets('week days without lessons say what they are, never blank',
+      (tester) async {
+    DayPlan plan(int day, {bool mock = false, bool rest = false}) => DayPlan(
+          day: DateTime(2026, 11, day),
+          lessonIds: const [],
+          reviewQuestionIds: const [],
+          newQuestionIds: const [],
+          isMockDay: mock,
+          advancedIds: const {},
+          isRestDay: rest,
+        );
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWith((_) => true),
+          planWeekViewProvider('2026-11-22').overrideWith(
+            (_) async => [
+              for (var i = 0; i < 7; i++)
+                PlanDayView(
+                  date: DateTime(2026, 11, 22 + i),
+                  plan: plan(22 + i, mock: i == 4, rest: i == 0),
+                  remaining: null,
+                  lessons: const [],
+                  kind: 'future',
+                ),
+            ],
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanWeekScreen(start: '2026-11-22'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Rest day'), findsOneWidget);
+    expect(find.text('Mock exam'), findsOneWidget);
+    expect(find.text('Reviews only'), findsNWidgets(5));
+  });
+  testWidgets('History opens as its own page on the phone', (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWith((_) => true),
+          planViewProvider(15).overrideWith(
+            (_) async => const PlanView(
+              done: 0,
+              total: 0,
+              nodes: [],
+              history: [
+                PlanHistoryEntry(id: 'h1', date: 'Today', text: 'A change'),
+              ],
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanHistoryScreen(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(PlanHistoryPage), findsOneWidget);
+    expect(find.text('HISTORY'), findsOneWidget);
+    expect(find.text('A change'), findsOneWidget);
+    expect(find.text('Your plan'), findsNothing);
+  });
   testWidgets('a week with unknown stored days shows a recoverable error',
       (tester) async {
     await tester.pumpWidget(

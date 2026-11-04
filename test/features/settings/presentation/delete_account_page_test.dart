@@ -147,7 +147,7 @@ void main() {
     await tester.tap(find.text('Delete My Data'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Try again'), findsOneWidget);
+    expect(find.text('Try Again'), findsOneWidget);
     final status = find.bySemanticsLabel(
       RegExp(defaultLegalContact.dpoEmail),
     );

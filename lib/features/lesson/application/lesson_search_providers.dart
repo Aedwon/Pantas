@@ -42,7 +42,14 @@ final searchResultsProvider =
 
   final hits = <LessonSearchHit>[];
   for (final row in rows) {
-    final titleMatch = buildSearchSnippet(source: row.title, query: query);
+    // A title is shown whole. A cut window could hide the lesson's own name
+    // behind a tail such as "Venn Diagrams)".
+    final titleMatch = buildSearchSnippet(
+      source: row.title,
+      query: query,
+      lead: row.title.length,
+      trail: row.title.length,
+    );
     final summaryMatch = buildSearchSnippet(source: row.summary, query: query);
 
     SearchSnippet? bodySnippet;

@@ -7,6 +7,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -99,6 +100,23 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
 
+  // On wide web the dialog plays its exit before the route pops.
+  final _exit = WebOverlayExit();
+
+  /// Leaves the prompt with [result]. Wide web fades the dialog out first.
+  void _leave({required bool result}) {
+    if (!mounted) return;
+    void pop() {
+      if (mounted) Navigator.of(context).pop(result);
+    }
+
+    if (context.wideWeb) {
+      _exit.close(pop);
+    } else {
+      pop();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -124,7 +142,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
       await widget.onDecision?.call(count: count);
       if (!mounted) return;
       if (!count) {
-        Navigator.of(context).pop(false);
+        _leave(result: false);
         return;
       }
       widget.onCounted();
@@ -475,7 +493,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                     Center(
                       child: WebButton(
                         label: 'Done',
-                        onPressed: () => Navigator.of(context).pop(true),
+                        onPressed: () => _leave(result: true),
                       ),
                     ),
                   ),
@@ -502,23 +520,20 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
     final c = context.colors;
     final previousName = widget.previous ?? 'your exam';
     if (context.wideWeb) {
-      return Stack(
-        fit: StackFit.expand,
-        children: [
-          const ExamPage(),
-          const ModalBarrier(color: Color(0x521D1D1F), dismissible: false),
-          Center(
-            child: Dialog(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              insetPadding: const EdgeInsets.all(24),
-              child: SizedBox(
-                width: 560,
-                child: _wideTransfer(context, previousName),
-              ),
-            ),
+      // The scrim and card belong to the whole window, like the exam dialog
+      // and Sign Out: drawn in this pane they covered only part of the page.
+      return WebRootModal(
+        exit: _exit,
+        child: const ExamPage(),
+        modal: (modalContext) => Dialog(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          insetPadding: const EdgeInsets.all(24),
+          child: SizedBox(
+            width: 560,
+            child: _wideTransfer(modalContext, previousName),
           ),
-        ],
+        ),
       );
     }
     return Scaffold(
@@ -714,7 +729,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                           Column(
                             children: [
                               Text(
-                                'You’re not starting from zero',
+                                "You're not starting from zero",
                                 textAlign: TextAlign.center,
                                 style: context.type.pageTitle,
                               ),

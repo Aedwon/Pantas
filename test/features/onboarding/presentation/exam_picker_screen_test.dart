@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -73,6 +74,8 @@ void main() {
     Stream<List<ExamCatalogEntry>>? data,
     VoidCallback? back,
     List<Override> extra = const [],
+    bool customExams = kCustomExamsOffered,
+    Size viewport = const Size(390, 844),
   }) =>
       pumpAccessibilitySurface(
         tester,
@@ -91,11 +94,12 @@ void main() {
             onPicked: picked ?? (_) async {},
             onCustom: () {},
             onBack: back,
+            customExams: customExams,
           ),
         ),
         brightness: brightness,
         textScale: scale,
-        viewportSize: const Size(390, 844),
+        viewportSize: viewport,
         disableAnimations: true,
       );
 
@@ -450,5 +454,93 @@ void main() {
     await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
     expect(successful, 1);
+  });
+  group('custom exams on web', () {
+    // Aedwon, Nov 4: hide "My exam isn't listed" on web for the beta. One
+    // constant brings it back everywhere, so every surface reads it.
+    test('the constant hides the row on web only', () {
+      expect(kCustomExamsOffered, !kIsWeb || kCustomExamsOnWeb);
+      expect(kCustomExamsOnWeb, isFalse);
+    });
+    for (final (name, wide) in [('phone', false), ('wide', true)]) {
+      for (final mode in ExamPickerMode.values) {
+        testWidgets('hidden: no own-exam row or action, $name $mode',
+            (tester) async {
+          debugWebPlatformOverride = true;
+          addTearDown(() => debugWebPlatformOverride = null);
+          final viewport = wide ? const Size(1440, 900) : const Size(390, 844);
+          await pump(
+            tester,
+            mode: mode,
+            customExams: false,
+            viewport: viewport,
+          );
+          await tester.pumpAndSettle();
+          expect(find.text("My exam isn't listed"), findsNothing);
+          expect(
+            find.text('Set up your own and pick what it covers'),
+            findsNothing,
+          );
+          expect(find.text('UPCAT'), findsOneWidget);
+        });
+        testWidgets(
+            'hidden: an empty catalog has no own-exam action, $name '
+            '$mode', (tester) async {
+          debugWebPlatformOverride = true;
+          addTearDown(() => debugWebPlatformOverride = null);
+          final viewport = wide ? const Size(1440, 900) : const Size(390, 844);
+          await pump(
+            tester,
+            mode: mode,
+            customExams: false,
+            data: Stream.value(const []),
+            viewport: viewport,
+          );
+          await tester.pumpAndSettle();
+          expect(find.text('No exams available right now.'), findsOneWidget);
+          expect(find.text('Check back soon.'), findsOneWidget);
+          expect(find.text('Set Up My Own Exam'), findsNothing);
+          expect(find.textContaining('set up your own exam'), findsNothing);
+        });
+        testWidgets('offered: the row and the action stay, $name $mode',
+            (tester) async {
+          debugWebPlatformOverride = true;
+          addTearDown(() => debugWebPlatformOverride = null);
+          final viewport = wide ? const Size(1440, 900) : const Size(390, 844);
+          await pump(tester, mode: mode, viewport: viewport);
+          await tester.pumpAndSettle();
+          expect(find.text("My exam isn't listed"), findsOneWidget);
+        });
+      }
+    }
+  });
+
+  group('searching for an exam that is not there', () {
+    for (final (name, wide) in [('phone', false), ('wide', true)]) {
+      for (final mode in ExamPickerMode.values) {
+        testWidgets('says nothing matched, $name $mode', (tester) async {
+          debugWebPlatformOverride = wide;
+          addTearDown(() => debugWebPlatformOverride = null);
+          await pump(
+            tester,
+            mode: mode,
+            viewport: wide ? const Size(1440, 900) : const Size(390, 844),
+          );
+          await tester.pumpAndSettle();
+          await tester.enterText(find.byType(TextField), 'ZZZZ');
+          await tester.pumpAndSettle();
+          expect(find.text('Nothing matched \u201CZZZZ\u201D'), findsOneWidget);
+          expect(
+            find.text('Try a shorter word, or part of one.'),
+            findsOneWidget,
+          );
+          expect(find.text('UPCAT'), findsNothing);
+          await tester.enterText(find.byType(TextField), 'upcat');
+          await tester.pumpAndSettle();
+          expect(find.textContaining('Nothing matched'), findsNothing);
+          expect(find.text('UPCAT'), findsOneWidget);
+        });
+      }
+    }
   });
 }

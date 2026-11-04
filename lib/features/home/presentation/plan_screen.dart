@@ -359,6 +359,10 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
 
 final planWeekViewProvider = FutureProvider.autoDispose
     .family<List<PlanDayView>, String>((ref, start) async {
+  // One server read for the week; seven day reads took three seconds or more.
+  if (ref.watch(studyUsesServerProvider)) {
+    return ref.watch(planServerWeekProvider(start).future);
+  }
   final day = DateTime.parse(start);
   return Future.wait([
     for (var i = 0; i < 7; i++)
@@ -418,6 +422,7 @@ class PlanWeekScreen extends ConsumerWidget {
             date: d.date,
             rest: d.plan?.isRestDay ?? false,
             lessonTitles: d.lessons.map((l) => l.title).toList(),
+            mock: d.plan?.isMockDay ?? false,
           ),
       ],
       studyDaysLabel:
@@ -450,7 +455,6 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
   int _displayLimit = 15;
   @override
   Widget build(BuildContext context) {
-    if (!context.wideWeb) return const PlanScreen();
     final displayed = ref.watch(planViewProvider(_displayLimit));
     final value = ref.watch(planViewProvider(_limit));
     final arrived = value.unwrapPrevious().asData?.value;
@@ -467,6 +471,19 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
         kind: PlanSkeletonKind.history,
       );
     }
+    final error = value.hasError
+        ? errorFor('plan', () => ref.invalidate(planViewProvider(_limit)))
+        : null;
+    if (!context.wideWeb) {
+      return PlanHistoryPage(
+        history: view.history,
+        hasMore: view.next != null,
+        loadingMore: value.isLoading,
+        onMore: () => setState(() => _limit += 10),
+        paginationError: error,
+        onBack: widget.onBack ?? () => _back(context),
+      );
+    }
     return PlanWebFrame(
       title: 'History',
       backLabel: 'Your plan',
@@ -481,12 +498,7 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
             hasMore: view.next != null,
             loading: value.isLoading,
             onMore: () => setState(() => _limit += 10),
-            error: value.hasError
-                ? errorFor(
-                    'plan',
-                    () => ref.invalidate(planViewProvider(_limit)),
-                  )
-                : null,
+            error: error,
           ),
         ),
       ),

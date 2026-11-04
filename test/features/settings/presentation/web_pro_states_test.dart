@@ -226,6 +226,22 @@ void main() {
       );
       expect(tester.takeException(), isNull);
     });
+    testWidgets('plan cards share one height dark=$dark', (tester) async {
+      await _pump(tester, dark: dark);
+      double height(String label) => tester
+          .getSize(
+            find
+                .ancestor(
+                  of: find.text(label),
+                  matching: find.byType(InkWell),
+                )
+                .first,
+          )
+          .height;
+      // Monthly has no second line and Season Pass has an end date.
+      expect(height('Monthly'), height('Season Pass'));
+      expect(tester.takeException(), isNull);
+    });
     testWidgets('restore uses a busy verb dark=$dark', (tester) async {
       final result = Completer<PaymentOperationResult>();
       await _pump(

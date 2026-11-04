@@ -9,6 +9,9 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
+/// Space between Back and the title on every wide step.
+const double titleTopGap = 28;
+
 /// The setup rail belongs to onboarding, outside the signed-in sidebar shell.
 class OnboardingWebPage extends StatelessWidget {
   const OnboardingWebPage({
@@ -35,7 +38,8 @@ class OnboardingWebPage extends StatelessWidget {
   final Widget? bottom;
   final double bodyGap;
 
-  /// Web only: section gap around the title block.
+  /// Web only: space between the title block and the body. The title keeps one
+  /// place on every step, so the frame stays still (Nov 2 decision).
   final double gap;
 
   /// Web only: space above the action row.
@@ -173,7 +177,7 @@ class OnboardingWebPage extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: gap),
+        const SizedBox(height: titleTopGap),
         Text(
           title,
           style: t

@@ -30,6 +30,8 @@ class PlanWebFrame extends StatelessWidget {
         child: Focus(
           autofocus: true,
           child: SingleChildScrollView(
+            // Rows scroll through the shell's padding, not into a hard line.
+            clipBehavior: Clip.none,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -338,6 +340,21 @@ class PlanWebColumns extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Board (PL_Free): a 44 px lock tile above the line.
+                        Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: t.colors.accentTint,
+                          ),
+                          child: Icon(
+                            Icons.lock_outline_rounded,
+                            size: 22,
+                            color: t.colors.accent,
+                          ),
+                        ),
+                        const SizedBox(height: 18),
                         Text(
                           'See every week up to your exam, '
                           'and every time your plan adjusts.',
@@ -438,33 +455,37 @@ class PlanWebHistory extends StatelessWidget {
                   ),
                 ),
               if (inside)
-                InkWell(
-                  onTap: loading ? null : onMore,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(
-                          color: t.colors.separator,
-                          width: hairline,
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            loading ? 'Loading' : 'See more',
-                            style: t.style(
-                              16,
-                              weight: FontWeight.w600,
-                              color: t.colors.accent,
-                            ),
+                // Enters after the last row, so the card is never a bare link.
+                _historyEntry(
+                  entries.length,
+                  InkWell(
+                    onTap: loading ? null : onMore,
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(
+                            color: t.colors.separator,
+                            width: hairline,
                           ),
                         ),
-                        const WebChevron(),
-                      ],
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              loading ? 'Loading' : 'See more',
+                              style: t.style(
+                                16,
+                                weight: FontWeight.w600,
+                                color: t.colors.accent,
+                              ),
+                            ),
+                          ),
+                          const WebChevron(),
+                        ],
+                      ),
                     ),
                   ),
                 ),

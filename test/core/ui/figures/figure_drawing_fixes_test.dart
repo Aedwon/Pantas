@@ -402,5 +402,34 @@ void main() {
           ..line(p2: Offset(centreX + 15, 12)),
       );
     });
+
+    testWidgets('a fixed pulley and a movable one do not crowd each other', (
+      tester,
+    ) async {
+      await _pump(
+        tester,
+        const PulleySystemFigure(fixed: 1, movable: 1, comparison: false),
+      );
+      final paint = find.descendant(
+        of: find.byType(PulleySystemFigure),
+        matching: find.byType(CustomPaint),
+      );
+      final box = tester.renderObject(paint);
+      final centreX = tester.getSize(paint).width / 2;
+      // They touch side by side, as the rope runs straight from one to the
+      // other, and the movable one hangs clear below the fixed one.
+      const radius = 15.0;
+      const fixedY = 12 + 10 + radius;
+      const movableY = 12 + 46 + radius * 1.6;
+      expect(
+        box,
+        paints
+          ..line() // the beam
+          ..line() // the fixed pulley's hanger
+          ..circle(x: centreX + radius, y: fixedY, radius: radius)
+          ..circle(x: centreX - radius, y: movableY, radius: radius),
+      );
+      expect(movableY - radius - (fixedY + radius), greaterThan(8));
+    });
   });
 }

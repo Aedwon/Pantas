@@ -141,7 +141,9 @@ class _OnboardingStudyDaysStepState
       title: 'Which days will you study?',
       bottomGap: 28,
       detail: 'Your plan only puts work on these days. '
-          'You can change them later in Settings.',
+          // A no-break space keeps "Settings." from wrapping alone on the 580
+          // column.
+          'You can change them later in\u00A0Settings.',
       progress: 5,
       onBack: () {
         _generation++;

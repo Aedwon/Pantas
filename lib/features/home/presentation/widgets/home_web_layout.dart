@@ -37,6 +37,8 @@ class HomeWebLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
+        // Rows scroll through the shell's padding, not into a hard line.
+        clipBehavior: Clip.none,
         padding: EdgeInsets.zero,
         child: Center(
           child: ConstrainedBox(
@@ -462,7 +464,13 @@ class HomeWebNotice extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       minimumSize: const Size(0, 52),
                       padding: const EdgeInsets.only(left: 18),
-                      shape: const RoundedRectangleBorder(),
+                      // The hover tint follows the card's own corners.
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: const Radius.circular(16),
+                          bottomLeft: Radius.circular(expanded ? 0 : 16),
+                        ),
+                      ),
                     ),
                     child: Row(
                       children: [
@@ -522,6 +530,22 @@ class HomeWebNotice extends StatelessWidget {
             tween: Tween(begin: expanded ? 1 : 0, end: expanded ? 1 : 0),
             duration: duration,
             curve: PantasCurves.houseOut,
+            // The notice sits at the foot of Home. Once it has opened, scroll
+            // so its buttons are not left below the window.
+            onEnd: expanded && Scrollable.maybeOf(context) != null
+                ? () {
+                    if (!context.mounted) return;
+                    unawaited(
+                      Scrollable.ensureVisible(
+                        context,
+                        duration: duration,
+                        curve: PantasCurves.houseOut,
+                        alignmentPolicy:
+                            ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+                      ),
+                    );
+                  }
+                : null,
             builder: (context, value, child) => !expanded && value == 0
                 ? const SizedBox.shrink()
                 : ClipRect(

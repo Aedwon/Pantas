@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -1329,11 +1330,16 @@ class _FigureFrame extends StatelessWidget {
     this.imageSemantics = true,
     this.expandable = true,
     this.followTheme = false,
+    this.labelViewer = false,
   });
   final bool reader;
   final bool imageSemantics;
   final bool expandable;
   final bool followTheme;
+
+  /// Whether the viewer names the figure itself, as an SVG's own label does
+  /// not reach it. A theme-following figure always does.
+  final bool labelViewer;
   final Widget figure;
   final String label;
   final String credit;
@@ -1358,7 +1364,7 @@ class _FigureFrame extends StatelessWidget {
         reverseTransitionDuration:
             still ? Duration.zero : const Duration(milliseconds: 280),
         pageBuilder: (context, animation, secondary) => _FigureViewer(
-          figure: followTheme
+          figure: followTheme || labelViewer
               ? Semantics(
                   container: true,
                   label: label,
@@ -1952,7 +1958,14 @@ class _ContentImageState extends State<_ContentImage> {
       );
     }
     if (isLessonSvg(widget.url)) {
-      final loader = lessonSvgLoader(widget.url, context.colors);
+      // The reader keeps every figure on its pale card in both themes, so a
+      // reader SVG takes the light tokens, as the code-drawn figures take the
+      // light theme. Elsewhere it follows the theme.
+      final themed = !widget.reader;
+      final loader = lessonSvgLoader(
+        widget.url,
+        themed ? context.colors : PantasColors.light,
+      );
       final failure = _ImageFailure(
         reader: widget.reader,
         onRetry: () => setState(() => _retry++),
@@ -1986,7 +1999,8 @@ class _ContentImageState extends State<_ContentImage> {
         excludeFromSemantics: widget.label.isEmpty,
         placeholderBuilder: (context) => _FigureFrame(
           reader: true,
-          followTheme: true,
+          followTheme: themed,
+          labelViewer: true,
           label: widget.label,
           credit: widget.credit,
           expandable: false,
@@ -1996,7 +2010,8 @@ class _ContentImageState extends State<_ContentImage> {
         errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
           reader: true,
-          followTheme: true,
+          followTheme: themed,
+          labelViewer: true,
           label: widget.label,
           credit: widget.credit,
           imageSemantics: false,

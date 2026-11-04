@@ -532,6 +532,8 @@ class HomeTodayChecklist extends StatelessWidget {
       ListRow(
         title: lesson.title,
         subtitle: upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
+        // Board (HE_LongTitle): a long subject is cut, never wrapped.
+        subtitleMaxLines: 1,
         value: lesson.read
             ? 'Read'
             : (lesson.fraction ?? 0) > 0
@@ -545,7 +547,7 @@ class HomeTodayChecklist extends StatelessWidget {
             : ProgressRing(
                 fraction: lesson.fraction ?? 0,
                 emptyStrokeWidth: 2,
-                emptyTrackColor: context.colors.separator,
+                emptyTrackColor: ProgressRing.phoneEmptyTrack(context),
               ),
         onTap: () => onLesson(lesson),
         divider: true,

@@ -9,9 +9,18 @@ import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class OnboardingNameStep extends ConsumerStatefulWidget {
-  const OnboardingNameStep({required this.onCompleted, this.onBack, super.key});
+  const OnboardingNameStep({
+    required this.onCompleted,
+    this.onBack,
+    this.finishing = false,
+    super.key,
+  });
   final VoidCallback onCompleted;
   final VoidCallback? onBack;
+
+  /// True once the name is saved and onboarding is closing. The page stays as
+  /// it is, with Done busy, until Home takes over, so no empty frame shows.
+  final bool finishing;
   @override
   ConsumerState<OnboardingNameStep> createState() => _OnboardingNameStepState();
 }
@@ -84,11 +93,13 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
             if (_failed) saveFailureLine(_save),
             OnboardingButton(
               label: 'Done',
-              busy: _saving,
-              onPressed:
-                  _saving || _loadFailed || _controller.text.trim().isEmpty
-                      ? null
-                      : _save,
+              busy: _saving || widget.finishing,
+              onPressed: _saving ||
+                      widget.finishing ||
+                      _loadFailed ||
+                      _controller.text.trim().isEmpty
+                  ? null
+                  : _save,
             ),
           ],
         ),

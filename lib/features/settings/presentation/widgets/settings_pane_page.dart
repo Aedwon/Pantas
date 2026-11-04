@@ -57,7 +57,7 @@ class SettingsPanePage extends StatelessWidget {
   final bool noHeading;
 
   /// Phone only: the 28 px page title of the Settings sub-pages (Name,
-  /// What's included, Privacy policy).
+  /// What's included, Privacy Policy).
   final bool compactTitle;
   final double titleLineHeight;
   final double titleGap;
@@ -127,101 +127,110 @@ class SettingsPanePage extends StatelessWidget {
           if (nested && onBack != null)
             const SingleActivator(LogicalKeyboardKey.escape): onBack!,
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ColoredBox(
-              color: background,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: Text('Settings', style: t.h1),
-                  ),
-                  const SizedBox(height: 26),
-                ],
-              ),
-            ),
-            Expanded(
-              child: LayoutBuilder(
-                builder: (context, constraints) => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        // A page opened from a row starts with nothing focused, and a key only
+        // reaches the shortcut from a node inside it. Without this, Esc did
+        // nothing on a page the pane's Esc hint is printed on.
+        child: Focus(
+          autofocus: nested && onBack != null,
+          skipTraversal: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ColoredBox(
+                color: background,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ColoredBox(
-                      color: background,
-                      child: SizedBox(
-                        width: _listWidth(constraints.maxWidth),
-                        height: constraints.maxHeight,
-                        child: _SettingsListScroll(selected: section),
-                      ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Text('Settings', style: t.h1),
                     ),
-                    ColoredBox(
-                      color: background,
-                      child: SizedBox(width: 28, height: constraints.maxHeight),
-                    ),
-                    Expanded(
-                      child: PaneDetailMotion(
-                        background: background,
-                        child: SingleChildScrollView(
-                          key: const ValueKey('settings-detail'),
-                          padding: const EdgeInsets.only(bottom: 24),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              if (nested) ...[
-                                Row(
-                                  children: [
-                                    WebBackLink(
-                                      label: backLabel!,
-                                      fontSize: 15,
-                                      tightIcon: true,
-                                      onPressed: onBack ?? () {},
-                                    ),
-                                    const SizedBox(width: 8),
-                                    const WebKeyHint('Esc'),
-                                  ],
-                                ),
-                                const SizedBox(height: 14),
-                              ],
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
-                                child: Row(
-                                  children: [
-                                    if (headingIcon != null) ...[
-                                      headingIcon,
-                                      const SizedBox(width: 14),
-                                    ],
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(title, style: t.h2),
-                                          if (description != null)
-                                            Text(description!, style: t.sub),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 24),
-                              ...children,
-                              if (bottom != null) ...[
-                                const SizedBox(height: 24),
-                                bottom!,
-                              ],
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                    const SizedBox(height: 26),
                   ],
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, constraints) => Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ColoredBox(
+                        color: background,
+                        child: SizedBox(
+                          width: _listWidth(constraints.maxWidth),
+                          height: constraints.maxHeight,
+                          child: _SettingsListScroll(selected: section),
+                        ),
+                      ),
+                      ColoredBox(
+                        color: background,
+                        child:
+                            SizedBox(width: 28, height: constraints.maxHeight),
+                      ),
+                      Expanded(
+                        child: PaneDetailMotion(
+                          background: background,
+                          child: SingleChildScrollView(
+                            key: const ValueKey('settings-detail'),
+                            padding: const EdgeInsets.only(bottom: 24),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                if (nested) ...[
+                                  Row(
+                                    children: [
+                                      WebBackLink(
+                                        label: backLabel!,
+                                        fontSize: 15,
+                                        tightIcon: true,
+                                        onPressed: onBack ?? () {},
+                                      ),
+                                      const SizedBox(width: 8),
+                                      const WebKeyHint('Esc'),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 14),
+                                ],
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                                  child: Row(
+                                    children: [
+                                      if (headingIcon != null) ...[
+                                        headingIcon,
+                                        const SizedBox(width: 14),
+                                      ],
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(title, style: t.h2),
+                                            if (description != null)
+                                              Text(description!, style: t.sub),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 24),
+                                ...children,
+                                if (bottom != null) ...[
+                                  const SizedBox(height: 24),
+                                  bottom!,
+                                ],
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

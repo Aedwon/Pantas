@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,14 +37,48 @@ class _NamePageState extends ConsumerState<NamePage> {
   bool _loaded = false;
   bool _saving = false;
   bool _failed = false;
+
+  /// Wide web saves as the student types (ST_Name). The phone saves on the way
+  /// back, as its board says.
+  Timer? _typing;
+  Future<void> Function()? _flushTyping;
   @override
   void dispose() {
+    // A name typed in the last moments is still saved when the page closes.
+    final flush = _flushTyping;
+    if (_typing?.isActive ?? false) {
+      _typing!.cancel();
+      if (flush != null) unawaited(flush());
+    }
     _controller.dispose();
     super.dispose();
   }
 
+  void _typed(String text) {
+    final actions = ref.read(settingsActionsProvider);
+    final telemetry = ref.read(telemetryProvider);
+    Future<void> save() async {
+      try {
+        await actions.setName(text);
+        if (mounted && _failed) setState(() => _failed = false);
+      } catch (error, stack) {
+        await telemetry.recordError(error, stack);
+        if (mounted) setState(() => _failed = true);
+      }
+    }
+
+    _flushTyping = save;
+    _typing?.cancel();
+    _typing = Timer(const Duration(milliseconds: 500), () {
+      _typing = null;
+      unawaited(save());
+    });
+  }
+
   Future<void> _back() async {
     if (_saving || !_loaded) return;
+    _typing?.cancel();
+    _typing = null;
     setState(() {
       _saving = true;
       _failed = false;
@@ -124,6 +160,7 @@ class _NamePageState extends ConsumerState<NamePage> {
                             disabledBorder: _fieldBorder(context, 1),
                           ),
                           textCapitalization: TextCapitalization.words,
+                          onChanged: _typed,
                           onSubmitted: (_) => _back(),
                         ),
                       ),
@@ -131,7 +168,7 @@ class _NamePageState extends ConsumerState<NamePage> {
                     const SizedBox(height: 8),
                     Text(
                       'Shown on Home and on your profile. '
-                      'Clear it to remove your name.',
+                      'Clear it to remove your name. It saves as you type.',
                       style: context.webTokens.sm,
                     ),
                   ],

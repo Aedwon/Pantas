@@ -48,7 +48,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Manage in Google Play'), findsNothing);
-    expect(find.text('Restore purchases'), findsOneWidget);
+    expect(find.text('Restore Purchases'), findsOneWidget);
   });
 
   testWidgets('anonymous account page shows sign in CTA and delete data row',
@@ -65,7 +65,7 @@ void main() {
     );
 
     expect(find.text('Continue with Google'), findsOneWidget);
-    expect(find.text('Delete my data'), findsOneWidget);
+    expect(find.text('Delete My Data'), findsOneWidget);
   });
 
   testWidgets('named account page shows email sign out and delete account',
@@ -105,7 +105,7 @@ void main() {
     );
 
     expect(find.text('Delete your account?'), findsOneWidget);
-    expect(find.textContaining('you’ll still be charged'), findsOneWidget);
+    expect(find.textContaining("you'll still be charged"), findsOneWidget);
     expect(find.text('Delete My Data'), findsOneWidget);
   });
 

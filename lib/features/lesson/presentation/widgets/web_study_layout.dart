@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -204,6 +205,12 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
                 today: today,
                 lastLessonId: last?.id,
                 lastTitle: last?.title,
+                bookmarkOrder: [
+                  for (final row
+                      in ref.watch(bookmarkRowsProvider).valueOrNull ??
+                          const <BookmarkRow>[])
+                    row.lessonId,
+                ],
                 onTopic: (id) => unawaited(_openTopic(id)),
                 onBookmark: (id) => unawaited(_bookmark(id)),
                 onLesson: (id, {required resume}) => context.push(
@@ -284,6 +291,7 @@ class WebStudyMap extends StatefulWidget {
     this.today = const {},
     this.lastLessonId,
     this.lastTitle,
+    this.bookmarkOrder = const [],
     this.saveFailed = false,
     this.onRetry,
     super.key,
@@ -293,6 +301,10 @@ class WebStudyMap extends StatefulWidget {
   final Set<String> today;
   final String? lastLessonId;
   final String? lastTitle;
+
+  /// Bookmarked lessons in the order the student chose in the bookmarks panel,
+  /// newest first by default. The map's own order is subject order.
+  final List<String> bookmarkOrder;
   final ValueChanged<String> onTopic;
   final ValueChanged<String>? onBookmark;
   final void Function(String, {required bool resume}) onLesson;
@@ -429,6 +441,18 @@ class _WebStudyMapState extends State<WebStudyMap>
         }
       }
     }
+    if (widget.bookmarkOrder.isNotEmpty) {
+      final rank = {
+        for (final (index, id) in widget.bookmarkOrder.indexed) id: index,
+      };
+      final walk = {
+        for (final (index, lesson) in bookmarks.indexed) lesson.id: index,
+      };
+      // A lesson the order does not name keeps its place at the end.
+      int key(StudyLesson lesson) =>
+          rank[lesson.id] ?? rank.length + walk[lesson.id]!;
+      bookmarks.sort((a, b) => key(a).compareTo(key(b)));
+    }
     final hasCard = lastLessonId != null && lastTitle != null;
     if (selected != null) _card = (topic: selected, subject: selectedSubject!);
     if (!_swapping) _shownOpen = selected != null;
@@ -507,66 +531,70 @@ class _WebStudyMapState extends State<WebStudyMap>
             children: [
               SizedBox(
                 width: column,
-                child: mapList([
-                  ...head,
-                  for (final (index, subject) in map.subjects.indexed) ...[
-                    SizedBox(height: index == 0 ? firstGap : 18),
-                    _subjectBlock(context, subject, index),
-                  ],
-                ]),
+                child: FocusTraversalGroup(
+                  child: mapList([
+                    ...head,
+                    for (final (index, subject) in map.subjects.indexed) ...[
+                      SizedBox(height: index == 0 ? firstGap : 18),
+                      _subjectBlock(context, subject, index),
+                    ],
+                  ]),
+                ),
               ),
               const SizedBox(width: 24),
               Expanded(
-                child: SingleChildScrollView(
-                  key: const ValueKey('web-study-topic'),
-                  child: _TopicEntrance(
-                    key: ValueKey(('web-study-topic-card', card.topic.id)),
-                    child: WebCard(
-                      padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  card.subject.toUpperCase(),
-                                  style: t.eb.copyWith(height: 1.45),
-                                ),
-                                Text(
-                                  card.topic.name,
-                                  style: t.style(
-                                    30,
-                                    weight: FontWeight.w700,
-                                    height: 1.2,
-                                    spacing: -.6,
+                child: FocusTraversalGroup(
+                  child: SingleChildScrollView(
+                    key: const ValueKey('web-study-topic'),
+                    child: _TopicEntrance(
+                      key: ValueKey(('web-study-topic-card', card.topic.id)),
+                      child: WebCard(
+                        padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    card.subject.toUpperCase(),
+                                    style: t.eb.copyWith(height: 1.45),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          for (final lesson in card.topic.lessons)
-                            _WideStudyLessonRow(
-                              key: ValueKey(lesson.id),
-                              lesson: lesson,
-                              today: widget.today.contains(lesson.id),
-                              resume: lesson.id == lastLessonId,
-                              onPressed: () => widget.onLesson(
-                                lesson.id,
-                                resume: lesson.id == lastLessonId,
+                                  Text(
+                                    card.topic.name,
+                                    style: t.style(
+                                      30,
+                                      weight: FontWeight.w700,
+                                      height: 1.2,
+                                      spacing: -.6,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              onBookmark: widget.onBookmark == null
-                                  ? null
-                                  : () => widget.onBookmark!(lesson.id),
                             ),
-                          if (widget.saveFailed)
-                            WebButton(
-                              label: 'Try Saving Again',
-                              onPressed: widget.onRetry,
-                            ),
-                        ],
+                            for (final lesson in card.topic.lessons)
+                              _WideStudyLessonRow(
+                                key: ValueKey(lesson.id),
+                                lesson: lesson,
+                                today: widget.today.contains(lesson.id),
+                                resume: lesson.id == lastLessonId,
+                                onPressed: () => widget.onLesson(
+                                  lesson.id,
+                                  resume: lesson.id == lastLessonId,
+                                ),
+                                onBookmark: widget.onBookmark == null
+                                    ? null
+                                    : () => widget.onBookmark!(lesson.id),
+                              ),
+                            if (widget.saveFailed)
+                              WebButton(
+                                label: 'Try Saving Again',
+                                onPressed: widget.onRetry,
+                              ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -621,12 +649,22 @@ class _WebStudyMapState extends State<WebStudyMap>
             ],
           ],
         );
+    // Each column is its own focus group, so Tab walks all of the first
+    // column, then the second, rather than across both row by row.
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: stack(subjects.take(split).toList())),
+        Expanded(
+          child: FocusTraversalGroup(
+            child: stack(subjects.take(split).toList()),
+          ),
+        ),
         const SizedBox(width: 24),
-        Expanded(child: stack(subjects.skip(split).toList())),
+        Expanded(
+          child: FocusTraversalGroup(
+            child: stack(subjects.skip(split).toList()),
+          ),
+        ),
       ],
     );
   }

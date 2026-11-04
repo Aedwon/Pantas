@@ -421,7 +421,8 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                             fontSize: 16,
                             color: colors.secondaryLabel,
                           )
-                        : large
+                        // Wide boards: the caption is regular gray.
+                        : large || widget.web
                             ? type.subhead
                                 .copyWith(color: colors.secondaryLabel)
                             : type.subheadStrong,

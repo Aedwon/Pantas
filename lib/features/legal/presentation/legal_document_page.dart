@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -32,7 +33,7 @@ class LegalDocumentPage extends StatelessWidget {
     final document = legalDocumentFallbacks[documentId];
     return PantasPage(
       title: documentId == 'privacy'
-          ? 'Privacy policy'
+          ? 'Privacy Policy'
           : document?.title ?? 'Legal',
       backLabel: backLabel,
       onBack: () => leavePage(context, fallback: backFallback),
@@ -161,11 +162,15 @@ class OnboardingLegalPage extends StatelessWidget {
       color: t.colors.background,
       child: Column(
         children: [
-          const WebTopBar(
-            leading: PantasLogo(size: 28),
-            title: Text(
-              'Pantas',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          // The same 10 px logo inset as the onboarding frame's bar.
+          const Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: WebTopBar(
+              leading: PantasLogo(size: 28),
+              title: Text(
+                'Pantas',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
             ),
           ),
           Expanded(
@@ -182,10 +187,20 @@ class OnboardingLegalPage extends StatelessWidget {
                         child: TextButton.icon(
                           onPressed: () =>
                               leavePage(context, fallback: '/onboarding'),
-                          icon: Icon(
-                            Icons.chevron_left,
-                            size: 20,
-                            color: t.colors.accent,
+                          // The chevron the onboarding steps draw, so Back
+                          // looks the same on a step and on this page.
+                          icon: SvgPicture.string(
+                            '<svg viewBox="0 0 24 24" fill="none" '
+                            'stroke="currentColor" stroke-width="2.2" '
+                            'stroke-linecap="round" '
+                            'stroke-linejoin="round"> '
+                            '<path d="M15 4.5 7.5 12l7.5 7.5"/></svg>',
+                            width: 20,
+                            height: 20,
+                            colorFilter: ColorFilter.mode(
+                              t.colors.accent,
+                              BlendMode.srcIn,
+                            ),
                           ),
                           label: const Text('Back'),
                           style: TextButton.styleFrom(
@@ -200,7 +215,7 @@ class OnboardingLegalPage extends StatelessWidget {
                       const SizedBox(height: 28),
                       Text(
                         documentId == 'privacy'
-                            ? 'Privacy policy'
+                            ? 'Privacy Policy'
                             : document?.title ?? 'Legal',
                         style: t
                             .style(36, weight: FontWeight.w700, height: 1.12)

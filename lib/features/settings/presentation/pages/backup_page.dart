@@ -47,12 +47,23 @@ class _BackupPageState extends ConsumerState<BackupPage> {
   @override
   Widget build(BuildContext context) {
     if (ref.watch(paymentsOnWebProvider)) {
+      // Only a signed-in student with Pro has a backup. The Account page says
+      // the same to everyone else.
+      final saved = !(ref.watch(isAnonymousProvider).valueOrNull ?? true) &&
+          (ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false);
       return SettingsPanePage(
         section: 'Account',
         title: 'Backup',
         backLabel: 'Account',
         onBack: () => leavePage(context, fallback: '/settings/account'),
-        children: const [Text('Your progress is saved to your account.')],
+        children: [
+          Text(
+            saved
+                ? 'Your progress is saved to your account.'
+                : 'Your progress stays in this browser only. With Pro, '
+                    "it's backed up and syncs across your devices.",
+          ),
+        ],
       );
     }
     final status = ref.watch(syncStatusProvider).valueOrNull;
@@ -71,7 +82,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
         : offline
             ? 'Offline'
             : failed
-                ? 'Couldn’t back up'
+                ? "Couldn't back up"
                 : switch (status) {
                     SyncUpToDate() || SyncOk() => 'Saved',
                     _ => 'Not backed up',
@@ -105,10 +116,10 @@ class _BackupPageState extends ConsumerState<BackupPage> {
           footer: busy
               ? 'This takes a moment. You can keep using Pantas.'
               : offline
-                  ? 'It backs up when you’re back online.'
+                  ? "It backs up when you're back online."
                   : failed
                       ? 'Your progress is safe on this phone.'
-                      : 'Pantas backs up on its own whenever you’re online.',
+                      : "Pantas backs up on its own whenever you're online.",
           children: [
             SettingsRow(
               title: 'Backup',

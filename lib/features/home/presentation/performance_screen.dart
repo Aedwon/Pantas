@@ -61,6 +61,8 @@ class PerformanceScreen extends ConsumerWidget {
       if (context.wideWeb) {
         return Scaffold(
           body: SingleChildScrollView(
+            // Rows scroll through the shell's padding, not into a hard line.
+            clipBehavior: Clip.none,
             padding: const EdgeInsets.fromLTRB(44, 28, 44, 44),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

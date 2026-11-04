@@ -47,6 +47,7 @@ class ListRow extends StatelessWidget {
     this.dividerInset = 0,
     this.hideTrailing = false,
     this.subtitleGap = 0,
+    this.subtitleMaxLines,
     super.key,
   })  : content = null,
         _checkbox = false,
@@ -64,6 +65,7 @@ class ListRow extends StatelessWidget {
         dividerInset = 0,
         hideTrailing = false,
         subtitleGap = 0,
+        subtitleMaxLines = null,
         _checkbox = true,
         variant = ListRowVariant.check,
         value = null,
@@ -104,6 +106,7 @@ class ListRow extends StatelessWidget {
         dividerInset = 0,
         hideTrailing = false,
         subtitleGap = 0,
+        subtitleMaxLines = null,
         _exam = true,
         _checkbox = false,
         variant = ListRowVariant.check,
@@ -146,6 +149,9 @@ class ListRow extends StatelessWidget {
 
   /// Space between the title and the subtitle (phone Plan day rows).
   final double subtitleGap;
+
+  /// Cuts a long subtitle with an ellipsis instead of wrapping it.
+  final int? subtitleMaxLines;
   final Widget? content;
   final String title;
   final Widget? titleWidget;
@@ -445,6 +451,10 @@ class ListRow extends StatelessWidget {
                               Text.rich(
                                 richSubtitle ?? TextSpan(text: subtitle),
                                 style: context.type.footnote,
+                                maxLines: subtitleMaxLines,
+                                overflow: subtitleMaxLines == null
+                                    ? null
+                                    : TextOverflow.ellipsis,
                               ),
                             ],
                             if (footer != null) footer!,

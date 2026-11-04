@@ -260,7 +260,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
             children: [
               if (!_isDeleted) ...[
                 PantasButton(
-                  label: _failed ? 'Try again' : 'Delete My Data',
+                  label: _failed ? 'Try Again' : 'Delete My Data',
                   variant: PantasButtonVariant.destructive,
                   busy: _isDeleting,
                   onPressed: _isDeleting ? null : _delete,
@@ -297,7 +297,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
             widget.isAnonymous
                 ? 'Your progress on this device will be permanently deleted. '
                     'Sign in first if you want to keep it.'
-                : 'This can’t be undone.',
+                : "This can't be undone.",
             style: context.type.body
                 .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
           ),

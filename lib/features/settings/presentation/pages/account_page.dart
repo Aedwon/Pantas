@@ -88,7 +88,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       SyncError() ||
       SyncFailedSince() ||
       SyncPartialFailure() =>
-        'Couldn’t back up',
+        "Couldn't back up",
       _ => 'Not backed up'
     };
     void push(String path) {
@@ -303,7 +303,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           footer: user == null
               ? 'You get your own Pantas ID when you sign in.'
               : digits == null
-                  ? 'It shows up the next time you’re online.'
+                  ? "It shows up the next time you're online."
                   : 'Tap to copy. This is safe to share publicly.',
           children: [
             SettingsRow(
@@ -346,8 +346,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             SettingsSection(
               header: 'Backup',
               footer: pro
-                  ? 'Pantas backs up on its own whenever you’re online.'
-                  : 'Your progress stays on this phone only. With Pro, it’s '
+                  ? "Pantas backs up on its own whenever you're online."
+                  : "Your progress stays on this phone only. With Pro, it's "
                       'backed up and syncs across your devices.',
               children: [
                 SettingsRow(
@@ -398,7 +398,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           SettingsSection(
             children: [
               SettingsRow(
-                title: 'Delete my data',
+                title: 'Delete My Data',
                 variant: ListRowVariant.destructive,
                 onTap: () => push('/settings/account/delete'),
               ),

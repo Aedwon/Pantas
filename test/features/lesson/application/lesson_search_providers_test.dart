@@ -113,6 +113,34 @@ void main() {
     expect(hits.first.bodySnippet, isNull);
   });
 
+  test('a title match keeps the whole title, however long', () async {
+    const title = 'Sets and Set Notation (Unions, Intersections, Subsets, '
+        'Venn Diagrams)';
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l3',
+      topicId: 't1',
+      title: title,
+      summary: 'Summary for Sets',
+      bodyJson: jsonEncode([]),
+      ordering: 3,
+    );
+    container.read(searchQueryProvider.notifier).state = 'venn';
+    final hits = await container.read(searchResultsProvider.future);
+
+    final match = hits.singleWhere((hit) => hit.lessonId == 'l3').titleMatch!;
+    // Not cut to a window around the match, so the lesson's name still opens
+    // the row.
+    expect(match.text, title);
+    expect(
+      match.text.substring(
+        match.matchStart,
+        match.matchStart + match.matchLength,
+      ),
+      'Venn',
+    );
+  });
+
   test('a body-only match sets bodySnippet and leaves titleMatch null',
       () async {
     container.read(searchQueryProvider.notifier).state = 'swap';

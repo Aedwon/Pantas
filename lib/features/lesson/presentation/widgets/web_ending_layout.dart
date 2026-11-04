@@ -44,7 +44,8 @@ class WebEndingLayout extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // The phone reveals the line 200 ms in, over 600 ms.
+                // The phone reveals the line 200 ms in, over 600 ms. Here the
+                // button comes with it, so it is not alone on the page first.
                 EndingReveal(
                   held: held,
                   delay: 200,
@@ -66,14 +67,14 @@ class WebEndingLayout extends StatelessWidget {
                         'That’s enough for today.',
                         style: t.h1,
                       ),
+                      const SizedBox(height: 22),
+                      WebButton(
+                        label: 'Back to Home',
+                        keyHint: 'Enter',
+                        onPressed: onHome,
+                      ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 22),
-                WebButton(
-                  label: 'Back to Home',
-                  keyHint: 'Enter',
-                  onPressed: onHome,
                 ),
               ],
             ),

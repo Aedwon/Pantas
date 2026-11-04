@@ -204,7 +204,7 @@ void main() {
         ],
       );
       await tester.pumpAndSettle();
-      expect(find.byType(WebTopBar), findsOneWidget);
+      expect(find.byType(WebReaderBackControl), findsOneWidget);
       expect(find.text('Could not load this lesson.'), findsOneWidget);
       expect(find.textContaining('private database'), findsNothing);
       final before = attempts;
@@ -503,11 +503,12 @@ void main() {
       expect(bookmarks, 2);
       await tester.tap(find.text('1 of 2'));
       await tester.pumpAndSettle();
-      expect(find.text('EARTH SCIENCE · 2 LESSONS'), findsOneWidget);
+      expect(find.text('EARTH SCIENCE'), findsOneWidget);
+      expect(find.text(' · 2 LESSONS'), findsOneWidget);
       expect(find.text('Reading'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
-      expect(find.text('EARTH SCIENCE · 2 LESSONS'), findsNothing);
+      expect(find.text('EARTH SCIENCE'), findsNothing);
       offset.value = 100;
       await tester.pump();
       expect(
