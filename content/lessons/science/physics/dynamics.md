@@ -58,13 +58,15 @@ To build one:
 
 1. Choose the object.
 2. Draw gravity first: a weight arrow pointing down.
-3. Look at everything that touches the object: a surface gives a normal force and maybe friction, a rope gives tension, and a hand gives a push.
+3. Look at everything that touches the object: a surface gives a normal force, and also friction if the object slides or is pushed along a rough surface. A rope gives tension, and a hand gives a push.
 4. Draw each arrow in its true direction and label it.
 5. Choose axes. On a slope, put one axis along the slope and one perpendicular to it.
 6. Split any arrow that is not along an axis into components, using $F\cos\theta$ and $F\sin\theta$ with $\theta$ measured from an axis.
 7. Write $\sum F=ma$ for each axis.
 
 Do not draw the forces that the chosen object exerts on other things. Do not draw $m\vec a$ as a force. It is the result of the forces, not one of them.
+
+**Friction** is a force along the surface that resists sliding between two touching surfaces. **Tension** is the pull of a rope or string, along the rope. The next lesson, Friction, Tension and Inclines, teaches both, with slopes and pulls at an angle.
 
 ## Examples
 
@@ -167,6 +169,24 @@ $$a_{\text{truck}}=\dfrac{12\,000}{3000}=4\,\mathrm{m/s^2}.$$
 
 The forces are equal, but the lighter car accelerates three times as much. The accelerations point in opposite directions.
 
+### #7: A Force at an Angle
+
+A $5\,\mathrm{kg}$ box is on a smooth, level table. Ignore friction. A hand pulls it with $40\,\mathrm N$ at $30^\circ$ above the horizontal. Use $g=9.8\,\mathrm{m/s^2}$, $\sin 30^\circ=0.50$, and $\cos 30^\circ=0.866$. Find the acceleration and the normal force.
+
+**Solution:**
+
+1. Draw the box with its weight down, the normal force up, and the pull at $30^\circ$ above the horizontal. Take $x$ along the table and $y$ up.
+2. Split the pull. The part along the table is $40\cos30^\circ=40\times0.866=34.6\,\mathrm N$. The part upward is $40\sin30^\circ=40\times0.50=20\,\mathrm N$.
+3. The box stays on the table, so $a_y=0$. The weight is $mg=5\times 9.8=49\,\mathrm N$.
+
+$$N+20-49=0\Rightarrow N=29\,\mathrm N.$$
+
+4. Along the table only the first part of the pull acts.
+
+$$a_x=\dfrac{34.6}{5}=6.9\,\mathrm{m/s^2}.$$
+
+The box accelerates at $6.9\,\mathrm{m/s^2}$ along the table. The normal force is $29\,\mathrm N$, less than the weight, because the pull lifts part of the weight. It is positive, so the box stays on the table.
+
 ## Speed Tricks & Shortcuts
 
 Draw a free-body diagram before writing $\sum\vec F=m\vec a$. Then write one equation for each axis.
@@ -193,7 +213,7 @@ A car at constant speed still has an engine force. That force is canceled by dra
 
 > The normal force comes from the force balance perpendicular to the surface.
 
-It equals $mg$ on a level surface with no other vertical force and no vertical acceleration. It is different on a slope, with an extra push or pull, or in an accelerating elevator.
+It equals $mg$ on a level surface with no other vertical force and no vertical acceleration. It is different on a slope (see the next lesson), with an extra push or pull, or in an accelerating elevator.
 
 ### #4: Mixing Up Mass and Weight
 
