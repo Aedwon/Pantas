@@ -130,17 +130,17 @@ Which appeal is the main one?
 
 ### #6: Overlapping Appeals
 
-"I have taught in this school for $20$ years, and I have watched $3$ in $10$ of my students leave before graduation. Picture those empty desks."
+"I have taught in this school for $20$ years, and I have watched $3$ in $10$ of my students leave before graduation. Think of those empty desks."
 
 Name every appeal and where it appears.
 
 **Solution:**
 
 1. "I have taught in this school for $20$ years" builds ethos through experience.
-2. "$3$ in $10$ of my students" offers a figure as evidence, so it supports logos.
-3. "Picture those empty desks" invites feeling, so it is pathos.
+2. "$3$ in $10$ of my students" offers a statistic as evidence, so it supports logos.
+3. "Think of those empty desks" invites feeling, so it is pathos.
 
-The figure also carries emotion, and the experience makes the figure easier to trust. One passage can use all three appeals, and one phrase can serve two.
+The statistic also carries emotion, and the experience makes it easier to trust. One passage can use all three appeals, and one phrase can serve two.
 
 ### #7: Evaluating Evidence
 
@@ -188,7 +188,7 @@ The sentence shows **parallelism**. The repeated pattern gives it a steady rhyth
 
 ### #11: Fair Emotion or Manipulation
 
-Speaker X: "Last year, three students were hurt crossing at this corner. Picture your child there. That is why I ask you to support a crossing guard."
+Speaker X: "Last year, three students were hurt crossing at this corner. Think of your child there. That is why I ask you to support a crossing guard."
 
 Speaker Y: "Anyone who opposes the crossing guard does not love children. Imagine the guilt you will carry."
 
