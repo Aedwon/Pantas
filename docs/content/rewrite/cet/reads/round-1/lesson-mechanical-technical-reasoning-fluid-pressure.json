@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-fluid-pressure",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Oil is lighter: a typical cooking oil is about $800\\ \\text{kg/m}^3$.",
+      "problem": "Common cooking oils (soybean, canola, olive, coconut) have densities of about 910 to 930 kg/m^3 near room temperature, not about 800. A value near 800 fits kerosene or light mineral oil. Example 7 gives its own oil density, so its answer stands, but the Core Concept fact is wrong.",
+      "source": "Checklist B01; CRC Handbook of Chemistry and Physics and standard vegetable-oil specifications (Codex Alimentarius CXS 210, relative density about 0.91 to 0.93 at 20 C)"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"vessel\": \"connected\", \"columns\": 2, \"semanticsLabel\": \"A U-shaped tube with a wide arm and a narrow arm, both open at the top.\"",
+      "problem": "The writer removed the answer from this Example 2 label, but the marker still uses the connected vessel type. The app renderer for that type always draws the water at the same level in every vessel (its code comment says this is the whole question). The figure therefore shows the answer to 'which free surface is higher?'. This matches the quadrilaterals round-3 ruling on a marker type that draws the answer.",
+      "source": "Checklist L05 and L23; lead ruling on quadrilaterals round-3 L05 and on fluid-pressure markers in final-run-rulings.md; lib/core/ui/figures/fluid_vessel_figure.dart connected painter"
+    },
+    {
+      "rule": "L19",
+      "severity": "Major",
+      "quote": "At the narrowing, the height is equal, so $\\Delta P=-\\tfrac12\\rho(v_2^2-v_1^2)=-\\tfrac12\\times 1000\\times(36-4)=-16{,}000$ Pa.",
+      "problem": "The solution jumps from Bernoulli's constant-sum equation to a change-in-pressure formula without showing the step. Core Concept gives only the constant sum and word rules, never a pressure-change form, so a student cannot see where the minus sign and the difference of squares come from. The second stage, $\\Delta P=-\\rho g\\Delta y$, skips the same step. This is the lesson's hardest example, so the skipped step harms learning.",
+      "source": "Checklist L19 (Major if a step is skipped) and L17; lesson Core Concept, Pressure and Speed"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "$800\\,h_{\\text{oil}}=1000\\times 10$, so $h_{\\text{oil}}=12.5$ cm.",
+      "problem": "Examples 5 to 10 each have two or more steps but none uses a numbered list. Example 7 also says 'Cancel $P_0$ and $g$' without first writing the two equal pressures, and Example 9 drops the unit in 'each carries $10$'. No essential step is missing in Examples 5 to 9, so this is format only.",
+      "source": "Checklist L19; lesson-style-guide.md, Examples section (numbered steps when the solution has two or more steps)"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

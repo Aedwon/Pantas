@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-statistics-and-probability-measures-of-variability",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L27", "severity": "Major", "quote": "The probabilities are between $0$ and $1$, and they add up to $1$.", "problem": "This is the lesson's only rule for a valid probability table, and it does not say whether $0$ and $1$ themselves are allowed. Read as 'strictly between', it is false at the boundary: a table may hold $P(x)=0$, and a one-value table has $P(x)=1$. A standard curriculum item asks which table is a valid probability distribution, and a student who reads 'between' as excluding the ends rejects a valid table that has a $0$ entry. The official property is $0\\le P(x)\\le1$.", "source": "Checklist L27; DepEd Statistics and Probability (Grade 11) probability-distribution properties, 0 <= P(x) <= 1; reader-rules 'Added after the Sol audit' boundary test"},
+    {"rule": "L23", "severity": "Major", "quote": "Both sets above have mean $5$. Set B is more spread out.", "problem": "The prose points to sets 'above' whose values appear only inside the invisible ILLUSTRATION comment. In the app the marker is not shown, so the student reads about Set A and Set B with no values given and cannot check either claim. The guide says the surrounding text must still teach without the image by describing the figure in words. Present since round 1 and not raised before.", "source": "Checklist L23; LSG Illustration placeholders ('Usually the surrounding text must still teach without the image (describe the figure in words)')"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A mean you rounded gives a sum slightly off $0$.", "problem": "Round-2 finding still open. This Speed Tricks paragraph has four sentences, over the one-to-three limit. The probability-table paragraph ending 'The probabilities are between $0$ and $1$, and they add up to $1$.' and the paragraph starting 'Variance is in squared units.' also still have four.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 3
+}
