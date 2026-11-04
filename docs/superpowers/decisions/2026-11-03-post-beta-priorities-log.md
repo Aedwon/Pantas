@@ -101,3 +101,18 @@ Result: all 15 first reads had a Blocker or Major (6 Blockers, 83 Majors, 52 Min
 Options offered as one approval: skip the audit fallback; replace the 1,700 limit with a split note over about 3,000 words; spend the $100 in order, pilot lessons, then science, mathematics, reasoning and reading, with questions and any remainder moved to reset accounts.
 
 Aedwon's answer: "Approve all three"
+
+## November 4: after the CET final run (cloud session)
+
+The final run finished on `content/cet-rewrite-r1`: 69 of 69 lessons are clean (7), minor (41) or open after three reads (21). Report: `docs/content/rewrite/cet/final-run-report.md` on that branch. The lead proposed next steps: a cross-vendor Sol pass on the 21 open lessons, then questions, exam tags, the Astra audit and figures. Two choices were put to Aedwon.
+
+1. Split candidates: 11 lessons passed about 3,000 words and were not split. Options: split them (cost: new lesson ids, questions reassigned to the new lessons, new tags and prerequisite links, and more reads); trim them (cost: risk of cutting needed teaching, which the pilot showed); leave them.
+2. Parent-chain naming in basic organic chemistry: the older rule most school texts teach (the chain must include the double or triple bond) or IUPAC 2013 (chain length first). Cost of IUPAC: students may meet the older rule in school books and exam keys.
+
+Aedwon: "do you recommend splitting them? i think it would be good to avoid having 1 lesson be so long"
+
+Aedwon: "also yes please use IUPAC since it's an international standard right?"
+
+Aedwon: "proceed just before the astra audit since it's yet to reset in 1 hour 20 min"
+
+Lead response: IUPAC is the international authority on chemical names, and its 2013 recommendations are current. The lead recommended teaching IUPAC 2013 with one sentence noting the older rule, so a student who meets it in a school book is not confused. On splits, the lead recommended splitting the lessons clearly over the line and trimming the borderline ones (about 3,000 to 3,100 words) instead. The cloud session has no Codex and no Dart, so the Sol and Astra steps and the question import check must run on Aedwon's Mac.
