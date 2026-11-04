@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-physics-fluid-flow-continuity-and-bernoulli",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Assume ideal flow. Find the pressure at point $2$.",
+      "problem": "Example #2 gives its key condition only as 'ideal flow', and the Speed Tricks repeat 'steady, ideal flow', but this lesson never says what ideal flow means. The Bernoulli section lists the conditions (steady, incompressible, nonviscous, along a streamline) without tying the word 'ideal' to them, and the named prerequisite, Fluid Statics, uses 'ideal' only for a hydraulic system with no friction and no trapped air. Step 1 of the solution relies on continuity, which needs a steady, incompressible flow. A student who meets 'ideal flow' or 'ideal fluid' in a question cannot read it as the cue that continuity and Bernoulli apply. This is the round-3 parent finding, still open after the word-for-word move.",
+      "source": "Checklist L25; LSG Teaching completeness; reader-rules.md, Added after the Sol audit (every term an example uses is taught or its prerequisite named); round-3 read of lesson-physics-fluid-mechanics, L25"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Some terms first. A **streamline** is the path a small bit of fluid follows.",
+      "problem": "This paragraph has six sentences, over the limit of one to three short sentences. The continuity paragraph that starts 'Here $A$ is the cross-sectional area' and the Bernoulli energy-terms paragraph that starts 'Here $h$ is the height' have four each. This is the round-3 parent Minor, still open after the move.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences); round-3 read of lesson-physics-fluid-mechanics, L22a"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "P_2 = P_1 + \\dfrac{1}{2}\\rho (v_1^2 - v_2^2) = 2.00 \\times 10^5 + \\dfrac{1}{2}(1000)(4.0 - 64)",
+      "problem": "This display line chains a symbolic form and a substituted form with two display-size fractions and scientific notation, too wide for a phone screen. Example #2's line 'P_2 = P_1 - \\rho g (h_2 - h_1) = 3.00 \\times 10^5 - (1000)(9.8)(5.0)' has the same problem. This is the round-3 parent Minor, still open after the move.",
+      "source": "Checklist L21; LSG Examples section (keep each display equation narrow enough for a phone screen); round-3 read of lesson-physics-fluid-mechanics, L21"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

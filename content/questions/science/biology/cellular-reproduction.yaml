@@ -4,69 +4,6 @@ meta:
   subtopic: "cellular-reproduction"
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
-  - id: q-biology-cellular-reproduction-0001
-    type: "classify"
-    difficulty: "medium"
-    stem: |
-      A skin-cell lineage repairs a cut by dividing and keeping the same chromosome-set number in the daughter nuclei. Which nuclear division is involved?
-    choices:
-      - text: "Mitosis"
-        correct: true
-      - text: "Meiosis I"
-        rationale: |
-          This applies chromosome-set reduction to tissue repair. Meiosis also involves nuclear division, so it seems to fit any dividing cell. Check whether the chromosome-set number is reduced.
-      - text: "Meiosis II"
-        rationale: |
-          This applies the second meiotic division to a skin-cell lineage. It separates sister chromatids, so it resembles mitosis. Check whether this is part of meiosis or ordinary tissue repair.
-      - text: "Cytokinesis alone"
-        rationale: |
-          This mistakes cytoplasmic division for the copying and separation of nuclear DNA. Cytokinesis produces separate cells, so it seems to describe the whole event. Check whether the question also involves nuclear division.
-    explanation: |
-      Mitosis preserves the chromosome-set number in the daughter nuclei. With cytokinesis, it commonly produces two daughter cells for tissue growth or repair.
-    approved: true
-
-  - id: q-biology-cellular-reproduction-0002
-    type: "classify"
-    difficulty: "medium"
-    stem: |
-      Which nuclear division reduces chromosome-set number as part of human sperm formation?
-    choices:
-      - text: "Meiosis"
-        correct: true
-      - text: "Mitosis"
-        rationale: |
-          This uses the chromosome-preserving process for a chromosome-reducing step. Mitosis also occurs in reproductive cell lineages, so it can seem to fit. Check which division reduces chromosome-set number.
-      - text: "Cytokinesis"
-        rationale: |
-          This confuses dividing the cytoplasm with reducing chromosome sets in nuclei. Both occur during cell division, so their jobs can blend together. Check whether chromosomes or cytoplasm are being divided.
-      - text: "Fertilization"
-        rationale: |
-          This confuses the formation of haploid gametes with their later fusion. Both belong to sexual reproduction, so either term seems possible. Check whether the event separates sets or combines them.
-    explanation: |
-      Meiosis reduces a diploid nucleus to haploid nuclei. In humans this reduction is part of producing sperm, which carry one chromosome set.
-    approved: true
-
-  - id: q-biology-cellular-reproduction-0003
-    type: "simple-quantitative"
-    difficulty: "medium"
-    stem: |
-      A human primary spermatocyte with 46 chromosomes completes normal meiosis. How many haploid nuclei are produced, and how many chromosomes does each contain?
-    choices:
-      - text: "4 nuclei, 23 chromosomes each"
-        correct: true
-      - text: "2 nuclei, 46 chromosomes each"
-        rationale: |
-          This uses the mitotic outcome for meiosis. Both divide copied genetic material, so two unchanged sets seem possible. Check both the number of nuclear divisions and whether chromosome sets are reduced.
-      - text: "4 nuclei, 46 chromosomes each"
-        rationale: |
-          This counts the two divisions but keeps the diploid chromosome number. DNA is copied beforehand, so the full count can seem to remain. Check what separating homologous pairs does to chromosome sets.
-      - text: "2 nuclei, 23 chromosomes each"
-        rationale: |
-          This counts only the first division. The chromosome number is already reduced after meiosis I, so it may seem complete. Check whether meiosis II must also finish.
-    explanation: |
-      Human diploid cells have 46 chromosomes. Normal meiosis separates homologous pairs and completes two nuclear divisions. The usual result is four haploid nuclei, each with $\dfrac{46}{2} = 23$ chromosomes.
-    approved: true
-
   - id: q-biology-cellular-reproduction-0004
     type: "simple-quantitative"
     difficulty: "medium"
@@ -193,48 +130,6 @@ questions:
       Mitosis divides the nucleus, while cytokinesis divides the cytoplasm. A cell can complete nuclear division without splitting its cytoplasm. It then contains two nuclei in one cell.
     approved: true
 
-  - id: q-biology-cellular-reproduction-0010
-    type: "classify"
-    difficulty: "hard"
-    stem: |
-      Why are the haploid products of meiosis often genetically different from one another?
-    choices:
-      - text: "Crossing over and independent assortment create new combinations."
-        correct: true
-      - text: "DNA copying before meiosis makes every resulting genome identical."
-        rationale: |
-          This applies ordinary mitotic similarity to meiosis. DNA is copied before both processes, so their results can seem the same. Check whether crossing over and independent assortment occur.
-      - text: "Chromosome-set reduction preserves identical alleles in every product."
-        rationale: |
-          This blames chromosome-set reduction for keeping all alleles identical. Each product has the same set count, so it may seem to have the same genes in the same forms. Check chromosome combinations, not just their number.
-      - text: "Genetic combinations change only after later gamete fusion occurs."
-        rationale: |
-          This assigns all new combinations to fertilization. Combining two gametes creates variation, so earlier variation can be overlooked. Check whether recombination already occurs during meiosis.
-    explanation: |
-      Crossing over exchanges DNA between homologous chromosomes. Independent assortment also creates new chromosome combinations. These processes can make the haploid products genetically different.
-    approved: true
-
-  - id: q-biology-cellular-reproduction-0011
-    type: "identify"
-    difficulty: "hard"
-    stem: |
-      During which meiotic phase does crossing over between homologous chromosomes occur?
-    choices:
-      - text: "Prophase I"
-        correct: true
-      - text: "Metaphase I"
-        rationale: |
-          This confuses crossing over with independent assortment. Both create new combinations, so their timing can be swapped. Check which event happens when homologous pairs align.
-      - text: "Anaphase I"
-        rationale: |
-          This confuses exchanging DNA with separating homologs. Homologous pairs are involved in both, so the phases seem related. Check whether the event is exchange or movement to opposite poles.
-      - text: "Prophase II"
-        rationale: |
-          This moves exchange between homologs into the second division. The repeated phase name makes either prophase seem possible. Check whether homologous pairs are still together then.
-    explanation: |
-      Crossing over occurs during prophase I of meiosis. Homologous chromosomes exchange DNA segments, creating new combinations of alleles.
-    approved: true
-
   - id: q-biology-cellular-reproduction-0012
     type: "process-ordering"
     difficulty: "hard"
@@ -254,27 +149,6 @@ questions:
           This places nuclear re-formation before chromosome alignment. Both organize genetic material, so the order may not stand out. Check whether two separated sets must arrive before new nuclei form.
     explanation: |
       Metaphase places chromosomes at the spindle's center. Anaphase then separates sister chromatids toward opposite poles. These listed events occur between the beginning of mitosis and formation of daughter nuclei.
-    approved: true
-
-  - id: q-biology-cellular-reproduction-0013
-    type: "cause-effect"
-    difficulty: "medium"
-    stem: |
-      In a normal diploid sexual life cycle, why is chromosome-set number reduced during gamete formation?
-    choices:
-      - text: "To restore the diploid number at fertilization."
-        correct: true
-      - text: "To make offspring have fewer chromosomes than either parent."
-        rationale: |
-          This treats chromosome reduction in gametes as a permanent reduction in offspring. Each gamete has fewer chromosomes, so the offspring may seem to keep that low count. Check what happens when two gamete sets join.
-      - text: "To give offspring one chromosome set after both gametes fuse."
-        rationale: |
-          This treats one gamete's chromosome set as the only inherited set. A gamete has one set, so it may seem the new organism does too. Check whether both parents contribute a set.
-      - text: "To make all gametes carry identical allele combinations."
-        rationale: |
-          This links set reduction to removing genetic differences between gametes. A smaller chromosome count may seem like a simpler identical set. Check whether number and allele combinations describe the same thing.
-    explanation: |
-      In a diploid sexual life cycle, each gamete contributes one chromosome set. Their fusion combines the two sets. This restores the diploid chromosome-set number.
     approved: true
 
   - id: q-biology-cellular-reproduction-0014
@@ -302,27 +176,6 @@ questions:
       Prophase begins chromosome condensation and spindle formation. Metaphase aligns chromosomes at the center. Anaphase separates sister chromatids. Telophase forms daughter nuclei. The listed order is 3, 4, 1, 2.
     approved: true
 
-  - id: q-biology-cellular-reproduction-0015
-    type: "predict-outcome"
-    difficulty: "exam"
-    stem: |
-      A normal human sperm with 23 chromosomes fuses with a normal human egg with 23 chromosomes. Before any further DNA replication, how many chromosomes are in the resulting zygote?
-    choices:
-      - text: "46"
-        correct: true
-      - text: "23"
-        rationale: |
-          This counts the chromosomes from only one gamete. Each gamete is haploid, so that number can seem to describe the zygote too. Check whether both gametes contribute chromosomes.
-      - text: "92"
-        rationale: |
-          This adds two diploid counts rather than the given haploid counts. The normal body-cell count is familiar, so it can replace each gamete's count by mistake. Check the chromosome count stated for each gamete.
-      - text: "2"
-        rationale: |
-          This counts the joining gametes instead of their chromosomes. Two cells take part, so two can seem like the new count. Check what unit the question asks for.
-    explanation: |
-      The human sperm contributes 23 chromosomes. The human egg contributes 23 more. The zygote therefore has $23 + 23 = 46$ chromosomes.
-    approved: true
-
   - id: q-biology-cellular-reproduction-0016
     type: "identify"
     difficulty: "easy"
@@ -342,88 +195,4 @@ questions:
           This places copying at the chromosome-alignment stage. Duplicated chromosomes are visible then, so their copying may seem to happen then too. Check whether their copies existed before mitosis began.
     explanation: |
       DNA replication occurs during S phase. Each chromosome is copied before the cell begins nuclear division.
-    approved: false
-
-  - id: q-biology-cellular-reproduction-0017
-    type: "compare-contrast"
-    difficulty: "medium"
-    stem: |
-      Which chromosome behavior correctly distinguishes meiosis I from meiosis II?
-    choices:
-      - text: "I separates homologs; II separates sister chromatids."
-        correct: true
-      - text: "I separates sister chromatids; II separates homologs."
-        rationale: |
-          This swaps the two divisions. Both separate chromosome material, so their names are easy to reverse. Check which division reduces the number of homologous sets.
-      - text: "Both divisions separate complete homologous pairs only."
-        rationale: |
-          This extends homolog separation to the second division. Meiosis I is the distinctive step, so it can seem to explain both. Check whether homologs are still paired after the first division.
-      - text: "Both divisions separate sister chromatids without homolog separation."
-        rationale: |
-          This applies mitotic-style chromatid separation to both divisions. Chromatid movement is familiar from mitosis, so it seems universal. Check what happens to homologous pairs in meiosis I.
-    explanation: |
-      Meiosis I separates the two chromosomes in each homologous pair. Meiosis II separates sister chromatids. The first separation reduces chromosome-set number from diploid to haploid.
-    approved: false
-
-  - id: q-biology-cellular-reproduction-0018
-    type: "classify"
-    difficulty: "medium"
-    stem: |
-      Human oogenesis normally produces one large functional ovum and small polar bodies. Which feature best explains this unequal cellular outcome?
-    choices:
-      - text: "Unequal cytokinesis"
-        correct: true
-      - text: "Extra DNA replication before each nuclear division"
-        rationale: |
-          This confuses cytoplasm size with extra DNA copying. A larger egg may seem to need more rounds of DNA replication. Check whether meiosis has one replication before two divisions.
-      - text: "Failure to reduce chromosome-set number"
-        rationale: |
-          This confuses unequal cell size with unchanged chromosome-set number. Large cells can seem to contain extra sets. Check chromosome number separately from cytoplasm amount.
-      - text: "Replacement of meiosis with ordinary mitosis"
-        rationale: |
-          This assumes an unusual cell outcome means a different nuclear process. Mitosis often gives two similar cells, so it can seem easier to explain a large cell. Check whether oogenesis still uses meiosis.
-    explanation: |
-      Cytokinesis divides the cytoplasm unequally during oogenesis. Most cytoplasm stays in one large cell. The smaller products become polar bodies rather than equivalent functional eggs.
-    approved: false
-
-  - id: q-biology-cellular-reproduction-0019
-    type: "cause-effect"
-    difficulty: "hard"
-    stem: |
-      At metaphase I, different homologous pairs can orient independently toward either spindle pole. What is a direct consequence of this independent assortment?
-    choices:
-      - text: "New combinations of maternal and paternal chromosomes."
-        correct: true
-      - text: "Identical parental chromosome combinations in every product."
-        rationale: |
-          This assumes all chromosome pairs align in one fixed pattern. The spindle treats each pair similarly, so the whole group may seem coordinated. Check whether orientations are independent.
-      - text: "Exchange of DNA segments between sister chromatids only."
-        rationale: |
-          This confuses independent assortment with DNA-segment exchange. Both create variation, so either mechanism seems to fit. Check whether whole chromosomes are sorted or segments are exchanged.
-      - text: "An additional round of DNA copying between meiotic divisions."
-        rationale: |
-          This confuses rearranging chromosome combinations with copying DNA again. New combinations can seem to require new copies. Check whether independent assortment changes orientation or DNA amount.
-    explanation: |
-      Each homologous pair can face either direction independently. When homologs separate, different combinations can enter the haploid nuclei. This creates variation in chromosome combinations.
-    approved: false
-
-  - id: q-biology-cellular-reproduction-0020
-    type: "predict-outcome"
-    difficulty: "exam"
-    stem: |
-      A diploid germ cell has replicated its DNA once and completed normal meiosis I. It then enters meiosis II. Which event is expected before haploid daughter nuclei are produced?
-    choices:
-      - text: "Sister chromatids separate without another DNA replication."
-        correct: true
-      - text: "Homologous pairs separate after another round of DNA replication."
-        rationale: |
-          This repeats both the copying step and the first division. Meiosis has two divisions, so each can seem to need a complete cycle first. Check which chromosomes have already separated.
-      - text: "Sister chromatids separate after a second complete DNA replication."
-        rationale: |
-          This inserts a second copying step before meiosis II. Ordinary mitosis follows DNA replication, so the same pattern can seem necessary here. Check the one-replication rule for meiosis.
-      - text: "Homologous pairs reunite to restore diploid sets before separation."
-        rationale: |
-          This makes meiosis undo its earlier reduction. A full chromosome set seems necessary for division, so diploid restoration may seem required. Check whether haploid products are the goal of the process.
-    explanation: |
-      Normal meiosis includes one DNA replication and two nuclear divisions. Homologs have already separated in meiosis I. Meiosis II separates sister chromatids without another round of DNA replication.
     approved: false

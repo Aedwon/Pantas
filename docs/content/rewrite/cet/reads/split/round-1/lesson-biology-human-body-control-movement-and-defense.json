@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-biology-human-body-control-movement-and-defense",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Every cell needs oxygen and nutrients and must lose wastes.",
+      "problem": "Still open from the parent's round-3 read, and moved here word for word by the split. A known exception breaks this general statement: mature red blood cells have no mitochondria, use anaerobic respiration and do not use the oxygen they carry. A student who learns 'every cell needs oxygen' can answer wrongly on which cells do not use oxygen. 'Most body cells' would be correct. The base did not make this claim.",
+      "source": "OpenStax Anatomy and Physiology 2e, 18.3 Erythrocytes ('Lacking mitochondria, for example, they rely on anaerobic respiration' and 'they do not utilize any of the oxygen they are transporting'); parent round-3 read; reader rules, Sol audit addition."
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "At a junction between two neurons, called a **synapse**, a chemical messenger passes the signal across.",
+      "problem": "Two known exceptions break this general statement. A synapse is not only between two neurons: a motor neuron also forms a synapse with a muscle or gland cell, which is the motor neuron to effector step the lesson's own chain teaches. And not every synapse uses a chemical messenger: electrical synapses pass ions directly from cell to cell. A student who learns this sentence can miss a question on the neuron-to-muscle junction or on electrical synapses. Saying that at most synapses a chemical messenger carries the signal would be correct. The base did not make this claim.",
+      "source": "OpenStax Anatomy and Physiology 2e, 12.5 Communication Between Neurons: a synapse is 'a connection between a neuron and its target cell (which is not necessarily a neuron)'; in an electrical synapse 'there is a direct connection between the two cells so that ions can pass directly from one cell to the next'. Reader rules, Sol audit addition."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Each gamete carries half the usual number of chromosomes, $23$ instead of $46$.",
+      "problem": "The reproductive teaching rests on chromosome numbers here, in the meiosis definition and in the zygote sentence ('has $46$ chromosomes'), but the lesson never says what a chromosome is. The only named prerequisite, the digestion and circulation lesson, does not teach it either, so this part does not stand alone. The student cannot tell what meiosis halves or why the zygote is back to 46. The term is taught in 'Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis)' on this branch, which is not named.",
+      "source": "Checklist L25; LSG Teaching completeness (reuse needs an identified prerequisite); content/lessons/science/biology/cellular-reproduction.md on this branch."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Blood glucose shows a loop. After a meal, blood glucose rises.",
+      "problem": "Still open from the parent's rounds 1 to 3. This paragraph has five sentences, over the one-to-three limit. Others in this part also run four or five: the neuron, CNS and PNS, stimulus chain, motor control, feedback, pituitary, ADH, skeleton, reproductive hormone, adaptive immunity and systems-together paragraphs.",
+      "source": "Checklist L22a; LSG Formatting rules."
+    },
+    {
+      "rule": "L15",
+      "severity": "Minor",
+      "quote": "For nerve pathways, name the parts in order: stimulus, receptor, sensory neuron, CNS, motor neuron, effector.",
+      "problem": "Still open from the parent's round-3 read. All four Speed Tricks paragraphs in this part open with 'For' (pancreas, immunity, nerve pathways, organ systems). The guide asks that three sentences in a row not start the same way.",
+      "source": "Checklist L15; LSG Emphasis and de-AI rules (vary sentence openings)."
+    }
+  ],
+  "goodQuotesChecked": 5
+}

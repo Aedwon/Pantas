@@ -401,8 +401,13 @@
               ]
             },
             {
-              "title": "Cellular Reproduction (Cell Cycle, Mitosis, Meiosis)",
+              "title": "Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis)",
               "slug": "cellular-reproduction",
+              "sections": []
+            },
+            {
+              "title": "Meiosis and Genetic Variation",
+              "slug": "meiosis-and-genetic-variation",
               "sections": []
             },
             {

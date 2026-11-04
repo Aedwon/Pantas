@@ -68,5 +68,15 @@
       14
     ],
     "status": "split"
+  },
+  {
+    "original": "lesson-biology-cellular-reproduction",
+    "new": "lesson-biology-meiosis-and-genetic-variation",
+    "newPath": "content/lessons/science/biology/meiosis-and-genetic-variation.md",
+    "questions": [
+      9,
+      11
+    ],
+    "status": "split"
   }
 ]

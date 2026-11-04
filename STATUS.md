@@ -264,3 +264,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - November 4: split heavenly-bodies (adds stars-and-galaxies) and waves-and-sound (adds interference-diffraction-and-doppler). Questions moved with ids unchanged; totals unchanged.
 - November 4: split dynamics (adds friction-tension-and-inclines). Questions moved with ids unchanged; totals unchanged.
 - November 4: split cellular-metabolism (adds cellular-respiration-and-fermentation). Questions moved with ids unchanged; totals unchanged.
+- November 4: split cellular-reproduction (adds meiosis-and-genetic-variation). Questions moved with ids unchanged; totals unchanged. All eight planned splits are done.

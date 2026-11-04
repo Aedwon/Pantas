@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-physics-mirrors-and-lenses",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "$f$ is positive for a concave mirror and a convex lens. $f$ is negative for a convex mirror and a concave lens.",
+      "problem": "The sign convention ties the sign of f to the lens shape, with no condition, and the lesson's own Lenses section breaks it: 'A convex-shaped lens made of a material with a lower $n$ than the medium around it diverges light instead. An air bubble shaped like a convex lens inside water is one case.' That lens is diverging, so its f is negative, and a concave air lens in water converges with f positive. The standard convention signs f by converging (positive) or diverging (negative), and shape gives that only for a lens with larger n than its surroundings, as the lesson itself says for glass in air. Trap #2 repeats the unconditioned rule ('$f$ is negative for convex mirrors and concave lenses'). A student who applies the bullet to the lesson's own bubble case puts in the wrong sign and predicts a real image where none forms. Found by testing the general statement against the exception the lesson names, per the reader rules' Sol-audit addition.",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit'; OpenStax University Physics Volume 3, section 2.4 Thin Lenses (f positive for a converging lens, negative for a diverging lens); thin-lens lensmaker relation 1/f = (n_lens/n_medium - 1)(1/R1 - 1/R2), negative for an air lens in water"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "This rule depends on the lens having a larger $n$ than its surroundings.",
+      "problem": "This paragraph has four sentences, over the one-to-three limit; open from rounds 1 to 3 of the parent and moved here unchanged. Four-sentence paragraphs also start at 'A **concave mirror** curves inward', 'A **real image** is made where light rays really meet.', 'For a glass or plastic lens in air' and 'Let $d_o$ be the distance'. In this same paragraph, the sentence 'Here \"denser\" means optically denser (larger $n$), not heavier.' defines a word the lesson never uses, left over from the parent's round-1 fix, so a student looks for a 'denser' that is not there.",
+      "source": "Checklist L22a; lesson-style-guide.md Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "3. For part (b), use the lens equation:",
+      "problem": "In Example #5 this step line follows the closing sentence of part (a) with no blank line. In CommonMark an ordered list that starts at a number other than 1 cannot interrupt a paragraph, so step 3 can render as text joined to 'The image is virtual, upright and five times larger, because the object is inside $f$.' and not as a numbered step. No step is skipped.",
+      "source": "Checklist L19; lesson-style-guide.md Examples section; CommonMark spec 0.31, section 5.2 List items (an ordered list interrupting a paragraph must start with 1)"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
