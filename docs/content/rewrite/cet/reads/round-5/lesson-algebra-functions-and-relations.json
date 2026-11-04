@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-algebra-functions-and-relations",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "For a parabola (the curve of $y=ax^2+bx+c$ with $a\\ne0$), also check the **turning point**.",
+      "problem": "The range teaching covers a parabola only on a domain with two ends. The lesson sets the default domain as all real numbers, yet it never teaches the range of a parabola on a domain with no end on a side (for example $y=x^2-4x+5$ on all real numbers gives $[1,\\infty)$). It never says that the sign of $a$ decides whether the turning point gives the least or the greatest output, and it does not point to the types-of-functions lesson that teaches opening direction. The shortcut 'test the two end values' has no end values to test in this case. Example 3 states 'There $h(2)=1$, the smallest output' with no reason. The range of a quadratic on its natural domain is a standard application of the range skill in this lesson's goal.",
+      "source": "content-checklist L18 and L27; brief item 'Find range from a rule and stated input domain' (ustet-L091, dcat-L056, official curriculum); writer-rules lead ruling 1"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "$$(x-2)(x+2)\\ge0$$",
+      "problem": "Example 7 factors $x^2-4$ as a difference of two squares and then solves a quadratic inequality. The lesson does not teach this factoring and does not name the lesson that does (the polynomials lesson teaches the difference of two squares; the quadratic-equations lesson teaches quadratic inequalities). The reader rules require every formula or method an example uses to be taught or its prerequisite named. A one-line pointer would close it.",
+      "source": "reader-rules.md, Added after the Sol audit; content-checklist L25; lesson-style-guide, Teaching completeness (reuse rule)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A line that is not horizontal never gives the same output twice. So if an end is left out",
+      "problem": "Partly open from round 4. The paragraph starting 'To find the range from a rule' still has four sentences. The other three paragraphs named in round 4 are now within three sentences.",
+      "source": "lesson-style-guide, Formatting rules; content-checklist L22a"
+    },
+    {
+      "rule": "B07",
+      "severity": "Minor",
+      "quote": "After cancelling, it looks like $x+2$",
+      "problem": "'Cancelling' is the British form. The usual American spelling is 'canceling' (Merriam-Webster lists 'canceling' first, with 'cancelling' as the chiefly British variant). The text was added in the rewrite.",
+      "source": "content-checklist B07; AGENTS.md Voice (American spelling); Merriam-Webster, 'cancel'"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

@@ -29,24 +29,26 @@ Unless a problem says otherwise, the domain is all real numbers that give a real
 
 - a denominator equal to $0$;
 - an even root (a square root, fourth root, and so on) of a negative number;
-- a logarithm whose input is $0$ or negative;
+- a logarithm whose input is $0$ or negative (the lesson on exponents and logarithms teaches logarithms);
 - any restriction the problem states, or that comes from combining functions.
 
 Odd roots, such as cube roots, accept negative numbers. A square root of $0$ is fine.
 
-Domains and ranges are often written as **intervals**. A square bracket includes the end number and a round bracket leaves it out. So $[2,\infty)$ means all $x\ge2$, and $(-\infty,3)$ means all $x<3$. The symbol $\infty$ always gets a round bracket.
+Domains and ranges are often written as **intervals**. A square bracket includes the end number and a round bracket leaves it out. So $[2,\infty)$ means all $x\ge2$, and $(-\infty,3)$ means all $x<3$.
 
-The symbol $\cup$ means "together with", so $[-1,2)\cup(2,\infty)$ is two pieces joined.
+The symbol $\infty$ means the numbers go on without end, so it always gets a round bracket. The symbol $\cup$ means "together with", so $[-1,2)\cup(2,\infty)$ is two pieces joined.
 
-To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line that is not horizontal, the smallest and largest outputs come from the two ends of the domain. A line never gives the same output twice. So if an end is left out, as in $2x+1$ on $1<x\le4$, the output at that end is left out too, and the range is $(3,9]$.
+To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line that is not horizontal, the smallest and largest outputs come from the two ends of the domain. A line that is not horizontal never gives the same output twice. So if an end is left out, as in $2x+1$ on $1<x\le4$, the output at that end is left out too, and the range is $(3,9]$.
+
+A horizontal line, such as $y=3$, gives the same output for every input. Its range is just $\{3\}$.
 
 If the domain has no end on one side, the range of a line that is not horizontal also has no end on one side. A rising line keeps the same side, so $2x+1$ on $x\ge0$ gives $[1,\infty)$. A falling line flips the side, so $-2x+1$ on $x\ge0$ gives $(-\infty,1]$.
 
-For a parabola, also check the **turning point**. This is the point where the curve stops falling and starts rising, or the reverse.
+For a parabola (the curve of $y=ax^2+bx+c$ with $a\ne0$), also check the **turning point**. This is the point where the curve stops falling and starts rising, or the reverse.
 
 For $y=a(x-h)^2+k$ it is at $x=h$, with output $k$. For $y=ax^2+bx+c$ it is at $x=-\dfrac{b}{2a}$. Use it only if it lies inside the domain.
 
-A parabola can give the same output twice. So a left-out end's output is left out only if no included input gives it. For $y=x^2$ on $-2<x\le2$, the left-out end gives $4$, but $x=2$ also gives $4$. The range is $[0,4]$.
+A parabola can give the same output twice. So a left-out end's output is left out only if no included input gives it. For $y=x^2$ on $-2<x\le2$, the left-out end gives $4$, but $x=2$ also gives $4$, so the range is $[0,4]$.
 
 ### Function Evaluation
 
@@ -80,7 +82,7 @@ A function is **one-to-one** when different inputs always give different outputs
 
 <!-- ILLUSTRATION: two small xy graphs side by side; left, y = x^2 for all real x with the horizontal line y = 4 crossing at (-2, 4) and (2, 4), labeled "not one-to-one"; right, y = x^3 with the horizontal line y = 4 crossing once, labeled "one-to-one" -->
 
-A straight line $f(x)=ax+b$ with $a\ne0$ is one-to-one. A constant function ($a=0$) is not.
+A straight line $f(x)=ax+b$ with $a\ne0$ is one-to-one. A constant function ($f(x)=b$, so $a=0$) is not.
 
 To find an inverse:
 
@@ -90,13 +92,15 @@ To find an inverse:
 
 The domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$.
 
-If $f$ is not one-to-one, you can cut its domain down to a piece where it is. For $f(x)=x^2$, the piece $x\ge0$ works. Step $3$ can then give two branches, with a plus sign and a minus sign. Keep the branch whose outputs match the cut-down domain, because they are the inputs of $f$.
+If $f$ is not one-to-one, you can cut its domain down to a piece where it is. For $f(x)=x^2$, the piece $x\ge0$ works. Step $3$ can then give two branches, with a plus sign and a minus sign.
+
+Keep the branch whose outputs match the cut-down domain, because they are the inputs of $f$.
 
 To check that $g$ is the inverse of $f$, test both compositions:
 
 $$f(g(x))=x\quad\text{and}\quad g(f(x))=x$$
 
-For the whole domain of each function, both must hold.
+The first must hold for every $x$ in the domain of $g$. The second must hold for every $x$ in the domain of $f$.
 
 ## Examples
 
@@ -241,13 +245,13 @@ $$(x-2)(x+2)\ge0$$
 
 The domain is $(-\infty,-2]\cup[2,\infty)$.
 
-### #8: Finding an Affine Inverse
+### #8: Finding the Inverse of a Line
 
 Find the inverse of $f(x)=\dfrac{2x-3}{5}$.
 
 **Solution:**
 
-1. The function is a line with slope $\dfrac{2}{5}\ne0$, so it is one-to-one and has an inverse. Write $y=\dfrac{2x-3}{5}$ and swap $x$ and $y$.
+1. The function is $f(x)=\dfrac{2}{5}x-\dfrac{3}{5}$, a line with $a=\dfrac{2}{5}\ne0$, so it is one-to-one and has an inverse. Write $y=\dfrac{2x-3}{5}$ and swap $x$ and $y$.
 
 $$x=\dfrac{2y-3}{5}$$
 
@@ -321,7 +325,9 @@ For a domain question, scan first for denominators, even roots, and logarithms. 
 
 For a composition at a number, such as $(f\circ g)(2)$, find $g(2)$ first and feed that value into $f$. Find the formula for the composition only when you need the whole function or its domain.
 
-To find a range on an interval, test the two end values. Round-bracket the output of a left-out end only if no included input gives that output. If the function is a parabola, also test its turning point when it lies inside the interval. The ends alone are enough when the function steadily rises or steadily falls on the interval.
+To find a range on an interval, test the two end values. Round-bracket the output of a left-out end only if no included input gives that output.
+
+If the function is a parabola, also test its turning point when it lies inside the interval. The ends alone are enough when the function steadily rises or steadily falls on the interval.
 
 ## Traps to Watch For
 
@@ -357,10 +363,10 @@ The domain is $[-1,2)\cup(2,\infty)$.
 
 > Find the domain from the rule as given, not from the simplified form.
 
-Take $f(x)=\dfrac{x^2-4}{x-2}$. After cancelling, it looks like $x+2$. But $x=2$ is still not allowed in $f$. The domain is all real numbers except $2$, and the output $4$ is never produced.
+Take $f(x)=\dfrac{x^2-4}{x-2}$. After cancelling, it looks like $x+2$, but $x=2$ is still not allowed in $f$. The domain is all real numbers except $2$, and the output $4$ is never produced.
 
 ### #6: Taking a Plus-or-Minus Branch Without Checking
 
 > An inverse of a restricted function keeps only the branch that matches the restricted domain.
 
-For $f(x)=x^2$ with $x\ge0$, the inverse is $\sqrt{x}$. Writing $\pm\sqrt{x}$ gives two outputs for one input, so it is not a function. If the domain were $x\le0$, the right branch would be $-\sqrt{x}$.
+For $f(x)=x^2$ with $x\ge0$, the inverse is $\sqrt{x}$. Writing $\pm\sqrt{x}$ gives two outputs for each positive input, so it is not a function. If the domain were $x\le0$, the right branch would be $-\sqrt{x}$.
