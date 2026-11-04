@@ -1,0 +1,44 @@
+{
+  "lesson": "lesson-biology-human-anatomy-physiology",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "uses **enzymes**, which are proteins that speed up chemical reactions",
+      "problem": "Still open from round 3, unchanged by the split. The bold first definition says enzymes are proteins with no limit. A known exception breaks it: some enzymes are RNA (ribozymes). The sibling lesson lesson-biology-cellular-metabolism on this branch says 'Almost all enzymes are proteins', so the two lessons teach conflicting rules, and a student could mark 'all enzymes are proteins' as true. Every digestive enzyme named here is a protein, so limiting the claim to digestive enzymes, or saying almost all enzymes, would be correct.",
+      "source": "OpenStax Biology 2e, 6.5 Enzymes: 'Almost all enzymes are proteins'; content/lessons/science/biology/cellular-metabolism.md on this branch; round-3 read of this lesson; reader rules, Sol audit addition."
+    },
+    {
+      "rule": "B02",
+      "severity": "Blocker",
+      "quote": "The vessel coming toward the heart with oxygen-rich blood is the pulmonary vein, which comes from the lungs.",
+      "problem": "Example #4 asks 'Which carries oxygen-rich blood toward the heart?' and the solution names one vessel. The lesson's own Core Concept says 'Before birth, the umbilical vein carries oxygen-rich blood to the fetus', and by the lesson's rule a vein carries blood toward the heart, so a student who learned that sentence has a second answer. The first question has the same gap (the umbilical arteries carry oxygen-poor blood away from the fetal heart). Round 1 named Example #4 when it raised the systemic-arteries Blocker; the fix limited the Core Concept to 'After birth' but left the example question with no 'after birth' or 'in an adult' condition. The intended answers are right for the body after birth.",
+      "source": "OpenStax Anatomy and Physiology 2e, 28.5 fetal circulation (umbilical vein carries oxygenated blood to the fetus, umbilical arteries return deoxygenated blood); round-1 read of this lesson; reader rules, Sol audit addition."
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Classify each as cell, tissue, organ, or organ system: (a) a neuron",
+      "problem": "Split effect. Before the split, neurons were taught in the Nervous System section and smooth muscle in the Muscular System section. Both sections moved to lesson-biology-human-body-control-movement-and-defense, which comes after this lesson and is not its prerequisite. This lesson now uses 'neuron' and 'smooth muscle' for the first time in the Example #2 question, so a student cannot classify (a) or (d) before reading the answer. The Core Concept says only that nervous tissue 'carries signals' and that muscle tissue 'contracts'; it never says a neuron is a cell or names smooth muscle. The solution lines give the meanings, but only after the question needs them.",
+      "source": "Checklist L25; LSG Teaching completeness; split-plan.md (each part stands alone or names its prerequisite); git show 828ac08a~1 (Nervous and Muscular sections)."
+    },
+    {
+      "rule": "L02",
+      "severity": "Minor",
+      "quote": "Many also join the immune structures with the lymphatic system.",
+      "problem": "Split effect. Before the split, this paragraph followed 'This lesson surveys ten systems', so 'also list ... separately' had a referent. Now it sits after the heart paragraph, two paragraphs from the ten-system sentence, and it points to immune and lymphatic content that moved to the other lesson. This lesson never says what the lymphatic system or immune structures are. Nothing taught here depends on the sentence, so it teaches nothing in this part. Graded Minor on its own grounds: the checklist puts L02 at Major, but no teaching or example needs these meanings.",
+      "source": "Checklist L02 (no filler, every sentence teaches); task brief for split reads (nothing points to moved content); git show 828ac08a~1, line 22."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Diffusion is the movement of a substance from where it is more concentrated to where it is less concentrated.",
+      "problem": "Still open from rounds 1 to 3. This paragraph has five sentences, over the limit of one to three. Others also run four to six: the levels paragraph (five), the accessory organs paragraph (five), the arteries and veins paragraph (six), the nephron paragraph (five), and several of four. Notes, not findings: the lesson is now 1,666 words by the checker, so it is no longer a split candidate. Round-3 status: the B01 on 'Every cell needs oxygen' and the L15 on the 'For' openers moved out with the split; the B01 on enzymes is still open (above). The outline entry for this slug in tools/lesson_author/outline.json still lists Nervous, Endocrine, Skeletal, Muscular, Reproductive and Immune sections, which now live in the other lesson; that is outline bookkeeping for the lead, not a lesson defect.",
+      "source": "Checklist L22a; LSG Formatting rules; reader rules, Length and splits."
+    }
+  ],
+  "goodQuotesChecked": 5
+}

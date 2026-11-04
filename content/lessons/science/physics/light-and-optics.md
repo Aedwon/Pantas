@@ -99,7 +99,7 @@ Visible light covers roughly $400$ nm to $700$ nm. Red light has the longest wav
 
 A light ray hits a flat mirror at an angle of incidence of $40^\circ$. Find (a) the angle of reflection, (b) the angle between the incident ray and the mirror surface, and (c) the angle between the incident and reflected rays.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "incidentAngle": 40, "reflectedAngle": 40, "labels": ["40°", "40°"], "semanticsLabel": "A light ray striking a flat mirror at 40 degrees from the normal line and reflecting off at 40 degrees."} -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "incidentAngle": 40, "labels": ["40°", "?"], "semanticsLabel": "A light ray striking a flat mirror at 40 degrees from the normal line. The angle of the reflected ray is not given and is marked with a question mark."} -->
 
 **Solution:**
 
@@ -161,7 +161,7 @@ The ray bends away from the normal, as expected for entering a smaller $n$.
 
 ### #4: Speed and Wavelength in Glass
 
-Red light has a wavelength of $600$ nm in vacuum. It enters glass with $n=1.50$. Find its speed, wavelength and frequency in the glass.
+Light has a wavelength of $600$ nm in vacuum. It enters glass with $n=1.50$. Find its speed, wavelength and frequency in the glass.
 
 **Solution:**
 

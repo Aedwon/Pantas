@@ -121,6 +121,10 @@
     "originalRead": {
       "verdict": "minor",
       "round": 1
+    },
+    "newRead": {
+      "verdict": "open",
+      "round": 3
     }
   }
 ]

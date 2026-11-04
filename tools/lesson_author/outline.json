@@ -437,19 +437,20 @@
                 "Digestive System",
                 "Respiratory System",
                 "Circulatory System",
-                "Nervous System",
-                "Endocrine System",
-                "Skeletal System",
-                "Muscular System",
-                "Excretory System",
-                "Reproductive System",
-                "Immune System"
+                "Excretory System"
               ]
             },
             {
               "title": "Human Anatomy and Physiology: Control, Movement, Reproduction and Defense",
               "slug": "human-body-control-movement-and-defense",
-              "sections": []
+              "sections": [
+                "Nervous System",
+                "Endocrine System",
+                "Skeletal System",
+                "Muscular System",
+                "Reproductive System",
+                "Immune System"
+              ]
             },
             {
               "title": "Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)",
@@ -604,14 +605,19 @@
               "slug": "dynamics",
               "sections": [
                 "Newton's Laws of Motion",
-                "Force, Friction, Tension, and Normal Force",
+                "Common Forces, Mass and Weight, and Normal Force",
                 "Free Body Diagrams"
               ]
             },
             {
               "title": "Friction, Tension and Inclines",
               "slug": "friction-tension-and-inclines",
-              "sections": []
+              "sections": [
+                "Friction",
+                "Tension",
+                "Inclines",
+                "Pulling at an Angle"
+              ]
             },
             {
               "title": "Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy)",

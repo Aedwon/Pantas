@@ -66,3 +66,9 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 - Lead error, structural-stability round 3: the lead's round-2 Trap #4 wording ('Lowering the center of gravity or widening the base each helps when the other factors stay the same') was upheld as a Blocker. Lowering does not change the tipping force against a push at a fixed height, and it does not save a load whose weight line is already at or past the edge (Example 4). L25 Major upheld: tangent and inverse tangent are used without teaching or a named prerequisite. Lesson set to open after 3 reads.
 - Speeches round-3 L05 Major upheld: Example #15's mass-communication answer rests only on the word 'host'; 'Hi, everyone' also fits the public cue. Lesson set to open after 3 reads.
 - lesson-chemistry-basic-organic-chemistry: Aedwon chose IUPAC 2013 (decision log on main, November 4). The round-3 parent-chain finding is resolved by teaching IUPAC 2013 with one sentence on the older school rule.
+
+## Split pass (November 4)
+
+- Split reads live in reads/split/round-N/. New lessons and shortened originals each get up to 3 reads; status is in splits.json (newRead, originalRead).
+- lesson-biology-meiosis-and-genetic-variation, split round-3 Major upheld: Speed Tricks says "$AaBB$ gives $2$ combinations, not $4$", but the lesson defines a combination as the set of chromosomes a gamete gets, which gives $4$ for two pairs. Lesson set to open after 3 reads. The fix is one sentence: say $AaBB$ gives $4$ chromosome combinations but only $2$ allele combinations ($AB$ and $aB$), or define the count over alleles. Rounds 1 and 2 found errors in the gamete-count text one at a time, so the final review should re-check that whole passage.
+- Outline: the split moved section names with the lessons. Dynamics no longer lists friction and tension; human-anatomy-physiology no longer lists the control, movement and defense systems. The split-r1 dynamics reader raised this.
