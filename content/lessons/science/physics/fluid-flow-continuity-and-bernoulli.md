@@ -19,7 +19,11 @@ The **volume flow rate** is the volume of fluid passing a point each second. For
 
 $$A_1 v_1 = A_2 v_2$$
 
-Here $A$ is the cross-sectional area and $v$ is the flow speed. When the pipe narrows, the fluid speeds up. When the pipe widens, the fluid slows down.
+Here $A$ is the cross-sectional area, which is the area of the face you see when you cut the pipe straight across. For a round pipe this face is a circle, so $A = \pi r^2$, where $r$ is the radius. The letter $v$ is the flow speed.
+
+When the pipe narrows, the fluid speeds up. When the pipe widens, the fluid slows down.
+
+Because $A$ depends on the radius squared, a round pipe with half the diameter has one fourth of the area. The fluid then moves four times as fast, not two times.
 
 The equation assumes an incompressible fluid, so it is not accurate for a gas that is strongly compressed or expanded along the pipe.
 
@@ -109,7 +113,7 @@ $$P_2 = 2.51 \times 10^5 \text{ Pa}$$
 
 ## Speed Tricks & Shortcuts
 
-For Bernoulli questions, do not rely on "faster means lower pressure" alone. First check that both points are on the same streamline in ideal flow (steady, incompressible, nonviscous). Then check the heights. If the heights differ, keep the $\rho gh$ term.
+For Bernoulli questions, do not rely on "faster means lower pressure" alone. First check that both points are on the same streamline in ideal flow (steady, incompressible, nonviscous). Then check the heights, and keep the $\rho gh$ term if they differ.
 
 ## Traps to Watch For
 
