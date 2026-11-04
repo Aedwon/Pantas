@@ -249,3 +249,13 @@ The full log, with reasons, is in `final-run-rulings.md`. The rulings that bind 
 ## Update, November 4
 
 Aedwon chose IUPAC 2013 parent-chain naming. Basic organic chemistry was changed to teach it, with one sentence on the older school rule, and a verification read (round 4) found only Minors. It moves from open to minor, so the counts are now 7 clean, 42 minor and 20 open. It is 3,037 words, a borderline split candidate.
+
+## Update, November 4: splits
+
+Eight long lessons were split in two, as planned in split-plan.md. Text and questions moved word for word with ids unchanged. Each new lesson and each shortened original was then read up to 3 times (reads/split/), with Sonnet fixes between reads.
+
+- New lessons: 2 clean, 5 minor, 1 open (meiosis-and-genetic-variation).
+- Shortened originals: 7 minor, 1 open (cellular-metabolism).
+- Both open lessons have a one-sentence fix recorded in final-run-rulings.md.
+- final-run.json now lists 77 lessons: 9 clean, 50 minor, 18 open.
+- Still to run on Aedwon's Mac: the Dart import check and the export build. The split lessons have fewer than 20 questions each until P5.

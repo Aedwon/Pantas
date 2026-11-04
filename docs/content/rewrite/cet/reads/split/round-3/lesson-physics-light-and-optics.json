@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-physics-light-and-optics",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Refraction** is the bending of light, a change in its direction, as it passes from one medium into another.",
+      "problem": "Still open from split rounds 1 and 2. This paragraph has five sentences, over the one-to-three limit. The paragraph starting 'A wave has a **frequency** $f$' and the Speed Tricks paragraphs starting 'For refraction, compare $n_1$ and $n_2$.' and 'For total internal reflection, check two things in order.' have four each. Round-3 checks, not findings: Round-1 B01 is fixed: Example #4 now reads 'Light has a wavelength of $600$ nm in vacuum.' with no color claim. Round-1 L05 is fixed: the Example #1 marker no longer states the reflected angle. Round-2 B01 is fixed: the sentence now says 'A smooth flat surface, such as a plane mirror' and sends curved mirrors to the Mirrors and Lenses lesson. Round-2 L23 is fixed: the Example #1 FIGURE now uses the labels-and-angles path (3 labels, 2 angle strings, no incidentAngle), which fromSpec in concept_diagram_figure.dart accepts, so the app draws it. The four round-2 L05 Majors are fixed: the Example #2, #3, #5 and #7 markers now mark the unknown with a question mark and give no angle, bend direction, outcome, order or wavelength. No new error from the fixes. Renderer note for the final review, not a Major: _drawRayReflection never draws the angles list, so the Example #1 figure shows only the mirror, the normal, 'Incident ray', 'Reflected ray' and two equal unlabeled arcs. The 40 degrees and the question mark that its semanticsLabel describes do not appear on screen. The stem gives every given, and equal arcs are how any true reflection is drawn, so the student is not harmed. Split check: the lesson stands alone. Its three pointers name the Mirrors and Lenses lesson (outline position after this one), not a moved section, example, trap or figure; the bolded virtual image is not needed for any teaching here. Every formula an example uses is in Core Concept ($n=c/v$, Snell's law, $\\lambda=\\lambda_0/n$, $c=f\\lambda$, $\\sin\\theta_c=n_2/n_1$), and $v=f\\lambda$ and transverse waves are tied to the earlier waves and sound lesson. Title matches outline.json. Examples run 1 to 7 and traps 1 to 6. Solved independently: 40, 50 and 80 degrees; 19.5 degrees; 30.9 degrees; 2.00e8 m/s, 400 nm, 5.0e14 Hz; critical angle 41.8 degrees, so 45 degrees reflects totally; 3.00 m. General statements tested at boundaries (normal incidence, equal n, n1 less than n2, angle beyond the critical angle) hold in context. 2,260 words; check_cet_lesson.py passes against 828ac08a.",
+      "source": "Checklist L22a; LSG Formatting rules; split-plan.md step 1; lib/core/ui/figures/concept_diagram_figure.dart; reads/split/round-1 and round-2"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

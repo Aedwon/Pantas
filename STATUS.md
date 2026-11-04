@@ -265,3 +265,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - November 4: split dynamics (adds friction-tension-and-inclines). Questions moved with ids unchanged; totals unchanged.
 - November 4: split cellular-metabolism (adds cellular-respiration-and-fermentation). Questions moved with ids unchanged; totals unchanged.
 - November 4: split cellular-reproduction (adds meiosis-and-genetic-variation). Questions moved with ids unchanged; totals unchanged. All eight planned splits are done.
+- November 4: split reads finished. The 8 new lessons: 2 clean, 5 minor, 1 open (meiosis). The 8 shortened originals: 7 minor, 1 open (cellular metabolism). Each open lesson has a one-sentence fix recorded in final-run-rulings.md. final-run.json now lists 77 lessons: 9 clean, 50 minor, 18 open.
