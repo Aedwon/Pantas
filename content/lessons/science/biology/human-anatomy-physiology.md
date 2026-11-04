@@ -126,7 +126,7 @@ In a person after birth, which vessels carry oxygen-poor blood away from the hea
 1. Arteries carry blood away from the heart, and veins carry it toward the heart.
 2. The vessels going away from the heart with oxygen-poor blood are the pulmonary arteries, which lead to the lungs.
 3. The vessels coming toward the heart with oxygen-rich blood are the pulmonary veins, which come from the lungs.
-4. Before birth, the umbilical vein and arteries do not follow the lung pattern, so this answer is for after birth.
+4. Before birth, the lungs do not exchange gas, and the placenta does. The umbilical arteries carry oxygen-poor blood away from the fetus's heart to the placenta, and the umbilical vein carries oxygen-rich blood toward the heart, the same pattern with the placenta in place of the lungs.
 
 ### #5: Gas Exchange in the Alveoli
 
