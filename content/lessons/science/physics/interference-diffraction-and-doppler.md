@@ -35,7 +35,9 @@ The **Doppler effect** is a change in the frequency an observer receives because
 
 If the source and observer move toward each other, the observer hears a higher frequency. If they move apart, the observer hears a lower frequency.
 
-Here is why a moving source changes the pitch. Each crest, once sent out, travels away at the speed of sound in the air. The source then moves a little before it sends the next crest. In front of an approaching source, the crests are packed closer together, so the wavelength is shorter. Behind it, they are stretched, so the wavelength is longer.
+Here is why a moving source changes the pitch. Each crest, once sent out, travels away at the speed of sound in the air. The source then moves a little before it sends the next crest.
+
+In front of an approaching source, the crests are packed closer together, so the wavelength is shorter. Behind it, they are stretched, so the wavelength is longer.
 
 The speed of sound in air does not change. So a shorter wavelength means a higher frequency at the listener, and a longer wavelength means a lower one.
 
@@ -73,7 +75,7 @@ $$\lambda=\dfrac{343}{343}=1.00\text{ m}$$
 
 Sound of wavelength $1\text{ m}$ and light of wavelength $5\times10^{-7}\text{ m}$ both reach a doorway $1\text{ m}$ wide. Which wave spreads out more after the doorway?
 
-<!-- ILLUSTRATION: top view of a doorway 1 m wide in a wall; sound with wavelength 1 m spreading out in half circles beyond it, and light with wavelength 5 x 10^-7 m passing straight through as a narrow beam -->
+<!-- ILLUSTRATION: top view of a doorway 1 m wide in a wall, with a wave source on each side of the wall: one labeled "sound, wavelength 1 m" and one labeled "light, wavelength 5 x 10^-7 m". Draw only the wall, the doorway and the labels, with no wave pattern beyond the doorway -->
 
 **Solution:**
 

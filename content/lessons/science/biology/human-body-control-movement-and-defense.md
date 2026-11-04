@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-This lesson covers six systems and how all the systems work together: nervous, endocrine, skeletal, muscular, reproductive, and immune. It builds on "Human Anatomy and Physiology: Digestion, Breathing, Circulation and Excretion", which covers the levels of organization and the digestive, respiratory, circulatory, and urinary systems. Study that lesson first.
+This lesson covers six systems and how all the systems work together: nervous, endocrine, skeletal, muscular, reproductive, and immune. It builds on "Human Anatomy and Physiology: Digestion, Breathing, Circulation and Excretion", which covers the levels of organization and the digestive, respiratory, circulatory, and urinary systems. Study that lesson first. The reproductive section also uses chromosomes, which are taught in "Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis)"; study that lesson too.
 
 ### Nervous System
 
-The nervous system detects changes, processes the information, and sends signals that coordinate a response. Its signaling cells are **neurons**, which carry electrical signals. Support cells called glial cells protect and feed the neurons. At a junction between two neurons, called a **synapse**, a chemical messenger passes the signal across.
+The nervous system detects changes, processes the information, and sends signals that coordinate a response. Its signaling cells are **neurons**, which carry electrical signals. Support cells called glial cells protect and feed the neurons. At a junction between a neuron and its target cell, called a **synapse**, a chemical messenger usually passes the signal across. The target cell is often another neuron, and it can be a muscle or gland cell.
 
 The **central nervous system (CNS)** is the brain and spinal cord. The **peripheral nervous system (PNS)** is all the nerves outside them. **Sensory neurons** carry signals toward the CNS. **Motor neurons** carry signals away from it to muscles and glands.
 
@@ -81,7 +81,7 @@ After the first response, **memory cells** stay behind. On a later meeting with 
 
 ### How the Systems Work Together
 
-No system works alone. Every cell needs oxygen and nutrients and must lose wastes. The digestive system absorbs nutrients, the respiratory system takes in oxygen, and the circulatory system delivers both. The urinary and respiratory systems remove wastes. The nervous and endocrine systems adjust all of them.
+No system works alone. Most body cells need oxygen and nutrients and must lose wastes. The digestive system absorbs nutrients, the respiratory system takes in oxygen, and the circulatory system delivers both. The urinary and respiratory systems remove wastes. The nervous and endocrine systems adjust all of them.
 
 ## Examples
 
@@ -166,13 +166,13 @@ A student eats rice, then runs. Trace how glucose and oxygen reach the leg muscl
 
 ## Speed Tricks & Shortcuts
 
-For the pancreas, remember its two jobs. Its enzymes enter the small intestine. Insulin and glucagon enter the blood.
+Remember the pancreas by its two jobs. Its enzymes enter the small intestine. Insulin and glucagon enter the blood.
 
-For immunity, separate fast, general innate defenses from slower, antigen-specific adaptive responses with memory.
+With immunity, separate fast, general innate defenses from slower, antigen-specific adaptive responses with memory.
 
 For nerve pathways, name the parts in order: stimulus, receptor, sensory neuron, CNS, motor neuron, effector.
 
-For organ systems, do not assume an organ belongs to exactly one system. The pancreas, gonads, skin, and bones each serve more than one system.
+When sorting organ systems, do not assume an organ belongs to exactly one system. The pancreas, gonads, skin, and bones each serve more than one system.
 
 ## Traps to Watch For
 

@@ -37,7 +37,7 @@ For a glass or plastic lens in air, a convex lens is converging and a concave le
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"lens-comparison","illustrationKey":"science/physics/light-and-optics#2","convexBehavior":"parallel rays bend inward to one focus point","concaveBehavior":"parallel rays spread outward"} -->
 
-This rule depends on the lens having a larger $n$ than its surroundings. Here "denser" means optically denser (larger $n$), not heavier. A convex-shaped lens made of a material with a lower $n$ than the medium around it diverges light instead. An air bubble shaped like a convex lens inside water is one case.
+This rule depends on the lens having a larger $n$ than its surroundings. A convex-shaped lens made of a material with a lower $n$ than the medium around it diverges light instead. An air bubble shaped like a convex lens inside water is one case. Its $f$ is negative, because $f$ follows converging or diverging, not the shape.
 
 ### Finding the Image: Sign Convention and Equations
 
@@ -45,7 +45,7 @@ Let $d_o$ be the distance from the object to the mirror or lens. Let $d_i$ be th
 
 - $d_o$ is positive for a real object.
 - $d_i$ is positive for a **real** image and negative for a **virtual** image.
-- $f$ is positive for a concave mirror and a convex lens. $f$ is negative for a convex mirror and a concave lens.
+- $f$ is positive for a converging mirror or lens, and negative for a diverging one. A concave mirror and a glass convex lens in air are converging. A convex mirror and a glass concave lens in air are diverging.
 
 For a spherical mirror or a thin lens, with the usual close-to-axis rays:
 
@@ -67,7 +67,7 @@ The image sits where the rays meet. For a virtual image, extend the rays backwar
 
 ### How the Image Changes with the Object Position
 
-For a **concave mirror** or a **convex lens** (so $f>0$), the object position decides the image:
+For a converging **concave mirror** or a **convex lens** in air (so $f>0$), the object position decides the image:
 
 - Beyond $2f$ ($d_o>2f$): real, inverted, smaller. The image is between $f$ and $2f$.
 - At $2f$ ($d_o=2f$): real, inverted, same size, at $2f$.
@@ -75,7 +75,7 @@ For a **concave mirror** or a **convex lens** (so $f>0$), the object position de
 - At $f$ ($d_o=f$): no image forms. The reflected or refracted rays are parallel.
 - Inside $f$ ($d_o<f$): virtual, upright, larger.
 
-For a **convex mirror** or a **concave lens** ($f<0$) with a real object, the image is always virtual, upright and smaller. This is true at every object distance.
+For a diverging **convex mirror** or a **concave lens** in air ($f<0$) with a real object, the image is always virtual, upright and smaller. This is true at every object distance.
 
 <!-- ILLUSTRATION: ray diagram of a concave mirror, focal point F at 10 cm and center of curvature C at 20 cm on the principal axis, with an arrow object at 30 cm and its real inverted image at 15 cm, three principal rays drawn -->
 
@@ -177,6 +177,7 @@ $$\dfrac{1}{d_i}=\dfrac{1}{5}-\dfrac{1}{4}=-\dfrac{1}{20}$$
 $$m=-\dfrac{-20}{4}=+5$$
 
 The image is virtual, upright and five times larger, because the object is inside $f$.
+
 3. For part (b), use the lens equation:
 
 $$\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$$
@@ -207,7 +208,7 @@ Inside $f$, it is virtual, upright and larger. At $f$, no image forms. A convex 
 
 > A negative $d_i$ or $f$ is not an error. It carries meaning.
 
-Using $f=+12$ cm for a convex mirror changes the answer completely. With this lesson's convention, $f$ is negative for convex mirrors and concave lenses.
+Using $f=+12$ cm for a convex mirror changes the answer completely. With this lesson's convention, $f$ is negative for any diverging mirror or lens, such as a convex mirror or a glass concave lens in air.
 
 ### #3: Treating Lens Shape Alone as Universal
 

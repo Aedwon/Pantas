@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-Stars and galaxies are the largest objects in this topic. To name one, ask what it is made of and how big it is. This lesson sorts stars and galaxies by those clues. Planets, moons, asteroids, comets, and meteors are in the lesson Heavenly Bodies (Planets, Moons, Asteroids, Comets, Meteors), and the Solar System is explained there.
+This lesson sorts stars and galaxies. A star is a ball of hot gas that makes its own light, and a galaxy is a huge group of stars. Planets, moons, asteroids, comets, and meteors are in the lesson Heavenly Bodies (Planets, Moons, Asteroids, Comets, Meteors), where the Solar System is explained.
 
 Two words come up again and again. **Gravity** is the pull that masses have on each other. An **orbit** is the curved path an object follows around another object because of gravity.
 

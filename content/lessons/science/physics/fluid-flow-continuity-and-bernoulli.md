@@ -19,17 +19,25 @@ The **volume flow rate** is the volume of fluid passing a point each second. For
 
 $$A_1 v_1 = A_2 v_2$$
 
-Here $A$ is the cross-sectional area and $v$ is the flow speed. When the pipe narrows, the fluid speeds up. When the pipe widens, the fluid slows down. The equation assumes an incompressible fluid, so it is not accurate for a gas that is strongly compressed or expanded along the pipe.
+Here $A$ is the cross-sectional area and $v$ is the flow speed. When the pipe narrows, the fluid speeds up. When the pipe widens, the fluid slows down.
+
+The equation assumes an incompressible fluid, so it is not accurate for a gas that is strongly compressed or expanded along the pipe.
 
 ### Bernoulli's Equation
 
-Some terms first. A **streamline** is the path a small bit of fluid follows. A flow is **steady** when the speed and pressure at each point do not change with time. A flow is **nonviscous** when the fluid has no internal friction. **Viscosity** is that internal friction, like the thickness of honey. The **static pressure** is the pressure the fluid itself exerts, the $P$ in the equation.
+Some terms first. A **streamline** is the path a small bit of fluid follows. A flow is **steady** when the speed and pressure at each point do not change with time.
+
+A flow is **nonviscous** when the fluid has no internal friction. **Viscosity** is that internal friction, like the thickness of honey. The **static pressure** is the pressure the fluid itself exerts, the $P$ in the equation.
+
+A flow is called **ideal** when it is steady, incompressible and nonviscous. If a question says "ideal flow" or "ideal fluid", use continuity and Bernoulli's equation, and apply Bernoulli's equation along one streamline.
 
 For steady, incompressible, nonviscous flow along a streamline, **Bernoulli's equation** links pressure, speed, and height:
 
 $$P + \dfrac{1}{2}\rho v^2 + \rho gh = \text{constant}$$
 
-Here $h$ is the height of the point above any chosen reference level. The equation is an energy balance for the fluid. The term $\dfrac{1}{2}\rho v^2$ is the kinetic energy in each unit of volume. The term $\rho gh$ is the gravitational potential energy in each unit of volume.
+Here $h$ is the height of the point above any chosen reference level. The equation is an energy balance for the fluid.
+
+The term $\dfrac{1}{2}\rho v^2$ is the kinetic energy in each unit of volume. The term $\rho gh$ is the gravitational potential energy in each unit of volume.
 
 To compare two points on the same streamline, write:
 
@@ -65,15 +73,19 @@ $$P_1 + \dfrac{1}{2}\rho v_1^2 = P_2 + \dfrac{1}{2}\rho v_2^2$$
 
 3. Solve for $P_2$:
 
-$$P_2 = P_1 + \dfrac{1}{2}\rho (v_1^2 - v_2^2) = 2.00 \times 10^5 + \dfrac{1}{2}(1000)(4.0 - 64)$$
+$$P_2 = P_1 + \dfrac{1}{2}\rho (v_1^2 - v_2^2)$$
 
-$$P_2 = 2.00 \times 10^5 - 3.0 \times 10^4 = 1.70 \times 10^5 \text{ Pa}$$
+$$P_2 = 2.00 \times 10^5 + \dfrac{1}{2}(1000)(4.0 - 64)$$
+
+$$P_2 = 2.00 \times 10^5 - 3.0 \times 10^4$$
+
+$$P_2 = 1.70 \times 10^5 \text{ Pa}$$
 
 4. The water in the narrow section moves at $8.0 \text{ m/s}$ and has the lower pressure, $1.70 \times 10^5 \text{ Pa}$.
 
 ### #2: Bernoulli When the Height Changes
 
-Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow. Find the pressure at point $2$.
+Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow (steady, incompressible and nonviscous). Find the pressure at point $2$.
 
 **Solution:**
 
@@ -85,15 +97,19 @@ $$P_1 + \rho g h_1 = P_2 + \rho g h_2$$
 
 3. Solve for $P_2$ with $h_2 - h_1 = 5.0 \text{ m}$:
 
-$$P_2 = P_1 - \rho g (h_2 - h_1) = 3.00 \times 10^5 - (1000)(9.8)(5.0)$$
+$$P_2 = P_1 - \rho g (h_2 - h_1)$$
 
-$$P_2 = 3.00 \times 10^5 - 0.49 \times 10^5 = 2.51 \times 10^5 \text{ Pa}$$
+$$P_2 = 3.00 \times 10^5 - (1000)(9.8)(5.0)$$
+
+$$P_2 = 3.00 \times 10^5 - 0.49 \times 10^5$$
+
+$$P_2 = 2.51 \times 10^5 \text{ Pa}$$
 
 4. The pressure at point $2$ is $2.51 \times 10^5 \text{ Pa}$. The speed did not change here, yet the pressure fell because the water is higher.
 
 ## Speed Tricks & Shortcuts
 
-For Bernoulli questions, do not rely on "faster means lower pressure" alone. First check that both points are on the same streamline in steady, ideal flow. Then check the heights. If the heights differ, keep the $\rho gh$ term.
+For Bernoulli questions, do not rely on "faster means lower pressure" alone. First check that both points are on the same streamline in ideal flow (steady, incompressible, nonviscous). Then check the heights. If the heights differ, keep the $\rho gh$ term.
 
 ## Traps to Watch For
 

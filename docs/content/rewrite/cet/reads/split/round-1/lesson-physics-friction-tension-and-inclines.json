@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-physics-friction-tension-and-inclines",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "connected objects have accelerations of the same size while the rope stays tight",
+      "problem": "The general claim fails for a known exception, a movable pulley. The same paragraph says 'Any pulley is ideal too' and gives a tight rope as the only condition. With one end of an ideal rope fixed, the rope looped under a movable pulley, and a block hung from that pulley, the rope length 2y_pulley + y_end stays constant, so the block's acceleration is half the free end's. A student who applies this sentence sets the two accelerations equal and gets a wrong answer. The rule holds for objects tied to the rope's ends with only fixed pulleys between them, and that condition is not stated. This is the parent's round-3 Blocker, upheld by the lead in final-run-rulings.md, still open after the word-for-word move.",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit'; final-run-rulings.md, lesson-physics-dynamics round-3 B01 upheld; rope-length constraint L = 2y_pulley + y_end gives a_pulley = -a_end/2"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Only forces from outside the group count, because the rope forces inside cancel.",
+      "problem": "The whole-group shortcut gives no limit, and the Core Concept just above introduces ropes over a pulley, where one object moves up while the other moves down. Over a pulley the rope forces on the two blocks do not cancel as vectors: in an Atwood machine with 3 kg and 2 kg blocks, both rope forces point up. Read as written ('blocks joined by a tight, ideal rope move together'), the outside forces are the two weights, 49 N down on 5 kg, which gives a = 9.8 m/s^2 instead of the correct 1.96 m/s^2. The shortcut holds when the blocks move along one line in the same direction, as in Example #3 ('here they point the same way'), or when forces are counted along the rope's path. Neither condition is stated, and the lesson has no worked pulley example, so the shortcut is the student's only method for a pulley problem.",
+      "source": "Checklist L27; writer-rules.md, rules added after round 1, rule 4 (word every shortcut with its limit); OpenStax University Physics Vol. 1, 6.1 Example 6.5 (Atwood machine)"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "N+20-98=0\\Rightarrow N=78\\,\\mathrm N.",
+      "problem": "Example #6 uses the weight 98 N without showing mg = 10 x 9.8 = 98 N. Every other example computes the weight as its own step. Before the split, the parent's Example #4 had worked out 98 N for a 10 kg box; that example stayed in the parent, so this lesson now never shows where 98 comes from. The value is easy to recover, so this is a missing display computation, not a skipped reasoning step. Same as the parent's round-3 Minor.",
+      "source": "Checklist L19; LSG Examples section; round-3 read of lesson-physics-dynamics, L19"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A heavy rope or a rough pulley breaks this rule.",
+      "problem": "The ideal-rope paragraph has five sentences; the limit is one to three short sentences. The static-friction paragraph that starts 'Suppose the only other force along the surface is a horizontal push' has four. Same as the parent's round-3 Minor, still open after the move.",
+      "source": "Checklist L22a; LSG Formatting rules; round-3 read of lesson-physics-dynamics, L22a"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
