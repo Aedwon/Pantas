@@ -80,6 +80,7 @@ dependencies:
   cryptography: 2.9.0
   flutter_svg: ^2.3.0
 dev_dependencies:
+  fake_async: any
   flutter_test:
     sdk: flutter
   integration_test:

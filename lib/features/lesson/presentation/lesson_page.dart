@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
@@ -338,6 +339,11 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       _lessonId = next.lesson.id;
       _ending = null;
     });
+    // A reload stays on the lesson on screen.
+    replaceWebAddress(
+      context,
+      Uri.base.replace(path: '/lesson/${Uri.encodeComponent(next.lesson.id)}'),
+    );
     return true;
   }
 

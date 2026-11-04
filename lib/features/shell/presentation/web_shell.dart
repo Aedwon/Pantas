@@ -71,6 +71,7 @@ class WebShellFrame extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.keyK, control: true): onSearch,
+        const SingleActivator(LogicalKeyboardKey.keyK, meta: true): onSearch,
       },
       child: Focus(
         autofocus: true,

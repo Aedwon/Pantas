@@ -38,6 +38,8 @@ class WebRouteShell extends ConsumerWidget {
         bindings: {
           const SingleActivator(LogicalKeyboardKey.keyK, control: true): () =>
               showWebLessonSearch(context),
+          const SingleActivator(LogicalKeyboardKey.keyK, meta: true): () =>
+              showWebLessonSearch(context),
         },
         child: child,
       );

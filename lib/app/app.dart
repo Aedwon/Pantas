@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/no_scroll_bars.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
+import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
@@ -14,6 +16,19 @@ import 'package:pantas/features/notifications/presentation/notification_tap_rout
 import 'package:pantas/features/settings/presentation/widgets/sync_reconciliation_gate.dart';
 import 'package:pantas/features/settings/settings.dart';
 import 'package:pantas/l10n/app_localizations.dart';
+
+/// The router, with its addresses kept in step with the browser's history.
+final _webRouterConfigProvider = Provider<RouterConfig<Object>>((ref) {
+  final router = ref.watch(routerProvider);
+  final address = WebAddressProvider(router.routeInformationProvider);
+  ref.onDispose(address.dispose);
+  return RouterConfig<Object>(
+    routeInformationProvider: address,
+    routeInformationParser: router.routeInformationParser,
+    routerDelegate: router.routerDelegate,
+    backButtonDispatcher: router.backButtonDispatcher,
+  );
+});
 
 class App extends ConsumerWidget {
   const App({required this.flavor, super.key});
@@ -44,7 +59,7 @@ class App extends ConsumerWidget {
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
       scrollBehavior: const NoScrollBarsBehavior(),
-      routerConfig: router,
+      routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
       builder: (context, child) => WebLayoutTheme(
         child: AppErrorRecovery(
           child: SyncReconciliationGate(

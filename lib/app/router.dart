@@ -41,6 +41,9 @@ final routerProvider = Provider<GoRouter>((ref) {
     entitlementProvider,
     guardianGateProvider,
   ]);
+  // Every page's address shows, so a reload stays on it. The address of a page
+  // that needs in-memory arguments is handled by `startLocationFor`.
+  GoRouter.optionURLReflectsImperativeAPIs = kIsWeb;
   final router = GoRouter(
     initialLocation: takeInitialRouterLocation(),
     refreshListenable: refreshListenable,
