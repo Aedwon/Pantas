@@ -271,3 +271,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - November 5: all 18 open lessons fixed after their last read (Sonnet; lead reviewed each diff). All pass check_cet_lesson.py. Sol round-4 reads wait for the Codex reset at 01:49.
 - November 5: Aedwon chose no Codex. Round 4 is one fresh Opus read per lesson, one at a time; no round 5 (sol-pass.md).
 - November 5: round-4 Opus reads done for all 18. All stay open (17 had their round-3 findings fixed; new Blockers and Majors found). Counts unchanged: 9 clean, 50 minor, 18 open. Details in final-run-report.md and final-run-rulings.md.
+- November 5: rework and round-5 reads done for all 18. Closed 6 (2 clean, 4 minor); 12 stay open. Counts: 11 clean, 54 minor, 12 open. Next: exam tags (P4).

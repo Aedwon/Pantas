@@ -275,3 +275,17 @@ Pattern: each read of these lessons finds one or two new problems, and fixes mad
 - Have one careful writer rework each open lesson's general statements in a single pass, checking every "only", "always", "never" and every term against a source, then read once.
 - Leave them for the Astra audit, which covers every Blocker fix anyway.
 - Leave them open for Aedwon's final review.
+
+## Update, November 5: rework and round 5
+
+Aedwon chose the recommended option: one careful rework per open lesson (Sonnet sweeps every general statement, term and question figure marker), then one fresh Opus read. One lesson at a time.
+
+- Closed: 6 of 18. Clean: parallel-perpendicular-lines, measures-of-variability. Minor: electricity-and-magnetism, cellular-metabolism, quadrilaterals-and-polygons, speeches.
+- Still open: 12. Chemical-bonding, work-energy-power, triangles, pulleys-and-levers, meiosis, characteristics-of-life, evolution, chemical-reactions, history-of-the-atom, earths-motions, functions-and-relations, structural-stability. Their round-5 findings are in `reads/round-5/` (meiosis: `reads/split/round-5/`) and summarized in the rulings file.
+- Every rework fixed its round-4 Blockers and Majors. The new findings are mostly narrow exceptions to general statements, and in about half the open lessons the rework's own new wording caused one.
+- Three round-5 findings were downgraded (cellular-metabolism photosynthesis definition, quadrilaterals figure drawing, evolution acquired traits); see the rulings file.
+- Counts now: 77 lessons, 11 clean, 54 minor, 12 open.
+- New split candidates by length: electricity-and-magnetism (3,002 words), chemical-reactions (3,284), structural-stability (3,126). None split.
+- A 5-hour usage limit stopped one rework at 06:30; it resumed after the reset with no lost work.
+
+No more read rounds are planned. The 12 open lessons go to the Astra audit and Aedwon's final review with their round-5 findings.

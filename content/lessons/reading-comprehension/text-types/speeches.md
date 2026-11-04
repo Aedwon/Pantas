@@ -9,15 +9,21 @@ isActive: true
 ---
 ## Core Concept
 
-A **speech** is spoken language addressed to an audience. A **scripted** speech is written out in advance and read or recited. An **extemporaneous** speech is spoken from notes or from memory, and the exact words are chosen in the moment. Many speeches fall between the two.
+A **speech** is spoken language addressed to an audience. A **scripted** speech is written out in advance and read or recited.
 
-In this lesson you read printed excerpts. You judge the words only. Tone of voice, pace, and gestures add meaning when a speech is heard, but a printed excerpt cannot show them. This lesson teaches how to read speeches, not how to write or deliver one.
+An **extemporaneous** speech is spoken from notes or from memory, and the exact words are chosen in the moment. Many speeches fall between the two.
+
+In this lesson you read printed excerpts. You judge the words only. Tone of voice, pace, and gestures add meaning when a speech is heard, but a printed excerpt cannot show them.
+
+This lesson teaches how to read speeches, not how to write or deliver one.
 
 ### Audience, Context, and Purpose
 
 The **audience** is the people the speaker addresses. The **context** is the occasion, place, and time of the speech. The **purpose** is what the speaker wants to achieve.
 
-Common purposes are to inform, to persuade, to inspire, to commemorate (honor a person or an event), and to entertain. A speech can combine purposes. To find the main purpose, ask what the speaker most wants the audience to think, feel, or do by the end. The other purposes then support it.
+Common purposes are to inform, to persuade, to inspire, to commemorate (honor a person or an event), and to entertain. A speech can combine purposes.
+
+To find the main purpose, ask what the speaker most wants the audience to think, feel, or do by the end. The other purposes then support it.
 
 ### Speech Context Types
 
@@ -35,18 +41,22 @@ Some speeches fit two types. A public speech that is also broadcast reaches both
 **Style** is the manner of the speaker's words. There are five styles.
 
 - **Intimate:** private talk between very close people. Cue: pet names, unfinished sentences, and shared references an outsider would not follow.
-- **Casual:** relaxed talk among friends or peers. Cue: contractions, everyday words, slang, jokes, and direct talk to "you".
+- **Casual:** relaxed talk among friends or people of the same age. Cue: contractions (short forms such as "can't"), everyday words, slang, jokes, and direct talk to "you".
 - **Consultative:** polite talk with someone you do not know well, often to ask or give information. Cue: "Excuse me", "please", and pauses for the other person to reply.
-- **Formal:** planned talk to a group. Cue: full sentences, careful word choice, titles of address, and no slang.
+- **Formal:** planned talk to a group. Cue: full sentences, careful word choice, titles of address (such as "Honorable members"), and little or no slang.
 - **Frozen:** words that stay the same each time they are used, such as a pledge, a prayer, or an anthem. Cue: wording the audience may know by heart.
 
-Style is a clue to the context, not proof of it. A speaker may use a casual style at a formal event to seem friendly. One speech can also mix styles, so name the style that fits most of the excerpt. A style that does not suit the audience can cause misunderstanding.
+Style is a clue to the context, not proof of it. A speaker may use a casual style at a formal event to seem friendly.
+
+One speech can also mix styles, so name the style that fits most of the excerpt. A style that does not suit the audience can cause misunderstanding.
 
 ### Speech Acts
 
 A **speech act** is the action a speaker performs by speaking, such as promising, warning, requesting, thanking, apologizing, announcing, or congratulating. The form of a sentence does not always show its act. "Could you please sit down?" has the form of a question but acts as a request.
 
-The same sentence can perform different acts in different contexts. "I will be there" is a promise if the speaker commits to come. It is only a prediction if the speaker is guessing. Use the context to decide.
+The same sentence can perform different acts in different contexts. "I will be there" is a promise if the speaker commits to come.
+
+It is only a prediction if the speaker is guessing. Use the context to decide.
 
 ### Ethos, Pathos, and Logos
 
@@ -56,7 +66,9 @@ Persuasive speeches often use three appeals from classical rhetoric (the art of 
 - **Pathos:** how the speech engages emotions, values, hopes, fears, or sympathies.
 - **Logos:** how the speech gives reasons, evidence, examples, causes, comparisons, or other arguments.
 
-These appeals can overlap. A statistic supports logos, but who presents it also affects ethos. An example can have both logical and emotional force. Name the main function of the passage, and say when it serves more than one.
+These appeals can overlap. A statistic (a number that sums up many cases) supports logos, but who presents it also affects ethos.
+
+An example can have both logical and emotional force. Name the main function of the passage, and say when it serves more than one.
 
 ### Judging Evidence
 
@@ -66,7 +78,7 @@ A **claim** is a statement the speaker wants the audience to accept. **Evidence*
 - **Method:** how was it gathered, from how many cases, and compared with what?
 - **Relevance:** does it bear on this exact claim?
 
-Which appeal a passage uses is a separate question from how strong the appeal is. A statistic or an argument offered to support a claim is a logos appeal, whether or not it is sound. The three checks judge its strength, not its type.
+Which appeal a passage uses is a separate question from how strong the appeal is. A statistic or an argument that gives a reason for a claim is a logos appeal, whether or not it is sound. A number about the speaker, such as years of service, supports ethos instead. The three checks judge its strength, not its type.
 
 A number alone is not strong reasoning. A trusted source does not make irrelevant evidence relevant. A single personal story can be relevant as an example, but it cannot show a general trend.
 
@@ -79,7 +91,7 @@ A tribute that honors a person is a different case. Strong emotion is expected, 
 ### Rhetorical Devices
 
 - **Repetition:** the same word or phrase recurring for emphasis or structure.
-- **Parallelism:** repeated grammatical patterns that create clarity, rhythm, or emphasis. The words can differ while the pattern stays the same.
+- **Parallelism:** repeated grammatical patterns (the same sentence shape) that create clarity, rhythm, or emphasis. The words can differ while the pattern stays the same.
 - **Rhetorical question:** a question used mainly to make a point or prompt thought, not to get a literal answer. If the speaker really wants an answer, such as "Does anyone have a question?", it is an ordinary question.
 
 One passage can use more than one device at once.
@@ -88,7 +100,9 @@ One passage can use more than one device at once.
 
 A **communication breakdown** happens when the audience does not receive the meaning the speaker intended. Common causes are poor sound, unfamiliar words, long or unclear sentences, a fast pace, and different background knowledge.
 
-A **repair strategy** is a step that fixes the breakdown. A speaker can rephrase in simpler words, give an example, slow down, or check understanding. A listener can ask for a repeat or restate the message in their own words. A good repair matches the cause: speaking louder does not explain an unfamiliar word.
+A **repair strategy** is a step that fixes the breakdown. A speaker can rephrase in simpler words, give an example, slow down, or check understanding.
+
+A listener can ask for a repeat or restate the message in their own words. A good repair matches the cause: speaking louder does not explain an unfamiliar word.
 
 <!-- FIGURE: {"kind":"reading-diagram","type":"rhetorical-appeals","illustrationKey":"reading-comprehension/text-types/speeches#1","source":"podium","target":"audience","appeals":[{"label":"ethos","meaning":"credibility"},{"label":"pathos","meaning":"emotion"},{"label":"logos","meaning":"logic"}]} -->
 
@@ -104,7 +118,7 @@ Read the excerpt and name the audience and the main purpose.
 
 1. The speaker says "parents of Grade $3$ pupils", so the audience is parents of pupils in that grade.
 2. The excerpt gives a time and a place, so it informs.
-3. It also says "Please bring" and gives a reason to act, so it wants parents to bring their children.
+3. It also says "Please bring" and gives a reason to act, so it wants parents to act.
 
 The main purpose is to persuade parents to act. The facts about time and place support that purpose.
 
@@ -191,7 +205,10 @@ The speaker intends to build common ground with the audience. At the end of the 
 
 Name the devices.
 
-**Solution:** The phrase "We will rebuild" recurs, which is **repetition**. The three sentences also share one pattern, so they form **parallelism** too. One passage can use two devices.
+**Solution:** 1. The phrase "We will rebuild" recurs at the start of each sentence, so it is **repetition**.
+2. The three sentences also share one pattern: "We will rebuild" and then a noun. So they form **parallelism** too.
+
+One passage can use two devices.
 
 ### #10: Parallelism with Different Words
 
@@ -270,11 +287,13 @@ The excerpt shows no mixing of styles, so one style fits all of it.
 
 ## Speed Tricks & Shortcuts
 
-**Start with audience, context, and purpose.** Ask what the speaker wants this audience to understand, believe, feel, or do. If the purposes are mixed, pick the one the speaker most wants by the end of the speech. A closing thanks or request may not be the main purpose, so do not choose by the last line alone.
+**Start with audience, context, and purpose.** Ask what the speaker wants this audience to understand, believe, feel, or do. If the purposes are mixed, pick the one the speaker most wants by the end of the speech.
+
+A closing thanks or request may not be the main purpose, so do not choose by the last line alone.
 
 **Treat ethos, pathos, and logos as overlapping lenses.** Name the main function of the passage, then check whether a second appeal also applies.
 
-**Judge evidence by source, method, and relevance.** A number can still fail one of the three checks. The checks rate strength and do not change the appeal.
+**Judge evidence by source, method, and relevance.** A number can still fail one of the three checks, so a number is not proof by itself. The checks rate strength and do not change the appeal.
 
 **Read the act, not only the sentence form.** Ask what the speaker is doing: asking, requesting, promising, or warning.
 
@@ -284,9 +303,9 @@ The excerpt shows no mixing of styles, so one style fits all of it.
 
 ### #1: "Any Number Means Strong Logos"
 
-> A number offered as support is logos, but it does not make the argument sound.
+> A number that gives a reason for a claim is logos, but it does not make the argument sound.
 
-An unsupported or irrelevant statistic is still a logos appeal, only a weak one. Check its source, method, and relevance to judge how strong it is.
+An unsupported or irrelevant statistic is still a logos appeal, only a weak one. Check its source, method, and relevance to judge how strong it is. A number about the speaker's own record, such as years of service, builds ethos instead.
 
 ### #2: Treating Ethos, Pathos, and Logos as Separate Boxes
 
@@ -298,7 +317,7 @@ Choose the dominant function of the passage when the question asks for one. Do n
 
 > Emotional appeal is normal, and a tribute depends on it.
 
-Emotion is fair when it fits true facts. It becomes manipulation when it replaces evidence a claim needs, or exaggerates.
+Emotion is fair when it fits true facts and the speech gives the reasons the claim needs. It becomes manipulation when it replaces evidence a claim needs, or exaggerates.
 
 ### #4: "Every Speech Is a Written Persuasive Text"
 
@@ -310,10 +329,10 @@ They can inform, commemorate, entertain, or inspire. Check the purpose before yo
 
 > A question in a speech may ask for a real answer.
 
-A question is rhetorical only when it is used to make a point. Check whether the speaker waits for a reply.
+A question is rhetorical only when it is used to make a point. Check whether the speaker expects a spoken answer.
 
 ### #6: "Louder or Faster Repairs Any Breakdown"
 
 > A repair that ignores the cause does not fix the breakdown.
 
-Repeating the same words does not help when the audience does not know a word. Rephrase or explain instead.
+Repeating the same words does not help when the cause is an unfamiliar word. Rephrase or explain instead.

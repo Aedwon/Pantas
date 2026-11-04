@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-text-types-speeches",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Which appeal a passage uses is a separate question from how strong the appeal is.",
+      "problem": "This Judging Evidence paragraph now has four sentences, over the one-to-three limit. The round-4 fix added the sentence 'A number about the speaker, such as years of service, supports ethos instead.' to a paragraph that already had three. The round-4 L22a paragraphs are now split and fixed.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "**Solution:** 1. The phrase \"We will rebuild\" recurs at the start of each sentence, so it is **repetition**.",
+      "problem": "Still open from rounds 1 to 4 in a new form. Step 1 sits on the same line as the Solution label, and step 2 follows on the next line with no blank line. In CommonMark an ordered list that interrupts a paragraph must start at 1, so the '2.' line is read as paragraph text and both steps render as one paragraph, not a numbered list. Every other multi-step solution puts the label on its own line. No step is skipped, so this is Minor.",
+      "source": "Checklist L19; LSG Examples section ('**Solution:** on its own line, then numbered steps'); CommonMark spec, list items"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
