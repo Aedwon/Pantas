@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-biology-meiosis-and-genetic-variation",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "A homozygous gene adds no choice, so $AaBB$ gives $2$ combinations, not $4$.",
+      "problem": "New in the round-2 fix, which renamed 'types' to 'combinations' everywhere. Core Concept defines the word one way: 'A **combination** is the set of chromosomes that one gamete gets.' and 'For $n$ pairs, a gamete can get $2^n$ different combinations.' By that definition $AaBB$, with its genes on $2$ chromosome pairs, gives $2^2 = 4$ combinations, because the two $B$ chromosomes still come from different parents. The Speed Tricks then say the same word gives $2$, 'not $4$', and reuse $n$ for the number of heterozygous genes, while the lesson elsewhere uses $n$ for the haploid number ('For humans, $n = 23$'). So one word and one symbol stand for two different counts: whole-chromosome sets and allele types. The lesson never says these are two counts or when they differ. A student asked how many kinds of gametes $AaBB$ makes can apply the Core Concept rule and answer $4$, and the two places in the lesson contradict each other on the answer. This is the same kind of defect as the round-2 L26 finding (one word for an arrangement and a combination), moved to a new pair of meanings. Example #6 is not affected, since for $AaBb$ on two pairs both counts are $4$.",
+      "source": "Content checklist L26; the lesson's own Core Concept definition and $2^n$ rule against its Speed Tricks. OpenStax Biology 2e, 11.1 and 12.3 (independent assortment: $2^n$ chromosome combinations for $n$ pairs; gamete genotypes depend on heterozygous genes). Reader rules, Added after the Sol audit (test each stated rule against a boundary case)."
+    }
+  ],
+  "goodQuotesChecked": 1
+}
