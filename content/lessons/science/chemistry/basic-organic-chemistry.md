@@ -59,7 +59,9 @@ Names treat groups in different ways. Some groups set a name ending, called a **
 
 When a compound has more than one group, only the main one sets the suffix. The others are named as prefixes, such as hydroxy- for $-OH$ and amino- for $-NH_2$.
 
-An aldehyde and a ketone with the same atoms are different compounds. $C_3H_6O$ can be propanal, $CH_3CH_2CHO$, with the $C=O$ at the chain end. It can also be propanone, $CH_3COCH_3$, with the $C=O$ in the middle. Compounds with the same formula and a different arrangement are called **isomers**.
+An aldehyde and a ketone with the same atoms are different compounds. $C_3H_6O$ can be propanal, $CH_3CH_2CHO$, with the $C=O$ at the chain end. It can also be propanone, $CH_3COCH_3$, with the $C=O$ in the middle.
+
+Compounds with the same formula and a different arrangement are called **isomers**.
 
 ### How Groups Change Properties
 
@@ -86,19 +88,25 @@ Functional groups are strong predictors of behavior. Chain length, branching and
 
 The carbon roots are:
 
-$$1=\text{meth-},\ 2=\text{eth-},\ 3=\text{prop-},\ 4=\text{but-},\ 5=\text{pent-},\ 6=\text{hex-},\ 7=\text{hept-},\ 8=\text{oct-},\ 9=\text{non-},\ 10=\text{dec-}$$
+$$1=\text{meth-},\ 2=\text{eth-},\ 3=\text{prop-},\ 4=\text{but-},\ 5=\text{pent-}$$
+
+$$6=\text{hex-},\ 7=\text{hept-},\ 8=\text{oct-},\ 9=\text{non-},\ 10=\text{dec-}$$
 
 The endings are **-ane**, **-ene** and **-yne** for single, double and triple carbon-carbon bonds. A carbon branch has the root name with **-yl**: methyl is $-CH_3$, ethyl is $-C_2H_5$.
 
 For a simple branched alkane, follow these steps:
 
-1. Find the longest continuous carbon chain. This is the parent. If two chains tie, choose the one with more branches.
+1. Find the longest continuous carbon chain. This is the parent. If two chains tie in length, choose the one with more double or triple bonds. If they still tie, choose the one with more branches.
 2. Number the chain from the end that gives the first branch the lowest number. If that ties, compare the whole set of numbers and choose the lower one.
 3. Name each branch and give its number. Use **di-**, **tri-** for repeats, with a number for each one. List different branches in alphabetical order.
 
 The name is written as locants, then branches, then the parent: $2$-methylbutane.
 
-When a compound has a double bond, a triple bond or a main functional group, the parent must contain it. Halogen groups are the exception: they are only prefixes, so the parent need not contain them. Number the chain from the end that gives the group or bond the lowest number. The longest chain is not always the parent. For example, the group $-OH$ makes an alcohol, and the parent must contain the carbon that holds it.
+When a compound has a main functional group, the parent must contain the carbon that holds it. For example, the group $-OH$ makes an alcohol, so the parent must contain the carbon with the $-OH$, even if a longer chain leaves it out. Halogen groups are the exception: they are only prefixes, so the parent need not contain them.
+
+Number the chain from the end that gives the group or bond the lowest number.
+
+Older school books choose the chain that contains the double or triple bond. This lesson follows IUPAC 2013, which chooses the longest chain first.
 
 <!-- ILLUSTRATION: the carbon skeleton of CH3-CH(CH3)-CH2-CH3 with the four-carbon chain highlighted, numbered 1 to 4 from the left, and the methyl branch on carbon 2 labeled -->
 
@@ -269,7 +277,9 @@ The name is $2$-ethylpentan-$1$-ol.
 
 ## Speed Tricks & Shortcuts
 
-For a hydrocarbon family, look for $C=C$ or $C\equiv C$ in the structure. If you see neither, it is saturated. This shortcut covers alkanes, alkenes and alkynes only. Benzene is a separate case.
+For a hydrocarbon family, look for $C=C$ or $C\equiv C$ in the structure. If you see neither, it is saturated.
+
+This shortcut covers alkanes, alkenes and alkynes only. Benzene is a separate case.
 
 For a formula, test $C_nH_{2n+2}$ first. A match for an acyclic hydrocarbon means an alkane. Two hydrogens fewer means one double bond or one ring.
 
@@ -301,9 +311,9 @@ All amines have nitrogen bonded to carbon groups, as in ammonia with some hydrog
 
 ### #4: Using the Longest Chain Every Time
 
-> Longest chain is the rule for simple alkanes. It does not decide the parent when a main group is present.
+> The longest chain is the parent, unless a main functional group is present.
 
-If a double bond, triple bond or functional group is present, the parent must contain it. A longer chain that leaves it out is the wrong parent. A halogen is the exception: it is only a prefix.
+If a main functional group such as $-OH$ is present, the parent must contain the carbon that holds it. A longer chain that leaves it out is the wrong parent. A halogen is the exception: it is only a prefix.
 
 ### #5: Numbering from the Wrong End
 
