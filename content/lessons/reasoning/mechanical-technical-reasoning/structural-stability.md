@@ -1,92 +1,235 @@
 ---
 _id: "lesson-mechanical-technical-reasoning-structural-stability"
 title: "Structural Stability and Center of Gravity"
-summary: "Learn the static center-of-gravity projection test for tipping and how base width, center height, and external forces affect stability."
+summary: "Learn to find the center of gravity and base of support, test when an object tips, and see why a turning vehicle needs a different explanation."
 subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
-estimatedMinutes: 9
+estimatedMinutes: 14
 isActive: true
 ---
 ## Core Concept
 
-An object's **center of gravity** is the point through which the resultant gravitational force can be treated as acting. In an approximately uniform gravitational field, it is closely related to the center of mass. For a uniform symmetric object it may lie at the geometric center, but for irregular or nonuniform objects it can lie elsewhere—and can even lie outside the object's material.
+The **center of gravity** of an object is the point where its whole weight can be treated as acting. Near Earth's surface, gravity is almost the same over the whole object. So this point is also the **center of mass**, the balance point of the object's mass.
 
-An object's **base of support** is the region bounded by its supporting contact points with the ground or another surface.
+For a uniform object with a center point, such as a rectangle, a circle, a box or a rod, the center of gravity is at that center. A flat triangle plate has it one-third of the way up from the base. In an irregular or uneven object it lies elsewhere. It can even lie in empty space, like the middle of a ring.
 
+The **base of support** is the region on the ground, or another surface, that is enclosed by the outer points where the object touches it. The region includes the empty space between those points. A table with four legs has a base shaped like the rectangle drawn through its four feet.
+
+### Combining Parts
+
+An object made of several parts has one center of gravity for the whole. Each part has its own mass $m$ in kilograms and its own position $x$ in meters. Measure every position from the same zero point, along the same line.
+
+For two parts, the combined position is:
+
+$$x_{cg} = \dfrac{m_1x_1 + m_2x_2}{m_1 + m_2}$$
+
+For three parts, add the third part's term to the top and its mass to the bottom. The result always lies between the parts' own positions and sits closer to the heavier part. If the two masses are equal, it is the midpoint. The same formula works for heights if you measure each $x$ upward from the floor.
 
 <!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3, "tilt": 18}], "semanticsLabel": "A short wide object and a tall narrow object with center-of-gravity projections shown relative to their bases of support."} -->
 ### Static Tipping Test
 
-For a rigid object at rest or tilted slowly on a level support, a useful stability test is the vertical projection of its center of gravity:
+Draw the **weight line**: a vertical line straight down from the center of gravity. Suppose an object rests on a level support (a flat, horizontal surface) or is tilted slowly. Then compare the weight line with the base of support:
 
-- if the line of action of weight falls **inside** the current base of support, gravity tends to restore/support the object;
-- at the tipping threshold it reaches the supporting edge or pivot line;
-- beyond that edge, gravity produces a torque that tends to continue the tip.
+- if the weight line falls **inside** the base, gravity pulls the object back down;
+- if it falls exactly on the **edge** of the base, the object is at the tipping threshold;
+- if it falls **outside** the edge, gravity turns the object farther over and it tips.
 
-A **lower center of gravity** and **wider base** generally increase the tilt required to reach the tipping threshold.
+This test uses only the shape of the object and where its center of gravity sits. It does not say anything about sliding.
 
-This is a **static/quasi-static model**. When an object accelerates—such as a truck turning sharply—additional forces and load transfer matter. A lower center of mass still improves rollover resistance, but the explanation cannot rely only on a vertical gravity line as if the vehicle were motionless.
+### How Far It Can Tilt
+
+Tilt an object slowly about one bottom edge. Let $d$ be the sideways distance from the center of gravity to that edge. Let $h_c$ be the height of the center of gravity above the support. The object reaches the tipping threshold at the tilt angle $\theta$, where:
+
+$$\tan\theta = \dfrac{d}{h_c}$$
+
+For a uniform box with width $w$ and height $h$, $d = \dfrac{w}{2}$ and $h_c = \dfrac{h}{2}$. So $\tan\theta = \dfrac{w}{h}$. A cube tips at $45^\circ$. A lower center of gravity or a wider base gives a larger angle, as long as the center of gravity stays in the middle of the base. A load that shifts the center of gravity toward one edge makes $d$ smaller on that side.
+
+The mass of the object does not appear in this formula. Where the mass sits does.
+
+### Pushing an Object Over
+
+A **torque** is the turning effect of a force about a pivot. Torque equals the force times the straight distance from the pivot to the line along which the force acts. Its unit is the newton-meter.
+
+Let a box rest on level ground, and push it sideways with a horizontal force $F$ at height $H$ above the ground. The bottom edge on the far side is the pivot. The push turns the box over. The weight $W$ turns it back, with a lever arm $d$. The box tips only if:
+
+$$F \cdot H > W \cdot d$$
+
+Weight is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. This test assumes the box does not slide first. A pushed object with more mass needs a bigger push to tip, even though its tilt angle is the same.
+
+### Moving Objects
+
+Everything above assumes the object is at rest or moves slowly. A vehicle in a sharp turn is different, because its direction keeps changing. The road must push the tires sideways, toward the center of the turn. This push acts at road level, below the center of gravity.
+
+That push and the weight together tend to roll the vehicle toward the outside of the turn. More of the load moves onto the outside wheels. If the inside wheels lift off the road, the vehicle is starting to roll over. A lower center of gravity or a wider track usually lets the vehicle take a faster turn before this happens. A vertical weight line alone cannot explain it.
 
 ## Examples
 
-### #1: Comparing Static Stability
+### #1: Finding the Base of Support
 
-A short, wide uniform object and a tall, narrow uniform object have comparable shapes/material distribution. Which is harder to tip slowly on a level surface?
+A four-legged stool stands on a level floor. What is its base of support? What is the base if the stool is tilted until it rests on two legs only?
 
 **Solution:**
 
-The short, wide object generally has both a lower center of gravity and a wider support base, so a larger tilt is required before the weight's line of action passes the support edge. It is **more statically stable** under the stated comparison.
+1. The four feet touch the floor at four points.
+2. The base is the whole square enclosed by those four points. It includes the floor between the legs.
+3. On two legs, the only contact points are the two feet. The base shrinks to a thin strip along the line joining them.
+4. The weight line must now land on that thin strip. A tiny shift of weight puts it outside, so the stool is very hard to hold.
+
+<!-- ILLUSTRATION: a stool on a floor drawn twice, once on four legs with the square base of support shaded between the feet, and once tilted onto two legs with a thin line shaded between the two feet and the weight line marked -->
+### #2: Locating the Center of Gravity
+
+A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform flat triangle plate has a base of $30$ cm and a height of $30$ cm. A uniform ring has an empty hole in the middle. Where is the center of gravity of each?
+
+**Solution:**
+
+1. The sheet has a center point. The center of gravity is $20$ cm from each short end and $10$ cm from each long side.
+2. The triangle plate has it one-third of the way up from the base. That is $\dfrac{30}{3} = 10$ cm above the base, on the line from the middle of the base to the top corner.
+3. The ring is the same on all sides. The center of gravity is at the middle of the ring.
+4. That point is in the empty hole, so it lies outside the material.
+
+<!-- ILLUSTRATION: three flat shapes with the center of gravity marked: a 40 cm by 20 cm rectangle with a dot 20 cm from each short end, a triangle plate with base 30 cm and height 30 cm with a dot 10 cm above the base, and a ring with a dot in the empty middle -->
+### #3: Loads High or Low
+
+A cabinet of mass $30$ kg is $1.2$ m tall. Its own center of gravity is $0.6$ m above the floor. It holds $90$ kg of books. The books' center of gravity is $0.2$ m up when they are on the bottom shelf, or $0.9$ m up when they are on the top shelf. Find the height of the combined center of gravity in each case. Which loading is harder to tip?
+
+**Solution:**
+
+1. Use the combined-position formula for heights. With the books low:
+
+$$y = \dfrac{30(0.6) + 90(0.2)}{30 + 90} = \dfrac{36}{120} = 0.30 \text{ m}$$
+
+2. With the books high:
+
+$$y = \dfrac{30(0.6) + 90(0.9)}{30 + 90} = \dfrac{99}{120} = 0.825 \text{ m}$$
+
+3. The base is the same in both cases, so $d$ is the same. A smaller $h_c$ gives a larger $\tan\theta$.
+4. Books on the bottom shelf are harder to tip.
+
+<!-- ILLUSTRATION: a tall cabinet 1.2 m high drawn twice, once with 90 kg of books on the bottom shelf and once on the top shelf, with a dot at 0.30 m and a dot at 0.825 m showing the combined center of gravity -->
+### #4: A Load That Sticks Out
+
+A crate has a base $1.0$ m wide and a mass of $40$ kg. Its center of gravity is $0.5$ m from the left edge. A $120$ kg load sits on top and sticks out to the right. The load's center of gravity is $1.3$ m from the left edge. Does the crate stay down?
+
+**Solution:**
+
+1. Measure from the left edge. The crate's base runs from $0$ to $1.0$ m.
+2. Find the combined center of gravity:
+
+$$x = \dfrac{40(0.5) + 120(1.3)}{40 + 120} = \dfrac{176}{160} = 1.1 \text{ m}$$
+
+3. The weight line is at $1.1$ m, which is past the right edge at $1.0$ m.
+4. It is outside the base, so the crate tips to the right.
+
+<!-- ILLUSTRATION: a crate with a base 1.0 m wide from 0 to 1.0 m, a 120 kg load sticking out on the right, a dot at 1.1 m for the combined center of gravity, and a weight line landing past the right edge -->
+### #5: Comparing Static Stability
+
+A short, wide uniform object and a tall, narrow uniform object have comparable shapes and material. Which is harder to tip slowly on a level surface?
+
+**Solution:**
+
+The short, wide object has both a lower center of gravity and a wider base. So $d$ is larger and $h_c$ is smaller. The tilt needed before the weight line passes the edge is larger. It is **more steady** under the stated comparison.
 
 <!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3}], "semanticsLabel": "A short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked, showing the short wide pyramid is more stable."} -->
-### #2: Tipping a Box Slowly
+### #6: Tipping a Box Slowly
 
 A rectangular box is tilted slowly about one lower edge. When does it pass the tipping threshold?
 
 **Solution:**
 
-At the threshold, the vertical line through its center of gravity passes through the pivot/support edge. Once the line moves outside the support region, gravity produces a torque that tends to rotate the box farther over.
+At the threshold, the vertical line through its center of gravity passes through the pivot edge. Once the line moves outside the base, gravity produces a torque that turns the box farther over.
 
 <!-- FIGURE: {"kind": "stability-shape", "tilt": 22, "shapes": [{"form": "box", "baseWidth": 2, "height": 3}], "semanticsLabel": "A rectangular box tilted on one edge with a vertical plumb line dropped from its center of gravity to show tipping."} -->
-### #3: Cargo in a Turning Truck
+### #7: Tipping Angle of a Box
 
-The same truck carries the same mass of cargo either stacked high or secured lower in the vehicle. Which arrangement generally improves rollover stability in a turn?
+A uniform box is $0.4$ m wide and $0.8$ m tall. It stands upright on a level floor. It is tilted slowly about one bottom edge. At what angle does it tip? What is the angle if it lies on its $0.8$ m side, so that it is $0.8$ m wide and $0.4$ m tall?
 
 **Solution:**
 
-The **lower cargo arrangement** lowers the combined center of mass. During lateral acceleration, this reduces the overturning tendency/load transfer for otherwise comparable conditions. This is a dynamic situation, so turning speed, track width, suspension, road slope, and tire forces also matter.
+1. Upright: $d = 0.2$ m and $h_c = 0.4$ m.
+2. Use the tilt formula:
+
+$$\tan\theta = \dfrac{0.2}{0.4} = 0.5 \quad\Rightarrow\quad \theta \approx 26.6^\circ$$
+
+3. Lying down: $d = 0.4$ m and $h_c = 0.2$ m.
+
+$$\tan\theta = \dfrac{0.4}{0.2} = 2 \quad\Rightarrow\quad \theta \approx 63.4^\circ$$
+
+4. The box lying down needs a much larger tilt, so it is harder to tip.
+
+<!-- ILLUSTRATION: a box 0.4 m wide and 0.8 m tall tilted about its bottom edge, with the angle 26.6 degrees at the edge, beside the same box lying on its side, 0.8 m wide and 0.4 m tall, with the angle 63.4 degrees -->
+### #8: Where to Push a Crate
+
+A uniform crate has a mass of $60$ kg, a width of $0.6$ m and a height of $1.2$ m. It rests on level ground. A person pushes it with a horizontal force. Find the smallest force that tips it, if the push is at the top edge, and if it is at the middle of the side. Assume the crate does not slide.
+
+**Solution:**
+
+1. The weight is $W = 60 \times 9.8 = 588$ N.
+2. The center of gravity is in the middle of the crate, so $d = 0.3$ m. The holding torque is $W \cdot d = 588 \times 0.3 = 176.4$ N·m.
+3. Push at the top, $H = 1.2$ m. The crate tips when $F \times 1.2 > 176.4$:
+
+$$F > \dfrac{176.4}{1.2} = 147 \text{ N}$$
+
+4. Push at the middle, $H = 0.6$ m:
+
+$$F > \dfrac{176.4}{0.6} = 294 \text{ N}$$
+
+5. A push higher up has a longer lever arm, so it tips the crate with half the force.
+
+<!-- ILLUSTRATION: a crate 0.6 m wide and 1.2 m tall with two arrows pointing sideways, one at the top edge at height 1.2 m labeled 147 N and one at the middle at height 0.6 m labeled 294 N -->
+### #9: Cargo in a Turning Truck
+
+The same truck carries the same mass of cargo either stacked high or secured lower in the vehicle. Which arrangement generally improves rollover resistance in a turn?
+
+**Solution:**
+
+The **lower cargo arrangement** lowers the combined center of gravity. In a turn, the sideways push from the road acts at road level. A lower center of gravity makes the turning effect of that push on the truck smaller. This is a moving case, so turning speed, track width, suspension, road slope and tire grip also matter.
 
 <!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "truck", "baseWidth": 2, "height": 3}, {"form": "truck", "baseWidth": 3, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
-### #4: Wider Stance
+### #10: Wider Stance
 
-A person stands first with feet close together, then with feet farther apart. Which stance generally gives a larger base of support against a slow sideways disturbance?
+A person stands first with feet close together, then with feet farther apart. Which stance gives a bigger base of support against a slow sideways push? Does it help against a push from the front?
 
 **Solution:**
 
-The wider stance gives the center-of-gravity projection more room to shift before crossing the base boundary, so it generally improves quasi-static sideways stability.
+The wider stance gives a bigger base from side to side. The weight line has more room to shift before it crosses the edge. So it improves steadiness against a sideways push. The feet are no farther apart from front to back, so it does not help much against a push from the front.
 
 <!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "person", "baseWidth": 1, "height": 3}, {"form": "person", "baseWidth": 3, "height": 3}], "semanticsLabel": "Two stances comparing base of support width: feet close together with a narrow base, and feet spread wide with a wider, more stable base."} -->
 ## Speed Tricks & Shortcuts
 
-**For static problems, draw the weight line.** Project the center of gravity vertically toward the support and compare it with the support boundary.
+**For slow problems, draw the weight line.** Drop a vertical line from the center of gravity and compare it with the edge of the base.
 
-**Compare both center height and base width.** One factor alone may not decide a comparison if the other changes strongly in the opposite direction.
+**Compare both center height and base width.** For similar uniform boxes, compare $\dfrac{w}{h}$: the larger ratio tips later. This works when the center of gravity stays in the middle of the base. If one factor improves and the other worsens, work out the ratio.
 
-**Check whether the problem is static or accelerating.** Turns, braking, impacts, and vibrations introduce additional dynamics.
+**Check whether the object is moving.** Turns, braking, impacts and vibration add forces that the weight line alone cannot show.
 
 ## Traps to Watch For
 
-### #1: "Center of Gravity Is Always at the Geometric Center"
+### #1: "The Center of Gravity Is Always at the Geometric Center"
 
-> That holds only for appropriate symmetric, uniformly distributed objects in the assumed field.
+> It sits at the middle only for a uniform object that has a center point.
 
-### #2: "Heavier Means More Stable"
+A flat triangle has it one-third of the way up. A hammer has it near the heavy head. Check the shape before you assume the middle.
 
-> Under a simple static tipping comparison, geometry and center-of-mass location are crucial; mass alone does not prevent tipping.
+### #2: "Heavier Means Harder to Tip"
 
-### #3: Applying the Static Projection Test Alone to a Turning Vehicle
+> Mass alone does not change the tilt angle at which an object tips.
 
-> Cornering creates lateral acceleration and load transfer. A lower center of mass helps, but the full explanation is dynamic.
+The angle depends on where the center of gravity is and how wide the base is. A heavier object does need a bigger push to tip. Heavy mass placed low also lowers the center of gravity.
 
-### #4: Saying Lower or Wider Is Always Better Without Comparing Conditions
+### #3: Using the Weight Line Alone for a Turning Vehicle
 
-> Lower center height and wider base improve the usual tipping margin when other relevant factors are comparable.
+> A vehicle in a turn has sideways forces from the road.
+
+A lower center of gravity helps, but the full explanation involves those forces and the weight moving to the outside wheels.
+
+### #4: "Lower or Wider Is Always Better"
+
+> Lower and wider help only when the other factors stay the same.
+
+A wide base does not help if the load shifts the center of gravity toward one edge. A load that sticks out past the base can tip even a wide crate.
+
+### #5: Forgetting That Objects Can Slide
+
+> The tipping tests do not predict sliding.
+
+A smooth crate pushed low may slide before it tips. A truck on a wet road may skid before its wheels lift.
