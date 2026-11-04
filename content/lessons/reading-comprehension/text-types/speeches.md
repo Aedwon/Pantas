@@ -19,11 +19,28 @@ The **audience** is the people the speaker addresses. The **context** is the occ
 
 Common purposes are to inform, to persuade, to inspire, to commemorate (honor a person or an event), and to entertain. A speech can combine purposes. To find the main purpose, ask what the speaker most wants the audience to think, feel, or do by the end. The other purposes then support it.
 
-### Style
+### Speech Context Types
 
-**Style** is the manner of the speaker's words. A **formal** style uses full sentences, careful word choice, titles of address, and no slang. A **casual** style uses contractions, everyday words, jokes, and direct talk to "you".
+**Speech context** can also name the kind of communication. Look at who speaks, who listens, and how the words travel. There are four types.
 
-Style is a clue to the context, not proof of it. A speaker may use a casual style at a formal event to seem friendly. A style that does not suit the audience can also cause misunderstanding.
+- **Intrapersonal:** a person talks to themselves, as in self-talk, a private prayer, or a rehearsal. Cue: no one else is addressed.
+- **Interpersonal:** two or a few people talk and answer each other. Cue: back-and-forth turns, and "you" meaning one listener.
+- **Public:** one speaker addresses a larger group in the same place. Cue: openings like "Ladies and gentlemen" and little reply from the group.
+- **Mass communication:** a speaker reaches a large, spread-out audience through media such as radio, television, or the internet. Cue: words like "viewers", "listeners", or "tune in".
+
+Some speeches fit two types. A public speech that is also broadcast reaches both a room and a media audience. Choose the type the excerpt itself shows.
+
+### Speech Style
+
+**Style** is the manner of the speaker's words. There are five styles.
+
+- **Intimate:** private talk between very close people. Cue: pet names, unfinished sentences, and shared references an outsider would not follow.
+- **Casual:** relaxed talk among friends or peers. Cue: contractions, everyday words, slang, jokes, and direct talk to "you".
+- **Consultative:** polite talk with someone you do not know well, often to ask or give information. Cue: "Excuse me", "please", and pauses for the other person to reply.
+- **Formal:** planned talk to a group. Cue: full sentences, careful word choice, titles of address, and no slang.
+- **Frozen:** words that stay the same each time they are used, such as a pledge, a prayer, or an anthem. Cue: wording the audience may know by heart.
+
+Style is a clue to the context, not proof of it. A speaker may use a casual style at a formal event to seem friendly. One speech can also mix styles, so name the style that fits most of the excerpt. A style that does not suit the audience can cause misunderstanding.
 
 ### Speech Acts
 
@@ -48,6 +65,8 @@ A **claim** is a statement the speaker wants the audience to accept. **Evidence*
 - **Source:** who produced it, and could they gain from the claim being accepted?
 - **Method:** how was it gathered, from how many cases, and compared with what?
 - **Relevance:** does it bear on this exact claim?
+
+Which appeal a passage uses is a separate question from how strong the appeal is. A statistic or an argument offered to support a claim is a logos appeal, whether or not it is sound. The three checks judge its strength, not its type.
 
 A number alone is not strong reasoning. A trusted source does not make irrelevant evidence relevant. A single personal story can be relevant as an example, but it cannot show a general trend.
 
@@ -126,7 +145,7 @@ Which appeal is the main one?
 
 Which appeal is the main one?
 
-**Solution:** The sentence compares districts with and without the program to support a claim. If the evidence is accurate and fairly interpreted, the main appeal is **logos**.
+**Solution:** The sentence compares districts with and without the program to support a claim, so the main appeal is **logos**. Whether the comparison is accurate and fair decides how strong the logos is, not whether it is logos.
 
 ### #6: Overlapping Appeals
 
@@ -137,7 +156,7 @@ Name every appeal and where it appears.
 **Solution:**
 
 1. "I have taught in this school for $20$ years" builds ethos through experience.
-2. "$3$ in $10$ of my students" offers a statistic as evidence, so it supports logos.
+2. "$3$ in $10$ of my students" offers a statistic as evidence, so it supports logos. Its soundness is a separate check.
 3. "Think of those empty desks" invites feeling, so it is pathos.
 
 The statistic also carries emotion, and the experience makes it easier to trust. One passage can use all three appeals, and one phrase can serve two.
@@ -238,13 +257,24 @@ An engineer tells a group of farmers: "Evapotranspiration will rise this dry sea
 
 Speaking louder or faster would not fix an unfamiliar word.
 
+### #15: Context Type and Style
+
+"Hi, everyone, it's your morning host again! Don't forget your umbrella, because the rain isn't stopping till evening." Name the context type and the style.
+
+**Solution:**
+
+1. The speaker greets "everyone" and is a "host", so the words reach a large audience through broadcast. The context is **mass communication**.
+2. The excerpt uses "Hi", contractions, and friendly direct talk. These are casual clues, so the style is **casual**.
+
+The excerpt shows no mixing of styles, so one style fits all of it.
+
 ## Speed Tricks & Shortcuts
 
-**Start with audience, context, and purpose.** Ask what the speaker wants this audience to understand, believe, feel, or do. If the purposes are mixed, pick the one the ending of the excerpt serves.
+**Start with audience, context, and purpose.** Ask what the speaker wants this audience to understand, believe, feel, or do. If the purposes are mixed, pick the one the speaker most wants by the end of the speech. A closing thanks or request may not be the main purpose, so do not choose by the last line alone.
 
 **Treat ethos, pathos, and logos as overlapping lenses.** Name the main function of the passage, then check whether a second appeal also applies.
 
-**Judge evidence by source, method, and relevance.** A number can still fail one of the three checks.
+**Judge evidence by source, method, and relevance.** A number can still fail one of the three checks. The checks rate strength and do not change the appeal.
 
 **Read the act, not only the sentence form.** Ask what the speaker is doing: asking, requesting, promising, or warning.
 
@@ -252,11 +282,11 @@ Speaking louder or faster would not fix an unfamiliar word.
 
 ## Traps to Watch For
 
-### #1: "Any Number Means Logos"
+### #1: "Any Number Means Strong Logos"
 
-> A number does not make an argument sound.
+> A number offered as support is logos, but it does not make the argument sound.
 
-An unsupported or irrelevant statistic is not good reasoning. Check its source, method, and relevance before you credit it as logos.
+An unsupported or irrelevant statistic is still a logos appeal, only a weak one. Check its source, method, and relevance to judge how strong it is.
 
 ### #2: Treating Ethos, Pathos, and Logos as Separate Boxes
 
