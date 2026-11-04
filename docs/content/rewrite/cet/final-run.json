@@ -351,7 +351,7 @@
     "lessonPath": "content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md",
     "lessonId": "lesson-geometry-quadrilaterals-and-polygons",
     "group": "mathematics",
-    "status": "round-2-fixed"
+    "status": "open"
   },
   {
     "lessonPath": "content/lessons/mathematics/statistics-and-probability/combinatorics.md",
@@ -363,7 +363,7 @@
     "lessonPath": "content/lessons/mathematics/statistics-and-probability/measures-of-variability.md",
     "lessonId": "lesson-statistics-and-probability-measures-of-variability",
     "group": "mathematics",
-    "status": "written"
+    "status": "round-1-read"
   },
   {
     "lessonPath": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",

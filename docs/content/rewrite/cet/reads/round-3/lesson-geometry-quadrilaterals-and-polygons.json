@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-geometry-quadrilaterals-and-polygons",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L05", "severity": "Major", "quote": "\"type\": \"polygon-triangulation\", \"labels\": [\"Hexagon\", \"Sum of interior angles = ?\"]", "problem": "The round-2 fix removed the '4 Triangles' and '720' labels from the Example 1 question figure but kept the polygon-triangulation type. The app renderer for that type always draws the diagonals from one vertex that cut the hexagon into 4 triangles (the same picture as the Core Concept figure), so the question figure still shows the solving method before the student tries it. Its semanticsLabel ('six interior angles marked') also describes a drawing the renderer does not make. The other question figures (Examples 2, 3, 4, 6, 7, 8, 9, 10, 11) show only givens and a question mark.", "source": "Checklist L05 and L23; LSG Examples section; renderer _drawPolygonTriangulation in lib/core/ui/figures/geometry_diagram_figure.dart; round-2 read finding on the same figure"},
+    {"rule": "L20", "severity": "Minor", "quote": "### #5: One Diagonal Property Is Not Enough", "problem": "As a general statement the trap title is false: one diagonal property, bisecting each other, is enough to make a parallelogram, as Core Concept states ('If the diagonals bisect each other, the quadrilateral is a parallelogram.'). The limit (naming a parallelogram type) appears only in the warning line below it, so the title alone contradicts the lesson.", "source": "Checklist L20 (trap title and warning); writer rule 4 after round 1 (word every trap with its limit)"}
+  ],
+  "goodQuotesChecked": 2
+}

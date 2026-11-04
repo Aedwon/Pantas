@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-statistics-and-probability-combinatorics",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L19", "severity": "Minor", "quote": "$$C(5,3)+C(4,3)=10+4$$", "problem": "Example #9 jumps from C(5,3) and C(4,3) to their values without showing the cancellation (5x4x3 over 3x2x1), while it spends a separate step on 10+4. Example #8 does the same with C(5,2)=10. The values are correct and the method is taught in Core Concept and Example #5, so no step a student cannot follow is missing; the key computation is just not displayed.", "source": "content-checklist.md L19 (key computations as display equations); lesson-style-guide.md, Examples section"}
+  ],
+  "goodQuotesChecked": 1
+}

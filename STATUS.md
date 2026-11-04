@@ -249,3 +249,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Quadrilaterals round 2: 4 Majors (question figure markers give answers or methods); fix running.
 - Written: combinatorics (1,746 words), measures-of-variability (1,518). Quadrilaterals fixed after round 2; round 3 read running.
 - Hit the 5-hour usage limit; cut off the quadrilaterals round-3, combinatorics round-1 and measures-of-variability round-1 reads. Resumed after the reset.
+- Quadrilaterals open after 3 reads (1 Major: Example 1 figure type draws the method). Combinatorics fixed after round 1; round 2 read running. Measures-of-variability round 1: 2 Blockers, 1 Major; fix running.
