@@ -8,8 +8,8 @@ import {hasLiveProClaim} from './_pro.js';
 import {computeRoadmap} from './roadmap.js';
 import {prepareReviewAnswers} from './serverReviews.js';
 import {assertStudyOwner} from './studyObservations.js';
-import {loadExamContent} from './_examContent.js';
-import {examCatalog} from './revenuecatPasses.js';
+import {loadCorpusCached, loadExamContent} from './_examContent.js';
+import {isCustomExamId, isStudyExamId} from './_customTrack.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -32,13 +32,13 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   const attributed = body.examId !== undefined || body.origin !== undefined;
   assertStudyOwner(auth.uid, body, attributed);
   const origins = ['today_topic', 'today_interleaved', 'new_questions', 'drill', 'flagged', 'retake', 'inline', 'assessment'];
-  if (attributed && (typeof body.examId !== 'string' || !examCatalog.some(e => e.id === body.examId) ||
+  if (attributed && (!isStudyExamId(body.examId) ||
       typeof body.origin !== 'string' || !origins.includes(body.origin))) {
     throw new HttpsError('invalid-argument', 'Send a known exam and session origin.');
   }
   const sessionId = body.sessionId;
   if (typeof sessionId !== 'string' || !SESSION_ID.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
-  const answers = checkAnswers(body?.answers, now, attributed);
+  let answers = checkAnswers(body?.answers, now, attributed);
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
@@ -49,6 +49,15 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   if (durationMs > 86_400_000 && durationMs !== wallMs) throw new HttpsError('invalid-argument', 'Bad wall duration.');
   if (!await allowAtMost(auth.uid, 'ingestSession', deps.dailySessions ?? DAILY_SESSIONS, 86_400_000)) {
     throw new HttpsError('resource-exhausted', 'Daily session limit reached. Try again tomorrow.');
+  }
+  // A custom exam draws on the whole corpus, and a phone's bundle can hold ids the catalog lacks. Those answers are
+  // dropped and the rest kept, rather than refusing the session. The replay check below compares the kept list.
+  // The exam's scope is not applied: narrowing hides figures and never discards what was done.
+  const custom = attributed && isCustomExamId(body.examId);
+  if (custom) {
+    const ids = new Set((await loadCorpusCached(deps.db, now)).questions.map(q => q.id));
+    answers = answers.filter(a => ids.has(a.questionId));
+    if (answers.length === 0) return {sessionId, stored: false};
   }
   const ref = deps.db.doc(`users/${auth.uid}/server/answers/items/${sessionId}`);
   const stored = await deps.db.runTransaction(async (transaction) => {
@@ -61,7 +70,7 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
       }
       return false;
     }
-    if (attributed) {
+    if (attributed && !custom) {
       const content = await loadExamContent(deps.db, body.examId as string, now);
       const ids = new Set(content.questions.map(q => q.id));
       if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');

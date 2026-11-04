@@ -5,7 +5,8 @@ import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import type {Answer} from './_answers.js';
-import {loadStudyContent} from './_examContent.js';
+import {applyScope, loadStudyContent} from './_examContent.js';
+import {isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {phDay, phStamp} from './_phDate.js';
 import {mockCoverage} from './mockAccess.js';
 import {assertStudyOwner} from './studyObservations.js';
@@ -53,23 +54,28 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
  if(!data||typeof data!=='object'||Array.isArray(data))throw bad('Send an object.');
  const body=data as Record<string,unknown>;assertStudyOwner(auth.uid,body);
  const examId=body.examId;
- if(typeof examId!=='string'||!examCatalog.some(e=>e.id===examId))throw bad('Unknown exam.');
+ if(!isStudyExamId(examId))throw bad('Unknown exam.');
  const now=(deps.now??Date.now)();
  if(!await(deps.allow??((uid,key)=>allowAtMost(uid,key,600,3600000)))(auth.uid,'getStudyInsights'))throw new HttpsError('resource-exhausted','Too many attempts. Try again later.');
  return deps.db.runTransaction(async tx=>{
   const cacheRef=deps.db.doc('users/'+auth.uid+'/server/studyInsights');
-  const [content,totalDoc,observationRevision,cache,access,settings,trialEndsAt]=await Promise.all([
+  const [corpus,totalDoc,observationRevision,cache,access,settings,trialEndsAt]=await Promise.all([
    loadStudyContent(deps.db,examId,tx),
    tx.get(deps.db.doc('users/'+auth.uid+'/server/answerTotals')),
    tx.get(deps.db.doc('users/'+auth.uid+'/server/studyRevision')),tx.get(cacheRef),
    mockCoverage(tx,deps.db,auth.uid,now),tx.get(deps.db.doc('users/'+auth.uid+'/server/settings')),
    actualTrial(tx,deps.db,auth.uid,examId,now),
   ]);
+  const custom=isCustomExamId(examId);
+  if(custom&&!settings.exists)throw new HttpsError('failed-precondition','Set your exam first.');
   if(settings.exists&&settings.get('examId')!==examId)throw new HttpsError('failed-precondition','Your exam changed. Open this screen again.');
+  // A custom corpus is every subject in the app, so only the ticked ones count. Listed exams stay unfiltered.
+  const excluded=[settings.get('excludedTopicIds')??[],settings.get('excludedLessonIds')??[]];
+  const content=custom?applyScope(corpus,excluded[0],excluded[1]):corpus;
   // Absent means carry over. The choice filters the figures only; the plan and due dates never read it.
   const carry=settings.get('carryOverProgress')!==false;
   const pro=access.coversExam(examId),topicOf=new Map(content.topics.map(t=>[t.id,t]));
-  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v3-unmet-requirements']);
+  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v3-unmet-requirements',...(custom?excluded:[])]);
   const response=(derived:Insights,performance:Performance,revision:string)=>{
    const {topics,lessons,topicDetails,...visible}=performance;
    return{examId:examId,serverNow:now,accessRecheckAt:access.recheckAt,proCovered:pro,revision,trialEndsAt,

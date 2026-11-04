@@ -7,6 +7,10 @@ import {saveExamSettings, readStudyRoadmap, advanceStudyRoadmap, readStudyDay, r
 import {readCustomTracks, removeCustomTrack} from '../lib/customTracks.js';
 import {addSession, emptyTotals, fromDoc, toDoc} from '../lib/_answerTotals.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
+import {recordSession} from '../lib/ingestSession.js';
+import {readStudyInsights} from '../lib/studyInsights.js';
+import {readSessionDiagnosis} from '../lib/sessionDiagnosis.js';
+import {readCarryableCount} from '../lib/carryableCount.js';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
@@ -160,7 +164,7 @@ test('a malformed id and the bare id are Unknown exam, and nothing is written', 
   const uid = 'ct-malformed';
   await reset(uid);
   const uuid = randomUUID();
-  for (const examId of ['exam_custom', 'exam_custom_', `exam_custom_${uuid.toUpperCase()}`, `exam_custom_${uuid.replace(/-4/, '-1')}`,
+  for (const examId of ['exam_custom', 'exam_custom_', `exam_custom_${uuid.toUpperCase()}`, `exam_custom_${uuid.replace(/^(.{14})4/, '$11')}`,
     `exam_custom_${uuid}x`, `exam_custom_${uuid}/x`, `exam_nope`]) {
     await refused(save(uid, examId), 'invalid-argument', 'Unknown exam.');
     await refused(readStudyRoadmap(named(uid), body(uid, examId), deps()), 'invalid-argument', 'Unknown exam.');
@@ -464,4 +468,52 @@ test('a call that sends no scope keeps the track scope, in the settings too', as
   await save(uid, id);
   assert.deepEqual((await settingsOf(uid)).excludedTopicIds, ['topic_beta']);
   assert.deepEqual((await track(uid, id)).excludedTopicIds, ['topic_beta']);
+});
+
+test('another account cannot read or change sessions, insights, diagnosis or the carry count with this account\'s id', async () => {
+  const a = 'ct-sec2-a', b = 'ct-sec2-b', id = newId(), sid = 'sec-session-a1';
+  await reset(a); await reset(b);
+  const session = (uid, questions, correct, over = {}) => ({expectedUid: uid, sessionId: sid, examId: id, origin: 'drill', startedAt: NOW - 2000, finishedAt: NOW - 1000,
+    durationMs: 1000, answers: questions.map(questionId => ({questionId, chosen: questionId + '_a', correct, answeredAt: NOW - 1500})), ...over});
+  const ask = (uid, extra = {}) => ({expectedUid: uid, examId: id, ...extra});
+  const doc = async path => JSON.stringify((await db.doc(path).get()).data() ?? null);
+  const treeOf = async uid => [await doc(`users/${uid}/server/answers/items/${sid}`), await doc(`users/${uid}/server/answerTotals`),
+    await doc(`users/${uid}/server/studyInsights`), await doc(trackPath(uid, id))];
+  // A has a track that leaves Beta out, a session in both topics, and figures of its own.
+  await save(a, id, {customTrack: {name: 'Secret name'}, excludedTopicIds: ['topic_beta']});
+  await recordSession(named(a), session(a, ['qa-0', 'qb-0'], true), deps());
+  const aInsights = await readStudyInsights(named(a), ask(a), deps());
+  assert.deepEqual(aInsights.performance.overall, {correct: 1, answered: 1});
+  assert.deepEqual(await readCarryableCount(named(a), ask(a), deps()), {count: 1});
+  const aTree = await treeOf(a);
+  // B has nothing yet, so A's id resolves to nothing of A's.
+  await refused(readStudyInsights(named(b), ask(b), deps()), 'failed-precondition', 'Set your exam first.');
+  assert.deepEqual(await readSessionDiagnosis(named(b), ask(b, {sessionId: sid}), deps()), {status: 'pending'});
+  assert.deepEqual(await readCarryableCount(named(b), ask(b), deps()), {count: 0});
+  // B stores a session under the same session id and exam id. It lands in B's tree, and A's does not move.
+  assert.equal((await recordSession(named(b), session(b, ['qb-1'], false), deps())).stored, true);
+  assert.deepEqual(await treeOf(a), aTree, 'nothing of A changed');
+  assert.equal(JSON.parse((await doc(`users/${b}/server/answers/items/${sid}`))).answers[0].questionId, 'qb-1');
+  assert.equal((await db.doc(trackPath(b, id)).get()).exists, false, 'storing a session makes no track');
+  // A's exclusions are not applied to B: B has no track for this id, so B's own answer in Beta counts.
+  assert.deepEqual(await readCarryableCount(named(b), ask(b), deps()), {count: 1});
+  // With B's session stored and no settings, the diagnosis names B's tree and reaches no further.
+  await refused(readSessionDiagnosis(named(b), ask(b, {sessionId: sid}), deps()), 'failed-precondition', 'Your exam changed. Open this screen again.');
+  // With B's own settings the same ids answer from B's data alone.
+  await save(b, id, {});
+  const bInsights = await readStudyInsights(named(b), ask(b), deps());
+  assert.deepEqual(bInsights.performance.overall, {correct: 0, answered: 1}, 'B\'s figures, not A\'s');
+  const bDiagnosis = await readSessionDiagnosis(named(b), ask(b, {sessionId: sid}), deps());
+  assert.deepEqual(bDiagnosis, {status: 'ok', tier: 'free', tracedCount: 0});
+  assert.deepEqual(await treeOf(a), aTree, 'still nothing of A changed');
+  assert.equal((await readStudyInsights(named(a), ask(a), deps())).revision, aInsights.revision);
+  // Naming A as the owner is refused on all four, and writes nothing.
+  for (const run of [
+    () => recordSession(named(b), session(a, ['qa-1'], true, {sessionId: 'sec-session-a2'}), deps()),
+    () => readStudyInsights(named(b), ask(a), deps()),
+    () => readSessionDiagnosis(named(b), ask(a, {sessionId: sid}), deps()),
+    () => readCarryableCount(named(b), ask(a), deps()),
+  ]) await refused(run(), 'failed-precondition', 'Your account changed. Open this screen again.');
+  assert.equal((await db.doc(`users/${a}/server/answers/items/sec-session-a2`).get()).exists, false);
+  assert.deepEqual(await treeOf(a), aTree);
 });

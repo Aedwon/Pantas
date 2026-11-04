@@ -156,7 +156,9 @@ export async function computeRoadmap(db: Firestore, uid: string, pro: boolean, n
   const settings = snapshot.data() as ExamSettings;
   if (isCustomExamId(settings.examId)) {
     // A custom exam has no legacy roadmap: `build` would mint `topic_custom_*` ids that match nothing.
-    await readStudyRoadmap({uid}, {expectedUid: uid, examId: settings.examId}, {db, now: () => now, allow: async () => true});
+    const input = {expectedUid: uid, examId: settings.examId}, deps = {db, now: () => now, allow: async () => true};
+    await readStudyRoadmap({uid}, input, deps);
+    await readStudyInsights({uid}, input, deps);
     return null;
   }
   const {roadmap, sessions} = await build(db, uid, settings, pro, now);
