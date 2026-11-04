@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-trigonometry-unit-circle",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If $x=0$, the ratio does not exist, and the angle is $90^\\circ$ or $270^\\circ$.",
+      "problem": "The general statement fails at the boundary point $(0,0)$: there $x=0$ but the angle is not $90^\\circ$ or $270^\\circ$ (no single angle; the polar section says any angle works). The rule needs the condition that the point is not the origin, or $y\\neq0$. The earlier sentence \"If $r=0$, the point is the origin and any angle works\" covers the case elsewhere, so the lead may weigh it, but as written the trap's rule is false at the boundary.",
+      "source": "Checklist B01; reader-rules.md, Added after the Sol audit (test boundary values such as zero)"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "The reference angle comes from the sizes $|x|$ and $|y|$, and the signs of $x$ and $y$ give the quadrant.",
+      "problem": "The rectangular-to-polar method names its key step without saying how it works. The lesson never says which ratio of $|x|$ and $|y|$ to use or that $\\dfrac{|y|}{|x|}$ is the tangent of the reference angle. Example 13 step 2 then jumps from \"The ratio is $\\dfrac{\\sqrt3}{1}=\\sqrt3$\" to a $60^\\circ$ reference angle with no link to $\\tan60^\\circ$. A student can easily use $\\dfrac{|x|}{|y|}$ and get $30^\\circ$. Polar and rectangular conversion is a brief item of official curriculum class (dost-sei-L134).",
+      "source": "Checklist L26; brief item Polar/rectangular conversion beyond radius 1"
+    },
+    {
+      "rule": "L27",
+      "severity": "Minor",
+      "quote": "This shortcut covers denominators $1$, $2$, $3$, $4$ and $6$.",
+      "problem": "The step sizes are given for denominators 6, 4, 3 and 2 only. Denominator 1 (as in $\\pi$ or $3\\pi$, steps of $180^\\circ$) is claimed as covered but its step size is never stated.",
+      "source": "Checklist L27"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Tool 2, the quadrant signs**: the quadrant gives the sign. Cosine is $x$ and sine is $y$.",
+      "problem": "This paragraph has seven sentences, over the one-to-three limit. Other teaching paragraphs also run over: standard position (four), Tool 1 (four), the radian denominator shortcut (five) and the sine and cosine graph values (five).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

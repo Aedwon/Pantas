@@ -23,7 +23,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | lesson-physics-dynamics | 3,310 | Crossed 3,000 in the round-1 fix (restored figures, component splitting, term meanings). |
 | lesson-physics-waves-and-sound | 3,242 | Interference, diffraction and spectrum order added from the brief. |
 | lesson-trigonometry-laws-of-sines-and-cosines | 3,006 | Writer taught ASA, SAS, SSS and all three SSA cases plus applications; crossed 3,000 after the round-1 fix. |
-| lesson-trigonometry-unit-circle | 3,001 | Writer added radians, polar and rectangular conversion, graph features and axis tangents, with nine new examples. |
+| lesson-trigonometry-unit-circle | 3,014 | Writer added radians, polar and rectangular conversion, graph features and axis tangents, with nine new examples. |
 
 ## Rulings during the run (continued)
 
@@ -58,3 +58,4 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 - Laws-of-sines-and-cosines round-1 B01 upheld: sin B = 1 gives a triangle only when A is acute (A = 150°, a = 1, b = 2 gives none). The lead added the condition to step 3.
 - Solving-right-triangles round-1 L05 Major upheld: the right-triangle-trig renderer places labels on fixed corners, so "Depression = 30°" sits at the boat's corner. Ruling: restore the base elevation-depression marker unchanged and move it below the Example 4 solution. L27 Major upheld: "Add the eye height" holds only for an elevation where the object's height is wanted.
 - Solving-right-triangles round-2 B01 upheld: a sine or cosine of 1 or more means the hypotenuse is not the denominator, not that the numerator is wrong (opposite over adjacent with legs 8 and 6). The lead reworded the sentence.
+- Unit-circle round-1 B01 upheld: "If x=0 ... the angle is 90° or 270°" fails at the origin; the lead added y≠0 and the sign rule. L26 Major upheld: the lesson never said the reference angle's tangent is |y|/|x|; the lead added it for points off the axes.

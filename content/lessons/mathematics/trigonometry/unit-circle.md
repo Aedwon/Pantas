@@ -93,7 +93,7 @@ To go the other way, use the distance formula, then place the angle:
 
 $$r=\sqrt{x^2+y^2}$$
 
-The reference angle comes from the sizes $|x|$ and $|y|$, and the signs of $x$ and $y$ give the quadrant. If $r=0$, the point is the origin and any angle works.
+The reference angle comes from the sizes $|x|$ and $|y|$: when $x$ and $y$ are both nonzero, its tangent is $\dfrac{|y|}{|x|}$. The signs of $x$ and $y$ give the quadrant. If $r=0$, the point is the origin and any angle works.
 
 ### Graphs of Sine, Cosine and Tangent
 
@@ -414,4 +414,4 @@ The value $\sin\dfrac\pi6$ is $\dfrac12$, but $\sin30$ with no degree sign means
 
 > Two different angles can have the same ratio $\dfrac yx$.
 
-The points $(-1,\sqrt3)$ and $(1,-\sqrt3)$ both have $\dfrac yx=-\sqrt3$, but their angles are $120^\circ$ and $300^\circ$. Use the signs of $x$ and $y$ to pick the quadrant. If $x=0$, the ratio does not exist, and the angle is $90^\circ$ or $270^\circ$.
+The points $(-1,\sqrt3)$ and $(1,-\sqrt3)$ both have $\dfrac yx=-\sqrt3$, but their angles are $120^\circ$ and $300^\circ$. Use the signs of $x$ and $y$ to pick the quadrant. If $x=0$ and $y\neq0$, the ratio does not exist. The angle is $90^\circ$ when $y>0$ and $270^\circ$ when $y<0$.
