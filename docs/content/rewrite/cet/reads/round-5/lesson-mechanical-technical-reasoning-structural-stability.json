@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-structural-stability",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "It sits at the geometric center only when the weight is spread evenly.",
+      "problem": "New in the round-4 fix, which replaced 'It sits at the middle when the weight is spread evenly about the middle' and added 'only'. The 'only' is false and repeats the round-1 Blocker that the lead upheld: a dumbbell with two equal weights has its weight concentrated at the ends, not spread evenly, yet its center of gravity is at its geometric center. The lesson's own Core Concept lists the dumbbell as a case where the center of gravity is at the middle, so the trap contradicts it. A ball with a denser core is another exception. A student could reject a correct choice for a symmetric but non-uniform object.",
+      "source": "Checklist B01; reader-rules 'Added after the Sol audit' (test every 'only'); final-run-rulings round-1 structural-stability ruling (the dumbbell 'only' Blocker upheld); the lesson's own 'and for a dumbbell with two equal weights'"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "An object of the same shape and size that is heavier does need a bigger push to tip.",
+      "problem": "General statement that fails when the heavier object's mass sits in a different place. The push needed is set by W times d. A uniform 10 kg box 1 m wide gives W times d of about 49 N·m. A box of the same shape and size that is a 1 kg shell with a 10 kg block against the pivot-side wall, center about 0.01 m from that edge, weighs 11 kg but has its center of gravity about 0.05 m from the pivot edge, so W times d is about 6 N·m and it needs much less push. The condition that the center of gravity stays in the same place (for example, the same material spread the same way) is missing. The Core Concept line 'An object of the same shape and size with more mass needs a bigger push to tip, even though its tilt angle is the same' carries the same unstated condition, and the trap's next sentence itself talks about mass placed in a different spot.",
+      "source": "Checklist B01; reader-rules 'Added after the Sol audit'; the lesson's own tipping rule F·H > W·d and 'Where the mass sits does'"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "That distance is the **lever arm**. Its unit is the newton-meter.",
+      "problem": "New in the round-4 fix. The fix inserted the lever-arm sentence before 'Its unit is the newton-meter', so 'Its' now refers to the lever arm, the nearest noun. Read as written, the lesson says a lever arm (a distance) is measured in newton-meters. A lever arm is in meters; torque is in newton-meters. A Grade 5 reader follows the nearest noun and learns a wrong unit.",
+      "source": "Checklist B01; SI: torque in N·m, length in m (BIPM SI Brochure, derived units)"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Weight is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$.",
+      "problem": "The lesson gives the units of m and g but never says that weight and force are measured in newtons or what the symbol N means. Example 8's answers (588 N, 147 N, 294 N) and the unit N·m depend on it. No prerequisite lesson is named for force and the newton. The unit m/s^2 is also used without a meaning.",
+      "source": "Checklist L25; LSG Teaching completeness (units explained before their meanings are needed); reader-rules 'list every formula or term that an example uses'"
+    },
+    {
+      "rule": "L23",
+      "severity": "Major",
+      "quote": "{\"form\": \"truck\", \"baseWidth\": 2, \"height\": 3}, {\"form\": \"truck\", \"baseWidth\": 3, \"height\": 1}",
+      "problem": "From the base. Example 9 says 'The same truck', but the FIGURE gives the two trucks different baseWidth values. The stability-shape renderer scales the truck body and wheel spacing by baseWidth, so it draws two trucks of different sizes, with the low-cargo truck 1.5 times as wide. The figure adds a base-width difference that the question excludes, so a student may credit the wider truck instead of the lower cargo. The side view also cannot show the track, the left-right width that matters in a roll.",
+      "source": "Checklist L23; lib/core/ui/figures/stability_shape_figure.dart (_drawTruck uses halfBase for body and wheels); the Example 9 question text"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A lower center of gravity gives a larger angle if the base stays the same.",
+      "problem": "Still open from rounds 1 to 4 in a new form. This paragraph has four sentences. Others also exceed three: 'An object made of several parts fastened together' (four), 'Here $\\tan\\theta$ (the **tangent**)' (four), 'A **torque** is the turning effect' (four), 'Everything above assumes' (four), 'If the inside wheels lift off the road' (four), and the Example 9 solution (four).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The **lower cargo arrangement** lowers the combined center of gravity.",
+      "problem": "Example 9's solution has several reasoning steps (lower combined center, road push at road level, smaller turning effect, other factors) in one prose paragraph, not a numbered list. No step is skipped, so Minor. Examples 5 and 10 were fixed.",
+      "source": "Checklist L19; LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 7
+}
