@@ -71,6 +71,10 @@
     "newRead": {
       "verdict": "minor",
       "round": 2
+    },
+    "originalRead": {
+      "verdict": "minor",
+      "round": 1
     }
   },
   {

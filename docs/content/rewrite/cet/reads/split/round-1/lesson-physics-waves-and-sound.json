@@ -15,7 +15,7 @@
       "rule": "L22a",
       "severity": "Minor",
       "quote": "This is a general pattern, not a law: some soft solids",
-      "problem": "This paragraph on the speed of sound has five sentences, over the one-to-three limit. Other Core Concept paragraphs also run over three: the Frequency paragraph (five), the Electromagnetic wave paragraph (five), and the Amplitude, Wave speed check, spectrum, and fluids-and-solids paragraphs (four each). The split did not cause this; it was present before.",
+      "problem": "This paragraph on the speed of sound has five sentences, over the one-to-three limit. Other Core Concept paragraphs also run over three: the Frequency paragraph (five), the Electromagnetic wave paragraph (five), and the opening wave paragraph and the Amplitude, Wave speed check, spectrum, and fluids-and-solids paragraphs (four each). The split did not cause this; it was present before.",
       "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)"
     }
   ],
