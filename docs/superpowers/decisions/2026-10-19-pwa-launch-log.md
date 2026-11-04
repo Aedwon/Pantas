@@ -2484,3 +2484,23 @@ Bug he found in the running app: opening a page on wide web showed the old page 
 Aedwon: "C. perhaps there are also screens like this. please apply this as well"
 
 Result: built as a web-only page transition theme so every default-transition wide page gets it, on all desktop browsers including Windows and Linux. Phones keep their platform's transition. Settings details, legal fades and the reader keep their own approved motion.
+
+## Lesson reader design and custom exams on web (Aedwon, Nov 4)
+
+Reader. Aedwon: "i'm still not satisfied with how the lesson reader is rn. still doesn't have the visual hierarchy (and other principles) we can expect for the level of polish and UI refinement I require in the app. for dark mode specifically, it's hard to make out which are boldfaced among other things" and "perhaps you can add other refinements to make this truly the best experience out of any study app".
+
+Offered on the Claude Design canvas "Lesson Reader Polish" (https://claude.ai/artifact/3XBv8jVDWVK3Wm5Fo31ueG), as boards for wide and phone in dark and light: A Clear tiers (about half a day), B Study guide (about 1 to 2 days, recommended), C Guide + try first (about half a day more; solutions stay hidden until the student taps Show solution, which helps recall but adds a tap to every example). He asked for separate boards rather than one page with buttons.
+
+Aedwon: "C looks good to me. but remove the N of M eyebrows" and "use spacing to separate the major sections".
+
+Result: option C with no section eyebrows, major sections 104 px apart on wide and 72 px on phone. The preview has been updated to match. Being built 1:1 on `web/visual-check-fixes-r1`.
+
+Custom exams. Found by the browser check: on web, "My exam isn't listed" finishes onboarding, then Home shows "Could not load your plan" and Quiz shows "Could not load your mock", because the server's study and mock functions reject any exam outside the catalog ("Unknown exam."). No earlier decision covered custom exams on web.
+
+Offered: A hide the option on web (about 0.5 to 1.5 days, recommended), B run custom exams in the browser (about 3 to 5 days, breaks the rule that native code is never a web fallback), C make the server accept custom exams (about 6 to 10 days, plus a hosted deploy).
+
+Aedwon: "also, C for the custom exam. it should have been available from the start".
+
+Result: option C. A spec comes first. No code before he has seen it. Hardened recommended and waiting on his choice.
+
+QA. Aedwon: "seems like a lot of bugs are being found. it tells me you haven't done enough and thorough enough inspecting/QA. i do not want this to be a problem when I check... do not stop until you are 100% confident in having me check." He paused his own checks until a full browser sweep of every page, state, width and theme finds nothing new.
