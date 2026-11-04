@@ -1,0 +1,5 @@
+[
+  {"original": "lesson-physics-light-and-optics", "new": "lesson-physics-mirrors-and-lenses", "newPath": "content/lessons/science/physics/mirrors-and-lenses.md", "questions": [15, 5], "status": "split"},
+  {"original": "lesson-biology-human-anatomy-physiology", "new": "lesson-biology-human-body-control-movement-and-defense", "newPath": "content/lessons/science/biology/human-body-control-movement-and-defense.md", "questions": [10, 10], "status": "split"},
+  {"original": "lesson-physics-fluid-mechanics", "new": "lesson-physics-fluid-flow-continuity-and-bernoulli", "newPath": "content/lessons/science/physics/fluid-flow-continuity-and-bernoulli.md", "questions": [16, 4], "status": "split"}
+]

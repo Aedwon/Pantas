@@ -416,7 +416,7 @@
               ]
             },
             {
-              "title": "Human Anatomy and Physiology",
+              "title": "Human Anatomy and Physiology: Digestion, Breathing, Circulation and Excretion",
               "slug": "human-anatomy-physiology",
               "sections": [
                 "Digestive System",
@@ -430,6 +430,11 @@
                 "Reproductive System",
                 "Immune System"
               ]
+            },
+            {
+              "title": "Human Anatomy and Physiology: Control, Movement, Reproduction and Defense",
+              "slug": "human-body-control-movement-and-defense",
+              "sections": []
             },
             {
               "title": "Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)",
@@ -604,8 +609,13 @@
               "sections": []
             },
             {
-              "title": "Fluid Mechanics (Density, Pressure, Buoyancy, Archimedes' Principle, Bernoulli's Principle)",
+              "title": "Fluid Statics (Density, Pressure, Pascal's Principle, Buoyancy)",
               "slug": "fluid-mechanics",
+              "sections": []
+            },
+            {
+              "title": "Fluid Flow (Continuity and Bernoulli's Equation)",
+              "slug": "fluid-flow-continuity-and-bernoulli",
               "sections": []
             },
             {
@@ -619,8 +629,13 @@
               "sections": []
             },
             {
-              "title": "Light and Optics (Reflection, Refraction, Mirrors, Lenses, Electromagnetic Spectrum)",
+              "title": "Light: Reflection, Refraction and the Electromagnetic Spectrum",
               "slug": "light-and-optics",
+              "sections": []
+            },
+            {
+              "title": "Mirrors and Lenses (Image Formation and Optical Instruments)",
+              "slug": "mirrors-and-lenses",
               "sections": []
             },
             {

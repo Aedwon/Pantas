@@ -1,0 +1,89 @@
+meta:
+  subject: "science"
+  topic: "physics"
+  subtopic: "fluid-flow-continuity-and-bernoulli"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+questions:
+  - id: q-physics-fluid-mechanics-0006
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      In steady incompressible flow with negligible viscosity, compare two points on one streamline at the same height. If speed is higher at the second point, how does its static pressure compare?
+    choices:
+      - text: "It is lower."
+        correct: true
+      - text: "It is higher because the fluid moves faster."
+        rationale: |
+          This confuses speed with static pressure. Moving fluid can exert a strong force on an obstacle. Check the pressure term in Bernoulli’s equation.
+      - text: "It is unchanged because the height is unchanged."
+        rationale: |
+          This considers only gravitational energy. Equal height removes one term. Check the changing speed term too.
+      - text: "It must be zero wherever speed increases."
+        rationale: |
+          This extends a pressure reduction to complete removal. Faster flow does lower pressure here. Check that the equation predicts a difference, not necessarily zero pressure.
+    explanation: |
+      At equal height, pressure plus kinetic energy per volume stays constant along the stated streamline. Greater speed gives a larger kinetic term. Static pressure is therefore lower.
+    approved: true
+
+  - id: q-physics-fluid-mechanics-0007
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      Measurements show an airplane wing has higher average pressure below than above. What is the vertical effect of that pressure difference?
+    choices:
+      - text: "An upward force on the wing"
+        correct: true
+      - text: "A downward force because upper air pushes harder"
+        rationale: |
+          This assigns the larger pressure to the wrong surface. Air presses on both sides. Check the measured pressure difference.
+      - text: "No force because pressure only acts horizontally"
+        rationale: |
+          This limits pressure to one direction. Wind speed is often horizontal. Check pressure acting normal to each wing surface.
+      - text: "An upward force only if split air parcels meet at the trailing edge"
+        rationale: |
+          This adds an equal-transit requirement. The longer-path story sounds orderly. Check the measured pressure forces instead of assumed travel times.
+    explanation: |
+      Pressure below pushes upward on the wing. Pressure above pushes downward. With greater average pressure below, the resulting pressure force has an upward component.
+    approved: true
+
+  - id: q-physics-fluid-mechanics-0010
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Why is “faster fluid always has lower pressure” an incomplete rule?
+    choices:
+      - text: "Height and flow conditions also matter."
+        correct: true
+      - text: "Bernoulli’s equation contains speed alone."
+        rationale: |
+          This drops pressure and gravitational terms. The speed shortcut is memorable. Check all terms in the equation.
+      - text: "The rule applies only to water, never air."
+        rationale: |
+          This limits a fluid equation to one liquid. Water-pipe examples are common. Check the assumptions rather than the fluid’s name.
+      - text: "All moving fluids have identical static pressure."
+        rationale: |
+          This treats motion as removing pressure variation. Moving fluids share a general category. Check differences in speed, height, and energy inputs.
+    explanation: |
+      Bernoulli’s equation includes pressure, speed, and height. Its simple form assumes steady incompressible nonviscous flow along a streamline. Height changes and energy inputs such as pumps can change the comparison.
+    approved: true
+
+  - id: q-physics-fluid-mechanics-0020
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      In ideal steady horizontal flow along a streamline, water of density $1000\,\mathrm{kg/m^3}$ speeds up from $2$ to $4\,\mathrm{m/s}$. What is $P_1-P_2$?
+    choices:
+      - text: "$6000\\,\\mathrm{Pa}$"
+        correct: true
+      - text: "$2000\\,\\mathrm{Pa}$"
+        rationale: |
+          This squares the speed difference, $(4-2)^2$, instead of subtracting the squared speeds. The change in speed is easy to notice. Check each kinetic term before subtraction.
+      - text: "$12000\\,\\mathrm{Pa}$"
+        rationale: |
+          This omits the one-half factor. The density and squared-speed difference are correct. Check the kinetic-energy term’s coefficient.
+      - text: "$-6000\\,\\mathrm{Pa}$"
+        rationale: |
+          This reverses the requested pressure difference. Faster flow has lower pressure here. Check the order $P_1-P_2$.
+    explanation: |
+      At equal height, $P_1-P_2=\dfrac12\rho(v_2^2-v_1^2)$. Substitute: $\dfrac12(1000)(16-4)=6000\,\mathrm{Pa}$.

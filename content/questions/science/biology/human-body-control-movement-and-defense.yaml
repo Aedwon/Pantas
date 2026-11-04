@@ -1,0 +1,215 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: human-body-control-movement-and-defense
+  exams: [upcat, dlsucet, ustet, dost-sei]
+questions:
+  - id: q-biology-human-anatomy-physiology-0003
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A person deliberately decides to kick a ball. What type of muscle control and muscle type is involved?
+    choices:
+      - text: 'Voluntary control, skeletal muscle'
+        correct: true
+      - text: 'Involuntary control, smooth muscle'
+        rationale: |
+          This assigns organ-wall muscle to a deliberate limb movement. Both types contract, so their jobs can be confused. Check whether the movement is consciously chosen and moves the skeleton.
+      - text: 'Involuntary control, cardiac muscle'
+        rationale: |
+          This assigns heart muscle to a limb. Both produce movement without needing a new decision for every contraction. Check where cardiac muscle is found.
+      - text: 'Voluntary control, cardiac muscle'
+        rationale: |
+          This assumes cardiac muscle can be directed like a limb. Both skeletal and cardiac muscle contract. Check the tissue’s location and usual control.
+    explanation: |
+      A deliberate, chosen movement like kicking a ball is voluntary, controlled by skeletal muscle, which is attached to bones.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0004
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A person's heart continues beating steadily while they sleep, with no conscious effort. What type of muscle control and muscle type is involved?
+    choices:
+      - text: 'Involuntary cardiac muscle'
+        correct: true
+      - text: 'Usually voluntary skeletal muscle'
+        rationale: |
+          This assigns limb-muscle control to the heart. Both tissues are striated, so they can seem similar. Check the tissue’s location and usual control.
+      - text: 'Involuntary smooth muscle tissue'
+        rationale: |
+          This assigns organ-wall smooth muscle to the heart wall. Both operate involuntarily. Check whether the pumping tissue is smooth or cardiac.
+      - text: 'Usually voluntary smooth muscle'
+        rationale: |
+          This gives smooth muscle voluntary control. Muscle movement may seem to require a decision. Check whether this tissue normally acts without conscious choice.
+    explanation: |
+      Cardiac muscle forms the heart’s pumping tissue. Its rhythm starts within the heart and does not require a conscious decision. This is involuntary activity.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0005
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which endocrine gland is often called the body's "master gland"?
+    choices:
+      - text: 'Pituitary'
+        correct: true
+      - text: 'Thyroid gland'
+        rationale: |
+          This confuses regulation of metabolic rate with the traditional master-gland label. Thyroid hormones affect many tissues. Check which gland sends regulatory signals to several other glands.
+      - text: 'Adrenal glands'
+        rationale: |
+          This confuses stress-related hormones with the master-gland label. Adrenal hormones have wide effects. Check which gland regulates several other endocrine glands.
+      - text: 'Endocrine pancreas'
+        rationale: |
+          This confuses blood-glucose regulation with the master-gland label. Insulin and glucagon affect many cells. Check which gland has the traditional nickname.
+    explanation: |
+      The pituitary is traditionally called the master gland because several of its hormones regulate other endocrine glands. Its own activity is regulated by the hypothalamus and feedback signals.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0006
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Why is the traditional name "master gland" an incomplete description of the pituitary?
+    choices:
+      - text: 'The hypothalamus regulates it.'
+        correct: true
+      - text: 'It has no effect on other endocrine glands.'
+        rationale: |
+          This rejects all regulatory action by the pituitary. Its activity is controlled by other signals, which can make it seem powerless. Check whether being regulated prevents a gland from regulating others.
+      - text: 'It releases only digestive enzymes.'
+        rationale: |
+          This confuses endocrine signals with digestive secretions. Some organs have both jobs. Check whether pituitary products are hormones or digestive enzymes.
+      - text: 'It works independently of hormone feedback.'
+        rationale: |
+          This treats the nickname as proof of independent control. A master label can imply no outside regulation. Check whether feedback and the hypothalamus still act.
+    explanation: |
+      The hypothalamus regulates pituitary activity. Feedback signals also help control the endocrine network. The pituitary therefore does not control the system on its own.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0009
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A fresh cut triggers rapid inflammation and phagocyte activity. Which immune response is described?
+    choices:
+      - text: 'Innate immunity'
+        correct: true
+      - text: 'Antigen-specific memory response'
+        rationale: |
+          This confuses a rapid first response with recall of a specific antigen. Memory responses can also be fast. Check whether earlier exposure or memory cells are stated.
+      - text: 'Antibody secretion by plasma cells'
+        rationale: |
+          This substitutes a specific adaptive product for the stated inflammatory response. Antibodies fight infections too. Check which cells and actions the stem names.
+      - text: 'Adaptive clonal-memory response'
+        rationale: |
+          This assumes speed proves adaptive memory. Repeated exposures can trigger fast adaptive responses. Check whether the described response relies on stored antigen-specific memory.
+    explanation: |
+      Inflammation and phagocytes are parts of innate immunity. These defenses respond quickly to injury and broad signs of infection.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0010
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Years after recovering from a specific virus, a person is exposed to it again, and their body fights it off quickly using memory cells from the earlier infection. What type of immunity is this?
+    choices:
+      - text: 'Adaptive immunity'
+        correct: true
+      - text: 'Innate barrier defense'
+        rationale: |
+          This confuses rapid recall with a general physical barrier. Skin barriers act quickly too. Check whether the response depends on a specific earlier infection.
+      - text: 'Innate inflammatory defense'
+        rationale: |
+          This uses speed alone to classify the response. Inflammation can begin quickly. Check whether antigen-specific memory cells are involved.
+      - text: 'Innate antigen-specific memory'
+        rationale: |
+          This assigns antigen-specific memory cells to innate immunity. Innate responses can also be rapid. Check which immune arm includes memory B and T cells.
+    explanation: |
+      Memory B and T cells belong to adaptive immunity. After earlier exposure, they can help produce a faster, stronger response to the same antigen.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0012
+    type: 'structure-function'
+    difficulty: 'hard'
+    stem: |
+      Which statement correctly describes the source and regulation of normal heartbeat?
+    choices:
+      - text: 'An intrinsic pacemaker starts the rhythm.'
+        correct: true
+      - text: 'The brain stem starts each individual beat.'
+        rationale: |
+          This confuses nervous regulation with starting every beat. The brain stem helps regulate cardiovascular activity. Check whether the heart has its own rhythm source.
+      - text: 'A conscious decision starts each individual beat.'
+        rationale: |
+          This treats heartbeat like a chosen limb movement. Some muscles do follow conscious decisions. Check whether beating continues during sleep.
+      - text: 'Smooth muscle in the heart wall sets the rhythm.'
+        rationale: |
+          This confuses smooth and cardiac muscle. Both are involuntary. Check which tissue forms the heart’s pumping wall.
+    explanation: |
+      The heart has its own pacemaker that starts its rhythm. Nerves and hormones can change that rhythm. A conscious decision is not needed for each beat.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0013
+    type: 'structure-function'
+    difficulty: 'hard'
+    stem: |
+      Which pair correctly matches the pancreas’s digestive and endocrine outputs?
+    choices:
+      - text: 'Digestive enzymes; insulin'
+        correct: true
+      - text: 'Insulin; digestive enzymes'
+        rationale: |
+          This reverses the two outputs. Both are pancreatic products. Check which enters the intestine and which enters blood.
+      - text: 'Bile; digestive enzymes'
+        rationale: |
+          This assigns bile to the pancreas and enzymes to its endocrine role. Both help digestion. Check the organ that makes bile and the route of endocrine secretion.
+      - text: 'Bile; stored urine'
+        rationale: |
+          This mixes liver secretion and urinary storage with pancreatic roles. All concern body fluids. Check the organ and output named in each role.
+    explanation: |
+      The pancreas sends digestive enzymes into the small intestine. Its endocrine tissue sends hormones such as insulin into the blood. These are two different roles of the same organ.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0014
+    type: 'identify'
+    difficulty: 'hard'
+    stem: |
+      Which cells are the major antibody-secreting descendants of activated B cells?
+    choices:
+      - text: 'Plasma cells'
+        correct: true
+      - text: 'Memory T cells'
+        rationale: |
+          This confuses memory lymphocytes with antibody-secreting cells. Both are parts of adaptive immunity. Check which cell type secretes antibodies.
+      - text: 'Innate phagocytes'
+        rationale: |
+          This confuses engulfing material with secreting antibodies. Phagocytes also defend against pathogens. Check the specific defense action described.
+      - text: 'Nervous-system cells'
+        rationale: |
+          This confuses information signals with immune secretion. Nerve cells help coordinate body functions. Check whether the cell is an immune descendant of a B cell.
+    explanation: |
+      Activated B cells can develop into plasma cells. Plasma cells secrete antibodies that recognize specific targets.
+    approved: true
+
+  - id: q-biology-human-anatomy-physiology-0020
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Which pair correctly matches the endocrine pancreatic hormones to their usual effects on blood glucose?
+    choices:
+      - text: 'Insulin lowers it; glucagon raises it.'
+        correct: true
+      - text: 'Insulin raises it; glucagon lowers it.'
+        rationale: |
+          This reverses the effects of the two hormones. Both come from the pancreas. Check which is associated with lowering blood glucose.
+      - text: 'Both raise it after every meal.'
+        rationale: |
+          This gives both hormones the same effect. They both regulate the same quantity. Check whether their usual actions oppose each other.
+      - text: 'Both lower it whenever food is scarce.'
+        rationale: |
+          This gives both hormones a glucose-lowering role. Both participate in glucose regulation. Check whether low food supply makes raising glucose useful.
+    explanation: |
+      Insulin generally lowers blood glucose. Glucagon generally raises it. These different effects help regulate glucose in the blood.
+    approved: false

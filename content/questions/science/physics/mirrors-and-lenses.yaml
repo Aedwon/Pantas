@@ -1,0 +1,110 @@
+meta:
+  subject: "science"
+  topic: "physics"
+  subtopic: "mirrors-and-lenses"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
+questions:
+  - id: q-physics-light-and-optics-0003
+    type: "classify"
+    difficulty: "easy"
+    stem: |
+      How does an ideal concave spherical mirror reflect parallel rays close to its principal axis?
+    choices:
+      - text: "Toward a common focus"
+        correct: true
+      - text: "Away from one another as a convex mirror does"
+        rationale: |
+          This swaps the two mirror shapes. Both are curved reflectors. Check whether the reflecting surface curves inward.
+      - text: "Straight through the mirror as a lens does"
+        rationale: |
+          This treats reflection as transmission. Mirrors and lenses both form images. Check whether rays pass through the device.
+      - text: "In parallel with no change from their original direction"
+        rationale: |
+          This applies a plane-surface idea to a curved mirror. The incoming rays are parallel. Check how the local normal changes across the mirror.
+    explanation: |
+      An ideal concave mirror turns near-axis parallel rays inward by reflection. They meet at its focus in the stated approximation.
+    approved: true
+
+  - id: q-physics-light-and-optics-0004
+    type: "structure-function"
+    difficulty: "easy"
+    stem: |
+      An ordinary glass lens in air is thicker at its center than at its edges. What is its usual effect on near-axis parallel rays?
+    choices:
+      - text: "It converges them."
+        correct: true
+      - text: "It diverges them because every convex surface spreads rays."
+        rationale: |
+          This applies convex-mirror behavior to a lens. The shape word is shared. Check reflection versus refraction.
+      - text: "It returns all rays into the incident medium."
+        rationale: |
+          This treats a lens as a mirror. Both redirect light. Check the transmitted rays through the lens.
+      - text: "It leaves their directions unchanged like a flat window."
+        rationale: |
+          This ignores the lens’s changing surface angle. Both devices are glass. Check curved faces rather than parallel flat faces.
+    explanation: |
+      The center-thick glass lens in air is a converging lens. Refraction at its surfaces turns near-axis parallel rays toward a focus.
+    approved: true
+
+  - id: q-physics-light-and-optics-0005
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      For a real object in front of an ordinary convex mirror, which image is formed?
+    choices:
+      - text: "Upright, reduced, and virtual"
+        correct: true
+      - text: "Inverted, enlarged, and real"
+        rationale: |
+          This applies a possible concave-mirror image to a convex mirror. Both use reflection. Check the diverging mirror type.
+      - text: "Upright, enlarged, and virtual"
+        rationale: |
+          This uses an enlarged virtual image from a converging device. Upright virtual images are familiar. Check the reduced-image property of a convex mirror.
+      - text: "Inverted, reduced, and real"
+        rationale: |
+          This combines reduction with a real inverted image. The image is indeed smaller. Check whether reflected rays actually meet in front of the mirror.
+    explanation: |
+      The convex mirror makes reflected rays spread apart. Their backward extensions form a virtual image behind it. For a real object, that image is upright and reduced.
+    approved: true
+
+  - id: q-physics-light-and-optics-0006
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      Which ordinary lens in air is commonly used to correct myopia, or nearsightedness?
+    choices:
+      - text: "A diverging concave lens"
+        correct: true
+      - text: "A converging convex lens"
+        rationale: |
+          This swaps myopia with hyperopia correction. Both use corrective lenses. Check which condition calls for a diverging lens.
+      - text: "A convex mirror in front of the eye"
+        rationale: |
+          This substitutes a reflector for a transmitting lens. A convex mirror diverges rays. Check how light must enter the eye.
+      - text: "A concave mirror in front of the eye"
+        rationale: |
+          This treats a focusing mirror as a corrective lens. It can form images. Check transmission through the eyeglass lens.
+    explanation: |
+      Myopia is commonly corrected with a diverging lens. An ordinary concave glass lens in air spreads the entering light rays.
+    approved: true
+
+  - id: q-physics-light-and-optics-0012
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      For near-axis parallel rays, compare an ideal concave mirror with an ordinary concave glass lens in air.
+    choices:
+      - text: "The mirror converges; the lens diverges."
+        correct: true
+      - text: "Both converge because both are concave."
+        rationale: |
+          This treats shape words as identical optical behavior. The names match. Check reflection versus refraction.
+      - text: "Both diverge because both are concave."
+        rationale: |
+          This applies concave-lens behavior to a mirror. The lens does diverge. Check the inward-curved reflector separately.
+      - text: "The mirror diverges; the lens converges."
+        rationale: |
+          This reverses both standard behaviors. The rule differs between devices. Check each device’s ray action.
+    explanation: |
+      The concave mirror brings near-axis parallel reflected rays to a focus. The ordinary concave glass lens in air spreads transmitted rays apart.
+    approved: true
