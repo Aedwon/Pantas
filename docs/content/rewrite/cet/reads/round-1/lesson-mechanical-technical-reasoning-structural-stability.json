@@ -1,0 +1,58 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-structural-stability",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "That push and the weight together tend to roll the vehicle toward the outside of the turn.",
+      "problem": "The weight does not help roll the vehicle outward. About the outside wheels the weight gives a restoring torque toward the inside; the rolling effect comes from the road's sideways push acting below the center of gravity (or, in the vehicle's frame, the outward effect of the turn acting at the center of gravity). Saying the weight helps cause the rollover teaches the wrong mechanism in the section that serves the goal's dynamic part.",
+      "source": "Standard rigid-body statics and rollover analysis (e.g., OpenStax University Physics Vol. 1, 6.3 and 12.1: torque about the pivot from weight is restoring)"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "It sits at the middle only for a uniform object that has a center point.",
+      "problem": "False 'only'. A non-uniform but evenly balanced object, such as a dumbbell with equal weights or a ball with a denser core, has its center of gravity at the middle. The next line also treats a uniform triangle as an exception, but its center of gravity is its centroid, which is its geometric center, so the trap's own title claim is not refuted by it. Core Concept repeats the error with 'In an irregular or uneven object it lies elsewhere.'",
+      "source": "Reader rules: test every general statement against a known exception; center of mass definition (OpenStax University Physics Vol. 1, 9.6)"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "The result always lies between the parts' own positions and sits closer to the heavier part.",
+      "problem": "The sentence follows the three-part instruction, and for three parts 'closer to the heavier part' fails: masses 2 kg at 0 m, 1.9 kg at 9 m and 1.9 kg at 10 m give 6.2 m, far from the heaviest part. With equal masses there is no heavier part either. The claim holds only for two parts with unequal masses.",
+      "source": "Reader rules: boundary and exception test; the lesson's own combined-position formula"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A wide base does not help if the load shifts the center of gravity toward one edge.",
+      "problem": "False absolute. With the same offset load, a wider base still moves the edge farther from the weight line and can keep the object down; in Example 4 a base wider than 1.1 m would stop the tip. The warning line 'Lower and wider help only when the other factors stay the same.' also fails: a much wider base helps even if the center of gravity rises a little, which the Speed Tricks ratio rule itself allows.",
+      "source": "Reader rules: test every general statement; the lesson's own tan(theta) = d/h_c and Example 4"
+    },
+    {
+      "rule": "B10",
+      "severity": "Major",
+      "quote": "### #5: Comparing Static Stability\n\nA short, wide uniform object",
+      "problem": "The word 'stability' appears in student-facing text, which B10 bans. The base had the same heading. The lesson title also contains the word but comes from the outline, so it is noted for the final review rather than raised here.",
+      "source": "Checklist B10; AGENTS.md Voice"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "A lower center of gravity or a wider track usually lets the vehicle take a faster turn before this happens.",
+      "problem": "'Track' (the distance between the left and right wheels) is a vehicle term a Grade 5 reader will not know, and it is never explained. Example 9 uses it again as 'track width'. The meaning is needed to follow why the turning case depends on more than height.",
+      "source": "Checklist L25; LSG Teaching completeness"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For a uniform box with width $w$ and height $h$, $d = \\dfrac{w}{2}$ and $h_c = \\dfrac{h}{2}$.",
+      "problem": "Several paragraphs run past three sentences: this one has five, the push paragraph starting 'Let a box rest on level ground' has five, and the rollover paragraph starting 'That push and the weight' has five.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 7
+}
