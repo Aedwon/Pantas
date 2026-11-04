@@ -105,6 +105,10 @@
       9,
       11
     ],
-    "status": "split"
+    "status": "split",
+    "originalRead": {
+      "verdict": "minor",
+      "round": 1
+    }
   }
 ]

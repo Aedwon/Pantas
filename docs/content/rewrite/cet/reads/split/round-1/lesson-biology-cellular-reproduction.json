@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-biology-cellular-reproduction",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "A cell with two of each kind of chromosome is **diploid**. We write this as $2n$. A cell with one of each kind is **haploid**, written $n$. In humans, $n = 23$ and $2n = 46$.", "problem": "This paragraph has four sentences, over the one to three short sentences the guide allows. It is the round-3 Minor that stayed open in the pre-split text and was kept unchanged in this part. Every other paragraph in the shortened lesson is within the limit.", "source": "Content checklist L22a; LSG Formatting rules."}
+  ],
+  "goodQuotesChecked": 1
+}
