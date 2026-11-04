@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -226,7 +227,11 @@ class TopicScreen extends ConsumerWidget {
         backLabel: 'Your performance',
         onBack: leave,
         children: [
-          if (detail.hasError)
+          if (detail.error is TopicNotFound)
+            // A topic the exam does not have: Try Again cannot help, so the
+            // page says so and leaves the back link as the way out.
+            const StateView(message: 'We could not find that topic.')
+          else if (detail.hasError)
             errorFor(
               'topic',
               () => ref.invalidate(topicDetailProvider(topicId)),

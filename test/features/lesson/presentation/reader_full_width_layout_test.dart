@@ -266,16 +266,12 @@ void main() {
   });
 
   group('the outline never overlaps the column', () {
-    // The outline margin is set by the standard 680 px layout: 120 to 220 px,
-    // then a 56 px gap. The column stays centered, so widening it moves the
-    // outline left by half the growth and keeps the gap.
+    // The outline margin is set by the standard 680 px layout: 220 px at the
+    // desktop layout (1280 px and up), then a 56 px gap. The column stays
+    // centered, so widening it moves the outline left by half the growth and
+    // keeps the gap.
     double margin(double w) => ((w - 680 - 112) / 2).clamp(120.0, 220.0);
     for (final width in [
-      1024.0,
-      1031.0,
-      1032.0,
-      1100.0,
-      1279.0,
       1280.0,
       1431.0,
       1432.0,
@@ -290,6 +286,8 @@ void main() {
         expect(standardColumn.width, lessThanOrEqualTo(680));
         expect(standardOutline.width, margin(width));
         expect(standardOutline.right + 56, closeTo(standardColumn.left, .01));
+        // A gutter at the window edge no smaller than the Back link's 16 px.
+        expect(standardOutline.left, greaterThanOrEqualTo(16));
 
         await tester.tap(control);
         await tester.pumpAndSettle();
@@ -298,15 +296,42 @@ void main() {
         // The outline keeps its width and the 56 px gap to the column.
         expect(fullOutline.width, margin(width));
         expect(fullOutline.right + 56, closeTo(fullColumn.left, .01));
-        expect(fullOutline.left, greaterThanOrEqualTo(0));
+        expect(fullOutline.left, greaterThanOrEqualTo(16));
         // The column takes what is left after the outline, the right-hand
-        // space and the two gaps, up to 800 px. It never grows into the
-        // outline or off the window.
-        final room = width - 2 * margin(width) - 112;
+        // space, the two gaps and a 16 px gutter at each edge, up to 800 px.
+        // It never grows into the outline or off the window.
+        final room = width - 2 * margin(width) - 112 - 32;
         expect(fullColumn.width, closeTo(room < 800 ? room : 800, .01));
         expect(fullColumn.width, greaterThanOrEqualTo(standardColumn.width));
-        expect(fullColumn.right + 56 + margin(width), lessThanOrEqualTo(width));
+        expect(
+          fullColumn.right + 56 + margin(width),
+          lessThanOrEqualTo(width - 16),
+        );
         expect(fullColumn.center.dx, closeTo(width / 2, .01));
+        expect(tester.takeException(), isNull);
+      });
+    }
+  });
+
+  group('below the desktop layout the outline is left out (2E-7)', () {
+    for (final width in [1024.0, 1100.0, 1180.0, 1279.0]) {
+      testWidgets('at $width px wide', (tester) async {
+        await pump(tester, width);
+        // No outline squeezed into a narrow margin: its labels would wrap
+        // and sit against the window edge.
+        expect(outline, findsNothing);
+        expect(find.text('IN THIS LESSON'), findsNothing);
+        final standard = tester.getRect(column);
+        expect(standard.width, 680);
+        expect(standard.center.dx, closeTo(width / 2, .01));
+
+        await tester.tap(control);
+        await tester.pumpAndSettle();
+        final full = tester.getRect(column);
+        expect(full.width, greaterThanOrEqualTo(680));
+        expect(full.width, lessThanOrEqualTo(800));
+        expect(full.left, greaterThanOrEqualTo(56));
+        expect(full.center.dx, closeTo(width / 2, .01));
         expect(tester.takeException(), isNull);
       });
     }

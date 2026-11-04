@@ -79,6 +79,9 @@ class HomePerformanceCard extends StatelessWidget {
                                           .style(16, height: 1.3),
                                     ),
                                   ),
+                                  // A title that fills its line must still
+                                  // leave a gap before the figure.
+                                  const SizedBox(width: 12),
                                   Text(
                                     '${(row.accuracy! * 100).round()}%',
                                     style: context.webTokens.style(

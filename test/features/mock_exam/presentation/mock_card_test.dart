@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -49,6 +51,91 @@ void main() {
     );
     expect(find.textContaining('one mock every 30 days'), findsOneWidget);
     expect(find.textContaining('14 days'), findsNothing);
+  });
+
+  Future<void> pumpTitle(
+    WidgetTester tester, {
+    required double width,
+    required double cardWidth,
+    required bool wide,
+  }) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = Size(width, 900);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    debugWebPlatformOverride = wide;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: wide),
+        home: MediaQuery(
+          data: MediaQueryData(size: Size(width, 900), disableAnimations: true),
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: cardWidth,
+                  child: const MockCard(
+                    model: MockCardModel(
+                      state: MockCardState.neverTaken,
+                      name: 'Mock simulation',
+                      durationMinutes: 190,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+  }
+
+  // The test font is as wide as it is tall, so the name here is short enough
+  // to fit alone and long enough that the length does not fit beside it in a
+  // narrow card.
+  group('the name keeps one line (2E-8)', () {
+    for (final (width, cardWidth, wide, beside) in [
+      (1280.0, 520.0, true, false),
+      (1280.0, 700.0, true, true),
+      (390.0, 358.0, false, false),
+      (800.0, 640.0, false, true),
+    ]) {
+      testWidgets(
+        'at $width px, card $cardWidth px wide: '
+        '${beside ? 'length beside' : 'length under'}',
+        (tester) async {
+          await pumpTitle(
+            tester,
+            width: width,
+            cardWidth: cardWidth,
+            wide: wide,
+          );
+          final name = find.text('Mock simulation');
+          final style = tester.widget<Text>(name).style!;
+          // One line: no taller than a single line of its own font.
+          expect(
+            tester.getSize(name).height,
+            lessThan(style.fontSize! * 1.6),
+          );
+          final length = find.text('3 hr 10 min');
+          expect(length, findsOneWidget);
+          final nameTop = tester.getTopLeft(name).dy;
+          final lengthTop = tester.getTopLeft(length).dy;
+          if (beside) {
+            expect(lengthTop - nameTop, lessThan(style.fontSize!));
+          } else {
+            expect(
+              lengthTop,
+              greaterThanOrEqualTo(tester.getBottomLeft(name).dy),
+            );
+          }
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
   });
 
   for (final brightness in Brightness.values) {

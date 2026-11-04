@@ -105,10 +105,10 @@ void main() {
     expect(detail.lessons.map((l) => l.today), [false, false, true]);
   });
 
-  test('an unknown topic fails recoverably', () async {
+  test('an unknown topic is reported as not found', () async {
     await expectLater(
       container.read(topicDetailProvider('nope').future),
-      throwsA(isA<StateError>()),
+      throwsA(isA<TopicNotFound>()),
     );
   });
 }

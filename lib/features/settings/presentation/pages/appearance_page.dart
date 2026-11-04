@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
@@ -61,7 +62,8 @@ class AppearancePage extends ConsumerWidget {
           SettingsSection(
             header: 'Text size',
             footer: 'Lessons and questions use this size. '
-                'Ctrl + and Ctrl − still zoom the whole page.',
+                '$commandKeyLabel + and $commandKeyLabel − still zoom the '
+                'whole page.',
             children: [
               Padding(
                 padding:

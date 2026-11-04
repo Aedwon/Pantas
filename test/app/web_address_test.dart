@@ -18,6 +18,7 @@ class _FakeInner extends ChangeNotifier implements RouteInformationProvider {
   _FakeInner(this.history);
   final _FakeHistory history;
   final reported = <String>[];
+  final types = <RouteInformationReportingType>[];
   @override
   RouteInformation value = RouteInformation(uri: Uri.parse('/'));
 
@@ -27,6 +28,7 @@ class _FakeInner extends ChangeNotifier implements RouteInformationProvider {
     RouteInformationReportingType type = RouteInformationReportingType.none,
   }) {
     reported.add(routeInformation.uri.toString());
+    types.add(type);
     history.serial = reported.length - 1;
     value = routeInformation;
   }
@@ -138,6 +140,41 @@ void main() {
       report(async, '/study', 0);
       expect(inner.reported, ['/lesson/a', '/study']);
       expect(history.moves, isEmpty);
+    });
+  });
+
+  test('a page that replaces itself replaces its entry too', () {
+    fakeAsync((async) {
+      start();
+      report(async, '/quiz/viewer/a', 0);
+      WebAddressProvider.replaceNextEntry();
+      report(async, '/quiz/all/a', 0);
+      expect(inner.types, [
+        RouteInformationReportingType.none,
+        RouteInformationReportingType.neglect,
+      ]);
+    });
+  });
+
+  test('only the next address replaces; later ones add entries', () {
+    fakeAsync((async) {
+      start();
+      report(async, '/quiz/viewer/a', 0);
+      WebAddressProvider.replaceNextEntry();
+      report(async, '/quiz/all/a', 0);
+      report(async, '/quiz', 0);
+      expect(inner.types.last, RouteInformationReportingType.none);
+    });
+  });
+
+  test('a replace that never came is forgotten', () {
+    fakeAsync((async) {
+      start();
+      report(async, '/quiz/viewer/a', 0);
+      WebAddressProvider.replaceNextEntry();
+      async.elapse(const Duration(seconds: 2));
+      report(async, '/quiz/all/a', 0);
+      expect(inner.types.last, RouteInformationReportingType.none);
     });
   });
 }

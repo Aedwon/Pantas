@@ -25,6 +25,16 @@ class TopicLesson {
   final bool today;
 }
 
+/// The address names a topic this exam does not have. Retrying cannot fix it,
+/// so the page offers no Try Again.
+class TopicNotFound implements Exception {
+  const TopicNotFound(this.topicId);
+  final String topicId;
+
+  @override
+  String toString() => 'TopicNotFound($topicId)';
+}
+
 /// DT_Topic: one topic's measured accuracy and its lessons.
 class TopicDetail {
   TopicDetail({
@@ -68,7 +78,7 @@ final topicDetailProvider = FutureProvider.autoDispose
     performanceProvider(const PerformanceQuery(level: TableLevel.topic)).future,
   );
   final row = table.rows.firstWhereOrNull((r) => r.id == topicId);
-  if (row == null) throw StateError('Topic unavailable');
+  if (row == null) throw TopicNotFound(topicId);
   final contentDb = ref.watch(contentDatabaseProvider);
   final lessonRows = await (contentDb.select(contentDb.contentLessons)
         ..where((l) => l.topicId.equals(topicId))

@@ -699,6 +699,22 @@ void main() {
       expect(find.text('Try Again'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
+    testWidgets('wide search with nothing opened yet draws no empty group',
+        (tester) async {
+      await pump(
+        tester,
+        const WebLessonSearch(),
+        brightness,
+        overrides: [
+          studyMapProvider.overrideWith((_) async => map),
+          recentlyOpenedLessonsProvider.overrideWith((_) async => []),
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('RECENTLY OPENED'), findsNothing);
+      expect(find.byType(TextField), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
     testWidgets('wide search recent, results and no match $brightness',
         (tester) async {
       await pump(

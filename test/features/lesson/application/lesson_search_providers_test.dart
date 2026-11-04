@@ -165,6 +165,24 @@ void main() {
     expect(hits.map((h) => h.lessonId).toList(), ['l1', 'l2']);
   });
 
+  test('a title match comes before an earlier body match', () async {
+    // l2 holds "plan" in its body and is first in the corpus. l4 has it in
+    // its title and is last.
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l4',
+      topicId: 't1',
+      title: 'Plan your answer',
+      summary: 'Summary for Plan',
+      bodyJson: jsonEncode([]),
+      ordering: 4,
+    );
+    container.read(searchQueryProvider.notifier).state = 'plan';
+    final hits = await container.read(searchResultsProvider.future);
+
+    expect(hits.map((hit) => hit.lessonId), ['l4', 'l2']);
+  });
+
   test('an empty query gives an empty list', () async {
     container.read(searchQueryProvider.notifier).state = '';
     final hits = await container.read(searchResultsProvider.future);

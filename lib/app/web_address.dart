@@ -45,7 +45,26 @@ class WebAddressProvider extends ChangeNotifier
   })  : _history = history,
         _echoWindow = echoWindow {
     _inner.addListener(_onInner);
+    _current = this;
   }
+
+  static WebAddressProvider? _current;
+
+  /// Makes the next address replace the current history entry instead of
+  /// adding one. A page that closes itself by `pushReplacement` calls this
+  /// first, so browser Back skips the page it replaced.
+  static void replaceNextEntry() => _current?._replaceNext();
+
+  bool _replacing = false;
+  Timer? _replacingTimer;
+
+  void _replaceNext() {
+    _replacing = true;
+    _replacingTimer?.cancel();
+    _replacingTimer = Timer(_replaceWindow, () => _replacing = false);
+  }
+
+  static const _replaceWindow = Duration(milliseconds: 500);
 
   final RouteInformationProvider _inner;
   final BrowserHistory _history;
@@ -81,6 +100,19 @@ class WebAddressProvider extends ChangeNotifier
   }) {
     final location = routeInformation.uri.toString();
     final depth = _depth(routeInformation);
+    if (_replacing) {
+      _replacing = false;
+      _replacingTimer?.cancel();
+      _inner.routerReportsNewRouteInformation(
+        routeInformation,
+        type: RouteInformationReportingType.neglect,
+      );
+      Timer.run(() {
+        final now = _history.serial;
+        if (now != null) _entries[now] = (location: location, depth: depth);
+      });
+      return;
+    }
     final serial = _history.serial;
     final here = serial == null ? null : _entries[serial];
     if (serial != null && here != null && depth < here.depth) {
@@ -105,6 +137,8 @@ class WebAddressProvider extends ChangeNotifier
 
   @override
   void dispose() {
+    if (identical(_current, this)) _current = null;
+    _replacingTimer?.cancel();
     _echoTimer?.cancel();
     _inner.removeListener(_onInner);
     super.dispose();
@@ -124,4 +158,14 @@ void replaceWebAddress(BuildContext context, Uri location) {
       replace: true,
     ),
   );
+}
+
+/// `context.pushReplacement`, and the browser's history entry for the page
+/// being left is replaced too, so browser Back does not reopen it.
+Future<T?> pushReplacementEntry<T extends Object?>(
+  BuildContext context,
+  String location,
+) {
+  WebAddressProvider.replaceNextEntry();
+  return GoRouter.of(context).pushReplacement<T>(location);
 }

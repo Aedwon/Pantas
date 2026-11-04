@@ -137,6 +137,16 @@ void main() {
     expect(detail.answered, 4);
   });
 
+  test('a topic id the exam does not have is not found, not a read failure',
+      () async {
+    final scope = container();
+    addTearDown(scope.dispose);
+    await expectLater(
+      scope.read(webTopicDetailProvider('topic-not-in-this-exam').future),
+      throwsA(isA<TopicNotFound>()),
+    );
+  });
+
   test('Free topic detail refuses paid reads', () async {
     final scope = container(pro: false);
     addTearDown(scope.dispose);

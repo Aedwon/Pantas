@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const { create, SEEN_KEY, GIVE_UP_MS } = require('../../web/pantas_welcome.js');
 
-function setup({ seen = false, wide = false, storageThrows = false, path = '/' } = {}) {
+function setup({ seen = false, wide = false, storageThrows = false, path = '/', onWindow = false } = {}) {
   const classes = new Set();
   const listeners = {};
   const captures = {};
@@ -57,8 +57,17 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/' }
       store.set(key, value);
     },
   };
+  const windowListeners = {};
+  const windowCaptures = {};
+  const keyTarget = {
+    addEventListener: (type, fn, capture) => {
+      windowListeners[type] = fn;
+      windowCaptures[type] = capture === true;
+    },
+  };
   const welcome = create({
     document: doc,
+    ...(onWindow ? { keyTarget } : {}),
     storage,
     setTimeout: (fn, ms) => timers.push({ fn, ms }),
     afterPaint: (fn) => fn(),
@@ -69,6 +78,7 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/' }
     listeners.click({ target: { closest: (sel) => (sel === '#pw-start' ? {} : null) } });
   return {
     welcome, classes, store, button, timers, links, tap, listeners, captures,
+    windowListeners, windowCaptures,
     removed: () => screenRemoved,
   };
 }
@@ -187,4 +197,38 @@ test('a guardian link never shows the Welcome screen, on a first visit', () => {
   }
   assert.equal(setup({ path: '/guardianship' }).welcome.isShown(), true);
   assert.equal(setup({ path: '/' }).welcome.isShown(), true);
+});
+
+test('Enter is heard on the window, ahead of Flutter, and kept from it entirely', () => {
+  // Flutter's own key handling stops Enter before it reaches the document
+  // while its hidden text input has focus, so a document listener never hears
+  // the first Enter. The window is reached first.
+  const t = setup({ wide: true, onWindow: true });
+  assert.equal(t.windowCaptures.keydown, true);
+  assert.equal(t.listeners.keydown, undefined, 'nothing waits on the document');
+  const event = {
+    key: 'Enter',
+    prevented: false,
+    immediate: false,
+    preventDefault() {
+      this.prevented = true;
+    },
+    stopImmediatePropagation() {
+      this.immediate = true;
+    },
+  };
+  t.windowListeners.keydown(event);
+  assert.equal(t.welcome.state.started, true);
+  assert.equal(event.prevented && event.immediate, true);
+});
+
+test('a legal link never shows the Welcome screen, on a first visit', () => {
+  for (const path of ['/legal/terms', '/legal/privacy', '/legal/']) {
+    const t = setup({ path });
+    assert.equal(t.welcome.isShown(), false, path);
+    assert.ok(!t.classes.has('pw-on'), path);
+    assert.equal(t.links.length, 0, path);
+    assert.equal(t.store.get(SEEN_KEY), undefined, 'a legal visit is not remembered as a student visit');
+  }
+  assert.equal(setup({ path: '/legalese' }).welcome.isShown(), true);
 });

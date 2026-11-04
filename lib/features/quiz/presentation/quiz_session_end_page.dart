@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
-import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -24,6 +23,7 @@ import 'package:pantas/features/quiz/application/session_debrief_provider.dart';
 import 'package:pantas/features/quiz/data/session_diagnosis_api.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
+import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
 import 'package:pantas/features/quiz/presentation/session_debrief_cards.dart';
@@ -415,7 +415,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             ready: snapshot.connectionState == ConnectionState.done,
           );
           if (snapshot.hasError || !_current()) {
-            return errorFor('questions', _reload);
+            return QuestionsUnavailable(onRetry: _reload);
           }
           final data = snapshot.data;
           if (data == null) {

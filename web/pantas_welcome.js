@@ -92,17 +92,19 @@
       if (!holdForTap || state.started) env.afterPaint(finish);
     }
 
-    // A parent or guardian opening the emailed link is not a new student. The
-    // Welcome screen would hide the page they came for.
-    function guardianLink() {
+    // A parent or guardian opening the emailed link is not a new student, and
+    // the Terms and Privacy pages open for anyone, so a link to them never
+    // waits behind a Welcome screen. The screen would hide the page they came
+    // for.
+    function pageLink() {
       try {
-        return /^\/guardian(\/|$)/.test(env.pathname ? env.pathname() : '');
+        return /^\/(guardian|legal)(\/|$)/.test(env.pathname ? env.pathname() : '');
       } catch (_) {
         return false;
       }
     }
 
-    if (!seen() && !guardianLink()) {
+    if (!seen() && !pageLink()) {
       state.shown = true;
       doc.documentElement.classList.add('pw-on');
       preloadFonts();
@@ -111,15 +113,19 @@
         if (target && target.closest && target.closest('#pw-start')) start();
       });
       // The Enter hint on the button only exists on wide screens. Flutter's view
-      // holds keyboard focus under the cover and does not pass keys on, so this
-      // listens in the capture phase, ahead of it, and keeps Enter from also
+      // holds keyboard focus under the cover (a hidden text input) and its own
+      // key handling stops the event before it reaches the document, so a
+      // document listener never hears Enter until a click moves focus. This
+      // listens on the window in the capture phase. This script runs before
+      // Flutter's, so it is first in line, and it keeps Enter from also
       // reaching the app's own first step.
-      doc.addEventListener(
+      (env.keyTarget || doc).addEventListener(
         'keydown',
         function (event) {
           if (event.key !== 'Enter' || state.done || !env.wide()) return;
           if (event.preventDefault) event.preventDefault();
-          if (event.stopPropagation) event.stopPropagation();
+          if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+          else if (event.stopPropagation) event.stopPropagation();
           start();
         },
         true,
@@ -147,6 +153,7 @@
   } catch (_) {}
   root.pantasWelcome = create({
     document: root.document,
+    keyTarget: root,
     storage: storage,
     setTimeout: function (fn, ms) {
       return root.setTimeout(fn, ms);

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
-import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
@@ -18,6 +18,7 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
+import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
 import 'package:pantas/features/quiz/presentation/quiz_question_viewer.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
@@ -171,7 +172,9 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
     if (widget.fromAll && context.canPop()) {
       context.pop();
     } else {
-      context.pushReplacement('/quiz/all/${widget.attemptId}');
+      unawaited(
+        pushReplacementEntry<void>(context, '/quiz/all/${widget.attemptId}'),
+      );
     }
   }
 
@@ -195,7 +198,7 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
           ready: snapshot.connectionState == ConnectionState.done,
         );
         if (snapshot.hasError || !_current()) {
-          return Scaffold(body: errorFor('questions', _retry));
+          return Scaffold(body: QuestionsUnavailable(onRetry: _retry));
         }
         final loaded = snapshot.data;
         if (loaded == null) {
@@ -243,10 +246,12 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
     return entries.when(
       loading: () =>
           const Scaffold(body: SafeArea(child: SkeletonQuestionPage())),
-      error: (_, __) => Scaffold(body: errorFor('questions', retry)),
+      error: (_, __) => Scaffold(body: QuestionsUnavailable(onRetry: retry)),
       data: (rows) {
         final index = rows.indexWhere((r) => r.question.id == questionId);
-        if (index < 0) return Scaffold(body: errorFor('questions', retry));
+        if (index < 0) {
+          return Scaffold(body: QuestionsUnavailable(onRetry: retry));
+        }
         return QuizQuestionViewer(
           key: ValueKey('$examId:$questionId'),
           questions: [for (final row in rows) row.question],
@@ -266,7 +271,9 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
             if (context.canPop()) {
               context.pop();
             } else {
-              context.pushReplacement('/quiz/flagged/$examId');
+              unawaited(
+                pushReplacementEntry<void>(context, '/quiz/flagged/$examId'),
+              );
             }
           },
           onNote: (_, __, ___) async {

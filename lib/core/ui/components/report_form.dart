@@ -322,6 +322,13 @@ class _ReportFormState extends State<ReportForm> {
         ): () {
           if (canSend) unawaited(_send());
         },
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          meta: true,
+          includeRepeats: false,
+        ): () {
+          if (canSend) unawaited(_send());
+        },
       },
       child: WebCard(
         radius: 14,
@@ -415,7 +422,7 @@ class _ReportFormState extends State<ReportForm> {
                 _ReportButton(
                   label: 'Save',
                   solid: true,
-                  keyHint: 'Ctrl Enter',
+                  keyHint: '$commandKeyLabel Enter',
                   busy: _busy,
                   onPressed: canSend ? () => unawaited(_send()) : null,
                 ),

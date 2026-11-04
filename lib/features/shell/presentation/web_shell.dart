@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
@@ -93,7 +94,15 @@ class WebShellFrame extends StatelessWidget {
                     alignment: Alignment.topCenter,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1080),
-                      child: child,
+                      // The page's Navigator puts a modal barrier under its
+                      // page, and a barrier hides every earlier sibling from
+                      // the accessibility tree. The sidebar is such a
+                      // sibling, so the page is its own semantics boundary.
+                      child: Semantics(
+                        container: true,
+                        explicitChildNodes: true,
+                        child: child,
+                      ),
                     ),
                   ),
                 ),
@@ -200,7 +209,7 @@ class WebSidebar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const WebKeyHint('Ctrl K'),
+                    WebKeyHint('$commandKeyLabel K'),
                   ],
                 ),
               ),

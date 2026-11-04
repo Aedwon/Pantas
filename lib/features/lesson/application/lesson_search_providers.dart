@@ -103,10 +103,15 @@ final searchResultsProvider =
     }
   }
 
-  hits.sort(
-    (a, b) => (positionByLessonId[a.lessonId] ?? 0)
-        .compareTo(positionByLessonId[b.lessonId] ?? 0),
-  );
+  // A lesson whose title holds the query comes first. Within a group the
+  // lessons keep the study map's order.
+  hits.sort((a, b) {
+    final byTitle =
+        (a.titleMatch == null ? 1 : 0).compareTo(b.titleMatch == null ? 1 : 0);
+    if (byTitle != 0) return byTitle;
+    return (positionByLessonId[a.lessonId] ?? 0)
+        .compareTo(positionByLessonId[b.lessonId] ?? 0);
+  });
   return hits;
 });
 

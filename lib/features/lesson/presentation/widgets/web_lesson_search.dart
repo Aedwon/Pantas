@@ -230,7 +230,7 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                         ],
                       ),
                     )
-                  else
+                  else if (results.isNotEmpty)
                     _resultList(t, results, selected, groupLabel),
                   // The board's "nothing matched" panel has no key footer.
                   if (_query.isEmpty || results.isNotEmpty)

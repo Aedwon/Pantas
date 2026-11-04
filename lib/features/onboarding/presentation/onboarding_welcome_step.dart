@@ -72,44 +72,53 @@ class OnboardingWelcomeStep extends StatelessWidget {
     return ColoredBox(
       color: context.colors.surface,
       child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(20, 180, 20, 24),
-                child: Column(
-                  children: [
-                    const OnboardingLogo(size: 104),
-                    const SizedBox(height: 28),
-                    Semantics(
-                      header: true,
-                      liveRegion: true,
-                      child: Text(
-                        'Welcome to Pantas',
-                        textAlign: TextAlign.center,
-                        style: context.type.largeTitle,
-                      ),
+        // From 600 px the phone layout sits in the 640 px column the other
+        // pages use, so the button does not run the width of a tablet.
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 640),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(20, 180, 20, 24),
+                    child: Column(
+                      children: [
+                        const OnboardingLogo(size: 104),
+                        const SizedBox(height: 28),
+                        Semantics(
+                          header: true,
+                          liveRegion: true,
+                          child: Text(
+                            'Welcome to Pantas',
+                            textAlign: TextAlign.center,
+                            style: context.type.largeTitle,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'Your personal review companion\n'
+                          'for Philippine exams.',
+                          textAlign: TextAlign.center,
+                          style: context.type.body.copyWith(
+                            color: context.colors.secondaryLabel,
+                            height: 1.45,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Your personal review companion\n'
-                      'for Philippine exams.',
-                      textAlign: TextAlign.center,
-                      style: context.type.body.copyWith(
-                        color: context.colors.secondaryLabel,
-                        height: 1.45,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
+                  child:
+                      PantasButton(label: 'Get Started', onPressed: onAdvance),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
-              child: PantasButton(label: 'Get Started', onPressed: onAdvance),
-            ),
-          ],
+          ),
         ),
       ),
     );

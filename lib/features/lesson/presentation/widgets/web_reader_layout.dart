@@ -25,20 +25,40 @@ import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.
 /// not change when the student widens the lesson, so the outline never moves
 /// or shrinks. The column takes what is left after the two margins and the
 /// two 56 px gaps, up to its own width.
+///
+/// The outline needs a 220 px margin for one line per label and a gutter at
+/// the window edge like the Back link's. Only the desktop layout (1280 px and
+/// up, the sidebar layout) has that room. Below it the outline is left out,
+/// as on the phone, and the column sits centered between its two gaps. The
+/// 1024 to 1279 px layout is the tablet one, which borrows the phone's
+/// chrome.
 abstract final class WebReaderMetrics {
   static const double gap = 56;
 
+  /// The narrowest window that shows the outline.
+  static const double outlineMinWidth = 1280;
+
+  /// Whether a window [maxWidth] wide shows the outline.
+  static bool showsOutline(double maxWidth) => maxWidth >= outlineMinWidth;
+
   /// The outline margin on the left and the matching space on the right.
-  static double margin(double maxWidth) =>
-      ((maxWidth - readerStandardWidth - 2 * gap) / 2).clamp(120.0, 220.0);
+  /// Zero where the outline is left out.
+  static double margin(double maxWidth) => showsOutline(maxWidth)
+      ? ((maxWidth - readerStandardWidth - 2 * gap) / 2).clamp(120.0, 220.0)
+      : 0;
+
+  /// The space kept at each window edge beside the outline, as the Back
+  /// link keeps 16 px.
+  static const double edge = 16;
 
   /// The lesson column for a window [maxWidth] wide.
   ///
-  /// Where the full width does not fit, the column is the room that is left.
-  /// Below 1032 px that is under 680 px in either mode, as it was before.
+  /// Where the full width does not fit, the column is the room that is left,
+  /// after the outline's edge gutter too.
   static double columnWidth(double maxWidth, {required bool fullWidth}) {
     final wanted = fullWidth ? readerFullWidthMax : readerStandardWidth;
-    final room = maxWidth - 2 * margin(maxWidth) - 2 * gap;
+    final outer = showsOutline(maxWidth) ? 2 * edge : 0;
+    final room = maxWidth - 2 * margin(maxWidth) - 2 * gap - outer;
     return wanted < room ? wanted : room;
   }
 }
@@ -847,21 +867,24 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  key: const ValueKey('web-reader-outline'),
-                                  width: margin,
-                                  child: SingleChildScrollView(
-                                    padding: EdgeInsets.only(top: 48 + lift),
-                                    child: _outline(context, headings),
+                                if (margin > 0) ...[
+                                  SizedBox(
+                                    key: const ValueKey('web-reader-outline'),
+                                    width: margin,
+                                    child: SingleChildScrollView(
+                                      padding: EdgeInsets.only(top: 48 + lift),
+                                      child: _outline(context, headings),
+                                    ),
                                   ),
-                                ),
+                                ],
                                 const SizedBox(width: WebReaderMetrics.gap),
                                 Flexible(
                                   child: SizedBox(
                                     key: const ValueKey('web-reader-column'),
-                                    width: fullWidth
-                                        ? readerFullWidthMax
-                                        : readerStandardWidth,
+                                    width: WebReaderMetrics.columnWidth(
+                                      constraints.maxWidth,
+                                      fullWidth: fullWidth,
+                                    ),
                                     child: _wheel(
                                       SingleChildScrollView(
                                         controller: widget.controller,
@@ -876,7 +899,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                   ),
                                 ),
                                 const SizedBox(width: WebReaderMetrics.gap),
-                                SizedBox(width: margin),
+                                if (margin > 0) SizedBox(width: margin),
                               ],
                             );
                           },
