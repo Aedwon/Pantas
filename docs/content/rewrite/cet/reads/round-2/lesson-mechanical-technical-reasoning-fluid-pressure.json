@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-fluid-pressure",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "Then $P=101{,}000+98{,}000=199{,}000$ Pa.",
+      "problem": "Still open from round 1. Examples 5 to 10 each have two or more steps, but none uses a numbered list as the guide requires. Example 7 still cancels $P_0$ and $g$ without first writing the two equal pressures, and Example 9 still says 'each carries $10$' with no unit. No essential step is missing, so this is format only.",
+      "source": "Checklist L19; lesson-style-guide.md, Examples section (numbered steps when a solution has two or more steps)"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "$$P+\\tfrac12\\rho v^2+\\rho gy=\\text{constant},$$",
+      "problem": "Top-level fractions use \\tfrac here, in the Delta P display, and in Example 10. The rule is \\dfrac at top level; \\tfrac sets the half at script size, the small size the maths rule exists to avoid. The base wrote \\frac12, which the renderer promotes, but \\tfrac is explicit.",
+      "source": "Checklist B08; AGENTS.md Maths in content; lesson-style-guide.md Math notation"
+    },
+    {
+      "rule": "B08",
+      "severity": "Minor",
+      "quote": "To compare two points 1 and 2 on a streamline",
+      "problem": "Numbers in prose are not wrapped in inline math. The same applies to 'as in Example 6' in Trap #1 and 'as in Example 7' in Trap #2. The guide says every number in prose is wrapped, even isolated ones.",
+      "source": "Checklist B08; lesson-style-guide.md Math notation"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

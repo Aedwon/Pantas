@@ -252,3 +252,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Quadrilaterals open after 3 reads (1 Major: Example 1 figure type draws the method). Combinatorics fixed after round 1; round 2 read running. Measures-of-variability round 1: 2 Blockers, 1 Major; fix running.
 - Combinatorics done at minor. Variability fixed after round 2 (1 Blocker); round 3 read next. Written: basic-trigonometric-ratios (2,359 words), fluid-pressure (2,138).
 - Measures-of-variability open after 3 reads (2 Majors). Basic-trigonometric-ratios fixed after round 1; round 2 read running. Fluid-pressure round 1: 1 Blocker, 2 Majors; fix running.
+- Fluid-pressure done at minor. Basic-trigonometric-ratios done at minor. Written: laws-of-sines-and-cosines (2,985 words, round 1 read running), solving-right-triangles (2,339).
