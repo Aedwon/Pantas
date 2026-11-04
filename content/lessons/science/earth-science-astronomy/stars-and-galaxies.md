@@ -17,7 +17,9 @@ Two words come up again and again. **Gravity** is the pull that masses have on e
 
 A **star** is a huge ball of very hot gas that makes its own light. In the hottest gas, atoms break into charged pieces. Hot gas in this state is called **plasma**.
 
-A star shines because of **nuclear fusion**. In fusion, the centers of small atoms join to make a bigger atom, and this releases energy. In most of a star's life, it fuses hydrogen into helium in its core. Our Sun is a star.
+A star shines because of **nuclear fusion**. In fusion, the centers of small atoms join to make a bigger atom, and this releases energy.
+
+In most of a star's life, it fuses hydrogen into helium in its core. Our Sun is a star.
 
 A star's own gravity holds the ball together. The star's gas pushes outward as it heats up. The two effects balance for most of the star's life.
 
@@ -27,7 +29,9 @@ Stars differ in color, temperature, size, and brightness. These properties are l
 
 **Color and surface temperature.** The color of a star shows its surface temperature. A blue-white star is the hottest, with a surface above about $10{,}000$ °C. A white star is cooler, a yellow star like the Sun is cooler still, and an orange star is cooler than that.
 
-A red star is the coolest, with a surface below about $3{,}500$ °C. The Sun's surface is about $5{,}500$ °C. Scientists also sort stars into the spectral classes O, B, A, F, G, K, and M, from hottest to coolest. The Sun is class G.
+A red star is the coolest, with a surface below about $3{,}500$ °C. The Sun's surface is about $5{,}500$ °C.
+
+Scientists also sort stars into the spectral classes O, B, A, F, G, K, and M, from hottest to coolest. The Sun is class G.
 
 **Size.** Stars come in very different sizes. A red giant is a huge, cool, reddish star. A white dwarf is a small, hot, faint star about as wide as Earth.
 
@@ -43,11 +47,13 @@ A star is born inside a **nebula**, a cloud of gas and dust. Gravity pulls part 
 
 The long, steady stage that follows is called the **main sequence**. The star fuses hydrogen into helium in its core. The Sun is about $4.6$ billion years old and is in this stage.
 
-What happens next depends mostly on the star's mass, which is the amount of matter in it. Massive stars use their fuel fast and live a shorter time than small stars. Red dwarfs, the smallest stars, burn fuel so slowly that they live far longer than the present age of the universe.
+What happens next depends mostly on the star's mass, which is the amount of matter in it. Massive stars use their fuel fast and live a shorter time than small stars. Red dwarfs, the lowest-mass main-sequence stars, burn fuel so slowly that they live far longer than the present age of the universe.
 
 When a star like the Sun runs low on core hydrogen, it swells into a red giant. It then blows off its outer layers as a shell of gas called a planetary nebula, which has nothing to do with planets. The hot core left behind is a white dwarf, which slowly cools and fades.
 
-A star many times the Sun's mass swells into a supergiant. It ends in a huge explosion called a **supernova**. The core that remains is a neutron star, a tiny but very dense ball about $20$ km across, or a black hole. A **black hole** is an object so dense that its gravity is too strong for even light to escape.
+A star many times the Sun's mass swells into a supergiant. It ends in a huge explosion called a **supernova**. The core that remains is a neutron star, a tiny but very dense ball about $20$ km across, or a black hole.
+
+A **black hole** is an object so dense that its gravity is too strong for even light to escape.
 
 <!-- ILLUSTRATION: flow diagram from "nebula" to "protostar" to "main-sequence star", then two branches: "star like the Sun: red giant, planetary nebula, white dwarf" and "star many times the Sun's mass: supergiant, supernova, neutron star or black hole" -->
 
@@ -59,7 +65,9 @@ Distances here are measured in light-years. A **light-year** is the distance lig
 
 The **Milky Way** is the galaxy that holds our Solar System. It is a spiral galaxy about $100{,}000$ light-years across, with at least $100$ billion stars. The nearest large galaxy is Andromeda, about $2.5$ million light-years away.
 
-Galaxies have three common shapes: spiral, elliptical, and irregular. Nearly all the single stars we see at night belong to the Milky Way. A **constellation** is only a pattern that people see in the sky. Its stars are at very different distances and are not a group held together by gravity.
+Galaxies have three common shapes: spiral, elliptical, and irregular.
+
+Nearly all the single stars we see at night belong to the Milky Way. A **constellation** is only a pattern that people see in the sky. Its stars are at very different distances and are not a group held together by gravity.
 
 ## Examples
 
