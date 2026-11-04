@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-structural-stability",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Lowering the center of gravity or widening the base each helps when the other factors stay the same.",
+      "problem": "The lead's round-2 restatement fixed the 'most' claim but still fails two tests from the lesson's own content. (1) Against a push, the lesson's tipping rule F·H > W·d has no center height in it: lowering the center of gravity with d, W and the push height fixed leaves the tipping force unchanged (Example 8 stays 147 N). (2) At the boundary d ≤ 0, when the weight line is on or past the edge, as in Example 4, lowering the center of gravity does not help at all; only moving it sideways or widening the base does. The claim holds only for the slow-tilt angle with the weight line inside the base. The explanation under the trap covers the overhang case for a wider base but not for lowering.",
+      "source": "Reader rules: test every general statement at boundary values; the lesson's own F·H > W·d, tan θ = d/h_c, Examples 4 and 8"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "$$\\tan\\theta = \\dfrac{0.2}{0.4} = 0.5 \\quad\\Rightarrow\\quad \\theta \\approx 26.6^\\circ$$",
+      "problem": "The tilt formula and Example 7 need the tangent of an angle and the step from a tangent value back to the angle (inverse tangent). The lesson neither explains tan nor names a prerequisite trigonometry lesson, so a student without it cannot follow how 0.5 becomes 26.6 degrees. A short reminder or a named prerequisite would satisfy the reuse rule.",
+      "source": "Checklist L25; LSG Teaching completeness (shared reuse rule); reader rules: confirm each formula or term is taught or its prerequisite named"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For a uniform box with width $w$ and height $h$, $d = \\dfrac{w}{2}$ and $h_c = \\dfrac{h}{2}$.",
+      "problem": "Round-1 and round-2 finding still open. This paragraph has six sentences. Others also exceed three: 'If the weight is spread evenly' (five), 'For three parts' (five), and 'Let a box rest on level ground' (five).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The wider stance gives a bigger base from side to side. The weight line has more room to shift before it crosses the edge.",
+      "problem": "Example 10's solution has several reasoning steps (side-to-side base, room for the weight line, front-to-back case) written as one prose paragraph, not a numbered list. Example 5 is the same. No step is skipped, so Minor.",
+      "source": "Checklist L19; LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
