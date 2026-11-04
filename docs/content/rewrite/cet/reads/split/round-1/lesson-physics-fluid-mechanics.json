@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-physics-fluid-mechanics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Here $P_0$ is the pressure at the top surface, and $h$ is the depth below that surface.",
+      "problem": "The round-3 L22a Minor is still open in the part this lesson keeps. This gauge and absolute pressure paragraph has six sentences, over the limit of one to three short sentences. Other kept paragraphs also run over: the units paragraph (five), the Archimedes' principle paragraph (five), the paragraph on what the buoyant force formula uses (five) and the average density paragraph (five). The text is new in this rewrite, so the Minor must be fixed. Note, not a finding: the paragraph after the depth formula says the formula 'has the fluid's density, $g$, and the depth' and the shortcut and Trap #4 repeat that list without the surface pressure $P_0$. This is right for comparing open containers, which is every case the lesson works, but it would mislead for a sealed tank with gas above the liquid at a different pressure. A fixer may add the same-surface-pressure condition. The split itself is clean: no text points to continuity, Bernoulli, Examples #8 and #9, or the moved traps, and 'see Example #7' still points to the apparent weight example here.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of one to three short sentences); round-3 read L22a finding"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "P = P_0 + \\rho gh = 1.01 \\times 10^5 + 1.176 \\times 10^5 = 2.186 \\times 10^5 \\text{ Pa}",
+      "problem": "The round-3 L21 Minor is still open for Example #2. This display line chains three equalities with three numbers in scientific notation, too wide for a phone screen at display size. The other two lines that finding named were in Examples #8 and #9, which moved to the fluid flow lesson. The line is new text, so the Minor must be fixed.",
+      "source": "Checklist L21; LSG Examples section (keep each display equation narrow enough for a phone screen); round-3 read L21 finding"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
