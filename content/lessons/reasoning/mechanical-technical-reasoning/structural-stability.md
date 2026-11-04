@@ -11,7 +11,7 @@ isActive: true
 
 The **center of gravity** of an object is the point where its whole weight can be treated as acting. Near Earth's surface, gravity is almost the same over the whole object. So this point is also the **center of mass**, the balance point of the object's mass.
 
-For a uniform object with a center point, such as a rectangle, a circle, a box or a rod, the center of gravity is at that center. A flat triangle plate has it one-third of the way up from the base. In an irregular or uneven object it lies elsewhere. It can even lie in empty space, like the middle of a ring.
+If the weight is spread evenly about the middle, the center of gravity is at the middle. This holds for a uniform rectangle, circle, box or rod, and for a dumbbell with two equal weights. A uniform flat triangle plate has it one-third of the way up from the base. If more weight lies on one side, like the head of a hammer, it lies nearer that side. It can even lie in empty space, like the middle of a ring.
 
 The **base of support** is the region on the ground, or another surface, that is enclosed by the outer points where the object touches it. The region includes the empty space between those points. A table with four legs has a base shaped like the rectangle drawn through its four feet.
 
@@ -23,7 +23,7 @@ For two parts, the combined position is:
 
 $$x_{cg} = \dfrac{m_1x_1 + m_2x_2}{m_1 + m_2}$$
 
-For three parts, add the third part's term to the top and its mass to the bottom. The result always lies between the parts' own positions and sits closer to the heavier part. If the two masses are equal, it is the midpoint. The same formula works for heights if you measure each $x$ upward from the floor.
+For three parts, add the third part's term to the top and its mass to the bottom. The result always lies between the parts' own positions. With two parts of unequal weight, it sits closer to the heavier part, and with equal masses it is the midpoint. With more parts, the weighted average decides, so do not guess by the heaviest part. The same formula works for heights if you measure each $x$ upward from the floor.
 
 <!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3, "tilt": 18}], "semanticsLabel": "A short wide object and a tall narrow object with center-of-gravity projections shown relative to their bases of support."} -->
 ### Static Tipping Test
@@ -42,7 +42,7 @@ Tilt an object slowly about one bottom edge. Let $d$ be the sideways distance fr
 
 $$\tan\theta = \dfrac{d}{h_c}$$
 
-For a uniform box with width $w$ and height $h$, $d = \dfrac{w}{2}$ and $h_c = \dfrac{h}{2}$. So $\tan\theta = \dfrac{w}{h}$. A cube tips at $45^\circ$. A lower center of gravity or a wider base gives a larger angle, as long as the center of gravity stays in the middle of the base. A load that shifts the center of gravity toward one edge makes $d$ smaller on that side.
+For a uniform box with width $w$ and height $h$, $d = \dfrac{w}{2}$ and $h_c = \dfrac{h}{2}$. So $\tan\theta = \dfrac{w}{h}$. A cube tips at $45^\circ$. A lower center of gravity or a wider base gives a larger angle, as long as the center of gravity stays in the middle of the base. A load that shifts the center of gravity toward one edge makes $d$ smaller on that side. That reduces the margin, though a wider base still widens it.
 
 The mass of the object does not appear in this formula. Where the mass sits does.
 
@@ -60,7 +60,9 @@ Weight is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. Th
 
 Everything above assumes the object is at rest or moves slowly. A vehicle in a sharp turn is different, because its direction keeps changing. The road must push the tires sideways, toward the center of the turn. This push acts at road level, below the center of gravity.
 
-That push and the weight together tend to roll the vehicle toward the outside of the turn. More of the load moves onto the outside wheels. If the inside wheels lift off the road, the vehicle is starting to roll over. A lower center of gravity or a wider track usually lets the vehicle take a faster turn before this happens. A vertical weight line alone cannot explain it.
+The weight resists rolling over. The road's sideways push, acting below the center of gravity, is what tends to roll the vehicle toward the outside of the turn. More of the load moves onto the outside wheels.
+
+If the inside wheels lift off the road, the vehicle is starting to roll over. The **track** is the distance between the left and right wheels. A lower center of gravity or a wider track usually lets the vehicle take a faster turn before this happens. A vertical weight line alone cannot explain it.
 
 ## Examples
 
@@ -121,7 +123,7 @@ $$x = \dfrac{40(0.5) + 120(1.3)}{40 + 120} = \dfrac{176}{160} = 1.1 \text{ m}$$
 4. It is outside the base, so the crate tips to the right.
 
 <!-- ILLUSTRATION: a crate with a base 1.0 m wide from 0 to 1.0 m, a 120 kg load sticking out on the right, a dot at 1.1 m for the combined center of gravity, and a weight line landing past the right edge -->
-### #5: Comparing Static Stability
+### #5: Comparing Static Tipping
 
 A short, wide uniform object and a tall, narrow uniform object have comparable shapes and material. Which is harder to tip slowly on a level surface?
 
@@ -206,9 +208,9 @@ The wider stance gives a bigger base from side to side. The weight line has more
 
 ### #1: "The Center of Gravity Is Always at the Geometric Center"
 
-> It sits at the middle only for a uniform object that has a center point.
+> It sits at the middle when the weight is spread evenly about the middle.
 
-A flat triangle has it one-third of the way up. A hammer has it near the heavy head. Check the shape before you assume the middle.
+A uniform flat triangle has it at its centroid, one-third of the way up, not halfway. A hammer has it near the heavy head. Check how the weight is spread before you assume the middle.
 
 ### #2: "Heavier Means Harder to Tip"
 
@@ -224,9 +226,9 @@ A lower center of gravity helps, but the full explanation involves those forces 
 
 ### #4: "Lower or Wider Is Always Better"
 
-> Lower and wider help only when the other factors stay the same.
+> Lower and wider help most when the other factors stay the same.
 
-A wide base does not help if the load shifts the center of gravity toward one edge. A load that sticks out past the base can tip even a wide crate.
+A load that shifts the center of gravity toward one edge reduces the margin, and a wider base still widens it. A load that sticks out past the base can tip even a wide crate unless the base is wide enough to cover it.
 
 ### #5: Forgetting That Objects Can Slide
 
