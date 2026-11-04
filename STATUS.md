@@ -261,3 +261,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - November 4: Aedwon chose IUPAC 2013 parent-chain naming. Basic-organic-chemistry updated (rule, step 1, Trap #4, a note on the older school rule); no example name changed. A verification read is next (reads/round-4).
 - Basic-organic-chemistry verification read (round 4): minor. Status open to minor. Counts: 7 clean, 42 minor, 20 open.
 - November 4: split light-and-optics (adds mirrors-and-lenses), human-anatomy-physiology (adds human-body-control-movement-and-defense) and fluid-mechanics (adds fluid-flow-continuity-and-bernoulli). Questions moved with ids unchanged; totals unchanged (Python check). Outline updated. Dart import and export checks still to run on Aedwon's Mac.
+- November 4: split heavenly-bodies (adds stars-and-galaxies) and waves-and-sound (adds interference-diffraction-and-doppler). Questions moved with ids unchanged; totals unchanged.

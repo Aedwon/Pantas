@@ -4,48 +4,6 @@ meta:
   subtopic: 'heavenly-bodies'
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
-  - id: q-earth-science-astronomy-heavenly-bodies-0001
-    type: identify
-    difficulty: easy
-    stem: |
-      What is a giant, glowing ball of hot gas that makes its own light and heat through nuclear reactions in its core, such as the Sun?
-    choices:
-      - text: 'A star'
-        correct: true
-      - text: 'A galaxy'
-        rationale: |
-          This treats a galaxy as one star. Galaxies contain shining stars. Check one body versus a whole system.
-      - text: 'An asteroid'
-        rationale: |
-          This confuses reflected sunlight with light made inside a body. An asteroid can look bright. Check for nuclear fusion.
-      - text: 'A comet'
-        rationale: |
-          This treats a bright comet as a star. Comets brighten near the Sun. Check the source of their energy.
-    explanation: |
-      A star is a ball of hot gas held together by gravity. Nuclear fusion in its core releases light and heat.
-    approved: true
-
-  - id: q-earth-science-astronomy-heavenly-bodies-0002
-    type: identify
-    difficulty: easy
-    stem: |
-      What is the name for a huge collection of billions of stars, gas, dust, and dark matter, all held together by gravity, such as our own Milky Way?
-    choices:
-      - text: 'A galaxy'
-        correct: true
-      - text: 'A star cluster'
-        rationale: |
-          This treats a group within a galaxy as the whole galaxy. Clusters also contain many stars. Check the system's scale and contents.
-      - text: 'A solar system'
-        rationale: |
-          This confuses a planetary system with a galaxy. Both are held together by gravity. Check one star versus a vast stellar system.
-      - text: 'A nebula'
-        rationale: |
-          This treats a gas cloud as an entire galaxy. Nebulae can contain forming stars. Check the full bound system.
-    explanation: |
-      A galaxy is a large system held together by gravity. It contains stars, gas, dust, and dark matter. The Milky Way contains our Solar System.
-    approved: true
-
   - id: q-earth-science-astronomy-heavenly-bodies-0003
     type: identify
     difficulty: medium
@@ -340,27 +298,6 @@ questions:
       The bright atmospheric event is a meteor. All incoming material was destroyed. No material reached the ground to become a meteorite.
     approved: true
 
-  - id: q-earth-science-astronomy-heavenly-bodies-0017
-    type: structure-function
-    difficulty: easy
-    stem: |
-      Which process supplies the Sun's energy during the main part of its life?
-    choices:
-      - text: 'Nuclear fusion in its core'
-        correct: true
-      - text: 'Burning fuel with atmospheric oxygen'
-        rationale: |
-          This treats a star as a chemical fire. Fires also release heat. Check the process in the core.
-      - text: 'Reflecting light from nearby stars'
-        rationale: |
-          This treats the Sun as a reflector. Planets are visible by reflected light. Check whether a star makes its own energy.
-      - text: 'Friction caused by orbiting planets'
-        rationale: |
-          This gives planetary motion a role in core heating. Contact can produce friction. Check the Sun's internal energy source.
-    explanation: |
-      Nuclear fusion joins light atomic nuclei in the Sun's core. This releases energy. The energy reaches space as light and heat.
-    approved: false
-
   - id: q-earth-science-astronomy-heavenly-bodies-0018
     type: compare-contrast
     difficulty: medium
@@ -401,25 +338,4 @@ questions:
           This reverses the heating-release link. A receding comet can remain active. Check how less heat affects gas release.
     explanation: |
       Solar heating helps release gas and dust from a comet. Farther from the Sun, less heating reaches the surface. Usually, less material is released.
-    approved: false
-
-  - id: q-earth-science-astronomy-heavenly-bodies-0020
-    type: classify
-    difficulty: exam
-    stem: |
-      A telescope resolves an object into a vast gravitationally bound system of stars, gas, and dust. Which observation most directly distinguishes it from a single star?
-    choices:
-      - text: 'It contains many separate stars.'
-        correct: true
-      - text: 'It emits detectable visible light.'
-        rationale: |
-          This uses brightness to identify a whole system. Single stars also shine. Check whether separate stars are resolved.
-      - text: 'Its material is affected by gravity.'
-        rationale: |
-          This treats gravity as unique to a galaxy. Stars also hold together by gravity. Check the contents of the system.
-      - text: 'It contains very hot gaseous matter.'
-        rationale: |
-          This treats hot gas as unique to galaxies. Stars contain hot gas or plasma. Check for many separate stars.
-    explanation: |
-      A galaxy contains many stars in one large bound system. Seeing separate stars shows that the object is a system rather than one stellar body.
     approved: false

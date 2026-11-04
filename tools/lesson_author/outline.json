@@ -317,8 +317,13 @@
               "sections": []
             },
             {
-              "title": "Heavenly Bodies (Stars, Galaxies, Comets, Asteroids, Meteors)",
+              "title": "Heavenly Bodies (Planets, Moons, Asteroids, Comets, Meteors)",
               "slug": "heavenly-bodies",
+              "sections": []
+            },
+            {
+              "title": "Stars and Galaxies",
+              "slug": "stars-and-galaxies",
               "sections": []
             },
             {
@@ -624,8 +629,13 @@
               "sections": []
             },
             {
-              "title": "Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic Waves, Doppler Effect)",
+              "title": "Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic, Sound)",
               "slug": "waves-and-sound",
+              "sections": []
+            },
+            {
+              "title": "Interference, Diffraction and the Doppler Effect",
+              "slug": "interference-diffraction-and-doppler",
               "sections": []
             },
             {

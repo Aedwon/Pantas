@@ -172,48 +172,6 @@ questions:
       The spring coils move parallel to propagation. That is a longitudinal disturbance, producing compressions and expansions.
     approved: true
 
-  - id: q-physics-waves-and-sound-0009
-    type: "cause-effect"
-    difficulty: "medium"
-    stem: |
-      A steady siren moves toward a stationary listener at subsonic speed in still air. How does observed frequency compare with emitted frequency?
-    choices:
-      - text: "It is higher."
-        correct: true
-      - text: "It is lower because wavefronts are farther apart ahead"
-        rationale: |
-          This reverses the wavefront spacing. Source motion changes spacing. Check successive emissions toward the listener.
-      - text: "It is equal because the siren’s emitted frequency is fixed"
-        rationale: |
-          This equates emitted and observed frequencies despite motion. The siren does emit steadily. Check the arrival intervals.
-      - text: "It is higher because sound itself travels faster in the air"
-        rationale: |
-          This assigns the Doppler shift to propagation speed. Higher frequency is the observed result. Check the unchanged air conditions.
-    explanation: |
-      Successive wavefronts are emitted from positions closer to the listener. They arrive more frequently than for a stationary source. Observed frequency is higher.
-    approved: true
-
-  - id: q-physics-waves-and-sound-0010
-    type: "cause-effect"
-    difficulty: "medium"
-    stem: |
-      A steady siren recedes from a stationary listener in still air. How does observed frequency compare with emitted frequency?
-    choices:
-      - text: "It is lower."
-        correct: true
-      - text: "It is higher because separation increases"
-        rationale: |
-          This reverses the arrival-rate trend. Distance is changing. Check the increasing spacing of successive wavefronts toward the listener.
-      - text: "It is equal because the source frequency is constant"
-        rationale: |
-          This ignores source motion during emission. The source frequency is fixed. Check the listener’s arrival intervals.
-      - text: "It becomes zero immediately because the source moves away"
-        rationale: |
-          This turns a lower frequency into no sound. The source is farther away. Check ongoing arrival of wavefronts.
-    explanation: |
-      Successive wavefronts reaching the listener are spaced farther apart by the receding source. They arrive less frequently. Observed frequency is lower.
-    approved: true
-
   - id: q-physics-waves-and-sound-0011
     type: "classify"
     difficulty: "hard"
@@ -254,69 +212,6 @@ questions:
           This reverses the two orientations. Both involve oscillation. Check compressions in air and sideways motion of the string.
     explanation: |
       Sound in air is longitudinal, with disturbance parallel to propagation. The stated transverse string wave has disturbance perpendicular to propagation.
-    approved: true
-
-  - id: q-physics-waves-and-sound-0013
-    type: "classify"
-    difficulty: "hard"
-    stem: |
-      A siren approaches a listener in air whose properties remain fixed. Does the higher observed pitch mean sound’s propagation speed relative to that air increased?
-    choices:
-      - text: "No, source motion changes wavefront spacing."
-        correct: true
-      - text: "Yes, the moving source adds its speed to sound’s air-relative speed"
-        rationale: |
-          This treats sound like an object carried by the source. The source is moving. Check that propagation is set by the medium.
-      - text: "No, because the propagation speed actually falls during approach"
-        rationale: |
-          This substitutes a speed decrease for the spacing change. Wave quantities are related. Check the unchanged medium conditions.
-      - text: "Yes, pitch is another name for propagation speed"
-        rationale: |
-          This confuses cycles per second with distance per second. Both can increase numerically. Check frequency versus speed units.
-    explanation: |
-      The air’s properties set the propagation speed relative to it. The moving source changes the spacing of wavefronts. The listener receives them at a higher frequency.
-    approved: true
-
-  - id: q-physics-waves-and-sound-0014
-    type: "predict-outcome"
-    difficulty: "hard"
-    stem: |
-      A listener moves toward a stationary siren through still air. The siren emits at fixed frequency. What changes for the listener?
-    choices:
-      - text: "Wavefronts are encountered more often."
-        correct: true
-      - text: "Wavefront spacing in the air decreases because the listener moves"
-        rationale: |
-          This uses moving-source spacing changes for a moving observer. Both produce Doppler shifts. Check which object moves during emission.
-      - text: "Wavefronts are encountered less often during approach"
-        rationale: |
-          This reverses the encounter-rate change. Motion affects arrival intervals. Check movement toward incoming wavefronts.
-      - text: "No frequency change can occur unless the source moves"
-        rationale: |
-          This excludes observer motion from Doppler shifts. A moving siren is the familiar example. Check the relative encounter rate.
-    explanation: |
-      The stationary source sets a fixed wavefront spacing in the air. A listener moving toward it encounters those wavefronts more often. Observed frequency increases.
-    approved: true
-
-  - id: q-physics-waves-and-sound-0015
-    type: "process-ordering"
-    difficulty: "exam"
-    stem: |
-      A steady siren approaches and then recedes from a stationary listener in still air. What is the observed pitch sequence relative to the emitted pitch?
-    choices:
-      - text: "Higher during approach, lower during recession"
-        correct: true
-      - text: "Lower during approach, higher during recession"
-        rationale: |
-          This reverses both shifts. Source motion matters. Check compressed spacing ahead and expanded spacing behind.
-      - text: "Unchanged throughout because emission is steady"
-        rationale: |
-          This ignores motion between source and listener. The emitted pitch is fixed. Check observed arrival rate.
-      - text: "Higher throughout because the siren remains in motion"
-        rationale: |
-          This uses motion alone without its direction. The source moves throughout. Check approach versus separation.
-    explanation: |
-      Approach brings wavefronts more frequently, raising observed pitch. Recession spaces their arrival farther apart, lowering it.
     approved: true
 
   - id: q-physics-waves-and-sound-0016
