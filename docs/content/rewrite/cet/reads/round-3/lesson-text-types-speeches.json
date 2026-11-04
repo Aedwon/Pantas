@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-text-types-speeches",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L05", "severity": "Major", "quote": "The speaker greets \"everyone\" and is a \"host\", so the words reach a large audience through broadcast.", "problem": "Example #15's excerpt never states a medium. It has none of the mass-communication cues the lesson teaches ('viewers', 'listeners', 'tune in'), and 'Hi, everyone' from a host also fits the lesson's public context: one speaker addressing a group in the same place, such as an event or assembly host. The step treats 'host' as proof of broadcast, so the answer rests on a given the example does not supply, and a student applying the lesson's own cues could defensibly answer public. This is the same kind of added given that round 2 ruled Major in Examples #1 and #8.", "source": "Checklist L05 (supply necessary problem-specific givens); B02 blind solve from the question alone; lesson's own context-type cues; final-run rulings, speeches round-2 L05"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A **speech** is spoken language addressed to an audience. A **scripted** speech is written out in advance and read or recited.", "problem": "Still open from rounds 1 and 2. This paragraph has four sentences, above the one-to-three limit. Other four-sentence paragraphs: the ones starting 'In this lesson you read printed excerpts', 'Common purposes are to inform', 'Style is a clue to the context', 'The same sentence can perform different acts', 'These appeals can overlap', and 'A **repair strategy**'.", "source": "Checklist L22a; LSG Formatting rules"},
+    {"rule": "L19", "severity": "Minor", "quote": "The phrase \"We will rebuild\" recurs, which is **repetition**. The three sentences also share one pattern, so they form **parallelism** too.", "problem": "Still open from rounds 1 and 2. Example #9 makes two separate identifications, repetition and then parallelism, in one paragraph instead of a numbered list. No step is skipped, so this is Minor.", "source": "Checklist L19; LSG Examples section"}
+  ],
+  "goodQuotesChecked": 3
+}
