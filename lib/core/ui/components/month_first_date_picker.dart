@@ -13,6 +13,45 @@ class MonthFirstDate {
   final int? day;
 }
 
+/// Swaps a keyed child with the date picker's year motion: 320 ms on
+/// `riseIn`, drifting 40 px in from [direction] (1 from the right, -1 from
+/// the left). The old child leaves at once. The wide calendar reuses it for
+/// a month change.
+class MonthRiseSwitcher extends StatelessWidget {
+  const MonthRiseSwitcher({
+    required this.direction,
+    required this.child,
+    this.switcherKey,
+    super.key,
+  });
+  final int direction;
+  final Widget child;
+  final Key? switcherKey;
+  @override
+  Widget build(BuildContext context) => AnimatedSwitcher(
+        key: switcherKey,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 320),
+        reverseDuration: Duration.zero,
+        transitionBuilder: (child, animation) => AnimatedBuilder(
+          animation: animation,
+          child: child,
+          builder: (context, child) {
+            final p = PantasCurves.riseIn.transform(animation.value);
+            return Opacity(
+              opacity: p,
+              child: Transform.translate(
+                offset: Offset((1 - p) * 40 * direction, 0),
+                child: child,
+              ),
+            );
+          },
+        ),
+        child: child,
+      );
+}
+
 class MonthFirstDatePicker extends StatefulWidget {
   const MonthFirstDatePicker({
     required this.value,
@@ -270,26 +309,9 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
       ),
       const SizedBox(height: 10),
       if (onboarding)
-        AnimatedSwitcher(
-          key: const ValueKey('onboarding-year-motion'),
-          duration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 320),
-          reverseDuration: Duration.zero,
-          transitionBuilder: (child, animation) => AnimatedBuilder(
-            animation: animation,
-            child: child,
-            builder: (context, child) {
-              final p = PantasCurves.riseIn.transform(animation.value);
-              return Opacity(
-                opacity: p,
-                child: Transform.translate(
-                  offset: Offset((1 - p) * 40 * _direction, 0),
-                  child: child,
-                ),
-              );
-            },
-          ),
+        MonthRiseSwitcher(
+          switcherKey: const ValueKey('onboarding-year-motion'),
+          direction: _direction,
           child: Column(
             key: ValueKey(year),
             mainAxisSize: MainAxisSize.min,

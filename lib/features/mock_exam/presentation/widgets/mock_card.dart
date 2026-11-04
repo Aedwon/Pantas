@@ -213,90 +213,94 @@ class MockCard extends StatelessWidget {
               ),
             ),
           );
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const WebText('Mock exam', kind: WebTextKind.eyebrow),
-          WebCard(
-            padding: const EdgeInsets.fromLTRB(24, 24, 24, 22),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        model.name,
-                        style: t.style(
-                          24,
-                          weight: FontWeight.w700,
-                          spacing: -.384,
+      return _rise(
+        context,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const WebText('Mock exam', kind: WebTextKind.eyebrow),
+            WebCard(
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 22),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          model.name,
+                          style: t.style(
+                            24,
+                            weight: FontWeight.w700,
+                            spacing: -.384,
+                          ),
                         ),
                       ),
-                    ),
-                    if (duration != null) ...[
-                      const SizedBox(width: 12),
-                      Text(_duration(duration), style: t.sub),
-                    ],
-                  ],
-                ),
-                if ((state == MockCardState.ready ||
-                        state == MockCardState.waiting) &&
-                    (model.lastPercent != null ||
-                        model.lastAttemptAt != null)) ...[
-                  const SizedBox(height: 22),
-                  Row(
-                    children: [
-                      if (model.lastPercent != null)
-                        history(
-                          '${model.lastPercent!.round()}',
-                          'Last score',
-                          unit: '%',
-                        ),
-                      if (model.lastPercent != null &&
-                          model.lastAttemptAt != null)
+                      if (duration != null) ...[
                         const SizedBox(width: 12),
-                      if (model.lastAttemptAt != null)
-                        history(
-                          PantasDates.short(model.lastAttemptAt!),
-                          'Last attempt',
-                        ),
+                        Text(_duration(duration), style: t.sub),
+                      ],
                     ],
                   ),
-                ],
-                if (body != null) ...[
+                  if ((state == MockCardState.ready ||
+                          state == MockCardState.waiting) &&
+                      (model.lastPercent != null ||
+                          model.lastAttemptAt != null)) ...[
+                    const SizedBox(height: 22),
+                    Row(
+                      children: [
+                        if (model.lastPercent != null)
+                          history(
+                            '${model.lastPercent!.round()}',
+                            'Last score',
+                            unit: '%',
+                          ),
+                        if (model.lastPercent != null &&
+                            model.lastAttemptAt != null)
+                          const SizedBox(width: 12),
+                        if (model.lastAttemptAt != null)
+                          history(
+                            PantasDates.short(model.lastAttemptAt!),
+                            'Last attempt',
+                          ),
+                      ],
+                    ),
+                  ],
+                  if (body != null) ...[
+                    const SizedBox(height: 22),
+                    Text(
+                      body,
+                      style: t.style(16, height: 1.45),
+                    ),
+                  ],
+                  if (state != MockCardState.quizPaused &&
+                      state != MockCardState.unavailable) ...[
+                    const SizedBox(height: 22),
+                    if (model.proPaused)
+                      const ProPausedLine()
+                    else
+                      Text(rule, style: t.sub),
+                  ],
                   const SizedBox(height: 22),
-                  Text(
-                    body,
-                    style: t.style(16, height: 1.45),
+                  _MockActionButton(
+                    label: label,
+                    onPressed: callback,
+                    outlined: state == MockCardState.waiting,
                   ),
+                  if (state == MockCardState.customReady &&
+                      onChangeSetup != null)
+                    WebButton(
+                      label: 'Change the Setup',
+                      onPressed: onChangeSetup,
+                      variant: WebButtonVariant.tertiary,
+                    ),
                 ],
-                if (state != MockCardState.quizPaused &&
-                    state != MockCardState.unavailable) ...[
-                  const SizedBox(height: 22),
-                  if (model.proPaused)
-                    const ProPausedLine()
-                  else
-                    Text(rule, style: t.sub),
-                ],
-                const SizedBox(height: 22),
-                _MockActionButton(
-                  label: label,
-                  onPressed: callback,
-                  outlined: state == MockCardState.waiting,
-                ),
-                if (state == MockCardState.customReady && onChangeSetup != null)
-                  WebButton(
-                    label: 'Change the Setup',
-                    onPressed: onChangeSetup,
-                    variant: WebButtonVariant.tertiary,
-                  ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
     final children = <Widget>[
@@ -350,33 +354,37 @@ class MockCard extends StatelessWidget {
         ],
       ),
     );
-    // QZ_Tab/Free/Resume/First: hold to 190 ms, rise 12 px through 640 ms.
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 1),
-      duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
-          : const Duration(milliseconds: 640),
-      child: content,
-      builder: (context, value, child) {
-        final progress = MediaQuery.disableAnimationsOf(context)
-            ? 1.0
-            : PantasCurves.houseOut
-                .transform(((value * 640 - 190) / 450).clamp(0.0, 1.0));
-        return ExcludeFocus(
-          excluding: progress == 0,
-          child: Transform.translate(
-            key: const ValueKey('mock-card-rise'),
-            offset: Offset(0, 12 * (1 - progress)),
-            child: Opacity(
-              key: const ValueKey('mock-card-opacity'),
-              opacity: progress,
-              child: child,
-            ),
-          ),
-        );
-      },
-    );
+    return _rise(context, content);
   }
+
+  /// QZ_Tab/Free/Resume/First: hold to 190 ms, rise 12 px through 640 ms.
+  /// Phone and wide web share it.
+  Widget _rise(BuildContext context, Widget content) =>
+      TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0, end: 1),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 640),
+        child: content,
+        builder: (context, value, child) {
+          final progress = MediaQuery.disableAnimationsOf(context)
+              ? 1.0
+              : PantasCurves.houseOut
+                  .transform(((value * 640 - 190) / 450).clamp(0.0, 1.0));
+          return ExcludeFocus(
+            excluding: progress == 0,
+            child: Transform.translate(
+              key: const ValueKey('mock-card-rise'),
+              offset: Offset(0, 12 * (1 - progress)),
+              child: Opacity(
+                key: const ValueKey('mock-card-opacity'),
+                opacity: progress,
+                child: child,
+              ),
+            ),
+          );
+        },
+      );
 }
 
 /// Board `.btn2` / `.btnw` at card width: 48 px tall, radius 12, 17 px.

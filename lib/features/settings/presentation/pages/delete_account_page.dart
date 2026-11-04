@@ -104,102 +104,92 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
       }
       return WebRootModal(
         child: const AccountPage(),
-        modal: (context) => Stack(
-          fit: StackFit.expand,
-          children: [
-            const ModalBarrier(color: Color(0x521D1D1F), dismissible: false),
-            Center(
-              child: Dialog(
-                insetPadding: const EdgeInsets.all(24),
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                child: SizedBox(
-                  width: 560,
-                  child: WebCard(
-                    radius: 22,
-                    padding: const EdgeInsets.all(26),
-                    child: SingleChildScrollView(
+        modal: (context) => Dialog(
+          insetPadding: const EdgeInsets.all(24),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          child: SizedBox(
+            width: 560,
+            child: WebCard(
+              radius: 22,
+              padding: const EdgeInsets.all(26),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      widget.isAnonymous
+                          ? 'Delete your data?'
+                          : 'Delete your account?',
+                      style: t.h3,
+                    ),
+                    const SizedBox(height: 4),
+                    Text("This can't be undone.", style: t.sub),
+                    const SizedBox(height: 18),
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: t.colors.background,
+                        borderRadius: BorderRadius.circular(18),
+                      ),
                       child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(
-                            widget.isAnonymous
-                                ? 'Delete your data?'
-                                : 'Delete your account?',
-                            style: t.h3,
-                          ),
-                          const SizedBox(height: 4),
-                          Text("This can't be undone.", style: t.sub),
-                          const SizedBox(height: 18),
-                          DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: t.colors.background,
-                              borderRadius: BorderRadius.circular(18),
+                          if (!widget.isAnonymous) ...[
+                            _consequence(
+                              t,
+                              'Your account is removed.',
+                              divider: true,
                             ),
-                            child: Column(
-                              children: [
-                                if (!widget.isAnonymous) ...[
-                                  _consequence(
-                                    t,
-                                    'Your account is removed.',
-                                    divider: true,
-                                  ),
-                                  _consequence(
-                                    t,
-                                    'Anything backed up to it is erased.',
-                                    divider: true,
-                                  ),
-                                ],
-                                _consequence(
-                                  t,
-                                  'Progress in this browser is erased too.',
-                                ),
-                              ],
-                            ),
-                          ),
-                          if (billing != null) ...[
-                            const SizedBox(height: 18),
-                            Text(billing, style: t.sub),
-                          ],
-                          if (_failed) ...[
-                            const SizedBox(height: 18),
-                            Text(
-                              'We could not complete deletion. '
-                              'Try again or contact '
-                              'our DPO at ${widget.dpoEmail}.',
-                              style: t.sub,
+                            _consequence(
+                              t,
+                              'Anything backed up to it is erased.',
+                              divider: true,
                             ),
                           ],
-                          const SizedBox(height: 18),
-                          Wrap(
-                            alignment: WrapAlignment.end,
-                            spacing: 8,
-                            runSpacing: 8,
-                            children: [
-                              WebButton(
-                                label: widget.isAnonymous
-                                    ? 'Cancel'
-                                    : 'Keep My Account',
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: () =>
-                                    Navigator.of(context).maybePop(),
-                              ),
-                              WebButton(
-                                label: _failed ? 'Try Again' : 'Delete My Data',
-                                variant: WebButtonVariant.danger,
-                                onPressed: _delete,
-                              ),
-                            ],
+                          _consequence(
+                            t,
+                            'Progress in this browser is erased too.',
                           ),
                         ],
                       ),
                     ),
-                  ),
+                    if (billing != null) ...[
+                      const SizedBox(height: 18),
+                      Text(billing, style: t.sub),
+                    ],
+                    if (_failed) ...[
+                      const SizedBox(height: 18),
+                      Text(
+                        'We could not complete deletion. '
+                        'Try again or contact '
+                        'our DPO at ${widget.dpoEmail}.',
+                        style: t.sub,
+                      ),
+                    ],
+                    const SizedBox(height: 18),
+                    Wrap(
+                      alignment: WrapAlignment.end,
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        WebButton(
+                          label:
+                              widget.isAnonymous ? 'Cancel' : 'Keep My Account',
+                          variant: WebButtonVariant.tertiary,
+                          onPressed: () => Navigator.of(context).maybePop(),
+                        ),
+                        WebButton(
+                          label: _failed ? 'Try Again' : 'Delete My Data',
+                          variant: WebButtonVariant.danger,
+                          onPressed: _delete,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
+          ),
         ),
       );
     }

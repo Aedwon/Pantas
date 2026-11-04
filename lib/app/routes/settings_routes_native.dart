@@ -297,26 +297,16 @@ class ChangeExamPage extends ConsumerWidget {
     if (!context.wideWeb) return picker;
     return WebRootModal(
       child: const ExamPage(),
-      modal: (context) => Stack(
-        fit: StackFit.expand,
-        children: [
-          ModalBarrier(
-            color: const Color(0x521D1D1F),
-            onDismiss: () => leavePage(context, fallback: '/settings/exam'),
-          ),
-          Center(
-            child: Dialog(
-              insetPadding: const EdgeInsets.all(24),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              child: SizedBox(
-                width: 820,
-                height: (MediaQuery.sizeOf(context).height - 48).clamp(0, 760),
-                child: picker,
-              ),
-            ),
-          ),
-        ],
+      onDismiss: () => leavePage(context, fallback: '/settings/exam'),
+      modal: (modalContext) => Dialog(
+        insetPadding: const EdgeInsets.all(24),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        child: SizedBox(
+          width: 820,
+          height: (MediaQuery.sizeOf(modalContext).height - 48).clamp(0, 760),
+          child: picker,
+        ),
       ),
     );
   }

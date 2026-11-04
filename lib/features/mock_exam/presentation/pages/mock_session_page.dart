@@ -792,15 +792,21 @@ class _MockSessionPageState extends State<MockSessionPage> {
         ),
       ),
     );
-    final question = _QuestionBody(
-      questionId: widget.state.currentQuestionId,
-      subject: widget.oneBlock
-          ? widget.questionSubjects[widget.state.currentQuestionId] ??
-              widget.partName
-          : 'Part $part · ${widget.partName}',
-      selectedIndex:
-          widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
-      onAnswer: widget.onAnswer,
+    // The phone's paper swap: a 40 px slide, or a 200 ms fade for a grid jump.
+    final question = _PaperSwap(
+      position: widget.state.currentIndex,
+      gridJump: _gridJump,
+      child: _QuestionBody(
+        key: ValueKey(widget.state.currentQuestionId),
+        questionId: widget.state.currentQuestionId,
+        subject: widget.oneBlock
+            ? widget.questionSubjects[widget.state.currentQuestionId] ??
+                widget.partName
+            : 'Part $part · ${widget.partName}',
+        selectedIndex:
+            widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
+        onAnswer: widget.onAnswer,
+      ),
     );
     return CallbackShortcuts(
       bindings: {

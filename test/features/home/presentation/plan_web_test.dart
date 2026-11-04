@@ -355,4 +355,213 @@ void main() {
       expect(calls, 2);
     });
   }
+
+  group('wide plan entrance', () {
+    Widget page({required bool still, int tick = 0}) => MaterialApp(
+          theme: buildLightTheme(web: true),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: still),
+            child: child!,
+          ),
+          home: Scaffold(
+            body: PlanPage(
+              pro: true,
+              paused: false,
+              done: 2,
+              total: 4,
+              subtitle: 'tick $tick',
+              nodes: const [
+                PlanNode(
+                  kind: PlanNodeKind.week,
+                  title: 'Next week',
+                  subtitle: 'Biology',
+                  target: '2026-11-01',
+                ),
+                PlanNode(
+                  kind: PlanNodeKind.week,
+                  title: 'After that',
+                  subtitle: 'Chemistry',
+                  target: '2026-11-08',
+                ),
+              ],
+              history: const [
+                PlanHistoryEntry(
+                  id: '1',
+                  date: 'Today',
+                  text: 'Your plan changed.',
+                ),
+              ],
+              onBack: () {},
+              onToday: () {},
+              onWeek: (_) {},
+              onPro: () {},
+            ),
+          ),
+        );
+
+    // The entrance wrapper nearest to the text, not any other Opacity.
+    double opacityOf(WidgetTester tester, String text) => tester
+        .widget<Opacity>(
+          find
+              .descendant(
+                of: find
+                    .ancestor(
+                      of: find.text(text),
+                      matching: find.byType(PlanEntry),
+                    )
+                    .first,
+                matching: find.byType(Opacity),
+              )
+              .first,
+        )
+        .opacity;
+
+    Future<void> pumpWide(WidgetTester tester, Widget child) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(child);
+    }
+
+    testWidgets('columns rise in on the phone delays and settle',
+        (tester) async {
+      await pumpWide(tester, page(still: false));
+      await tester.pump();
+      // The first row waits for its 390 ms start and History for its own.
+      expect(opacityOf(tester, 'Next week'), 0);
+      expect(opacityOf(tester, 'HISTORY'), 0);
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(opacityOf(tester, 'TODAY'), inExclusiveRange(0, 1));
+      expect(opacityOf(tester, 'Next week'), 0);
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(opacityOf(tester, 'Next week'), inExclusiveRange(0, 1));
+      expect(opacityOf(tester, 'After that'), 0);
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(opacityOf(tester, 'After that'), inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      for (final text in [
+        'TODAY',
+        'COMING UP',
+        'Next week',
+        'After that',
+        'HISTORY',
+        'Your plan changed.',
+      ]) {
+        expect(opacityOf(tester, text), 1, reason: text);
+      }
+    });
+
+    testWidgets('an unrelated rebuild does not replay the entrance',
+        (tester) async {
+      await pumpWide(tester, page(still: false));
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(page(still: false, tick: 1));
+      await tester.pump();
+      expect(opacityOf(tester, 'Next week'), 1);
+      expect(opacityOf(tester, 'HISTORY'), 1);
+    });
+
+    testWidgets('reduced motion is instant', (tester) async {
+      await pumpWide(tester, page(still: true));
+      await tester.pump();
+      for (final text in ['COMING UP', 'HISTORY']) {
+        expect(
+          find.ancestor(
+            of: find.text(text),
+            matching: find.byType(TweenAnimationBuilder<double>),
+          ),
+          findsNothing,
+          reason: text,
+        );
+      }
+      expect(find.byType(PlanEntry), findsWidgets);
+      expect(find.text('Next week'), findsOneWidget);
+    });
+  });
+
+  group('past-day popover', () {
+    Future<void> openPopover(WidgetTester tester, {bool still = false}) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      if (still) {
+        tester.platformDispatcher.accessibilityFeaturesTestValue =
+            const FakeAccessibilityFeatures(disableAnimations: true);
+        addTearDown(
+          tester.platformDispatcher.clearAccessibilityFeaturesTestValue,
+        );
+      }
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            planDayViewProvider('2026-10-20').overrideWith(
+              (_) => Completer<PlanDayView>().future,
+            ),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: Builder(
+              builder: (context) => TextButton(
+                onPressed: () => unawaited(
+                  showPlanPastDay(context, DateTime(2026, 10, 20)),
+                ),
+                child: const Text('Open'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Open'));
+      await tester.pump();
+    }
+
+    double top(WidgetTester tester) =>
+        tester.getTopLeft(find.byType(PlanDayScreen)).dy;
+
+    testWidgets('fades and rises 8 px over 240 ms, then leaves the same way',
+        (tester) async {
+      await openPopover(tester);
+      await tester.pump(const Duration(milliseconds: 40));
+      await tester.pump(const Duration(milliseconds: 40));
+      final fade = tester.widget<Opacity>(
+        find
+            .ancestor(
+              of: find.byType(PlanDayScreen),
+              matching: find.byType(Opacity),
+            )
+            .first,
+      );
+      expect(fade.opacity, inExclusiveRange(0, 1));
+      final rising = top(tester);
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(top(tester), lessThan(rising));
+
+      await tester.tapAt(const Offset(20, 20));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 80));
+      expect(find.byType(PlanDayScreen), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.byType(PlanDayScreen), findsNothing);
+    });
+
+    testWidgets('reduced motion shows the popover at once', (tester) async {
+      await openPopover(tester, still: true);
+      await tester.pump();
+      final fade = tester.widget<Opacity>(
+        find
+            .ancestor(
+              of: find.byType(PlanDayScreen),
+              matching: find.byType(Opacity),
+            )
+            .first,
+      );
+      expect(fade.opacity, 1);
+    });
+  });
 }

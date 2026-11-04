@@ -7,12 +7,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
 
 /// Where the outline and the lesson column sit on wide web.
@@ -38,6 +41,18 @@ abstract final class WebReaderMetrics {
     return wanted < room ? wanted : room;
   }
 }
+
+/// The lesson list drops 24 px into place and fades, on the phone's contents
+/// sheet numbers: 450 ms in, 400 ms out, `slideC`.
+const _contentsMotion = WebOverlayMotion(
+  open: Duration(milliseconds: 450),
+  close: Duration(milliseconds: 400),
+  curve: PantasCurves.slideC,
+  scrim: Duration(milliseconds: 350),
+  scrimCurve: PantasCurves.ease,
+  rise: -24,
+  fade: true,
+);
 
 /// The owner keeps position, read marking and guarded writes.
 class WebReaderLayout extends ConsumerStatefulWidget {
@@ -170,8 +185,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final lessons = widget.lessons ?? widget.reader.topicLessons;
     final menuTitle =
         (widget.menuTitle ?? widget.reader.topicName).toUpperCase();
-    await showDialog<void>(
+    await showWebOverlay<void>(
       context: context,
+      motion: _contentsMotion,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
       barrierColor: Colors.transparent,
       builder: (context) {
         final t = context.webTokens;
@@ -838,14 +855,23 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                         visualDensity: VisualDensity.standard,
                                         tapTargetSize: compactTap,
                                       ),
-                                      icon: Icon(
-                                        reader.isBookmarked
-                                            ? Icons.bookmark
-                                            : Icons.bookmark_border,
-                                        size: 22,
-                                        color: reader.isBookmarked
-                                            ? t.colors.accent
-                                            : t.colors.tertiaryLabel,
+                                      icon: ReaderBookmarkPop(
+                                        key: ValueKey(
+                                          (
+                                            'web-reader-bookmark',
+                                            reader.lesson.id
+                                          ),
+                                        ),
+                                        bookmarked: reader.isBookmarked,
+                                        child: Icon(
+                                          reader.isBookmarked
+                                              ? Icons.bookmark
+                                              : Icons.bookmark_border,
+                                          size: 22,
+                                          color: reader.isBookmarked
+                                              ? t.colors.accent
+                                              : t.colors.tertiaryLabel,
+                                        ),
                                       ),
                                     ),
                                   ),

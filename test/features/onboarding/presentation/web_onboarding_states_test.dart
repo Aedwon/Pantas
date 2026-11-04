@@ -326,7 +326,8 @@ void main() {
       );
       expect(tester.getSize(emptyPanel).height, greaterThanOrEqualTo(360));
       await tester.tap(find.bySemanticsLabel('October 2026'));
-      await tester.pump();
+      // The day panel rises in over 320 ms.
+      await tester.pumpAndSettle();
       expect(button(tester, 'Continue').onPressed, isNotNull);
       expect(
         find.text("No day yet? We'll plan from today and ask later."),
@@ -337,7 +338,7 @@ void main() {
       await tester.pump();
       expect(find.text('Saturday, October 3'), findsOneWidget);
       await tester.tap(find.bySemanticsLabel('January 2027'));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Saturday, October 3'), findsNothing);
       expect(find.text('January 2027'), findsOneWidget);
       expect(tester.takeException(), isNull);

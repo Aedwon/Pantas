@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -115,7 +117,7 @@ class WebButton extends StatelessWidget {
       style: ButtonStyle(
         animationDuration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
-            : const Duration(milliseconds: 150),
+            : PantasDurations.quick,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
@@ -216,12 +218,18 @@ class WebButton extends StatelessWidget {
         ],
       ),
     );
-    if (expand) return button;
+    // A button shrinks to 96% under a press, as the phone's chip does.
+    final pressable = PressScale(
+      scale: .96,
+      enabled: onPressed != null && !busy,
+      child: button,
+    );
+    if (expand) return pressable;
     return Align(
       widthFactor: 1,
       heightFactor: 1,
       alignment: Alignment.centerLeft,
-      child: button,
+      child: pressable,
     );
   }
 }
@@ -1077,7 +1085,13 @@ class WebBottomBar extends StatelessWidget {
     final c = t.colors;
     return ConstrainedBox(
       constraints: BoxConstraints(maxWidth: wide ? 1080 : 720),
-      child: Container(
+      child: AnimatedContainer(
+        // The phone bar's fade: 250 ms back to neutral, 300 ms to a result.
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : Duration(
+                milliseconds: state == WebBarState.neutral ? 250 : 300,
+              ),
         constraints: const BoxConstraints(minHeight: 64),
         padding: EdgeInsets.fromLTRB(8, 0, counterChevron ? 9 : 10, 0),
         decoration: BoxDecoration(
@@ -1495,9 +1509,19 @@ class WebPickerColumn extends StatelessWidget {
 /// The boards' scrim covers the page and centers its dialog in the window, not
 /// in the pane that opened it. [child] stays in place underneath.
 class WebRootModal extends StatefulWidget {
-  const WebRootModal({required this.child, required this.modal, super.key});
+  const WebRootModal({
+    required this.child,
+    required this.modal,
+    this.onDismiss,
+    super.key,
+  });
   final Widget child;
+
+  /// The dialog, centered over the scrim.
   final WidgetBuilder modal;
+
+  /// Called when the scrim is tapped. Null leaves the scrim inert.
+  final VoidCallback? onDismiss;
   @override
   State<WebRootModal> createState() => _WebRootModalState();
 }
@@ -1512,11 +1536,19 @@ class _WebRootModalState extends State<WebRootModal> {
     });
   }
 
+  // The page leaves with its route, so the dialog has no exit of its own; it
+  // fades and rises in as the phone's form sheet does.
   @override
   Widget build(BuildContext context) => OverlayPortal(
         controller: _controller,
         overlayLocation: OverlayChildLocation.rootOverlay,
-        overlayChildBuilder: widget.modal,
+        overlayChildBuilder: (context) => WebOverlayLayer(
+          motion: WebOverlayMotion.dialog,
+          alignment: Alignment.center,
+          barrierColor: const Color(0x521D1D1F),
+          onDismiss: widget.onDismiss,
+          child: widget.modal(context),
+        ),
         child: widget.child,
       );
 }

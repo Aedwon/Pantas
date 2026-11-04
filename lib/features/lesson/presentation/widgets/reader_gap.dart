@@ -24,6 +24,19 @@ class ReaderGap extends StatelessWidget {
   Widget build(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
     final colors = context.colors;
+    // The Read line pops in once per lesson, on the phone and the wide page.
+    Widget readPop(Widget child) => TweenAnimationBuilder<double>(
+          key: ValueKey(lessonId),
+          tween: Tween(begin: still ? 1 : 0, end: 1),
+          duration: still ? Duration.zero : const Duration(milliseconds: 350),
+          curve: PantasCurves.popB,
+          child: child,
+          builder: (_, value, child) => Transform.scale(
+            alignment: Alignment.centerLeft,
+            scale: .6 + .4 * value,
+            child: Opacity(opacity: value.clamp(0.0, 1.0), child: child),
+          ),
+        );
     final readLine = Row(
       children: [
         CustomPaint(
@@ -56,24 +69,30 @@ class ReaderGap extends StatelessWidget {
         ),
         child: Row(
           children: [
-            if (isRead) ...[
-              Container(
-                key: const ValueKey('reader-read-check'),
-                width: 26,
-                height: 26,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: t.colors.accentFill,
-                ),
-                child: const CustomPaint(
-                  size: Size(15, 15),
-                  painter: _ReadCheckPainter(Colors.white, width: 3),
+            if (isRead)
+              readPop(
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      key: const ValueKey('reader-read-check'),
+                      width: 26,
+                      height: 26,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: t.colors.accentFill,
+                      ),
+                      child: const CustomPaint(
+                        size: Size(15, 15),
+                        painter: _ReadCheckPainter(Colors.white, width: 3),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text('Read', style: t.style(17, weight: FontWeight.w600)),
+                  ],
                 ),
               ),
-              const SizedBox(width: 10),
-              Text('Read', style: t.style(17, weight: FontWeight.w600)),
-            ],
             const Spacer(),
             if (examId != null)
               TextButton(
@@ -101,18 +120,7 @@ class ReaderGap extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (isRead)
-          TweenAnimationBuilder<double>(
-            key: ValueKey(lessonId),
-            tween: Tween(begin: still ? 1 : 0, end: 1),
-            duration: still ? Duration.zero : const Duration(milliseconds: 350),
-            curve: PantasCurves.popB,
-            child: readLine,
-            builder: (_, value, child) => Transform.scale(
-              alignment: Alignment.centerLeft,
-              scale: .6 + .4 * value,
-              child: Opacity(opacity: value.clamp(0.0, 1.0), child: child),
-            ),
-          )
+          readPop(readLine)
         else
           SizedBox(height: MediaQuery.textScalerOf(context).scale(15) * 1.35),
         if (examId != null) ...[

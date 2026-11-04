@@ -48,6 +48,67 @@ class PlanHistoryEntry {
   final String text;
 }
 
+/// The plan's staggered entrance: the phone page and the wide columns share
+/// it so both rise, draw and pop on the same delays and curves.
+class PlanEntry extends StatelessWidget {
+  const PlanEntry({
+    required this.start,
+    required this.duration,
+    required this.child,
+    this.x = 0,
+    this.y = 0,
+    this.draw = false,
+    this.pop = false,
+    this.effectKey,
+    super.key,
+  });
+
+  /// Milliseconds to wait before the motion begins.
+  final int start;
+  final int duration;
+  final Widget child;
+  final double x;
+  final double y;
+  final bool draw;
+  final bool pop;
+  final Key? effectKey;
+  @override
+  Widget build(BuildContext context) {
+    if (MediaQuery.disableAnimationsOf(context)) return child;
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: Duration(milliseconds: start + duration),
+      curve: Interval(
+        start / (start + duration),
+        1,
+        curve: draw
+            ? PantasCurves.linear
+            : pop
+                ? PantasCurves.popB
+                : PantasCurves.houseOut,
+      ),
+      child: child,
+      builder: (_, value, child) => Opacity(
+        opacity: value.clamp(0, 1),
+        child: Transform.translate(
+          offset: Offset(x * (1 - value), y * (1 - value)),
+          child: Transform.scale(
+            key: effectKey,
+            alignment: draw ? Alignment.topCenter : Alignment.center,
+            scaleX: pop ? .3 + .7 * value : 1,
+            scaleY: draw
+                ? value
+                : pop
+                    ? .3 + .7 * value
+                    : 1,
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class PlanPage extends StatefulWidget {
   const PlanPage({
     required this.pro,
@@ -112,40 +173,17 @@ class _PlanPageState extends State<PlanPage> {
     bool draw = false,
     bool pop = false,
     Key? effectKey,
-  }) {
-    if (MediaQuery.disableAnimationsOf(context)) return child;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 1),
-      duration: Duration(milliseconds: start + duration),
-      curve: Interval(
-        start / (start + duration),
-        1,
-        curve: draw
-            ? PantasCurves.linear
-            : pop
-                ? PantasCurves.popB
-                : PantasCurves.houseOut,
-      ),
-      child: child,
-      builder: (_, value, child) => Opacity(
-        opacity: value.clamp(0, 1),
-        child: Transform.translate(
-          offset: Offset(x * (1 - value), y * (1 - value)),
-          child: Transform.scale(
-            key: effectKey,
-            alignment: draw ? Alignment.topCenter : Alignment.center,
-            scaleX: pop ? .3 + .7 * value : 1,
-            scaleY: draw
-                ? value
-                : pop
-                    ? .3 + .7 * value
-                    : 1,
-            child: child,
-          ),
-        ),
-      ),
-    );
-  }
+  }) =>
+      PlanEntry(
+        start: start,
+        duration: duration,
+        x: x,
+        y: y,
+        draw: draw,
+        pop: pop,
+        effectKey: effectKey,
+        child: child,
+      );
 
   Widget _heading(String text) => Padding(
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),

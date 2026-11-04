@@ -212,6 +212,15 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           ),
         ),
       );
+      // The phone's blocked page fades in over 300 ms; so does this block.
+      final fading = PantasEffects.fade(
+        duration: const Duration(milliseconds: 300),
+        builder: (_, progress, child) => IgnorePointer(
+          ignoring: progress == 0,
+          child: ExcludeFocus(excluding: progress == 0, child: child!),
+        ),
+        child: block,
+      );
       final host = OnboardingFrameScope.hostOf(context);
       // Inside the onboarding frame the top bar is already on screen.
       if (host != null) {
@@ -219,7 +228,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           host: host,
           spec: const OnboardingFrameSpec(bare: true),
           onBack: back,
-          child: block,
+          child: fading,
         );
       }
       return Material(
@@ -233,7 +242,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ),
-            Expanded(child: block),
+            Expanded(child: fading),
           ],
         ),
       );

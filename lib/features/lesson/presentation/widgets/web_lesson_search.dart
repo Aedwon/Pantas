@@ -4,15 +4,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 
-Future<void> showWebLessonSearch(BuildContext context) => showDialog<void>(
+Future<void> showWebLessonSearch(BuildContext context) => showWebOverlay<void>(
       context: context,
+      motion: WebOverlayMotion.popover,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
       barrierColor: const Color(0x381D1D1F),
       builder: (_) => const WebLessonSearch(),
     );
@@ -85,6 +89,8 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
     final loading = _query.isEmpty ? recent.isLoading : hits.isLoading;
     final error = _query.isEmpty ? recent.hasError : hits.hasError;
     final lessonWord = results.length == 1 ? 'LESSON' : 'LESSONS';
+    final groupLabel =
+        _query.isEmpty ? 'RECENTLY OPENED' : '${results.length} $lessonWord';
     final selected =
         results.isEmpty ? 0 : _selected.clamp(0, results.length - 1);
     return CallbackShortcuts(
@@ -215,126 +221,7 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                       ),
                     )
                   else
-                    Flexible(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          maxHeight: 480,
-                        ),
-                        child: ListView(
-                          controller: _scroll,
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.fromLTRB(
-                            8,
-                            10,
-                            8,
-                            8,
-                          ),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                12,
-                                6,
-                                12,
-                                6,
-                              ),
-                              child: Text(
-                                _query.isEmpty
-                                    ? 'RECENTLY OPENED'
-                                    : '${results.length} $lessonWord',
-                                style: t.eb.copyWith(
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                            for (var i = 0; i < results.length; i++)
-                              Semantics(
-                                key: ValueKey(
-                                  'web-search-result-${results[i].lessonId}',
-                                ),
-                                selected: i == selected,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    color: i == selected
-                                        ? t.colors.accentTint
-                                        : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(
-                                      10,
-                                    ),
-                                  ),
-                                  child: TextButton(
-                                    onPressed: () => _open(
-                                      results[i].lessonId,
-                                    ),
-                                    style: TextButton.styleFrom(
-                                      minimumSize: Size.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      visualDensity: VisualDensity.standard,
-                                      alignment: Alignment.centerLeft,
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 12,
-                                        vertical: 10,
-                                      ),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text.rich(
-                                                _highlight(
-                                                  results[i].titleMatch,
-                                                  results[i].title,
-                                                  t.style(17, height: 22 / 17),
-                                                  context,
-                                                ),
-                                              ),
-                                              Text(
-                                                results[i].topicName,
-                                                style: _small(t),
-                                              ),
-                                              if (results[i].bodySnippet !=
-                                                  null)
-                                                Text.rich(
-                                                  _highlight(
-                                                    results[i].bodySnippet,
-                                                    '',
-                                                    _small(t),
-                                                    context,
-                                                  ),
-                                                  maxLines: 2,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 12,
-                                        ),
-                                        Text(
-                                          '${results[i].estimatedMinutes} min',
-                                          style: t.sub,
-                                        ),
-                                        if (i == selected) ...[
-                                          const SizedBox(
-                                            width: 12,
-                                          ),
-                                          const WebKeyHint(
-                                            'Enter',
-                                          ),
-                                        ],
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    _resultList(t, results, selected, groupLabel),
                   // The board's "nothing matched" panel has no key footer.
                   if (_query.isEmpty || results.isNotEmpty)
                     Container(
@@ -357,6 +244,135 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _resultList(
+    WebTokens t,
+    List<LessonSearchHit> results,
+    int selected,
+    String groupLabel,
+  ) {
+    return Flexible(
+      // The group fades in as the phone's does: 300 ms, and
+      // the recent list 100 ms later. A new label fades again.
+      child: SearchGroupFade(
+        key: ValueKey(groupLabel),
+        delay:
+            _query.isEmpty ? const Duration(milliseconds: 100) : Duration.zero,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxHeight: 480,
+          ),
+          child: ListView(
+            controller: _scroll,
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(
+              8,
+              10,
+              8,
+              8,
+            ),
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  12,
+                  6,
+                  12,
+                  6,
+                ),
+                child: Text(
+                  groupLabel,
+                  style: t.eb.copyWith(
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              for (var i = 0; i < results.length; i++)
+                Semantics(
+                  key: ValueKey(
+                    'web-search-result-${results[i].lessonId}',
+                  ),
+                  selected: i == selected,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: i == selected
+                          ? t.colors.accentTint
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(
+                        10,
+                      ),
+                    ),
+                    child: TextButton(
+                      onPressed: () => _open(
+                        results[i].lessonId,
+                      ),
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        visualDensity: VisualDensity.standard,
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 10,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text.rich(
+                                  _highlight(
+                                    results[i].titleMatch,
+                                    results[i].title,
+                                    t.style(17, height: 22 / 17),
+                                    context,
+                                  ),
+                                ),
+                                Text(
+                                  results[i].topicName,
+                                  style: _small(t),
+                                ),
+                                if (results[i].bodySnippet != null)
+                                  Text.rich(
+                                    _highlight(
+                                      results[i].bodySnippet,
+                                      '',
+                                      _small(t),
+                                      context,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          Text(
+                            '${results[i].estimatedMinutes} min',
+                            style: t.sub,
+                          ),
+                          if (i == selected) ...[
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            const WebKeyHint(
+                              'Enter',
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
       ),

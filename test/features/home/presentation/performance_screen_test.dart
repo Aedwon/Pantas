@@ -64,6 +64,9 @@ Future<void> pump(
   bool realTopic = false,
   String initialPath = '/home',
   Future<PerformanceViewData> Function()? load,
+
+  /// False leaves the first frames unsettled, to watch a motion begin.
+  bool settle = true,
 }) async {
   lastPush = null;
   saved.clear();
@@ -173,6 +176,7 @@ Future<void> pump(
       ),
     ),
   );
+  if (!settle) return;
   await tester.pumpAndSettle();
   if (initialPath == '/home') {
     await tester.tap(find.text('open'));

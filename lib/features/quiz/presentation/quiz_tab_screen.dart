@@ -90,6 +90,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
   bool _questionFailed = false;
   bool _discarding = false;
   bool _saveFailed = false;
+  final _leftKey = GlobalKey();
+  final _mockKey = GlobalKey();
 
   @override
   void initState() {
@@ -297,87 +299,115 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               final session = ref.watch(sessionPanelProvider(exam.id));
               final counts = ref.watch(quizPracticeCountsProvider(exam.id));
               final paused = session.valueOrNull is SessionPanelInProgress;
+              // The phone's delays: Today 100, mock card 190, practice 280.
+              // The keys keep the entrances from replaying when a resize
+              // moves the blocks between the stacked and side-by-side layouts.
               final left = Column(
+                key: _leftKey,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const WebText('Today', kind: WebTextKind.eyebrow),
-                  session.when(
-                    loading: () => const QuizTodaySkeleton(),
-                    error: (error, _) => errorFor(
-                      'practice',
-                      () => ref.invalidate(sessionPanelProvider(exam.id)),
-                      error: error,
+                  _entry(
+                    100,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const WebText('Today', kind: WebTextKind.eyebrow),
+                        session.when(
+                          loading: () => const QuizTodaySkeleton(),
+                          error: (error, _) => errorFor(
+                            'practice',
+                            () => ref.invalidate(sessionPanelProvider(exam.id)),
+                            error: error,
+                          ),
+                          data: (state) => _webToday(exam.id, state),
+                        ),
+                      ],
                     ),
-                    data: (state) => _webToday(exam.id, state),
                   ),
                   const SizedBox(height: 28),
-                  const WebText(
-                    'More ways to practice',
-                    kind: WebTextKind.eyebrow,
-                  ),
-                  counts.when(
-                    loading: () => const QuizMoreSkeleton(),
-                    error: (error, _) => errorFor(
-                      'questions',
-                      () => ref.invalidate(quizPracticeCountsProvider(exam.id)),
-                      error: error,
-                    ),
-                    data: (n) => WebCard(
-                      child: Column(
-                        children: [
-                          WebRow(
-                            boardMetrics: true,
-                            chevron: WebRowChevron.always,
-                            title: 'Your past mistakes',
-                            value: n.mistakes == 0 ? null : '${n.mistakes}',
-                            subtitle:
-                                n.mistakes == 0 ? 'Nothing to fix yet' : null,
-                            dimmed: n.mistakes == 0,
-                            leading: const _WebPracticeGlyph(
-                              _WebGlyphKind.mistakes,
+                  _entry(
+                    280,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const WebText(
+                          'More ways to practice',
+                          kind: WebTextKind.eyebrow,
+                        ),
+                        counts.when(
+                          loading: () => const QuizMoreSkeleton(),
+                          error: (error, _) => errorFor(
+                            'questions',
+                            () => ref.invalidate(
+                              quizPracticeCountsProvider(exam.id),
                             ),
-                            onPressed: () => unawaited(
-                              _open('/quiz/retake/${exam.id}'),
+                            error: error,
+                          ),
+                          data: (n) => WebCard(
+                            child: Column(
+                              children: [
+                                WebRow(
+                                  boardMetrics: true,
+                                  chevron: WebRowChevron.always,
+                                  title: 'Your past mistakes',
+                                  value:
+                                      n.mistakes == 0 ? null : '${n.mistakes}',
+                                  subtitle: n.mistakes == 0
+                                      ? 'Nothing to fix yet'
+                                      : null,
+                                  dimmed: n.mistakes == 0,
+                                  leading: const _WebPracticeGlyph(
+                                    _WebGlyphKind.mistakes,
+                                  ),
+                                  onPressed: () => unawaited(
+                                    _open('/quiz/retake/${exam.id}'),
+                                  ),
+                                ),
+                                WebRow(
+                                  boardMetrics: true,
+                                  chevron: WebRowChevron.always,
+                                  title: 'Customize your own',
+                                  dimmed: paused,
+                                  subtitle: paused
+                                      ? 'Finish or discard your '
+                                          'paused quiz first'
+                                      : null,
+                                  leading: const _WebPracticeGlyph(
+                                    _WebGlyphKind.customize,
+                                  ),
+                                  onPressed: () => unawaited(
+                                    _open('/quiz/practice/${exam.id}'),
+                                  ),
+                                ),
+                                WebRow(
+                                  boardMetrics: true,
+                                  chevron: WebRowChevron.always,
+                                  title: 'Flagged questions',
+                                  value: n.flags == 0 ? null : '${n.flags}',
+                                  subtitle: n.flags == 0
+                                      ? 'Flag a question to come back to it'
+                                      : null,
+                                  dimmed: n.flags == 0,
+                                  divider: false,
+                                  leading: const _WebPracticeGlyph(
+                                    _WebGlyphKind.flagged,
+                                  ),
+                                  onPressed: () => unawaited(
+                                    _open('/quiz/flagged/${exam.id}'),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          WebRow(
-                            boardMetrics: true,
-                            chevron: WebRowChevron.always,
-                            title: 'Customize your own',
-                            dimmed: paused,
-                            subtitle: paused
-                                ? 'Finish or discard your paused quiz first'
-                                : null,
-                            leading: const _WebPracticeGlyph(
-                              _WebGlyphKind.customize,
-                            ),
-                            onPressed: () => unawaited(
-                              _open('/quiz/practice/${exam.id}'),
-                            ),
-                          ),
-                          WebRow(
-                            boardMetrics: true,
-                            chevron: WebRowChevron.always,
-                            title: 'Flagged questions',
-                            value: n.flags == 0 ? null : '${n.flags}',
-                            subtitle: n.flags == 0
-                                ? 'Flag a question to come back to it'
-                                : null,
-                            dimmed: n.flags == 0,
-                            divider: false,
-                            leading: const _WebPracticeGlyph(
-                              _WebGlyphKind.flagged,
-                            ),
-                            onPressed: () => unawaited(
-                              _open('/quiz/flagged/${exam.id}'),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               );
+              final mock = widget.mockPanel == null
+                  ? null
+                  : _entry(190, widget.mockPanel!, key: _mockKey);
               return LayoutBuilder(
                 builder: (context, constraints) {
                   if (constraints.maxWidth < 780) {
@@ -386,7 +416,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       children: [
                         left,
                         const SizedBox(height: 28),
-                        if (widget.mockPanel != null) widget.mockPanel!,
+                        if (mock != null) mock,
                       ],
                     );
                   }
@@ -404,7 +434,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       const SizedBox(width: 28),
                       SizedBox(
                         width: rightWidth,
-                        child: widget.mockPanel ?? const SizedBox.shrink(),
+                        child: mock ?? const SizedBox.shrink(),
                       ),
                     ],
                   );
@@ -854,9 +884,10 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     }
   }
 
-  Widget _entry(int delay, Widget child) {
+  Widget _entry(int delay, Widget child, {Key? key}) {
     if (MediaQuery.disableAnimationsOf(context)) return child;
     return TweenAnimationBuilder<double>(
+      key: key,
       tween: Tween(begin: 0, end: 1),
       duration: Duration(milliseconds: delay + 450),
       curve: Interval(delay / (delay + 450), 1, curve: PantasCurves.houseOut),

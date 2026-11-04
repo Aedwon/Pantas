@@ -57,23 +57,25 @@ class PlanSplit extends StatelessWidget {
         builder: (context, c) {
           const gap = 28.0;
           final free = c.maxWidth - 460 - 380 - gap;
-          if (!c.hasBoundedWidth || free < 0) {
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(flex: 13, child: left),
-                const SizedBox(width: gap),
-                Expanded(flex: 10, child: right),
-              ],
-            );
-          }
-          final leftWidth = 460 + free * 1.3 / 2.3;
+          // One shape at every width keeps the columns mounted on a resize,
+          // so their entrances do not replay.
+          final leftWidth = !c.hasBoundedWidth
+              ? null
+              : free < 0
+                  ? (c.maxWidth - gap) * 13 / 23
+                  : 460 + free * 1.3 / 2.3;
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(width: leftWidth, child: left),
+              if (leftWidth == null)
+                Expanded(flex: 13, child: left)
+              else
+                SizedBox(width: leftWidth, child: left),
               const SizedBox(width: gap),
-              Expanded(child: right),
+              if (leftWidth == null)
+                Expanded(flex: 10, child: right)
+              else
+                Expanded(child: right),
             ],
           );
         },
@@ -151,6 +153,21 @@ class PlanWebColumns extends StatelessWidget {
     final nodes = page.pro
         ? page.nodes
         : page.nodes.where((n) => n.kind == PlanNodeKind.exam).toList();
+    // The free gate shows a still list on the phone, so wide stays still too.
+    final animate = page.pro;
+    Widget rise(int i, Widget row) => animate
+        ? PlanEntry(start: 350 + i * 260 + 40, duration: 300, x: -6, child: row)
+        : row;
+    Widget pop(int i, PlanNodeKind kind, Widget marker) => animate
+        ? PlanEntry(
+            start: 350 + i * 260,
+            duration: kind == PlanNodeKind.exam ? 420 : 260,
+            pop: true,
+            child: marker,
+          )
+        : marker;
+    final historyStart =
+        nodes.isEmpty ? 350 : 350 + (nodes.length - 1) * 260 + 270;
     return PlanWebFrame(
       title: 'Your plan',
       onBack: page.onBack,
@@ -159,67 +176,91 @@ class PlanWebColumns extends StatelessWidget {
         left: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const WebText('Today', kind: WebTextKind.eyebrow),
-            WebCard(
-              child: WebRow(
-                boardMetrics: true,
-                title: '${page.done} of ${page.total} done',
-                subtitle: page.done == page.total
-                    ? null
-                    : 'Reviews and new questions left',
-                leading: ProgressRing(
-                  fraction: page.total == 0 ? 0 : page.done / page.total,
-                  size: 26,
-                  emptyTrackColor: t.dark ? null : const Color(0xFFD1D1D6),
-                ),
-                trailing: const WebChevron(),
-                divider: false,
-                onPressed: page.onToday,
+            // The phone page's delays and curves, so wide rises with it.
+            PlanEntry(
+              start: 0,
+              duration: 450,
+              y: 14,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const WebText('Today', kind: WebTextKind.eyebrow),
+                  WebCard(
+                    child: WebRow(
+                      boardMetrics: true,
+                      title: '${page.done} of ${page.total} done',
+                      subtitle: page.done == page.total
+                          ? null
+                          : 'Reviews and new questions left',
+                      leading: ProgressRing(
+                        fraction: page.total == 0 ? 0 : page.done / page.total,
+                        size: 26,
+                        emptyTrackColor:
+                            t.dark ? null : const Color(0xFFD1D1D6),
+                      ),
+                      trailing: const WebChevron(),
+                      divider: false,
+                      onPressed: page.onToday,
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 28),
-            const WebText('Coming up', kind: WebTextKind.eyebrow),
+            const PlanEntry(
+              start: 100,
+              duration: 450,
+              y: 14,
+              child: WebText('Coming up', kind: WebTextKind.eyebrow),
+            ),
             WebCard(
               child: Column(
                 children: [
                   for (var i = 0; i < nodes.length; i++)
-                    WebRow(
-                      boardMetrics: true,
-                      title: nodes[i].title,
-                      titleStyle: nodes[i].kind == PlanNodeKind.exam
-                          ? t.style(17, weight: FontWeight.w600, height: 1.3)
-                          : null,
-                      subtitle: nodes[i].subtitle,
-                      value: nodes[i].date,
-                      selected: selectedWeek != null &&
-                          nodes[i].target == selectedWeek,
-                      leading: switch (nodes[i].kind) {
-                        PlanNodeKind.exam when nodes[i].day != null =>
-                          PlanExamCalendar(day: nodes[i].day!),
-                        _ => Icon(
-                            switch (nodes[i].kind) {
-                              PlanNodeKind.week => Icons.circle_outlined,
-                              PlanNodeKind.review => Icons.outlined_flag,
-                              PlanNodeKind.mock => Icons.schedule,
-                              PlanNodeKind.exam =>
-                                Icons.calendar_today_outlined,
-                            },
-                            size: 26,
-                            color: nodes[i].kind == PlanNodeKind.week
-                                ? (t.dark
-                                    ? t.colors.secondaryLabel
-                                    : const Color(0xFFD1D1D6))
-                                : t.colors.secondaryLabel,
-                          ),
-                      },
-                      trailing: nodes[i].kind == PlanNodeKind.week
-                          ? const WebChevron()
-                          : null,
-                      divider: i < nodes.length - 1,
-                      onPressed: nodes[i].kind == PlanNodeKind.week &&
-                              nodes[i].target != null
-                          ? () => page.onWeek(nodes[i].target!)
-                          : null,
+                    rise(
+                      i,
+                      WebRow(
+                        boardMetrics: true,
+                        title: nodes[i].title,
+                        titleStyle: nodes[i].kind == PlanNodeKind.exam
+                            ? t.style(17, weight: FontWeight.w600, height: 1.3)
+                            : null,
+                        subtitle: nodes[i].subtitle,
+                        value: nodes[i].date,
+                        selected: selectedWeek != null &&
+                            nodes[i].target == selectedWeek,
+                        leading: pop(
+                          i,
+                          nodes[i].kind,
+                          switch (nodes[i].kind) {
+                            PlanNodeKind.exam when nodes[i].day != null =>
+                              PlanExamCalendar(day: nodes[i].day!),
+                            _ => Icon(
+                                switch (nodes[i].kind) {
+                                  PlanNodeKind.week => Icons.circle_outlined,
+                                  PlanNodeKind.review => Icons.outlined_flag,
+                                  PlanNodeKind.mock => Icons.schedule,
+                                  PlanNodeKind.exam =>
+                                    Icons.calendar_today_outlined,
+                                },
+                                size: 26,
+                                color: nodes[i].kind == PlanNodeKind.week
+                                    ? (t.dark
+                                        ? t.colors.secondaryLabel
+                                        : const Color(0xFFD1D1D6))
+                                    : t.colors.secondaryLabel,
+                              ),
+                          },
+                        ),
+                        trailing: nodes[i].kind == PlanNodeKind.week
+                            ? const WebChevron()
+                            : null,
+                        divider: i < nodes.length - 1,
+                        onPressed: nodes[i].kind == PlanNodeKind.week &&
+                                nodes[i].target != null
+                            ? () => page.onWeek(nodes[i].target!)
+                            : null,
+                      ),
                     ),
                 ],
               ),
@@ -235,9 +276,18 @@ class PlanWebColumns extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const WebText('History', kind: WebTextKind.eyebrow),
+                if (page.pro)
+                  PlanEntry(
+                    start: historyStart,
+                    duration: 500,
+                    y: 14,
+                    child: const WebText('History', kind: WebTextKind.eyebrow),
+                  )
+                else
+                  const WebText('History', kind: WebTextKind.eyebrow),
                 if (page.pro)
                   PlanWebHistory(
+                    entranceStart: historyStart + 200,
                     entries: page.history.take(5).toList(),
                     onMore: onHistory,
                     hasMore: onHistory != null,
@@ -283,8 +333,13 @@ class PlanWebHistory extends StatelessWidget {
     this.onMore,
     this.error,
     this.moreInsideCard = false,
+    this.entranceStart,
     super.key,
   });
+
+  /// When set, the rows rise in one after another from this many
+  /// milliseconds, like the phone's history.
+  final int? entranceStart;
 
   /// Plan's card ends with a See more row (board `PL_Plan`); the full History
   /// page keeps the link below the card.
@@ -294,6 +349,14 @@ class PlanWebHistory extends StatelessWidget {
   final bool loading;
   final VoidCallback? onMore;
   final Widget? error;
+  Widget _historyEntry(int i, Widget row) => entranceStart == null
+      ? row
+      : PlanEntry(
+          start: entranceStart! + i * 80,
+          duration: 500,
+          y: 8,
+          child: row,
+        );
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -307,29 +370,32 @@ class PlanWebHistory extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               for (var i = 0; i < entries.length; i++)
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  decoration: BoxDecoration(
-                    border: i < entries.length - 1
-                        ? Border(
-                            bottom: BorderSide(
-                              color: t.colors.separator,
-                              width: hairline,
-                            ),
-                          )
-                        : null,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        entries[i].date,
-                        style: t.sm.copyWith(fontWeight: FontWeight.w600),
-                      ),
-                      const SizedBox(height: 3),
-                      Text(entries[i].text, style: t.style(16, height: 1.45)),
-                    ],
+                _historyEntry(
+                  i,
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    decoration: BoxDecoration(
+                      border: i < entries.length - 1
+                          ? Border(
+                              bottom: BorderSide(
+                                color: t.colors.separator,
+                                width: hairline,
+                              ),
+                            )
+                          : null,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          entries[i].date,
+                          style: t.sm.copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(entries[i].text, style: t.style(16, height: 1.45)),
+                      ],
+                    ),
                   ),
                 ),
               if (inside)

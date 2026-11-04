@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 
 class SessionEndBody extends StatefulWidget {
@@ -98,24 +99,9 @@ class _SessionEndBodyState extends State<SessionEndBody>
     }
   }
 
+  late final _motion = SessionEntryMotion(_entry);
   Widget _appear(Widget child, int start, int duration, {double rise = 0}) =>
-      AnimatedBuilder(
-        animation: _entry,
-        child: child,
-        builder: (context, child) {
-          final t = ((_entry.value * _entry.duration!.inMilliseconds - start) /
-                  duration)
-              .clamp(0.0, 1.0);
-          final value = const Cubic(.3, .9, .3, 1).transform(t);
-          return IgnorePointer(
-            ignoring: t == 0,
-            child: Transform.translate(
-              offset: Offset(0, rise * (1 - value)),
-              child: Opacity(opacity: value, child: child),
-            ),
-          );
-        },
-      );
+      _motion.appear(child, start, duration, rise: rise);
   Widget _circle(int index) {
     final item = widget.attempt.items[index];
     final colors = context.colors;
@@ -143,32 +129,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
         ),
       ),
     );
-    return AnimatedBuilder(
-      animation: _entry,
-      child: circle,
-      builder: (context, child) {
-        final elapsed =
-            _entry.value * _entry.duration!.inMilliseconds - 400 - index * 90;
-        final before = elapsed < 0;
-        final first = (elapsed / 260).clamp(0.0, 1.0);
-        final last = ((elapsed - 260) / 160).clamp(0.0, 1.0);
-        const curve = Cubic(.3, 1.4, .5, 1);
-        final scale = elapsed <= 260
-            ? .4 + .72 * curve.transform(first)
-            : 1.12 - .12 * curve.transform(last);
-        return IgnorePointer(
-          ignoring: before,
-          child: Opacity(
-            opacity: before
-                ? 0
-                : elapsed <= 260
-                    ? curve.transform(first).clamp(0.0, 1.0)
-                    : 1,
-            child: Transform.scale(scale: scale, child: child),
-          ),
-        );
-      },
-    );
+    return _motion.pop(index, circle);
   }
 
   @override
@@ -213,6 +174,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
         onMistakes: widget.onMistakes,
         onNotes: widget.onNotes,
         onNext: next ? () => unawaited(_next()) : null,
+        entry: _motion,
         nextBusy: _nextBusy,
         failure: _nextFailed ? saveFailureLine(() => unawaited(_next())) : null,
       );

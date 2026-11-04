@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/how_you_work_provider.dart';
@@ -231,9 +232,22 @@ class WebTendencyProfile extends StatelessWidget {
           Positioned(
             right: -34,
             top: -4.5,
-            child: Transform.rotate(
-              angle: -8 * math.pi / 180,
-              child: Icon(glyph, size: 150, color: const Color(0xff3a3a3d)),
+            // The phone's glyph slide: 20 px in from the right, 800 ms.
+            child: TweenAnimationBuilder<double>(
+              tween: Tween(
+                begin: MediaQuery.disableAnimationsOf(context) ? 1 : 0,
+                end: 1,
+              ),
+              duration: const Duration(milliseconds: 800),
+              curve: PantasCurves.houseOut,
+              builder: (_, value, child) => Transform.translate(
+                offset: Offset(20 * (1 - value), 0),
+                child: child,
+              ),
+              child: Transform.rotate(
+                angle: -8 * math.pi / 180,
+                child: Icon(glyph, size: 150, color: const Color(0xff3a3a3d)),
+              ),
             ),
           ),
           SizedBox(
@@ -359,8 +373,19 @@ class WebTendencyFinding extends StatelessWidget {
                     color: t.disabledBackground,
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: FractionallySizedBox(
-                        widthFactor: fraction.clamp(0, 1),
+                      // The phone's chart draw: 900 ms from empty to the value.
+                      child: TweenAnimationBuilder<double>(
+                        tween: Tween(
+                          begin:
+                              MediaQuery.disableAnimationsOf(context) ? 1 : 0,
+                          end: 1,
+                        ),
+                        duration: const Duration(milliseconds: 900),
+                        curve: PantasCurves.houseOut,
+                        builder: (_, grow, child) => FractionallySizedBox(
+                          widthFactor: fraction.clamp(0, 1) * grow,
+                          child: child,
+                        ),
                         child: ColoredBox(
                           color: color,
                           child: const SizedBox.expand(),

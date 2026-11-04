@@ -9,6 +9,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -652,16 +653,11 @@ class _WebWeekDayState extends State<_WebWeekDay> {
                   clipBehavior: Clip.none,
                   children: [
                     if (today && fraction > 0 && fraction < 1)
-                      SizedBox.square(
-                        dimension: 34,
-                        child: CircularProgressIndicator(
-                          key: const ValueKey('web-today-progress'),
-                          value: fraction,
-                          strokeWidth: 2,
-                          strokeCap: StrokeCap.round,
-                          color: t.colors.accent,
-                          backgroundColor: t.colors.separator,
-                        ),
+                      ProgressRing(
+                        key: const ValueKey('web-today-progress'),
+                        size: 34,
+                        fraction: fraction,
+                        showCheck: false,
                       ),
                     Container(
                       width: 26,

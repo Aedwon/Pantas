@@ -356,24 +356,28 @@ class _WideNumberRowState extends State<_WideNumberRow> {
           onPressed:
               widget.editable ? () => setState(() => _open = !_open) : null,
         ),
-        if (_open && widget.editable)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _InlineStepper(
-                  label: widget.label,
-                  value: widget.value,
-                  values: widget.values,
-                  format: widget.format,
-                  onChanged: widget.onChanged,
-                ),
-                const SizedBox(height: 8),
-                Text(widget.helper, style: t.sm),
-              ],
-            ),
-          ),
+        _editorReveal(
+          context,
+          _open && widget.editable
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _InlineStepper(
+                        label: widget.label,
+                        value: widget.value,
+                        values: widget.values,
+                        format: widget.format,
+                        onChanged: widget.onChanged,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(widget.helper, style: t.sm),
+                    ],
+                  ),
+                )
+              : null,
+        ),
       ],
     );
   }
@@ -440,20 +444,39 @@ class _WideSectionRowState extends State<_WideSectionRow> {
               Text('min', style: t.sm),
             ],
           ),
-          if (_minutes != null) ...[
-            const SizedBox(height: 12),
-            _InlineStepper(
-              label: '${widget.name} ${_minutes! ? 'minutes' : 'items'}',
-              value: _minutes! ? widget.minutes : widget.questions,
-              values: _minutes! ? widget.minuteValues : widget.questionValues,
-              format: (v) => '$v',
-              onChanged: (v) => widget.onChanged(v, minutes: _minutes!),
-            ),
-          ],
+          _editorReveal(
+            context,
+            _minutes == null
+                ? null
+                : Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: _InlineStepper(
+                      label:
+                          '${widget.name} ${_minutes! ? 'minutes' : 'items'}',
+                      value: _minutes! ? widget.minutes : widget.questions,
+                      values: _minutes!
+                          ? widget.minuteValues
+                          : widget.questionValues,
+                      format: (v) => '$v',
+                      onChanged: (v) => widget.onChanged(v, minutes: _minutes!),
+                    ),
+                  ),
+          ),
         ],
       ),
     );
   }
+}
+
+/// The phone's row editor: the row grows and shrinks over 300 ms. A null
+/// [editor] is a closed row.
+Widget _editorReveal(BuildContext context, Widget? editor) {
+  final child = editor ?? const SizedBox(width: double.infinity);
+  if (MediaQuery.disableAnimationsOf(context)) return child;
+  return AnimatedSize(
+    duration: const Duration(milliseconds: 300),
+    child: child,
+  );
 }
 
 /// CM_Wheel: five adjacent values and arrow keys, with no scrolling wheel.

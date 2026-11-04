@@ -9,6 +9,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/plan_data.dart';
@@ -441,13 +442,12 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
 }
 
 Future<void> showPlanPastDay(BuildContext context, DateTime date) =>
-    showGeneralDialog<void>(
+    showWebOverlay<void>(
       context: context,
-      barrierDismissible: true,
+      motion: WebOverlayMotion.popover,
       barrierLabel: 'Close day',
       barrierColor: Colors.transparent,
-      transitionDuration: Duration.zero,
-      pageBuilder: (dialogContext, _, __) => SafeArea(
+      builder: (dialogContext) => SafeArea(
         child: Align(
           alignment: Alignment.topRight,
           child: Padding(

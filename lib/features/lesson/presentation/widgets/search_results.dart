@@ -148,25 +148,10 @@ class _ResultGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListView(
         children: [
-          TweenAnimationBuilder<double>(
+          SearchGroupFade(
+            // A new label is a new group, so it fades in again.
             key: ValueKey(label),
-            tween: Tween(begin: 0, end: 1),
-            duration: MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : Duration(milliseconds: 300 + delay.inMilliseconds),
-            curve: Interval(
-              delay.inMilliseconds / (300 + delay.inMilliseconds),
-              1,
-              curve: PantasCurves.houseOut,
-            ),
-            builder: (context, value, child) => Opacity(
-              key: const ValueKey('search-results-opacity'),
-              opacity: value,
-              child: ExcludeFocus(
-                excluding: value == 0,
-                child: ExcludeSemantics(excluding: value == 0, child: child),
-              ),
-            ),
+            delay: delay,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -183,6 +168,40 @@ class _ResultGroup extends StatelessWidget {
             ),
           ),
         ],
+      );
+}
+
+/// A group of search results fading in: 300 ms on the house ease, after
+/// [delay]. The phone list and the wide search dialog share it.
+class SearchGroupFade extends StatelessWidget {
+  const SearchGroupFade({
+    required this.child,
+    this.delay = Duration.zero,
+    super.key,
+  });
+  final Widget child;
+  final Duration delay;
+
+  @override
+  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0, end: 1),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : Duration(milliseconds: 300 + delay.inMilliseconds),
+        curve: Interval(
+          delay.inMilliseconds / (300 + delay.inMilliseconds),
+          1,
+          curve: PantasCurves.houseOut,
+        ),
+        builder: (context, value, child) => Opacity(
+          key: const ValueKey('search-results-opacity'),
+          opacity: value,
+          child: ExcludeFocus(
+            excluding: value == 0,
+            child: ExcludeSemantics(excluding: value == 0, child: child),
+          ),
+        ),
+        child: child,
       );
 }
 

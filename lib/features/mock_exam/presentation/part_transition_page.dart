@@ -46,7 +46,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final still = context.wideWeb || MediaQuery.disableAnimationsOf(context);
+    final still = MediaQuery.disableAnimationsOf(context);
     if (_still == still) return;
     final first = _still == null;
     _still = still;
@@ -414,32 +414,19 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  Wrap(
-                                    spacing: 8,
-                                    runSpacing: 8,
-                                    children: [
-                                      for (var i = 0;
-                                          i < widget.answeredQuestions.length;
-                                          i++)
-                                        SizedBox.square(
-                                          dimension: 18,
-                                          child: DecoratedBox(
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: widget.answeredQuestions[i]
-                                                  ? t.colors.separator
-                                                  : null,
-                                              border: widget
-                                                      .answeredQuestions[i]
-                                                  ? null
-                                                  : Border.all(
-                                                      color: t.strongDivider,
-                                                      width: 1.5,
-                                                    ),
-                                            ),
-                                          ),
-                                        ),
-                                    ],
+                                  // The phone's dots: 12 ms apart, 200 ms each.
+                                  AnimatedBuilder(
+                                    animation: _motion,
+                                    builder: (context, _) => Wrap(
+                                      spacing: 8,
+                                      runSpacing: 8,
+                                      children: [
+                                        for (var i = 0;
+                                            i < widget.answeredQuestions.length;
+                                            i++)
+                                          _wideDot(t, i),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -458,15 +445,18 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                     ),
                                     child: Row(
                                       children: [
-                                        Icon(
-                                          i < widget.nextPartIndex
-                                              ? Icons.check_circle
-                                              : Icons.circle_outlined,
-                                          size: 22,
-                                          color: i <= widget.nextPartIndex
-                                              ? t.colors.accent
-                                              : t.colors.tertiaryLabel,
-                                        ),
+                                        if (i == widget.nextPartIndex - 1)
+                                          _wideClosedCheck(t)
+                                        else
+                                          Icon(
+                                            i < widget.nextPartIndex
+                                                ? Icons.check_circle
+                                                : Icons.circle_outlined,
+                                            size: 22,
+                                            color: i <= widget.nextPartIndex
+                                                ? t.colors.accent
+                                                : t.colors.tertiaryLabel,
+                                          ),
                                         const SizedBox(
                                           width: 12,
                                         ),
@@ -520,6 +510,60 @@ class _PartTransitionPageState extends State<PartTransitionPage>
       ),
     );
   }
+
+  Widget _wideDot(WebTokens t, int index) {
+    final progress = segment(200 + 12 * index, 200, PantasCurves.houseOut);
+    final answered = widget.answeredQuestions[index];
+    return SizedBox.square(
+      dimension: 18,
+      child: Opacity(
+        key: ValueKey('part-dot-opacity-$index'),
+        opacity: progress,
+        child: Transform.scale(
+          scale: .4 + .6 * progress,
+          child: DecoratedBox(
+            key: ValueKey('part-dot-$index'),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: answered ? t.colors.separator : null,
+              border: answered
+                  ? null
+                  : Border.all(color: t.strongDivider, width: 1.5),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// The part that just closed: its ring is there first and the check pops in
+  /// on the phone's pop and settle.
+  Widget _wideClosedCheck(WebTokens t) => AnimatedBuilder(
+        animation: _motion,
+        builder: (context, _) {
+          final pop = segment(1400, 220, PantasCurves.popA);
+          final settle = segment(1620, 160, PantasCurves.popA);
+          final scale = _motion.value * _duration < 1620
+              ? .5 + .65 * pop
+              : 1.15 - .15 * settle;
+          return Stack(
+            children: [
+              Icon(Icons.circle_outlined, size: 22, color: t.colors.accent),
+              Opacity(
+                opacity: pop.clamp(0.0, 1.0),
+                child: Transform.scale(
+                  scale: scale,
+                  child: Icon(
+                    Icons.check_circle,
+                    size: 22,
+                    color: t.colors.accent,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
 
   Widget _dot(BuildContext context, int index) {
     final progress = segment(200 + 12 * index, 200, PantasCurves.houseOut);

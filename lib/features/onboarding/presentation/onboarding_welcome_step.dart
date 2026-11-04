@@ -32,13 +32,19 @@ class OnboardingWelcomeStep extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const OnboardingLogo(size: 120),
+                  const _WelcomePop(
+                    key: ValueKey('welcome-logo-pop'),
+                    child: OnboardingLogo(size: 120),
+                  ),
                   const SizedBox(height: 32),
-                  Text(
-                    'Welcome to Pantas',
-                    style: t
-                        .style(48, weight: FontWeight.w700, height: 1.08)
-                        .copyWith(letterSpacing: -1.44),
+                  _WelcomePop(
+                    key: const ValueKey('welcome-title-pop'),
+                    child: Text(
+                      'Welcome to Pantas',
+                      style: t
+                          .style(48, weight: FontWeight.w700, height: 1.08)
+                          .copyWith(letterSpacing: -1.44),
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -108,6 +114,63 @@ class OnboardingWelcomeStep extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The wide welcome's logo and title: the launch logo's 750 ms pop, the same
+/// rise, overshoot and settle on `popC`.
+class _WelcomePop extends StatefulWidget {
+  const _WelcomePop({required this.child, super.key});
+  final Widget child;
+
+  @override
+  State<_WelcomePop> createState() => _WelcomePopState();
+}
+
+class _WelcomePopState extends State<_WelcomePop>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 750),
+  );
+  bool _started = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.value = 1;
+    } else if (!_started) {
+      _started = true;
+      _controller.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          final milliseconds = _controller.value * 750;
+          final rising = ((milliseconds - 150) / 360).clamp(0.0, 1.0);
+          final settling = ((milliseconds - 510) / 240).clamp(0.0, 1.0);
+          final scale = milliseconds <= 510
+              ? .4 + .72 * PantasCurves.popC.transform(rising)
+              : 1.12 - .12 * PantasCurves.popC.transform(settling);
+          return Transform.scale(
+            scale: scale,
+            child: Opacity(
+              opacity: PantasCurves.popC.transform(rising).clamp(0.0, 1.0),
+              child: child,
+            ),
+          );
+        },
+        child: widget.child,
+      );
 }
 
 class OnboardingLaunchStep extends StatefulWidget {

@@ -5,6 +5,8 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -220,24 +222,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                               }
                                             },
                                           ),
-                                          if (widget.level == 0 &&
-                                              _expanded.contains(row.id))
-                                            for (final topic
-                                                in _topicsFor(row.id))
-                                              ColoredBox(
-                                                color: t.dark
-                                                    ? t.rowHover
-                                                    : const Color(0xFFFBFBFC),
-                                                child: _row(
-                                                  context,
-                                                  topic,
-                                                  indent: true,
-                                                  onPressed: () =>
-                                                      widget.onTopic(
-                                                    topic.id,
-                                                  ),
-                                                ),
-                                              ),
+                                          if (widget.level == 0)
+                                            _topics(context, row),
                                         ],
                                       ],
                                     ),
@@ -402,6 +388,43 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
             : -n;
   }
 
+  /// A subject's topics, sliding open and shut in 240 ms.
+  Widget _topics(BuildContext context, PerformanceRow row) {
+    final t = context.webTokens;
+    // Full width, so only the height animates as topics come and go.
+    final topics = SizedBox(
+      width: double.infinity,
+      child: Column(
+        children: [
+          if (_expanded.contains(row.id))
+            for (final topic in _topicsFor(row.id))
+              ColoredBox(
+                color: t.dark ? t.rowHover : const Color(0xFFFBFBFC),
+                child: _row(
+                  context,
+                  topic,
+                  indent: true,
+                  onPressed: () => widget.onTopic(topic.id),
+                ),
+              ),
+        ],
+      ),
+    );
+    return KeyedSubtree(
+      key: ValueKey('subject-topics-${row.id}'),
+      // A zero-length AnimatedSize re-enters its own layout, so reduced
+      // motion skips it.
+      child: MediaQuery.disableAnimationsOf(context)
+          ? topics
+          : AnimatedSize(
+              duration: PantasDurations.base,
+              curve: PantasCurves.shared,
+              alignment: Alignment.topCenter,
+              child: topics,
+            ),
+    );
+  }
+
   Widget _row(
     BuildContext context,
     PerformanceRow row, {
@@ -459,12 +482,17 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
               if (!widget.pro && widget.level == 0 && !indent)
                 const SizedBox.shrink()
               else if (widget.level == 0 && !indent)
-                Icon(
-                  expanded
-                      ? Icons.keyboard_arrow_up
-                      : Icons.keyboard_arrow_down,
-                  size: 16,
-                  color: t.colors.chevron,
+                AnimatedRotation(
+                  turns: expanded ? .5 : 0,
+                  duration: MediaQuery.disableAnimationsOf(context)
+                      ? Duration.zero
+                      : PantasDurations.base,
+                  curve: PantasCurves.shared,
+                  child: Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 16,
+                    color: t.colors.chevron,
+                  ),
                 )
               else
                 const WebChevron(),

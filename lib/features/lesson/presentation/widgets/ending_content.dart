@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/ending_reveal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_ending_layout.dart';
 
 /// Shared layout for the active ending and its inert preview.
@@ -47,8 +47,7 @@ class EndingContent extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(32, 0, 32, 120),
-                child: _reveal(
-                  context,
+                child: EndingReveal(
                   delay: 200,
                   duration: 600,
                   child: Text(
@@ -105,8 +104,7 @@ class EndingContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _reveal(
-            context,
+          EndingReveal(
             delay: 160,
             duration: 500,
             child: Container(
@@ -163,8 +161,7 @@ class EndingContent extends StatelessWidget {
           ),
           if (unread.isNotEmpty) ...[
             const SizedBox(height: 28),
-            _reveal(
-              context,
+            EndingReveal(
               delay: 500,
               duration: 450,
               child: GroupedSection(
@@ -184,26 +181,6 @@ class EndingContent extends StatelessWidget {
             ),
           ],
         ],
-      ),
-    );
-  }
-
-  Widget _reveal(
-    BuildContext context, {
-    required int delay,
-    required int duration,
-    required Widget child,
-  }) {
-    if (MediaQuery.disableAnimationsOf(context)) return child;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 1),
-      duration: Duration(milliseconds: delay + duration),
-      curve:
-          Interval(delay / (delay + duration), 1, curve: PantasCurves.houseOut),
-      child: child,
-      builder: (_, value, child) => Transform.translate(
-        offset: Offset(0, 8 * (1 - value)),
-        child: Opacity(opacity: value, child: child),
       ),
     );
   }

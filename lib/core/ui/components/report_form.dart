@@ -26,17 +26,17 @@ Future<bool?> openQuestionReport(
             barrierColor: Colors.transparent,
             barrierDismissible: true,
             barrierLabel: 'Close report',
+            transitionDuration: _reportDuration(context),
             pageBuilder: (_, __, ___) =>
                 _WebReportPanel(questionId: questionId, queue: queue),
+            transitionBuilder: _reportTransition,
           )
         : showGeneralDialog<bool>(
             context: context,
             barrierColor: context.colors.transparent,
             barrierDismissible: true,
             barrierLabel: 'Close report',
-            transitionDuration: MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : const Duration(milliseconds: 420),
+            transitionDuration: _reportDuration(context),
             pageBuilder: (context, _, __) => Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
@@ -57,20 +57,32 @@ Future<bool?> openQuestionReport(
                 ),
               ),
             ),
-            transitionBuilder: (context, animation, _, child) => FadeTransition(
-              opacity: animation,
-              child: SlideTransition(
-                position: Tween(begin: const Offset(0, .15), end: Offset.zero)
-                    .animate(
-                  CurvedAnimation(
-                    parent: animation,
-                    curve: PantasCurves.edgeGrow,
-                  ),
-                ),
-                child: child,
-              ),
-            ),
+            transitionBuilder: _reportTransition,
           );
+
+/// The report form's arrival on the phone and on wide web: 420 ms, or none
+/// under reduced motion.
+Duration _reportDuration(BuildContext context) =>
+    MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 420);
+
+/// A fade and a 15% slide up on edgeGrow.
+Widget _reportTransition(
+  BuildContext context,
+  Animation<double> animation,
+  Animation<double> secondaryAnimation,
+  Widget child,
+) =>
+    FadeTransition(
+      opacity: animation,
+      child: SlideTransition(
+        position: Tween(begin: const Offset(0, .15), end: Offset.zero).animate(
+          CurvedAnimation(parent: animation, curve: PantasCurves.edgeGrow),
+        ),
+        child: child,
+      ),
+    );
 
 class ReportForm extends StatefulWidget {
   const ReportForm({

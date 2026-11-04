@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/ending_reveal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
 class WebEndingLayout extends StatelessWidget {
@@ -39,15 +40,29 @@ class WebEndingLayout extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CircleAvatar(
-                  radius: 32,
-                  backgroundColor: t.colors.accentFill,
-                  child: const Icon(Icons.check, size: 32, color: Colors.white),
-                ),
-                const SizedBox(height: 22),
-                Text(
-                  'That’s enough for today.',
-                  style: t.h1,
+                // The phone reveals the line 200 ms in, over 600 ms.
+                EndingReveal(
+                  delay: 200,
+                  duration: 600,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircleAvatar(
+                        radius: 32,
+                        backgroundColor: t.colors.accentFill,
+                        child: const Icon(
+                          Icons.check,
+                          size: 32,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 22),
+                      Text(
+                        'That’s enough for today.',
+                        style: t.h1,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 22),
                 WebButton(
@@ -96,115 +111,127 @@ class WebEndingLayout extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 360,
-                  height: 450,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 32),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF0E8B76), Color(0xFF075C4E)],
+                // The phone reveals the plate 160 ms in, over 500 ms.
+                EndingReveal(
+                  delay: 160,
+                  duration: 500,
+                  child: Container(
+                    width: 360,
+                    height: 450,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 32,
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFF075C4E).withValues(alpha: .28),
-                        blurRadius: 60,
-                        offset: const Offset(0, 30),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xFF0E8B76), Color(0xFF075C4E)],
                       ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        exam.toUpperCase(),
-                        style: t.style(
-                          13,
-                          weight: FontWeight.w700,
-                          spacing: .78,
-                          color: Colors.white.withValues(alpha: .75),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF075C4E).withValues(alpha: .28),
+                          blurRadius: 60,
+                          offset: const Offset(0, 30),
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            name,
-                            style: t.style(
-                              44,
-                              weight: FontWeight.w700,
-                              spacing: -1.32,
-                              height: 1.05,
-                              color: Colors.white,
-                            ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          exam.toUpperCase(),
+                          style: t.style(
+                            13,
+                            weight: FontWeight.w700,
+                            spacing: .78,
+                            color: Colors.white.withValues(alpha: .75),
                           ),
-                          const SizedBox(height: 10),
-                          Text(
-                            footing,
-                            style: t.style(
-                              17,
-                              color: Colors.white.withValues(alpha: .9),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        date,
-                        style: t.style(
-                          14,
-                          color: Colors.white.withValues(alpha: .75),
                         ),
-                      ),
-                    ],
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              name,
+                              style: t.style(
+                                44,
+                                weight: FontWeight.w700,
+                                spacing: -1.32,
+                                height: 1.05,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              footing,
+                              style: t.style(
+                                17,
+                                color: Colors.white.withValues(alpha: .9),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          date,
+                          style: t.style(
+                            14,
+                            color: Colors.white.withValues(alpha: .75),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 56),
                 Flexible(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 520),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        if (unread.isNotEmpty) ...[
-                          Text(
-                            'STILL UNREAD',
-                            style: t.eb.copyWith(height: 22 / 13),
-                          ),
-                          const SizedBox(height: 4),
-                          WebCard(
-                            child: Column(
-                              children: [
-                                for (final lesson in unread)
-                                  WebRow(
-                                    title: lesson.title,
-                                    value: '${lesson.estimatedMinutes} min',
-                                    trailing: Icon(
-                                      Icons.chevron_right,
-                                      color: t.colors.tertiaryLabel,
-                                      size: 16,
-                                    ),
-                                    onPressed: () => onLesson(lesson.id),
-                                  ),
-                              ],
+                  // The phone reveals the unread list 500 ms in, over 450 ms.
+                  child: EndingReveal(
+                    delay: 500,
+                    duration: 450,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 520),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          if (unread.isNotEmpty) ...[
+                            Text(
+                              'STILL UNREAD',
+                              style: t.eb.copyWith(height: 22 / 13),
                             ),
-                          ),
-                          const SizedBox(height: 20),
+                            const SizedBox(height: 4),
+                            WebCard(
+                              child: Column(
+                                children: [
+                                  for (final lesson in unread)
+                                    WebRow(
+                                      title: lesson.title,
+                                      value: '${lesson.estimatedMinutes} min',
+                                      trailing: Icon(
+                                        Icons.chevron_right,
+                                        color: t.colors.tertiaryLabel,
+                                        size: 16,
+                                      ),
+                                      onPressed: () => onLesson(lesson.id),
+                                    ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                          ],
+                          if (next != null && next.lessons.isNotEmpty)
+                            WebReaderNext(
+                              label: 'Next topic · ${next.name}',
+                              title: next.lessons.first.title,
+                              detail: nextDetail,
+                              topGap: 0,
+                              onPressed: onNext ??
+                                  () => onLesson(next.lessons.first.id),
+                            ),
                         ],
-                        if (next != null && next.lessons.isNotEmpty)
-                          WebReaderNext(
-                            label: 'Next topic · ${next.name}',
-                            title: next.lessons.first.title,
-                            detail: nextDetail,
-                            topGap: 0,
-                            onPressed:
-                                onNext ?? () => onLesson(next.lessons.first.id),
-                          ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

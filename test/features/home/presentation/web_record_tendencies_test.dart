@@ -389,4 +389,91 @@ void main() {
       }
     }
   }
+
+  group('wide tendencies motion', () {
+    Future<void> pump(WidgetTester tester, {required bool still}) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 1100);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: still),
+            child: child!,
+          ),
+          home: Padding(
+            padding: const EdgeInsets.fromLTRB(288, 28, 44, 44),
+            child: TendenciesPage(
+              data: const HowYouWork(
+                name: 'Ana',
+                archetype: 'Scholar',
+                archetypeLine: 'Reads first.',
+                tendencies: [
+                  Tendency(
+                    id: TendencyId.underPressure,
+                    heading: 'Under pressure',
+                    leftLabel: 'practicing',
+                    rightLabel: 'under time',
+                    leftFigure: '60%',
+                    rightFigure: '80%',
+                    sentence: 'Measured pressure',
+                    isLoss: false,
+                    gap: null,
+                    unlockAction: '',
+                    confidence: TendencyConfidence.clear,
+                  ),
+                ],
+                whenYouWork: [],
+              ),
+              pro: true,
+              paused: false,
+              onBack: () {},
+              onName: () {},
+              onPro: () {},
+            ),
+          ),
+        ),
+      );
+    }
+
+    List<double> bars(WidgetTester tester) => tester
+        .widgetList<FractionallySizedBox>(find.byType(FractionallySizedBox))
+        .map((bar) => bar.widthFactor!)
+        .toList();
+    double glyphX(WidgetTester tester) => tester
+        .getTopLeft(
+          find.descendant(
+            of: find.byKey(const ValueKey('tendencies-profile')),
+            matching: find.byType(Icon),
+          ),
+        )
+        .dx;
+
+    testWidgets('bars grow and the glyph slides in, then settle',
+        (tester) async {
+      await pump(tester, still: false);
+      await tester.pump();
+      expect(bars(tester), [0, 0]);
+      final start = glyphX(tester);
+      await tester.pump(const Duration(milliseconds: 200));
+      final mid = bars(tester);
+      expect(mid[0], inExclusiveRange(0, .6));
+      expect(mid[1], inExclusiveRange(0, .8));
+      expect(glyphX(tester), lessThan(start));
+      await tester.pumpAndSettle();
+      expect(bars(tester), [closeTo(.6, .001), closeTo(.8, .001)]);
+      expect(glyphX(tester), closeTo(start - 20, .001));
+    });
+
+    testWidgets('reduced motion shows the end state at once', (tester) async {
+      await pump(tester, still: true);
+      await tester.pump();
+      expect(bars(tester), [closeTo(.6, .001), closeTo(.8, .001)]);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+  });
 }

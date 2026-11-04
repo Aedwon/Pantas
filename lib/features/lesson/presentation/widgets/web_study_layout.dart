@@ -9,12 +9,16 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pane_transition.dart';
+import 'package:pantas/core/ui/motion/pantas_durations.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
@@ -169,8 +173,11 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
                 onLesson: (id, {required resume}) => context.push(
                   '/lesson/$id?from=study${resume ? '&resume=true' : ''}',
                 ),
-                onBookmarks: () => showDialog<void>(
+                onBookmarks: () => showWebOverlay<void>(
                   context: context,
+                  motion: WebOverlayMotion.drawerOf(480),
+                  barrierLabel: MaterialLocalizations.of(context)
+                      .modalBarrierDismissLabel,
                   barrierColor: const Color(0x381D1D1F),
                   builder: (context) => Align(
                     alignment: Alignment.centerRight,
@@ -219,7 +226,7 @@ class _WebStudyLayoutState extends ConsumerState<WebStudyLayout> {
 }
 
 /// W_Study: the map stays beside the selected topic, never expands in place.
-class WebStudyMap extends StatelessWidget {
+class WebStudyMap extends StatefulWidget {
   const WebStudyMap({
     required this.map,
     required this.onTopic,
@@ -246,8 +253,43 @@ class WebStudyMap extends StatelessWidget {
   final bool saveFailed;
   final VoidCallback? onRetry;
   @override
+  State<WebStudyMap> createState() => _WebStudyMapState();
+}
+
+class _WebStudyMapState extends State<WebStudyMap> {
+  /// The parts that stand on the map's first frame. Each comes in once, on the
+  /// phone's delays. A part that arrives later, or that has finished, is just
+  /// there, so scrolling it back in or opening a topic never replays it.
+  final _entering = <String>{};
+  final _keys = <String, GlobalKey>{};
+  bool _settled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _settled = true);
+  }
+
+  /// [child] entering as the phone's [delayMs] says. The key follows it from
+  /// the full-width list to the list beside a topic, so it does not restart.
+  Widget _enter(String slot, int delayMs, Widget child) {
+    if (!_settled) _entering.add(slot);
+    if (!_entering.contains(slot)) return child;
+    return StudyMapEntry(
+      key: _keys.putIfAbsent(slot, GlobalKey.new),
+      delay: Duration(milliseconds: delayMs),
+      onEnd: () => _entering.remove(slot),
+      child: child,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final map = widget.map;
+    final openTopicId = widget.openTopicId;
+    final lastLessonId = widget.lastLessonId;
+    final lastTitle = widget.lastTitle;
     StudyTopic? selected;
     String? selectedSubject;
     String? lastTopic;
@@ -276,14 +318,26 @@ class WebStudyMap extends StatelessWidget {
         // is drawn only once there is a bookmark (Nov 3, item 4).
         final head = <Widget>[
           if (hasCard) ...[
-            WebLastOpenedCard(
-              title: lastTitle!,
-              topic: lastTopic,
-              onResume: () => onLesson(lastLessonId!, resume: true),
+            _enter(
+              'last',
+              180,
+              WebLastOpenedCard(
+                title: lastTitle,
+                topic: lastTopic,
+                onResume: () => widget.onLesson(lastLessonId, resume: true),
+              ),
             ),
             const SizedBox(height: 22),
           ],
-          if (bookmarks.isNotEmpty) ..._bookmarkRows(context, bookmarks),
+          if (bookmarks.isNotEmpty)
+            _enter(
+              'bookmarks',
+              260,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: _bookmarkRows(context, bookmarks),
+              ),
+            ),
         ];
         // The first subject sits flush under the card when Bookmarks is
         // hidden, and 18 px under Bookmarks when it shows.
@@ -319,7 +373,7 @@ class WebStudyMap extends StatelessWidget {
                   ...head,
                   for (final (index, subject) in map.subjects.indexed) ...[
                     SizedBox(height: index == 0 ? firstGap : 18),
-                    ..._subjectBlock(context, subject),
+                    _subjectBlock(context, subject, index),
                   ],
                 ],
               ),
@@ -328,51 +382,54 @@ class WebStudyMap extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 key: const ValueKey('web-study-topic'),
-                child: WebCard(
-                  padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              selectedSubject!.toUpperCase(),
-                              style: t.eb.copyWith(height: 1.45),
-                            ),
-                            Text(
-                              selected.name,
-                              style: t.style(
-                                30,
-                                weight: FontWeight.w700,
-                                height: 1.2,
-                                spacing: -.6,
+                child: _TopicEntrance(
+                  key: ValueKey(('web-study-topic-card', selected.id)),
+                  child: WebCard(
+                    padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                selectedSubject!.toUpperCase(),
+                                style: t.eb.copyWith(height: 1.45),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      for (final lesson in selected.lessons)
-                        _WideStudyLessonRow(
-                          lesson: lesson,
-                          today: today.contains(lesson.id),
-                          resume: lesson.id == lastLessonId,
-                          onPressed: () => onLesson(
-                            lesson.id,
-                            resume: lesson.id == lastLessonId,
+                              Text(
+                                selected.name,
+                                style: t.style(
+                                  30,
+                                  weight: FontWeight.w700,
+                                  height: 1.2,
+                                  spacing: -.6,
+                                ),
+                              ),
+                            ],
                           ),
-                          onBookmark: onBookmark == null
-                              ? null
-                              : () => onBookmark!(lesson.id),
                         ),
-                      if (saveFailed)
-                        WebButton(
-                          label: 'Try Saving Again',
-                          onPressed: onRetry,
-                        ),
-                    ],
+                        for (final lesson in selected.lessons)
+                          _WideStudyLessonRow(
+                            lesson: lesson,
+                            today: widget.today.contains(lesson.id),
+                            resume: lesson.id == lastLessonId,
+                            onPressed: () => widget.onLesson(
+                              lesson.id,
+                              resume: lesson.id == lastLessonId,
+                            ),
+                            onBookmark: widget.onBookmark == null
+                                ? null
+                                : () => widget.onBookmark!(lesson.id),
+                          ),
+                        if (widget.saveFailed)
+                          WebButton(
+                            label: 'Try Saving Again',
+                            onPressed: widget.onRetry,
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -414,7 +471,7 @@ class WebStudyMap extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             for (final subject in group) ...[
-              ..._subjectBlock(context, subject),
+              _subjectBlock(context, subject, subjects.indexOf(subject)),
               const SizedBox(height: 18),
             ],
           ],
@@ -439,7 +496,7 @@ class WebStudyMap extends StatelessWidget {
         children: [
           Expanded(child: _label(context, 'BOOKMARKS')),
           TextButton(
-            onPressed: onBookmarks,
+            onPressed: widget.onBookmarks,
             child: Text(
               'See all',
               style: t.style(
@@ -456,36 +513,45 @@ class WebStudyMap extends StatelessWidget {
           context,
           lesson.title,
           leading: Icon(PantasIcons.bookmark, size: 16, color: t.colors.accent),
-          onPressed: () => onLesson(lesson.id, resume: false),
+          onPressed: () => widget.onLesson(lesson.id, resume: false),
         ),
     ];
   }
 
-  List<Widget> _subjectBlock(BuildContext context, StudySubject subject) {
+  /// A subject's label and topics, entering on the phone's delay for the
+  /// subject at [index]: 520 ms, then 120 ms for each one after it.
+  Widget _subjectBlock(BuildContext context, StudySubject subject, int index) {
     final t = context.webTokens;
-    return [
-      _label(context, subject.name.toUpperCase()),
-      for (final topic in subject.topics)
-        _mapRow(
-          context,
-          topic.name,
-          selected: topic.id == openTopicId,
-          leading: SizedBox.square(
-            dimension: 18,
-            child: topic.isComplete
-                ? Icon(PantasIcons.check, size: 18, color: t.colors.accent)
-                : CircularProgressIndicator(
-                    value: topic.totalCount == 0
-                        ? 0
-                        : topic.readCount / topic.totalCount,
-                    strokeWidth: 2,
-                    backgroundColor: t.colors.separator,
-                    color: t.colors.accent,
-                  ),
-          ),
-          onPressed: () => onTopic(topic.id),
-        ),
-    ];
+    return _enter(
+      'subject-${subject.id}',
+      520 + 120 * index,
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _label(context, subject.name.toUpperCase()),
+          for (final topic in subject.topics)
+            _mapRow(
+              context,
+              topic.name,
+              selected: topic.id == widget.openTopicId,
+              leading: SizedBox.square(
+                dimension: 18,
+                child: topic.isComplete
+                    ? Icon(PantasIcons.check, size: 18, color: t.colors.accent)
+                    : CircularProgressIndicator(
+                        value: topic.totalCount == 0
+                            ? 0
+                            : topic.readCount / topic.totalCount,
+                        strokeWidth: 2,
+                        backgroundColor: t.colors.separator,
+                        color: t.colors.accent,
+                      ),
+              ),
+              onPressed: () => widget.onTopic(topic.id),
+            ),
+        ],
+      ),
+    );
   }
 
   Widget _label(BuildContext context, String label) => Padding(
@@ -531,6 +597,32 @@ class WebStudyMap extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The topic card arriving: the Settings pane's approved fade and 8 px rise,
+/// on its 240 ms clock. Key it by topic, so only a different topic replays it
+/// and a rebuild of the same topic does not.
+class _TopicEntrance extends StatelessWidget {
+  const _TopicEntrance({required this.child, super.key});
+  final Widget child;
+  @override
+  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0, end: 1),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : PantasDurations.base,
+        builder: (_, progress, child) => Opacity(
+          key: const ValueKey('web-study-topic-opacity'),
+          opacity: PaneMotion.incomingOpacity(progress),
+          child: Transform.translate(
+            offset: Offset(0, PaneMotion.incomingLift(progress)),
+            child: child,
+          ),
+        ),
+        // The fade changes only the layer's opacity, so the card is painted
+        // once.
+        child: RepaintBoundary(child: child),
+      );
 }
 
 /// The Last opened card (board SD_MapEmpty).

@@ -6,6 +6,7 @@ import 'package:pantas/features/home/presentation/record_screen.dart';
 import 'package:pantas/features/home/presentation/tendencies_screen.dart';
 import 'package:pantas/features/home/presentation/performance_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -40,7 +41,7 @@ List<RouteBase> homeRoutes(Ref ref) => [
         path: '/plan/day/:date',
         builder: (_, state) => PlanDayScreen(
           date: state.pathParameters['date']!,
-          onReadEarly: _openPlanLesson,
+          onReadEarly: openPlanLesson,
           backLabel: state.extra is String ? state.extra! as String : 'Home',
         ),
       ),
@@ -51,19 +52,19 @@ List<RouteBase> homeRoutes(Ref ref) => [
       ),
     ];
 
-Future<void> _openPlanLesson(
+/// Opens a lesson from a plan day as a drawer over the page (wide web).
+Future<void> openPlanLesson(
   BuildContext context,
   String lessonId,
   String label,
   LessonDayContext dayContext,
 ) =>
-    showGeneralDialog<void>(
+    showWebOverlay<void>(
       context: context,
-      barrierDismissible: true,
+      motion: WebOverlayMotion.lesson,
       barrierLabel: 'Close lesson',
       barrierColor: Colors.black.withValues(alpha: .28),
-      transitionDuration: Duration.zero,
-      pageBuilder: (dialogContext, _, __) => Align(
+      builder: (dialogContext) => Align(
         alignment: Alignment.centerRight,
         child: SizedBox(
           width: 620,

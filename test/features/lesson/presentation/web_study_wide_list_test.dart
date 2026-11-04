@@ -146,7 +146,8 @@ void main() {
         ),
       ),
     );
-    await tester.pump();
+    // The map's parts come in over a second; measure them in place.
+    await tester.pumpAndSettle();
   }
 
   bool exceeded(WidgetTester tester, Finder finder) =>

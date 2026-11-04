@@ -19,6 +19,7 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -401,6 +402,15 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       padding: const EdgeInsets.only(left: 60, right: 20),
       child: Divider(height: 1, thickness: 1, color: t.colors.separator),
     );
+    final still = MediaQuery.disableAnimationsOf(context);
+    Widget unfold(PracticeTopicEntry topic, Widget lessons) => still
+        ? lessons
+        : AnimatedSize(
+            key: ValueKey('web-lessons-${topic.id}'),
+            duration: const Duration(milliseconds: 600),
+            curve: PantasCurves.houseOut,
+            child: lessons,
+          );
     final tree = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -455,74 +465,98 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                     _webOpenTopics.add(topic.id);
                                   }
                                 }),
-                                icon: Icon(
-                                  _webOpenTopics.contains(topic.id)
-                                      ? Icons.keyboard_arrow_up
-                                      : Icons.keyboard_arrow_down,
-                                  size: 14,
-                                  color: t.colors.chevron,
+                                // One caret that turns, as on the phone.
+                                icon: AnimatedRotation(
+                                  key: ValueKey('web-caret-${topic.id}'),
+                                  turns: _webOpenTopics.contains(topic.id)
+                                      ? .5
+                                      : 0,
+                                  curve: PantasCurves.houseOut,
+                                  duration: still
+                                      ? Duration.zero
+                                      : const Duration(milliseconds: 300),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    size: 14,
+                                    color: t.colors.chevron,
+                                  ),
                                 ),
                               ),
                             ),
                           )
                         : null,
                   ),
-                  if (_webOpenTopics.contains(topic.id))
-                    ColoredBox(
-                      color: t.dark
-                          ? t.colors.background
-                          : const Color(0xFFFBFBFC),
-                      child: Column(
-                        children: [
-                          for (final lesson in topic.lessons)
-                            CheckboxRow(
-                              squareEdges: true,
-                              title: lesson.title,
-                              selected: _selection.lessonSelected(lesson.id),
-                              onTap: lesson.questionCount == 0
-                                  ? null
-                                  : () => selection(
-                                        _selection.toggleLesson(topic, lesson),
-                                      ),
-                              padding:
-                                  const EdgeInsets.fromLTRB(56, 12, 20, 12),
-                              gap: 16,
-                              minHeight: 45,
-                              standardDensity: true,
-                              markSize: 20,
-                              content: Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      lesson.title,
-                                      style: t.style(16, height: 21 / 16),
+                  // The phone's unfold: 600 ms houseOut. Closed, the lessons
+                  // are absent, so they leave the tab order and semantics.
+                  unfold(
+                    topic,
+                    _webOpenTopics.contains(topic.id)
+                        ? ColoredBox(
+                            color: t.dark
+                                ? t.colors.background
+                                : const Color(0xFFFBFBFC),
+                            child: Column(
+                              children: [
+                                for (final lesson in topic.lessons)
+                                  CheckboxRow(
+                                    squareEdges: true,
+                                    title: lesson.title,
+                                    selected:
+                                        _selection.lessonSelected(lesson.id),
+                                    onTap: lesson.questionCount == 0
+                                        ? null
+                                        : () => selection(
+                                              _selection.toggleLesson(
+                                                topic,
+                                                lesson,
+                                              ),
+                                            ),
+                                    padding: const EdgeInsets.fromLTRB(
+                                      56,
+                                      12,
+                                      20,
+                                      12,
+                                    ),
+                                    gap: 16,
+                                    minHeight: 45,
+                                    standardDensity: true,
+                                    markSize: 20,
+                                    content: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            lesson.title,
+                                            style: t.style(16, height: 21 / 16),
+                                          ),
+                                        ),
+                                        if (!lesson.isRead)
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 8,
+                                              vertical: 2,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: t.disabledBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(99),
+                                            ),
+                                            child: Text(
+                                              'Unread',
+                                              style: t.style(
+                                                12,
+                                                weight: FontWeight.w600,
+                                                color: t.colors.secondaryLabel,
+                                              ),
+                                            ),
+                                          ),
+                                      ],
                                     ),
                                   ),
-                                  if (!lesson.isRead)
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: t.disabledBackground,
-                                        borderRadius: BorderRadius.circular(99),
-                                      ),
-                                      child: Text(
-                                        'Unread',
-                                        style: t.style(
-                                          12,
-                                          weight: FontWeight.w600,
-                                          color: t.colors.secondaryLabel,
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
+                              ],
                             ),
-                        ],
-                      ),
-                    ),
+                          )
+                        : const SizedBox.shrink(),
+                  ),
                   if (ti + 1 < subject.topics.length) hairline,
                 ],
               ],

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -115,6 +116,87 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Private topic detail'), findsNothing);
     expect(find.text('Geometry'), findsOneWidget);
+  });
+  const drawerKey = ValueKey('web-performance-topic');
+  double drawerLeft(WidgetTester tester) =>
+      tester.getTopLeft(find.byKey(drawerKey)).dx;
+  testWidgets('a topic drawer slides in and out when a row opens it',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await fixtures.pump(tester, initialPath: '/performance', realTopic: true);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Topics'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Geometry'));
+    await tester.pump();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    final middle = drawerLeft(tester);
+    expect(middle, inExclusiveRange(960, 1440));
+    await tester.pumpAndSettle();
+    expect(drawerLeft(tester), 960);
+
+    await tester.tapAt(const Offset(100, 100));
+    await tester.pump();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(find.byKey(drawerKey), findsOneWidget);
+    expect(drawerLeft(tester), greaterThan(960));
+    await tester.pumpAndSettle();
+    expect(find.byKey(drawerKey), findsNothing);
+  });
+  testWidgets('a topic drawer opened by address slides in too', (tester) async {
+    debugWebPlatformOverride = true;
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await fixtures.pump(
+      tester,
+      initialPath: '/performance/topic/Geometry',
+      realTopic: true,
+      settle: false,
+    );
+    final layer = find.byType(WebOverlayLayer);
+    for (var i = 0; i < 20 && layer.evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 1));
+    }
+    expect(layer, findsOneWidget);
+    final panel = find
+        .descendant(
+          of: layer,
+          matching: find.byWidgetPredicate(
+            (w) => w is SizedBox && w.width == 480,
+          ),
+        )
+        .first;
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(tester.getTopLeft(panel).dx, inExclusiveRange(960, 1440));
+    await tester.pumpAndSettle();
+    expect(tester.getTopLeft(panel).dx, 960);
+  });
+  testWidgets('reduced motion shows a topic drawer at once', (tester) async {
+    debugWebPlatformOverride = true;
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+    addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await fixtures.pump(
+      tester,
+      initialPath: '/performance/topic/Geometry',
+      realTopic: true,
+    );
+    await tester.pump();
+    await tester.pump();
+    expect(drawerLeft(tester), 960);
   });
 }
 

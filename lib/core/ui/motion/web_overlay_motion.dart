@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
@@ -13,8 +15,21 @@ class WebOverlayMotion {
     required this.scrimCurve,
     this.slide = Offset.zero,
     this.rise = 0,
+    this.travel = 0,
     this.fade = false,
   });
+
+  /// [drawer] for a panel of [width] at the right edge of a layer as large as
+  /// the window. The fraction in [drawer] would measure the window, and the
+  /// panel would spend most of the slide off screen.
+  factory WebOverlayMotion.drawerOf(double width) => WebOverlayMotion(
+        open: drawer.open,
+        close: drawer.close,
+        curve: drawer.curve,
+        scrim: drawer.scrim,
+        scrimCurve: drawer.scrimCurve,
+        travel: width * drawer.slide.dx,
+      );
 
   /// A drawer from the right edge: the phone's list sheet, turned sideways.
   static const drawer = WebOverlayMotion(
@@ -48,6 +63,18 @@ class WebOverlayMotion {
     fade: true,
   );
 
+  /// A lesson reader over the page: the phone's reader rise (24 px and a fade,
+  /// `PantasDurations.page` on edgeGrow), with the drawer's scrim.
+  static const lesson = WebOverlayMotion(
+    open: PantasDurations.page,
+    close: PantasDurations.page,
+    curve: PantasCurves.edgeGrow,
+    scrim: Duration(milliseconds: 350),
+    scrimCurve: PantasCurves.ease,
+    rise: 24,
+    fade: true,
+  );
+
   final Duration open;
   final Duration close;
   final Curve curve;
@@ -59,6 +86,9 @@ class WebOverlayMotion {
 
   /// How far below its place the panel starts, in logical pixels.
   final double rise;
+
+  /// How far right of its place the panel starts, in logical pixels.
+  final double travel;
   final bool fade;
 
   /// The scrim's curve over a route as long as [open].
@@ -81,6 +111,12 @@ class WebOverlayMotion {
               child: panel,
             );
           }
+          if (travel != 0) {
+            panel = Transform.translate(
+              offset: Offset(travel * (1 - value), 0),
+              child: panel,
+            );
+          }
           if (slide != Offset.zero) {
             panel = FractionalTranslation(
               translation: slide * (1 - value),
@@ -92,6 +128,85 @@ class WebOverlayMotion {
           }
           return panel;
         },
+      );
+}
+
+/// Draws a scrim and [child] over its parent and plays [motion] once, as the
+/// layer first appears. A page that opens with the overlay already in place (a
+/// direct address, a root modal) uses it, since no route is there to animate.
+/// With reduced motion it is in place at once.
+class WebOverlayLayer extends StatefulWidget {
+  const WebOverlayLayer({
+    required this.motion,
+    required this.child,
+    this.alignment = Alignment.centerRight,
+    this.barrierColor = const Color(0x47000000),
+    this.barrierLabel,
+    this.onDismiss,
+    super.key,
+  });
+
+  final WebOverlayMotion motion;
+  final Widget child;
+  final AlignmentGeometry alignment;
+  final Color barrierColor;
+  final String? barrierLabel;
+
+  /// Tapping the scrim calls this. Null makes the scrim ignore taps.
+  final VoidCallback? onDismiss;
+
+  @override
+  State<WebOverlayLayer> createState() => _WebOverlayLayerState();
+}
+
+class _WebOverlayLayerState extends State<WebOverlayLayer>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: widget.motion.open,
+  );
+  bool _started = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started) return;
+    _started = true;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.value = 1;
+    } else {
+      unawaited(_controller.forward());
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Stack(
+        fit: StackFit.expand,
+        children: [
+          AnimatedModalBarrier(
+            color: _controller
+                .drive(CurveTween(curve: widget.motion.routeScrimCurve))
+                .drive(
+                  ColorTween(
+                    begin: widget.barrierColor.withValues(alpha: 0),
+                    end: widget.barrierColor,
+                  ),
+                ),
+            dismissible: widget.onDismiss != null,
+            onDismiss: widget.onDismiss,
+            semanticsLabel: widget.barrierLabel,
+          ),
+          Align(
+            alignment: widget.alignment,
+            child: widget.motion.transition(_controller, widget.child),
+          ),
+        ],
       );
 }
 

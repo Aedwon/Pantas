@@ -1,7 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -93,10 +96,10 @@ void main() {
         } else {
           expect(
             tester
-                .widget<CircularProgressIndicator>(
+                .widget<ProgressRing>(
                   find.byKey(const ValueKey('web-today-progress')),
                 )
-                .value,
+                .fraction,
             .5,
           );
         }
@@ -157,4 +160,90 @@ void main() {
       expect(find.byType(WebButton), findsNothing);
     });
   }
+
+  group('wide today ring motion', () {
+    Future<void> pumpHeader(WidgetTester tester, {required bool still}) async {
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            homeMastheadProvider.overrideWith(
+              (ref) async => const HomeMastheadData(
+                name: 'Aedwon',
+                examShortName: 'CSE',
+                examDate: null,
+              ),
+            ),
+            weekStripProvider('cse').overrideWith(
+              (ref) async => HomeWeekStripData(
+                states: const [
+                  WeekDayState.plain,
+                  WeekDayState.plain,
+                  WeekDayState.plain,
+                  WeekDayState.today,
+                  WeekDayState.plain,
+                  WeekDayState.plain,
+                  WeekDayState.plain,
+                ],
+                todayFraction: .5,
+              ),
+            ),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(disableAnimations: still),
+              child: child!,
+            ),
+            home: Scaffold(
+              body: SizedBox(
+                width: 1080,
+                child: HomeMasthead(web: true, examId: 'cse', now: now),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump();
+    }
+
+    double sweep(WidgetTester tester) {
+      final ring = find.descendant(
+        of: find.byKey(const ValueKey('web-today-progress')),
+        matching: find.byKey(const ValueKey('progress-ring-paint')),
+      );
+      var angle = -1.0;
+      final canvas = tester.renderObject(ring) as RenderBox;
+      final recorder = paints
+        ..something((method, args) {
+          if (method != #drawArc) return false;
+          angle = args[2] as double;
+          return true;
+        });
+      expect(canvas, recorder);
+      return angle;
+    }
+
+    testWidgets('fills after a delay and settles on the fraction',
+        (tester) async {
+      await pumpHeader(tester, still: false);
+      expect(find.byType(ProgressRing), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 700));
+      final mid = sweep(tester);
+      expect(mid, greaterThan(0));
+      expect(mid, lessThan(math.pi));
+      await tester.pumpAndSettle();
+      expect(sweep(tester), closeTo(math.pi, .001));
+    });
+
+    testWidgets('reduced motion shows the end state at once', (tester) async {
+      await pumpHeader(tester, still: true);
+      expect(sweep(tester), closeTo(math.pi, .001));
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+  });
 }

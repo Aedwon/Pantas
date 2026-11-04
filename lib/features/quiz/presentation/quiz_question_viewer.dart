@@ -290,12 +290,17 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                               )
                                               .length,
                                         ),
-                                  notes: canNote &&
-                                          (_notes ||
+                                  notes: canNote
+                                      ? _WebNoteReveal(
+                                          key: ValueKey(
+                                            'web-note-reveal-${question.id}',
+                                          ),
+                                          show: _notes ||
                                               (_savedQuestion != question.id &&
                                                   !_dismissedNotes
-                                                      .contains(question.id)))
-                                      ? editor
+                                                      .contains(question.id)),
+                                          editor: editor!,
+                                        )
                                       : null,
                                 ),
                         ),
@@ -686,6 +691,102 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Opens and closes the wide note editor with the phone's numbers: a 420 ms
+/// open and a 720 ms close, the phone's size curve, and the phone's fade
+/// windows. The editor stays mounted until the close ends.
+class _WebNoteReveal extends StatefulWidget {
+  const _WebNoteReveal({
+    required this.show,
+    required this.editor,
+    super.key,
+  });
+  final bool show;
+  final Widget editor;
+  @override
+  State<_WebNoteReveal> createState() => _WebNoteRevealState();
+}
+
+class _WebNoteRevealState extends State<_WebNoteReveal>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 420),
+    reverseDuration: const Duration(milliseconds: 720),
+    value: widget.show ? 1 : 0,
+  );
+  late final Animation<double> _size = CurvedAnimation(
+    parent: _controller,
+    curve: const Cubic(.32, .72, 0, 1),
+  );
+  late final Animation<double> _fade = CurvedAnimation(
+    parent: _controller,
+    curve: const Interval(120 / 420, 360 / 420),
+    reverseCurve: const Interval(1 - 140 / 720, 1),
+  );
+
+  /// The editor to draw. It outlives [_WebNoteReveal.editor] while closing, so
+  /// a save that swaps the editor's key does not cut the fade-out short.
+  Widget? _kept;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.show) _kept = widget.editor;
+  }
+
+  @override
+  void didUpdateWidget(_WebNoteReveal oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.show) _kept = widget.editor;
+    if (widget.show == oldWidget.show) return;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.value = widget.show ? 1 : 0;
+    } else if (widget.show) {
+      unawaited(_controller.forward());
+    } else {
+      unawaited(_controller.reverse());
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final open = widget.show;
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, _) {
+        if (_controller.isDismissed) {
+          return const SizedBox(width: double.infinity);
+        }
+        return ExcludeFocus(
+          excluding: !open,
+          child: ExcludeSemantics(
+            excluding: !open,
+            child: IgnorePointer(
+              ignoring: !open,
+              child: ClipRect(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  heightFactor: _size.value.clamp(0.0, 1.0),
+                  child: Opacity(
+                    opacity: _fade.value.clamp(0.0, 1.0),
+                    child: _kept,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

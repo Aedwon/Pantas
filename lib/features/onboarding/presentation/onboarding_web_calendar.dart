@@ -9,7 +9,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 ///
 /// Aedwon overrode the board's wider calendar on Nov 2, 2026: both panels now
 /// fit the 580 column that every onboarding step uses.
-class OnboardingWebCalendar extends StatelessWidget {
+class OnboardingWebCalendar extends StatefulWidget {
   const OnboardingWebCalendar({
     required this.value,
     required this.today,
@@ -19,6 +19,27 @@ class OnboardingWebCalendar extends StatelessWidget {
   final MonthFirstDate value;
   final DateTime today;
   final ValueChanged<MonthFirstDate> onChanged;
+
+  @override
+  State<OnboardingWebCalendar> createState() => _OnboardingWebCalendarState();
+}
+
+class _OnboardingWebCalendarState extends State<OnboardingWebCalendar> {
+  MonthFirstDate get value => widget.value;
+  DateTime get today => widget.today;
+  ValueChanged<MonthFirstDate> get onChanged => widget.onChanged;
+  int _direction = 1;
+
+  /// Months counted from year zero, so a later month is a larger number.
+  int _ordinal(MonthFirstDate date) => date.year * 12 + (date.month ?? 0);
+
+  @override
+  void didUpdateWidget(OnboardingWebCalendar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final before = _ordinal(oldWidget.value);
+    final after = _ordinal(value);
+    if (before != after) _direction = after > before ? 1 : -1;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,115 +199,121 @@ class OnboardingWebCalendar extends StatelessWidget {
               Expanded(
                 child: WebCard(
                   padding: const EdgeInsets.fromLTRB(16, 18, 16, 20),
-                  child: month == null
-                      ? SizedBox(
-                          height: 322,
-                          child: Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                SvgPicture.string(
-                                  '<svg viewBox="0 0 24 24" fill="none" '
-                                  'stroke="currentColor" stroke-width="1.5" '
-                                  'stroke-linecap="round" '
-                                  'stroke-linejoin="round"> '
-                                  '<rect x="3.5" y="5" width="17" '
-                                  'height="15.5" rx="2.5"/> '
-                                  '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
-                                  width: 36,
-                                  height: 36,
-                                  colorFilter: ColorFilter.mode(
-                                    t.dark
-                                        ? t.colors.tertiaryLabel
-                                        : const Color(0xFFC7C7CC),
-                                    BlendMode.srcIn,
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                Text(
-                                  'Pick a month first.\n'
-                                  'Then add the day here if you know it.',
-                                  textAlign: TextAlign.center,
-                                  style: t.style(
-                                    15,
-                                    height: 1.45,
-                                    color: t.colors.tertiaryLabel,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      : Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Wrap(
-                              alignment: WrapAlignment.spaceBetween,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: [
-                                Text(
-                                  DateFormat('MMMM y', 'en_US')
-                                      .format(selected!),
-                                  style: t.style(18, weight: FontWeight.w600),
-                                ),
-                                Text(
-                                  'Know the exact day? Optional',
-                                  style: t.sm,
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            Row(
-                              children: [
-                                for (final d in [
-                                  'Sun',
-                                  'Mon',
-                                  'Tue',
-                                  'Wed',
-                                  'Thu',
-                                  'Fri',
-                                  'Sat',
-                                ])
-                                  Expanded(
-                                    child: Text(
-                                      d,
-                                      textAlign: TextAlign.center,
-                                      style: t.style(
-                                        12,
-                                        weight: FontWeight.w600,
-                                        color: t.colors.tertiaryLabel,
-                                      ),
+                  child: MonthRiseSwitcher(
+                    direction: _direction,
+                    child: month == null
+                        ? SizedBox(
+                            key: const ValueKey('calendar-month-none'),
+                            height: 322,
+                            child: Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SvgPicture.string(
+                                    '<svg viewBox="0 0 24 24" fill="none" '
+                                    'stroke="currentColor" stroke-width="1.5" '
+                                    'stroke-linecap="round" '
+                                    'stroke-linejoin="round"> '
+                                    '<rect x="3.5" y="5" width="17" '
+                                    'height="15.5" rx="2.5"/> '
+                                    '<path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>',
+                                    width: 36,
+                                    height: 36,
+                                    colorFilter: ColorFilter.mode(
+                                      t.dark
+                                          ? t.colors.tertiaryLabel
+                                          : const Color(0xFFC7C7CC),
+                                      BlendMode.srcIn,
                                     ),
                                   ),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            grid(
-                              [
-                                for (var n = 0; n < first; n++)
-                                  const SizedBox.shrink(),
-                                for (var d = 1; d <= last; d++)
-                                  choice(
-                                    '$d',
-                                    DateTime(value.year, month, d)
-                                            .isBefore(today)
-                                        ? null
-                                        : () => onChanged(
-                                              MonthFirstDate(
-                                                year: value.year,
-                                                month: month,
-                                                day: d,
-                                              ),
-                                            ),
-                                    picked: value.day == d,
-                                    isToday:
-                                        DateTime(value.year, month, d) == today,
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    'Pick a month first.\n'
+                                    'Then add the day here if you know it.',
+                                    textAlign: TextAlign.center,
+                                    style: t.style(
+                                      15,
+                                      height: 1.45,
+                                      color: t.colors.tertiaryLabel,
+                                    ),
                                   ),
-                              ],
-                              7,
+                                ],
+                              ),
                             ),
-                          ],
-                        ),
+                          )
+                        : Column(
+                            key:
+                                ValueKey('calendar-month-${value.year}-$month'),
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Wrap(
+                                alignment: WrapAlignment.spaceBetween,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  Text(
+                                    DateFormat('MMMM y', 'en_US')
+                                        .format(selected!),
+                                    style: t.style(18, weight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    'Know the exact day? Optional',
+                                    style: t.sm,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 12),
+                              Row(
+                                children: [
+                                  for (final d in [
+                                    'Sun',
+                                    'Mon',
+                                    'Tue',
+                                    'Wed',
+                                    'Thu',
+                                    'Fri',
+                                    'Sat',
+                                  ])
+                                    Expanded(
+                                      child: Text(
+                                        d,
+                                        textAlign: TextAlign.center,
+                                        style: t.style(
+                                          12,
+                                          weight: FontWeight.w600,
+                                          color: t.colors.tertiaryLabel,
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                              const SizedBox(height: 12),
+                              grid(
+                                [
+                                  for (var n = 0; n < first; n++)
+                                    const SizedBox.shrink(),
+                                  for (var d = 1; d <= last; d++)
+                                    choice(
+                                      '$d',
+                                      DateTime(value.year, month, d)
+                                              .isBefore(today)
+                                          ? null
+                                          : () => onChanged(
+                                                MonthFirstDate(
+                                                  year: value.year,
+                                                  month: month,
+                                                  day: d,
+                                                ),
+                                              ),
+                                      picked: value.day == d,
+                                      isToday: DateTime(value.year, month, d) ==
+                                          today,
+                                    ),
+                                ],
+                                7,
+                              ),
+                            ],
+                          ),
+                  ),
                 ),
               ),
             ],

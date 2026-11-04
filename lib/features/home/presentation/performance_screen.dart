@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -138,13 +139,12 @@ class PerformanceScreen extends ConsumerWidget {
       onTopic: (id) {
         if (context.wideWeb) {
           unawaited(
-            showGeneralDialog<void>(
+            showWebOverlay<void>(
               context: context,
-              barrierDismissible: true,
+              motion: WebOverlayMotion.drawerOf(480),
               barrierLabel: 'Close topic',
               barrierColor: Colors.black.withValues(alpha: .28),
-              transitionDuration: Duration.zero,
-              pageBuilder: (context, animation, secondaryAnimation) => Align(
+              builder: (context) => Align(
                 alignment: Alignment.centerRight,
                 child: SizedBox(
                   width: 480,
@@ -200,16 +200,15 @@ class TopicScreen extends ConsumerWidget {
       return Stack(
         children: [
           const PerformanceScreen(initialLevel: 1, reportReady: false),
-          ModalBarrier(
-            color: Colors.black.withValues(alpha: .28),
-            onDismiss: () => _back(context),
-            semanticsLabel: 'Close topic',
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: SizedBox(
-              width: 480,
-              child: TopicScreen(topicId: topicId, inDrawer: true),
+          Positioned.fill(
+            child: WebOverlayLayer(
+              motion: WebOverlayMotion.drawerOf(480),
+              barrierLabel: 'Close topic',
+              onDismiss: () => _back(context),
+              child: SizedBox(
+                width: 480,
+                child: TopicScreen(topicId: topicId, inDrawer: true),
+              ),
             ),
           ),
         ],

@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
 
@@ -26,6 +27,7 @@ class WebSessionResults extends StatelessWidget {
     this.onNext,
     this.nextBusy = false,
     this.failure,
+    this.entry,
     super.key,
   });
   final QuizSession session;
@@ -43,9 +45,14 @@ class WebSessionResults extends StatelessWidget {
   final VoidCallback? onNext;
   final bool nextBusy;
   final Widget? failure;
+
+  /// The phone's staggered entrance. Without it the page appears at once.
+  final SessionEntryMotion? entry;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    Widget appear(Widget child, int start, int duration, {double rise = 0}) =>
+        entry?.appear(child, start, duration, rise: rise) ?? child;
     final (correct, total) = attempt.score;
     final misses = [
       for (var i = 0; i < total; i++)
@@ -59,6 +66,26 @@ class WebSessionResults extends StatelessWidget {
     final unit = elapsed?.inMinutes == 1 ? 'minute' : 'minutes';
     final next = onNext != null && batch != null && batch.ordinal < batch.total;
     final mistakeRowTitle = t.style(16, height: 1.3);
+    Widget circle(int i) => SizedBox.square(
+          dimension: 30,
+          child: TextButton(
+            onPressed: () => onQuestion(i),
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              backgroundColor: attempt.items[i].isCorrect
+                  ? t.colors.accentTint
+                  : t.colors.wrongTint,
+              foregroundColor: attempt.items[i].isCorrect
+                  ? t.colors.accent
+                  : t.colors.wrongText,
+              shape: const CircleBorder(),
+              textStyle: t.style(13, weight: FontWeight.w600),
+            ),
+            child: Text('${i + 1}'),
+          ),
+        );
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): onDone,
@@ -90,23 +117,35 @@ class WebSessionResults extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
-                          misses.isEmpty ? 'Perfect!' : 'Session finished.',
-                          style: t.h1,
-                          textAlign: TextAlign.center,
-                        ),
-                        if (line != null) ...[
-                          const SizedBox(height: 8),
-                          Text(
-                            line,
-                            textAlign: TextAlign.center,
-                            style: t.style(
-                              17,
-                              height: 1.45,
-                              color: t.colors.secondaryLabel,
-                            ),
+                        appear(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                misses.isEmpty
+                                    ? 'Perfect!'
+                                    : 'Session finished.',
+                                style: t.h1,
+                                textAlign: TextAlign.center,
+                              ),
+                              if (line != null) ...[
+                                const SizedBox(height: 8),
+                                Text(
+                                  line,
+                                  textAlign: TextAlign.center,
+                                  style: t.style(
+                                    17,
+                                    height: 1.45,
+                                    color: t.colors.secondaryLabel,
+                                  ),
+                                ),
+                              ],
+                            ],
                           ),
-                        ],
+                          100,
+                          380,
+                          rise: 6,
+                        ),
                         const SizedBox(height: 28),
                         Center(
                           child: SizedBox(
@@ -130,70 +169,57 @@ class WebSessionResults extends StatelessWidget {
                           runSpacing: 8,
                           children: [
                             for (var i = 0; i < total; i++)
-                              SizedBox.square(
-                                dimension: 30,
-                                child: TextButton(
-                                  onPressed: () => onQuestion(i),
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                    minimumSize: Size.zero,
-                                    tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    backgroundColor: attempt.items[i].isCorrect
-                                        ? t.colors.accentTint
-                                        : t.colors.wrongTint,
-                                    foregroundColor: attempt.items[i].isCorrect
-                                        ? t.colors.accent
-                                        : t.colors.wrongText,
-                                    shape: const CircleBorder(),
-                                    textStyle: t.style(
-                                      13,
-                                      weight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  child: Text('${i + 1}'),
-                                ),
-                              ),
+                              entry?.pop(i, circle(i)) ?? circle(i),
                           ],
                         ),
                         if (elapsed != null && !elapsed.isNegative) ...[
                           const SizedBox(height: 20),
-                          Text(
-                            elapsed.inMinutes == 0 && elapsed > Duration.zero
-                                ? 'in under 1 minute'
-                                : 'in ${elapsed.inMinutes} '
-                                    '$unit',
-                            style: t.sub,
-                            textAlign: TextAlign.center,
+                          appear(
+                            Text(
+                              elapsed.inMinutes == 0 && elapsed > Duration.zero
+                                  ? 'in under 1 minute'
+                                  : 'in ${elapsed.inMinutes} '
+                                      '$unit',
+                              style: t.sub,
+                              textAlign: TextAlign.center,
+                            ),
+                            1600,
+                            300,
                           ),
                         ],
                         const SizedBox(height: 28),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 196,
-                              child: WebButton(
-                                label: 'Done',
-                                large: true,
-                                expand: true,
-                                onPressed: nextBusy ? null : onDone,
-                                variant: next
-                                    ? WebButtonVariant.white
-                                    : WebButtonVariant.primary,
+                        // The phone's button bar fades in last. Here it sits
+                        // above the lists, so it follows the duration line.
+                        appear(
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 196,
+                                child: WebButton(
+                                  label: 'Done',
+                                  large: true,
+                                  expand: true,
+                                  onPressed: nextBusy ? null : onDone,
+                                  variant: next
+                                      ? WebButtonVariant.white
+                                      : WebButtonVariant.primary,
+                                ),
                               ),
-                            ),
-                            if (next) ...[
-                              const SizedBox(width: 12),
-                              WebButton(
-                                label: 'Start Session ${batch.ordinal + 1}',
-                                large: true,
-                                keyHint: 'Enter',
-                                busy: nextBusy,
-                                onPressed: onNext,
-                              ),
+                              if (next) ...[
+                                const SizedBox(width: 12),
+                                WebButton(
+                                  label: 'Start Session ${batch.ordinal + 1}',
+                                  large: true,
+                                  keyHint: 'Enter',
+                                  busy: nextBusy,
+                                  onPressed: onNext,
+                                ),
+                              ],
                             ],
-                          ],
+                          ),
+                          1700,
+                          300,
                         ),
                         if (failure != null) failure!,
                         if (debriefCards != null) ...[
@@ -202,82 +228,116 @@ class WebSessionResults extends StatelessWidget {
                         ],
                         const SizedBox(height: 32),
                         if (misses.isNotEmpty) ...[
-                          WebText(
-                            'Your mistakes · ${misses.length}',
-                            kind: WebTextKind.eyebrow,
-                          ),
-                          WebCard(
-                            child: Column(
+                          appear(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                for (final i in misses.take(3))
-                                  WebRow(
-                                    mathTitle:
-                                        session.questions[i].shortLabel == null,
-                                    title: session.questions[i].shortLabel ??
-                                        session.questions[i].stem,
-                                    subtitle: subjectNames[
-                                        session.questions[i].topicId],
-                                    boardMetrics: true,
-                                    leading: _MissMark(color: t),
-                                    chevron: WebRowChevron.always,
-                                    onPressed: () => onQuestion(i),
+                                WebText(
+                                  'Your mistakes · ${misses.length}',
+                                  kind: WebTextKind.eyebrow,
+                                ),
+                                WebCard(
+                                  child: Column(
+                                    children: [
+                                      for (final (position, i)
+                                          in misses.take(3).indexed)
+                                        appear(
+                                          WebRow(
+                                            mathTitle: session
+                                                    .questions[i].shortLabel ==
+                                                null,
+                                            title: session
+                                                    .questions[i].shortLabel ??
+                                                session.questions[i].stem,
+                                            subtitle: subjectNames[
+                                                session.questions[i].topicId],
+                                            boardMetrics: true,
+                                            leading: _MissMark(color: t),
+                                            chevron: WebRowChevron.always,
+                                            onPressed: () => onQuestion(i),
+                                          ),
+                                          1700 + position * 90,
+                                          380,
+                                          rise: 6,
+                                        ),
+                                      if (misses.length > 3)
+                                        WebRow(
+                                          title: 'See all '
+                                              '${misses.length} mistakes',
+                                          titleStyle: mistakeRowTitle,
+                                          boardMetrics: true,
+                                          chevron: WebRowChevron.always,
+                                          onPressed: onMistakes,
+                                        ),
+                                      appear(
+                                        WebRow(
+                                          title: 'See all $total questions',
+                                          titleStyle: mistakeRowTitle,
+                                          boardMetrics: true,
+                                          divider: false,
+                                          chevron: WebRowChevron.always,
+                                          onPressed: onAll,
+                                        ),
+                                        2000,
+                                        380,
+                                        rise: 10,
+                                      ),
+                                    ],
                                   ),
-                                if (misses.length > 3)
-                                  WebRow(
-                                    title: 'See all ${misses.length} mistakes',
-                                    titleStyle: mistakeRowTitle,
-                                    boardMetrics: true,
-                                    chevron: WebRowChevron.always,
-                                    onPressed: onMistakes,
-                                  ),
-                                WebRow(
-                                  title: 'See all $total questions',
-                                  titleStyle: mistakeRowTitle,
-                                  boardMetrics: true,
-                                  divider: false,
-                                  chevron: WebRowChevron.always,
-                                  onPressed: onAll,
                                 ),
                               ],
                             ),
+                            1620,
+                            380,
+                            rise: 8,
                           ),
                           if (pro || proPaused) ...[
                             const SizedBox(height: 22),
-                            WebCard(
-                              padding:
-                                  const EdgeInsets.fromLTRB(20, 18, 18, 18),
-                              child: proPaused
-                                  ? const ProPausedLine()
-                                  : Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            'Tell Pantas why you got each one '
-                                            'wrong. The better your notes, the '
-                                            'more every review helps.',
-                                            style: t.style(15, height: 1.5),
+                            appear(
+                              WebCard(
+                                padding:
+                                    const EdgeInsets.fromLTRB(20, 18, 18, 18),
+                                child: proPaused
+                                    ? const ProPausedLine()
+                                    : Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Tell Pantas why you got each '
+                                              'one wrong. The better your '
+                                              'notes, the more every review '
+                                              'helps.',
+                                              style: t.style(15, height: 1.5),
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(width: 18),
-                                        _NotesButton(
-                                          label: 'Finish the Notes',
-                                          onPressed: onNotes,
-                                        ),
-                                      ],
-                                    ),
+                                          const SizedBox(width: 18),
+                                          _NotesButton(
+                                            label: 'Finish the Notes',
+                                            onPressed: onNotes,
+                                          ),
+                                        ],
+                                      ),
+                              ),
+                              2260,
+                              300,
                             ),
                           ],
                         ] else
-                          WebCard(
-                            radius: 16,
-                            child: WebRow(
-                              title: 'See all $total questions',
-                              boardMetrics: true,
-                              divider: false,
-                              horizontalPadding: 18,
-                              chevron: WebRowChevron.always,
-                              onPressed: onAll,
+                          appear(
+                            WebCard(
+                              radius: 16,
+                              child: WebRow(
+                                title: 'See all $total questions',
+                                boardMetrics: true,
+                                divider: false,
+                                horizontalPadding: 18,
+                                chevron: WebRowChevron.always,
+                                onPressed: onAll,
+                              ),
                             ),
+                            2000,
+                            380,
+                            rise: 10,
                           ),
                       ],
                     ),

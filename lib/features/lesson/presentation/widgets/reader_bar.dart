@@ -299,6 +299,78 @@ class _BackChevronPainter extends CustomPainter {
       oldDelegate.color != color;
 }
 
+/// The scale of the bookmark mark [value] of the way through its 520 ms pop.
+double readerBookmarkPop(double value) => value <= .5
+    ? .6 + .62 * PantasCurves.popB.transform(value * 2)
+    : 1.22 - .22 * PantasCurves.popB.transform((value - .5) * 2);
+
+/// Pops [child] when [bookmarked] turns true, as the phone's bookmark does:
+/// 520 ms, from .6 to 1.22 and back to 1. Taking the bookmark away resets it
+/// at once. Give it a key per lesson so a new lesson never pops.
+///
+/// With reduced motion the child is simply there.
+class ReaderBookmarkPop extends StatefulWidget {
+  const ReaderBookmarkPop({
+    required this.bookmarked,
+    required this.child,
+    super.key,
+  });
+  final bool bookmarked;
+  final Widget child;
+
+  @override
+  State<ReaderBookmarkPop> createState() => _ReaderBookmarkPopState();
+}
+
+class _ReaderBookmarkPopState extends State<ReaderBookmarkPop>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _mark = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 520),
+    value: widget.bookmarked ? 1 : 0,
+  );
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _mark
+        ..stop()
+        ..value = widget.bookmarked ? 1 : 0;
+    }
+  }
+
+  @override
+  void didUpdateWidget(ReaderBookmarkPop oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.bookmarked == widget.bookmarked) return;
+    if (widget.bookmarked && !MediaQuery.disableAnimationsOf(context)) {
+      _mark.forward(from: 0);
+    } else {
+      _mark
+        ..stop()
+        ..value = widget.bookmarked ? 1 : 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _mark.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _mark,
+        child: widget.child,
+        builder: (context, child) => Transform.scale(
+          key: const ValueKey('web-reader-bookmark-pop'),
+          scale: widget.bookmarked ? readerBookmarkPop(_mark.value) : 1,
+          child: child,
+        ),
+      );
+}
+
 class _ReaderBookmarkControl extends StatefulWidget {
   const _ReaderBookmarkControl({
     required this.isBookmarked,
@@ -374,10 +446,6 @@ class _ReaderBookmarkControlState extends State<_ReaderBookmarkControl>
     );
   }
 
-  double _pop(double value) => value <= .5
-      ? .6 + .62 * PantasCurves.popB.transform(value * 2)
-      : 1.22 - .22 * PantasCurves.popB.transform((value - .5) * 2);
-
   @override
   void dispose() {
     _press.dispose();
@@ -414,7 +482,9 @@ class _ReaderBookmarkControlState extends State<_ReaderBookmarkControl>
                 Transform.scale(
                   key: const ValueKey('reader-bookmark-pop'),
                   scale: _press.value *
-                      (widget.isBookmarked ? _pop(_mark.value) : 1),
+                      (widget.isBookmarked
+                          ? readerBookmarkPop(_mark.value)
+                          : 1),
                   child: CustomPaint(
                     size: const Size.square(22),
                     painter: _ReaderBookmarkPainter(

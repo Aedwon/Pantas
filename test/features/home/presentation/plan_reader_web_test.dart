@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/routes/home_routes.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -102,4 +105,121 @@ void main() {
       await tester.pumpWidget(const SizedBox());
     });
   }
+
+  group('lesson drawer', () {
+    Future<void> openDrawer(WidgetTester tester, {bool still = false}) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      if (still) {
+        tester.platformDispatcher.accessibilityFeaturesTestValue =
+            const FakeAccessibilityFeatures(disableAnimations: true);
+        addTearDown(
+          tester.platformDispatcher.clearAccessibilityFeaturesTestValue,
+        );
+      }
+      final db = inMemoryDatabase();
+      final content = openTestContentDatabase();
+      addTearDown(db.close);
+      addTearDown(content.close);
+      await seedContentExam(
+        content,
+        examId: 'e',
+        code: 'CSE',
+        name: 'CSE',
+        shortName: 'CSE',
+      );
+      await seedContentSubject(
+        content,
+        subjectId: 's',
+        examId: 'e',
+        name: 'Science',
+      );
+      await seedContentTopic(
+        content,
+        topicId: 't',
+        subjectId: 's',
+        name: 'Biology',
+      );
+      await seedContentLesson(
+        content,
+        lessonId: 'l',
+        topicId: 't',
+        title: 'DNA and genes',
+        bodyJson: '[]',
+      );
+      await AppPreferencesRepository(db).setSelectedExamId('e');
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            contentDatabaseProvider.overrideWithValue(content),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: Builder(
+              builder: (context) => TextButton(
+                onPressed: () => unawaited(
+                  openPlanLesson(
+                    context,
+                    'l',
+                    'Tuesday · Science',
+                    LessonDayContext(
+                      date: DateTime(2026, 10, 20),
+                      lessonIds: const ['l'],
+                      index: 0,
+                    ),
+                  ),
+                ),
+                child: const Text('Open'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Open'));
+      await tester.pump();
+    }
+
+    double top(WidgetTester tester) =>
+        tester.getTopLeft(find.byType(LessonPage)).dy;
+
+    testWidgets('rises 24 px and fades, then leaves the same way',
+        (tester) async {
+      await openDrawer(tester);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 80));
+      final fade = tester.widget<Opacity>(
+        find
+            .ancestor(
+              of: find.byType(LessonPage),
+              matching: find.byType(Opacity),
+            )
+            .first,
+      );
+      expect(fade.opacity, inExclusiveRange(0, 1));
+      expect(top(tester), inExclusiveRange(0, 24));
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(top(tester), 0);
+
+      await tester.tapAt(const Offset(20, 20));
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 80));
+      expect(find.byType(LessonPage), findsOneWidget);
+      expect(top(tester), greaterThan(0));
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.byType(LessonPage), findsNothing);
+    });
+
+    testWidgets('reduced motion shows the drawer at once', (tester) async {
+      await openDrawer(tester, still: true);
+      await tester.pump();
+      expect(top(tester), 0);
+      expect(find.byType(LessonPage), findsOneWidget);
+    });
+  });
 }

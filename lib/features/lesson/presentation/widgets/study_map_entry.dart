@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 
 class StudyMapEntry extends StatelessWidget {
-  const StudyMapEntry({required this.child, required this.delay, super.key});
+  const StudyMapEntry({
+    required this.child,
+    required this.delay,
+    this.onEnd,
+    super.key,
+  });
   final Widget child;
   final Duration delay;
+
+  /// Called once the entrance has finished.
+  final VoidCallback? onEnd;
   @override
   Widget build(BuildContext context) => TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: 1),
@@ -16,6 +24,7 @@ class StudyMapEntry extends StatelessWidget {
           1,
           curve: PantasCurves.houseOut,
         ),
+        onEnd: onEnd,
         builder: (context, value, child) => ExcludeFocus(
           excluding: value == 0,
           child: ExcludeSemantics(

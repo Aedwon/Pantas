@@ -215,4 +215,84 @@ void main() {
       expect(find.text('Unlock with Pro'), findsOneWidget);
     });
   }
+
+  group('wide subject row expand motion', () {
+    Future<void> show(WidgetTester tester, {required bool still}) async {
+      tester.view.physicalSize = const Size(1440, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: still),
+            child: child!,
+          ),
+          home: WebLayoutTheme(
+            web: true,
+            child: PerformancePage(
+              data: data,
+              pro: true,
+              paused: false,
+              onTopic: (_) {},
+              onPro: () {},
+              onBack: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    final chevron = find.descendant(
+      of: find.ancestor(
+        of: find.text('Mathematics'),
+        matching: find.byType(WebRow),
+      ),
+      matching: find.byType(AnimatedRotation),
+    );
+    double turns(WidgetTester tester) =>
+        tester.widget<AnimatedRotation>(chevron).turns;
+    final topics = find.byKey(const ValueKey('subject-topics-math'));
+    Finder rotor() => find.descendant(
+          of: chevron,
+          matching: find.byType(RotationTransition),
+        );
+
+    testWidgets('topics open over 240 ms and the chevron turns',
+        (tester) async {
+      await show(tester, still: false);
+      final before = tester.getSize(topics).height;
+      expect(before, 0);
+      await tester.tap(find.text('Mathematics'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final mid = tester.getSize(topics).height;
+      expect(mid, greaterThan(0));
+      expect(turns(tester), .5);
+      final angle = tester.widget<RotationTransition>(rotor()).turns.value;
+      expect(angle, inExclusiveRange(0, .5));
+      await tester.pumpAndSettle();
+      final end = tester.getSize(topics).height;
+      expect(end, greaterThan(mid));
+      expect(
+        tester.widget<RotationTransition>(rotor()).turns.value,
+        .5,
+      );
+    });
+
+    testWidgets('reduced motion opens at once', (tester) async {
+      await show(tester, still: true);
+      await tester.tap(find.text('Mathematics'));
+      await tester.pump();
+      expect(find.text('Geometry'), findsOneWidget);
+      expect(tester.getSize(topics).height, greaterThan(0));
+      expect(
+        tester.widget<RotationTransition>(rotor()).turns.value,
+        .5,
+      );
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+  });
 }

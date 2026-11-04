@@ -63,7 +63,7 @@ void main() {
         lessThan(200),
       );
       await tester.tap(find.text('Questions'));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.byType(ValueWheel), findsNothing);
       for (final tooltip in ['Decrease Questions', 'Increase Questions']) {
         expect(tester.getSize(find.byTooltip(tooltip)), const Size(32, 32));
@@ -80,7 +80,7 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
       await tester.pump();
       await tester.tap(find.text('Questions'));
-      await tester.pump();
+      await tester.pumpAndSettle();
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(saved?.effectiveQuestions, 135);
       expect(tester.takeException(), isNull);
