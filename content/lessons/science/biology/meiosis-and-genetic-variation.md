@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-Meiosis is the division that makes gametes in animals and spores in plants and fungi. It halves the number of chromosome sets, and it can give each product a different mix of alleles.
+Meiosis is the division that makes gametes in animals and spores in plants and fungi. It halves the number of chromosome sets. A haploid cell has $n$ chromosomes and a diploid cell has $2n$. Meiosis can give each product a different mix of alleles.
 
 This lesson needs the lesson Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis). Read it first for chromosomes, sister chromatids, homologs, haploid and diploid, and for mitosis and cytokinesis.
 
@@ -17,7 +17,7 @@ This lesson needs the lesson Cellular Reproduction (Chromosomes, Cell Cycle, Mit
 
 A **gene** is a section of DNA that codes for a trait. An **allele** is one version of a gene.
 
-For a gene on a non-sex chromosome, a diploid cell has two alleles, one on each homolog. A male's X and Y carry mostly different genes, so he has one allele of most genes on the X.
+For a gene on a non-sex chromosome, a diploid cell has two alleles, one on each homolog. The X and Y are the sex chromosomes. A male's X and Y carry mostly different genes, so he has one allele of most genes on the X.
 
 The **genotype** is the alleles an organism has, written as letters, such as $Aa$. A pair of matching alleles, such as $BB$, is **homozygous**. A pair of different alleles, such as $Aa$, is **heterozygous**.
 
@@ -60,7 +60,7 @@ In human **oogenesis**, the making of egg cells, the cytoplasm divides very uneq
 
 Meiosis can make gametes differ in their mix of alleles in two ways.
 
-**Independent assortment.** At metaphase I, each homologous pair faces the poles in its own random way. This does not depend on how the other pairs face. So the maternal and paternal chromosomes are shuffled into the gametes.
+**Independent assortment.** At metaphase I, each homologous pair faces the poles in its own random way. This does not depend on how the other pairs face. So the maternal and paternal chromosomes (from the mother and from the father) are shuffled into the gametes.
 
 One **arrangement** is the way all the pairs face the poles in one cell at metaphase I. A **combination** is the set of chromosomes that one gamete gets.
 
@@ -201,15 +201,15 @@ Remember meiosis as **one copying, two divisions**. Homologs separate in meiosis
 
 For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I.
 
-$2^n$ counts chromosome combinations that many cells can make together, where $n$ is the number of pairs. If you count allele combinations instead, only a heterozygous gene adds a choice. So $AaBB$ on two pairs has $4$ chromosome combinations but only $2$ allele combinations, $AB$ and $aB$.
+$2^n$ counts chromosome combinations that many cells can make together, where $n$ is the number of pairs. If you count allele combinations of genes on non-sex chromosomes instead, a homozygous gene adds no choice and a heterozygous gene adds one. So $AaBB$ on two pairs has $4$ chromosome combinations but only $2$ allele combinations, $AB$ and $aB$. A gene on a male's X is a special case: half his gametes carry the X, and half carry the Y.
 
-For genes on different chromosome pairs, crossing over does not change this count. Crossing over matters for genes on the same chromosome, as in Example #7.
+For genes on different chromosome pairs, crossing over adds no new allele combinations. It matters for genes on the same chromosome, as in Example #7.
 
 Without crossing over, one meiosis makes at most $2$ combinations.
 
 To tell a metaphase, ask whether the chromosomes are in pairs. Pairs mean metaphase I.
 
-Single file with a full set means mitosis. Single file with half the set means metaphase II.
+In a diploid cell, single file with the full number of chromosomes means mitosis. Single file with half that number means metaphase II.
 
 ## Traps to Watch For
 

@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-biology-meiosis-and-genetic-variation",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If you count allele combinations of genes on non-sex chromosomes instead, a homozygous gene adds no choice and a heterozygous gene adds one.",
+      "problem": "The round-4 fix dropped the base's condition that the genes 'sit on different chromosomes'. The rule now covers any two genes on non-sex chromosomes, and it fails for heterozygous genes on the same chromosome, the lesson's own Example #7 case: with no crossing over, $AB$ over $ab$ gives only $2$ allele combinations ($AB$, $ab$), not the $4$ the rule gives. The paragraph contrasts this count with $2^n$, which the lesson defines as ignoring crossing over, so the no-crossing-over reading is the one a student applies. The next paragraph's 'It matters for genes on the same chromosome' hints at linkage but does not limit this rule. The condition belongs in the rule itself (genes on different pairs). Also, 'adds one' does not say the choices multiply; Example #6 shows it ($AaBb$ gives $4$), but the rule as written can be read as adding $1$ per heterozygous gene.",
+      "source": "Reader rules, Added after the Sol audit (test each stated rule against a known exception); lesson Example #7 step 1; base 1fef92406 Speed Tricks ('heterozygous ... and sit on different chromosomes'); OpenStax Biology 2e, 12.3 (linked genes do not assort independently)."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "It halves the number of chromosome sets. A haploid cell has $n$ chromosomes and a diploid cell has $2n$. Meiosis can give each product a different mix of alleles.",
+      "problem": "The round-4 edit added a sentence, so the opening paragraph now has four sentences, above the one-to-three limit. Edited content must fix every Minor.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "So $AaBB$ on two pairs has $4$ chromosome combinations but only $2$ allele combinations, $AB$ and $aB$. A gene on a male's X is a special case: half his gametes carry the X, and half carry the Y.",
+      "problem": "The round-4 fix added the X sentence, so this Speed Tricks paragraph now has four long sentences, above the one-to-three limit. Edited content must fix every Minor.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)."
+    }
+  ],
+  "goodQuotesChecked": 3
+}
