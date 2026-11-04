@@ -375,7 +375,7 @@
     "lessonPath": "content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md",
     "lessonId": "lesson-trigonometry-laws-of-sines-and-cosines",
     "group": "mathematics",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/mathematics/trigonometry/solving-right-triangles.md",
