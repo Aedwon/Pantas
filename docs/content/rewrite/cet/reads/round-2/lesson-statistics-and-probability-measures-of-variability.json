@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-statistics-and-probability-measures-of-variability",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A sample mean sits closer to the sample's own values than the true mean does.", "problem": "False general statement, new in this round's text. In plain distance it fails: take the sample 0, 0, 3 from a population with mean 0. The sample mean is 1, and the total distance from the values to 1 is 1+1+2=4, while the total distance to the true mean 0 is 0+0+3=3, so the true mean is closer. It is true only for the sum of squared distances, and even then it fails at the boundary where the sample mean equals the true mean (equally close, not closer). A Grade 5 reader takes 'closer' as ordinary distance. The round-1 lead ruling upheld the same kind of boundary failure ('larger' when equal) as a Blocker.", "source": "Mathematics checked by solving: sum of (x - c)^2 is least at c = sample mean, so sum (x - xbar)^2 <= sum (x - mu)^2 with equality when xbar = mu; sum |x - c| is least at the median, not the mean; checklist B01; reader-rules 'Added after the Sol audit'"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The probabilities are between $0$ and $1$, and they add up to $1$.", "problem": "This paragraph has four sentences, over the one-to-three limit. Two others also have four: the paragraph starting 'Variance is in squared units. Standard deviation is in the same units as the data.' and the Speed Tricks paragraph ending 'A mean you rounded gives a sum slightly off $0$.'", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}

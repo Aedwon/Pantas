@@ -250,3 +250,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Written: combinatorics (1,746 words), measures-of-variability (1,518). Quadrilaterals fixed after round 2; round 3 read running.
 - Hit the 5-hour usage limit; cut off the quadrilaterals round-3, combinatorics round-1 and measures-of-variability round-1 reads. Resumed after the reset.
 - Quadrilaterals open after 3 reads (1 Major: Example 1 figure type draws the method). Combinatorics fixed after round 1; round 2 read running. Measures-of-variability round 1: 2 Blockers, 1 Major; fix running.
+- Combinatorics done at minor. Variability fixed after round 2 (1 Blocker); round 3 read next. Written: basic-trigonometric-ratios (2,359 words), fluid-pressure (2,138).

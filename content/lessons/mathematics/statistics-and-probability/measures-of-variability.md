@@ -53,7 +53,7 @@ $$s^2=\dfrac{\sum (x-\bar{x})^2}{n-1}$$
 
 $$s=\sqrt{s^2}$$
 
-A sample mean sits closer to the sample's own values than the true mean does. Dividing by $n-1$ instead of $n$ corrects for this, so $s^2$ estimates the population variance better.
+The squared distances from the values to their own sample mean add up to no more than the squared distances to the true mean, and usually less. Dividing by $n-1$ instead of $n$ corrects for this, so $s^2$ estimates the population variance better.
 
 A sample of one value has $n-1=0$, so $s^2$ is not defined. For the same values, if they are not all equal, the sample variance is larger than the population variance. If they are all equal, both are $0$.
 
