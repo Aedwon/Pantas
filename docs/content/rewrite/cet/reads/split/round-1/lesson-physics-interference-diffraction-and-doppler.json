@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-physics-interference-diffraction-and-doppler",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "light with wavelength 5 x 10^-7 m passing straight through as a narrow beam",
+      "problem": "This marker sits in the Example #2 question block, between the question and **Solution:**. The question asks 'Which wave spreads out more after the doorway?' and the marker tells the artist to draw the sound 'spreading out in half circles beyond it' and the light 'passing straight through as a narrow beam'. Once drawn, the question figure shows the answer, so the student reads it off the picture instead of comparing wavelength with opening width. The marker was added in the rewrite (the base had no diffraction example) and moved here word for word from the parent's Example #10; earlier reads of the parent did not raise it. The lead's ruling says new markers may not show an answer or method, and answer-revealing question markers were upheld as L05 Major in parallel-perpendicular-lines, quadrilaterals and solving-right-triangles.",
+      "source": "Checklist L05; final-run-rulings.md ('Writer rule 7 allows new markers; none may show an answer or method, and readers check that', and the upheld L05 rulings on answer-revealing question markers)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Here is why a moving source changes the pitch.",
+      "problem": "This paragraph has five sentences, over the one-to-three limit. Other paragraphs over the limit start at 'If two waves are **in phase**' (five sentences), 'Now take a source with frequency' (five), 'For two matching sources that are in phase' (four), and the Speed Tricks paragraph 'For a Doppler question, first find who is moving.' (four). All were moved word for word from the parent.",
+      "source": "Checklist L22a; lesson-style-guide.md Formatting rules; writer-rules.md rule 8"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
