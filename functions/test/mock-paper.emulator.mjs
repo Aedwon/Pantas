@@ -274,6 +274,41 @@ test('listed exam: the startMock response and the stored row keep their exact ke
   assert.deepEqual(keys(history.items[0]), ['accessRecheckAt', 'canReview', 'durationMs', 'endedBy', 'examId', 'limitMs', 'mockId', 'proCovered', 'reviewUntil', 'score', 'sections', 'serverNow', 'startedAt', 'strict', 'submittedAt']);
 });
 
+test('listed exam: no parts anywhere, startPart and endPart are unknown, the server still never ends a non-strict mock, and the sent duration is stored', async () => {
+  const listedKeys = ['answers', 'examId', 'limitMs', 'mockId', 'paper', 'paused', 'remainingMs', 'startedAt', 'strict'];
+  for (const strict of [false, true]) {
+    const uid = `p-listed-parts-${strict}`;
+    await reset(uid);
+    const out = await beginMock(named(uid), {examId: EXAM, strict}, d());
+    assert.equal('parts' in out, false);
+    assert.equal('parts' in (await db.doc(`users/${uid}/server/mocks/items/${out.mockId}`).get()).data(), false);
+    for (const action of ['startPart', 'endPart']) {
+      await assert.rejects(changeMock(named(uid), {mockId: out.mockId, action}, d(NOW + MIN)), e => e.code === 'invalid-argument' && e.message === 'Unknown action.', `${strict} ${action}`);
+    }
+    // Any other unknown name is refused exactly as before.
+    await assert.rejects(changeMock(named(uid), {mockId: out.mockId, action: 'skipPart'}, d(NOW + MIN)), e => e.code === 'invalid-argument' && e.message === 'Unknown action.');
+    const saved = await changeMock(named(uid), {mockId: out.mockId, action: 'save', answers: [answer(out.paper.sections[0].questions[0].id, true)]}, d(NOW + MIN));
+    assert.deepEqual(keys(saved), listedKeys);
+    assert.equal('parts' in await readMock(named(uid), {}, d(NOW + 2 * MIN)), false);
+    if (!strict) {
+      assert.deepEqual(keys(await changeMock(named(uid), {mockId: out.mockId, action: 'pause'}, d(NOW + 3 * MIN))), listedKeys);
+      assert.deepEqual(keys(await changeMock(named(uid), {mockId: out.mockId, action: 'resume'}, d(NOW + 4 * MIN))), listedKeys);
+      // A day past the limit, the server still does not end it.
+      const late = await readMock(named(uid), {}, d(NOW + DAY));
+      assert.equal(late.open, true);
+      assert.equal(late.remainingMs, 0);
+      assert.equal('parts' in late, false);
+    }
+    // The sent duration is stored as sent, whatever the clock says.
+    const at = strict ? NOW + 10 * MIN : NOW + 90 * MIN;
+    await recordMock(named(uid), {mockId: out.mockId, answers: [answer(out.paper.sections[0].questions[0].id, true)], durationMs: 7 * MIN}, d(at));
+    const row = (await db.doc(`users/${uid}/server/mocks/items/${out.mockId}`).get()).data();
+    assert.equal(row.durationMs, 7 * MIN);
+    assert.equal('parts' in row, false);
+    assert.deepEqual(keys(row), ['answerCount', 'answers', 'durationMs', 'endedBy', 'examId', 'limitMs', 'paper', 'pausedAt', 'pausedMs', 'score', 'seed', 'startedAt', 'status', 'strict', 'submittedAt']);
+  }
+});
+
 // ---- custom exams: a corpus with the real topic sizes ----
 const CE = {vl: 'topic_mp_verbal_logic', di: 'topic_mp_data_interp', al: 'topic_mp_algebra', cs: 'topic_mp_comprehension'};
 const ALL = [CE.vl, CE.di, CE.al, CE.cs];

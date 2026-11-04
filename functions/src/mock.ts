@@ -1,5 +1,5 @@
 import {createHash, randomInt} from 'node:crypto';
-import {getFirestore, type Firestore} from 'firebase-admin/firestore';
+import {getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
@@ -10,6 +10,8 @@ import {applyScope, loadCorpusCached, loadExamContent} from './_examContent.js';
 import {customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {mockCoverage} from './mockAccess.js';
 import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
+import {clockChanged, endPartNow, mergePartAnswers, newPartClock, partsView, settleParts, startPartNow, submitParts,
+  totalRemainingMs, usedTotalMs, type ClockRow, type PartsView, type Settled} from './_mockParts.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -47,27 +49,57 @@ function elapsedMs(row: FirebaseFirestore.DocumentData, now: number): number {
 }
 
 type MockView = {mockId: string; examId: string; examName?: string; startedAt: number; strict: boolean; limitMs: number;
-  remainingMs: number; paused: boolean; paper: Paper; answers: Answer[]};
+  remainingMs: number; paused: boolean; paper: Paper; answers: Answer[]; parts?: PartsView};
+
+type PartRow = FirebaseFirestore.DocumentData & ClockRow;
+/** A by-part row with its clock replaced by the settled one. */
+const settledRow = (row: FirebaseFirestore.DocumentData, clock: Settled): PartRow =>
+  ({...row, parts: clock.parts, pausedAt: clock.pausedAt, pausedMs: clock.pausedMs});
 
 function view(mockId: string, row: FirebaseFirestore.DocumentData, now: number): MockView {
+  // A by-part row is always shown settled, so a client never reads a part that has already run out.
+  const live = row.parts ? settledRow(row, settleParts(row as PartRow, now)) : row;
   return {
     mockId, examId: row.examId, ...(typeof row.examName === 'string' ? {examName: row.examName} : {}), startedAt: row.startedAt, strict: row.strict === true, limitMs: row.limitMs,
-    remainingMs: Math.max(0, Number(row.limitMs) - elapsedMs(row, now)), paused: typeof row.pausedAt === 'number',
-    paper: row.paper, answers: row.answers ?? [],
+    remainingMs: row.parts ? totalRemainingMs(live as PartRow, now) : Math.max(0, Number(row.limitMs) - elapsedMs(row, now)), paused: typeof live.pausedAt === 'number',
+    paper: row.paper, answers: row.answers ?? [], ...(row.parts ? {parts: partsView(live as PartRow, now)} : {}),
   };
+}
+
+type TimedOut = {mockId: string; endedBy: EndedBy; submittedAt: number; score: Score};
+
+/** Submits a by-part mock whose last part ran out, at the moment it ran out, on the answers the server holds. */
+async function finishByTime(transaction: Transaction, db: Firestore, uid: string, mockId: string,
+  row: FirebaseFirestore.DocumentData, clock: Settled, now: number): Promise<TimedOut> {
+  const submittedAt = Number(clock.finishedAt);
+  const durationMs = usedTotalMs(settledRow(row, clock), now);
+  const answers = (row.answers ?? []) as Answer[];
+  const score = scoreOf(answers, row.paper);
+  await recordMockAnswers(transaction, db, uid, mockId, {...row, submittedAt, durationMs}, now);
+  transaction.update(mocks(db, uid).doc(mockId), {status: 'submitted', submittedAt, endedBy: 'time-out', durationMs,
+    answerCount: answers.length, score, parts: clock.parts, pausedAt: clock.pausedAt, pausedMs: clock.pausedMs});
+  return {mockId, endedBy: 'time-out', submittedAt, score};
 }
 
 /**
  * Ends a strict mock whose time ran out, scoring the saved answers. Submission is the moment time
  * ran out, so the Free allowance counts from then, not from the student's next visit. Does nothing
- * for a non-strict mock (the app ends it) or one with time left.
+ * for a non-strict mock (the app ends it) or one with time left. A by-part mock of either kind is
+ * settled instead: parts that ran out are closed at their exact moments, and the paper is submitted
+ * when the last part runs out.
  */
 export async function endIfTimedOut(db: Firestore, uid: string, mockId: string, now: number):
-  Promise<{mockId: string; endedBy: EndedBy; submittedAt: number; score: Score} | null> {
+  Promise<TimedOut | null> {
   return db.runTransaction(async (transaction) => {
     const ref = mocks(db, uid).doc(mockId);
     const snapshot = await transaction.get(ref);
     const row = snapshot.data();
+    if (row && row.status === 'started' && row.parts) {
+      const clock = settleParts(row as PartRow, now);
+      if (clock.finishedAt !== null) return finishByTime(transaction, db, uid, mockId, row, clock, now);
+      if (clockChanged(row as PartRow, clock)) transaction.update(ref, {parts: clock.parts, pausedAt: clock.pausedAt, pausedMs: clock.pausedMs});
+      return null;
+    }
     if (!row || row.status !== 'started' || row.strict !== true || elapsedMs(row, now) < Number(row.limitMs)) return null;
     const submittedAt = Number(row.startedAt) + Number(row.limitMs);
     const answers = (row.answers ?? []) as Answer[];
@@ -230,7 +262,11 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
   }
   const ref = mocks(deps.db, uid).doc();
   const seed = (deps.seed ?? (() => randomInt(0, 2 ** 32)))();
-  const {paper, limitMs} = await assemblePaper(deps.db, uid, examId, now, seed);
+  const assembled = await assemblePaper(deps.db, uid, examId, now, seed);
+  const {paper} = assembled;
+  // Two or more parts timed one by one get a clock of their own, pinned here. Nothing in it comes from the client.
+  const parts = assembled.sectionMinutes !== null && assembled.sectionMinutes.length >= 2 ? newPartClock(assembled.sectionMinutes, now) : null;
+  const limitMs = parts ? parts.limitsMs.reduce((total, limit) => total + limit, 0) : assembled.limitMs;
   // A custom mock keeps the track's name, so a renamed or removed track still reads correctly in Record.
   const examName = isCustomExamId(examId) ? (await customTrackRef(deps.db, uid, examId).get()).get('name') : undefined;
   return deps.db.runTransaction(async (transaction) => {
@@ -245,7 +281,7 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
       }
     }
     const row = {examId, status: 'started', startedAt: now, strict, limitMs, seed, paper, answers: [] as Answer[],
-      pausedMs: 0, pausedAt: null, ...(typeof examName === 'string' ? {examName} : {})};
+      pausedMs: 0, pausedAt: null, ...(typeof examName === 'string' ? {examName} : {}), ...(parts ? {parts} : {})};
     transaction.create(ref, row);
     return {...view(ref.id, row, now), resumed: false};
   });
@@ -273,9 +309,34 @@ export async function readMock(auth: Auth, _data: unknown, deps: MockDeps):
 }
 
 /**
+ * What a by-part action changes, on a row already settled at `now`. Only the running part can take
+ * answers or be paused. A repeated `startPart` changes nothing, so it can never restart a clock.
+ */
+function changePart(action: string, answers: Answer[] | undefined, row: PartRow, now: number): Record<string, unknown> {
+  const running = row.parts.startedAt !== null;
+  if (action === 'save') {
+    checkPaperAnswers(answers!, row.paper);
+    return {answers: mergePartAnswers(row.answers ?? [], answers!, row.paper, row.parts)};
+  }
+  if (action === 'pause') return running && typeof row.pausedAt !== 'number' ? {pausedAt: now} : {};
+  if (action === 'resume') {
+    return running && typeof row.pausedAt === 'number' ? {pausedAt: null, pausedMs: Number(row.pausedMs ?? 0) + Math.max(0, now - row.pausedAt)} : {};
+  }
+  if (action === 'startPart') return running ? {} : {parts: startPartNow(row.parts, now)};
+  if (action === 'endPart') {
+    if (!running) throw new HttpsError('failed-precondition', 'No part is running.');
+    if (row.parts.index === row.parts.limitsMs.length - 1) throw new HttpsError('failed-precondition', 'This is the last part. Submit the mock instead.');
+    return {parts: endPartNow(row, now), pausedAt: null, pausedMs: 0};
+  }
+  return {answers: [], startedAt: now, pausedAt: null, pausedMs: 0, parts: newPartClock((row.parts.limitsMs as number[]).map(limit => limit / 60_000), now)};
+}
+
+/**
  * Changes the open mock: `save` replaces the saved answers; `pause` and `resume` record a pause
  * (non-strict only); `discard` clears the answers and restarts the clock but keeps the paper
- * (non-strict only). Strict mode allows only `save`.
+ * (non-strict only). Strict mode allows only `save`. A by-part mock settles its clock first, and
+ * also takes `startPart` (any mode) and `endPart` (non-strict only); `save` keeps only the running
+ * part's answers.
  */
 export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Promise<MockView> {
   const uid = assertNamedUser(auth);
@@ -283,7 +344,7 @@ export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Pro
   const mockId = body?.mockId;
   if (typeof mockId !== 'string' || !/^[A-Za-z0-9]{10,40}$/.test(mockId)) throw new HttpsError('invalid-argument', 'Bad mock id.');
   const action = body?.action;
-  if (action !== 'save' && action !== 'pause' && action !== 'resume' && action !== 'discard') {
+  if (action !== 'save' && action !== 'pause' && action !== 'resume' && action !== 'discard' && action !== 'startPart' && action !== 'endPart') {
     throw new HttpsError('invalid-argument', 'Unknown action.');
   }
   const now = (deps.now ?? Date.now)();
@@ -298,7 +359,18 @@ export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Pro
     const row = snapshot.data();
     if (!row) throw new HttpsError('not-found', 'Mock not found.');
     if (row.status !== 'started') throw new HttpsError('failed-precondition', 'This mock is already finished.');
-    if (action !== 'save' && row.strict === true) throw new HttpsError('failed-precondition', 'Strict mode does not allow this.');
+    const clock = row.parts ? settleParts(row as PartRow, now) : null;
+    // The pre-step above has settled this row. Time can run out here only through a call that raced this one.
+    if (clock && clock.finishedAt !== null) throw new HttpsError('failed-precondition', 'This mock is already finished.');
+    if (!clock && (action === 'startPart' || action === 'endPart')) throw new HttpsError('invalid-argument', 'Unknown action.');
+    if (action !== 'save' && !(clock && action === 'startPart') && row.strict === true) throw new HttpsError('failed-precondition', 'Strict mode does not allow this.');
+    if (clock) {
+      const live = settledRow(row, clock);
+      const change = changePart(action, answers, live, now);
+      const update = {...(clockChanged(row as PartRow, clock) ? {parts: clock.parts, pausedAt: clock.pausedAt, pausedMs: clock.pausedMs} : {}), ...change};
+      if (Object.keys(update).length > 0) transaction.update(ref, update);
+      return view(mockId, {...live, ...change}, now);
+    }
     let update: Record<string, unknown> = {};
     if (action === 'save') {
       checkPaperAnswers(answers!, row.paper);
@@ -341,11 +413,22 @@ export async function recordMock(auth: Auth, data: unknown, deps: MockDeps): Pro
       if (status === 'submitted') await recordMockAnswers(transaction, deps.db, uid, mockId, snapshot.data()!, now);
       return {mockId, status};
     }
+    const row = snapshot.data()!;
+    const clock = row.parts ? settleParts(row as PartRow, now) : null;
+    if (clock && clock.finishedAt !== null) {
+      await finishByTime(transaction, deps.db, uid, mockId, row, clock, now);
+      return {mockId, status: 'submitted'};
+    }
     checkPaperAnswers(answers, snapshot.get('paper'));
     if (early && snapshot.get('strict') !== true) throw new HttpsError('invalid-argument', 'Only a strict mock ends early.');
-    await recordMockAnswers(transaction, deps.db, uid, mockId, {...snapshot.data(), submittedAt: now, durationMs, answers}, now);
-    transaction.update(ref, {status: 'submitted', submittedAt: now, endedBy: early ? 'strict-exit' : 'student', durationMs,
-      answers, answerCount: answers.length, score: scoreOf(answers, snapshot.get('paper'))});
+    // A by-part mock keeps closed parts as stored, and counts its own time: the sent duration is only checked.
+    const live = clock ? settledRow(row, clock) : null;
+    const kept = live ? mergePartAnswers(row.answers ?? [], answers, row.paper, live.parts) : answers;
+    const spent = live ? usedTotalMs(live, now) : durationMs;
+    const closing = live ? {parts: submitParts(live, now), pausedAt: null, pausedMs: 0} : {};
+    await recordMockAnswers(transaction, deps.db, uid, mockId, {...snapshot.data(), submittedAt: now, durationMs: spent, answers: kept}, now);
+    transaction.update(ref, {status: 'submitted', submittedAt: now, endedBy: early ? 'strict-exit' : 'student', durationMs: spent,
+      answers: kept, answerCount: kept.length, score: scoreOf(kept, snapshot.get('paper')), ...closing});
     return {mockId, status: 'submitted'};
   });
 }
