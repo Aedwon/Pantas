@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/guardian/domain/guardian_copy.dart';
 import 'package:pantas/features/guardian/presentation/guardian_confirm_page.dart';
 
 import 'fake_guardian_gateway.dart';
@@ -112,7 +113,9 @@ void main() {
           );
           expect(find.text('Terms'), findsOneWidget);
           expect(find.text('Privacy Policy'), findsOneWidget);
-          expect(find.text('Notice for teens'), findsOneWidget);
+          // The notice for teens is hidden until its text exists.
+          expect(teenNoticeReady, isFalse);
+          expect(find.text('Notice for teens'), findsNothing);
           expect(
             find.text(
               "I'm their parent or guardian, and I agree to these terms.",
@@ -217,8 +220,8 @@ void main() {
     await pump(tester);
     await tester.tap(find.text('Terms'));
     await tester.tap(find.text('Privacy Policy'));
-    await tester.tap(find.text('Notice for teens'));
-    expect(opened, ['/legal/terms', '/legal/privacy', '/legal/teens']);
+    expect(find.text('Notice for teens'), findsNothing);
+    expect(opened, ['/legal/terms', '/legal/privacy']);
   });
 
   testWidgets('a failed answer keeps the form and offers a retry',

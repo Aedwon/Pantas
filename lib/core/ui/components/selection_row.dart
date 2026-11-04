@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
@@ -200,14 +201,9 @@ class _SelectionRow extends StatelessWidget {
             ),
           ),
           side: WidgetStateProperty.resolveWith(
-            // Phone boards draw no ring on a row at rest (O_Consent); one
+            // No ring on a row at rest (O_Consent) or after a click; one
             // shows only while the keyboard drives the focus.
-            (states) => states.contains(WidgetState.focused) &&
-                    (context.wideWeb ||
-                        FocusManager.instance.highlightMode ==
-                            FocusHighlightMode.traditional)
-                ? BorderSide(color: c.accent, width: 2)
-                : BorderSide.none,
+            (states) => webFocusRing(states, c.accent) ?? BorderSide.none,
           ),
         ),
         child: Opacity(

@@ -21,6 +21,7 @@ class HomeExamDateSheet extends StatefulWidget {
     this.initial,
     this.onCancel,
     this.requireDay = false,
+    this.examName,
     this.saving = false,
     this.failed = false,
     this.web = kIsWeb,
@@ -31,6 +32,9 @@ class HomeExamDateSheet extends StatefulWidget {
   final DateTime today;
   final ExamDate? initial;
   final bool requireDay;
+
+  /// Names the exam in the day question (board HM_MonthOnlyPick).
+  final String? examName;
   final bool saving;
   final bool failed;
   final ValueChanged<ExamDate> onSave;
@@ -82,7 +86,7 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
         children: [
           Text(
             wide && widget.requireDay
-                ? 'Which day is your exam?'
+                ? 'Which day is your ${widget.examName ?? 'exam'}?'
                 : 'When is your exam?',
             style: wide
                 ? context.webTokens.h3

@@ -13,6 +13,66 @@ import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
+/// True while [states] hold focus that the keyboard put there. A mouse click
+/// also focuses a control, but the page then drives focus by pointer, and a
+/// browser shows no focus ring for it (`:focus-visible`). This is the one rule
+/// every wide web control uses for its ring.
+///
+/// Flutter's own highlight mode is not enough: a mouse never switches it away
+/// from the traditional mode a desktop starts in, so it stays on after a
+/// click. The mode is still required, and the last input must also be a key.
+bool webKeyboardFocus(Set<WidgetState> states) {
+  // Listens from the first control built, so the Tab that moves focus onto a
+  // control is already seen when its ring is decided.
+  _LastInput.watch();
+  if (!states.contains(WidgetState.focused)) return false;
+  return _LastInput.key &&
+      FocusManager.instance.highlightMode == FocusHighlightMode.traditional;
+}
+
+/// Whether the last input to the page was a key press (true) or a pointer
+/// press (false). A page nobody has touched yet counts as pointer, so focus
+/// the app sets itself shows no ring.
+class _LastInput {
+  static bool key = false;
+  static bool _watching = false;
+  static PointerRouter? _router;
+
+  static void watch() {
+    if (_watching) return;
+    _watching = true;
+    final router = GestureBinding.instance.pointerRouter;
+    if (!identical(router, _router)) {
+      _router = router..addGlobalRoute(_pointer);
+    }
+    HardwareKeyboard.instance
+      ..removeHandler(_key)
+      ..addHandler(_key);
+  }
+
+  static void reset() {
+    key = false;
+    _watching = false;
+  }
+
+  static void _pointer(PointerEvent event) {
+    if (event is PointerDownEvent) key = false;
+  }
+
+  static bool _key(KeyEvent event) {
+    if (event is KeyDownEvent) key = true;
+    return false;
+  }
+}
+
+/// A test binding is new for each test, so the listeners start again too.
+@visibleForTesting
+void resetWebKeyboardFocus() => _LastInput.reset();
+
+/// The 2 px accent ring of a control with keyboard focus, or null.
+BorderSide? webFocusRing(Set<WidgetState> states, Color accent) =>
+    webKeyboardFocus(states) ? BorderSide(color: accent, width: 2) : null;
+
 enum WebButtonVariant {
   primary,
   secondary,
@@ -166,7 +226,7 @@ class WebButton extends StatelessWidget {
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         side: WidgetStateProperty.resolveWith(
           (s) => BorderSide(
-            color: s.contains(WidgetState.focused)
+            color: webKeyboardFocus(s)
                 ? c.accent
                 : variant == WebButtonVariant.dangerOutline
                     ? c.destructive
@@ -177,7 +237,7 @@ class WebButton extends StatelessWidget {
                                 ? t.cardEdge
                                 : c.separator)
                         : Colors.transparent,
-            width: s.contains(WidgetState.focused) ? 2 : 1,
+            width: webKeyboardFocus(s) ? 2 : 1,
           ),
         ),
         shape: WidgetStatePropertyAll(
@@ -612,10 +672,12 @@ class _WebRowState extends State<WebRow> {
         // A selected row's tint is the layer behind, which fades.
         backgroundColor: WidgetStateProperty.resolveWith(
           (s) => !w.selected &&
-                  (s.contains(WidgetState.hovered) ||
-                      s.contains(WidgetState.focused))
+                  (s.contains(WidgetState.hovered) || webKeyboardFocus(s))
               ? t.rowHover
               : Colors.transparent,
+        ),
+        side: WidgetStateProperty.resolveWith(
+          (s) => webFocusRing(s, t.colors.accent),
         ),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
       ),
@@ -964,16 +1026,16 @@ class WebAnswerOption extends StatelessWidget {
               ),
             ),
             side: WidgetStateProperty.resolveWith(
-              (s) => BorderSide(
-                color: filled
-                    ? border
-                    : active &&
-                            (s.contains(WidgetState.hovered) ||
-                                s.contains(WidgetState.focused))
-                        ? t.strongDivider
-                        : Colors.transparent,
-                width: filled ? 2 : 1.5,
-              ),
+              (s) => webKeyboardFocus(s) && !filled
+                  ? BorderSide(color: t.colors.accent, width: 2)
+                  : BorderSide(
+                      color: filled
+                          ? border
+                          : active && s.contains(WidgetState.hovered)
+                              ? t.strongDivider
+                              : Colors.transparent,
+                      width: filled ? 2 : 1.5,
+                    ),
             ),
           ),
           child: Row(

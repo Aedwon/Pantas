@@ -169,7 +169,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
             children: [
               link('Terms', '/legal/terms'),
               link('Privacy Policy', '/legal/privacy'),
-              link('Notice for teens', '/legal/teens'),
+              if (teenNoticeReady) link('Notice for teens', '/legal/teens'),
             ],
           ),
         ],

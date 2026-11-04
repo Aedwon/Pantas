@@ -170,6 +170,52 @@ Widget _waiting<T>(
   );
 }
 
+/// The day before a plan began. The popover never opens for it, but one opened
+/// while the read was slow closes itself here.
+class _NoPlanDay extends StatefulWidget {
+  const _NoPlanDay({required this.date, required this.popover});
+  final DateTime date;
+  final bool popover;
+
+  @override
+  State<_NoPlanDay> createState() => _NoPlanDayState();
+}
+
+class _NoPlanDayState extends State<_NoPlanDay> {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.popover) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) unawaited(Navigator.of(context).maybePop());
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.popover) return const SizedBox.shrink();
+    final title = DateFormat('EEEE, MMMM d', 'en_US').format(widget.date);
+    const line = 'Your plan had not started on this day.';
+    if (context.wideWeb) {
+      return PlanWebFrame(
+        title: title,
+        onBack: () => _back(context),
+        child: const WebCard(
+          padding: EdgeInsets.symmetric(vertical: 80, horizontal: 24),
+          child: Center(child: Text(line)),
+        ),
+      );
+    }
+    return PantasPage(
+      title: title,
+      backLabel: 'Home',
+      onBack: () => _back(context),
+      children: const [Text(line)],
+    );
+  }
+}
+
 class PlanDayScreen extends ConsumerStatefulWidget {
   const PlanDayScreen({
     required this.date,
@@ -240,6 +286,12 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     if (view.kind == 'locked') return const PlanScreen();
     if (view.kind == 'unknown' || view.plan == null) {
       firstScreenReady(context, ref);
+      // A student who started mid-week has no plan for the days before the
+      // start. That is not a failure, so it never shows the retry state.
+      if (view.kind == 'unknown' &&
+          !DateTime.parse(date).isAfter(DateTime.now())) {
+        return _NoPlanDay(date: view.date, popover: widget.popover);
+      }
       return _waiting(
         context,
         const AsyncError<void>('Unknown stored day', StackTrace.empty),
@@ -514,14 +566,17 @@ Future<void> showPlanPastDay(BuildContext context, DateTime date) async {
     planDayViewProvider(dayKey(date)),
     (_, __) {},
   );
+  PlanDayView? view;
   try {
-    await container
+    view = await container
         .read(planDayViewProvider(dayKey(date)).future)
         .timeout(_popoverWait);
   } on Object catch (_) {
     // A slow or failed read shows its own state inside the popover.
   }
-  if (!context.mounted) {
+  // A day before the plan began has nothing to show, so the strip offers no
+  // card for it, as the week page lists no row for it.
+  if (!context.mounted || view?.kind == 'unknown') {
     hold.close();
     return;
   }

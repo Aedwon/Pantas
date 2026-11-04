@@ -7,6 +7,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/presentation/guardian_screen.dart';
@@ -34,6 +35,13 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
   bool _busy = false;
   bool _actionFailed = false;
   Future<void> Function()? _lastAction;
+
+  /// The one line of feedback under the buttons, or null for none.
+  String? _notice;
+
+  static const _emailSent = 'Email sent.';
+  static const _resendFailed = 'Could not send the email. Try again.';
+  static const _notConfirmed = 'Not confirmed yet.';
 
   @override
   void initState() {
@@ -69,18 +77,30 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
     }
   }
 
-  Future<void> _run(Future<void> Function() action) async {
+  Future<void> _run(
+    Future<void> Function() action, {
+    String? failureNotice,
+  }) async {
     if (_busy) return;
     _lastAction = action;
     setState(() {
       _busy = true;
       _actionFailed = false;
+      _notice = null;
     });
     try {
       await action();
     } on Object catch (error, stack) {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
-      if (mounted) setState(() => _actionFailed = true);
+      if (mounted) {
+        setState(() {
+          if (failureNotice == null) {
+            _actionFailed = true;
+          } else {
+            _notice = failureNotice;
+          }
+        });
+      }
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -90,15 +110,24 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
         final status = await ref.read(guardianControllerProvider).refresh();
         if (!mounted) return;
         if (status.status == GuardianConsentStatus.confirmed) return _cleared();
-        setState(() => _status = status);
+        setState(() {
+          _status = status;
+          _notice = _notConfirmed;
+        });
       });
 
-  Future<void> _resend() => _run(() async {
-        final status = await ref.read(guardianControllerProvider).resend();
-        if (!mounted) return;
-        if (status == null) return _changeEmail();
-        setState(() => _status = status);
-      });
+  Future<void> _resend() => _run(
+        () async {
+          final status = await ref.read(guardianControllerProvider).resend();
+          if (!mounted) return;
+          if (status == null) return _changeEmail();
+          setState(() {
+            _status = status;
+            _notice = _emailSent;
+          });
+        },
+        failureNotice: _resendFailed,
+      );
 
   String? get _body {
     final status = _status;
@@ -142,6 +171,16 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
           variant: PantasButtonVariant.tertiary,
           onPressed: _busy ? null : _changeEmail,
         ),
+        if (_notice != null)
+          Semantics(
+            liveRegion: true,
+            child: Text(
+              _notice!,
+              textAlign: TextAlign.center,
+              style: context.type.subhead
+                  .copyWith(color: context.colors.secondaryLabel),
+            ),
+          ),
       ],
     );
   }

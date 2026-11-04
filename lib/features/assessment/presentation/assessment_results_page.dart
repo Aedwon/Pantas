@@ -372,7 +372,7 @@ class _ResultsBodyState extends State<_ResultsBody>
                     ResultsReveal(
                       animation: _sequence.plan,
                       child: GroupedSection(
-                        header: 'YOUR PLAN STARTS WITH',
+                        header: 'WEAKEST TOPIC',
                         footer: 'Weakest first. It changes as you study.',
                         children: [
                           Padding(

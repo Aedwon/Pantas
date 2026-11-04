@@ -269,13 +269,16 @@ class WebSidebar extends StatelessWidget {
                               backgroundColor: WidgetStateProperty.resolveWith(
                                 (s) => activeIndex != i &&
                                         (s.contains(WidgetState.hovered) ||
-                                            s.contains(WidgetState.focused))
+                                            webKeyboardFocus(s))
                                     ? t.dark
                                         ? c.fill
                                         : Colors.black.withValues(
                                             alpha: .045,
                                           )
                                     : Colors.transparent,
+                              ),
+                              side: WidgetStateProperty.resolveWith(
+                                (s) => webFocusRing(s, c.accent),
                               ),
                               shape: WidgetStatePropertyAll(
                                 RoundedRectangleBorder(

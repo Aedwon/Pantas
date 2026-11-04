@@ -100,11 +100,19 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     }
   }
 
+  int get _earliestYear => widget.currentYear - 100;
+
   bool get _validYear {
     final year = int.tryParse(_yearController.text);
-    return year != null &&
-        year >= widget.currentYear - 100 &&
-        year <= widget.currentYear;
+    return year != null && year >= _earliestYear && year <= widget.currentYear;
+  }
+
+  /// Why Continue is off: shown only for a complete four-digit year outside
+  /// the range. A year still being typed, or in range, shows nothing.
+  String? get _rangeHint {
+    final text = _yearController.text;
+    if (text.length < 4 || _validYear) return null;
+    return 'Enter a year from $_earliestYear to ${widget.currentYear}.';
   }
 
   Future<void> _continue() async {
@@ -425,6 +433,17 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           ),
           const SizedBox(height: 8),
           Text('Type it, or use ↑ and ↓.', style: context.webTokens.sm),
+          if (_rangeHint != null) ...[
+            const SizedBox(height: 6),
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                _rangeHint!,
+                style: context.webTokens.sm
+                    .copyWith(color: context.webTokens.colors.destructive),
+              ),
+            ),
+          ],
         ] else
           Container(
             padding: const EdgeInsets.all(10),

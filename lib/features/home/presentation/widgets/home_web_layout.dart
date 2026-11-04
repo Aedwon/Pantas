@@ -158,14 +158,16 @@ class _MoreRow extends StatelessWidget {
             EdgeInsets.fromLTRB(20, 18, 18, 18),
           ),
           backgroundColor: WidgetStateProperty.resolveWith(
-            (s) => s.contains(WidgetState.hovered) ||
-                    s.contains(WidgetState.focused)
+            (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
                 ? t.rowHover
                 : t.dark
                     ? t.colors.surface
                     : Colors.white,
           ),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          side: WidgetStateProperty.resolveWith(
+            (s) => webFocusRing(s, t.colors.accent),
+          ),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
@@ -209,7 +211,7 @@ class HomeWebOverlay extends StatefulWidget {
 }
 
 class _HomeWebOverlayState extends State<HomeWebOverlay>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, OverlayFocusReturn<HomeWebOverlay> {
   final _portal = OverlayPortalController();
   late final AnimationController _motion;
 
@@ -249,6 +251,12 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
     super.didUpdateWidget(oldWidget);
     if (widget.open) _held = widget;
     if (widget.open != oldWidget.open) {
+      // The page behind drops its focus while the overlay is open.
+      if (widget.open) {
+        rememberFocus();
+      } else {
+        returnFocus();
+      }
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         final still = MediaQuery.disableAnimationsOf(context);
@@ -321,6 +329,7 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
                         widget.onDismiss,
                   },
                   child: FocusScope(
+                    node: overlayScope,
                     autofocus: true,
                     child: Focus(
                       child: Semantics(
@@ -458,53 +467,60 @@ class HomeWebNotice extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: TextButton(
-                    onPressed: onToggle,
-                    style: TextButton.styleFrom(
-                      alignment: Alignment.centerLeft,
-                      minimumSize: const Size(0, 52),
-                      padding: const EdgeInsets.only(left: 18),
-                      // The hover tint follows the card's own corners.
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: const Radius.circular(16),
-                          bottomLeft: Radius.circular(expanded ? 0 : 16),
+                  // The hover tint is clipped to the card's own top corner, and
+                  // runs to the dismiss button.
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: const Radius.circular(16),
+                      bottomLeft: Radius.circular(expanded ? 0 : 16),
+                    ),
+                    child: TextButton(
+                      onPressed: onToggle,
+                      style: TextButton.styleFrom(
+                        alignment: Alignment.centerLeft,
+                        minimumSize: const Size(0, 52),
+                        padding: const EdgeInsets.only(left: 18, right: 12),
+                        // The hover tint follows the card's own corners.
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(16),
+                            bottomLeft: Radius.circular(expanded ? 0 : 16),
+                          ),
                         ),
                       ),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          icon ?? PantasIcons.addDate,
-                          size: 22,
-                          color: iconColor ?? t.colors.secondaryLabel,
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(
-                            title,
-                            style: t.style(16, weight: FontWeight.w600),
+                      child: Row(
+                        children: [
+                          Icon(
+                            icon ?? PantasIcons.addDate,
+                            size: 22,
+                            color: iconColor ?? t.colors.secondaryLabel,
                           ),
-                        ),
-                        if (detail != null) ...[
                           const SizedBox(width: 12),
-                          // One chevron turns, as the phone's does.
-                          AnimatedRotation(
-                            turns: expanded ? .5 : 0,
-                            duration: duration,
-                            curve: PantasCurves.houseOut,
-                            child: Icon(
-                              Icons.expand_more,
-                              size: 16,
-                              color: t.colors.secondaryLabel,
+                          Expanded(
+                            child: Text(
+                              title,
+                              style: t.style(16, weight: FontWeight.w600),
                             ),
                           ),
+                          if (detail != null) ...[
+                            const SizedBox(width: 12),
+                            // One chevron turns, as the phone's does.
+                            AnimatedRotation(
+                              turns: expanded ? .5 : 0,
+                              duration: duration,
+                              curve: PantasCurves.houseOut,
+                              child: Icon(
+                                Icons.expand_more,
+                                size: 16,
+                                color: t.colors.secondaryLabel,
+                              ),
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
                 Padding(
                   padding: const EdgeInsets.only(right: 6),
                   child: SizedBox.square(

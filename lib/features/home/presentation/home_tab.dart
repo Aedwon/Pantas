@@ -118,6 +118,8 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
   Widget build(BuildContext context) {
     final examId = widget.examId;
     final settings = ref.watch(userSettingsProvider).valueOrNull;
+    final examName =
+        ref.watch(activeExamFocusProvider).valueOrNull?.exam?.shortName;
     final now = DateTime.now();
     Widget todayScreen() => HomeTodayScreen(
           key: ValueKey('today-$examId-${settings?.examDate?.storageValue}'),
@@ -163,6 +165,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
                 ? settings?.examDate
                 : null,
             requireDay: _dateSheet == HomeNoticeKind.monthOnly,
+            examName: examName,
             saving: _saving,
             failed: _failed,
             onCancel: _closeDate,
@@ -181,6 +184,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
         initial:
             _dateSheet == HomeNoticeKind.monthOnly ? settings?.examDate : null,
         requireDay: _dateSheet == HomeNoticeKind.monthOnly,
+        examName: examName,
         saving: _saving,
         failed: _failed,
         onSave: (date) => unawaited(_saveDate(date)),

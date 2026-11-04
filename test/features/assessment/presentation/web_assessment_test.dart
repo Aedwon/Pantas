@@ -23,6 +23,38 @@ void main() {
       Choice(id: 'd', label: 'D', text: 'Golgi apparatus', isCorrect: false),
     ],
   );
+  testWidgets('wide: only the last question labels the button Finish',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(1440, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    Future<void> show(int index) => tester.pumpWidget(
+          MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: Scaffold(
+              body: WebAssessmentLayout(
+                question: question,
+                subject: 'Science · Biology',
+                examName: 'CSE',
+                index: index,
+                total: 30,
+                onPick: (_) {},
+                onNext: () {},
+                onLeave: () {},
+              ),
+            ),
+          ),
+        );
+    await show(28);
+    expect(find.widgetWithText(WebButton, 'Next'), findsOneWidget);
+    expect(find.text('Finish'), findsNothing);
+    await show(29);
+    expect(find.widgetWithText(WebButton, 'Finish'), findsOneWidget);
+    expect(find.text('Next'), findsNothing);
+  });
+
   for (final dark in [false, true]) {
     testWidgets('wide assessment question, picked and leave, dark=$dark',
         (tester) async {

@@ -180,6 +180,12 @@ class ContentRenderer extends StatelessWidget {
   }
 
   String string(Object? value) => value is String ? value : '';
+
+  /// A credit that is only "Pantas" is our own work and needs no caption.
+  /// Third-party credits stay.
+  @visibleForTesting
+  static String shownCredit(String credit) =>
+      credit.trim().toLowerCase() == 'pantas' ? '' : credit;
   List<Map<String, Object?>> maps(Object? value) => value is List<Object?>
       ? value.whereType<Map<String, Object?>>().toList()
       : const [];
@@ -695,7 +701,7 @@ class ContentRenderer extends StatelessWidget {
                 imageSemantics: false,
                 figure: Builder(builder: (context) => table(context, block)),
                 label: string(block['semanticsLabel']),
-                credit: string(block['credit']),
+                credit: shownCredit(string(block['credit'])),
               )
             : table(context, block);
       case 'example':
@@ -710,7 +716,7 @@ class ContentRenderer extends StatelessWidget {
           reader: readerFigures,
           figure: figure,
           label: string(block['semanticsLabel']),
-          credit: string(block['credit']),
+          credit: shownCredit(string(block['credit'])),
         );
       case 'image':
         final asset = block['asset'];
@@ -726,10 +732,11 @@ class ContentRenderer extends StatelessWidget {
           reader: readerFigures,
           url: url,
           label: string(block['alt']),
-          credit: asset is Map<String, Object?> &&
-                  string(asset['credit']).isNotEmpty
-              ? string(asset['credit'])
-              : string(block['credit']),
+          credit: shownCredit(
+            asset is Map<String, Object?> && string(asset['credit']).isNotEmpty
+                ? string(asset['credit'])
+                : string(block['credit']),
+          ),
         );
       default:
         return fallback(context);

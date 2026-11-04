@@ -277,24 +277,25 @@ void main() {
       isTrue,
     );
   });
-  testWidgets('unknown day uses the approved plan error layout',
+  PlanDayView unknownDay(DateTime date) => PlanDayView(
+        date: date,
+        plan: null,
+        remaining: null,
+        lessons: const [],
+        kind: 'unknown',
+      );
+
+  testWidgets('an unknown day still to come uses the approved error layout',
       (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          planDayViewProvider('2026-10-18').overrideWith(
-            (_) async => PlanDayView(
-              date: DateTime(2026, 10, 18),
-              plan: null,
-              remaining: null,
-              lessons: const [],
-              kind: 'unknown',
-            ),
-          ),
+          planDayViewProvider('2099-01-02')
+              .overrideWith((_) async => unknownDay(DateTime(2099, 1, 2))),
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
-          home: const PlanDayScreen(date: '2026-10-18'),
+          home: const PlanDayScreen(date: '2099-01-02'),
         ),
       ),
     );
@@ -304,6 +305,87 @@ void main() {
       isTrue,
     );
     expect(find.text('Could not load your plan.'), findsOneWidget);
+  });
+
+  testWidgets('a day before the plan began says so, with no error',
+      (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18')
+              .overrideWith((_) async => unknownDay(DateTime(2026, 10, 18))),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanDayScreen(date: '2026-10-18'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(StateView), findsNothing);
+    expect(find.text('Could not load your plan.'), findsNothing);
+    expect(find.text('Try Again'), findsNothing);
+    expect(
+      find.text('Your plan had not started on this day.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('the week strip opens no card for a day before the plan began',
+      (tester) async {
+    late BuildContext inside;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18')
+              .overrideWith((_) async => unknownDay(DateTime(2026, 10, 18))),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: Builder(
+            builder: (context) {
+              inside = context;
+              return const Scaffold(body: Text('Home'));
+            },
+          ),
+        ),
+      ),
+    );
+    unawaited(showPlanPastDay(inside, DateTime(2026, 10, 18)));
+    await tester.pumpAndSettle();
+    expect(find.byType(PlanDayScreen), findsNothing);
+    expect(find.text('Could not load your plan.'), findsNothing);
+  });
+
+  testWidgets(
+      'a card opened while the day was slow closes itself when the '
+      'day turns out to be before the plan', (tester) async {
+    final slow = Completer<PlanDayView>();
+    late BuildContext inside;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18').overrideWith((_) => slow.future),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: Builder(
+            builder: (context) {
+              inside = context;
+              return const Scaffold(body: Text('Home'));
+            },
+          ),
+        ),
+      ),
+    );
+    unawaited(showPlanPastDay(inside, DateTime(2026, 10, 18)));
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byType(PlanDayScreen), findsOneWidget);
+    slow.complete(unknownDay(DateTime(2026, 10, 18)));
+    await tester.pumpAndSettle();
+    expect(find.byType(PlanDayScreen), findsNothing);
+    expect(find.text('Could not load your plan.'), findsNothing);
   });
   testWidgets(
       'history appends without replacing the visible plan while loading',

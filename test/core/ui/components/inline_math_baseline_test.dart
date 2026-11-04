@@ -57,7 +57,7 @@ void main() {
   // Each sentence fits one line at phone width, so the line's baseline is the
   // paragraph's first baseline.
   const sentences = [
-    r'Next: $2,5,8$',
+    r'Next: $2x,5,8$',
     r'Add $x+3$ now',
     r'Half: $\frac{1}{2}$ ok',
     r'Solve $x^2+5$ ok',

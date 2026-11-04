@@ -544,7 +544,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                         ),
                         const Spacer(),
                         PantasButton(
-                          label: 'Next',
+                          label: _index + 1 == session.questions.length
+                              ? 'Finish'
+                              : 'Next',
                           height: 44,
                           radius: 99,
                           fontSize: 16,

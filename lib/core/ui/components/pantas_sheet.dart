@@ -1,8 +1,11 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
@@ -39,8 +42,56 @@ class PantasSheet extends StatefulWidget {
   State<PantasSheet> createState() => _PantasSheetState();
 }
 
-class _PantasSheetState extends State<PantasSheet> {
+class _PantasSheetState extends State<PantasSheet>
+    with OverlayFocusReturn<PantasSheet> {
   double _dragDistance = 0;
+
+  /// Whether this sheet is the one hiding the phone tab bar. The bar floats
+  /// above the page, so it would cover the sheet's footer button. Another
+  /// owner (the Bookmarks sheet) that already hid it keeps it.
+  bool _hidesBar = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.open) _hideBar();
+  }
+
+  @override
+  void didUpdateWidget(PantasSheet oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.open == oldWidget.open) return;
+    if (widget.open) {
+      rememberFocus();
+      _hideBar();
+    } else {
+      returnFocus();
+    }
+  }
+
+  @override
+  void dispose() {
+    _showBar();
+    super.dispose();
+  }
+
+  // The shell is building, or the tree is locked, so the bar changes a moment
+  // later.
+  void _hideBar() {
+    if (_hidesBar || phoneTabBarHidden.value) return;
+    _hidesBar = true;
+    scheduleMicrotask(() {
+      if (_hidesBar) phoneTabBarHidden.value = true;
+    });
+  }
+
+  void _showBar() {
+    if (!_hidesBar) return;
+    _hidesBar = false;
+    scheduleMicrotask(() {
+      if (!_hidesBar) phoneTabBarHidden.value = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +119,8 @@ class _PantasSheetState extends State<PantasSheet> {
           tween: Tween(begin: still ? endpoint : 0, end: endpoint),
           duration: still ? Duration.zero : duration,
           curve: slideSheet ? PantasCurves.slideC : PantasCurves.houseOut,
+          // The bar returns once the sheet has left, not while it slides.
+          onEnd: widget.open ? null : _showBar,
           builder: (context, sheetProgress, child) => Stack(
             fit: StackFit.expand,
             children: [
@@ -120,6 +173,7 @@ class _PantasSheetState extends State<PantasSheet> {
                             widget.onDismiss,
                       },
                       child: FocusScope(
+                        node: overlayScope,
                         child: Focus(
                           autofocus: widget.open,
                           child: Semantics(

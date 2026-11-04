@@ -179,6 +179,31 @@ void main() {
     await tester.pumpAndSettle();
     expect(cleared, 0);
     expect(find.text(body), findsOneWidget);
+    expect(find.text('Not confirmed yet.'), findsOneWidget);
+    // The line sits under the buttons.
+    expect(
+      tester.getTopLeft(find.text('Not confirmed yet.')).dy,
+      greaterThan(tester.getBottomLeft(find.text('Change Email')).dy),
+    );
+  });
+
+  testWidgets('no feedback line shows before anything is pressed',
+      (tester) async {
+    await pump(tester);
+    expect(find.text('Not confirmed yet.'), findsNothing);
+    expect(find.text('Email sent.'), findsNothing);
+  });
+
+  testWidgets('a feedback line clears when the next action starts',
+      (tester) async {
+    await pump(tester);
+    await tester.tap(find.text('Check Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Not confirmed yet.'), findsOneWidget);
+    gateway.failure = const GuardianGatewayException('unavailable');
+    await tester.tap(find.text('Check Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Not confirmed yet.'), findsNothing);
   });
 
   testWidgets('Resend Email sends to the contact kept on this device',
@@ -192,6 +217,8 @@ void main() {
     await tester.pumpAndSettle();
     expect(gateway.sent.single.email, 'maria@gmail.com');
     expect(changed, 0);
+    expect(find.text('Email sent.'), findsOneWidget);
+    expect(find.text('Not confirmed yet.'), findsNothing);
   });
 
   testWidgets('Resend Email with no saved contact opens Change Email',
@@ -233,7 +260,17 @@ void main() {
     await tester.tap(find.text('Resend Email'));
     await tester.pumpAndSettle();
     expect(find.text('Waiting for your parent or guardian'), findsOneWidget);
-    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(find.text('Could not send the email. Try again.'), findsOneWidget);
+    expect(find.text('Email sent.'), findsNothing);
     expect(sink.errors, hasLength(1));
+  });
+
+  testWidgets('a failed Check Again keeps the generic retry', (tester) async {
+    await pump(tester);
+    gateway.failure = const GuardianGatewayException('unavailable');
+    await tester.tap(find.text('Check Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(find.text('Not confirmed yet.'), findsNothing);
   });
 }

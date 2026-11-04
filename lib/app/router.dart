@@ -25,6 +25,7 @@ import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/app/routes/onboarding_routes.dart';
 import 'package:pantas/app/routes/guardian_routes.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/domain/guardian_copy.dart';
 import 'package:pantas/app/routes/wrapped_routes.dart';
 import 'package:pantas/app/routes/states_routes.dart';
 import 'package:pantas/app/routes/dev_routes.dart';
@@ -69,6 +70,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       // legal pages it links to must open for them too.
       final path = state.matchedLocation;
       if (path == '/guardian') return null;
+      // The notice for teens is not written yet, so its address opens the
+      // Privacy Policy, the nearest document, not a not-found page.
+      if (path == '/legal/teens' && !teenNoticeReady) return '/legal/privacy';
       final guardian = ref.read(guardianGateProvider).valueOrNull;
       if (guardian == GuardianGate.waiting) {
         // A minor is held on Waiting, or on the form to change the email,

@@ -224,7 +224,11 @@ void main() {
     expect(wheel.values[wheel.selectedIndex], '2013');
     expect(tester.takeException(), isNull);
   });
-  Future<void> pumpFramed(WidgetTester tester, {required bool wide}) async {
+  Future<void> pumpFramed(
+    WidgetTester tester, {
+    required bool wide,
+    int year = 2026,
+  }) async {
     debugWebPlatformOverride = wide ? true : null;
     addTearDown(() => debugWebPlatformOverride = null);
     final size = wide ? const Size(1440, 900) : const Size(390, 844);
@@ -246,7 +250,7 @@ void main() {
             child: Scaffold(
               body: _FrameHost(
                 child: OnboardingAgeGateStep(
-                  currentYear: 2026,
+                  currentYear: year,
                   onAgeGatePassed: () {},
                   onBack: () {},
                 ),
@@ -258,6 +262,49 @@ void main() {
     );
     await tester.pumpAndSettle();
   }
+
+  group('wide: the range hint under the year field', () {
+    Future<void> type(WidgetTester tester, String text) async {
+      await tester.enterText(find.byType(TextField), text);
+      await tester.pump();
+    }
+
+    testWidgets('shows for a complete year outside the range', (tester) async {
+      await pumpFramed(tester, wide: true);
+      await type(tester, '1925');
+      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
+      await type(tester, '2027');
+      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
+    });
+
+    testWidgets('is quiet in range and while the year is incomplete',
+        (tester) async {
+      await pumpFramed(tester, wide: true);
+      for (final text in ['2012', '1926', '2026', '19', '', '2']) {
+        await type(tester, text);
+        expect(
+          find.textContaining('Enter a year from'),
+          findsNothing,
+          reason: text,
+        );
+      }
+    });
+
+    testWidgets('takes its range from the current year, not fixed numbers',
+        (tester) async {
+      await pumpFramed(tester, wide: true, year: 2027);
+      await type(tester, '1926');
+      expect(find.text('Enter a year from 1927 to 2027.'), findsOneWidget);
+      await type(tester, '2027');
+      expect(find.textContaining('Enter a year from'), findsNothing);
+    });
+
+    testWidgets('is not drawn on the phone, which has no typed field',
+        (tester) async {
+      await pumpFramed(tester, wide: false);
+      expect(find.textContaining('Enter a year from'), findsNothing);
+    });
+  });
 
   testWidgets('wide: the year field has focus as the step opens',
       (tester) async {

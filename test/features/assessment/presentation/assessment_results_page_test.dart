@@ -145,7 +145,7 @@ void main() {
     expect(find.text('Verbal'), findsOneWidget);
     expect(find.text('50%'), findsOneWidget);
     expect(find.text('Vocabulary'), findsOneWidget);
-    expect(find.text('YOUR PLAN STARTS WITH'), findsOneWidget);
+    expect(find.text('WEAKEST TOPIC'), findsOneWidget);
     expect(find.text('in 24 minutes'), findsNothing);
   });
   testWidgets('the ring counts only the subjects the rows show',

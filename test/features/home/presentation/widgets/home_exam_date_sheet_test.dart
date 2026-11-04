@@ -86,4 +86,32 @@ void main() {
       isTrue,
     );
   });
+
+  testWidgets('the wide day question names the exam (HM_MonthOnlyPick)',
+      (tester) async {
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    for (final name in ['UPCAT', null]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: HomeExamDateSheet(
+                web: true,
+                today: today,
+                initial: ExamDate.inMonth(year: 2026, month: 11),
+                requireDay: true,
+                examName: name,
+                onSave: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Which day is your ${name ?? 'exam'}?'), findsOneWidget);
+    }
+  });
 }

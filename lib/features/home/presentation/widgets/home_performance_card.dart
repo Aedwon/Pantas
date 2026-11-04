@@ -202,10 +202,12 @@ class _SeeAllRow extends StatelessWidget {
         ),
         shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
         backgroundColor: WidgetStateProperty.resolveWith(
-          (s) =>
-              s.contains(WidgetState.hovered) || s.contains(WidgetState.focused)
-                  ? t.rowHover
-                  : Colors.transparent,
+          (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
+              ? t.rowHover
+              : Colors.transparent,
+        ),
+        side: WidgetStateProperty.resolveWith(
+          (s) => webFocusRing(s, t.colors.accent),
         ),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
       ),

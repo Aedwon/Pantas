@@ -213,6 +213,33 @@ void main() {
       expect(height(tester), folded);
     });
 
+    testWidgets('the header hover tint keeps the card corner and reaches the X',
+        (tester) async {
+      await mountNotice(tester, expanded: true);
+      await tester.pumpAndSettle();
+      final header = find.byType(TextButton);
+      final clip = tester.widget<ClipRRect>(
+        find.ancestor(of: header, matching: find.byType(ClipRRect)).first,
+      );
+      expect(
+        clip.borderRadius,
+        const BorderRadius.only(topLeft: Radius.circular(16)),
+      );
+      expect(
+        tester.getTopLeft(header).dy,
+        tester.getTopLeft(find.byType(HomeWebNotice)).dy,
+      );
+      final close = find.byTooltip('Dismiss');
+      expect(
+        tester.getTopRight(header).dx,
+        tester
+            .getTopLeft(
+              find.ancestor(of: close, matching: find.byType(Padding)).first,
+            )
+            .dx,
+      );
+    });
+
     testWidgets('reduced motion shows the detail at once', (tester) async {
       await mountNotice(tester, expanded: false, still: true);
       await tester.pumpAndSettle();

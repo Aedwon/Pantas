@@ -235,6 +235,18 @@ void main() {
     await tester.pumpAndSettle();
     final save = find.widgetWithText(PantasButton, 'Save');
     expect(tester.widget<PantasButton>(save).onPressed, isNull);
+    // The row runs on to the card's own edge, not to the notice padding.
+    expect(
+      tester
+          .widget<SingleChildScrollView>(
+            find.ancestor(
+              of: find.byKey(const ValueKey('notice-day-11')),
+              matching: find.byType(SingleChildScrollView),
+            ),
+          )
+          .clipBehavior,
+      Clip.none,
+    );
     final day = find.byKey(const ValueKey('notice-day-11'));
     await tester.ensureVisible(day);
     await tester.tap(day);

@@ -115,7 +115,7 @@ class WebAssessmentLayout extends StatelessWidget {
                   compact: true,
                   counter: '${index + 1} of $total',
                   action: WebButton(
-                    label: 'Next',
+                    label: index + 1 == total ? 'Finish' : 'Next',
                     keyHint: 'Enter',
                     pill: true,
                     busy: saving,
@@ -361,7 +361,7 @@ class WebAssessmentResults extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('YOUR PLAN STARTS WITH', style: t.eb),
+                                  Text('WEAKEST TOPIC', style: t.eb),
                                   const SizedBox(height: 4),
                                   Row(
                                     children: [

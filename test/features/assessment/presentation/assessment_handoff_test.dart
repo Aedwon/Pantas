@@ -123,7 +123,7 @@ void main() {
     if (wide) {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     } else {
-      await tester.tap(find.text('Next'));
+      await tester.tap(find.text('Finish'));
     }
   }
 
@@ -271,7 +271,7 @@ void main() {
     }
   });
 
-  testWidgets('slow saving shows work on Next only after 400 ms',
+  testWidgets('slow saving shows work on Finish only after 400 ms',
       (tester) async {
     final gate = Completer<void>();
     await pumpRoutes(
@@ -289,13 +289,13 @@ void main() {
     expect(find.text('A question?'), findsOneWidget);
     expect(find.byType(SkeletonQuestionPage), findsNothing);
     expect(
-      tester.widget<WebButton>(find.widgetWithText(WebButton, 'Next')).busy,
+      tester.widget<WebButton>(find.widgetWithText(WebButton, 'Finish')).busy,
       isFalse,
     );
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.text('A question?'), findsOneWidget);
     expect(
-      tester.widget<WebButton>(find.widgetWithText(WebButton, 'Next')).busy,
+      tester.widget<WebButton>(find.widgetWithText(WebButton, 'Finish')).busy,
       isTrue,
     );
     gate.complete();

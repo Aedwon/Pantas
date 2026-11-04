@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_day.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
@@ -106,4 +107,38 @@ void main() {
     expect(find.text('CSE is today.'), findsOneWidget);
     expect(find.textContaining('10 easy reviews are here'), findsOneWidget);
   });
+
+  for (final state in [HomeState.nothingDue, HomeState.dayOff]) {
+    testWidgets('the ${state.name} icon circle shows against the dark card',
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildDarkTheme(web: true),
+          home: MediaQuery(
+            data: const MediaQueryData(size: Size(1440, 900)),
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: HomeStateCard(
+                  web: true,
+                  state: state,
+                  examName: 'Civil Service',
+                  examShortName: 'CSE',
+                  onPrimary: () {},
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      final circle = tester
+          .widgetList<Container>(find.byType(Container))
+          .map((c) => c.decoration)
+          .whereType<BoxDecoration>()
+          .firstWhere((d) => d.shape == BoxShape.circle);
+      expect(
+        circle.color,
+        isNot(const WebTokens(Brightness.dark).colors.surface),
+      );
+    });
+  }
 }
