@@ -1089,8 +1089,30 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     }
   }
 
+  /// A solution opening or closing changes the page's length without a scroll
+  /// event, so the progress bar and the pull-to-advance end check would keep
+  /// the old measure. Only they refresh. The page also grows by itself when
+  /// the Read line draws at the end, and that must not count: a student who
+  /// reached the end keeps the pull handle. A save or a Read check from a
+  /// size change could also race the resume position.
+  bool _onResized(ReaderResizedNotification notification) {
+    if (!_scrollController.hasClients || widget.ending != null) return true;
+    final offset = _scrollController.offset;
+    final maxExtent = _scrollController.position.maxScrollExtent;
+    _progress.value =
+        maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
+    _isAtEnd.value = maxExtent <= 0 || offset >= maxExtent - 24;
+    return true;
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      NotificationListener<ReaderResizedNotification>(
+        onNotification: _onResized,
+        child: _content(context),
+      );
+
+  Widget _content(BuildContext context) {
     final reader = widget.reader;
     final activation = _activation;
     final failedPosition = _failedPosition;
@@ -1168,7 +1190,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                       ContentRenderer(
                         blocks: reader.lesson.bodyJson,
                         readerFigures: true,
-                        style: t.style(18, height: 1.65),
                       ),
                       if (_activityFailed)
                         saveFailureLine(

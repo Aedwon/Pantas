@@ -84,10 +84,10 @@ void main() {
     final core = styleOf(tester, 'Core Concept');
     final examples = styleOf(tester, 'Examples');
     final traps = styleOf(tester, 'Traps to Watch For');
-    expect(core.fontSize, 24);
+    expect(core.fontSize, 32);
     expect(core.fontWeight, FontWeight.w700);
-    expect(core.letterSpacing, -.384);
-    expect(core.height, 1.3);
+    expect(core.letterSpacing, -.65);
+    expect(core.height, 1.18);
     for (final other in [examples, traps]) {
       expect(core.fontSize, other.fontSize);
       expect(core.fontWeight, other.fontWeight);
@@ -97,7 +97,7 @@ void main() {
     }
   });
 
-  testWidgets('phone keeps its 22 px section heading unchanged', (
+  testWidgets('phone draws its section headings 26 px', (
     tester,
   ) async {
     await pumpAt(
@@ -110,9 +110,9 @@ void main() {
     expect(find.text('CORE CONCEPT'), findsNothing);
     for (final label in ['Core Concept', 'Examples', 'Traps to Watch For']) {
       final style = styleOf(tester, label);
-      expect(style.fontSize, 22, reason: label);
-      expect(style.height, 1.25, reason: label);
-      expect(style.letterSpacing, -.264, reason: label);
+      expect(style.fontSize, 26, reason: label);
+      expect(style.height, 1.18, reason: label);
+      expect(style.letterSpacing, -.42, reason: label);
     }
   });
 
@@ -175,6 +175,14 @@ void main() {
     // One label in the outline, one heading in the lesson.
     expect(find.text('Core Concept'), findsNWidgets(2));
     expect(find.text('Traps to Watch For'), findsWidgets);
+    // Sections are told apart by space alone: 104 px above a later heading.
+    Finder rich(String text) => find.byWidgetPredicate(
+          (w) => w is RichText && w.text.toPlainText() == text,
+        );
+    final last = tester.getBottomLeft(
+      rich('Paragraph 0.13 of the lesson text.').last,
+    );
+    expect(tester.getTopLeft(rich('Examples').last).dy - last.dy, 104);
     final outlineEntry = find
         .ancestor(
           of: find.text('Traps to Watch For').first,

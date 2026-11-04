@@ -781,17 +781,21 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                                   i < groups.length;
                                                   i++)
                                                 Padding(
-                                                  key: _anchors[i],
+                                                  // Space alone separates the
+                                                  // sections, so the anchor is
+                                                  // the group, not its gap.
                                                   padding: EdgeInsets.only(
-                                                    top: i == 0 ? 0 : 16,
+                                                    top: i == 0
+                                                        ? 0
+                                                        : ContentRenderer
+                                                            .sectionGap(
+                                                            context,
+                                                          ),
                                                   ),
                                                   child: ContentRenderer(
+                                                    key: _anchors[i],
                                                     blocks: groups[i],
                                                     readerFigures: true,
-                                                    style: t.style(
-                                                      18,
-                                                      height: 1.65,
-                                                    ),
                                                   ),
                                                 ),
                                             ],

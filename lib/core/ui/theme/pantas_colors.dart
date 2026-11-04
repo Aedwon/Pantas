@@ -49,6 +49,13 @@ class PantasColors extends ThemeExtension<PantasColors> {
     required this.switchThumb,
     required this.switchThumbShadow,
     required this.segmentedShadow,
+    required this.readerBody,
+    required this.readerStrong,
+    required this.readerDeep,
+    required this.readerNoteText,
+    required this.readerWarn,
+    required this.readerWarnTint,
+    required this.readerWarnText,
   });
 
   final Color background;
@@ -122,6 +129,17 @@ class PantasColors extends ThemeExtension<PantasColors> {
   final Color switchThumbShadow;
   // DT_TopicsA selected segment shadow.
   final Color segmentedShadow;
+  // Lesson reader type tiers. Body text sits a step below bold and display
+  // maths, so emphasis reads without more weight (Aedwon, Nov 4).
+  final Color readerBody;
+  final Color readerStrong;
+  // Reader solution panel, one step deeper than the example card.
+  final Color readerDeep;
+  // Reader note cards: text on accentTint, and the warn card's three colors.
+  final Color readerNoteText;
+  final Color readerWarn;
+  final Color readerWarnTint;
+  final Color readerWarnText;
 
   static const light = PantasColors(
     background: Color(0xFFF5F5F7),
@@ -170,6 +188,13 @@ class PantasColors extends ThemeExtension<PantasColors> {
     switchThumb: Color(0xFFFFFFFF),
     switchThumbShadow: Color(0x33000000),
     segmentedShadow: Color(0x1A000000),
+    readerBody: Color(0xFF3C3C43),
+    readerStrong: Color(0xFF111114),
+    readerDeep: Color(0xFFF5F5F7),
+    readerNoteText: Color(0xFF0A4D42),
+    readerWarn: Color(0xFFC1121F),
+    readerWarnTint: Color(0xFFFDECEE),
+    readerWarnText: Color(0xFF7A1420),
   );
 
   static const dark = PantasColors(
@@ -219,6 +244,13 @@ class PantasColors extends ThemeExtension<PantasColors> {
     switchThumb: Color(0xFFFFFFFF),
     switchThumbShadow: Color(0x33000000),
     segmentedShadow: Color(0x1A000000),
+    readerBody: Color(0xFFC9C9CD),
+    readerStrong: Color(0xFFFFFFFF),
+    readerDeep: Color(0xFF191919),
+    readerNoteText: Color(0xFFD7F2EA),
+    readerWarn: Color(0xFFE0706B),
+    readerWarnTint: Color(0xFF2C1D1C),
+    readerWarnText: Color(0xFFF4D6D4),
   );
 
   /// Board accuracy colors, clamped below 40% and above 80%.
@@ -283,6 +315,13 @@ class PantasColors extends ThemeExtension<PantasColors> {
     Color? switchThumb,
     Color? switchThumbShadow,
     Color? segmentedShadow,
+    Color? readerBody,
+    Color? readerStrong,
+    Color? readerDeep,
+    Color? readerNoteText,
+    Color? readerWarn,
+    Color? readerWarnTint,
+    Color? readerWarnText,
   }) =>
       PantasColors(
         background: background ?? this.background,
@@ -333,6 +372,13 @@ class PantasColors extends ThemeExtension<PantasColors> {
         switchThumb: switchThumb ?? this.switchThumb,
         switchThumbShadow: switchThumbShadow ?? this.switchThumbShadow,
         segmentedShadow: segmentedShadow ?? this.segmentedShadow,
+        readerBody: readerBody ?? this.readerBody,
+        readerStrong: readerStrong ?? this.readerStrong,
+        readerDeep: readerDeep ?? this.readerDeep,
+        readerNoteText: readerNoteText ?? this.readerNoteText,
+        readerWarn: readerWarn ?? this.readerWarn,
+        readerWarnTint: readerWarnTint ?? this.readerWarnTint,
+        readerWarnText: readerWarnText ?? this.readerWarnText,
       );
 
   @override
@@ -393,6 +439,13 @@ class PantasColors extends ThemeExtension<PantasColors> {
       switchThumbShadow:
           Color.lerp(switchThumbShadow, other.switchThumbShadow, t)!,
       segmentedShadow: Color.lerp(segmentedShadow, other.segmentedShadow, t)!,
+      readerBody: Color.lerp(readerBody, other.readerBody, t)!,
+      readerStrong: Color.lerp(readerStrong, other.readerStrong, t)!,
+      readerDeep: Color.lerp(readerDeep, other.readerDeep, t)!,
+      readerNoteText: Color.lerp(readerNoteText, other.readerNoteText, t)!,
+      readerWarn: Color.lerp(readerWarn, other.readerWarn, t)!,
+      readerWarnTint: Color.lerp(readerWarnTint, other.readerWarnTint, t)!,
+      readerWarnText: Color.lerp(readerWarnText, other.readerWarnText, t)!,
     );
   }
 }
