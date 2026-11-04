@@ -58,5 +58,15 @@
       6
     ],
     "status": "split"
+  },
+  {
+    "original": "lesson-biology-cellular-metabolism",
+    "new": "lesson-biology-cellular-respiration-and-fermentation",
+    "newPath": "content/lessons/science/biology/cellular-respiration-and-fermentation.md",
+    "questions": [
+      6,
+      14
+    ],
+    "status": "split"
   }
 ]

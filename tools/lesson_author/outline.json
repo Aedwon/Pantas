@@ -406,8 +406,13 @@
               "sections": []
             },
             {
-              "title": "Cellular Metabolism (Photosynthesis, Cellular Respiration)",
+              "title": "Cellular Metabolism: Enzymes, Biomolecules and Photosynthesis",
               "slug": "cellular-metabolism",
+              "sections": []
+            },
+            {
+              "title": "Cellular Respiration and Fermentation",
+              "slug": "cellular-respiration-and-fermentation",
               "sections": []
             },
             {

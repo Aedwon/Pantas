@@ -25,27 +25,6 @@ questions:
       In the simplified net equation, oxygenic photosynthesis uses carbon dioxide, water, and light energy. It forms glucose, which stores energy, and releases oxygen.
     approved: true
 
-  - id: q-biology-cellular-metabolism-0002
-    type: "identify"
-    difficulty: "easy"
-    stem: |
-      Which list gives the main chemical products and usable energy carrier formed during complete aerobic respiration of glucose?
-    choices:
-      - text: "Carbon dioxide, water, ATP"
-        correct: true
-      - text: "Glucose, oxygen, stored chemical energy"
-        rationale: |
-          This mistakes a reactant pair for a product pair. Glucose and oxygen are both central to the process, so they seem to fit. Check which side of the overall equation they occupy.
-      - text: "Glucose, water, ATP made from light energy"
-        rationale: |
-          This leaves carbon partly stored instead of fully oxidized. ATP production can seem to mean only a small change in glucose. Check the carbon-containing product in the complete overall reaction.
-      - text: "Carbon dioxide, oxygen, ATP"
-        rationale: |
-          This reverses the direction of oxygen use. Photosynthesis supplies glucose and oxygen, so the same pair can seem like an output here. Check whether this process builds glucose or breaks it down.
-    explanation: |
-      Aerobic respiration uses glucose and oxygen. It releases carbon dioxide and water and transfers some food energy into ATP. Some energy also leaves as heat.
-    approved: true
-
   - id: q-biology-cellular-metabolism-0003
     type: "identify"
     difficulty: "medium"
@@ -65,27 +44,6 @@ questions:
           This confuses making the proteins needed for photosynthesis with the process itself. Ribosomes build cell proteins, so they help indirectly. Check which organelle carries out photosynthesis.
     explanation: |
       Plant cells carry out photosynthesis in chloroplasts. Chlorophyll in these organelles captures light energy.
-    approved: true
-
-  - id: q-biology-cellular-metabolism-0004
-    type: "identify"
-    difficulty: "medium"
-    stem: |
-      In a eukaryotic cell, which organelle is associated with the citric acid cycle and oxidative phosphorylation?
-    choices:
-      - text: "Mitochondrion"
-        correct: true
-      - text: "Chloroplast"
-        rationale: |
-          This confuses photosynthesis with aerobic breakdown of food. Both processes involve energy-rich molecules, so the organelles can seem interchangeable. Check whether the question asks about making food or using it.
-      - text: "Nucleus"
-        rationale: |
-          This confuses control of cell activities with their location. The nucleus supplies instructions for many respiration proteins. Check where the later aerobic stages actually occur.
-      - text: "Rough endoplasmic reticulum"
-        rationale: |
-          This confuses building enzymes with using them in respiration. Ribosomes make proteins needed by the cell, so they seem part of energy production. Check which organelle hosts the later stages.
-    explanation: |
-      Mitochondria carry out later stages of aerobic respiration in eukaryotic cells. These stages produce much of the cell's ATP.
     approved: true
 
   - id: q-biology-cellular-metabolism-0005
@@ -109,27 +67,6 @@ questions:
       Chloroplasts use light energy to build organic molecules from carbon dioxide. Damaging their light-capturing machinery reduces photosynthesis, so less glucose can be made from carbon dioxide.
     approved: true
 
-  - id: q-biology-cellular-metabolism-0006
-    type: "predict-outcome"
-    difficulty: "medium"
-    stem: |
-      Mitochondrial function is disrupted in a eukaryotic cell, but cytosolic enzymes still work and fermentation can regenerate electron carriers. Which stage of glucose breakdown can still occur in the cytosol?
-    choices:
-      - text: "Glycolysis"
-        correct: true
-      - text: "Citric acid cycle"
-        rationale: |
-          This places glycolysis in the damaged organelle. Much aerobic ATP production is associated with mitochondria, so every stage can seem to occur there. Check where glucose breakdown begins.
-      - text: "Light-dependent reactions"
-        rationale: |
-          This treats mitochondria as the location of photosynthesis. Both processes handle energy, so they seem to use the same organelle. Check which organelle captures light in plant cells.
-      - text: "Nuclear glucose oxidation"
-        rationale: |
-          This moves glycolysis into the nucleus. DNA gives instructions for enzymes, so enzyme action may seem to happen there too. Check the location of the pathway rather than its instructions.
-    explanation: |
-      Later aerobic stages use mitochondria in eukaryotic cells. Glycolysis takes place in the cytosol. Its location allows glycolysis to occur even when mitochondrial function is disrupted.
-    approved: true
-
   - id: q-biology-cellular-metabolism-0007
     type: "cause-effect"
     difficulty: "medium"
@@ -149,27 +86,6 @@ questions:
           This treats sunlight as a source of atoms. Light powers photosynthesis, so it may seem to supply the oxygen itself. Check whether energy input provides matter or drives a reaction.
     explanation: |
       The oxygen gas released by oxygenic photosynthesis comes from water. Water is split during the light-dependent reactions, releasing oxygen.
-    approved: true
-
-  - id: q-biology-cellular-metabolism-0008
-    type: "classify"
-    difficulty: "hard"
-    stem: |
-      A student claims, "Plants only perform photosynthesis; only animals perform cellular respiration." Is this correct?
-    choices:
-      - text: "No; plants also carry out cellular respiration."
-        correct: true
-      - text: "Yes; making glucose removes the need for ATP in plants."
-        rationale: |
-          This assumes making glucose supplies every form of energy directly. Photosynthesis stores energy in food, so ATP production can seem unnecessary. Check whether plant cells need ATP for their work.
-      - text: "Yes; every plant cell uses photosynthesis instead of respiration."
-        rationale: |
-          This limits photosynthesis to all plant cells and excludes respiration. Green plants make food, so that can seem their only energy process. Check whether food must also supply usable ATP.
-      - text: "Yes; respiration is restricted to animals and photosynthesis to plants."
-        rationale: |
-          This restricts respiration to animals and photosynthesis to plants. These familiar groups make a simple split seem useful. Check whether plants also have ATP needs.
-    explanation: |
-      Plants need ATP for growth, transport, and repair. They carry out cellular respiration to obtain usable energy from food. Photosynthetic plant cells also use light to make organic molecules.
     approved: true
 
   - id: q-biology-cellular-metabolism-0009
@@ -193,69 +109,6 @@ questions:
       The equation uses light energy to build glucose from carbon dioxide and water. That describes the simplified net reaction of oxygenic photosynthesis.
     approved: true
 
-  - id: q-biology-cellular-metabolism-0010
-    type: "compare-contrast"
-    difficulty: "hard"
-    stem: |
-      Which comparison gives the locations of glycolysis and the later major aerobic stages in a eukaryotic cell?
-    choices:
-      - text: "Glycolysis in cytosol; later stages in mitochondria."
-        correct: true
-      - text: "Glycolysis in mitochondria; later stages in mitochondria."
-        rationale: |
-          This puts every stage inside mitochondria. Mitochondria make much of the ATP, so the whole process seems to belong there. Check the location of glycolysis first.
-      - text: "Glycolysis in cytosol; later stages also in the cytosol."
-        rationale: |
-          This puts every stage in the cytosol. Glycolysis begins there, so later stages may seem to stay in the same place. Check where the citric acid cycle occurs in eukaryotes.
-      - text: "Glycolysis in chloroplasts; later stages in chloroplasts."
-        rationale: |
-          This confuses the food-making organelle with the site of glucose breakdown. Chloroplasts make glucose, so they seem likely to process it too. Check whether the process is photosynthesis or aerobic respiration.
-    explanation: |
-      Glycolysis takes place in the cytosol. Later aerobic stages are associated with mitochondria. These separate locations divide the overall pathway across cell compartments.
-    approved: true
-
-  - id: q-biology-cellular-metabolism-0011
-    type: "structure-function"
-    difficulty: "hard"
-    stem: |
-      What is the role of oxygen in aerobic cellular respiration?
-    choices:
-      - text: "Final electron acceptor"
-        correct: true
-      - text: "Gas released when glucose is formed"
-        rationale: |
-          This reverses oxygen's role from input to output. Photosynthesis releases oxygen, so its role can be carried over to respiration. Check which overall reaction uses oxygen.
-      - text: "Carbon source used to build glucose"
-        rationale: |
-          This treats oxygen as the source of glucose carbon. Oxygen is a major input, so it may seem to supply the food molecule too. Check which input contains carbon atoms.
-      - text: "Light absorber driving ATP production"
-        rationale: |
-          This applies light capture to an aerobic-respiration input. Oxygen supports energy transfer, so it can seem to capture the energy. Check whether this pathway receives its energy from light or food.
-    explanation: |
-      In aerobic respiration, oxygen accepts electrons at the end of the pathway. This allows electron transfer to continue and supports ATP production.
-    approved: true
-
-  - id: q-biology-cellular-metabolism-0012
-    type: "compare-contrast"
-    difficulty: "medium"
-    stem: |
-      Which statement correctly relates oxygenic photosynthesis and aerobic respiration?
-    choices:
-      - text: "Their overall inputs and outputs complement one another."
-        correct: true
-      - text: "They use the same reaction sequence in opposite directions."
-        rationale: |
-          This treats complementary net equations as the same pathway run backward. Swapping input and output sides makes that seem possible. Check whether the actual reaction steps and enzymes are the same.
-      - text: "They share no substances despite occurring in living cells."
-        rationale: |
-          This separates pathways that share important substances. Their organelles and purposes differ, so they can seem unconnected. Check whether food and gases connect their overall reactions.
-      - text: "Respiration is the food-building stage within photosynthesis."
-        rationale: |
-          This makes respiration part of the photosynthetic pathway. Both happen in plants, so they can seem like stages of one process. Check whether one builds food while the other extracts usable energy from it.
-    explanation: |
-      The simplified net equations have complementary inputs and outputs. Photosynthesis can supply glucose and oxygen for aerobic respiration. Respiration releases carbon dioxide and water that can be used in photosynthesis. The two pathways use different reaction steps.
-    approved: true
-
   - id: q-biology-cellular-metabolism-0013
     type: "identify"
     difficulty: "medium"
@@ -276,150 +129,3 @@ questions:
     explanation: |
       The net equation forms one glucose molecule and six oxygen molecules. The oxygen product is written $6O_2$. Carbon dioxide, water, and light are the inputs, so the equation describes oxygenic photosynthesis.
     approved: true
-
-  - id: q-biology-cellular-metabolism-0014
-    type: "predict-outcome"
-    difficulty: "exam"
-    stem: |
-      A healthy plant cell is photosynthesizing in sunlight and has glucose and oxygen available. Can it also perform aerobic respiration at that time?
-    choices:
-      - text: "Yes; it can run both processes."
-        correct: true
-      - text: "No; respiration can happen only after dark."
-        rationale: |
-          This limits respiration to darkness. Plants release oxygen in daylight, so oxygen-consuming respiration may seem absent. Check whether ATP is needed during the day too.
-      - text: "No; plants never break down food by respiration."
-        rationale: |
-          This limits respiration to animals. Plants make their own food, so they may seem not to need food breakdown. Check how they obtain ATP for cell work.
-      - text: "Yes; but photosynthesis must stop before respiration starts."
-        rationale: |
-          This treats the two processes as mutually exclusive. They have complementary net reactions, so one may seem to cancel or stop the other. Check whether they use separate pathways.
-    explanation: |
-      A photosynthetic plant cell can carry out respiration while light is available. Respiration supplies ATP for cell work during both day and night when fuel and suitable conditions are available.
-    approved: true
-
-  - id: q-biology-cellular-metabolism-0015
-    type: "classify"
-    difficulty: "easy"
-    stem: |
-      A prokaryote carries out respiration using a final electron acceptor other than oxygen. How is this pathway classified?
-    choices:
-      - text: "Anaerobic respiration"
-        correct: true
-      - text: "Aerobic cellular respiration"
-        rationale: |
-          This treats all respiration as oxygen-dependent. Aerobic respiration is the familiar example, so its name seems to cover every kind. Check the identity of the final electron acceptor.
-      - text: "Oxygenic photosynthesis"
-        rationale: |
-          This confuses an oxygen-independent pathway with making oxygen. Both involve oxygen in their definitions, so the terms can blend together. Check whether light is used to build organic molecules.
-      - text: "Fermentation without an electron-transfer chain"
-        rationale: |
-          This treats every oxygen-independent energy pathway as fermentation. Both can occur without oxygen, so they seem interchangeable. Check whether the setup specifically describes respiration with a final electron acceptor.
-    explanation: |
-      Anaerobic respiration uses a final electron acceptor other than oxygen. It allows some prokaryotes to obtain energy without using oxygen as the final acceptor.
-    approved: false
-
-  - id: q-biology-cellular-metabolism-0016
-    type: "compare-contrast"
-    difficulty: "medium"
-    stem: |
-      Which statement describes matter and energy when photosynthesis and respiration are linked in an ecosystem?
-    choices:
-      - text: "Matter cycles; energy eventually leaves as heat."
-        correct: true
-      - text: "Matter and energy both cycle without heat loss."
-        rationale: |
-          This applies matter recycling to energy too. The overall reactions link in a cycle, so energy can seem to return in the same way. Check whether heat loss returns as usable light energy.
-      - text: "Energy cycles; all matter leaves the system as heat."
-        rationale: |
-          This swaps the behavior of matter and energy. Heat leaves the system, so atoms may seem to leave as heat too. Check whether heat is matter or transferred energy.
-      - text: "Matter is created from light whenever glucose forms."
-        rationale: |
-          This treats an energy input as a source of atoms. Light is required to build food, so it may seem to create its material. Check where the carbon atoms in glucose come from.
-    explanation: |
-      Atoms can pass between food, carbon dioxide, and water through these processes. Energy enters mainly as light and is transferred into food and ATP. It eventually spreads into the surroundings as heat.
-    approved: false
-
-  - id: q-biology-cellular-metabolism-0017
-    type: "process-ordering"
-    difficulty: "medium"
-    stem: |
-      Which sequence correctly orders the major stages of aerobic glucose breakdown in a eukaryotic cell?
-    choices:
-      - text: "Glycolysis, pyruvate oxidation, citric acid cycle, oxidative phosphorylation"
-        correct: true
-      - text: "Pyruvate oxidation, glycolysis, citric acid cycle, oxidative phosphorylation"
-        rationale: |
-          This places pyruvate processing before the stage that forms pyruvate. Both begin with food breakdown, so their order can seem flexible. Check which stage starts with glucose.
-      - text: "Citric acid cycle, pyruvate oxidation, glycolysis, oxidative phosphorylation"
-        rationale: |
-          This begins with the citric acid cycle before its inputs are prepared. The cycle is central to respiration, so it may seem to come first. Check which stages must supply its fuel.
-      - text: "Glycolysis, oxidative phosphorylation, pyruvate oxidation, citric acid cycle"
-        rationale: |
-          This places the final ATP-producing stage before earlier fuel-processing stages. ATP is the goal, so its formation can seem to start the pathway. Check the usual order of the named stages.
-    explanation: |
-      Glycolysis begins glucose breakdown in the cytosol. Pyruvate oxidation prepares the product for the citric acid cycle. The later electron-transfer steps support oxidative phosphorylation.
-    approved: false
-
-  - id: q-biology-cellular-metabolism-0018
-    type: "predict-outcome"
-    difficulty: "hard"
-    stem: |
-      A green plant is moved into darkness but still has stored glucose, oxygen, and suitable temperature. Which immediate change is expected?
-    choices:
-      - text: "Light-dependent reactions stop; aerobic respiration can continue."
-        correct: true
-      - text: "Light-dependent reactions continue; aerobic respiration must stop."
-        rationale: |
-          This reverses which process depends directly on light. Both support plant energy needs, so light may seem required for respiration. Check which pathway has light energy as an input.
-      - text: "Both photosynthesis and aerobic respiration must stop immediately."
-        rationale: |
-          This assumes the loss of sunlight removes all fuel. Photosynthesis provides food, so stored glucose can be overlooked. Check whether fuel and oxygen remain available.
-      - text: "The plant starts releasing oxygen by splitting glucose in darkness."
-        rationale: |
-          This replaces light-driven water splitting with glucose splitting. Glucose stores light energy, so breaking it down may seem to release oxygen. Check whether aerobic glucose breakdown uses or produces oxygen.
-    explanation: |
-      The light-dependent reactions need light, so they stop in darkness. Stored glucose and oxygen can still support aerobic respiration. The plant can therefore continue obtaining ATP from stored food.
-    approved: false
-
-  - id: q-biology-cellular-metabolism-0019
-    type: "cause-effect"
-    difficulty: "hard"
-    stem: |
-      When oxygen-dependent respiration is unavailable, how can fermentation help glycolysis continue?
-    choices:
-      - text: "It regenerates electron carriers needed by glycolysis."
-        correct: true
-      - text: "It supplies oxygen to restart aerobic electron transfer."
-        rationale: |
-          This mistakes an oxygen-independent route for oxygen production. The cell lacks aerobic conditions, so supplying oxygen seems useful. Check whether fermentation makes oxygen or restores carriers.
-      - text: "It transfers glycolysis from the cytosol into mitochondria."
-        rationale: |
-          This confuses restoring carrier availability with changing pathway location. Mitochondria make much aerobic ATP, so moving there seems helpful. Check whether glycolysis already works in the cytosol.
-      - text: "It captures sunlight to make new glucose for glycolysis."
-        rationale: |
-          This confuses fermentation with photosynthesis. Both can support food-related energy pathways, so they may seem connected. Check whether the mechanism uses light or restores electron carriers.
-    explanation: |
-      Glycolysis needs electron carriers that can accept electrons. Fermentation restores these carriers to a usable form. This allows glycolysis to keep making some ATP without oxygen-dependent respiration.
-    approved: false
-
-  - id: q-biology-cellular-metabolism-0020
-    type: "simple-quantitative"
-    difficulty: "exam"
-    stem: |
-      Using the simplified net equations, photosynthesis takes up six carbon dioxide molecules to form one glucose molecule. That entire glucose molecule is then completely broken down by aerobic respiration. What is the net change in carbon dioxide molecule count after both reactions?
-    choices:
-      - text: "0 molecules"
-        correct: true
-      - text: "6 molecules gained"
-        rationale: |
-          This counts only the carbon dioxide released during respiration. The final reaction is freshest in memory, so its output seems like the net change. Check whether the earlier uptake must be subtracted.
-      - text: "6 molecules lost"
-        rationale: |
-          This counts only the carbon dioxide used during photosynthesis. Food formation removes carbon dioxide, so that loss seems permanent. Check whether breaking down the same glucose returns carbon dioxide.
-      - text: "12 molecules gained"
-        rationale: |
-          This adds uptake and release as if both were gains. Each equation contains a coefficient of six, so adding them seems natural. Check whether each step increases or decreases the carbon dioxide count.
-    explanation: |
-      Photosynthesis uses 6 carbon dioxide molecules to make one glucose molecule. Complete aerobic respiration of that glucose releases 6 carbon dioxide molecules. The net change is $6 - 6 = 0$ molecules.
-    approved: false
