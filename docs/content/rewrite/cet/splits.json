@@ -93,6 +93,10 @@
     "newRead": {
       "verdict": "clean",
       "round": 3
+    },
+    "originalRead": {
+      "verdict": "minor",
+      "round": 2
     }
   },
   {

@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-physics-dynamics",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "A larger mass is harder to speed up or slow down.", "problem": "This inertia paragraph has four sentences; the limit is one to three short sentences. The opening Dynamics paragraph, the components paragraph ('Suppose a force $F$ points...'), the first-law paragraph, the second-law units paragraph ('Here $\\sum \\vec F$ is the net force...') and the Trap #1 explanation also have four each. Still open from split round 1.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 1
+}
