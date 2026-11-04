@@ -262,3 +262,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Basic-organic-chemistry verification read (round 4): minor. Status open to minor. Counts: 7 clean, 42 minor, 20 open.
 - November 4: split light-and-optics (adds mirrors-and-lenses), human-anatomy-physiology (adds human-body-control-movement-and-defense) and fluid-mechanics (adds fluid-flow-continuity-and-bernoulli). Questions moved with ids unchanged; totals unchanged (Python check). Outline updated. Dart import and export checks still to run on Aedwon's Mac.
 - November 4: split heavenly-bodies (adds stars-and-galaxies) and waves-and-sound (adds interference-diffraction-and-doppler). Questions moved with ids unchanged; totals unchanged.
+- November 4: split dynamics (adds friction-tension-and-inclines). Questions moved with ids unchanged; totals unchanged.

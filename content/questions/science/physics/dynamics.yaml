@@ -130,27 +130,6 @@ questions:
       The book pushes down on the table. The table pushes up on the book with an equally strong force. These are the two sides of the same contact interaction.
     approved: true
 
-  - id: q-physics-dynamics-0007
-    type: "classify"
-    difficulty: "medium"
-    stem: |
-      A heavy crate requires a push of 200 N to just begin sliding, but only 150 N to keep it sliding at constant speed once moving. Which value is the maximum static friction, and which is the kinetic friction?
-    choices:
-      - text: "Maximum static: $200\\,\\mathrm N$; kinetic: $150\\,\\mathrm N$"
-        correct: true
-      - text: "150 N is the maximum static friction; 200 N is the kinetic friction."
-        rationale: |
-          This swaps the two stages. Both forces oppose a push, so their names can be mixed up. Check whether the surfaces are at rest relative to each other or sliding.
-      - text: "Both values represent kinetic friction at different speeds."
-        rationale: |
-          This labels the starting threshold as sliding friction. The crate is about to move, so sliding seems close. Check the state just before motion begins.
-      - text: "Both values represent static friction at different speeds."
-        rationale: |
-          This labels continuing motion as static friction. The speed is constant, so it may seem like equilibrium means rest. Check for relative sliding at the contact.
-    explanation: |
-      At the threshold of sliding, the $200\,\mathrm N$ push matches maximum static friction. During constant-speed sliding, horizontal forces balance. The $150\,\mathrm N$ push therefore matches kinetic friction.
-    approved: true
-
   - id: q-physics-dynamics-0008
     type: "classify"
     difficulty: "hard"
@@ -191,27 +170,6 @@ questions:
           This applies an inverse-square relation to mass. Some other physics laws use squares. Check the first power of mass in Newton’s second law.
     explanation: |
       For fixed net force, $a=\dfrac{F}{m}$. Replacing $m$ with $2m$ gives $a_{\mathrm{new}}=\dfrac{F}{2m}=\dfrac{a}{2}$. The acceleration is halved.
-    approved: true
-
-  - id: q-physics-dynamics-0010
-    type: "classify"
-    difficulty: "hard"
-    stem: |
-      A student assumes that once an object is sliding, kinetic friction becomes negligible and can safely be ignored. Is this correct?
-    choices:
-      - text: "No, sliding friction may remain significant."
-        correct: true
-      - text: "Yes: kinetic friction always becomes zero once an object starts sliding."
-        rationale: |
-          This assumes sliding removes friction. Starting motion can reduce resistance, so zero seems possible. Check whether the surfaces still interact.
-      - text: "No: but only because kinetic friction increases the longer an object slides."
-        rationale: |
-          This assumes elapsed time alone determines friction. Longer sliding can suggest more resistance. Check the model’s dependence on normal force and surface pair.
-      - text: "Yes: friction only matters before an object starts moving."
-        rationale: |
-          This limits friction to the starting threshold. Static friction is often discussed first. Check whether there is relative sliding now.
-    explanation: |
-      Kinetic friction can keep acting while surfaces slide. If it is the only horizontal force, it slows the object. Whether it can be ignored depends on its size and the accuracy needed.
     approved: true
 
   - id: q-physics-dynamics-0011
@@ -298,69 +256,6 @@ questions:
       Earth pulls the box down through gravity. The table pushes it up through contact. At rest, the upward normal force equals the downward weight.
     approved: true
 
-  - id: q-physics-dynamics-0015
-    type: "predict-outcome"
-    difficulty: "exam"
-    stem: |
-      A box rests on a fixed inclined ramp. Gravity, normal force, and friction are its only forces. How does the normal force compare with its weight?
-    choices:
-      - text: "It is less than the weight."
-        correct: true
-      - text: "Yes: the normal force always equals $mg$, regardless of the surface's angle."
-        rationale: |
-          This applies the horizontal-table result to a ramp. The same weight is present, so the equality looks familiar. Check the component perpendicular to the surface.
-      - text: "No: the normal force is always greater than the full weight on an incline."
-        rationale: |
-          This treats an incline as increasing the inward part of weight. The slope changes the force directions. Check that a component cannot exceed the whole weight.
-      - text: "Yes: but only if the box is sliding down the ramp."
-        rationale: |
-          This ties support force to sliding alone. Motion can seem to change every force. Check the forces perpendicular to the ramp.
-    explanation: |
-      On the ramp, part of the weight presses into the surface. The rest acts along it. With no other forces perpendicular to the ramp, the normal force balances only the perpendicular part.
-    approved: true
-
-  - id: q-physics-dynamics-0016
-    approved: false
-    type: "identify"
-    difficulty: "easy"
-    stem: |
-      Which force does a taut rope exert on an attached object?
-    choices:
-      - text: "Tension"
-        correct: true
-      - text: "Normal force"
-        rationale: |
-          This confuses rope pull with surface support. Both are contact forces. Check whether the force is along the rope or perpendicular to a supporting surface.
-      - text: "Weight"
-        rationale: |
-          This confuses a transmitted pull with gravity. Ropes can support weights. Check which object creates the force.
-      - text: "Kinetic friction"
-        rationale: |
-          This confuses pulling with resistance to sliding. Both can act through contact. Check whether two surfaces slide past each other.
-    explanation: |
-      Tension is the pulling force transmitted by a taut rope. It acts along the rope.
-
-  - id: q-physics-dynamics-0017
-    approved: false
-    type: "simple-quantitative"
-    difficulty: "medium"
-    stem: |
-      A crate remains at rest when pushed horizontally with $80\,\mathrm N$. Its maximum static friction is $200\,\mathrm N$. What is the actual static friction?
-    choices:
-      - text: "$80\\,\\mathrm N$"
-        correct: true
-      - text: "$200\\,\\mathrm N$"
-        rationale: |
-          This uses the maximum as the actual force. The stated limit is prominent. Check how much friction is needed to balance the push.
-      - text: "$120\\,\\mathrm N$"
-        rationale: |
-          This subtracts the push from the limit. Unused capacity can seem like the force. Check that friction is a balancing force, not remaining capacity.
-      - text: "$0\\,\\mathrm N$"
-        rationale: |
-          This assumes rest means no horizontal forces. The crate does not move. Check whether the push still needs an opposing force.
-    explanation: |
-      At rest, the net horizontal force is zero. Static friction must balance the $80\,\mathrm N$ push. That is below its $200\,\mathrm N$ limit.
-
   - id: q-physics-dynamics-0018
     approved: false
     type: "compare-contrast"
@@ -402,24 +297,3 @@ questions:
           This cancels forces acting on different objects. The pair is equal and opposite. Check the chosen object’s boundary.
     explanation: |
       A free-body diagram includes external forces acting on the chosen object. Here the chosen object is the swimmer. The swimmer’s force on water acts on the water.
-
-  - id: q-physics-dynamics-0020
-    approved: false
-    type: "predict-outcome"
-    difficulty: "exam"
-    stem: |
-      In the simple dry-friction model, a sliding block has the same normal force and surface pair after it is turned onto another face. What happens to the modeled kinetic friction?
-    choices:
-      - text: "It stays approximately the same."
-        correct: true
-      - text: "It doubles whenever the contact area doubles."
-        rationale: |
-          This makes friction directly proportional to apparent area. More visible contact can seem to mean more resistance. Check the variables in the simple model.
-      - text: "It halves whenever the contact area doubles."
-        rationale: |
-          This imports pressure’s area dependence into friction. Lower pressure can suggest lower resistance. Check the stated friction model.
-      - text: "It becomes static friction because the block’s face changed."
-        rationale: |
-          This confuses contact orientation with relative motion. A new face may seem like a fresh start. Check whether sliding continues.
-    explanation: |
-      The model gives $f_k\approx\mu_kN$. The surface pair and normal force stay the same. The modeled friction therefore stays approximately the same.

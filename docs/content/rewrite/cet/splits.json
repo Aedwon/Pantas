@@ -48,5 +48,15 @@
       5
     ],
     "status": "split"
+  },
+  {
+    "original": "lesson-physics-dynamics",
+    "new": "lesson-physics-friction-tension-and-inclines",
+    "newPath": "content/lessons/science/physics/friction-tension-and-inclines.md",
+    "questions": [
+      14,
+      6
+    ],
+    "status": "split"
   }
 ]

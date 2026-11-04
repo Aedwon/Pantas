@@ -590,13 +590,18 @@
               "sections": []
             },
             {
-              "title": "Dynamics",
+              "title": "Dynamics (Newton's Laws, Forces and Free-Body Diagrams)",
               "slug": "dynamics",
               "sections": [
                 "Newton's Laws of Motion",
                 "Force, Friction, Tension, and Normal Force",
                 "Free Body Diagrams"
               ]
+            },
+            {
+              "title": "Friction, Tension and Inclines",
+              "slug": "friction-tension-and-inclines",
+              "sections": []
             },
             {
               "title": "Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy)",
