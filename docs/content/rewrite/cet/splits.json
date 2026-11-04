@@ -35,7 +35,11 @@
       16,
       4
     ],
-    "status": "split"
+    "status": "split",
+    "newRead": {
+      "verdict": "clean",
+      "round": 3
+    }
   },
   {
     "original": "lesson-earth-science-astronomy-heavenly-bodies",
