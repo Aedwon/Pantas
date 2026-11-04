@@ -932,7 +932,12 @@ class _FigureViewerState extends State<_FigureViewer> {
   /// figure grows past its card and can be panned across the whole screen.
   final _window = GlobalKey();
 
-  static const double _maxZoom = 5;
+  /// A wide viewer already opens up to twice the size in the page, so it needs
+  /// less room to zoom than a phone.
+  double get _maxZoom => context.wideWeb ? 3 : 5;
+
+  /// Wheel distance for a zoom of e. One notch is a gentle step.
+  static const double _wheelScale = 600;
 
   /// How much larger than in the page the figure may open.
   static const double _maxFitScale = 2;
@@ -969,7 +974,7 @@ class _FigureViewerState extends State<_FigureViewer> {
     final box = _window.currentContext?.findRenderObject() as RenderBox?;
     if (box == null || !box.hasSize) return;
     final factor = switch (event) {
-      PointerScrollEvent() => math.exp(-event.scrollDelta.dy / 200),
+      PointerScrollEvent() => math.exp(-event.scrollDelta.dy / _wheelScale),
       PointerScaleEvent() => event.scale,
       _ => null,
     };
@@ -1009,6 +1014,7 @@ class _FigureViewerState extends State<_FigureViewer> {
           transformationController: _zoom,
           minScale: 1,
           maxScale: _maxZoom,
+          scaleFactor: _wheelScale,
           child: Padding(
             padding: margin,
             child: Center(
@@ -1105,8 +1111,7 @@ class _FigureViewerState extends State<_FigureViewer> {
                 child: IconButton(
                   tooltip: 'Close figure',
                   style: IconButton.styleFrom(
-                    backgroundColor:
-                        context.colors.onFigureViewer.withValues(alpha: .12),
+                    backgroundColor: context.webTokens.figureScrim,
                   ),
                   onPressed: () => Navigator.of(context).pop(),
                   icon: Icon(
@@ -1150,6 +1155,10 @@ class _FigureViewerState extends State<_FigureViewer> {
                   dimension: 44,
                   child: IconButton(
                     tooltip: 'Close figure',
+                    style: IconButton.styleFrom(
+                      backgroundColor: context.colors.figureViewerBackground
+                          .withValues(alpha: .72),
+                    ),
                     onPressed: () => Navigator.of(context).pop(),
                     icon: Icon(
                       PantasIcons.close,

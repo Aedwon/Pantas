@@ -262,7 +262,7 @@ void main() {
       for (var i = 0; i < 30; i++) {
         await tester.sendKeyEvent(LogicalKeyboardKey.equal);
       }
-      expect(zoom(tester), 5);
+      expect(zoom(tester), 3);
       for (var i = 0; i < 40; i++) {
         await tester.sendKeyEvent(LogicalKeyboardKey.minus);
       }
@@ -284,7 +284,7 @@ void main() {
       }
     });
 
-    testWidgets('the wheel zooms from anywhere on the scrim, within 1 to 5',
+    testWidgets('the wheel zooms from anywhere on the scrim, within 1 to 3',
         (tester) async {
       await openViewer(tester, screen: wide, figure: landscape);
       const far = Offset(60, 60);
@@ -297,7 +297,7 @@ void main() {
         await tester.sendEventToBinding(pointer.scroll(const Offset(0, -400)));
       }
       await tester.pump();
-      expect(zoom(tester), 5);
+      expect(zoom(tester), 3);
       for (var i = 0; i < 20; i++) {
         await tester.sendEventToBinding(pointer.scroll(const Offset(0, 400)));
       }
@@ -349,7 +349,7 @@ void main() {
       expect(viewer(), findsNothing);
     });
 
-    testWidgets('a pinch stops at five times, $name', (tester) async {
+    testWidgets('a pinch stops at the most zoom, $name', (tester) async {
       await openViewer(tester, screen: screen, figure: landscape);
       final center = tester.getCenter(viewer());
       final a = await tester.startGesture(center - const Offset(20, 0));
@@ -360,7 +360,7 @@ void main() {
       await a.moveBy(const Offset(-300, 0));
       await b.moveBy(const Offset(300, 0));
       await tester.pump();
-      expect(zoom(tester), 5);
+      expect(zoom(tester), screen == wide ? 3 : 5);
       await a.moveBy(const Offset(330, 0));
       await b.moveBy(const Offset(-330, 0));
       await tester.pump();
