@@ -17,7 +17,7 @@ In a **right triangle**, the two sides that form the right angle are the **legs*
 
 ### Equal Sides and Equal Angles
 
-In any triangle, equal sides sit across from equal angles. So in an isosceles triangle, the two angles across the two equal sides are equal. They are called the **base angles**. The reverse is also true: two equal angles mean the sides across from them are equal.
+In any triangle, equal sides sit across from equal angles. So in an isosceles triangle, the two angles across the two equal sides are equal, and they are called the **base angles**. The reverse is also true: two equal angles mean the sides across from them are equal.
 
 An equilateral triangle has three equal angles. Each one is $180^\circ \div 3 = 60^\circ$.
 
@@ -42,7 +42,7 @@ Prove congruence with these shortcuts. The parts must match in the same places i
 - **SSS**: all three sides match.
 - **SAS**: two sides and the angle between them match.
 - **ASA**: two angles and the side between them match.
-- **AAS**: two angles and another side match.
+- **AAS**: two angles and a side that is not between them match.
 - **HL**: in right triangles, the hypotenuse and one leg match. (The legs and the hypotenuse are explained above.)
 
 Some equal parts are not given. Look for them in the figure.
@@ -73,13 +73,13 @@ In a right triangle with legs $a$ and $b$ and hypotenuse $c$ (the longest side, 
 
 $$a^2 + b^2 = c^2$$
 
-If a triangle's sides satisfy this, with $c$ as the longest side, it is a right triangle. If $a^2 + b^2$ is not equal to $c^2$, it is not.
+If a triangle's sides satisfy this, with $c$ as the longest side, it is a right triangle. If $a^2 + b^2$ is not equal to $c^2$ for the longest side $c$, it is not.
 
-**Why it works.** Draw a big square with side $a + b$. On each side, mark a point that splits it into a piece of length $a$ and a piece of length $b$. Join the marked points in order.
+**Why it works.** Draw a big square with side $a + b$. On each side, mark a point that splits it into a piece of length $a$ and a piece of length $b$, going around the square the same way each time. Join the marked points in order.
 
 This cuts off four right triangles, one in each corner. Each has legs $a$ and $b$. Each long side of the middle shape is the hypotenuse of one of them, so all four sides of the middle shape equal $c$.
 
-Now check the corners of the middle shape. At each one, the corner angle and the two acute angles of the triangles next to it lie along a straight side of the big square, so they add to $180^\circ$. The two acute angles of a right triangle add to $90^\circ$. So each corner is $90^\circ$, and the middle shape is a square of side $c$.
+At each corner of the middle shape, the corner angle and the two acute angles of the triangles next to it lie along a straight side of the big square, so they add to $180^\circ$. The two acute angles of a right triangle add to $90^\circ$. So each corner is $90^\circ$, and the middle shape is a square of side $c$.
 
 <!-- ILLUSTRATION: square of side a + b, four right triangles (legs a, b) in the corners, tilted square of side c in the middle -->
 
@@ -94,7 +94,7 @@ $$(a+b)^2 = 4 \cdot \dfrac{1}{2}ab + c^2$$
 
 $$a^2 + b^2 = c^2$$
 
-Common **Pythagorean triples** are $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and multiples like $6$-$8$-$10$.
+A **Pythagorean triple** is three whole numbers that satisfy $a^2 + b^2 = c^2$. Common ones are $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and multiples like $6$-$8$-$10$.
 
 Two **special right triangles** are common:
 
@@ -107,7 +107,7 @@ Two **special right triangles** are common:
 
 The angles of a triangle are in the ratio $1 : 2 : 3$. Find the angles and classify the triangle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle", "labels": ["x", "2x", "3x (90°)", "Sum = 180°"], "semanticsLabel": "Right triangle with interior angles in ratio 1 to 2 to 3 labeled x, 2x, and 3x with a right angle square."} -->
+<!-- ILLUSTRATION: a triangle with its three angles in the ratio 1 : 2 : 3, labeled x, 2x, and 3x -->
 
 **Solution:**
 The angles are $x$, $2x$, and $3x$.
@@ -124,9 +124,9 @@ $$6x = 180 \quad\Rightarrow\quad x = 30$$
 
 ### #2: Range of the Third Side
 
-Two sides of a triangle measure $5$ and $9$. How many integer lengths are possible for the third side?
+Two sides of a triangle measure $5$ and $9$. How many whole-number lengths are possible for the third side?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["Side a = 5", "Side b = 9", "Side c = ?", "4 < c < 14"], "semanticsLabel": "Triangle with sides 5 and 9 and unknown third side bounded between 4 and 14."} -->
+<!-- ILLUSTRATION: a triangle with two sides labeled 5 and 9 and the third side labeled ? -->
 
 **Solution:**
 The third side $s$ must be less than the sum and greater than the difference.
@@ -135,8 +135,8 @@ The third side $s$ must be less than the sum and greater than the difference.
 
 $$9 - 5 < s < 5 + 9$$
 
-2. So $4 < s < 14$. The integers are $5$ through $13$, and $4$ and $14$ are not allowed.
-3. There are $9$ possible integer lengths.
+2. So $4 < s < 14$. The whole numbers are $5$ through $13$, and $4$ and $14$ are not allowed.
+3. There are $9$ possible whole-number lengths.
 
 ### #3: Ordering Sides by Angles
 
@@ -199,7 +199,7 @@ The rule is AAS, and $AC = DF$.
 
 (a) Segments $AB$ and $CD$ cross at $O$, and $O$ is the midpoint of both. If $AC = 7$, find $BD$.
 
-(b) In quadrilateral $ABCD$, $AB = AD$ and $CB = CD$. If $\angle B = 100^\circ$, find $\angle D$.
+(b) In quadrilateral $ABCD$ (a four-sided shape), $AB = AD$ and $CB = CD$. If $\angle B = 100^\circ$, find $\angle D$.
 
 <!-- ILLUSTRATION: (a) segments AB and CD crossing at O, with OA = OB and OC = OD marked by ticks, AC = 7; (b) quadrilateral ABCD with diagonal AC, AB = AD one tick, CB = CD two ticks, angle B = 100° -->
 
@@ -217,10 +217,10 @@ The answers are (a) $BD = 7$ and (b) $\angle D = 100^\circ$.
 
 A $1.5$-meter tall student casts a $2$-meter shadow. At the same time, a tree casts a $12$-meter shadow. How tall is the tree?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "similar-triangles", "labels": ["Student: h = 1.5 m", "Shadow = 2 m", "Tree: H = ?", "Shadow = 12 m", "Sun ray θ"], "semanticsLabel": "Two similar right triangles showing student height 1.5 meters with 2 meter shadow and tree height question mark with 12 meter shadow."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "similar-triangles", "labels": ["Student = 1.5 m", "Shadow = 2 m", "Tree = ?", "Shadow = 12 m", "Sun ray θ"], "semanticsLabel": "Two similar right triangles showing student height 1.5 meters with 2 meter shadow and tree height question mark with 12 meter shadow."} -->
 
 **Solution:**
-The sun's rays make similar triangles. Each triangle has a right angle (the person or tree stands straight up) and the same sun angle at the end of the shadow. Two angles match, so the triangles are similar by AA. Heights and shadows are then proportional.
+The sun's rays make similar triangles. Each triangle has a right angle (the person or tree stands straight up) and the same sun angle at the end of the shadow. Two angles match, so the triangles are similar by AA, and heights and shadows are proportional.
 
 1. Set up the proportion with the tree height $h$.
 
@@ -251,7 +251,7 @@ The ladder reaches $12$ feet up the wall.
 
 Find the missing sides: (a) a $45^\circ$-$45^\circ$-$90^\circ$ triangle with a leg of $5$; (b) a $30^\circ$-$60^\circ$-$90^\circ$ triangle with a hypotenuse of $12$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "special-right-triangles", "labels": ["45°-45°-90°: legs 5, hyp 5√2", "30°-60°-90°: hyp 12, short 6, long 6√3"], "semanticsLabel": "Two special right triangles showing a 45-45-90 triangle with legs 5 and a 30-60-90 triangle with hypotenuse 12."} -->
+<!-- ILLUSTRATION: (a) a 45°-45°-90° triangle with a leg of 5; (b) a 30°-60°-90° triangle with a hypotenuse of 12 -->
 
 **Solution:**
 Use the fixed side patterns.
@@ -266,7 +266,7 @@ The answers are (a) $5$, $5$, and $5\sqrt{2}$; (b) $6$, $6\sqrt{3}$, and $12$.
 
 Scan for Pythagorean triples before squaring. If a right triangle has a leg $5$ and hypotenuse $13$, the missing leg is $12$.
 
-The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. A triple only helps when the sides match it exactly. Otherwise, add the squares of the legs to find a hypotenuse. Subtract the square of the known leg from the square of the hypotenuse to find a leg.
+The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. The shortcut works when the sides match a triple or a multiple of one. Otherwise, add the squares of the legs, then take the square root, to find a hypotenuse. To find a leg, subtract the square of the known leg from the square of the hypotenuse, then take the square root.
 
 In a $30$-$60$-$90$ triangle, find the short leg first. The short leg is the side across from $30^\circ$.
 
@@ -281,7 +281,7 @@ Two sides and an angle not between them can build two different triangles. AAA p
 
 ### #2: Putting the Hypotenuse in the Wrong Spot
 
-> The hypotenuse $c$ is always the longest side, across the right angle.
+> In a right triangle, the hypotenuse $c$ is the longest side, across the right angle.
 
 With sides $9$ and $15$, students often compute $9^2 + 15^2$. If $15$ is the hypotenuse, as in Example $9$, use $9^2 + b^2 = 15^2$.
 
