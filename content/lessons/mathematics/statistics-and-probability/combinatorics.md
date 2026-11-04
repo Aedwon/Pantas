@@ -71,6 +71,8 @@ $$C(n,r)=\dfrac{n!}{r!(n-r)!}$$
 
 This holds for $0\le r\le n$, for distinct objects used at most once. For example, $C(n,n)=1$ and $C(n,0)=1$: there is one way to take everything and one way to take nothing. Both need $0!=1$.
 
+Choosing $r$ objects to take is the same as choosing the $n-r$ objects to leave. So $C(n,r)=C(n,n-r)$ for $0\le r\le n$.
+
 ### Ordered or Unordered?
 
 Ask one question: if the same selected objects appear in a different order, is that a different outcome? If yes, use an ordered count such as a permutation. If no, use a combination.
@@ -79,7 +81,7 @@ Ask one question: if the same selected objects appear in a different order, is t
 
 The formulas above never use the same object twice. If a problem allows reuse, go back to the counting principle. With $n$ choices at each of $r$ positions and reuse allowed, there are $n^r$ ordered outcomes.
 
-The problem must also tell you whether one person may hold two roles. If it does not allow this, the second role has one fewer choice.
+Some problems say whether one person may hold two roles. If the problem says nothing, read different roles as going to different people, so the second role has one fewer choice. If the problem allows one person to hold both, the second role keeps all $n$ choices.
 
 ## Examples
 
@@ -253,7 +255,7 @@ This keeps $C(n,n)=1$ and $P(n,n)=n!$ correct. If $0!$ were $0$, both formulas w
 
 > Check the problem for whether an object may be reused and whether one person may hold two roles.
 
-A code may allow repeated digits, and a selection problem may forbid repeats. In Example #7, if one person could hold both offices, the count would be $10\times10=100$ instead of $90$. Use only what the problem states.
+A code may allow repeated digits, and a selection problem may forbid repeats. In Example #7, if one person could hold both offices, the count would be $10\times10=100$ instead of $90$. If a problem about roles says nothing about repeats, use the default: different roles go to different people.
 
 ### #5: Adding Overlapping Groups Without Subtracting
 
