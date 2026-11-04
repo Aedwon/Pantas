@@ -99,7 +99,7 @@
     "lessonPath": "content/lessons/science/biology/cellular-metabolism.md",
     "lessonId": "lesson-biology-cellular-metabolism",
     "group": "science",
-    "status": "open",
+    "status": "minor",
     "splitInto": "lesson-biology-cellular-respiration-and-fermentation"
   },
   {

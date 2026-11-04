@@ -29,11 +29,11 @@ An **electron** is a tiny charged particle. Moving electrons carry energy. An **
 
 ### Enzymes: the helpers in many steps
 
-An **enzyme** is a molecule that speeds up a chemical reaction without being used up. Almost all enzymes are proteins. Each enzyme has an **active site**, a pocket that fits one kind of **substrate**, the molecule the enzyme works on.
+An **enzyme** is a molecule that speeds up a chemical reaction without being used up. Almost all enzymes are proteins. Each enzyme has an **active site**, a pocket that fits its own **substrate**, the molecule the enzyme works on. Some enzymes fit two or more substrates in the same reaction.
 
 An enzyme works by making it easier for a reaction to start. It lowers the energy the reaction needs to get going. The reaction products leave, and the enzyme is ready for the next substrate.
 
-Enzymes work best in a certain range of temperature and pH. Heat or a very wrong pH can change an enzyme's shape, so the active site no longer fits. This is called **denaturing**.
+Enzymes work best in a certain range of temperature and pH. The **pH** tells how acidic or basic a liquid is. Heat or a very wrong pH can change an enzyme's shape, so the active site no longer fits. This is called **denaturing**.
 
 Many human enzymes work best near body temperature, about $37^\circ C$. Cold slows an enzyme but usually does not destroy its shape. Denaturing by heat is usually permanent.
 
@@ -45,7 +45,7 @@ Cells are built from four main groups of organic molecules, called **biomolecule
 
 - **Carbohydrates** are sugars and the large carbohydrates built from them: starch and glycogen store sugar for fuel, and cellulose makes plant cell walls. Their small unit is a simple sugar such as glucose. Sugars are the usual fuel for cells.
 - **Lipids** are a group that includes fats, oils, phospholipids and steroids. Fats and oils store a lot of energy. Phospholipids are the main molecules of cell membranes.
-- **Proteins** are chains of amino acids. They form enzymes, build structures and carry out many jobs.
+- **Proteins** are chains of amino acids, which are small building-block molecules. They form enzymes, build structures and carry out many jobs.
 - **Nucleic acids** are DNA and RNA. They store and use genetic information.
 
 Respiration usually burns glucose, but cells can also break down fats and proteins and feed the pieces into the same pathways. Fats give more energy per gram than carbohydrates do.
@@ -68,7 +68,7 @@ A chloroplast is wrapped in two membranes, an outer one and an inner one. Inside
 
 Photosynthesis has two linked stages.
 
-1. **Light reactions** happen in the thylakoid membranes of a chloroplast. The green pigment **chlorophyll** absorbs light, mostly red and blue light. The energy splits water, which releases oxygen gas. It also makes ATP and an electron carrier called **NADPH**.
+1. **Light reactions** happen in the thylakoid membranes of a chloroplast. The green pigment **chlorophyll** (a colored molecule) absorbs light, mostly red and blue light. The energy splits water, which releases oxygen gas. It also makes ATP and an electron carrier called **NADPH**.
 2. **Calvin cycle** happens in the stroma of a chloroplast. It uses the ATP and NADPH to turn carbon dioxide into a three-carbon sugar. The cell then builds glucose and other molecules from this sugar. An enzyme called rubisco starts the step that attaches carbon dioxide.
 
 The Calvin cycle does not use light directly. It still stops soon in the dark, because the light reactions stop making ATP and NADPH.
@@ -113,7 +113,7 @@ An enzyme in a human cell works fastest at $37^\circ C$. A sample is heated to $
 1. An enzyme works only when its active site fits its substrate.
 2. High heat changes the enzyme's shape. This is denaturing.
 3. The active site no longer fits the substrate.
-4. Cooling the sample does not restore the shape, so the enzyme stays inactive.
+4. Cooling the sample usually does not restore the shape, so the enzyme stays inactive.
 
 If the sample had only been cooled to a low temperature, the enzyme would have slowed down. Its shape would not have been destroyed.
 

@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-biology-cellular-metabolism",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "**Photosynthesis** uses light energy to build sugar from carbon dioxide and water.",
+      "problem": "A general statement with a known exception that the lesson itself raises. Six lines later it says 'Not all photosynthetic bacteria release oxygen'. Those bacteria (purple and green sulfur bacteria, heliobacteria) carry out anoxygenic photosynthesis and use hydrogen sulfide, hydrogen or iron(II), not water, as the electron source. Read with 'All of the oxygen gas comes from water', a student would conclude these bacteria split water but keep the oxygen, which is false. The definition needs a scope (for example, oxygen-releasing photosynthesis in plants, algae and cyanobacteria). Present since the rewrite and not raised in rounds 1 to 4.",
+      "source": "OpenStax Microbiology, 8.6 Photosynthesis: anoxygenic photosynthesis uses electron donors other than water, such as hydrogen sulfide, and releases no oxygen. Checklist B01; reader-rules.md, Added after the Sol audit."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Almost all enzymes are proteins. Each enzyme has an **active site**, a pocket that fits its own **substrate**, the molecule the enzyme works on. Some enzymes fit two or more substrates in the same reaction.",
+      "problem": "The round-4 fix added a fourth sentence, so this paragraph now has four sentences, above the one-to-three limit. New or edited content must fix every Minor.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)."
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The **pH** tells how acidic or basic a liquid is. Heat or a very wrong pH can change an enzyme's shape, so the active site no longer fits. This is called **denaturing**.",
+      "problem": "The round-4 pH fix added a sentence, so this paragraph now has four sentences, above the one-to-three limit. New or edited content must fix every Minor.",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)."
+    }
+  ],
+  "goodQuotesChecked": 3
+}
