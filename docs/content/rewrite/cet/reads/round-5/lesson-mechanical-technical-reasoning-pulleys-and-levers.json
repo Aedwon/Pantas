@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "In a lever the ends move along curved paths, and these distances are in the same ratio as the lever arms.",
+      "problem": "With the sentence before it ('So MA is also the effort distance divided by the load distance'), this says a lever's MA always equals the ratio of its arms. That fails for the angled forces the lesson itself teaches. In Example #9 the effort acts 2 m out and the load 0.5 m out, so the effort point moves 4 times as far as the load point, yet the MA is 600 / 300 = 2. The work equation holds only for the distance moved along the force's line ('Work is force times distance' gives no such condition), and the arc ratio equals the MA only when both forces are at right angles to the bar. The round-4 qualifier ('The MA values below are for an effort and load that push at right angles to the bar') covers the class list, not this earlier general sentence. Also, 'the ends' is not where the forces act on a second- or third-class lever (the wheelbarrow load sits in the middle).",
+      "source": "Checklist B01 (L27 for the missing condition); reader-rules, Added after the Sol audit; the lesson's own Example #9 and Angled Forces section; standard statics (work = force times displacement along the force)"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "A $600\\text{ N}$ load pushes down on a lever at $0.5\\text{ m}$ from the fulcrum.",
+      "problem": "The stem never says the lever is horizontal or that the load is at a right angle to it. The worked torque 600(0.5) needs that, and this example exists to teach that the angle to the lever changes the torque. With the effort at 30 degrees to the lever, a tilted lever changes the load torque but not the effort's stated angle, so the answer depends on an unstated given. 'horizontal lever' appears only in the ILLUSTRATION marker, which sits after the solution. The lead upheld the same kind of gap as Major in measures-of-variability round 3 (sets given only inside the marker). Example #6 has a milder form ('A downward load force' with a 'perpendicular effort', lever orientation unstated).",
+      "source": "Checklist L05; lesson style guide, Examples section (supply necessary problem-specific givens); final-run-rulings, measures-of-variability round 3"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "An angle and its partner $180^\\circ-\\theta$ have the same sine, so $\\sin150^\\circ=\\sin30^\\circ=\\dfrac12$.",
+      "problem": "The round-4 fix added this as a fourth sentence to the paragraph that starts '**Sine** ($\\sin$) of an angle'. The limit is one to three short sentences.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For a bar with the same thickness and material all along, that point is the middle.",
+      "problem": "The paragraph from 'A lever bar's own weight' to 'answer with the ideal value' has four sentences. The limit is one to three short sentences.",
+      "source": "Checklist L22a; lesson style guide, Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

@@ -19,7 +19,7 @@ A machine is **ideal** when it has no friction and its ropes, pulleys and bar ha
 
 $$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
 
-So MA is also the effort distance divided by the load distance. In a lever the ends move along arcs, and these distances are in the same ratio as the lever arms. Real machines usually need more effort than the ideal value because of friction.
+So MA is also the effort distance divided by the load distance. In a lever the ends move along curved paths, and these distances are in the same ratio as the lever arms. Real machines usually need more effort than the ideal value because of friction.
 
 Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\text{ m/s}^2$.
 
@@ -27,13 +27,15 @@ Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\
 
 A **fixed pulley** is fastened in place. It only changes the direction of a pull, so its ideal MA is $1$.
 
-A **movable pulley** moves with the load. **Tension** is the pull along a rope. If one rope runs through the whole system and there is no friction, its tension is the same everywhere. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
+A **movable pulley** moves with the load. **Tension** is the pull along a rope.
 
-Each rope segment that pulls on the moving load carries that same tension. This gives a reliable rule for an ideal system with one rope and segments that hang straight up:
+If one rope runs through the whole system and there is no friction, its tension is the same everywhere. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
+
+Each rope **segment** is a straight length of rope between two turns or ties. Each segment that pulls on the moving load carries that same tension. This gives a reliable rule for an ideal system with one rope and segments that hang straight up:
 
 > **Ideal MA = the number of rope segments that pull directly on the moving load.**
 
-Count a segment if it is attached to the moving block or runs around the moving pulley. A segment that runs from a fixed pulley to your hand does not pull on the load, so do not count it. If your hand pulls the end that leaves the moving block, that end counts.
+Count a segment if it is tied to the moving pulley or its frame, or runs around the moving pulley. A segment that runs from a fixed pulley to your hand does not pull on the load, so do not count it. If your hand pulls the end that leaves the moving pulley, that end counts.
 
 Two supporting segments give MA $2$: the effort is half the load, and the free end moves twice as far as the load. Three segments give MA $3$, four give MA $4$, and so on. The rule fails if the segments pull at a slant, because only part of each pull lifts the load.
 
@@ -44,7 +46,7 @@ Do not count pulleys. Systems with the same number of pulleys can have different
 
 A **lever** is a rigid bar that turns about a point called the **fulcrum**. The distance from the fulcrum to the effort is the **effort arm**. The distance from the fulcrum to the load is the **load arm**.
 
-The class of a lever depends on which of the three is in the middle.
+The class of a lever depends on which of the three is in the middle. The MA values below are for an effort and load that push at right angles to the bar.
 
 - **First class:** the fulcrum is in the middle, as on a seesaw or scissors. The MA can be more than, equal to or less than $1$.
 - **Second class:** the load is in the middle, as on a wheelbarrow. The effort arm is longer, so the MA is more than $1$.
@@ -54,7 +56,7 @@ The class of a lever depends on which of the three is in the middle.
 
 ### Torque and Balance
 
-**Torque** is the turning effect of a force about the fulcrum, in newton-meters ($\text{N}\cdot\text{m}$). The **moment arm** is the shortest distance from the fulcrum to the line along which the force acts. If the force pushes at a right angle ($90^\circ$) to the lever, the moment arm is just the distance along the lever, and $\tau=F\,d$.
+**Torque** ($\tau$) is the turning effect of a force about the fulcrum, in newton-meters ($\text{N}\cdot\text{m}$). The **moment arm** is the shortest distance from the fulcrum to the line along which the force acts. If the force pushes at a right angle ($90^\circ$) to the lever, the moment arm is just the distance along the lever, and $\tau=F\,d$.
 
 A lever is balanced when the torques turning it one way equal the torques turning it the other way. Ignore the weight of the bar. For a perpendicular load and effort:
 
@@ -64,7 +66,7 @@ Here $L$ means the arm, the distance from the fulcrum to the force. This gives $
 
 ### Angled Forces
 
-Sometimes the force is not at a right angle to the lever. Let $\theta$ be the angle between the force's line and the lever, from $0^\circ$ to $180^\circ$.
+Sometimes the force is not at a right angle to the lever. Let $\theta$ be the angle between the force's line and the lever, from $0^\circ$ to $180^\circ$. A line crosses the lever at two angles, $\theta$ and $180^\circ-\theta$, and both give the same torque.
 
 Split the force into two parts. The part along the lever does not turn it. The part at a right angle to the lever is $F\sin\theta$.
 
@@ -72,7 +74,7 @@ $$\tau=r\,F\sin\theta$$
 
 Here $r$ is the distance from the fulcrum to where the force acts. The product $r\sin\theta$ is the moment arm.
 
-**Sine** ($\sin$) of an angle in a right triangle is the opposite side divided by the hypotenuse. The lesson Basic Trigonometric Ratios teaches it. Here you need only these values: $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$.
+**Sine** ($\sin$) of an angle in a right triangle is the opposite side divided by the hypotenuse. The lesson Basic Trigonometric Ratios teaches it. Here you need only these values: $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$. An angle and its partner $180^\circ-\theta$ have the same sine, so $\sin150^\circ=\sin30^\circ=\dfrac12$.
 
 At $90^\circ$ the formula becomes $\tau=rF$. As the angle moves toward $0^\circ$ or $180^\circ$, you need a bigger force for the same turning effect. At exactly $0^\circ$ or $180^\circ$, the force points along the lever and gives no torque at all.
 
@@ -259,7 +261,7 @@ Test questions often give a mass and ask for a force. Multiply by $g$ first.
 
 > If a force is angled, use $rF\sin\theta$, not $rF$.
 
-In example #9, using $\tau=Fd$ with $d=2$ gives $150\text{ N}$, which is wrong. Also measure $\theta$ from the lever, not from the vertical, or you will use the wrong sine.
+In example #9, using $\tau=Fd$ with $d=2$ gives $150\text{ N}$, which is wrong. Also measure $\theta$ from the lever, not from the vertical, or you will use the wrong sine. Either angle between the line and the lever works.
 
 ### #5: Measuring the Whole Bar Instead of the Arms
 
@@ -271,4 +273,6 @@ The fulcrum is not always at the end or the middle. In the wheelbarrow, the effo
 
 > Ideal MA is a model. Friction usually makes the real effort larger, and the weight of the parts can change it.
 
-In a pulley system, friction and the weight of the moving pulley raise the effort. A lever bar's own weight acts at its center of gravity, which is the middle only for a uniform bar, and it can raise or lower the effort depending on which side of the fulcrum that point lies. If a question gives no friction or bar weight to use, answer with the ideal value.
+In a pulley system, friction and the weight of the moving pulley raise the effort.
+
+A lever bar's own weight acts at its **center of gravity**, the point where all its weight seems to act. For a bar with the same thickness and material all along, that point is the middle. The weight can raise or lower the effort depending on which side of the fulcrum that point lies. If a question gives no friction or bar weight to use, answer with the ideal value.
