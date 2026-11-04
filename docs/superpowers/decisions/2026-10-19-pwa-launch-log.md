@@ -2504,3 +2504,9 @@ Aedwon: "also, C for the custom exam. it should have been available from the sta
 Result: option C. A spec comes first. No code before he has seen it. Hardened recommended and waiting on his choice.
 
 QA. Aedwon: "seems like a lot of bugs are being found. it tells me you haven't done enough and thorough enough inspecting/QA. i do not want this to be a problem when I check... do not stop until you are 100% confident in having me check." He paused his own checks until a full browser sweep of every page, state, width and theme finds nothing new.
+
+Custom exam choices (Aedwon, Nov 4). Spec offered: content whole corpus or CSE only; Pro always Free, paid plans cover it, or sell Pro for custom; "timed separately" one clock on web or build part clocks; if it misses the beta, hide the row, hold the beta, or show the row anyway.
+
+Aedwon on content: whole corpus. On the beta: hide the row until ready. On Pro: "umm which is the better system that prevents abuse/exploits/tricks". Answered: always Free, because no paid access can come out of a custom exam; the other two would let a student buy the cheapest plan and get Pro across every exam through one track. Treated as always Free. On timing: "what, why is this getting asked, shouldn't the infra already support by-part clocks?" Answered: the phone has them, the web server stores one time limit per mock. Recommended building them, about 3 more days, staging about Nov 13. Aedwon: "Yes, build them".
+
+Result: balanced plus server by-part clocks, about 10 working days. The row is hidden on web for the beta until this ships. Each deploy still needs his approval.
