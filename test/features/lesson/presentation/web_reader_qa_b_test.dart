@@ -303,6 +303,22 @@ void main() {
       await tester.pumpAndSettle();
     });
 
+    testWidgets('nothing opened yet shows no label and no key footer (2G-5)',
+        (tester) async {
+      await pump(
+        tester,
+        const WebLessonSearch(),
+        overrides: [
+          studyMapProvider.overrideWith((_) async => null),
+          recentlyOpenedLessonsProvider.overrideWith((_) async => []),
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('RECENTLY OPENED'), findsNothing);
+      expect(find.text('↑ ↓ to move · Enter to open'), findsNothing);
+      expect(find.byType(TextField), findsOneWidget);
+    });
+
     testWidgets('a long title wraps to two lines with an ellipsis (B-5, B-6)',
         (tester) async {
       await pump(

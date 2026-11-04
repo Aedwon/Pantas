@@ -281,6 +281,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
 
   Widget _web(AsyncValue<ActiveExamFocus> focus) {
     return SingleChildScrollView(
+      padding: EdgeInsets.only(bottom: context.webPageBottomInset),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

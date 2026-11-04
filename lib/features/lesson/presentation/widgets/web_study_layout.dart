@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -505,6 +506,7 @@ class _WebStudyMapState extends State<WebStudyMap>
               key: _listKey,
               child: ListView(
                 key: const ValueKey('web-study-map'),
+                padding: EdgeInsets.only(bottom: context.webPageBottomInset),
                 children: children,
               ),
             );
@@ -546,8 +548,10 @@ class _WebStudyMapState extends State<WebStudyMap>
                 child: FocusTraversalGroup(
                   child: SingleChildScrollView(
                     key: const ValueKey('web-study-topic'),
-                    child: _TopicEntrance(
-                      key: ValueKey(('web-study-topic-card', card.topic.id)),
+                    padding:
+                        EdgeInsets.only(bottom: context.webPageBottomInset),
+                    child: _TopicSwap(
+                      topicId: card.topic.id,
                       child: WebCard(
                         padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
                         child: Column(
@@ -818,6 +822,87 @@ class _WebStudyMapState extends State<WebStudyMap>
   }
 }
 
+/// A topic card replacing another. The card being left fades out over the
+/// first 90 ms while the new one comes in from 70 ms (the approved pane swap),
+/// so the column is never empty between them (2G-19).
+class _TopicSwap extends StatefulWidget {
+  const _TopicSwap({required this.topicId, required this.child});
+  final String topicId;
+  final Widget child;
+  @override
+  State<_TopicSwap> createState() => _TopicSwapState();
+}
+
+class _TopicSwapState extends State<_TopicSwap>
+    with SingleTickerProviderStateMixin {
+  // On the pane clock of 240 ms, the card runs only to 90 ms.
+  late final AnimationController _out;
+  Widget? _leaving;
+
+  @override
+  void initState() {
+    super.initState();
+    _out = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: PaneMotion.outEndMs.round()),
+      upperBound: PaneMotion.outEndMs / PantasDurations.base.inMilliseconds,
+    );
+  }
+
+  @override
+  void didUpdateWidget(_TopicSwap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.topicId == widget.topicId ||
+        MediaQuery.disableAnimationsOf(context)) {
+      return;
+    }
+    _leaving = oldWidget.child;
+    unawaited(
+      _out.forward(from: 0).whenComplete(() {
+        if (mounted) setState(() => _leaving = null);
+      }),
+    );
+  }
+
+  @override
+  void dispose() {
+    _out.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Stack(
+        clipBehavior: Clip.none,
+        children: [
+          if (_leaving case final leaving?)
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: ExcludeSemantics(
+                  child: ExcludeFocus(
+                    child: AnimatedBuilder(
+                      animation: _out,
+                      child: leaving,
+                      builder: (context, child) => Opacity(
+                        key: const ValueKey('web-study-topic-leaving'),
+                        opacity: PaneMotion.outgoingOpacity(_out.value),
+                        child: child,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          _TopicEntrance(
+            key: ValueKey(('web-study-topic-card', widget.topicId)),
+            child: widget.child,
+          ),
+        ],
+      );
+}
+
 /// The topic card arriving: the Settings pane's approved fade and 8 px rise,
 /// on its 240 ms clock. Key it by topic, so only a different topic replays it
 /// and a rebuild of the same topic does not.
@@ -1047,6 +1132,7 @@ class WebStudyState extends StatelessWidget {
   final VoidCallback? onAction;
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
+        padding: EdgeInsets.only(bottom: context.webPageBottomInset),
         child: WebCard(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 140),
           child: Center(

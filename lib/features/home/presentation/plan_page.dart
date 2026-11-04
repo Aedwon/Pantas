@@ -749,7 +749,11 @@ class _PlanDoneRing extends StatelessWidget {
           size: const Size.square(34),
           painter: _PlanDoneRingPainter(
             fraction: fraction,
-            track: context.colors.fill,
+            // Dark keeps the 3:1 gray the phone's other empty rings use; the
+            // pale fill disappears into the card (A-1, 2G-17).
+            track: Theme.of(context).brightness == Brightness.dark
+                ? context.colors.chevron
+                : context.colors.fill,
             fill: context.colors.label,
           ),
         ),

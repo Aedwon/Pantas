@@ -172,7 +172,9 @@ class SettingsPanePage extends StatelessWidget {
                           background: background,
                           child: SingleChildScrollView(
                             key: const ValueKey('settings-detail'),
-                            padding: const EdgeInsets.only(bottom: 24),
+                            padding: EdgeInsets.only(
+                              bottom: 24 + context.webPageBottomInset,
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
@@ -302,6 +304,7 @@ class _SettingsListScrollState extends ConsumerState<_SettingsListScroll> {
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
         controller: _controller,
+        padding: EdgeInsets.only(bottom: context.webPageBottomInset),
         child: SettingsNavigation(selected: widget.selected, from: _from),
       );
 }

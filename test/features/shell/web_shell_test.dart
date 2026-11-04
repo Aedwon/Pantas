@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/home/presentation/widgets/web_record_layout.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
 void main() {
@@ -49,6 +51,74 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  testWidgets(
+      'the page area reaches the window bottom and scrolling rows '
+      'run to the edge (A-30)', (tester) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1440, 900);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    // The real child is the shell route's Navigator, whose Overlay clips to
+    // its own box, so a page cannot paint into padding the shell leaves.
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: WebShellFrame(
+          web: true,
+          activeIndex: 0,
+          person: 'Aedwon',
+          exam: 'CSE',
+          plan: 'Free',
+          onNavigate: (_) {},
+          onSearch: () {},
+          child: Navigator(
+            onGenerateRoute: (_) => MaterialPageRoute<void>(
+              builder: (_) => WebMyPage(
+                title: 'Your record',
+                onBack: () {},
+                child: Column(
+                  children: [
+                    for (var i = 0; i < 40; i++)
+                      SizedBox(
+                        key: ValueKey('row-$i'),
+                        height: 80,
+                        child: Text('Row $i'),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final area = tester.getRect(find.byType(Navigator).first);
+    expect(area.bottom, 900);
+    await tester.drag(
+      find.byType(SingleChildScrollView),
+      const Offset(0, -450),
+    );
+    await tester.pumpAndSettle();
+    // A row painted in the band the shell used to pad is still on screen.
+    final inBand = [
+      for (var i = 0; i < 40; i++)
+        if (find.byKey(ValueKey('row-$i')).evaluate().isNotEmpty &&
+            tester.getRect(find.byKey(ValueKey('row-$i'))).bottom > 856 &&
+            tester.getRect(find.byKey(ValueKey('row-$i'))).top < 856)
+          i,
+    ];
+    expect(inBand, isNotEmpty);
+    // At the end of the page the last row rests 44 px above the bottom.
+    await tester.drag(
+      find.byType(SingleChildScrollView),
+      const Offset(0, -6000),
+    );
+    await tester.pumpAndSettle();
+    expect(tester.getRect(find.byKey(const ValueKey('row-39'))).bottom, 856);
+  });
   testWidgets('native at 1440 keeps the existing child without a sidebar',
       (tester) async {
     tester.view.devicePixelRatio = 1;

@@ -425,6 +425,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
         child: Scaffold(
           body: ListView(
             key: const ValueKey('web-mock-setup'),
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
             children: [
               Align(
                 alignment: Alignment.centerLeft,

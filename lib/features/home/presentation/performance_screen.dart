@@ -35,10 +35,15 @@ class PerformanceScreen extends ConsumerWidget {
   const PerformanceScreen({
     this.initialLevel,
     this.reportReady = true,
+    this.openTopicId,
     super.key,
   });
   final bool reportReady;
   final int? initialLevel;
+
+  /// The topic whose panel the page opened over it (an address opened on wide
+  /// web), so its row stays tinted behind the panel.
+  final String? openTopicId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -62,9 +67,7 @@ class PerformanceScreen extends ConsumerWidget {
       if (context.wideWeb) {
         return Scaffold(
           body: SingleChildScrollView(
-            // Rows scroll through the shell's padding, not into a hard line.
-            clipBehavior: Clip.none,
-            padding: const EdgeInsets.fromLTRB(44, 28, 44, 44),
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -139,28 +142,27 @@ class PerformanceScreen extends ConsumerWidget {
           ? SortCycleOrder.strongest
           : SortCycleOrder.weakest,
       onBack: () => _back(context),
+      openTopicId: openTopicId,
       onTopic: (id) {
         if (context.wideWeb) {
-          unawaited(
-            showWebOverlay<void>(
-              context: context,
-              motion: WebOverlayMotion.drawerOf(480),
-              barrierLabel: 'Close topic',
-              barrierColor: Colors.black.withValues(alpha: .28),
-              builder: (context) => Align(
-                alignment: Alignment.centerRight,
-                child: SizedBox(
-                  width: 480,
-                  child: TopicScreen(topicId: id, inDrawer: true),
-                ),
+          return showWebOverlay<void>(
+            context: context,
+            motion: WebOverlayMotion.drawerOf(480),
+            barrierLabel: 'Close topic',
+            barrierColor: Colors.black.withValues(alpha: .28),
+            builder: (context) => Align(
+              alignment: Alignment.centerRight,
+              child: SizedBox(
+                width: 480,
+                child: TopicScreen(topicId: id, inDrawer: true),
               ),
             ),
           );
-        } else {
-          unawaited(
-            context.push('/performance/topic/${Uri.encodeComponent(id)}'),
-          );
         }
+        unawaited(
+          context.push('/performance/topic/${Uri.encodeComponent(id)}'),
+        );
+        return null;
       },
       onLesson: (id) =>
           unawaited(context.push('/lesson/${Uri.encodeComponent(id)}')),
@@ -281,8 +283,12 @@ class _TopicDrawerPageState extends State<_TopicDrawerPage> {
           children: [
             // The page behind is covered, so Esc and focus belong to the
             // drawer, which plays its exit before leaving.
-            const ExcludeFocus(
-              child: PerformanceScreen(initialLevel: 1, reportReady: false),
+            ExcludeFocus(
+              child: PerformanceScreen(
+                initialLevel: 1,
+                reportReady: false,
+                openTopicId: widget.topicId,
+              ),
             ),
             Positioned.fill(
               child: WebOverlayLayer(

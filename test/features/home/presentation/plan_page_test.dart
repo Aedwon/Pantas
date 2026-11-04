@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 
 void main() {
@@ -10,15 +11,21 @@ void main() {
     for (var i = 0; i < 17; i++)
       PlanHistoryEntry(id: 'h$i', date: 'Today', text: 'Actual change $i'),
   ];
-  Widget show({bool pro = true, bool paused = false, bool motion = false}) =>
+  Widget show({
+    bool pro = true,
+    bool paused = false,
+    bool motion = false,
+    bool dark = false,
+    int done = 2,
+  }) =>
       MaterialApp(
-        theme: buildLightTheme(),
+        theme: dark ? buildDarkTheme() : buildLightTheme(),
         home: MediaQuery(
           data: MediaQueryData(disableAnimations: !motion),
           child: PlanPage(
             pro: pro,
             paused: paused,
-            done: 2,
+            done: done,
             total: 4,
             subtitle: '42 days until CSE-P',
             nodes: const [
@@ -53,6 +60,23 @@ void main() {
     expect(line.transform.storage[5], closeTo(0.5, 0.02));
     await tester.pumpAndSettle();
   });
+  for (final dark in [true, false]) {
+    testWidgets('the empty Today ring is visible, dark=$dark (A-1, 2G-17)',
+        (tester) async {
+      await tester.pumpWidget(show(dark: dark, done: 0));
+      await tester.pumpAndSettle();
+      final colors = dark ? PantasColors.dark : PantasColors.light;
+      final ring = tester.widget<CustomPaint>(
+        find.byWidgetPredicate(
+          (w) => w is CustomPaint && w.size == const Size.square(34),
+        ),
+      );
+      // ignore: avoid_dynamic_calls
+      final track = (ring.painter! as dynamic).track as Color;
+      // Dark takes the 3:1 gray, light keeps the board's pale fill.
+      expect(track, dark ? colors.chevron : colors.fill);
+    });
+  }
   testWidgets('only week rows drill down', (tester) async {
     await tester.pumpWidget(show());
     final today = tester.widget<ListRow>(

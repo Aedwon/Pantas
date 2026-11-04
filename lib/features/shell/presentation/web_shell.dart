@@ -89,7 +89,9 @@ class WebShellFrame extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(44, 28, 44, 44),
+                  // No bottom padding: the page's scrolling content reaches
+                  // the window bottom and carries `webPageBottomInset` itself.
+                  padding: const EdgeInsets.fromLTRB(44, 28, 44, 0),
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: ConstrainedBox(

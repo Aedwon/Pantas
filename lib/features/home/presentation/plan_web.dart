@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 import 'package:pantas/features/home/presentation/widgets/plan_skeletons.dart';
@@ -30,8 +31,9 @@ class PlanWebFrame extends StatelessWidget {
         child: Focus(
           autofocus: true,
           child: SingleChildScrollView(
-            // Rows scroll through the shell's padding, not into a hard line.
-            clipBehavior: Clip.none,
+            // The shell ends at the window bottom, so rows scroll to the edge
+            // and the page's own margin sits after the last one.
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

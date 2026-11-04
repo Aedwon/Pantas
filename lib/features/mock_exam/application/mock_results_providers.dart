@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -28,6 +30,13 @@ class MockHistoryEntry {
 final mockHistoryProvider =
     StreamProvider<List<MockHistoryEntry>>((ref) async* {
   if (ref.watch(mockUsesServerProvider)) {
+    // The server keeps mocks only for a named account, so a student who has
+    // not signed in has none. Asking would answer "unauthenticated" and turn
+    // Your record into "Could not load your progress.".
+    if (ref.watch(authStateProvider).valueOrNull is AnonymousAuthState) {
+      yield const <MockHistoryEntry>[];
+      return;
+    }
     final rows = await ref.watch(serverMockHistoryProvider.future);
     yield List.unmodifiable(
       rows.map(

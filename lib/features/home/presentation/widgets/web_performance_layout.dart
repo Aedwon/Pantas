@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
@@ -9,6 +12,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
@@ -30,8 +34,13 @@ class WebPerformanceLayout extends StatefulWidget {
     required this.onLesson,
     required this.onPro,
     required this.onBack,
+    this.openTopicId,
     super.key,
   });
+
+  /// A topic whose panel is already open when the page is built, as when its
+  /// address is opened directly.
+  final String? openTopicId;
   final PerformanceViewData data;
   final List<PerformanceRow> rows;
   final int level;
@@ -42,7 +51,10 @@ class WebPerformanceLayout extends StatefulWidget {
   final ValueChanged<int> onLevel;
   final ValueChanged<SortCycleOrder> onSort;
   final ValueChanged<String?> onSubject;
-  final ValueChanged<String> onTopic;
+
+  /// Opens a topic's panel. A returned future ends when the panel closes, and
+  /// the topic's row stays tinted until then (board PF_Topic).
+  final FutureOr<void> Function(String) onTopic;
   final ValueChanged<String>? onLesson;
   final VoidCallback onPro;
   final VoidCallback onBack;
@@ -52,6 +64,20 @@ class WebPerformanceLayout extends StatefulWidget {
 
 class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
   final _expanded = <String>{};
+  late String? _openTopic = widget.openTopicId;
+
+  /// Opens the panel and tints the row while it is open.
+  void _open(String id) {
+    final panel = widget.onTopic(id);
+    if (panel is! Future<void>) return;
+    setState(() => _openTopic = id);
+    unawaited(
+      panel.whenComplete(() {
+        if (mounted && _openTopic == id) setState(() => _openTopic = null);
+      }),
+    );
+  }
+
   String get _sortLabel => switch (widget.sort) {
         SortCycleOrder.weakest => 'Weakest first',
         SortCycleOrder.strongest => 'Strongest first',
@@ -80,9 +106,9 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
         child: Scaffold(
           backgroundColor: t.colors.background,
           body: SingleChildScrollView(
-            // Rows scroll through the shell's padding, not into a hard line.
-            clipBehavior: Clip.none,
-            padding: const EdgeInsets.only(bottom: 44),
+            // The shell ends at the window bottom, so rows scroll to the edge
+            // and the page's own margin sits after the last one.
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1080),
@@ -223,7 +249,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                               } else if (widget.level == 0) {
                                                 widget.onLevel(1);
                                               } else if (widget.level == 1) {
-                                                widget.onTopic(row.id);
+                                                _open(row.id);
                                               } else {
                                                 widget.onLesson?.call(row.id);
                                               }
@@ -422,7 +448,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                 topic,
                 indent: true,
                 divider: !(last && topic == shown.last),
-                onPressed: () => widget.onTopic(topic.id),
+                onPressed: () => _open(topic.id),
               ),
             ),
         ],
@@ -461,6 +487,11 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
           boardMetrics: !indent,
           divider: divider,
           title: row.title,
+          // A long topic or lesson name wraps instead of ending in dots; the
+          // bar column keeps one width so the bars still line up (2G-12).
+          wrapTitle: true,
+          // The row whose panel is open keeps its tint under the scrim.
+          selected: row.id == _openTopic,
           compact: indent,
           subtitle: subtitle,
           titleStyle: t.style(
@@ -552,36 +583,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       initialValue: (selected,),
       onSelected: (value) => onSelected(value.$1),
       itemBuilder: (_) => [
-        for (final e in values.entries)
-          PopupMenuItem(
-            value: (e.key,),
-            height: 41,
-            padding: EdgeInsets.zero,
-            child: Container(
-              height: 41,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              decoration: BoxDecoration(
-                color: e.key == selected
-                    ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
-                    : null,
-                borderRadius: BorderRadius.circular(9),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      e.value,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: t.style(16),
-                    ),
-                  ),
-                  if (e.key == selected)
-                    Icon(Icons.check, size: 18, color: t.colors.accent),
-                ],
-              ),
-            ),
-          ),
+        _KeyboardMenuList<T>(values: values, selected: selected),
       ],
       child: Container(
         height: 38,
@@ -601,6 +603,117 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
               size: 16,
               color: t.colors.label,
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The rows of a sort or filter menu, with their own keyboard handling.
+///
+/// Flutter on the web maps the arrow keys to page scrolling, not to moving
+/// between menu items, and maps Enter to buttons only. A stock popup menu
+/// therefore ignores ArrowDown and Enter in a browser. This list keeps one
+/// highlighted row: Arrow keys, Home and End move it, Enter or Space picks it,
+/// and the mouse moves it as the pointer passes. Esc closes the menu as usual.
+class _KeyboardMenuList<T> extends PopupMenuEntry<(T,)> {
+  const _KeyboardMenuList({required this.values, required this.selected});
+  final Map<T, String> values;
+  final T selected;
+  static const double rowHeight = 41;
+
+  @override
+  double get height => values.length * rowHeight;
+
+  @override
+  bool represents((T,)? value) => value != null && value.$1 == selected;
+
+  @override
+  State<_KeyboardMenuList<T>> createState() => _KeyboardMenuListState<T>();
+}
+
+class _KeyboardMenuListState<T> extends State<_KeyboardMenuList<T>> {
+  late int _highlight = math.max(
+    0,
+    widget.values.keys.toList().indexOf(widget.selected),
+  );
+
+  void _move(int to) {
+    final last = widget.values.length - 1;
+    setState(() => _highlight = to.clamp(0, last));
+  }
+
+  void _pick(int index) =>
+      Navigator.pop(context, (widget.values.keys.elementAt(index),));
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final keys = widget.values.keys.toList();
+    final last = keys.length - 1;
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.arrowDown): () =>
+            _move(_highlight + 1),
+        const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
+            _move(_highlight - 1),
+        const SingleActivator(LogicalKeyboardKey.home): () => _move(0),
+        const SingleActivator(LogicalKeyboardKey.end): () => _move(last),
+        const SingleActivator(LogicalKeyboardKey.enter): () =>
+            _pick(_highlight),
+        const SingleActivator(LogicalKeyboardKey.numpadEnter): () =>
+            _pick(_highlight),
+        const SingleActivator(LogicalKeyboardKey.space): () =>
+            _pick(_highlight),
+      },
+      child: Focus(
+        autofocus: true,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (var i = 0; i < keys.length; i++)
+              Semantics(
+                button: true,
+                selected: keys[i] == widget.selected,
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  onEnter: (_) => setState(() => _highlight = i),
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => _pick(i),
+                    child: Container(
+                      height: _KeyboardMenuList.rowHeight,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        color: i == _highlight
+                            ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
+                            : null,
+                        borderRadius: BorderRadius.circular(9),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              widget.values[keys[i]]!,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: t.style(16),
+                            ),
+                          ),
+                          if (keys[i] == widget.selected)
+                            Icon(
+                              Icons.check,
+                              size: 18,
+                              color: t.colors.accent,
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),

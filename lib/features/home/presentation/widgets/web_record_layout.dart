@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
@@ -27,9 +28,9 @@ class WebMyPage extends StatelessWidget {
           child: Scaffold(
             backgroundColor: context.webTokens.colors.background,
             body: SingleChildScrollView(
-              // Rows scroll through the shell's padding, not into a hard line.
-              clipBehavior: Clip.none,
-              padding: EdgeInsets.zero,
+              // The shell ends at the window bottom, so rows scroll to the
+              // edge and the page's own margin sits after the last one.
+              padding: EdgeInsets.only(bottom: context.webPageBottomInset),
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1080),

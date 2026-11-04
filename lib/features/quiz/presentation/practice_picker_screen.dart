@@ -1020,22 +1020,24 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   ],
                 ),
               ),
-              if (constraints.maxWidth < 850)
-                SliverToBoxAdapter(child: Column(children: [tree, panel]))
-              else
-                SliverCrossAxisGroup(
-                  slivers: [
-                    SliverToBoxAdapter(child: tree),
-                    const SliverConstrainedCrossAxis(
-                      maxExtent: 28,
-                      sliver: SliverToBoxAdapter(child: SizedBox()),
-                    ),
-                    SliverConstrainedCrossAxis(
-                      maxExtent: 400,
-                      sliver: PinnedHeaderSliver(child: panel),
-                    ),
-                  ],
-                ),
+              SliverPadding(
+                padding: EdgeInsets.only(bottom: context.webPageBottomInset),
+                sliver: constraints.maxWidth < 850
+                    ? SliverToBoxAdapter(child: Column(children: [tree, panel]))
+                    : SliverCrossAxisGroup(
+                        slivers: [
+                          SliverToBoxAdapter(child: tree),
+                          const SliverConstrainedCrossAxis(
+                            maxExtent: 28,
+                            sliver: SliverToBoxAdapter(child: SizedBox()),
+                          ),
+                          SliverConstrainedCrossAxis(
+                            maxExtent: 400,
+                            sliver: PinnedHeaderSliver(child: panel),
+                          ),
+                        ],
+                      ),
+              ),
             ],
           ),
         ),

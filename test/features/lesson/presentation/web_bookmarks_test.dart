@@ -135,6 +135,23 @@ void main() {
               BookmarkOrder.custom,
             );
             expect(find.text('Reset order'), findsOneWidget);
+            // Board BM_Custom (2G-3, 2G-4): the button shares the control's
+            // row, and the grip is the small six-dot one.
+            final control = tester.getRect(find.byType(WebSegmentedControl));
+            final reset = tester.getRect(find.text('Reset order'));
+            expect(reset.center.dy, closeTo(control.center.dy, 1));
+            expect(reset.left, greaterThan(control.right - 1));
+            expect(
+              find.descendant(
+                of: find.byType(WebRow).first,
+                matching: find.byWidgetPredicate(
+                  (w) =>
+                      w is CustomPaint &&
+                      w.key == const ValueKey('bookmark-grip'),
+                ),
+              ),
+              findsOneWidget,
+            );
           }
           await tester.tap(find.text('Edit'));
           await tester.pumpAndSettle();
