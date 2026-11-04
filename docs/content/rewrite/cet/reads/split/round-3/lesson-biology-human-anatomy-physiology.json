@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-biology-human-anatomy-physiology",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L02", "severity": "Minor", "quote": "Many textbooks also list the integumentary system (skin, hair, nails) separately.", "problem": "Still open from split rounds 1 and 2. The sentence sits after the heart paragraph, while the count of ten systems it refers to is in the opening paragraph two subsections earlier. 'Also' and 'separately' have nothing nearby to refer to, so a Grade 5 reader cannot tell what the integumentary system is listed separately from. No teaching or example depends on it. Earlier Blockers and Major are fixed: the enzyme sentence now says 'Almost all enzymes are proteins' and every enzyme named (salivary amylase, the stomach's protein enzyme, lipase, pancreatic enzymes) is a protein; Example #4 now asks about 'a person after birth' and names the lungs; the new step 4 states the umbilical pattern correctly (umbilical arteries carry oxygen-poor blood away from the fetal heart to the placenta, the umbilical vein carries oxygen-rich blood toward the heart) and agrees with Core Concept; Example #2 now gives the meanings of neuron and smooth muscle before the question needs them, and the four tissue types in Core Concept let the student place smooth muscle as tissue. The lesson stands alone: the two references to the sibling lesson are plain cross-references and nothing taught or asked here depends on moved material.", "source": "Checklist L02 (no filler); split round-1 and round-2 reads; OpenStax Anatomy and Physiology 2e, 28.5 (fetal circulation); OpenStax Biology 2e, 6.5 (enzymes)."},
+    {"rule": "L22a", "severity": "Minor", "quote": "**Accessory organs** help digestion but food does not pass through them.", "problem": "Still open from split round 2. This paragraph has five sentences, over the one-to-three limit. The nephron paragraph ('Each kidney has about a million tiny filters') also has five, and the heart-levels, food-path, small-intestine, ventilation and other-excretion paragraphs have four.", "source": "Checklist L22a; LSG Formatting rules."}
+  ],
+  "goodQuotesChecked": 2
+}
