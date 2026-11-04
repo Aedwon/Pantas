@@ -660,10 +660,14 @@ class _KeyboardMenuListState<T> extends State<_KeyboardMenuList<T>> {
             _move(_highlight - 1),
         const SingleActivator(LogicalKeyboardKey.home): () => _move(0),
         const SingleActivator(LogicalKeyboardKey.end): () => _move(last),
-        const SingleActivator(LogicalKeyboardKey.enter): () =>
-            _pick(_highlight),
-        const SingleActivator(LogicalKeyboardKey.numpadEnter): () =>
-            _pick(_highlight),
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () => _pick(_highlight),
+        const SingleActivator(
+          LogicalKeyboardKey.numpadEnter,
+          includeRepeats: false,
+        ): () => _pick(_highlight),
         const SingleActivator(LogicalKeyboardKey.space): () =>
             _pick(_highlight),
       },
