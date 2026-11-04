@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-statistics-and-probability-combinatorics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L17", "severity": "Major", "quote": "Choosing the $10$ who go is the same as choosing the $2$ who stay. Each group of $10$ matches exactly one group of $2$, so $C(12,10)=C(12,2)$.", "problem": "Example #6 uses the symmetry identity C(n,r)=C(n,n-r), but the identity first appears in Speed Tricks & Shortcuts, after the examples. Core Concept's Combinations section never states it. The math rule requires every formula used in a solution to appear in Core Concept first; the inline reason does not replace that.", "source": "content-checklist.md L17; lesson-style-guide.md, Per-subject section fit (Mathematics)"},
+    {"rule": "L27", "severity": "Major", "quote": "The problem must also tell you whether one person may hold two roles.", "problem": "False absolute. Standard officer problems (choose a president and a vice president from 10 members) often do not say whether one person may hold both roles, and the usual reading is that the roles go to different people, giving 10 x 9 = 90. The lesson says the problem must state it and Trap #4 says 'Use only what the problem states', so a student facing a silent item gets no default and may answer 100. Example #7 even has to add 'assume no person may hold both roles'. The rule's condition for the silent case is missing.", "source": "content-checklist.md L27; lesson-style-guide.md, Teaching completeness (conditions and limitations)"}
+  ],
+  "goodQuotesChecked": 2
+}
