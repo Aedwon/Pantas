@@ -1,0 +1,14 @@
+{
+  "lesson": "lesson-trigonometry-trigonometric-identities",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "Sine is positive in I and II. Cosine is positive in I and IV. Tangent is positive in I and III.", "problem": "These sentences end a Core Concept paragraph of seven sentences (notation, quadrant meaning, quadrant ranges, three sign rules, prerequisite pointer). Paragraphs should be one to three short sentences. The paragraphs on undefined angles, the sum/difference conditions, the double-angle conditions, the Example 8 opening and the multiple-choice test tip also run to four sentences.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"},
+    {"rule": "L21", "severity": "Minor", "quote": "$$\\cos 2\\theta = \\cos^2 \\theta - \\sin^2 \\theta = 1 - 2\\sin^2 \\theta = 2\\cos^2 \\theta - 1$$", "problem": "One display line holds all three forms of the cosine double-angle formula joined by three equals signs. It is too wide for a phone screen and will scroll or shrink.", "source": "content-checklist.md L21; lesson-style-guide.md Examples section"},
+    {"rule": "L21", "severity": "Minor", "quote": "$$\\dfrac{2 + 2\\cos \\theta}{\\sin \\theta (1 + \\cos \\theta)} = \\dfrac{2(1 + \\cos \\theta)}{\\sin \\theta (1 + \\cos \\theta)}$$", "problem": "Example 8 step 3 puts two wide display fractions on one line. The line is too wide for a phone screen.", "source": "content-checklist.md L21; lesson-style-guide.md Examples section"},
+    {"rule": "L03", "severity": "Minor", "quote": "Find the exact value of $\\sin 75^\\circ$.", "problem": "\"Exact value\" has an exam-specific meaning (keep radicals and fractions, no decimal approximation) and is used here for the first time without a one-line explanation.", "source": "content-checklist.md L03; lesson-style-guide.md Voice"},
+    {"rule": "B08", "severity": "Minor", "quote": "Example 1 gave $\\cos \\theta = \\dfrac{4}{5}$", "problem": "The number 1 in the prose reference \"Example 1\" is not wrapped in inline math, which the notation rule requires for every number in prose.", "source": "content-checklist.md B08; lesson-style-guide.md Math notation"}
+  ],
+  "goodQuotesChecked": 5
+}
