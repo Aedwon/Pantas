@@ -9,13 +9,13 @@ isActive: true
 ---
 ## Core Concept
 
-Atoms bond when the joined atoms have lower energy than the separate atoms. Only the outer electrons, called **valence electrons**, take part.
+Atoms bond when the joined atoms have lower energy than the separate atoms. In main-group atoms (groups $1$, $2$, and $13$ to $18$), mainly the outer electrons, called **valence electrons**, take part.
 
 ### Ionic, Covalent, and Metallic Bonding
 
 **Ionic bonding** is the attraction between oppositely charged ions. It usually forms between a metal and a nonmetal. The metal gives up electrons to become a positive ion (cation), and the nonmetal takes them to become a negative ion (anion).
 
-An ionic solid is a lattice, a repeating pattern of many ions, not separate pairs. Polyatomic ions also form ionic compounds, such as $NH_4NO_3$.
+An ionic solid is a lattice, a repeating pattern of many ions, not separate pairs. A polyatomic ion is a group of bonded atoms with one charge. Polyatomic ions also form ionic compounds, such as $NH_4NO_3$.
 
 **Covalent bonding** is the sharing of electrons between two atoms. Both nuclei attract the shared electrons. Bonds between nonmetals are usually covalent, but "nonmetal plus nonmetal" is a shortcut, not the definition.
 
@@ -23,13 +23,13 @@ A shared pair is two electrons. A single bond is one shared pair ($2$ electrons)
 
 **Metallic bonding** is found in metals. The valence electrons spread through the whole solid and move freely around the metal ions. Free electrons carry charge and energy, so metals conduct electricity and heat.
 
-When the metal is hammered, layers of ions slide past each other and the electrons keep holding them together, so metals can be shaped without breaking.
+When the metal is hammered, layers of ions slide past each other and the electrons keep holding them together, so most metals can be hammered into shape without breaking. This is called being **malleable**.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"bond-types","illustrationKey":"science/chemistry/chemical-bonding#1","bondTypes":[{"label":"ionic","participants":["metal","nonmetal"],"electronAction":"transfer","result":"positive and negative ions"},{"label":"covalent","participants":["nonmetal","nonmetal"],"electronAction":"share a pair of electrons"},{"label":"metallic","participants":["metal atoms"],"electronAction":"sea of free-moving electrons"}]} -->
 
 ### Electronegativity and Bond Polarity
 
-**Electronegativity** is how strongly an atom pulls shared electrons toward itself. It rises toward the upper right of the periodic table, leaving out the noble gases, and fluorine is highest.
+**Electronegativity** is how strongly an atom pulls shared electrons toward itself. It generally rises toward the upper right of the periodic table, leaving out the noble gases, and fluorine is highest.
 
 If two bonded atoms differ in electronegativity, the shared electrons sit closer to one atom. That atom is partly negative ($\delta^-$) and the other is partly positive ($\delta^+$). The bond is **polar**.
 
@@ -41,14 +41,14 @@ A polar bond is a **dipole**: two equal and opposite partial charges a short dis
 
 Many main-group atoms are stable with eight valence electrons, called an **octet**. It is a good guide for carbon, nitrogen, oxygen, and fluorine, but not a law. Hydrogen follows a duet, two electrons.
 
-Exceptions include $BF_3$, where boron has six, and odd-electron molecules such as $NO$. Atoms from period $3$ down, such as sulfur in $SF_6$, can hold more than eight.
+Exceptions include $BF_3$, where boron has six, and odd-electron molecules such as $NO$, which have an odd number of valence electrons. Atoms from period $3$ down (the third row of the periodic table and below), such as sulfur in $SF_6$, can hold more than eight.
 
 ### Drawing a Lewis Structure
 
 A **Lewis structure** shows bonds and **lone pairs**, which are valence electron pairs that are not shared. Each bond line is a shared pair of electrons.
 
 1. Add the valence electrons of all atoms. For a main-group atom, the valence electrons equal the last digit of its group number: carbon (group $14$) has $4$, nitrogen (group $15$) has $5$, oxygen (group $16$) has $6$, and hydrogen (group $1$) has $1$. Helium has $2$. For an ion, add one for each negative charge and subtract one for each positive charge.
-2. For a molecule with one center atom bonded to all the others, usually put the least electronegative atom in the center and join the others to it with single bonds. Hydrogen is never the center, because it forms only one bond.
+2. For a molecule with one center atom bonded to all the others, usually put the least electronegative atom in the center and join the others to it with single bonds. Hydrogen is not put in the center, because it forms one bond.
 3. Give the outer atoms lone pairs until each has an octet. Hydrogen gets none, because one bond already fills its duet.
 4. Put any electrons left over on the center atom. A center from period $3$ or below may end with more than eight.
 5. If the center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Do not do this for boron or beryllium, as in $BF_3$, where the center stays below eight.
@@ -61,7 +61,7 @@ $$FC=V-L-\dfrac{B}{2}$$
 
 Here $V$ is the atom's valence electrons, $L$ is the electrons in its lone pairs, and $B$ is the electrons in its bonds. Prefer the structure with formal charges nearest zero. The charges must add up to the charge of the species.
 
-Some species need **resonance**. Two or more valid Lewis structures differ only in where the double bond sits. The real molecule is a blend of them, with equal bond lengths.
+Some species need **resonance**. Two or more valid Lewis structures use the same atom order but differ in where the double or triple bonds and lone pairs sit. The real molecule is a blend of them. If the structures are equivalent, as in carbonate below, the bond lengths are equal. If they are not, the bonds differ in length.
 
 ### VSEPR: Predicting Shape
 
@@ -69,13 +69,13 @@ Some species need **resonance**. Two or more valid Lewis structures differ only 
 
 A **group** is a lone pair or a bond. A single, double, or triple bond counts as one group. This lesson covers up to $4$ groups.
 
-Count the groups, then count how many are lone pairs:
+The number of groups sets the **electron-group geometry**, the arrangement of all the groups, lone pairs included. The **molecular shape** names only where the atoms are, so lone pairs are not named. Count the groups, then count how many are lone pairs:
 
-- $2$ groups: linear, $180^\circ$.
-- $3$ groups: trigonal planar, $120^\circ$, with no lone pair. With one lone pair the shape is bent.
-- $4$ groups: tetrahedral, $109.5^\circ$, with no lone pair. With one lone pair it is trigonal pyramidal. With two lone pairs it is bent.
+- $2$ groups: electron-group geometry linear, $180^\circ$. The shape is linear.
+- $3$ groups: trigonal planar, $120^\circ$. With no lone pair the shape is trigonal planar. With one lone pair the shape is bent.
+- $4$ groups: tetrahedral, $109.5^\circ$. With no lone pair the shape is tetrahedral. With one lone pair it is trigonal pyramidal. With two lone pairs it is bent.
 
-The **molecular shape** names only where the atoms are, so lone pairs are not named. Lone pairs push harder than bonds, so angles shrink below the ideal value.
+Lone pairs push harder than bonds, so bond angles are usually a little smaller than these ideal angles.
 
 <!-- ILLUSTRATION: Lewis structure of CO2 with every lone pair drawn, O=C=O, each oxygen with two lone pairs, carbon with none -->
 
@@ -85,7 +85,7 @@ A molecule is **polar** if its bond dipoles do not cancel. Look at the shape.
 
 In linear $CO_2$ the two $C=O$ dipoles pull in opposite directions and cancel, so $CO_2$ is nonpolar. In bent $H_2O$ they do not cancel, so water is polar.
 
-For the shapes in this lesson, the pulls cancel only when the outer atoms are all the same and the shape is symmetric, as in linear $CO_2$, trigonal planar $BF_3$, and tetrahedral $CH_4$ and $CCl_4$. A lone pair on the center atom, as in $NH_3$, or different outer atoms, as in $CH_3Cl$, leave the molecule polar. A molecule with no polar bonds, such as $H_2$, is nonpolar.
+For the shapes in this lesson, the pulls cancel only when the center has no lone pair, the outer atoms are all the same, and the shape is symmetric, as in linear $CO_2$, trigonal planar $BF_3$, and tetrahedral $CH_4$ and $CCl_4$. A lone pair on the center atom, as in $NH_3$, or different outer atoms, as in $CH_3Cl$, leave the molecule polar. A molecule with no polar bonds, such as $H_2$, is nonpolar.
 
 One exception is ozone, $O_3$. It has only O-O bonds, but it is bent, and its center oxygen carries a positive formal charge while an end oxygen carries a negative one. So $O_3$ is slightly polar.
 
@@ -97,11 +97,11 @@ Attractions between molecules are weaker than the bonds inside them:
 
 ### Bonding and Properties
 
-- Ionic solids have high melting points, because the attraction between many oppositely charged ions is strong and takes much energy to overcome. They are brittle: a hard hit shifts one layer of the lattice, like charges end up side by side and repel, and the crystal splits.
+- Ionic solids usually have high melting points, because the attraction between many oppositely charged ions is strong and takes much energy to overcome. They are brittle: a hard hit shifts one layer of the lattice, like charges end up side by side and repel, and the crystal splits.
 - Ionic solids conduct electricity when melted or dissolved, because the ions can move, but not as solids.
-- Metals conduct as solids because their electrons are free, and they are malleable because layers of ions can slide without breaking the bonding.
-- Molecular substances usually have low melting and boiling points, because only the weak forces between molecules must be overcome. The bonds inside stay intact. Network solids such as diamond are an exception.
-- Polar substances tend to dissolve in polar liquids such as water, and nonpolar ones in nonpolar liquids. The reason is that the attractions between solute and solvent must be about as strong as the ones broken. Many ionic solids also dissolve in water, because the polar water molecules attract the ions, but not all do.
+- Metals conduct as solids because their electrons are free, and most are malleable because layers of ions can slide without breaking the bonding.
+- Molecular substances usually have low melting and boiling points, because only the weak forces between molecules must be overcome. The bonds inside stay intact. Network solids, such as diamond, are an exception. A network solid is one giant lattice of covalent bonds, with no separate molecules.
+- Polar substances tend to dissolve in polar liquids such as water, and nonpolar ones in nonpolar liquids. The solute is what dissolves and the solvent is the liquid it dissolves in. The attractions between solute and solvent must be about as strong as the ones broken. Many ionic solids also dissolve in water, because the polar water molecules attract the ions, but not all do.
 
 ## Examples
 
@@ -150,7 +150,7 @@ Draw the Lewis structure of $NH_3$.
 **Solution:**
 
 1. Valence electrons: $5+3(1)=8$.
-2. Nitrogen is the center, because hydrogen is never the center. Three single bonds use $6$ electrons.
+2. Nitrogen is the center, because hydrogen is not put in the center. Three single bonds use $6$ electrons.
 3. Hydrogen has a duet from its bond, so it gets no lone pair. The $2$ electrons left go on nitrogen as one lone pair.
 4. Nitrogen now has three bonds and one lone pair, which is an octet.
 
@@ -176,7 +176,7 @@ $$FC_{O}=6-4-\dfrac{4}{2}=0$$
 $$FC_{O}=6-6-\dfrac{2}{2}=-1$$
 
 7. The total is $0+0-1-1=-2$, which matches the ion.
-8. Any of the three oxygens can be the double-bond one. So there are three resonance structures, and the real ion has three equal $C-O$ bonds.
+8. Any of the three oxygens can be the double-bond one. So there are three resonance structures, and the real ion has three equal $C-O$ bonds, because the structures are equivalent.
 
 <!-- ILLUSTRATION: three resonance Lewis structures of CO3 2-, carbon in the center, each with one C=O double bond on a different oxygen, the other two oxygens with a single bond, three lone pairs and a charge of -1, double-headed arrows between the structures, square brackets with a 2- charge -->
 
@@ -189,11 +189,25 @@ Find the molecular shape of each.
 1. $CH_4$: $4+4(1)=8$ electrons. Carbon has four bonds and no lone pair, so the shape is tetrahedral, with H-C-H angles of $109.5^\circ$.
 2. $NH_3$: $5+3(1)=8$ electrons. Nitrogen has three bonds and one lone pair. The four groups are tetrahedral, but the shape is trigonal pyramidal.
 3. $H_2O$: $6+2(1)=8$ electrons. Oxygen has two bonds and two lone pairs, so the shape is bent.
-4. Lone pairs push harder than bonds, so the H-O-H angle is smaller than $109.5^\circ$.
+4. For $NH_3$ and $H_2O$ the electron-group geometry is tetrahedral, but the shapes are different. Lone pairs push harder than bonds, so the H-O-H angle is smaller than $109.5^\circ$.
 
 <!-- ILLUSTRATION: three ball-and-stick models side by side, CH4 tetrahedral with 109.5 degree H-C-H angle, NH3 trigonal pyramidal with one lone pair on N, H2O bent with two lone pairs on O -->
 
-### #7: Is the Molecule Polar?
+### #7: Shapes of $BF_3$ and $SO_2$
+
+Find the molecular shape of each.
+
+**Solution:**
+
+1. $BF_3$: $3+3(7)=24$ electrons. Boron is the center with three single bonds, and each fluorine has three lone pairs. Boron has six electrons, which is an exception to the octet rule.
+2. Boron has three groups and no lone pair, so the shape is trigonal planar, with F-B-F angles of $120^\circ$.
+3. $SO_2$: $6+2(6)=18$ electrons. Sulfur is the center with two single bonds, and each oxygen has three lone pairs. That uses $16$ electrons, so the last $2$ go on sulfur as a lone pair.
+4. Move a lone pair from one oxygen to make an $S=O$ double bond. Sulfur still has two bonds and one lone pair.
+5. A double bond counts as one group, so sulfur has three groups. One is a lone pair, so the shape is bent. The O-S-O angle is a little less than $120^\circ$.
+
+<!-- ILLUSTRATION: two ball-and-stick models side by side, BF3 trigonal planar with 120 degree F-B-F angles and no lone pair on B, SO2 bent with one lone pair on S and a little less than 120 degrees between the two S-O bonds -->
+
+### #8: Is the Molecule Polar?
 
 Decide whether $CO_2$ and $H_2O$ are polar.
 
@@ -204,7 +218,7 @@ Decide whether $CO_2$ and $H_2O$ are polar.
 3. In $H_2O$, each $O-H$ bond is polar. The shape is bent.
 4. The pulls do not cancel. $H_2O$ is polar.
 
-### #8: Attractions and Boiling Point
+### #9: Attractions and Boiling Point
 
 $CH_4$ and $H_2O$ have about the same size. Why does water boil at a much higher temperature?
 
@@ -214,7 +228,7 @@ $CH_4$ and $H_2O$ have about the same size. Why does water boil at a much higher
 2. $H_2O$ has hydrogen bonds between molecules, because H is bonded to O.
 3. Hydrogen bonds are much stronger, so more energy is needed to separate the molecules. Water boils at the higher temperature.
 
-### #9: Comparing London Forces
+### #10: Comparing London Forces
 
 Which has the higher boiling point, $Cl_2$ or $Br_2$?
 
@@ -224,7 +238,7 @@ Which has the higher boiling point, $Cl_2$ or $Br_2$?
 2. $Br_2$ has more electrons ($70$) than $Cl_2$ ($34$), so it is easier to distort.
 3. The London forces are stronger in $Br_2$, so it needs more energy to separate. $Br_2$ has the higher boiling point.
 
-### #10: Dipole-Dipole Forces
+### #11: Dipole-Dipole Forces
 
 $HCl$ and $F_2$ each have $18$ electrons. Which has the higher boiling point?
 
@@ -234,7 +248,7 @@ $HCl$ and $F_2$ each have $18$ electrons. Which has the higher boiling point?
 2. $HCl$ is polar, so it also has dipole-dipole forces.
 3. With similar London forces, the extra dipole-dipole attraction makes $HCl$ the one with the higher boiling point.
 
-### #11: Bonding and Conductivity
+### #12: Bonding and Conductivity
 
 Solid $NaCl$ does not conduct electricity, but melted $NaCl$ does. Explain.
 
@@ -242,7 +256,7 @@ Solid $NaCl$ does not conduct electricity, but melted $NaCl$ does. Explain.
 
 In the solid, the ions are fixed in the lattice. When melted, they move and carry charge.
 
-### #12: Structure and Solubility in Water
+### #13: Structure and Solubility in Water
 
 Which dissolves better in water, $NH_3$ or $CCl_4$? Use shape and polarity.
 
@@ -285,6 +299,6 @@ Check the shape. In $CO_2$ and $CCl_4$, the polar bonds cancel.
 
 ### #5: Mixing Up Bonds and Attractions Between Molecules
 
-> Boiling a molecular liquid does not break its covalent bonds.
+> Boiling a molecular liquid usually does not break its covalent bonds.
 
 It separates the molecules from each other. Water stays $H_2O$ when it boils.
