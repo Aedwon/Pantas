@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-structural-stability",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Lower and wider help most when the other factors stay the same.",
+      "problem": "The round-1 fix replaced 'only' with 'most', and the claim still fails. By the lesson's own tan(theta) = d/h_c, lowering the center of gravity helps more when the base is also wider: a box 1 wide and 2 tall goes from 0.5 to 0.67 when lowered to 1.5 tall, but to 0.8 if it also widens to 1.2. So lower and wider help more when the other factor also improves, not most when it stays the same. The explanation under it ('a wider base still widens it') then gives no case where lower or wider is worse, so the trap no longer shows its own exception: one factor improving while the other worsens (for example wider but much taller). Round-1 B01 on this trap is therefore still open in another form.",
+      "source": "Reader rules: test every general statement; the lesson's own tilt formula and Speed Tricks ratio rule; round-1 B01 upheld in final-run-rulings"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "**Check whether the object is moving.** Turns, braking, impacts and vibration add forces that the weight line alone cannot show.",
+      "problem": "The condition for needing more than the weight line is acceleration (a change of speed or direction), not motion. A truck moving at a steady speed on a straight, level road is judged by the weight line exactly as at rest. The lesson states the condition as moving here, in 'Everything above assumes the object is at rest or moves slowly.' and in Example 9 ('This is a moving case'). The base said 'When an object accelerates', and the brief's goal names an accelerating vehicle. Only the turn sentence gives the real reason ('because its direction keeps changing'), so a student can wrongly reject the static test for steady motion.",
+      "source": "Brief goal ('an accelerating vehicle needs a dynamic explanation'); base Core Concept; checklist L27; Newton's first law (OpenStax College Physics 2e, 4.2)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For a uniform box with width $w$ and height $h$, $d = \\dfrac{w}{2}$ and $h_c = \\dfrac{h}{2}$.",
+      "problem": "Round-1 finding still open. This paragraph now has six sentences. Others also run past three: the push paragraph starting 'Let a box rest on level ground' (five), the center-of-gravity paragraph starting 'If the weight is spread evenly' (five), and the combining paragraph starting 'For three parts' (five).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

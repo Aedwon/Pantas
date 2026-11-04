@@ -58,7 +58,7 @@ Weight is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. Th
 
 ### Moving Objects
 
-Everything above assumes the object is at rest or moves slowly. A vehicle in a sharp turn is different, because its direction keeps changing. The road must push the tires sideways, toward the center of the turn. This push acts at road level, below the center of gravity.
+Everything above assumes the object is at rest or moves at a steady speed in a straight line. A vehicle in a sharp turn is different, because its direction keeps changing. The road must push the tires sideways, toward the center of the turn. This push acts at road level, below the center of gravity.
 
 The weight resists rolling over. The road's sideways push, acting below the center of gravity, is what tends to roll the vehicle toward the outside of the turn. More of the load moves onto the outside wheels.
 
@@ -202,7 +202,7 @@ The wider stance gives a bigger base from side to side. The weight line has more
 
 **Compare both center height and base width.** For similar uniform boxes, compare $\dfrac{w}{h}$: the larger ratio tips later. This works when the center of gravity stays in the middle of the base. If one factor improves and the other worsens, work out the ratio.
 
-**Check whether the object is moving.** Turns, braking, impacts and vibration add forces that the weight line alone cannot show.
+**Check whether the object speeds up, slows down or turns.** Turns, braking, impacts and vibration add forces that the weight line alone cannot show. Steady straight motion adds none.
 
 ## Traps to Watch For
 
@@ -226,7 +226,7 @@ A lower center of gravity helps, but the full explanation involves those forces 
 
 ### #4: "Lower or Wider Is Always Better"
 
-> Lower and wider help most when the other factors stay the same.
+> Lowering the center of gravity or widening the base each helps when the other factors stay the same.
 
 A load that shifts the center of gravity toward one edge reduces the margin, and a wider base still widens it. A load that sticks out past the base can tip even a wide crate unless the base is wide enough to cover it.
 
