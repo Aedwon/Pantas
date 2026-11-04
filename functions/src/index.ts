@@ -38,6 +38,8 @@ export { listWebPlans } from './webPlans.js';
 export {getWebEntitlement} from './webEntitlement.js';
 export {getSessionDiagnosis} from './sessionDiagnosis.js';
 
+export {getCustomTracks, deleteCustomTrack} from './customTracks.js';
+
 export {setBetaPro} from './betaPro.js';
 
 export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest} from './guardianConsent.js';
