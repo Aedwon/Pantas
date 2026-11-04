@@ -15,7 +15,9 @@ This lesson needs the lesson Cellular Reproduction (Chromosomes, Cell Cycle, Mit
 
 ### Words for Genes
 
-A **gene** is a section of DNA that codes for a trait. An **allele** is one version of a gene. A diploid cell has two alleles of each gene, one on each homolog.
+A **gene** is a section of DNA that codes for a trait. An **allele** is one version of a gene.
+
+For a gene on a non-sex chromosome, a diploid cell has two alleles, one on each homolog. A male's X and Y carry mostly different genes, so he has one allele of most genes on the X.
 
 The **genotype** is the alleles an organism has, written as letters, such as $Aa$. A pair of matching alleles, such as $BB$, is **homozygous**. A pair of different alleles, such as $Aa$, is **heterozygous**.
 
@@ -60,11 +62,13 @@ Meiosis can make gametes differ in their mix of alleles in two ways.
 
 **Independent assortment.** At metaphase I, each homologous pair faces the poles in its own random way. This does not depend on how the other pairs face. So the maternal and paternal chromosomes are shuffled into the gametes.
 
-For $n$ pairs, there are $2^n$ ways to sort them. This count does not include crossing over.
+One **arrangement** is the way all the pairs face the poles in one cell at metaphase I. A **combination** is the set of chromosomes that one gamete gets.
 
-A single meiosis uses only one way of sorting, so its four cells hold two of these combinations. The other combinations come from other meioses.
+For $n$ pairs, a gamete can get $2^n$ different combinations. This counts whole chromosomes, so it ignores crossing over.
 
-For humans, $n = 23$, so there are $2^{23} = 8{,}388{,}608$ ways.
+Without crossing over, a single meiosis uses one arrangement, so its four cells hold only two combinations. The other combinations come from meioses with other arrangements.
+
+For humans, $n = 23$, so there are $2^{23} = 8{,}388{,}608$ combinations.
 
 **Crossing over.** In prophase I, homologs swap pieces. This makes a chromosome that holds a mix of the mother's and father's alleles. It is new combinations on a single chromosome.
 
@@ -160,10 +164,10 @@ A diploid cell has the genotype $AaBb$. The gene for $A$ is on one chromosome pa
 
 1. Each gamete is haploid. It gets one allele for each gene: $A$ or $a$, and $B$ or $b$.
 2. The pairs sort independently, so each allele for the first gene can go with each allele for the second gene.
-3. One meiosis uses one way of sorting. Its four cells are either $AB$, $AB$, $ab$, $ab$ or $Ab$, $Ab$, $aB$, $aB$, so it makes two types.
-4. Many such cells use both ways of sorting. Together they can make all four types: $AB$, $Ab$, $aB$, and $ab$, in about equal numbers.
+3. One meiosis has one arrangement of the two pairs. Its four cells are either $AB$, $AB$, $ab$, $ab$ or $Ab$, $Ab$, $aB$, $aB$, so it makes two combinations.
+4. Other cells use the other arrangement. Together they can make all four combinations: $AB$, $Ab$, $aB$, and $ab$, in about equal numbers. This agrees with $2^2 = 4$.
 5. This works only because the genes are on different pairs. Genes close together on the same chromosome tend to travel together, as the next example shows.
-6. With crossing over between a gene and its centromere, one meiosis can make up to four types.
+6. With crossing over between a gene and its centromere, one meiosis can make up to four combinations. They are still these same four.
 
 ### #7: Crossing Over and New Allele Combinations
 
@@ -197,9 +201,11 @@ Remember meiosis as **one copying, two divisions**. Homologs separate in meiosis
 
 For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I.
 
-$2^n$ counts the gamete types that many cells can make together. Here $n$ is the number of heterozygous gene pairs on different chromosomes. A homozygous pair adds no choice, so $AaBB$ gives $2$ types, not $4$.
+$2^n$ counts the gamete combinations that many cells can make together. Here $n$ is the number of heterozygous genes, each on a different chromosome pair. A homozygous gene adds no choice, so $AaBB$ gives $2$ combinations, not $4$.
 
-Use $2^n$ only when you ignore crossing over. One meiosis makes at most $2$ types without it.
+For genes on different chromosome pairs, crossing over does not change this count. Crossing over matters for genes on the same chromosome, as in Example #7.
+
+Without crossing over, one meiosis makes at most $2$ combinations.
 
 To tell a metaphase, ask whether the chromosomes are in pairs. Pairs mean metaphase I.
 
