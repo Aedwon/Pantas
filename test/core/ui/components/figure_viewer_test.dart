@@ -288,7 +288,6 @@ void main() {
         (tester) async {
       await openViewer(tester, screen: wide, figure: landscape);
       const far = Offset(60, 60);
-      expect(tester.getRect(viewer()).contains(far), isFalse);
       final pointer = TestPointer(1, PointerDeviceKind.mouse);
       await tester.sendEventToBinding(pointer.hover(far));
       await tester.sendEventToBinding(pointer.scroll(const Offset(0, -100)));
@@ -303,8 +302,8 @@ void main() {
         await tester.sendEventToBinding(pointer.scroll(const Offset(0, 400)));
       }
       await tester.pump();
-      expect(zoom(tester), 1);
-      expect(matrix(tester), Matrix4.identity());
+      expect(zoom(tester), closeTo(1, 1e-6));
+      expect(matrix(tester).getTranslation().length, closeTo(0, 1e-6));
     });
 
     testWidgets('Escape closes it and the scrim covers the whole screen',
@@ -323,17 +322,47 @@ void main() {
   for (final screen in [phone, wide]) {
     final name = '${screen.width.toInt()}x${screen.height.toInt()}';
 
+    testWidgets(
+        'the window fills the screen, so zooming is not cropped to '
+        'the figure, $name', (tester) async {
+      await openViewer(tester, screen: screen, figure: landscape);
+      final window = tester.getRect(viewer());
+      expect(window.width, screen.width);
+      expect(window.height, greaterThan(screen.height * .85));
+    });
+
+    testWidgets('a figure keeps its shape from the page, $name',
+        (tester) async {
+      await openViewer(tester, screen: screen, figure: landscape);
+      final rect = figureRect(tester);
+      expect(rect.width / rect.height, closeTo(landscape.aspectRatio, .01));
+    });
+
+    testWidgets('a click on the figure stays, a click beside it closes, $name',
+        (tester) async {
+      await openViewer(tester, screen: screen, figure: landscape);
+      await tester.tapAt(figureRect(tester).center);
+      await tester.pumpAndSettle();
+      expect(viewer(), findsOneWidget);
+      await tester.tapAt(Offset(screen.width / 2, screen.height - 60));
+      await tester.pumpAndSettle();
+      expect(viewer(), findsNothing);
+    });
+
     testWidgets('a pinch stops at five times, $name', (tester) async {
       await openViewer(tester, screen: screen, figure: landscape);
       final center = tester.getCenter(viewer());
       final a = await tester.startGesture(center - const Offset(20, 0));
       final b = await tester.startGesture(center + const Offset(20, 0));
+      await a.moveBy(const Offset(-30, 0));
+      await b.moveBy(const Offset(30, 0));
+      await tester.pump();
       await a.moveBy(const Offset(-300, 0));
       await b.moveBy(const Offset(300, 0));
       await tester.pump();
       expect(zoom(tester), 5);
-      await a.moveBy(const Offset(300, 0));
-      await b.moveBy(const Offset(-300, 0));
+      await a.moveBy(const Offset(330, 0));
+      await b.moveBy(const Offset(-330, 0));
       await tester.pump();
       expect(zoom(tester), 1);
       await a.up();

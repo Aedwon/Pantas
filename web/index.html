@@ -168,8 +168,9 @@
     @media (prefers-color-scheme: dark) {
       #pantas-splash { --bg: #151515; --tx: #F5F5F5; --logo: #F5F5F5; --link: #4CC3AC; }
     }
-    html.ps-on { background: #F5F5F7; }
-    @media (prefers-color-scheme: dark) { html.ps-on { background: #151515; } }
+    /* The app background, so a page with nothing drawn yet is never plain white. */
+    html { background: #F5F5F7; }
+    @media (prefers-color-scheme: dark) { html { background: #151515; } }
     html.ps-on #pantas-splash { display: flex; }
     html.ps-out #pantas-splash { opacity: 0; pointer-events: none; transition: opacity .4s ease-in; }
     #pantas-splash, #pantas-splash * { box-sizing: border-box; }

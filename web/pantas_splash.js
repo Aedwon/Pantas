@@ -1,11 +1,15 @@
 // Returning visits keep the logo until the first route has drawn settled data.
-// The HTML welcome still owns first visits. Eight seconds is the hard limit.
+// The HTML welcome still owns first visits. Once the app has started, eight
+// seconds is the limit. Before that nothing is drawn underneath, so a slow phone
+// keeps the logo instead of a blank page, for at most a minute.
 (function (root) {
   'use strict';
 
   var FADE_MS = 400;
   // Uncover normal loading states if data takes too long.
   var GIVE_UP_MS = 8000;
+  // A page whose app never starts still ends up uncovered.
+  var NEVER_STARTED_MS = 60000;
 
   function create(env) {
     var doc = env.document;
@@ -40,6 +44,19 @@
       env.setTimeout(removeNow, FADE_MS);
     }
 
+    function giveUp() {
+      state.done = true;
+      removeNow();
+    }
+
+    // Called by the app when its first route is about to mount, or when it has
+    // an error screen to show.
+    function started() {
+      if (!state.shown || state.done || state.started) return;
+      state.started = true;
+      env.setTimeout(giveUp, GIVE_UP_MS);
+    }
+
     // Called by the app once the first route has settled.
     function ready() {
       if (!state.shown || state.done) return;
@@ -55,10 +72,7 @@
       state.shown = true;
       doc.documentElement.classList.add('ps-on');
       preloadFont();
-      env.setTimeout(function () {
-        state.done = true;
-        removeNow();
-      }, GIVE_UP_MS);
+      env.setTimeout(giveUp, NEVER_STARTED_MS);
     }
 
     return {
@@ -66,12 +80,18 @@
         return state.shown;
       },
       ready: ready,
+      started: started,
       state: state,
     };
   }
 
   if (typeof module === 'object' && module.exports) {
-    module.exports = { create: create, FADE_MS: FADE_MS, GIVE_UP_MS: GIVE_UP_MS };
+    module.exports = {
+      create: create,
+      FADE_MS: FADE_MS,
+      GIVE_UP_MS: GIVE_UP_MS,
+      NEVER_STARTED_MS: NEVER_STARTED_MS,
+    };
     return;
   }
 

@@ -5,7 +5,7 @@ import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 
 const require = createRequire(import.meta.url);
-const { create, FADE_MS, GIVE_UP_MS } = require('../../web/pantas_splash.js');
+const { create, FADE_MS, GIVE_UP_MS, NEVER_STARTED_MS } = require('../../web/pantas_splash.js');
 
 function setup({ welcomeShown = false, reduced = false } = {}) {
   const classes = new Set();
@@ -100,12 +100,27 @@ test('a repeated ready signal does nothing more', () => {
   assert.equal(t.timers.length, count);
 });
 
-test('the splash gives up if the first frame never comes', () => {
+test('the splash gives up if the app never starts', () => {
   const t = setup({ reduced: true });
-  const giveUp = t.timers.find((x) => x.ms === GIVE_UP_MS);
+  const giveUp = t.timers.find((x) => x.ms === NEVER_STARTED_MS);
   assert.ok(giveUp);
   giveUp.fn();
   assert.equal(t.removed(), true);
+});
+
+test('a slow phone keeps the logo until the app has started', () => {
+  const t = setup();
+  assert.equal(t.timers.some((x) => x.ms === GIVE_UP_MS), false);
+  t.splash.started();
+  assert.equal(t.removed(), false);
+  assert.ok(t.timers.some((x) => x.ms === GIVE_UP_MS));
+});
+
+test('a repeated start signal sets one limit', () => {
+  const t = setup();
+  t.splash.started();
+  t.splash.started();
+  assert.equal(t.timers.filter((x) => x.ms === GIVE_UP_MS).length, 1);
 });
 
 test('the page loads the splash script after the welcome script', () => {
@@ -128,15 +143,17 @@ test('the first frame leaves the splash while data is pending', () => {
   assert.equal(t.removed(), false);
   assert.ok(!t.classes.has('ps-out'));
 });
-test('the hard limit is eight seconds and removes the splash without another fade', () => {
+test('the limit after start is eight seconds and removes the splash without another fade', () => {
   const t = setup();
   assert.equal(GIVE_UP_MS, 8000);
+  t.splash.started();
   t.timers.find((x) => x.ms === 8000).fn();
   assert.equal(t.removed(), true);
 });
 
 test('the hard limit also ends a fade that started just before the limit', () => {
   const t = setup();
+  t.splash.started();
   t.splash.ready();
   assert.equal(t.removed(), false);
   t.timers.find((x) => x.ms === GIVE_UP_MS).fn();

@@ -16,7 +16,9 @@
   var SEEN_KEY = 'pantas.welcome.seen';
   // If the app never reports ready, uncover whatever it shows (usually its own
   // error screen) instead of leaving a button that says "Starting…" forever.
-  var GIVE_UP_MS = 20000;
+  // A slow phone can take longer than 20 seconds to start, and uncovering then
+  // shows a blank page.
+  var GIVE_UP_MS = 60000;
   var FONTS = ['Regular', 'SemiBold', 'Bold'];
 
   function create(env) {

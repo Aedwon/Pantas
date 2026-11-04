@@ -1,1 +1,3 @@
 void sendFirstScreenReady() {}
+
+void sendAppStarted() {}

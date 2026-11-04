@@ -732,83 +732,16 @@ class _FigureFrame extends StatelessWidget {
   final Widget figure;
   final String label;
   final String credit;
-  Future<void> expand(BuildContext context) {
-    if (!reader) return _legacyExpand(context);
-    return _openViewer(context);
-  }
 
-  Future<void> _legacyExpand(BuildContext context) => showDialog<void>(
-        context: context,
-        builder: (context) => CallbackShortcuts(
-          bindings: {
-            const SingleActivator(LogicalKeyboardKey.escape): () =>
-                Navigator.of(context).pop(),
-          },
-          child: Dialog.fullscreen(
-            backgroundColor: context.colors.figureViewerBackground,
-            child: SafeArea(
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      tooltip: 'Close figure',
-                      onPressed: () => Navigator.of(context).pop(),
-                      icon: Icon(
-                        PantasIcons.close,
-                        color: context.colors.onFigureViewer,
-                        size: 22,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Center(
-                      child: InteractiveViewer(
-                        minScale: 1,
-                        maxScale: 5,
-                        child: SizedBox(
-                          width: MediaQuery.sizeOf(context).width,
-                          child: ColoredBox(
-                            color: followTheme
-                                ? context.colors.surface
-                                : context.colors.figureBackground,
-                            child: followTheme
-                                ? Semantics(
-                                    container: true,
-                                    label: label,
-                                    image: true,
-                                    excludeSemantics: true,
-                                    child: figure,
-                                  )
-                                : Theme(
-                                    data: buildLightTheme(),
-                                    child: figure,
-                                  ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  if (credit.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Text(
-                        credit,
-                        style: context.type.caption.copyWith(
-                          color: context.colors.onFigureViewer
-                              .withValues(alpha: .6),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-  Future<void> _openViewer(BuildContext context) {
+  /// Opens the figure at the width it has in the page, so a figure that lays
+  /// itself out by width keeps the same shape in the viewer.
+  Future<void> expand(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
+    final frame = context.findRenderObject() as RenderBox?;
+    final inset = reader && context.wideWeb ? 44.0 : 0.0;
+    final figureWidth = frame != null && frame.hasSize
+        ? math.max(frame.size.width - inset, 1).toDouble()
+        : MediaQuery.sizeOf(context).width;
     return Navigator.of(context).push<void>(
       PageRouteBuilder<void>(
         opaque: false,
@@ -831,6 +764,8 @@ class _FigureFrame extends StatelessWidget {
               : figure,
           credit: credit,
           arrival: animation,
+          figureWidth: figureWidth,
+          reader: reader,
           followTheme: followTheme,
         ),
         transitionsBuilder: (context, animation, secondary, child) =>
@@ -972,11 +907,15 @@ class _FigureViewer extends StatefulWidget {
     required this.figure,
     required this.credit,
     required this.arrival,
+    required this.figureWidth,
+    this.reader = true,
     this.followTheme = false,
   });
   final Widget figure;
   final String credit;
   final Animation<double> arrival;
+  final double figureWidth;
+  final bool reader;
   final bool followTheme;
   @override
   State<_FigureViewer> createState() => _FigureViewerState();
@@ -989,11 +928,14 @@ class _FigureViewerState extends State<_FigureViewer> {
   Animation<double> get arrival => widget.arrival;
   bool get followTheme => widget.followTheme;
 
-  /// The window the figure is shown in. It is exactly as large as the figure,
-  /// so a zoom of one shows the whole figure.
+  /// The window the figure is zoomed in. It fills the screen, so a zoomed
+  /// figure grows past its card and can be panned across the whole screen.
   final _window = GlobalKey();
 
   static const double _maxZoom = 5;
+
+  /// How much larger than in the page the figure may open.
+  static const double _maxFitScale = 2;
 
   /// Zooms by [factor] about [focal], a point in the window, between one and
   /// [_maxZoom] times. The figure never leaves the window: a zoom out that
@@ -1044,6 +986,53 @@ class _FigureViewerState extends State<_FigureViewer> {
     super.dispose();
   }
 
+  Color _figureBackground(BuildContext context) => followTheme
+      ? context.colors.surface
+      : widget.reader
+          ? context.colors.readerFigureBackground
+          : context.colors.figureBackground;
+
+  Widget get _themedFigure =>
+      followTheme ? figure : Theme(data: buildLightTheme(), child: figure);
+
+  /// A click beside the figure closes the viewer; a click on it does not.
+  Widget _zoomWindow(
+    BuildContext context, {
+    required EdgeInsets margin,
+    required Widget card,
+  }) =>
+      GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.of(context).pop(),
+        child: InteractiveViewer(
+          key: _window,
+          transformationController: _zoom,
+          minScale: 1,
+          maxScale: _maxZoom,
+          child: Padding(
+            padding: margin,
+            child: Center(
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {},
+                child: AnimatedBuilder(
+                  animation: arrival,
+                  child: card,
+                  builder: (context, child) => Transform.scale(
+                    key: const ValueKey('reader-viewer-scale'),
+                    scale: .92 +
+                        .08 *
+                            const Cubic(.25, .9, .3, 1)
+                                .transform(arrival.value),
+                    child: child,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
   Widget _wideViewer(BuildContext context) => Focus(
         autofocus: true,
         child: Material(
@@ -1051,46 +1040,63 @@ class _FigureViewerState extends State<_FigureViewer> {
           color: context.webTokens.figureScrim,
           child: Stack(
             children: [
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                      child: InteractiveViewer(
-                        key: _window,
-                        transformationController: _zoom,
-                        minScale: 1,
-                        maxScale: _maxZoom,
-                        child: Container(
-                          key: const ValueKey('web-figure-card'),
-                          padding: const EdgeInsets.all(40),
-                          constraints: BoxConstraints(
-                            maxWidth: MediaQuery.sizeOf(context).width - 96,
-                            maxHeight: MediaQuery.sizeOf(context).height - 180,
+              Positioned.fill(
+                child: ValueListenableBuilder<Matrix4>(
+                  valueListenable: _zoom,
+                  builder: (context, value, child) => MouseRegion(
+                    cursor: value.getMaxScaleOnAxis() > 1
+                        ? SystemMouseCursors.grab
+                        : MouseCursor.defer,
+                    child: child,
+                  ),
+                  child: _zoomWindow(
+                    context,
+                    margin: const EdgeInsets.fromLTRB(48, 72, 48, 72),
+                    card: Container(
+                      key: const ValueKey('web-figure-card'),
+                      padding: const EdgeInsets.all(40),
+                      decoration: BoxDecoration(
+                        color: _figureBackground(context),
+                        borderRadius: BorderRadius.circular(18),
+                        border: Border.all(color: context.webTokens.cardEdge),
+                      ),
+                      child: _FittedFigure(
+                        width: widget.figureWidth,
+                        maxScale: _maxFitScale,
+                        child: _themedFigure,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 24,
+                right: 24,
+                bottom: 22,
+                child: IgnorePointer(
+                  child: Center(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: context.webTokens.figureScrim,
+                        borderRadius: BorderRadius.circular(9),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        child: Text(
+                          '${credit.isEmpty ? '' : '$credit · '}'
+                          'Scroll or + − to zoom · Esc to close',
+                          textAlign: TextAlign.center,
+                          style: context.webTokens.style(
+                            14,
+                            color: context.webTokens.figureCaption,
                           ),
-                          decoration: BoxDecoration(
-                            color: followTheme
-                                ? context.colors.surface
-                                : context.colors.readerFigureBackground,
-                            borderRadius: BorderRadius.circular(18),
-                            border:
-                                Border.all(color: context.webTokens.cardEdge),
-                          ),
-                          child: followTheme
-                              ? figure
-                              : Theme(data: buildLightTheme(), child: figure),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    Text(
-                      '${credit.isEmpty ? '' : '$credit · '}'
-                      'Scroll or + − to zoom · Esc to close',
-                      textAlign: TextAlign.center,
-                      style: context.webTokens
-                          .style(14, color: context.webTokens.figureCaption),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               Positioned(
@@ -1115,103 +1121,194 @@ class _FigureViewerState extends State<_FigureViewer> {
         ),
       );
 
+  Widget _phoneViewer(BuildContext context) => Material(
+        color: context.colors.figureViewerBackground,
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: _zoomWindow(
+                  context,
+                  margin: EdgeInsets.only(
+                    top: 56,
+                    bottom: credit.isEmpty ? 16 : 48,
+                  ),
+                  card: ColoredBox(
+                    color: _figureBackground(context),
+                    child: _FittedFigure(
+                      width: widget.figureWidth,
+                      maxScale: _maxFitScale,
+                      child: _themedFigure,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 6,
+                right: 8,
+                child: SizedBox.square(
+                  dimension: 44,
+                  child: IconButton(
+                    tooltip: 'Close figure',
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: Icon(
+                      PantasIcons.close,
+                      size: 22,
+                      color: context.colors.onFigureViewer,
+                    ),
+                  ),
+                ),
+              ),
+              if (credit.isNotEmpty)
+                Positioned(
+                  left: 16,
+                  right: 16,
+                  bottom: 16,
+                  child: IgnorePointer(
+                    child: Text(
+                      credit,
+                      textAlign: TextAlign.center,
+                      style: context.type.caption.copyWith(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        color:
+                            context.colors.onFigureViewer.withValues(alpha: .6),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) => CallbackShortcuts(
         bindings: {
-          if (context.wideWeb)
+          if (context.wideWeb) ...{
             const SingleActivator(LogicalKeyboardKey.equal): () => _scale(1.25),
-          if (context.wideWeb)
             const SingleActivator(LogicalKeyboardKey.equal, shift: true): () =>
                 _scale(1.25),
-          if (context.wideWeb)
+            const SingleActivator(LogicalKeyboardKey.add): () => _scale(1.25),
+            const SingleActivator(LogicalKeyboardKey.add, shift: true): () =>
+                _scale(1.25),
+            const SingleActivator(LogicalKeyboardKey.numpadAdd): () =>
+                _scale(1.25),
             const SingleActivator(LogicalKeyboardKey.minus): () => _scale(.8),
+            const SingleActivator(LogicalKeyboardKey.numpadSubtract): () =>
+                _scale(.8),
+          },
           const SingleActivator(LogicalKeyboardKey.escape): () =>
               Navigator.of(context).pop(),
         },
         child: Listener(
           onPointerSignal: _signal,
-          child: context.wideWeb
-              ? _wideViewer(context)
-              : Material(
-                  color: context.colors.figureViewerBackground,
-                  child: SafeArea(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: SizedBox.square(
-                              dimension: 44,
-                              child: IconButton(
-                                tooltip: 'Close figure',
-                                onPressed: () => Navigator.of(context).pop(),
-                                icon: Icon(
-                                  PantasIcons.close,
-                                  size: 22,
-                                  color: context.colors.onFigureViewer,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Center(
-                            child: InteractiveViewer(
-                              key: _window,
-                              transformationController: _zoom,
-                              minScale: 1,
-                              maxScale: _maxZoom,
-                              child: AnimatedBuilder(
-                                animation: arrival,
-                                child: SizedBox(
-                                  width: MediaQuery.sizeOf(context).width,
-                                  child: ColoredBox(
-                                    color: followTheme
-                                        ? context.colors.surface
-                                        : context.colors.readerFigureBackground,
-                                    child: (followTheme
-                                        ? figure
-                                        : Theme(
-                                            data: buildLightTheme(),
-                                            child: figure,
-                                          )),
-                                  ),
-                                ),
-                                builder: (context, child) => Transform.scale(
-                                  key: const ValueKey(
-                                    'reader-viewer-scale',
-                                  ),
-                                  scale: .92 +
-                                      .08 *
-                                          const Cubic(.25, .9, .3, 1)
-                                              .transform(arrival.value),
-                                  child: child,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        if (credit.isNotEmpty)
-                          Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Text(
-                              credit,
-                              textAlign: TextAlign.center,
-                              style: context.type.caption.copyWith(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
-                                color: context.colors.onFigureViewer
-                                    .withValues(alpha: .6),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
+          child: context.wideWeb ? _wideViewer(context) : _phoneViewer(context),
         ),
       );
+}
+
+/// Lays [child] out at [width], then scales it to fit the space it is given,
+/// up to [maxScale] times. Only the scale changes, so the figure keeps the
+/// shape it has in the page, and its parent wraps the scaled size.
+class _FittedFigure extends SingleChildRenderObjectWidget {
+  const _FittedFigure({
+    required this.width,
+    required this.maxScale,
+    required Widget super.child,
+  });
+  final double width;
+  final double maxScale;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderFittedFigure(width, maxScale);
+
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    _RenderFittedFigure renderObject,
+  ) {
+    renderObject
+      ..figureWidth = width
+      ..maxScale = maxScale;
+  }
+}
+
+class _RenderFittedFigure extends RenderProxyBox {
+  _RenderFittedFigure(this._figureWidth, this._maxScale);
+
+  double _figureWidth;
+  double get figureWidth => _figureWidth;
+  set figureWidth(double value) {
+    if (value == _figureWidth) return;
+    _figureWidth = value;
+    markNeedsLayout();
+  }
+
+  double _maxScale;
+  double get maxScale => _maxScale;
+  set maxScale(double value) {
+    if (value == _maxScale) return;
+    _maxScale = value;
+    markNeedsLayout();
+  }
+
+  double _scale = 1;
+
+  Matrix4 get _transform => Matrix4.diagonal3Values(_scale, _scale, 1);
+
+  @override
+  void performLayout() {
+    final box = child;
+    if (box == null) {
+      size = constraints.smallest;
+      return;
+    }
+    box.layout(
+      BoxConstraints.tightFor(width: _figureWidth),
+      parentUsesSize: true,
+    );
+    final natural = box.size;
+    _scale = natural.isEmpty
+        ? 1
+        : math.min(
+            _maxScale,
+            math.min(
+              constraints.maxWidth / natural.width,
+              constraints.maxHeight / natural.height,
+            ),
+          );
+    size = constraints.constrain(natural * _scale);
+  }
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    if (child == null) return;
+    layer = context.pushTransform(
+      needsCompositing,
+      offset,
+      _transform,
+      super.paint,
+      oldLayer: layer as TransformLayer?,
+    );
+  }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+    final box = child;
+    if (box == null) return false;
+    return result.addWithPaintTransform(
+      transform: _transform,
+      position: position,
+      hitTest: (result, position) => box.hitTest(result, position: position),
+    );
+  }
+
+  @override
+  void applyPaintTransform(RenderBox child, Matrix4 transform) {
+    transform.multiply(_transform);
+  }
 }
 
 class _ContentImage extends StatefulWidget {

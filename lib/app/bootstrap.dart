@@ -31,6 +31,7 @@ import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/app_check.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
@@ -204,6 +205,7 @@ Future<void> bootstrap(
       disposeFailedStartup(error, stack, container: container);
       container = null;
       showStartup(StateView.fullScreen(error: error, onRetry: retry));
+      sendAppStarted();
     } finally {
       starting = false;
     }
@@ -353,6 +355,7 @@ Future<void> _bootstrap(
     );
     WidgetsBinding.instance.addObserver(notificationsLifecycleObserver);
 
+    sendAppStarted();
     runApp(
       UncontrolledProviderScope(
         container: container,

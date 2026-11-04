@@ -5,6 +5,10 @@ import 'package:pantas/core/platform/first_screen_ready_stub.dart'
     if (dart.library.js_interop) 'package:pantas/core/platform/first_screen_ready_web.dart'
     as platform;
 
+/// Tells the page the app is about to show a real screen, so the logo may start
+/// its limit. Before this nothing useful is drawn underneath it.
+void sendAppStarted() => platform.sendAppStarted();
+
 final firstScreenSignalProvider = Provider<FirstScreenSignal>(
   (ref) => FirstScreenSignal(platform.sendFirstScreenReady),
 );
