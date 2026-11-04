@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-chemistry-history-of-the-atom",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "An **ion** is an atom that has gained or lost electrons, so it has a charge.", "problem": "Stated as a general definition, it fails a known exception: polyatomic ions such as ammonium (NH4+) and sulfate (SO4 2-) are ions but are not single atoms. A student who keeps this definition will be wrong when later chemistry lessons and exam items use polyatomic ions. The lesson only needs atomic ions here (He+), so the definition must not claim every ion is an atom. Not in the base; added by the rewrite and not raised in rounds 1 to 4.", "source": "IUPAC Gold Book, 'ion' (an atomic or molecular particle having a net electric charge); OpenStax Chemistry 2e, section 2.6 (polyatomic ions); reader-rules 'Added after the Sol audit' boundary test"},
+    {"rule": "L25", "severity": "Major", "quote": "A normal atom is neutral overall.", "problem": "The word 'neutral' (no overall charge, because the positive and negative charges are equal) is never explained, yet two inferences depend on it: Thomson's need for a positive ball to balance the electrons, and the Rutherford bullet 'which is positive because the atom is neutral and its electrons are negative'. A Grade 5 reader who does not know the charge meaning of 'neutral' cannot follow either step. No prerequisite lesson is named (the brief finds none).", "source": "Checklist L25; LSG Teaching completeness; brief, Prerequisites: none-found"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Every atom has a center called the **nucleus**.", "problem": "Round-4 L22a still open. The nucleus paragraph that starts here has six sentences, the orbital paragraph starting 'Because of this, an electron has no fixed path.' has eight, and the isotope, cathode-ray field, electron and alpha-particle paragraphs have five each. Paragraphs should be one to three short sentences.", "source": "LSG: Formatting rules; checklist L22a; round-4 read L22a"}
+  ],
+  "goodQuotesChecked": 5
+}

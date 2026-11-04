@@ -17,51 +17,57 @@ Many researchers built modern atomic theory. It was not one straight line of fiv
 
 An **observation** is what an experiment shows, such as a flash of light on a screen. An **inference** is a conclusion drawn from observations. To "infer" means to work out what must be true because of the evidence.
 
-A good model explains all the observations. It also predicts what a new experiment will show. If the experiment shows something else, the model has reached its limit.
+A good model explains the observations made so far. It also predicts what a new experiment will show. If the experiment shows something else, the model has reached its limit.
 
 ### Dalton's Atomic Theory
 
-An **atom** is the smallest piece of an element that still has the element's properties. An **element** is a pure substance made of only one kind of atom, such as oxygen or carbon.
+An **atom** is the smallest piece of an element that still has the element's properties. An **element** is a pure substance made of one kind of atom, such as oxygen or carbon. A **compound** is a substance made of two or more elements joined together, such as water.
 
 In the early $1800$s, **John Dalton** built an atomic theory from measured masses. His book on it appeared in $1808$. He proposed, among other things, that:
 
 - matter is made of tiny atoms;
 - atoms of one element are identical in mass and properties;
 - atoms of different elements differ in mass;
-- in a chemical reaction, atoms join, separate, or rearrange, but are not created or destroyed;
+- in a chemical reaction, in which substances change into new substances, atoms join, separate, or rearrange, but are not created or destroyed;
 - atoms join in small whole-number ratios to form compounds.
 
 This theory explained three patterns in measured masses.
 
-The first is **conservation of mass**: the total mass stays the same during a chemical reaction.
+The first is **conservation of mass**: the total mass stays the same during a chemical reaction in a closed container.
 
-The second is the **law of definite proportions**: a compound always has the same mass ratio of its elements. Carbon dioxide always has $12$ g of carbon for every $32$ g of oxygen.
+The second is the **law of definite proportions**: a pure compound has the same mass ratio of its elements, whatever its source. Carbon dioxide has $12$ g of carbon for every $32$ g of oxygen.
 
-Dalton explained this by saying that atoms of an element have a fixed mass and join in fixed whole-number ratios. The third is the **law of multiple proportions**: when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in small whole-number ratios.
+Dalton explained this by saying that atoms of an element have a fixed mass and join in fixed whole-number ratios.
+
+The third is the **law of multiple proportions**: when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in small whole-number ratios.
 
 Carbon and oxygen show this. In carbon monoxide, $12$ g of carbon combines with $16$ g of oxygen. In carbon dioxide, $12$ g of carbon combines with $32$ g of oxygen. The oxygen masses are in the ratio $16 : 32$, which is $1 : 2$.
 
 Dalton explained this by saying that carbon dioxide has twice as many oxygen atoms for each carbon atom.
 
-Some of Dalton's ideas are not correct today. Atoms are made of smaller particles. Atoms of the same element can have different masses. Atoms are rearranged in chemical reactions, but nuclear reactions can change one kind of atom into another.
+Some of Dalton's ideas are not correct today. Atoms are made of smaller particles. Atoms of the same element can have different masses. Atoms are only rearranged in chemical reactions, but nuclear reactions can change one kind of atom into another.
 
 The solid sphere often drawn for Dalton's atom is a teaching picture. Dalton did not see atoms.
 
 ### Isotopes and Dalton's Identical-Mass Claim
 
-Every atom has a center called the **nucleus**. The nucleus holds **protons**, which have positive charge, and **neutrons**, which have no charge. The number of protons decides which element the atom is. The neutron was identified by James Chadwick in $1932$.
+Every atom has a center called the **nucleus**. The nucleus holds **protons**, which have positive charge. Most nuclei also hold **neutrons**, which have no charge. The common form of hydrogen has one proton and no neutrons. The number of protons decides which element the atom is. The neutron was identified by James Chadwick in $1932$.
 
-**Isotopes** are atoms with the same number of protons but different numbers of neutrons. Their masses differ. Chlorine-35 has $17$ protons and $18$ neutrons. Chlorine-37 has $17$ protons and $20$ neutrons.
+**Isotopes** are atoms with the same number of protons but different numbers of neutrons. Their masses differ. The number in a name such as chlorine-35 is the protons plus the neutrons. Chlorine-35 has $17$ protons and $18$ neutrons. Chlorine-37 has $17$ protons and $20$ neutrons.
 
-This contradicts Dalton's claim that all atoms of one element have the same mass. Isotopes of one element behave almost the same in chemical reactions, so Dalton's mass-based chemistry still worked. The mass of an element on the periodic table is usually a weighted average over its isotopes. Each isotope counts in proportion to how common it is. Chlorine is about $76\%$ chlorine-35 and $24\%$ chlorine-37, so its average mass is about $35.45$, not $36$.
+This contradicts Dalton's claim that all atoms of one element have the same mass. Isotopes of one element behave almost the same in chemical reactions, so Dalton's mass-based chemistry still worked.
+
+The mass of an element on the periodic table is usually a weighted average over its isotopes. Each isotope counts in proportion to how common it is. Chlorine is about $76\%$ chlorine-35 and $24\%$ chlorine-37, so its average mass is about $35.45$, not $36$.
 
 ### Thomson and the Electron
 
-In $1897$, **J. J. Thomson** studied **cathode rays**. These are beams that travel through a glass tube with most of the air removed, from the negative metal plate to the positive one. An electric field bent the beam toward the positive plate. So the beam carries negative charge. A magnetic field also bent the beam, but sideways, at right angles to both the field and the beam. Thomson used the two bends together to compare the particle's charge with its mass.
+In $1897$, **J. J. Thomson** studied **cathode rays**. These are beams that travel through a glass tube with most of the air removed, from the negative metal plate to the positive one.
+
+An electric field, made by charged plates, pushes on charged particles. It bent the beam toward the positive plate. So the beam carries negative charge. A magnetic field, made by a magnet, also bent the beam, but sideways, at right angles to both the field and the beam. Thomson used the two bends together to compare the particle's charge with its mass.
 
 The beam was the same when the negative plate was made of different metals. Thomson inferred that every atom contains the same negative particle. It was much lighter than the lightest atom, hydrogen. This particle is the **electron**. It showed that atoms are not indivisible.
 
-An atom is neutral overall. So Thomson proposed in $1904$ that the atom has a ball of positive charge with electrons embedded in it. This is the **plum pudding model**.
+A normal atom is neutral overall. So Thomson proposed in $1904$ that the atom has a ball of positive charge with electrons embedded in it. This is the **plum pudding model**.
 
 <!-- FIGURE: {"kind":"chemistry-diagram","type":"atomic-models","illustrationKey":"science/chemistry/history-of-the-atom#1","models":[{"label":"Dalton","model":"solid sphere"},{"label":"Thomson","model":"plum pudding with embedded electrons"},{"label":"Rutherford","model":"electrons orbiting a tiny dense nucleus"},{"label":"modern","model":"electron cloud around a nucleus"}]} -->
 
@@ -77,7 +83,7 @@ They observed three things:
 
 Rutherford explained the results in $1911$. Only a strong force from a concentrated charge could turn a heavy, fast alpha particle through a large angle. In the plum pudding model, the charge is spread out, so it could not do this. Rutherford inferred that:
 
-- nearly all of the atom's mass and charge is in a very small nucleus, which is positive because the atom is neutral and its electrons are negative;
+- all of the atom's positive charge and nearly all of its mass are in a very small nucleus, which is positive because the atom is neutral and its electrons are negative;
 - most of the atom's volume is empty space with the light electrons in it.
 
 <!-- ILLUSTRATION: gold foil experiment: alpha source on the left, thin gold foil in the middle, circular screen around it; most arrows go straight through, a few bend at large angles, one bounces back; label "alpha particles", "gold foil", "screen" -->
@@ -86,21 +92,25 @@ Rutherford's model had a limit. It did not explain why atoms give off light of o
 
 ### Bohr and Quantized Hydrogen Levels
 
-Hot hydrogen gas gives off light. When this light is split by a prism, it is not a smooth rainbow. It is a few thin bright lines of single colors, called a **line spectrum**. Hydrogen has four lines in the visible range.
+Hot hydrogen gas gives off light. When this light is split by a prism, it is not a smooth rainbow. It is a few thin bright lines of single colors, called a **line spectrum**. Hydrogen shows four main lines in the visible range.
 
-In $1913$, **Niels Bohr** added a new idea to the nuclear atom: an electron can have only certain energies. Each allowed energy is an **energy level**. This is called **quantization**, because the energy comes in fixed amounts and not in any amount. A **photon** is one packet of light, and its energy decides its color.
+In $1913$, **Niels Bohr** added a new idea to the nuclear atom: an electron in an atom can have only certain energies. Each allowed energy is an **energy level**. This is called **quantization**, because the energy comes in fixed amounts and not in any amount. A **photon** is one packet of light, and its energy decides its color.
 
-In Bohr's model, an electron in a level does not give off light. When it drops to a lower level, it gives off a photon whose energy equals the difference between the two levels. When it absorbs a photon of exactly that energy, it rises to a higher level. Only certain energy differences exist, so only certain colors appear. This matches the lines of hydrogen.
+In Bohr's model, an electron in a level does not give off light.
+
+When it drops to a lower level, it gives off a photon whose energy equals the difference between the two levels. When it absorbs a photon of exactly that energy, it rises to a higher level. Only certain energy differences exist, so only certain colors appear. This matches the lines of hydrogen.
 
 <!-- ILLUSTRATION: energy level diagram for hydrogen with levels n = 1, 2, 3, 4 stacked upward, and downward arrows from n = 3 to n = 2 labeled "red line", and from n = 4 to n = 2 labeled "blue-green line" -->
 
-The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. It does not correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
+The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. An **ion** is an atom that has gained or lost electrons, so it has a charge. It does not correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
 
 ### The Quantum-Mechanical Model
 
-In the years after $1920$, scientists including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others developed **quantum mechanics**. De Broglie suggested in $1924$ that electrons can behave like waves. Schrödinger wrote his wave equation in $1926$. Born showed that it gives the probability of finding an electron somewhere. Heisenberg's uncertainty principle ($1927$) says that an electron's exact position and exact motion cannot both be known at the same time.
+In the years after $1920$, scientists including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others developed **quantum mechanics**.
 
-Because of this, an electron has no fixed path. The model gives an **orbital**: a region around the nucleus where an electron is likely to be found. An orbital has a shape. An s orbital is a sphere. A p orbital has two lobes, like a dumbbell. An orbital is not the same as Bohr's orbit.
+De Broglie suggested in $1924$ that electrons can behave like waves. Schrödinger wrote his wave equation in $1926$. Born showed that it gives the probability of finding an electron somewhere. Heisenberg's uncertainty principle ($1927$) says that an electron's exact position and exact motion cannot both be known at the same time.
+
+Because of this, an electron has no fixed path. The model gives an **orbital**: a region around the nucleus where an electron is likely to be found. An orbital has a shape. The letters s and p name types of orbital. An s orbital is a sphere. A p orbital has two lobes, like a dumbbell. Other types have other shapes. An orbital is not the same as Bohr's orbit.
 
 The picture called the **electron cloud** is a shaded drawing of this probability. It is darker where the electron is more likely to be. It is not a real fuzzy cloud of material.
 
@@ -152,12 +162,12 @@ In a cathode-ray tube, the beam bends toward the positive plate. It is the same 
 
 ### #4: Interpreting Alpha-Scattering Results
 
-Most alpha particles pass through gold foil, but a few bounce at large angles. Which of these is an observation and which is an inference? Why did the large angles matter?
+A student writes two statements about the gold-foil work. Statement 1: "Most alpha particles pass through the foil, but a few bounce at large angles." Statement 2: "The atom has a tiny, dense, positive nucleus." Which is an observation and which is an inference? Why did the large angles matter?
 
 **Solution:**
 
-1. Observation: most pass nearly straight, and a few turn through large angles. An inference is a conclusion drawn from this.
-2. Inference: the atom has a tiny, dense, positive nucleus.
+1. Statement 1 is an observation: it says what the screen showed.
+2. Statement 2 is an inference: it is a conclusion drawn from that observation.
 3. In the plum pudding model, the positive charge is spread out. A heavy, fast alpha particle would be bent only a little.
 4. A large turn needs a strong force from a concentrated charge. So the results supported a small nucleus.
 5. Most particles went straight through, so the nucleus fills only a tiny part of the atom's volume.
@@ -171,7 +181,8 @@ A student repeats the gold-foil work with a foil that is much thicker. What chan
 1. The thing changed on purpose is the foil thickness.
 2. Keep the same: the metal, the alpha source, and the screen.
 3. A thicker foil has more atoms in the path, so more alpha particles meet a nucleus.
-4. More strong deflections are likely. This agrees with the nuclear model.
+4. More strong deflections are likely, and fewer particles pass straight through. This agrees with the nuclear model.
+5. If the foil is thick enough, it can stop the alpha particles, so few or none reach the screen.
 
 ### #6: Why Hydrogen Gives Lines
 
