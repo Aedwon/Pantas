@@ -23,7 +23,7 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 | lesson-physics-dynamics | 3,310 | Crossed 3,000 in the round-1 fix (restored figures, component splitting, term meanings). |
 | lesson-physics-waves-and-sound | 3,242 | Interference, diffraction and spectrum order added from the brief. |
 | lesson-trigonometry-laws-of-sines-and-cosines | 3,006 | Writer taught ASA, SAS, SSS and all three SSA cases plus applications; crossed 3,000 after the round-1 fix. |
-| lesson-trigonometry-unit-circle | 3,014 | Writer added radians, polar and rectangular conversion, graph features and axis tangents, with nine new examples. |
+| lesson-trigonometry-unit-circle | 3,016 | Writer added radians, polar and rectangular conversion, graph features and axis tangents, with nine new examples. |
 
 ## Rulings during the run (continued)
 
