@@ -13,11 +13,15 @@ isActive: true
 
 A **gene** is a section of DNA that helps control a trait. An **allele** is one version of a gene. For example, a beetle gene for color may have a green allele and a brown allele.
 
-A **genotype** is the set of alleles an individual carries for a gene. Most genes on non-sex chromosomes come as a pair, one allele from each parent. A male has only one allele for a gene on the X chromosome, and a haploid organism, such as a bacterium, has one copy of each gene.
+A **chromosome** is a long strand of DNA that carries many genes. A **genotype** is the set of alleles an individual carries for a gene.
+
+Most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for a gene on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
 
 A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
 
-A **gamete** is a sex cell, such as a sperm or an egg. In sexual reproduction, parents pass alleles to offspring through gametes. In asexual reproduction, such as a bacterium splitting in two, one parent passes its DNA to its offspring and no gametes fuse. The lesson on genetics and heredity explains inheritance in full.
+A **gamete** is a sex cell, such as a sperm or an egg. In sexual reproduction, parents pass alleles to offspring through gametes.
+
+In asexual reproduction, such as a bacterium splitting in two, one parent passes its DNA to its offspring and no gametes fuse. The lesson on genetics and heredity explains inheritance in full.
 
 ### What Evolution Is
 
@@ -25,7 +29,9 @@ A **gamete** is a sex cell, such as a sperm or an egg. In sexual reproduction, p
 
 Scientists track this change with allele frequency. The **allele frequency** is the share of all copies of a gene that are one particular allele. If a population has $100$ copies of a gene and $30$ are the brown allele, the brown allele frequency is $\dfrac{30}{100} = 0.30$.
 
-Evolution is any change in allele frequency over generations. Four things can cause it: mutation, genetic drift, gene flow and natural selection. Nonrandom mating, such as choosing mates that look alike, changes how alleles are paired into genotypes. It does not change allele frequency by itself.
+Evolution is any change in allele frequency over generations. Four things can cause it: mutation, genetic drift, gene flow and natural selection.
+
+Nonrandom mating, such as choosing mates that look alike, changes how alleles are paired into genotypes. It does not change allele frequency by itself.
 
 ### Mutation
 
@@ -33,7 +39,7 @@ A **mutation** is a change in DNA. It is the original source of new alleles. A m
 
 A mutation reaches offspring only when it is in the DNA that the offspring receive. In sexual reproduction, that means the cells that make gametes. In asexual reproduction, such as budding or splitting, it means the cells that form the offspring.
 
-A mutation in a human skin cell stays with that body. In a bacterium that splits in two, a mutation passes to both daughter cells.
+A mutation in a human skin cell stays with that body. In a bacterium that splits in two, a mutation in its DNA passes to the daughter cells that receive that DNA.
 
 Many mutations have no effect on the trait. Some harm the organism, and a few help it in a certain environment.
 
@@ -43,7 +49,7 @@ Many mutations have no effect on the trait. Some harm the organism, and a few he
 
 Drift is strong in small populations and weak in large ones. In a small group, a few unlucky deaths can remove an allele completely. In a very large group, luck averages out and drift is small, though never exactly zero.
 
-Two well-known cases of drift are the bottleneck effect and the founder effect. In a **bottleneck**, a disaster leaves only a few survivors, and their alleles are a chance sample of the old population. In the **founder effect**, a few individuals start a new population, and it carries only the alleles those founders had.
+Two well-known cases of drift are the bottleneck effect and the founder effect. In a **bottleneck**, a disaster leaves only a few survivors, and their alleles are a chance sample of the old population. In the **founder effect**, a few individuals start a new population, and at first it carries only the alleles those founders had.
 
 ### Gene Flow
 
@@ -53,7 +59,7 @@ Gene flow can add alleles to a population. It also tends to make two connected p
 
 ### Natural Selection
 
-Charles Darwin and Alfred Russel Wallace separately developed the idea of evolution by **natural selection**. Their papers were presented together in $1858$. Darwin published *On the Origin of Species* in $1859$.
+Charles Darwin and Alfred Russel Wallace separately developed the idea of evolution by **natural selection**. Their papers were read together at one meeting in $1858$. Darwin published *On the Origin of Species* in $1859$.
 
 Natural selection needs three things.
 
@@ -75,23 +81,25 @@ If differences are not heritable, selection changes nothing in the next generati
 
 Mutation adds new alleles by chance. Drift changes frequencies by chance. Gene flow moves alleles between populations. Selection is the only one of the four that regularly improves how well a population fits its environment.
 
-A change in allele frequency is adaptive only when selection caused it. Drift and gene flow can change frequencies without helping the organism.
+Selection is the cause that builds adaptations. Drift and gene flow can change frequencies without helping the organism.
 
 ### Speciation
 
-A **species** is a kind of organism. Scientists use several definitions. The **biological species concept** says a species is a group of populations that can breed with each other in nature and produce fertile offspring, but not with other groups. It is used mainly for organisms that reproduce sexually.
+A **species** is a kind of organism. Scientists use several definitions. The **biological species concept** says a species is a group of populations that can breed with each other in nature and produce fertile offspring, but do not usually breed with other groups. **Fertile** means able to have offspring. **Sterile** means unable to have offspring. This concept is used mainly for organisms that reproduce sexually.
 
-**Speciation** is the formation of a new species. It happens when **reproductive isolation** evolves. This means two groups can no longer exchange alleles through breeding.
+**Speciation** is the formation of a new species. It happens when **reproductive isolation** evolves. This means two groups can no longer, or hardly ever, exchange alleles through breeding.
 
-Reproductive isolation can take different forms. The groups may breed in different seasons or respond to different courtship signals. They may mate but produce no offspring, or sterile offspring. A mule, from a horse and a donkey, is sterile.
+Reproductive isolation can take different forms. The groups may breed in different seasons or respond to different courtship signals. They may mate but produce no offspring, or sterile offspring.
 
-In **allopatric speciation**, a physical barrier such as a rising sea or a mountain range splits one population into two. Gene flow stops. 
+A mule, from a horse and a donkey, is almost always sterile.
 
-Each group then changes through its own mutations, drift and selection. If reproductive isolation evolves, they stay separate species even when they meet again.
+In **allopatric speciation**, a physical barrier such as a rising sea or a mountain range splits one population into two. Gene flow stops. Each group then changes through its own mutations, drift and selection. If reproductive isolation evolves, they usually stay separate species even when they meet again.
 
-In **sympatric speciation**, a new species forms without a physical barrier. In plants, **polyploidy** is a common route. A polyploid has extra whole sets of chromosomes. It may be unable to breed with its parent species at once.
+In **sympatric speciation**, a new species forms without a physical barrier. In plants, **polyploidy** is a common route. A polyploid has extra whole sets of chromosomes. A polyploid plant may be unable to breed with its parent species at once.
 
-**Adaptive radiation** is when one ancestor species gives rise to many species that fit different ways of living. Darwin's finches on the Galapagos Islands are an example. They share a common ancestor and now differ in beaks and food. Their history also includes some interbreeding between species, so it is not a simple one-island-one-food story.
+**Adaptive radiation** is when one ancestor species gives rise to many species that fit different ways of living. Darwin's finches on the Galapagos Islands are an example.
+
+They share a common ancestor and now differ in beaks and food. Their history also includes some interbreeding between species, so it is not a simple one-island-one-food story.
 
 <!-- ILLUSTRATION: two panels. Panel 1: one population of beetles on land, then a river splitting it into Population A and Population B, with an arrow labeled "gene flow stops". Panel 2: the river removed, A and B meet but do not interbreed, labeled "reproductive isolation: two species" -->
 
@@ -154,7 +162,7 @@ An island population has a green allele at frequency $0.10$. A mainland populati
 
 1. The mainland plants carry more copies of the green allele.
 2. Their pollen and seeds bring those copies into the island population.
-3. The island frequency rises toward the mainland frequency.
+3. As the mixing continues, the island frequency tends to rise toward the mainland frequency.
 4. The two populations become more alike. This is gene flow, not mutation, because the allele already existed elsewhere.
 
 ### #6: Geographic Isolation and Speciation
@@ -165,7 +173,7 @@ A population is split by a new barrier, and gene flow between the two groups sto
 
 1. No. The barrier stops gene flow but does not by itself create reproductive isolation.
 2. Each group changes through its own mutations, drift and selection.
-3. If barriers to interbreeding evolve, the groups become separate species. They stay separate even if the barrier is removed.
+3. If barriers to interbreeding evolve, the groups become separate species. They usually stay separate even if the barrier is removed.
 4. The barrier is a starting condition for allopatric speciation. It is not the definition of speciation.
 
 ### #7: Speciation Without a Barrier
@@ -181,13 +189,13 @@ A plant species grows in one meadow. A mutation doubles the whole chromosome set
 
 ## Exam Strategies
 
-For a natural selection question, look for three things: variation, heritability, and different reproductive success. If variation, heritability or the difference in reproductive success is missing, it is not selection. The population often changes across generations.
-
-Under stabilizing selection, it stays about the same.
+For a natural selection question, look for three things: variation, heritability, and different reproductive success. If any of the three is missing, it is not selection. When selection favors one extreme, the trait shifts across generations. Under stabilizing selection, it stays about the same.
 
 For a question on causes of evolution, ask what changed the frequency.
 
-Chance in a small group points to drift. Movement of individuals or gametes between populations points to gene flow. A brand-new allele points to mutation. Better survival and reproduction because of a heritable trait points to selection.
+Chance in a small group points to drift. Movement of individuals or gametes between populations points to gene flow. A brand-new allele points to mutation.
+
+Better survival and reproduction because of a heritable trait points to selection.
 
 For a speciation question, find the reproductive isolation. A physical barrier suggests allopatric speciation. A new species without a barrier suggests sympatric speciation.
 
@@ -195,7 +203,7 @@ For a speciation question, find the reproductive isolation. A physical barrier s
 
 ### #1: Crediting Darwin Alone
 
-> Darwin and Wallace developed natural selection separately and presented papers together in $1858$.
+> Darwin and Wallace developed natural selection separately, and their papers were read together in $1858$.
 
 Darwin's $1859$ book gave the idea its most influential early explanation.
 
@@ -227,4 +235,4 @@ A weak but fertile animal can be fitter than a strong one that leaves no offspri
 
 > A barrier alone does not make a species.
 
-Speciation needs reproductive isolation to evolve. Species concepts also vary, and some separate species can still hybridize.
+Speciation needs reproductive isolation to evolve. Species concepts also vary, and some separate species can still hybridize, which means they interbreed and produce offspring.
