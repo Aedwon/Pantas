@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '../../../helpers/pump_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,6 +19,7 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
+import '../../../helpers/pump_app.dart';
 
 void main() {
   testWidgets('today deep link waits for Home data after its guard',
@@ -173,8 +173,10 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Could not load your plan.'), findsNothing);
-    expect(tester.widget<PlanWeekPage>(find.byType(PlanWeekPage)).days,
-        hasLength(5));
+    expect(
+      tester.widget<PlanWeekPage>(find.byType(PlanWeekPage)).days,
+      hasLength(5),
+    );
   });
   testWidgets('a week with unknown stored days shows a recoverable error',
       (tester) async {
