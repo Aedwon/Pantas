@@ -257,3 +257,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Trig identities and solving-right-triangles done at minor. Unit circle written (3,001 words, split candidate); round 1 read running.
 - Unit circle done at minor. Written: structural-stability (2,851 words), speeches (2,348); round 1 reads running.
 - Structural-stability open after 3 reads (1 Blocker from the lead's own wording, 1 Major). Speeches round 3 read running.
+- CET final run finished: 7 clean, 41 minor, 21 open. Final report written.
