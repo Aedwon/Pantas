@@ -43,7 +43,7 @@ This formula does not work for a polygon whose sides cross. A bow-tie has $4$ ve
 
 ### Exterior Angle Sum
 
-At a vertex of a convex polygon, extend one side past the vertex. The **exterior angle** is the angle between that extension and the next side. The interior and exterior angles at the same vertex form a linear pair, so they add to $180^\circ$.
+At a vertex of a convex polygon, extend one side past the vertex. The **exterior angle** is the angle between that extension and the next side. The interior and exterior angles at the same vertex form a **linear pair** (two angles side by side on a straight line), so they add to $180^\circ$.
 
 If you take one exterior angle at each vertex, going around the polygon in one direction, they add to one full turn:
 
@@ -55,11 +55,13 @@ For a regular polygon, divide the interior angle sum by $n$ to get each interior
 
 ### Quadrilaterals
 
-A quadrilateral has $n = 4$, so its interior angles add to $360^\circ$. This holds for convex and concave quadrilaterals.
+A quadrilateral has $n = 4$, so its interior angles add to $360^\circ$. This holds for every simple quadrilateral, convex or concave.
 
 Some words you need. Two angles are **supplementary** if they add to $180^\circ$. **Consecutive** angles or sides are next to each other.
 
-**Opposite** angles or sides are not next to each other. To **bisect** is to cut into two equal parts. Lines are **perpendicular** if they meet at a right angle.
+**Opposite** angles or sides are not next to each other. To **bisect** is to cut into two equal parts, and the point that cuts a segment this way is its **midpoint**.
+
+Lines are **parallel** if they never meet. Lines are **perpendicular** if they meet at a right angle.
 
 The special quadrilaterals form a family:
 
@@ -67,7 +69,7 @@ The special quadrilaterals form a family:
 - **Rectangle**: a parallelogram with four right angles. Its diagonals are equal in length.
 - **Rhombus**: a parallelogram with four equal sides. Its diagonals are perpendicular, and each diagonal bisects the two angles at the corners it joins.
 - **Square**: a quadrilateral with four equal sides and four right angles. It is both a rectangle and a rhombus, so it has the properties of both.
-- **Trapezoid**: this lesson uses the **exclusive convention**: a quadrilateral with exactly one pair of parallel sides. The parallel sides are the bases. The other two sides are the legs. Some textbooks use an inclusive definition (at least one pair), so follow the convention stated in a problem when one is provided.
+- **Trapezoid**: this lesson uses the **exclusive convention**: a quadrilateral with exactly one pair of parallel sides. The parallel sides are the bases, and the other two sides are the legs. Some textbooks use an inclusive definition (at least one pair), so follow the convention stated in a problem when one is provided.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral-tree", "labels": ["Quadrilateral", "Trapezoid", "Parallelogram", "Rectangle", "Rhombus", "Square"], "semanticsLabel": "Hierarchy diagram showing parallelogram branching into rectangle and rhombus, merging into square, with trapezoid separate under the exclusive trapezoid convention."} -->
 
@@ -134,7 +136,7 @@ $$\dfrac{1080}{8} = 135$$
 
 The interior angles of a simple polygon add up to $1440^\circ$. How many sides does it have?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon", "labels": ["n-gon", "Sum = 1440°", "Sides n = ?"], "semanticsLabel": "Polygon labeled with interior angle sum 1440 degrees and unknown number of sides n."} -->
+<!-- ILLUSTRATION: a simple closed polygon outline drawn without marked vertices, so its side count cannot be counted, with the labels "Sum of interior angles = 1440°" and "Sides n = ?" -->
 
 
 **Solution:**
@@ -158,7 +160,7 @@ $$n = 10$$
 
 Each exterior angle of a regular polygon measures $24^\circ$. How many sides does the polygon have?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-exterior", "labels": ["Exterior angle = 24°", "Sides n = ?"], "semanticsLabel": "Regular polygon with one side extended to show an exterior angle of 24 degrees and the number of sides marked with a question mark."} -->
+<!-- ILLUSTRATION: one corner of a regular polygon with one side extended past the vertex, the exterior angle marked 24°, and the label "Sides n = ?"; only this corner is drawn, so the side count is not shown -->
 
 
 **Solution:**
@@ -248,7 +250,7 @@ $$x = 30$$
 
 The four angles of a quadrilateral are in the ratio $1 : 2 : 3 : 4$. Find the largest angle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral", "labels": ["x", "2x", "3x", "4x", "Largest angle = ?"], "semanticsLabel": "Four-sided quadrilateral with interior angles labeled x, 2x, 3x, and 4x and the largest angle marked with a question mark."} -->
+<!-- ILLUSTRATION: a quadrilateral with the label "Interior angles in the ratio 1 : 2 : 3 : 4" and the label "Largest angle = ?" -->
 
 
 **Solution:**
@@ -277,7 +279,7 @@ The diagonals of rectangle $ABCD$ cross at $O$. Angle $AOB$ measures $70^\circ$.
 A rectangle is a parallelogram, so its diagonals bisect each other. Its diagonals are also equal.
 
 1. Half of each diagonal is the same length, so $OA = OB$.
-2. Triangle $AOB$ is isosceles, so the angles opposite the equal sides, $OAB$ and $OBA$, are equal.
+2. Triangle $AOB$ has two equal sides, so it is isosceles, and the angles opposite the equal sides, $OAB$ and $OBA$, are equal.
 3. The three angles of the triangle add to $180^\circ$.
 
 $$2 \times \text{angle } OAB = 180 - 70 = 110$$

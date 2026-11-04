@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-geometry-quadrilaterals-and-polygons",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L23", "severity": "Major", "quote": "a simple closed polygon outline drawn without marked vertices, so its side count cannot be counted", "problem": "The new Example 3 question marker asks for something an artist cannot draw. A polygon outline shows its corners whether or not vertex dots are marked, so its sides can always be counted. Any drawing that follows this line either shows 10 sides, which gives the answer, or another count, which contradicts the given sum of 1440 degrees. That is the same harm the round-4 Major on this figure named. The marker needs a drawable way to hide the side count, for example part of the outline covered by the label box, or a figure that is not the polygon itself.", "source": "Checklist L23 (each placeholder is one specific line an artist could draw from); round-4 read L05 on the Example 3 figure; lesson style guide, Illustration placeholders"}
+  ],
+  "goodQuotesChecked": 1
+}
