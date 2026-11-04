@@ -9,9 +9,15 @@ isActive: true
 ---
 ## Core Concept
 
-Meiosis is the division that makes gametes in animals and spores in plants and fungi. It halves the number of chromosome sets, and it gives each product a different mix of alleles.
+Meiosis is the division that makes gametes in animals and spores in plants and fungi. It halves the number of chromosome sets, and it can give each product a different mix of alleles.
 
 This lesson needs the lesson Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis). Read it first for chromosomes, sister chromatids, homologs, haploid and diploid, and for mitosis and cytokinesis.
+
+### Words for Genes
+
+A **gene** is a section of DNA that codes for a trait. An **allele** is one version of a gene. A diploid cell has two alleles of each gene, one on each homolog.
+
+The **genotype** is the alleles an organism has, written as letters, such as $Aa$. A pair of matching alleles, such as $BB$, is **homozygous**. A pair of different alleles, such as $Aa$, is **heterozygous**.
 
 ### Meiosis
 
@@ -50,11 +56,13 @@ In human **oogenesis**, the making of egg cells, the cytoplasm divides very uneq
 
 ### How Meiosis Makes Variation
 
-Meiosis gives each gamete a different mix of alleles in two ways.
+Meiosis can make gametes differ in their mix of alleles in two ways.
 
 **Independent assortment.** At metaphase I, each homologous pair faces the poles in its own random way. This does not depend on how the other pairs face. So the maternal and paternal chromosomes are shuffled into the gametes.
 
 For $n$ pairs, there are $2^n$ ways to sort them. This count does not include crossing over.
+
+A single meiosis uses only one way of sorting, so its four cells hold two of these combinations. The other combinations come from other meioses.
 
 For humans, $n = 23$, so there are $2^{23} = 8{,}388{,}608$ ways.
 
@@ -77,7 +85,7 @@ If gametes were diploid, the number would double in every generation. Because me
 - **Homologs pair up**: not in mitosis. Yes, in prophase I of meiosis.
 - **What separates in anaphase**: in mitosis, sister chromatids. In meiosis, homologs in anaphase I and sister chromatids in anaphase II.
 - **Products**: mitosis makes two cells with the parent's chromosome number. Meiosis usually makes four cells with half that number.
-- **Genetic result**: mitosis makes cells that are almost identical to the parent cell. Meiosis makes cells that differ from each other and from the parent.
+- **Genetic result**: mitosis makes cells that are almost identical to the parent cell. Meiosis makes cells that can differ from each other and from the parent, when the parent has heterozygous genes.
 
 ## Examples
 
@@ -146,22 +154,24 @@ $$2 \times 2 \times 2 = 2^3 = 8$$
 
 ### #6: Tracking Alleles on Different Chromosomes
 
-A diploid cell has the genotype $AaBb$. The gene for $A$ is on one chromosome pair, and the gene for $B$ is on a different pair. Ignoring crossing over, which gametes can meiosis produce?
+A diploid cell has the genotype $AaBb$. The gene for $A$ is on one chromosome pair, and the gene for $B$ is on a different pair. Ignoring crossing over, which gametes can one meiosis produce, and which gametes can many such cells produce together?
 
 **Solution:**
 
 1. Each gamete is haploid. It gets one allele for each gene: $A$ or $a$, and $B$ or $b$.
 2. The pairs sort independently, so each allele for the first gene can go with each allele for the second gene.
-3. The four gametes are $AB$, $Ab$, $aB$, and $ab$.
-4. This works only because the genes are on different pairs. Genes close together on the same chromosome tend to travel together, as the next example shows.
+3. One meiosis uses one way of sorting. Its four cells are either $AB$, $AB$, $ab$, $ab$ or $Ab$, $Ab$, $aB$, $aB$, so it makes two types.
+4. Many such cells use both ways of sorting. Together they can make all four types: $AB$, $Ab$, $aB$, and $ab$, in about equal numbers.
+5. This works only because the genes are on different pairs. Genes close together on the same chromosome tend to travel together, as the next example shows.
+6. With crossing over between a gene and its centromere, one meiosis can make up to four types.
 
 ### #7: Crossing Over and New Allele Combinations
 
-Two genes are close together on the same chromosome. One homolog carries $A$ and $B$, and the other carries $a$ and $b$. What gametes form with no crossing over, and what new ones can form with crossing over between the two genes?
+Two genes are close together on the same chromosome. One homolog carries $A$ and $B$, and the other carries $a$ and $b$. What gamete types form with no crossing over, and what new ones can form with crossing over between the two genes?
 
 **Solution:**
 
-1. With no crossing over, each chromosome goes into a gamete as it is. The gametes are $AB$ and $ab$.
+1. With no crossing over, each chromosome goes into a gamete as it is. The gametes are $AB$ and $ab$, two types.
 2. Crossing over in prophase I swaps pieces between the two homologs, between the genes.
 3. A chromatid can now carry $A$ with $b$, or $a$ with $B$.
 4. Gametes $Ab$ and $aB$ can form too. These are new combinations that independent assortment could not make for genes this close together.
@@ -179,13 +189,21 @@ One human germ cell completes meiosis. How many functional gametes does it usual
 
 ## Speed Tricks & Shortcuts
 
-For a mitosis or meiosis question, look at the **chromosome number and chromosome behavior**, and not only at the number of daughter cells. Mitosis keeps the chromosome number. Meiosis halves it. Mitosis can give two cells, and in a haploid organism it gives two haploid cells.
+For a mitosis or meiosis question, look at the **chromosome number and chromosome behavior**, and not only at the number of daughter cells. Mitosis keeps the chromosome number, and meiosis halves it.
+
+Mitosis gives two cells. In a haploid organism, those two cells are haploid.
 
 Remember meiosis as **one copying, two divisions**. Homologs separate in meiosis I. Sister chromatids separate in meiosis II.
 
-For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I. $2^n$ counts gamete types only when $n$ is the number of gene pairs that are heterozygous (such as $Aa$) and sit on different chromosomes. A homozygous pair (such as $BB$) adds no choice, so $AaBB$ gives $2$ types, not $4$. Ignore crossing over when you use it.
+For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I.
 
-To tell a metaphase, ask whether the chromosomes are in pairs. Pairs mean metaphase I. Single file with a full set means mitosis. Single file with half the set means metaphase II.
+$2^n$ counts the gamete types that many cells can make together. Here $n$ is the number of heterozygous gene pairs on different chromosomes. A homozygous pair adds no choice, so $AaBB$ gives $2$ types, not $4$.
+
+Use $2^n$ only when you ignore crossing over. One meiosis makes at most $2$ types without it.
+
+To tell a metaphase, ask whether the chromosomes are in pairs. Pairs mean metaphase I.
+
+Single file with a full set means mitosis. Single file with half the set means metaphase II.
 
 ## Traps to Watch For
 
