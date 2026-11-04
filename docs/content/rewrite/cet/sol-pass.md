@@ -24,3 +24,11 @@ Neither model reads its own writing: Sonnet writes and fixes, Sol reads. The lea
 ## Limits
 
 At most 3 subagents or Codex jobs at a time. Change only the 18 lessons, files under `docs/content/rewrite/cet/`, and `STATUS.md`. No question files, tags, figures or app code. No AI attribution in commits.
+
+## Change, November 5: Opus reads instead of Sol, one round
+
+Another session used up all three Codex accounts before the round-4 reads ran. Lead offered: wait for the reset and share Codex with that session, or have fresh Opus readers do round 4 now (the final run's loop), with Astra as the later cross-vendor check. Lead recommended one round only.
+
+Aedwon: "no codex use. possible? and why is codex essential here"; "please don't parallelize so much because you have limited usage"; "why two more rounds this time?"; "okay proceed".
+
+Result: one fresh Opus 5.5 read per lesson (round 4), run one at a time. No round 5: a lesson with a Blocker or Major after round 4 stays open with its findings for the final review and the Astra audit. Sonnet wrote all fixes in this pass, so Opus does not read its own writing here. Three of the lessons (measures-of-variability, structural-stability, speeches) carry earlier lead (Opus) edits from the final run, as noted in the final report.
