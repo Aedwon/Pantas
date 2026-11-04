@@ -50,7 +50,11 @@ Suppose the high observer and the low object are in the same vertical plane, and
 
 ### Eye height
 
-An observer's eyes are above the ground. The angle is measured from the eye, so the right triangle starts at eye level, not at the ground. The ratio gives the height above eye level. Add the eye height to get the height above the ground.
+An observer's eyes are above the ground. The angle is measured from the eye, so the right triangle starts at eye level, not at the ground.
+
+For an angle of elevation, when you want the object's height, the ratio gives the height above eye level. Add the eye height to get the height above the ground. For a depression, the ratio gives the drop below eye level, so subtract it from the eye's height above the ground.
+
+If you want a distance, do not add the eye height to it. Use the height above or below eye level in the ratio.
 
 If a problem says to assume the observer is at ground level, no adjustment is needed.
 
@@ -133,9 +137,6 @@ $$\theta=\tan^{-1}(0.375)\approx20.6^\circ$$
 
 From the top of a $50$-meter lighthouse above level sea level, the angle of depression of a boat is $30^\circ$. How far horizontally is the boat from the base of the lighthouse?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["Lighthouse = 50 m", "Depression = 30°", "Boat distance = ?", "90°"], "semanticsLabel": "Lighthouse of height 50 meters with 30 degree angle of depression to a boat and unknown horizontal distance marked with a question mark."} -->
-
-
 **Solution:**
 The horizontal through the observer and the sea level are parallel, so the angle of elevation at the boat is also $30^\circ$.
 
@@ -150,6 +151,8 @@ $$\tan30^\circ=\dfrac{50}{d}$$
 $$d=\dfrac{50}{\tan30^\circ}=\dfrac{150}{\sqrt3}=50\sqrt3$$
 
 3. The horizontal distance is $50\sqrt3$ meters, approximately $86.6$ meters.
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "elevation-depression", "labels": ["Lighthouse = 50 m", "Depression = 30°", "Boat distance = ?", "90°"], "semanticsLabel": "Lighthouse of height 50 meters with 30 degree angle of depression to a boat and unknown horizontal distance marked with a question mark."} -->
 
 ### #5: Adding the Observer's Eye Height
 
@@ -281,7 +284,7 @@ Putting the angle at the top of the object changes which side is opposite and wh
 
 ### #3: Forgetting the Observer's Height
 
-> If an eye height is given and the angle is measured from the eyes, add the eye height to the result.
+> If an eye height is given and the angle is an elevation, add the eye height to the result only when you want the object's height.
 
 The ratio gives the height above eye level. Add the eye height to get the height above the ground. For a depression from a high eye, the ratio gives the drop from eye level, so subtract it from the eye's height above the ground to find the object's height.
 
