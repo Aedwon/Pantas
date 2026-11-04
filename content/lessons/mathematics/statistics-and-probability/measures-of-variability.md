@@ -59,13 +59,13 @@ A sample of one value has $n-1=0$, so $s^2$ is not defined. For the same values,
 
 ### Reading the results
 
-Variance is in squared units. Standard deviation is in the same units as the data. A smaller standard deviation means the values sit closer to the mean. A larger one means more spread.
+Variance is in squared units, and standard deviation is in the same units as the data. A smaller standard deviation means the values sit closer to the mean on the whole. A larger one means more spread.
 
 Standard deviation compares spread only for data in the same units. A mean and a standard deviation do not give the full list of values.
 
 ### Shifting and scaling the data
 
-Suppose each value $x$ becomes $ax+b$, where $a$ and $b$ are numbers. Then:
+Suppose each value $x$ becomes $ax+b$, where $a$ and $b$ are numbers. Then the following hold, where $|a|$ is $a$ without its sign (so $|-3|=3$):
 
 - The new mean is $a\cdot\text{(old mean)}+b$.
 - The new standard deviation is $|a|$ times the old one.
@@ -76,7 +76,9 @@ The number $b$ moves every value the same distance, so the spread does not chang
 
 ### Mean and variance of a random variable
 
-A **random variable** $X$ is a number whose value depends on chance, such as the score on one spin of a game wheel. A **discrete** random variable takes separate values that you can list. A **probability table** lists each value $x$ with its probability $P(x)$. Each probability is at least $0$ and at most $1$, and they add up to $1$.
+A **random variable** $X$ is a number whose value depends on chance, such as the score on one spin of a game wheel. A **discrete** random variable takes separate values that you can list.
+
+A **probability table** lists each value $x$ with its probability $P(x)$, the chance that $X$ equals $x$. Each probability is at least $0$ and at most $1$. Together they add up to $1$.
 
 The **mean** of $X$, also called the **expected value** $E(X)$, is the long-run average. Multiply each value by its probability, then add.
 
@@ -162,14 +164,14 @@ Find the standard deviation of the population $6,6,6,6$.
 2. Every squared deviation is $0$, so the variance is $0$.
 3. The standard deviation is $0$.
 
-If the values are not all equal, at least one deviation is not $0$, so the standard deviation is greater than $0$. A sample of at least two equal values also has $s=0$.
+If the values are not all equal, at least one deviation is not $0$, so the standard deviation is greater than $0$. A sample of two or more values that are all equal also has $s=0$.
 
 ### #6: Comparing Consistency
 
 Two archers each have a mean score of $8$ per shot. Ana's scores have a standard deviation of $0.5$. Bella's have a standard deviation of $2.1$. Which archer's scores are closer to the mean? Can you tell from these numbers which archer is more likely to score exactly $10$?
 
 **Solution:**
-1. Ana has the smaller standard deviation, so her scores are closer to $8$.
+1. Ana has the smaller standard deviation, so her scores sit closer to $8$ on the whole.
 2. A mean and a standard deviation do not give the full list of scores. Different sets of scores can share both numbers and still differ in how often they show $10$.
 3. So the numbers show that Ana is more consistent. They do not show who is more likely to score $10$.
 
@@ -199,7 +201,7 @@ A game gives a score $X$ with this probability table, shown as a list. Find $E(X
 - $P(3)=0.2$
 
 **Solution:**
-1. The probabilities add up to $1$, so the table is valid.
+1. Each probability is at least $0$ and at most $1$, and $0.1+0.3+0.4+0.2=1$, so the table is valid.
 2. Multiply each value by its probability and add.
 
 $$E(X)=0(0.1)+1(0.3)+2(0.4)+3(0.2)=1.7$$
@@ -218,7 +220,7 @@ $$\sqrt{0.81}=0.9$$
 
 ## Speed Tricks & Shortcuts
 
-When you compute by hand, add the deviations before squaring. If the mean is exact, the sum must be $0$. If it is not, recheck the mean or a subtraction. A mean you rounded gives a sum slightly off $0$.
+When you compute by hand, add the deviations before squaring. If the mean is exact, the sum must be $0$, so any other sum means you should recheck the mean or a subtraction. A mean you rounded gives a sum slightly off $0$.
 
 To compare spread, compare standard deviations of data in the same units. The smaller one is less spread out.
 
