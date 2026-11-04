@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-biology-cellular-metabolism",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A chloroplast has two outer membranes.", "problem": "Wrong naming detail. A chloroplast has a double membrane envelope made of one outer membrane and one inner membrane; the second membrane is the inner membrane, not a second outer one. The illustration marker repeats the error ('labeled outer membranes'), so the figure would carry the wrong label too. A student labeling a chloroplast diagram, a standard item for photosynthesis and organelles (dcat-L078, ustet-L116, curriculum class), would have no name for the inner membrane and would call it outer. Present before the split and missed in earlier reads. Earlier split rounds: round-1 Blockers (lipids definition, 'every step' enzyme sentence), the round-1 L27 Major (stage locations limited to chloroplasts, cyanobacteria sentence) and the round-2 carbohydrate Blocker are all fixed, with no new error from the fixes. The shortened lesson stands alone: it defines respiration in one line and names the next lesson, and no example or trap relies on moved teaching.", "source": "OpenStax Biology 2e, 8.1 Overview of Photosynthesis: 'Chloroplasts have a double membrane envelope (composed of an outer membrane and an inner membrane)'. Checklist B01; source-policy.md, naming details."}
+  ],
+  "goodQuotesChecked": 1
+}
