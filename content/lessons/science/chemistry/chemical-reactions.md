@@ -11,11 +11,15 @@ isActive: true
 
 A **chemical reaction** turns one set of substances into another. The starting substances are the **reactants**. The substances made are the **products**.
 
-A **chemical equation** shows this with formulas and an arrow. Reactants go on the left. Products go on the right. In $2H_2+O_2\rightarrow2H_2O$, hydrogen and oxygen react to make water.
+A **chemical equation** shows this with formulas and an arrow. Reactants go on the left. Products go on the right.
+
+In $2H_2+O_2\rightarrow2H_2O$, hydrogen and oxygen react to make water.
 
 ### Atoms Are Conserved
 
-In a chemical reaction, atoms are rearranged. They are not made or destroyed. So each element has the same number of atoms on both sides of a correct equation. This is why the total mass stays the same in a closed container.
+In a chemical reaction, atoms are rearranged. They are not made or destroyed. So each element has the same number of atoms on both sides of a correct equation.
+
+This is why the total mass stays the same in a closed container.
 
 Think of building with toy bricks. You can take a model apart and build a new one, but you cannot add or lose a single brick.
 
@@ -29,60 +33,86 @@ A **coefficient** is the big number in front of a formula. In $2H_2O$, the coeff
 
 A number outside a bracket multiplies everything inside it. So $Al_2(SO_4)_3$ has $2$ Al atoms, $3$ S atoms and $12$ O atoms.
 
+### Writing a Formula from Ion Charges
+
+A compound has no total charge. So the charges of its ions must cancel. Use the smallest numbers of each ion that cancel.
+
+Common charges:
+
+- Group $1$ metals (the first column of the periodic table) are $+1$, as in $Na^+$ and $K^+$. Group $2$ metals are $+2$, as in $Mg^{2+}$ and $Ca^{2+}$. Also $Al^{3+}$, $Zn^{2+}$ and $NH_4^+$.
+- A Roman numeral gives the charge of a metal that has more than one: lead(II) is $Pb^{2+}$ and copper(II) is $Cu^{2+}$.
+- $Cl^-$, $Br^-$, $I^-$, $OH^-$, $NO_3^-$ and $C_2H_3O_2^-$ are $-1$. $O^{2-}$, $SO_4^{2-}$ and $CO_3^{2-}$ are $-2$. $PO_4^{3-}$ is $-3$.
+
+For $Pb^{2+}$ and $I^-$, one lead gives $+2$ and two iodide ions give $-2$. So the formula is $PbI_2$. For $K^+$ and $NO_3^-$, one of each cancels: $KNO_3$.
+
+Put a bracket around a group only when you need more than one of it, as in $Al_2(SO_4)_3$.
+
+These subscripts come from the charges. Balancing never changes them.
+
 ### Balancing Equations
 
 "Balance" means set the coefficients so that every element has the same number of atoms on both sides.
 
-Change only coefficients. Never change a subscript. A new subscript makes a new substance: $H_2O$ is water, but $H_2O_2$ is hydrogen peroxide.
+While balancing, change only coefficients. Never change a subscript. A new subscript makes a new substance: $H_2O$ is water, but $H_2O_2$ is hydrogen peroxide.
 
 Follow these steps.
 
 1. Write the correct formulas first. Do not change them afterward.
 2. Count the atoms of each element on both sides.
-3. Start with an element that appears in only one compound on each side. Leave an element that appears alone, such as $O_2$, for last.
+3. Start with an element that appears in only one compound on each side, if there is one. When you can, leave an element that appears alone, such as $O_2$, for last.
 4. If a bracketed group such as $SO_4$ stays together on both sides, count it as one unit.
 5. Count every element again at the end.
 
-A balanced equation is normally written with the smallest whole-number coefficients. A coefficient of $1$ is not written. If every coefficient can be divided by the same number, divide. So $4H_2+2O_2\rightarrow4H_2O$ is balanced but not in simplest form.
+A balanced equation is normally written with the smallest whole-number coefficients. A coefficient of $1$ is not written.
+
+If every coefficient can be divided by the same number, divide. So $4H_2+2O_2\rightarrow4H_2O$ is balanced but not in simplest form.
 
 If a coefficient comes out as a fraction, multiply every coefficient by the number that clears it. Some equations need this, as Example #5 shows.
 
 ### State Symbols
 
-Letters in brackets after a formula show the physical state. They are $(s)$ for solid, $(l)$ for liquid and $(g)$ for gas. The symbol $(aq)$ means **aqueous**: dissolved in water. They do not change the balancing.
+Letters in brackets after a formula show the physical state. They are $(s)$ for solid, $(l)$ for liquid and $(g)$ for gas.
+
+The symbol $(aq)$ means **aqueous**: dissolved in water. State symbols do not change the balancing.
 
 ### Reaction Patterns
 
-Chemists group reactions into patterns. These groups help you predict products. They overlap, and they do not cover every reaction. One reaction can fit two patterns.
+Chemists group reactions into patterns. These groups help you predict products.
+
+The patterns overlap, and they do not cover every reaction. One reaction can fit two patterns.
 
 - **Combination (synthesis):** two or more reactants make one product. The form is $A+B\rightarrow AB$. Here A and B can be elements or compounds.
 - **Decomposition:** one reactant breaks into two or more products. The form is $AB\rightarrow A+B$. It often needs heat, light or electricity.
 - **Single displacement:** a more reactive element takes the place of another element in a compound. The form is $A+BC\rightarrow AC+B$.
-- **Double displacement:** two compounds in water swap partners. The form is $AB+CD\rightarrow AD+CB$.
+- **Double displacement:** two compounds, usually in water, swap partners. The form is $AB+CD\rightarrow AD+CB$.
 - **Combustion:** a substance burns by reacting quickly with oxygen and gives off heat and often light.
 
 Each pattern is explained below. Check the limit of each one before you use it.
 
 ### Single Displacement and Reactivity
 
-A single displacement happens only if the free element is more reactive than the element it replaces. The **activity series** ranks metals from most to least reactive. A common version is this.
+A single displacement happens only if the free element is more reactive than the element it replaces. The **activity series** ranks metals, with hydrogen for comparison, from most to least reactive. A common version is this.
 
 $$K>Na>Ca>Mg>Al>Zn>Fe>Pb>(H)>Cu>Ag>Au$$
 
-A metal displaces anything below it. Zinc is above hydrogen, so zinc replaces hydrogen in acid: $Zn+2HCl\rightarrow ZnCl_2+H_2$. Copper is below hydrogen, so copper does not react with $HCl$.
+In an acid or a metal salt in water, a metal can replace hydrogen or a metal that is below it. Zinc is above hydrogen, so zinc replaces hydrogen in acid: $Zn+2HCl\rightarrow ZnCl_2+H_2$. Copper is below hydrogen, so copper does not react with dilute $HCl$.
 
-Zinc is above copper, so $Zn+CuSO_4\rightarrow ZnSO_4+Cu$ works. The reverse does not. This list is for the common metals and for acids and metal salts in water. Very reactive metals such as K, Na and Ca react with water itself.
+Zinc is above copper, so $Zn+CuSO_4\rightarrow ZnSO_4+Cu$ works. The reverse does not. This list is for the common metals.
+
+Very reactive metals such as K, Na and Ca react with the water first. In a salt solution they give hydrogen gas and a hydroxide, not the metal in the salt. So $Na$ in copper(II) sulfate solution does not give copper metal, although $Na$ is above $Cu$.
 
 ### Double Displacement and Driving Forces
 
-Swapping partners on paper does not prove that anything happens. A double displacement reaction happens only when a **driving force** removes ions from the solution. There are four common ones.
+Swapping partners on paper does not prove that anything happens. The letters in $AB+CD\rightarrow AD+CB$ show only the swap. Write each new formula from the ion charges.
+
+A double displacement reaction happens only when a **driving force** removes ions from the solution. There are four common ones.
 
 - A **precipitate** forms. This is a solid that appears when two solutions are mixed because it does not dissolve.
-- Water forms. This is what happens when an acid meets a base.
+- Water forms. This happens when an acid meets a base. It is called neutralization. See the acids, bases and pH lesson.
 - A gas escapes.
-- A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
+- A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid. A strong acid, such as $HCl$, gives mostly ions. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
 
-To predict a precipitate, use solubility. A substance is **soluble** if it dissolves in water. These are the usual classroom rules.
+To predict a precipitate, use solubility. A substance is **soluble** if it dissolves in water. These are the usual classroom rules, and a few compounds break them.
 
 - Compounds of Group $1$ metals (Li, Na, K) and of the ammonium ion $NH_4^+$ are soluble.
 - Nitrates $NO_3^-$ are soluble.
@@ -99,15 +129,19 @@ When an acid reacts with a carbonate, a gas forms. The carbonic acid that first 
 
 **Combustion** is burning: a fast reaction with oxygen that gives off energy. A **hydrocarbon** is a compound of only carbon and hydrogen, such as methane $CH_4$ and propane $C_3H_8$.
 
-When there is plenty of oxygen, a fuel that has both carbon and hydrogen, and at most oxygen besides, burns **completely**. The products are carbon dioxide and water. A fuel with no hydrogen, such as carbon, gives no water. The form is $C_xH_y+O_2\rightarrow CO_2+H_2O$.
+When there is plenty of oxygen, a fuel that has both carbon and hydrogen, and at most oxygen besides, burns **completely**. The products are carbon dioxide and water. For a hydrocarbon, the form is $C_xH_y+O_2\rightarrow CO_2+H_2O$.
 
-When oxygen is short, burning is **incomplete**. Some carbon ends up as carbon monoxide $CO$, which is a poisonous gas. Some carbon ends up as soot, which is solid carbon $C$. Water usually forms too.
+A fuel with no hydrogen, such as carbon, gives no water.
 
-Fuels that also contain other elements give extra products. For example, sulfur burns to form $SO_2$. Metals can burn as well: $2Mg+O_2\rightarrow2MgO$.
+When oxygen is short, burning is **incomplete**. Some carbon ends up as carbon monoxide $CO$, which is a poisonous gas, and some as soot, which is solid carbon $C$. The hydrogen of the fuel still forms water.
+
+Fuels that also contain other elements give extra products. For example, sulfur burns mainly to form $SO_2$. Metals can burn as well: $2Mg+O_2\rightarrow2MgO$.
 
 ### Oxidation-Reduction (Redox)
 
-In a **redox** reaction, electrons move from one substance to another. **Oxidation** is loss of electrons. **Reduction** is gain of electrons. One cannot happen without the other.
+In a **redox** reaction, electrons move from one atom to another, or shift closer to one atom. **Oxidation** is loss of electrons. **Reduction** is gain of electrons.
+
+One cannot happen without the other.
 
 To track electrons, give each atom an **oxidation number**. It is the charge the atom would have if all the shared electrons went to the more electronegative atom, the one that pulls electrons harder. Use these rules.
 
@@ -115,15 +149,17 @@ To track electrons, give each atom an **oxidation number**. It is the charge the
 - A single-atom ion has its own charge. So $Zn^{2+}$ is $+2$.
 - Oxygen is usually $-2$, except in peroxides such as $H_2O_2$, where it is $-1$.
 - Hydrogen is usually $+1$, except in metal hydrides such as $NaH$, where it is $-1$.
-- In compounds, Group $1$ metals are $+1$ and Group $2$ metals are $+2$.
-- In compounds, fluorine is $-1$. Chlorine, bromine and iodine are usually $-1$, except when bonded to oxygen or to a more electronegative halogen.
+- In compounds, Group $1$ metals are $+1$ and Group $2$ metals (the second column) are $+2$.
+- In compounds, fluorine is $-1$. The other halogens (Cl, Br, I) are usually $-1$, except when bonded to oxygen or to a more electronegative halogen.
 - The numbers in a compound add up to $0$. In an ion they add up to the charge of the ion.
 
 If an element's oxidation number goes up, it was oxidized. If it goes down, it was reduced. A reaction is redox if any oxidation number changes.
 
 ### How the Patterns Overlap
 
-Patterns and redox cut across each other. All single displacement and all combustion in oxygen are redox. Combination and decomposition can be redox or not. Double displacement is not redox, because no oxidation number changes.
+Patterns and redox cut across each other. All single displacement and all combustion in oxygen are redox.
+
+Combination and decomposition can be redox or not. Double displacement is not redox, because no oxidation number changes.
 
 Some reactions fit two patterns. Burning hydrogen, $2H_2+O_2\rightarrow2H_2O$, is both combination and combustion. Neutralization is both double displacement and acid-base.
 
@@ -161,7 +197,7 @@ $$Fe+O_2\rightarrow Fe_2O_3$$
 
 **Solution:**
 
-1. O is $2$ on the left and $3$ on the right. The least common multiple of $2$ and $3$ is $6$.
+1. O is $2$ on the left and $3$ on the right. The least common multiple of $2$ and $3$ is $6$, the smallest number that both divide into.
 2. Make $6$ O on both sides: put $3$ before $O_2$ and $2$ before $Fe_2O_3$.
 3. Now the right side has $4$ Fe atoms. Put $4$ before $Fe$.
 4. Check. Each side has $4$ Fe and $6$ O.
@@ -237,8 +273,8 @@ Name the pattern of each reaction. Say whether more than one fits.
 **Solution:**
 
 1. (a) Two reactants make one product: combination. Hydrogen burns in oxygen, so it is also combustion.
-2. (b) One reactant makes two products: decomposition. No oxidation number changes, so it is not redox.
-3. (c) Two reactants make one product: combination. No oxidation number changes, so it is not redox.
+2. (b) One reactant makes two products: decomposition. Ca stays $+2$, C stays $+4$ and O stays $-2$, so it is not redox.
+3. (c) Two reactants make one product: combination. Ca stays $+2$, H stays $+1$ and O stays $-2$, so it is not redox.
 4. (d) One reactant makes two products: decomposition. O is $-1$ in $H_2O_2$. It becomes $-2$ in $H_2O$ and $0$ in $O_2$. Oxygen is both oxidized and reduced, so this is redox.
 
 ### #8: Will a Single Displacement Occur?
@@ -247,13 +283,15 @@ Using the activity series, decide whether each reaction occurs. Write the equati
 
 (a) Zinc metal with copper(II) sulfate solution  
 (b) Copper metal with zinc sulfate solution  
-(c) Copper metal with hydrochloric acid
+(c) Copper metal with hydrochloric acid  
+(d) Sodium metal with copper(II) sulfate solution
 
 **Solution:**
 
 1. (a) Zn is above Cu, so Zn displaces Cu: $Zn+CuSO_4\rightarrow ZnSO_4+Cu$.
 2. (b) Cu is below Zn. There is no reaction.
 3. (c) Cu is below H. There is no reaction.
+4. (d) Na is above Cu, but Na reacts with the water first. It gives hydrogen gas and sodium hydroxide, not copper metal.
 
 ### #9: Finding What Is Oxidized and Reduced
 
@@ -273,7 +311,7 @@ Solutions of lead(II) nitrate and potassium iodide are mixed. Write the balanced
 
 **Solution:**
 
-1. Swap partners: $Pb(NO_3)_2+KI\rightarrow PbI_2+KNO_3$.
+1. Swap partners. Write each new formula from the ion charges: $Pb^{2+}$ with $I^-$ gives $PbI_2$, and $K^+$ with $NO_3^-$ gives $KNO_3$. So $Pb(NO_3)_2+KI\rightarrow PbI_2+KNO_3$.
 2. Balance. Put $2$ before $KI$ for the iodine, and then $2$ before $KNO_3$.
 3. Use the rules. $KNO_3$ is soluble. $PbI_2$ is an iodide of $Pb^{2+}$, an exception in the rules, so it forms a yellow solid.
 4. Add state symbols: $(aq)$ for the dissolved compounds and $(s)$ for the solid.
@@ -324,13 +362,15 @@ Name the driving force in each reaction.
 
 ## Speed Tricks & Shortcuts
 
-Balance the element that appears in the fewest compounds first. Balance a lone element, such as $O_2$ or $H_2$, last.
+Balance the element that appears in the fewest compounds first. When you can, balance a lone element, such as $O_2$ or $H_2$, last.
 
-For a hydrocarbon in oxygen, balance C, then H, then O. If O comes out odd, double everything.
+For a hydrocarbon in oxygen, balance C, then H, then O. If the O on the right is odd, the $O_2$ coefficient is a fraction, so double everything.
 
 Balance a bracketed group such as $SO_4$ or $OH$ as one unit. This works only if the group stays together on both sides.
 
-To test for a precipitate, find the two new compounds and look each up in the solubility rules. If both are soluble, no precipitate forms. The reaction can still happen if water, a gas or a weak electrolyte forms, so check for those too. If the question asks about the activity series, check that the free metal is higher than the one it replaces.
+To test for a precipitate, find the two new compounds and look each up in the solubility rules. If both are soluble, no precipitate forms.
+
+The reaction can still happen if water, a gas or a weak electrolyte forms, so check for those too. If the question asks about the activity series, check that the free metal is higher than the one it replaces.
 
 ## Traps to Watch For
 

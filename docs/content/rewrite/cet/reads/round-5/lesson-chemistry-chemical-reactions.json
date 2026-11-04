@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Neutralization is both double displacement and acid-base.",
+      "problem": "A general statement that fails at a known exception. The acids, bases and pH lesson, which this lesson sends the student to ('See the acids, bases and pH lesson'), defines neutralization as any acid-base reaction and gives $NH_3+HCl\\rightarrow NH_4Cl$ as a neutralization (its Trap #4). That reaction has one product and no partner swap, so it is a combination, not a double displacement. The driving-force bullet 'Water forms. This happens when an acid meets a base.' fails on the same reaction, since no water forms. A student who learns both lessons gets two contradicting rules and misclassifies ammonia neutralizations.",
+      "source": "content/lessons/science/chemistry/acids-bases-ph.md, Neutralization section and Trap #4; OpenStax Chemistry 2e, 14.1 (Bronsted-Lowry acid-base reactions, NH3 + HCl); checklist B01; reader rules, Added after the Sol audit"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$K>Na>Ca>Mg>Al>Zn>Fe>Pb>(H)>Cu>Ag>Au$$",
+      "problem": "The activity-series display has twelve symbols and eleven relation signs, each with relation spacing. It renders at roughly 30 em, wider than a phone screen at display size, so it will overflow or shrink. Earlier rounds split wide displays in Example #10 for this reason.",
+      "source": "Checklist L21; LSG Examples section (display equations narrow enough for a phone screen)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid.",
+      "problem": "This driving-force bullet holds four sentences, and the bullet 'Water forms. This happens when an acid meets a base. It is called neutralization. See the acids, bases and pH lesson.' also holds four. The guide allows one to three short sentences per paragraph. The round-4 L22a paragraphs are fixed; these two bullets remain.",
+      "source": "Checklist L22a; LSG Formatting rules"
+    },
+    {
+      "rule": "L24",
+      "severity": "Minor",
+      "quote": "Chemical Reactions (Reaction Patterns, Balancing Equations)",
+      "problem": "Still open from rounds 2 to 4. The frontmatter title differs from the outline title 'Chemical Reactions (Types of Reactions, Balancing Equations)' in tools/lesson_author/outline.json. The mismatch is in the base and names the same content, so it stays Minor for the final review, as in the acids-bases-ph ruling.",
+      "source": "Checklist L24; tools/lesson_author/outline.json; final-run-rulings.md (acids-bases-ph title ruling)"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
