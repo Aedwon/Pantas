@@ -75,7 +75,7 @@ Ambiguous means it can be read in more than one way. In SSA, the numbers may fit
 
 1. Find $\sin B = \dfrac{b \sin A}{a}$.
 2. If this is more than $1$, no triangle exists. A sine is never more than $1$.
-3. If it equals $1$, then $B = 90^\circ$. One triangle exists.
+3. If it equals $1$, then $B = 90^\circ$. One triangle exists if $A$ is acute. If $A$ is $90^\circ$ or more, $A + B$ is at least $180^\circ$, so no triangle exists.
 4. If it is less than $1$, the calculator gives an acute angle $B_1$. A second angle $B_2 = 180^\circ - B_1$ has the same sine.
 5. Keep $B_1$ or $B_2$ only if $A$ plus that angle is less than $180^\circ$. Each angle that stays gives one triangle.
 

@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-trigonometry-laws-of-sines-and-cosines",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If it equals $1$, then $B = 90^\\circ$. One triangle exists.",
+      "problem": "Step 3 of the SSA procedure says one triangle exists whenever sin B = 1, with no condition on A. It fails when A is 90 degrees or more: A = 150 degrees, a = 1, b = 2 gives sin B = 2(1/2)/1 = 1, so B = 90 degrees and A + B = 240 degrees, and no triangle exists. The angle-sum test in step 5 covers only the step 4 branch, so a student following the numbered steps gets the wrong count. It also contradicts the lesson's own later rule that for A of 90 degrees or more a triangle exists only when a > b (here a < b).",
+      "source": "Checklist B01; reader-rules boundary test; angle sum of a triangle is 180 degrees (any trigonometry text, e.g. OpenStax Algebra and Trigonometry 2e, 10.1, ambiguous case)"
+    }
+  ],
+  "goodQuotesChecked": 1
+}
