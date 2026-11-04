@@ -2516,3 +2516,11 @@ Custom exams, server window (Nov 4). Spec: `docs/superpowers/specs/2026-11-04-cu
 One default waits for Aedwon, offered in the spec at 1.3: a Strict student's break between parts ends by itself after 60 seconds (A, being built), no limit as on the phone (B), or no break (C). It is one constant.
 
 The Astra audit did not finish. All three Codex accounts hit their 5-hour limit during the first attempt, with no findings delivered; the limit resets Nov 5 at 1:49 AM. `codex-pick` exit 75 was reported and no other tool replaced it. The audit is smaller and split into three prompts for the retry. The client window stays held until the audit and its findings are done.
+
+## Open items from the QA sweep (Aedwon, Nov 5)
+
+Offered, each with a recommendation: birth year hint "Enter a year from 1926 to 2026."; guardian "Email sent." after a resend and "Not confirmed yet." after Check Again; hide the teen notice link until its text is supplied; leave the Terms Subscriptions text for his web wording, because legal text is not rewritten by agents; remove the "Pantas" credit under figures; focus rings for keyboard use only; keep History inline on the phone Plan page and leave the new page for direct links; leave out the session note card and the "From the lesson" link for now; label the last assessment question's button "Finish"; change the assessment plan card header to a true claim; strict mock break between parts 60 seconds.
+
+Aedwon: "go with your recommendations. impress me"
+
+Result: all approved as recommended. Still to be shown as previews: Study's empty space, the no-date notice, the empty Tendencies card on phone, the paused mock, the splash and Welcome backgrounds, long "Coming soon" rows. Still needs him or a lawyer: the teen notice text and the Terms web wording.
