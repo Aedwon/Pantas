@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/assessment/domain/models/topic_mastery.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
 import 'package:pantas/features/assessment/presentation/assessment_skeletons.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
@@ -107,6 +108,47 @@ Future<void> holdAssessmentResults(WidgetRef ref, ExamId examId) async {
   } catch (_) {
     // The results screen shows its own loading or error state.
   }
+}
+
+/// The topic the plan card names as the weakest.
+///
+/// A topic holds only a few questions, so several often tie, most often at
+/// zero. A tie goes to the topic in the weakest subject, the one the list
+/// above ranks first, and then to authored order. Without that the card could
+/// name a topic from the strongest subject, which reads as a wrong claim next
+/// to the list.
+@visibleForTesting
+TopicMastery? weakestAssessedTopic(
+  List<TopicMastery> topics, {
+  required Map<String, String> subjectOf,
+  required List<({String name, int correct, int total})> subjects,
+}) {
+  double subjectAccuracy(TopicMastery mastery) {
+    for (final subject in subjects) {
+      if (subject.name == subjectOf[mastery.topic.id]) {
+        return subject.total == 0 ? 0 : subject.correct / subject.total;
+      }
+    }
+    return 1;
+  }
+
+  TopicMastery? weakest;
+  for (final candidate in topics) {
+    if (weakest == null) {
+      weakest = candidate;
+      continue;
+    }
+    final byTopic = candidate.accuracy.compareTo(weakest.accuracy);
+    final bySubject = subjectAccuracy(candidate).compareTo(
+      subjectAccuracy(weakest),
+    );
+    final byOrder = candidate.topic.ordering.compareTo(weakest.topic.ordering);
+    if (byTopic < 0 ||
+        (byTopic == 0 && (bySubject < 0 || (bySubject == 0 && byOrder < 0)))) {
+      weakest = candidate;
+    }
+  }
+  return weakest;
 }
 
 class AssessmentResultsPage extends ConsumerWidget {
@@ -233,7 +275,11 @@ class _ResultsBodyState extends State<_ResultsBody>
     ];
     final total = shown.fold(0, (sum, m) => sum + m.total);
     final correct = shown.fold(0, (sum, m) => sum + m.correct);
-    final weakest = shown.firstOrNull;
+    final weakest = weakestAssessedTopic(
+      shown,
+      subjectOf: widget.data.topicSubjectNames,
+      subjects: widget.data.subjects,
+    );
     final weakestSubject =
         widget.data.topicSubjectNames[weakest?.topic.id] ?? '';
     final c = context.colors;

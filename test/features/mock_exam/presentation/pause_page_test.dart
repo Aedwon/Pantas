@@ -98,6 +98,17 @@ void main() {
     expect(_opacityOf(tester, find.byKey(const ValueKey('pause-content'))), 1);
   });
 
+  testWidgets('one block has no parts, so the phone says only "left"',
+      (tester) async {
+    await tester.pumpWidget(
+      _paused(partNames: const ['CSE Professional'], current: 0, still: true),
+    );
+    await tester.pump();
+
+    expect(find.text('left'), findsOneWidget);
+    expect(find.text('left in this part'), findsNothing);
+  });
+
   testWidgets('the sand on top is the time left in the part', (tester) async {
     await tester.pumpWidget(_paused(still: true));
     await tester.pump();

@@ -8,6 +8,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
@@ -265,7 +266,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       currentQuestionIndex: session.cursor,
       parts: [
         MockFinalePart(
-          name: paper.examId,
+          name: serverMockExamName(paper.examId),
           questions: [
             for (final id in paper.questionIds)
               MockFinaleQuestion(

@@ -53,9 +53,19 @@ void main() {
         tester.getTopLeft(find.text('YOUR QUIZ')).dx,
         greaterThan(tester.getTopLeft(find.text('MATHEMATICS')).dx),
       );
+      // Board CZ_Many: the eyebrow is small caps, and the time ends on the
+      // card's inner edge (page right 44, card padding 22).
+      expect(find.text('HOW LONG?'), findsOneWidget);
+      expect(find.text('How long?'), findsNothing);
+      expect(
+        tester.getTopRight(find.textContaining('~')).dx,
+        closeTo(1440 - 44 - 22, 1.5),
+      );
       await tester.tap(find.text('Total time'));
       await tester.pumpAndSettle();
       expect(find.text('You set the time. Questions follow.'), findsOneWidget);
+      // Board CZ_TotalTime: total time reads in whole minutes.
+      expect(find.textContaining(' minutes'), findsOneWidget);
       await tester.tap(find.text('Adjust'));
       await tester.pumpAndSettle();
       expect(find.text('Reset'), findsOneWidget);

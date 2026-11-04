@@ -603,9 +603,14 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       if (canStart) unawaited(_start(index, summary));
     }
 
+    final minutes = summary.estimatedMinutes ?? 0;
     final timeLabel = _underMinute(summary)
         ? 'under 1 min'
-        : _time(summary.estimatedMinutes ?? 0);
+        : _mode == PracticeUnitMode.minutes && minutes < 60
+            ? minutes == 1
+                ? '1 minute'
+                : '$minutes minutes'
+            : _time(minutes);
     final panel = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -667,7 +672,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                               style: t.big,
                             ),
                             const SizedBox(width: 8),
-                            Flexible(
+                            // Expanded, not a Flexible beside a Spacer: they
+                            // would share the room and leave the time short
+                            // of the card's edge.
+                            Expanded(
                               child: Text(
                                 'questions',
                                 overflow: TextOverflow.ellipsis,
@@ -678,7 +686,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                 ),
                               ),
                             ),
-                            const Spacer(),
                             Text(
                               _mode == PracticeUnitMode.questions
                                   ? '~$timeLabel'
@@ -694,10 +701,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                           color: t.colors.separator,
                         ),
                         const SizedBox(height: 16),
-                        Text(
-                          'How long?',
-                          style: t.sm.copyWith(fontWeight: FontWeight.w600),
-                        ),
+                        Text('HOW LONG?', style: t.eb),
                         const SizedBox(height: 16),
                         WebSegmentedControl(
                           labels: const ['Questions per lesson', 'Total time'],
@@ -912,6 +916,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                             ],
                                           ),
                                         ),
+                                        const SizedBox(width: 12),
                                         if (_adjusting) ...[
                                           _webStep(
                                             summary,

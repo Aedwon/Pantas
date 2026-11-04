@@ -600,6 +600,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
     };
     final ids = _idsInPart.toList();
     final count = ids.where(_isAnswered).length;
+    // The board's light gray works on white. On the dark page the same step
+    // is about 1.2 to 1 against the surface, so dark takes the lifted fill.
+    final answeredFill = t.dark ? c.segmentOn : c.separator;
     Widget grid(List<String> questionIds, {bool enabled = true}) => Wrap(
           spacing: 7,
           runSpacing: 8,
@@ -621,7 +624,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                             foregroundColor:
                                 enabled ? c.label : c.tertiaryLabel,
                             backgroundColor: enabled && _isAnswered(id)
-                                ? c.separator
+                                ? answeredFill
                                 : c.surface,
                             shape: CircleBorder(
                               side: BorderSide(
@@ -779,7 +782,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 spacing: 14,
                 runSpacing: 4,
                 children: [
-                  _LegendDot('Answered', fill: c.separator),
+                  _LegendDot('Answered', fill: answeredFill),
                   _LegendDot(
                     'Blank',
                     ring: t.strongDivider,
@@ -913,9 +916,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                           children: [
                             TweenAnimationBuilder<double>(
                               tween: Tween(end: _widePanelOpen ? 1 : 0),
-                              duration: MediaQuery.disableAnimationsOf(context)
-                                  ? Duration.zero
-                                  : const Duration(milliseconds: 460),
+                              duration: _panelMotion,
                               curve: const Cubic(.32, .72, 0, 1),
                               builder: (context, value, _) => SizedBox(
                                 width: 300 * value,
@@ -980,64 +981,81 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                   ),
                                   Positioned(
                                     left: 0,
-                                    right: _widePanelOpen ? 48 : 0,
+                                    right: 0,
                                     bottom: 28,
-                                    child: Column(
-                                      children: [
-                                        if (strictLine)
+                                    // The bar keeps clear of the edge tab
+                                    // while the list is open. Its inset moves
+                                    // with the list, not before it.
+                                    child: TweenAnimationBuilder<double>(
+                                      tween: Tween(
+                                        end: _widePanelOpen ? 48 : 0,
+                                      ),
+                                      duration: _panelMotion,
+                                      curve: const Cubic(.32, .72, 0, 1),
+                                      builder: (context, inset, child) =>
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                              bottom: 12,
-                                            ),
-                                            child: Text(
-                                              'Part $part runs '
-                                              'to the end of its time. '
-                                              'Strict mode is on.',
-                                              style: t.sm,
-                                            ),
-                                          ),
-                                        WebBottomBar(
-                                          compact: true,
-                                          gap: 6,
-                                          counterPadding:
-                                              const EdgeInsets.symmetric(
-                                            horizontal: 14,
-                                          ),
-                                          counter: '${widget.partPosition} '
-                                              'of ${widget.partTotal}',
-                                          leading: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              WebBarArrow(
-                                                tooltip: 'Previous question',
-                                                onPressed: widget.canGoPrevious
-                                                    ? widget.onPrevious
-                                                    : null,
-                                                icon: Icons.chevron_left,
+                                        padding: EdgeInsets.only(right: inset),
+                                        child: child,
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          if (strictLine)
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                bottom: 12,
                                               ),
-                                              const SizedBox(width: 6),
-                                              const WebKeyHint('←'),
-                                            ],
-                                          ),
-                                          action: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              const WebKeyHint('→'),
-                                              const SizedBox(width: 6),
-                                              WebBarArrow(
-                                                tooltip: widget.partPosition ==
-                                                        widget.partTotal
-                                                    ? widget.oneBlock
-                                                        ? 'Submit the exam'
-                                                        : 'End part'
-                                                    : 'Next question',
-                                                onPressed: next,
-                                                icon: Icons.chevron_right,
+                                              child: Text(
+                                                'Part $part runs '
+                                                'to the end of its time. '
+                                                'Strict mode is on.',
+                                                style: t.sm,
                                               ),
-                                            ],
+                                            ),
+                                          WebBottomBar(
+                                            compact: true,
+                                            gap: 6,
+                                            counterPadding:
+                                                const EdgeInsets.symmetric(
+                                              horizontal: 14,
+                                            ),
+                                            counter: '${widget.partPosition} '
+                                                'of ${widget.partTotal}',
+                                            leading: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                WebBarArrow(
+                                                  tooltip: 'Previous question',
+                                                  onPressed:
+                                                      widget.canGoPrevious
+                                                          ? widget.onPrevious
+                                                          : null,
+                                                  icon: Icons.chevron_left,
+                                                ),
+                                                const SizedBox(width: 6),
+                                                const WebKeyHint('←'),
+                                              ],
+                                            ),
+                                            action: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                const WebKeyHint('→'),
+                                                const SizedBox(width: 6),
+                                                WebBarArrow(
+                                                  tooltip: widget
+                                                              .partPosition ==
+                                                          widget.partTotal
+                                                      ? widget.oneBlock
+                                                          ? 'Submit the exam'
+                                                          : 'End part'
+                                                      : 'Next question',
+                                                  onPressed: next,
+                                                  icon: Icons.chevron_right,
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -1061,6 +1079,12 @@ class _MockSessionPageState extends State<MockSessionPage> {
       ),
     );
   }
+
+  /// How long the question list takes to open or close, and the bar's inset
+  /// with it.
+  Duration get _panelMotion => MediaQuery.disableAnimationsOf(context)
+      ? Duration.zero
+      : const Duration(milliseconds: 460);
 
   int get _firstIndexInPart =>
       widget.state.currentIndex - widget.partPosition + 1;

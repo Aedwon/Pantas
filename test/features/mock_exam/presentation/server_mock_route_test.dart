@@ -469,6 +469,8 @@ void main() {
     final input =
         GoRouterState.of(tester.element(find.text('Server results $_mockId')))
             .extra! as MockFinaleInput;
+    // The finale card prints this name, so it must not be the raw exam id.
+    expect(input.parts.single.name, 'CSE Professional');
     expect(input.parts.single.questions.map((q) => q.id), ['q1', 'q2', 'q3']);
     expect(
       input.parts.single.questions

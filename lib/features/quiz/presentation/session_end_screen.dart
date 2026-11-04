@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -286,7 +287,9 @@ class _SessionEndBodyState extends State<SessionEndBody>
                               ListRow(
                                 title: widget
                                         .session.questions[index].shortLabel ??
-                                    widget.session.questions[index].stem,
+                                    ContentRenderer.plainText(
+                                      widget.session.questions[index].stem,
+                                    ),
                                 titleWidget: widget.session.questions[index]
                                             .shortLabel ==
                                         null
@@ -296,7 +299,12 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                         overflow: TextOverflow.ellipsis,
                                         softWrap: false,
                                         child: MathText(
-                                          widget.session.questions[index].stem,
+                                          ContentRenderer.plainText(
+                                            widget
+                                                .session.questions[index].stem,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       )
                                     : null,

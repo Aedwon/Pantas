@@ -6,8 +6,12 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart'
+    show MockAnswer;
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
@@ -139,6 +143,103 @@ void main() {
       expect(swapOut(), findsNothing);
       expect(stem('q1'), findsNothing);
       expect(stem('q2'), findsOneWidget);
+    });
+
+    testWidgets('dark answered cells stand clear of blank ones',
+        (tester) async {
+      wide(tester);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            hydratedMockQuestionProvider
+                .overrideWith((ref, id) async => _question(id)),
+          ],
+          child: MaterialApp(
+            theme: buildDarkTheme(web: true),
+            home: MockSessionPage(
+              state: const MockSessionInProgress(
+                attemptId: 'a',
+                durationSeconds: 3600,
+                questionIds: ['q1', 'q2', 'q3'],
+                currentIndex: 2,
+                elapsedSeconds: 0,
+                answers: {'q1': MockAnswer(selectedIndex: 0, atSec: 0)},
+                flags: {},
+                strictMode: false,
+              ),
+              remainingInPart: const Duration(minutes: 48),
+              partPosition: 3,
+              partTotal: 3,
+              canGoPrevious: true,
+              canGoNext: false,
+              onPrevious: () {},
+              onNext: () {},
+              onAnswer: (_) {},
+              onToggleFlag: () {},
+              onPause: () {},
+              onGoTo: (_) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      Color fill(String number) => tester
+          .widget<TextButton>(
+            find.ancestor(
+              of: find.text(number),
+              matching: find.byType(TextButton),
+            ),
+          )
+          .style!
+          .backgroundColor!
+          .resolve({})!;
+      const dark = PantasColors.dark;
+      expect(fill('1'), dark.segmentOn);
+      expect(fill('2'), dark.surface);
+      // Far enough from the page to read as a filled dot, not a smudge.
+      double luminance(Color c) => c.computeLuminance();
+      expect(
+        (luminance(fill('1')) + .05) / (luminance(dark.surface) + .05),
+        greaterThan(1.5),
+      );
+    });
+
+    testWidgets(
+        'hiding and showing the list never nudges the bar the wrong way',
+        (tester) async {
+      wide(tester);
+      await tester.pumpWidget(paper());
+      await tester.pumpAndSettle();
+      double barLeft() => tester.getTopLeft(find.byType(WebBottomBar)).dx;
+      Future<List<double>> trace(Finder toggle) async {
+        final xs = [barLeft()];
+        await tester.tap(toggle);
+        for (var i = 0; i < 40; i++) {
+          await tester.pump(const Duration(milliseconds: 16));
+          xs.add(barLeft());
+        }
+        await tester.pumpAndSettle();
+        xs.add(barLeft());
+        return xs;
+      }
+
+      // Hiding: the list leaves and the bar slides left toward the middle of
+      // the wider page. It never jumps right on the first frame.
+      final hiding = await trace(find.byTooltip('Hide the question list'));
+      for (var i = 1; i < hiding.length; i++) {
+        expect(hiding[i], lessThanOrEqualTo(hiding[i - 1] + .5), reason: '$i');
+      }
+      expect(hiding.last, lessThan(hiding.first));
+      // Showing: the mirror image, never left before it goes right.
+      final showing = await trace(find.byTooltip('Show the question list'));
+      for (var i = 1; i < showing.length; i++) {
+        expect(
+          showing[i],
+          greaterThanOrEqualTo(showing[i - 1] - .5),
+          reason: '$i',
+        );
+      }
+      expect(showing.last, closeTo(hiding.first, .5));
     });
 
     testWidgets(

@@ -88,6 +88,14 @@ class ContentRenderer extends StatelessWidget {
     ];
   }
 
+  /// [text] with its `**strong**` and `*emphasis*` markers removed and its
+  /// maths left as written, for a single-line label that cannot draw them.
+  static String plainText(String text) => [
+        for (final child
+            in _parseTextToBlocks(text).single['children']! as List<Object?>)
+          (child! as Map<String, Object?>)['text']! as String,
+      ].join();
+
   /// Splits question text into plain runs and Markdown pipe tables.
   ///
   /// Lessons arrive with tables already parsed into blocks. Question stems are

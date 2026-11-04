@@ -605,7 +605,8 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                 const SizedBox(width: 6),
                 Flexible(
                   child: Text(
-                    'left in this part',
+                    // One block (CSE) has no parts, as on wide.
+                    showParts ? 'left in this part' : 'left',
                     style: context.type.subhead.copyWith(
                       fontSize: 16,
                       color: c.secondaryLabel,

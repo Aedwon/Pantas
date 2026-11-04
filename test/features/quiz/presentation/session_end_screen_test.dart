@@ -327,4 +327,27 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets(
+      'a long mistake stem ends in an ellipsis and prints no markdown marks',
+      (tester) async {
+    final session = completedSession();
+    final questions = [...session.questions];
+    questions[7] = questions[7].copyWith(
+      shortLabel: null,
+      stem: 'What does **belligerent** mean in this sentence, given how the '
+          'writer describes the neighbor across the whole long paragraph?',
+    );
+    await pump(tester, sessionOverride: session.copyWith(questions: questions));
+    final math = tester.widget<MathText>(
+      find.descendant(
+        of: find.byType(ListRow),
+        matching: find.byType(MathText),
+      ),
+    );
+    expect(math.text, isNot(contains('**')));
+    expect(math.text, startsWith('What does belligerent mean'));
+    expect(math.maxLines, 1);
+    expect(math.overflow, TextOverflow.ellipsis);
+  });
 }

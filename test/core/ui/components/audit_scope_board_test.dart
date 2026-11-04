@@ -68,6 +68,13 @@ void main() {
           tester.getRect(find.text(entry.value)).left,
           greaterThan(tester.getRect(find.text(entry.key)).right),
         );
+        // Board QZ_Picker: the tag sits on the row's right edge (12 px of
+        // padding), not just after a title squeezed to half the row.
+        expect(
+          tester.getRect(find.text(entry.value)).right,
+          closeTo(390 - 12, 1.5),
+          reason: entry.value,
+        );
       }
       expectContrast(
         tester.widget<Text>(find.text('Unread')).style!.color!,

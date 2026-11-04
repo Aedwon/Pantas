@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
@@ -17,6 +19,9 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -154,14 +159,20 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
         children: [
           Expanded(
             child: ListRow(
-              title: entry.label,
+              title: entry.labelIsStem
+                  ? ContentRenderer.plainText(entry.label)
+                  : entry.label,
               titleWidget: entry.labelIsStem
                   ? DefaultTextStyle(
                       style: context.type.body,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
-                      child: MathText(entry.label),
+                      child: MathText(
+                        ContentRenderer.plainText(entry.label),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     )
                   : null,
               leading: SizedBox(
@@ -192,10 +203,182 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
         ],
       );
 
+  /// Wide web: the same list as the phone, in the centered column the wide
+  /// session lists use (board QS_All), with the actions the phone puts in its
+  /// bottom bar beside the title.
+  Widget _wide(AsyncValue<List<ReviewEntry>> value) {
+    final t = context.webTokens;
+    final entries = value.asData?.value ?? const <ReviewEntry>[];
+    Widget row(ReviewEntry entry, {required bool last}) => WebRow(
+          boardMetrics: true,
+          chevron: WebRowChevron.always,
+          mathTitle: entry.labelIsStem,
+          title: entry.label,
+          leading: CircleAvatar(
+            radius: 15,
+            backgroundColor: t.colors.accentTint,
+            child: Text(
+              '${entry.number}',
+              style: t.style(
+                13,
+                weight: FontWeight.w600,
+                color: t.colors.accent,
+              ),
+            ),
+          ),
+          trailing: IconButton(
+            tooltip: 'Remove flag from question ${entry.number}',
+            constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+            visualDensity: VisualDensity.standard,
+            onPressed: _removing.contains(entry.question.id)
+                ? null
+                : () => unawaited(_remove(entry.question.id)),
+            icon: Icon(PantasIcons.flag, size: 21, color: t.colors.accent),
+          ),
+          divider: !last,
+          onPressed: () => unawaited(_open(entry)),
+        );
+    return Scaffold(
+      backgroundColor: t.colors.background,
+      body: CallbackShortcuts(
+        bindings: {const SingleActivator(LogicalKeyboardKey.escape): _back},
+        child: Focus(
+          autofocus: true,
+          child: Column(
+            children: [
+              WebTopBar(
+                leading: Row(
+                  children: [
+                    WebBackLink(label: 'Quiz', onPressed: _back),
+                    const SizedBox(width: 10),
+                    const WebKeyHint('Esc'),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(40, 24, 40, 64),
+                  child: Center(
+                    child: SizedBox(
+                      width: 720,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const WebText(
+                                      'Flagged questions',
+                                      kind: WebTextKind.h1,
+                                    ),
+                                    if (entries.isNotEmpty) ...[
+                                      const SizedBox(height: 4),
+                                      WebText(
+                                        entries.length == 1
+                                            ? '1 question'
+                                            : '${entries.length} questions',
+                                        kind: WebTextKind.lead,
+                                      ),
+                                    ],
+                                  ],
+                                ),
+                              ),
+                              if (entries.isNotEmpty) ...[
+                                const SizedBox(width: 24),
+                                WebButton(
+                                  label: 'Practice these ${entries.length}',
+                                  busy: _starting,
+                                  onPressed: _starting
+                                      ? null
+                                      : () => unawaited(_start()),
+                                ),
+                              ],
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          value.when(
+                            skipLoadingOnRefresh: false,
+                            skipLoadingOnReload: false,
+                            loading: () => const SkeletonGroups(
+                              rowHeight: 64,
+                              headerWidth: 120,
+                            ),
+                            error: (error, _) =>
+                                errorFor('questions', _refresh, error: error),
+                            data: (entries) {
+                              if (entries.isEmpty) {
+                                return StateView(
+                                  message: 'Flag anything you want to come '
+                                      'back to',
+                                  detail: 'Questions you flag during quizzes '
+                                      'will appear here.',
+                                  actionLabel: 'Go back',
+                                  onRetry: _back,
+                                );
+                              }
+                              final groups =
+                                  FilterReviewEntries.groupBySubject(entries);
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  if (_failedFlag != null)
+                                    saveFailureLine(
+                                      () => unawaited(_remove(_failedFlag!)),
+                                    ),
+                                  if (_startFailed)
+                                    StateView(
+                                      message: 'Could not start your quiz.',
+                                      onRetry: () => unawaited(_start()),
+                                    ),
+                                  for (final group in groups.entries) ...[
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 10),
+                                      child: WebText(
+                                        group.key.toUpperCase(),
+                                        kind: WebTextKind.eyebrow,
+                                      ),
+                                    ),
+                                    WebCard(
+                                      child: Column(
+                                        children: [
+                                          for (final (i, entry)
+                                              in group.value.indexed)
+                                            row(
+                                              entry,
+                                              last: i == group.value.length - 1,
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(height: 28),
+                                  ],
+                                ],
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final value = ref.watch(flaggedExamReviewProvider(widget.examId));
     firstScreenReady(context, ref, ready: !value.isLoading);
+    if (context.wideWeb) return _wide(value);
     final entries = value.asData?.value;
     return PantasPage(
       title: 'Flagged questions',

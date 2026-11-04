@@ -11,8 +11,11 @@ const mistakeWindow = Duration(days: 30);
 ///
 /// This is the pool "Your mistakes" retakes, so the subtitle and the session
 /// come from the same query.
-final recentMistakeCountProvider =
-    FutureProvider.family<int, ExamId>((ref, examId) async {
+///
+/// A function, not a cached provider: the Quiz tab's counts are recomputed
+/// after every session, and a cached count would keep the last session's
+/// answer until the page was reloaded.
+Future<int> recentMistakeCount(Ref ref, ExamId examId) async {
   final ids = await ref.watch(attemptsRepositoryProvider).recentIncorrects(
         examId: examId,
         now: ref.watch(nowProvider)(),
@@ -23,7 +26,7 @@ final recentMistakeCountProvider =
         limit: 100000,
       );
   return ids.length;
-});
+}
 
 final flagCountProvider = FutureProvider<int>(
   (ref) => ref.watch(questionFlagsRepositoryProvider).flagCount(),

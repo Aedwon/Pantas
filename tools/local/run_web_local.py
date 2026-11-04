@@ -329,6 +329,9 @@ try {
             self.wfile.write(payload)
 
     import threading
+    # A phone or a page opening dozens of files at once overflows the default queue of 5, and the
+    # reset requests come back as missing fonts and icons.
+    http.server.ThreadingHTTPServer.request_queue_size = 128
     server = http.server.ThreadingHTTPServer((host, args.port),
         functools.partial(Handler, directory=str(ROOT / 'build/web')))
     threading.Thread(target=server.serve_forever, daemon=True).start()

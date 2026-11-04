@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 
 class MockSetupPage extends StatefulWidget {
   const MockSetupPage({
@@ -479,14 +480,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
   }
 
   String _simulationTitle(MockBlueprint blueprint) =>
-      switch (blueprint.examId) {
-        'exam_upcat' => 'UPCAT simulation',
-        'exam_dlsucet' => 'DCAT simulation',
-        'exam_cse_pro' => 'CSE Professional simulation',
-        'exam_cse_sub' => 'CSE Subprofessional simulation',
-        'exam_acet' => 'ACET simulation',
-        _ => '${blueprint.name.replaceAll(' Practice Paper', '')} simulation',
-      };
+      mockSimulationTitle(blueprint.examId, blueprint.name);
 
   String _paperRule(MockBlueprint blueprint) {
     final base = switch (blueprint.sectionalTiming) {

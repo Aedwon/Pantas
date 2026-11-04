@@ -255,7 +255,13 @@ class QuestionGridSheet extends StatelessWidget {
                                                 : question.state ==
                                                         GridQuestionState
                                                             .answered
-                                                    ? c.fill
+                                                    // The light gray is too
+                                                    // close to the dark page.
+                                                    ? Theme.of(context)
+                                                                .brightness ==
+                                                            Brightness.dark
+                                                        ? c.segmentOn
+                                                        : c.fill
                                                     : null,
                                         border: Border.all(
                                           color: question.current

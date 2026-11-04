@@ -59,7 +59,7 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
 
 final quizPracticeCountsProvider = FutureProvider.autoDispose
     .family<({int mistakes, int flags}), ExamId>((ref, examId) async {
-  final mistakes = await ref.watch(recentMistakeCountProvider(examId).future);
+  final mistakes = await recentMistakeCount(ref, examId);
   final flags = await ref.watch(questionFlagsRepositoryProvider).flaggedIds();
   final topicIds = (await ref.watch(scopedTopicsProvider(examId).future))
       .map((topic) => topic.id)

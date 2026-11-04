@@ -225,6 +225,13 @@ final mockEarlierResultsProvider =
   return List.unmodifiable(entries);
 });
 
+/// The name a student reads for a server mock's exam, never its raw id.
+String serverMockExamName(String examId) => switch (examId) {
+      'exam_cse_pro' => 'CSE Professional',
+      'exam_cse_sub' => 'CSE Subprofessional',
+      _ => 'Mock exam',
+    };
+
 /// Adapts server-owned summary data to the existing presentation without a
 /// local database write. Review uses the pinned server paper separately.
 MockHistoryEntry serverMockHistoryEntry(ServerMockResult row, String uid) {
@@ -236,11 +243,7 @@ MockHistoryEntry serverMockHistoryEntry(ServerMockResult row, String uid) {
       userId: uid,
       examId: row.examId,
       blueprintId: row.examId,
-      blueprintName: row.examId == 'exam_cse_pro'
-          ? 'CSE Professional'
-          : row.examId == 'exam_cse_sub'
-              ? 'CSE Subprofessional'
-              : row.examId,
+      blueprintName: serverMockExamName(row.examId),
       durationMinutes: row.limitMs ~/ 60000,
       status: row.endedBy == 'strict-exit'
           ? MockAttemptStatus.forfeited

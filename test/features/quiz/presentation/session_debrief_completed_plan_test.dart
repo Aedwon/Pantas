@@ -32,116 +32,131 @@ class _Gateway implements AppReviewGateway {
 }
 
 void main() {
-  testWidgets('Free diagnosis survives a completed plan on the session page',
-      (tester) async {
-    final db = inMemoryDatabase();
-    final content = inMemoryContentDatabase();
-    final gateway = _Gateway();
-    final attempt = Attempt(
-      id: 'a',
-      examId: 'e',
-      origin: 'flagged',
-      startedAt: DateTime.utc(2026),
-      completedAt: DateTime.utc(2026, 1, 1, 0, 0, 40),
-      items: [
-        for (var i = 1; i <= 5; i++)
-          AttemptItem(
-            questionId: 'q$i',
-            questionVersion: 1,
-            chosenChoiceId: i == 3 ? 'q${i}_b' : 'q${i}_a',
-            correctChoiceId: 'q${i}_a',
-            responseMs: 100,
-          ),
-      ],
-    );
-    await tester.runAsync(() async {
-      await seedContentTopicWithQuestions(
-        content,
+  // The Next card is gone from every end screen (Aedwon, Nov 1), also when the
+  // plan has something to recommend.
+  for (final withNext in [false, true]) {
+    testWidgets(
+        'Free diagnosis survives a completed plan on the session page, '
+        'plan has a next lesson: $withNext', (tester) async {
+      final db = inMemoryDatabase();
+      final content = inMemoryContentDatabase();
+      final gateway = _Gateway();
+      final attempt = Attempt(
+        id: 'a',
         examId: 'e',
-        subjectId: 's',
-        topicId: 't',
-        topicName: 'Topic',
-        questionIds: [for (var i = 1; i <= 5; i++) 'q$i'],
+        origin: 'flagged',
+        startedAt: DateTime.utc(2026),
+        completedAt: DateTime.utc(2026, 1, 1, 0, 0, 40),
+        items: [
+          for (var i = 1; i <= 5; i++)
+            AttemptItem(
+              questionId: 'q$i',
+              questionVersion: 1,
+              chosenChoiceId: i == 3 ? 'q${i}_b' : 'q${i}_a',
+              correctChoiceId: 'q${i}_a',
+              responseMs: 100,
+            ),
+        ],
       );
-      await AttemptsRepository(db).save(attempt);
-      await SyncActiveContextStore(db).clearStable();
-    });
+      await tester.runAsync(() async {
+        await seedContentTopicWithQuestions(
+          content,
+          examId: 'e',
+          subjectId: 's',
+          topicId: 't',
+          topicName: 'Topic',
+          questionIds: [for (var i = 1; i <= 5; i++) 'q$i'],
+        );
+        await AttemptsRepository(db).save(attempt);
+        await SyncActiveContextStore(db).clearStable();
+      });
 
-    final container = ProviderContainer(
-      overrides: [
-        sessionDebriefPlanProvider.overrideWith(
-          (_, __) async => const DebriefPlanData(lessonTitles: {}),
-        ),
-        sessionDiagnosisProvider.overrideWith(
-          (_, __) async => SessionDiagnosisData.decode({
-            'status': 'ok',
-            'tier': 'free',
-            'tracedCount': 3,
-          }),
-        ),
-        sessionDebriefClaimProvider.overrideWith((_, __) async => true),
-        appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(content),
-        authStateProvider.overrideWith(
-          (_) => Stream.value(const AuthState.anonymous(uid: 'one')),
-        ),
-        activeExamFocusProvider.overrideWith(
-          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
-        ),
-        appReviewGatewayProvider.overrideWithValue(gateway),
-        proForActiveExamProvider.overrideWith((_) async => false),
-        entitlementProvider
-            .overrideWith((_) => Stream.value(const Entitlement.free())),
-      ],
-    );
-    await tester.runAsync(() async {
-      await container.read(authStateProvider.future);
-      await container.read(activeExamFocusProvider.future);
-    });
+      final container = ProviderContainer(
+        overrides: [
+          sessionDebriefPlanProvider.overrideWith(
+            (_, __) async => DebriefPlanData(
+              lessonTitles: const {},
+              next: withNext
+                  ? const DebriefRecommendation(
+                      title: 'Order of Operations',
+                      because: 'It is next in your plan for Arithmetic.',
+                      lessonId: 'l',
+                    )
+                  : null,
+            ),
+          ),
+          sessionDiagnosisProvider.overrideWith(
+            (_, __) async => SessionDiagnosisData.decode({
+              'status': 'ok',
+              'tier': 'free',
+              'tracedCount': 3,
+            }),
+          ),
+          sessionDebriefClaimProvider.overrideWith((_, __) async => true),
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(content),
+          authStateProvider.overrideWith(
+            (_) => Stream.value(const AuthState.anonymous(uid: 'one')),
+          ),
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
+          appReviewGatewayProvider.overrideWithValue(gateway),
+          proForActiveExamProvider.overrideWith((_) async => false),
+          entitlementProvider
+              .overrideWith((_) => Stream.value(const Entitlement.free())),
+        ],
+      );
+      await tester.runAsync(() async {
+        await container.read(authStateProvider.future);
+        await container.read(activeExamFocusProvider.future);
+      });
 
-    final router = GoRouter(
-      initialLocation: '/end',
-      routes: [
-        GoRoute(
-          path: '/end',
-          builder: (_, __) => const QuizSessionEndPage(
-            attemptId: 'a',
+      final router = GoRouter(
+        initialLocation: '/end',
+        routes: [
+          GoRoute(
+            path: '/end',
+            builder: (_, __) => const QuizSessionEndPage(
+              attemptId: 'a',
+            ),
+          ),
+        ],
+      );
+      await tester.pumpWidget(
+        UncontrolledProviderScope(
+          container: container,
+          child: MaterialApp.router(
+            theme: buildLightTheme(),
+            routerConfig: router,
           ),
         ),
-      ],
-    );
-    await tester.pumpWidget(
-      UncontrolledProviderScope(
-        container: container,
-        child: MaterialApp.router(
-          theme: buildLightTheme(),
-          routerConfig: router,
-        ),
-      ),
-    );
-    for (var i = 0;
-        i < 100 && find.text('Session finished.').evaluate().isEmpty;
-        i++) {
-      await tester.pump(const Duration(milliseconds: 20));
-      await tester.runAsync(
-        () => Future<void>.delayed(const Duration(milliseconds: 2)),
       );
-    }
+      for (var i = 0;
+          i < 100 && find.text('Session finished.').evaluate().isEmpty;
+          i++) {
+        await tester.pump(const Duration(milliseconds: 20));
+        await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 2)),
+        );
+      }
 
-    await tester.pumpAndSettle();
+      await tester.pumpAndSettle();
 
-    expect(
-      find.textContaining('See which', findRichText: true),
-      findsOneWidget,
-    );
-    expect(find.text('NEXT'), findsNothing);
-    await tester.pumpWidget(const SizedBox());
-    await tester.pumpAndSettle();
-    router.dispose();
-    container.dispose();
-    await tester.runAsync(() async {
-      await db.close();
-      await content.close();
+      expect(
+        find.textContaining('See which', findRichText: true),
+        findsOneWidget,
+      );
+      expect(find.text('NEXT'), findsNothing);
+      expect(find.textContaining('next in your plan'), findsNothing);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+      router.dispose();
+      container.dispose();
+      await tester.runAsync(() async {
+        await db.close();
+        await content.close();
+      });
     });
-  });
+  }
 }

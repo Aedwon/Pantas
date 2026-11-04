@@ -10,6 +10,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
@@ -64,7 +65,6 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
   ProviderSubscription<AsyncValue<CompletedQuizData>>? _subscription;
   bool _rated = false;
   bool _diagnosisDismissed = false;
-  bool _recommendationBusy = false;
   CompletedQuizRequest get _request => (
         boundary: _boundary,
         attemptId: widget.attemptId,
@@ -288,7 +288,8 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                         builder: (context) {
                           final question = data.session.questions[index];
                           final item = data.attempt.items[index];
-                          final title = question.shortLabel ?? question.stem;
+                          final title = question.shortLabel ??
+                              ContentRenderer.plainText(question.stem);
                           return ListRow(
                             title: title,
                             titleWidget: question.shortLabel == null
@@ -297,7 +298,11 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     softWrap: false,
-                                    child: MathText(title),
+                                    child: MathText(
+                                      title,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   )
                                 : null,
                             subtitle: data.subjectNames[question.topicId],
@@ -337,50 +342,18 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
     );
   }
 
-  Future<void> _recommendation(DebriefRecommendation next) async {
-    if (!_current() || _recommendationBusy) return;
-    if (next.questionIds.isEmpty) {
-      await context.push<void>('/lesson/${Uri.encodeComponent(next.lessonId)}');
-      return;
-    }
-    _recommendationBusy = true;
-    try {
-      final controller = ref.read(quizControllerProvider.notifier);
-      final ownerGuard = await controller.captureLaunchGuard(examId: _exam!);
-      Future<bool> guard() async => _current() && await ownerGuard();
-      await controller.startPracticeFromQuestionIds(
-        examId: _exam!,
-        questionIds: next.questionIds,
-        canPersist: guard,
-      );
-      if (!await guard()) return;
-      final state = ref.read(quizControllerProvider);
-      if (state is! QuizRunning || state.session.examId != _exam) {
-        throw StateError('Practice is unavailable');
-      }
-      if (!mounted) return;
-      await context.push<void>(
-        '/quiz/practice/$_exam/run',
-        extra: (customSessionId: state.session.sessionId),
-      );
-    } on Object {
-      if (mounted && _current()) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Could not start your quiz.')),
-        );
-      }
-    } finally {
-      _recommendationBusy = false;
-    }
-  }
-
   Widget? _debrief(
     CompletedQuizData data, {
     required bool pro,
     required bool paused,
   }) {
-    final plan =
+    // No end screen shows the Next card (Aedwon, Nov 1), so the plan is
+    // kept only for the lesson titles the diagnosis names.
+    final fullPlan =
         ref.watch(sessionDebriefPlanProvider(data.session.examId)).valueOrNull;
+    final plan = fullPlan == null
+        ? null
+        : DebriefPlanData(lessonTitles: fullPlan.lessonTitles);
     final diagnosis = paused
         ? null
         : ref
@@ -395,8 +368,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                 .watch(sessionDebriefClaimProvider(data.session.sessionId))
                 .valueOrNull ??
             false);
-    final hasNext = !context.wideWeb && plan?.next != null;
-    if (!hasNext && !claimed) return null;
+    if (!claimed) return null;
     return SessionDebriefCards(
       plan: plan,
       diagnosis: diagnosis,
@@ -416,10 +388,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
         }
       },
       onMistakes: () => unawaited(_all(mistakes: true)),
-      onRecommendation: () {
-        final next = plan?.next;
-        if (next != null) unawaited(_recommendation(next));
-      },
+      onRecommendation: () {},
     );
   }
 

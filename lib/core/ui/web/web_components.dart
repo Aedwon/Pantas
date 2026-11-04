@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
@@ -529,7 +530,12 @@ class _WebRowState extends State<WebRow> {
     final style =
         w.titleStyle ?? t.style(17, color: w.titleColor, height: lineHeight);
     return w.mathTitle
-        ? MathText(w.title, style: style, maxLines: lines, overflow: overflow)
+        ? MathText(
+            ContentRenderer.plainText(w.title),
+            style: style,
+            maxLines: lines,
+            overflow: overflow,
+          )
         : Text(w.title, maxLines: lines, overflow: overflow, style: style);
   }
 
@@ -1073,10 +1079,15 @@ class WebBottomBar extends StatelessWidget {
     this.counterChevron = false,
     this.gap = 0,
     this.counterPadding,
+    this.counterLabel,
     super.key,
   });
   final String counter;
   final VoidCallback? onCounterPressed;
+
+  /// What a screen reader says for the counter button, when the visible text
+  /// ("3 of 10") is not enough on its own.
+  final String? counterLabel;
 
   /// Space between the bar's items (board `gap`).
   final double gap;
@@ -1147,35 +1158,41 @@ class WebBottomBar extends StatelessWidget {
                 ),
               )
             else
-              TextButton(
-                onPressed: onCounterPressed,
-                style: TextButton.styleFrom(
-                  foregroundColor: c.label,
-                  minimumSize: const Size(0, 46),
-                  padding: counterChevron
-                      ? const EdgeInsets.fromLTRB(18, 0, 6, 0)
-                      : const EdgeInsets.fromLTRB(16, 0, 12, 0),
-                  textStyle: t.style(15, weight: FontWeight.w600).copyWith(
-                    fontFeatures: [const FontFeature.tabularFigures()],
+              Semantics(
+                button: counterLabel != null ? true : null,
+                label: counterLabel,
+                excludeSemantics: counterLabel != null,
+                onTap: counterLabel != null ? onCounterPressed : null,
+                child: TextButton(
+                  onPressed: onCounterPressed,
+                  style: TextButton.styleFrom(
+                    foregroundColor: c.label,
+                    minimumSize: const Size(0, 46),
+                    padding: counterChevron
+                        ? const EdgeInsets.fromLTRB(18, 0, 6, 0)
+                        : const EdgeInsets.fromLTRB(16, 0, 12, 0),
+                    textStyle: t.style(15, weight: FontWeight.w600).copyWith(
+                      fontFeatures: [const FontFeature.tabularFigures()],
+                    ),
                   ),
-                ),
-                child: counterChevron
-                    ? Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(counter),
-                          const SizedBox(width: 8),
-                          CustomPaint(
-                            size: const Size.square(14),
-                            painter: _DownChevronPainter(
-                              t.dark
-                                  ? c.secondaryLabel
-                                  : const Color(0xFF8E8E93),
+                  child: counterChevron
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(counter),
+                            const SizedBox(width: 8),
+                            CustomPaint(
+                              size: const Size.square(14),
+                              painter: _DownChevronPainter(
+                                t.dark
+                                    ? c.secondaryLabel
+                                    : const Color(0xFF8E8E93),
+                              ),
                             ),
-                          ),
-                        ],
-                      )
-                    : Text(counter),
+                          ],
+                        )
+                      : Text(counter),
+                ),
               ),
             if (!compact || hint != null)
               Expanded(

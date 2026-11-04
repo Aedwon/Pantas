@@ -279,6 +279,9 @@ void main() {
           ),
         ),
       );
+      // The dialog opens on the frame after the page does, and rises in.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
       await tester.tap(find.text('Count Them'));
       await tester.pump();
       if (!reduced) {

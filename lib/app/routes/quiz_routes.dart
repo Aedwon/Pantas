@@ -10,6 +10,7 @@ import 'package:pantas/features/mock_exam/application/mock_results_providers.dar
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
@@ -132,7 +133,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
                                     ? MockCardState.neverTaken
                                     : MockCardState.ready,
                         },
-                  name: '${focus.exam!.shortName} simulation',
+                  name: mockSimulationTitle(examId, focus.exam!.shortName),
                   durationMinutes: customTrack?.minutes ??
                       lastAttempt?.durationMinutes ??
                       ref

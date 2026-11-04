@@ -159,11 +159,15 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
               proPaused: paused,
               fromRecord: fromRecord,
               forfeitedPart: endedPart,
-              onDone: () => leavePage(
-                context,
-                fallback: '/quiz',
-                respectPopScope: false,
-              ),
+              // A mock just submitted opens from its run, which sits above the
+              // setup page. Done goes to the Quiz tab, not back to that setup.
+              onDone: fresh
+                  ? () => context.go('/quiz')
+                  : () => leavePage(
+                        context,
+                        fallback: '/quiz',
+                        respectPopScope: false,
+                      ),
               onFullRecord: fromRecord && context.wideWeb
                   ? () =>
                       context.canPop() ? context.pop() : context.go('/record')

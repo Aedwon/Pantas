@@ -170,10 +170,15 @@ class _PreparedQuestionStageState
             enabled: questionShownAt != null,
             child: _plainQuestionPane(question, passage: passage),
           )
-        : _revealedQuestionPane(
-            session,
-            question,
-            passage: passage,
+        // The same wrappers as before the check, so the question keeps its
+        // state and the reveal plays instead of starting from its end.
+        : _interactionGate(
+            enabled: true,
+            child: _revealedQuestionPane(
+              session,
+              question,
+              passage: passage,
+            ),
           );
 
     final preparedIndex = widget.viewIndex == null ? _preparedIndex : null;
@@ -1055,6 +1060,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 compact: true,
                                 counterChevron: true,
                                 counter: '${index + 1} of $total',
+                                counterLabel:
+                                    'Question ${index + 1} of $total. '
+                                    'Open question navigator',
                                 onCounterPressed: state.checking
                                     ? null
                                     : () => setState(
@@ -1084,31 +1092,49 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                         ),
                                       ),
                                     ],
-                                    IconButton(
-                                      tooltip: flagged.contains(question.id)
-                                          ? 'Remove flag'
-                                          : 'Flag question',
-                                      constraints:
-                                          const BoxConstraints.tightFor(
-                                        width: 46,
-                                        height: 46,
-                                      ),
-                                      padding: EdgeInsets.zero,
-                                      visualDensity: VisualDensity.standard,
-                                      style: IconButton.styleFrom(
-                                        tapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        shape: const CircleBorder(),
-                                      ),
-                                      onPressed: _flagBusy
+                                    // The same name and switch the phone
+                                    // gives its flag.
+                                    Semantics(
+                                      button: true,
+                                      enabled: !_flagBusy,
+                                      toggled: flagged.contains(question.id),
+                                      label: flagged.contains(question.id)
+                                          ? 'Remove flag from question '
+                                              '${index + 1}'
+                                          : 'Flag question ${index + 1}',
+                                      onTap: _flagBusy
                                           ? null
                                           : () => unawaited(
                                                 _toggleFlag(question.id),
                                               ),
-                                      icon: _flag(
-                                        question.id,
-                                        flagged.contains(question.id),
-                                        web: true,
+                                      child: ExcludeSemantics(
+                                        child: IconButton(
+                                          tooltip: flagged.contains(question.id)
+                                              ? 'Remove flag'
+                                              : 'Flag question',
+                                          constraints:
+                                              const BoxConstraints.tightFor(
+                                            width: 46,
+                                            height: 46,
+                                          ),
+                                          padding: EdgeInsets.zero,
+                                          visualDensity: VisualDensity.standard,
+                                          style: IconButton.styleFrom(
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            shape: const CircleBorder(),
+                                          ),
+                                          onPressed: _flagBusy
+                                              ? null
+                                              : () => unawaited(
+                                                    _toggleFlag(question.id),
+                                                  ),
+                                          icon: _flag(
+                                            question.id,
+                                            flagged.contains(question.id),
+                                            web: true,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: 6),
@@ -1176,83 +1202,38 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                       constraints: const BoxConstraints(
                                         maxHeight: 360,
                                       ),
-                                      child: SingleChildScrollView(
-                                        child: Wrap(
-                                          spacing: 8,
-                                          runSpacing: 8,
-                                          children: [
-                                            for (var n = 0;
-                                                n < session.questions.length;
-                                                n++)
-                                              SizedBox(
-                                                width: 61.6,
-                                                height: 44,
-                                                child: TextButton(
-                                                  key: ValueKey(
-                                                    'web-grid-question-$n',
-                                                  ),
-                                                  onPressed: n <=
-                                                          session
-                                                              .outcomes.length
-                                                      ? () {
-                                                          _lookAt(
-                                                            n == current
-                                                                ? null
-                                                                : n,
-                                                          );
-                                                          setState(
-                                                            () => _gridOpen =
-                                                                false,
-                                                          );
-                                                        }
-                                                      : null,
-                                                  style: TextButton.styleFrom(
-                                                    padding: EdgeInsets.zero,
-                                                    visualDensity:
-                                                        VisualDensity.standard,
-                                                    tapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    textStyle: t.style(
-                                                      15,
-                                                      weight: n == index
-                                                          ? FontWeight.w700
-                                                          : FontWeight.w600,
-                                                    ),
-                                                    backgroundColor: n <
-                                                            session
-                                                                .outcomes.length
-                                                        ? session.outcomes[n]
-                                                                .isCorrect
-                                                            ? t.colors
-                                                                .accentTint
-                                                            : t.colors.wrongTint
-                                                        : t.colors.surface,
-                                                    disabledBackgroundColor:
-                                                        t.colors.surface,
-                                                    foregroundColor: n <
-                                                            session
-                                                                .outcomes.length
-                                                        ? session.outcomes[n]
-                                                                .isCorrect
-                                                            ? t.colors.accent
-                                                            : t.colors.wrongText
-                                                        : t.disabledText,
-                                                    disabledForegroundColor:
-                                                        t.disabledText,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                        12,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  child: Text('${n + 1}'),
-                                                ),
+                                      // Board QS_Grid: five equal columns,
+                                      // 44 px cells 8 px apart. The dark edge
+                                      // marks the question on screen.
+                                      child: GridView.count(
+                                        crossAxisCount: 5,
+                                        mainAxisSpacing: 8,
+                                        crossAxisSpacing: 8,
+                                        childAspectRatio: 61.6 / 44,
+                                        shrinkWrap: true,
+                                        padding: EdgeInsets.zero,
+                                        children: [
+                                          for (var n = 0;
+                                              n < session.questions.length;
+                                              n++)
+                                            _WebGridCell(
+                                              key: ValueKey(
+                                                'web-grid-question-$n',
                                               ),
-                                          ],
-                                        ),
+                                              number: n + 1,
+                                              outcome:
+                                                  n < session.outcomes.length
+                                                      ? session.outcomes[n]
+                                                      : null,
+                                              onScreen: n == index,
+                                              onPressed: n <=
+                                                      session.outcomes.length
+                                                  ? () => _lookAt(
+                                                        n == current ? null : n,
+                                                      )
+                                                  : null,
+                                            ),
+                                        ],
                                       ),
                                     ),
                                     const SizedBox(height: 14),
@@ -1587,6 +1568,63 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     } else {
       context.go('/quiz');
     }
+  }
+}
+
+/// One number in the wide question navigator (board QS_Grid): tinted by how
+/// it was answered, a hairline outline while unanswered, and a dark edge on
+/// the question on screen. It is disabled until the question is answered.
+class _WebGridCell extends StatelessWidget {
+  const _WebGridCell({
+    required this.number,
+    required this.outcome,
+    required this.onScreen,
+    required this.onPressed,
+    super.key,
+  });
+  final int number;
+  final AnswerOutcome? outcome;
+  final bool onScreen;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final answered = outcome != null;
+    final right = outcome?.isCorrect ?? false;
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+        visualDensity: VisualDensity.standard,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        textStyle: t.style(
+          15,
+          weight: onScreen ? FontWeight.w700 : FontWeight.w600,
+        ),
+        backgroundColor: !answered
+            ? t.colors.surface
+            : right
+                ? t.colors.accentTint
+                : t.colors.wrongTint,
+        disabledBackgroundColor: t.colors.surface,
+        foregroundColor: !answered
+            ? t.colors.tertiaryLabel
+            : right
+                ? t.colors.accent
+                : t.colors.wrongText,
+        disabledForegroundColor: t.colors.tertiaryLabel,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: onScreen
+              ? BorderSide(color: t.colors.label, width: 2)
+              : answered
+                  ? BorderSide.none
+                  : BorderSide(color: t.colors.separator),
+        ),
+      ),
+      child: Text('$number'),
+    );
   }
 }
 

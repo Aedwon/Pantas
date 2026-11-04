@@ -167,33 +167,44 @@ class _ScopePickerState extends State<ScopePicker>
           selected: checked,
           mixed: partial,
           onTap: enabled ? () => toggle(id, ids) : null,
-          content: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style:
-                      board ? web.style(lesson ? 16 : 17) : context.type.body,
-                ),
-              ),
-              if (!enabled || unread) const SizedBox(width: 8),
-              if (!enabled)
-                Flexible(
-                  child: Text('No questions yet', style: context.type.footnote),
-                ),
-              if (unread)
-                Flexible(
-                  child: Text(
-                    'Unread',
-                    style: context.type.footnote.copyWith(
-                      color: c.warningText,
-                      fontWeight: FontWeight.w500,
+          // The tag keeps its own width, up to half the row, and the title
+          // takes the rest. A Flexible beside the title's Expanded would share
+          // the free room and leave a gap at the edge.
+          content: LayoutBuilder(
+            builder: (context, box) {
+              final tag = !enabled
+                  ? Text('No questions yet', style: context.type.footnote)
+                  : unread
+                      ? Text(
+                          'Unread',
+                          style: context.type.footnote.copyWith(
+                            color: c.warningText,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      : null;
+              return Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: board
+                          ? web.style(lesson ? 16 : 17)
+                          : context.type.body,
                     ),
                   ),
-                ),
-            ],
+                  if (tag != null) ...[
+                    const SizedBox(width: 8),
+                    ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: box.maxWidth * .5),
+                      child: tag,
+                    ),
+                  ],
+                ],
+              );
+            },
           ),
           trailing: expand == null
               ? null
@@ -223,7 +234,9 @@ class _ScopePickerState extends State<ScopePicker>
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               )
                             : null,
-                    tooltip: expanded ? 'Hide lessons' : 'Show lessons',
+                    tooltip: expanded
+                        ? 'Hide lessons in $title'
+                        : 'Show lessons in $title',
                     icon: AnimatedRotation(
                       key: ValueKey('scope-caret-$id'),
                       turns: expanded ? .5 : 0,

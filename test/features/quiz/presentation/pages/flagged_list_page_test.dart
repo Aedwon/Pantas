@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
@@ -320,6 +321,78 @@ void main() {
       findsOneWidget,
     );
     expect(find.textContaining('Practice these'), findsNothing);
+  });
+
+  group('on wide web', () {
+    Future<void> pumpWide(WidgetTester tester, {bool dark = false}) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            scopedTopicsProvider('cse_prof')
+                .overrideWith((_) async => [t1, t2]),
+            contentRepositoryProvider.overrideWithValue(contentRepo),
+            questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+            appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+          ],
+          child: MaterialApp(
+            theme:
+                dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+            home: const FlaggedListPage(examId: 'cse_prof'),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    for (final dark in [false, true]) {
+      testWidgets('the list sits in the centered column dark=$dark',
+          (tester) async {
+        await pumpWide(tester, dark: dark);
+
+        expect(find.text('MATHEMATICS'), findsOneWidget);
+        expect(find.text('SCIENCE'), findsOneWidget);
+        expect(find.text('3 questions'), findsOneWidget);
+        expect(find.text('Practice these 3'), findsOneWidget);
+        // A 720 px column in the middle, not rows across the whole window.
+        final title = tester.getTopLeft(find.text('Flagged questions'));
+        expect(title.dx, 360);
+        final row = tester.getRect(find.text('Flagged Q1 Stem'));
+        expect(row.left, greaterThan(360));
+        expect(row.right, lessThan(1080));
+        // The button leads from the top-right of the column.
+        final button = tester.getRect(find.text('Practice these 3'));
+        expect(button.right, lessThanOrEqualTo(1080));
+        expect(button.top, lessThan(120));
+        expect(tester.takeException(), isNull);
+      });
+    }
+
+    testWidgets('Esc goes back and a flag can be removed', (tester) async {
+      when(() => flagsRepo.isFlagged('q_1')).thenAnswer((_) async => true);
+      when(() => flagsRepo.unflag('q_1')).thenAnswer((_) async {
+        when(() => flagsRepo.flagsNewestFirst()).thenAnswer(
+          (_) async => [
+            QuestionFlagLocalRow(
+              questionId: 'q_2',
+              flaggedAt: DateTime.utc(2026, 5, 8),
+              syncState: 'pending',
+            ),
+          ],
+        );
+      });
+      await pumpWide(tester);
+
+      await tester.tap(find.byIcon(PantasIcons.flag).first);
+      await tester.pumpAndSettle();
+      expect(find.text('Practice these 1'), findsOneWidget);
+      expect(find.text('1 question'), findsOneWidget);
+    });
   });
 
   Future<void> routed(
