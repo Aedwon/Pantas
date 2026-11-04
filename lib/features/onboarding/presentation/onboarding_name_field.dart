@@ -17,6 +17,7 @@ class OnboardingNameField extends StatelessWidget {
     this.maxLength = 40,
     this.autofillHints,
     this.restingBorder = false,
+    this.focusNode,
     super.key,
   });
   final TextEditingController controller;
@@ -38,10 +39,15 @@ class OnboardingNameField extends StatelessWidget {
   /// fields on a step that reads as all of them focused, so those steps rest
   /// in the neutral outline and show the accent only on focus.
   final bool restingBorder;
+
+  /// Lets the step keep this field focused. The field is drawn in the accent
+  /// color at rest, as the active input, so it must be the one holding focus.
+  final FocusNode? focusNode;
   @override
   Widget build(BuildContext context) {
     final field = TextField(
       controller: controller,
+      focusNode: focusNode,
       maxLength: maxLength,
       keyboardType: keyboardType,
       autofillHints: autofillHints,

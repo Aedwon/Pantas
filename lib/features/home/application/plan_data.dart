@@ -68,6 +68,22 @@ String? planHistoryText(RoadmapChange change, {required String examName}) =>
   return (done: total - left, total: total);
 }
 
+/// What is still open in Today, named as the checklist names it: "1 lesson
+/// and reviews left". Null when nothing is left.
+String? planLeftText(DayPlan remaining) {
+  final lessons = remaining.lessonIds.length;
+  final parts = [
+    if (lessons > 0) '$lessons ${lessons == 1 ? 'lesson' : 'lessons'}',
+    if (remaining.reviewQuestionIds.isNotEmpty) 'reviews',
+    if (remaining.newQuestionIds.isNotEmpty) 'new questions',
+  ];
+  if (parts.isEmpty) return null;
+  final named = parts.length == 1
+      ? parts.single
+      : '${parts.sublist(0, parts.length - 1).join(', ')} and ${parts.last}';
+  return '$named left';
+}
+
 CompletionFacts completedPlanFacts(
   DateTime date,
   Map<String, DateTime> reads,

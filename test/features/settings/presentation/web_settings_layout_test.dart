@@ -280,8 +280,9 @@ void main() {
           }
           if (page is AppearancePage) {
             expect(
-              find.text('Automatic follows your computer: '
-                  'light by day, dark at night.'),
+              find.text(
+                "Automatic follows your computer's light or dark setting.",
+              ),
               findsOneWidget,
             );
             expect(

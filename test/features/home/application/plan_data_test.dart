@@ -116,6 +116,17 @@ void main() {
       plan([], ['r2'], ['n1', 'n2', 'n3']),
     );
     expect(summary, (done: 2, total: 4));
+    // 4P-10: the line under the ring names what the checklist still holds.
+    expect(
+      planLeftText(plan(['l1'], ['r2'], [])),
+      '1 lesson and reviews left',
+    );
+    expect(
+      planLeftText(plan(['l1', 'l2'], ['r2'], ['n1'])),
+      '2 lessons, reviews and new questions left',
+    );
+    expect(planLeftText(plan([], [], ['n1'])), 'new questions left');
+    expect(planLeftText(plan([], [], [])), isNull);
   });
 
   RoadmapChange change(RoadmapChangeCause cause) => RoadmapChange(

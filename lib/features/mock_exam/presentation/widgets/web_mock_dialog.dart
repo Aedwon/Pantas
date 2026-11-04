@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Confirmation surface for pause, submit, end-part and discard.
+///
+/// Focus starts inside the dialog, so its keys work as soon as it opens. Esc
+/// and Enter both choose the safe button ([onCancel]): Keep Going, Keep
+/// Working, Keep It. Tab reaches the other button. Without a focus of its own
+/// the dialog opened with focus on its route, above the keys, and Esc and Tab
+/// did nothing until the student clicked inside it.
 class WebMockDialog extends StatelessWidget {
   const WebMockDialog({
     required this.title,
@@ -27,67 +34,76 @@ class WebMockDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CallbackShortcuts(
         bindings: {const SingleActivator(LogicalKeyboardKey.escape): onCancel},
-        child: Dialog(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 440),
-            child: WebCard(
-              radius: 22,
-              padding: const EdgeInsets.all(26),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(title, style: context.webTokens.h3),
+        child: EnterShortcut(
+          onEnter: onCancel,
+          child: Focus(
+            autofocus: true,
+            skipTraversal: true,
+            child: _dialog(context),
+          ),
+        ),
+      );
+
+  Widget _dialog(BuildContext context) => Dialog(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 440),
+          child: WebCard(
+            radius: 22,
+            padding: const EdgeInsets.all(26),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(title, style: context.webTokens.h3),
+                  const SizedBox(height: 18),
+                  Text(
+                    message,
+                    style: context.webTokens.sub.copyWith(fontSize: 15),
+                  ),
+                  if (content != null) ...[
                     const SizedBox(height: 18),
-                    Text(
-                      message,
-                      style: context.webTokens.sub.copyWith(fontSize: 15),
-                    ),
-                    if (content != null) ...[
-                      const SizedBox(height: 18),
-                      content!,
-                    ],
-                    const SizedBox(height: 18),
-                    // The boards right-align the pair. A destructive dialog
-                    // puts the safe choice first and the red action last;
-                    // every other dialog puts the action first, as plain
-                    // text, and the safe choice last, in teal.
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: destructive
-                            ? [
-                                WebButton(
-                                  label: secondaryLabel,
-                                  variant: WebButtonVariant.tertiary,
-                                  onPressed: onCancel,
-                                ),
-                                WebButton(
-                                  label: primaryLabel,
-                                  variant: WebButtonVariant.danger,
-                                  onPressed: onConfirm,
-                                ),
-                              ]
-                            : [
-                                WebButton(
-                                  label: primaryLabel,
-                                  variant: WebButtonVariant.tertiary,
-                                  onPressed: onConfirm,
-                                ),
-                                WebButton(
-                                  label: secondaryLabel,
-                                  onPressed: onCancel,
-                                ),
-                              ],
-                      ),
-                    ),
+                    content!,
                   ],
-                ),
+                  const SizedBox(height: 18),
+                  // The boards right-align the pair. A destructive dialog
+                  // puts the safe choice first and the red action last;
+                  // every other dialog puts the action first, as plain
+                  // text, and the safe choice last, in teal.
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: destructive
+                          ? [
+                              WebButton(
+                                label: secondaryLabel,
+                                variant: WebButtonVariant.tertiary,
+                                onPressed: onCancel,
+                              ),
+                              WebButton(
+                                label: primaryLabel,
+                                variant: WebButtonVariant.danger,
+                                onPressed: onConfirm,
+                              ),
+                            ]
+                          : [
+                              WebButton(
+                                label: primaryLabel,
+                                variant: WebButtonVariant.tertiary,
+                                onPressed: onConfirm,
+                              ),
+                              WebButton(
+                                label: secondaryLabel,
+                                onPressed: onCancel,
+                              ),
+                            ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

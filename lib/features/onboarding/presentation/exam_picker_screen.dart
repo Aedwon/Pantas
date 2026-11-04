@@ -28,6 +28,7 @@ import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_skeletons.dart';
@@ -112,6 +113,31 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   bool _saving = false;
   bool _failed = false;
   bool get _settings => widget.mode == ExamPickerMode.settings;
+
+  @override
+  void initState() {
+    super.initState();
+    if (!_settings) unawaited(_restorePick());
+  }
+
+  /// Back from the date step returns here. The pick was saved when the student
+  /// moved on, so show it chosen again instead of an empty list (4P-15). A
+  /// saved id that is not a selectable catalog exam (a custom track) is not
+  /// shown as picked.
+  Future<void> _restorePick() async {
+    try {
+      final saved =
+          await ref.read(appPreferencesRepositoryProvider).selectedExamId();
+      if (saved == null) return;
+      final entries = await ref.read(examPickerCatalogProvider.future);
+      if (!mounted || _selectedId != null) return;
+      if (entries.any((e) => e.id == saved && widget.selectable(e))) {
+        setState(() => _selectedId = saved);
+      }
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    }
+  }
 
   /// With no exam content on the device, the daily limit is why every exam
   /// reads "Coming soon", so say that instead.
@@ -532,7 +558,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     children: [
                       for (final group in [
                         (null, 'All'),
-                        ..._groups.map((g) => (g.$1, g.$2)),
+                        ..._orderedGroups(all).map((g) => (g.$1, g.$2)),
                       ])
                         _WideGroupChip(
                           label: group.$2,
@@ -611,8 +637,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         bindings: {
           const SingleActivator(LogicalKeyboardKey.escape): _back,
         },
-        child: Focus(
-          autofocus: true,
+        child: KeyFocusKeeper(
           child: Material(
             color: t.colors.surface,
             borderRadius: BorderRadius.circular(22),
@@ -801,7 +826,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 selected: _group == null,
                 onPressed: () => setState(() => _group = null),
               ),
-              for (final group in _groups) ...[
+              for (final group
+                  in _orderedGroups(catalog.valueOrNull ?? const [])) ...[
                 const SizedBox(width: 8),
                 PantasButton.filterChip(
                   label: group.$2,

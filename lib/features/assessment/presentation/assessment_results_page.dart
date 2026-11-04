@@ -447,7 +447,7 @@ class _ResultsBodyState extends State<_ResultsBody>
                       animation: _sequence.plan,
                       child: GroupedSection(
                         header: 'WEAKEST TOPIC',
-                        footer: 'Weakest first. It changes as you study.',
+                        footer: 'It changes as you study.',
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -466,18 +466,13 @@ class _ResultsBodyState extends State<_ResultsBody>
                                         style: context.type.emphasized,
                                       ),
                                       Text(
-                                        '$weakestSubject · your weakest topic',
+                                        '$weakestSubject · '
+                                        'lowest score in this check',
                                         style: context.type.footnote
                                             .copyWith(color: c.secondaryLabel),
                                       ),
                                     ],
                                   ),
-                                ),
-                                const SizedBox(width: 12),
-                                Text(
-                                  'Today',
-                                  style: context.type.subheadStrong
-                                      .copyWith(color: c.accent),
                                 ),
                               ],
                             ),

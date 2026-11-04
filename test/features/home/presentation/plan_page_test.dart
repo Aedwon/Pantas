@@ -17,6 +17,7 @@ void main() {
     bool motion = false,
     bool dark = false,
     int done = 2,
+    String? left,
   }) =>
       MaterialApp(
         theme: dark ? buildDarkTheme() : buildLightTheme(),
@@ -28,6 +29,7 @@ void main() {
             done: done,
             total: 4,
             subtitle: '42 days until CSE-P',
+            left: left,
             nodes: const [
               PlanNode(
                 kind: PlanNodeKind.week,
@@ -77,6 +79,16 @@ void main() {
       expect(track, dark ? colors.chevron : colors.fill);
     });
   }
+  testWidgets('Today names what is really left, or nothing (4P-10)',
+      (tester) async {
+    await tester.pumpWidget(show(left: '1 lesson and reviews left'));
+    await tester.pumpAndSettle();
+    expect(find.text('1 lesson and reviews left'), findsOneWidget);
+    expect(find.text('Reviews and new questions left'), findsNothing);
+    await tester.pumpWidget(show());
+    await tester.pumpAndSettle();
+    expect(find.textContaining(' left'), findsNothing);
+  });
   testWidgets('only week rows drill down', (tester) async {
     await tester.pumpWidget(show());
     final today = tester.widget<ListRow>(

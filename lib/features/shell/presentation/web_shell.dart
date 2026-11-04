@@ -185,8 +185,12 @@ class WebSidebar extends StatelessWidget {
                     EdgeInsets.fromLTRB(12, 0, 10, 0),
                   ),
                   backgroundColor: WidgetStatePropertyAll(c.surface),
-                  side: WidgetStatePropertyAll(
-                    BorderSide(color: c.separator),
+                  // The field's own rule, with the keyboard ring over it while
+                  // the field has keyboard focus (4N-6).
+                  side: WidgetStateProperty.resolveWith(
+                    (s) =>
+                        webFocusRing(s, c.accent) ??
+                        BorderSide(color: c.separator),
                   ),
                   shape: WidgetStatePropertyAll(
                     RoundedRectangleBorder(
@@ -214,7 +218,15 @@ class WebSidebar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    WebKeyHint('$commandKeyLabel K'),
+                    // Board `.srch`: 8 px between the text and the key hint.
+                    const SizedBox(width: 8),
+                    WebKeyHint(
+                      '$commandKeyLabel K',
+                      // The board's "Ctrl K" is 42 px wide. "Cmd K" is wider,
+                      // so the width is fixed and the label centered: the gap
+                      // to the text stays the board's on every platform.
+                      width: 42,
+                    ),
                   ],
                 ),
               ),

@@ -76,12 +76,6 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   void initState() {
     super.initState();
     unawaited(_restoreBlock());
-    // The board draws the year field focused, so typing and Enter work as soon
-    // as the step opens, with no click first. The step's own Continue button
-    // also asks for focus when it builds, so this asks once that is done.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && !_blocked && context.wideWeb) _yearFocus.requestFocus();
-    });
   }
 
   /// The block outlasts a reload. Only support clears it.
@@ -324,10 +318,13 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         child: page,
       );
     }
+    // The board draws the year field focused, so the step keeps focus on it
+    // and typing and Enter work as soon as the step opens, with no click.
     final page = OnboardingWebPage(
       title: 'When were you born?',
       detail: 'We only ask this once and never keep it.',
       progress: 1,
+      focusTarget: _yearFocus,
       onBack: back,
       bottom: OnboardingButton(
         label: 'Continue',

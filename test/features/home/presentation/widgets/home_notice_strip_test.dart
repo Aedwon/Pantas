@@ -63,7 +63,7 @@ void main() {
   const trial = HomeNotice(
     kind: HomeNoticeKind.trial,
     title: 'Pro trial ends in 2 days',
-    detail: 'Your free trial ends on Oct 2. You won’t be charged.',
+    detail: "Your free trial ends on Oct 2. You won't be charged.",
     dismissalToken: '2026-10-02',
     primaryLabel: 'See Pro',
     secondaryLabel: 'Got It',
@@ -99,7 +99,7 @@ void main() {
     await tester.tap(find.text('Pro trial ends in 2 days'));
     await tester.pumpAndSettle();
     expect(
-      find.text('Your free trial ends on Oct 2. You won’t be charged.'),
+      find.text("Your free trial ends on Oct 2. You won't be charged."),
       findsOneWidget,
     );
     await tester.tap(find.text('See Pro'));

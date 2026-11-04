@@ -171,6 +171,15 @@ void main() {
       expect(card.contains(ring.center), isTrue);
       expect(find.text('Chemistry'), findsOneWidget);
       expect(
+        find.text(
+          'Science · lowest score in this check. It changes as you study.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.textContaining('your weakest topic'), findsNothing);
+      // The plan does not start with this topic, so no "Today" tag claims it.
+      expect(find.text('Today'), findsNothing);
+      expect(
         tester.getTopLeft(find.text('BY SUBJECT · WEAKEST FIRST')).dx,
         greaterThan(
           ring.center.dx,

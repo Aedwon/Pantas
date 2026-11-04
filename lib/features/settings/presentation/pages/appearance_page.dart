@@ -36,8 +36,7 @@ class AppearancePage extends ConsumerWidget {
         description: 'How Pantas looks.',
         children: [
           SettingsSection(
-            footer: 'Automatic follows your computer: '
-                'light by day, dark at night.',
+            footer: "Automatic follows your computer's light or dark setting.",
             children: [
               Padding(
                 padding:
@@ -143,7 +142,7 @@ class AppearancePage extends ConsumerWidget {
         // ST_Appearance: one card holds the two phone previews and the
         // Automatic switch.
         SettingsSection(
-          footer: 'Automatic follows your phone: light by day, dark at night.',
+          footer: "Automatic follows your phone's light or dark setting.",
           children: [
             Container(
               padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),

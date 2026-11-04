@@ -359,9 +359,11 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                 opacity: paused,
                 child: SizedBox(
                   height: 60 * paused,
+                  // Board A sets "Paused" in a 60 px line box, so the words sit
+                  // in the middle of it, not at the top.
                   child: Transform.translate(
                     offset: Offset(0, 6 * (1 - paused)),
-                    child: Text('Paused', style: t.h1),
+                    child: Center(child: Text('Paused', style: t.h1)),
                   ),
                 ),
               ),
@@ -382,8 +384,10 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                                     .floor()
                             : (entry.clamp(0, 1450) / 1000).floor(),
                   ),
+                  // Board A: 30 px in a 38 px line.
                   style: t.style(
                     30,
+                    height: 38 / 30,
                     weight: FontWeight.w700,
                   ),
                 ),

@@ -52,7 +52,7 @@ HomeNotice? webTrialHomeNotice({
     kind: HomeNoticeKind.trial,
     title: _trialTitle(days),
     detail: 'Your free trial ends on ${PantasDates.short(endsAt, now: now)}. '
-        'You won\u2019t be charged.',
+        "You won't be charged.",
     dismissalToken:
         DateTime(endsAt.year, endsAt.month, endsAt.day).toIso8601String(),
     primaryLabel: 'See Pro',

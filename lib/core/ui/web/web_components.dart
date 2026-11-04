@@ -42,9 +42,14 @@ class WebButton extends StatelessWidget {
     this.height,
     this.fontSize,
     this.radius,
+    this.sidePadding,
     super.key,
   });
   final String label;
+
+  /// Both side paddings, when the board's differ from the variant's usual
+  /// ones (board `.btn2` is 20 px and `.btn3` 16 px).
+  final double? sidePadding;
 
   /// Board overrides for a smaller button: its height, text size and radius.
   final double? height;
@@ -130,35 +135,37 @@ class WebButton extends StatelessWidget {
           Size(expand ? double.infinity : 0, height),
         ),
         padding: WidgetStatePropertyAll(
-          EdgeInsets.only(
-            left: tall
-                ? switch (variant) {
-                    WebButtonVariant.primary => 22,
-                    WebButtonVariant.tertiary => 16,
-                    WebButtonVariant.white => 18,
-                    _ => 18,
-                  }
-                : pill
-                    ? 22
-                    : variant == WebButtonVariant.tertiary
-                        ? 14
-                        : variant == WebButtonVariant.secondary ||
-                                variant == WebButtonVariant.white ||
-                                variant == WebButtonVariant.dangerOutline
-                            ? 18
-                            : 20,
-            right: tall && variant == WebButtonVariant.tertiary
-                ? 16
-                : pill || showKeyHint
-                    ? 14
-                    : variant == WebButtonVariant.tertiary
-                        ? 14
-                        : variant == WebButtonVariant.secondary ||
-                                variant == WebButtonVariant.white ||
-                                variant == WebButtonVariant.dangerOutline
-                            ? 18
-                            : 20,
-          ),
+          sidePadding != null
+              ? EdgeInsets.symmetric(horizontal: sidePadding!)
+              : EdgeInsets.only(
+                  left: tall
+                      ? switch (variant) {
+                          WebButtonVariant.primary => 22,
+                          WebButtonVariant.tertiary => 16,
+                          WebButtonVariant.white => 18,
+                          _ => 18,
+                        }
+                      : pill
+                          ? 22
+                          : variant == WebButtonVariant.tertiary
+                              ? 14
+                              : variant == WebButtonVariant.secondary ||
+                                      variant == WebButtonVariant.white ||
+                                      variant == WebButtonVariant.dangerOutline
+                                  ? 18
+                                  : 20,
+                  right: tall && variant == WebButtonVariant.tertiary
+                      ? 16
+                      : pill || showKeyHint
+                          ? 14
+                          : variant == WebButtonVariant.tertiary
+                              ? 14
+                              : variant == WebButtonVariant.secondary ||
+                                      variant == WebButtonVariant.white ||
+                                      variant == WebButtonVariant.dangerOutline
+                                  ? 18
+                                  : 20,
+                ),
         ),
         backgroundColor: WidgetStateProperty.resolveWith(background),
         foregroundColor: WidgetStateProperty.resolveWith(
@@ -246,12 +253,18 @@ class WebKeyHint extends StatelessWidget {
     this.onButton = false,
     this.keyboard = true,
     this.enabled = true,
+    this.width,
     super.key,
   });
   final String label;
   final bool onButton;
   final bool keyboard;
   final bool enabled;
+
+  /// A fixed width, with the label centered, when the board gives the hint
+  /// one. The label's own width differs between platforms ("Cmd K" and
+  /// "Ctrl K"), and the room beside it must not.
+  final double? width;
   @override
   Widget build(BuildContext context) {
     if (keyboard && !WebKeyboardHints.visibleOf(context)) {
@@ -260,8 +273,12 @@ class WebKeyHint extends StatelessWidget {
     final t = context.webTokens;
     return ExcludeSemantics(
       child: Container(
-        padding:
-            EdgeInsets.symmetric(horizontal: onButton ? 7 : 6, vertical: 2),
+        width: width,
+        alignment: width == null ? null : Alignment.center,
+        padding: EdgeInsets.symmetric(
+          horizontal: width != null ? 0 : (onButton ? 7 : 6),
+          vertical: 2,
+        ),
         decoration: BoxDecoration(
           color:
               onButton && enabled ? Colors.white.withValues(alpha: .16) : null,
@@ -811,7 +828,61 @@ class WebSegmentedControl extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final cell = constraints.maxWidth / labels.length;
+            // Cells are an equal share of the control, as on the board. When
+            // a label is too long for its share, the cells follow the labels'
+            // own widths instead, so every label keeps one size. Only when
+            // the labels cannot fit at all do they all shrink by one factor.
+            const labelSize = 14.0;
+            const padding = 16.0;
+            final scaler = MediaQuery.textScalerOf(context);
+            double natural(int i) {
+              if (suffixes?[i] != null) return 0;
+              final painter = TextPainter(
+                text: TextSpan(
+                  text: labels[i],
+                  style: t.style(
+                    labelSize,
+                    weight: FontWeight.w600,
+                    height: 1.2,
+                  ),
+                ),
+                textDirection: Directionality.of(context),
+                textScaler: scaler,
+                maxLines: 1,
+              )..layout();
+              final width = painter.width + padding;
+              painter.dispose();
+              return width;
+            }
+
+            final needs = [for (var i = 0; i < labels.length; i++) natural(i)];
+            final equal = constraints.maxWidth / labels.length;
+            final fits = needs.every((need) => need <= equal);
+            final total = needs.fold<double>(0, (sum, need) => sum + need);
+            final cells = fits || !constraints.hasBoundedWidth
+                ? List.filled(labels.length, equal)
+                : total <= constraints.maxWidth
+                    ? [
+                        for (final need in needs)
+                          need + (constraints.maxWidth - total) / labels.length,
+                      ]
+                    : [
+                        for (final need in needs)
+                          constraints.maxWidth * need / total,
+                      ];
+            // Past the point where the labels fit, all of them share one
+            // smaller size.
+            final scale = !fits && total > constraints.maxWidth
+                ? ((constraints.maxWidth - padding * labels.length) /
+                        (total - padding * labels.length))
+                    .clamp(.5, 1.0)
+                : 1.0;
+            final offsets = <double>[];
+            var at = 0.0;
+            for (final cell in cells) {
+              offsets.add(at);
+              at += cell;
+            }
             return Stack(
               children: [
                 // One thumb slides under the labels (item 17, demo 7): 240 ms
@@ -821,10 +892,8 @@ class WebSegmentedControl extends StatelessWidget {
                     child: IgnorePointer(
                       child: SlidingMarker(
                         key: const ValueKey('segmented-control-thumb'),
-                        offsets: [
-                          for (var i = 0; i < labels.length; i++) i * cell,
-                        ],
-                        lengths: List.filled(labels.length, cell),
+                        offsets: offsets,
+                        lengths: cells,
                         index: selected,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
@@ -847,7 +916,8 @@ class WebSegmentedControl extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     for (var i = 0; i < labels.length; i++)
-                      Expanded(
+                      SizedBox(
+                        width: cells[i],
                         child: Semantics(
                           selected: selected == i,
                           child: TextButton(
@@ -886,9 +956,9 @@ class WebSegmentedControl extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            // A label never wraps: each cell is an equal
-                            // share of the control, so a long label beside
-                            // another control shrinks to fit its cell.
+                            // A label never wraps, and every label has the
+                            // same size (4N-8). The box only guards a cell
+                            // that is a hair too narrow.
                             child: suffixes?[i] == null
                                 ? FittedBox(
                                     fit: BoxFit.scaleDown,
@@ -896,6 +966,11 @@ class WebSegmentedControl extends StatelessWidget {
                                       labels[i],
                                       maxLines: 1,
                                       softWrap: false,
+                                      style: scale == 1
+                                          ? null
+                                          : TextStyle(
+                                              fontSize: labelSize * scale,
+                                            ),
                                     ),
                                   )
                                 : Row(

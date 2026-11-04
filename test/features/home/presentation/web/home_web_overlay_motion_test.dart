@@ -219,16 +219,26 @@ void main() {
       await mountNotice(tester, expanded: true);
       await tester.pumpAndSettle();
       final header = find.byType(TextButton);
-      final clip = tester.widget<ClipRRect>(
-        find.ancestor(of: header, matching: find.byType(ClipRRect)).first,
-      );
+      // The tint is the button's own shape: it follows the card's top-left
+      // corner (16 px, less the 1 px rule it sits inside) and is rounded like
+      // a row on the side of the dismiss button (4N-7).
+      final shape = tester
+          .widget<Material>(
+            find.descendant(of: header, matching: find.byType(Material)).first,
+          )
+          .shape! as RoundedRectangleBorder;
       expect(
-        clip.borderRadius,
-        const BorderRadius.only(topLeft: Radius.circular(16)),
+        shape.borderRadius,
+        const BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+        ),
       );
+      // It reaches the card's rule, which is drawn over its outer pixel.
       expect(
         tester.getTopLeft(header).dy,
-        tester.getTopLeft(find.byType(HomeWebNotice)).dy,
+        tester.getTopLeft(find.byType(HomeWebNotice)).dy + 1,
       );
       final close = find.byTooltip('Dismiss');
       expect(
@@ -320,10 +330,11 @@ void main() {
       );
       await tester.pumpAndSettle();
       final header = find.byType(TextButton);
-      expect(tester.getSize(header).height, 52);
+      // 52 px of header: the button's 50 between the card's 1 px rules.
+      expect(tester.getSize(header).height, 50);
       expect(
         tester.getTopLeft(header).dy,
-        tester.getTopLeft(find.byType(HomeWebNotice)).dy,
+        tester.getTopLeft(find.byType(HomeWebNotice)).dy + 1,
       );
     });
 

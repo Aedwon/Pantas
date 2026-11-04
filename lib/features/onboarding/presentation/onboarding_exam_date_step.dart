@@ -229,7 +229,9 @@ class _OnboardingExamDateStepState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        DateFormat('EEEE, MMMM d, y', 'en_US').format(known),
+                        // A no-break space keeps the year with the day.
+                        DateFormat('EEEE, MMMM d,\u00A0y', 'en_US')
+                            .format(known),
                         style: context.wideWeb
                             ? context.webTokens
                                 .style(21, weight: FontWeight.w600)

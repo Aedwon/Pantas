@@ -375,9 +375,15 @@ class _PreparedQuestionStageState
       );
 
   Widget _interactionGate({required bool enabled, required Widget child}) {
+    // A pane that cannot be used also stays out of the Tab order. The next
+    // question is built under a cover while this one is answered; without
+    // this, every choice took a second, invisible Tab stop.
     return ExcludeSemantics(
       excluding: !enabled,
-      child: IgnorePointer(ignoring: !enabled, child: child),
+      child: ExcludeFocus(
+        excluding: !enabled,
+        child: IgnorePointer(ignoring: !enabled, child: child),
+      ),
     );
   }
 }
@@ -921,6 +927,15 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       }
     }
 
+    // The question grid opens over the spot the toast sits on. The grid wins:
+    // the toast leaves, so the grid is whole and the flagged cell shows what
+    // the toast said.
+    if (_gridOpen && _toastVisible) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _gridOpen && _toastVisible) _dropToast();
+      });
+    }
+
     // The Leave dialog owns the keys while it is open. Its own focus keeps
     // them away from this page; this is the second guard, for a page that
     // gets the focus back anyway.
@@ -945,6 +960,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         },
       },
       child: KeyFocusKeeper(
+        // The page's own node only holds its keys: Tab skips it.
+        skipTraversal: true,
         // Enter runs the control that holds focus. An answer that is already
         // picked is the exception: Enter on it checks it.
         onKeyEvent: enterKeyHandler(
@@ -968,79 +985,105 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                   height: 64,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
+                    // The title is centered on the page, not between the two
+                    // ends (QS_Grid and QS_Flag). It stays put while the
+                    // "Saved on this device." line comes and goes.
+                    child: Stack(
+                      alignment: Alignment.center,
                       children: [
-                        IconButton(
-                          tooltip: 'Leave session',
-                          onPressed: () => unawaited(_confirmLeave()),
-                          constraints: const BoxConstraints.tightFor(
-                            width: 44,
-                            height: 44,
-                          ),
-                          visualDensity: VisualDensity.standard,
-                          style: IconButton.styleFrom(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          icon: Icon(PantasIcons.close, size: 22),
-                        ),
-                        const SizedBox(width: 10),
-                        const WebKeyHint('Esc'),
-                        Expanded(
+                        Padding(
+                          key: const ValueKey('quiz-top-title'),
+                          padding: const EdgeInsets.symmetric(horizontal: 200),
                           child: Text(
                             source,
                             textAlign: TextAlign.center,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: t.style(
                               14,
                               color: t.colors.tertiaryLabel,
                             ),
                           ),
                         ),
-                        if (_reportStatus == question.id)
-                          Text(
-                            'Saved on this device.',
-                            style: t.sm,
-                          ),
-                        IconButton(
-                          tooltip: 'Report a question',
-                          constraints: const BoxConstraints.tightFor(
-                            width: 44,
-                            height: 44,
-                          ),
-                          visualDensity: VisualDensity.standard,
-                          style: IconButton.styleFrom(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          onPressed: () async {
-                            final saved = await openQuestionReport(
-                              context,
-                              question.id,
-                              queue: ReportQueue(
-                                ref.read(appDatabaseProvider),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                tooltip: 'Leave session',
+                                onPressed: () => unawaited(_confirmLeave()),
+                                constraints: const BoxConstraints.tightFor(
+                                  width: 44,
+                                  height: 44,
+                                ),
+                                visualDensity: VisualDensity.standard,
+                                style: IconButton.styleFrom(
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                icon: Icon(PantasIcons.close, size: 22),
                               ),
-                            );
-                            if ((saved ?? false) && mounted) {
-                              _reportTimer?.cancel();
-                              setState(() {
-                                _reported.add(question.id);
-                                _reportStatus = question.id;
-                              });
-                              _reportTimer = Timer(
-                                const Duration(seconds: 4),
-                                () {
-                                  if (mounted) {
-                                    setState(() => _reportStatus = null);
+                              const SizedBox(width: 10),
+                              const WebKeyHint('Esc'),
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (_reportStatus == question.id)
+                                Text(
+                                  'Saved on this device.',
+                                  style: t.sm,
+                                ),
+                              IconButton(
+                                tooltip: 'Report a question',
+                                constraints: const BoxConstraints.tightFor(
+                                  width: 44,
+                                  height: 44,
+                                ),
+                                visualDensity: VisualDensity.standard,
+                                style: IconButton.styleFrom(
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                onPressed: () async {
+                                  final saved = await openQuestionReport(
+                                    context,
+                                    question.id,
+                                    queue: ReportQueue(
+                                      ref.read(appDatabaseProvider),
+                                    ),
+                                  );
+                                  if ((saved ?? false) && mounted) {
+                                    _reportTimer?.cancel();
+                                    setState(() {
+                                      _reported.add(question.id);
+                                      _reportStatus = question.id;
+                                    });
+                                    _reportTimer = Timer(
+                                      const Duration(seconds: 4),
+                                      () {
+                                        if (mounted) {
+                                          setState(() => _reportStatus = null);
+                                        }
+                                      },
+                                    );
                                   }
                                 },
-                              );
-                            }
-                          },
-                          icon: IconTheme(
-                            data: IconThemeData(
-                              color: _reported.contains(question.id)
-                                  ? t.colors.accent
-                                  : t.colors.secondaryLabel,
-                            ),
-                            child: PantasIcons.report,
+                                icon: IconTheme(
+                                  data: IconThemeData(
+                                    color: _reported.contains(question.id)
+                                        ? t.colors.accent
+                                        : t.colors.secondaryLabel,
+                                  ),
+                                  child: PantasIcons.report,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -1159,11 +1202,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                                 .shrinkWrap,
                                             shape: const CircleBorder(),
                                           ),
-                                          onPressed: _flagBusy
-                                              ? null
-                                              : () => unawaited(
-                                                    _toggleFlag(question.id),
-                                                  ),
+                                          // Stays enabled while the write
+                                          // runs: a disabled button gives
+                                          // up its focus, and the ring
+                                          // jumped to the counter.
+                                          onPressed: () {
+                                            if (!_flagBusy) {
+                                              unawaited(
+                                                _toggleFlag(question.id),
+                                              );
+                                            }
+                                          },
                                           icon: _flag(
                                             question.id,
                                             flagged.contains(question.id),
@@ -1262,6 +1311,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                                       ? session.outcomes[n]
                                                       : null,
                                               onScreen: n == index,
+                                              flagged: flagged.contains(
+                                                session.questions[n].id,
+                                              ),
                                               onPressed: n <=
                                                       session.outcomes.length
                                                   ? () => _lookAt(
@@ -1379,11 +1431,27 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           _viewIndex = null;
           _poppingFlag = null;
         });
+        _releaseChoiceFocus();
       });
+
+  /// A new question starts with no choice focused. The ring that sat on the
+  /// answer just given must not carry to the same place on the next one,
+  /// where it reads as a half-made pick. The page takes the focus back.
+  void _releaseChoiceFocus() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final focused = FocusManager.instance.primaryFocus;
+      final onChoice =
+          focused?.context?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+              null;
+      if (onChoice) focused!.unfocus();
+    });
+  }
 
   void _lookAt(int? index) {
     setState(() => _viewIndex = index);
     if (_questionScroll.hasClients) _questionScroll.jumpTo(0);
+    _releaseChoiceFocus();
   }
 
   void _startForMode(QuizController controller) {
@@ -1567,7 +1635,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               MediaQuery.disableAnimationsOf(context)
                   ? Duration.zero
                   : const Duration(milliseconds: 200), () {
-            if (!mounted) return;
+            // A grid opened in the meantime keeps the spot to itself.
+            if (!mounted || _gridOpen) return;
             setState(() {
               _toastVisible = true;
               _toastMessage = result == FlagToggle.firstFlagged
@@ -1592,6 +1661,20 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       } finally {
         if (mounted) setState(() => _flagBusy = false);
       }
+    });
+  }
+
+  /// Takes the flag toast away now, with its usual fade, and for good.
+  void _dropToast() {
+    _toastDelay?.cancel();
+    _toastHide?.cancel();
+    _toastRemove?.cancel();
+    setState(() {
+      _toastVisible = false;
+      _undoFlag = null;
+    });
+    _toastRemove = Timer(const Duration(milliseconds: 300), () {
+      if (mounted) setState(() => _toastMessage = null);
     });
   }
 
@@ -1642,11 +1725,13 @@ class _WebGridCell extends StatelessWidget {
     required this.outcome,
     required this.onScreen,
     required this.onPressed,
+    this.flagged = false,
     super.key,
   });
   final int number;
   final AnswerOutcome? outcome;
   final bool onScreen;
+  final bool flagged;
   final VoidCallback? onPressed;
 
   @override
@@ -1654,7 +1739,7 @@ class _WebGridCell extends StatelessWidget {
     final t = context.webTokens;
     final answered = outcome != null;
     final right = outcome?.isCorrect ?? false;
-    return TextButton(
+    final cell = TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
@@ -1685,7 +1770,33 @@ class _WebGridCell extends StatelessWidget {
                   : BorderSide(color: t.colors.separator),
         ),
       ),
-      child: Text('$number'),
+      child: Text(
+        '$number',
+        semanticsLabel: flagged ? '$number, flagged' : null,
+      ),
+    );
+    if (!flagged) return cell;
+    // The phone sheet marks a flagged question with a small flag on its cell;
+    // the wide grid does the same, inside the cell so the grid does not
+    // clip it.
+    return Stack(
+      children: [
+        Positioned.fill(child: cell),
+        Positioned(
+          top: 5,
+          right: 7,
+          child: IgnorePointer(
+            child: ExcludeSemantics(
+              child: Icon(
+                PantasIcons.flag,
+                key: const ValueKey('web-grid-flag'),
+                size: 12,
+                color: t.colors.label,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

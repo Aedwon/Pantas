@@ -15,11 +15,20 @@ import 'package:flutter/widgets.dart';
 /// a control, which is what "nothing is focused" looks like, it returns to the
 /// page. It never takes focus from a control that holds it: a text field, a
 /// dialog or another page on top is left alone.
+///
+/// A page is often built while it cannot take focus yet: a step sliding in
+/// sits under `ExcludeFocus` for its first frames, and the step before it still
+/// holds focus. `autofocus` is a single request made at that moment, so it is
+/// dropped, and a mouse click never gives focus to a plain control either.
+/// The keeper therefore asks again, frame by frame, until the page can take
+/// focus, and again whenever focus falls out.
 class KeyFocusKeeper extends StatefulWidget {
   const KeyFocusKeeper({
     required this.child,
     this.focusNode,
+    this.preferred,
     this.onKeyEvent,
+    this.skipTraversal = false,
     super.key,
   });
 
@@ -28,7 +37,16 @@ class KeyFocusKeeper extends StatefulWidget {
 
   /// A node the page also uses itself, to put focus back by hand.
   final FocusNode? focusNode;
+
+  /// A control inside the page, usually its text field, that takes focus
+  /// instead of the page whenever the page claims it. The page's own node is
+  /// used while the control is not built or cannot take focus.
+  final FocusNode? preferred;
   final FocusOnKeyEventCallback? onKeyEvent;
+
+  /// Keeps the page's own node out of the Tab order. Set it for a page whose
+  /// node only exists to hold its keys.
+  final bool skipTraversal;
 
   @override
   State<KeyFocusKeeper> createState() => _KeyFocusKeeperState();
@@ -37,6 +55,11 @@ class KeyFocusKeeper extends StatefulWidget {
 class _KeyFocusKeeperState extends State<KeyFocusKeeper> {
   FocusNode? _own;
   bool _queued = false;
+  int _waits = 0;
+
+  /// Frames to wait for the page to become able to take focus. An animation
+  /// ends well inside this; a page that never can stops being asked.
+  static const _maxWaits = 180;
 
   FocusNode get _node => widget.focusNode ?? (_own ??= FocusNode());
 
@@ -44,6 +67,7 @@ class _KeyFocusKeeperState extends State<KeyFocusKeeper> {
   void initState() {
     super.initState();
     FocusManager.instance.addListener(_focusChanged);
+    _focusChanged();
   }
 
   @override
@@ -66,14 +90,25 @@ class _KeyFocusKeeperState extends State<KeyFocusKeeper> {
 
   void _reclaim() {
     if (!mounted) return;
-    final node = _node;
-    if (node.context == null || !node.canRequestFocus) return;
     if (ModalRoute.of(context)?.isCurrent == false) return;
+    final page = _node;
+    if (page.context == null || !page.canRequestFocus) {
+      // Not able to take focus yet (a step still sliding in).
+      if (_waits++ < _maxWaits) _focusChanged();
+      return;
+    }
+    _waits = 0;
+    final preferred = widget.preferred;
+    final node = preferred != null &&
+            preferred.context != null &&
+            preferred.canRequestFocus
+        ? preferred
+        : page;
     final manager = FocusManager.instance;
     final primary = manager.primaryFocus;
     final lost = primary == null ||
         primary == manager.rootScope ||
-        (primary is FocusScopeNode && node.ancestors.contains(primary));
+        (primary is FocusScopeNode && page.ancestors.contains(primary));
     if (lost) node.requestFocus();
   }
 
@@ -81,6 +116,7 @@ class _KeyFocusKeeperState extends State<KeyFocusKeeper> {
   Widget build(BuildContext context) => Focus(
         focusNode: _node,
         autofocus: true,
+        skipTraversal: widget.skipTraversal,
         onKeyEvent: widget.onKeyEvent,
         child: widget.child,
       );

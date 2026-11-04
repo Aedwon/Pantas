@@ -38,6 +38,7 @@ void main() {
     'all',
     'mistakes',
     'mistakeRow',
+    'notesButton',
     'historical',
     'fresh',
     'customDone',
@@ -54,7 +55,9 @@ void main() {
       // The mistakes list needs more than one wrong answer to show that the
       // viewer steps through those and no others.
       final wrong =
-          view == 'mistakes' || view == 'mistakeRow' ? {1, 3, 5} : {3};
+          view == 'mistakes' || view == 'mistakeRow' || view == 'notesButton'
+              ? {1, 3, 5}
+              : {3};
       final attempt = Attempt(
         id: 'a',
         examId: 'e',
@@ -105,7 +108,8 @@ void main() {
             (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
           ),
           appReviewGatewayProvider.overrideWithValue(gateway),
-          proForActiveExamProvider.overrideWith((_) async => false),
+          proForActiveExamProvider
+              .overrideWith((_) async => view == 'notesButton'),
           entitlementProvider
               .overrideWith((_) => Stream.value(const Entitlement.free())),
         ],
@@ -253,6 +257,23 @@ void main() {
           }
           expect(find.text('2 of 2'), findsOneWidget);
         }
+      } else if (view == 'notesButton') {
+        // "Finish the Notes" steps through the mistakes only, the way the
+        // mistake rows do, and starts with the first one.
+        await tester.scrollUntilVisible(find.text('Finish the Notes'), 300);
+        await tester.tap(find.text('Finish the Notes'));
+        for (var i = 0; i < 80 && find.text('1 of 3').evaluate().isEmpty; i++) {
+          await tester.pump(const Duration(milliseconds: 20));
+          await tester.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 2)),
+          );
+        }
+        expect(find.text('1 of 3'), findsOneWidget);
+        final uri =
+            GoRouterState.of(tester.element(find.byType(QuizReviewPage))).uri;
+        expect(uri.queryParameters['mistakes'], 'true');
+        expect(uri.queryParameters['notes'], 'true');
+        expect(uri.queryParameters['index'], '0');
       } else if (view == 'mistakeRow') {
         // A row in the end screen's mistakes opens the viewer among the
         // mistakes only, the way "See all mistakes" does.

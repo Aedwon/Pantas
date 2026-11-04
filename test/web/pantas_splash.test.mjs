@@ -11,11 +11,13 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
   const classes = new Set();
   const timers = [];
   const links = [];
+  const loads = [];
   const frameListeners = [];
   let splashRemoved = false;
   const doc = {
     head: { appendChild: (link) => links.push(link) },
     createElement: () => ({}),
+    fonts: { load: (spec) => { loads.push(spec); return Promise.resolve([]); } },
     documentElement: {
       classList: {
         add: (...names) => names.forEach((n) => classes.add(n)),
@@ -40,6 +42,7 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     classes,
     timers,
     links,
+    loads,
     frameListeners,
     removed: () => splashRemoved,
   };
@@ -60,14 +63,13 @@ test('a first-time visitor never sees the splash and its markup is removed', () 
   assert.equal(t.removed(), true);
   assert.equal(t.frameListeners.length, 0);
   assert.equal(t.links.length, 0);
+  assert.equal(t.loads.length, 0);
 });
 
-test('Geist Bold is preloaded for a returning visitor only', () => {
+test('Geist Bold is requested through the font API, with no preload link', () => {
   const t = setup();
-  assert.equal(t.links.length, 1);
-  assert.equal(t.links[0].rel, 'preload');
-  assert.equal(t.links[0].as, 'font');
-  assert.equal(t.links[0].href, 'assets/assets/fonts/Geist-Bold.ttf');
+  assert.equal(t.links.length, 0);
+  assert.deepEqual(t.loads, ['700 42px Geist']);
 });
 
 test('ready data fades the splash out, then removes it', () => {

@@ -449,9 +449,13 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             onMistake: (index) => unawaited(_question(index, mistake: true)),
             onAll: () => unawaited(_all()),
             onMistakes: () => unawaited(_all(mistakes: true)),
+            // The notes are for the mistakes, so the viewer steps through
+            // those only, as it does from a mistake row.
             onNotes: () {
               if (misses.isNotEmpty) {
-                unawaited(_question(misses.first, notes: true));
+                unawaited(
+                  _question(misses.first, notes: true, mistake: true),
+                );
               }
             },
             onNext: data.session.reviewBatch != null &&

@@ -62,6 +62,21 @@ void main() {
       expect(done, 1);
     });
 
+    testWidgets('the first Tab lands on Close, not on a hidden stop',
+        (tester) async {
+      await pump(tester, wide: true);
+      // Focus lost to the page's scope, as it is after a reload.
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+      final focused = FocusManager.instance.primaryFocus!;
+      expect(
+        focused.context!.findAncestorWidgetOfExactType<SizedBox>()?.key,
+        const ValueKey('results-close'),
+      );
+    });
+
     testWidgets('Enter on "See all questions" opens the list, not Done',
         (tester) async {
       await pump(tester, wide: true);

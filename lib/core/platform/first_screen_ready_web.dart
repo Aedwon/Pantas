@@ -3,6 +3,7 @@ import 'dart:js_interop';
 extension type _Splash(JSObject _) implements JSObject {
   external void ready();
   external void started();
+  external bool isShown();
 }
 
 @JS('pantasSplash')
@@ -14,4 +15,12 @@ void sendFirstScreenReady() {
 
 void sendAppStarted() {
   _splash?.started();
+}
+
+bool pageBeganFromSplash() {
+  try {
+    return _splash?.isShown() ?? false;
+  } on Object {
+    return false;
+  }
 }

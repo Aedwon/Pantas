@@ -15,15 +15,16 @@
     var doc = env.document;
     var state = { shown: false, done: false };
 
-    function preloadFont() {
-      if (!doc.head || !doc.createElement) return;
-      var link = doc.createElement('link');
-      link.rel = 'preload';
-      link.as = 'font';
-      link.type = 'font/ttf';
-      link.crossOrigin = 'anonymous';
-      link.href = 'assets/assets/fonts/Geist-Bold.ttf';
-      doc.head.appendChild(link);
+    // Starts Geist Bold downloading now, through the font loading API. A
+    // <link rel="preload"> did the same, but WebKit warned that it was
+    // "preloaded but not used"; a font the page asks for is always used.
+    function loadFont() {
+      var fonts = doc.fonts;
+      if (!fonts || !fonts.load) return;
+      try {
+        var loading = fonts.load('700 42px Geist');
+        if (loading && loading.catch) loading.catch(function () {});
+      } catch (_) {}
     }
 
     function removeNow() {
@@ -71,7 +72,7 @@
     } else {
       state.shown = true;
       doc.documentElement.classList.add('ps-on');
-      preloadFont();
+      loadFont();
       env.setTimeout(giveUp, NEVER_STARTED_MS);
     }
 

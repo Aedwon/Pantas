@@ -1044,9 +1044,19 @@ class WebLastOpenedCard extends StatelessWidget {
       variant: WebButtonVariant.secondary,
       onPressed: onResume,
     );
+    // Board `.card` draws its 1 px edge as an inset shadow, so the padding
+    // is measured from the card's outer edge. The dark card's real border
+    // takes room, so the padding gives that pixel back and the card stays
+    // 96 px tall in both themes (4N-2).
+    final edge = t.dark ? 1.0 : 0.0;
     if (strip) {
       return WebCard(
-        padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
+        padding: EdgeInsets.fromLTRB(
+          18 - edge,
+          16 - edge,
+          18 - edge,
+          16 - edge,
+        ),
         child: Row(
           children: [
             Expanded(child: text),
@@ -1057,7 +1067,7 @@ class WebLastOpenedCard extends StatelessWidget {
       );
     }
     return WebCard(
-      padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
+      padding: EdgeInsets.fromLTRB(18 - edge, 16 - edge, 16 - edge, 16 - edge),
       // Resume sits under the text at its natural width, so a long title and
       // topic wrap in full (preview study-reader, section 2 Option A).
       child: Column(

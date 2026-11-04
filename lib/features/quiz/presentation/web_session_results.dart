@@ -103,6 +103,9 @@ class WebSessionResults extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onDone},
       child: KeyFocusKeeper(
+        // The page's own node only holds its keys: Tab skips it, so the
+        // first stop is the Close button.
+        skipTraversal: true,
         // Enter runs the control that holds focus; with none, it goes on.
         onKeyEvent: enterKeyHandler(next ? onNext! : onDone),
         child: Column(
@@ -466,6 +469,7 @@ class WebQuizQuestionList extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
       child: KeyFocusKeeper(
+        skipTraversal: true,
         child: Column(
           children: [
             WebTopBar(

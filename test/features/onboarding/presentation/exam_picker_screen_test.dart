@@ -408,6 +408,80 @@ void main() {
       isFalse,
     );
   });
+  for (final wide in [false, true]) {
+    testWidgets('Back from the date step keeps the exam pick, wide $wide',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      await AppPreferencesRepository(db).setSelectedExamId('exam_upcat');
+      String? picked;
+      await pump(
+        tester,
+        picked: (id) async => picked = id,
+        viewport: Size(wide ? 1440 : 390, 900),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+      expect(picked, 'exam_upcat');
+    });
+
+    testWidgets('a saved custom track is not shown as a pick, wide $wide',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      await AppPreferencesRepository(db).setSelectedExamId('exam_custom_1');
+      String? picked;
+      await pump(
+        tester,
+        picked: (id) async => picked = id,
+        viewport: Size(wide ? 1440 : 390, 900),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Continue'), warnIfMissed: false);
+      await tester.pumpAndSettle();
+      expect(picked, isNull);
+    });
+
+    testWidgets('the chips follow the order of the list sections, wide $wide',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      const civil = ExamCatalogEntry(
+        id: 'exam_cse_pro',
+        name: 'CSE',
+        shortName: 'CSE Professional',
+        priceTier: 'Civil Service',
+        group: 'Civil service',
+        comingSoon: false,
+        publishedSittings: [],
+        hasContent: true,
+      );
+      await pump(
+        tester,
+        data: Stream.value([...entries, civil]),
+        viewport: Size(wide ? 1440 : 390, 900),
+      );
+      await tester.pumpAndSettle();
+      // Reading order: the wide chips wrap onto rows.
+      double chip(String label) {
+        final at = tester.getTopLeft(find.text(label).first);
+        return at.dy.roundToDouble() * 10000 + at.dx;
+      }
+
+      // The list opens with the sections that have exams to pick: College
+      // entrance and Civil service. Their chips come first, in that order.
+      final order = ['All', 'College', 'Civil service', 'High school'];
+      for (var i = 1; i < order.length; i++) {
+        expect(
+          chip(order[i]),
+          greaterThan(chip(order[i - 1])),
+          reason: '${order[i - 1]} before ${order[i]}',
+        );
+      }
+    });
+  }
+
   testWidgets(
       'settings returns the pick without writing onboarding preferences',
       (tester) async {

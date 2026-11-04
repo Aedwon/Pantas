@@ -119,10 +119,10 @@ void main() {
         );
         await tester.pumpAndSettle();
         final text = tester.widget<Text>(find.text(topic));
-        if (scale == 1) {
-          expect(text.maxLines, 1);
-          expect(text.overflow, TextOverflow.ellipsis);
-        }
+        // A long name is read in full at every size, not cut with dots
+        // (Nov 3 rule).
+        expect(text.maxLines, isNull);
+        expect(text.overflow, isNot(TextOverflow.ellipsis));
         expect(find.semantics.byLabel(RegExp(topic)), findsOne);
         await tester.pumpApp(
           MediaQuery(
@@ -141,10 +141,8 @@ void main() {
         );
         await tester.pumpAndSettle();
         final lessonText = tester.widget<Text>(find.text(title));
-        if (scale == 1) {
-          expect(lessonText.maxLines, 1);
-          expect(lessonText.overflow, TextOverflow.ellipsis);
-        }
+        expect(lessonText.maxLines, isNull);
+        expect(lessonText.overflow, isNot(TextOverflow.ellipsis));
         expect(find.semantics.byLabel(RegExp(title)), findsOne);
         expect(tester.takeException(), isNull);
       } finally {

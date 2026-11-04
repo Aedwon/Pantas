@@ -70,9 +70,14 @@ class HomeTodayScreen extends ConsumerStatefulWidget {
     required this.examId,
     required this.pageBuilder,
     this.onSetDate,
+    this.noteTopGap = 6,
     super.key,
   });
   final String examId;
+
+  /// Space above the day's note on a phone. Home's boards put it 6 px under
+  /// the greeting. A page whose title already sits close above it sets 0.
+  final double noteTopGap;
 
   /// Draws the page around Today. The loaded data is null while loading or
   /// after a failure, so the page can react to it (for example the greeting).
@@ -498,7 +503,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           // Boards (HE_BackAfterBreak, HE_MockMoved): the line sits 6 px lower
           // and the Today label 16 px nearer than the plain gap.
           Padding(
-            padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+            padding: EdgeInsets.fromLTRB(4, widget.noteTopGap, 4, 0),
             child: Text(
               note,
               style: context.type.subhead.copyWith(
@@ -630,6 +635,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               // The time keeps its own width and the title takes the rest
               // of the row (3K-4, as 2G-21 did for search rows).
               naturalValue: true,
+              // A long title is read in full, not cut with dots (Nov 3 rule).
+              wrapTitle: true,
               contentPadding: const EdgeInsets.symmetric(vertical: 9),
               minimumHeight: 0,
               titleColor: lesson.read ? context.colors.secondaryLabel : null,

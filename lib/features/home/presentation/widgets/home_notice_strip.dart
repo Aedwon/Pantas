@@ -77,9 +77,11 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
       children: [
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          // Chips run on to the card's own edge instead of stopping at the
-          // notice padding, so a cut chip reads as a scrolling row.
-          clipBehavior: Clip.none,
+          // On the wide page the row stays inside the notice's 18 px padding
+          // like the text and the buttons, and a chip past the edge is cut
+          // there (4N-4). The phone's runs on to the card's own edge, so a
+          // cut chip reads as a scrolling row.
+          clipBehavior: context.wideWeb ? Clip.hardEdge : Clip.none,
           child: Row(
             children: [
               for (var day = 1;

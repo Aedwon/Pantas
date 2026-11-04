@@ -46,12 +46,6 @@ class WebAssessmentLayout extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): onLeave,
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): () {
-          if (chosenId != null) onNext();
-        },
         for (final (i, key) in const [
           LogicalKeyboardKey.keyA,
           LogicalKeyboardKey.keyB,
@@ -63,6 +57,16 @@ class WebAssessmentLayout extends StatelessWidget {
           },
       },
       child: KeyFocusKeeper(
+        // Enter runs the control that holds focus (Report, Leave, a choice).
+        // On the page, or on a choice that is already picked, it goes next.
+        onKeyEvent: enterKeyHandler(
+          () {
+            if (chosenId != null) onNext();
+          },
+          keepsEnter: (focused) =>
+              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
+              WebOptionState.selected,
+        ),
         child: Stack(
           children: [
             Column(
@@ -147,6 +151,9 @@ class WebAssessmentLeaveDialog extends StatelessWidget {
         },
         child: Focus(
           autofocus: true,
+          // Enter is Keep Going, as in the quiz's Leave dialog, unless a
+          // button in it holds focus, which then runs itself.
+          onKeyEvent: enterKeyHandler(onKeepGoing),
           child: Dialog(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -368,34 +375,14 @@ class WebAssessmentResults extends StatelessWidget {
                                 children: [
                                   Text('WEAKEST TOPIC', style: t.eb),
                                   const SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      Text(weakestTopic!, style: t.h3),
-                                      const SizedBox(width: 8),
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 8,
-                                          vertical: 2,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: t.colors.accentTint,
-                                          borderRadius:
-                                              BorderRadius.circular(99),
-                                        ),
-                                        child: Text(
-                                          'Today',
-                                          style: t.style(
-                                            12,
-                                            weight: FontWeight.w600,
-                                            color: t.tintText,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  // No "Today" tag: the plan does not start
+                                  // with this topic (it ranks by overall
+                                  // accuracy), so the tag would claim it.
+                                  Text(weakestTopic!, style: t.h3),
                                   Text(
-                                    '$weakestSubject · your weakest topic. '
-                                    'Weakest first. It changes as you study.',
+                                    '$weakestSubject · '
+                                    'lowest score in this check. '
+                                    'It changes as you study.',
                                     style: t.sub,
                                   ),
                                 ],

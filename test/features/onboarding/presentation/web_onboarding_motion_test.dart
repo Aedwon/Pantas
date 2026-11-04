@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -74,6 +75,20 @@ void main() {
         expect(opacity(tester, key), 1);
         expect(scale(tester, key), 1);
       }
+    });
+
+    testWidgets('a page that began from the splash shows them settled (4P-2)',
+        (tester) async {
+      final original = splashProbe;
+      splashProbe = () => true;
+      addTearDown(() => splashProbe = original);
+      await pumpWide(tester, OnboardingWelcomeStep(onAdvance: () {}));
+      await tester.pump();
+      for (final key in [logo, title]) {
+        expect(opacity(tester, key), 1, reason: '$key');
+        expect(scale(tester, key), 1, reason: '$key');
+      }
+      expect(tester.hasRunningAnimations, isFalse);
     });
 
     testWidgets('reduced motion shows them at once with no timer left',

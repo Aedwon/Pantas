@@ -302,28 +302,40 @@ void main() {
         expect(tester.takeException(), isNull);
       });
 
-      testWidgets('the strip keeps its padding in dark, edge included',
-          (tester) async {
-        await pumpMap(
-          tester,
-          window: window,
-          content: content,
-          map: _previewMap(),
-          lastLessonId: 't2-l1',
-          lastTitle: _longTitle,
-          brightness: Brightness.dark,
-        );
-        final card = tester.getRect(find.byType(WebCard).first);
-        expect(card.width, content);
-        // The dark card's 1 px edge sits inside the padding box.
-        final label = tester.getTopLeft(find.text('LAST OPENED'));
-        expect(label.dx, card.left + 18 + 1);
-        expect(label.dy, card.top + 16 + 1);
-        expect(
-          tester.getRect(find.byType(WebButton)).right,
-          card.right - 18 - 1,
-        );
-      });
+      for (final brightness in Brightness.values) {
+        testWidgets(
+            'the strip is 96 px tall with the board padding, '
+            '$brightness (4N-2)', (tester) async {
+          await pumpMap(
+            tester,
+            window: window,
+            content: content,
+            map: _previewMap(),
+            lastLessonId: 't2-l1',
+            lastTitle: _longTitle,
+            brightness: brightness,
+          );
+          final card = tester.getRect(find.byType(WebCard).first);
+          expect(card.width, content);
+          // The board's rule is an inset shadow, so the dark card's real 1 px
+          // edge comes out of the padding: 96 px tall and the text 18 px in,
+          // as in light.
+          expect(card.height, 96);
+          final label = tester.getTopLeft(find.text('LAST OPENED'));
+          expect(label.dx, card.left + 18);
+          expect(label.dy, card.top + 16);
+          expect(
+            tester.getRect(find.byType(WebButton)).right,
+            card.right - 18,
+          );
+          // The first subject label is the same distance under the card in
+          // both themes: 22 px.
+          expect(
+            tester.getTopLeft(find.text('REASONING')).dy - card.bottom,
+            closeTo(22, 0.01),
+          );
+        });
+      }
 
       testWidgets('the strip holds Bookmarks in the two subject columns',
           (tester) async {
@@ -512,8 +524,9 @@ void main() {
             '($column, $brightness)', (tester) async {
           await pumpCard(tester, column: column, brightness: brightness);
           final card = tester.getRect(find.byType(WebCard));
-          // Dark cards carry a 1 px edge inside the padding box.
-          final edge = brightness == Brightness.dark ? 1.0 : 0.0;
+          // The dark card's 1 px edge comes out of the padding (4N-2), so the
+          // offsets are the board's in both themes.
+          const edge = 0.0;
           final title = find.text(_longTitle);
           final topic = find.text(_longTopic);
           final button = tester.getRect(find.byType(WebButton));

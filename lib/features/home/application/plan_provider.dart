@@ -29,6 +29,7 @@ class PlanView {
     required this.nodes,
     required this.history,
     this.subtitle,
+    this.left,
     this.next,
     this.state = RoadmapState.planning,
   });
@@ -38,6 +39,9 @@ class PlanView {
   final List<PlanNode> nodes;
   final List<PlanHistoryEntry> history;
   final String? subtitle;
+
+  /// What Today still holds, from the remaining plan (4P-10).
+  final String? left;
   final Map<String, Object?>? next;
 }
 
@@ -241,16 +245,17 @@ final planViewProvider =
     nodes: nodes,
     history: history,
     subtitle: subtitle,
+    left: planLeftText(remaining),
     next: next,
   );
 });
 
-/// "Coming up" lists only days that have not passed: a student already in the
+/// "Coming up" lists only days after today. A student already in the
 /// review-only weeks is not told that new material stopped on a past date
-/// (3K-17).
+/// (3K-17), and today's mock is in Today, not under Coming up (4N-12).
 @visibleForTesting
 bool planMarkerComingUp(DateTime? day, DateTime today) =>
-    day != null && !day.isBefore(today);
+    day != null && day.isAfter(today);
 
 DateTime? _date(Object? value) => value == null ? null : studyDay(value);
 

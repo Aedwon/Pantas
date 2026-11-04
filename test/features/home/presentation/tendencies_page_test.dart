@@ -268,4 +268,153 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  // A new student: nothing measured yet (board Tend, option C).
+  const fresh = HowYouWork(
+    name: 'Aerol',
+    archetype: null,
+    archetypeLine: null,
+    whenYouWork: [],
+    tendencies: [
+      Tendency(
+        id: TendencyId.underPressure,
+        heading: 'Under pressure',
+        leftLabel: 'practicing',
+        rightLabel: 'under time',
+        gap: null,
+        leftFigure: null,
+        rightFigure: null,
+        sentence: null,
+        isLoss: false,
+        unlockAction: 'Finish one full length mock',
+      ),
+      Tendency(
+        id: TendencyId.howYouAnswer,
+        heading: 'How long you answer',
+        leftLabel: 'right',
+        rightLabel: 'wrong',
+        gap: null,
+        leftFigure: null,
+        rightFigure: null,
+        sentence: null,
+        isLoss: false,
+        unlockAction: '',
+      ),
+      Tendency(
+        id: TendencyId.howYouStudy,
+        heading: 'How you study',
+        leftLabel: 'reading',
+        rightLabel: 'practicing',
+        gap: null,
+        leftFigure: null,
+        rightFigure: null,
+        sentence: null,
+        isLoss: false,
+        unlockAction: '',
+      ),
+    ],
+  );
+  Future<void> pumpFresh(
+    WidgetTester tester, {
+    required bool pro,
+    required Brightness brightness,
+  }) async {
+    tester.view
+      ..physicalSize = const Size(390, 1400)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: brightness == Brightness.dark
+            ? buildDarkTheme()
+            : buildLightTheme(),
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(390, 1400),
+            disableAnimations: true,
+          ),
+          child: TendenciesPage(
+            data: fresh,
+            pro: pro,
+            paused: false,
+            onBack: () {},
+            onName: () {},
+            onPro: () {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+  }
+
+  for (final brightness in Brightness.values) {
+    testWidgets(
+        'the empty findings follow the board rhythm in one card, '
+        '$brightness (4N-5)', (tester) async {
+      await pumpFresh(tester, pro: true, brightness: brightness);
+      double top(String text) => tester.getTopLeft(find.text(text)).dy;
+      // Board Tend: 168 px from one heading to the next after the line
+      // placeholder, 200 after the two bars.
+      expect(
+        top('HOW LONG YOU ANSWER') - top('UNDER PRESSURE'),
+        closeTo(168, 1),
+      );
+      expect(
+        top('HOW YOU STUDY') - top('HOW LONG YOU ANSWER'),
+        closeTo(200, 1),
+      );
+      // "How you study" has no placeholder: 20 px under its line is the card's
+      // bottom padding, and no bars are drawn.
+      final card = tester.getRect(
+        find.byKey(const ValueKey('grouped-section-surface')),
+      );
+      final last = tester.getRect(find.text('Not enough data yet').last);
+      expect(
+        card.bottom - last.bottom,
+        closeTo(20 + (26 - last.height) / 2, 1),
+      );
+      // The card is not drawn over by the findings, so its edge shows in
+      // dark: no finding paints a surface of its own.
+      final surfaces = find.descendant(
+        of: find.byKey(const ValueKey('grouped-section-surface')),
+        matching: find.byWidgetPredicate(
+          (w) => w is Container && w.color != null,
+        ),
+      );
+      expect(surfaces, findsNothing);
+      // Board `.fnd` is an 18 px card.
+      final box = tester.widget<DecoratedBox>(
+        find.byKey(const ValueKey('grouped-section-surface')),
+      );
+      expect(
+        (box.decoration as BoxDecoration).borderRadius,
+        BorderRadius.circular(18),
+      );
+      expect(
+        (box.decoration as BoxDecoration).border != null,
+        brightness == Brightness.dark,
+      );
+    });
+
+    testWidgets(
+        'locked findings are rounded cards like the Pro one, '
+        '$brightness (4N-15)', (tester) async {
+      await pumpFresh(tester, pro: false, brightness: brightness);
+      final cards = find.byWidgetPredicate(
+        (w) =>
+            w is Container &&
+            w.decoration is BoxDecoration &&
+            (w.decoration! as BoxDecoration).borderRadius ==
+                BorderRadius.circular(18),
+      );
+      expect(cards, findsNWidgets(3));
+      // 20 px of padding from the card's outer edge, in both themes.
+      final first = tester.getRect(cards.first);
+      expect(
+        tester.getTopLeft(find.text('UNDER PRESSURE')).dx - first.left,
+        closeTo(20 + 17 + 7, .5),
+      );
+    });
+  }
 }

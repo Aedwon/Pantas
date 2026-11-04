@@ -492,13 +492,12 @@ class HomeWebNotice extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  // The hover tint is clipped to the card's own top corner, and
-                  // runs to the dismiss button.
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(16),
-                      bottomLeft: Radius.circular(expanded ? 0 : 16),
-                    ),
+                  // One pixel inside the card's own rule on its three sides, so
+                  // the keyboard ring is whole instead of half under it
+                  // (4N-7). The hover tint still reaches the rule, and runs to
+                  // the dismiss button.
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(1, 1, 0, 1),
                     child: TextButton(
                       onPressed: onToggle,
                       style: TextButton.styleFrom(
@@ -508,13 +507,17 @@ class HomeWebNotice extends StatelessWidget {
                         // card above the hover tint (3K-3).
                         visualDensity: VisualDensity.standard,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        minimumSize: const Size(0, 52),
-                        padding: const EdgeInsets.only(left: 18, right: 12),
-                        // The hover tint follows the card's own corners.
+                        minimumSize: const Size(0, 50),
+                        padding: const EdgeInsets.only(left: 17, right: 12),
+                        // The left corners follow the card's own, and the
+                        // right ones are rounded like a row's, so the ring is
+                        // a closed shape beside the dismiss button.
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
-                            topLeft: const Radius.circular(16),
-                            bottomLeft: Radius.circular(expanded ? 0 : 16),
+                            topLeft: const Radius.circular(15),
+                            bottomLeft: Radius.circular(expanded ? 0 : 15),
+                            topRight: const Radius.circular(10),
+                            bottomRight: const Radius.circular(10),
                           ),
                         ),
                       ),
@@ -627,15 +630,20 @@ class HomeWebNotice extends StatelessWidget {
                     alignment: WrapAlignment.end,
                     children: [
                       if (secondaryLabel != null)
+                        // Board `.btn3`: 16 px at the sides.
                         WebButton(
                           label: secondaryLabel!,
                           variant: WebButtonVariant.tertiary,
+                          sidePadding: 16,
                           onPressed: onSecondary,
                         ),
                       if (primaryLabel != null)
+                        // Board `.btn2`: 20 px at the sides, so "Add Exam
+                        // Date" is 156 px wide (4N-3).
                         WebButton(
                           label: primaryLabel!,
                           variant: WebButtonVariant.secondary,
+                          sidePadding: 20,
                           onPressed: onPrimary,
                         ),
                     ],

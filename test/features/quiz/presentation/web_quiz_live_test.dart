@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui' show Tristate;
 
 import 'package:flutter/material.dart';
@@ -5,8 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
@@ -15,6 +18,20 @@ import 'package:pantas/features/quiz/presentation/quiz_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import 'session_end_screen_test.dart' show completedSession;
+
+class _SlowFlags extends QuestionFlagController {
+  _SlowFlags(this.gate);
+  final Completer<void> gate;
+
+  @override
+  Future<FlagToggle> setFlagged(
+    QuestionId questionId, {
+    required bool flagged,
+  }) async {
+    await gate.future;
+    return FlagToggle.firstFlagged;
+  }
+}
 
 class _Controller extends QuizController {
   _Controller(super.ref, QuizSession session) {
@@ -717,6 +734,189 @@ void main() {
       expect(find.text('Questions'), findsOneWidget);
       expect(edge(1).width, 2);
       expect(edge(3).width, 1);
+    });
+  });
+
+  // Fourth sweep (4O): the wide question page, as it is on screen.
+  group('wide question page, fourth sweep', () {
+    late QuizSession before;
+
+    Future<void> pump(
+      WidgetTester tester, {
+      Set<String> flagged = const {},
+      QuizSession? session,
+      List<Override> extra = const [],
+      bool checkable = false,
+    }) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final completed = completedSession(batch: true);
+      before = session ??
+          completed.copyWith(
+            currentIndex: 3,
+            outcomes: completed.outcomes.take(3).toList(),
+          );
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            flaggedIdsProvider.overrideWith((_) async => flagged),
+            quizControllerProvider.overrideWith(
+              (ref) => _Controller(ref, before)
+                ..afterCheck = checkable
+                    ? before.copyWith(
+                        outcomes: completed.outcomes.take(4).toList(),
+                      )
+                    : null,
+            ),
+            ...extra,
+          ],
+          child: MaterialApp(
+            theme: buildDarkTheme(web: true),
+            home: const QuizPage(examId: 'e', proIsActive: false),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('4O-1: the title is centered on the page', (tester) async {
+      await pump(tester);
+      final title = tester.getCenter(find.text('Reviews · Session 1 of 2'));
+      expect(title.dx, closeTo(720, .5));
+    });
+
+    testWidgets('4O-4: each answer takes one Tab stop', (tester) async {
+      await pump(tester);
+      final stops = <FocusNode>[];
+      for (var i = 0; i < 30; i++) {
+        await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+        await tester.pump();
+        final focused = FocusManager.instance.primaryFocus!;
+        if (stops.contains(focused)) break;
+        stops.add(focused);
+      }
+      final onChoice = [
+        for (final node in stops)
+          if (node.context?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+              null)
+            node.rect.topLeft,
+      ];
+      expect(onChoice, hasLength(2));
+      expect(
+        onChoice.toSet().length,
+        onChoice.length,
+        reason: 'a choice was visited twice: $onChoice',
+      );
+    });
+
+    testWidgets('4O-6: the grid opens whole over the flag toast',
+        (tester) async {
+      await pump(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('Flagged. Find it in the Quiz tab.'), findsOneWidget);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      expect(find.text('Questions'), findsOneWidget);
+      expect(find.text('Flagged. Find it in the Quiz tab.'), findsNothing);
+      expect(
+        find.text('Click any answered question to go back to it.'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('4O-6: a grid opened before the toast appears keeps the spot',
+        (tester) async {
+      await pump(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pumpAndSettle();
+      expect(find.text('Questions'), findsOneWidget);
+      expect(find.text('Flagged. Find it in the Quiz tab.'), findsNothing);
+    });
+
+    testWidgets('4O-7: a flagged question is marked in the grid',
+        (tester) async {
+      await pump(tester, flagged: {'q1'});
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      Finder mark(int n) => find.descendant(
+            of: find.byKey(ValueKey('web-grid-question-$n')),
+            matching: find.byKey(const ValueKey('web-grid-flag')),
+          );
+      expect(mark(1), findsOneWidget);
+      expect(mark(0), findsNothing);
+      expect(mark(2), findsNothing);
+      // Inside the cell, so the grid does not cut it.
+      final cell =
+          tester.getRect(find.byKey(const ValueKey('web-grid-question-1')));
+      expect(cell.contains(tester.getCenter(mark(1))), isTrue);
+    });
+
+    testWidgets('4O-12: the next question opens with no choice focused',
+        (tester) async {
+      await pump(tester, checkable: true);
+      final wrong = find.text('Wrong').last;
+      await tester.tap(wrong);
+      Focus.of(tester.element(wrong)).requestFocus();
+      await tester.pump();
+      FocusNode? focused() => FocusManager.instance.primaryFocus;
+      bool onChoice() =>
+          focused()
+              ?.context
+              ?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+          null;
+      expect(onChoice(), isTrue, reason: 'the clicked choice holds focus');
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(find.text('Next'), findsOneWidget);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(find.text('5 of 10'), findsOneWidget);
+      expect(onChoice(), isFalse);
+      // The page's keys still answer.
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      expect(find.text('Questions'), findsOneWidget);
+    });
+
+    testWidgets('4O-11: the flag button keeps focus while the flag saves',
+        (tester) async {
+      final gate = Completer<void>();
+      await pump(
+        tester,
+        extra: [
+          questionFlagControllerProvider.overrideWith(() => _SlowFlags(gate)),
+        ],
+      );
+      final flag = find.byTooltip('Flag question');
+      // The button's own focus node, one level inside the tooltip.
+      Focus.of(
+        tester.element(
+          find.descendant(of: flag, matching: find.byType(WebFlagIcon)),
+        ),
+      ).requestFocus();
+      await tester.pump();
+      final held = FocusManager.instance.primaryFocus;
+      expect(
+        held?.context?.findAncestorWidgetOfExactType<IconButton>(),
+        isNotNull,
+      );
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump(const Duration(milliseconds: 50));
+      // Saving: the button is busy, and the ring has not moved.
+      expect(FocusManager.instance.primaryFocus, held);
+      gate.complete();
+      await tester.pumpAndSettle();
+      expect(FocusManager.instance.primaryFocus, held);
     });
   });
 }

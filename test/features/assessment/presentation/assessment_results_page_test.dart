@@ -146,6 +146,11 @@ void main() {
     expect(find.text('50%'), findsOneWidget);
     expect(find.text('Vocabulary'), findsOneWidget);
     expect(find.text('WEAKEST TOPIC'), findsOneWidget);
+    expect(find.textContaining('lowest score in this check'), findsOneWidget);
+    expect(find.text('It changes as you study.'), findsOneWidget);
+    expect(find.textContaining('your weakest topic'), findsNothing);
+    // The plan does not start with this topic, so no "Today" tag claims it.
+    expect(find.text('Today'), findsNothing);
     expect(find.text('in 24 minutes'), findsNothing);
   });
   testWidgets('the ring counts only the subjects the rows show',
@@ -345,9 +350,9 @@ TopicMastery _mastery(String id, int correct, int total, int ordering) =>
     );
 
 void weakestTopicTests() {
-  // The plan card says "<subject> · your weakest topic". With two questions a
-  // topic, many topics tie at zero, so it must not name one from the
-  // strongest subject when a weaker subject has a topic at the same score.
+  // The plan card says "<subject> · lowest score in this check". With two
+  // questions a topic, many topics tie at zero, so it must not name one from
+  // the strongest subject when a weaker subject has a topic at the same score.
   group('the topic the plan card names as weakest', () {
     const subjects = [
       (name: 'General Information', correct: 1, total: 8),

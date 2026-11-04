@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
@@ -24,10 +26,12 @@ class OnboardingWelcomeStep extends StatelessWidget {
             includeRepeats: false,
           ): onAdvance,
         },
-        child: Focus(
-          autofocus: true,
+        child: KeyFocusKeeper(
+          skipTraversal: true,
           child: Material(
-            color: t.colors.surface,
+            // Pick B (Nov 5): the splash, this step and the first frame
+            // after it share the app background.
+            color: t.colors.background,
             child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -70,7 +74,7 @@ class OnboardingWelcomeStep extends StatelessWidget {
       );
     }
     return ColoredBox(
-      color: context.colors.surface,
+      color: context.colors.background,
       child: SafeArea(
         // From 600 px the phone layout sits in the 640 px column the other
         // pages use, so the button does not run the width of a tablet.
@@ -149,7 +153,9 @@ class _WelcomePopState extends State<_WelcomePop>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (MediaQuery.disableAnimationsOf(context)) {
+    // A page that began from the splash already showed the logo's pop. This
+    // step then sits settled under the fading splash, with no second pop.
+    if (MediaQuery.disableAnimationsOf(context) || pageBeganFromSplash()) {
       _controller.value = 1;
     } else if (!_started) {
       _started = true;
@@ -233,7 +239,7 @@ class _OnboardingLaunchStepState extends State<OnboardingLaunchStep>
 
   @override
   Widget build(BuildContext context) => ColoredBox(
-        color: context.colors.surface,
+        color: context.colors.background,
         child: SafeArea(
           child: Center(
             child: AnimatedBuilder(

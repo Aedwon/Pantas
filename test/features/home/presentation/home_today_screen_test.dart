@@ -300,6 +300,12 @@ void main() {
       tester.getTopLeft(time).dx - tester.getTopRight(row).dx,
       lessThan(16),
     );
+    // A title too long for the line is read in full, not cut with dots (the
+    // Nov 3 rule, 3K-4 again).
+    final text = tester.widget<Text>(row);
+    expect(text.maxLines, isNull);
+    expect(text.overflow, isNot(TextOverflow.ellipsis));
+    expect(tester.getSize(row).height, greaterThan(24));
   });
   testWidgets(
       'wide drawer rows wrap a long title instead of ending in dots '

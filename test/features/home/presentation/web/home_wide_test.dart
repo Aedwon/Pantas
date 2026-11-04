@@ -680,7 +680,7 @@ void additionalTests() {
       expect(tester.takeException(), isNull);
     });
     for (final notice in <(String, String?, String?)>[
-      ('Pro trial ends in 2 days', 'You won’t be charged.', 'See Pro'),
+      ('Pro trial ends in 2 days', "You won't be charged.", 'See Pro'),
       (
         "You're in. Welcome to Pro.",
         'Topics, lessons and your tendencies are open now.',

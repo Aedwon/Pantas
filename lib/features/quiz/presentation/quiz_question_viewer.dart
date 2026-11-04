@@ -197,6 +197,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
         },
         child: KeyFocusKeeper(
           focusNode: _webFocus,
+          skipTraversal: true,
           child: Scaffold(
             backgroundColor: t.colors.background,
             body: Column(

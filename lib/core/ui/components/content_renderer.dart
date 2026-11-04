@@ -1378,6 +1378,10 @@ class _FigureFrame extends StatelessWidget {
     this.followTheme = false,
     this.labelViewer = false,
   });
+
+  /// Height of the strip above a phone figure that holds the expand button.
+  static const _expandStrip = 40.0;
+
   final bool reader;
   final bool imageSemantics;
   final bool expandable;
@@ -1474,9 +1478,15 @@ class _FigureFrame extends StatelessWidget {
                 children: [
                   Container(
                     width: reader && context.wideWeb ? double.infinity : null,
+                    // The expand button sits in the frame's top-right corner.
+                    // Wide web keeps it in the 22 px padding; on a phone the
+                    // frame has none, so the button gets a strip of its own
+                    // and never lands on a label of the figure.
                     padding: reader && context.wideWeb
                         ? const EdgeInsets.all(22)
-                        : null,
+                        : expandable
+                            ? const EdgeInsets.only(top: _expandStrip)
+                            : null,
                     alignment:
                         reader && context.wideWeb ? Alignment.center : null,
                     color: followTheme

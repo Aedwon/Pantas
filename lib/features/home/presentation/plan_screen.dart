@@ -117,12 +117,20 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
       return HomeTodayScreen(
         examId: exam.id,
         onSetDate: () => unawaited(context.push<void>('/settings')),
-        pageBuilder: (today, _) => PantasPage(
-          title: 'Your plan',
-          backLabel: 'Home',
-          onBack: () => _back(context),
-          children: [today],
-        ),
+        pageBuilder: (today, _) => context.wideWeb
+            // The same frame as the Plan page, so the page starts at the
+            // shared left edge (4N-10).
+            ? PlanWebFrame(
+                title: 'Your plan',
+                onBack: () => _back(context),
+                child: today,
+              )
+            : PantasPage(
+                title: 'Your plan',
+                backLabel: 'Home',
+                onBack: () => _back(context),
+                children: [today],
+              ),
       );
     }
     firstScreenReady(context, ref);
@@ -139,6 +147,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
       history: view.history,
       initialShown: _limit,
       subtitle: view.subtitle,
+      left: view.left,
       hasMore: view.next != null,
       loadingMore: _displayLimit != _limit,
       paginationError: value.hasError && !holding
@@ -369,12 +378,28 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
     if (view.kind == 'today') {
       return HomeTodayScreen(
         examId: examId,
-        pageBuilder: (today, _) => PantasPage(
-          title: 'Today',
-          backLabel: widget.backLabel,
-          onBack: () => _back(context),
-          children: [today],
-        ),
+        noteTopGap: 0,
+        pageBuilder: (today, data) => context.wideWeb
+            ? PlanWebFrame(
+                title: 'Today',
+                backLabel: widget.backLabel,
+                onBack: () => _back(context),
+                child: today,
+              )
+            : PantasPage(
+                title: 'Today',
+                backLabel: widget.backLabel,
+                onBack: () => _back(context),
+                // The day's note sits under the title as the Plan page's
+                // subtitle does, 2 px below it (4N-14).
+                titlePadding: EdgeInsets.fromLTRB(
+                  4,
+                  0,
+                  4,
+                  data != null && homeDayNoteLabel(data) != null ? 2 : 20,
+                ),
+                children: [today],
+              ),
       );
     }
     final plan = view.plan!;

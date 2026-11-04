@@ -203,7 +203,7 @@ void main() {
         viewportSize: wide ? const Size(1440, 900) : const Size(390, 844),
       );
       await tester.pumpAndSettle();
-      expect(find.text('Sunday, March 14, 2027'), findsOneWidget);
+      expect(find.text('Sunday, March 14,\u00A02027'), findsOneWidget);
       expect(find.text('Sunday, 14 March 2027'), findsNothing);
       await tester.pumpWidget(const SizedBox.shrink());
     });

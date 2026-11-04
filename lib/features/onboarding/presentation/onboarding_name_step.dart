@@ -27,6 +27,7 @@ class OnboardingNameStep extends ConsumerStatefulWidget {
 
 class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
   final _controller = TextEditingController();
+  final _focus = FocusNode();
   bool _saving = false;
   bool _failed = false;
   bool _loadFailed = false;
@@ -54,6 +55,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
 
   @override
   void dispose() {
+    _focus.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -84,6 +86,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
         detail:
             "We'll use this to greet you across the app. A nickname is fine.",
         progress: 6,
+        focusTarget: _focus,
         onBack: () {
           _generation++;
           widget.onBack?.call();
@@ -109,6 +112,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
           else
             OnboardingNameField(
               controller: _controller,
+              focusNode: _focus,
               label: 'Name',
               onChanged: (_) => setState(() {}),
               onSubmitted: (_) => _save(),

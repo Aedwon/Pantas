@@ -131,6 +131,63 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
     expect(pressed, 1, reason: 'the page has its keys again once it is on top');
   });
+  testWidgets('it claims focus once a page that was built excluded opens',
+      (tester) async {
+    // A step sliding in sits under ExcludeFocus, so its autofocus is dropped.
+    // No focus change follows, so only asking again each frame can find it.
+    var excluded = true;
+    late StateSetter set;
+    pressed = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: CallbackShortcuts(
+            bindings: {
+              const SingleActivator(LogicalKeyboardKey.keyG): () => pressed++,
+            },
+            child: StatefulBuilder(
+              builder: (context, setState) {
+                set = setState;
+                return ExcludeFocus(
+                  excluding: excluded,
+                  child: const KeyFocusKeeper(child: Text('page')),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+    await settle(tester);
+    await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+    expect(pressed, 0, reason: 'excluded, so nothing can hold the keys yet');
+    set(() => excluded = false);
+    await settle(tester);
+    await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+    expect(pressed, 1);
+  });
+
+  testWidgets('it prefers a field inside the page when it claims focus',
+      (tester) async {
+    final field = FocusNode();
+    addTearDown(field.dispose);
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: KeyFocusKeeper(
+            preferred: field,
+            child: TextField(focusNode: field),
+          ),
+        ),
+      ),
+    );
+    await settle(tester);
+    expect(field.hasPrimaryFocus, isTrue);
+    FocusManager.instance.primaryFocus?.unfocus();
+    await settle(tester);
+    expect(field.hasPrimaryFocus, isTrue, reason: 'back on the field');
+  });
+
   group('EnterShortcut', () {
     var page = 0;
     var button = 0;

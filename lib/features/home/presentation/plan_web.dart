@@ -242,9 +242,7 @@ class PlanWebColumns extends StatelessWidget {
                     child: WebRow(
                       boardMetrics: true,
                       title: '${page.done} of ${page.total} done',
-                      subtitle: page.done == page.total
-                          ? null
-                          : 'Reviews and new questions left',
+                      subtitle: page.done == page.total ? null : page.left,
                       leading: ProgressRing(
                         fraction: page.total == 0 ? 0 : page.done / page.total,
                         size: 26,

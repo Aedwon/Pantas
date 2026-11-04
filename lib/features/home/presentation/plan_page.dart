@@ -134,6 +134,7 @@ class PlanPage extends StatefulWidget {
     required this.onWeek,
     required this.onPro,
     this.subtitle,
+    this.left,
     this.webPane,
     this.selectedWeek,
     this.onHistory,
@@ -154,6 +155,7 @@ class PlanPage extends StatefulWidget {
   final List<PlanNode> nodes;
   final List<PlanHistoryEntry> history;
   final String? subtitle;
+  final String? left;
   final int initialShown;
   final bool loadingMore;
   final Widget? paginationError;
@@ -260,12 +262,12 @@ class _PlanPageState extends State<PlanPage> {
                   style:
                       context.type.body.copyWith(fontWeight: FontWeight.w600),
                 ),
-                footer: widget.done == widget.total
+                footer: widget.done == widget.total || widget.left == null
                     ? null
                     : Padding(
                         padding: const EdgeInsets.only(top: 1),
                         child: Text(
-                          'Reviews and new questions left',
+                          widget.left!,
                           style: context.type.footnote,
                         ),
                       ),

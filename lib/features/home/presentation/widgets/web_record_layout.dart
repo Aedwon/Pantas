@@ -38,22 +38,11 @@ class WebMyPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      // The same back link as Plan and Performance, so the
+                      // arrow stands at the same x on every page (4N-11).
                       Padding(
                         padding: const EdgeInsets.only(top: 4),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: TextButton.icon(
-                            onPressed: onBack,
-                            icon: const Icon(Icons.chevron_left, size: 20),
-                            label: const Text('Home'),
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              minimumSize: const Size(0, 40),
-                              foregroundColor: context.webTokens.colors.accent,
-                              textStyle: context.webTokens.style(17),
-                            ),
-                          ),
-                        ),
+                        child: WebBackLink(label: 'Home', onPressed: onBack),
                       ),
                       const SizedBox(height: 10),
                       WebText(title, kind: WebTextKind.h1),
