@@ -13,29 +13,33 @@ isActive: true
 
 Protons carry positive charge. Electrons carry negative charge. Like charges repel and opposite charges attract.
 
-Charge is conserved: it is never created or destroyed, only moved from one place to another. The unit is the coulomb ($\mathrm{C}$).
+An object with equal positive and negative charge is **neutral**.
+
+Total charge is conserved: charge moves from place to place, but the total stays the same. The unit is the coulomb ($\mathrm{C}$).
 
 In a **conductor**, such as metal, charge moves easily. In an **insulator**, such as rubber, it does not.
 
-An object can be charged in three ways. In solids, only electrons move, because the protons stay fixed in the atoms.
+An object can be charged in three ways. In ordinary solids, the electrons move, because the protons stay fixed in the atoms.
 
 - **Friction:** rubbing moves electrons from one material to the other. The material that gains electrons becomes negative. The other becomes positive.
 - **Contact:** a charged object touches a neutral one and shares its charge. Both end with the same sign.
-- **Induction:** a charged rod comes near a neutral conductor without touching. While the rod is near, the conductor must be able to send electrons to or from another conductor. That other conductor can be the ground, or a second neutral conductor that touches it and is then separated.
+- **Induction:** a charged rod comes near a neutral conductor without touching. While the rod is near, the conductor must be able to send electrons to or from another conductor. That other conductor can be the ground (the Earth, which can take or give many electrons), or a second neutral conductor that touches it and is then separated.
 
 Here is how charging by induction works. Say a negative rod comes near a neutral metal ball. Electrons in the ball are pushed away to the far side, so the near side is positive.
 
 Now touch the ball to the ground. Electrons flow away from the ball into the ground. Remove the ground connection first, then the rod. The ball is left with a net positive charge, the opposite of the rod's charge.
 
-You can also use two neutral metal spheres that touch. The negative rod pushes electrons to the far sphere. Separate the spheres while the rod is still near, then remove the rod. The near sphere is left positive and the far sphere negative.
+You can also use two neutral metal spheres that touch. The negative rod pushes electrons to the far sphere.
+
+Separate the spheres while the rod is still near, then remove the rod. The near sphere is left positive and the far sphere negative.
 
 If a single ball has no path for electrons to leave, it only shifts its charges. This is called polarization. The ball is still neutral overall, but its near side is closer to the rod, so the rod attracts it.
 
-This is why a charged rod can pick up bits of neutral paper.
+This is why a charged rod can pick up bits of neutral paper. Paper is an insulator, but its atoms still shift.
 
 ### Coulomb's Law and Electric Fields
 
-For two tiny charges, the size of the electric force is
+For two point charges (charges so small that their size does not matter), the size of the electric force is
 
 $$F=k\dfrac{|q_1q_2|}{r^2}$$
 
@@ -43,23 +47,23 @@ Here $r$ is the distance between the charges, and $k\approx9\times10^{9}\ \mathr
 
 Double the distance and the force becomes one fourth.
 
-An **electric field** is the force on each unit of positive test charge:
+An **electric field** is the force on each unit of a tiny positive test charge:
 
 $$E=\dfrac{F}{q}$$
 
-Its unit is $\mathrm{N/C}$. It points the way a positive charge would be pushed: away from positive charges and toward negative ones. A point charge $Q$ makes a field $E=k\dfrac{|Q|}{r^2}$.
+Its unit is $\mathrm{N/C}$, where the newton ($\mathrm{N}$) is the unit of force. It points the way a positive charge would be pushed: away from positive charges and toward negative ones. A point charge $Q$ makes a field $E=k\dfrac{|Q|}{r^2}$.
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"electric-field-pairs","illustrationKey":"science/physics/electricity-and-magnetism#1","cases":[{"charges":["positive","positive"],"fieldLines":"point away from each","force":"repel"},{"charges":["positive","negative"],"fieldLines":"connect positive to negative","force":"attract"}]} -->
 
 ### Current, Voltage, and Resistance
 
-**Current** is the flow of charge. It is the charge $Q$ that passes a point each second: $I=\dfrac{Q}{t}$. Its unit is the ampere, $1\ \mathrm{A}=1\ \mathrm{C/s}$.
+**Current** is the flow of charge. For a steady flow, it is the charge $Q$ that passes a point each second: $I=\dfrac{Q}{t}$. Its unit is the ampere, $1\ \mathrm{A}=1\ \mathrm{C/s}$.
 
-By convention, current points the way positive charge would flow, from the positive terminal around the circuit to the negative one. In a metal wire, the electrons really move the other way.
+By convention, current points the way positive charge would flow, from the positive terminal (where a wire joins the battery) around the circuit to the negative one. This is called **conventional current**. In a metal wire, the electrons really move the other way.
 
-**Voltage**, or potential difference, is the energy for each coulomb of charge: $V=\dfrac{W}{q}$. Its unit is the volt, $1\ \mathrm{V}=1\ \mathrm{J/C}$.
+**Voltage**, or potential difference, is the energy for each coulomb of charge: $V=\dfrac{W}{q}$. Its unit is the volt, $1\ \mathrm{V}=1\ \mathrm{J/C}$, where the joule ($\mathrm{J}$) is the unit of energy.
 
-A battery gives each coulomb energy, so the battery supplies voltage. A resistor changes that energy to heat or light, so the voltage drops across it.
+A battery gives each coulomb energy, so the battery supplies voltage. Here, a battery keeps the same voltage whatever the current. A resistor changes that energy to heat or light, so the voltage drops across it.
 
 **Resistance** $R$ measures how strongly a part opposes current. Its unit is the ohm ($\Omega$). For an **ohmic** part, whose resistance stays constant, **Ohm's law** applies:
 
@@ -79,11 +83,11 @@ Parts in **parallel** are on separate branches. Each branch has the same voltage
 
 $$\dfrac{1}{R_{eq}}=\dfrac{1}{R_1}+\dfrac{1}{R_2}+\cdots$$
 
-With two or more branches, the equivalent resistance of a parallel set is smaller than the smallest branch. More branches give the current more paths.
+With two or more branches that all have resistance above $0$, the equivalent resistance of a parallel set is smaller than the smallest branch. More branches give the current more paths.
 
 <!-- FIGURE: {"kind":"physics-energy-diagram","type":"series-parallel-circuit","illustrationKey":"science/physics/electricity-and-magnetism#2","bulbsPerCircuit":2,"seriesPath":"single loop one after another","parallelPath":"separate side-by-side branches","batteryShown":true} -->
 
-If one part of a series circuit fails open, the only path is broken and current stops everywhere. If one branch of a parallel circuit fails open, the other branches still work, because each has its own path to the source.
+If one part of a series circuit fails open (breaks, leaving a gap), the only path is broken and current stops everywhere. If one branch of a parallel circuit fails open, the other branches still work, because each has its own path to the source.
 
 ### Electric Power, Energy, and Safety
 
@@ -91,35 +95,41 @@ If one part of a series circuit fails open, the only path is broken and current 
 
 $$P=IV$$
 
-Energy is $E=Pt$. Utility bills use the kilowatt-hour ($\mathrm{kWh}$), the energy used by $1$ kW in $1$ hour. **Efficiency** is the useful energy out divided by the energy in, times $100\%$.
+For steady power, the energy used is $W=Pt$. Utility bills use the kilowatt-hour ($\mathrm{kWh}$), the energy used by $1$ kW in $1$ hour. One kilowatt is $1{,}000$ W. **Efficiency** is the useful energy out divided by the energy in, times $100\%$.
 
-A large current heats the wires, and hot wires can start a fire. A **fuse** or circuit breaker opens the circuit when the current is too large. The appliances in a home are in parallel on the same line, so adding appliances adds their currents. A **short circuit** is a path with very low resistance, so the current is very large. A ground wire gives stray current a safe path.
+A large current heats the wires, and hot wires can start a fire. A **fuse** or circuit breaker opens the circuit when the current is too large.
+
+The appliances in a home are in parallel on the same line. When they are on, adding appliances adds their currents.
+
+A **short circuit** is a path with very low resistance, so the current is very large. A ground wire gives stray current a safe path.
 
 ### Magnetism and Electromagnetism
 
-Magnets have north and south poles. Like poles repel and unlike poles attract. A pole cannot be cut off alone, because a broken magnet gives two magnets, each with two poles.
+Magnets have north and south poles. Like poles repel and unlike poles attract. Breaking a magnet does not give a single pole. Each piece has two poles.
 
-A current makes a magnetic field. Around a long straight wire, point your right thumb along the conventional current. Your curled fingers show the field direction.
+A current makes a **magnetic field**, the space where magnets and currents feel forces. Around a long straight wire, point your right thumb along the conventional current. Your curled fingers show the field direction.
 
 A coil of wire (a loop) uses the same hand in a different way. Curl your right fingers around the loop the way the current goes. Your thumb shows the way the field points through the loop.
 
 The face of the loop where the field comes out acts as a north pole. The other face acts as a south pole.
 
-The field strength is $B$. Its unit is the tesla ($\mathrm{T}$). One tesla is one newton per ampere per meter, $1\ \mathrm{T}=1\ \mathrm{N/(A\cdot m)}$.
+The field strength is $B$. Its unit is the tesla ($\mathrm{T}$). One tesla pushes with $1$ N on each meter of wire that carries $1$ A at a right angle to the field: $1\ \mathrm{T}=1\ \mathrm{N/(A\cdot m)}$.
 
 **Magnetic flux** is the amount of magnetic field passing through a loop:
 
 $$\Phi=BA\cos\theta$$
 
-Here $A$ is the loop area. The angle $\theta$ is between the field and the line perpendicular to the loop. The unit is the weber, and $1\ \mathrm{Wb}=1\ \mathrm{T\cdot m^2}$.
+Here $A$ is the loop area. The angle $\theta$ is between the field and the line perpendicular (at a right angle) to the loop. The unit is the weber, and $1\ \mathrm{Wb}=1\ \mathrm{T\cdot m^2}$.
 
 This works for a flat loop in an even field. Flux is largest when the field is perpendicular to the loop ($\theta=0^\circ$). It is zero when the field runs along the loop ($\theta=90^\circ$).
+
+The **cosine** ($\cos$) of an angle is a number that depends on the angle. From $0^\circ$ to $90^\circ$, it falls from $\cos0^\circ=1$ to $\cos90^\circ=0$. At $\theta=0^\circ$, then, $\Phi=BA$.
 
 An **emf** (electromotive force) is a voltage made by a source, in volts. A battery has an emf.
 
 Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging by induction above.
 
-**Faraday's law** says a change in flux over time induces an emf in a loop of $N$ turns:
+**Faraday's law** says a change in flux over time induces an emf in a loop of $N$ turns (the wire goes around $N$ times):
 
 $$\mathcal{E}=-N\dfrac{\Delta\Phi}{\Delta t}$$
 
@@ -133,11 +143,13 @@ An emf appears even in an open loop. Current flows only if the loop is a closed 
 
 A wire with current in a magnetic field feels a force. The force is greatest when the wire is perpendicular to the field. It is zero when the wire is parallel to the field.
 
-A **motor** uses this force to turn. A coil sits in a magnetic field. The current goes opposite ways in the two sides of the coil, so the two forces are opposite and the coil turns. The motor changes electrical energy to motion.
+A **motor** uses this force to turn. A coil sits in a magnetic field. The current goes opposite ways in the two sides of the coil, so the two forces are opposite and the coil turns.
 
-The motor must reverse the current every half turn to keep the coil turning the same way.
+A motor changes electrical energy mostly to motion, and some to heat. A simple direct-current motor must reverse the current every half turn to keep the coil turning the same way.
 
-A **generator** does the reverse. Something turns a coil in a magnetic field. The angle $\theta$ keeps changing, so the flux keeps changing and the coil makes an emf. A generator changes motion to electrical energy.
+A **generator** does the reverse. Something turns a coil in a magnetic field, about an axis across the field. The angle $\theta$ keeps changing, so the flux keeps changing and the coil makes an emf.
+
+A generator changes motion to electrical energy.
 
 ## Examples
 
@@ -251,12 +263,12 @@ $$I=\dfrac{12}{4}=3\ \mathrm{A}$$
 
 Two bulbs are in series. In a separate circuit, two bulbs are in parallel. One bulb fails open in each circuit. What happens to the other bulb?
 
-<!-- FIGURE: {"kind":"physics-energy-diagram","type":"circuit-failure","illustrationKey":"science/physics/electricity-and-magnetism#4","seriesOutcome":"other bulb goes dark","parallelOutcome":"other bulb stays lit","burnedOutBulbsPerCircuit":1} -->
-
 **Solution:**
 
 1. Series: the failed bulb breaks the only path, so the other bulb goes dark.
 2. Parallel: the other branch is still a complete path, so its bulb stays lit.
+
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"circuit-failure","illustrationKey":"science/physics/electricity-and-magnetism#4","seriesOutcome":"other bulb goes dark","parallelOutcome":"other bulb stays lit","burnedOutBulbsPerCircuit":1} -->
 
 ### #10: Power, Energy, and Efficiency
 
@@ -270,7 +282,7 @@ $$I=\dfrac{P}{V}=\dfrac{1100}{220}=5.0\ \mathrm{A}$$
 
 2. Energy, with $1{,}100$ W $=1.1$ kW:
 
-$$E=Pt=(1.1\ \mathrm{kW})(3\ \mathrm{h})=3.3\ \mathrm{kWh}$$
+$$W=Pt=(1.1\ \mathrm{kW})(3\ \mathrm{h})=3.3\ \mathrm{kWh}$$
 
 3. Efficiency:
 
@@ -316,7 +328,7 @@ The north pole of a bar magnet moves toward a closed loop. Which way does the in
 
 A coil spins in a magnetic field and lights a bulb. Why is there an emf?
 
-<!-- ILLUSTRATION: A rectangular coil between a north and a south magnet pole, shown at three angles, 0 degrees, 45 degrees and 90 degrees to the field, with the label "flux changes as the coil turns" and a bulb connected to the coil -->
+<!-- ILLUSTRATION: A rectangular coil between a north and a south magnet pole, shown at three angles, 0 degrees, 45 degrees and 90 degrees to the field and a bulb connected to the coil -->
 
 **Solution:**
 
@@ -379,9 +391,9 @@ Doubling the distance cuts the force to one fourth, not one half.
 
 ### #2: Treating Ohm's Law as Universal
 
-> Only ohmic parts have a constant $R$.
+> Ohm's law with one constant $R$ fits only ohmic parts.
 
-A bulb filament and a diode are examples. For these, $R=\dfrac{V}{I}$ still gives the resistance at one moment, but it changes.
+A bulb filament and a diode are examples. For these, $R=\dfrac{V}{I}$ still gives the resistance at one moment, but it changes as the current changes.
 
 ### #3: Adding Parallel Resistances Directly
 

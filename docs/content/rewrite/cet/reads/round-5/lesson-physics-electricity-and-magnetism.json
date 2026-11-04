@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-physics-electricity-and-magnetism",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L22a", "severity": "Minor", "quote": "Utility bills use the kilowatt-hour ($\\mathrm{kWh}$), the energy used by $1$ kW in $1$ hour. One kilowatt is $1{,}000$ W.", "problem": "This paragraph, edited this round, has four sentences, and the limit is one to three short sentences. Two other paragraphs also have four: the magnet paragraph edited this round ('Magnets have north and south poles. ... Each piece has two poles.') and the grounding paragraph that starts 'Now touch the ball to the ground.' Earlier rounds did not raise these three. Writer rule 5 requires fixing a Minor in edited text.", "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules; writer-rules.md rules added after round 1, rule 5"}
+  ],
+  "goodQuotesChecked": 1
+}
