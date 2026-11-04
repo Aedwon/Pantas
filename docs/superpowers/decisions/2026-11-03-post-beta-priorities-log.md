@@ -124,3 +124,9 @@ Mac session. The Dart question import check and the content export build both ex
 Aedwon: "no codex use. possible? and why is codex essential here"; "please don't parallelize so much because you have limited usage"; "is your recommendation what we've been doing before?"; "why two more rounds this time?"; "okay proceed".
 
 Result: one Opus read per lesson, one at a time. All 18 stay open: the round-3 fixes held in 17, but each read found new Blockers or Majors, six of them added by the fixes (one from the lead's own wording). Counts unchanged: 9 clean, 50 minor, 18 open. Details and options for the final review: `docs/content/rewrite/cet/final-run-report.md` on the branch (head 4b3a6f7b5).
+
+## November 5: rework of the open CET lessons
+
+After round 4 left all 18 open, the lead offered: one careful rework per lesson then one read (recommended), leave them for the Astra audit, or leave them for the final review. Aedwon: "proceed as you recommend. wdym by that other question?" The other question was about moving on to exam tags (P4); his November 4 instruction ("proceed just before the astra audit") already covers it.
+
+Result: 6 of 18 closed (2 clean, 4 minor); 12 stay open with round-5 findings, mostly narrow exceptions to general statements, about half introduced by the rework's own wording. Counts: 11 clean, 54 minor, 12 open. Branch head bd1c8cc10. Next: exam tags.
