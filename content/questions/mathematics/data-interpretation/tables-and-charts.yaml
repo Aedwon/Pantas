@@ -160,19 +160,19 @@ questions:
 
       In pesos, by how much does Q4 Tax revenue exceed Q1 Tax revenue?
     choices:
-      - text: '$7000000$ pesos'
+      - text: '$7,000,000$ pesos'
         correct: true
-      - text: '$5000000$ pesos'
+      - text: '$5,000,000$ pesos'
         rationale: |
           This compares Property rather than Tax. Property also rises over these quarters. Check the requested revenue heading.
-      - text: '$3000000$ pesos'
+      - text: '$3,000,000$ pesos'
         rationale: |
           This compares Licenses rather than Tax. Licenses also rises over these quarters. Check the requested revenue heading.
-      - text: '$35000000$ pesos'
+      - text: '$35,000,000$ pesos'
         rationale: |
           This adds the two Tax amounts instead of finding their difference. Both Tax entries are relevant. Check whether the question asks for a difference.
     explanation: |
-      The Tax values are $21$ and $14$ million pesos. The difference is $21-14=7$ million pesos. Convert the unit: $7(1000000)=7000000$ pesos.
+      The Tax values are $21$ and $14$ million pesos. The difference is $21-14=7$ million pesos. Convert the unit: $7(1,000,000)=7,000,000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0007
     type: word-problem

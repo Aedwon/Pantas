@@ -28,7 +28,7 @@ A **comet** is a small body rich in ices and dust. When a comet approaches the S
 These words describe related but distinct things:
 
 - A **meteoroid** is a relatively small natural rock or particle traveling through interplanetary space, often originating from an asteroid or comet.
-- A **meteor** is the visible atmospheric phenomenon—the streak of light and related effects—produced when a meteoroid enters an atmosphere at high speed.
+- A **meteor** is the visible atmospheric phenomenon, the streak of light and related effects, produced when a meteoroid enters an atmosphere at high speed.
 - A **meteorite** is material from the incoming object that survives atmospheric passage and reaches the ground.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"away from Sun"} -->

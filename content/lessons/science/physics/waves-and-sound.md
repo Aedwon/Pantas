@@ -33,7 +33,7 @@ A **mechanical wave** is a disturbance that propagates through matter. Sound in 
 
 An **electromagnetic wave** is a propagating disturbance of electric and magnetic fields. It does **not** require a material medium and can travel through vacuum. Radio waves, visible light, X-rays, and gamma rays are electromagnetic waves.
 
-For mechanical waves, classification as **transverse** or **longitudinal** refers to the direction of the medium's disturbance compared with the propagation direction. In a transverse wave, the disturbance is perpendicular to the direction of travel; in a longitudinal wave, it is parallel. Sound in fluids is longitudinal. Waves in solids can include both longitudinal and transverse modes. Electromagnetic waves are transverse in the sense that their electric and magnetic fields oscillate perpendicular to the direction of propagation—not because particles of a medium move sideways.
+For mechanical waves, classification as **transverse** or **longitudinal** refers to the direction of the medium's disturbance compared with the propagation direction. In a transverse wave, the disturbance is perpendicular to the direction of travel; in a longitudinal wave, it is parallel. Sound in fluids is longitudinal. Waves in solids can include both longitudinal and transverse modes. Electromagnetic waves are transverse in the sense that their electric and magnetic fields oscillate perpendicular to the direction of propagation, not because particles of a medium move sideways.
 
 ### Sound
 

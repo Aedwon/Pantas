@@ -61,7 +61,7 @@ Common electron-group geometries:
 - 3 groups: trigonal planar, ideal $120^\circ$.
 - 4 groups: tetrahedral, ideal $109.5^\circ$.
 
-Water has four electron groups around O—two O-H bonds and two lone pairs—so its **electron-group geometry** is tetrahedral while its **molecular geometry** is bent.
+Water has four electron groups around O: two O-H bonds and two lone pairs, so its **electron-group geometry** is tetrahedral while its **molecular geometry** is bent.
 
 ## Examples
 
@@ -136,6 +136,6 @@ Use **formula unit** for their simplest composition ratio.
 
 ### #4: Counting Multiple Bonds as Multiple VSEPR Groups
 
-> One bond axis—single, double, or triple—counts as one electron-density group around the central atom.
+> One bond axis, single, double, or triple, counts as one electron-density group around the central atom.
 
 Lone pairs count as groups too.

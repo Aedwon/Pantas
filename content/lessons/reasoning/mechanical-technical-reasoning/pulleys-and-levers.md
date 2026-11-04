@@ -98,7 +98,7 @@ The shorter load arm reduces the balancing effort required.
 <!-- FIGURE: {"kind":"lever-balance","loadDistance":1,"effortDistance":5,"semanticsLabel":"The same 980 N load moved to 1 m from the fulcrum with the perpendicular effort still 5 m away; torque balance requires 196 N of effort."} -->
 ## Speed Tricks & Shortcuts
 
-**For ideal pulleys, count supporting rope segments—not pulleys.** Count the tensioned segments that directly support the moving load/block.
+**For ideal pulleys, count supporting rope segments, not pulleys.** Count the tensioned segments that directly support the moving load/block.
 
 **Keep force and mass units separate.** Kilograms are mass; newtons are force. Convert with $W=mg$ when necessary.
 

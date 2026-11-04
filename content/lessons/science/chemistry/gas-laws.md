@@ -111,7 +111,7 @@ First identify which quantities are fixed. Boyle: fixed $n,T$; Charles: fixed $n
 
 Use kelvin whenever a law relies on proportionality to temperature. Celsius does not have its zero at absolute zero, so ratios such as $V/T$ do not work with Celsius values.
 
-Use the combined law when a fixed sample changes $P,V,T$. Use $PV=nRT$ whenever one state involves $P,V,n,T$ directly—including cases where you must apply it separately to two states.
+Use the combined law when a fixed sample changes $P,V,T$. Use $PV=nRT$ whenever one state involves $P,V,n,T$ directly, including cases where you must apply it separately to two states.
 
 ## Traps to Watch For
 

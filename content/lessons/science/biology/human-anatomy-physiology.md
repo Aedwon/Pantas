@@ -25,7 +25,7 @@ Moves air and exchanges gases. Air passes through the nose/mouth, pharynx, laryn
 
 The heart and blood vessels transport blood, gases, nutrients, hormones, heat, and wastes. The heart has two atria and two ventricles. **Arteries** carry blood away from the heart; **veins** carry blood toward it; **capillaries** are major exchange sites with tissues.
 
-**Pulmonary circulation** carries blood between heart and lungs. **Systemic circulation** carries blood between heart and the rest of the body. Direction relative to the heart—not oxygen content—defines arteries and veins.
+**Pulmonary circulation** carries blood between heart and lungs. **Systemic circulation** carries blood between heart and the rest of the body. Direction relative to the heart, not oxygen content, defines arteries and veins.
 
 <!-- FIGURE: {"kind":"biology-diagram","type":"heart-circulation","illustrationKey":"science/biology/human-anatomy-physiology#1","layout":"atria-above-ventricles","chambers":["atrium","atrium","ventricle","ventricle"],"flows":[{"label":"pulmonary","destination":"lungs"},{"label":"systemic","destination":"body"}]} -->
 
@@ -33,7 +33,7 @@ The heart and blood vessels transport blood, gases, nutrients, hormones, heat, a
 
 The nervous system detects information, processes it, and coordinates responses. The **central nervous system (CNS)** comprises brain and spinal cord; the **peripheral nervous system (PNS)** includes nerves and ganglia outside the CNS.
 
-The **cerebrum** supports functions including perception, cognition, language, memory, and voluntary motor control. The **cerebellum** is important for coordination, timing, balance, and motor learning. The **brain stem** contains centers essential for functions such as breathing and cardiovascular regulation, although the heart also has its own intrinsic pacemaker and is modulated—not simply switched on—by autonomic input.
+The **cerebrum** supports functions including perception, cognition, language, memory, and voluntary motor control. The **cerebellum** is important for coordination, timing, balance, and motor learning. The **brain stem** contains centers essential for functions such as breathing and cardiovascular regulation, although the heart also has its own intrinsic pacemaker and is modulated, not simply switched on, by autonomic input.
 
 ### Endocrine System
 

@@ -38,7 +38,7 @@ A diagram shows all matter exploding outward from one location into an already e
 
 **Solution:**
 1. The Big Bang was not a conventional explosion from a center into surrounding empty space.
-2. Modern cosmology describes the universe itself—including space—as expanding from an earlier hot, dense state.
+2. Modern cosmology describes the universe itself, including space, as expanding from an earlier hot, dense state.
 3. Large-scale expansion is observed everywhere, with no identified central point of expansion in ordinary three-dimensional space.
 
 ### #2: What the CMB Tells Us

@@ -89,7 +89,7 @@ $$100\%-20\%=80\%$$
 
 2. Convert $80\%$ to $0.80$ and multiply by the original price.
 
-$$1500\times0.80=1200$$
+$$1,500\times0.80=1,200$$
 
 3. The final selling price is Php $1,200$.
 
@@ -101,11 +101,11 @@ A laptop listed at Php $30,000$ is given successive trade discounts of $20\%$ an
 
 1. Apply the first $20\%$ discount.
 
-$$30000\times0.80=24000$$
+$$30,000\times0.80=24,000$$
 
 2. Apply the $10\%$ discount to the new price.
 
-$$24000\times0.90=21600$$
+$$24,000\times0.90=21,600$$
 
 3. The net price is Php $21,600$.
 
@@ -117,11 +117,11 @@ A retailer buys a gadget for Php $1,200$ and applies a markup of $25\%$ based on
 
 1. Find the markup amount.
 
-$$1200\times0.25=300$$
+$$1,200\times0.25=300$$
 
 2. Add the markup to the cost.
 
-$$1200+300=1500$$
+$$1,200+300=1,500$$
 
 3. The listed price is Php $1,500$.
 
@@ -133,7 +133,7 @@ A salesperson earns a $6\%$ commission on Php $85,000$ in sales. How much commis
 
 1. Convert the commission rate to a decimal and multiply by sales.
 
-$$85000\times0.06=5100$$
+$$85,000\times0.06=5,100$$
 
 2. The commission is Php $5,100$.
 
@@ -145,11 +145,11 @@ An item has a taxable price of Php $2,400$. A sales tax of $5\%$ is added. What 
 
 1. Find the sales tax.
 
-$$2400\times0.05=120$$
+$$2,400\times0.05=120$$
 
 2. Add the tax to the taxable price.
 
-$$2400+120=2520$$
+$$2,400+120=2,520$$
 
 3. The total price is Php $2,520$.
 
@@ -165,11 +165,11 @@ $$I=PRT$$
 
 2. Substitute the given values.
 
-$$4500=15000\times0.06\times T$$
+$$4,500=15,000\times0.06\times T$$
 
 3. Simplify.
 
-$$4500=900T$$
+$$4,500=900T$$
 
 4. Divide by $900$.
 
@@ -193,11 +193,11 @@ $$2\times2=4$$
 
 3. Substitute into the compound-interest formula.
 
-$$A=10000(1+0.02)^4$$
+$$A=10,000(1+0.02)^4$$
 
 4. Use the approximation given in the question.
 
-$$A=10000\times1.0824$$
+$$A=10,000\times1.0824$$
 
 5. The total amount is approximately Php $10,824$.
 

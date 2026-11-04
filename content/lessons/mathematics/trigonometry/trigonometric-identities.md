@@ -27,7 +27,7 @@ These are valid where the denominator on the right is nonzero.
 
 $$\sin^2 \theta + \cos^2 \theta = 1$$
 
-Dividing that identity by $\cos^2 \theta$ or by $\sin^2 \theta$—where those quantities are nonzero—gives:
+Dividing that identity by $\cos^2 \theta$ or by $\sin^2 \theta$, where those quantities are nonzero, gives:
 
 $$1 + \tan^2 \theta = \sec^2 \theta \qquad 1 + \cot^2 \theta = \csc^2 \theta$$
 

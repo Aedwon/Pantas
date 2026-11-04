@@ -57,7 +57,7 @@ The same spring extends $3\text{ cm}$ under a $1\text{ kg}$ mass. What mass woul
 
 **Solution:**
 
-The extension is five times larger, so the required weight—and therefore the mass under the same gravity—is five times larger:
+The extension is five times larger, so the required weight, and therefore the mass under the same gravity, is five times larger:
 
 $$15/3=5.$$
 

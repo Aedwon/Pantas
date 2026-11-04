@@ -6,6 +6,7 @@ subject: "subject-general-information"
 topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
+ordering: 3
 ---
 
 ## Core Concept

@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **mixture** contains two or more substances in proportions that can vary. Forming a mixture does not, by itself, mean that the components have been converted into new pure substances. The components can interact—through solvation, intermolecular forces, or ion-dipole attractions, for example—while retaining their chemical identities.
+A **mixture** contains two or more substances in proportions that can vary. Forming a mixture does not, by itself, mean that the components have been converted into new pure substances. The components can interact, through solvation, intermolecular forces, or ion-dipole attractions, for example, while retaining their chemical identities.
 
 **Homogeneous mixtures** have uniform composition at the scale being considered, such as a true salt solution or a well-mixed sample of air. **Heterogeneous mixtures** contain distinguishable phases or regions with different composition, such as sand in water.
 
@@ -27,7 +27,7 @@ A true dissolved solute generally passes through ordinary filter paper with the 
 
 **Distillation** separates or purifies substances using differences in **volatility** and vapor-liquid equilibrium.
 
-When a liquid mixture is heated, more than one volatile component can enter the vapor phase. The vapor is usually **enriched in the more volatile component**—not composed exclusively of whichever substance has the lower normal boiling point. Condensing that vapor produces a distillate of different composition from the boiling liquid.
+When a liquid mixture is heated, more than one volatile component can enter the vapor phase. The vapor is usually **enriched in the more volatile component**, not composed exclusively of whichever substance has the lower normal boiling point. Condensing that vapor produces a distillate of different composition from the boiling liquid.
 
 **Simple distillation** works well for some mixtures with sufficiently different volatilities or for removing a volatile solvent from nonvolatile solute. **Fractional distillation** improves separation when volatile components have closer boiling behavior by allowing repeated vaporization-condensation steps.
 

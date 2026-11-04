@@ -19,7 +19,7 @@ A **fossil** is evidence of past life preserved in a geologic context. Fossils i
 - **Cross-cutting relationships**: a fault or intrusion is younger than the rock it cuts.
 - **Index fossils**: fossils that are widespread and limited to a relatively short geologic time interval can help correlate the relative ages of rock layers in different places.
 
-These principles have exceptions and complications—layers can be overturned or faulted, and fossils can sometimes be eroded from older rocks and redeposited in younger sediment—so geologists interpret them together with field evidence.
+These principles have exceptions and complications: layers can be overturned or faulted, and fossils can sometimes be eroded from older rocks and redeposited in younger sediment, so geologists interpret them together with field evidence.
 
 ### Absolute/Numerical Dating
 

@@ -28,7 +28,7 @@ The **outer core** is mostly iron and nickel and is liquid. The **inner core** i
 <!-- ILLUSTRATION: a cutaway cross-section of Earth showing its four concentric layers labeled from outside in: crust, mantle, outer core, inner core -->
 ### How We Know
 
-Scientists infer Earth's deep structure mainly from **seismic waves**, gravity, magnetic observations, high-pressure experiments, and other geophysical evidence—not by drilling to the mantle or core.
+Scientists infer Earth's deep structure mainly from **seismic waves**, gravity, magnetic observations, high-pressure experiments, and other geophysical evidence, not by drilling to the mantle or core.
 
 - **P waves** can travel through solids and liquids, though their speed and direction change at layer boundaries.
 - **S waves** are shear waves and do not propagate through liquids.

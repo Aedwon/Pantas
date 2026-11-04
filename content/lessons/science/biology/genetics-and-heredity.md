@@ -19,7 +19,7 @@ In a simple diploid, complete-dominance model, a **dominant** allele can determi
 
 The **Law of Segregation** says that the two alleles at a diploid locus separate during gamete formation, so a haploid gamete receives one allele from that pair.
 
-The **Law of Independent Assortment** applies when genes assort independently—for example, genes on different chromosomes, or genes far enough apart on the same chromosome that recombination makes them behave as effectively unlinked. Genes physically close together on the same chromosome are **linked** and can violate simple independent-assortment ratios.
+The **Law of Independent Assortment** applies when genes assort independently: for example, genes on different chromosomes, or genes far enough apart on the same chromosome that recombination makes them behave as effectively unlinked. Genes physically close together on the same chromosome are **linked** and can violate simple independent-assortment ratios.
 
 A **Punnett square** displays expected probabilities for offspring genotypes under a stated inheritance model. It does not guarantee that a small family will appear in those exact ratios.
 
@@ -52,7 +52,7 @@ The shorthand $DNA \rightarrow RNA \rightarrow protein$ is useful for protein-co
 
 ### Pedigrees
 
-A **pedigree** charts the occurrence of a trait through a family. Under a specified simple Mendelian model, patterns can support hypotheses such as autosomal dominant, autosomal recessive, or X-linked inheritance. Real pedigrees can be complicated by small family size, incomplete penetrance, new mutations, variable expression, and non-Mendelian inheritance, so a pattern is evidence—not an infallible proof by itself.
+A **pedigree** charts the occurrence of a trait through a family. Under a specified simple Mendelian model, patterns can support hypotheses such as autosomal dominant, autosomal recessive, or X-linked inheritance. Real pedigrees can be complicated by small family size, incomplete penetrance, new mutations, variable expression, and non-Mendelian inheritance, so a pattern is evidence, not an infallible proof by itself.
 
 ## Examples
 

@@ -64,7 +64,7 @@ Classify:
 1. Path length/distance: scalar.
 2. Displacement: vector.
 3. Temperature: scalar.
-4. Speed: scalar, even though velocity—its vector counterpart—is a vector quantity.
+4. Speed: scalar, even though velocity, its vector counterpart, is a vector quantity.
 
 ### #2: Perpendicular Displacements
 

@@ -158,7 +158,7 @@ Draw a quick triangle before choosing a ratio. Label the horizontal distance, ve
 
 When an angle of elevation is $45^\circ$ and the right-triangle model uses height as the opposite side and horizontal distance as the adjacent side, those two lengths are equal because $\tan45^\circ=1$.
 
-For the **specific geometry in Example #5**—two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\circ$ and $60^\circ$—the height simplifies to:
+For the **specific geometry in Example #5**: two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\circ$ and $60^\circ$, the height simplifies to:
 
 $$h=\dfrac{\sqrt3}{2}D$$
 

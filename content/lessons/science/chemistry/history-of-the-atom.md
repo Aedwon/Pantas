@@ -46,7 +46,7 @@ The Bohr model works especially well for hydrogen and hydrogen-like one-electron
 
 ### The Quantum-Mechanical Model
 
-During the 1920s, several scientists—including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others—developed quantum mechanics.
+During the 1920s, several scientists, including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others, developed quantum mechanics.
 
 Schrödinger's 1926 wave equation was a key foundation of wave mechanics. In the modern picture, electrons in atoms are described by quantum states/orbitals and probability distributions, not little particles moving along known fixed circular paths.
 
@@ -95,7 +95,7 @@ Which Dalton-era claim is contradicted by isotopes?
 
 **Solution:**
 
-Dalton's claim that all atoms of one element are identical in mass is not literally true. Isotopes have the same proton number—and are therefore the same element—but different neutron numbers and masses.
+Dalton's claim that all atoms of one element are identical in mass is not literally true. Isotopes have the same proton number, and are therefore the same element, but different neutron numbers and masses.
 
 ## Speed Tricks & Shortcuts
 

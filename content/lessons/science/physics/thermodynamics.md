@@ -71,7 +71,7 @@ A hot cup of coffee is left on a table in a cooler room. Explain what happens sp
 
 1. The coffee is hotter than its surroundings, so energy transfers from the coffee to the cooler environment.
 2. The coffee cools toward thermal equilibrium with the room.
-3. The reverse process—coffee spontaneously becoming hotter by extracting heat from the cooler room while nothing else changes—would violate the second-law direction of spontaneous heat transfer.
+3. The reverse process, coffee spontaneously becoming hotter by extracting heat from the cooler room while nothing else changes, would violate the second-law direction of spontaneous heat transfer.
 
 ### #3: Calculating Heat Energy
 

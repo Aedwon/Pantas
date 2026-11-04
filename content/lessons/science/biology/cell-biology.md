@@ -113,7 +113,7 @@ For transport questions, ask whether movement is down or against the relevant gr
 
 > Plant cell walls contain cellulose, but cell walls also occur in fungi and most prokaryotes with different compositions.
 
-The combination of several structures—not the mere presence of any wall—is what identifies a typical plant cell.
+The combination of several structures, not the mere presence of any wall, is what identifies a typical plant cell.
 
 ### #2: Mixing Up Hypertonic and Hypotonic
 

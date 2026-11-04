@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-periodic-table"
 title: "The Periodic Table"
-summary: "How the periodic table is organized and how electron structure produces useful—but not exceptionless—periodic trends."
+summary: "How the periodic table is organized and how electron structure produces useful, but not exceptionless, periodic trends."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 12

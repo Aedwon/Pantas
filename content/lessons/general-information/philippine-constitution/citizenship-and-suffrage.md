@@ -6,6 +6,7 @@ subject: "subject-general-information"
 topic: "topic-philippine-constitution"
 estimatedMinutes: 12
 isActive: true
+ordering: 6
 ---
 
 <!-- SOURCE AUDIT: RW-136; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-27. Goal: apply citizenship routes, distinguish natural-born status, and check voting qualifications and protections. Sources: https://lawphil.net/consti/cons1987.html Articles IV and V, Article VI Sections 3 and 6, Article VII Section 2, Article IX-B Section 1; https://lawphil.net/statutes/repacts/ra2003/ra_9225_2003.html Sections 3 and 5; https://lawphil.net/statutes/repacts/ra1995/ra_8171_1995.html Sections 1-2; https://lawphil.net/statutes/comacts/ca_473_1939.html Sections 2-4; https://lawphil.net/statutes/repacts/ra2001/ra_9139_2001.html Section 3; https://lawphil.net/statutes/repacts/ra1996/ra_8189_1996.html Sections 9-11; https://lawphil.net/statutes/repacts/ra2013/ra_10590_2013.html amending RA 9189; retained supplied source RA 6809 Section 1 on general majority age. No source conflict. No prerequisite needed. Examples are hypothetical. Flow checks paternal citizenship before the historical maternal-election route. -->

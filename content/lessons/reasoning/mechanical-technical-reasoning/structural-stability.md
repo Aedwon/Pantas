@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-An object's **center of gravity** is the point through which the resultant gravitational force can be treated as acting. In an approximately uniform gravitational field, it is closely related to the center of mass. For a uniform symmetric object it may lie at the geometric center, but for irregular or nonuniform objects it can lie elsewhere—and can even lie outside the object's material.
+An object's **center of gravity** is the point through which the resultant gravitational force can be treated as acting. In an approximately uniform gravitational field, it is closely related to the center of mass. For a uniform symmetric object it may lie at the geometric center, but for irregular or nonuniform objects it can lie elsewhere, and can even lie outside the object's material.
 
 An object's **base of support** is the region bounded by its supporting contact points with the ground or another surface.
 
@@ -25,7 +25,7 @@ For a rigid object at rest or tilted slowly on a level support, a useful stabili
 
 A **lower center of gravity** and **wider base** generally increase the tilt required to reach the tipping threshold.
 
-This is a **static/quasi-static model**. When an object accelerates—such as a truck turning sharply—additional forces and load transfer matter. A lower center of mass still improves rollover resistance, but the explanation cannot rely only on a vertical gravity line as if the vehicle were motionless.
+This is a **static/quasi-static model**. When an object accelerates, such as a truck turning sharply, additional forces and load transfer matter. A lower center of mass still improves rollover resistance, but the explanation cannot rely only on a vertical gravity line as if the vehicle were motionless.
 
 ## Examples
 

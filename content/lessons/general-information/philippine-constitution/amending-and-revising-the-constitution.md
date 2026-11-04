@@ -6,6 +6,7 @@ subject: "subject-general-information"
 topic: "topic-philippine-constitution"
 estimatedMinutes: 12
 isActive: true
+ordering: 10
 ---
 
 <!-- SOURCE AUDIT: RW-136; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-27. Goal: distinguish amendment from revision and apply proposal thresholds, initiative limits, and ratification rules. Sources: https://lawphil.net/consti/cons1987.html Article XVII Sections 1-4, Article VI Section 5, and Article V; https://lawphil.net/judjuris/juri2006/oct2006/gr_174153_2006.html Lambino v. COMELEC, quantitative and qualitative tests. No claim about current initiative implementing legislation or joint versus separate congressional voting. Prerequisite reminders: The Three Branches and Their Powers, Congress; Citizenship and Suffrage, voting qualifications. No source conflict. Numerical cases are hypothetical; calendar dates recomputed. -->

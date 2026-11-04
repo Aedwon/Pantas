@@ -19,7 +19,7 @@ A **climax** is generally a major turning or peak point in the central dramatic 
 
 ### Character
 
-The **protagonist** is the principal character or central figure whose goals, choices, or experience organize much of the narrative. An **antagonistic force** opposes or obstructs the protagonist and need not be a villain—or even a person. It can be a social institution, natural force, circumstance, or part of the protagonist's own conflict.
+The **protagonist** is the principal character or central figure whose goals, choices, or experience organize much of the narrative. An **antagonistic force** opposes or obstructs the protagonist and need not be a villain, or even a person. It can be a social institution, natural force, circumstance, or part of the protagonist's own conflict.
 
 Do not confuse two separate character distinctions:
 

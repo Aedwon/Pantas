@@ -25,7 +25,7 @@ The **actual yield** is the experimentally obtained amount. Percent yield is:
 
 $$\%\text{ yield}=\frac{\text{actual yield}}{\text{theoretical yield}}\times100\%$$
 
-Actual yields are often below theoretical yield because of incomplete reaction, side reactions, transfer losses, or purification losses. A reported yield **can exceed 100%**, usually signaling wet/impure product, measurement error, or an incorrect assumption—not genuine production beyond the stoichiometric theoretical yield.
+Actual yields are often below theoretical yield because of incomplete reaction, side reactions, transfer losses, or purification losses. A reported yield **can exceed 100%**, usually signaling wet/impure product, measurement error, or an incorrect assumption, not genuine production beyond the stoichiometric theoretical yield.
 
 ### Empirical and Molecular Formulas
 
@@ -39,7 +39,7 @@ To obtain an empirical formula from mole amounts:
 
 1. Divide all amounts by the smallest.
 2. If the results are already close to whole numbers, round only within justified experimental tolerance.
-3. If simple fractions remain—such as $1.5$, $1.33$, or $1.25$—multiply **all** ratios by a small integer to obtain the smallest whole-number ratio.
+3. If simple fractions remain, such as $1.5$, $1.33$, or $1.25$, multiply **all** ratios by a small integer to obtain the smallest whole-number ratio.
 
 ## Examples
 
@@ -99,7 +99,7 @@ $$C_4H_8$$
 
 For limiting reactants, compare quantities **after converting through the balanced-equation ratio**. Raw mole amounts alone do not tell you which reactant is limiting.
 
-For empirical formulas, divide by the smallest first—but inspect the resulting ratios before rounding. Common fractional patterns often require multiplying every ratio by $2$, $3$, or $4$.
+For empirical formulas, divide by the smallest first, but inspect the resulting ratios before rounding. Common fractional patterns often require multiplying every ratio by $2$, $3$, or $4$.
 
 For molecular formulas, the ratio
 
