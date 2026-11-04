@@ -55,7 +55,7 @@ $$s=\sqrt{s^2}$$
 
 A sample mean sits closer to the sample's own values than the true mean does. Dividing by $n-1$ instead of $n$ corrects for this, so $s^2$ estimates the population variance better.
 
-A sample of one value has $n-1=0$, so $s^2$ is not defined. For the same values, the sample variance is larger than the population variance.
+A sample of one value has $n-1=0$, so $s^2$ is not defined. For the same values, if they are not all equal, the sample variance is larger than the population variance. If they are all equal, both are $0$.
 
 ### Reading the results
 
@@ -73,6 +73,22 @@ Suppose each value $x$ becomes $ax+b$, where $a$ and $b$ are numbers. Then:
 - The new range is $|a|$ times the old one.
 
 The number $b$ moves every value the same distance, so the spread does not change. The number $a$ stretches the distances between values. A negative $a$ flips the data, but distances are never negative, so $|a|$ is used.
+
+### Mean and variance of a random variable
+
+A **random variable** $X$ is a number whose value depends on chance, such as the score on one spin of a game wheel. A **discrete** random variable takes separate values that you can list. A **probability table** lists each value $x$ with its probability $P(x)$. The probabilities are between $0$ and $1$, and they add up to $1$.
+
+The **mean** of $X$, also called the **expected value** $E(X)$, is the long-run average. Multiply each value by its probability, then add.
+
+$$E(X)=\sum x\cdot P(x)$$
+
+The mean may not be one of the listed values. For one roll of a fair die, $E(X)=3.5$.
+
+The **variance** of $X$ is the average squared distance from $E(X)$. Multiply each squared value by its probability, add, then subtract $[E(X)]^2$.
+
+$$\text{Var}(X)=\sum x^2\cdot P(x)-[E(X)]^2$$
+
+The standard deviation is $\sqrt{\text{Var}(X)}$.
 
 ## Examples
 
@@ -173,6 +189,33 @@ $$\text{new SD}=|-3|\times6=18$$
 
 4. The new variance in (c) is $(-3)^2\times36=324$, and $\sqrt{324}=18$ agrees with step 3.
 
+### #8: Mean and Variance from a Probability Table
+
+A game gives a score $X$ with this probability table, shown as a list. Find $E(X)$, $\text{Var}(X)$ and the standard deviation.
+
+- $P(0)=0.1$
+- $P(1)=0.3$
+- $P(2)=0.4$
+- $P(3)=0.2$
+
+**Solution:**
+1. The probabilities add up to $1$, so the table is valid.
+2. Multiply each value by its probability and add.
+
+$$E(X)=0(0.1)+1(0.3)+2(0.4)+3(0.2)=1.7$$
+
+3. Multiply each squared value by its probability and add.
+
+$$\sum x^2\cdot P(x)=0(0.1)+1(0.3)+4(0.4)+9(0.2)=3.7$$
+
+4. Subtract the square of the mean.
+
+$$\text{Var}(X)=3.7-(1.7)^2=3.7-2.89=0.81$$
+
+5. Take the square root.
+
+$$\sqrt{0.81}=0.9$$
+
 ## Speed Tricks & Shortcuts
 
 When you compute by hand, add the deviations before squaring. If the mean is exact, the sum must be $0$. If it is not, recheck the mean or a subtraction. A mean you rounded gives a sum slightly off $0$.
@@ -195,7 +238,7 @@ Check whether the listed data are the whole group being described or a sample fr
 
 > The deviations from the mean add up to $0$, so square them first.
 
-A zero average deviation does not mean zero spread. Only squared deviations measure spread.
+A zero average deviation does not mean zero spread. Raw deviations cancel out, so their average cannot measure spread. Squaring them first avoids this.
 
 ### #3: Giving Variance as Standard Deviation
 
