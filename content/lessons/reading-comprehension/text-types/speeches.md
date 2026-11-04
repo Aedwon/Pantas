@@ -74,7 +74,7 @@ A number alone is not strong reasoning. A trusted source does not make irrelevan
 
 Emotional appeal is a normal part of speaking. It is fair when the feeling fits true facts and the speech also gives the reasons the claim needs. It becomes **manipulation** when it replaces needed evidence, exaggerates, or hides facts so that the audience feels what the facts do not support.
 
-A tribute or farewell is a different case. Its purpose is to honor a person, so strong emotion is expected and no evidence is needed.
+A tribute that honors a person is a different case. Strong emotion is expected, and its praise needs less proof than an argument. A farewell that argues a case still needs reasons.
 
 ### Rhetorical Devices
 
@@ -102,7 +102,7 @@ Read the excerpt and name the audience and the main purpose.
 
 **Solution:**
 
-1. The speaker says "parents of Grade $3$ pupils", so the audience is parents at a school meeting.
+1. The speaker says "parents of Grade $3$ pupils", so the audience is parents of pupils in that grade.
 2. The excerpt gives a time and a place, so it informs.
 3. It also says "Please bring" and gives a reason to act, so it wants parents to bring their children.
 
@@ -183,7 +183,7 @@ The mayor's evidence does not measure traffic. A count of jams before and after 
 2. The honest answer is that everyone has needed help.
 3. The question reminds the audience of a shared experience.
 
-The speaker intends to build common ground before asking for help for others. At the end of the speech, "Does anyone have a question?" would be a literal question, because it asks for answers.
+The speaker intends to build common ground with the audience. At the end of the speech, "Does anyone have a question?" would be a literal question, because it asks for answers.
 
 ### #9: Repetition
 
