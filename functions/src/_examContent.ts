@@ -1,5 +1,6 @@
 import type {Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
+import {inCustomCorpus, isCustomExamId} from './_customTrack.js';
 
 export type QuestionRef = {id: string; setId: string; topicId: string; passageId: string | null};
 export type LessonRef = {id: string; topicId: string; ordering: number};
@@ -67,7 +68,7 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
 }
 
 /** For tests: content changes between cases. */
-export const clearExamContentCache = (): void => { cache.clear(); gapCache = undefined; };
+export const clearExamContentCache = (): void => { cache.clear(); gapCache = undefined; corpusCache = undefined; };
 
 export type StudyContent = {
   revision: string;
@@ -91,36 +92,65 @@ type CatalogDocument = {subjects?: CatalogSubject[]; topics?: CatalogTopic[]; le
 const contentUnavailable = (message: string) => new HttpsError('unavailable', message);
 
 /** Resolves authored relationships from the current C7 catalog. Shared historical
- * UPCAT-named ids remain identities, never an inferred exam/subject assignment. */
-export async function loadStudyContent(db: Firestore, examId: string,
+ * UPCAT-named ids remain identities, never an inferred exam/subject assignment. A custom exam id
+ * gets the union of every catalog the index lists (see `loadStudy`). */
+export const loadStudyContent = (db: Firestore, examId: string, tx?: FirebaseFirestore.Transaction): Promise<StudyContent> =>
+  loadStudy(db, examId, isCustomExamId(examId), tx);
+
+/**
+ * Simplicity note: there is no corpus-level content document. The union is read from the catalogs
+ * `index.catalogs` lists, nine documents today. If that list grows past about 20, build one corpus
+ * document in `catalogItems` and read it here instead.
+ */
+async function loadStudy(db: Firestore, examId: string, custom: boolean,
   tx?: FirebaseFirestore.Transaction): Promise<StudyContent> {
-  const versions: string[] = [], loaded = new Map<string, CatalogDocument>();
+  const versions: string[] = [], fetching = new Map<string, Promise<CatalogDocument | null>>();
+  // One fetch per document, even when two callers ask at once, so it counts once in the revision.
+  const fetchOnce = (id: string): Promise<CatalogDocument | null> => {
+    if (!fetching.has(id)) fetching.set(id, (async () => {
+      if (!id || id.includes('/')) throw contentUnavailable('Invalid catalog identity.');
+      const ref = db.doc('content/catalog/items/' + id), doc = await (tx ? tx.get(ref) : ref.get());
+      if (!doc.exists) return null;
+      let raw: unknown;
+      try { raw = JSON.parse(String(doc.get('payload'))); }
+      catch { throw contentUnavailable('The exam content catalog could not be read.'); }
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw contentUnavailable('Invalid exam catalog.');
+      versions.push(id + ':' + String(doc.get('version')));
+      return raw as CatalogDocument;
+    })());
+    return fetching.get(id)!;
+  };
   const read = async (id: string, required = true): Promise<CatalogDocument | null> => {
-    if (loaded.has(id)) return loaded.get(id)!;
-    if (!id || id.includes('/')) throw contentUnavailable('Invalid catalog identity.');
-    const ref = db.doc('content/catalog/items/' + id), doc = await (tx ? tx.get(ref) : ref.get());
-    if (!doc.exists) {
-      if (required) throw contentUnavailable('The exam content catalog is not available.');
-      return null;
-    }
-    let raw: unknown;
-    try { raw = JSON.parse(String(doc.get('payload'))); }
-    catch { throw contentUnavailable('The exam content catalog could not be read.'); }
-    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw contentUnavailable('Invalid exam catalog.');
-    const value = raw as CatalogDocument;
-    loaded.set(id, value); versions.push(id + ':' + String(doc.get('version')));
+    const value = await fetchOnce(id);
+    if (!value && required) throw contentUnavailable('The exam content catalog is not available.');
     return value;
   };
   const withParts = async (id: string): Promise<CatalogDocument[]> => {
     const root = (await read(id))!;
     return [root, ...await Promise.all((root.parts ?? []).map(async part => (await read(part))!))];
   };
-  const selected = await withParts(examId), index = await read('index', false);
+  let selected: CatalogDocument[], index: CatalogDocument | null;
+  if (custom) {
+    // The index is required and names the catalogs: a missing one is unavailable, never a partial corpus.
+    index = await read('index');
+    const catalogs = index?.catalogs;
+    if (!Array.isArray(catalogs) || catalogs.length === 0 || !catalogs.every(id => typeof id === 'string')) {
+      throw contentUnavailable('The exam content catalog is not available.');
+    }
+    selected = (await Promise.all(catalogs.map(withParts))).flat();
+  } else {
+    selected = await withParts(examId);
+    index = await read('index', false);
+  }
   const refId = (value: CatalogReference | undefined | null): string =>
     typeof value === 'string' ? value : value?._ref ?? '';
-  const sets = selected.flatMap(d => d.sets ?? []).filter(s => {
+  // A set tagged for several exams sits in each exam's catalog, so the union keeps one copy per set id.
+  const offered = selected.flatMap(d => d.sets ?? []);
+  const seen = new Set<string>();
+  const unique = custom ? offered.filter(s => !seen.has(s.id) && !!seen.add(s.id)) : offered;
+  const sets = unique.filter(s => {
     if (!Array.isArray(s.exams)) throw contentUnavailable('Question-set exam membership is not available.');
-    return s.exams.includes(examId);
+    return custom ? inCustomCorpus(s) : s.exams.includes(examId);
   });
   const requestedTopics = new Set(sets.map(s => refId(s.topic)));
   const requestedLessons = new Set(sets.flatMap(s => s.lesson == null ? [] : [refId(s.lesson)]));
@@ -167,6 +197,25 @@ export async function loadStudyContent(db: Firestore, examId: string,
     lessonId:s.lesson==null?null:refId(s.lesson),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');
   return {revision:versions.sort().join('|'),subjects,topics,lessons,questions};
+}
+
+let corpusCache: {at: number; value: StudyContent} | undefined;
+/** The custom-exam corpus for readers that are not transactional. Kept five minutes, like `loadExamContent`. */
+export async function loadCorpusCached(db: Firestore, now: number): Promise<StudyContent> {
+  if (corpusCache && now >= corpusCache.at && now - corpusCache.at < TTL_MS) return corpusCache.value;
+  const value = await loadStudy(db, 'corpus', true);
+  corpusCache = {at: now, value};
+  return value;
+}
+
+/** What a student's excluded topics and lessons leave: the questions and lessons they can still be given. */
+export function applyScope(content: StudyContent, excludedTopicIds: Iterable<string> = [],
+  excludedLessonIds: Iterable<string> = []): StudyContent {
+  const excluded = new Set(excludedTopicIds), excludedLessons = new Set(excludedLessonIds);
+  const includedTopics = new Set(content.topics.filter(t => !excluded.has(t.id)).map(t => t.id));
+  return {...content, topics: content.topics.filter(t => includedTopics.has(t.id)),
+    lessons: content.lessons.filter(l => includedTopics.has(l.topicId) && !excludedLessons.has(l.id)),
+    questions: content.questions.filter(q => includedTopics.has(q.topicId) && (q.lessonId === null || !excludedLessons.has(q.lessonId)))};
 }
 
 let gapCache: {at: number; value: Record<string, string>} | undefined;
