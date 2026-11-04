@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-physics-light-and-optics",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Red light has a wavelength of $600$ nm in vacuum.",
+      "problem": "Still open from round 3, and the lead upheld it as a Blocker (final-run-rulings.md, light-and-optics round-3 ruling). Standard color bands put 600 nm in orange (about 590 to 620 nm); red starts near 620 nm. A student who learns that 600 nm is red can choose red on a wavelength-to-color item. The worked numbers in Example #4 (2.00e8 m/s, 400 nm, 5.0e14 Hz) are correct and do not depend on the color word. The split did not touch this example.",
+      "source": "Checklist B01; final-run-rulings.md (round-3 B01 upheld); HyperPhysics, Spectral Colors; common visible-spectrum band tables (orange about 590 to 620 nm, red about 620 to 750 nm)"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"semanticsLabel\": \"A light ray striking a flat mirror at 40 degrees from the normal line and reflecting off at 40 degrees.\"",
+      "problem": "The question figure of Example #1 sits before the solution and gives the answer to part (a). Its reflectedAngle is 40, its labels are both 40 degrees, and its label says the ray reflects off at 40 degrees. Part (a) asks the student to find the angle of reflection, which is the one skill the law of reflection tests. The marker is unchanged from the base and rounds 1 to 3 did not raise it. The lead upheld the same defect as an L05 Major in parallel-perpendicular-lines (a question figure label stating the result) and quadrilaterals. Parts (b) and (c) still need working, so only part (a) is given away.",
+      "source": "Checklist L05; LSG Examples section (supply givens, not tested knowledge); final-run-rulings.md, parallel-perpendicular-lines round-3 and quadrilaterals round-3 rulings; base 7032eec5"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Refraction** is the bending of light, a change in its direction, as it passes from one medium into another.",
+      "problem": "Still open from rounds 1 to 3 in the part that stayed here. This paragraph has five sentences, over the one-to-three limit. The paragraph starting 'A wave has a **frequency** $f$' also has five, and the Speed Tricks paragraphs starting 'For refraction, compare $n_1$ and $n_2$.' and 'For total internal reflection, check two things in order.' have four each. Split check, not a finding: the shortened lesson stands alone. The two pointers that used to name moved sections now name the Mirrors and Lenses lesson, every term an example uses is taught here or tied to the waves and sound lesson, examples and traps renumber 1 to 7 and 1 to 6 with no reference to a moved example, trap or figure, the title matches outline.json, and the text otherwise matches 828ac08a~1 word for word. All seven worked answers check (40, 50 and 80 degrees; 19.5 degrees; 30.9 degrees; 2.00e8 m/s, 400 nm and 5.0e14 Hz; critical angle 41.8 degrees with total reflection at 45 degrees; 3.00 m). The file is now 2,213 words, so it is no longer a split candidate. The earlier 'optically denser' leftover moved to the new lesson.",
+      "source": "Checklist L22a; LSG Formatting rules; split-plan.md step 1; git show 828ac08a~1"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

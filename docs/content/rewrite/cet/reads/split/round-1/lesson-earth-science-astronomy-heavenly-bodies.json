@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-earth-science-astronomy-heavenly-bodies",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Many moons are not plain rocky balls. Europa, a moon of Jupiter, has an icy shell over a rocky interior and is thought to hide a salty ocean under the ice.",
+      "problem": "Still open from rounds 1 to 3. This paragraph has five sentences, over the one-to-three limit. Others in this part also run over: 'The Solar System holds many kinds of objects' (4, the split added the fourth sentence), 'The giant planets are much larger' (4), 'A **natural satellite**, or moon' (4), 'A **comet** is a small body of ice' (4) and 'The gas and dust form a glowing cloud' (4). The sentences are short, so the harm is small.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 1
+}
