@@ -43,7 +43,7 @@ Most steps in photosynthesis and respiration are each sped up by a specific enzy
 
 Cells are built from four main groups of organic molecules, called **biomolecules**.
 
-- **Carbohydrates** are sugars and starches. Their small unit is a simple sugar such as glucose. They are the usual fuel for cells.
+- **Carbohydrates** are sugars and the large carbohydrates built from them: starch and glycogen store sugar for fuel, and cellulose makes plant cell walls. Their small unit is a simple sugar such as glucose. Sugars are the usual fuel for cells.
 - **Lipids** are a group that includes fats, oils, phospholipids and steroids. Fats and oils store a lot of energy. Phospholipids are the main molecules of cell membranes.
 - **Proteins** are chains of amino acids. They form enzymes, build structures and carry out many jobs.
 - **Nucleic acids** are DNA and RNA. They store and use genetic information.
