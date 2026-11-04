@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-physics-friction-tension-and-inclines",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "Write the second law for each block, with its own sign for the direction it moves.",
+      "problem": "The lesson teaches three pulley rules (same-size accelerations over fixed pulleys, a separate sign for each object over a pulley, half the acceleration for a block on a movable pulley) and the shortcut now sends the student to a per-block method for any pulley. No example works a pulley case. Examples #3 and #4 cover a straight-line pair and a single hanging cable only. Two objects joined over a fixed pulley (an Atwood machine, or a block on a table pulled by a hanging block) is the standard application of tension in this lesson's goal, and the curriculum names ropes and pulleys as a context for Newton's-law problems. A student meets the sign rule in words only, and the round-1 failure shows what goes wrong without it: counting the two weights as the only outside forces gives 9.8 m/s^2 instead of 1.96 m/s^2 for 3 kg and 2 kg blocks. Writer rule 1 after round 1 names taught-but-not-worked cases as an L18 failure.",
+      "source": "Checklist L18; reader-rules.md L18 ruling (standard application of a skill in the lesson's goal); DepEd K to 12 SHS General Physics 1 curriculum guide, applications of Newton's laws to single-body and multibody dynamics: solve problems using Newton's laws in contexts such as, but not limited to, ropes and pulleys (curriculum class; see the dost-sei-L100 and upcat-L162 rows in the brief)"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

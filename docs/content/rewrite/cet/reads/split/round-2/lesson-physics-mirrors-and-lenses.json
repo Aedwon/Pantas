@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-physics-mirrors-and-lenses",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "This rule depends on the lens having a larger $n$ than its surroundings.",
+      "problem": "Still open from round 1. The round-1 fix removed the stray 'denser' sentence but added 'Its $f$ is negative, because $f$ follows converging or diverging, not the shape.', so this edited paragraph still has four sentences, over the one-to-three limit. Paragraphs of four or more sentences also remain at 'A **concave mirror** curves inward', 'A **real image** is made where light rays really meet.', 'For a glass or plastic lens in air' (four) and 'Let $d_o$ be the distance' (five). Round-1 B01 Blocker (sign of f tied to shape) is fixed: the sign bullet, the object-position section, the diverging rule and Trap #2 now sign f by converging or diverging, and I found no new error from that fix. Round-1 L19 Minor (step 3 of Example #5 joined to a paragraph) is fixed by the added blank line. All five worked examples solve correctly. The lesson stands alone: it names its prerequisite lesson by its outline title, and that lesson teaches the law of reflection, the index of refraction and refraction at a boundary.",
+      "source": "Checklist L22a; lesson-style-guide.md Formatting rules; round-1 read reads/split/round-1/lesson-physics-mirrors-and-lenses.json"
+    }
+  ],
+  "goodQuotesChecked": 1
+}

@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-physics-fluid-flow-continuity-and-bernoulli",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Here $A$ is the cross-sectional area and $v$ is the flow speed.",
+      "problem": "The continuity equation is the first formula of the lesson, and its area term is given only the name 'cross-sectional area'. The lesson never says what a cross-section is (the face you see when you cut the pipe straight across, a circle for a round pipe), and the named prerequisite, Fluid Statics, does not use or teach the term either. The prose must teach without the figure marker. A student who does not know the term can take A as the pipe's length, wall area or diameter. Both examples hand over the area directly, so the lesson never shows the meaning in use, and a standard continuity question that gives pipe diameters or radii would be solved with v in proportion to the diameter instead of its square. This was not raised in round 1 and is not new from the fix; it was in the split text.",
+      "source": "Checklist L25; LSG Teaching completeness (explain necessary terms before students need them, or name the prerequisite that teaches them); reader-rules.md, Added after the Sol audit; grep of content/lessons/science/physics/fluid-mechanics.md finds no 'cross' on this branch"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "First check that both points are on the same streamline in ideal flow (steady, incompressible, nonviscous). Then check the heights.",
+      "problem": "The Speed Tricks paragraph has four sentences, over the limit of one to three. The round-1 fix edited this paragraph to add the ideal-flow conditions, so the Minor in edited text must be fixed (writer rule 5 for round 2). All round-1 findings are fixed: 'ideal' is now defined and tied to its three conditions, the long paragraphs are split, and the chained display lines are broken into one equality each. Both worked examples were re-solved and are correct (8.0 m/s and 1.70 x 10^5 Pa; 2.51 x 10^5 Pa).",
+      "source": "Checklist L22a; LSG Formatting rules (paragraphs are one to three short sentences); writer-rules.md, Rules added after round 1, rule 5"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

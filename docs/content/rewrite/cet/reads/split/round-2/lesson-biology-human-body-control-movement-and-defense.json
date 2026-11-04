@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-biology-human-body-control-movement-and-defense",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The target cell is often another neuron, and it can be a muscle or gland cell.",
+      "problem": "Still open from round 1, and the round-1 fix made it longer here. This sentence was added to the neuron paragraph, which now has five sentences, over the one-to-three limit. The fix also took the opening paragraph to four sentences and left the systems-together paragraph at five. The blood glucose, stimulus chain, motor control, feedback, pituitary, ADH, skeleton, zygote, reproductive hormone and adaptive immunity paragraphs still run four or five. Writer rule 5 asks a fixer to fix Minors in text it edits.",
+      "source": "Checklist L22a; LSG Formatting rules; writer-rules.md, rules added after round 1, rule 5."
+    }
+  ],
+  "goodQuotesChecked": 1
+}

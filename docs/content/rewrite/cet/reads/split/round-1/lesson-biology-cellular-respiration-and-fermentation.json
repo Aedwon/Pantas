@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-biology-cellular-respiration-and-fermentation",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Photosynthesis happens only in cells with chloroplasts, and only when there is light.",
+      "problem": "This general statement has a known exception. Cyanobacteria are prokaryotes with no organelles, and they carry out photosynthesis without chloroplasts. The parent lesson made the same claim, but in the parent it sat next to a Core Concept sentence on cyanobacteria and a trap headed 'Assuming Photosynthesis Needs Chloroplasts in Every Organism'. The split moved both of those to the prerequisite lesson and left this sentence here with no limit. This lesson also says 'A chloroplast is the organelle where photosynthesis happens', and Example #1 says \"'chloroplast means photosynthesis' is a good rule\". So a student who reads this lesson alone learns the exact misconception the base lesson's Trap #4 warned against. The paragraph before it is about plants, but this sentence does not say 'in plants' or 'plant cells'.",
+      "source": "Checklist B01; reader-rules.md, Added after the Sol audit; OpenStax Biology 2e, 8.1 ('In all autotrophic eukaryotes, photosynthesis takes place inside an organelle called a chloroplast', and it lists cyanobacteria as photosynthesizers), https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis; base 7032eec5 Trap #4; content/lessons/science/biology/cellular-metabolism.md Trap #1 on this branch"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A **prokaryote** is a cell with no nucleus and no membrane-bound organelles.",
+      "problem": "This glossary paragraph is new in the split. It has six sentences, and the limit is one to three. These paragraphs, moved unchanged from the parent, also run long, and the finding was still open there after round 2: 'One glucose gives only' (five sentences), the fermentation paragraph starting 'Fermentation has no electron transport chain' (five), the anaerobic respiration paragraph (four) and the 'Photosynthesis happens only' paragraph (four).",
+      "source": "Checklist L22a; LSG Formatting rules; parent round-2 read"
+    }
+  ],
+  "goodQuotesChecked": 2
+}

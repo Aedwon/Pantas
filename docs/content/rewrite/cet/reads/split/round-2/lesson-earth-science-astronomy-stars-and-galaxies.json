@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-earth-science-astronomy-stars-and-galaxies",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Red dwarfs, the smallest stars, burn fuel so slowly that they live far longer than the present age of the universe.",
+      "problem": "Not raised in round 1; it moved word for word from the parent. 'The smallest stars' is a general statement that fails against stars the lesson itself names. Red dwarfs are the smallest main-sequence stars, but the lesson calls a white dwarf 'a small, hot, faint star about as wide as Earth' and gives a neutron star as 'about $20$ km across'. Even the smallest red dwarfs are several times wider than Earth. The lesson's Size section uses 'small' for width, so a student reading this sentence learns that red dwarfs are smaller than white dwarfs and neutron stars, and would answer a 'smallest kind of star' question wrongly. The statement holds only with the limit 'main-sequence' (or 'lowest-mass').",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit'; NASA Science, Star Types, https://science.nasa.gov/universe/stars/types/ (red dwarfs are 'the smallest main sequence stars'; a white dwarf is 'usually Earth-size'; a neutron star is about as wide as Manhattan is long)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A star shines because of **nuclear fusion**.",
+      "problem": "Still open from round 1 (moved from the parent). This paragraph has four sentences, over the one-to-three-sentence limit. Paragraphs starting 'A red star is the coolest', 'A star many times the Sun's mass' and 'Galaxies have three common shapes' also have four sentences. The round-1 opening paragraph is fixed and now has three.",
+      "source": "Checklist L22a; lesson-style-guide.md Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
