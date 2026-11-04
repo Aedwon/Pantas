@@ -20,6 +20,14 @@ void main() {
   group('a bare number is body text, not math (B-29)', () {
     bool isText(String latex) => inlineMathSpan(latex) is TextSpan;
 
+    test('a plain counting list stays in the body font', () {
+      expect(isText(r'1,2,3,\dots'), isTrue);
+      expect(isText('0, 1, 2'), isTrue);
+      expect(isText(r'-2,-1,0,\dots'), isFalse);
+      final span = inlineMathSpan(r'1,2,3,\dots') as TextSpan;
+      expect(span.text, '1, 2, 3, ...');
+    });
+
     test('years, counts and decimals stay in the body font', () {
       expect(isText('1987'), isTrue);
       expect(isText('22'), isTrue);
@@ -40,7 +48,6 @@ void main() {
       expect(isText('x+3'), isFalse);
       expect(isText('-5'), isFalse);
       expect(isText(r'\frac{1}{2}'), isFalse);
-      expect(isText('2,5,8'), isFalse);
       expect(isText(r'5\%'), isFalse);
       expect(isText('2x'), isFalse);
     });

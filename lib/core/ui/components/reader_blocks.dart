@@ -283,3 +283,79 @@ ReaderChoices? splitReaderChoices(Map<String, Object?> block) {
   }
   return ReaderChoices(trimmed(between(null, accepted.first)), choices);
 }
+
+final _leadingChoice = RegExp(r'^\s*\(?([A-J])\)\s+');
+
+/// Cuts choices that are written one to a paragraph, or one to a bullet, out
+/// of the start of [blocks]. Returns null when they are not choices.
+///
+/// Some lessons write "(A) ..." on its own line with a blank line between
+/// each choice, so Markdown makes one block for each. The first block must
+/// open with A, the next with B and so on, and there must be at least two.
+/// Blocks are taken from the start of `blocks` until one breaks the run, and
+/// `count` says how many were used. A block that is a heading, a formula, a
+/// numbered step or anything but a plain paragraph (or, for a run of bullets,
+/// a bullet) ends the run. Each choice keeps its own runs, minus its marker.
+({ReaderChoices choices, int count})? splitReaderChoiceBlocks(
+  List<Map<String, Object?>> blocks,
+) {
+  if (blocks.length < 2) return null;
+
+  String listKind(Map<String, Object?> block) =>
+      block['listItem'] is String ? block['listItem']! as String : '';
+
+  final kind = listKind(blocks.first);
+  if (kind != '' && kind != 'bullet') return null;
+
+  final choices = <ReaderChoice>[];
+  var expected = 'A'.codeUnitAt(0);
+  for (final block in blocks) {
+    if (block['_type'] != 'block') break;
+    final style = block['style'];
+    if ((style != null && style != 'normal') || listKind(block) != kind) break;
+    final raw = block['children'];
+    if (raw is! List<Object?>) break;
+    final runs = raw.whereType<Map<String, Object?>>().toList();
+    if (runs.isEmpty || runs.length != raw.length) break;
+    final first = runs.first;
+    final marks = first['marks'];
+    if (marks is List<Object?> && marks.contains('latex')) break;
+    final text = first['text'];
+    if (text is! String) break;
+    final match = _leadingChoice.firstMatch(text);
+    if (match == null || match.group(1)!.codeUnitAt(0) != expected) break;
+
+    final out = [
+      {...first, 'text': text.substring(match.end)},
+      ...runs.skip(1),
+    ];
+    // A hard line break is two spaces at the end of a Markdown line.
+    final last = out.last;
+    final lastMarks = last['marks'];
+    if (last['text'] is String &&
+        !(lastMarks is List<Object?> && lastMarks.contains('latex'))) {
+      out[out.length - 1] = {
+        ...last,
+        'text': (last['text']! as String).trimRight(),
+      };
+    }
+    out.removeWhere(
+      (run) => run['text'] is String && (run['text']! as String).isEmpty,
+    );
+    final hasContent = out.any((run) {
+      final runMarks = run['marks'];
+      return (runMarks is List<Object?> && runMarks.contains('latex')) ||
+          RegExp('[A-Za-z0-9]').hasMatch(
+            run['text'] is String ? run['text']! as String : '',
+          );
+    });
+    if (!hasContent) break;
+    choices.add(ReaderChoice(match.group(1)!, out));
+    expected++;
+  }
+  if (choices.length < 2) return null;
+  return (
+    choices: ReaderChoices(const [], choices),
+    count: choices.length,
+  );
+}

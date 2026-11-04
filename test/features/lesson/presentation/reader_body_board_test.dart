@@ -86,30 +86,37 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(find.byType(LessonTextScale), findsOneWidget);
-        final eyebrow =
-            tester.widget<Text>(find.text('EARTH SCIENCE AND ASTRONOMY'));
-        expect(eyebrow.style!.fontSize, 13);
-        expect(eyebrow.style!.fontWeight, FontWeight.w600);
-        expect(eyebrow.style!.letterSpacing, .52);
+        // The approved reader design (QA 2F-23): the topic and the time in one
+        // line of 15 px, then the title at 30 px on the design's numbers.
+        const metaText = 'Earth Science and Astronomy · 10 min';
+        final meta = tester.widget<Text>(find.text(metaText));
+        expect(meta.style!.fontSize, 15);
+        expect(meta.style!.fontWeight, FontWeight.w400);
         final title = tester.widget<Text>(
           find.text('Layers of the Earth and Composition').first,
         );
         expect(title.style!.fontSize, 30);
         expect(title.style!.fontWeight, FontWeight.w700);
-        expect(title.style!.height, 1.15);
-        expect(title.style!.letterSpacing, -.66);
-        expect(
-          tester.getTopLeft(find.text('EARTH SCIENCE AND ASTRONOMY')).dx,
-          24,
-        );
+        expect(title.style!.height, 1.08);
+        expect(title.style!.letterSpacing, -.5);
+        expect(tester.getTopLeft(find.text(metaText)).dx, 24);
         expect(
           tester
                   .getTopLeft(
                     find.text('Layers of the Earth and Composition').first,
                   )
                   .dy -
-              tester.getBottomLeft(find.text('EARTH SCIENCE AND ASTRONOMY')).dy,
+              tester.getBottomLeft(find.text(metaText)).dy,
           closeTo(8, .1),
+        );
+        expect(
+          tester.getTopLeft(find.text('Core Concept')).dy -
+              tester
+                  .getBottomLeft(
+                    find.text('Layers of the Earth and Composition').first,
+                  )
+                  .dy,
+          closeTo(24, .1),
         );
         final bodyContext =
             tester.element(find.text('Earth has several layers.'));

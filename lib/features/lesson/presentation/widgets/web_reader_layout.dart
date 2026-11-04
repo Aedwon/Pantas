@@ -55,6 +55,14 @@ const _contentsMotion = WebOverlayMotion(
   fade: true,
 );
 
+/// The height of the reader bar, and the ease its slide and the lesson window
+/// share.
+const double _barHeight = 60;
+const _barCurve = Cubic(.32, .72, 0, 1);
+
+/// How long a jump from the outline takes. It runs on the reader's shared ease.
+const _jumpDuration = Duration(milliseconds: 500);
+
 /// The owner keeps position, read marking and guarded writes.
 class WebReaderLayout extends ConsumerStatefulWidget {
   const WebReaderLayout({
@@ -115,12 +123,23 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   bool _resumeMounted = false;
   Timer? _resumeExitTimer;
   double _previousOffset = 0;
+
+  /// The section a jump from the outline is heading to. Until the page gets
+  /// there the outline marks it, rather than every section on the way.
+  int? _jumpTarget;
+  int _jumpToken = 0;
+  final _barKey = GlobalKey();
+
+  /// True from a change of lesson until the next scroll, so the new lesson's
+  /// window is in place at once instead of growing from the old one's.
+  bool _instantInset = false;
   @override
   void initState() {
     super.initState();
     _resumeVisible = widget.resumed;
     _resumeMounted = widget.resumed;
     widget.scrollOffset.addListener(_onScroll);
+    FocusManager.instance.addListener(_onPrimaryFocus);
   }
 
   @override
@@ -145,6 +164,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       // A lesson that rose into place already showed its bar, so the bar
       // stays put instead of sliding in a second time.
       _showBar = true;
+      _instantInset = true;
+      _jumpTarget = null;
       _anchors.clear();
       _noticeTimer?.cancel();
       _noticeExitTimer?.cancel();
@@ -162,6 +183,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
 
   @override
   void dispose() {
+    FocusManager.instance.removeListener(_onPrimaryFocus);
     widget.scrollOffset.removeListener(_onScroll);
     _noticeTimer?.cancel();
     _noticeExitTimer?.cancel();
@@ -203,17 +225,167 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         active = i;
       }
     }
-    if (active != _active || show != _showBar) {
+    active = _jumpTarget ?? active;
+    if (active != _active || show != _showBar || _instantInset) {
       setState(() {
         _active = active;
         _showBar = show;
+        _instantInset = false;
       });
     }
+  }
+
+  /// Takes the page to section [index] on the reader's shared ease, or at once
+  /// with reduced motion. The section's heading lands where the old jump put
+  /// it: 5 percent of the room under the bar.
+  Future<void> _jumpTo(int index) async {
+    final controller = widget.controller;
+    final layout = context.findRenderObject();
+    final heading = _anchors[index].currentContext?.findRenderObject();
+    if (!controller.hasClients ||
+        layout is! RenderBox ||
+        heading is! RenderBox ||
+        !heading.attached) {
+      return;
+    }
+    final position = controller.position;
+    // A point of the page keeps the same distance from the window's top while
+    // the bar moves, so where the heading is now says where it is for good.
+    final now = heading.localToGlobal(Offset.zero, ancestor: layout).dy;
+    final landing = _barHeight + .05 * (layout.size.height - _barHeight);
+    final destination = (position.pixels + now - landing)
+        .clamp(position.minScrollExtent, position.maxScrollExtent);
+    if (MediaQuery.disableAnimationsOf(context)) {
+      controller.jumpTo(destination);
+      return;
+    }
+    final token = ++_jumpToken;
+    setState(() {
+      _jumpTarget = index;
+      _active = index;
+    });
+    await controller.animateTo(
+      destination,
+      duration: _jumpDuration,
+      curve: _barCurve,
+    );
+    if (!mounted || token != _jumpToken) return;
+    _jumpTarget = null;
+    _onScroll();
   }
 
   void _bookmark() {
     widget.onBookmark();
     // The owner shows failed saves. The provider confirms bookmark changes.
+  }
+
+  /// Brings the bar back when keyboard focus lands on one of its controls, so
+  /// a student who tabs to Back or Bookmark never sits on a control that is
+  /// off the screen. Focus that lands in the lesson, such as the one that
+  /// moves into a solution when it opens, leaves the bar as it is.
+  void _onPrimaryFocus() {
+    if (_showBar || !mounted) return;
+    final focused = FocusManager.instance.primaryFocus?.context;
+    final bar = _barKey.currentContext;
+    if (focused == null || bar == null) return;
+    var inBar = false;
+    focused.visitAncestorElements((element) {
+      inBar = element == bar;
+      return !inBar;
+    });
+    if (inBar) setState(() => _showBar = true);
+  }
+
+  /// The "In this lesson" list, on the design's numbers: rows 32 px apart, the
+  /// heading 38 px above the first row, and a dot on the section being read.
+  Widget _outline(BuildContext context, List<String?> headings) {
+    final t = context.webTokens;
+    TextStyle rowStyle({required bool current}) => t.style(
+          14,
+          height: 18 / 14,
+          weight: current ? FontWeight.w600 : FontWeight.w400,
+          color: current ? t.colors.label : t.colors.secondaryLabel,
+        );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 12),
+          child: Text('IN THIS LESSON', style: t.eb.copyWith(height: 1.45)),
+        ),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final positions = <int, double>{};
+            var top = 0.0;
+            for (var i = 0; i < headings.length; i++) {
+              if (headings[i] == null) continue;
+              positions[i] = top;
+              final text = TextPainter(
+                text: TextSpan(
+                  text: headings[i],
+                  style: rowStyle(current: _active == i),
+                ),
+                textDirection: Directionality.of(context),
+                textScaler: MediaQuery.textScalerOf(context),
+              )..layout(maxWidth: constraints.maxWidth - 36);
+              top += text.height + 14;
+              text.dispose();
+            }
+            return Stack(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    for (var i = 0; i < headings.length; i++)
+                      if (headings[i] != null)
+                        TextButton(
+                          onPressed: () => unawaited(_jumpTo(i)),
+                          style: TextButton.styleFrom(
+                            minimumSize: Size.zero,
+                            visualDensity: VisualDensity.standard,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 7,
+                            ),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            alignment: Alignment.centerLeft,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Text(
+                              headings[i]!,
+                              style: rowStyle(current: _active == i),
+                            ),
+                          ),
+                        ),
+                  ],
+                ),
+                if (positions.containsKey(_active))
+                  AnimatedPositioned(
+                    key: const ValueKey('web-reader-outline-dot'),
+                    duration: MediaQuery.disableAnimationsOf(context)
+                        ? Duration.zero
+                        : const Duration(milliseconds: 250),
+                    curve: _barCurve,
+                    top: positions[_active]! + 14,
+                    left: 10,
+                    child: IgnorePointer(
+                      child: Container(
+                        width: 6,
+                        height: 6,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: t.colors.accent,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            );
+          },
+        ),
+      ],
+    );
   }
 
   Future<void> _menu() async {
@@ -235,76 +407,88 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         // RD_FocusOpen hangs the menu from the page's centre line to the
         // right, kept inside the window on a narrow one.
         final width = MediaQuery.sizeOf(context).width;
-        return Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 56,
-              left: (width / 2).clamp(16, math.max(width - 396 - 16, 16)),
-            ),
-            child: SizedBox(
-              width: 396,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  boxShadow: const [
-                    BoxShadow(color: Color(0x14000000), spreadRadius: .5),
-                    BoxShadow(
-                      color: Color(0x29000000),
-                      blurRadius: 40,
-                      offset: Offset(0, 14),
-                    ),
-                  ],
+        // Esc closes the menu, as the board says. The menu takes focus so the
+        // key reaches it and not the page under it, which would leave.
+        return CallbackShortcuts(
+          bindings: {
+            const SingleActivator(LogicalKeyboardKey.escape): () =>
+                Navigator.of(context).pop(),
+          },
+          child: Focus(
+            autofocus: true,
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: 56,
+                  left: (width / 2).clamp(16, math.max(width - 396 - 16, 16)),
                 ),
-                child: Material(
-                  color: t.colors.surface,
-                  borderRadius: BorderRadius.circular(14),
-                  clipBehavior: Clip.antiAlias,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxHeight: MediaQuery.sizeOf(context).height - 100,
+                child: SizedBox(
+                  width: 396,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: const [
+                        BoxShadow(color: Color(0x14000000), spreadRadius: .5),
+                        BoxShadow(
+                          color: Color(0x29000000),
+                          blurRadius: 40,
+                          offset: Offset(0, 14),
+                        ),
+                      ],
                     ),
-                    child: SingleChildScrollView(
-                      padding: const EdgeInsets.all(8),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                              12,
-                              8,
-                              12,
-                              6,
-                            ),
-                            // One line: a long topic name ends in an
-                            // ellipsis and the count stays whole.
-                            child: Row(
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    menuTitle,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: t.eb.copyWith(height: 1.45),
-                                  ),
+                    child: Material(
+                      color: t.colors.surface,
+                      borderRadius: BorderRadius.circular(14),
+                      clipBehavior: Clip.antiAlias,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: MediaQuery.sizeOf(context).height - 100,
+                        ),
+                        child: SingleChildScrollView(
+                          padding: const EdgeInsets.all(8),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  12,
+                                  8,
+                                  12,
+                                  6,
                                 ),
-                                Text(
-                                  ' · ${lessons.length} LESSONS',
-                                  maxLines: 1,
-                                  style: t.eb.copyWith(height: 1.45),
+                                // One line: a long topic name ends in an
+                                // ellipsis and the count stays whole.
+                                child: Row(
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        menuTitle,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: t.eb.copyWith(height: 1.45),
+                                      ),
+                                    ),
+                                    Text(
+                                      ' · ${lessons.length} LESSONS',
+                                      maxLines: 1,
+                                      style: t.eb.copyWith(height: 1.45),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              for (var i = 0; i < lessons.length; i++)
+                                _menuRow(
+                                  context,
+                                  lessons[i],
+                                  i + 1,
+                                  current:
+                                      lessons[i].id == widget.reader.lesson.id,
+                                ),
+                            ],
                           ),
-                          for (var i = 0; i < lessons.length; i++)
-                            _menuRow(
-                              context,
-                              lessons[i],
-                              i + 1,
-                              current: lessons[i].id == widget.reader.lesson.id,
-                            ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -338,10 +522,13 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         },
         child: Semantics(
           selected: current,
-          child: SizedBox(
-            height: 41,
+          // A title that is too long for one line wraps, and the row grows
+          // with it, so the whole name can be read. A short one keeps the
+          // board's 41 px.
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 41),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               child: Row(
                 children: [
                   Container(
@@ -368,8 +555,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                   Expanded(
                     child: Text(
                       lesson.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                       style: t.style(
                         15,
                         weight: current ? FontWeight.w600 : FontWeight.w400,
@@ -542,7 +727,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    final secondary = t.colors.secondaryLabel;
     const compactTap = MaterialTapTargetSize.shrinkWrap;
     final fullWidth = ref.watch(readerFullWidthProvider);
     final reader = widget.reader;
@@ -573,6 +757,52 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       _anchors.add(GlobalKey());
     }
     final ending = widget.ending;
+    final barShown = _showBar || _menuOpen || ending != null;
+    final inset = barShown ? _barHeight : 0.0;
+    final insetDuration =
+        MediaQuery.disableAnimationsOf(context) || _instantInset
+            ? Duration.zero
+            : Duration(milliseconds: _showBar ? 420 : 700);
+    // Built once here, so the window's slide does not rebuild the lesson.
+    final columnBody = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        LessonTextScale(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(meta, style: t.sub),
+              const SizedBox(height: 8),
+              Text(
+                reader.lesson.title,
+                style: t.style(
+                  46,
+                  weight: FontWeight.w700,
+                  height: 1.08,
+                  spacing: -.9,
+                ),
+              ),
+              const SizedBox(height: 36),
+              for (var i = 0; i < groups.length; i++)
+                Padding(
+                  // Space alone separates the sections, so the anchor is the
+                  // group, not its gap.
+                  padding: EdgeInsets.only(
+                    top: i == 0 ? 0 : ContentRenderer.sectionGap(context),
+                  ),
+                  child: ContentRenderer(
+                    key: _anchors[i],
+                    blocks: groups[i],
+                    readerFigures: true,
+                  ),
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        widget.footer,
+      ],
+    );
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): widget.onBack,
@@ -585,254 +815,71 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       },
       child: Focus(
         autofocus: true,
-        onFocusChange: (focused) {
-          if (focused && !_showBar) setState(() => _showBar = true);
-        },
         child: ColoredBox(
           color: t.colors.background,
           child: Stack(
             children: [
-              Positioned.fill(
-                top: 60,
+              AnimatedPositioned(
+                key: const ValueKey('web-reader-viewport'),
+                duration: insetDuration,
+                curve: _barCurve,
+                top: inset,
+                left: 0,
+                right: 0,
+                bottom: 0,
                 child: ending ??
-                    LayoutBuilder(
-                      builder: (context, constraints) {
-                        final margin =
-                            WebReaderMetrics.margin(constraints.maxWidth);
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              key: const ValueKey('web-reader-outline'),
-                              width: margin,
-                              child: SingleChildScrollView(
-                                padding: const EdgeInsets.only(top: 48),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                        10,
-                                        0,
-                                        10,
-                                        10,
-                                      ),
-                                      child: Text(
-                                        'IN THIS LESSON',
-                                        style: t.eb.copyWith(height: 1.45),
-                                      ),
-                                    ),
-                                    LayoutBuilder(
-                                      builder: (context, constraints) {
-                                        final positions = <int, double>{};
-                                        var top = 0.0;
-                                        for (var i = 0;
-                                            i < headings.length;
-                                            i++) {
-                                          if (headings[i] == null) continue;
-                                          positions[i] = top;
-                                          final text = TextPainter(
-                                            text: TextSpan(
-                                              text: headings[i],
-                                              style: t.style(
-                                                14,
-                                                height: 1.35,
-                                                weight: _active == i
-                                                    ? FontWeight.w600
-                                                    : FontWeight.w400,
-                                              ),
-                                            ),
-                                            textDirection:
-                                                Directionality.of(context),
-                                            textScaler: MediaQuery.textScalerOf(
-                                              context,
-                                            ),
-                                          )..layout(
-                                              maxWidth:
-                                                  constraints.maxWidth - 36,
-                                            );
-                                          top += text.height + 13;
-                                          text.dispose();
-                                        }
-                                        return Stack(
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                for (var i = 0;
-                                                    i < headings.length;
-                                                    i++)
-                                                  if (headings[i] != null)
-                                                    TextButton(
-                                                      onPressed: () {
-                                                        final anchor =
-                                                            _anchors[i]
-                                                                .currentContext;
-                                                        if (anchor != null) {
-                                                          Scrollable
-                                                              .ensureVisible(
-                                                            anchor,
-                                                            alignment: .05,
-                                                          );
-                                                        }
-                                                      },
-                                                      style:
-                                                          TextButton.styleFrom(
-                                                        minimumSize: Size.zero,
-                                                        visualDensity:
-                                                            VisualDensity
-                                                                .standard,
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .symmetric(
-                                                          horizontal: 10,
-                                                          vertical: 6,
-                                                        ),
-                                                        tapTargetSize:
-                                                            compactTap,
-                                                        alignment: Alignment
-                                                            .centerLeft,
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 16),
-                                                        child: Text(
-                                                          headings[i]!,
-                                                          style: t.style(
-                                                            14,
-                                                            height: 1.35,
-                                                            weight: _active == i
-                                                                ? FontWeight
-                                                                    .w600
-                                                                : FontWeight
-                                                                    .w400,
-                                                            color: _active == i
-                                                                ? t.colors.label
-                                                                : secondary,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                              ],
-                                            ),
-                                            if (positions.containsKey(_active))
-                                              AnimatedPositioned(
-                                                key: const ValueKey(
-                                                  'web-reader-outline-dot',
-                                                ),
-                                                duration: MediaQuery
-                                                        .disableAnimationsOf(
-                                                  context,
-                                                )
-                                                    ? Duration.zero
-                                                    : const Duration(
-                                                        milliseconds: 250,
-                                                      ),
-                                                curve:
-                                                    const Cubic(.32, .72, 0, 1),
-                                                top: positions[_active]! + 12,
-                                                left: 10,
-                                                child: IgnorePointer(
-                                                  child: Container(
-                                                    width: 6,
-                                                    height: 6,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      color: t.colors.accent,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                          ],
-                                        );
-                                      },
-                                    ),
-                                  ],
+                    TweenAnimationBuilder<double>(
+                      tween: Tween(end: inset),
+                      duration: insetDuration,
+                      curve: _barCurve,
+                      builder: (context, shown, _) {
+                        // The window's top edge follows the bar's bottom
+                        // edge, so no hard line cuts the lesson under a bar
+                        // that has gone. What the window gives up is added
+                        // to the lesson's own top padding, so the text stays
+                        // exactly where it was.
+                        final lift = _barHeight - shown;
+                        return LayoutBuilder(
+                          builder: (context, constraints) {
+                            final margin =
+                                WebReaderMetrics.margin(constraints.maxWidth);
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  key: const ValueKey('web-reader-outline'),
+                                  width: margin,
+                                  child: SingleChildScrollView(
+                                    padding: EdgeInsets.only(top: 48 + lift),
+                                    child: _outline(context, headings),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            const SizedBox(width: WebReaderMetrics.gap),
-                            Flexible(
-                              child: SizedBox(
-                                key: const ValueKey('web-reader-column'),
-                                width: fullWidth
-                                    ? readerFullWidthMax
-                                    : readerStandardWidth,
-                                child: _wheel(
-                                  SingleChildScrollView(
-                                    controller: widget.controller,
-                                    primary: false,
-                                    padding: const EdgeInsets.only(
-                                      top: 48,
-                                      bottom: 80,
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
-                                      children: [
-                                        LessonTextScale(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
-                                            children: [
-                                              Text(
-                                                meta,
-                                                style: t.sub,
-                                              ),
-                                              const SizedBox(
-                                                height: 6,
-                                              ),
-                                              Text(
-                                                reader.lesson.title,
-                                                style: t.style(
-                                                  42,
-                                                  weight: FontWeight.w700,
-                                                  height: 1.1,
-                                                  spacing: -1.092,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: 28,
-                                              ),
-                                              for (var i = 0;
-                                                  i < groups.length;
-                                                  i++)
-                                                Padding(
-                                                  // Space alone separates the
-                                                  // sections, so the anchor is
-                                                  // the group, not its gap.
-                                                  padding: EdgeInsets.only(
-                                                    top: i == 0
-                                                        ? 0
-                                                        : ContentRenderer
-                                                            .sectionGap(
-                                                            context,
-                                                          ),
-                                                  ),
-                                                  child: ContentRenderer(
-                                                    key: _anchors[i],
-                                                    blocks: groups[i],
-                                                    readerFigures: true,
-                                                  ),
-                                                ),
-                                            ],
-                                          ),
+                                const SizedBox(width: WebReaderMetrics.gap),
+                                Flexible(
+                                  child: SizedBox(
+                                    key: const ValueKey('web-reader-column'),
+                                    width: fullWidth
+                                        ? readerFullWidthMax
+                                        : readerStandardWidth,
+                                    child: _wheel(
+                                      SingleChildScrollView(
+                                        controller: widget.controller,
+                                        primary: false,
+                                        padding: EdgeInsets.only(
+                                          top: 48 + lift,
+                                          bottom: 80,
                                         ),
-                                        const SizedBox(height: 20),
-                                        widget.footer,
-                                      ],
+                                        child: columnBody,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            const SizedBox(width: WebReaderMetrics.gap),
-                            SizedBox(width: margin),
-                          ],
+                                const SizedBox(width: WebReaderMetrics.gap),
+                                SizedBox(width: margin),
+                              ],
+                            );
+                          },
                         );
                       },
                     ),
@@ -854,9 +901,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                       ? Offset.zero
                       : const Offset(0, -1),
                   child: Material(
+                    key: _barKey,
                     color: t.colors.background,
                     child: SizedBox(
-                      height: 60,
+                      height: _barHeight,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 24,

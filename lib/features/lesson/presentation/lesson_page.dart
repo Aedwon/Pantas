@@ -1584,17 +1584,24 @@ class _LessonContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    // The design's title block: the topic and the time in
+                    // one line of 15 px, then the title at 30 px.
                     Text(
-                      reader.topicName.toUpperCase(),
-                      style: context.type.sectionHeader
-                          .copyWith(letterSpacing: .52),
+                      '${reader.topicName} · '
+                      '${reader.lesson.estimatedMinutes} min',
+                      style: context.type.subhead.copyWith(
+                        color: context.colors.secondaryLabel,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       reader.lesson.title,
-                      style: context.type.pageTitle.copyWith(height: 1.15),
+                      style: context.type.pageTitle.copyWith(
+                        height: 1.08,
+                        letterSpacing: -.5,
+                      ),
                     ),
-                    const SizedBox(height: 33),
+                    const SizedBox(height: 24),
                     ContentRenderer(
                       blocks: reader.lesson.bodyJson,
                       readerFigures: true,

@@ -291,7 +291,9 @@ class ContentRenderer extends StatelessWidget {
       }
     }
     return (
-      spans: spans,
+      // A formula and the mark that follows it, even across two runs, stay
+      // on one line.
+      spans: keepPunctuationWithMath(spans),
       spoken: spoken.toString(),
       hasMath: hasMath,
       validSpeech: validSpeech,
@@ -368,9 +370,10 @@ class ContentRenderer extends StatelessWidget {
       'h3' when readerFigures => _readerH3(context),
       'h3' || 'h4' || 'h5' || 'h6' => context.type.emphasized
           .copyWith(fontSize: 18, height: 1.3, letterSpacing: -.216),
+      // The design's paragraph rule beats its note rule, so a note keeps the
+      // body line height instead of a tighter one.
       'blockquote' when readerFigures => base.copyWith(
           fontWeight: FontWeight.w500,
-          height: 1.55,
           color: section == ReaderSection.traps
               ? context.colors.readerWarnText
               : context.colors.readerNoteText,
@@ -737,6 +740,14 @@ class ContentRenderer extends StatelessWidget {
   /// lesson has none, so the sections are told apart by space alone.
   static double sectionGap(BuildContext context) => context.wideWeb ? 104 : 72;
 
+  /// The number a numbered list starts at once a paragraph has ended the list
+  /// before it. The source says it: a solution that goes "1.", a formula, a
+  /// sentence, then "2." keeps that 2. A block with no number starts at 1.
+  static int _listStart(Map<String, Object?> block) {
+    final written = block['listNumber'];
+    return written is num && written >= 1 ? written.toInt() : 1;
+  }
+
   Widget _readerColumn(
     BuildContext context,
     List<Map<String, Object?>> blocks,
@@ -835,6 +846,21 @@ class ContentRenderer extends StatelessWidget {
           counters.clear();
           continue;
         }
+        // Choices written one to a paragraph, as the language lessons do.
+        final run = splitReaderChoiceBlocks([
+          for (var next = index;
+              next < items.length && items[next] is ReaderPlain;
+              next++)
+            (items[next] as ReaderPlain).block,
+        ]);
+        if (run != null) {
+          slots.add(
+            _Slot(_choiceRows(context, run.choices.choices), above: 4),
+          );
+          counters.clear();
+          index += run.count - 1;
+          continue;
+        }
       }
       final isBlock = block['_type'] == 'block';
       final list = isBlock ? string(block['listItem']) : '';
@@ -844,7 +870,8 @@ class ContentRenderer extends StatelessWidget {
             block['level'] is num ? (block['level']! as num).toInt() : 1;
         counters.removeWhere((key, value) => key > level);
         if (list == 'number') {
-          counters[level] = (counters[level] ?? 0) + 1;
+          final open = counters[level];
+          counters[level] = open == null ? _listStart(block) : open + 1;
           marker = '${counters[level]}.';
         } else {
           marker = '•';
@@ -1061,7 +1088,8 @@ class ContentRenderer extends StatelessWidget {
             block['level'] is num ? (block['level']! as num).toInt() : 1;
         counters.removeWhere((key, value) => key > level);
         if (list == 'number') {
-          counters[level] = (counters[level] ?? 0) + 1;
+          final open = counters[level];
+          counters[level] = open == null ? _listStart(block) : open + 1;
           marker = '${counters[level]}.';
         } else {
           marker = '•';
