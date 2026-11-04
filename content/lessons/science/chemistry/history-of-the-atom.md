@@ -75,9 +75,9 @@ They observed three things:
 - a small number were deflected through large angles;
 - a very few came almost straight back.
 
-Rutherford explained the results in $1911$. Only a strong push from a concentrated positive charge could turn a heavy, fast alpha particle through a large angle. In the plum pudding model, the positive charge is spread out, so it could not do this. Rutherford inferred that:
+Rutherford explained the results in $1911$. Only a strong force from a concentrated charge could turn a heavy, fast alpha particle through a large angle. In the plum pudding model, the charge is spread out, so it could not do this. Rutherford inferred that:
 
-- nearly all of the atom's positive charge and mass is in a very small nucleus;
+- nearly all of the atom's mass and charge is in a very small nucleus, which is positive because the atom is neutral and its electrons are negative;
 - most of the atom's volume is empty space with the light electrons in it.
 
 <!-- ILLUSTRATION: gold foil experiment: alpha source on the left, thin gold foil in the middle, circular screen around it; most arrows go straight through, a few bend at large angles, one bounces back; label "alpha particles", "gold foil", "screen" -->
@@ -94,7 +94,7 @@ In Bohr's model, an electron in a level does not give off light. When it drops t
 
 <!-- ILLUSTRATION: energy level diagram for hydrogen with levels n = 1, 2, 3, 4 stacked upward, and downward arrows from n = 3 to n = 2 labeled "red line", and from n = 4 to n = 2 labeled "blue-green line" -->
 
-The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. It does **not** correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
+The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. It does not correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
 
 ### The Quantum-Mechanical Model
 
@@ -159,7 +159,7 @@ Most alpha particles pass through gold foil, but a few bounce at large angles. W
 1. Observation: most pass nearly straight, and a few turn through large angles. An inference is a conclusion drawn from this.
 2. Inference: the atom has a tiny, dense, positive nucleus.
 3. In the plum pudding model, the positive charge is spread out. A heavy, fast alpha particle would be bent only a little.
-4. A large turn needs a strong push from a concentrated charge. So the results supported a small nucleus.
+4. A large turn needs a strong force from a concentrated charge. So the results supported a small nucleus.
 5. Most particles went straight through, so the nucleus fills only a tiny part of the atom's volume.
 
 ### #5: Testing a Model with a Change

@@ -62,7 +62,9 @@ Energy is never created or destroyed. It changes form or moves from place to pla
 
 $$KE_i + PE_i = KE_f + PE_f$$
 
-A **nonconservative force**, such as friction, air drag, or an applied push, pull or motor, can change mechanical energy. Friction and drag turn it into thermal energy. A push or a motor can add to it. The work $W_{nc}$ done by these forces equals the change in mechanical energy:
+A **nonconservative force**, such as sliding friction, air drag, or an applied push, pull or motor, can change mechanical energy. Sliding friction and drag turn it into thermal energy. A push or a motor can add to it.
+
+Friction that does not let the surfaces slip, as under a ball rolling without slipping, does zero work. The work $W_{nc}$ done by the nonconservative forces equals the change in mechanical energy:
 
 $$W_{nc} = \Delta(KE+PE)$$
 
@@ -262,7 +264,7 @@ The other $420\ \text{J}$ was wasted, mostly as heat from friction. An ideal sys
 
 For work by a constant force, check the angle first. Same direction gives $W=Fd$, perpendicular gives zero, and opposite gives a negative answer.
 
-For a mechanical-energy problem, ask if any force other than gravity or a spring does work. Friction, air drag, a push, a pull and a motor all count. If none does, set $KE+PE$ equal at the two states. If one does, include $W_{nc}$.
+For a mechanical-energy problem, ask if any force other than gravity does work. Sliding friction, air drag, a push, a pull and a motor all count. If none does, set $KE+PE$ equal at the two states; if one does, include $W_{nc}$.
 
 If an object starts from rest and only gravity does work, mass cancels. Then $mgh=\dfrac{1}{2}mv^2$ gives $v=\sqrt{2gh}$, where $h$ is the drop in height. It fails if the object already has speed or if any other force does work.
 
@@ -286,7 +288,7 @@ Square the speed before you multiply by the other numbers.
 
 ### #3: Saying Energy Is "Lost" to Friction
 
-> Friction from a surface at rest lowers mechanical energy, but total energy is still conserved.
+> Friction on an object sliding over a surface at rest lowers its mechanical energy, but total energy is still conserved.
 
 The energy becomes thermal energy, sound, or other forms. It is not destroyed.
 

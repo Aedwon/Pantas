@@ -93,7 +93,7 @@ $$P=IV$$
 
 Energy is $E=Pt$. Utility bills use the kilowatt-hour ($\mathrm{kWh}$), the energy used by $1$ kW in $1$ hour. **Efficiency** is the useful energy out divided by the energy in, times $100\%$.
 
-A **fuse** or circuit breaker opens the circuit when the current is too large. A **short circuit** is a path with very low resistance, so the current is very large. A ground wire gives stray current a safe path.
+A large current heats the wires, and hot wires can start a fire. A **fuse** or circuit breaker opens the circuit when the current is too large. The appliances in a home are in parallel on the same line, so adding appliances adds their currents. A **short circuit** is a path with very low resistance, so the current is very large. A ground wire gives stray current a safe path.
 
 ### Magnetism and Electromagnetism
 
@@ -339,6 +339,27 @@ $$P=IV=(3.0)(12)=36\ \mathrm{W}$$
 $$\dfrac{28.8}{36}\times100\%=80\%$$
 
 3. The motor changes electrical energy to motion. The rest of the energy leaves as heat.
+
+### #16: Fuse and Overload
+
+A $220$ V line has a $10$ A fuse. A heater of $1{,}100$ W and an iron of $1{,}000$ W run on it together. A kettle of $600$ W is then plugged in. What happens, and why?
+
+**Solution:**
+
+1. The appliances are in parallel, so their currents add. Find the total power:
+
+$$1{,}100+1{,}000=2{,}100\ \mathrm{W}$$
+
+2. Find the current:
+
+$$I=\dfrac{P}{V}=\dfrac{2100}{220}\approx9.5\ \mathrm{A}$$
+
+This is below $10$ A, so the fuse stays closed.
+3. With the kettle, the total power is $2{,}700$ W:
+
+$$I=\dfrac{2700}{220}\approx12.3\ \mathrm{A}$$
+
+4. This is more than $10$ A, so the fuse opens and stops the current. This keeps the wires from overheating.
 
 ## Speed Tricks & Shortcuts
 

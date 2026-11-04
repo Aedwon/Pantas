@@ -44,6 +44,8 @@ $$\tan\theta = \dfrac{d}{h_c}$$
 
 For a uniform box with width $w$ and height $h$, $d = \dfrac{w}{2}$ and $h_c = \dfrac{h}{2}$. So $\tan\theta = \dfrac{w}{h}$. A cube tips at $45^\circ$. A lower center of gravity or a wider base gives a larger angle, as long as the center of gravity stays in the middle of the base. A load that shifts the center of gravity toward one edge makes $d$ smaller on that side. That reduces the margin, though a wider base still widens it.
 
+Here $\tan\theta$ (the **tangent**) is the opposite side divided by the adjacent side in a right triangle. In the triangle with legs $d$ and $h_c$, $d$ is opposite $\theta$ and $h_c$ is adjacent. To find the angle from a tangent value, press the $\tan^{-1}$ key on a calculator. The lesson Basic Trigonometric Ratios teaches the tangent.
+
 The mass of the object does not appear in this formula. Where the mass sits does.
 
 ### Pushing an Object Over
@@ -226,9 +228,9 @@ A lower center of gravity helps, but the full explanation involves those forces 
 
 ### #4: "Lower or Wider Is Always Better"
 
-> Lowering the center of gravity or widening the base each helps when the other factors stay the same.
+> Each change helps only in the case it acts on.
 
-A load that shifts the center of gravity toward one edge reduces the margin, and a wider base still widens it. A load that sticks out past the base can tip even a wide crate unless the base is wide enough to cover it.
+Lowering the center of gravity makes the slow-tilt angle larger while the weight line is inside the base. It does not change the push that tips a box when the weight, the distance $d$ and the push height stay the same, and it cannot save a load whose weight line is already past the edge. A wider base widens the margin, but a load that sticks out can still tip a wide crate unless the base reaches under the weight line.
 
 ### #5: Forgetting That Objects Can Slide
 

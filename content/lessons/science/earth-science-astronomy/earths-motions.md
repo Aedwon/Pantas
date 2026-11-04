@@ -81,7 +81,9 @@ Adding a day every fourth year is slightly too much, so the century rule removes
 
 A **constellation** is a group of stars that people have named as a pattern in the sky, such as Orion or Scorpius. We see the stars only at night, when our side of Earth faces away from the Sun. The stars in the direction of the Sun are lost in daylight.
 
-As Earth revolves, the direction of the Sun against the background stars changes through the year. So the part of the sky that we face at night changes too. A constellation seen high in the evening sky in one season is near the Sun's direction, and hidden by daylight, about six months later.
+As Earth revolves, the direction of the Sun against the background stars changes through the year. So the part of the sky that we face at night changes too.
+
+A constellation near the Sun's path across the sky, seen high in the evening in one season, is near the Sun's direction and hidden by daylight about six months later. A constellation very near the north celestial pole is the exception. It never sets from places far north of the equator, so it can be seen all year there.
 
 For example, Orion is easy to see in the evening in the early months of the year, from the Philippines. Scorpius is seen in the evening in the middle of the year. Rotation moves the stars across the sky each night. Revolution changes which stars are in the night sky as the months pass.
 

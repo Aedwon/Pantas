@@ -15,7 +15,7 @@ The **effort** is the force you apply. The **load** is the force you work agains
 
 $$\text{MA}=\dfrac{F_\text{load}}{F_\text{effort}}$$
 
-A machine is **ideal** when it has no friction and its rope or bar has no weight. Then the work you put in equals the work you get out. Work is force times distance, so a smaller effort must act through a longer distance:
+A machine is **ideal** when it has no friction and its ropes, pulleys and bar have no weight. Then the work you put in equals the work you get out. Work is force times distance, so a smaller effort must act through a longer distance:
 
 $$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
 
@@ -110,7 +110,7 @@ $$F_\text{effort}=\dfrac{588}{2}=294\text{ N}.$$
 <!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "An ideal movable pulley supporting a load with two rope segments; the free end moves twice the load distance."} -->
 ### #3: Counting the Supporting Segments
 
-A $900\text{ N}$ load hangs from one movable pulley. The rope is tied to the ceiling, runs down and under the movable pulley, then up over a fixed pulley on the ceiling, and down to the hand. Ignore friction. What effort is needed, and how much rope must be pulled to raise the load $0.5\text{ m}$?
+A $900\text{ N}$ load hangs from one movable pulley. The rope is tied to the ceiling, runs down and under the movable pulley, then up over a fixed pulley on the ceiling, and down to the hand. Ignore friction and the weight of the pulleys. What effort is needed, and how much rope must be pulled to raise the load $0.5\text{ m}$?
 
 **Solution:**
 
@@ -125,7 +125,7 @@ $$F_\text{effort}=\dfrac{900}{2}=450\text{ N}$$
 
 ### #4: Three Supporting Segments
 
-A $900\text{ N}$ load hangs from a frame that holds one movable pulley. One end of the rope is tied to the frame. The rope goes up and over a fixed pulley on the ceiling, down and under the movable pulley, then straight up to a person who pulls that end upward. Ignore friction. What effort is needed, and how much rope must be pulled to raise the load $0.4\text{ m}$?
+A $900\text{ N}$ load hangs from a frame that holds one movable pulley. One end of the rope is tied to the frame. The rope goes up and over a fixed pulley on the ceiling, down and under the movable pulley, then straight up to a person who pulls that end upward. Ignore friction and the weight of the pulleys and frame. What effort is needed, and how much rope must be pulled to raise the load $0.4\text{ m}$?
 
 **Solution:**
 
@@ -231,7 +231,7 @@ A right-angle push would need only $150\text{ N}$, because $F_e(2)=300$.
 
 ## Speed Tricks & Shortcuts
 
-**For ideal one-rope pulley systems, count supporting segments.** Divide the load by the count to get the effort. This works only when the segments hang straight and friction is ignored.
+**For ideal one-rope pulley systems, count supporting segments.** Divide the load by the count to get the effort. This works only when the segments hang straight and friction and the weight of the parts are ignored.
 
 **If both sides are weights from masses, skip $g$.** It cancels when both weights are on the same planet, so compare mass times distance on each side.
 
@@ -271,4 +271,4 @@ The fulcrum is not always at the end or the middle. In the wheelbarrow, the effo
 
 > Ideal MA is a model. Friction usually makes the real effort larger, and the weight of the parts can change it.
 
-In a pulley system, friction and the weight of the moving pulley raise the effort. A lever bar's own weight can raise or lower the effort, depending on which side its middle lies. If a question gives no friction or bar weight to use, answer with the ideal value.
+In a pulley system, friction and the weight of the moving pulley raise the effort. A lever bar's own weight acts at its center of gravity, which is the middle only for a uniform bar, and it can raise or lower the effort depending on which side of the fulcrum that point lies. If a question gives no friction or bar weight to use, answer with the ideal value.
