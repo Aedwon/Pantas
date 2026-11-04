@@ -77,7 +77,11 @@
       14,
       6
     ],
-    "status": "split"
+    "status": "split",
+    "newRead": {
+      "verdict": "clean",
+      "round": 3
+    }
   },
   {
     "original": "lesson-biology-cellular-metabolism",
