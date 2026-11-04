@@ -145,9 +145,16 @@ async function loadStudy(db: Firestore, examId: string, custom: boolean,
   const refId = (value: CatalogReference | undefined | null): string =>
     typeof value === 'string' ? value : value?._ref ?? '';
   // A set tagged for several exams sits in each exam's catalog, so the union keeps one copy per set id.
+  // Real uploads write identical copies, so copies that differ mean this read met an upload: retry, never mix.
   const offered = selected.flatMap(d => d.sets ?? []);
-  const seen = new Set<string>();
-  const unique = custom ? offered.filter(s => !seen.has(s.id) && !!seen.add(s.id)) : offered;
+  const seen = new Map<string, string>();
+  const unique = custom ? offered.filter(s => {
+    const copy = JSON.stringify([refId(s.topic), s.lesson == null ? null : refId(s.lesson), s.questions]);
+    const first = seen.get(s.id);
+    if (first === undefined) { seen.set(s.id, copy); return true; }
+    if (first !== copy) throw contentUnavailable('Question-set copies differ.');
+    return false;
+  }) : offered;
   const sets = unique.filter(s => {
     if (!Array.isArray(s.exams)) throw contentUnavailable('Question-set exam membership is not available.');
     return custom ? inCustomCorpus(s) : s.exams.includes(examId);
@@ -200,9 +207,12 @@ async function loadStudy(db: Firestore, examId: string, custom: boolean,
 }
 
 let corpusCache: {at: number; value: StudyContent} | undefined;
-/** The custom-exam corpus for readers that are not transactional. Kept five minutes, like `loadExamContent`. */
-export async function loadCorpusCached(db: Firestore, now: number): Promise<StudyContent> {
-  if (corpusCache && now >= corpusCache.at && now - corpusCache.at < TTL_MS) return corpusCache.value;
+/**
+ * The custom-exam corpus for readers that are not transactional. Kept five minutes, like `loadExamContent`.
+ * `fresh` skips the kept copy and reads again, then keeps what it read.
+ */
+export async function loadCorpusCached(db: Firestore, now: number, {fresh = false}: {fresh?: boolean} = {}): Promise<StudyContent> {
+  if (!fresh && corpusCache && now >= corpusCache.at && now - corpusCache.at < TTL_MS) return corpusCache.value;
   const value = await loadStudy(db, 'corpus', true);
   corpusCache = {at: now, value};
   return value;

@@ -131,6 +131,46 @@ test('two different sets holding one question id stay a duplicate identity', asy
   await rejects(loadStudyContent(fakeDb(docs).db, CUSTOM), 'unavailable', 'Duplicate authored question identities.');
 });
 
+// A set tagged for two exams sits in both catalogs. Real uploads write the same copy in each; copies that differ mean a read met an upload.
+const copyDocs = (second) => {
+  const docs = documents();
+  docs['exam_beta.subj_math'].sets = [second, docs['exam_beta.subj_math'].sets[1]];
+  return docs;
+};
+const shared = documents().exam_alpha.sets[0];
+
+test('copies of one set that differ are unavailable, so a read during an upload is retried and never mixed', async () => {
+  for (const second of [
+    {...shared, questions: [{id: 'bio-1'}]},                              // a question missing
+    {...shared, questions: [{id: 'bio-1'}, {id: 'bio-2'}]},               // a passage missing
+    {...shared, questions: [...shared.questions, {id: 'bio-9'}]},         // a question added
+    {...shared, questions: [...shared.questions].reverse()},              // another order
+    {...shared, topic: 'topic_alg'},
+    {...shared, lesson: 'lesson-bio-genes'},
+    {...shared, lesson: null},
+  ]) {
+    await rejects(loadStudyContent(fakeDb(copyDocs(second)).db, CUSTOM), 'unavailable', 'Question-set copies differ.');
+    clearExamContentCache();
+    await rejects(loadCorpusCached(fakeDb(copyDocs(second)).db, 1_000), 'unavailable', 'Question-set copies differ.');
+  }
+});
+
+test('identical copies of a set dedupe, however their references are written and whatever exams they list', async () => {
+  const baseline = await loadStudyContent(fakeDb().db, CUSTOM);
+  for (const second of [
+    {...shared},
+    {...shared, topic: {_ref: 'topic_bio'}, lesson: {_ref: 'lesson-bio-cells'}},
+    {...shared, exams: ['exam_beta']},
+    {...shared, exams: ['exam_alpha', 'exam_beta', 'exam_gamma'], language: 'fil'},
+  ]) {
+    assert.deepEqual(await loadStudyContent(fakeDb(copyDocs(second)).db, CUSTOM), baseline);
+  }
+  // A listed exam does not compare copies at all.
+  const listed = documents();
+  listed.exam_alpha.sets = [shared, {...shared, questions: [{id: 'bio-1'}]}, listed.exam_alpha.sets[1]];
+  await rejects(loadStudyContent(fakeDb(listed).db, 'exam_alpha'), 'unavailable', 'Duplicate authored question identities.');
+});
+
 test('a set without its exam tags is unavailable, as for a listed exam', async () => {
   const docs = documents();
   docs.exam_alpha.sets = [docs.exam_alpha.sets[0], {...docs.exam_alpha.sets[1], exams: undefined}];
@@ -195,6 +235,20 @@ test('loadCorpusCached holds the corpus for five minutes and clearExamContentCac
   const early = db.reads.length;
   await loadCorpusCached(db, 5);
   assert.ok(db.reads.length > early, 'a clock that moved back is never a hit');
+});
+
+test('loadCorpusCached with fresh reads again inside the window, and keeps what it read', async () => {
+  const {db} = fakeDb();
+  const first = await loadCorpusCached(db, 1_000);
+  const reads = db.reads.length;
+  assert.equal(await loadCorpusCached(db, 1_001), first);
+  assert.equal(db.reads.length, reads);
+  db.stored.set(path('exam_beta.subj_math'), {...db.stored.get(path('exam_beta.subj_math')), version: 'v-next'});
+  const fresh = await loadCorpusCached(db, 1_002, {fresh: true});
+  assert.ok(db.reads.length > reads, 'a fresh load reads');
+  assert.notEqual(fresh.revision, first.revision);
+  assert.equal(await loadCorpusCached(db, 1_003), fresh, 'and what it read is what the cache now holds');
+  assert.equal((await loadCorpusCached(db, 1_004, {fresh: false})), fresh);
 });
 
 test('a failed corpus load is not cached', async () => {

@@ -157,8 +157,13 @@ export async function computeRoadmap(db: Firestore, uid: string, pro: boolean, n
   if (isCustomExamId(settings.examId)) {
     // A custom exam has no legacy roadmap: `build` would mint `topic_custom_*` ids that match nothing.
     const input = {expectedUid: uid, examId: settings.examId}, deps = {db, now: () => now, allow: async () => true};
-    await readStudyRoadmap({uid}, input, deps);
-    await readStudyInsights({uid}, input, deps);
+    try {
+      await readStudyRoadmap({uid}, input, deps);
+      await readStudyInsights({uid}, input, deps);
+    } catch (error) {
+      // A newer save changed the exam, and that save owns the rebuild.
+      if (!(error instanceof HttpsError && error.code === 'failed-precondition')) throw error;
+    }
     return null;
   }
   const {roadmap, sessions} = await build(db, uid, settings, pro, now);

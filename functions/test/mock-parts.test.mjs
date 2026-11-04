@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   STRICT_BREAK_MS, endPartNow, mergePartAnswers, newPartClock, partsView, settleParts, startPartNow, submitParts,
-  totalRemainingMs, usedInPart, usedTotalMs, clockChanged,
+  totalRemainingMs, usedInPart, usedTotalMs, clockChanged, clockNow,
 } from '../lib/_mockParts.js';
 
 const SEC = 1000;
@@ -408,4 +408,32 @@ test('property: a strict paper nobody touches follows the exact timetable', () =
       assert.equal(out.parts.waitingSince, ends[closed - 1]);
     }
   }
+});
+
+test('clockNow is never before the last event on the clock', () => {
+  const running = rowOf([30, 20], {now: T0});
+  assert.equal(clockNow(running, T0 + 5 * SEC), T0 + 5 * SEC, 'a request after every event keeps its own time');
+  assert.equal(clockNow(running, T0 - 5 * SEC), T0, 'a request older than the part start is lifted to it');
+  const waiting = withState(rowOf([30, 20]), settleParts(rowOf([30, 20]), T0 + 30 * MIN));
+  assert.equal(waiting.parts.startedAt, null);
+  assert.equal(clockNow(waiting, T0), T0 + 30 * MIN, 'a request older than the wait is lifted to it');
+  assert.equal(clockNow(waiting, T0 + 31 * MIN), T0 + 31 * MIN);
+  const paused = rowOf([30, 20], {pausedAt: T0 + 10 * MIN, pausedMs: 0});
+  assert.equal(clockNow(paused, T0 + MIN), T0 + 10 * MIN, 'a non-strict pause is an event too');
+  assert.equal(clockNow(paused, T0 + 11 * MIN), T0 + 11 * MIN);
+});
+
+test('clockNow ignores a pause on a strict row and a pause that is not a number', () => {
+  assert.equal(clockNow(rowOf([30, 20], {strict: true, pausedAt: T0 + 10 * MIN}), T0 + MIN), T0 + MIN);
+  assert.equal(clockNow({...rowOf([30, 20]), pausedAt: 'x'}, T0 + MIN), T0 + MIN);
+  assert.equal(clockNow({...rowOf([30, 20]), pausedAt: undefined}, T0 + MIN), T0 + MIN);
+});
+
+test('clockNow of a finished clock is lifted to the moment the paper ended', () => {
+  const row = rowOf([10, 5]);
+  const settled = withState(row, settleParts(row, T0 + 10 * MIN));
+  const begun = {...settled, parts: startPartNow(settled.parts, T0 + 12 * MIN)};
+  const done = withState(begun, settleParts(begun, T0 + 17 * MIN));
+  assert.equal(done.parts.waitingSince, T0 + 17 * MIN);
+  assert.equal(clockNow(done, T0 + MIN), T0 + 17 * MIN);
 });

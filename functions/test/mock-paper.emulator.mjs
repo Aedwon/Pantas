@@ -309,6 +309,34 @@ test('listed exam: no parts anywhere, startPart and endPart are unknown, the ser
   }
 });
 
+test('listed exam: startPart and endPart are Unknown action for a finished row, an expired strict row and a missing mock, and change nothing', async () => {
+  const unknown = promise => assert.rejects(promise, e => e.code === 'invalid-argument' && e.message === 'Unknown action.');
+  const rowOf = (uid, id) => db.doc(`users/${uid}/server/mocks/items/${id}`).get();
+  // A finished row.
+  const done = 'p-listed-new-finished';
+  await reset(done);
+  const finished = await beginMock(named(done), {examId: EXAM}, d());
+  await recordMock(named(done), {mockId: finished.mockId, answers: [answer(finished.paper.sections[0].questions[0].id, true)], durationMs: MIN}, d(NOW + MIN));
+  for (const action of ['startPart', 'endPart']) await unknown(changeMock(named(done), {mockId: finished.mockId, action}, d(NOW + 2 * MIN)));
+  assert.equal((await rowOf(done, finished.mockId)).get('status'), 'submitted');
+  // An expired strict row stays open and unsubmitted, and the refused call does not use the rate limit.
+  const expired = 'p-listed-new-expired';
+  await reset(expired);
+  const strict = await beginMock(named(expired), {examId: EXAM, strict: true}, d());
+  await changeMock(named(expired), {mockId: strict.mockId, action: 'save', answers: [answer(strict.paper.sections[0].questions[0].id, true)]}, d(NOW + MIN));
+  let used = 0;
+  const counted = at => ({db, now: () => at, allow: async () => { used += 1; return true; }});
+  for (const action of ['startPart', 'endPart']) await unknown(changeMock(named(expired), {mockId: strict.mockId, action}, counted(NOW + 3 * DAY)));
+  assert.equal(used, 0);
+  const open = await rowOf(expired, strict.mockId);
+  assert.equal(open.get('status'), 'started');
+  assert.equal(open.get('submittedAt'), undefined);
+  assert.equal((await db.doc(`users/${expired}/server/answers/items/mock:${strict.mockId}`).get()).exists, false);
+  // A mock that does not exist.
+  for (const action of ['startPart', 'endPart']) await unknown(changeMock(named(expired), {mockId: 'doesNotExist1', action}, counted(NOW + MIN)));
+  assert.equal(used, 0);
+});
+
 // ---- custom exams: a corpus with the real topic sizes ----
 const CE = {vl: 'topic_mp_verbal_logic', di: 'topic_mp_data_interp', al: 'topic_mp_algebra', cs: 'topic_mp_comprehension'};
 const ALL = [CE.vl, CE.di, CE.al, CE.cs];

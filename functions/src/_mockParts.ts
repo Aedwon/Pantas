@@ -1,6 +1,6 @@
 import type {Answer} from './_answers.js';
 
-// Product choice awaiting the founder's confirmation. It is not shown to students as a figure.
+// Aedwon approved 60 seconds on Nov 5. It is not shown to students as a figure.
 export const STRICT_BREAK_MS = 60_000;
 
 /**
@@ -26,6 +26,11 @@ function pauses(row: ClockRow): {pausedAt: number | null; pausedMs: number} {
   if (row.strict === true) return {pausedAt: null, pausedMs: 0};
   return {pausedAt: typeof row.pausedAt === 'number' ? row.pausedAt : null,
     pausedMs: typeof row.pausedMs === 'number' ? row.pausedMs : 0};
+}
+
+/** A request that waited can never stamp a moment before the clock's last event. */
+export function clockNow(row: ClockRow, now: number): number {
+  return Math.max(now, row.parts.startedAt ?? now, row.parts.waitingSince ?? now, pauses(row).pausedAt ?? now);
 }
 
 /** Part 0 running from `now`, with each limit taken from the minutes the student set. */

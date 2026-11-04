@@ -271,6 +271,44 @@ test('with no track or settings, CSE to custom asks to set the exam first; with 
   await refused(readStudyRoadmap(named(uid), body(uid, 'exam_cse_pro'), deps(NOW + 2000)), 'failed-precondition', 'Your exam changed. Open this screen again.');
 });
 
+// ---- a save whose rebuild meets a newer save --------------------------------------------------------------------
+/** The same database, except that before the `nth` transaction it runs `before`. The save's own transaction is the first. */
+function racing(nth, before) {
+  let calls = 0, fired = false;
+  const proxy = new Proxy(db, {get(target, key) {
+    if (key === 'runTransaction') return async (...args) => {
+      calls += 1;
+      if (calls === nth) { fired = true; await before(); }
+      return target.runTransaction(...args);
+    };
+    const value = Reflect.get(target, key, target);
+    return typeof value === 'function' ? value.bind(target) : value;
+  }});
+  return {db: proxy, fired: () => fired};
+}
+
+for (const [nth, which] of [[3, 'plan'], [4, 'insights']]) {
+  test(`a save whose ${which} rebuild finds a newer save naming another exam still succeeds, and its track is stored`, async () => {
+    const uid = `ct-race-${which}`, id = newId(), other = newId();
+    await reset(uid);
+    const raced = racing(nth, () => db.doc(`users/${uid}/server/settings`).set({examId: other, examDate: null, studyDays: [1], updatedAt: NOW + 1}));
+    const out = await saveExamSettings(named(uid), settingsInput(uid, id, {customTrack: {name: 'First', blueprint: blueprint()}}), {...deps(), db: raced.db});
+    assert.equal(raced.fired(), true);
+    assert.deepEqual(out, {stored: true});
+    assert.equal((await track(uid, id)).name, 'First');
+    assert.equal((await settingsOf(uid)).examId, other, 'the newer save is untouched');
+  });
+}
+
+test('a rebuild that fails for any other reason still fails the save', async () => {
+  const uid = 'ct-race-other', id = newId();
+  await reset(uid);
+  const refusal = Object.assign(new Error('unavailable'), {code: 'unavailable'});
+  const raced = racing(3, async () => { throw refusal; });
+  await assert.rejects(saveExamSettings(named(uid), settingsInput(uid, id, {customTrack: {name: 'First', blueprint: blueprint()}}), {...deps(), db: raced.db}), error => error === refusal);
+  assert.equal((await track(uid, id)).name, 'First', 'the save itself had committed');
+});
+
 const storedDay = async (uid, id, day = '2026-10-24') => (await db.doc(`users/${uid}/server/roadmapDays/items/${id}:${day}`).get());
 
 test('a track with a blueprint has a mock, one without does not, and its length comes from the blueprint', async () => {

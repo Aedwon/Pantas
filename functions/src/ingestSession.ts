@@ -51,11 +51,17 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
     throw new HttpsError('resource-exhausted', 'Daily session limit reached. Try again tomorrow.');
   }
   // A custom exam draws on the whole corpus, and a phone's bundle can hold ids the catalog lacks. Those answers are
-  // dropped and the rest kept, rather than refusing the session. The replay check below compares the kept list.
+  // dropped and the rest kept, rather than refusing the session. The replay check below compares the sent answers
+  // for the questions the stored session holds, so a later content change cannot refuse an honest replay.
   // The exam's scope is not applied: narrowing hides figures and never discards what was done.
   const custom = attributed && isCustomExamId(body.examId);
+  const sent = answers;
   if (custom) {
-    const ids = new Set((await loadCorpusCached(deps.db, now)).questions.map(q => q.id));
+    // The kept corpus can be older than an upload, so an answer is dropped only against a corpus read just now.
+    let ids = new Set((await loadCorpusCached(deps.db, now)).questions.map(q => q.id));
+    if (answers.some(a => !ids.has(a.questionId))) {
+      ids = new Set((await loadCorpusCached(deps.db, now, {fresh: true})).questions.map(q => q.id));
+    }
     answers = answers.filter(a => ids.has(a.questionId));
     if (answers.length === 0) return {sessionId, stored: false};
   }
@@ -63,9 +69,14 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   const stored = await deps.db.runTransaction(async (transaction) => {
     const previous = await transaction.get(ref);
     if (previous.exists) {
+      const sameAnswers = () => {
+        const storedAnswers = checkAnswers(previous.get('answers'), now, attributed);
+        const storedIds = new Set(storedAnswers.map(a => a.questionId));
+        return JSON.stringify(storedAnswers) === JSON.stringify(custom ? sent.filter(a => storedIds.has(a.questionId)) : answers);
+      };
       if (attributed && (previous.get('examId') !== body.examId || previous.get('origin') !== body.origin ||
           previous.get('startedAt') !== startedAt || previous.get('finishedAt') !== finishedAt ||
-          previous.get('durationMs') !== durationMs || JSON.stringify(checkAnswers(previous.get('answers'), now, attributed)) !== JSON.stringify(answers))) {
+          previous.get('durationMs') !== durationMs || !sameAnswers())) {
         throw new HttpsError('failed-precondition', 'This session was already recorded with different observations.');
       }
       return false;

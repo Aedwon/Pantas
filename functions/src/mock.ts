@@ -10,7 +10,7 @@ import {applyScope, loadCorpusCached, loadExamContent} from './_examContent.js';
 import {customTrackRef, isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {mockCoverage} from './mockAccess.js';
 import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
-import {clockChanged, endPartNow, mergePartAnswers, newPartClock, partsView, settleParts, startPartNow, submitParts,
+import {clockChanged, clockNow, endPartNow, mergePartAnswers, newPartClock, partsView, settleParts, startPartNow, submitParts,
   totalRemainingMs, usedTotalMs, type ClockRow, type PartsView, type Settled} from './_mockParts.js';
 
 export {MAX_ANSWERS} from './_answers.js';
@@ -347,6 +347,11 @@ export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Pro
   if (action !== 'save' && action !== 'pause' && action !== 'resume' && action !== 'discard' && action !== 'startPart' && action !== 'endPart') {
     throw new HttpsError('invalid-argument', 'Unknown action.');
   }
+  // The new actions belong to by-part mocks only. Any other row answers as it did before they existed, and
+  // is not settled, ended or rate limited by them.
+  if (action === 'startPart' || action === 'endPart') {
+    if (!(await mocks(deps.db, uid).doc(mockId).get()).get('parts')) throw new HttpsError('invalid-argument', 'Unknown action.');
+  }
   const now = (deps.now ?? Date.now)();
   const answers = action === 'save' ? checkAnswers(body?.answers, now) : undefined;
   if (!await (deps.allow ?? allowControl)(uid, 'changeMock')) {
@@ -354,22 +359,27 @@ export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Pro
   }
   await endIfTimedOut(deps.db, uid, mockId, now);
   const ref = mocks(deps.db, uid).doc(mockId);
-  return deps.db.runTransaction(async (transaction) => {
+  const changed = await deps.db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(ref);
     const row = snapshot.data();
     if (!row) throw new HttpsError('not-found', 'Mock not found.');
     if (row.status !== 'started') throw new HttpsError('failed-precondition', 'This mock is already finished.');
-    const clock = row.parts ? settleParts(row as PartRow, now) : null;
+    // The request may have waited since `now` was read, so a by-part row is stamped at the clock's own time.
+    const at = row.parts ? clockNow(row as PartRow, (deps.now ?? Date.now)()) : now;
+    const clock = row.parts ? settleParts(row as PartRow, at) : null;
     // The pre-step above has settled this row. Time can run out here only through a call that raced this one.
-    if (clock && clock.finishedAt !== null) throw new HttpsError('failed-precondition', 'This mock is already finished.');
-    if (!clock && (action === 'startPart' || action === 'endPart')) throw new HttpsError('invalid-argument', 'Unknown action.');
+    // The submission must commit, so the error is thrown after the transaction returns, not inside it.
+    if (clock && clock.finishedAt !== null) {
+      await finishByTime(transaction, deps.db, uid, mockId, row, clock, at);
+      return 'finished' as const;
+    }
     if (action !== 'save' && !(clock && action === 'startPart') && row.strict === true) throw new HttpsError('failed-precondition', 'Strict mode does not allow this.');
     if (clock) {
       const live = settledRow(row, clock);
-      const change = changePart(action, answers, live, now);
+      const change = changePart(action, answers, live, at);
       const update = {...(clockChanged(row as PartRow, clock) ? {parts: clock.parts, pausedAt: clock.pausedAt, pausedMs: clock.pausedMs} : {}), ...change};
       if (Object.keys(update).length > 0) transaction.update(ref, update);
-      return view(mockId, {...live, ...change}, now);
+      return view(mockId, {...live, ...change}, at);
     }
     let update: Record<string, unknown> = {};
     if (action === 'save') {
@@ -383,6 +393,8 @@ export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Pro
     transaction.update(ref, update);
     return view(mockId, {...row, ...update}, now);
   });
+  if (changed === 'finished') throw new HttpsError('failed-precondition', 'This mock is already finished.');
+  return changed;
 }
 
 /**
@@ -409,14 +421,16 @@ export async function recordMock(auth: Auth, data: unknown, deps: MockDeps): Pro
     const snapshot = await transaction.get(ref);
     if (!snapshot.exists) throw new HttpsError('not-found', 'Mock not found.');
     const status = String(snapshot.get('status'));
+    // The request may have waited since `now` was read, so a by-part row is stamped at the clock's own time.
+    const at = snapshot.get('parts') ? clockNow(snapshot.data() as PartRow, (deps.now ?? Date.now)()) : now;
     if (status !== 'started') {
-      if (status === 'submitted') await recordMockAnswers(transaction, deps.db, uid, mockId, snapshot.data()!, now);
+      if (status === 'submitted') await recordMockAnswers(transaction, deps.db, uid, mockId, snapshot.data()!, at);
       return {mockId, status};
     }
     const row = snapshot.data()!;
-    const clock = row.parts ? settleParts(row as PartRow, now) : null;
+    const clock = row.parts ? settleParts(row as PartRow, at) : null;
     if (clock && clock.finishedAt !== null) {
-      await finishByTime(transaction, deps.db, uid, mockId, row, clock, now);
+      await finishByTime(transaction, deps.db, uid, mockId, row, clock, at);
       return {mockId, status: 'submitted'};
     }
     checkPaperAnswers(answers, snapshot.get('paper'));
@@ -424,10 +438,10 @@ export async function recordMock(auth: Auth, data: unknown, deps: MockDeps): Pro
     // A by-part mock keeps closed parts as stored, and counts its own time: the sent duration is only checked.
     const live = clock ? settledRow(row, clock) : null;
     const kept = live ? mergePartAnswers(row.answers ?? [], answers, row.paper, live.parts) : answers;
-    const spent = live ? usedTotalMs(live, now) : durationMs;
-    const closing = live ? {parts: submitParts(live, now), pausedAt: null, pausedMs: 0} : {};
-    await recordMockAnswers(transaction, deps.db, uid, mockId, {...snapshot.data(), submittedAt: now, durationMs: spent, answers: kept}, now);
-    transaction.update(ref, {status: 'submitted', submittedAt: now, endedBy: early ? 'strict-exit' : 'student', durationMs: spent,
+    const spent = live ? usedTotalMs(live, at) : durationMs;
+    const closing = live ? {parts: submitParts(live, at), pausedAt: null, pausedMs: 0} : {};
+    await recordMockAnswers(transaction, deps.db, uid, mockId, {...snapshot.data(), submittedAt: at, durationMs: spent, answers: kept}, at);
+    transaction.update(ref, {status: 'submitted', submittedAt: at, endedBy: early ? 'strict-exit' : 'student', durationMs: spent,
       answers: kept, answerCount: kept.length, score: scoreOf(kept, snapshot.get('paper')), ...closing});
     return {mockId, status: 'submitted'};
   });

@@ -589,11 +589,100 @@ test('abuse: calls at the same moment leave a consistent row', async () => {
   assert.equal((row.parts.startedAt === null) !== (row.parts.waitingSince === null), true);
 });
 
+// ---- a request that waited is stamped at the clock's own time, never before its last event ----
+
+test('a held pause with a stale time cannot pause before part 2 started, so it adds no time to it', async () => {
+  const uid = 'pt-stale-pause';
+  const {id} = await begin(uid);
+  const t10 = T0 + 10 * SEC;
+  let held = false;
+  // The hook runs after the call read its time and before its transaction: part 1 ends and part 2 starts meanwhile.
+  const slow = {...deps(t10), now: () => t10, allow: async () => {
+    if (!held) {
+      held = true;
+      await act(uid, id, 'endPart', T0 + 20 * SEC);
+      await act(uid, id, 'startPart', T0 + 30 * SEC);
+    }
+    return true;
+  }};
+  const paused = await changeMock(named(uid), {mockId: id, action: 'pause'}, slow);
+  assert.equal(held, true);
+  assert.equal(paused.paused, true);
+  assert.equal((await rowOf(uid, id)).pausedAt, T0 + 30 * SEC);
+  const resumed = await act(uid, id, 'resume', T0 + 40 * SEC);
+  assert.equal(resumed.paused, false);
+  const row = await rowOf(uid, id);
+  assert.equal(row.parts.startedAt, T0 + 30 * SEC);
+  const truePause = 10 * SEC;
+  assert.ok(row.pausedMs <= truePause, `pausedMs ${row.pausedMs}`);
+  assert.ok(row.parts.startedAt + row.pausedMs + MINUTES[1] * MIN <= row.parts.startedAt + MINUTES[1] * MIN + truePause);
+  assert.equal(resumed.parts.remainingMs, MINUTES[1] * MIN - (T0 + 40 * SEC - (T0 + 30 * SEC)) + row.pausedMs);
+});
+
+test('a held submit with a stale time is stamped after the answer it includes, and counts the time the server counts', async () => {
+  const uid = 'pt-stale-submit';
+  const {id, out} = await begin(uid, {strict: true, minutes: [1, 1]});
+  const p2 = idsIn(out, 1);
+  const live = {value: T0 + 10 * SEC};
+  let reads = 0, held = false;
+  // The first read of the clock is old, every later one is current.
+  const slow = {...deps(), now: () => (reads++ === 0 ? T0 + 10 * SEC : live.value), allow: async () => {
+    if (!held) {
+      held = true;
+      await act(uid, id, 'startPart', T0 + MIN);
+      await save(uid, id, T0 + MIN + 10 * SEC, [answer(p2[0], true, 'a', T0 + MIN + 10 * SEC)]);
+      live.value = T0 + MIN + 20 * SEC;
+    }
+    return true;
+  }};
+  const done = await recordMock(named(uid), {mockId: id, answers: [answer(p2[0], true, 'a', T0 + MIN + 10 * SEC)], durationMs: 1}, slow);
+  assert.equal(done.status, 'submitted');
+  const row = await rowOf(uid, id);
+  assert.equal(row.endedBy, 'student');
+  assert.ok(row.submittedAt >= T0 + MIN + 10 * SEC, 'not before the answer it holds');
+  assert.equal(row.submittedAt, T0 + MIN + 20 * SEC);
+  assert.equal(row.durationMs, MIN + 20 * SEC, 'part 1 in full, plus what part 2 used until then');
+  assert.deepEqual(row.answers.map(a => a.questionId), [p2[0]]);
+  const session = (await db.doc(`users/${uid}/server/answers/items/mock:${id}`).get()).data();
+  assert.equal(session.finishedAt, row.submittedAt);
+  assert.equal(session.durationMs, row.durationMs);
+  assert.ok(session.finishedAt >= session.answers[0].answeredAt);
+});
+
+test('a change that finds the time already up submits the mock at that exact moment, then reports it finished', async () => {
+  const uid = 'pt-late-finish';
+  const {id, out} = await begin(uid, {strict: true});
+  const p1 = idsIn(out, 0);
+  await save(uid, id, T0 + MIN, [answer(p1[0], true, 'a', T0 + MIN)]);
+  const live = {value: T0 + 10 * SEC};
+  let reads = 0, held = false;
+  // The call read an early time. While it waits, two days pass, so its own transaction finds the paper over.
+  const slow = {...deps(), now: () => (reads++ === 0 ? T0 + 10 * SEC : live.value), allow: async () => {
+    if (!held) { held = true; live.value = T0 + 2 * DAY; }
+    return true;
+  }};
+  await refused(changeMock(named(uid), {mockId: id, action: 'save', answers: [answer(p1[1], false, 'a', T0 + 2 * MIN)]}, slow), 'failed-precondition', 'This mock is already finished.');
+  assert.equal(held, true);
+  const row = await rowOf(uid, id);
+  assert.equal(row.status, 'submitted');
+  assert.equal(row.endedBy, 'time-out');
+  assert.equal(row.submittedAt, T0 + 47 * MIN);
+  assert.equal(row.durationMs, TOTAL * MIN);
+  assert.deepEqual(row.answers.map(a => a.questionId), [p1[0]], 'the refused save took nothing');
+  const session = (await db.doc(`users/${uid}/server/answers/items/mock:${id}`).get()).data();
+  assert.equal(session.finishedAt, T0 + 47 * MIN);
+  assert.equal(session.answerCount, 1);
+  assert.equal(fromDoc((await db.doc(`users/${uid}/server/answerTotals`).get()).data()).answers, 1);
+  assert.deepEqual(await look(uid, T0 + 2 * DAY), {open: false});
+});
+
 test('abuse: another account sees no by-part mock', async () => {
   const owner = 'pt-owner', stranger = 'pt-stranger';
   await reset(stranger);
   const {id, out} = await begin(owner);
-  await refused(act(stranger, id, 'startPart', T0 + MIN), 'not-found');
+  // The new actions answer the same for another account's id and for no mock at all, so they reveal nothing.
+  await refused(act(stranger, id, 'startPart', T0 + MIN), 'invalid-argument', 'Unknown action.');
+  await refused(act(stranger, id, 'endPart', T0 + MIN), 'invalid-argument', 'Unknown action.');
   await refused(act(stranger, id, 'save', T0 + MIN, {answers: [answer(idsIn(out, 0)[0], true)]}), 'not-found');
   await refused(submit(stranger, id, T0 + MIN, [answer(idsIn(out, 0)[0], true)]), 'not-found');
   assert.deepEqual(await look(stranger, T0 + MIN), {open: false});
