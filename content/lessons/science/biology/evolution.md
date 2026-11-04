@@ -17,7 +17,7 @@ A **genotype** is the set of alleles an individual carries for a gene. Most gene
 
 A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
 
-A **gamete** is a sex cell, such as a sperm or an egg. In sexual reproduction, parents pass alleles to offspring through gametes. In asexual reproduction, such as a bacterium splitting in two, one parent passes its DNA to its offspring with no gametes. The lesson on genetics and heredity explains inheritance in full.
+A **gamete** is a sex cell, such as a sperm or an egg. In sexual reproduction, parents pass alleles to offspring through gametes. In asexual reproduction, such as a bacterium splitting in two, one parent passes its DNA to its offspring and no gametes fuse. The lesson on genetics and heredity explains inheritance in full.
 
 ### What Evolution Is
 
@@ -209,7 +209,7 @@ Not every change in allele frequency is an adaptation. Selection is the cause th
 
 > Organisms do not grow a trait because they need it, and evolution has no goal.
 
-Variants arise by chance. Which ones spread depends on the present environment.
+Variants arise by chance. Whether selection makes a variant spread depends on the present environment.
 
 ### #4: Thinking Individuals Evolve
 

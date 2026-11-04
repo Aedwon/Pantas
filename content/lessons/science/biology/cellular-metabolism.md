@@ -62,9 +62,9 @@ The equation tracks the overall inputs and outputs. The real process has many st
 
 All of the oxygen gas comes from water, not from carbon dioxide. Check the atoms: $6O_2$ has $12$ oxygen atoms, but $6H_2O$ has only $6$. The full equation splits $12$ water molecules and makes $6$ new ones later, so the simplified equation shows the net change.
 
-A chloroplast has two outer membranes. Inside are flat sacs called **thylakoids**, stacked in piles. The fluid around them is the **stroma**.
+A chloroplast is wrapped in two membranes, an outer one and an inner one. Inside are flat sacs called **thylakoids**, stacked in piles. The fluid around them is the **stroma**.
 
-<!-- ILLUSTRATION: chloroplast cut open, labeled outer membranes, thylakoid stacks (site of the light reactions), stroma (site of the Calvin cycle), with arrows for light, water in, oxygen out, carbon dioxide in, sugar out -->
+<!-- ILLUSTRATION: chloroplast cut open, labeled outer and inner membranes, thylakoid stacks (site of the light reactions), stroma (site of the Calvin cycle), with arrows for light, water in, oxygen out, carbon dioxide in, sugar out -->
 
 Photosynthesis has two linked stages.
 

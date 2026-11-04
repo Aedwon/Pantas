@@ -94,7 +94,7 @@ Typical problems ask you to use the polygon angle formulas forward or backward, 
 
 Find the sum of the interior angles of a hexagon.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon", "Sum of interior angles = ?"], "semanticsLabel": "Hexagon with its six interior angles marked and the sum of the angles marked with a question mark."} -->
+<!-- ILLUSTRATION: a plain hexagon with no diagonals, labeled "Hexagon", with the label "Sum of interior angles = ?" beside it -->
 
 
 **Solution:**
@@ -357,7 +357,7 @@ Under the exclusive convention, a parallelogram is not a trapezoid. Read the dir
 
 A rectangle that is not a square does not have perpendicular diagonals. A rhombus that is not a square does not have equal diagonals. A square has diagonals that are equal and perpendicular.
 
-### #5: One Diagonal Property Is Not Enough
+### #5: Equal or Perpendicular Diagonals Alone Are Not Enough
 
 > Check that the diagonals bisect each other before you name a parallelogram type.
 

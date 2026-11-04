@@ -51,9 +51,9 @@ To infer means to reach a conclusion from the evidence you have plus facts you a
 
 ### Seeds and Other Resting Forms
 
-A dry seed does not grow, move, or react for a long time. It is still alive.
+A dry seed does not grow, move, or react for a long time. It can still be alive.
 
-It is **dormant**, which means its life processes have slowed to a very low level. It still has living cells. When it gets enough water and warmth, it grows.
+A living seed is **dormant**, which means its life processes have slowed to a very low level. It still has living cells. When it gets enough water and warmth, it grows. A seed that has died, for example one that is very old or cooked, never grows.
 
 So a property that is missing right now does not by itself mean something is not alive.
 
@@ -132,13 +132,13 @@ A mule is the offspring of a male donkey and a female horse. Almost all mules ar
 
 ### #5: A Dormant Seed
 
-A dry bean seed sits in a jar for months. It does not grow or move. Is it alive? What evidence would show it?
+A dry bean seed sits in a jar for months. It does not grow or move. Can it still be alive? What evidence would show it?
 
 **Solution:**
 
-1. A seed is made of living cells, even when it looks inactive.
-2. It is dormant, so its metabolism is very slow but not zero.
-3. Place it in moist soil in a warm place. If it sprouts and grows, it was alive.
+1. A seed that is still alive is made of living cells, even when it looks inactive.
+2. Such a seed is dormant, so its metabolism is very slow but not zero.
+3. Place it in moist soil in a warm place. If it sprouts and grows, it was alive. If it never does, it may be dead.
 4. A missing property at one moment does not show that something is nonliving.
 
 ### #6: Adaptation in a Population

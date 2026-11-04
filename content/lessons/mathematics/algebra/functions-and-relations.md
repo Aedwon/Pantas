@@ -40,7 +40,7 @@ The symbol $\cup$ means "together with", so $[-1,2)\cup(2,\infty)$ is two pieces
 
 To find the range from a rule and a stated domain, find which outputs the rule reaches. For a straight line that is not horizontal, the smallest and largest outputs come from the two ends of the domain. A line never gives the same output twice. So if an end is left out, as in $2x+1$ on $1<x\le4$, the output at that end is left out too, and the range is $(3,9]$.
 
-If the domain has no end on one side, a line's range has no end on that side.
+If the domain has no end on one side, the range of a line that is not horizontal also has no end on one side. A rising line keeps the same side, so $2x+1$ on $x\ge0$ gives $[1,\infty)$. A falling line flips the side, so $-2x+1$ on $x\ge0$ gives $(-\infty,1]$.
 
 For a parabola, also check the **turning point**. This is the point where the curve stops falling and starts rising, or the reverse.
 
@@ -90,7 +90,7 @@ To find an inverse:
 
 The domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$.
 
-If $f$ is not one-to-one, you can cut its domain down to a piece where it is. For $f(x)=x^2$, the piece $x\ge0$ works. Step 3 can then give two branches, with a plus sign and a minus sign. Keep the branch whose outputs match the cut-down domain, because they are the inputs of $f$.
+If $f$ is not one-to-one, you can cut its domain down to a piece where it is. For $f(x)=x^2$, the piece $x\ge0$ works. Step $3$ can then give two branches, with a plus sign and a minus sign. Keep the branch whose outputs match the cut-down domain, because they are the inputs of $f$.
 
 To check that $g$ is the inverse of $f$, test both compositions:
 

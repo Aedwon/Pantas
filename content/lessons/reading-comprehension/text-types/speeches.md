@@ -259,11 +259,11 @@ Speaking louder or faster would not fix an unfamiliar word.
 
 ### #15: Context Type and Style
 
-"Hi, everyone, it's your morning host again! Don't forget your umbrella, because the rain isn't stopping till evening." Name the context type and the style.
+"Hi, listeners, it's your morning host again! Stay tuned, and don't forget your umbrella, because the rain isn't stopping till evening." Name the context type and the style.
 
 **Solution:**
 
-1. The speaker greets "everyone" and is a "host", so the words reach a large audience through broadcast. The context is **mass communication**.
+1. The speaker greets "listeners" and says "stay tuned", which are mass communication cues. The context is **mass communication**.
 2. The excerpt uses "Hi", contractions, and friendly direct talk. These are casual clues, so the style is **casual**.
 
 The excerpt shows no mixing of styles, so one style fits all of it.

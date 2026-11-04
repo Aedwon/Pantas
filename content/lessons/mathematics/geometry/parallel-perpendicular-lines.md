@@ -126,7 +126,7 @@ $$x = 35$$
 
 Lines $l$ and $m$ are parallel. An alternate interior angle pair measures $(4x)^\circ$ and $(3x + 18)^\circ$. Solve for $x$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line l", "Line m", "Alt interior: (4x)°", "Alt interior: (3x + 18)°"], "semanticsLabel": "Parallel lines l and m cut by a transversal with equal alternate interior angles labeled 4x degrees and 3x plus 18 degrees."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line l", "Line m", "Alt interior: (4x)°", "Alt interior: (3x + 18)°"], "semanticsLabel": "Parallel lines l and m cut by a transversal with alternate interior angles labeled 4x degrees and 3x plus 18 degrees."} -->
 
 **Solution:**
 First decide: equal pair or supplementary pair? Alternate interior angles are equal.

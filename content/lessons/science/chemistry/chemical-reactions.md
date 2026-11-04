@@ -99,7 +99,7 @@ When an acid reacts with a carbonate, a gas forms. The carbonic acid that first 
 
 **Combustion** is burning: a fast reaction with oxygen that gives off energy. A **hydrocarbon** is a compound of only carbon and hydrogen, such as methane $CH_4$ and propane $C_3H_8$.
 
-When there is plenty of oxygen, a fuel of only C, H and O burns **completely**. The products are carbon dioxide and water. The form is $C_xH_y+O_2\rightarrow CO_2+H_2O$.
+When there is plenty of oxygen, a fuel that has both carbon and hydrogen, and at most oxygen besides, burns **completely**. The products are carbon dioxide and water. A fuel with no hydrogen, such as carbon, gives no water. The form is $C_xH_y+O_2\rightarrow CO_2+H_2O$.
 
 When oxygen is short, burning is **incomplete**. Some carbon ends up as carbon monoxide $CO$, which is a poisonous gas. Some carbon ends up as soot, which is solid carbon $C$. Water usually forms too.
 
@@ -115,6 +115,8 @@ To track electrons, give each atom an **oxidation number**. It is the charge the
 - A single-atom ion has its own charge. So $Zn^{2+}$ is $+2$.
 - Oxygen is usually $-2$, except in peroxides such as $H_2O_2$, where it is $-1$.
 - Hydrogen is usually $+1$, except in metal hydrides such as $NaH$, where it is $-1$.
+- In compounds, Group $1$ metals are $+1$ and Group $2$ metals are $+2$.
+- In compounds, fluorine is $-1$. Chlorine, bromine and iodine are usually $-1$, except when bonded to oxygen or to a more electronegative halogen.
 - The numbers in a compound add up to $0$. In an ion they add up to the charge of the ion.
 
 If an element's oxidation number goes up, it was oxidized. If it goes down, it was reduced. A reaction is redox if any oxidation number changes.
@@ -259,7 +261,7 @@ In $Zn+2HCl\rightarrow ZnCl_2+H_2$, find what is oxidized and what is reduced.
 
 **Solution:**
 
-1. Zn is a pure element, so its oxidation number is $0$. In $ZnCl_2$, Cl is $-1$, so Zn is $+2$.
+1. Zn is a pure element, so its oxidation number is $0$. In $ZnCl_2$, Cl is $-1$ by the halogen rule, so Zn is $+2$ because the total is $0$.
 2. In $HCl$, Cl is $-1$, so H is $+1$. In $H_2$, H is $0$.
 3. Zn goes from $0$ to $+2$. It lost electrons, so Zn is oxidized.
 4. H goes from $+1$ to $0$. It gained electrons, so H is reduced.
@@ -346,7 +348,7 @@ $2H_2+O_2\rightarrow2H_2O$ is combination and combustion. If a question names a 
 
 ### #3: Saying All Combustion Gives $CO_2$ and $H_2O$
 
-> That product set is for complete burning of a fuel with only C, H and O.
+> That product set is for complete burning of a fuel with carbon and hydrogen, and at most oxygen besides.
 
 With too little oxygen you can get $CO$ or soot. A fuel with sulfur also gives $SO_2$.
 

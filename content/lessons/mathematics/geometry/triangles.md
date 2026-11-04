@@ -266,7 +266,7 @@ The answers are (a) $5$, $5$, and $5\sqrt{2}$; (b) $6$, $6\sqrt{3}$, and $12$.
 
 Scan for Pythagorean triples before squaring. If a right triangle has a leg $5$ and hypotenuse $13$, the missing leg is $12$.
 
-The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. A triple only helps when the sides match it exactly. Otherwise, square and subtract.
+The triple $10$-$24$-$26$ is $5$-$12$-$13$ doubled. A triple only helps when the sides match it exactly. Otherwise, add the squares of the legs to find a hypotenuse. Subtract the square of the known leg from the square of the hypotenuse to find a leg.
 
 In a $30$-$60$-$90$ triangle, find the short leg first. The short leg is the side across from $30^\circ$.
 

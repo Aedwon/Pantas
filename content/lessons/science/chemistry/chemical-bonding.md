@@ -55,7 +55,7 @@ A **Lewis structure** shows bonds and **lone pairs**, which are valence electron
 
 Step 2 is a guide, not a law. In HOCl the order is H-O-Cl, and molecules with two centers, such as $H_2O_2$ and $C_2H_4$, are given with their atom order.
 
-**Formal charge** helps you compare possible structures:
+**Formal charge** is the charge an atom would have if every bonding pair were shared equally, so each atom owns its lone pairs and half of each bond. It helps you compare possible structures:
 
 $$FC=V-L-\dfrac{B}{2}$$
 
@@ -263,7 +263,7 @@ A quick first guess: metal plus nonmetal is often ionic, nonmetal plus nonmetal 
 
 > The octet rule has exceptions.
 
-Hydrogen, boron compounds, odd-electron molecules, and some atoms from period $3$ down do not follow it.
+Hydrogen, electron-poor boron compounds such as $BF_3$, odd-electron molecules, and some atoms from period $3$ down do not follow it. Boron can reach an octet, as in $BF_4^-$.
 
 ### #2: Counting a Double Bond as Two Groups
 

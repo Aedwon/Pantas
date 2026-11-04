@@ -201,7 +201,7 @@ Remember meiosis as **one copying, two divisions**. Homologs separate in meiosis
 
 For variation, name two mechanisms: **crossing over** in prophase I and **independent assortment** at metaphase I.
 
-$2^n$ counts the gamete combinations that many cells can make together. Here $n$ is the number of heterozygous genes, each on a different chromosome pair. A homozygous gene adds no choice, so $AaBB$ gives $2$ combinations, not $4$.
+$2^n$ counts chromosome combinations that many cells can make together, where $n$ is the number of pairs. If you count allele combinations instead, only a heterozygous gene adds a choice. So $AaBB$ on two pairs has $4$ chromosome combinations but only $2$ allele combinations, $AB$ and $aB$.
 
 For genes on different chromosome pairs, crossing over does not change this count. Crossing over matters for genes on the same chromosome, as in Example #7.
 

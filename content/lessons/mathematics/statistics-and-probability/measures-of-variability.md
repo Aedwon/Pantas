@@ -13,7 +13,7 @@ Two data sets can have the same mean and very different spreads. The **mean** is
 
 <!-- ILLUSTRATION: two dot plots on the same number line from 0 to 10; Set A has dots at 3, 4, 5, 6, 7; Set B has dots at 1, 3, 5, 7, 9; a vertical line marks the mean 5 on both plots -->
 
-Both sets above have mean $5$. Set B is more spread out.
+Compare Set A: $3,4,5,6,7$ and Set B: $1,3,5,7,9$. Both sets have mean $5$. Set B is more spread out.
 
 ### Population and sample
 
@@ -76,7 +76,7 @@ The number $b$ moves every value the same distance, so the spread does not chang
 
 ### Mean and variance of a random variable
 
-A **random variable** $X$ is a number whose value depends on chance, such as the score on one spin of a game wheel. A **discrete** random variable takes separate values that you can list. A **probability table** lists each value $x$ with its probability $P(x)$. The probabilities are between $0$ and $1$, and they add up to $1$.
+A **random variable** $X$ is a number whose value depends on chance, such as the score on one spin of a game wheel. A **discrete** random variable takes separate values that you can list. A **probability table** lists each value $x$ with its probability $P(x)$. Each probability is at least $0$ and at most $1$, and they add up to $1$.
 
 The **mean** of $X$, also called the **expected value** $E(X)$, is the long-run average. Multiply each value by its probability, then add.
 
