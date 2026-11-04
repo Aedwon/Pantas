@@ -78,6 +78,29 @@ void main() {
     expect(shown(), 1);
   });
 
+  testWidgets('pressing a row keeps the tint that hovering gave it',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: Scaffold(
+          body: WebRow(title: 'Practice', onPressed: () {}),
+        ),
+      ),
+    );
+    final style = tester.widget<TextButton>(find.byType(TextButton)).style!;
+    final background = style.backgroundColor!;
+    final hovered = background.resolve({WidgetState.hovered});
+    expect(hovered, isNot(Colors.transparent));
+    expect(
+      background.resolve({WidgetState.hovered, WidgetState.pressed}),
+      hovered,
+    );
+    // A press on its own is at least as strong as hovering.
+    expect(background.resolve({WidgetState.pressed}), hovered);
+    expect(background.resolve({}), Colors.transparent);
+  });
+
   testWidgets('a maths title shows no dollar signs and stays on one line',
       (tester) async {
     await tester.pumpWidget(

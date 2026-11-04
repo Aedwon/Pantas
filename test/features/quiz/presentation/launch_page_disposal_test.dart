@@ -142,7 +142,7 @@ void main() {
       for (var i = 0;
           i < 80 &&
               find
-                  .text(custom ? 'Start' : 'Practice these 1')
+                  .text(custom ? 'Start' : 'Practice this question')
                   .evaluate()
                   .isEmpty;
           i++) {
@@ -156,7 +156,7 @@ void main() {
         await tester.pumpAndSettle();
       }
       content.blocked = true;
-      await tester.tap(find.text(custom ? 'Start' : 'Practice these 1'));
+      await tester.tap(find.text(custom ? 'Start' : 'Practice this question'));
       for (var i = 0; i < 80 && !content.entered.isCompleted; i++) {
         await tester.pump(const Duration(milliseconds: 20));
         await tester.runAsync(

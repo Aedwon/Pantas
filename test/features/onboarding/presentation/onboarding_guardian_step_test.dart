@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_guardian_step.dart';
@@ -186,5 +187,25 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Maria'), findsOneWidget);
     expect(find.text('maria@gmail.com'), findsOneWidget);
+  });
+
+  testWidgets('wide: a placeholder never repeats the label drawn above it',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await pump(tester, size: const Size(1440, 900));
+    expect(find.text("PARENT OR GUARDIAN'S NAME"), findsOneWidget);
+    final hints = [
+      for (final field in tester.widgetList<TextField>(find.byType(TextField)))
+        field.decoration?.hintText,
+    ];
+    expect(hints, ['Full name', 'name@example.com']);
+  });
+
+  testWidgets('phone: with no label drawn, the placeholder names the field',
+      (tester) async {
+    await pump(tester);
+    expect(field("Parent or guardian's name"), findsOneWidget);
+    expect(field("Parent or guardian's email"), findsOneWidget);
   });
 }

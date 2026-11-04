@@ -1,4 +1,5 @@
 import 'dart:ui' show CheckedState, Tristate;
+import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -123,5 +124,59 @@ void main() {
       CheckedState.mixed,
     );
     semantics.dispose();
+  });
+
+  testWidgets('a hovered row with a trailing control fills to its far edge',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: Scaffold(
+          body: SizedBox(
+            width: 600,
+            child: CheckboxRow(
+              title: 'Vocabulary',
+              selected: false,
+              onTap: () {},
+              trailing: const SizedBox.square(
+                key: ValueKey('trailing'),
+                dimension: 32,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    addTearDown(mouse.removePointer);
+    await mouse.addPointer(location: Offset.zero);
+    // Over the trailing control, which the row's own button does not cover.
+    await mouse
+        .moveTo(tester.getCenter(find.byKey(const ValueKey('trailing'))));
+    await tester.pump();
+    final filled = find.byWidgetPredicate(
+      (w) => w is ColoredBox && w.color != Colors.transparent,
+    );
+    final fill = tester.getRect(
+      find
+          .ancestor(
+            of: find.byKey(const ValueKey('trailing')),
+            matching: filled,
+          )
+          .first,
+    );
+    expect(fill.right, tester.getRect(find.byType(CheckboxRow)).right);
+    expect(fill.left, tester.getRect(find.byType(CheckboxRow)).left);
+    await mouse.moveTo(const Offset(700, 500));
+    await tester.pump();
+    expect(
+      find.ancestor(
+        of: find.byKey(const ValueKey('trailing')),
+        matching: filled,
+      ),
+      findsNothing,
+    );
   });
 }

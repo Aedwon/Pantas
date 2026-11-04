@@ -22,6 +22,8 @@ import 'package:pantas/features/home/application/study_delivery.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
+int homeActivations = 0;
+
 final _routerProvider = Provider<GoRouter>(
   (ref) => GoRouter(
     initialLocation: '/assessment/e',
@@ -29,7 +31,17 @@ final _routerProvider = Provider<GoRouter>(
       ...onboardingRoutes(ref),
       GoRoute(
         path: '/home',
-        builder: (_, __) => const Scaffold(body: Text('Home')),
+        // Home's main button holds focus, and a key repeat that reaches it
+        // activates it, as on the real Home.
+        builder: (_, __) => Scaffold(
+          body: Center(
+            child: ElevatedButton(
+              autofocus: true,
+              onPressed: () => homeActivations++,
+              child: const Text('Home'),
+            ),
+          ),
+        ),
       ),
     ],
   ),
@@ -40,6 +52,7 @@ void main() {
   late ContentDatabase content;
 
   setUp(() async {
+    homeActivations = 0;
     db = inMemoryDatabase();
     content = inMemoryContentDatabase();
     await seedContentExam(content, examId: 'e', code: 'CSE', name: 'CSE');
@@ -246,6 +259,39 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
     expect(find.text('Home'), findsOneWidget);
+  });
+
+  testWidgets('a held Enter ends on the results page and does not reach Home',
+      (tester) async {
+    await pumpRoutes(tester, width: 1440);
+    await answerAndFinish(tester, wide: true);
+    await tester.pumpAndSettle();
+    expect(find.text("Where you're starting"), findsOneWidget);
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+    for (var i = 0; i < 10; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    // The key is still down: the page waits, and repeats stop here.
+    expect(find.text("Where you're starting"), findsOneWidget);
+    await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text("Where you're starting"), findsNothing);
+    expect(homeActivations, 0);
+  });
+
+  testWidgets('Go to Today does not wait for a key that never comes up',
+      (tester) async {
+    await pumpRoutes(tester, width: 1440);
+    await answerAndFinish(tester, wide: true);
+    await tester.pumpAndSettle();
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+    await tester.pump(const Duration(seconds: 3));
+    await tester.pumpAndSettle();
+    expect(find.text('Home'), findsOneWidget);
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
   });
 
   testWidgets('a resize does not play the sequence again', (tester) async {

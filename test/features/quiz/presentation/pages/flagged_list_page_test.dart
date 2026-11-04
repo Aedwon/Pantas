@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -255,6 +256,45 @@ void main() {
     expect(find.text('Practice these 3'), findsOneWidget);
   });
 
+  testWidgets(
+      'a phone row is a round number, the title, the flag, then the '
+      'chevron', (tester) async {
+    await tester.pumpAppWithProviders(
+      const FlaggedListPage(examId: 'cse_prof'),
+      overrides: [
+        scopedTopicsProvider('cse_prof').overrideWith((_) async => [t1, t2]),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final flag = tester.getCenter(
+      find.byTooltip('Remove flag from question 1'),
+    );
+    final row = find.ancestor(
+      of: find.byTooltip('Remove flag from question 1'),
+      matching: find.byType(ListRow),
+    );
+    final chevron = tester.getCenter(
+      find.descendant(of: row, matching: find.byIcon(PantasIcons.next)),
+    );
+    expect(flag.dx, lessThan(chevron.dx));
+    expect(
+      find.ancestor(
+        of: find.text('1'),
+        matching: find.byWidgetPredicate(
+          (w) =>
+              w is Container &&
+              w.decoration is BoxDecoration &&
+              (w.decoration! as BoxDecoration).shape == BoxShape.circle,
+        ),
+      ),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('unflagging updates the count as it happens', (tester) async {
     when(() => flagsRepo.isFlagged('q_1')).thenAnswer((_) async => true);
 
@@ -390,7 +430,7 @@ void main() {
 
       await tester.tap(find.byIcon(PantasIcons.flag).first);
       await tester.pumpAndSettle();
-      expect(find.text('Practice these 1'), findsOneWidget);
+      expect(find.text('Practice this question'), findsOneWidget);
       expect(find.text('1 question'), findsOneWidget);
     });
   });

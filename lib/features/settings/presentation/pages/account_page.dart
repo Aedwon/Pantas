@@ -336,8 +336,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
           const SizedBox(height: 12),
           Text(
-            'Your progress stays on this phone. Signing in gives you an '
-            'account you can come back to.',
+            // The web build keeps the progress in the browser, whatever the
+            // window size, so it says so, as the wide layout and Backup do.
+            'Your progress stays ${web ? 'in this browser' : 'on this phone'}. '
+            'Signing in gives you an account you can come back to.',
             style: context.type.footnote,
             textAlign: TextAlign.center,
           ),

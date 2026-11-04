@@ -8,7 +8,7 @@ import 'package:pantas/core/ui/components/scope_picker.dart';
 import '../../../helpers/accessibility.dart';
 
 void main() {
-  testWidgets('unavailable topics keep their expanded lessons inactive',
+  testWidgets('unavailable topics have no chevron and cannot be picked',
       (tester) async {
     var changes = 0;
     await pumpAccessibilitySurface(
@@ -33,9 +33,13 @@ void main() {
         onChanged: (_) => changes++,
       ),
     );
-    await tester.tap(find.byKey(const ValueKey('scope-expand-empty')));
-    await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('scope-select-empty-lesson')));
+    // QZE_None_m: nothing to open, so no chevron, and the lessons stay shut.
+    expect(find.byKey(const ValueKey('scope-expand-empty')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('scope-select-empty-lesson')),
+      findsNothing,
+    );
+    await tester.tap(find.byKey(const ValueKey('scope-select-empty')));
     await tester.pump();
     expect(changes, 0);
   });

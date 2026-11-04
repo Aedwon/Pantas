@@ -9,6 +9,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -344,6 +345,19 @@ void main() {
       expect(find.text('Interleaved tail'), findsOneWidget);
       expect(find.text('Fully mixed'), findsOneWidget);
       expect(tester.takeException(), isNull);
+    });
+    testWidgets(
+        'the Practice header glyph is as big as the other headers '
+        'dark=$dark', (tester) async {
+      await _pump(tester, const SessionBuildingPage(), dark: dark);
+      // The list's row and the pane's header both draw the glyph.
+      final sizes = [
+        for (final icon
+            in tester.widgetList<Icon>(find.byIcon(PantasIcons.practice)))
+          icon.size,
+      ];
+      expect(sizes, hasLength(2));
+      expect(sizes, everyElement(22));
     });
     testWidgets('delete shows real pending operation then Close dark=$dark',
         (tester) async {

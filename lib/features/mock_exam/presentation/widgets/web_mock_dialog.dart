@@ -44,7 +44,7 @@ class WebMockDialog extends StatelessWidget {
                     const SizedBox(height: 18),
                     Text(
                       message,
-                      style: context.webTokens.sub.copyWith(fontSize: 16),
+                      style: context.webTokens.sub.copyWith(fontSize: 15),
                     ),
                     if (content != null) ...[
                       const SizedBox(height: 18),

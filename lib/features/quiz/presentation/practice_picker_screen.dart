@@ -430,7 +430,11 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     onTap: topic.hasQuestions
                         ? () => selection(_selection.toggleTopic(topic))
                         : null,
-                    padding: const EdgeInsets.fromLTRB(20, 19, 8, 19),
+                    // Board CZ_None: a topic with a second line is 71 px, not
+                    // the one-line row's padding around two lines.
+                    padding: topic.hasQuestions
+                        ? const EdgeInsets.fromLTRB(20, 19, 8, 19)
+                        : const EdgeInsets.fromLTRB(20, 15.5, 8, 15.5),
                     gap: 16,
                     minHeight: 62,
                     standardDensity: true,
@@ -458,7 +462,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             child: SizedBox.square(
                               dimension: 32,
                               child: IconButton(
-                                tooltip: 'Lessons in ${topic.name}',
+                                tooltip: _webOpenTopics.contains(topic.id)
+                                    ? 'Hide lessons in ${topic.name}'
+                                    : 'Show lessons in ${topic.name}',
                                 padding: EdgeInsets.zero,
                                 onPressed: () => setState(() {
                                   if (!_webOpenTopics.remove(topic.id)) {
@@ -1240,11 +1246,17 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       summary.totalQuestions > 0 &&
       summary.estimatedMinutes == 0;
 
+  /// Written as the Quiz tab and the mock write it: "1 hr 6 min".
   String _time(int minutes) {
     if (minutes < 60) return '$minutes min';
+    final hours = minutes ~/ 60;
+    return minutes % 60 == 0 ? '$hours hr' : '$hours hr ${minutes % 60} min';
+  }
+
+  /// The big figure over the word "hours": one decimal, as "1.1".
+  String _hours(int minutes) {
     final precision = minutes % 60 == 0 ? 0 : 1;
-    final hours = (minutes / 6).round() / 10;
-    return '${hours.toStringAsFixed(precision)} hr';
+    return ((minutes / 6).round() / 10).toStringAsFixed(precision);
   }
 
   Widget _length(PracticeIndex index, PracticeSummary summary, int? pace) {
@@ -1440,7 +1452,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   _underMinute(summary)
                       ? '<1'
                       : minutes >= 60
-                          ? _time(minutes).split(' ').first
+                          ? _hours(minutes)
                           : '$minutes',
                   _underMinute(summary)
                       ? 'minute'

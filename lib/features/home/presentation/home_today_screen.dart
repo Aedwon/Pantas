@@ -22,6 +22,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
+import 'package:pantas/features/home/application/settling_retry.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/data/study_writes.dart';
@@ -93,6 +94,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   int _generation = 0;
   StudyAdvance? _pendingAdvance;
 
+  /// A first read that fails only because the app is still settling is retried
+  /// here, and the page keeps its skeleton meanwhile. An error shows only once
+  /// the failure is real: it is not a settling failure, or the retries ran out.
+  late final SettlingRetry _settling = SettlingRetry(retry: _retryQuietly);
+  bool _holding = false;
+
   bool _current() =>
       mounted &&
       ref
@@ -115,10 +122,24 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       .captureGuard(widget.examId, isAlive: _current);
 
   void _reload() {
-    _request = ref.read(homeTodayLoaderProvider)(widget.examId, _guard);
+    final request =
+        _request = ref.read(homeTodayLoaderProvider)(widget.examId, _guard);
+    _holding = false;
     unawaited(
-      _request.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+      request.then<void>(
+        (_) => _settling.reset(),
+        onError: (Object error, StackTrace __) {
+          if (!mounted || !identical(request, _request)) return;
+          setState(() => _holding = _settling.failed(error));
+        },
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _settling.dispose();
+    super.dispose();
   }
 
   /// A retry recaptures the current owner, so it recovers after a real
@@ -128,6 +149,19 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         _guard = _captureGuard();
         _reload();
       });
+
+  /// The automatic retry of a settling failure. It keeps the count, so a
+  /// failure that never clears still reaches the error.
+  void _retryQuietly() {
+    if (mounted) _retry();
+  }
+
+  /// The student's own Try Again starts the count anew.
+  void _retryNow() {
+    _settling.reset();
+    _retry();
+  }
+
   void _dismiss() => setState(() {
         _generation++;
         _sheet = null;
@@ -322,19 +356,18 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     return FutureBuilder<HomeTodayData>(
       future: _request,
       builder: (context, snapshot) {
-        firstScreenReady(
-          context,
-          ref,
-          ready: snapshot.connectionState == ConnectionState.done,
-        );
-        final data = snapshot.connectionState == ConnectionState.done
-            ? snapshot.data
-            : null;
+        final done = snapshot.connectionState == ConnectionState.done;
+        // A waiting snapshot still carries the error of the read before it, so
+        // only a finished read can be a failure to show.
+        final failed = done && snapshot.hasError;
+        final holding = failed && _holding;
+        firstScreenReady(context, ref, ready: done && !holding);
+        final data = done ? snapshot.data : null;
         final today = data == null
-            ? snapshot.hasError
+            ? failed && !holding
                 ? errorFor(
                     'plan',
-                    _retry,
+                    _retryNow,
                     error: snapshot.error,
                     boardLayout: context.wideWeb,
                   )

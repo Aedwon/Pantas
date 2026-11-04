@@ -337,7 +337,9 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
               size: 22,
               color: context.colors.destructive,
             ),
-            'Progress on this phone is erased too.',
+            context.webPlatform
+                ? 'Progress in this browser is erased too.'
+                : 'Progress on this phone is erased too.',
           ),
         ]),
         if (billing != null) ...[

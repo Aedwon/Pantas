@@ -50,6 +50,9 @@ void main() {
       final content = inMemoryContentDatabase();
       final gateway = _Gateway();
       final done = view.endsWith('Done');
+      // The mistakes list needs more than one wrong answer to show that the
+      // viewer steps through those and no others.
+      final wrong = view == 'mistakes' ? {1, 3, 5} : {3};
       final attempt = Attempt(
         id: 'a',
         examId: 'e',
@@ -67,7 +70,7 @@ void main() {
             AttemptItem(
               questionId: 'q$i',
               questionVersion: 1,
-              chosenChoiceId: i == 3 ? 'q${i}_b' : 'q${i}_a',
+              chosenChoiceId: wrong.contains(i) ? 'q${i}_b' : 'q${i}_a',
               correctChoiceId: 'q${i}_a',
               responseMs: 100,
             ),
@@ -175,23 +178,45 @@ void main() {
 
       await tester.pumpAndSettle();
       if (view == 'all' || view == 'mistakes') {
-        expect(find.text('4 of 5 correct'), findsOneWidget);
+        expect(
+          find.text(view == 'all' ? '4 of 5 correct' : '2 of 5 correct'),
+          findsOneWidget,
+        );
         expect(find.text('3'), findsOneWidget);
-        expect(find.text('1'), view == 'all' ? findsOneWidget : findsNothing);
+        expect(find.text('1'), findsOneWidget);
+        expect(find.text('2'), view == 'all' ? findsOneWidget : findsNothing);
+        expect(find.text('4'), view == 'all' ? findsOneWidget : findsNothing);
         await tester.tap(find.text('3'));
-        for (var i = 0; i < 80 && find.text('3 of 5').evaluate().isEmpty; i++) {
+        final opened = view == 'all' ? '3 of 5' : '2 of 3';
+        for (var i = 0; i < 80 && find.text(opened).evaluate().isEmpty; i++) {
           await tester.pump(const Duration(milliseconds: 20));
           await tester.runAsync(
             () => Future<void>.delayed(const Duration(milliseconds: 2)),
           );
         }
-        expect(find.text('3 of 5'), findsOneWidget);
+        expect(find.text(opened), findsOneWidget);
         expect(
           GoRouterState.of(tester.element(find.byType(QuizReviewPage)))
               .uri
               .path,
           '/quiz/viewer/a',
         );
+        if (view == 'mistakes') {
+          // Mistake 2 of 3, a wrong answer, with its list's name to go back to.
+          expect(find.text('Your mistakes'), findsNWidgets(2));
+          // The viewer counts the three mistakes, not the five questions, so
+          // stepping can only reach wrong answers.
+          router.go('/quiz/viewer/a?index=4&fromAll=true&mistakes=true');
+          for (var i = 0;
+              i < 80 && find.text('3 of 3').evaluate().isEmpty;
+              i++) {
+            await tester.pump(const Duration(milliseconds: 20));
+            await tester.runAsync(
+              () => Future<void>.delayed(const Duration(milliseconds: 2)),
+            );
+          }
+          expect(find.text('3 of 3'), findsOneWidget);
+        }
         if (view == 'all') {
           router.pop();
           await tester.pumpAndSettle();

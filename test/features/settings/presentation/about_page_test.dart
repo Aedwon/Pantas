@@ -12,14 +12,14 @@ void main() {
   testWidgets('About uses the configured build number', (tester) async {
     await tester.pumpAppWithProviders(const AboutPage());
     await tester.pumpAndSettle();
-    expect(find.text('Version 0.1.0 (build $kBuildNumber)'), findsOneWidget);
+    expect(find.text('Version 0.1.0 ($kBuildNumber)'), findsOneWidget);
   });
 
   testWidgets('About preserves explicit build number overrides',
       (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(buildNumber: 'custom'));
     await tester.pumpAndSettle();
-    expect(find.text('Version 0.1.0 (build custom)'), findsOneWidget);
+    expect(find.text('Version 0.1.0 (custom)'), findsOneWidget);
   });
 
   testWidgets('about carries legal, analytics, the DPO and feedback',

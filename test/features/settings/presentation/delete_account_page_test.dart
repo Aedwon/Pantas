@@ -8,6 +8,7 @@ import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
@@ -109,6 +110,25 @@ void main() {
     expect(find.text('Delete My Data'), findsOneWidget);
     expect(find.text('Keep My Account'), findsOneWidget);
     expect(find.byType(AppBar), findsNothing);
+  });
+
+  testWidgets('on the web a phone-size window says browser, not phone',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await tester.pumpAppWithProviders(
+      DeleteAccountPage(
+        isAnonymous: false,
+        entitlement: const SettingsEntitlementSnapshot.free(),
+        dpoEmail: defaultLegalContact.dpoEmail,
+        onDelete: () async {},
+      ),
+    );
+    expect(
+      find.text('Progress in this browser is erased too.'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('this phone'), findsNothing);
   });
 
   testWidgets('delete button shows loading while request is in flight',

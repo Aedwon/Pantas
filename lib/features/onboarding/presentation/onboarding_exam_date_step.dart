@@ -229,12 +229,7 @@ class _OnboardingExamDateStepState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        DateFormat(
-                          context.wideWeb
-                              ? 'EEEE, MMMM d, y'
-                              : 'EEEE, d MMMM y',
-                          'en_US',
-                        ).format(known),
+                        DateFormat('EEEE, MMMM d, y', 'en_US').format(known),
                         style: context.wideWeb
                             ? context.webTokens
                                 .style(21, weight: FontWeight.w600)
@@ -270,7 +265,7 @@ class _OnboardingExamDateStepState
               value: value,
               today: _today,
               dayNote: (day) =>
-                  '${DateFormat('EEEE, d MMMM', 'en_US').format(day)}'
+                  '${DateFormat('EEEE, MMMM d', 'en_US').format(day)}'
                   ' · ${_daysFromToday(day.difference(_today).inDays)}',
               onChanged: (next) => setState(() => _value = next),
             ),

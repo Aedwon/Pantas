@@ -9,6 +9,7 @@ class OnboardingNameField extends StatelessWidget {
     required this.controller,
     required this.label,
     required this.onChanged,
+    this.hint,
     this.onSubmitted,
     this.keyboardType,
     this.textCapitalization = TextCapitalization.words,
@@ -20,6 +21,11 @@ class OnboardingNameField extends StatelessWidget {
   });
   final TextEditingController controller;
   final String label;
+
+  /// The placeholder. It defaults to [label], which is right when the label is
+  /// not drawn (the phone). Where the label is drawn above the field, a
+  /// placeholder that repeats it says nothing, so the caller gives its own.
+  final String? hint;
   final ValueChanged<String> onChanged;
   final ValueChanged<String>? onSubmitted;
   final TextInputType? keyboardType;
@@ -50,7 +56,7 @@ class OnboardingNameField extends StatelessWidget {
         letterSpacing: -.228,
       ),
       decoration: InputDecoration(
-        hintText: label,
+        hintText: hint ?? label,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
         // A TextField ignores a SizedBox height; the board field is 52 px.

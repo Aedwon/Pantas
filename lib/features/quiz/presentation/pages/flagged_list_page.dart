@@ -97,6 +97,10 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
     }
   }
 
+  /// "Practice these 1" reads wrong for a single question.
+  static String _practiceLabel(int count) =>
+      count == 1 ? 'Practice this question' : 'Practice these $count';
+
   Future<void> _start() async {
     if (_starting) return;
     final generation = _generation;
@@ -155,52 +159,61 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
     }
   }
 
-  Widget _row(ReviewEntry entry) => Row(
-        children: [
-          Expanded(
-            child: ListRow(
-              title: entry.labelIsStem
-                  ? ContentRenderer.plainText(entry.label)
-                  : entry.label,
-              titleWidget: entry.labelIsStem
-                  ? DefaultTextStyle(
-                      style: context.type.body,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: false,
-                      child: MathText(
-                        ContentRenderer.plainText(entry.label),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
-                  : null,
-              leading: SizedBox(
-                width: 30,
-                child: Text(
-                  '${entry.number}',
-                  style: context.type.subheadStrong.copyWith(
-                    color: context.colors.accent,
-                    fontWeight: FontWeight.w700,
-                  ),
+  /// The wide row's shape: a round number, the title, the flag, then the
+  /// chevron.
+  Widget _row(ReviewEntry entry) => ListRow(
+        title: entry.labelIsStem
+            ? ContentRenderer.plainText(entry.label)
+            : entry.label,
+        titleWidget: entry.labelIsStem
+            ? DefaultTextStyle(
+                style: context.type.body,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
+                child: MathText(
+                  ContentRenderer.plainText(entry.label),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              onTap: () => unawaited(_open(entry)),
-            ),
+              )
+            : null,
+        leading: Container(
+          width: 30,
+          height: 30,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: context.colors.accentTint,
           ),
-          IconButton(
-            tooltip: 'Remove flag from question ${entry.number}',
-            constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
-            onPressed: _removing.contains(entry.question.id)
-                ? null
-                : () => unawaited(_remove(entry.question.id)),
-            icon: Icon(
-              PantasIcons.flag,
-              size: 21,
+          child: Text(
+            '${entry.number}',
+            style: context.type.subheadStrong.copyWith(
               color: context.colors.accent,
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
             ),
           ),
-        ],
+        ),
+        trailingWidget: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              tooltip: 'Remove flag from question ${entry.number}',
+              constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+              onPressed: _removing.contains(entry.question.id)
+                  ? null
+                  : () => unawaited(_remove(entry.question.id)),
+              icon: Icon(
+                PantasIcons.flag,
+                size: 21,
+                color: context.colors.accent,
+              ),
+            ),
+            Icon(PantasIcons.next, size: 16, color: context.colors.chevron),
+          ],
+        ),
+        onTap: () => unawaited(_open(entry)),
       );
 
   /// Wide web: the same list as the phone, in the centered column the wide
@@ -290,7 +303,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
                               if (entries.isNotEmpty) ...[
                                 const SizedBox(width: 24),
                                 WebButton(
-                                  label: 'Practice these ${entries.length}',
+                                  label: _practiceLabel(entries.length),
                                   busy: _starting,
                                   onPressed: _starting
                                       ? null
@@ -391,7 +404,7 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
                 child: PantasButton(
-                  label: 'Practice these ${entries.length}',
+                  label: _practiceLabel(entries.length),
                   busy: _starting,
                   onPressed: _starting ? null : () => unawaited(_start()),
                 ),

@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
@@ -147,6 +148,61 @@ void main() {
         closeTo(middle, 1),
         reason: label,
       );
+    }
+  });
+
+  testWidgets('the logo sits where the onboarding steps put it, x 30',
+      (tester) async {
+    await pump(tester, size: const Size(1440, 900), web: true);
+    expect(tester.getRect(find.byType(PantasLogo)).left, 30);
+  });
+
+  for (final entry in {
+    'phone': (const Size(390, 844), false),
+    'wide web': (const Size(1440, 900), true),
+  }.entries) {
+    testWidgets(
+        'the title never leaves one word alone on its last line: '
+        '${entry.key}', (tester) async {
+      await pump(tester, size: entry.value.$1, web: entry.value.$2);
+      const title = 'Waiting for your parent or guardian';
+      // Lay the title out again at the width it was given.
+      final painter = TextPainter(
+        text: TextSpan(
+          text: title,
+          style: tester.widget<Text>(find.text(title)).style,
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout(maxWidth: tester.getSize(find.text(title)).width);
+      final last = painter.getLineBoundary(
+        const TextPosition(offset: title.length - 1),
+      );
+      expect(painter.computeLineMetrics().length, greaterThan(1));
+      expect(
+        title.substring(last.start, last.end).trim().contains(' '),
+        isTrue,
+        reason: 'last line "${title.substring(last.start, last.end)}"',
+      );
+    });
+  }
+
+  testWidgets('a feedback line moves nothing else on the page', (tester) async {
+    await pump(tester, size: const Size(1440, 900), web: true);
+    Offset at(String text) => tester.getTopLeft(find.text(text));
+    final before = {
+      for (final text in [
+        'Waiting for your parent or guardian',
+        'Check Again',
+        'Resend Email',
+        'Change Email',
+      ])
+        text: at(text),
+    };
+    await tester.tap(find.text('Check Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Not confirmed yet.'), findsOneWidget);
+    for (final entry in before.entries) {
+      expect(at(entry.key), entry.value, reason: entry.key);
     }
   });
 

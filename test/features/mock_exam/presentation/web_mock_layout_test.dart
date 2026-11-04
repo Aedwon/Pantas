@@ -319,6 +319,66 @@ void main() {
       expect(find.text('left in Part 1'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
+    testWidgets('a long question list fades where more is hidden ($dark)',
+        (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final ids = [for (var i = 0; i < 160; i++) 'q$i'];
+      await pumpWide(
+        tester,
+        ProviderScope(
+          overrides: [
+            hydratedMockQuestionProvider.overrideWith(
+              (ref, id) async => const HydratedMockQuestion(question, null),
+            ),
+          ],
+          child: MockSessionPage(
+            state: MockSessionInProgress(
+              attemptId: 'a',
+              durationSeconds: 5400,
+              questionIds: ids,
+              currentIndex: 0,
+              elapsedSeconds: 0,
+              answers: const {},
+              flags: const {},
+              strictMode: false,
+            ),
+            remainingInPart: const Duration(minutes: 30),
+            partPosition: 1,
+            partTotal: ids.length,
+            oneBlock: true,
+            canGoPrevious: false,
+            canGoNext: true,
+            onPrevious: () {},
+            onNext: () {},
+            onAnswer: (_) {},
+            onToggleFlag: () {},
+            onPause: () {},
+            onSubmitExam: () {},
+          ),
+        ),
+        dark: dark,
+      );
+      await tester.pumpAndSettle();
+      final mask = find.descendant(
+        of: find.byKey(const ValueKey('web-mock-panel')),
+        matching: find.byType(ShaderMask),
+      );
+      expect(mask, findsOneWidget);
+      final list = find.descendant(
+        of: mask,
+        matching: find.byType(SingleChildScrollView),
+      );
+      final controller = tester.widget<SingleChildScrollView>(list).controller!;
+      expect(controller.position.maxScrollExtent, greaterThan(0));
+      // Scrolling keeps the same list in place, so its position is kept.
+      controller.jumpTo(200);
+      await tester.pump();
+      await tester.pump();
+      expect(controller.offset, 200);
+      expect(mask, findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
     testWidgets('wide paper panel, flag, keyboard and submit ($dark)',
         (tester) async {
       addTearDown(tester.view.resetPhysicalSize);
@@ -384,6 +444,13 @@ void main() {
             .variant,
         WebButtonVariant.primary,
       );
+      // MK_SubmitCSE: the button fills the panel.
+      final panel =
+          tester.getRect(find.byKey(const ValueKey('web-mock-panel')));
+      final submit = tester.getRect(
+        find.widgetWithText(WebButton, 'Submit the Exam'),
+      );
+      expect(submit.width, greaterThan(panel.width - 60));
       await tester.tap(find.text('Submit the Exam'));
       await tester.pumpAndSettle();
       expect(find.text('Submit the exam?'), findsOneWidget);
@@ -504,8 +571,41 @@ void main() {
       expect(find.text('CSE Professional simulation'), findsOneWidget);
       expect(find.text('The clock starts when you click.'), findsOneWidget);
       expect(find.byType(WebButton), findsWidgets);
+      // MK_SetupCSE: the button fills the right column; the line is centered.
+      final start = tester.getRect(
+        find.widgetWithText(WebButton, 'Start the Mock Exam'),
+      );
+      final caption = tester.getCenter(
+        find.text('The clock starts when you click.'),
+      );
+      expect(start.width, greaterThan(300));
+      expect(caption.dx, closeTo(start.center.dx, 1));
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(strict, false);
+    });
+    testWidgets('wide Free results show the Free review note ($dark)',
+        (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await pumpWide(
+        tester,
+        MockResultsPage(
+          results: result,
+          proIsActive: false,
+          blueprintName: 'CSE Professional simulation',
+          onDone: () {},
+          onReviewTap: () {},
+          reviewUntil: DateTime(2026, 12, 5),
+        ),
+        dark: dark,
+      );
+      // The board's short note; the test font is too wide to show whether it
+      // sits on the link's line, so only the wording is checked.
+      expect(
+        find.text('Open until your next mock on Sat, Dec 5'),
+        findsOneWidget,
+      );
+      expect(find.textContaining('On Free, you can'), findsNothing);
     });
     testWidgets(
         'wide results keep review in score card and Done at title ($dark)',

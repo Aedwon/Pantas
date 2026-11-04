@@ -299,6 +299,27 @@ void main() {
       expect(find.textContaining('Enter a year from'), findsNothing);
     });
 
+    testWidgets('Continue keeps its place when the hint appears and goes',
+        (tester) async {
+      await pumpFramed(tester, wide: true);
+      final continueButton = find.text('Continue');
+      await type(tester, '1926');
+      final steady = tester.getTopLeft(continueButton).dy;
+      for (final text in ['1900', '2027', '0000', '19', '2026']) {
+        await type(tester, text);
+        expect(tester.getTopLeft(continueButton).dy, steady, reason: text);
+      }
+    });
+
+    testWidgets('the YEAR label sits 4 px in from the field, as NAME does',
+        (tester) async {
+      await pumpFramed(tester, wide: true);
+      expect(
+        tester.getTopLeft(find.text('YEAR')).dx,
+        tester.getTopLeft(find.byType(TextField)).dx + 4,
+      );
+    });
+
     testWidgets('is not drawn on the phone, which has no typed field',
         (tester) async {
       await pumpFramed(tester, wide: false);

@@ -234,8 +234,11 @@ void main() {
         ],
       ),
     );
-    await tester.pump(const Duration(milliseconds: 500));
-    await tester.pump(const Duration(milliseconds: 500));
+    // The exam loads, Today mounts and fails, and the roadmap arriving retries
+    // it once behind a skeleton before the failure stands.
+    for (var i = 0; i < 3; i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
     expect(find.text('Could not load your plan.'), findsOneWidget);
     expect(find.text('Try Again'), findsOneWidget);
     expect(

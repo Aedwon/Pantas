@@ -21,6 +21,7 @@ class ReviewEntry {
     required this.labelIsStem,
     this.chosenChoiceId,
     this.passage,
+    this.topicName = '',
   });
 
   final int number;
@@ -32,6 +33,10 @@ class ReviewEntry {
 
   final bool isFlagged;
   final String subjectName;
+
+  /// The topic the question sits under, the line a live question shows above
+  /// its stem. Empty where the caller did not read it.
+  final String topicName;
 
   /// The authored short label, or the stem when the content pass has not
   /// reached this question.

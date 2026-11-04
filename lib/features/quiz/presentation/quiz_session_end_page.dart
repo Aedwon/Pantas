@@ -172,8 +172,10 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
   }
 
   Future<void> _question(int index, {bool notes = false}) async {
+    final mistakes = widget.all && widget.mistakesOnly;
     await context.push<void>(
-      '/quiz/viewer/${widget.attemptId}?index=$index&notes=$notes&fromAll=${widget.all}',
+      '/quiz/viewer/${widget.attemptId}?index=$index&notes=$notes'
+      '&fromAll=${widget.all}${mistakes ? '&mistakes=true' : ''}',
     );
     _reload();
   }

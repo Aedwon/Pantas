@@ -20,6 +20,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -345,7 +346,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           const SingleActivator(LogicalKeyboardKey.keyF): () =>
               _toggleFlag(viewed.question.id),
       },
-      child: Focus(autofocus: true, child: page),
+      child: KeyFocusKeeper(child: page),
     );
   }
 
@@ -1030,8 +1031,7 @@ class _QuestionViewer extends StatelessWidget {
           if (onNext != null)
             const SingleActivator(LogicalKeyboardKey.arrowRight): onNext!,
         },
-        child: Focus(
-          autofocus: true,
+        child: KeyFocusKeeper(
           child: Stack(
             fit: StackFit.expand,
             children: [

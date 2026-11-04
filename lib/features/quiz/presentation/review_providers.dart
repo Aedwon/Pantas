@@ -150,6 +150,7 @@ final flaggedExamReviewProvider = FutureProvider.autoDispose
         question: question,
         isFlagged: true,
         subjectName: subject.name,
+        topicName: topic.name,
         label: question.shortLabel ?? question.stem,
         labelIsStem: question.shortLabel == null,
         passage: passage,

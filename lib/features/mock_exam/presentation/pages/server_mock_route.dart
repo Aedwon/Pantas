@@ -8,6 +8,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/mock_exam/application/mock_leave_guard.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
@@ -59,12 +60,16 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   ServerMockEndReason? _terminalReason;
   var _disposed = false;
   var _identityLost = false;
+  var _leaving = false;
   String? _originalUid;
+  MockLeaveGuard? _guard;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    final guard = ref.read(mockLeaveGuardProvider)..running = _allowLeave;
+    _guard = guard;
     ref.listenManual(serverMockIdentityProvider, (previous, next) {
       final original = _originalUid;
       if (original != null && next != original) {
@@ -79,12 +84,49 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   @override
   void dispose() {
     _disposed = true;
+    _guard?.detach(_allowLeave);
     WidgetsBinding.instance.removeObserver(this);
     _tick?.cancel();
     _session
       ?..removeListener(_onSession)
       ..dispose();
     super.dispose();
+  }
+
+  /// The Quiz tab reads the open-mock status of the exam it shows. A resumed
+  /// mock arrives with no exam in its address, so the exam comes from the
+  /// paper the server pinned, and from the exam this screen was asked for.
+  void _refreshAvailability() {
+    final ids = {
+      if (widget.examId.isNotEmpty) widget.examId,
+      if (_session?.paper.examId case final String id) id,
+    };
+    for (final id in ids) {
+      ref.invalidate(serverMockAvailabilityProvider(id));
+    }
+  }
+
+  /// Browser Back reaches the route's `onExit` instead of this page's pop
+  /// handling. While a mock runs it does what the app's Back does: ask to
+  /// pause, or explain that strict mode has no Back. Leaving the screen
+  /// itself (results, close, a failed load) is always allowed.
+  Future<bool> _allowLeave() async {
+    final session = _session;
+    if (!mounted ||
+        _disposed ||
+        _leaving ||
+        _finishing ||
+        _identityLost ||
+        _loadError != null ||
+        session == null ||
+        session.stale ||
+        session.submitted) {
+      return true;
+    }
+    // The paused page has no Back, in the app or in the browser.
+    if (session.paused) return false;
+    await Navigator.maybePop(context);
+    return false;
   }
 
   Future<void> _loadPauseWarning() async {
@@ -114,6 +156,9 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
           if (_disposed || !mounted || (_identityLost || actor() != uid)) {
             return;
           }
+          // The mock ended while the Quiz tab still showed it as open.
+          _leaving = true;
+          _refreshAvailability();
           context.pushReplacement('/mock/results/$id');
           return;
         }
@@ -165,6 +210,8 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
         (_) => _onTick(const Duration(milliseconds: 250)),
       );
       setState(() => _session = session);
+      // The server now holds an open mock; the Quiz tab must not say otherwise.
+      _refreshAvailability();
     } on Object catch (error, stackTrace) {
       if (!mounted || _disposed) return;
       if (_identityLost || actor() != uid) {
@@ -173,9 +220,8 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       }
       if (error is ServerMockNotOpen) {
         // Quiz and setup read the same status; make them read it again.
-        ref
-          ..invalidate(serverMockAvailabilityProvider(widget.examId))
-          ..invalidate(serverMockSetupCountProvider(widget.examId));
+        _refreshAvailability();
+        ref.invalidate(serverMockSetupCountProvider(widget.examId));
       } else {
         unawaited(ref.read(telemetryProvider).recordError(error, stackTrace));
       }
@@ -255,6 +301,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     final session = _session;
     if (!mounted || _disposed || session == null || session.stale) return;
     _tick?.cancel();
+    _leaving = true;
     final paper = session.paper;
     final input = MockFinaleInput(
       reason: _terminalReason == ServerMockEndReason.strictExit
@@ -283,8 +330,8 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     );
     ref
       ..invalidate(serverMockResultProvider(paper.mockId))
-      ..invalidate(serverMockHistoryProvider)
-      ..invalidate(serverMockAvailabilityProvider(widget.examId));
+      ..invalidate(serverMockHistoryProvider);
+    _refreshAvailability();
     context.pushReplacement(
       '/mock/results/${paper.mockId}?fresh=1',
       extra: input,
@@ -299,7 +346,8 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       await WidgetsBinding.instance.endOfFrame;
       if (!mounted) return;
     }
-    ref.invalidate(serverMockAvailabilityProvider(widget.examId));
+    _leaving = true;
+    _refreshAvailability();
     context.go(mockExitLocation);
   }
 
@@ -358,7 +406,11 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
             answeredCount: session.answers.length,
             onResume: () => unawaited(session.resume()),
             onDiscard: () async {
-              if (await session.discard() && mounted) await _close();
+              if (!await session.discard() || !mounted) return;
+              // The server keeps the paper and restarts the clock on discard,
+              // so the clock would run while nobody is here. Stop it.
+              await session.pause();
+              if (mounted) await _close();
             },
           )
         : (_lastPaper = _paper(session));

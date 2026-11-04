@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/plan_data.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
+import 'package:pantas/features/home/application/settling_retry.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
@@ -58,14 +59,39 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
   /// The last plan shown. A reload after a lesson closes keeps it on screen, so
   /// the page does not blank and replay its entrance behind the closing drawer.
   PlanView? _lastView;
+
+  /// A read that fails only because the app is still settling is retried here
+  /// and the page keeps its skeleton. The error shows once the failure is real.
+  late final SettlingRetry _settling = SettlingRetry(
+    retry: () {
+      if (mounted) ref.invalidate(planViewProvider(_limit));
+    },
+  );
+  bool _holding = false;
+
+  @override
+  void dispose() {
+    _settling.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final displayed = ref.watch(planViewProvider(_displayLimit));
     final value = ref.watch(planViewProvider(_limit));
+    ref.listen(planViewProvider(_limit), (_, next) {
+      if (next.hasError && !next.isLoading) {
+        _holding = _settling.failed(next.error!);
+      } else if (next.hasValue && !next.isLoading) {
+        _holding = false;
+        _settling.reset();
+      }
+    });
+    final holding = value.hasError && _holding;
     final arrived = value.unwrapPrevious().asData?.value;
     final view = arrived ??
         displayed.unwrapPrevious().asData?.value ??
-        (value.hasError ? null : _lastView);
+        (value.hasError && !holding ? null : _lastView);
     _lastView = view;
     if (arrived != null) _displayLimit = _limit;
     final pro = ref.watch(currentStudyCoverageProvider);
@@ -73,11 +99,14 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
       return _waiting(context, const AsyncLoading<void>(), () {});
     }
     if (view == null) {
-      firstScreenReady(context, ref, ready: value.hasError);
+      firstScreenReady(context, ref, ready: value.hasError && !holding);
       return _waiting(
         context,
-        value,
-        () => ref.invalidate(planViewProvider(_limit)),
+        holding ? const AsyncLoading<PlanView>() : value,
+        () {
+          _settling.reset();
+          ref.invalidate(planViewProvider(_limit));
+        },
       );
     }
     if (view.state == RoadmapState.needsAssessment ||
@@ -112,7 +141,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
       subtitle: view.subtitle,
       hasMore: view.next != null,
       loadingMore: _displayLimit != _limit,
-      paginationError: value.hasError
+      paginationError: value.hasError && !holding
           ? errorFor('plan', () => ref.invalidate(planViewProvider(_limit)))
           : null,
       onMore: () => setState(() => _limit += 10),

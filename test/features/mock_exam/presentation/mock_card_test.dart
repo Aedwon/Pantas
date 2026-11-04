@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -263,6 +264,69 @@ void main() {
       await tester.pumpWidget(const SizedBox());
     }
   });
+
+  // A mock taken just after midnight in the student's day is still the
+  // previous day in UTC. The card must print the student's day. The instant
+  // is chosen so the local date differs from the UTC date wherever the test
+  // runs (it cannot differ where local time is UTC).
+  for (final wide in [false, true]) {
+    testWidgets(
+        '${wide ? 'wide' : 'phone'}: Last attempt and the next date '
+        'print the local day of a UTC time', (tester) async {
+      final offset = DateTime(2026, 11, 5, 12).timeZoneOffset;
+      final taken = (offset.isNegative
+              ? DateTime(2026, 11, 5, 23, 30)
+              : DateTime(2026, 11, 5, 0, 30))
+          .toUtc();
+      final next = taken.add(const Duration(days: 30));
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = Size(wide ? 1440 : 390, 1400);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: wide),
+          home: MediaQuery(
+            data: MediaQueryData(
+              size: Size(wide ? 1440 : 390, 1400),
+              disableAnimations: true,
+            ),
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: MockCard(
+                  model: MockCardModel(
+                    state: MockCardState.ready,
+                    name: 'CSE simulation',
+                    lastPercent: 69,
+                    lastAttemptAt: taken,
+                    nextOpensAt: next,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(taken.isUtc, isTrue);
+      expect(
+        find.text(PantasDates.short(taken.toLocal())),
+        findsOneWidget,
+      );
+      expect(
+        mockNextOpensLine(next),
+        contains(PantasDates.withWeekday(next.toLocal())),
+      );
+      if (offset != Duration.zero) {
+        expect(
+          PantasDates.short(taken.toLocal()),
+          isNot(PantasDates.short(taken)),
+        );
+      }
+    });
+  }
 
   testWidgets('entry matches board stops and intermediate curve',
       (tester) async {

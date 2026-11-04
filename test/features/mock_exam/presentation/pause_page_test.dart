@@ -277,6 +277,19 @@ void main() {
     expect(discarded, 1);
   });
 
+  testWidgets('no answers does not say "Your 0 answers"', (tester) async {
+    await tester.pumpWidget(_paused(still: true, answered: 0));
+    await tester.pump();
+    await tester.tap(find.text('Discard This Mock'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Your 0'), findsNothing);
+    expect(find.textContaining('Nothing is answered yet.'), findsOneWidget);
+    expect(
+      find.textContaining("doesn't use up a mock attempt"),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('one answer reads in the singular', (tester) async {
     await tester.pumpWidget(_paused(still: true, answered: 1));
     await tester.pump();

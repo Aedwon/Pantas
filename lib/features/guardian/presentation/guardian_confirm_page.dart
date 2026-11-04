@@ -167,7 +167,7 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
           Wrap(
             spacing: 20,
             children: [
-              link('Terms', '/legal/terms'),
+              link('Terms of Service', '/legal/terms'),
               link('Privacy Policy', '/legal/privacy'),
               if (teenNoticeReady) link('Notice for teens', '/legal/teens'),
             ],

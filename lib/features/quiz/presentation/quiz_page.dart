@@ -31,6 +31,7 @@ import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -918,8 +919,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           if (!state.checking) setState(() => _gridOpen = !_gridOpen);
         },
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
         child: PopScope(
           canPop: _allowPop,
           onPopInvokedWithResult: (didPop, _) {
@@ -962,7 +962,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         ),
                         if (_reportStatus == question.id)
                           Text(
-                            "Saved. It sends when you're back online.",
+                            'Saved on this device.',
                             style: t.sm,
                           ),
                         IconButton(

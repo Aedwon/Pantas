@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
@@ -61,8 +62,7 @@ class WebAssessmentLayout extends StatelessWidget {
             if (i < question.choices.length) onPick(question.choices[i].id);
           },
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
         child: Stack(
           children: [
             Column(
@@ -246,8 +246,7 @@ class WebAssessmentResults extends StatelessWidget {
           if (!saving) onAcknowledge();
         },
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 56),
           child: Center(

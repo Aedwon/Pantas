@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
@@ -66,6 +67,14 @@ class WebSessionResults extends StatelessWidget {
     final unit = elapsed?.inMinutes == 1 ? 'minute' : 'minutes';
     final next = onNext != null && batch != null && batch.ordinal < batch.total;
     final mistakeRowTitle = t.style(16, height: 1.3);
+    // QS_EndLow: the mistakes link is teal and bold, the all-questions link
+    // plain. The phone's link is teal.
+    final mistakesLinkTitle = t.style(
+      16,
+      height: 1.3,
+      weight: FontWeight.w600,
+      color: t.colors.accent,
+    );
     Widget circle(int i) => SizedBox.square(
           dimension: 30,
           child: TextButton(
@@ -94,8 +103,7 @@ class WebSessionResults extends StatelessWidget {
           includeRepeats: false,
         ): next ? onNext! : onDone,
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
         child: Column(
           children: [
             SizedBox(
@@ -264,7 +272,7 @@ class WebSessionResults extends StatelessWidget {
                                         WebRow(
                                           title: 'See all '
                                               '${misses.length} mistakes',
-                                          titleStyle: mistakeRowTitle,
+                                          titleStyle: mistakesLinkTitle,
                                           boardMetrics: true,
                                           chevron: WebRowChevron.always,
                                           onPressed: onMistakes,
@@ -455,8 +463,7 @@ class WebQuizQuestionList extends StatelessWidget {
     ];
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
         child: Column(
           children: [
             WebTopBar(

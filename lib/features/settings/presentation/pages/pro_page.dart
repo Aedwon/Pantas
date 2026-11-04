@@ -1350,23 +1350,17 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     );
   }
 
-  /// The plan cards side by side. On wide web they share one height, as the
-  /// board's grid does, so the bottoms line up whatever each card holds.
-  Widget _plansRow(BuildContext context, {required List<Widget> children}) {
-    if (!context.wideWeb) {
-      return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: children,
+  /// The plan cards side by side. They share one height, as the board's grid
+  /// does, so the bottoms line up whatever each card holds. The yearly card has
+  /// a line the others lack, and on the phone that left it taller.
+  Widget _plansRow(BuildContext context, {required List<Widget> children}) =>
+      IntrinsicHeight(
+        child: Row(
+          spacing: context.wideWeb ? 12 : 0,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: children,
+        ),
       );
-    }
-    return IntrinsicHeight(
-      child: Row(
-        spacing: 12,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: children,
-      ),
-    );
-  }
 
   Widget _choiceCard(
     BuildContext context, {

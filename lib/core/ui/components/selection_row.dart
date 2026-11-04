@@ -186,6 +186,7 @@ class _SelectionRow extends StatelessWidget {
             if (web &&
                 showMark &&
                 hoverFill &&
+                trailing == null &&
                 states.contains(WidgetState.hovered)) {
               return context.webTokens.rowHover;
             }
@@ -236,13 +237,43 @@ class _SelectionRow extends StatelessWidget {
         ),
       ),
     );
-    return Row(
+    final line = Row(
       children: [
         Expanded(child: interactiveContent ? row : MergeSemantics(child: row)),
         if (trailing != null) trailing!,
       ],
     );
+    // With a trailing control (the picker's chevron) the row's own button stops
+    // short of it, so the hover fill covers the whole line instead.
+    if (trailing != null && enabled && web && showMark && hoverFill) {
+      return _HoverFill(color: context.webTokens.rowHover, child: line);
+    }
+    return line;
   }
+}
+
+/// Fills its whole area while the pointer is anywhere over it.
+class _HoverFill extends StatefulWidget {
+  const _HoverFill({required this.color, required this.child});
+  final Color color;
+  final Widget child;
+
+  @override
+  State<_HoverFill> createState() => _HoverFillState();
+}
+
+class _HoverFillState extends State<_HoverFill> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) => MouseRegion(
+        onEnter: (_) => setState(() => _hovered = true),
+        onExit: (_) => setState(() => _hovered = false),
+        child: ColoredBox(
+          color: _hovered ? widget.color : Colors.transparent,
+          child: widget.child,
+        ),
+      );
 }
 
 class _SelectionMark extends StatelessWidget {

@@ -94,14 +94,14 @@ void main() {
       ),
     );
     for (var i = 0;
-        i < 80 && find.text('Practice these 1').evaluate().isEmpty;
+        i < 80 && find.text('Practice this question').evaluate().isEmpty;
         i++) {
       await tester.pump(const Duration(milliseconds: 20));
       await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 2)),
       );
     }
-    expect(find.text('Practice these 1'), findsOneWidget);
+    expect(find.text('Practice this question'), findsOneWidget);
     content.blocked = true;
     container.invalidate(flaggedExamReviewProvider('e'));
     for (var i = 0; i < 80 && !content.entered.isCompleted; i++) {
@@ -111,7 +111,7 @@ void main() {
       );
     }
     expect(content.entered.isCompleted, isTrue);
-    await tester.tap(find.text('Practice these 1'));
+    await tester.tap(find.text('Practice this question'));
     await tester.pump();
     for (var i = 0; i < 5; i++) {
       await tester.pump();

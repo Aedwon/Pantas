@@ -126,4 +126,60 @@ void main() {
       expect(find.text(scenario.expected), findsOneWidget);
     });
   }
+
+  // MK_Results and MK_Results_m end the versus-past card with a link to the
+  // record, on a result the student has just earned as much as on an old one.
+  testWidgets('a fresh result links to the full record', (tester) async {
+    tester.view
+      ..devicePixelRatio = 1
+      ..physicalSize = const Size(390, 1600);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final router = GoRouter(
+      initialLocation: '/mock/results/a?fresh=1',
+      routes: [
+        GoRoute(path: '/record', builder: (_, __) => const Text('record')),
+        GoRoute(
+          path: '/mock/results/:id',
+          builder: (_, state) => MockResultsRoute(
+            attemptId: state.pathParameters['id']!,
+            fresh: true,
+          ),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          mockResultsProvider('a').overrideWith(
+            (ref) async =>
+                MockHistoryEntry(attempt: _attempt(), results: _results),
+          ),
+          mockReviewAccessProvider('a').overrideWith(
+            (ref) async => const MockReviewAccess(canReview: true),
+          ),
+          mockEarlierResultsProvider('a').overrideWith(
+            (ref) async => [
+              MockHistoryEntry(
+                attempt: _attempt(),
+                results: _results,
+              ),
+            ],
+          ),
+          entitlementProvider
+              .overrideWith((ref) => Stream.value(const Entitlement.free())),
+        ],
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('See full record'));
+    await tester.tap(find.text('See full record'));
+    await tester.pumpAndSettle();
+    expect(find.text('record'), findsOneWidget);
+  });
 }

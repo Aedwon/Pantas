@@ -25,6 +25,37 @@ class _Controller extends QuizController {
     state = QuizRunning(session: session, questionShownAt: DateTime.utc(2026));
   }
 
+  /// What a real check lands on, so a test can press the real buttons.
+  QuizSession? afterCheck;
+
+  @override
+  void pick({required String chosenChoiceId}) {
+    final s = state;
+    if (s is! QuizRunning) return;
+    state = QuizRunning(
+      session: s.session,
+      questionShownAt: s.questionShownAt,
+      selectedChoiceId: chosenChoiceId,
+    );
+  }
+
+  @override
+  Future<void> check() async {
+    final s = state;
+    if (s is! QuizRunning || afterCheck == null) return;
+    state = QuizRunning(
+      session: s.session,
+      questionShownAt: s.questionShownAt,
+      selectedChoiceId: s.selectedChoiceId,
+      checking: true,
+    );
+    await Future<void>.delayed(const Duration(milliseconds: 30));
+    state = QuizRunning(
+      session: afterCheck!,
+      questionShownAt: s.questionShownAt,
+    );
+  }
+
   @override
   Future<void> start({
     required String examId,
@@ -232,6 +263,129 @@ void main() {
       expect(tester.hasRunningAnimations, isFalse);
     });
   });
+  group('keys keep working after Check', () {
+    late _Controller controller;
+    late QuizSession before;
+
+    Future<void> pumpLive(WidgetTester tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final completed = completedSession(batch: true);
+      before = completed.copyWith(
+        currentIndex: 3,
+        outcomes: completed.outcomes.take(3).toList(),
+      );
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            flaggedIdsProvider.overrideWith((_) async => <String>{}),
+            quizControllerProvider.overrideWith(
+              (ref) => controller = _Controller(ref, before)
+                ..afterCheck = before.copyWith(
+                  outcomes: completed.outcomes.take(4).toList(),
+                ),
+            ),
+          ],
+          child: MaterialApp(
+            theme: buildDarkTheme(web: true),
+            home: const QuizPage(examId: 'e', proIsActive: false),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    // A click in the browser also moves keyboard focus to what was clicked.
+    Future<void> click(WidgetTester tester, Finder target) async {
+      await tester.tap(target);
+      Focus.of(tester.element(target)).requestFocus();
+      await tester.pump();
+    }
+
+    // The student clicks an answer, then checks it by key or by click.
+    Future<void> pickAndCheck(WidgetTester tester, {required bool key}) async {
+      await click(tester, find.text('Wrong').last);
+      if (key) {
+        await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      } else {
+        await click(tester, find.text('Check'));
+      }
+      await tester.pumpAndSettle();
+      expect(find.text('Next'), findsOneWidget);
+    }
+
+    for (final byKey in [true, false]) {
+      testWidgets(
+          'G, F and Esc answer after Check by ${byKey ? 'key' : 'click'}',
+          (tester) async {
+        await pumpLive(tester);
+        await pickAndCheck(tester, key: byKey);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+        await tester.pumpAndSettle();
+        expect(find.text('Questions'), findsOneWidget);
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
+        expect(find.text('Questions'), findsNothing);
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsOneWidget);
+      });
+    }
+
+    testWidgets('Esc answers after the flag button was clicked',
+        (tester) async {
+      await pumpLive(tester);
+      await pickAndCheck(tester, key: true);
+      await click(tester, find.byTooltip('Flag question'));
+      await tester.pumpAndSettle();
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(find.text('Leave this session?'), findsOneWidget);
+    });
+
+    // The page's focus node can lose focus to its scope (a locked choice, a
+    // busy button, the browser moving focus). The keys must come back.
+    testWidgets('keys come back when focus falls out of the page',
+        (tester) async {
+      await pumpLive(tester);
+      await pickAndCheck(tester, key: true);
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pump();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+      await tester.pumpAndSettle();
+      expect(find.text('Questions'), findsOneWidget);
+      FocusManager.instance.rootScope.requestFocus();
+      await tester.pump();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(find.text('Questions'), findsNothing);
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(find.text('Leave this session?'), findsOneWidget);
+    });
+
+    testWidgets('Enter moves on after Check', (tester) async {
+      await pumpLive(tester);
+      await pickAndCheck(tester, key: false);
+      var next = 0;
+      controller.addListener((state) {
+        if (state is QuizRunning && state.session.currentIndex == 4) next++;
+      });
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(next, greaterThan(0));
+    });
+  });
+
   group('wide navigator and reveal', () {
     late _Controller controller;
     late QuizSession before;
@@ -281,28 +435,43 @@ void main() {
     testWidgets('Check plays the reveal instead of showing its end at once',
         (tester) async {
       await pumpLive(tester);
+      final openLeft = tester
+          .getTopLeft(find.byKey(const ValueKey('web-question-column')).last)
+          .dx;
       controller.checked(after);
       await tester.pump();
-      double columnWidth() => tester
-          .getSize(find.byKey(const ValueKey('web-question-column')).last)
-          .width;
+      Finder column() => find.byKey(const ValueKey('web-question-column')).last;
       await tester.pump(const Duration(milliseconds: 100));
       // Begun, not finished: the column has not moved and nothing shows yet.
-      expect(columnWidth(), 720);
+      expect(tester.getTopLeft(column()).dx, closeTo(openLeft, .5));
       expect(revealOpacity(tester), 0);
       await tester.pump(const Duration(milliseconds: 600));
-      expect(columnWidth(), inExclusiveRange(600, 720));
+      final moving = tester.getTopLeft(column()).dx;
+      expect(moving, lessThan(openLeft));
       await tester.pump(const Duration(milliseconds: 600));
+      expect(tester.getTopLeft(column()).dx, lessThan(moving));
       expect(revealOpacity(tester), inExclusiveRange(0, 1));
       await tester.pumpAndSettle();
       expect(revealOpacity(tester), 1);
-      expect(
-        tester
-            .getSize(find.byKey(const ValueKey('web-question-column')).last)
-            .width,
-        600,
-      );
+      expect(tester.getSize(column()).width, 600);
       expect(tester.hasRunningAnimations, isFalse);
+    });
+
+    testWidgets('the column slides without changing width, so nothing re-wraps',
+        (tester) async {
+      await pumpLive(tester);
+      controller.checked(after);
+      await tester.pump();
+      final widths = <double>{};
+      for (var ms = 0; ms < 1900; ms += 50) {
+        widths.add(
+          tester
+              .getSize(find.byKey(const ValueKey('web-question-column')).last)
+              .width,
+        );
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+      expect(widths, {600.0});
     });
 
     testWidgets('reduced motion shows the finished reveal at once',

@@ -171,16 +171,21 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
           variant: PantasButtonVariant.tertiary,
           onPressed: _busy ? null : _changeEmail,
         ),
-        if (_notice != null)
-          Semantics(
+        // The line always has its place. The group is centered, so a line that
+        // appeared only when it had something to say moved the title, the body
+        // and the buttons each time.
+        ExcludeSemantics(
+          excluding: _notice == null,
+          child: Semantics(
             liveRegion: true,
             child: Text(
-              _notice!,
+              _notice ?? '\u00A0',
               textAlign: TextAlign.center,
               style: context.type.subhead
                   .copyWith(color: context.colors.secondaryLabel),
             ),
           ),
+        ),
       ],
     );
   }

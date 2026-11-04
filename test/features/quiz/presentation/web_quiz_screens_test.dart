@@ -171,6 +171,12 @@ void main() {
           );
           if (correct == 2) {
             expect(find.text('See all 8 mistakes'), findsOneWidget);
+            // QS_EndLow: teal and bold; the all-questions link is plain.
+            final link = tester.widget<Text>(find.text('See all 8 mistakes'));
+            final all = tester.widget<Text>(find.text('See all 10 questions'));
+            expect(link.style?.fontWeight, FontWeight.w600);
+            expect(link.style?.color, isNot(all.style?.color));
+            expect(all.style?.fontWeight, isNot(FontWeight.w600));
           }
           final close = find.byKey(const ValueKey('results-close'));
           expect(tester.getSize(close), const Size(44, 44));

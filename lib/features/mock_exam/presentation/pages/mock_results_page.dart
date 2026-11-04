@@ -518,12 +518,9 @@ class MockResultsPage extends StatelessWidget {
                                                       fromRecord
                                                           ? 'Open until '
                                                               '${until!}'
-                                                          : 'On Free, you can '
-                                                              'go through '
-                                                              'these until '
-                                                              'your next '
-                                                              'mock opens on '
-                                                              '${until!}.',
+                                                          : 'Open until your '
+                                                              'next mock on '
+                                                              '${until!}',
                                                       style: t.sm,
                                                     ),
                                                 ],

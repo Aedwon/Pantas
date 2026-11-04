@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:drift/drift.dart' show BooleanExpressionOperators;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -21,6 +22,38 @@ import 'package:pantas/features/assessment/domain/models/topic_mastery.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
 import 'package:pantas/features/assessment/presentation/assessment_skeletons.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
+
+/// Waits until the student lets go of Enter, for at most [limit].
+///
+/// Go to Today answers the first press of Enter and opens Home. A key held a
+/// little longer keeps sending repeats, and the focused button on Home takes a
+/// repeat as a press, which opened the first lesson. The page stays until the
+/// key is up, so the press ends here.
+@visibleForTesting
+Future<void> waitForEnterRelease({
+  Duration limit = const Duration(seconds: 2),
+}) async {
+  final keyboard = HardwareKeyboard.instance;
+  if (!keyboard.isLogicalKeyPressed(LogicalKeyboardKey.enter)) return;
+  final released = Completer<void>();
+  bool handler(KeyEvent event) {
+    if (event is KeyUpEvent &&
+        event.logicalKey == LogicalKeyboardKey.enter &&
+        !released.isCompleted) {
+      released.complete();
+    }
+    return false;
+  }
+
+  keyboard.addHandler(handler);
+  try {
+    await released.future.timeout(limit);
+  } on TimeoutException {
+    // A key that never reports its release must not trap the student here.
+  } finally {
+    keyboard.removeHandler(handler);
+  }
+}
 
 String _seenKey(AssessmentResult result) =>
     'assessment.results_seen.${result.examId}.'
@@ -195,6 +228,7 @@ class AssessmentResultsPage extends ConsumerWidget {
                     .setDeviceValue(_seenKey(value.result!), 'true');
                 // The provider is released when this page leaves. Resetting it
                 // here would swap the results for a skeleton on the way out.
+                await waitForEnterRelease();
                 if (context.mounted) context.go('/home');
               } catch (error, stack) {
                 unawaited(telemetry.recordError(error, stack));

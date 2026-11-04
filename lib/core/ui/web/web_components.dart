@@ -670,9 +670,13 @@ class _WebRowState extends State<WebRow> {
         visualDensity: VisualDensity.standard,
         shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
         // A selected row's tint is the layer behind, which fades.
+        // Pressing keeps the tint hovering gave. The row has no ink, so
+        // without this the tint vanished on mouse down and the row looked idle.
         backgroundColor: WidgetStateProperty.resolveWith(
           (s) => !w.selected &&
-                  (s.contains(WidgetState.hovered) || webKeyboardFocus(s))
+                  (s.contains(WidgetState.hovered) ||
+                      s.contains(WidgetState.pressed) ||
+                      webKeyboardFocus(s))
               ? t.rowHover
               : Colors.transparent,
         ),

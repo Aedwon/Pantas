@@ -102,6 +102,25 @@ final roadmapTodayProvider = FutureProvider.autoDispose
   return ref.read(roadmapControllerProvider).today(examId);
 });
 
+/// Reads today's plan for a caller that is not a screen watching it.
+///
+/// [roadmapTodayProvider] drops itself when nothing listens to it. A bare
+/// `read(...future)` is no listener, so when an input changed while the plan
+/// was still loading (settings arriving, a revision bump, the account
+/// settling) the provider was disposed and the read failed with "disposed
+/// during loading state", which Home showed as "Could not load your plan".
+/// The hold keeps the provider alive until the read settles. With a listener a
+/// changed input rebuilds the provider and the same read completes with the
+/// new value.
+Future<RoadmapToday> readRoadmapToday(Ref ref, ExamId examId) async {
+  final hold = ref.container.listen(roadmapTodayProvider(examId), (_, __) {});
+  try {
+    return await ref.read(roadmapTodayProvider(examId).future);
+  } finally {
+    hold.close();
+  }
+}
+
 /// Whether "I want to advance" would add anything for this exam now. Read
 /// alongside [roadmapTodayProvider]; a screen offers advance only when true.
 final roadmapCanAdvanceProvider =

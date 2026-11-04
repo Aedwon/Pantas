@@ -437,6 +437,58 @@ void main() {
     await tester.scrollUntilVisible(find.text('Actual change 14'), 150);
     expect(find.text('Actual change 14'), findsOneWidget);
   });
+  for (final settling in [true, false]) {
+    testWidgets(
+        settling
+            ? 'a plan read that fails as the app settles stays a skeleton and '
+                'retries'
+            : 'a plan read that really fails shows the error at once',
+        (tester) async {
+      var reads = 0;
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            currentStudyCoverageProvider.overrideWith((_) => true),
+            entitlementProvider
+                .overrideWith((_) => Stream.value(const Entitlement.free())),
+            planViewProvider(5).overrideWith((_) async {
+              reads++;
+              if (!settling) throw StateError('Plan content unavailable');
+              if (reads <= 2) throw StateError('Quiz account is unavailable');
+              return const PlanView(
+                done: 1,
+                total: 4,
+                nodes: [],
+                history: [],
+              );
+            }),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            home: const MediaQuery(
+              data: MediaQueryData(disableAnimations: true),
+              child: PlanScreen(),
+            ),
+          ),
+        ),
+      );
+      for (var i = 0; i < 20 && (!settling || reads < 3); i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+        if (settling) {
+          expect(find.text('Could not load your plan.'), findsNothing);
+          expect(find.text('Try Again'), findsNothing);
+        }
+      }
+      await tester.pump(const Duration(milliseconds: 100));
+      if (settling) {
+        expect(reads, 3);
+        expect(find.text('Could not load your plan.'), findsNothing);
+      } else {
+        expect(reads, 1);
+        expect(find.text('Could not load your plan.'), findsOneWidget);
+      }
+    });
+  }
   testWidgets('Free future date uses plan invitation without lesson payload',
       (tester) async {
     await tester.pumpWidget(

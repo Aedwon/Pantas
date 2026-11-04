@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
@@ -32,6 +33,8 @@ class QuizQuestionViewer extends StatefulWidget {
     required this.onNote,
     required this.onReport,
     this.subjectNames = const {},
+    this.topicNames = const {},
+    this.onIndexChanged,
     this.passages = const {},
     this.onReload,
     this.proPaused = false,
@@ -43,6 +46,14 @@ class QuizQuestionViewer extends StatefulWidget {
   final List<Question> questions;
   final List<AttemptItem> items;
   final Map<String, String> subjectNames;
+
+  /// Topic names by topic id. The line above the stem is the topic, as it was
+  /// while the question was live; the subject is the fallback.
+  final Map<String, String> topicNames;
+
+  /// Called with the position now shown, so the page can keep its address in
+  /// step with the question on screen.
+  final ValueChanged<int>? onIndexChanged;
   final Map<String, Passage> passages;
   final bool pro;
   final bool proPaused;
@@ -96,7 +107,13 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
       _savedQuestion = null;
       _notes = false;
     });
+    widget.onIndexChanged?.call(index);
   }
+
+  String _eyebrow(Question question) =>
+      widget.topicNames[question.topicId] ??
+      widget.subjectNames[question.topicId] ??
+      '';
 
   Future<void> _save(String questionId, MistakeTag? tag, String? note) async {
     await widget.onNote(questionId, tag, note);
@@ -178,9 +195,8 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
           const SingleActivator(LogicalKeyboardKey.arrowLeft): previous,
           const SingleActivator(LogicalKeyboardKey.arrowRight): next,
         },
-        child: Focus(
+        child: KeyFocusKeeper(
           focusNode: _webFocus,
-          autofocus: true,
           child: Scaffold(
             backgroundColor: t.colors.background,
             body: Column(
@@ -212,7 +228,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                           Padding(
                             padding: const EdgeInsets.only(right: 8),
                             child: Text(
-                              "Saved. It sends when you're back online.",
+                              'Saved on this device.',
                               style: t.style(
                                 14,
                                 height: 1.3,
@@ -263,9 +279,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                 )
                               : WebQuizQuestion(
                                   question: question,
-                                  subject:
-                                      widget.subjectNames[question.topicId] ??
-                                          '',
+                                  subject: _eyebrow(question),
                                   chosenId: item?.chosenChoiceId,
                                   checked: true,
                                   pro: widget.pro,
@@ -436,8 +450,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               QuestionCard(
-                                subject:
-                                    widget.subjectNames[question.topicId] ?? '',
+                                subject: _eyebrow(question),
                                 stem: question.stem,
                                 figure: question.figureSpecJson == null
                                     ? null

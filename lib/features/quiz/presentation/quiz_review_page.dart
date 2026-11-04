@@ -34,12 +34,17 @@ class QuizReviewPage extends ConsumerStatefulWidget {
     this.initialIndex = 0,
     this.openNotes = false,
     this.fromAll = false,
+    this.mistakesOnly = false,
     super.key,
   });
   final String attemptId;
   final int initialIndex;
   final bool openNotes;
   final bool fromAll;
+
+  /// Opened from the list of mistakes: step through the wrong answers only,
+  /// as the list does. [initialIndex] still counts every question.
+  final bool mistakesOnly;
   @override
   ConsumerState<QuizReviewPage> createState() => _QuizReviewPageState();
 }
@@ -204,20 +209,45 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
         if (loaded == null) {
           return const Scaffold(body: SafeArea(child: SkeletonQuestionPage()));
         }
+        final all = loaded.data.session.questions;
+        final answers = loaded.data.attempt.items;
+        // Positions in the whole session that the viewer steps through.
+        final shown = [
+          for (var i = 0; i < all.length; i++)
+            if (!widget.mistakesOnly ||
+                (i < answers.length && !answers[i].isCorrect))
+              i,
+        ];
+        if (shown.isEmpty) {
+          return Scaffold(body: QuestionsUnavailable(onRetry: _retry));
+        }
+        final start = shown.indexOf(widget.initialIndex);
         return PopScope(
           canPop: widget.fromAll,
           onPopInvokedWithResult: (didPop, _) {
             if (!didPop) _back();
           },
           child: QuizQuestionViewer(
-            questions: loaded.data.session.questions,
-            items: loaded.data.attempt.items,
+            questions: [for (final i in shown) all[i]],
+            items: widget.mistakesOnly
+                ? [for (final i in shown) answers[i]]
+                : answers,
             subjectNames: loaded.data.subjectNames,
+            topicNames: loaded.data.topicNames,
             passages: loaded.passages,
             pro: pro,
             proPaused: paused,
-            initialIndex: widget.initialIndex,
+            initialIndex: start < 0 ? 0 : start,
             openNotes: widget.openNotes,
+            backLabel: widget.mistakesOnly ? 'Your mistakes' : 'All questions',
+            onIndexChanged: (position) => replaceWebAddress(
+              context,
+              Uri.parse(
+                '/quiz/viewer/${widget.attemptId}?index=${shown[position]}'
+                '&notes=false&fromAll=${widget.fromAll}'
+                '${widget.mistakesOnly ? '&mistakes=true' : ''}',
+              ),
+            ),
             onReload: _retry,
             onBack: _back,
             onNote: _save,
@@ -259,6 +289,17 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
           subjectNames: {
             for (final row in rows) row.question.topicId: row.subjectName,
           },
+          topicNames: {
+            for (final row in rows)
+              if (row.topicName.isNotEmpty) row.question.topicId: row.topicName,
+          },
+          onIndexChanged: (position) => replaceWebAddress(
+            context,
+            Uri.parse(
+              '/quiz/flagged/${Uri.encodeComponent(examId)}/view/'
+              '${Uri.encodeComponent(rows[position].question.id)}',
+            ),
+          ),
           passages: {
             for (final row in rows)
               if (row.passage != null) row.passage!.id: row.passage!,

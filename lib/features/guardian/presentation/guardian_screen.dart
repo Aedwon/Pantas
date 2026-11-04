@@ -34,7 +34,7 @@ class GuardianScreen extends StatelessWidget {
         Semantics(
           header: true,
           liveRegion: true,
-          child: Text(
+          child: BalancedText(
             title,
             textAlign: TextAlign.center,
             style: wide
@@ -76,11 +76,16 @@ class GuardianScreen extends StatelessWidget {
         color: t.colors.background,
         child: Column(
           children: [
-            const WebTopBar(
-              leading: PantasLogo(size: 28),
-              title: Text(
-                'Pantas',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            // The same bar as the onboarding steps: the boards set the logo 28
+            // px in, and the bar's own 20 px leaves it 10 px short.
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: WebTopBar(
+                leading: PantasLogo(size: 28),
+                title: Text(
+                  'Pantas',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                ),
               ),
             ),
             Expanded(
@@ -105,6 +110,66 @@ class GuardianScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// A title that breaks into lines of similar length, so the last line is never
+/// a single word left alone. It lays the text out at the full width, then finds
+/// the narrowest width that keeps the same number of lines.
+class BalancedText extends StatelessWidget {
+  const BalancedText(
+    this.text, {
+    required this.style,
+    this.textAlign,
+    super.key,
+  });
+  final String text;
+  final TextStyle style;
+  final TextAlign? textAlign;
+
+  @override
+  Widget build(BuildContext context) {
+    final scaler = MediaQuery.textScalerOf(context);
+    final direction = Directionality.of(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final full = constraints.maxWidth;
+        int lines(double width) {
+          final painter = TextPainter(
+            text: TextSpan(text: text, style: style),
+            textDirection: direction,
+            textScaler: scaler,
+          )..layout(maxWidth: width);
+          final count = painter.computeLineMetrics().length;
+          painter.dispose();
+          return count;
+        }
+
+        var width = full;
+        if (full.isFinite && full > 0) {
+          final target = lines(full);
+          if (target > 1) {
+            var low = 0.0;
+            var high = full;
+            for (var i = 0; i < 12; i++) {
+              final mid = (low + high) / 2;
+              if (lines(mid) <= target) {
+                high = mid;
+              } else {
+                low = mid;
+              }
+            }
+            width = high;
+          }
+        }
+        return Center(
+          child: SizedBox(
+            width: width,
+            child: Text(text, textAlign: textAlign, style: style),
+          ),
+        );
+      },
     );
   }
 }

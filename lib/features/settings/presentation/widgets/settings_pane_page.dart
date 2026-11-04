@@ -105,9 +105,10 @@ class SettingsPanePage extends StatelessWidget {
                   ),
                 'Your exam' =>
                   Icon(PantasIcons.exam, size: 22, color: t.colors.accent),
+                // The list row's size and blue, like the other headers.
                 'Practice' => Icon(
                     PantasIcons.practice,
-                    size: 40,
+                    size: 22,
                     color: const Color(0xFF2F6FEB),
                   ),
                 'Appearance' => _grayGlyph(t, PantasIcons.appearance),

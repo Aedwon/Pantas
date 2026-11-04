@@ -168,10 +168,15 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
                         fallback: '/quiz',
                         respectPopScope: false,
                       ),
-              onFullRecord: fromRecord && context.wideWeb
-                  ? () =>
-                      context.canPop() ? context.pop() : context.go('/record')
-                  : null,
+              // MK_Results and MK_Results_m: the versus-past card ends with
+              // "See full record". From Record it goes back to the record.
+              onFullRecord: fromRecord
+                  ? (context.wideWeb
+                      ? () => context.canPop()
+                          ? context.pop()
+                          : context.go('/record')
+                      : null)
+                  : () => context.go('/record'),
               onSeePro: () => context.push('/settings/pro'),
               pastResults: [
                 for (final previous

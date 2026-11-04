@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
@@ -103,6 +104,9 @@ class _OnboardingGuardianStepState
           OnboardingNameField(
             controller: _name,
             label: "Parent or guardian's name",
+            // Wide web draws the label above the field, so the placeholder
+            // gives an example instead of repeating it.
+            hint: context.wideWeb ? 'Full name' : null,
             restingBorder: true,
             autofillHints: const [AutofillHints.name],
             textInputAction: TextInputAction.next,
@@ -112,6 +116,7 @@ class _OnboardingGuardianStepState
           OnboardingNameField(
             controller: _email,
             label: "Parent or guardian's email",
+            hint: context.wideWeb ? 'name@example.com' : null,
             keyboardType: TextInputType.emailAddress,
             textCapitalization: TextCapitalization.none,
             maxLength: 254,

@@ -337,7 +337,11 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       ),
       children: [
         if (context.wideWeb) ...[
-          Text('YEAR', style: context.webTokens.eb),
+          // Board (OB_Age, OB_Name): the label sits 4 px in from the field.
+          Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Text('YEAR', style: context.webTokens.eb),
+          ),
           const SizedBox(height: 8),
           Align(
             alignment: Alignment.centerLeft,
@@ -433,17 +437,24 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           ),
           const SizedBox(height: 8),
           Text('Type it, or use ↑ and ↓.', style: context.webTokens.sm),
-          if (_rangeHint != null) ...[
-            const SizedBox(height: 6),
-            Semantics(
-              liveRegion: true,
-              child: Text(
-                _rangeHint!,
-                style: context.webTokens.sm
-                    .copyWith(color: context.webTokens.colors.destructive),
-              ),
-            ),
-          ],
+          const SizedBox(height: 6),
+          // The hint always has its line, so Continue keeps its place when the
+          // hint appears and goes (Aedwon: a stable frame). The line is the
+          // hint's own height: 13 px type at 1.45, scaled with the text size.
+          SizedBox(
+            height: MediaQuery.textScalerOf(context).scale(13) * 1.45,
+            child: _rangeHint == null
+                ? null
+                : Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      _rangeHint!,
+                      style: context.webTokens.sm.copyWith(
+                        color: context.webTokens.colors.destructive,
+                      ),
+                    ),
+                  ),
+          ),
         ] else
           Container(
             padding: const EdgeInsets.all(10),

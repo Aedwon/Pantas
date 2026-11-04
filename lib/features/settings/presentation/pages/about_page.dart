@@ -99,9 +99,8 @@ class AboutPage extends ConsumerWidget {
                         ),
                 ),
                 Text(
-                  'Version $version '
-                  '(${context.wideWeb ? '' : 'build '}'
-                  '${buildNumber ?? kBuildNumber})',
+                  // One format on every width, as the boards draw it.
+                  'Version $version (${buildNumber ?? kBuildNumber})',
                   style: context.wideWeb
                       ? context.webTokens.sm
                       : context.type.subhead.copyWith(

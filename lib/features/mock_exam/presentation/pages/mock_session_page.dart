@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -189,11 +190,21 @@ class _MockSessionPageState extends State<MockSessionPage> {
             message: 'Use this only when you really have to. The clock stops, '
                 "but you won't get this during the real exam.",
             content: Padding(
-              padding: const EdgeInsets.only(top: 8, bottom: 2),
+              padding: context.wideWeb
+                  ? EdgeInsets.zero
+                  : const EdgeInsets.only(top: 8, bottom: 2),
               child: CheckboxRow(
                 title: "Don't show this again",
                 selected: skipWarning,
                 padding: EdgeInsets.zero,
+                // MK_PauseWarn on wide web: a 26 px row, label 14 px regular.
+                minHeight: context.wideWeb ? 26 : 44,
+                content: context.wideWeb
+                    ? Text(
+                        "Don't show this again",
+                        style: context.webTokens.style(14),
+                      )
+                    : null,
                 onTap: () => update(() => skipWarning = !skipWarning),
               ),
             ),
@@ -735,10 +746,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
             const SizedBox(height: 6),
             ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 560),
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 2),
-                  child: grid(ids),
+              // MK_SubmitCSE: cells fade out where more of the list is
+              // hidden past the top or the bottom edge.
+              child: _ScrollEdgeFade(
+                builder: (controller) => SingleChildScrollView(
+                  controller: controller,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 2),
+                    child: grid(ids),
+                  ),
                 ),
               ),
             ),
@@ -764,14 +780,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
             ],
             if (widget.oneBlock && !widget.state.strictMode) ...[
               const SizedBox(height: 28),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: WebButton(
-                    label: 'Submit the Exam',
-                    onPressed: () => _confirmEndPartEarly(context),
-                  ),
+              // MK_SubmitCSE: the button fills the panel's width.
+              SizedBox(
+                width: double.infinity,
+                child: WebButton(
+                  label: 'Submit the Exam',
+                  expand: true,
+                  onPressed: () => _confirmEndPartEarly(context),
                 ),
               ),
             ],
@@ -824,14 +839,18 @@ class _MockSessionPageState extends State<MockSessionPage> {
       },
       child: Listener(
         onPointerDown: (_) => _proctorSound.prime(),
-        child: Focus(
-          autofocus: true,
+        child: KeyFocusKeeper(
           onKeyEvent: (_, event) {
             if (event is KeyDownEvent) _proctorSound.prime();
             return KeyEventResult.ignored;
           },
           child: PopScope(
             canPop: false,
+            // Browser Back reaches here through the route's `onExit`. It acts
+            // as the phone's Back does: ask to pause, or explain strict mode.
+            onPopInvokedWithResult: (didPop, _) {
+              if (!didPop) _onSystemBack();
+            },
             child: Scaffold(
               body: Column(
                 children: [
@@ -1527,4 +1546,71 @@ class _LegendDot extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Fades the edge of a scrolling list that has more behind it, as the board
+/// draws the question list. An edge with nothing behind it stays solid.
+class _ScrollEdgeFade extends StatefulWidget {
+  const _ScrollEdgeFade({required this.builder});
+
+  final Widget Function(ScrollController controller) builder;
+
+  @override
+  State<_ScrollEdgeFade> createState() => _ScrollEdgeFadeState();
+}
+
+class _ScrollEdgeFadeState extends State<_ScrollEdgeFade> {
+  static const _fade = 18.0;
+  final _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    // The list's size is known after its first layout.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) {
+          final position = _controller.hasClients &&
+                  _controller.position.hasContentDimensions
+              ? _controller.position
+              : null;
+          final hiddenAbove = position != null && position.pixels > 1;
+          final hiddenBelow = position != null &&
+              position.maxScrollExtent - position.pixels > 1;
+          // The mask stays in the tree whatever the scroll, so the list
+          // keeps its place.
+          return ShaderMask(
+            blendMode: BlendMode.dstIn,
+            shaderCallback: (rect) {
+              final edge = (_fade / rect.height).clamp(0.0, .5);
+              const solid = Color(0xFFFFFFFF);
+              const clear = Color(0x00FFFFFF);
+              return LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  if (hiddenAbove) clear else solid,
+                  solid,
+                  solid,
+                  if (hiddenBelow) clear else solid,
+                ],
+                stops: [0, edge, 1 - edge, 1],
+              ).createShader(rect);
+            },
+            child: widget.builder(_controller),
+          );
+        },
+      );
 }

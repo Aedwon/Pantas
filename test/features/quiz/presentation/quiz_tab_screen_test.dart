@@ -4,7 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
@@ -22,7 +24,7 @@ void main() {
   );
   var state =
       const SessionPanelInProgress(position: 6, total: 10) as SessionPanelState;
-  const counts = QuizTodayCounts(
+  var counts = const QuizTodayCounts(
     reviewsDone: 12,
     reviewsTotal: 18,
     newDone: 3,
@@ -129,6 +131,23 @@ void main() {
     }
   }
 
+  testWidgets(
+      'a phone practice row gives the title all the room the count '
+      'leaves', (tester) async {
+    state = const SessionPanelCaughtUp(answeredToday: 25, correctToday: 20);
+    await pump(tester, still: true);
+    for (final (title, count) in [
+      ('Flagged questions', '12'),
+      ('Your past mistakes', '28'),
+    ]) {
+      // Shared half and half, the title was cut short while the room beside
+      // it stood empty. It must run right up to the count.
+      final gap = tester.getTopLeft(find.text(count)).dx -
+          tester.getTopRight(find.text(title)).dx;
+      expect(gap, lessThanOrEqualTo(10.5), reason: '$title leaves room unused');
+    }
+  });
+
   testWidgets('#23 assessment completion clears the Quiz assessment gate',
       (tester) async {
     state = const SessionPanelNeedsAssessment(30);
@@ -213,5 +232,66 @@ void main() {
     await pump(tester, still: true);
     expect(find.text('Continue Reviews'), findsOneWidget);
     expect(find.text('Resume'), findsNothing);
+  });
+
+  const plan = TodaySessionPlan.empty;
+
+  testWidgets('nothing due says that is all for today (QZ_Done)',
+      (tester) async {
+    counts = const QuizTodayCounts(
+      reviewsDone: 18,
+      reviewsTotal: 18,
+      newDone: 55,
+      newTotal: 55,
+    );
+    addTearDown(
+      () => counts = const QuizTodayCounts(
+        reviewsDone: 12,
+        reviewsTotal: 18,
+        newDone: 3,
+        newTotal: 7,
+      ),
+    );
+    // The roadmap day is finished while the plan still holds later work.
+    state = const SessionPanelAvailable(plan: plan);
+    await pump(tester, still: true);
+    expect(find.text("That's all for today."), findsOneWidget);
+    expect(find.text('Continue Reviews'), findsNothing);
+  });
+
+  testWidgets('a Today card with nothing under its rows has no blank strip',
+      (tester) async {
+    counts = const QuizTodayCounts(
+      reviewsDone: 5,
+      reviewsTotal: 5,
+      newDone: 2,
+      newTotal: 7,
+    );
+    addTearDown(
+      () => counts = const QuizTodayCounts(
+        reviewsDone: 12,
+        reviewsTotal: 18,
+        newDone: 3,
+        newTotal: 7,
+      ),
+    );
+    state = const SessionPanelAvailable(plan: plan);
+    await pump(tester, still: true);
+    expect(find.text('Continue Reviews'), findsNothing);
+    expect(find.text("That's all for today."), findsNothing);
+    final card = find
+        .ancestor(
+          of: find.text('New questions'),
+          matching: find.byType(GroupedSection),
+        )
+        .first;
+    final lastRow = find.ancestor(
+      of: find.text('New questions'),
+      matching: find.byType(TodayQuestionRow),
+    );
+    expect(
+      tester.getBottomLeft(card).dy,
+      closeTo(tester.getBottomLeft(lastRow).dy, 1),
+    );
   });
 }

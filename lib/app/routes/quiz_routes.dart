@@ -155,7 +155,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
                           .valueOrNull
                           ?.results
                           .percent,
-                  lastAttemptAt: lastAttempt?.submittedAt,
+                  lastAttemptAt: lastAttempt?.submittedAt?.toLocal(),
                   nextOpensAt: web
                       ? availability.nextOpensAt?.toLocal()
                       : lastAttempt?.submittedAt?.add(const Duration(days: 14)),
@@ -261,6 +261,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
               int.tryParse(state.uri.queryParameters['index'] ?? '') ?? 0,
           openNotes: state.uri.queryParameters['notes'] == 'true',
           fromAll: state.uri.queryParameters['fromAll'] == 'true',
+          mistakesOnly: state.uri.queryParameters['mistakes'] == 'true',
         ),
       ),
       GoRoute(

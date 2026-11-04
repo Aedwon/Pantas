@@ -111,7 +111,7 @@ void main() {
             ),
             findsOneWidget,
           );
-          expect(find.text('Terms'), findsOneWidget);
+          expect(find.text('Terms of Service'), findsOneWidget);
           expect(find.text('Privacy Policy'), findsOneWidget);
           // The notice for teens is hidden until its text exists.
           expect(teenNoticeReady, isFalse);
@@ -218,7 +218,7 @@ void main() {
 
   testWidgets('the document links open the legal pages', (tester) async {
     await pump(tester);
-    await tester.tap(find.text('Terms'));
+    await tester.tap(find.text('Terms of Service'));
     await tester.tap(find.text('Privacy Policy'));
     expect(find.text('Notice for teens'), findsNothing);
     expect(opened, ['/legal/terms', '/legal/privacy']);

@@ -320,7 +320,9 @@ class _ScopePickerState extends State<ScopePicker>
                               .map((l) => l.id)
                               .toSet(),
                       enabled: topic.hasQuestions,
-                      expand: topic.lessons.isEmpty
+                      // QZE_None_m: a topic with no questions has nothing to
+                      // open, so it has no chevron.
+                      expand: topic.lessons.isEmpty || !topic.hasQuestions
                           ? null
                           : () => setState(
                                 () => _expanded.contains(topic.id)

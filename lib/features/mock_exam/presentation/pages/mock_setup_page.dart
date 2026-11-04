@@ -403,14 +403,23 @@ class _MockSetupPageState extends State<MockSetupPage> {
           ),
         ),
         const SizedBox(height: 16),
+        // MK_SetupCSE: the button fills the right column and the line under
+        // it is centered.
         WebButton(
           label: 'Start the Mock Exam',
           large: true,
+          expand: true,
           keyHint: 'Enter',
           onPressed: () => widget.onStart(_strictMode),
         ),
         const SizedBox(height: 8),
-        Text('The clock starts when you click.', style: t.sm),
+        Center(
+          child: Text(
+            'The clock starts when you click.',
+            textAlign: TextAlign.center,
+            style: t.sm,
+          ),
+        ),
       ],
     );
     return CallbackShortcuts(

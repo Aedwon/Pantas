@@ -15,8 +15,11 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 String freeMockIntervalLine(int days) =>
     'Free includes one mock every $days days.';
 
+/// A server date arrives in UTC. The student reads their own calendar, so the
+/// card converts before it prints (a mock taken at 01:50 on Nov 5 in Manila
+/// is Nov 4 in UTC).
 String mockNextOpensLine(DateTime opens) =>
-    'Your next one opens ${PantasDates.withWeekday(opens)}.';
+    'Your next one opens ${PantasDates.withWeekday(opens.toLocal())}.';
 
 enum MockCardState {
   neverTaken,
@@ -232,7 +235,7 @@ class MockCard extends StatelessWidget {
                           const SizedBox(width: 12),
                         if (model.lastAttemptAt != null)
                           history(
-                            PantasDates.short(model.lastAttemptAt!),
+                            PantasDates.short(model.lastAttemptAt!.toLocal()),
                             'Last attempt',
                           ),
                       ],
@@ -464,7 +467,10 @@ class _History extends StatelessWidget {
         ),
       if (model.lastAttemptAt != null)
         column(
-          Text(PantasDates.short(model.lastAttemptAt!), style: figure),
+          Text(
+            PantasDates.short(model.lastAttemptAt!.toLocal()),
+            style: figure,
+          ),
           'Last attempt',
         ),
     ];
