@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "When two sides of a right triangle match a triple, the third side comes free.",
+      "problem": "The shortcut gives no condition on which side is the hypotenuse. The triple's largest number must be the hypotenuse. If the legs are 4 and 5, the numbers match 3-4-5, but the third side is the square root of 41, not 3. If 3 and 4 are given with no roles, the third side may be 5 or the square root of 7. This is a common exam trap, and the stated rule leads the student into it.",
+      "source": "Content checklist L27 (conditions and limits of a shortcut); Pythagorean theorem as taught in the lesson's Core Concept"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The unknown is in the bottom. Swap it with the sine value: $x \\cdot \\dfrac{\\sqrt{2}}{2} = 8$, so",
+      "problem": "The words say swap, but the equation shown multiplies both sides by x. The move from that equation to x = 8 times 2 over root 2 (dividing by the sine value) is done inline and not shown as its own step. The answer 8 root 2 is correct.",
+      "source": "Content checklist L19; LSG Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Second, cut an equilateral triangle with side $2$ down the middle. This gives a $30$-$60$-$90$ triangle.",
+      "problem": "Several paragraphs run past three sentences: this one has five, the 45-45-90 paragraph has five, the complementary-angle paragraph has five, and the positive-ratios paragraph has four.",
+      "source": "Content checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

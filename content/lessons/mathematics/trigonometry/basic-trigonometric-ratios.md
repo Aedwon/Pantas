@@ -273,7 +273,7 @@ Two shapes give quick answers. In a $30$-$60$-$90$ triangle, the sides are in th
 
 Complementary angles swap sine and cosine: $\sin \theta = \cos(90^\circ - \theta)$. So $\sin 25^\circ = \cos 65^\circ$ with no computation. To solve $\sin A = \cos B$ for acute angles, set $A + B = 90^\circ$.
 
-Keep the Pythagorean triples ready: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$. Their multiples work too, like $6$-$8$-$10$. When two sides of a right triangle match a triple, the third side comes free. If they do not match, use $a^2 + b^2 = c^2$.
+Keep the Pythagorean triples ready: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$. Their multiples work too, like $6$-$8$-$10$. If the two known sides match a triple in their roles, the third side is the triple's remaining number. The triple's largest number must be the hypotenuse: legs $4$ and $5$ give a hypotenuse of $\sqrt{41}$, not $3$. If they do not match, use $a^2 + b^2 = c^2$.
 
 ## Traps to Watch For
 
