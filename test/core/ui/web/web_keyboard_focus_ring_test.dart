@@ -44,6 +44,26 @@ BorderSide _side(WidgetTester tester, String label) {
   return (material.shape! as OutlinedBorder).side;
 }
 
+/// The row's ring is its own rounded layer inside the row (3K-6): its width,
+/// or 0 when none is drawn.
+double _rowRing(WidgetTester tester) {
+  final rings = find.descendant(
+    of: find.byType(WebRow),
+    matching: find.byWidgetPredicate(
+      (w) =>
+          w is DecoratedBox &&
+          w.decoration is BoxDecoration &&
+          (w.decoration as BoxDecoration).border != null &&
+          (w.decoration as BoxDecoration).borderRadius ==
+              BorderRadius.circular(12),
+    ),
+  );
+  if (rings.evaluate().isEmpty) return 0;
+  final box =
+      tester.widget<DecoratedBox>(rings.first).decoration as BoxDecoration;
+  return box.border!.top.width;
+}
+
 void main() {
   testWidgets('a mouse click shows no focus ring', (tester) async {
     await _mount(tester);
@@ -64,7 +84,7 @@ void main() {
     await tester.pump();
     expect(node.hasPrimaryFocus, isTrue);
     expect(_side(tester, 'First').width, isNot(2));
-    expect(_side(tester, 'Row').width, 0);
+    expect(_rowRing(tester), 0);
   });
 
   testWidgets('Tab shows a 2 px accent ring on a button and on a row',
@@ -79,7 +99,7 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.pump();
-    expect(_side(tester, 'Row').width, 2);
+    expect(_rowRing(tester), 2);
     expect(_side(tester, 'First').width, isNot(2));
   });
 
@@ -97,5 +117,150 @@ void main() {
       _side(tester, 'First').width == 2 || _side(tester, 'Second').width == 2,
       isTrue,
     );
+  });
+
+  // 3K-11: the plain buttons a page uses (a back link, a segmented control, a
+  // text button, an icon button) showed nothing at a Tab stop. The theme now
+  // gives every one of them the same keyboard-only ring.
+  testWidgets('Tab rings every plain button and segment, a click does not',
+      (tester) async {
+    resetWebKeyboardFocus();
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: Scaffold(
+          body: Align(
+            alignment: Alignment.topLeft,
+            child: SizedBox(
+              width: 400,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  WebBackLink(label: 'Home', onPressed: () {}),
+                  WebSegmentedControl(
+                    labels: const ['Subjects', 'Topics', 'Lessons'],
+                    selected: 0,
+                    onChanged: (_) {},
+                  ),
+                  TextButton(onPressed: () {}, child: const Text('Plain')),
+                  WebTextLink(label: 'See more', onPressed: () {}),
+                  WebKeyboardRing(
+                    borderRadius: BorderRadius.circular(8),
+                    child: InkWell(
+                      onTap: () {},
+                      child: const SizedBox(
+                        key: ValueKey('ink'),
+                        width: 100,
+                        height: 40,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    BorderSide sideOf(Finder f) {
+      final button = find.ancestor(of: f, matching: find.byType(TextButton));
+      final material = tester.widget<Material>(
+        find.descendant(of: button, matching: find.byType(Material)).first,
+      );
+      return (material.shape! as OutlinedBorder).side;
+    }
+
+    final stops = [
+      find.text('Home'),
+      find.text('Subjects'),
+      find.text('Topics'),
+      find.text('Lessons'),
+      find.text('Plain'),
+      find.text('See more'),
+    ];
+    for (final stop in stops) {
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+      expect(sideOf(stop).width, 2, reason: 'ring on $stop');
+      expect(sideOf(stop).color, const Color(0xFF0B7A68));
+    }
+    // The next stop is the bare tap target, which the ring widget draws.
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    BoxDecoration ringBox() => tester
+        .widget<DecoratedBox>(
+          find.byWidgetPredicate(
+            (w) =>
+                w is DecoratedBox &&
+                w.position == DecorationPosition.foreground &&
+                w.decoration is BoxDecoration &&
+                (w.decoration as BoxDecoration).borderRadius ==
+                    BorderRadius.circular(8),
+          ),
+        )
+        .decoration as BoxDecoration;
+    expect(ringBox().border, isNotNull);
+    expect(ringBox().border!.top.width, 2);
+    // Pointing at a control and pressing it takes the ring away.
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    await mouse.addPointer(location: tester.getCenter(find.text('Plain')));
+    await mouse.down(tester.getCenter(find.text('Plain')));
+    await mouse.up();
+    await tester.pump();
+    expect(sideOf(find.text('Plain')).width, isNot(2));
+    expect(ringBox().border, isNull);
+  });
+
+  testWidgets('a row at the corner of a card rings inside the corner (3K-6)',
+      (tester) async {
+    resetWebKeyboardFocus();
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: Scaffold(
+          body: Align(
+            alignment: Alignment.topLeft,
+            child: SizedBox(
+              width: 400,
+              child: WebCard(
+                child: Column(
+                  children: [
+                    WebRow(title: 'Top', onPressed: () {}),
+                    WebRow(title: 'Bottom', divider: false, onPressed: () {}),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    final row = tester.getRect(find.byType(WebRow).first);
+    final ring = tester.getRect(
+      find
+          .descendant(
+            of: find.byType(WebRow).first,
+            matching: find.byWidgetPredicate(
+              (w) =>
+                  w is DecoratedBox &&
+                  w.decoration is BoxDecoration &&
+                  (w.decoration as BoxDecoration).borderRadius ==
+                      BorderRadius.circular(12),
+            ),
+          )
+          .first,
+    );
+    // The card's own corner is 18 px, so a ring on the row's edge was cut.
+    expect(ring.left - row.left, 3);
+    expect(ring.top - row.top, 3);
+    expect(row.right - ring.right, 3);
   });
 }

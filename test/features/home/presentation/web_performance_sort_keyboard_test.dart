@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -87,5 +88,50 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('A to Z'), findsNothing);
     expect(find.text('Strongest first'), findsOneWidget);
+  });
+
+  testWidgets(
+      'the sort button tints inside its rounded pill and shows no tooltip '
+      '(3K-5)', (tester) async {
+    tester.view.physicalSize = const Size(1440, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: WebLayoutTheme(
+          web: true,
+          child: PerformancePage(
+            data: data,
+            pro: true,
+            paused: false,
+            onTopic: (_) {},
+            onPro: () {},
+            onBack: () {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Topics'));
+    await tester.pumpAndSettle();
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    await mouse.addPointer(
+      location: tester.getCenter(find.text('All subjects')),
+    );
+    await mouse.moveTo(tester.getCenter(find.text('Weakest first')));
+    await tester.pump(const Duration(seconds: 2));
+    // A tooltip would repeat the button's own text.
+    expect(find.text('Weakest first'), findsOneWidget);
+    final ink = tester.widget<InkWell>(
+      find
+          .ancestor(
+            of: find.text('Weakest first'),
+            matching: find.byType(InkWell),
+          )
+          .first,
+    );
+    expect(ink.borderRadius, BorderRadius.circular(12));
   });
 }

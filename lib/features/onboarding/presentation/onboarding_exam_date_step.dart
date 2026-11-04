@@ -247,11 +247,16 @@ class _OnboardingExamDateStepState
             ),
           ),
           if (!context.wideWeb) const SizedBox(height: 22),
+          // The page pads the title and the subtitle 4 px inside the card's
+          // edge; the caption starts at their edge too.
           if (!context.wideWeb)
-            Text(
-              'Is this your exam day?',
-              style: context.type.footnote
-                  .copyWith(color: context.colors.secondaryLabel),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Text(
+                'Is this your exam day?',
+                style: context.type.footnote
+                    .copyWith(color: context.colors.secondaryLabel),
+              ),
             ),
         ] else ...[
           if (context.wideWeb)

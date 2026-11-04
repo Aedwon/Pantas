@@ -8,6 +8,7 @@ import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/pages/topic_ending_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/platform/figure_viewer_back.dart';
 import 'package:go_router/go_router.dart';
 
 /// [web] is true when the lesson sits above the web shell instead of inside it.
@@ -31,6 +32,12 @@ List<RouteBase> studyRoutes(Ref ref, {bool web = false}) => [
       ),
       GoRoute(
         path: '/lesson/:lessonId',
+        // Browser Back with the figure viewer open closes the viewer and stays
+        // on the lesson (see [figureViewerBackProvider]).
+        onExit: web
+            ? (context, state) =>
+                ref.read(figureViewerBackProvider).allowLeave()
+            : null,
         pageBuilder: (_, state) {
           final lesson = LessonPage(
             lessonId: state.pathParameters['lessonId']!,

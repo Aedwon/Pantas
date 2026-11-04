@@ -472,31 +472,34 @@ class _WebStudyMapState extends State<WebStudyMap>
         final column =
             (300 + (constraints.maxWidth - 784).clamp(0, 40000) / 1000)
                 .clamp(300.0, 340.0);
-        // Above the subjects: the Last opened card, then Bookmarks. Bookmarks
-        // is drawn only once there is a bookmark (Nov 3, item 4).
-        final head = <Widget>[
-          if (hasCard) ...[
-            _enter(
+        // Beside an open topic, above the subjects: the Last opened card,
+        // then Bookmarks, in the map column. Bookmarks is drawn only once
+        // there is a bookmark (Nov 3, item 4).
+        Widget lastCard({required bool strip}) => _enter(
               'last',
               180,
               WebLastOpenedCard(
-                title: lastTitle,
+                title: lastTitle!,
                 topic: lastTopic,
-                onResume: () => widget.onLesson(lastLessonId, resume: true),
+                strip: strip,
+                onResume: () => widget.onLesson(lastLessonId!, resume: true),
               ),
-            ),
-            const SizedBox(height: 22),
-          ],
-          if (bookmarks.isNotEmpty)
-            _enter(
-              'bookmarks',
-              260,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: _bookmarkRows(context, bookmarks),
-              ),
-            ),
-        ];
+            );
+        List<Widget> head() => <Widget>[
+              if (hasCard) ...[
+                lastCard(strip: false),
+                const SizedBox(height: 22),
+              ],
+              if (bookmarks.isNotEmpty)
+                _enter(
+                  'bookmarks',
+                  260,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: _bookmarkRows(context, bookmarks),
+                  ),
+                ),
+            ];
         // The first subject sits flush under the card when Bookmarks is
         // hidden, and 18 px under Bookmarks when it shows.
         final firstGap = bookmarks.isEmpty ? 0.0 : 18.0;
@@ -512,19 +515,22 @@ class _WebStudyMapState extends State<WebStudyMap>
             );
         final Widget layout;
         if (card == null) {
+          // Nothing open: the Last opened card is a full-width strip, with
+          // Bookmarks in the same two columns as the subjects below it (QA
+          // polish board, option C).
           layout = mapList([
-            if (head.isNotEmpty)
-              Align(
-                alignment: Alignment.topLeft,
-                child: SizedBox(
-                  width: column,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: head,
-                  ),
-                ),
+            if (hasCard) ...[
+              lastCard(strip: true),
+              const SizedBox(height: 22),
+            ],
+            if (bookmarks.isNotEmpty) ...[
+              _enter(
+                'bookmarks',
+                260,
+                _wideBookmarks(context, bookmarks),
               ),
-            if (bookmarks.isNotEmpty) const SizedBox(height: 18),
+              const SizedBox(height: 18),
+            ],
             _subjectColumns(context, map.subjects),
           ]);
         } else {
@@ -535,7 +541,7 @@ class _WebStudyMapState extends State<WebStudyMap>
                 width: column,
                 child: FocusTraversalGroup(
                   child: mapList([
-                    ...head,
+                    ...head(),
                     for (final (index, subject) in map.subjects.indexed) ...[
                       SizedBox(height: index == 0 ? firstGap : 18),
                       _subjectBlock(context, subject, index),
@@ -673,6 +679,72 @@ class _WebStudyMapState extends State<WebStudyMap>
     );
   }
 
+  /// Bookmarks across the full width: the label and See all on one line, then
+  /// the rows in the subjects' two columns, 24 px apart (QA polish board,
+  /// option C). The label sits 4 px above the first row.
+  Widget _wideBookmarks(BuildContext context, List<StudyLesson> bookmarks) {
+    final t = context.webTokens;
+    final shown = bookmarks.take(3).toList();
+    Widget cell(StudyLesson? lesson) => Expanded(
+          child: lesson == null
+              ? const SizedBox.shrink()
+              : _mapRow(
+                  context,
+                  lesson.title,
+                  leading: Icon(
+                    PantasIcons.bookmark,
+                    size: 16,
+                    color: t.colors.accent,
+                  ),
+                  onPressed: () => widget.onLesson(lesson.id, resume: false),
+                ),
+        );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'BOOKMARKS',
+                  style: t.eb.copyWith(fontSize: 12, height: 15 / 12),
+                ),
+              ),
+              TextButton(
+                onPressed: widget.onBookmarks,
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  minimumSize: const Size(0, 30),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: Text(
+                  'See all',
+                  style: t.style(
+                    14,
+                    color: t.colors.accent,
+                    weight: FontWeight.w600,
+                    height: 30 / 14,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        for (var i = 0; i < shown.length; i += 2)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              cell(shown[i]),
+              const SizedBox(width: 24),
+              cell(i + 1 < shown.length ? shown[i + 1] : null),
+            ],
+          ),
+      ],
+    );
+  }
+
   List<Widget> _bookmarkRows(
     BuildContext context,
     List<StudyLesson> bookmarks,
@@ -778,7 +850,7 @@ class _WebStudyMapState extends State<WebStudyMap>
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         minimumSize: const Size(0, 36),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
@@ -790,10 +862,10 @@ class _WebStudyMapState extends State<WebStudyMap>
           leading,
           const SizedBox(width: 10),
           Expanded(
+            // A long topic name wraps to a second line instead of ending in
+            // dots (3K-24, Aedwon's Nov 3 complaint about cut titles).
             child: Text(
               title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
               style: t.style(
                 15,
                 weight: selected ? FontWeight.w600 : FontWeight.w500,
@@ -929,20 +1001,61 @@ class _TopicEntrance extends StatelessWidget {
       );
 }
 
-/// The Last opened card (board SD_MapEmpty).
+/// The Last opened card (board SD_MapEmpty). With [strip] it spans the page,
+/// text on the left and Resume on the right, 24 px apart (QA polish board,
+/// option C).
 class WebLastOpenedCard extends StatelessWidget {
   const WebLastOpenedCard({
     required this.title,
     required this.onResume,
     this.topic,
+    this.strip = false,
     super.key,
   });
   final String title;
   final String? topic;
   final VoidCallback onResume;
+  final bool strip;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final text = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'LAST OPENED',
+          style: t.eb.copyWith(fontSize: 12, height: 17 / 12),
+        ),
+        const SizedBox(height: 3),
+        Text(
+          title,
+          style: t.style(17, weight: FontWeight.w600, height: 24 / 17),
+        ),
+        if (topic != null)
+          Text(
+            topic!,
+            style: t.style(14, color: t.colors.secondaryLabel, height: 20 / 14),
+          ),
+      ],
+    );
+    final resume = WebButton(
+      label: 'Resume',
+      variant: WebButtonVariant.secondary,
+      onPressed: onResume,
+    );
+    if (strip) {
+      return WebCard(
+        padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
+        child: Row(
+          children: [
+            Expanded(child: text),
+            const SizedBox(width: 24),
+            resume,
+          ],
+        ),
+      );
+    }
     return WebCard(
       padding: const EdgeInsets.fromLTRB(18, 16, 16, 16),
       // Resume sits under the text at its natural width, so a long title and
@@ -951,29 +1064,9 @@ class WebLastOpenedCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: double.infinity,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('LAST OPENED', style: t.eb.copyWith(fontSize: 12)),
-                const SizedBox(height: 3),
-                Text(title, style: t.style(17, weight: FontWeight.w600)),
-                if (topic != null)
-                  Text(
-                    topic!,
-                    style: t.style(14, color: t.colors.secondaryLabel),
-                  ),
-              ],
-            ),
-          ),
+          SizedBox(width: double.infinity, child: text),
           const SizedBox(height: 12),
-          WebButton(
-            label: 'Resume',
-            variant: WebButtonVariant.secondary,
-            onPressed: onResume,
-          ),
+          resume,
         ],
       ),
     );
@@ -1029,6 +1122,7 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
             children: [
               WebRow(
                 title: lesson.title,
+                wrapTitle: true,
                 titleColor: lesson.isRead ? t.colors.tertiaryLabel : null,
                 divider: false,
                 compact: true,

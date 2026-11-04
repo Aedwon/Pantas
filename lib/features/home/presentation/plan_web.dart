@@ -30,33 +30,43 @@ class PlanWebFrame extends StatelessWidget {
         bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
         child: Focus(
           autofocus: true,
+          skipTraversal: true,
           child: SingleChildScrollView(
             // The shell ends at the window bottom, so rows scroll to the edge
             // and the page's own margin sits after the last one.
             padding: EdgeInsets.only(bottom: context.webPageBottomInset),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // The heading and list paint the page's background, so only
-                // the pane beside them shows the page behind while it fades.
-                ColoredBox(
-                  color: context.webTokens.colors.background,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      WebBackLink(label: backLabel, onPressed: onBack),
-                      const SizedBox(height: 6),
-                      WebText(title, kind: WebTextKind.h1),
-                      if (subtitle != null) ...[
-                        const SizedBox(height: 6),
-                        WebText(subtitle!, kind: WebTextKind.lead),
-                      ],
-                      const SizedBox(height: 26),
-                    ],
-                  ),
+            // The page is 1080 px at most and centered, as Home, Performance
+            // and Your record are, so every page shares one left edge when
+            // the window is wider than the page (3K-15).
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1080),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // The heading and list paint the page's background, so
+                    // only the pane beside them shows the page behind while it
+                    // fades.
+                    ColoredBox(
+                      color: context.webTokens.colors.background,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          WebBackLink(label: backLabel, onPressed: onBack),
+                          const SizedBox(height: 6),
+                          WebText(title, kind: WebTextKind.h1),
+                          if (subtitle != null) ...[
+                            const SizedBox(height: 6),
+                            WebText(subtitle!, kind: WebTextKind.lead),
+                          ],
+                          const SizedBox(height: 26),
+                        ],
+                      ),
+                    ),
+                    child,
+                  ],
                 ),
-                child,
-              ],
+              ),
             ),
           ),
         ),
@@ -460,33 +470,39 @@ class PlanWebHistory extends StatelessWidget {
                 // Enters after the last row, so the card is never a bare link.
                 _historyEntry(
                   entries.length,
-                  InkWell(
-                    onTap: loading ? null : onMore,
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(
-                            color: t.colors.separator,
-                            width: hairline,
-                          ),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              loading ? 'Loading' : 'See more',
-                              style: t.style(
-                                16,
-                                weight: FontWeight.w600,
-                                color: t.colors.accent,
-                              ),
+                  WebKeyboardRing(
+                    // The last row of the card, so the ring takes its corners.
+                    borderRadius: const BorderRadius.vertical(
+                      bottom: Radius.circular(18),
+                    ),
+                    child: InkWell(
+                      onTap: loading ? null : onMore,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: t.colors.separator,
+                              width: hairline,
                             ),
                           ),
-                          const WebChevron(),
-                        ],
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                loading ? 'Loading' : 'See more',
+                                style: t.style(
+                                  16,
+                                  weight: FontWeight.w600,
+                                  color: t.colors.accent,
+                                ),
+                              ),
+                            ),
+                            const WebChevron(),
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -158,6 +158,7 @@ class PlanDayPage extends StatelessWidget {
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
@@ -422,6 +423,7 @@ class PlanWeekPage extends StatelessWidget {
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,

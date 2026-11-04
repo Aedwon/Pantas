@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/platform/figure_viewer_back.dart';
+import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
@@ -1639,8 +1642,24 @@ class _FigureViewerState extends State<_FigureViewer> {
     );
   }
 
+  RouteLeaveGuard? _backGuard;
+
+  /// Browser Back while the viewer is open closes it, like Esc, and the page
+  /// stays where it is.
+  Future<bool> _closeForBack() async {
+    if (mounted) unawaited(Navigator.of(context).maybePop());
+    return false;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _backGuard = figureViewerBackIn(context)?..running = _closeForBack;
+  }
+
   @override
   void dispose() {
+    _backGuard?.detach(_closeForBack);
     _zoom.dispose();
     super.dispose();
   }

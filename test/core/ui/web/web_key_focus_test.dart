@@ -131,4 +131,78 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
     expect(pressed, 1, reason: 'the page has its keys again once it is on top');
   });
+  group('EnterShortcut', () {
+    var page = 0;
+    var button = 0;
+
+    Future<void> pumpEnter(WidgetTester tester) async {
+      page = 0;
+      button = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: EnterShortcut(
+              onEnter: () => page++,
+              child: KeyFocusKeeper(
+                child: Column(
+                  children: [
+                    TextButton(
+                      onPressed: () => button++,
+                      child: const Text('Go'),
+                    ),
+                    const TextButton(onPressed: null, child: Text('Off')),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+    }
+
+    testWidgets('runs the page when no control holds focus', (tester) async {
+      await pumpEnter(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(page, 1);
+      expect(button, 0);
+    });
+
+    testWidgets('yields to the button that holds focus', (tester) async {
+      await pumpEnter(tester);
+      Focus.of(tester.element(find.text('Go'))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(button, 1, reason: 'Enter presses the focused button');
+      expect(page, 0, reason: 'the page action stays out of it');
+    });
+
+    testWidgets('runs again once focus is back on the page', (tester) async {
+      await pumpEnter(tester);
+      Focus.of(tester.element(find.text('Go'))).requestFocus();
+      await tester.pump();
+      FocusManager.instance.primaryFocus?.unfocus();
+      await settle(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(page, 1);
+      expect(button, 0);
+    });
+
+    testWidgets('a held key runs the page once', (tester) async {
+      await pumpEnter(tester);
+      await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+      await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
+      await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
+      await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
+      expect(page, 1);
+    });
+
+    testWidgets('Enter with a modifier is left alone', (tester) async {
+      await pumpEnter(tester);
+      await tester.sendKeyDownEvent(LogicalKeyboardKey.shiftLeft);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.sendKeyUpEvent(LogicalKeyboardKey.shiftLeft);
+      expect(page, 0);
+    });
+  });
 }

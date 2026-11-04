@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
@@ -7,6 +8,16 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  // Real glyph widths: the test font makes every word a wide square, which
+  // does not fit beside a value the way the app does.
+  setUpAll(() async {
+    final fonts = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await fonts.load();
+  });
+
   testWidgets('a short value sits at the end of the row', (tester) async {
     await tester.pumpApp(
       SizedBox(

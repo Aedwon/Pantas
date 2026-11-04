@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -371,6 +372,187 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
       expect(find.text('Leave this session?'), findsOneWidget);
+    });
+
+    // Enter runs the control that holds focus, not the page's Check.
+    String? picked() {
+      final state = controller.state;
+      return state is QuizRunning ? state.selectedChoiceId : null;
+    }
+
+    testWidgets('Enter on a focused answer picks it and does not check',
+        (tester) async {
+      await pumpLive(tester);
+      await click(tester, find.text('Wrong').last);
+      expect(picked(), 'b');
+      // Tab to the other answer: it holds focus, and B is still the pick.
+      Focus.of(tester.element(find.text('Right').last)).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(picked(), 'a', reason: 'Enter pressed the answer it was on');
+      expect(find.text('Next'), findsNothing, reason: 'nothing was checked');
+      expect(find.text('Check'), findsOneWidget);
+    });
+
+    testWidgets('Enter on the answer already picked checks it', (tester) async {
+      await pumpLive(tester);
+      await click(tester, find.text('Wrong').last);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(find.text('Next'), findsOneWidget);
+    });
+
+    testWidgets('Enter on the Check button is the button press',
+        (tester) async {
+      await pumpLive(tester);
+      await click(tester, find.text('Wrong').last);
+      Focus.of(tester.element(find.text('Check'))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(find.text('Next'), findsOneWidget);
+    });
+
+    // The real app hosts the page in a nested navigator (the web shell) and
+    // opens dialogs on the root one, so the page's route stays "current".
+    Future<void> pumpNested(WidgetTester tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final completed = completedSession(batch: true);
+      before = completed.copyWith(
+        currentIndex: 3,
+        outcomes: completed.outcomes.take(3).toList(),
+      );
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            flaggedIdsProvider.overrideWith((_) async => <String>{}),
+            quizControllerProvider.overrideWith(
+              (ref) => controller = _Controller(ref, before)
+                ..afterCheck = before.copyWith(
+                  outcomes: completed.outcomes.take(4).toList(),
+                ),
+            ),
+          ],
+          child: MaterialApp.router(
+            theme: buildDarkTheme(web: true),
+            routerConfig: GoRouter(
+              initialLocation: '/quiz/session',
+              routes: [
+                ShellRoute(
+                  builder: (_, __, child) => child,
+                  routes: [
+                    GoRoute(
+                      path: '/quiz/session',
+                      builder: (_, __) =>
+                          const QuizPage(examId: 'e', proIsActive: false),
+                    ),
+                    GoRoute(
+                      path: '/quiz',
+                      builder: (_, __) => const Scaffold(body: Text('Tab')),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    // The Leave dialog owns the keys. Esc closes it, Enter is Keep Going, and
+    // F, G and Enter reach nothing on the page behind it.
+    group('Leave dialog keys', () {
+      Future<void> openLeave(WidgetTester tester) async {
+        await pumpNested(tester);
+        await click(tester, find.text('Wrong').last);
+        await tester.tap(find.byTooltip('Leave session'));
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsOneWidget);
+      }
+
+      // The page's own node, the one its shortcuts hang on.
+      FocusNode pageNode(WidgetTester tester) =>
+          Focus.of(tester.element(find.byType(Scaffold).first));
+
+      Future<void> expectPageUntouched(WidgetTester tester) async {
+        expect(find.text('Questions'), findsNothing, reason: 'G');
+        expect(
+          find.text('Flagged. Find it in the Quiz tab.'),
+          findsNothing,
+          reason: 'F',
+        );
+        expect(find.text('Next'), findsNothing, reason: 'Enter checked');
+        expect(find.text('Check'), findsOneWidget);
+      }
+
+      testWidgets('focus starts inside the dialog, and Esc closes it',
+          (tester) async {
+        await openLeave(tester);
+        final held = FocusManager.instance.primaryFocus!;
+        expect(held, isNot(isA<FocusScopeNode>()));
+        expect(ModalRoute.of(held.context!), isA<DialogRoute<bool>>());
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsNothing);
+        await expectPageUntouched(tester);
+      });
+
+      testWidgets('Enter is Keep Going and checks nothing', (tester) async {
+        await openLeave(tester);
+        await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsNothing);
+        await expectPageUntouched(tester);
+      });
+
+      testWidgets('F and G change nothing behind it', (tester) async {
+        await openLeave(tester);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+        await tester.pump(const Duration(milliseconds: 500));
+        expect(find.text('Leave this session?'), findsOneWidget);
+        await expectPageUntouched(tester);
+      });
+
+      testWidgets('Tab reaches Leave, and Enter on it leaves', (tester) async {
+        await openLeave(tester);
+        await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+        await tester.pump();
+        await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsNothing);
+        expect(find.byType(QuizPage), findsNothing);
+      });
+
+      // The page can get the focus back while the dialog is up (the browser
+      // moving it, a rebuilt control). Then the page still stays out of it.
+      testWidgets('a page that has the focus yields to the dialog',
+          (tester) async {
+        await openLeave(tester);
+        pageNode(tester).requestFocus();
+        await tester.pump();
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
+        await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+        await tester.pump();
+        expect(find.text('Leave this session?'), findsOneWidget);
+        await expectPageUntouched(tester);
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
+        expect(find.text('Leave this session?'), findsNothing);
+        await expectPageUntouched(tester);
+      });
     });
 
     testWidgets('Enter moves on after Check', (tester) async {

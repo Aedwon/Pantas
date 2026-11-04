@@ -183,6 +183,32 @@ void main() {
     expect(hits.map((hit) => hit.lessonId), ['l4', 'l2']);
   });
 
+  test('a whole-word title match comes before a match inside a word (3K-18)',
+      () async {
+    // "Order of Operations" holds "ratio" inside "Operations" and comes
+    // first in the corpus. "Ratio and Proportion" has the word itself.
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l5',
+      topicId: 't1',
+      title: 'Order of Operations',
+      bodyJson: jsonEncode([]),
+      ordering: 3,
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l6',
+      topicId: 't1',
+      title: 'Ratio and Proportion',
+      bodyJson: jsonEncode([]),
+      ordering: 4,
+    );
+    container.read(searchQueryProvider.notifier).state = 'ratio';
+    final hits = await container.read(searchResultsProvider.future);
+
+    expect(hits.map((hit) => hit.lessonId), ['l6', 'l5']);
+  });
+
   test('an empty query gives an empty list', () async {
     container.read(searchQueryProvider.notifier).state = '';
     final hits = await container.read(searchResultsProvider.future);

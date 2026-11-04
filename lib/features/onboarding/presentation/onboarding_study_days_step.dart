@@ -172,11 +172,19 @@ class _OnboardingStudyDaysStepState
           : [
               LayoutBuilder(
                 builder: (context, constraints) {
-                  final size = context.wideWeb
+                  final regular = context.wideWeb
                       ? 56.0
                       : scale.scale(15) > 22
                           ? 60.0
                           : 42.0;
+                  // On a 320 px phone seven 42 px circles do not fit. They
+                  // shrink a little (down to 36) so the week stays one row; at
+                  // large text sizes the circles stay big and wrap.
+                  final size = !context.wideWeb && regular == 42
+                      ? ((constraints.maxWidth - 6 * 4) / 7)
+                          .floorToDouble()
+                          .clamp(36.0, regular)
+                      : regular;
                   final children = [
                     for (final day in [7, 1, 2, 3, 4, 5, 6])
                       Semantics(
@@ -301,7 +309,7 @@ class _OnboardingStudyDaysStepState
                               ),
                       ),
                   ];
-                  return constraints.maxWidth < 7 * (size + 2)
+                  return constraints.maxWidth < 7 * size + 6 * 4
                       ? Wrap(spacing: 6, runSpacing: 8, children: children)
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

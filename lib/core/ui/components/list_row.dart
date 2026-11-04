@@ -5,6 +5,8 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
+enum _ValueFit { beside, split, stacked }
+
 enum ListRowVariant {
   navigation,
   value,
@@ -178,6 +180,34 @@ class ListRow extends StatelessWidget {
   final double leadingGap;
   final Widget? valueWidget;
   final Widget? trailingWidget;
+
+  /// How the title and the value share [width] (the row's space between the
+  /// leading glyph and the chevron): side by side at their own widths, split
+  /// in half when the title still fits in its half, or stacked.
+  _ValueFit _valueFit(
+    BuildContext context,
+    double width,
+    TextStyle titleStyle,
+    TextStyle valueStyle,
+  ) {
+    double natural(String text, TextStyle style) {
+      final painter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+        maxLines: 1,
+      )..layout();
+      final result = painter.width;
+      painter.dispose();
+      return result;
+    }
+
+    final start = natural(title, titleStyle);
+    final end = natural(value!, valueStyle);
+    if (start + 8 + end <= width) return _ValueFit.beside;
+    return start <= (width - 8) / 2 ? _ValueFit.split : _ValueFit.stacked;
+  }
+
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -216,7 +246,14 @@ class ListRow extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(title, style: context.type.body),
-                          Text(subtitle ?? '', style: context.type.footnote),
+                          // Board "f A": beside "Coming soon" the organization
+                          // stays on one line and ends in an ellipsis.
+                          Text(
+                            subtitle ?? '',
+                            style: context.type.footnote,
+                            maxLines: comingSoon ? 1 : null,
+                            overflow: comingSoon ? TextOverflow.ellipsis : null,
+                          ),
                         ],
                       ),
                     ),
@@ -277,7 +314,17 @@ class ListRow extends StatelessWidget {
                         _checkbox || wrapTitle ? null : TextOverflow.ellipsis,
                   ),
               if (subtitle != null)
-                Text(subtitle!, style: context.type.footnote),
+                Text(
+                  subtitle!,
+                  style: context.type.footnote,
+                  // Board "f A": beside "Coming soon" the organization stays on
+                  // one line and ends in an ellipsis. When the label moves
+                  // under it (large text), the line has the full width.
+                  maxLines: comingSoon && !stackComingSoon ? 1 : null,
+                  overflow: comingSoon && !stackComingSoon
+                      ? TextOverflow.ellipsis
+                      : null,
+                ),
               if (footer != null) footer!,
               if (stackComingSoon)
                 Text(
@@ -358,14 +405,27 @@ class ListRow extends StatelessWidget {
       overflow: wrapTitle ? null : TextOverflow.ellipsis,
       style: labelStyle,
     );
-    final detail = valueWidget ??
+    // A plain text value shares the row with the title. The value takes the
+    // room it needs when the title and value fit on one line ("Practice" and
+    // "10 questions" at 320 px). When the title would be cut, the value goes
+    // under the title, as it does at large text sizes.
+    final measureValue = !stack &&
+        value != null &&
+        valueWidget == null &&
+        !naturalValue &&
+        !wrapTitle &&
+        titleWidget == null &&
+        richTitle == null;
+    Widget? detailAligned(TextAlign align) =>
+        valueWidget ??
         (value == null
             ? null
             : Text(
                 value!,
                 style: valueStyle ?? context.type.rowValue,
-                textAlign: stack ? TextAlign.start : TextAlign.end,
+                textAlign: align,
               ));
+    final detail = detailAligned(stack ? TextAlign.start : TextAlign.end);
     final trailing = trailingWidget ??
         switch (variant) {
           ListRowVariant.navigation =>
@@ -401,6 +461,24 @@ class ListRow extends StatelessWidget {
             ),
           _ => const SizedBox.shrink(),
         };
+    Widget titleColumn({Widget? stackedDetail}) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            titleWidget ?? label,
+            if (subtitle != null || richSubtitle != null) ...[
+              if (subtitleGap > 0) SizedBox(height: subtitleGap),
+              Text.rich(
+                richSubtitle ?? TextSpan(text: subtitle),
+                style: context.type.footnote,
+                maxLines: subtitleMaxLines,
+                overflow:
+                    subtitleMaxLines == null ? null : TextOverflow.ellipsis,
+              ),
+            ],
+            if (footer != null) footer!,
+            if (stackedDetail != null) stackedDetail,
+          ],
+        );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -440,45 +518,65 @@ class ListRow extends StatelessWidget {
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),
                       ],
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            titleWidget ?? label,
-                            if (subtitle != null || richSubtitle != null) ...[
-                              if (subtitleGap > 0)
-                                SizedBox(height: subtitleGap),
-                              Text.rich(
-                                richSubtitle ?? TextSpan(text: subtitle),
-                                style: context.type.footnote,
-                                maxLines: subtitleMaxLines,
-                                overflow: subtitleMaxLines == null
-                                    ? null
-                                    : TextOverflow.ellipsis,
-                              ),
-                            ],
-                            if (footer != null) footer!,
-                            if (stack && detail != null) detail,
-                          ],
-                        ),
-                      ),
-                      if (!stack && detail != null) ...[
-                        SizedBox(width: naturalValue ? 10 : 8),
-                        if (naturalValue)
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 140),
-                            child: detail,
-                          )
-                        else
-                          // Without the Align a short value shrinks to its own
-                          // width and sits mid-row, not at the row's end.
-                          Flexible(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              heightFactor: 1,
-                              child: detail,
-                            ),
+                      if (measureValue)
+                        Expanded(
+                          child: LayoutBuilder(
+                            builder: (context, box) {
+                              final fit = _valueFit(
+                                context,
+                                box.maxWidth,
+                                labelStyle,
+                                valueStyle ?? context.type.rowValue,
+                              );
+                              if (fit == _ValueFit.stacked) {
+                                return titleColumn(
+                                  stackedDetail: detailAligned(TextAlign.start),
+                                );
+                              }
+                              final titleBlock = titleColumn();
+                              return Row(
+                                children: [
+                                  Expanded(child: titleBlock),
+                                  const SizedBox(width: 8),
+                                  if (fit == _ValueFit.beside)
+                                    detail!
+                                  else
+                                    Flexible(
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        heightFactor: 1,
+                                        child: detail,
+                                      ),
+                                    ),
+                                ],
+                              );
+                            },
                           ),
+                        )
+                      else ...[
+                        Expanded(
+                          child: titleColumn(
+                            stackedDetail: stack ? detail : null,
+                          ),
+                        ),
+                        if (!stack && detail != null) ...[
+                          SizedBox(width: naturalValue ? 10 : 8),
+                          if (naturalValue)
+                            ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 140),
+                              child: detail,
+                            )
+                          else
+                            // Without the Align a short value shrinks to its
+                            // own width and sits mid-row, not at the row's end.
+                            Flexible(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                heightFactor: 1,
+                                child: detail,
+                              ),
+                            ),
+                        ],
                       ],
                       if (!hideTrailing &&
                           (trailingWidget != null ||

@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 /// The focus a page's keyboard shortcuts stand on.
@@ -82,5 +83,78 @@ class _KeyFocusKeeperState extends State<KeyFocusKeeper> {
         autofocus: true,
         onKeyEvent: widget.onKeyEvent,
         child: widget.child,
+      );
+}
+
+/// Whether the control that holds focus acts on Enter by itself.
+///
+/// A button, a choice or a link answers Enter with its own press. A page that
+/// binds Enter above it must leave that press alone, or the page's action
+/// runs instead of the control the student is on.
+bool focusedControlTakesEnter({
+  bool Function(BuildContext focused)? keepsEnter,
+}) {
+  final context = FocusManager.instance.primaryFocus?.context;
+  if (context == null || !context.mounted) return false;
+  if (keepsEnter != null && keepsEnter(context)) return false;
+  final action = Actions.maybeFind<ActivateIntent>(context);
+  return action != null && action.isEnabled(const ActivateIntent());
+}
+
+/// A page's Enter shortcut that yields to a focused control.
+///
+/// Pass it as the `onKeyEvent` of the page's [KeyFocusKeeper], where
+/// `CallbackShortcuts` would hold Enter. Enter runs [onEnter] only when no
+/// focused control takes it: with focus on the page, on a dialog or on
+/// nothing. With focus on a button or a choice, Enter goes on to that
+/// control. A held key runs [onEnter] once, and Enter with Shift, Ctrl, Alt
+/// or Cmd is left alone.
+///
+/// [keepsEnter] names the controls that hand Enter back to the page even
+/// though they could take it: an answer that is already picked, where Enter
+/// means "check it" and pressing the answer again would do nothing.
+FocusOnKeyEventCallback enterKeyHandler(
+  VoidCallback onEnter, {
+  bool Function(BuildContext focused)? keepsEnter,
+}) =>
+    (FocusNode node, KeyEvent event) {
+      if (event is! KeyDownEvent ||
+          event.logicalKey != LogicalKeyboardKey.enter) {
+        return KeyEventResult.ignored;
+      }
+      final keyboard = HardwareKeyboard.instance;
+      if (keyboard.isShiftPressed ||
+          keyboard.isControlPressed ||
+          keyboard.isAltPressed ||
+          keyboard.isMetaPressed) {
+        return KeyEventResult.ignored;
+      }
+      if (focusedControlTakesEnter(keepsEnter: keepsEnter)) {
+        return KeyEventResult.ignored;
+      }
+      onEnter();
+      return KeyEventResult.handled;
+    };
+
+/// [enterKeyHandler] for a page that has no [KeyFocusKeeper]: wrap it round
+/// the page.
+class EnterShortcut extends StatelessWidget {
+  const EnterShortcut({
+    required this.onEnter,
+    required this.child,
+    this.keepsEnter,
+    super.key,
+  });
+
+  final VoidCallback onEnter;
+  final Widget child;
+  final bool Function(BuildContext focused)? keepsEnter;
+
+  @override
+  Widget build(BuildContext context) => Focus(
+        canRequestFocus: false,
+        skipTraversal: true,
+        onKeyEvent: enterKeyHandler(onEnter, keepsEnter: keepsEnter),
+        child: child,
       );
 }

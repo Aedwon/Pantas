@@ -22,6 +22,7 @@ class WebSessionResults extends StatelessWidget {
     required this.onAll,
     required this.onMistakes,
     required this.onNotes,
+    this.onMistake,
     this.source,
     this.debriefCards,
     this.proPaused = false,
@@ -40,6 +41,10 @@ class WebSessionResults extends StatelessWidget {
   final Widget? debriefCards;
   final VoidCallback onDone;
   final ValueChanged<int> onQuestion;
+
+  /// A mistake row opens that mistake, among the mistakes only. Without it
+  /// the row opens the question like any other.
+  final ValueChanged<int>? onMistake;
   final VoidCallback onAll;
   final VoidCallback onMistakes;
   final VoidCallback onNotes;
@@ -96,14 +101,10 @@ class WebSessionResults extends StatelessWidget {
           ),
         );
     return CallbackShortcuts(
-      bindings: {
-        const SingleActivator(LogicalKeyboardKey.escape): onDone,
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): next ? onNext! : onDone,
-      },
+      bindings: {const SingleActivator(LogicalKeyboardKey.escape): onDone},
       child: KeyFocusKeeper(
+        // Enter runs the control that holds focus; with none, it goes on.
+        onKeyEvent: enterKeyHandler(next ? onNext! : onDone),
         child: Column(
           children: [
             SizedBox(
@@ -262,7 +263,8 @@ class WebSessionResults extends StatelessWidget {
                                             boardMetrics: true,
                                             leading: _MissMark(color: t),
                                             chevron: WebRowChevron.always,
-                                            onPressed: () => onQuestion(i),
+                                            onPressed: () =>
+                                                (onMistake ?? onQuestion)(i),
                                           ),
                                           1700 + position * 90,
                                           380,

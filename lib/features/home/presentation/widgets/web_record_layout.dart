@@ -25,6 +25,7 @@ class WebMyPage extends StatelessWidget {
         bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
         child: Focus(
           autofocus: true,
+          skipTraversal: true,
           child: Scaffold(
             backgroundColor: context.webTokens.colors.background,
             body: SingleChildScrollView(

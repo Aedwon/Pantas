@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/onboarding/application/onboarding_browser_back.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
@@ -96,8 +97,29 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     }
   }
 
+  OnboardingBrowserBack? _browserBack;
+
+  @override
+  void initState() {
+    super.initState();
+    // The browser's Back and Forward cannot change the step, because every
+    // step shares one address. The router reports them here instead, and Back
+    // goes to the previous step like the page's own Back. Web only: the phone
+    // app has no browser history.
+    if (ref.read(onboardingWebProvider)) {
+      final guard = ref.read(onboardingBrowserBackProvider)
+        ..handler = _onBrowserBack;
+      _browserBack = guard;
+    }
+  }
+
+  void _onBrowserBack() {
+    if (mounted) _back();
+  }
+
   @override
   void dispose() {
+    _browserBack?.detach(_onBrowserBack);
     _frame.dispose();
     super.dispose();
   }

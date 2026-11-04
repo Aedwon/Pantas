@@ -286,4 +286,45 @@ void main() {
     expect(find.text('0 days from today'), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
   });
+  for (final width in [393.0, 720.0]) {
+    testWidgets('the caption starts at the title edge at $width',
+        (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+      final entry = ExamCatalogEntry(
+        id: 'exam_cse_pro',
+        name: 'Civil Service Exam',
+        shortName: 'CSE Professional',
+        priceTier: 'Civil Service',
+        group: 'Civil service',
+        comingSoon: false,
+        hasContent: true,
+        publishedSittings: [
+          PublishedExamSitting(
+            firstDay: DateTime(2026, 11, 11),
+            lastDay: DateTime(2026, 11, 12),
+            sourceUrl: 'https://csc.gov.ph',
+          ),
+        ],
+      );
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            examPickerCatalogProvider
+                .overrideWith((ref) => Stream.value([entry])),
+          ],
+          child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+        ),
+        viewportSize: Size(width, 844),
+        disableAnimations: true,
+      );
+      await tester.pumpAndSettle();
+      final title = tester.getTopLeft(find.text('When is your exam?')).dx;
+      final caption = tester.getTopLeft(find.text('Is this your exam day?')).dx;
+      expect(caption, title);
+    });
+  }
 }

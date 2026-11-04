@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
@@ -294,18 +295,195 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
         : 1 - Curves.ease.transform((entry / 550).clamp(0, 1));
     final paperScale =
         _leaving ? _ease(exit, 1600, 2400) : 1 - _ease(entry, 0, 800);
+    // One block: the hourglass, its words and the buttons are one centered
+    // group (QA polish pick "d A"). Several parts keep the side-by-side layout.
+    final single = widget.partNames.length <= 1;
     final pauseOpacity = _leaving
         ? 1 - Curves.ease.transform(((exit - 1550) / 500).clamp(0, 1))
         : Curves.ease.transform((entry / 500).clamp(0, 1));
+    final hourglassGroup = Transform.translate(
+      offset: Offset(
+        (single ? 0 : 246) * (1 - glide),
+        (single ? 28 + 41 : 28) * (1 - glide) - 56 * (1 - drop),
+      ),
+      child: Transform(
+        key: const ValueKey('web-pause-drop'),
+        transform: Matrix4.rotationZ(
+          -7 * math.pi / 180 * (1 - drop),
+        )..scaleByDouble(
+            1.4 - .4 * glide,
+            1.4 - .4 * glide,
+            1,
+            1,
+          ),
+        alignment: Alignment.center,
+        child: Opacity(
+          opacity: _leaving ? 1 - _ease(exit, 1550, 2050) : drop.clamp(0, 1),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Transform.rotate(
+                angle:
+                    (_still ?? false ? 0 : _wideTip(resting)) * math.pi / 180,
+                child: Transform(
+                  transform: Matrix4.diagonal3Values(
+                    1 + .035 * thunk,
+                    1 - .035 * thunk,
+                    1,
+                  ),
+                  alignment: Alignment.bottomCenter,
+                  child: MockHourglass(
+                    size: const Size(152, 200),
+                    sandColor: t.colors.accent,
+                    outlineColor: t.colors.label,
+                    remainingFraction: widget.partLength.inMilliseconds <= 0
+                        ? 0
+                        : widget.remaining.inMilliseconds /
+                            widget.partLength.inMilliseconds,
+                    streamCut: _still ?? false
+                        ? 1
+                        : _leaving
+                            ? 1 - refill
+                            : drain,
+                    streamOpacity: _still ?? false
+                        ? 0
+                        : _leaving
+                            ? (refill > 0 ? 1 : 0)
+                            : (drain < 1 ? 1 : 0),
+                    streamOffset: -(_leaving ? exit : entry) / 420 * 11.2,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 22),
+              Opacity(
+                opacity: paused,
+                child: SizedBox(
+                  height: 60 * paused,
+                  child: Transform.translate(
+                    offset: Offset(0, 6 * (1 - paused)),
+                    child: Text('Paused', style: t.h1),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 2),
+              Opacity(
+                opacity: blink,
+                child: Text(
+                  _clock(
+                    (_still ?? false)
+                        ? 0
+                        : _leaving
+                            ? 1 +
+                                ((exit - 650).clamp(
+                                          0,
+                                          2050,
+                                        ) /
+                                        1000)
+                                    .floor()
+                            : (entry.clamp(0, 1450) / 1000).floor(),
+                  ),
+                  style: t.style(
+                    30,
+                    weight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              Text(
+                widget.partNames.length > 1 ? 'left in this part' : 'left',
+                style: t.sub,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    final content = Opacity(
+      key: const ValueKey('web-pause-content'),
+      opacity: reveal,
+      child: IgnorePointer(
+        ignoring: reveal < 1,
+        child: Transform.translate(
+          offset: Offset(0, 12 * (1 - reveal)),
+          child: SizedBox(
+            width: single ? null : 420,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment:
+                  single ? CrossAxisAlignment.center : CrossAxisAlignment.end,
+              children: [
+                if (widget.partNames.length > 1) ...[
+                  WebCard(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 22,
+                    ),
+                    child: Column(
+                      children: [
+                        for (final (i, name) in widget.partNames.indexed) ...[
+                          if (i > 0) const SizedBox(height: 16),
+                          Row(
+                            children: [
+                              Icon(
+                                i < currentPart ? Icons.check_circle : circle,
+                                size: 26,
+                                color: i == currentPart
+                                    ? t.colors.label
+                                    : t.colors.tertiaryLabel,
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  'Part ${i + 1} · '
+                                  '$name',
+                                  style: t.style(
+                                    17,
+                                    weight: i == currentPart
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                    color: i == currentPart
+                                        ? t.colors.label
+                                        : secondary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+                Wrap(
+                  alignment: single ? WrapAlignment.center : WrapAlignment.end,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: [
+                    WebButton(
+                      label: 'Discard This Mock',
+                      redText: true,
+                      variant: WebButtonVariant.tertiary,
+                      onPressed: _confirmDiscard,
+                    ),
+                    WebButton(
+                      label: 'Resume',
+                      large: true,
+                      keyHint: 'Enter',
+                      onPressed: _resume,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
     return CallbackShortcuts(
-      bindings: {
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): _resume,
-        const SingleActivator(LogicalKeyboardKey.keyP): _resume,
-      },
+      bindings: {const SingleActivator(LogicalKeyboardKey.keyP): _resume},
       child: Focus(
+        onKeyEvent: enterKeyHandler(_resume),
         autofocus: true,
         child: PopScope(
           canPop: false,
@@ -340,218 +518,23 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                       child: SingleChildScrollView(
                         key: const ValueKey('web-mock-paused'),
                         padding: const EdgeInsets.all(40),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Transform.translate(
-                              offset: Offset(
-                                246 * (1 - glide),
-                                28 * (1 - glide) - 56 * (1 - drop),
+                        child: single
+                            ? Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  hourglassGroup,
+                                  const SizedBox(height: 32),
+                                  content,
+                                ],
+                              )
+                            : Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  hourglassGroup,
+                                  const SizedBox(width: 72),
+                                  content,
+                                ],
                               ),
-                              child: Transform(
-                                key: const ValueKey('web-pause-drop'),
-                                transform: Matrix4.rotationZ(
-                                  -7 * math.pi / 180 * (1 - drop),
-                                )..scaleByDouble(
-                                    1.4 - .4 * glide,
-                                    1.4 - .4 * glide,
-                                    1,
-                                    1,
-                                  ),
-                                alignment: Alignment.center,
-                                child: Opacity(
-                                  opacity: _leaving
-                                      ? 1 - _ease(exit, 1550, 2050)
-                                      : drop.clamp(0, 1),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Transform.rotate(
-                                        angle: (_still ?? false
-                                                ? 0
-                                                : _wideTip(resting)) *
-                                            math.pi /
-                                            180,
-                                        child: Transform(
-                                          transform: Matrix4.diagonal3Values(
-                                            1 + .035 * thunk,
-                                            1 - .035 * thunk,
-                                            1,
-                                          ),
-                                          alignment: Alignment.bottomCenter,
-                                          child: MockHourglass(
-                                            size: const Size(152, 200),
-                                            sandColor: t.colors.accent,
-                                            outlineColor: t.colors.label,
-                                            remainingFraction: widget.partLength
-                                                        .inMilliseconds <=
-                                                    0
-                                                ? 0
-                                                : widget.remaining
-                                                        .inMilliseconds /
-                                                    widget.partLength
-                                                        .inMilliseconds,
-                                            streamCut: _still ?? false
-                                                ? 1
-                                                : _leaving
-                                                    ? 1 - refill
-                                                    : drain,
-                                            streamOpacity: _still ?? false
-                                                ? 0
-                                                : _leaving
-                                                    ? (refill > 0 ? 1 : 0)
-                                                    : (drain < 1 ? 1 : 0),
-                                            streamOffset:
-                                                -(_leaving ? exit : entry) /
-                                                    420 *
-                                                    11.2,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 22),
-                                      Opacity(
-                                        opacity: paused,
-                                        child: SizedBox(
-                                          height: 60 * paused,
-                                          child: Transform.translate(
-                                            offset: Offset(0, 6 * (1 - paused)),
-                                            child: Text('Paused', style: t.h1),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 2),
-                                      Opacity(
-                                        opacity: blink,
-                                        child: Text(
-                                          _clock(
-                                            (_still ?? false)
-                                                ? 0
-                                                : _leaving
-                                                    ? 1 +
-                                                        ((exit - 650).clamp(
-                                                                  0,
-                                                                  2050,
-                                                                ) /
-                                                                1000)
-                                                            .floor()
-                                                    : (entry.clamp(0, 1450) /
-                                                            1000)
-                                                        .floor(),
-                                          ),
-                                          style: t.style(
-                                            30,
-                                            weight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ),
-                                      Text(
-                                        widget.partNames.length > 1
-                                            ? 'left in this part'
-                                            : 'left',
-                                        style: t.sub,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 72),
-                            Opacity(
-                              key: const ValueKey('web-pause-content'),
-                              opacity: reveal,
-                              child: IgnorePointer(
-                                ignoring: reveal < 1,
-                                child: Transform.translate(
-                                  offset: Offset(0, 12 * (1 - reveal)),
-                                  child: SizedBox(
-                                    width: 420,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        if (widget.partNames.length > 1) ...[
-                                          WebCard(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 24,
-                                              vertical: 22,
-                                            ),
-                                            child: Column(
-                                              children: [
-                                                for (final (i, name) in widget
-                                                    .partNames.indexed) ...[
-                                                  if (i > 0)
-                                                    const SizedBox(height: 16),
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        i < currentPart
-                                                            ? Icons.check_circle
-                                                            : circle,
-                                                        size: 26,
-                                                        color: i == currentPart
-                                                            ? t.colors.label
-                                                            : t.colors
-                                                                .tertiaryLabel,
-                                                      ),
-                                                      const SizedBox(width: 12),
-                                                      Expanded(
-                                                        child: Text(
-                                                          'Part ${i + 1} · '
-                                                          '$name',
-                                                          style: t.style(
-                                                            17,
-                                                            weight:
-                                                                i == currentPart
-                                                                    ? FontWeight
-                                                                        .w600
-                                                                    : FontWeight
-                                                                        .w400,
-                                                            color: i ==
-                                                                    currentPart
-                                                                ? t.colors.label
-                                                                : secondary,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(height: 20),
-                                        ],
-                                        Wrap(
-                                          alignment: WrapAlignment.end,
-                                          crossAxisAlignment:
-                                              WrapCrossAlignment.center,
-                                          spacing: 12,
-                                          runSpacing: 12,
-                                          children: [
-                                            WebButton(
-                                              label: 'Discard This Mock',
-                                              redText: true,
-                                              variant:
-                                                  WebButtonVariant.tertiary,
-                                              onPressed: _confirmDiscard,
-                                            ),
-                                            WebButton(
-                                              label: 'Resume',
-                                              large: true,
-                                              keyHint: 'Enter',
-                                              onPressed: _resume,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
                       ),
                     ),
                   ),

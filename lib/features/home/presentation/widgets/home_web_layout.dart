@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -414,6 +415,29 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
   }
 }
 
+/// Scrolls so the whole box at [context] is in view, with the page's bottom
+/// margin under it. `Scrollable.ensureVisible` stops at the window edge, which
+/// leaves a card against it while the page end has room to spare.
+void _revealWithMargin(BuildContext context, Duration duration) {
+  final scrollable = Scrollable.maybeOf(context);
+  final box = context.findRenderObject();
+  if (scrollable == null || box is! RenderBox) return;
+  final viewport = RenderAbstractViewport.maybeOf(box);
+  if (viewport == null) return;
+  final position = scrollable.position;
+  final target =
+      (viewport.getOffsetToReveal(box, 1).offset + context.webPageBottomInset)
+          .clamp(position.minScrollExtent, position.maxScrollExtent);
+  if (target <= position.pixels) return;
+  unawaited(
+    position.animateTo(
+      target,
+      duration: duration,
+      curve: PantasCurves.houseOut,
+    ),
+  );
+}
+
 class HomeWebNotice extends StatelessWidget {
   const HomeWebNotice({
     required this.title,
@@ -479,6 +503,11 @@ class HomeWebNotice extends StatelessWidget {
                       onPressed: onToggle,
                       style: TextButton.styleFrom(
                         alignment: Alignment.centerLeft,
+                        // The web theme's compact density (desktop browsers)
+                        // would shave the 52 px minimum and leave a band of
+                        // card above the hover tint (3K-3).
+                        visualDensity: VisualDensity.standard,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         minimumSize: const Size(0, 52),
                         padding: const EdgeInsets.only(left: 18, right: 12),
                         // The hover tint follows the card's own corners.
@@ -548,20 +577,14 @@ class HomeWebNotice extends StatelessWidget {
             duration: duration,
             curve: PantasCurves.houseOut,
             // The notice sits at the foot of Home. Once it has opened, scroll
-            // so its buttons are not left below the window.
+            // so its buttons are not left below the window, with the page's
+            // own bottom margin under the card (3K-2).
             onEnd: expanded && Scrollable.maybeOf(context) != null
-                ? () {
-                    if (!context.mounted) return;
-                    unawaited(
-                      Scrollable.ensureVisible(
-                        context,
-                        duration: duration,
-                        curve: PantasCurves.houseOut,
-                        alignmentPolicy:
-                            ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
-                      ),
-                    );
-                  }
+                ? () => WidgetsBinding.instance.addPostFrameCallback((_) {
+                      // After the layout of the finished height.
+                      if (!context.mounted) return;
+                      _revealWithMargin(context, duration);
+                    })
                 : null,
             builder: (context, value, child) => !expanded && value == 0
                 ? const SizedBox.shrink()
@@ -585,14 +608,23 @@ class HomeWebNotice extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (detail != null) Text(detail!, style: t.sub),
+                  // The text lines up under the title: 18 px padding, 22 px
+                  // icon and 12 px gap leave 34 px to indent (QA polish board,
+                  // option D).
+                  if (detail != null)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 34),
+                      child: Text(detail!, style: t.sub),
+                    ),
                   if (editor != null) ...[
                     const SizedBox(height: 12),
                     editor!,
                   ],
                   const SizedBox(height: 12),
+                  // The buttons sit at the right edge, the quiet one first.
                   Wrap(
                     spacing: 12,
+                    alignment: WrapAlignment.end,
                     children: [
                       if (secondaryLabel != null)
                         WebButton(
@@ -687,6 +719,7 @@ class HomeWebQuestionsSheet extends StatelessWidget {
         },
         child: Focus(
           autofocus: true,
+          skipTraversal: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

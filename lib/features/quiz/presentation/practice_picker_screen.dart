@@ -23,6 +23,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
@@ -993,14 +994,11 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     );
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): start,
         const SingleActivator(LogicalKeyboardKey.escape): () =>
             unawaited(_back()),
       },
       child: Focus(
+        onKeyEvent: enterKeyHandler(start),
         autofocus: true,
         child: LayoutBuilder(
           builder: (context, constraints) => CustomScrollView(

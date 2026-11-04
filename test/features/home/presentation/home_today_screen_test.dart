@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -246,6 +247,104 @@ void main() {
             .dy,
       ),
     );
+  });
+  testWidgets('phone sheet titles use the row up to the time (3K-4)',
+      (tester) async {
+    const title = 'Order of Operations with Grouping Symbols and Exponents';
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: today,
+        lessons: const [
+          HomeTodayLesson(
+            id: 'l1',
+            title: title,
+            subject: 'Mathematics',
+            minutes: 10,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l2',
+            title: 'Cells',
+            subject: 'Science',
+            minutes: 9,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l3',
+            title: 'Fractions',
+            subject: 'Mathematics',
+            minutes: 7,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l4',
+            title: 'Atoms',
+            subject: 'Science',
+            minutes: 6,
+            read: false,
+          ),
+        ],
+        questionWork: null,
+        canAdvance: false,
+      ),
+    );
+    await tester.tap(find.text('Lessons').first);
+    await tester.pumpAndSettle();
+    final sheet = find.byType(TodayQuestionsSheet);
+    final row = find.descendant(of: sheet, matching: find.text(title));
+    final time = find.descendant(of: sheet, matching: find.text('10 min'));
+    // The time keeps its own width, so the title runs to 10 px before it
+    // instead of stopping at half of the row.
+    expect(
+      tester.getTopLeft(time).dx - tester.getTopRight(row).dx,
+      lessThan(16),
+    );
+  });
+  testWidgets(
+      'wide drawer rows wrap a long title instead of ending in dots '
+      '(3K-14)', (tester) async {
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    const title =
+        'Article XI: Accountability of Public Officers and the Ombudsman '
+        'under the 1987 Philippine Constitution';
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: today,
+        lessons: [
+          const HomeTodayLesson(
+            id: 'l1',
+            title: title,
+            subject: 'Constitution',
+            minutes: 10,
+            read: false,
+          ),
+          for (var i = 2; i <= 5; i++)
+            HomeTodayLesson(
+              id: 'l$i',
+              title: 'Lesson $i',
+              subject: 'Science',
+              minutes: 9,
+              read: false,
+            ),
+        ],
+        questionWork: null,
+        canAdvance: false,
+      ),
+    );
+    await tester.tap(find.text('Lessons').first);
+    await tester.pumpAndSettle();
+    final drawer = find.byKey(const ValueKey('home-web-drawer'));
+    final row = find.descendant(of: drawer, matching: find.text(title));
+    expect(row, findsOneWidget);
+    // Two lines or more: a long title is read in full.
+    expect(tester.getSize(row).height, greaterThan(26));
+    expect(tester.widget<Text>(row).overflow, isNot(TextOverflow.ellipsis));
   });
   testWidgets(
       'a first read that fails as the context settles retries by itself '

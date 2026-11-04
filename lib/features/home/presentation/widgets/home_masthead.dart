@@ -748,74 +748,77 @@ class _WebWeekDayState extends State<_WebWeekDay> {
     return MouseRegion(
       onEnter: (_) => setState(() => _hover = true),
       onExit: (_) => setState(() => _hover = false),
-      child: InkWell(
-        onTap: widget.onPressed,
+      child: WebKeyboardRing(
         borderRadius: BorderRadius.circular(12),
-        hoverColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        child: Container(
-          width: 44,
-          padding: const EdgeInsets.symmetric(vertical: 4),
-          decoration: BoxDecoration(
-            color: _hover || widget.selected
-                ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
-                : null,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                widget.label,
-                style: t.style(
-                  11,
-                  weight: today ? FontWeight.w700 : FontWeight.w600,
-                  height: 1.27,
-                  color: dayOff
-                      ? widget.off
-                      : today
-                          ? t.colors.accent
-                          : t.colors.secondaryLabel,
+        child: InkWell(
+          onTap: widget.onPressed,
+          borderRadius: BorderRadius.circular(12),
+          hoverColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          child: Container(
+            width: 44,
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            decoration: BoxDecoration(
+              color: _hover || widget.selected
+                  ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
+                  : null,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  widget.label,
+                  style: t.style(
+                    11,
+                    weight: today ? FontWeight.w700 : FontWeight.w600,
+                    height: 1.27,
+                    color: dayOff
+                        ? widget.off
+                        : today
+                            ? t.colors.accent
+                            : t.colors.secondaryLabel,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 2),
-              SizedBox(
-                height: 30,
-                child: Stack(
-                  alignment: Alignment.center,
-                  clipBehavior: Clip.none,
-                  children: [
-                    // The ring stays through 100%. The check pops in over the
-                    // digit as the ring finishes (420 ms, popC).
-                    if (today && fraction > 0)
-                      ProgressRing(
-                        key: const ValueKey('web-today-progress'),
-                        size: 34,
-                        fraction: fraction,
-                        child: disc,
-                      )
-                    else
-                      disc,
-                  ],
-                ),
-              ),
-              const SizedBox(height: 2),
-              Container(
-                width: 5,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: dot,
-                  shape: BoxShape.circle,
-                  gradient: dot == null
-                      ? LinearGradient(
-                          stops: const [.5, .5],
-                          colors: [t.colors.accent, const Color(0xFFD1D1D6)],
+                const SizedBox(height: 2),
+                SizedBox(
+                  height: 30,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    clipBehavior: Clip.none,
+                    children: [
+                      // The ring stays through 100%. The check pops in over the
+                      // digit as the ring finishes (420 ms, popC).
+                      if (today && fraction > 0)
+                        ProgressRing(
+                          key: const ValueKey('web-today-progress'),
+                          size: 34,
+                          fraction: fraction,
+                          child: disc,
                         )
-                      : null,
+                      else
+                        disc,
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 2),
+                Container(
+                  width: 5,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: dot,
+                    shape: BoxShape.circle,
+                    gradient: dot == null
+                        ? LinearGradient(
+                            stops: const [.5, .5],
+                            colors: [t.colors.accent, const Color(0xFFD1D1D6)],
+                          )
+                        : null,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

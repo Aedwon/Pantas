@@ -55,6 +55,38 @@ void main() {
       });
     }
   }
+  for (final width in [320.0, 340.0, 360.0, 390.0]) {
+    testWidgets('the seven days stay on one row at $width', (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [appDatabaseProvider.overrideWithValue(db)],
+          child: OnboardingStudyDaysStep(
+            now: DateTime(2026, 10, 3),
+            onCompleted: () {},
+          ),
+        ),
+        disableAnimations: true,
+        viewportSize: Size(width, 844),
+      );
+      await tester.pumpAndSettle();
+      final tops = {
+        for (var day = 1; day <= 7; day++)
+          tester.getTopLeft(find.byKey(ValueKey('study-day-$day'))).dy,
+      };
+      expect(tops, hasLength(1), reason: 'one row at $width');
+      for (var day = 1; day <= 7; day++) {
+        final box = tester.getRect(find.byKey(ValueKey('study-day-$day')));
+        expect(box.left, greaterThanOrEqualTo(0));
+        expect(box.right, lessThanOrEqualTo(width));
+        expect(box.width, greaterThanOrEqualTo(36));
+      }
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   testWidgets('no selected day before exam blocks Continue; today permits one',
       (tester) async {
     final db = inMemoryDatabase();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -92,7 +93,8 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  const body = 'We emailed m***@g***.com. The link expires on Nov 9, 2026. '
+  const body =
+      'We emailed m***@g***.com. The link expires on Nov\u00A09,\u00A02026. '
       'Pantas opens here once they confirm.';
 
   for (final brightness in Brightness.values) {
@@ -125,6 +127,40 @@ void main() {
       }
     }
   }
+
+  testWidgets('the expiry date never splits over two lines', (tester) async {
+    gateway.current = GuardianStatus(
+      status: GuardianConsentStatus.pending,
+      maskedEmail: 'm***@g***.com',
+      expiresAt: DateTime.utc(2026, 11, 12, 3),
+    );
+    for (final width in [320.0, 360.0, 390.0, 430.0, 520.0, 700.0]) {
+      await pump(tester, size: Size(width, 844));
+      final finder = find.textContaining('The link expires on');
+      final paragraph = tester.renderObject<RenderParagraph>(finder);
+      final text = paragraph.text.toPlainText();
+      final painter = TextPainter(
+        text: paragraph.text,
+        textDirection: TextDirection.ltr,
+        textScaler: paragraph.textScaler,
+      )..layout(maxWidth: paragraph.size.width);
+      var offset = 0;
+      while (offset < text.length) {
+        final line = painter.getLineBoundary(TextPosition(offset: offset));
+        final start = text.substring(line.start, line.end);
+        final end = start.trimRight();
+        expect(end.endsWith('Nov'), isFalse, reason: 'width $width');
+        expect(end.endsWith('12,'), isFalse, reason: 'width $width');
+        expect(
+          start.trimLeft().startsWith('2026'),
+          isFalse,
+          reason: 'width $width',
+        );
+        if (line.end <= offset) break;
+        offset = line.end;
+      }
+    }
+  });
 
   testWidgets('Check Again is the tint button and the others are text buttons',
       (tester) async {

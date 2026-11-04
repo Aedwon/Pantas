@@ -263,6 +263,43 @@ class _ResultsBodyState extends State<_ResultsBody>
   );
   bool _saving = false;
   bool _failed = false;
+
+  /// Holds the page's keyboard focus (Enter is Go to Today). See [_reclaim].
+  final FocusNode _focus = FocusNode(debugLabel: 'assessment results');
+  bool _reclaimQueued = false;
+
+  @override
+  void initState() {
+    super.initState();
+    FocusManager.instance.addListener(_focusChanged);
+  }
+
+  void _focusChanged() {
+    // Settle after the frame, as focus is often mid-change when this is called.
+    if (_reclaimQueued) return;
+    _reclaimQueued = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _reclaimQueued = false;
+      _reclaim();
+    });
+  }
+
+  /// Takes focus back when a page underneath has taken it.
+  ///
+  /// The assessment opens above Home, which stays mounted. When the answers are
+  /// saved Home rebuilds, and its Today panel (autofocus, with its own Enter
+  /// shortcut) took the focus from this page. Enter on Go to Today then
+  /// reached Home instead, and opened the first lesson (3L-7).
+  void _reclaim() {
+    if (!mounted || ModalRoute.of(context)?.isCurrent == false) return;
+    if (_focus.context == null || !_focus.canRequestFocus) return;
+    final primary = FocusManager.instance.primaryFocus;
+    final inside = primary != null &&
+        (primary == _focus ||
+            primary.ancestors.contains(FocusScope.of(context)));
+    if (!inside) _focus.requestFocus();
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -277,6 +314,8 @@ class _ResultsBodyState extends State<_ResultsBody>
 
   @override
   void dispose() {
+    FocusManager.instance.removeListener(_focusChanged);
+    _focus.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -321,6 +360,7 @@ class _ResultsBodyState extends State<_ResultsBody>
     if (context.wideWeb) {
       return SafeArea(
         child: WebAssessmentResults(
+          focusNode: _focus,
           examName: widget.data.examName,
           correct: correct,
           total: total,

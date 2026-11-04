@@ -115,12 +115,14 @@ void main() {
     List<String> shown(WidgetTester tester) => [
           for (final id in ['A1', 'B1', 'C1', 'D1'])
             if (find.text('Lesson of $id').evaluate().isNotEmpty) id,
-        ]..sort(
-            (a, b) => tester
-                .getTopLeft(find.text('Lesson of $a'))
-                .dy
-                .compareTo(tester.getTopLeft(find.text('Lesson of $b')).dy),
-          );
+        ]..sort((a, b) {
+            // Reading order: rows top to bottom, the two columns left to
+            // right.
+            final pa = tester.getTopLeft(find.text('Lesson of $a'));
+            final pb = tester.getTopLeft(find.text('Lesson of $b'));
+            final byRow = pa.dy.compareTo(pb.dy);
+            return byRow != 0 ? byRow : pa.dx.compareTo(pb.dx);
+          });
 
     testWidgets('the three newest show, newest first', (tester) async {
       await pumpMap(

@@ -113,10 +113,15 @@ void main() {
   testWidgets('a row that is never selected carries no tint layer',
       (tester) async {
     await tester.pumpWidget(_row(selected: false));
+    // The keyboard ring has its own IgnorePointer layer; the tint is a
+    // ColoredBox.
     expect(
       find.descendant(
-        of: find.byType(WebRow),
-        matching: find.byType(IgnorePointer),
+        of: find.descendant(
+          of: find.byType(WebRow),
+          matching: find.byType(IgnorePointer),
+        ),
+        matching: find.byType(ColoredBox),
       ),
       findsNothing,
     );

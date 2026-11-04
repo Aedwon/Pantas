@@ -29,6 +29,7 @@ class SessionEndBody extends StatefulWidget {
     required this.onAll,
     required this.onMistakes,
     required this.onNotes,
+    this.onMistake,
     this.sourceLine,
     this.debriefCards,
     this.proPaused = false,
@@ -44,6 +45,10 @@ class SessionEndBody extends StatefulWidget {
   final Widget? debriefCards;
   final VoidCallback onDone;
   final ValueChanged<int> onQuestion;
+
+  /// A mistake row opens that mistake, among the mistakes only. Without it
+  /// the row opens the question like any other.
+  final ValueChanged<int>? onMistake;
   final VoidCallback onAll;
   final VoidCallback onMistakes;
   final VoidCallback onNotes;
@@ -171,6 +176,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
         source: source,
         onDone: widget.onDone,
         onQuestion: widget.onQuestion,
+        onMistake: widget.onMistake,
         onAll: widget.onAll,
         onMistakes: widget.onMistakes,
         onNotes: widget.onNotes,
@@ -317,7 +323,10 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 ),
                                 divider: position < misses.take(3).length - 1 ||
                                     misses.length > 3,
-                                onTap: () => widget.onQuestion(index),
+                                onTap: () =>
+                                    (widget.onMistake ?? widget.onQuestion)(
+                                  index,
+                                ),
                               ),
                               1700 + position * 90,
                               380,

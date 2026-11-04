@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -20,6 +19,7 @@ import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
@@ -439,53 +439,46 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     if (state is SessionPanelNeedsAssessment) {
       if (state.questionCount == 0) return assessmentNotReady();
       void start() => unawaited(_open('/assessment/$examId'));
-      return CallbackShortcuts(
-        bindings: {
-          const SingleActivator(
-            LogicalKeyboardKey.enter,
-            includeRepeats: false,
-          ): start,
-        },
-        child: Focus(
-          autofocus: true,
-          child: WebCard(
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(24, 26, 24, 22),
-              decoration: t.dark
-                  ? null
-                  : const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment(-1, -.55),
-                        end: Alignment(1, .55),
-                        stops: [.6, 1],
-                        colors: [Color(0xFFFFFFFF), Color(0xFFE4F1EE)],
-                      ),
-                    ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text('First, a short assessment', style: t.h3),
-                  const SizedBox(height: 10),
-                  Text(
-                    'We check your strengths and weak spots first, '
-                    'so your plan is built around you.',
-                    style: t.style(
-                      16,
-                      height: 1.45,
-                      color: t.colors.secondaryLabel,
+      return Focus(
+        onKeyEvent: enterKeyHandler(start),
+        autofocus: true,
+        child: WebCard(
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(24, 26, 24, 22),
+            decoration: t.dark
+                ? null
+                : const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment(-1, -.55),
+                      end: Alignment(1, .55),
+                      stops: [.6, 1],
+                      colors: [Color(0xFFFFFFFF), Color(0xFFE4F1EE)],
                     ),
                   ),
-                  const SizedBox(height: 18),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: WebButton(
-                      label: 'Start Assessment',
-                      keyHint: 'Enter',
-                      onPressed: start,
-                    ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('First, a short assessment', style: t.h3),
+                const SizedBox(height: 10),
+                Text(
+                  'We check your strengths and weak spots first, '
+                  'so your plan is built around you.',
+                  style: t.style(
+                    16,
+                    height: 1.45,
+                    color: t.colors.secondaryLabel,
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 18),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: WebButton(
+                    label: 'Start Assessment',
+                    keyHint: 'Enter',
+                    onPressed: start,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -582,135 +575,126 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           busy: _startingQuestions,
           onPressed: start,
         );
-        return CallbackShortcuts(
-          bindings: {
-            if (canStart)
-              const SingleActivator(
-                LogicalKeyboardKey.enter,
-                includeRepeats: false,
-              ): start,
-          },
-          child: Focus(
-            autofocus: true,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                WebCard(
-                  child: Column(
-                    children: [
-                      WebRow(
-                        boardMetrics: true,
-                        chevron: WebRowChevron.always,
-                        title: 'Reviews',
-                        titleColor:
-                            reviewsDone ? t.colors.secondaryLabel : null,
-                        subtitle: progress == null
-                            ? 'Questions due today'
-                            : 'Session ${progress.ordinal} '
-                                'of ${progress.total}',
-                        value: '${progress?.done ?? n.reviewsDone} of '
-                            '${progress?.questions ?? n.reviewsTotal}',
-                        leading: ring(
-                          progress?.done ?? n.reviewsDone,
-                          progress?.questions ?? n.reviewsTotal,
-                          Duration(
-                            milliseconds:
-                                state is SessionPanelInProgress ? 600 : 500,
-                          ),
-                        ),
-                        onPressed: () =>
-                            _showQuestions(examId, TodayQuestionKind.reviews),
-                      ),
-                      WebRow(
-                        boardMetrics: true,
-                        chevron: WebRowChevron.always,
-                        title: 'New questions',
-                        titleColor: newDone ? t.colors.secondaryLabel : null,
-                        subtitle: "From today's lessons",
-                        value: '${n.newDone} of ${n.newTotal}',
-                        divider: showFoot,
-                        leading: ring(
-                          n.newDone,
-                          n.newTotal,
-                          const Duration(milliseconds: 620),
-                        ),
-                        onPressed: () => _showQuestions(
-                          examId,
-                          TodayQuestionKind.newQuestions,
+        return Focus(
+          onKeyEvent: canStart ? enterKeyHandler(start) : null,
+          autofocus: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              WebCard(
+                child: Column(
+                  children: [
+                    WebRow(
+                      boardMetrics: true,
+                      chevron: WebRowChevron.always,
+                      title: 'Reviews',
+                      titleColor: reviewsDone ? t.colors.secondaryLabel : null,
+                      subtitle: progress == null
+                          ? 'Questions due today'
+                          : 'Session ${progress.ordinal} '
+                              'of ${progress.total}',
+                      value: '${progress?.done ?? n.reviewsDone} of '
+                          '${progress?.questions ?? n.reviewsTotal}',
+                      leading: ring(
+                        progress?.done ?? n.reviewsDone,
+                        progress?.questions ?? n.reviewsTotal,
+                        Duration(
+                          milliseconds:
+                              state is SessionPanelInProgress ? 600 : 500,
                         ),
                       ),
-                      if (showFoot)
-                        Container(
-                          padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
-                          decoration: BoxDecoration(
-                            color: t.dark
-                                ? t.colors.surface
-                                : const Color(0xFFFBFBFC),
-                            border: Border(
-                              top: BorderSide(
-                                color: t.colors.separator,
-                                width: webHairline(context),
-                              ),
+                      onPressed: () =>
+                          _showQuestions(examId, TodayQuestionKind.reviews),
+                    ),
+                    WebRow(
+                      boardMetrics: true,
+                      chevron: WebRowChevron.always,
+                      title: 'New questions',
+                      titleColor: newDone ? t.colors.secondaryLabel : null,
+                      subtitle: "From today's lessons",
+                      value: '${n.newDone} of ${n.newTotal}',
+                      divider: showFoot,
+                      leading: ring(
+                        n.newDone,
+                        n.newTotal,
+                        const Duration(milliseconds: 620),
+                      ),
+                      onPressed: () => _showQuestions(
+                        examId,
+                        TodayQuestionKind.newQuestions,
+                      ),
+                    ),
+                    if (showFoot)
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+                        decoration: BoxDecoration(
+                          color: t.dark
+                              ? t.colors.surface
+                              : const Color(0xFFFBFBFC),
+                          border: Border(
+                            top: BorderSide(
+                              color: t.colors.separator,
+                              width: webHairline(context),
                             ),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              if (state is SessionPanelInProgress) ...[
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        'You paused. Every answer was saved.',
-                                        style: t.sub,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 16),
-                                    _WebDiscardButton(
-                                      onPressed: _discarding
-                                          ? null
-                                          : () => unawaited(_discard(examId)),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 16),
-                                primary,
-                              ] else if (canStart)
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: sessionLabel() ??
-                                          const SizedBox.shrink(),
-                                    ),
-                                    const SizedBox(width: 16),
-                                    primary,
-                                  ],
-                                ),
-                              if (_saveFailed)
-                                saveFailureLine(
-                                  () => unawaited(_discard(examId)),
-                                ),
-                              if (_questionFailed)
-                                StateView(
-                                  message: 'Could not start your quiz.',
-                                  onRetry: start,
-                                ),
-                            ],
-                          ),
                         ),
-                    ],
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            if (state is SessionPanelInProgress) ...[
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'You paused. Every answer was saved.',
+                                      style: t.sub,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 16),
+                                  _WebDiscardButton(
+                                    onPressed: _discarding
+                                        ? null
+                                        : () => unawaited(_discard(examId)),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 16),
+                              primary,
+                            ] else if (canStart)
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: sessionLabel() ??
+                                        const SizedBox.shrink(),
+                                  ),
+                                  const SizedBox(width: 16),
+                                  primary,
+                                ],
+                              ),
+                            if (_saveFailed)
+                              saveFailureLine(
+                                () => unawaited(_discard(examId)),
+                              ),
+                            if (_questionFailed)
+                              StateView(
+                                message: 'Could not start your quiz.',
+                                onRetry: start,
+                              ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              if (dayDone)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 18, 4, 0),
+                  child: Text(
+                    "That's all for today.",
+                    style: t.style(19, weight: FontWeight.w700, height: 1.3),
                   ),
                 ),
-                if (dayDone)
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 18, 4, 0),
-                    child: Text(
-                      "That's all for today.",
-                      style: t.style(19, weight: FontWeight.w700, height: 1.3),
-                    ),
-                  ),
-              ],
-            ),
+            ],
           ),
         );
       },

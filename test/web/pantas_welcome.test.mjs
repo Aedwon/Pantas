@@ -26,10 +26,12 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/', 
     },
   };
   let screenRemoved = false;
-  const links = [];
+  const fontLoads = [];
+  const body = {};
   const doc = {
-    head: { appendChild: (link) => links.push(link) },
-    createElement: () => ({}),
+    body,
+    activeElement: body,
+    fonts: { load: (spec) => { fontLoads.push(spec); return Promise.resolve([]); } },
     documentElement: {
       classList: {
         add: (name) => classes.add(name),
@@ -77,25 +79,25 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/', 
   const tap = () =>
     listeners.click({ target: { closest: (sel) => (sel === '#pw-start' ? {} : null) } });
   return {
-    welcome, classes, store, button, timers, links, tap, listeners, captures,
+    welcome, classes, store, button, timers, fontLoads, tap, listeners, captures, doc, body,
     windowListeners, windowCaptures,
     removed: () => screenRemoved,
   };
 }
 
-test('first visit shows the screen and preloads the three fonts', () => {
+test('first visit shows the screen and loads the three fonts without a preload link', () => {
   const t = setup();
   assert.equal(t.welcome.isShown(), true);
   assert.ok(t.classes.has('pw-on'));
-  assert.equal(t.links.length, 3);
-  assert.ok(t.links.every((l) => l.href.startsWith('assets/assets/fonts/Geist-')));
+  assert.deepEqual(t.fontLoads, ['400 16px Geist', '600 16px Geist', '700 16px Geist']);
+  assert.equal(t.doc.head, undefined, 'no link element is added to the head');
 });
 
 test('returning visit never shows the screen', () => {
   const t = setup({ seen: true });
   assert.equal(t.welcome.isShown(), false);
   assert.ok(!t.classes.has('pw-on'));
-  assert.equal(t.links.length, 0);
+  assert.equal(t.fontLoads.length, 0);
   t.welcome.ready(true);
   assert.equal(t.removed(), false);
 });
@@ -192,7 +194,7 @@ test('a guardian link never shows the Welcome screen, on a first visit', () => {
     const t = setup({ path });
     assert.equal(t.welcome.isShown(), false, path);
     assert.ok(!t.classes.has('pw-on'), path);
-    assert.equal(t.links.length, 0, path);
+    assert.equal(t.fontLoads.length, 0, path);
     assert.equal(t.store.get(SEEN_KEY), undefined, 'the guardian visit is not remembered as a student visit');
   }
   assert.equal(setup({ path: '/guardianship' }).welcome.isShown(), true);
@@ -227,8 +229,87 @@ test('a legal link never shows the Welcome screen, on a first visit', () => {
     const t = setup({ path });
     assert.equal(t.welcome.isShown(), false, path);
     assert.ok(!t.classes.has('pw-on'), path);
-    assert.equal(t.links.length, 0, path);
+    assert.equal(t.fontLoads.length, 0, path);
     assert.equal(t.store.get(SEEN_KEY), undefined, 'a legal visit is not remembered as a student visit');
   }
   assert.equal(setup({ path: '/legalese' }).welcome.isShown(), true);
+});
+
+test('when the cover leaves, focus goes back to the app field it was on', () => {
+  const t = setup({ wide: true });
+  let focused = 0;
+  const field = { isConnected: true, focus: () => { focused += 1; t.doc.activeElement = field; } };
+  t.listeners.focusin({ target: field });
+  t.welcome.ready(true);
+  // WebKit drops focus to the page when the cover is removed.
+  t.doc.activeElement = t.body;
+  t.listeners.keydown({ key: 'Enter' });
+  assert.equal(t.removed(), true);
+  assert.ok(focused >= 1, 'the field was focused again');
+  assert.equal(t.doc.activeElement, field);
+});
+
+test('focus is left alone when the app already holds it, or the field is gone', () => {
+  const kept = setup();
+  let calls = 0;
+  const field = { isConnected: true, focus: () => { calls += 1; } };
+  kept.listeners.focusin({ target: field });
+  kept.doc.activeElement = field;
+  kept.welcome.ready(true);
+  kept.tap();
+  assert.equal(calls, 0);
+  const gone = setup();
+  const old = { isConnected: false, focus: () => { calls += 1; } };
+  gone.listeners.focusin({ target: old });
+  gone.welcome.ready(true);
+  gone.tap();
+  assert.equal(calls, 0);
+  const cover = setup();
+  cover.listeners.focusin({ target: { closest: (sel) => (sel === '#pantas-welcome' ? {} : null), isConnected: true, focus: () => { calls += 1; } } });
+  cover.welcome.ready(true);
+  cover.tap();
+  assert.equal(calls, 0, 'the cover itself is never remembered');
+});
+
+// Board "e B": the Welcome screen, the splash and the app's first frame share
+// the app background, so the handover shows no jump of color.
+import { readFileSync } from 'node:fs';
+
+test('Welcome, splash and the first app frame share one background in both themes', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const colors = readFileSync(new URL('../../lib/core/ui/theme/pantas_colors.dart', import.meta.url), 'utf8');
+  const token = (name) => {
+    const at = colors.indexOf(`static const ${name} = PantasColors(`);
+    const m = /background: Color\(0xFF([0-9A-F]{6})\)/.exec(colors.slice(at));
+    return `#${m[1]}`;
+  };
+  const light = token('light');
+  const dark = token('dark');
+  assert.equal(light, '#F5F5F7');
+  assert.equal(dark, '#151515');
+  const lightCss = html.replace(/@media \(prefers-color-scheme: dark\) \{(?:[^{}]|\{[^{}]*\})*\}/g, '');
+  const darkBlocks = [...html.matchAll(/@media \(prefers-color-scheme: dark\) \{((?:[^{}]|\{[^{}]*\})*)\}/g)].map((m) => m[1]).join('\n');
+  const bg = (css, selector) => {
+    const m = new RegExp(`${selector}\\s*\\{[^}]*?--bg:\\s*(#[0-9A-Fa-f]{6})`).exec(css);
+    return m && m[1].toUpperCase();
+  };
+  assert.equal(bg(lightCss, '#pantas-welcome'), light);
+  assert.equal(bg(lightCss, '#pantas-splash'), light);
+  assert.equal(bg(darkBlocks, '#pantas-welcome'), dark);
+  assert.equal(bg(darkBlocks, '#pantas-splash'), dark);
+  assert.match(lightCss, new RegExp(`html\\.pw-on \\{ background: ${light}; \\}`));
+  assert.match(darkBlocks, new RegExp(`html\\.pw-on \\{ background: ${dark}; \\}`));
+  assert.match(lightCss, new RegExp(`html \\{ background: ${light}; \\}`));
+  assert.match(darkBlocks, new RegExp(`html \\{ background: ${dark}; \\}`));
+});
+
+test('on a short window the Welcome stack starts near the top, clear of the button (3M-15)', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const rule = /@media \(max-width: 1023px\) and \(max-height: 560px\) \{([^}]*\{[^}]*\}[^}]*)\}/.exec(html);
+  assert.ok(rule, 'a short-window rule exists');
+  assert.match(rule[1], /\.pw-body \{ padding-top: 28px;/);
+  // The phone rule it overrides pins the button 34 px above the bottom and
+  // starts the stack at 180 px. 28 + 72 + 20 + 38 + 10 + 50 = 218 clears a
+  // 450 px window's button top (450 - 34 - 52 = 364).
+  assert.ok(28 + 72 + 20 + 38 + 10 + 50 < 450 - 34 - 52);
 });

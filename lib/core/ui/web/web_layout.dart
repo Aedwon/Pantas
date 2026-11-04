@@ -28,9 +28,15 @@ extension WebLayoutContext on BuildContext {
   bool get wideWeb => webTier.index >= WebLayoutTier.tabletLandscape.index;
 
   /// The board's `.main` ends with 44 px of padding. It belongs to the end of a
-  /// page's scrolling content, not to the window: the desktop shell stops at
-  /// the window bottom, so rows scroll to the edge and the last one rests 44 px
-  /// above it. The landscape tablet shell keeps its own band for the floating
-  /// navigation, so a page adds nothing there.
-  double get webPageBottomInset => webTier == WebLayoutTier.desktop ? 44 : 0;
+  /// page's scrolling content, not to the window: the shell stops at the window
+  /// bottom, so rows scroll to the edge and the last one rests this far above
+  /// it. The Navigator under the shell clips hard at its own box, so padding
+  /// the shell leaves would show as a cut line. On a landscape tablet the
+  /// floating navigation covers the bottom 100 px, so the content scrolls
+  /// under it and ends clear of it (3K-9).
+  double get webPageBottomInset => switch (webTier) {
+        WebLayoutTier.desktop => 44,
+        WebLayoutTier.tabletLandscape => 100,
+        _ => 0,
+      };
 }

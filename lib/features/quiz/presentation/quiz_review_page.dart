@@ -177,8 +177,13 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
     if (widget.fromAll && context.canPop()) {
       context.pop();
     } else {
+      // The label names the list the student came from, so Back goes there.
       unawaited(
-        pushReplacementEntry<void>(context, '/quiz/all/${widget.attemptId}'),
+        pushReplacementEntry<void>(
+          context,
+          '/quiz/all/${widget.attemptId}'
+          '${widget.mistakesOnly ? '?mistakes=true' : ''}',
+        ),
       );
     }
   }

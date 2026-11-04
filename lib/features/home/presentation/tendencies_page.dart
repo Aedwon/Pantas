@@ -140,6 +140,21 @@ class _Profile extends StatelessWidget {
       _ => null,
     };
     final reduce = MediaQuery.disableAnimationsOf(context);
+    // Until an archetype is earned the card says so, with a ghost question
+    // mark where the archetype's glyph would stand (QA polish board,
+    // option C).
+    final empty = data.archetype == null;
+    // The ghost slides in as the archetype glyph does.
+    Widget slide(Widget child) => TweenAnimationBuilder<double>(
+          tween: Tween(begin: reduce ? 1 : 0, end: 1),
+          duration: const Duration(milliseconds: 800),
+          curve: PantasCurves.houseOut,
+          builder: (_, value, child) => Transform.translate(
+            offset: Offset(20 * (1 - value), 0),
+            child: child,
+          ),
+          child: child,
+        );
     return LayoutBuilder(
       builder: (context, constraints) {
         double measure(String text, TextStyle style) {
@@ -161,10 +176,12 @@ class _Profile extends StatelessWidget {
                   measure(archetypeIdentityLine(a.id), line),
             )
             .reduce(math.max);
-        final height = 40 +
-            measure(data.name ?? 'Add your name', context.type.subhead) +
-            14 +
-            identityHeight;
+        final height = empty
+            ? 130.0
+            : 40 +
+                measure(data.name ?? 'Add your name', context.type.subhead) +
+                14 +
+                identityHeight;
         return Container(
           key: const ValueKey('tendencies-profile'),
           constraints: BoxConstraints(minHeight: height),
@@ -175,19 +192,32 @@ class _Profile extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              if (glyph != null)
+              if (empty)
+                Positioned(
+                  right: 2,
+                  top: -8,
+                  child: ExcludeSemantics(
+                    child: slide(
+                      Text(
+                        '?',
+                        key: const ValueKey('tendencies-ghost'),
+                        style: context.type.body.copyWith(
+                          fontSize: 150,
+                          fontWeight: FontWeight.w400,
+                          height: 1,
+                          leadingDistribution: TextLeadingDistribution.even,
+                          color: const Color(0xff3a3a3d),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              else if (glyph != null)
                 Positioned(
                   right: -24,
                   top: 12,
-                  child: TweenAnimationBuilder<double>(
-                    tween: Tween(begin: reduce ? 1 : 0, end: 1),
-                    duration: const Duration(milliseconds: 800),
-                    curve: PantasCurves.houseOut,
-                    builder: (_, value, child) => Transform.translate(
-                      offset: Offset(20 * (1 - value), 0),
-                      child: child,
-                    ),
-                    child: SizedBox(
+                  child: slide(
+                    SizedBox(
                       width: 150,
                       height: 150,
                       child: Stack(
@@ -223,9 +253,26 @@ class _Profile extends StatelessWidget {
                     else
                       Text(
                         data.name!,
-                        style: context.type.subhead
-                            .copyWith(color: const Color(0xffb6b6b7)),
+                        style: context.type.subhead.copyWith(
+                          color: const Color(0xffb6b6b7),
+                          height: empty ? 20 / 15 : null,
+                        ),
                       ),
+                    if (empty) ...[
+                      const SizedBox(height: 6),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 270),
+                        child: Text(
+                          'Needs more usage data',
+                          style: context.type.largeTitle.copyWith(
+                            fontSize: 30,
+                            letterSpacing: -.6,
+                            height: 1.14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                     if (data.archetype != null) ...[
                       const SizedBox(height: 6),
                       Text(

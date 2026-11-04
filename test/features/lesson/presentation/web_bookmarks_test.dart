@@ -102,6 +102,14 @@ void main() {
             findsOneWidget,
           );
           expect(find.byType(WebSegmentedControl), findsNothing);
+          // 3K-7, board BM_Empty: the block sits in the middle of the panel
+          // under the header (68 px), not near its top.
+          final top =
+              tester.getTopLeft(find.byKey(const ValueKey('state-mark')));
+          final bottom = tester.getBottomLeft(
+            find.text('Bookmark a lesson to keep it here.'),
+          );
+          expect((top.dy + bottom.dy) / 2, closeTo((68 + 900) / 2, 8));
         } else {
           expect(find.text('Edit'), findsOneWidget);
           expect(
@@ -141,6 +149,14 @@ void main() {
             final reset = tester.getRect(find.text('Reset order'));
             expect(reset.center.dy, closeTo(control.center.dy, 1));
             expect(reset.left, greaterThan(control.right - 1));
+            // 3K-8: every label stays on one line beside Reset order.
+            for (final label in ['Recent', 'Oldest', 'By subject', 'Custom']) {
+              expect(
+                tester.getSize(find.text(label)).height,
+                lessThan(24),
+                reason: '$label wrapped',
+              );
+            }
             expect(
               find.descendant(
                 of: find.byType(WebRow).first,

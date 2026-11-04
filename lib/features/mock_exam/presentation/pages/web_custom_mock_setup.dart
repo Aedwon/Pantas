@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Desktop presentation only. The page owns the draft and validates Save.
@@ -131,181 +132,173 @@ class WebCustomMockSetup extends StatelessWidget {
         'in fives. Arrow keys work too.';
     final ceilingMessage = 'Your subjects have $available questions. '
         'A $questions-question mock needs more.';
-    return CallbackShortcuts(
-      bindings: {
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): () => onSave?.call(),
-      },
-      child: Focus(
-        autofocus: true,
-        child: Scaffold(
-          backgroundColor: t.colors.background,
-          body: SingleChildScrollView(
-            key: const ValueKey('web-custom-setup'),
-            padding: const EdgeInsets.fromLTRB(44, 28, 44, 40),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1080),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextButton(
-                      onPressed: onBack,
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: const Size(0, 40),
-                        foregroundColor: t.colors.accent,
-                        textStyle: t.style(17),
-                      ),
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.chevron_left, size: 20),
-                          Text('Quiz'),
-                        ],
-                      ),
+    return Focus(
+      onKeyEvent: enterKeyHandler(() => onSave?.call()),
+      autofocus: true,
+      child: Scaffold(
+        backgroundColor: t.colors.background,
+        body: SingleChildScrollView(
+          key: const ValueKey('web-custom-setup'),
+          padding: const EdgeInsets.fromLTRB(44, 28, 44, 40),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1080),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextButton(
+                    onPressed: onBack,
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(0, 40),
+                      foregroundColor: t.colors.accent,
+                      textStyle: t.style(17),
                     ),
-                    const SizedBox(height: 6),
-                    Text('Set up your mock', style: t.h1),
-                    const SizedBox(height: 6),
-                    Text(
-                      "We'll build it from what you tell us.",
-                      style: t.style(
-                        17,
-                        height: 1.45,
-                        color: t.colors.secondaryLabel,
-                      ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.chevron_left, size: 20),
+                        Text('Quiz'),
+                      ],
                     ),
-                    const SizedBox(height: 28),
-                    SizedBox(
-                      key: const ValueKey('web-custom-fields'),
-                      width: 640,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          WebCard(
-                            radius: 16,
-                            child: Column(
-                              children: [
-                                _WideNumberRow(
-                                  label: 'Questions',
-                                  value: questions,
-                                  display: '$questions',
-                                  values: questionValues,
-                                  editable: !breakdown,
-                                  refused: !fits,
-                                  onChanged: onQuestions,
-                                  format: (v) => '$v',
-                                  helper: questionHint,
+                  ),
+                  const SizedBox(height: 6),
+                  Text('Set up your mock', style: t.h1),
+                  const SizedBox(height: 6),
+                  Text(
+                    "We'll build it from what you tell us.",
+                    style: t.style(
+                      17,
+                      height: 1.45,
+                      color: t.colors.secondaryLabel,
+                    ),
+                  ),
+                  const SizedBox(height: 28),
+                  SizedBox(
+                    key: const ValueKey('web-custom-fields'),
+                    width: 640,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        WebCard(
+                          radius: 16,
+                          child: Column(
+                            children: [
+                              _WideNumberRow(
+                                label: 'Questions',
+                                value: questions,
+                                display: '$questions',
+                                values: questionValues,
+                                editable: !breakdown,
+                                refused: !fits,
+                                onChanged: onQuestions,
+                                format: (v) => '$v',
+                                helper: questionHint,
+                              ),
+                              if (!fits)
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                    16,
+                                    0,
+                                    16,
+                                    14,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          ceilingMessage,
+                                          style: t.sm.copyWith(
+                                            color: t.colors.wrongText,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      TextButton(
+                                        onPressed: onTickMoreSubjects,
+                                        style: TextButton.styleFrom(
+                                          foregroundColor: t.colors.accent,
+                                          textStyle: t.style(
+                                            15,
+                                            weight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        child: const Text('Tick More Subjects'),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                if (!fits)
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      16,
-                                      0,
-                                      16,
-                                      14,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            ceilingMessage,
-                                            style: t.sm.copyWith(
-                                              color: t.colors.wrongText,
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 8),
-                                        TextButton(
-                                          onPressed: onTickMoreSubjects,
-                                          style: TextButton.styleFrom(
-                                            foregroundColor: t.colors.accent,
-                                            textStyle: t.style(
-                                              15,
-                                              weight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          child:
-                                              const Text('Tick More Subjects'),
-                                        ),
-                                      ],
+                              _WideNumberRow(
+                                label: 'Time',
+                                value: minutes,
+                                display: _duration(minutes),
+                                values: minuteValues,
+                                editable: !breakdown,
+                                divider: false,
+                                onChanged: onMinutes,
+                                format: _duration,
+                                helper: '15 minutes to 6 hours, in fives. '
+                                    'Arrow keys work too.',
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        RowTapTarget(
+                          onTap: () => onBreakdown(!breakdown),
+                          child: WebCard(
+                            radius: 16,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 6,
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'I know the section breakdown',
+                                      style: rowStyle,
                                     ),
                                   ),
-                                _WideNumberRow(
-                                  label: 'Time',
-                                  value: minutes,
-                                  display: _duration(minutes),
-                                  values: minuteValues,
-                                  editable: !breakdown,
-                                  divider: false,
-                                  onChanged: onMinutes,
-                                  format: _duration,
-                                  helper: '15 minutes to 6 hours, in fives. '
-                                      'Arrow keys work too.',
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          RowTapTarget(
-                            onTap: () => onBreakdown(!breakdown),
-                            child: WebCard(
-                              radius: 16,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 6,
-                                ),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        'I know the section breakdown',
-                                        style: rowStyle,
-                                      ),
-                                    ),
-                                    PantasSwitch(
-                                      value: breakdown,
-                                      label: 'I know the section breakdown',
-                                      onChanged: onBreakdown,
-                                    ),
-                                  ],
-                                ),
+                                  PantasSwitch(
+                                    value: breakdown,
+                                    label: 'I know the section breakdown',
+                                    onChanged: onBreakdown,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                          // The hint and the breakdown trade places over
-                          // 300 ms, as the row editors do.
-                          _breakdownReveal(
-                            context,
-                            _breakdownContent(t, rowStyle),
+                        ),
+                        // The hint and the breakdown trade places over
+                        // 300 ms, as the row editors do.
+                        _breakdownReveal(
+                          context,
+                          _breakdownContent(t, rowStyle),
+                        ),
+                        const SizedBox(height: 24),
+                        if (unset) ...[
+                          Text(
+                            'Choose questions and minutes for every subject.',
+                            style: t.sm,
                           ),
-                          const SizedBox(height: 24),
-                          if (unset) ...[
-                            Text(
-                              'Choose questions and minutes for every subject.',
-                              style: t.sm,
-                            ),
-                            const SizedBox(height: 8),
-                          ],
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: WebButton(
-                              label: 'Save',
-                              large: true,
-                              keyHint: 'Enter',
-                              onPressed: onSave,
-                            ),
-                          ),
+                          const SizedBox(height: 8),
                         ],
-                      ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: WebButton(
+                            label: 'Save',
+                            large: true,
+                            keyHint: 'Enter',
+                            onPressed: onSave,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

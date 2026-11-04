@@ -103,12 +103,22 @@ final searchResultsProvider =
     }
   }
 
-  // A lesson whose title holds the query comes first. Within a group the
-  // lessons keep the study map's order.
+  // A title that holds the query as a whole word comes first, then a title
+  // that holds it inside a word, then the rest. Within a group the lessons
+  // keep the study map's order (3K-18).
+  final word = RegExp(
+    '(^|[^\\p{L}\\p{N}])${RegExp.escape(query.trim())}([^\\p{L}\\p{N}]|\$)',
+    caseSensitive: false,
+    unicode: true,
+  );
+  int tier(LessonSearchHit hit) => hit.titleMatch == null
+      ? 2
+      : word.hasMatch(hit.title)
+          ? 0
+          : 1;
   hits.sort((a, b) {
-    final byTitle =
-        (a.titleMatch == null ? 1 : 0).compareTo(b.titleMatch == null ? 1 : 0);
-    if (byTitle != 0) return byTitle;
+    final byTier = tier(a).compareTo(tier(b));
+    if (byTier != 0) return byTier;
     return (positionByLessonId[a.lessonId] ?? 0)
         .compareTo(positionByLessonId[b.lessonId] ?? 0);
   });

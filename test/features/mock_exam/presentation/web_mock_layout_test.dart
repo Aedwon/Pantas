@@ -583,6 +583,36 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(strict, false);
     });
+    testWidgets(
+        'Enter on the strict switch flips it and starts nothing ($dark)',
+        (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      var started = 0;
+      await pumpWide(
+        tester,
+        MockSetupPage(
+          parsedBlueprint: blueprint,
+          onStart: (_) => started++,
+        ),
+        dark: dark,
+      );
+      expect(
+        tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
+        false,
+      );
+      Focus.of(
+        tester.element(find.byKey(const ValueKey('pantas-switch-track'))),
+      ).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      expect(started, 0, reason: 'the exam must not start from the switch');
+      expect(
+        tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
+        true,
+      );
+    });
     testWidgets('wide Free results show the Free review note ($dark)',
         (tester) async {
       addTearDown(tester.view.resetPhysicalSize);
@@ -658,6 +688,53 @@ void main() {
         closeTo(tester.getCenter(breakdownSide).dy, .01),
       );
       expect(tester.takeException(), isNull);
+    });
+    testWidgets('wide one-block pause is one centered group ($dark)',
+        (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await pumpWide(
+        tester,
+        PausePage(
+          partNames: const [''],
+          currentPartIndex: 0,
+          remaining: const Duration(hours: 3, minutes: 8, seconds: 57),
+          partLength: const Duration(hours: 3, minutes: 30),
+          answeredCount: 12,
+          onResume: () {},
+          onDiscard: () {},
+        ),
+        dark: dark,
+      );
+      expect(find.text('3:08:57'), findsOneWidget);
+      expect(find.text('left'), findsOneWidget);
+      final glass = find.byKey(const ValueKey('pause-hourglass'));
+      final center = tester.getCenter(find.byType(Scaffold)).dx;
+      for (final finder in [
+        glass,
+        find.text('Paused'),
+        find.text('3:08:57'),
+        find.text('left'),
+      ]) {
+        expect(tester.getCenter(finder).dx, closeTo(center, .5));
+      }
+      final buttons = tester.getRect(
+        find.byKey(const ValueKey('web-pause-content')),
+      );
+      expect(buttons.center.dx, closeTo(center, .5));
+      expect(
+        buttons.top - tester.getBottomLeft(find.text('left')).dy,
+        closeTo(32, 6),
+      );
+      expect(
+        tester.getTopLeft(find.text('Resume')).dx,
+        greaterThan(tester.getTopRight(find.text('Discard This Mock')).dx),
+      );
+      final all = tester.getRect(glass).expandToInclude(buttons);
+      expect(
+        tester.getCenter(find.byType(Scaffold)).dy,
+        closeTo(all.center.dy, 8),
+      );
     });
     testWidgets('wide pause is static and resumes with Enter ($dark)',
         (tester) async {

@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -37,6 +38,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/quiz/application/quiz_leave_guard.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -506,15 +508,34 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   @override
   void initState() {
     super.initState();
+    final guard = ref.read(quizLeaveGuardProvider)..running = _allowLeave;
+    _guard = guard;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _startForMode(ref.read(quizControllerProvider.notifier));
     });
+  }
+
+  RouteLeaveGuard? _guard;
+
+  /// Browser Back reaches the route's `onExit` instead of this page's pop
+  /// handling. While a session runs it shows the same dialog as Esc and the
+  /// close button. Leaving after the student confirmed, or before a session
+  /// is on screen (loading, failed, finished), is always allowed.
+  Future<bool> _allowLeave() async {
+    if (!mounted ||
+        _allowPop ||
+        ref.read(quizControllerProvider) is! QuizRunning) {
+      return true;
+    }
+    unawaited(_confirmLeave());
+    return false;
   }
 
   String? _seenSessionId;
   int? _viewIndex;
   bool _gridOpen = false;
   bool _leaveOpen = false;
+  BuildContext? _leaveContext;
   bool _allowPop = false;
   Future<void> Function()? _retryWrite;
   int _writeVersion = 0;
@@ -534,6 +555,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
   @override
   void dispose() {
+    _guard?.detach(_allowLeave);
     _toastDelay?.cancel();
     _toastHide?.cancel();
     _toastRemove?.cancel();
@@ -899,27 +921,40 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       }
     }
 
+    // The Leave dialog owns the keys while it is open. Its own focus keeps
+    // them away from this page; this is the second guard, for a page that
+    // gets the focus back anyway.
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): () {
-          if (_gridOpen) {
+          if (_leaveOpen) {
+            _dismissLeave();
+          } else if (_gridOpen) {
             setState(() => _gridOpen = false);
           } else {
             unawaited(_confirmLeave());
           }
         },
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): action,
         const SingleActivator(LogicalKeyboardKey.keyF): () {
-          if (!_flagBusy) unawaited(_toggleFlag(question.id));
+          if (!_leaveOpen && !_flagBusy) unawaited(_toggleFlag(question.id));
         },
         const SingleActivator(LogicalKeyboardKey.keyG): () {
-          if (!state.checking) setState(() => _gridOpen = !_gridOpen);
+          if (!_leaveOpen && !state.checking) {
+            setState(() => _gridOpen = !_gridOpen);
+          }
         },
       },
       child: KeyFocusKeeper(
+        // Enter runs the control that holds focus. An answer that is already
+        // picked is the exception: Enter on it checks it.
+        onKeyEvent: enterKeyHandler(
+          () {
+            if (!_leaveOpen) action();
+          },
+          keepsEnter: (focused) =>
+              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
+              WebOptionState.selected,
+        ),
         child: PopScope(
           canPop: _allowPop,
           onPopInvokedWithResult: (didPop, _) {
@@ -1161,8 +1196,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       Positioned(
                         left: 0,
                         top: 0,
-                        // The follower stays outside the fade: a box between
-                        // it and the Stack would refuse taps away from (0, 0).
+                        // The follower stays outside the fade: a box
+                        // between it and the Stack would refuse taps away
+                        // from (0, 0).
                         child: CompositedTransformFollower(
                           link: _barLink,
                           followerAnchor: Alignment.bottomLeft,
@@ -1413,63 +1449,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final leave = await showDialog<bool>(
       context: context,
       barrierColor: context.colors.shadow.withValues(alpha: .34),
-      builder: (dialogContext) => context.wideWeb
-          ? Dialog(
-              backgroundColor: Colors.transparent,
-              child: SizedBox(
-                width: 440,
-                child: WebCard(
-                  radius: 22,
-                  padding: const EdgeInsets.all(26),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const WebText(
-                        'Leave this session?',
-                        kind: WebTextKind.h3,
-                      ),
-                      const SizedBox(height: 18),
-                      const WebText(
-                          "Every answer you've given is already saved. "
-                          'You can pick this up from the Quiz tab '
-                          'whenever you like.'),
-                      const SizedBox(height: 18),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          WebButton(
-                            label: 'Leave',
-                            variant: WebButtonVariant.tertiary,
-                            onPressed: () =>
-                                Navigator.of(dialogContext).pop(true),
-                          ),
-                          const SizedBox(width: 8),
-                          WebButton(
-                            label: 'Keep Going',
-                            onPressed: () =>
-                                Navigator.of(dialogContext).pop(false),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
-          : CenteredDialog(
-              title: 'Leave this session?',
-              message: "Every answer you've given is already saved. "
-                  'You can pick this '
-                  'up from the Quiz tab whenever you like.',
-              primaryLabel: 'Keep Going',
-              secondaryLabel: 'Leave',
-              // Board (QV_Leave): the card starts at y 300, 9 px under center.
-              lift: -9,
-              onConfirm: () => Navigator.of(dialogContext).pop(false),
-              onCancel: () => Navigator.of(dialogContext).pop(true),
-            ),
+      builder: (dialogContext) {
+        _leaveContext = dialogContext;
+        return _leaveDialog(dialogContext);
+      },
     );
+    _leaveContext = null;
     _leaveOpen = false;
     if ((leave ?? false) && mounted) {
       setState(() => _allowPop = true);
@@ -1478,6 +1463,83 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       });
     }
   }
+
+  /// Esc, from a page that has the focus while the dialog is open: Keep Going.
+  void _dismissLeave() {
+    final dialog = _leaveContext;
+    if (dialog != null && dialog.mounted) Navigator.of(dialog).pop(false);
+  }
+
+  Widget _leaveDialog(BuildContext dialogContext) => context.wideWeb
+      // Focus starts inside the dialog, so the keys stay with it: Esc and
+      // Enter are Keep Going, the safe choice, and Tab reaches Leave.
+      ? CallbackShortcuts(
+          bindings: {
+            const SingleActivator(LogicalKeyboardKey.escape): () =>
+                Navigator.of(dialogContext).pop(false),
+          },
+          child: EnterShortcut(
+            onEnter: () => Navigator.of(dialogContext).pop(false),
+            child: Focus(
+              autofocus: true,
+              child: Dialog(
+                backgroundColor: Colors.transparent,
+                child: SizedBox(
+                  width: 440,
+                  child: WebCard(
+                    radius: 22,
+                    padding: const EdgeInsets.all(26),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const WebText(
+                          'Leave this session?',
+                          kind: WebTextKind.h3,
+                        ),
+                        const SizedBox(height: 18),
+                        const WebText(
+                            "Every answer you've given is already saved. "
+                            'You can pick this up from the Quiz tab '
+                            'whenever you like.'),
+                        const SizedBox(height: 18),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            WebButton(
+                              label: 'Leave',
+                              variant: WebButtonVariant.tertiary,
+                              onPressed: () =>
+                                  Navigator.of(dialogContext).pop(true),
+                            ),
+                            const SizedBox(width: 8),
+                            WebButton(
+                              label: 'Keep Going',
+                              onPressed: () =>
+                                  Navigator.of(dialogContext).pop(false),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        )
+      : CenteredDialog(
+          title: 'Leave this session?',
+          message: "Every answer you've given is already saved. "
+              'You can pick this '
+              'up from the Quiz tab whenever you like.',
+          primaryLabel: 'Keep Going',
+          secondaryLabel: 'Leave',
+          // Board (QV_Leave): the card starts at y 300, 9 px under center.
+          lift: -9,
+          onConfirm: () => Navigator.of(dialogContext).pop(false),
+          onCancel: () => Navigator.of(dialogContext).pop(true),
+        );
 
   Future<void> _toggleFlag(QuestionId questionId) {
     final ids = ref.read(flaggedIdsProvider).valueOrNull ?? const <String>{};

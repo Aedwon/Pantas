@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -179,24 +180,24 @@ final planViewProvider =
     );
   }
   String date(DateTime d) => DateFormat('EEE, MMM d', 'en_US').format(d);
-  if (reviewDay != null) {
+  if (planMarkerComingUp(reviewDay, now)) {
     nodes.add(
       PlanNode(
         kind: PlanNodeKind.review,
         title: 'New material stops',
         subtitle: 'Reviews and the mock only from here.',
-        date: date(reviewDay),
+        date: date(reviewDay!),
         reviewOnly: true,
       ),
     );
   }
-  if (mockDay != null) {
+  if (planMarkerComingUp(mockDay, now)) {
     nodes.add(
       PlanNode(
         kind: PlanNodeKind.mock,
         title: 'Mock exam',
         subtitle: '${exam.shortName} simulation',
-        date: date(mockDay),
+        date: date(mockDay!),
         reviewOnly: true,
       ),
     );
@@ -243,6 +244,13 @@ final planViewProvider =
     next: next,
   );
 });
+
+/// "Coming up" lists only days that have not passed: a student already in the
+/// review-only weeks is not told that new material stopped on a past date
+/// (3K-17).
+@visibleForTesting
+bool planMarkerComingUp(DateTime? day, DateTime today) =>
+    day != null && !day.isBefore(today);
 
 DateTime? _date(Object? value) => value == null ? null : studyDay(value);
 

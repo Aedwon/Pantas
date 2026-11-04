@@ -64,7 +64,9 @@ class WebShellFrame extends StatelessWidget {
         activeIndex: activeIndex,
         onNavigate: onNavigate,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(44, 28, 44, 100),
+          // No bottom padding, as on desktop: the page scrolls under the
+          // floating navigation and carries `webPageBottomInset` itself.
+          padding: const EdgeInsets.fromLTRB(44, 28, 44, 0),
           child: child,
         ),
       );
@@ -76,6 +78,7 @@ class WebShellFrame extends StatelessWidget {
       },
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Scaffold(
           body: Row(
             children: [

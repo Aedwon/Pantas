@@ -207,8 +207,13 @@ class WebAssessmentResults extends StatelessWidget {
     this.saving = false,
     this.failure,
     this.sequence,
+    this.focusNode,
     super.key,
   });
+
+  /// The node that holds the page's keys, when the page puts focus back
+  /// by hand.
+  final FocusNode? focusNode;
 
   /// The entrance timeline. Without one, everything shows at once.
   final AssessmentResultsSequence? sequence;
@@ -247,6 +252,7 @@ class WebAssessmentResults extends StatelessWidget {
         },
       },
       child: KeyFocusKeeper(
+        focusNode: focusNode,
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 56),
           child: Center(

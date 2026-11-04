@@ -103,6 +103,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       },
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Scaffold(
           backgroundColor: t.colors.background,
           body: SingleChildScrollView(
@@ -562,10 +563,37 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     required ValueChanged<T> onSelected,
     required double width,
   }) {
+    // The button names itself, so a tooltip would only repeat its text. The
+    // hover and focus tint follows the rounded pill, and the keyboard ring
+    // replaces the focus tint (3K-5).
+    return WebKeyboardRing(
+      borderRadius: BorderRadius.circular(12),
+      child: Theme(
+        data: Theme.of(context).copyWith(focusColor: Colors.transparent),
+        child: _popup<T>(
+          context,
+          label: label,
+          values: values,
+          selected: selected,
+          onSelected: onSelected,
+          width: width,
+        ),
+      ),
+    );
+  }
+
+  Widget _popup<T>(
+    BuildContext context, {
+    required String label,
+    required Map<T, String> values,
+    required T selected,
+    required ValueChanged<T> onSelected,
+    required double width,
+  }) {
     final t = context.webTokens;
-    // Wrap nullable values so All subjects is selectable.
     return PopupMenuButton<(T,)>(
-      tooltip: label,
+      tooltip: '',
+      borderRadius: BorderRadius.circular(12),
       color: t.colors.surface,
       position: PopupMenuPosition.under,
       offset: const Offset(0, 10),

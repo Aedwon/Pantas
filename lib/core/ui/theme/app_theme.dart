@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/motion/web_page_transitions.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 ThemeData buildLightTheme({bool web = kIsWeb}) => _buildTheme(
@@ -50,11 +51,21 @@ ThemeData _buildTheme(
     return null;
   });
   final buttonStyle = ButtonStyle(
+    // One keyboard-only focus ring for every Material button on web, drawn on
+    // the button's own shape. The hover tint below has no focus state, so
+    // without this a Tab stop showed nothing at all (3K-11). A button that
+    // sets its own `side` keeps it.
+    side: WidgetStateProperty.resolveWith(
+      (states) => webFocusRing(states, colors.accent),
+    ),
     overlayColor: WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.pressed)) return Colors.transparent;
       if (states.contains(WidgetState.hovered)) {
         return colors.label.withValues(alpha: .08);
       }
+      // The ring above is the focus mark. Material's own focus fill is a
+      // square tint that ignores the button's corners and shows after a click.
+      if (states.contains(WidgetState.focused)) return Colors.transparent;
       return null;
     }),
   );

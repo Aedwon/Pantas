@@ -891,6 +891,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             progress: 3,
             bodyGap: 24,
             detailLineHeight: 1.35,
+            pinBottom: true,
             onBack: _back,
             bottom: Column(
               mainAxisSize: MainAxisSize.min,

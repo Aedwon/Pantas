@@ -171,8 +171,14 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
     }
   }
 
-  Future<void> _question(int index, {bool notes = false}) async {
-    final mistakes = widget.all && widget.mistakesOnly;
+  /// [mistake] is a row from the end screen's mistakes: the viewer then steps
+  /// through the mistakes only, as it does from the mistakes list.
+  Future<void> _question(
+    int index, {
+    bool notes = false,
+    bool mistake = false,
+  }) async {
+    final mistakes = mistake || widget.all && widget.mistakesOnly;
     await context.push<void>(
       '/quiz/viewer/${widget.attemptId}?index=$index&notes=$notes'
       '&fromAll=${widget.all}${mistakes ? '&mistakes=true' : ''}',
@@ -440,6 +446,7 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
             proPaused: paused,
             onDone: () => _done(data),
             onQuestion: (index) => unawaited(_question(index)),
+            onMistake: (index) => unawaited(_question(index, mistake: true)),
             onAll: () => unawaited(_all()),
             onMistakes: () => unawaited(_all(mistakes: true)),
             onNotes: () {

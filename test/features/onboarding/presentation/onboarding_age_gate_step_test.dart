@@ -92,6 +92,18 @@ void main() {
     }
   }
 
+  testWidgets('the phone wheel names itself "Birth year" and reads its year',
+      (tester) async {
+    final handle = tester.ensureSemantics();
+    await pump(tester);
+    final node = tester.getSemantics(find.byType(ValueWheel));
+    expect(node.label, 'Birth year');
+    expect(node.value, '2012');
+    expect(node.increasedValue, '2013');
+    expect(node.decreasedValue, '2011');
+    handle.dispose();
+  });
+
   testWidgets('the block survives a reload', (tester) async {
     await AppPreferencesRepository(db).setBlockedMinimumAge(13);
     await pump(tester);

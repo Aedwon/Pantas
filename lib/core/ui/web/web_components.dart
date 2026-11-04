@@ -10,68 +10,11 @@ import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
-/// True while [states] hold focus that the keyboard put there. A mouse click
-/// also focuses a control, but the page then drives focus by pointer, and a
-/// browser shows no focus ring for it (`:focus-visible`). This is the one rule
-/// every wide web control uses for its ring.
-///
-/// Flutter's own highlight mode is not enough: a mouse never switches it away
-/// from the traditional mode a desktop starts in, so it stays on after a
-/// click. The mode is still required, and the last input must also be a key.
-bool webKeyboardFocus(Set<WidgetState> states) {
-  // Listens from the first control built, so the Tab that moves focus onto a
-  // control is already seen when its ring is decided.
-  _LastInput.watch();
-  if (!states.contains(WidgetState.focused)) return false;
-  return _LastInput.key &&
-      FocusManager.instance.highlightMode == FocusHighlightMode.traditional;
-}
-
-/// Whether the last input to the page was a key press (true) or a pointer
-/// press (false). A page nobody has touched yet counts as pointer, so focus
-/// the app sets itself shows no ring.
-class _LastInput {
-  static bool key = false;
-  static bool _watching = false;
-  static PointerRouter? _router;
-
-  static void watch() {
-    if (_watching) return;
-    _watching = true;
-    final router = GestureBinding.instance.pointerRouter;
-    if (!identical(router, _router)) {
-      _router = router..addGlobalRoute(_pointer);
-    }
-    HardwareKeyboard.instance
-      ..removeHandler(_key)
-      ..addHandler(_key);
-  }
-
-  static void reset() {
-    key = false;
-    _watching = false;
-  }
-
-  static void _pointer(PointerEvent event) {
-    if (event is PointerDownEvent) key = false;
-  }
-
-  static bool _key(KeyEvent event) {
-    if (event is KeyDownEvent) key = true;
-    return false;
-  }
-}
-
-/// A test binding is new for each test, so the listeners start again too.
-@visibleForTesting
-void resetWebKeyboardFocus() => _LastInput.reset();
-
-/// The 2 px accent ring of a control with keyboard focus, or null.
-BorderSide? webFocusRing(Set<WidgetState> states, Color accent) =>
-    webKeyboardFocus(states) ? BorderSide(color: accent, width: 2) : null;
+export 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 
 enum WebButtonVariant {
   primary,
@@ -680,9 +623,9 @@ class _WebRowState extends State<WebRow> {
               ? t.rowHover
               : Colors.transparent,
         ),
-        side: WidgetStateProperty.resolveWith(
-          (s) => webFocusRing(s, t.colors.accent),
-        ),
+        // The keyboard ring is its own layer below, inside the row, so a
+        // row at the end of a rounded card is not cut by the card's corner.
+        side: const WidgetStatePropertyAll(BorderSide.none),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
       ),
       child: Row(
@@ -803,6 +746,28 @@ class _WebRowState extends State<WebRow> {
                   : const SizedBox.shrink(),
             ),
             button,
+            Positioned.fill(
+              child: IgnorePointer(
+                child: ListenableBuilder(
+                  listenable: Listenable.merge([_states, webKeyboardInput]),
+                  builder: (context, _) {
+                    final ring = webFocusRing(_states.value, t.colors.accent);
+                    if (ring == null) return const SizedBox.shrink();
+                    // Rounded and 3 px in from the row's edge: it clears the
+                    // 18 px corner of the card the row sits in.
+                    return Padding(
+                      padding: const EdgeInsets.all(3),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border.fromBorderSide(ring),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -900,7 +865,7 @@ class WebSegmentedControl extends StatelessWidget {
                               ),
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               padding: const WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(horizontal: 12),
+                                EdgeInsets.symmetric(horizontal: 8),
                               ),
                               foregroundColor: WidgetStatePropertyAll(
                                 accentLabels ? t.colors.accent : t.colors.label,
@@ -921,13 +886,29 @@ class WebSegmentedControl extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            // A label never wraps: each cell is an equal
+                            // share of the control, so a long label beside
+                            // another control shrinks to fit its cell.
                             child: suffixes?[i] == null
-                                ? Text(labels[i])
+                                ? FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(
+                                      labels[i],
+                                      maxLines: 1,
+                                      softWrap: false,
+                                    ),
+                                  )
                                 : Row(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Flexible(child: Text(labels[i])),
+                                      Flexible(
+                                        child: Text(
+                                          labels[i],
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
                                       if (suffixes?[i] != null) ...[
                                         const SizedBox(width: 6),
                                         suffixes![i]!,

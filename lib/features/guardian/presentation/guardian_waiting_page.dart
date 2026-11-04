@@ -129,6 +129,8 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
         failureNotice: _resendFailed,
       );
 
+  static String _unbroken(String text) => text.replaceAll(' ', '\u00A0');
+
   String? get _body {
     final status = _status;
     final masked = status?.maskedEmail ?? _fallbackMask;
@@ -136,7 +138,10 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
     final expiry = status?.expiresAt;
     return [
       'We emailed $masked.',
-      if (expiry != null) 'The link expires on ${guardianDateLabel(expiry)}.',
+      // No line break inside the date: "Nov 12," never ends a line with
+      // "2026." alone on the next.
+      if (expiry != null)
+        'The link expires on ${_unbroken(guardianDateLabel(expiry))}.',
       'Pantas opens here once they confirm.',
     ].join(' ');
   }

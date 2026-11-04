@@ -47,6 +47,47 @@ final _routerProvider = Provider<GoRouter>(
   ),
 );
 
+/// Home with the assessment opened above it, as the real Home opens it. Home
+/// stays mounted underneath, and once the assessment is done its Today panel
+/// builds with an Enter shortcut and takes focus, as the real Home does.
+final _stackedRouterProvider = Provider<GoRouter>(
+  (ref) => GoRouter(
+    initialLocation: '/home',
+    routes: [
+      // The web routes, which ask the open assessment before browser Back.
+      ...onboardingRoutes(ref, web: true),
+      GoRoute(path: '/home', builder: (_, __) => const _StackedHome()),
+    ],
+  ),
+);
+
+class _StackedHome extends ConsumerWidget {
+  const _StackedHome();
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final done =
+        ref.watch(assessmentCompletedProvider('e')).valueOrNull ?? false;
+    const body = Center(child: Text('Home'));
+    return Scaffold(
+      body: done
+          ? CallbackShortcuts(
+              bindings: {
+                const SingleActivator(
+                  LogicalKeyboardKey.enter,
+                  includeRepeats: false,
+                ): () => homeActivations++,
+              },
+              child: const Focus(
+                autofocus: true,
+                skipTraversal: true,
+                child: body,
+              ),
+            )
+          : body,
+    );
+  }
+}
+
 void main() {
   late AppDatabase db;
   late ContentDatabase content;
@@ -91,6 +132,7 @@ void main() {
     List<Override> overrides = const [],
     bool reduceMotion = false,
     String location = '/assessment/e',
+    bool stacked = false,
   }) async {
     debugWebPlatformOverride = width >= 1024;
     tester.view
@@ -106,7 +148,8 @@ void main() {
       ],
     );
     addTearDown(container.dispose);
-    final router = container.read(_routerProvider);
+    final router =
+        container.read(stacked ? _stackedRouterProvider : _routerProvider);
     if (location != '/assessment/e') router.go(location);
     await tester.pumpWidget(
       UncontrolledProviderScope(
@@ -125,6 +168,10 @@ void main() {
     );
     addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
     await tester.pumpAndSettle();
+    if (stacked) {
+      unawaited(router.push<void>('/assessment/e'));
+      await tester.pumpAndSettle();
+    }
   }
 
   Future<void> answerAndFinish(
@@ -280,6 +327,72 @@ void main() {
     expect(find.text('Home'), findsOneWidget);
     expect(find.text("Where you're starting"), findsNothing);
     expect(homeActivations, 0);
+  });
+
+  // 3L-7: with Home underneath, Enter on Go to Today opened the first lesson.
+  // Home's Today panel takes focus when the assessment finishes, so the press
+  // reached its Enter shortcut as well as this page's.
+  testWidgets('with Home underneath, one Enter goes Home and starts nothing',
+      (tester) async {
+    await pumpRoutes(tester, width: 1440, stacked: true);
+    await answerAndFinish(tester, wide: true);
+    await tester.pumpAndSettle();
+    expect(find.text("Where you're starting"), findsOneWidget);
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
+    for (var i = 0; i < 10; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text("Where you're starting"), findsNothing);
+    expect(homeActivations, 0);
+  });
+
+  // 3M-7: browser Back changes the address without a pop, so the assessment
+  // left at once and the answers were lost. Go back to an address outside the
+  // assessment, as the browser's Back does.
+  group('browser Back in the assessment', () {
+    testWidgets('shows the leave dialog and keeps the answer', (tester) async {
+      await pumpRoutes(tester, width: 1440, stacked: true);
+      final router = GoRouter.of(tester.element(find.text('A question?')));
+      await tester.tap(find.text('First choice'));
+      await tester.pump();
+
+      router.go('/home');
+      await tester.pumpAndSettle();
+      expect(find.text('Leave the assessment?'), findsOneWidget);
+      expect(find.text('A question?'), findsOneWidget);
+
+      // Keep going: still on the question, and the answer is still picked.
+      await tester.tap(find.text('Keep Going'));
+      await tester.pumpAndSettle();
+      expect(find.text('Leave the assessment?'), findsNothing);
+      expect(find.text('A question?'), findsOneWidget);
+      final choice = tester.widget<WebAnswerOption>(
+        find.ancestor(
+          of: find.text('First choice'),
+          matching: find.byType(WebAnswerOption),
+        ),
+      );
+      expect(choice.state, WebOptionState.selected);
+
+      // Back again, and this time leave: Home, with no second dialog.
+      router.go('/home');
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Leave'));
+      await tester.pumpAndSettle();
+      expect(find.text('Leave the assessment?'), findsNothing);
+      expect(find.text('Home'), findsOneWidget);
+    });
+
+    testWidgets('does not ask when the assessment finishes itself',
+        (tester) async {
+      await pumpRoutes(tester, width: 1440, stacked: true);
+      await answerAndFinish(tester, wide: true);
+      await tester.pumpAndSettle();
+      expect(find.text("Where you're starting"), findsOneWidget);
+      expect(find.text('Leave the assessment?'), findsNothing);
+    });
   });
 
   testWidgets('Go to Today does not wait for a key that never comes up',

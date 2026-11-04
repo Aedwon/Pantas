@@ -606,6 +606,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       context.wideWeb
           ? WebRow(
               title: lesson.title,
+              // A long title is read in full, as on Performance (3K-14).
+              wrapTitle: true,
               titleStyle: context.webTokens.style(
                 16,
                 color: lesson.read ? context.colors.secondaryLabel : null,
@@ -625,6 +627,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               title: lesson.title,
               value: lesson.read ? null : '${lesson.minutes} min',
               variant: ListRowVariant.value,
+              // The time keeps its own width and the title takes the rest
+              // of the row (3K-4, as 2G-21 did for search rows).
+              naturalValue: true,
               contentPadding: const EdgeInsets.symmetric(vertical: 9),
               minimumHeight: 0,
               titleColor: lesson.read ? context.colors.secondaryLabel : null,
@@ -805,6 +810,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       context.wideWeb
           ? WebRow(
               title: title,
+              wrapTitle: true,
               titleStyle: context.webTokens.style(16, height: 1.3),
               boardMetrics: true,
               divider: !last,
@@ -819,6 +825,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               title: title,
               value: '$total',
               variant: ListRowVariant.value,
+              naturalValue: true,
               leading: done == total
                   ? const CheckMark()
                   : ProgressRing(fraction: total == 0 ? 0 : done / total),

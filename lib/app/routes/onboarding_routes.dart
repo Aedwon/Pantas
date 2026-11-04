@@ -1,13 +1,15 @@
 // ignore_for_file: directives_ordering
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/features/assessment/application/assessment_leave_guard.dart';
 import 'package:pantas/features/assessment/assessment.dart';
 import 'package:pantas/features/onboarding/onboarding.dart';
 
-List<RouteBase> onboardingRoutes(Ref ref) => [
+List<RouteBase> onboardingRoutes(Ref ref, {bool web = kIsWeb}) => [
       GoRoute(
         path: '/onboarding',
         builder: (_, __) => const OnboardingPage(),
@@ -26,6 +28,13 @@ List<RouteBase> onboardingRoutes(Ref ref) => [
         path: '/assessment/:examId',
         builder: (_, state) =>
             AssessmentPage(examId: state.pathParameters['examId']!),
+        // Browser Back leaves without a pop, so it asks the open assessment
+        // first, and the assessment shows its leave dialog (see
+        // [AssessmentLeaveGuard]).
+        onExit: web
+            ? (context, state) =>
+                ref.read(assessmentLeaveGuardProvider).allowLeave()
+            : null,
         routes: [
           GoRoute(
             path: 'results',

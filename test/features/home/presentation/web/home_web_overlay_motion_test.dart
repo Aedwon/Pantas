@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 
 const _drawer = ValueKey('home-web-drawer');
@@ -237,6 +238,92 @@ void main() {
               find.ancestor(of: close, matching: find.byType(Padding)).first,
             )
             .dx,
+      );
+    });
+
+    testWidgets(
+        'the notice that opens low on the page scrolls clear of the edge',
+        (tester) async {
+      // 3K-2: the card used to stop against the window bottom, 44 px short of
+      // the margin the end of the page has.
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      var expanded = false;
+      late StateSetter update;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: StatefulBuilder(
+              builder: (context, set) {
+                update = set;
+                return SingleChildScrollView(
+                  padding: EdgeInsets.only(bottom: context.webPageBottomInset),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 780),
+                      HomeWebNotice(
+                        title: 'Add your exam date',
+                        detail: 'It sharpens the plan.',
+                        expanded: expanded,
+                        onClose: () {},
+                        onToggle: () {},
+                        primaryLabel: 'Pick the Day',
+                        onPrimary: () {},
+                      ),
+                      const SizedBox(height: 400),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      update(() => expanded = true);
+      await tester.pumpAndSettle();
+      expect(
+        tester.getBottomLeft(find.byType(HomeWebNotice)).dy,
+        closeTo(900 - 44, .5),
+      );
+    });
+
+    testWidgets('a compact density does not shave the header (3K-3)',
+        (tester) async {
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: true)
+              .copyWith(visualDensity: VisualDensity.compact),
+          home: Scaffold(
+            body: Align(
+              alignment: Alignment.topLeft,
+              child: SizedBox(
+                width: 600,
+                child: HomeWebNotice(
+                  title: 'Add your exam date',
+                  detail: 'It sharpens the plan.',
+                  expanded: true,
+                  onClose: () {},
+                  onToggle: () {},
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final header = find.byType(TextButton);
+      expect(tester.getSize(header).height, 52);
+      expect(
+        tester.getTopLeft(header).dy,
+        tester.getTopLeft(find.byType(HomeWebNotice)).dy,
       );
     });
 

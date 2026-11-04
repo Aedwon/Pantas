@@ -37,6 +37,7 @@ void main() {
   for (final view in [
     'all',
     'mistakes',
+    'mistakeRow',
     'historical',
     'fresh',
     'customDone',
@@ -52,7 +53,8 @@ void main() {
       final done = view.endsWith('Done');
       // The mistakes list needs more than one wrong answer to show that the
       // viewer steps through those and no others.
-      final wrong = view == 'mistakes' ? {1, 3, 5} : {3};
+      final wrong =
+          view == 'mistakes' || view == 'mistakeRow' ? {1, 3, 5} : {3};
       final attempt = Attempt(
         id: 'a',
         examId: 'e',
@@ -251,6 +253,41 @@ void main() {
           }
           expect(find.text('2 of 2'), findsOneWidget);
         }
+      } else if (view == 'mistakeRow') {
+        // A row in the end screen's mistakes opens the viewer among the
+        // mistakes only, the way "See all mistakes" does.
+        await tester.tap(find.text('stem q3'));
+        for (var i = 0; i < 80 && find.text('2 of 3').evaluate().isEmpty; i++) {
+          await tester.pump(const Duration(milliseconds: 20));
+          await tester.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 2)),
+          );
+        }
+        expect(find.text('2 of 3'), findsOneWidget);
+        final uri =
+            GoRouterState.of(tester.element(find.byType(QuizReviewPage))).uri;
+        expect(uri.path, '/quiz/viewer/a');
+        expect(uri.queryParameters['mistakes'], 'true');
+        expect(uri.queryParameters['index'], '2');
+        expect(find.text('Your mistakes'), findsOneWidget);
+        // Back returns to the mistakes, not to every question.
+        await tester.tap(find.text('Your mistakes'));
+        for (var i = 0;
+            i < 80 && find.text('2 of 5 correct').evaluate().isEmpty;
+            i++) {
+          await tester.pump(const Duration(milliseconds: 20));
+          await tester.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 2)),
+          );
+        }
+        await tester.pumpAndSettle();
+        expect(find.text('2 of 5 correct'), findsOneWidget);
+        expect(find.text('Your mistakes'), findsOneWidget);
+        expect(
+          find.text('2'),
+          findsNothing,
+          reason: 'a right answer is listed',
+        );
       } else if (done) {
         await tester.tap(find.text('Done'));
         await tester.pumpAndSettle();

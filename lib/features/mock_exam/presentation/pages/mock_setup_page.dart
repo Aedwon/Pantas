@@ -1,7 +1,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
@@ -12,6 +11,7 @@ import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
@@ -422,68 +422,61 @@ class _MockSetupPageState extends State<MockSetupPage> {
         ),
       ],
     );
-    return CallbackShortcuts(
-      bindings: {
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): () => widget.onStart(_strictMode),
-      },
-      child: Focus(
-        autofocus: true,
-        child: Scaffold(
-          body: ListView(
-            key: const ValueKey('web-mock-setup'),
-            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Transform.translate(
-                  offset: const Offset(-6, 0),
-                  child: TextButton.icon(
-                    onPressed: () => leavePage(context, fallback: '/quiz'),
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(0, 40),
-                      padding: EdgeInsets.zero,
-                      foregroundColor: t.colors.accent,
-                      overlayColor: Colors.transparent,
-                      visualDensity: VisualDensity.standard,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      textStyle: t.style(17),
-                    ),
-                    icon: const Icon(Icons.chevron_left, size: 20),
-                    label: const Text('Quiz'),
+    return Focus(
+      onKeyEvent: enterKeyHandler(() => widget.onStart(_strictMode)),
+      autofocus: true,
+      child: Scaffold(
+        body: ListView(
+          key: const ValueKey('web-mock-setup'),
+          padding: EdgeInsets.only(bottom: context.webPageBottomInset),
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Transform.translate(
+                offset: const Offset(-6, 0),
+                child: TextButton.icon(
+                  onPressed: () => leavePage(context, fallback: '/quiz'),
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(0, 40),
+                    padding: EdgeInsets.zero,
+                    foregroundColor: t.colors.accent,
+                    overlayColor: Colors.transparent,
+                    visualDensity: VisualDensity.standard,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    textStyle: t.style(17),
                   ),
+                  icon: const Icon(Icons.chevron_left, size: 20),
+                  label: const Text('Quiz'),
                 ),
               ),
-              const SizedBox(height: 6),
-              Text(_simulationTitle(blueprint), style: t.h1),
-              const SizedBox(height: 6),
-              Text(
-                '$total total items · ${_duration(blueprint.durationMinutes)}',
-                style: t.style(17, color: t.colors.secondaryLabel),
-              ),
-              const SizedBox(height: 26),
-              LayoutBuilder(
-                builder: (context, constraints) => constraints.maxWidth < 820
-                    ? Column(
-                        children: [
-                          rules,
-                          const SizedBox(height: 24),
-                          controls,
-                        ],
-                      )
-                    : Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(flex: 14, child: rules),
-                          const SizedBox(width: 24),
-                          Expanded(flex: 10, child: controls),
-                        ],
-                      ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 6),
+            Text(_simulationTitle(blueprint), style: t.h1),
+            const SizedBox(height: 6),
+            Text(
+              '$total total items · ${_duration(blueprint.durationMinutes)}',
+              style: t.style(17, color: t.colors.secondaryLabel),
+            ),
+            const SizedBox(height: 26),
+            LayoutBuilder(
+              builder: (context, constraints) => constraints.maxWidth < 820
+                  ? Column(
+                      children: [
+                        rules,
+                        const SizedBox(height: 24),
+                        controls,
+                      ],
+                    )
+                  : Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(flex: 14, child: rules),
+                        const SizedBox(width: 24),
+                        Expanded(flex: 10, child: controls),
+                      ],
+                    ),
+            ),
+          ],
         ),
       ),
     );

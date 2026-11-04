@@ -1095,13 +1095,30 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                         ),
                       )
                     : _shown.isEmpty
-                        ? SingleChildScrollView(
-                            padding: const EdgeInsets.only(top: 4),
-                            child: StateView(
-                              message: 'No bookmarks yet',
-                              detail: 'Bookmark a lesson to keep it here.',
-                              icon: Icon(PantasIcons.bookmark),
-                              bookmarkLayout: true,
+                        ? LayoutBuilder(
+                            // Board BM_Empty: the block is centered in the
+                            // panel on wide web. The phone keeps it near the
+                            // top (3K-7).
+                            builder: (context, constraints) =>
+                                SingleChildScrollView(
+                              padding: const EdgeInsets.only(top: 4),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: widget.wide
+                                      ? constraints.maxHeight - 4
+                                      : 0,
+                                ),
+                                child: Center(
+                                  child: StateView(
+                                    message: 'No bookmarks yet',
+                                    detail:
+                                        'Bookmark a lesson to keep it here.',
+                                    icon: Icon(PantasIcons.bookmark),
+                                    bookmarkLayout: true,
+                                    bookmarkTop: widget.wide ? 0 : 70,
+                                  ),
+                                ),
+                              ),
                             ),
                           )
                         : AnimatedSwitcher(

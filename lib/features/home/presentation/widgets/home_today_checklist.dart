@@ -347,6 +347,7 @@ class HomeTodayChecklist extends StatelessWidget {
       },
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
