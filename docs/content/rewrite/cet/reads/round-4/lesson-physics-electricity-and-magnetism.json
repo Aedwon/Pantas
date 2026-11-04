@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-physics-electricity-and-magnetism",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"seriesOutcome\":\"other bulb goes dark\",\"parallelOutcome\":\"other bulb stays lit\"",
+      "problem": "New this round, carried unchanged from the base and missed by rounds 1 to 3. This FIGURE marker sits in the Example #9 question, before the solution. The app renderer for type circuit-failure draws the text 'other bulb goes dark' under the series circuit and 'other bulb stays lit' under the parallel circuit, so the question figure prints both answers the example asks the student to work out.",
+      "source": "content-checklist.md L05; lib/core/ui/figures/physics_energy_diagram_figure.dart (_drawSeriesParallel with failure: true draws both outcome strings); final-run-rulings.md (parallel-perpendicular L05 and quadrilaterals L05 upheld for answer-revealing question markers; 'none may show an answer or method, and readers check that')"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "with the label \"flux changes as the coil turns\" and a bulb connected to the coil",
+      "problem": "This ILLUSTRATION marker, new in the rewrite, sits in the Example #14 question, before the solution. The question asks why there is an emf, and the solution's answer is that the angle changes so the flux changes. The marker tells the artist to print that answer as a label on the question figure, so the figure gives the student the answer.",
+      "source": "content-checklist.md L05; final-run-rulings.md (writer markers 'none may show an answer or method, and readers check that')"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "$$\\Phi=BA\\cos0^\\circ=(0.50)(0.20)=0.10\\ \\mathrm{Wb}$$",
+      "problem": "The flux formula uses cosine, but the lesson never says what cosine is, never gives cos 0 degrees = 1, and names no trigonometry prerequisite lesson. Core Concept says only that flux is largest at 0 degrees and zero at 90 degrees, not that it equals BA at 0 degrees. This step drops the cosine with no reason a student can trace, and Example #14 rests on 'cos theta and the flux change' with the same gap.",
+      "source": "content-checklist.md L25; lesson-style-guide.md Teaching completeness; reader-rules.md 'Added after the Sol audit' (confirm every term an example uses is taught or its prerequisite named); final-run-rulings.md (structural-stability L25 upheld for tangent used without teaching or a named prerequisite)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "A **generator** does the reverse.",
+      "problem": "Round-3 Minor still open. The generator paragraph that opens here has four sentences, and the motor paragraph ending 'The motor changes electrical energy to motion.' still has four. The safety paragraph edited this round, starting 'A large current heats the wires', now has five, and the two-sphere paragraph starting 'You can also use two neutral metal spheres that touch.' has four. The limit is three.",
+      "source": "content-checklist.md L22a; lesson-style-guide.md Formatting rules; writer-rules.md round-2 rule 5 (fix any Minor in edited text)"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

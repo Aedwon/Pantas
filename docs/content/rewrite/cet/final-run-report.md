@@ -259,3 +259,19 @@ Eight long lessons were split in two, as planned in split-plan.md. Text and ques
 - Both open lessons have a one-sentence fix recorded in final-run-rulings.md.
 - final-run.json now lists 77 lessons: 9 clean, 50 minor, 18 open.
 - Still to run on Aedwon's Mac: the Dart import check and the export build. The split lessons have fewer than 20 questions each until P5.
+
+## Update, November 5: open-lesson pass (round 4)
+
+Plan and Aedwon's choices: `sol-pass.md`. Sonnet fixed the last read's Blockers and Majors in all 18 open lessons, and the lead reviewed each diff. Codex was used up by another session, so Aedwon chose no Codex: one fresh Opus read per lesson (round 4), one at a time, with no round 5.
+
+- Result: all 18 stay open. 17 of 18 had every round-3 Blocker and Major fixed; the round-4 reads found new ones.
+- Six new Blockers were added by the round-3 fixes themselves (work-energy-power, triangles, pulleys-and-levers, meiosis, history-of-the-atom, earths-motions). The earths-motions one came from the lead's own send-back wording (lead error).
+- The rest were already in the text: mostly false general statements, undefined terms (pH, fertile, affine, net force), and question figure markers that show the answer or a wrong shape.
+- Three findings were downgraded (evolution, parallel lines, structural stability); see the rulings file.
+- Counts are unchanged: 77 lessons, 9 clean, 50 minor, 18 open.
+
+Pattern: each read of these lessons finds one or two new problems, and fixes made in a hurry add new false absolutes. Another read-and-fix round is unlikely to close them. Options for the final review are listed below.
+
+- Have one careful writer rework each open lesson's general statements in a single pass, checking every "only", "always", "never" and every term against a source, then read once.
+- Leave them for the Astra audit, which covers every Blocker fix anyway.
+- Leave them open for Aedwon's final review.

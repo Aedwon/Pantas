@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-text-types-speeches",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A number offered as support is logos, but it does not make the argument sound.", "problem": "General statement fails against the lesson's own examples. A number can support a claim through credibility, which is ethos, not logos. Example #3 ('for over a decade') and Example #6 step 1 ('I have taught in this school for $20$ years' builds ethos) both offer a number as support and the lesson calls it ethos. A student who memorizes the trap warning would label a credential such as 'I have won $3$ national awards' as logos. Core Concept's 'A statistic or an argument offered to support a claim is a logos appeal, whether or not it is sound' has the same gap for a statistic about the speaker. The base trap warned against this idea ('Quantitative evidence can support logos'); the rewrite turned the warning into a false rule. New this round; earlier reads did not raise it.", "source": "Checklist B01; reader rules, Added after the Sol audit (test every general statement); lesson's own Examples #3 and #6; base 7032eec5 Trap #1"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A **speech** is spoken language addressed to an audience. A **scripted** speech is written out in advance and read or recited.", "problem": "Still open from rounds 1 to 3. This paragraph has four sentences, above the one-to-three limit. Other four-sentence teaching paragraphs remain: those starting 'In this lesson you read printed excerpts', 'Common purposes are to inform', 'Style is a clue to the context', 'The same sentence can perform different acts', 'These appeals can overlap', and 'A **repair strategy**'.", "source": "Checklist L22a; LSG Formatting rules"},
+    {"rule": "L19", "severity": "Minor", "quote": "The phrase \"We will rebuild\" recurs, which is **repetition**. The three sentences also share one pattern, so they form **parallelism** too.", "problem": "Still open from rounds 1 to 3. Example #9 makes two separate identifications, repetition and then parallelism, in one paragraph instead of a numbered list. No step is skipped, so this is Minor.", "source": "Checklist L19; LSG Examples section"}
+  ],
+  "goodQuotesChecked": 3
+}

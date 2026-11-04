@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-algebra-functions-and-relations",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "A line never gives the same output twice.", "problem": "As written, this sentence is false for a horizontal line: y=3 gives the output 3 for every input. The condition 'that is not horizontal' sits only in the sentence before, and this sentence restates the rule as a bare 'never' about every line. The lesson itself later says 'A constant function ($a=0$) is not' one-to-one, so the two sentences contradict each other. A student who takes the sentence at its word and meets y=3 on 1<x<=4 would leave the output 3 out of the range and get an empty range instead of {3}. The round-3 Blocker (falling line) is fixed; this is the same family of unqualified line rule in the same paragraph.", "source": "reader-rules.md, Added after the Sol audit (test each 'never' against a known exception); content-checklist B01, L27; the lesson's own Inverse Functions section"},
+    {"rule": "L02", "severity": "Major", "quote": "Finding an Affine Inverse\n\nFind the inverse of", "problem": "The word 'affine' is a rare technical word that a Grade 5 student cannot read, and the lesson never says what it means. The base heading was 'Finding an Inverse Function'; the rewrite added the word from the audit's goal text. Step 1 says the function is a line, but never links that to 'affine', so the student meets an unexplained term in the heading.", "source": "content-checklist L02 and L25; lesson-style-guide, Voice and Teaching completeness; base 7032eec5 heading"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A line never gives the same output twice. So if an end is left out", "problem": "Partly open from round 3. The interval and parabola paragraphs are now within the limit, but four paragraphs still have four sentences: this range paragraph starting 'To find the range from a rule', the branch paragraph starting 'If $f$ is not one-to-one', the range shortcut starting 'To find a range on an interval', and Trap 5 starting 'Take $f(x)'.", "source": "lesson-style-guide, Formatting rules; content-checklist L22a"}
+  ],
+  "goodQuotesChecked": 3
+}

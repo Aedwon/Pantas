@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-biology-cellular-metabolism",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "Each enzyme has an **active site**, a pocket that fits one kind of **substrate**, the molecule the enzyme works on.", "problem": "A general statement with a known exception, of the kind the Sol audit names. Many enzymes bind two or more substrates at the active site. The lesson's own enzyme, rubisco, attaches carbon dioxide to a five-carbon sugar, so it binds two kinds of substrate, and enzymes that use ATP bind ATP plus a second molecule. A student would answer false to 'an enzyme may act on more than one substrate'. Specificity (each enzyme matches its own substrate or substrates) is the true point. Present since the rewrite and not raised in rounds 1 to 3.", "source": "OpenStax Biology 2e, 6.5 Enzymes: 'There may be one or more substrates, depending on the particular chemical reaction.' Checklist B01; reader-rules.md, Added after the Sol audit."},
+    {"rule": "L25", "severity": "Major", "quote": "Enzymes work best in a certain range of temperature and pH.", "problem": "The term pH is used without a meaning and without a named prerequisite. Its meaning is needed for the denaturing teaching here and for Trap #3 ('unless heat or a wrong pH has denatured it'). The lesson defines simpler terms such as electron and organelle, and the brief records no prerequisite lesson. A one-line meaning (how acidic or basic a solution is) or a pointer to the Acids, Bases and pH lesson would close it.", "source": "Checklist L25; LSG Teaching completeness (explain necessary terms before their meanings are needed, or reuse an identified prerequisite)."}
+  ],
+  "goodQuotesChecked": 2
+}

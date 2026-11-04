@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-chemistry-chemical-bonding",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "Two or more valid Lewis structures differ only in where the double bond sits. The real molecule is a blend of them, with equal bond lengths.",
+      "problem": "Both parts of this general statement fail for known species. Resonance structures can differ in where a triple bond sits, not only a double bond: nitrous oxide is drawn as $N=N=O$ and $N\\equiv N-O$, and azide and cyanate ions likewise mix double and triple bonds. When the structures are not equivalent, the bonds are not equal: in hydrazoic acid, $HN_3$, drawn as $H-N=N=N$ and $H-N-N\\equiv N$, the two N-N bonds are about $124$ pm and $113$ pm. Equal bond lengths follow only when the resonance structures are equivalent, as in the lesson's carbonate example. A student who learns this sentence as the rule will wrongly predict equal bonds or miss resonance with a triple bond. The resonance item is official curriculum class in the brief (dost-sei-L106).",
+      "source": "reader-rules.md, Added after the Sol audit (test every general statement); OpenStax Chemistry 2e, section 7.4, Formal Charges and Resonance; NIST CCCBDB experimental geometries for N2O and HN3"
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "$4$ groups: tetrahedral, $109.5^\\circ$, with no lone pair. With one lone pair it is trigonal pyramidal.",
+      "problem": "The goal asks the student to predict electron-group geometry and molecular shape, but Core Concept ties each arrangement name to the no-lone-pair case only. It never says that the groups keep the same arrangement when some are lone pairs, so four groups are always arranged tetrahedrally and three groups trigonally. The only statement of this is one step in Example #6 ('The four groups are tetrahedral, but the shape is trigonal pyramidal'). The base taught it with named terms and the water case ('its electron-group geometry is tetrahedral while its molecular geometry is bent'); that needed teaching was cut. Read as written, the list leads a student asked for the electron-group geometry of $NH_3$ or $H_2O$ to answer with the molecular shape.",
+      "source": "content-checklist.md L26; brief goal (electron-group and molecular geometries); base 7032eec5 VSEPR Theory section; OpenStax Chemistry 2e, section 7.6, electron-pair geometry versus molecular structure"
+    },
+    {
+      "rule": "L18",
+      "severity": "Major",
+      "quote": "$3$ groups: trigonal planar, $120^\\circ$, with no lone pair. With one lone pair the shape is bent.",
+      "problem": "The three-group cases are a standard application of the VSEPR skill in the lesson's goal, but no example works them. Example #6 covers only four-group molecules, and the linear case appears only as $CO_2$. No example derives trigonal planar (such as $BF_3$) or the three-group bent shape (such as $SO_2$ or $O_3$) from a formula, and the double-bond-counts-as-one-group rule is applied only to a two-group center. $BF_3$ and bent $O_3$ are named in the polarity teaching without their shapes being worked.",
+      "source": "content-checklist.md L18; reader-rules.md lead ruling on L18 (standard application of a skill in the lesson's goal); brief goal"
+    }
+  ],
+  "goodQuotesChecked": 3
+}

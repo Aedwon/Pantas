@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-statistics-and-probability-measures-of-variability",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L19", "severity": "Major", "quote": "The probabilities add up to $1$, so the table is valid.", "problem": "Core Concept gives two conditions for a valid probability table: each probability is at least $0$ and at most $1$, and they add up to $1$. The worked check skips the first condition and concludes 'valid' from the sum alone. The conclusion is true for this table, but the step models a check that fails on the standard curriculum item 'which table is a valid probability distribution': a table with $P=1.2$ and $P=-0.2$ sums to $1$ and is not valid. A student copying this step accepts it.", "source": "Checklist L19 (Major if a step is skipped); the lesson's own Core Concept rule 'Each probability is at least $0$ and at most $1$, and they add up to $1$'; reader-rules 'Added after the Sol audit' (test each 'so')"},
+    {"rule": "L22a", "severity": "Minor", "quote": "A mean you rounded gives a sum slightly off $0$.", "problem": "Round-3 Minor still open. This Speed Tricks paragraph has four sentences, over the one-to-three limit. The paragraph starting 'Variance is in squared units.' still has four, and the random-variable paragraph starting 'A **random variable** $X$ is a number' now has four.", "source": "Checklist L22a; LSG Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}

@@ -1,0 +1,12 @@
+{
+  "lesson": "lesson-geometry-quadrilaterals-and-polygons",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {"rule": "L05", "severity": "Major", "quote": "\"type\": \"polygon\", \"labels\": [\"n-gon\", \"Sum = 1440°\", \"Sides n = ?\"]", "problem": "The Example 3 question figure uses type polygon, and the app renderer for that type always draws a regular polygon with 8 sides. The question asks how many sides the polygon has, and the answer is 10. A student who counts the drawn sides gets 8, which the figure shows next to the label 'Sides n = ?', and step 2's 'n - 2 = 8' makes the mix-up easier. The figure gives a false given. Unchanged from the base; earlier rounds did not raise it. The Example 8 figure has a milder form of the same fault: type quadrilateral draws a square with four equal corners, labeled x, 2x, 3x and 4x.", "source": "Checklist L05 and L23; renderer _drawPolygon(canvas, bounds, stroke, 8) for 'polygon' in lib/core/ui/figures/geometry_diagram_figure.dart; final-run ruling on solving-right-triangles Example 4 (a renderer-placed figure fault is L05 Major)"},
+    {"rule": "L05", "severity": "Major", "quote": "\"type\": \"polygon-exterior\", \"labels\": [\"Exterior angle = 24°\", \"Sides n = ?\"]", "problem": "The Example 4 question figure uses type polygon-exterior, and the app renderer for that type always draws a regular hexagon (const sides = 6) with one side extended. The drawn exterior angle is 60 degrees but is labeled 24 degrees, and the drawn polygon has 6 sides while the answer is 15. A student who counts sides or reads the drawn angle gets a result that contradicts the question's own given. Unchanged in type from the base; earlier rounds did not raise it.", "source": "Checklist L05 and L23; renderer _drawPolygonExterior in lib/core/ui/figures/geometry_diagram_figure.dart; final-run ruling on solving-right-triangles Example 4"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The parallel sides are the bases. The other two sides are the legs.", "problem": "The Trapezoid bullet in Core Concept has four sentences, over the limit of three. The rewrite added these two sentences, so this edited text must meet the Minor rule.", "source": "Checklist L22a; lesson style guide, Formatting rules; checklist pass rule (new or edited content fixes every minor finding)"}
+  ],
+  "goodQuotesChecked": 3
+}

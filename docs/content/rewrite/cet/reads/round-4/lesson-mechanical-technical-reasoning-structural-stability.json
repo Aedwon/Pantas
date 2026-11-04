@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-mechanical-technical-reasoning-structural-stability",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A uniform flat triangle has it at its centroid, one-third of the way up, not halfway.",
+      "problem": "New in this rewrite (the base trap had no triangle). Trap #1 warns against the belief that the center of gravity is always at the geometric center, and gives the uniform triangle as the counterexample. But a uniform triangle's centroid is its geometric center, so the triangle is not an exception: for any uniform object the center of gravity is at the geometric center (centroid). The trap therefore teaches a false fact, that a uniform triangle's center of gravity is not at its geometric center, and a student could reject a correct choice such as 'at its centroid or geometric center'. The real exceptions are non-uniform objects, like the hammer in the next sentence. The halfway point is not the triangle's geometric center.",
+      "source": "Checklist B01; centroid is also called the geometric center of a plane figure (standard geometry and statics references, e.g. OpenStax University Physics 1, 9.6 Center of Mass, and the definition of centroid)"
+    },
+    {
+      "rule": "B02",
+      "severity": "Blocker",
+      "quote": "A $120$ kg load sits on top and sticks out to the right.",
+      "problem": "Example 4's answer ('the crate tips to the right') is correct only if the load is fastened to the crate, which the question never says. As stated, the load just sits on top, so by the lesson's own static test the load is judged on its own base: its weight line at 1.3 m falls outside the crate's top, which ends at 1.0 m, so the load tips off. While it tips, it presses on the crate only at the top right corner, directly above the crate's right bottom edge, so it gives no turning effect about that edge; the crate's own weight line at 0.5 m keeps the crate down. The combined-center method needs the parts to move as one rigid body. Any case where the combined weight line passes the crate's edge needs the load's own weight line even farther out, so an unfastened load always falls off first. Trap #4's 'a load that sticks out can still tip a wide crate' carries the same unstated condition.",
+      "source": "Checklist B02 (wrong or ambiguous answer); the lesson's own Static Tipping Test and Combining Parts; standard statics: a composite center of gravity applies to parts joined as one rigid body"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "For a uniform box with width $w$ and height $h$, $d = \\dfrac{w}{2}$ and $h_c = \\dfrac{h}{2}$.",
+      "problem": "Still open from rounds 1 to 3. This paragraph has six sentences. Others also exceed three: 'If the weight is spread evenly' (five), 'For three parts' (five), 'Let a box rest on level ground' (five), and the new tangent paragraph starting 'Here $\\tan\\theta$' (four).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    },
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The wider stance gives a bigger base from side to side. The weight line has more room to shift before it crosses the edge.",
+      "problem": "Still open from round 3. Example 10's solution has several reasoning steps (side-to-side base, room for the weight line, the front-to-back case) in one prose paragraph, not a numbered list. Example 5's solution is the same. No step is skipped, so Minor.",
+      "source": "Checklist L19; LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

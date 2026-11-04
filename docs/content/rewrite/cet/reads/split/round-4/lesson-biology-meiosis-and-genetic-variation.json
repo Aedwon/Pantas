@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-biology-meiosis-and-genetic-variation",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If you count allele combinations instead, only a heterozygous gene adds a choice.",
+      "problem": "The 'only' fails for a known exception that the lesson itself raises. Core Concept says 'A male's X and Y carry mostly different genes, so he has one allele of most genes on the X.' An X-linked gene in a male, such as $X^AY$, is not heterozygous (it has one allele, not a pair), yet it adds a choice: half his gametes carry $A$ on the X and half carry the Y with no allele for that gene. So a male $X^AY\\,BB$ makes two allele combinations although no gene is heterozygous, and the rule as written gives one. Sex-linked crosses use exactly this gamete split (upcat-L140 names sex-linked inheritance, weak class, so no new case is required, but the stated rule must not be false). The round-3 fix itself is correct: the lesson now separates chromosome combinations ($4$ for $AaBB$ on two pairs) from allele combinations ($2$). Only the general 'only' clause breaks.",
+      "source": "Reader rules, Added after the Sol audit (test each 'only' against a known exception); the lesson's own Words for Genes section; OpenStax Biology 2e, 12.3 (X-linked traits: males are hemizygous and pass the X to daughters and the Y to sons)."
+    }
+  ],
+  "goodQuotesChecked": 1
+}

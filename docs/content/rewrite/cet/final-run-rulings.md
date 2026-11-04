@@ -81,3 +81,24 @@ Rulings bind later writers and readers in this run. Aedwon reviews them at the f
 - lesson-geometry-parallel-perpendicular-lines: the fix removed "equal" from the Example 4 semanticsLabel. The "Alt interior" labels stay, because the question text already names the pair as alternate interior.
 - lesson-earth-science-astronomy-earths-motions: the round-3 fix added a circumpolar exception that read "never sets from places far from the equator", false in the Southern Hemisphere. The lead sent it back; it now says "far north of the equator".
 - lesson-mechanical-technical-reasoning-structural-stability: the L25 fix added a tangent explanation; the lesson is now 3,049 words (split candidate, noted only).
+
+Round-4 reads (fresh Opus, one at a time). Every quote checked against the lesson text; every verdict matches its findings. Rulings:
+
+- lesson-chemistry-chemical-bonding open B1 M2 (resonance only-double-bond B01; electron-group geometry L26; 3-group example L18) upheld
+- lesson-physics-electricity-and-magnetism open M3 m1 (Example 9 circuit-failure marker prints outcomes L05; Example 14 marker label gives answer L05; cosine untaught L25) upheld
+- lesson-physics-work-energy-power open B3 M2 (no-slip friction zero work fails on moving belt, added by round-3 fix; conservative-forces rule vs spring; 9.8 m/s speed gain fails thrown upward; isolated system and net force untaught) upheld
+- lesson-geometry-triangles open B1 M3 m1 (round-3 fix omits square root; Examples 1, 2, 10 question markers give answers, from base) upheld
+- lesson-mechanical-technical-reasoning-pulleys-and-levers open B2 M1 m1 (round-3 fix's 'middle only for a uniform bar' fails for symmetric bars; second-class MA>1 fails with angled effort; sine for angles over 90 untaught) upheld; first Blocker is narrow, noted for final review
+- lesson-biology-cellular-metabolism open B1 M1 (active site 'fits one kind of substrate' fails for multi-substrate enzymes such as rubisco; pH undefined) upheld; round-3 chloroplast fix confirmed
+- lesson-biology-meiosis-and-genetic-variation open B1 (round-3 fix's 'only a heterozygous gene adds a choice' fails for X-linked genes in males, which the lesson itself raises) upheld; round-3 Major fixed
+- lesson-biology-characteristics-of-life open B1 m1 ('enough water and warmth, it grows' fails for seeds needing cold, light or scarification; text predates round-3 fix) upheld
+- lesson-biology-evolution open B1 M1 m2 (mule always sterile vs rare fertile mares, and the characteristics-of-life lesson says 'almost all'; 'fertile' undefined) upheld. Darwin-Wallace 'presented papers together' B01 downgraded to Minor: textbooks call it the joint presentation, and the papers were read together at one meeting; the wording can say 'their papers were read together'.
+- lesson-chemistry-chemical-reactions open B1 M1 m2 ('a metal displaces anything below it' fails for Na in aqueous CuSO4; product formulas from ion charges untaught) upheld; round-3 findings fixed
+- lesson-chemistry-history-of-the-atom open B2 M1 m1 (round-3 fix dropped 'positive': 'nearly all of the atom's mass and charge'; nucleus holds neutrons fails for hydrogen-1; Example 4 stem has no inference to classify) upheld
+- lesson-earth-science-astronomy-earths-motions open B2 M1 m1 ('seen all year there' fails in polar summer: wording from the lead's send-back, a lead error; evening-high constellation is pre-dawn, not hidden, six months later; north celestial pole used before defined) upheld
+- lesson-algebra-functions-and-relations open B1 M1 m1 ('A line never gives the same output twice' fails for y=3; 'affine' unexplained) upheld; round-3 findings fixed
+- lesson-geometry-parallel-perpendicular-lines open B1 m4 (Trap 'do not use these rules' unless the problem says parallel ignores lines proven parallel by the lesson's own converse) upheld. 'eight angles' B01 downgraded to Minor: under the standard definition a transversal crosses the lines at different points; the definition should say so. Round-3 L05 fixed.
+- lesson-geometry-quadrilaterals-and-polygons open M2 m1 (Examples 3 and 4 question figure types draw fixed side counts that contradict the question, renderer limits) upheld; round-3 findings fixed
+- lesson-statistics-and-probability-measures-of-variability open M1 m1 (worked validity check skips the 0-to-1 condition, L19 skipped step) upheld; round-3 findings fixed
+- lesson-mechanical-technical-reasoning-structural-stability open B1 M1 m2 (Example 4 answer needs the load fastened, unstated, upheld B02). Trap #1 triangle B01 downgraded to Major: the sentence is true (centroid at one-third height), but it is a poor counterexample to a heading about the geometric center, since the centroid is the triangle's geometric center. Round-3 findings fixed.
+- lesson-text-types-speeches open B1 m2 ('a number offered as support is logos' contradicts the lesson's own ethos examples with numbers) upheld; round-3 L05 fixed

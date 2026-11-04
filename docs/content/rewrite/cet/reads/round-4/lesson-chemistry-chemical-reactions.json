@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-chemistry-chemical-reactions",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A metal displaces anything below it.",
+      "problem": "This general rule fails for a known exception inside the scope the lesson gives it. The lesson says the list applies to 'acids and metal salts in water', so a student predicts that sodium, potassium or calcium dropped into copper(II) sulfate solution displaces copper metal. It does not: these metals react with the water first, giving hydrogen gas and a hydroxide (with copper(II) sulfate, a copper(II) hydroxide precipitate), not copper metal. The next sentence, 'Very reactive metals such as K, Na and Ca react with water itself', names the cause but never says the displacement fails, so the false prediction stands. If the lead reads that sentence as a stated limit, the defect is still L27 Major: the exception is named without its effect on the rule. Not raised in rounds 1 to 3.",
+      "source": "OpenStax Chemistry 2e, Section 4.2 (activity series; the most active metals react with water to give hydrogen and hydroxides); reader-rules.md, Added after the Sol audit; content-checklist B01 and L27"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "Swap partners: $Pb(NO_3)_2+KI\\rightarrow PbI_2+KNO_3$.",
+      "problem": "The product formulas get new subscripts ($PbI_2$, $KNO_3$) that come from the ion charges $Pb^{2+}$, $NO_3^-$, $K^+$ and $I^-$. The lesson never teaches how to write a formula from ion charges, never teaches how to turn a name such as lead(II) nitrate into a formula, and does not name the chemical nomenclature lesson as a prerequisite. The Core Concept form $AB+CD\\rightarrow AD+CB$ and the rule 'Never change a subscript' point the other way, so a student following the lesson can write $PbI$ and $K(NO_3)_2$. The same skill is used without teaching in $Zn+2HCl\\rightarrow ZnCl_2+H_2$ and Example #8(a). Not raised in rounds 1 to 3.",
+      "source": "content-checklist L25 and LSG Teaching completeness (shared reuse rule: an identified prerequisite is needed); reader-rules.md, Added after the Sol audit (every term or formula an example uses is taught or its prerequisite named)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "In a chemical reaction, atoms are rearranged. They are not made or destroyed.",
+      "problem": "Still open from round 3. This paragraph has four sentences; the guide allows one to three. Ten other paragraphs also have four: those beginning 'A **chemical equation** shows this', 'A balanced equation is normally written', 'Letters in brackets after a formula', 'Chemists group reactions into patterns', 'Zinc is above copper', 'When there is plenty of oxygen', 'When oxygen is short', 'In a **redox** reaction', 'Patterns and redox cut across' and 'To test for a precipitate'.",
+      "source": "content-checklist L22a; LSG Formatting rules (paragraphs of 1 to 3 short sentences)"
+    },
+    {
+      "rule": "L24",
+      "severity": "Minor",
+      "quote": "Chemical Reactions (Reaction Patterns, Balancing Equations)",
+      "problem": "Still open from rounds 2 and 3. The frontmatter title differs from the outline title 'Chemical Reactions (Types of Reactions, Balancing Equations)' in tools/lesson_author/outline.json. The mismatch is in the base and names the same content, so it stays Minor for the final review.",
+      "source": "LSG Frontmatter; final-run-rulings.md, lesson-chemistry-acids-bases-ph L24 ruling, applied by analogy"
+    }
+  ],
+  "goodQuotesChecked": 4
+}

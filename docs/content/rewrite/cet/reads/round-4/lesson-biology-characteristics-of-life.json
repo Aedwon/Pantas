@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-biology-characteristics-of-life",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "When it gets enough water and warmth, it grows.", "problem": "This general rule for every living seed fails at a known exception. Many living dormant seeds will not sprout with water and warmth alone: some need a cold period, some need the seed coat softened (scarification), some need light, fire or acid. The sentence before it, 'A living seed is dormant', also states every living seed is dormant, which fails for a seed that is already sprouting. A student taught this rule will judge a living seed that stays still in warm, moist soil to be dead. Example #5 step 3 hedges correctly ('it may be dead'), but Core Concept never teaches why, so the two disagree. The round-3 Blocker on 'It is still alive' is fixed; this sentence is the remaining absolute in the same paragraph.", "source": "OpenStax Biology 2e, 32.2 Pollination and Fertilization, seed dormancy (conditions that break dormancy 'could be as diverse as moisture, light, cold, fire, or chemical treatments'; vernalization; scarification); reader-rules.md, Added after the Sol audit; content-checklist B01"},
+    {"rule": "L22a", "severity": "Minor", "quote": "The conditions are kept within a range. They are not perfectly fixed.", "problem": "The round-3 L22a finding is still open. The Homeostasis paragraph has four sentences; paragraphs must be one to three short sentences. Four more paragraphs also have four: the seed paragraph that starts 'A living seed is dormant', the first Speed Tricks paragraph, the Speed Tricks paragraph that starts 'To order the levels', and the paragraph under Trap #5.", "source": "content-checklist L22a; lesson-style-guide Formatting rules; writer-rules.md rule 8"}
+  ],
+  "goodQuotesChecked": 2
+}

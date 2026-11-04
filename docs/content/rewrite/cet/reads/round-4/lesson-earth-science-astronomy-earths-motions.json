@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-motions",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "It never sets from places far north of the equator, so it can be seen all year there.",
+      "problem": "The round-3 fix added this exception, and its 'all year' fails at the boundary the lesson itself teaches. Far north, inside the Arctic Circle, the Sun does not set for weeks around the June solstice (the lesson says so: 'Places inside the polar circles, about $66.6^\\circ$ north and south, have days when the Sun does not set'). With no night, no constellation can be seen there in that season, even a circumpolar one. At somewhat lower high latitudes the summer sky also stays bright all night. The sentence says 'far north', which invites exactly these places, so a student is taught a false absolute. Circumpolar stars never set; 'seen all year' holds only where the sky gets dark every season, such as mid-northern latitudes.",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit' (test each 'always/every' statement at its boundary); the lesson's own polar-circle sentence in 'Where the Tilt Matters Less'; Encyclopaedia Britannica, 'midnight sun' and 'circumpolar star'"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A constellation near the Sun's path across the sky, seen high in the evening in one season, is near the Sun's direction and hidden by daylight about six months later.",
+      "problem": "Six months later a star sits near the Sun's direction only if it was high at midnight (opposite the Sun). A constellation high in the evening, say at 8 to 9 PM, is about 45 to 60 degrees west of the Sun six months later: it rises 3 to 4 hours before sunrise and is seen in the dark pre-dawn sky, not hidden by daylight. The lesson's own rule in Rotation ('After a month it rises about $2$ hours earlier.') gives this: twelve hours earlier puts a 9 PM star high at 9 AM, so it rose in the dark morning. Orion, the lesson's example, is high in the evening in early February and is a pre-dawn object in early August, not lost in daylight; it is near the Sun only around June. What holds six months later is that the constellation is out of the evening sky. A student taught 'hidden by daylight' would answer a morning-sky question wrongly. Seasonal constellations are a curriculum-class requirement (upcat-L163). Example #7 is correct only because 'middle of the year' includes June.",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit'; the lesson's own 4-minutes-per-night and 2-hours-per-month rule; standard sky positions (Orion near right ascension 5.5 h; the Sun near 5.5 to 6.5 h in June and near 8.8 h on August 1, per any almanac or NASA sky chart); brief, upcat-L163 (curriculum)"
+    },
+    {
+      "rule": "L25",
+      "severity": "Major",
+      "quote": "A constellation very near the north celestial pole is the exception.",
+      "problem": "The term 'north celestial pole' is used here, in Seasonal Constellations, but it is first explained four sections later, in Precession ('The **north celestial pole** is the point in the sky directly above Earth's North Pole.'). There is no pointer to that later section and no meaning given here. The term carries the whole exception: a student who does not know what the celestial pole is cannot tell which constellations never set. The earlier phrase 'the same spot in the sky (near the star Polaris)' in Revolution and Axial Tilt does not name or define the pole. The shared reuse rule requires the meaning before use or a clear pointer with the needed meaning.",
+      "source": "Checklist L25; LSG: Teaching completeness (a later explanation must be clearly pointed to, with the meaning needed in between)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "It is about $4$ minutes shorter because Earth also moves along its orbit during the day.",
+      "problem": "Still open from rounds 1 to 3. This Rotation paragraph has four sentences; the limit is one to three short sentences. Other paragraphs still over the limit: the Revolution and Axial Tilt paragraph ending 'The flat surface that the orbit lies on is the **orbital plane**.' has five; the paragraphs starting 'Some words first.', '**Rotation** is Earth's spin around its own axis.', 'Earth's axis is not upright to this plane.' (ending 'During the whole orbit, the axis keeps pointing toward the same spot in the sky'), 'First, it changes how high the Sun climbs.' and the one containing 'For example, Orion is easy to see in the evening' each have four. This is new or edited content, so these Minors must be fixed.",
+      "source": "Checklist L22a; LSG: Formatting rules; round-1, round-2 and round-3 reads"
+    }
+  ],
+  "goodQuotesChecked": 15
+}
