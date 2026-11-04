@@ -13,7 +13,9 @@ This lesson covers the levels of the body and four of its systems: digestive, re
 
 ### From Cells to Systems
 
-The body is built in levels. A **cell** is the smallest unit of life. A **tissue** is a group of similar cells that do one job together. An **organ** is made of several tissues working as one unit. An **organ system** is a group of organs whose functions fit together.
+The body is built in levels. A **cell** is the smallest unit of life. A **tissue** is a group of similar cells that do one job together.
+
+An **organ** is made of several tissues working as one unit. An **organ system** is a group of organs whose functions fit together.
 
 Think of bricks, walls, rooms, and a house. The cells are the bricks, the tissues are the walls, the organs are the rooms, and the system is the whole house plan. The body has four basic tissue types: epithelial (covers surfaces and lines spaces), connective (supports and joins), muscle (contracts), and nervous (carries signals).
 
@@ -21,11 +23,13 @@ Think of bricks, walls, rooms, and a house. The cells are the bricks, the tissue
 
 The heart shows the levels. Cardiac muscle cells form cardiac muscle tissue. That tissue, with connective and nervous tissue, forms the heart. The heart and blood vessels form the circulatory system.
 
-Many textbooks also list the integumentary system (skin, hair, nails) separately. Many also join the immune structures with the lymphatic system.
+Many textbooks also list the integumentary system (skin, hair, nails) separately.
 
 ### Digestive System
 
-The digestive system breaks food into small molecules the body can absorb, and then absorbs them. Digestion has two kinds. **Mechanical digestion** physically breaks food into smaller pieces, such as chewing. **Chemical digestion** uses **enzymes**, which are proteins that speed up chemical reactions, to split food molecules.
+The digestive system breaks food into small molecules the body can absorb, and then absorbs them. Digestion has two kinds.
+
+**Mechanical digestion** physically breaks food into smaller pieces, such as chewing. **Chemical digestion** uses **enzymes**, which are molecules that speed up chemical reactions, to split food molecules. Almost all enzymes are proteins, and every enzyme named in this lesson is a protein.
 
 The path of food is: **mouth** → **esophagus** → **stomach** → **small intestine** → **large intestine**. In the mouth, teeth chew and saliva contains salivary amylase, an enzyme that starts to split starch. The esophagus pushes food down by wave-like squeezing. The stomach churns food and adds acid and an enzyme that begins protein digestion.
 
@@ -41,9 +45,9 @@ The respiratory system moves air in and out and exchanges gases. Air passes thro
 
 **Ventilation** is the movement of air in and out. At rest, the **diaphragm**, a sheet of muscle under the lungs, contracts and flattens. The chest space gets bigger, the pressure inside drops, and air flows in. When the diaphragm relaxes, the chest space gets smaller and air flows out.
 
-**Gas exchange** happens by **diffusion**.
+**Gas exchange** happens by **diffusion**. Diffusion is the movement of a substance from where it is more concentrated to where it is less concentrated.
 
-Diffusion is the movement of a substance from where it is more concentrated to where it is less concentrated. Alveolar air has more oxygen than the blood arriving in the lung capillaries. So oxygen diffuses into the blood. The arriving blood has more carbon dioxide than the alveolar air. So carbon dioxide diffuses out.
+Alveolar air has more oxygen than the blood arriving in the lung capillaries, so oxygen diffuses into the blood. The arriving blood has more carbon dioxide than the alveolar air, so carbon dioxide diffuses out.
 
 The exchange is fast because the alveolus wall and the capillary wall are each very thin, and many alveoli give a huge surface. Most oxygen then travels inside red blood cells, bound to a protein called **hemoglobin**.
 
@@ -55,7 +59,11 @@ The heart and blood vessels carry blood, which transports gases, nutrients, horm
 
 **Arteries** carry blood away from the heart. **Veins** carry blood toward the heart. **Capillaries** are the tiny thin-walled vessels between them, where materials pass between blood and tissues.
 
-Direction relative to the heart, not oxygen content, defines arteries and veins. This matters in the lungs. The **pulmonary arteries** carry oxygen-poor blood from the heart to the lungs. The **pulmonary veins** carry oxygen-rich blood from the lungs back to the heart. After birth, in the rest of the body the pattern is reversed: systemic arteries carry oxygen-rich blood and systemic veins carry oxygen-poor blood. (Before birth, the umbilical vein carries oxygen-rich blood to the fetus.)
+Direction relative to the heart, not oxygen content, defines arteries and veins. This matters in the lungs.
+
+The **pulmonary arteries** carry oxygen-poor blood from the heart to the lungs. The **pulmonary veins** carry oxygen-rich blood from the lungs back to the heart.
+
+After birth, in the rest of the body the pattern is reversed: systemic arteries carry oxygen-rich blood and systemic veins carry oxygen-poor blood. Before birth, the umbilical vein carries oxygen-rich blood toward the fetus, and the umbilical arteries carry oxygen-poor blood away from it.
 
 The blood travels in two circuits, one after the other. **Pulmonary circulation** goes between the heart and the lungs. **Systemic circulation** goes between the heart and the rest of the body.
 
@@ -91,7 +99,7 @@ Trace the order in which food passes through these organs: large intestine, stom
 
 ### #2: Levels of Organization
 
-Classify each as cell, tissue, organ, or organ system: (a) a neuron, (b) the stomach, (c) the nervous system, (d) smooth muscle in the intestine wall.
+A neuron is a nerve cell that carries signals. Smooth muscle is the muscle in the walls of organs such as the intestine. (Both are taught in "Human Anatomy and Physiology: Control, Movement, Reproduction and Defense".) Classify each as cell, tissue, organ, or organ system: (a) a neuron, (b) the stomach, (c) the nervous system, (d) smooth muscle in the intestine wall.
 
 **Solution:**
 
@@ -111,13 +119,14 @@ Blood travels from the heart to the lungs and back. Another path takes blood fro
 
 ### #4: Vessels and Oxygen Content
 
-Which vessel carries oxygen-poor blood away from the heart? Which carries oxygen-rich blood toward the heart?
+In a person after birth, which vessels carry oxygen-poor blood away from the heart to the lungs? Which carry oxygen-rich blood from the lungs toward the heart?
 
 **Solution:**
 
 1. Arteries carry blood away from the heart, and veins carry it toward the heart.
-2. The vessel going away from the heart with oxygen-poor blood is the pulmonary artery, which leads to the lungs.
-3. The vessel coming toward the heart with oxygen-rich blood is the pulmonary vein, which comes from the lungs.
+2. The vessels going away from the heart with oxygen-poor blood are the pulmonary arteries, which lead to the lungs.
+3. The vessels coming toward the heart with oxygen-rich blood are the pulmonary veins, which come from the lungs.
+4. Before birth, the umbilical vein and arteries do not follow the lung pattern, so this answer is for after birth.
 
 ### #5: Gas Exchange in the Alveoli
 

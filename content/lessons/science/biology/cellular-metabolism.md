@@ -19,28 +19,32 @@ ATP has three phosphate groups (small units made of phosphorus and oxygen). When
 
 An **organic molecule** is a carbon-based molecule built around chains or rings of carbon and hydrogen, such as glucose ($C_6H_{12}O_6$, a sugar). Carbon dioxide and carbonates are carbon compounds, but they are not called organic.
 
-A **prokaryote** is a cell with no nucleus and no membrane-bound organelles. Bacteria are prokaryotes. A **eukaryote** is a cell with a nucleus and organelles. Plants, animals, fungi and algae are eukaryotes.
+An **organelle** is a small part inside a cell with its own job.
 
-An **organelle** is a small part inside a cell with its own job. The **cytosol** is the watery fluid in a cell, outside the organelles. **Catabolic** means breaking big molecules down into smaller ones. **Anabolic** means building small molecules up into bigger ones.
+A **prokaryote** is a cell with no nucleus and no membrane-bound organelles. Bacteria are prokaryotes.
 
-An **electron** is a tiny charged particle. Moving electrons carry energy. A molecule that **gains** electrons is **reduced**. A molecule that **loses** electrons is **oxidized**. An **electron carrier** is a molecule that picks up electrons in one place and drops them off in another.
+A **eukaryote** is a cell with a nucleus and organelles. Plants, animals, fungi and algae are eukaryotes.
 
-### Enzymes: the helpers in every step
+An **electron** is a tiny charged particle. Moving electrons carry energy. An **electron carrier** is a molecule that picks up electrons in one place and drops them off in another.
+
+### Enzymes: the helpers in many steps
 
 An **enzyme** is a molecule that speeds up a chemical reaction without being used up. Almost all enzymes are proteins. Each enzyme has an **active site**, a pocket that fits one kind of **substrate**, the molecule the enzyme works on.
 
 An enzyme works by making it easier for a reaction to start. It lowers the energy the reaction needs to get going. The reaction products leave, and the enzyme is ready for the next substrate.
 
-Enzymes work best in a certain range of temperature and pH. Heat or a very wrong pH can change an enzyme's shape, so the active site no longer fits. This is called **denaturing**. Many human enzymes work best near body temperature, about $37^\circ C$.
+Enzymes work best in a certain range of temperature and pH. Heat or a very wrong pH can change an enzyme's shape, so the active site no longer fits. This is called **denaturing**.
 
-Cold slows an enzyme but usually does not destroy its shape. Denaturing by heat is usually permanent. Every step of photosynthesis and respiration has its own enzyme.
+Many human enzymes work best near body temperature, about $37^\circ C$. Cold slows an enzyme but usually does not destroy its shape. Denaturing by heat is usually permanent.
+
+Most steps in photosynthesis and respiration are each sped up by a specific enzyme. Some steps happen without one, such as chlorophyll absorbing light.
 
 ### Biomolecules: the fuels and the building blocks
 
 Cells are built from four main groups of organic molecules, called **biomolecules**.
 
 - **Carbohydrates** are sugars and starches. Their small unit is a simple sugar such as glucose. They are the usual fuel for cells.
-- **Lipids** are fats and oils. They store a lot of energy and form cell membranes.
+- **Lipids** are a group that includes fats, oils, phospholipids and steroids. Fats and oils store a lot of energy. Phospholipids are the main molecules of cell membranes.
 - **Proteins** are chains of amino acids. They form enzymes, build structures and carry out many jobs.
 - **Nucleic acids** are DNA and RNA. They store and use genetic information.
 
@@ -64,10 +68,12 @@ A chloroplast has two outer membranes. Inside are flat sacs called **thylakoids*
 
 Photosynthesis has two linked stages.
 
-1. **Light reactions** happen in the thylakoid membranes. The green pigment **chlorophyll** absorbs light, mostly red and blue light. The energy splits water, which releases oxygen gas. It also makes ATP and an electron carrier called **NADPH**.
-2. **Calvin cycle** happens in the stroma. It uses the ATP and NADPH to turn carbon dioxide into a three-carbon sugar. The cell then builds glucose and other molecules from this sugar. An enzyme called rubisco starts the step that attaches carbon dioxide.
+1. **Light reactions** happen in the thylakoid membranes of a chloroplast. The green pigment **chlorophyll** absorbs light, mostly red and blue light. The energy splits water, which releases oxygen gas. It also makes ATP and an electron carrier called **NADPH**.
+2. **Calvin cycle** happens in the stroma of a chloroplast. It uses the ATP and NADPH to turn carbon dioxide into a three-carbon sugar. The cell then builds glucose and other molecules from this sugar. An enzyme called rubisco starts the step that attaches carbon dioxide.
 
 The Calvin cycle does not use light directly. It still stops soon in the dark, because the light reactions stop making ATP and NADPH.
+
+The places named above are for plants and algae. Cyanobacteria have no chloroplasts and no stroma, so they run both stages inside the cell.
 
 <!-- ILLUSTRATION: two boxes side by side, "Light reactions (thylakoid membranes)" and "Calvin cycle (stroma)"; arrows: light and water into the first box, oxygen out; ATP and NADPH from the first box to the second; carbon dioxide into the second box, sugar out; ADP and NADP+ returning from the second box to the first -->
 
