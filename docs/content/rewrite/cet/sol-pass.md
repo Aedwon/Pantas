@@ -32,3 +32,13 @@ Another session used up all three Codex accounts before the round-4 reads ran. L
 Aedwon: "no codex use. possible? and why is codex essential here"; "please don't parallelize so much because you have limited usage"; "why two more rounds this time?"; "okay proceed".
 
 Result: one fresh Opus 5.5 read per lesson (round 4), run one at a time. No round 5: a lesson with a Blocker or Major after round 4 stays open with its findings for the final review and the Astra audit. Sonnet wrote all fixes in this pass, so Opus does not read its own writing here. Three of the lessons (measures-of-variability, structural-stability, speeches) carry earlier lead (Opus) edits from the final run, as noted in the final report.
+
+## Change, November 5: one careful rework, then round 5
+
+Round 4 left all 18 open, with new findings in each and six new Blockers added by fixes. Lead recommended one careful rework per lesson, then one read. Aedwon: "proceed as you recommend."
+
+Per lesson, one at a time:
+1. A Sonnet writer fixes the round-4 Blockers and Majors (except those the rulings downgrade or reject), then sweeps the whole lesson: every general statement ("only", "always", "never", "every", "all", "no", "cannot", "must", and each stated rule) is tested at boundary values and a known exception and checked against a source; every term an example or rule uses is defined or names its prerequisite lesson; every question figure marker before a solution is checked so it shows only the givens. The writer lists each statement it changed.
+2. A fresh Opus reader reads it (round 5). After round 5 the lesson is final: clean, minor, or open.
+
+Figure markers: the writer may edit label text, move a marker unchanged to after the solution, or replace a FIGURE marker whose renderer type draws the answer or a wrong shape with an ILLUSTRATION marker that names only the givens (precedent: quadrilaterals, round 3).
