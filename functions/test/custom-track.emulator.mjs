@@ -11,6 +11,9 @@ import {recordSession} from '../lib/ingestSession.js';
 import {readStudyInsights} from '../lib/studyInsights.js';
 import {readSessionDiagnosis} from '../lib/sessionDiagnosis.js';
 import {readCarryableCount} from '../lib/carryableCount.js';
+import {beginMock, recordMock} from '../lib/mock.js';
+import {serveMockAvailability, serveMockHistory, serveMockResults} from '../lib/mockReader.js';
+import {blueprintItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
@@ -516,4 +519,109 @@ test('another account cannot read or change sessions, insights, diagnosis or the
   ]) await refused(run(), 'failed-precondition', 'Your account changed. Open this screen again.');
   assert.equal((await db.doc(`users/${a}/server/answers/items/sec-session-a2`).get()).exists, false);
   assert.deepEqual(await treeOf(a), aTree);
+});
+
+// ---- the mock: saved through setExamSettings, started and read back -----------------------------------------------------
+const MOCK_NOW = Date.parse('2026-11-20T10:00:00+08:00');
+const MIN = 60_000;
+const mockDeps = (at = MOCK_NOW) => ({db, now: () => at, allow: async () => true, seed: () => 11});
+const CHOSEN = (questionId, correct, at = MOCK_NOW) => ({questionId, chosen: 'a', correct, answeredAt: at});
+const idsIn = out => out.paper.sections.flatMap(s => s.questions.map(q => q.id));
+const seedCse = async () => {
+  await writeContent(db, [questionSetItems({meta: {subject: 's', topic: 'ctown', exams: ['cse-pro']},
+    questions: Array.from({length: 10}, (_, i) => ({id: `ct-cse-${i}`, stem: 'x', choices: [{text: 'a', correct: true}, {text: 'b'}]}))}, 'ct/ctown/u.yaml').item,
+  blueprintItem({exam: 'exam_cse_pro', name: 'Paper', durationMinutes: 60, sectionalTiming: 'none',
+    sections: [{id: 's1', name: 'Part one', questionCount: 4, suggestedMinutes: 60, topicIds: ['topic_cse_pro_ctown'], topicWeights: {topic_cse_pro_ctown: 1}}]})], [], {});
+  clearExamContentCache();
+};
+const paidCse = uid => db.doc(`users/${uid}/grants/ct-paid`).set({source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService',
+  startsAt: MOCK_NOW - DAY, endsAt: MOCK_NOW + 60 * DAY, state: 'active', createdAt: MOCK_NOW - DAY});
+const submittedCse = (uid, at) => db.doc(`users/${uid}/server/mocks/items/CseMock0000001`).set({examId: 'exam_cse_pro', status: 'submitted', startedAt: at - MIN, submittedAt: at,
+  endedBy: 'student', strict: false, limitMs: 60 * MIN, durationMs: MIN, paper: {sections: [{sectionId: 's1', name: 'Part one', questions: [{id: 'ct-cse-0', setId: 'set'}]}]}, answers: []});
+const COOLDOWN = 'Free accounts can take one mock every 30 days.';
+const startRefused = async (promise, message) => assert.rejects(promise, e => e.code === 'failed-precondition' && e.message === message);
+
+test('a saved custom exam starts a mock with its name, and the name survives a rename and a deleted track', async () => {
+  await seedCorpus();
+  const uid = 'ct-m-name', first = newId(), second = newId();
+  await reset(uid);
+  await save(uid, first, {customTrack: {name: 'PUP CET', blueprint: blueprint(MOCK_NOW, {})}}, MOCK_NOW);
+  const out = await beginMock(named(uid), {examId: first}, mockDeps());
+  assert.equal(out.examName, 'PUP CET');
+  assert.equal(idsIn(out).length, 10);
+  assert.equal(new Set(idsIn(out)).size, 10);
+  assert.equal(out.limitMs, 40 * MIN);
+  await recordMock(named(uid), {mockId: out.mockId, answers: [CHOSEN(idsIn(out)[0], true)], durationMs: MIN}, mockDeps(MOCK_NOW + MIN));
+  await save(uid, first, {customTrack: {name: 'Renamed'}}, MOCK_NOW + 2 * MIN);
+  assert.equal((await track(uid, first)).name, 'Renamed');
+  assert.equal((await serveMockResults(named(uid), {mockId: out.mockId}, mockDeps(MOCK_NOW + 3 * MIN))).examName, 'PUP CET');
+  await save(uid, second, {customTrack: {name: 'Second'}}, MOCK_NOW + 4 * MIN);
+  assert.deepEqual(await removeCustomTrack(named(uid), body(uid, first), mockDeps(MOCK_NOW + 5 * MIN)), {deleted: true});
+  const results = await serveMockResults(named(uid), {mockId: out.mockId}, mockDeps(MOCK_NOW + 6 * MIN));
+  assert.equal(results.examName, 'PUP CET');
+  assert.equal(results.examId, first);
+  assert.deepEqual((await serveMockHistory(named(uid), {}, mockDeps(MOCK_NOW + 6 * MIN))).items.map(i => [i.examId, i.examName]), [[first, 'PUP CET']]);
+  // The track is gone, so the exam has no mock to start again.
+  assert.equal((await serveMockAvailability(named(uid), {examId: first}, mockDeps(MOCK_NOW + 7 * MIN))).status, 'no-blueprint');
+});
+
+test('Free cooldown: a CSE mock blocks a custom start, and a custom mock blocks CSE and every other custom track', async () => {
+  await seedCorpus();
+  await seedCse();
+  const cseFirst = 'ct-m-cse-first', customFirst = 'ct-m-custom-first';
+  await reset(cseFirst); await reset(customFirst);
+  const a = newId(), b = newId(), c = newId();
+  // CSE inside 30 days blocks a custom start, and the day it ends the start works.
+  await save(cseFirst, a, {customTrack: {name: 'A', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  await submittedCse(cseFirst, MOCK_NOW - 5 * DAY);
+  await startRefused(beginMock(named(cseFirst), {examId: a}, mockDeps()), COOLDOWN);
+  await startRefused(beginMock(named(cseFirst), {examId: a}, mockDeps(MOCK_NOW - 5 * DAY + 30 * DAY - 1)), COOLDOWN);
+  assert.equal((await serveMockAvailability(named(cseFirst), {examId: a}, mockDeps())).status, 'cooldown');
+  assert.equal((await beginMock(named(cseFirst), {examId: a}, mockDeps(MOCK_NOW - 5 * DAY + 30 * DAY))).resumed, false);
+  // A custom mock blocks a CSE start and a second and third track, which are not a way around the window.
+  await save(customFirst, a, {customTrack: {name: 'A', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  await save(customFirst, b, {customTrack: {name: 'B', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  await save(customFirst, c, {customTrack: {name: 'C', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  const out = await beginMock(named(customFirst), {examId: a}, mockDeps());
+  await recordMock(named(customFirst), {mockId: out.mockId, answers: [CHOSEN(idsIn(out)[0], true)], durationMs: MIN}, mockDeps(MOCK_NOW + MIN));
+  for (const examId of [b, c, a, 'exam_cse_pro']) {
+    await startRefused(beginMock(named(customFirst), {examId}, mockDeps(MOCK_NOW + DAY)), COOLDOWN);
+  }
+  for (const examId of [b, c]) {
+    const state = await serveMockAvailability(named(customFirst), {examId}, mockDeps(MOCK_NOW + DAY));
+    assert.equal(state.status, 'cooldown');
+    assert.equal(state.nextEligibleAt, MOCK_NOW + MIN + 30 * DAY);
+  }
+  assert.equal((await beginMock(named(customFirst), {examId: b}, mockDeps(MOCK_NOW + MIN + 30 * DAY))).resumed, false);
+});
+
+test('a paid CSE grant opens CSE but not a custom mock', async () => {
+  await seedCorpus();
+  await seedCse();
+  const uid = 'ct-m-paid', id = newId();
+  await reset(uid);
+  await save(uid, id, {customTrack: {name: 'A', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  await paidCse(uid);
+  await submittedCse(uid, MOCK_NOW - 5 * DAY);
+  const claims = {pro: true, proUntil: MOCK_NOW + 60 * DAY};
+  await startRefused(beginMock(named(uid, claims), {examId: id}, mockDeps()), COOLDOWN);
+  const state = await serveMockAvailability(named(uid, claims), {examId: id}, mockDeps());
+  assert.equal(state.status, 'cooldown');
+  assert.equal(state.proCovered, false);
+  const cse = await beginMock(named(uid, claims), {examId: 'exam_cse_pro'}, mockDeps());
+  assert.equal(cse.resumed, false);
+  assert.equal('examName' in cse, false, 'a listed mock has no name');
+});
+
+test('another account cannot start, read or list this account\'s custom mock', async () => {
+  await seedCorpus();
+  const a = 'ct-m-sec-a', b = 'ct-m-sec-b', id = newId();
+  await reset(a); await reset(b);
+  await save(a, id, {customTrack: {name: 'Secret', blueprint: blueprint(MOCK_NOW)}}, MOCK_NOW);
+  const out = await beginMock(named(a), {examId: id}, mockDeps());
+  await assert.rejects(beginMock(named(b), {examId: id}, mockDeps()), e => e.code === 'failed-precondition' && e.message === 'This exam has no mock yet.');
+  assert.equal((await serveMockAvailability(named(b), {examId: id}, mockDeps())).status, 'no-blueprint');
+  await assert.rejects(serveMockResults(named(b), {mockId: out.mockId}, mockDeps()), e => e.code === 'not-found');
+  assert.deepEqual((await serveMockHistory(named(b), {}, mockDeps())).items, []);
+  assert.equal((await db.collection(`users/${b}/server/mocks/items`).get()).size, 0);
 });

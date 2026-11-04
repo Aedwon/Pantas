@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {beginMock, changeMock, readMock, recordMock} from '../lib/mock.js';
-import {serveMockResults} from '../lib/mockReader.js';
+import {serveMockResults, writeMockReview} from '../lib/mockReader.js';
 import {saveExamSettings, readStudyRoadmap} from '../lib/roadmap.js';
 import {recordSession} from '../lib/ingestSession.js';
 import {questionSetItems, blueprintItem, writeContent} from '../lib/contentUpload.js';
@@ -125,4 +125,24 @@ test('mock mirror counts on actual start day and completes on finish day across 
  for(const id of ids)assert.equal(sum.questions.get(id).firstCompletedAt,finishAt);
  const mirror=await ledger(uid,out.mockId).get();assert.equal(mirror.get('startedAt'),startAt);assert.equal(mirror.get('finishedAt'),finishAt);
  await recordMock(named(uid),payload,deps(finishAt+1000));assert.deepEqual(await totals(uid),saved);
+});
+
+test('review notes are refused on a custom paper, even with a paid grant for CSE',async()=>{
+ const uid='mr-custom-notes',id='CustomReview0001',examId='exam_custom_6f1c2d3e-4a5b-4c6d-8e7f-0a1b2c3d4e5f';
+ await db.recursiveDelete(db.doc(`users/${uid}`));
+ const paper={expectedQuestionCount:2,sections:[{sectionId:'section_all',name:'Everything',questions:[{id:'ca',setId:'set'},{id:'cb',setId:'set'}]}]};
+ await items(uid).doc(id).set({examId,examName:'PUP CET',status:'submitted',startedAt:NOW-1000,submittedAt:NOW,endedBy:'student',strict:false,limitMs:3600000,durationMs:1000,
+  paper,answers:[{questionId:'ca',chosen:'a',correct:true,answeredAt:NOW}],pausedMs:0,pausedAt:null});
+ await db.doc(`users/${uid}/grants/paid`).set({source:'paymongo',product:'pantas_cs_monthly',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+60*DAY,state:'active',createdAt:NOW-DAY});
+ const caller={...named(uid),token:{...named(uid).token,pro:true,proUntil:NOW+60*DAY}};
+ const body={mockId:id,questionId:'ca',missReason:'slipped',reasonNote:'check signs'};
+ await assert.rejects(writeMockReview(caller,body,deps()),e=>e.code==='permission-denied'&&e.message==='Pro is required for notes.');
+ assert.equal((await snapshot(uid,id)).reviewNotes,undefined);
+ const results=await serveMockResults(caller,{mockId:id},deps());
+ assert.equal(results.proCovered,false);assert.equal('notes' in results,false);
+ // The same grant still covers a listed CSE paper, so the refusal is about the custom id.
+ const listed=await start('mr-custom-notes-listed');
+ await db.doc('users/mr-custom-notes-listed/grants/paid').set({source:'paymongo',product:'pantas_cs_monthly',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+60*DAY,state:'active',createdAt:NOW-DAY});
+ await submit('mr-custom-notes-listed',listed);
+ await writeMockReview(named('mr-custom-notes-listed'),{mockId:listed.mockId,questionId:listed.paper.sections[0].questions[0].id,missReason:'slipped'},deps(NOW+2000));
 });
