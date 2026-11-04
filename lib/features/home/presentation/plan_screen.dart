@@ -31,6 +31,18 @@ import 'package:pantas/features/settings/application/settings_providers.dart';
 void _back(BuildContext context) =>
     context.canPop() ? context.pop() : context.go('/home');
 
+/// Leaves the plan the way it was entered, so Home slides back into place,
+/// from a day or week pane as well as from the plan itself.
+void _backToHome(BuildContext context) {
+  final router = GoRouter.of(context);
+  while (router.canPop()) {
+    router.pop();
+  }
+  if (router.routerDelegate.currentConfiguration.uri.path != '/home') {
+    router.go('/home');
+  }
+}
+
 class PlanScreen extends ConsumerStatefulWidget {
   const PlanScreen({this.webPane, this.selectedWeek, super.key});
   final Widget? webPane;
@@ -105,7 +117,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
           : null,
       onMore: () => setState(() => _limit += 10),
       onBack: () => _back(context),
-      onToday: () => context.wideWeb ? context.go('/home') : _back(context),
+      onToday: () => context.wideWeb ? _backToHome(context) : _back(context),
       onWeek: (start) => unawaited(context.push<void>('/plan/week/$start')),
       onPro: () => unawaited(context.push<void>('/settings/pro')),
     );
@@ -505,7 +517,7 @@ Future<void> showPlanPastDay(BuildContext context, DateTime date) async {
   hold.close();
 }
 
-const _popoverWait = Duration(milliseconds: 400);
+const _popoverWait = Duration(milliseconds: 120);
 
 Future<void> _openPlanPastDay(BuildContext context, DateTime date) =>
     showWebOverlay<void>(

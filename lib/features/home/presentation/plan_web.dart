@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/motion/pane_transition.dart';
+import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
+import 'package:pantas/features/home/presentation/widgets/plan_skeletons.dart';
 
 /// The sidebar shell owns the outer padding and width.
 class PlanWebFrame extends StatelessWidget {
@@ -30,14 +33,24 @@ class PlanWebFrame extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                WebBackLink(label: backLabel, onPressed: onBack),
-                const SizedBox(height: 6),
-                WebText(title, kind: WebTextKind.h1),
-                if (subtitle != null) ...[
-                  const SizedBox(height: 6),
-                  WebText(subtitle!, kind: WebTextKind.lead),
-                ],
-                const SizedBox(height: 26),
+                // The heading and list paint the page's background, so only
+                // the pane beside them shows the page behind while it fades.
+                ColoredBox(
+                  color: context.webTokens.colors.background,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      WebBackLink(label: backLabel, onPressed: onBack),
+                      const SizedBox(height: 6),
+                      WebText(title, kind: WebTextKind.h1),
+                      if (subtitle != null) ...[
+                        const SizedBox(height: 6),
+                        WebText(subtitle!, kind: WebTextKind.lead),
+                      ],
+                      const SizedBox(height: 26),
+                    ],
+                  ),
+                ),
                 child,
               ],
             ),
@@ -72,7 +85,15 @@ class PlanSplit extends StatelessWidget {
               : free < 0
                   ? (c.maxWidth - gap) * 13 / 23
                   : 460 + free * 1.3 / 2.3;
-          final shownLeft = stillLeft ? PlanEntryStill(child: left) : left;
+          final background = context.webTokens.colors.background;
+          final shownLeft = ColoredBox(
+            color: background,
+            child: stillLeft ? PlanEntryStill(child: left) : left,
+          );
+          final shownRight = PaneDetailMotion(
+            background: background,
+            child: right,
+          );
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -82,9 +103,9 @@ class PlanSplit extends StatelessWidget {
                 SizedBox(width: leftWidth, child: shownLeft),
               const SizedBox(width: gap),
               if (leftWidth == null)
-                Expanded(flex: 10, child: right)
+                Expanded(flex: 10, child: shownRight)
               else
-                Expanded(child: right),
+                Expanded(child: shownRight),
             ],
           );
         },
@@ -177,15 +198,12 @@ class PlanWebColumns extends StatelessWidget {
         : marker;
     final historyStart =
         nodes.isEmpty ? 350 : 350 + (nodes.length - 1) * 260 + 270;
-    // The approved detail pane motion: it fades and rises 8 px beside the list.
+    // A loading pane fades to the day or week when it arrives.
     final shownPane = pane;
     final paneEntry = shownPane == null
         ? null
-        : PlanEntry(
-            key: ValueKey(shownPane.runtimeType),
-            start: 0,
-            duration: 240,
-            y: 8,
+        : ViewSwap(
+            index: shownPane is WebPlanLoading ? 0 : 1,
             child: shownPane,
           );
     return PlanWebFrame(

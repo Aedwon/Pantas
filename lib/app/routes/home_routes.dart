@@ -61,10 +61,11 @@ List<RouteBase> homeRoutes(Ref ref) => [
       ),
     ];
 
-/// On wide web a day or week opens in a pane beside the plan, which stays still
-/// (the Settings pane motion). A phone keeps the platform's transition.
+/// On wide web a day or week opens in a pane beside the plan, which stays
+/// still, and fades and rises going both ways (the Settings pane motion). A
+/// phone keeps the platform's transition.
 PaneTransition _planPaneTransition(BuildContext context) =>
-    context.wideWeb ? PaneTransition.instant : PaneTransition.platform;
+    context.wideWeb ? PaneTransition.detail : PaneTransition.platform;
 
 /// Opens a lesson from a plan day as a drawer over the page (wide web).
 Future<void> openPlanLesson(

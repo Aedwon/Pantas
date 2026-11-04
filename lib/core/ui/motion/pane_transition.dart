@@ -55,8 +55,7 @@ enum PaneTransition {
   fade,
 
   /// The route itself moves nothing and takes no time. The page handles its
-  /// own motion: a dialog over a copy of the page behind, or a pane beside a
-  /// list that must stay still.
+  /// own motion: a dialog over a copy of the page behind.
   instant,
 }
 
