@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-biology-meiosis-and-genetic-variation",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A diploid cell has two alleles of each gene, one on each homolog.",
+      "problem": "New in the round-1 fix. The statement is false for genes on the X and Y chromosomes in human males: a male cell has one X and one Y, so it holds only one allele of each X-linked gene (and of each Y-linked gene). The named prerequisite teaches this exception ('X and Y pair up in meiosis, but they are not fully homologous... carry mostly different genes'), so the new sentence contradicts it. A student who applies it to a sex-linked case, such as a male's alleles for an X-linked trait, gives two where the answer is one. The sentence needs a limit, such as genes on a homologous pair other than X and Y.",
+      "source": "OpenStax Biology 2e, 13.1 Chromosomal Theory and Genetic Linkage / X-linked traits (males are hemizygous for X-linked genes, with one allele). Prerequisite lesson Cellular Reproduction, Core Concept, sex-chromosome paragraph. Reader rules, Added after the Sol audit."
+    },
+    {
+      "rule": "L26",
+      "severity": "Major",
+      "quote": "Many such cells use both ways of sorting.",
+      "problem": "New in the round-1 fix. Core Concept says 'For $n$ pairs, there are $2^n$ ways to sort them', so two pairs have $2^2 = 4$ ways. Example #6 has two pairs and speaks of 'both ways of sorting', which means two. Core Concept then calls the ways 'these combinations' ('its four cells hold two of these combinations'), so one word stands for both a metaphase I arrangement and a gamete combination. The two counts are different: with two pairs there are two distinct metaphase I outcomes and four gamete combinations. This is the concept the round-1 Blocker fix rests on (one meiosis versus many), so a student cannot tell what one 'way of sorting' is, or check the example against the formula.",
+      "source": "Content checklist L26; the lesson's own Core Concept ('For $n$ pairs, there are $2^n$ ways to sort them.') against Example #6 steps 3 and 4. OpenStax Biology 2e, 11.1 (each metaphase I alignment sends one combination to each pole; $2^n$ counts the possible genetically distinct gametes)."
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "Use $2^n$ only when you ignore crossing over.",
+      "problem": "New in the round-1 fix. The paragraph before defines $n$ here as heterozygous gene pairs on different chromosomes. For such genes, crossing over adds no new gamete types: each gamete still carries one allele of each gene, so the count stays $2^n$. The lesson's own Example #6 step 6 shows this ('With crossing over between a gene and its centromere, one meiosis can make up to four types.', the same four). The stated condition is therefore false, and it tells a student not to use the right count on a question that mentions crossing over for genes on different chromosomes. Crossing over changes the count only for genes on the same chromosome (Example #7), or for the whole-chromosome count in Core Concept.",
+      "source": "Content checklist L27; solved from the lesson's own Speed Tricks definition and Example #6 step 6. Reader rules, Added after the Sol audit (test every 'only')."
+    }
+  ],
+  "goodQuotesChecked": 3
+}

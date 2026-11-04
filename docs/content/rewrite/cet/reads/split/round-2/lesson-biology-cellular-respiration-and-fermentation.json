@@ -1,0 +1,16 @@
+{
+  "lesson": "lesson-biology-cellular-respiration-and-fermentation",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Anaerobic respiration** is used by some prokaryotes.",
+      "problem": "This paragraph still has four sentences, and the limit is one to three. Round 1 named it. The round-1 fix split the glossary, the ATP-yield and the fermentation paragraphs but left this one at four sentences. Every other paragraph now has three or fewer. The round-1 Blocker is fixed: the chloroplast sentence now says 'In plants' and the next sentences name cyanobacteria as photosynthesizers without chloroplasts, and Example #1 and the chloroplast definition carry the same limit with no new error.",
+      "source": "Checklist L22a; LSG Formatting rules; round-1 read of this lesson"
+    }
+  ],
+  "goodQuotesChecked": 1
+}
