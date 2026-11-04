@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-trigonometry-solving-right-triangles",
+  "round": 1,
+  "reader": "opus",
+  "verdict": "major",
+  "findings": [
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "\"labels\": [\"Lighthouse = 50 m\", \"Depression = 30°\", \"Boat distance = ?\", \"90°\"]",
+      "problem": "The Example 4 question marker now uses the plain right-triangle-trig type. That renderer places labels by index on fixed anchors: label 1 at the right-angle corner, label 2 at the bottom-right vertex, label 3 at the top vertex. So \"Depression = 30°\" is drawn as the interior angle at the boat, which is the solution's first step (the alternate-angle transfer, angle at the boat is 30°), and it puts a depression angle at the object, the error Traps #1 and #2 warn against. The type also draws no horizontal at the top, so the depression angle cannot be shown where it belongs. The question figure shows the method and mislabels the given.",
+      "source": "Content checklist L05; lib/core/ui/figures/geometry_diagram_figure.dart (_drawTriangle anchors, _drawLabels index mapping); final-run rulings (no marker may show an answer or method)"
+    },
+    {
+      "rule": "L27",
+      "severity": "Major",
+      "quote": "The angle is measured from the eye, so the right triangle starts at eye level, not at the ground. The ratio gives the height above eye level. Add the eye height to get the height above the ground.",
+      "problem": "The Eye height rule is stated without its condition. It holds only for an elevation where the unknown is the object's height. For a depression the ratio gives the drop below eye level, which Trap #3 later says to subtract. When the object's height is known and the distance is wanted, the eye height must be subtracted from the height before the ratio is used, and adding it to the result is wrong; the lesson never teaches this case. The Trap #3 warning line repeats the unconditional rule (\"add the eye height to the result\"), so it contradicts its own explanation.",
+      "source": "Content checklist L27; brief goal (observer-height adjustments)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Put your calculator in degree mode first. In a right triangle the other angles are acute, so the calculator's answer is the angle you want.",
+      "problem": "The Finding an angle paragraph has five sentences, over the one-to-three limit. The paragraphs starting \"The angle is always measured from the horizontal\" and \"An observer's eyes are above the ground\" have four each.",
+      "source": "Content checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
