@@ -19,7 +19,7 @@ The angle $\theta$ is the angle between the force and the displacement. The fact
 
 - $\cos 0^\circ = 1$: the force points along the motion, so $W=Fd$.
 - $\cos 60^\circ = 0.5$.
-- $\cos 90^\circ = 0$: the force is perpendicular to the motion, so it does zero work.
+- $\cos 90^\circ = 0$: the force is perpendicular (at a right angle) to the motion, so it does zero work.
 - $\cos 180^\circ = -1$: the force points against the motion, so the work is negative. Friction on an object sliding over a surface at rest does negative work.
 
 Work is measured in **joules** ($J$). One joule is the work of a $1\ N$ force over $1\ m$.
@@ -36,7 +36,7 @@ $$KE = \dfrac{1}{2}mv^2$$
 
 $$PE = mgh$$
 
-The number $g$ is the acceleration due to gravity. A freely falling object, with air ignored, gains about $9.8\ \text{m/s}$ of speed every second. That is why the unit is meters per second per second, written $\text{m/s}^2$.
+The number $g$ is the acceleration due to gravity. Acceleration is how fast the velocity changes (see the Kinematics lesson). With air ignored, the velocity of a falling object changes by about $9.8\ \text{m/s}$ downward each second. For an object dropped or thrown straight down, the speed grows by $9.8\ \text{m/s}$ each second. For an object rising after a throw, the speed drops by that much. That is why the unit is meters per second per second, written $\text{m/s}^2$.
 
 The **weight** of an object is the pull of gravity on it, in newtons:
 
@@ -46,25 +46,25 @@ Only the change in $PE$ matters, so the zero level is your choice. The formula w
 
 ### The Work-Energy Theorem
 
-The **net work** is the total work done by all forces together. The **work-energy theorem** says that net work equals the change in kinetic energy:
+The **net force** is the sum of all the forces on an object. If the net force is zero, the velocity does not change (see the Dynamics lesson). The **net work** is the total work done by all forces together. The **work-energy theorem** says that net work equals the change in kinetic energy:
 
 $$W_{net} = \Delta KE = KE_f - KE_i$$
 
 The symbol $\Delta$ means change: the final value minus the starting value. The small letters $i$ and $f$ mean initial (at the start) and final (at the end). An object that starts at rest has $KE_i=0$.
 
-Positive net work speeds an object up. Negative net work slows it down.
+Positive net work speeds an object up. Negative net work slows it down. Zero net work leaves its speed the same.
 
 ### Conservation of Energy
 
-Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant.
+Energy is never created or destroyed. It changes form or moves from place to place. The total energy of an isolated system stays constant. An isolated system is a group of objects with no energy entering or leaving it from outside. If a motor or a push from outside adds energy, the system is not isolated, and its total energy rises.
 
-**Mechanical energy** is $KE+PE$. A **conservative force**, such as gravity, can give back the energy it takes. If only conservative forces do work, mechanical energy stays the same:
+**Mechanical energy** is $KE+PE$. In this lesson, $PE$ is gravitational potential energy. A spring also stores energy, and that stored energy counts in $PE$ too. A **conservative force**, such as gravity, can give back the energy it takes. If only conservative forces do work, mechanical energy stays the same:
 
 $$KE_i + PE_i = KE_f + PE_f$$
 
-A **nonconservative force**, such as sliding friction, air drag, or an applied push, pull or motor, can change mechanical energy. Sliding friction and drag turn it into thermal energy. A push or a motor can add to it.
+A **nonconservative force**, such as sliding friction, air drag, or an applied push, pull or motor, can change mechanical energy. Sliding friction and drag turn it into thermal energy, the energy of the random motion of tiny particles, felt as warmth. A push or a motor can add to it.
 
-Friction that does not let the surfaces slip, as under a ball rolling without slipping, does zero work. The work $W_{nc}$ done by the nonconservative forces equals the change in mechanical energy:
+Friction that stops slipping does zero work only if the surface it grips is at rest, as under a ball rolling without slipping on the ground. If that surface moves, as a belt or a truck bed does, this friction can do positive work on the object it carries. The work $W_{nc}$ done by the nonconservative forces equals the change in mechanical energy:
 
 $$W_{nc} = \Delta(KE+PE)$$
 
@@ -135,7 +135,7 @@ A $4.0\ \text{kg}$ block rests on a smooth floor. A constant horizontal force of
 
 **Solution:**
 
-1. The push is the net force, along the motion. Find the net work.
+1. Gravity and the floor's support cancel, so the push is the net force, along the motion. Find the net work.
 
 $$W_{net} = Fd = (10)(5.0) = 50\ \text{J}$$
 
@@ -229,7 +229,7 @@ $$W = mgh = (60)(9.8)(10) = 5880\ \text{J}$$
 
 $$P_{avg} = \dfrac{5880}{20} = 294\ \text{W}$$
 
-3. For (b), the speed is steady, so the net force is zero. The crane's force equals the weight $F_g=mg$.
+3. For (b), the load moves straight up at a steady speed, so the net force is zero. The crane's force equals the weight $F_g=mg$.
 
 $$F = mg = (500)(9.8) = 4900\ \text{N}$$
 
@@ -241,7 +241,7 @@ $$P = (4900)(0.20) = 980\ \text{W}$$
 
 A worker lifts a $50\ \text{kg}$ load by $2.0\ \text{m}$ with a pulley system. The worker pulls the rope with a steady $350\ \text{N}$ force through $4.0\ \text{m}$. Find the efficiency. Use $g = 9.8\ \text{m/s}^2$.
 
-<!-- ILLUSTRATION: movable pulley supporting a 50 kg load with two rope segments, load rising 2.0 m, rope end pulled 4.0 m with a 350 N effort -->
+<!-- ILLUSTRATION: movable pulley supporting a 50 kg load, load rising 2.0 m, rope end pulled 4.0 m with a 350 N effort -->
 **Solution:**
 
 1. The load force is its weight.
@@ -264,7 +264,7 @@ The other $420\ \text{J}$ was wasted, mostly as heat from friction. An ideal sys
 
 For work by a constant force, check the angle first. Same direction gives $W=Fd$, perpendicular gives zero, and opposite gives a negative answer.
 
-For a mechanical-energy problem, ask if any force other than gravity does work. Sliding friction, air drag, a push, a pull and a motor all count. If none does, set $KE+PE$ equal at the two states; if one does, include $W_{nc}$.
+For a mechanical-energy problem, ask if any force other than gravity does work. This lesson's problems have no springs. Sliding friction, air drag, a push, a pull and a motor all count. If none does, set $KE+PE$ equal at the two states; if one does, include $W_{nc}$.
 
 If an object starts from rest and only gravity does work, mass cancels. Then $mgh=\dfrac{1}{2}mv^2$ gives $v=\sqrt{2gh}$, where $h$ is the drop in height. It fails if the object already has speed or if any other force does work.
 
