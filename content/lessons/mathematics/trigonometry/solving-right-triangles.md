@@ -17,7 +17,7 @@ The three trigonometric ratios compare two sides of the triangle. Remember them 
 
 $$\sin\theta=\dfrac{\text{opposite}}{\text{hypotenuse}}\qquad\cos\theta=\dfrac{\text{adjacent}}{\text{hypotenuse}}\qquad\tan\theta=\dfrac{\text{opposite}}{\text{adjacent}}$$
 
-Because the hypotenuse is the longest side, $\sin\theta$ and $\cos\theta$ of an acute angle are always greater than $0$ and less than $1$. The value of $\tan\theta$ can be any positive number. If you get a sine or cosine of $1$ or more, you put the wrong side on top.
+Because the hypotenuse is the longest side, $\sin\theta$ and $\cos\theta$ of an acute angle are always greater than $0$ and less than $1$. The value of $\tan\theta$ can be any positive number. If you get a sine or cosine of $1$ or more, the hypotenuse is not on the bottom, so check which two sides you used.
 
 Three more facts help you solve a right triangle.
 

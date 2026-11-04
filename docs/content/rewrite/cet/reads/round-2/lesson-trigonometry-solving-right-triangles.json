@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-trigonometry-solving-right-triangles",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "If you get a sine or cosine of $1$ or more, you put the wrong side on top.",
+      "problem": "The diagnosis is false in a common case. A sine or cosine of 1 or more means the hypotenuse is not in the denominator, not that the numerator is wrong. Counterexample: a student computes sine as opposite over adjacent in a triangle where the opposite leg is longer (legs 8 and 6 give 8/6 > 1). The side on top (opposite) is correct; the wrong side is on the bottom. A student who checks the top side, as told, finds it right and cannot locate the error.",
+      "source": "Content checklist B01; reader rules, test every general statement; the lesson's own SOH-CAH-TOA definitions (hypotenuse in the denominator of sine and cosine)"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "Put your calculator in degree mode first. In a right triangle the other angles are acute, so the calculator's answer is the angle you want.",
+      "problem": "Round-1 finding still open in part. The Finding an angle paragraph still has five sentences, over the one-to-three limit. The paragraph starting \"The angle is always measured from the horizontal, never from the vertical.\" still has four. The eye-height paragraph is now within the limit.",
+      "source": "Content checklist L22a; LSG Formatting rules; round-1 read"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "$$\\sin\\theta=\\dfrac{\\text{opposite}}{\\text{hypotenuse}}\\qquad\\cos\\theta=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}\\qquad\\tan\\theta=\\dfrac{\\text{opposite}}{\\text{adjacent}}$$",
+      "problem": "New display line puts all three ratios, with word numerators and denominators and two wide gaps, on one line. At display size this is far wider than a phone screen, so it will overflow or shrink to an unreadable size.",
+      "source": "Content checklist L21; LSG Examples section"
+    }
+  ],
+  "goodQuotesChecked": 3
+}
