@@ -17,7 +17,9 @@ This lesson uses ATP, glucose and enzymes from the lesson Cellular Metabolism: E
 
 **ATP** (adenosine triphosphate) is the molecule that gives a cell energy for its work. **Glucose** ($C_6H_{12}O_6$) is a sugar and the usual fuel. An **enzyme** is a molecule that speeds up a reaction without being used up.
 
-A **prokaryote** is a cell with no nucleus and no membrane-bound organelles. A **eukaryote** is a cell with a nucleus and organelles. An **organelle** is a small part inside a cell with its own job. The **cytosol** is the watery fluid in a cell, outside the organelles. A **chloroplast** is the organelle where photosynthesis happens. The **light reactions** are the first stage of photosynthesis, and they need light.
+A **prokaryote** is a cell with no nucleus and no membrane-bound organelles. A **eukaryote** is a cell with a nucleus and organelles. An **organelle** is a small part inside a cell with its own job.
+
+The **cytosol** is the watery fluid in a cell, outside the organelles. A **chloroplast** is the organelle where photosynthesis happens in plants and algae. The **light reactions** are the first stage of photosynthesis, and they need light.
 
 **Catabolic** means breaking big molecules down into smaller ones. An **electron** is a tiny charged particle, and moving electrons carry energy. An **electron carrier** is a molecule that picks up electrons in one place and drops them off in another.
 
@@ -44,7 +46,9 @@ A mitochondrion has an outer membrane and a folded inner membrane. The folds are
 
 <!-- ILLUSTRATION: mitochondrion cut open, labeled outer membrane, inner membrane with cristae, matrix; glycolysis shown outside in the cytosol with glucose to pyruvate; pyruvate oxidation and citric acid cycle in the matrix; electron transport chain and ATP synthase on the inner membrane; oxygen in, water out -->
 
-One glucose gives only $2$ ATP in glycolysis and a few more in the citric acid cycle. Most ATP comes from oxidative phosphorylation. Current textbooks estimate about $30$ to $32$ ATP per glucose. Older books say $36$ to $38$. The real number varies with the cell type and how the cell moves NADH into the mitochondrion.
+One glucose gives only $2$ ATP in glycolysis and a few more in the citric acid cycle. Most ATP comes from oxidative phosphorylation.
+
+Current textbooks estimate about $30$ to $32$ ATP per glucose. Older books say $36$ to $38$. The real number varies with the cell type and how the cell moves NADH into the mitochondrion.
 
 Prokaryotes have no mitochondria. They run the later stages of respiration in the cytosol and across the cell's plasma membrane. So the location split above belongs to eukaryotes.
 
@@ -54,7 +58,9 @@ Some cells have no oxygen, or cannot use it. They still need ATP. There are two 
 
 **Anaerobic respiration** is used by some prokaryotes. It has an electron transport chain, like aerobic respiration, but the final electron acceptor is not oxygen. It may be a nitrate or a sulfate compound. It usually makes less ATP than aerobic respiration, but more than fermentation.
 
-**Fermentation** has no electron transport chain. Glycolysis alone makes the ATP, a net of $2$ per glucose. The problem is that glycolysis turns NAD+ into NADH, and the cell runs out of NAD+. Fermentation fixes this: NADH gives its electrons to pyruvate or to a molecule made from pyruvate. That turns NADH back into NAD+, so glycolysis can continue.
+**Fermentation** has no electron transport chain. Glycolysis alone makes the ATP, a net of $2$ per glucose.
+
+The problem is that glycolysis turns NAD+ into NADH, and the cell runs out of NAD+. Fermentation fixes this: NADH gives its electrons to pyruvate or to a molecule made from pyruvate. That turns NADH back into NAD+, so glycolysis can continue.
 
 There are two common kinds:
 
@@ -71,7 +77,9 @@ Matter cycles: carbon, hydrogen and oxygen move between sugar, carbon dioxide, w
 
 Plants do both processes. Respiration goes on in all living plant cells day and night, including roots, which need oxygen from the soil.
 
-Photosynthesis happens only in cells with chloroplasts, and only when there is light. In bright light a leaf makes more sugar and oxygen than it uses. In the dark, most plants take in oxygen and give off carbon dioxide, like an animal cell. CAM plants, such as pineapple, are an exception: they open their pores at night and take in carbon dioxide.
+In plants, photosynthesis happens only in cells with chloroplasts, and only when there is light. Some prokaryotes, such as cyanobacteria, also photosynthesize. They have no chloroplasts.
+
+In bright light a leaf makes more sugar and oxygen than it uses. In the dark, most plants take in oxygen and give off carbon dioxide, like an animal cell. CAM plants, such as pineapple, are an exception: they open their pores at night and take in carbon dioxide.
 
 <!-- FIGURE: {"kind":"biology-diagram","type":"photosynthesis-respiration-cycle","illustrationKey":"science/biology/cellular-metabolism#1","photosynthesis":{"organelle":"chloroplast","inputs":["carbon dioxide","water","sunlight"],"outputs":["glucose","oxygen"]},"respiration":{"organelle":"mitochondrion","inputs":["glucose","oxygen"],"outputs":["carbon dioxide","water","ATP"]},"loopsBack":true} -->
 
@@ -83,11 +91,12 @@ In a plant cell, name the organelle where photosynthesis takes place. Then say w
 
 **Solution:**
 
-1. Photosynthesis takes place in chloroplasts.
+1. In plant cells, photosynthesis takes place in chloroplasts.
 2. Glycolysis takes place in the cytosol, outside the mitochondrion.
 3. Pyruvate oxidation and the citric acid cycle take place in the mitochondrial matrix.
 4. The electron transport chain and ATP synthase are in the inner mitochondrial membrane.
-5. So "chloroplast means photosynthesis" is a good rule. "All respiration happens in mitochondria" is too broad.
+5. In plant and algal cells, "chloroplast means photosynthesis" is a good rule. Cyanobacteria photosynthesize without chloroplasts, so the rule does not cover prokaryotes.
+6. "All respiration happens in mitochondria" is too broad. Glycolysis is in the cytosol, and prokaryotes have no mitochondria.
 
 <!-- FIGURE: {"kind":"biology-diagram","type":"organelle-comparison","illustrationKey":"science/biology/cellular-metabolism#2","organelles":[{"name":"chloroplast","shape":"disc","appearance":"green","process":"photosynthesis"},{"name":"mitochondrion","shape":"bean","appearance":"folded inner membranes/cristae","process":"cellular respiration"}]} -->
 
