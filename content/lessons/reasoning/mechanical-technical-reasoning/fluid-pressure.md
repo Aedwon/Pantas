@@ -19,7 +19,7 @@ $$P=\dfrac{F}{A}.$$
 
 Force is measured in newtons ($\text{N}$). The unit of pressure is the **pascal** (Pa), which is $1\ \text{N}$ on each square meter. The same force on a smaller area gives a larger pressure.
 
-**Density** $\rho$ is the mass of a fluid in each unit of volume. Water has a density of about $1000\ \text{kg/m}^3$. Oil is lighter: a typical cooking oil is about $800\ \text{kg/m}^3$.
+**Density** $\rho$ is the mass of a fluid in each unit of volume. Water has a density of about $1000\ \text{kg/m}^3$. Oil is lighter: common cooking oils are about $910$ to $930\ \text{kg/m}^3$.
 
 ### Pressure in a Fluid at Rest
 
@@ -76,6 +76,12 @@ $$P+\tfrac12\rho v^2+\rho gy=\text{constant},$$
 
 where $y$ is the height. At the **same height**, a higher speed goes with a lower static pressure. If the speeds are equal, the pressures are equal. If the height rises and the speed stays the same, the pressure falls.
 
+To compare two points 1 and 2 on a streamline, write the constant sum for each and subtract. This gives the change in pressure:
+
+$$\Delta P=P_2-P_1=-\tfrac12\rho(v_2^2-v_1^2)-\rho g(y_2-y_1).$$
+
+If the height is equal, the second term is zero. If the speed is equal, the first term is zero.
+
 "Faster flow always means lower pressure" is too broad. A pump adds energy.
 
 Friction in a real pipe lowers the pressure along the pipe even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
@@ -99,7 +105,7 @@ A wide arm and narrow arm are connected at the bottom, contain the same water, a
 
 Neither. Under these conditions, the free surfaces settle at the **same elevation**.
 
-<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with a wide arm and a narrow arm, both open at the top."} -->
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with a wide arm and a narrow arm, both open at the top, with water settled at the same level in both arms."} -->
 ### #3: Narrowing Pipe
 
 Water flows steadily through an unbranched pipe that narrows. How does average speed change?
@@ -150,7 +156,7 @@ Y: $101{,}000+1000\times 9.8\times 3=130{,}400$ Pa.
 <!-- ILLUSTRATION: Two water tanks side by side. Tank X is sealed, with gas above the water at 150,000 Pa and Point X marked 1 m below the water surface. Tank Y is open to the air, with Point Y marked 3 m below the water surface. -->
 ### #7: Two Different Liquids
 
-A U-tube is open at both ends. It holds water. Oil, with density $800\ \text{kg/m}^3$, is poured into one arm. The water surface in the other arm is $10$ cm above the oil-water boundary. How high is the oil above that boundary?
+A U-tube is open at both ends. It holds water. A light oil, with density $800\ \text{kg/m}^3$, is poured into one arm. The water surface in the other arm is $10$ cm above the oil-water boundary. How high is the oil above that boundary?
 
 **Solution:**
 

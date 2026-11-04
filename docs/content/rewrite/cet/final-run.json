@@ -369,7 +369,7 @@
     "lessonPath": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
     "lessonId": "lesson-trigonometry-basic-trigonometric-ratios",
     "group": "mathematics",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md",
@@ -399,7 +399,7 @@
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
     "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
     "group": "reasoning",
-    "status": "round-1-read"
+    "status": "round-1-fixed"
   },
   {
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",

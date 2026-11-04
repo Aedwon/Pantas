@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L19",
+      "severity": "Minor",
+      "quote": "The unknown is in the bottom. Swap it with the sine value: $x \\cdot \\dfrac{\\sqrt{2}}{2} = 8$, so",
+      "problem": "Still open from round 1. The words say swap, but the equation shown multiplies both sides by x; the division by the sine value that gives x = 16 over root 2 is done inline, not as its own step. The answer 8 root 2 is correct.",
+      "source": "Content checklist L19; LSG Examples section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "First, cut a square along its diagonal. This gives a $45$-$45$-$90$ triangle.",
+      "problem": "Still open from round 1. Several paragraphs run past three sentences: the 45-45-90 paragraph has six, the 30-60-90 paragraph and the complementary-angle paragraph have five, the triples paragraph in Speed Tricks has five, and the opening paragraph, the positive-ratios paragraph, the choosing-a-ratio paragraph, Trap 2 and Trap 5 have four.",
+      "source": "Content checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
