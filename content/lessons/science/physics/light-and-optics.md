@@ -27,7 +27,7 @@ $$\theta_i=\theta_r$$
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "labels": ["Incident ray", "Normal line", "Reflected ray"], "angles": ["Angle of incidence", "Angle of reflection"], "semanticsLabel": "A flat mirror with a normal line showing an incoming incident ray and an outgoing reflected ray at equal angles."} -->
 
-A smooth surface, such as a mirror, sends parallel rays out in one direction. A rough surface, such as paper, sends them in many directions. Each tiny part of the rough surface still obeys the law of reflection.
+A smooth flat surface, such as a plane mirror, sends parallel rays out in one direction. A rough surface, such as paper, sends them in many directions, and each tiny part of it still obeys the law of reflection. Curved mirrors are taught in the Mirrors and Lenses lesson.
 
 A flat (plane) mirror makes an image that is upright and the same size as the object. The image looks as far behind the mirror as the object is in front. It is a **virtual image**, explained in the Mirrors and Lenses lesson.
 
@@ -99,7 +99,7 @@ Visible light covers roughly $400$ nm to $700$ nm. Red light has the longest wav
 
 A light ray hits a flat mirror at an angle of incidence of $40^\circ$. Find (a) the angle of reflection, (b) the angle between the incident ray and the mirror surface, and (c) the angle between the incident and reflected rays.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "incidentAngle": 40, "labels": ["40°", "?"], "semanticsLabel": "A light ray striking a flat mirror at 40 degrees from the normal line. The angle of the reflected ray is not given and is marked with a question mark."} -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "labels": ["Incident ray", "Normal line", "Reflected ray"], "angles": ["40°", "?"], "semanticsLabel": "A flat mirror with a normal line. The incident ray makes 40 degrees with the normal. The angle of the reflected ray is not given and is marked with a question mark."} -->
 
 **Solution:**
 
@@ -119,7 +119,7 @@ $$40^\circ+40^\circ=80^\circ$$
 
 A ray in air ($n=1.00$) strikes glass ($n=1.50$) at an angle of incidence of $30^\circ$. Find the angle of refraction.
 
-<!-- ILLUSTRATION: ray going from air into glass at a flat boundary, normal drawn, incident angle 30 degrees in air, refracted angle 19.5 degrees in glass bent toward the normal -->
+<!-- ILLUSTRATION: ray going from air (n = 1.00) into glass (n = 1.50) at a flat boundary, normal drawn, incident angle 30 degrees in air, the angle in the glass marked with a question mark -->
 
 **Solution:**
 
@@ -141,7 +141,7 @@ The ray bends toward the normal, as expected for entering a larger $n$.
 
 A ray in glass ($n=1.50$) meets a glass-air boundary at $20^\circ$ from the normal. Find the angle of refraction in air ($n=1.00$).
 
-<!-- ILLUSTRATION: ray going from glass up into air at a flat boundary, normal drawn, incident angle 20 degrees in glass, refracted angle 30.9 degrees in air bent away from the normal -->
+<!-- ILLUSTRATION: ray going from glass (n = 1.50) up into air (n = 1.00) at a flat boundary, normal drawn, incident angle 20 degrees in glass, the angle in the air marked with a question mark -->
 
 **Solution:**
 
@@ -183,7 +183,7 @@ Check in glass: $\dfrac{2.00\times10^{8}}{400\times10^{-9}}=5.0\times10^{14}$ Hz
 
 A ray inside glass ($n=1.50$) travels toward a glass-air boundary at an angle of incidence of $45^\circ$. Will it leave the glass?
 
-<!-- ILLUSTRATION: ray in glass (n = 1.50) hitting the glass-air boundary at 45 degrees from the normal and reflecting back into the glass at 45 degrees, critical angle 41.8 degrees noted -->
+<!-- ILLUSTRATION: ray in glass (n = 1.50) hitting the glass-air (n = 1.00) boundary at 45 degrees from the normal, normal drawn, what happens to the ray at the boundary marked with a question mark -->
 
 **Solution:**
 
@@ -213,7 +213,7 @@ A straw partly in water looks bent where it meets the surface when seen from the
 
 Arrange X-rays, radio waves, visible light, and gamma rays from longest to shortest wavelength. Then find the wavelength of a radio wave of frequency $100$ MHz in vacuum.
 
-<!-- ILLUSTRATION: horizontal bar of the spectrum from radio (longest wavelength) through microwave, infrared, visible, ultraviolet, X-ray to gamma (shortest), with the radio wave of 3.00 m wavelength marked -->
+<!-- ILLUSTRATION: four unordered labels, X-rays, radio waves, visible light and gamma rays, and a separate radio wave of frequency 100 MHz with its wavelength marked with a question mark -->
 
 **Solution:**
 
