@@ -1,0 +1,30 @@
+{
+  "lesson": "lesson-earth-science-astronomy-earths-motions",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A constellation close enough to the north celestial pole is the exception.",
+      "problem": "The paragraph before states a general rule ('A constellation that is high at midnight in one season lies in the Sun's direction about six months later. Daylight then hides it.') and this sentence names one exception. It is not the only one. Constellations near the south celestial pole are circumpolar from far south of the equator: Crux (declination about -60 degrees) never sets from latitudes beyond about 30 degrees S, such as Sydney. It is high at midnight around April, has the Sun near its right ascension around October, and is still seen low on every dark night then. Stars far from the Sun's path but not circumpolar are also never truly in the Sun's direction: from the Philippines, the Big Dipper still shows low in the north after dusk six months after it was high at midnight. The rule holds for constellations near the Sun's yearly path, such as Orion and Scorpius, which the lesson uses. Calling the north-pole case 'the exception' teaches a false completeness, the same defect the lead upheld for 'HL is the only exception' in geometry-triangles. The round-3 send-back limited the sentence to the north on purpose, so the general rule above it, not this sentence alone, needs its limit.",
+      "source": "Checklist B01; reader-rules.md 'Added after the Sol audit'; final-run-rulings.md (geometry-triangles round-2 ruling on a sole named exception); Encyclopaedia Britannica, 'circumpolar star' and 'Crux'; standard star positions (Crux near RA 12.5 h, Sun near RA 13 h in early October)"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "\"extraRotation\":\"a few extra degrees\"",
+      "problem": "This base FIGURE marker draws the label 'a few extra degrees' on the sidereal-solar-day figure (the app renderer requires and prints this exact string, lib/core/ui/figures/earth_science_diagram_figure.dart, lines 131 and 748). The true extra turn is 360 degrees divided by about 365.25 days, about 1 degree, which the prose right above states: 'Earth must turn a little more, about $1^\\circ$'. 'A few degrees' is two to five times too large, and the student sees the figure and the prose disagree. Under the November 5 ruling, a marker label that shows a false fact is corrected; here the value is fixed in the renderer's validator, so the fix needs the figure phase. The same renderer also prints 23.5 degrees beside prose of $23.4^\\circ$; that is only rounding and is not raised.",
+      "source": "Checklist B01; final-run-rulings.md, Sol pass (marker label with a false fact); IAU/USNO: sidereal day 23 h 56 min 4 s, so the Sun shifts about 0.986 degrees per day"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "The daily trip of the Sun, Moon, and stars across the sky is only apparent.",
+      "problem": "Still open in part from round 4. This Rotation paragraph has four sentences; the limit is one to three short sentences. The Revolution paragraph that ends 'It is slightly shorter because of precession (explained below).' also has four. The round-4 fix split the other paragraphs it named. This is edited content, so the Minors must be fixed.",
+      "source": "Checklist L22a; LSG: Formatting rules; round-4 read"
+    }
+  ],
+  "goodQuotesChecked": 6
+}

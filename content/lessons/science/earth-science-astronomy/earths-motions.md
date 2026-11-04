@@ -11,26 +11,36 @@ isActive: true
 
 Earth moves in several ways at the same time. Three of them matter here: **rotation**, **revolution**, and **precession**. Each one explains a different thing we notice.
 
-Some words first. Earth's **axis** is the imaginary line through the North Pole and the South Pole. The **equator** is the imaginary circle around Earth halfway between the poles. The part of Earth north of the equator is the **Northern Hemisphere**, and the part south of it is the **Southern Hemisphere**.
+Some words first. Earth's **axis** is the imaginary line through the North Pole and the South Pole. The **equator** is the imaginary circle around Earth halfway between the poles.
+
+The part of Earth north of the equator is the **Northern Hemisphere**. The part south of it is the **Southern Hemisphere**.
 
 ### Rotation
 
-**Rotation** is Earth's spin around its own axis. Earth spins toward the east. The Sun, Moon, and stars do not really move across the sky. They only seem to, because the ground under us turns.
+**Rotation** is Earth's spin around its own axis. Earth spins toward the east. The daily trip of the Sun, Moon, and stars across the sky is only apparent. It happens because the ground under us turns.
 
-Seen from most places on Earth, the Sun, Moon, and stars therefore appear to rise on the eastern side of the sky and set on the western side. One turn relative to the Sun takes about $24$ hours on average. This gives the familiar **solar day**, with day and night.
+Seen from most places on Earth, the Sun, Moon, and stars therefore appear to rise on the eastern side of the sky and set on the western side.
 
-Relative to the distant stars, one turn takes about $23$ hours $56$ minutes. This is the **sidereal day**. It is about $4$ minutes shorter because Earth also moves along its orbit during the day. After one turn, Earth must turn a little more, about $1^\circ$, before the Sun is back in the same spot in the sky.
+One turn relative to the Sun takes about $24$ hours on average. This gives the familiar **solar day**, with day and night.
 
-The same fact explains why a star rises about $4$ minutes earlier each night. After a month it rises about $2$ hours earlier.
+Relative to the distant stars, one turn takes about $23$ hours $56$ minutes. This is the **sidereal day**. It is about $4$ minutes shorter because Earth also moves along its orbit during the day.
+
+After one turn, Earth must turn a little more, about $1^\circ$, before the Sun is back in the same spot in the sky.
+
+The same fact explains why a given star rises about $4$ minutes earlier each night. After a month it rises about $2$ hours earlier.
 
 <!-- ILLUSTRATION: top view of Earth at two positions on its orbit, one day apart; a dot on Earth faces a distant star at both positions, labeled "one sidereal day: 23 h 56 min"; at the second position the dot still needs to turn about 1 degree to face the Sun again, labeled "one solar day: 24 h" -->
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"sidereal-solar-day","illustrationKey":"science/earth-science-astronomy/earths-motions#4","earthPositions":2,"siderealReference":"distant stars","extraRotation":"a few extra degrees","result":"solar day slightly longer"} -->
 
 ### Revolution and Axial Tilt
 
-**Revolution** is Earth's trip around the Sun along its orbit. One trip measured against the stars takes about $365.26$ days. Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below). The flat surface that the orbit lies on is the **orbital plane**.
+**Revolution** is Earth's trip around the Sun along its path, called its **orbit**. One trip measured against the stars takes about $365.26$ days. Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below).
 
-Earth's axis is not upright to this plane. It leans by about $23.4^\circ$ from the upright line. This lean is the **axial tilt**. During the whole orbit, the axis keeps pointing toward the same spot in the sky (near the star Polaris), so the tilt does not follow the Sun.
+The flat surface that the orbit lies on is the **orbital plane**.
+
+Earth's axis is not upright to this plane. It leans by about $23.4^\circ$ from the upright line. This lean is the **axial tilt**.
+
+During the whole orbit, the axis keeps pointing almost toward the same spot in the sky (near the star Polaris). So the tilt does not follow the Sun.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-orbit","illustrationKey":"science/earth-science-astronomy/earths-motions#1","earthPositions":4,"axisDirection":"constant","hemisphereTilt":["toward Sun","away from Sun"]} -->
 
@@ -38,19 +48,21 @@ Earth's axis is not upright to this plane. It leans by about $23.4^\circ$ from t
 
 The seasons come mainly from the axial tilt, not from Earth's distance from the Sun. Tilt changes two things in each hemisphere.
 
-First, it changes how high the Sun climbs. When a hemisphere leans toward the Sun, sunlight hits it more steeply. The same beam is spread over a smaller area, so the ground warms more. When it leans away, sunlight hits at a low angle and is spread out.
+First, it changes how high the Sun climbs. When a hemisphere leans toward the Sun, sunlight hits it more steeply.
 
-Second, tilt changes day length. A hemisphere leaning toward the Sun has longer days, so the Sun heats it for more hours. A hemisphere leaning away has shorter days.
+The same beam is spread over a smaller area, so the ground warms more. When the hemisphere leans away, sunlight hits at a low angle and is spread out.
+
+Second, tilt changes day length. Away from the equator, a hemisphere leaning toward the Sun has longer days, so the Sun heats it for more hours. A hemisphere leaning away has shorter days.
 
 The two hemispheres lean in opposite ways at the same time. So when the Northern Hemisphere has summer, the Southern Hemisphere has winter. About six months later, the lean reverses and so do the seasons.
 
 Four moments in the orbit have names:
 
-- At the **June solstice** (around June $21$), the Northern Hemisphere leans most toward the Sun. It is the longest day of the year in the north and the shortest in the south.
-- At the **December solstice** (around December $21$), the Southern Hemisphere leans most toward the Sun. The north has its shortest day and the south its longest.
-- At the two **equinoxes** (around March $20$ and September $22$), neither hemisphere leans toward the Sun. The Sun is straight overhead at noon on the equator, and day and night are nearly equal everywhere.
+- At the **June solstice** (around June $21$), the Northern Hemisphere leans most toward the Sun. Away from the equator, it is the longest day of the year in the north and the shortest in the south.
+- At the **December solstice** (around December $21$), the Southern Hemisphere leans most toward the Sun. Away from the equator, the north has its shortest day and the south its longest.
+- At the two **equinoxes** (around March $20$ and September $22$), neither hemisphere leans toward the Sun. The Sun is straight overhead at noon on the equator, and day and night are nearly equal at most places.
 
-The hottest and coldest weather come a few weeks after the solstices, because land and sea take time to warm up and cool down.
+In many places, the hottest and coldest weather come a few weeks after the solstices, because land and sea take time to warm up and cool down.
 
 <!-- ILLUSTRATION: side view of Earth at the June and December solstices, axis tilted $23.4^\circ$ and pointing the same way both times; parallel sunlight rays shown hitting the leaning-toward hemisphere at a steeper angle than the leaning-away hemisphere; labels "Northern summer, Southern winter" and "Northern winter, Southern summer" -->
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
@@ -61,9 +73,9 @@ The effect of tilt depends on latitude. **Latitude** is how far a place is north
 
 Near the equator, day length stays close to $12$ hours all year. The Philippines lies in the tropics, so its day length changes only a little between seasons. Its two main seasons, wet and dry, come mostly from winds and rainfall patterns, not from big changes in sunlight.
 
-The **tropics** are the belt between latitude $23.4^\circ$ south and $23.4^\circ$ north. Only inside this belt can the Sun be straight overhead at noon. Outside it, the noon Sun is always to the north or south of overhead.
+The **tropics** are the belt between latitude $23.4^\circ$ south and $23.4^\circ$ north, including both edge lines. Only inside this belt can the Sun be straight overhead at noon. Outside it, the noon Sun is always to the north or south of overhead.
 
-Near the poles the effect is strongest. Places inside the polar circles, about $66.6^\circ$ north and south, have days when the Sun does not set and days when it does not rise.
+Near the poles the effect is strongest. Places inside the polar circles, about $66.6^\circ$ north and south, have at least one day when the Sun does not set and at least one day when it does not rise.
 
 ### Leap Years
 
@@ -79,13 +91,21 @@ Adding a day every fourth year is slightly too much, so the century rule removes
 
 ### Seasonal Constellations
 
-A **constellation** is a group of stars that people have named as a pattern in the sky, such as Orion or Scorpius. We see the stars only at night, when our side of Earth faces away from the Sun. The stars in the direction of the Sun are lost in daylight.
+A **constellation** is a group of stars that people have named as a pattern in the sky, such as Orion or Scorpius. We see the stars only when the sky is dark, at night, when our side of Earth faces away from the Sun. The stars in the direction of the Sun are lost in daylight.
 
 As Earth revolves, the direction of the Sun against the background stars changes through the year. So the part of the sky that we face at night changes too.
 
-A constellation near the Sun's path across the sky, seen high in the evening in one season, is near the Sun's direction and hidden by daylight about six months later. A constellation very near the north celestial pole is the exception. It never sets from places far north of the equator, so it can be seen all year there.
+A constellation that is high at midnight in one season lies in the Sun's direction about six months later. Daylight then hides it. A constellation that is high in the evening is seen in the dark sky before sunrise about six months later.
 
-For example, Orion is easy to see in the evening in the early months of the year, from the Philippines. Scorpius is seen in the evening in the middle of the year. Rotation moves the stars across the sky each night. Revolution changes which stars are in the night sky as the months pass.
+The **north celestial pole** is the point in the sky that Earth's axis points toward. Earth's rotation makes the stars seem to circle around it. Precession, below, explains it more.
+
+A constellation close enough to the north celestial pole is the exception. In the Northern Hemisphere, far enough north of the equator, it never sets. It is above the horizon all year.
+
+We can see it on any clear night when the sky gets dark. Where the Sun does not set, the sky does not get dark.
+
+For example, Orion is easy to see in the evening in the early months of the year, from the Philippines. Around June, the Sun is in Orion's part of the sky, so Orion is lost in daylight.
+
+Scorpius is seen in the evening in the middle of the year. Rotation moves the stars across the sky each night. Revolution changes which stars are in the night sky as the months pass.
 
 <!-- ILLUSTRATION: top view of Earth's orbit around the Sun with four positions labeled "March", "June", "September", "December"; at each position the night side is shaded and an arrow points to the part of the star background seen at night; Orion marked on the night side in December and on the daytime side in June -->
 
@@ -97,9 +117,11 @@ Think of a spinning toy top that slowly wobbles in a circle. Earth's axis does t
 
 The tilt angle stays about the same, but the direction of the axis traces a cone. One full circle takes about $26{,}000$ years.
 
-The **north celestial pole** is the point in the sky directly above Earth's North Pole. The axis points to it now, and it is close to the star Polaris, so Polaris is our "North Star".
+The axis points to the north celestial pole now. That pole is close to the star Polaris, so Polaris is our "North Star".
 
-Because of precession, the pole slowly moves among the stars. Thousands of years ago a different star, Thuban, was nearest the pole, and in about $12{,}000$ years the star Vega will be. Precession is far too slow to affect days, seasons, or this year's calendar.
+Because of precession, the pole slowly moves among the stars. Thousands of years ago a different star, Thuban, was nearest the pole, and in about $12{,}000$ years the star Vega will be.
+
+Precession is far too slow to change the days or the seasons within a lifetime. Its only effect on the calendar is that the seasonal year is about $20$ minutes shorter than the year measured against the stars.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-motion-triptych","illustrationKey":"science/earth-science-astronomy/earths-motions#2","motions":[{"name":"rotation","effect":"day/night","motion":"spin on axis"},{"name":"revolution","effect":"seasons","motion":"orbit Sun with tilted axis"},{"name":"precession","effect":"axis wobble","motion":"slow wobble"}]} -->
 
@@ -121,8 +143,8 @@ Why can the Northern Hemisphere have summer while the Southern Hemisphere has wi
 
 **Solution:**
 1. Earth's axis is tilted, and it points the same way all through the orbit.
-2. During part of the orbit, the Northern Hemisphere leans toward the Sun. It gets more direct sunlight and longer days.
-3. At the same time, the Southern Hemisphere leans away. It gets less direct sunlight and shorter days.
+2. During part of the orbit, the Northern Hemisphere leans toward the Sun. Away from the equator, it gets more direct sunlight and longer days.
+3. At the same time, the Southern Hemisphere leans away. Away from the equator, it gets less direct sunlight and shorter days.
 4. About six months later, the lean reverses, so the seasons reverse.
 
 ### #3: Distance Is Not the Cause
@@ -171,8 +193,8 @@ Orion is seen high in the evening sky from the Philippines in the early months o
 
 **Solution:**
 1. We see the stars at night, when our side of Earth faces away from the Sun.
-2. Earth revolves, so after about six months the night side faces a different part of the sky.
-3. By then, Orion lies near the Sun's direction and is lost in daylight. So Orion is not seen in the evening.
+2. Earth revolves, so through the year the night side faces different parts of the sky.
+3. Around June, the Sun lies in Orion's part of the sky, so daylight hides Orion. So Orion is not seen in the evening then.
 4. Rotation alone cannot explain this, because rotation repeats every day.
 
 <!-- ILLUSTRATION: top view of Earth at two points on opposite sides of its orbit, six months apart; the night side of each is shaded and Orion is drawn on the night side in one and on the Sun side in the other -->
@@ -194,7 +216,7 @@ Keep the roles separate: **rotation gives day and night**, **revolution with til
 
 For leap years, test $4$ first. If the year ends in two zeros, test $400$ instead. A century year such as $1700$ or $2100$ that is not divisible by $400$ is not a leap year.
 
-For opposite seasons, picture the hemisphere that leans toward the Sun. It has summer, longer days, and a higher noon Sun. This works for places away from the equator, where tilt matters most.
+For opposite seasons, picture the hemisphere that leans toward the Sun. It has summer, longer days, and a higher noon Sun. This works for places away from the equator, where tilt matters most, and not near the equinoxes.
 
 ## Traps to Watch For
 
@@ -206,9 +228,9 @@ Earth is closest to the Sun in early January, during Northern Hemisphere winter.
 
 ### #2: The Sun Is Not Overhead at Noon Everywhere
 
-> The noon Sun is straight overhead only inside the tropics, between $23.4^\circ$ S and $23.4^\circ$ N.
+> The noon Sun is straight overhead only in the tropics, between $23.4^\circ$ S and $23.4^\circ$ N, including both edge lines.
 
-Outside the tropics, such as at $40^\circ$ N, the noon Sun is always lower than overhead, even in summer. Inside the tropics, it is overhead on at least one day of the year.
+Outside the tropics, such as at $40^\circ$ N, the noon Sun is always lower than overhead, even in summer. In the tropics, it is overhead on at least one day of the year.
 
 ### #3: The Equator Has Little Seasonal Change
 
