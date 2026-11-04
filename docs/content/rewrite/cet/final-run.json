@@ -393,7 +393,7 @@
     "lessonPath": "content/lessons/mathematics/trigonometry/unit-circle.md",
     "lessonId": "lesson-trigonometry-unit-circle",
     "group": "mathematics",
-    "status": "round-1-fixed"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",

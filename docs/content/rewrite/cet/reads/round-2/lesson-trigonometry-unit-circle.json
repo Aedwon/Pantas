@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-trigonometry-unit-circle",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L27",
+      "severity": "Minor",
+      "quote": "This shortcut covers denominators $1$, $2$, $3$, $4$ and $6$.",
+      "problem": "Still open from round 1. Step sizes are given for denominators 6, 4, 3 and 2 only. Denominator 1 (as in $\\pi$ or $3\\pi$, steps of $180^\\circ$) is claimed as covered, but its step size is never stated.",
+      "source": "Checklist L27"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "**Tool 2, the quadrant signs**: the quadrant gives the sign. Cosine is $x$ and sine is $y$.",
+      "problem": "Still open from round 1. This paragraph has seven sentences, over the one-to-three limit. Other teaching paragraphs also run over: standard position (four), Tool 1 (four), the radian denominator shortcut (five), the sine and cosine graph values (four) and the graph period paragraph (four).",
+      "source": "Checklist L22a; LSG Formatting rules"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
