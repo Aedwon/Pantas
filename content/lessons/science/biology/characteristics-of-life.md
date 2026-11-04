@@ -21,15 +21,15 @@ A bacterium is one cell. A human is made of a very large number of cells.
 
 Cells alone do not make something alive. A dead leaf is made of cells, but they no longer carry out the work of life.
 
-**Energy processing (metabolism)**: **metabolism** means all the chemical reactions inside an organism. These reactions take in energy and materials, change them, and use them to keep the organism going. Plants get energy from light, animals from food, and some bacteria from chemicals.
+**Energy processing (metabolism)**: **metabolism** means all the chemical reactions inside an organism. These reactions take in energy and materials, change them, and use them to keep the organism going. Most plants get energy from light, most animals from food, and some bacteria from chemicals.
 
-**Homeostasis (regulation)**: **homeostasis** means keeping the inside conditions steady enough for life. Sweating when you are hot is an example. The conditions are kept within a range. They are not perfectly fixed.
+**Homeostasis (regulation)**: **homeostasis** means keeping the inside conditions steady enough for life. Sweating when you are hot is an example. The conditions stay within a range, not at one fixed value.
 
-**Growth and development**: an organism grows by making more cells or by making its cells larger. It also develops, which means it changes in an ordered way, such as a tadpole becoming a frog. Genes and the environment both guide these changes.
+**Growth and development**: an organism grows by making more cells or by making its cells larger. It also develops, which means it changes in an ordered way, such as a tadpole becoming a frog. Genes (inherited instructions) and the environment both guide these changes.
 
 **Reproduction**: living things make new living things. In sexual reproduction, two **gametes** (sex cells, such as egg and sperm) fuse.
 
-They usually come from two parents, but one parent can supply both, as in self-pollination in pea plants. In asexual reproduction, no gametes fuse, and one parent makes offspring.
+They usually come from two parents, but one parent can supply both, as when a pea plant fertilizes itself. In asexual reproduction, no gametes fuse, and one parent makes offspring.
 
 This property belongs to living things as a group. One individual can be alive and still not reproduce, for example if it is too young or **sterile**. Sterile means unable to have offspring.
 
@@ -37,7 +37,7 @@ This property belongs to living things as a group. One individual can be alive a
 
 **Evolutionary adaptation**: to **evolve** means that the inherited features of a **population** change over many generations. A population is a group of the same kind of organism living in one place.
 
-An **adaptation** is an inherited feature that helps its owners survive and reproduce. This is a change in a population over generations. One individual cannot make it happen by needing it.
+An **adaptation** is an inherited feature, one passed from parents to offspring, that helps its owners survive and reproduce. This is a change in a population over generations. One individual cannot make it happen by needing it.
 
 A single life-like behavior is not enough. Fire consumes fuel, grows, and spreads, so it copies several properties. A crystal grows.
 
@@ -53,7 +53,9 @@ To infer means to reach a conclusion from the evidence you have plus facts you a
 
 A dry seed does not grow, move, or react for a long time. It can still be alive.
 
-A living seed is **dormant**, which means its life processes have slowed to a very low level. It still has living cells. When it gets enough water and warmth, it grows. A seed that has died, for example one that is very old or cooked, never grows.
+A living seed that has not sprouted is **dormant**, which means its life processes have slowed to a very low level. It still has living cells.
+
+Many seeds sprout when they get enough water and warmth. Some also need a cold period, light, or a cracked seed coat first. A seed that has died, for example one that is cooked, never grows.
 
 So a property that is missing right now does not by itself mean something is not alive.
 
@@ -67,14 +69,14 @@ Viruses do have genetic material, and virus populations evolve. Introductory bio
 
 ### Levels of Organization
 
-Living things are built in levels. Each level is made of the level below it.
+Living things are built in levels. Each level is built from the level below it, except that an ecosystem also adds nonliving parts.
 
 - **Cell**: the basic unit of life.
 - **Tissue**: a group of similar cells doing one job, such as muscle tissue.
 - **Organ**: different tissues working together as one part, such as the heart.
 - **Organ system**: several organs working together, such as the circulatory system.
 - **Organism**: one whole living thing.
-- **Population**: organisms of one species living in the same area.
+- **Population**: organisms of one **species** (one kind of organism) living in the same area.
 - **Community**: all the populations of different species living in the same area.
 - **Ecosystem**: a community together with its nonliving surroundings, such as water, soil, air, and sunlight.
 
@@ -138,7 +140,7 @@ A dry bean seed sits in a jar for months. It does not grow or move. Can it still
 
 1. A seed that is still alive is made of living cells, even when it looks inactive.
 2. Such a seed is dormant, so its metabolism is very slow but not zero.
-3. Place it in moist soil in a warm place. If it sprouts and grows, it was alive. If it never does, it may be dead.
+3. Place it in moist soil in a warm place. If it sprouts and grows, it was alive. If it never does, it may be dead, or it may need a cold period or light first.
 4. A missing property at one moment does not show that something is nonliving.
 
 ### #6: Adaptation in a Population
@@ -159,19 +161,23 @@ Arrange these from smallest to largest: ecosystem, organ, tissue, community, cel
 **Solution:**
 
 1. Smallest to largest: cell, tissue, organ, organ system, organism, population, community, ecosystem.
-2. Nile tilapia is one species, so all the Nile tilapia in one lake are one species in one area. That is a population.
+2. Nile tilapia is one species of fish, so all the Nile tilapia in one lake are one species in one area. That is a population.
 3. All the fish, plants, and microbes in the lake would be a community.
 4. Adding the water, sunlight, and soil would make it an ecosystem.
 
 ## Speed Tricks & Shortcuts
 
-Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. Fire and crystals may copy some of them, but they have no cells and lack the rest. Cells alone are not enough either: a dead leaf or a piece of wood is made of cells, or what is left of them, but shows none of the other properties. Judge the whole set together.
+Check the seven properties as a group: cells, energy processing, regulation, growth and development, response, reproduction, and evolution. Fire and crystals may copy some of them, but they have no cells and lack the rest.
+
+Cells alone are not enough either: a dead leaf or a piece of wood is made of cells, or what is left of them, but shows none of the other properties. Judge the whole set together.
 
 For viruses, remember two groups. They evolve and carry genetic material. They are also acellular and need a host cell to copy themselves.
 
 When a description is incomplete, say which property is shown and which is only inferred. An organism that shows little activity may be dormant, not dead.
 
-To order the levels, ask "is this made of the one before it?" A tissue is made of cells. An organ is made of tissues. A community is made of populations.
+To order the levels, ask "is this built from the one before it?" A tissue is made of cells. An organ is made of tissues. A community is made of populations.
+
+The ecosystem is the exception. It is a community plus the nonliving surroundings.
 
 ## Traps to Watch For
 
@@ -203,4 +209,6 @@ An organism does not evolve a feature just by trying harder in its lifetime. An 
 
 > A population is one species. A community is many species.
 
-An organ is one body part. An organ system is several organs working together. A community has only living things. An ecosystem also includes the nonliving surroundings.
+An organ is one body part. An organ system is several organs working together.
+
+A community has only living things. An ecosystem also includes the nonliving surroundings.

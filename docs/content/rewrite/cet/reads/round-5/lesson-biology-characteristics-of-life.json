@@ -1,0 +1,37 @@
+{
+  "lesson": "lesson-biology-characteristics-of-life",
+  "round": 5,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "It must enter a host cell and use that cell's machinery.",
+      "problem": "This general rule for every virus fails at a standard textbook exception. A bacteriophage does not enter its host: it attaches to the bacterium and injects only its genetic material, and the protein coat stays outside the cell (the Hershey-Chase case). What every virus needs is for its genetic material to get into a host cell. A student taught that the whole virus must enter will misjudge phage infection questions. Earlier rounds did not raise this sentence.",
+      "source": "OpenStax Biology 2e, 21.2 Virus Infections and Hosts (bacteriophage nucleic acid enters the host cell naked, leaving the capsid outside); OpenStax Microbiology 6.2 The Viral Life Cycle (phage head and remaining components remain outside the bacteria); reader-rules.md, Added after the Sol audit"
+    },
+    {
+      "rule": "B01",
+      "severity": "Blocker",
+      "quote": "A living seed that has not sprouted is **dormant**, which means its life processes have slowed to a very low level.",
+      "problem": "The round-4 note that 'A living seed is dormant' fails for a sprouting seed was answered by narrowing it to seeds that have not sprouted, but the rule still fails at known exceptions. A seed that has taken up water is germinating before it sprouts: its respiration and other life processes rise sharply within hours, before the root shows. Recalcitrant seeds, such as mango, jackfruit and cacao, are shed moist and metabolically active and are never dormant. The lesson's own Example #5 puts the seed in moist soil, where it stops being dormant before it sprouts. The accurate scope is a dry or resting seed.",
+      "source": "OpenStax Biology 2e, 32.2 Pollination and Fertilization, Germination (dormancy is a resting period; germination begins when the seed takes up water and metabolism resumes); reader-rules.md, Added after the Sol audit; content-checklist B01"
+    },
+    {
+      "rule": "L05",
+      "severity": "Major",
+      "quote": "Getting bigger and changing form shows growth and development.",
+      "problem": "The question says only that the mushroom 'grows'. It never says the mushroom changes form, so the solution uses a given the stem does not supply. The example's skill is to list only what the description states (Core Concept: 'Then list only what the description states'), and this step breaks that rule while teaching it. The final property name, growth and development, is defensible because growth is part of it, but the stated reason is not in the stem. The wording comes from the base lesson.",
+      "source": "content-checklist L05 (stems supply the givens the solution needs); the lesson's own Direct and Inferred Evidence section"
+    },
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "To order the levels, ask \"is this built from the one before it?\" A tissue is made of cells.",
+      "problem": "The round-4 L22a finding is fixed for the Homeostasis, seed, first Speed Tricks and Trap #5 paragraphs, but this Speed Tricks paragraph still has four sentences. Paragraphs must be one to three short sentences. The Example #6 question paragraph has five sentences.",
+      "source": "content-checklist L22a; lesson-style-guide Formatting rules; writer-rules.md rule 8"
+    }
+  ],
+  "goodQuotesChecked": 4
+}
