@@ -116,3 +116,11 @@ Aedwon: "also yes please use IUPAC since it's an international standard right?"
 Aedwon: "proceed just before the astra audit since it's yet to reset in 1 hour 20 min"
 
 Lead response: IUPAC is the international authority on chemical names, and its 2013 recommendations are current. The lead recommended teaching IUPAC 2013 with one sentence noting the older rule, so a student who meets it in a school book is not confused. On splits, the lead recommended splitting the lessons clearly over the line and trimming the borderline ones (about 3,000 to 3,100 words) instead. The cloud session has no Codex and no Dart, so the Sol and Astra steps and the question import check must run on Aedwon's Mac.
+
+## November 5: open-lesson pass without Codex
+
+Mac session. The Dart question import check and the content export build both exit 0 on `content/cet-rewrite-r1`, with all 16 split lessons in the export. The lead planned a Sol (Codex) read of the 18 open lessons after Sonnet fixes. Another session used up all three Codex accounts first. The lead offered: wait for the reset and share Codex with that session, or use fresh Opus readers now (the final run's loop), with Astra as the later cross-vendor check. The lead recommended one read round, not two.
+
+Aedwon: "no codex use. possible? and why is codex essential here"; "please don't parallelize so much because you have limited usage"; "is your recommendation what we've been doing before?"; "why two more rounds this time?"; "okay proceed".
+
+Result: one Opus read per lesson, one at a time. All 18 stay open: the round-3 fixes held in 17, but each read found new Blockers or Majors, six of them added by the fixes (one from the lead's own wording). Counts unchanged: 9 clean, 50 minor, 18 open. Details and options for the final review: `docs/content/rewrite/cet/final-run-report.md` on the branch (head 4b3a6f7b5).
