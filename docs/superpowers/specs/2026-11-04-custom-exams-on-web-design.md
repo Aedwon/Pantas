@@ -57,11 +57,11 @@ Recorded with his exact words in `docs/superpowers/decisions/2026-10-19-pwa-laun
 - With Strict mode, there is no pause and no ending a part early.
 - The app can never add time. The server alone decides when a part started and ended. It ignores any time the browser reports.
 
-**One default for Aedwon to confirm.** The phone stops the clock at the between-parts screen with no limit. It relies on the phone noticing when the student leaves the app. The server cannot see that. A Strict student could sit on that screen and rest or look things up for as long as they like.
+**The Strict break, approved by Aedwon on 5 November: option A, 60 seconds.** The phone stops the clock at the between-parts screen with no limit. It relies on the phone noticing when the student leaves the app. The server cannot see that. A Strict student could sit on that screen and rest or look things up for as long as they like.
 
 | Option | Behavior | Cost |
 |---|---|---|
-| A. Strict break of 60 seconds (default, being built) | The next part starts by itself after 60 seconds. Without Strict mode, the wait has no limit | Differs from the phone. 60 is our choice, not a published figure. It is one number to change |
+| A. Strict break of 60 seconds (approved, built) | The next part starts by itself after 60 seconds. Without Strict mode, the wait has no limit | Differs from the phone. 60 is our choice, not a published figure. It is one number to change |
 | B. No limit | Same as the phone | A Strict student can rest or look things up between parts for as long as they like |
 | C. No break | The next part's clock starts when the last one ends | The student loses a few seconds to the between-parts screen on each part |
 
@@ -339,6 +339,8 @@ No client change. `webPerformanceViewProvider`, `webTopicDetailProvider`, `how_y
 - Well-formed custom id: accepted without a track document. A flush can arrive before settings on a new device, and refusing would write a permanent rejection on the client. The session stays under the caller's uid.
 - Replace `loadExamContent` with `loadCorpusIds(db, now)` for custom ids (cached, 2.3).
 - A custom session keeps only answers whose question is in the corpus, then applies the same replay comparison to the filtered list. If nothing remains, it returns `{sessionId, stored: false}` with no write. Reason: a phone's bundle can hold ids the catalog lacks, such as the two demo questions, and listed strictness would lose the entire session.
+- An answer is dropped only against a fresh read: if the cached corpus lacks a question, the corpus is read again first. A replay compares the stored answers with the sent answers for the stored question ids, so a later content change cannot refuse an honest replay. Added after the audit.
+- Two copies of one set that differ in topic, lesson or questions give `unavailable`, so a read during an upload is retried, never mixed. Added after the audit.
 - Scope is not applied. A session finished before narrowing must still count, and narrowing filters and never deletes.
 - Listed exams keep `Question is outside this exam.`.
 - `computeRoadmap` afterward is the custom branch from 2.4.
@@ -462,13 +464,15 @@ Top-level `remainingMs` is `parts.remainingMs` plus the limits of every later pa
 
 *Settling.* A pure function, `settleParts(row, now)`, in new file `functions/src/_mockParts.ts`, runs inside every transaction that reads or changes a by-part row, before anything else. It repeats until nothing changes:
 
-1. Waiting and Strict, and `now >= waitingSince + STRICT_BREAK_MS`: the part starts at exactly `waitingSince + STRICT_BREAK_MS`. `STRICT_BREAK_MS` is 60,000 (default A in 1.3).
+1. Waiting and Strict, and `now >= waitingSince + STRICT_BREAK_MS`: the part starts at exactly `waitingSince + STRICT_BREAK_MS`. `STRICT_BREAK_MS` is 60,000 (option A in 1.3).
 2. Waiting and not Strict: stop. The clock is stopped, the same as a pause.
 3. Running: used time is `now - startedAt`, less `pausedMs` and any open pause when not Strict. A paused part never times out.
 4. Used time below the limit: stop.
 5. Used time at the limit: the part closes at exactly `startedAt + pausedMs + limit`. `usedMs` gets the limit. If a later part exists, it starts waiting from that moment, with `endedEarly` false. If this was the last part, the paper is finished.
 
 A paper that a settle finishes is submitted at the closing moment with `endedBy: 'time-out'`, on the answers the server holds, through `recordMockAnswers`, the same as a Strict time-out today. This covers non-Strict too: the server decides, because the browser cannot be trusted to end a by-part paper. `endIfTimedOut` applies this for by-part rows. For rows without `parts`, its code path does not change. A later read, save or submit gets the existing replies for a finished mock.
+
+*Clock reads.* Inside each `controlMock` and `submitMock` transaction on a by-part row, the server reads its clock again and uses the largest of that reading, `startedAt`, `waitingSince` and `pausedAt`. A request that waited cannot stamp a moment before the clock's last event. A settle that finishes the paper inside `controlMock` commits the submission, then returns the existing `This mock is already finished.`. `startPart` and `endPart` read the row first, so a row without `parts` gets `Unknown action.` with no other effect. Added after the audit.
 
 *Answers.* Every save and submit on a by-part row keeps only the running part's answers from the client:
 
@@ -796,7 +800,7 @@ All new strings follow `AGENTS.md`, and the 2 August rule: no string leads with 
 | S3 Ingest, insights, diagnosis, carry count | Sonnet | 3 | S2 |
 | S4 Mock paper, availability, start, results | Sonnet | 6 | S2 |
 | S5 By-part clocks on the server | Sonnet | 12 | S4 |
-| A1 Astra audit of the server | Codex Astra, read-only | 2 | S1 to S5 |
+| A1 Audit of the server | Codex Sol at high effort, read-only | 2 | S1 to S5 |
 | A2 Fix audit findings | Sonnet, lead rules | 2 | A1 |
 | C1 Delivery, receipts, reload, restore base | Sonnet | 3 | A2, window open |
 | C2 Subject picker and corpus topics | Sonnet | 2 | C1 |
@@ -877,9 +881,9 @@ Implement per 2.5, 2.6, 2.9. Insights' listed `sourceRevision` must stay the sam
 
 **Check:** `node --test test/mock-parts.test.mjs`, then the named suites, then full `npm test` for all of S1 to S5 on hosted Actions.
 
-## A1. Adversarial audit (Codex GPT 6 Astra, read-only, 2h)
+## A1. Adversarial audit (Codex GPT 6.1 Sol at high effort, read-only, 2h)
 
-Run through `codex-pick exec --skip-git-repo-check` in a read-only sandbox, on the `web/custom-exam-r1` diff from base. High-stakes because it changes server data contracts.
+Aedwon changed the auditor from Astra to Sol on 5 November. Small prompts by server area, one at a time, so a limit cannot restart a large run. Run through `codex-pick exec --skip-git-repo-check` in a read-only sandbox, on the `web/custom-exam-r1` diff from base. High-stakes because it changes server data contracts.
 
 Prompt scope:
 
@@ -978,6 +982,8 @@ Steps 1 to 5 of 2.14. Production is a separate approval. If the beta gate date p
 - Web and phone cooldowns differ, 30 and 14 days. This predates this work.
 - The phone's between-parts wait in Strict has no limit. The server's has 60 seconds. Phones are not publicly released, so this is left for the native mock work.
 - An answer that reaches the server after its part closed is lost, with no grace period.
+- Scope has no time stamp, so a browser holding an old list can widen a track that another browser narrowed, the same as a listed exam's settings. Nothing is lost, and the student can untick again.
+- Sections that overlap only in part, which the setup screen cannot make, can be refused when an order exists that would fill them. They never repeat a question or come up short.
 - No student-facing delete for a custom track.
 - No founder view of track names.
 - Promoting a custom track to a real exam stays deferred, per the 2 August spec.
