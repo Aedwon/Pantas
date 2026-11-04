@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-earth-science-astronomy-stars-and-galaxies",
+  "round": 3,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "L26", "severity": "Minor", "quote": "Galaxies have three common shapes: spiral, elliptical, and irregular.", "problem": "The three galaxy shapes are named but never described. 'Elliptical' in particular is not a Grade 5 word, and the lesson does not say what an elliptical or irregular galaxy looks like. Graded Minor, not the checklist's Major, because no example, trap or brief item uses the shapes, so the gap does not block the lesson's goal (reader-rules step 8). Either a one-line meaning for each or cutting the sentence closes it.", "source": "Checklist L26; lesson-style-guide.md Teaching completeness ('A name or formula alone is not an explanation')"},
+    {"rule": "L02", "severity": "Minor", "quote": "Two words come up again and again.", "problem": "Only gravity comes up again. 'Orbit' is defined in the next sentence and never used anywhere else in this lesson after the split, so the sentence is untrue and the orbit definition is filler. Graded Minor, not the checklist's Major, because it misleads no student about the science.", "source": "Checklist L02 (no filler); lesson-style-guide.md Voice ('Every sentence teaches something')"}
+  ],
+  "goodQuotesChecked": 2
+}
