@@ -22,6 +22,7 @@ void main() {
       int available = 240,
       CustomBlueprint? saved,
       ValueChanged<CustomBlueprint>? onSave,
+      bool reduced = false,
     }) async {
       tester.view
         ..physicalSize = const Size(1440, 900)
@@ -31,6 +32,10 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: reduced),
+            child: child!,
+          ),
           home: CustomMockSetupPage(
             data: CustomMockSetupData(
               examId: 'custom',
@@ -46,6 +51,44 @@ void main() {
       );
     }
 
+    testWidgets(
+        'the breakdown grows in and shrinks away over 300 ms '
+        'dark=$dark', (tester) async {
+      await pump(tester);
+      final save = find.widgetWithText(WebButton, 'Save');
+      final closedY = tester.getTopLeft(save).dy;
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final mid = tester.getTopLeft(save).dy;
+      expect(mid, greaterThan(closedY));
+      await tester.pumpAndSettle();
+      final openY = tester.getTopLeft(save).dy;
+      expect(openY, greaterThan(mid));
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final back = tester.getTopLeft(save).dy;
+      expect(back, lessThan(openY));
+      expect(back, greaterThan(closedY));
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(save).dy, closedY);
+    });
+    testWidgets('reduced motion shows the breakdown at once dark=$dark',
+        (tester) async {
+      await pump(tester, reduced: true);
+      final save = find.widgetWithText(WebButton, 'Save');
+      final closedY = tester.getTopLeft(save).dy;
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pump();
+      expect(tester.getTopLeft(save).dy, greaterThan(closedY));
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      final openY = tester.getTopLeft(save).dy;
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(tester.getTopLeft(save).dy, openY);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
     testWidgets('CM_Setup and inline CM_Wheel dark=$dark', (tester) async {
       CustomBlueprint? saved;
       await pump(tester, onSave: (value) => saved = value);

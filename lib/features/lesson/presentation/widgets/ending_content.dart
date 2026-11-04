@@ -18,9 +18,13 @@ class EndingContent extends StatelessWidget {
     this.nextTopic,
     this.nextDetail,
     this.onNext,
+    this.held = false,
     super.key,
   });
 
+  /// Whether this is an inert preview rising under a pull. Its reveals hold
+  /// at their start, so the real ending reveals once when it takes over.
+  final bool held;
   final StudyTopic? nextTopic;
   final String? nextDetail;
   final VoidCallback? onNext;
@@ -38,6 +42,7 @@ class EndingContent extends StatelessWidget {
         nextTopic: nextTopic,
         nextDetail: nextDetail,
         onNext: onNext,
+        held: held,
       );
     }
     if (ending is DayFinished) {
@@ -48,6 +53,7 @@ class EndingContent extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(32, 0, 32, 120),
                 child: EndingReveal(
+                  held: held,
                   delay: 200,
                   duration: 600,
                   child: Text(
@@ -105,6 +111,7 @@ class EndingContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           EndingReveal(
+            held: held,
             delay: 160,
             duration: 500,
             child: Container(
@@ -162,6 +169,7 @@ class EndingContent extends StatelessWidget {
           if (unread.isNotEmpty) ...[
             const SizedBox(height: 28),
             EndingReveal(
+              held: held,
               delay: 500,
               duration: 450,
               child: GroupedSection(

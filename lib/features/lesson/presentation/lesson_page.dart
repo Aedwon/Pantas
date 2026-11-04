@@ -1206,10 +1206,11 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
         ),
       );
     }
-    Widget plate(LessonEnding value) => EndingContent(
+    Widget plate(LessonEnding value, {bool held = false}) => EndingContent(
           ending: value,
           onLesson: widget.onAdvance,
           onHome: () => context.go('/home'),
+          held: held,
         );
     if (context.wideWeb) {
       final day = widget.dayContext;
@@ -1257,6 +1258,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
             onLesson: (_) {},
             onHome: () {},
             nextTopic: reader.nextTopic,
+            held: true,
           ),
         );
       }
@@ -1421,7 +1423,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                     : widget.endingTarget != null
                         ? ColoredBox(
                             color: context.colors.background,
-                            child: plate(widget.endingTarget!),
+                            child: plate(widget.endingTarget!, held: true),
                           )
                         : null,
                 footerPadding: ending != null

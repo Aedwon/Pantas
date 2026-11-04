@@ -53,6 +53,11 @@ enum PaneTransition {
 
   /// The page fades in over the one behind it, which does not move.
   fade,
+
+  /// The route itself moves nothing and takes no time. The page handles its
+  /// own motion: a dialog over a copy of the page behind, or a pane beside a
+  /// list that must stay still.
+  instant,
 }
 
 /// A page whose route moves as [transition] says.
@@ -109,14 +114,18 @@ class PaneTransitionRoute<T> extends PageRoute<T>
   bool get maintainState => true;
 
   @override
-  Duration get transitionDuration => _kind == PaneTransition.platform
-      ? super.transitionDuration
-      : PantasDurations.base;
+  Duration get transitionDuration => switch (_kind) {
+        PaneTransition.platform => super.transitionDuration,
+        PaneTransition.instant => Duration.zero,
+        _ => PantasDurations.base,
+      };
 
   @override
-  Duration get reverseTransitionDuration => _kind == PaneTransition.platform
-      ? super.reverseTransitionDuration
-      : PantasDurations.base;
+  Duration get reverseTransitionDuration => switch (_kind) {
+        PaneTransition.platform => super.reverseTransitionDuration,
+        PaneTransition.instant => Duration.zero,
+        _ => PantasDurations.base,
+      };
 
   @override
   DelegatedTransitionBuilder? get delegatedTransition =>
@@ -159,6 +168,7 @@ class PaneTransitionRoute<T> extends PageRoute<T>
           child,
         );
       case PaneTransition.detail:
+      case PaneTransition.instant:
         return child;
       case PaneTransition.fade:
         if (MediaQuery.disableAnimationsOf(context)) return child;

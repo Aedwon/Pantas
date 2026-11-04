@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
+import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -17,10 +18,20 @@ import '../../../helpers/in_memory_database.dart';
 const _entries = [
   ExamCatalogEntry(
     id: 'exam_cse_pro',
-    name: 'Civil Service Professional',
+    name: 'CSE',
     shortName: 'CSE',
     priceTier: 'Student',
     group: 'Civil service',
+    comingSoon: false,
+    publishedSittings: [],
+    hasContent: true,
+  ),
+  ExamCatalogEntry(
+    id: 'exam_upcat',
+    name: 'UPCAT',
+    shortName: 'UPCAT',
+    priceTier: 'Student',
+    group: 'College entrance',
     comingSoon: false,
     publishedSittings: [],
     hasContent: true,
@@ -139,5 +150,60 @@ void main() {
     await tester.pump();
     final on = const WebTokens(Brightness.light).colors.label;
     expect(fill(tester, 'Civil service'), on);
+  });
+
+  // The exam list under the chips swaps with the approved view swap: 240 ms,
+  // the old list fading out as the new one fades in.
+  double seen(WidgetTester tester, String text) {
+    var best = 0.0;
+    for (final element in find.text(text).evaluate()) {
+      var opacity = 1.0;
+      element.visitAncestorElements((ancestor) {
+        final widget = ancestor.widget;
+        if (widget is Opacity) opacity *= widget.opacity;
+        return true;
+      });
+      if (opacity > best) best = opacity;
+    }
+    return best;
+  }
+
+  testWidgets('picking a chip fades the exam list over 240 ms', (tester) async {
+    await pumpPicker(tester);
+    expect(seen(tester, 'CSE'), 1);
+    expect(seen(tester, 'UPCAT'), 1);
+    await tester.tap(find.text('Civil service'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 40));
+    // Part-way: the old list is thinning and the new one has not come in.
+    final oldMid = seen(tester, 'UPCAT');
+    expect(oldMid, lessThan(1));
+    expect(oldMid, greaterThan(0));
+    await tester.pump(const Duration(milliseconds: 80));
+    final newMid = seen(tester, 'CSE');
+    expect(newMid, greaterThan(0));
+    expect(newMid, lessThan(1));
+    // The old list is gone before the new one is whole.
+    expect(find.text('UPCAT'), findsNothing);
+    await tester.pumpAndSettle();
+    expect(seen(tester, 'CSE'), 1);
+    expect(find.text('UPCAT'), findsNothing);
+    expect(find.byType(ViewSwap), findsOneWidget);
+  });
+
+  testWidgets('typing in the search does not swap the list', (tester) async {
+    await pumpPicker(tester);
+    await tester.enterText(find.byType(TextField), 'civil');
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 40));
+    expect(seen(tester, 'CSE'), 1);
+  });
+
+  testWidgets('reduced motion swaps the exam list at once', (tester) async {
+    await pumpPicker(tester, reduced: true);
+    await tester.tap(find.text('Civil service'));
+    await tester.pump();
+    expect(seen(tester, 'CSE'), 1);
+    expect(find.text('UPCAT'), findsNothing);
   });
 }

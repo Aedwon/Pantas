@@ -6,6 +6,7 @@ import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
 import 'package:pantas/features/lesson/presentation/pages/topic_ending_page.dart';
+import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -166,5 +167,48 @@ void main() {
     await pumpDayEnding(tester);
 
     expect(find.text('That is enough for today.'), findsNothing);
+  });
+
+  testWidgets('a held preview of an ending never reveals', (tester) async {
+    await tester.pumpAppWithProviders(
+      EndingContent(
+        ending: const DayFinished(),
+        onLesson: (_) {},
+        onHome: () {},
+        held: true,
+      ),
+    );
+    final line = find.text("That's enough for today.");
+    double seen() => tester
+        .widget<Opacity>(
+          find.ancestor(of: line, matching: find.byType(Opacity)).first,
+        )
+        .opacity;
+    for (var elapsed = 0; elapsed < 1200; elapsed += 100) {
+      expect(seen(), 0);
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    expect(tester.hasRunningAnimations, isFalse);
+  });
+
+  testWidgets('the same ending, not held, reveals over 800 ms', (tester) async {
+    await tester.pumpAppWithProviders(
+      EndingContent(
+        ending: const DayFinished(),
+        onLesson: (_) {},
+        onHome: () {},
+      ),
+    );
+    final line = find.text("That's enough for today.");
+    double seen() => tester
+        .widget<Opacity>(
+          find.ancestor(of: line, matching: find.byType(Opacity)).first,
+        )
+        .opacity;
+    expect(seen(), 0);
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(seen(), allOf(greaterThan(0), lessThan(1)));
+    await tester.pumpAndSettle();
+    expect(seen(), 1);
   });
 }

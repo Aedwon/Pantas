@@ -86,6 +86,93 @@ void main() {
     await tester.pump();
   }
 
+  testWidgets('the day ending reveals once after the pull, not twice',
+      (tester) async {
+    final db = inMemoryDatabase();
+    final content = openTestContentDatabase();
+    addTearDown(db.close);
+    addTearDown(content.close);
+    await seedContentExam(
+      content,
+      examId: 'e',
+      code: 'CSE',
+      name: 'CSE',
+      shortName: 'CSE',
+    );
+    await seedContentSubject(
+      content,
+      subjectId: 's1',
+      examId: 'e',
+      name: 'Science',
+    );
+    await seedContentTopic(
+      content,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Earth Science',
+    );
+    await seedContentLesson(
+      content,
+      lessonId: 'l1',
+      topicId: 't1',
+      title: 'Layers',
+      bodyJson: '[]',
+    );
+    await AppPreferencesRepository(db).setSelectedExamId('e');
+    await pump(
+      tester,
+      LessonPage(
+        lessonId: 'l1',
+        origin: ReaderOrigin.home,
+        dayContext: LessonDayContext(
+          date: DateTime(2026, 10, 30),
+          lessonIds: const ['l1'],
+          index: 0,
+        ),
+      ),
+      Brightness.light,
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+        studyMapProvider.overrideWith((_) async => map),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Finish today'), findsOneWidget);
+    // How seen the title is: the product of the fades above it.
+    double seen() {
+      var best = 0.0;
+      for (final element in find.text('That’s enough for today.').evaluate()) {
+        var opacity = 1.0;
+        element.visitAncestorElements((ancestor) {
+          final widget = ancestor.widget;
+          if (widget is Opacity) opacity *= widget.opacity;
+          return true;
+        });
+        if (opacity > best) best = opacity;
+      }
+      return best;
+    }
+
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+    var peak = 0.0;
+    for (var elapsed = 0; elapsed < 2500; elapsed += 16) {
+      await tester.pump(const Duration(milliseconds: 16));
+      final now = seen();
+      // Once it starts to show it only gets clearer: no vanish, no replay.
+      expect(
+        now,
+        greaterThanOrEqualTo(peak - .001),
+        reason: 'at $elapsed ms it fell from $peak to $now',
+      );
+      if (now > peak) peak = now;
+    }
+    expect(peak, closeTo(1, .001));
+    expect(seen(), closeTo(1, .001));
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+  });
+
   for (final brightness in Brightness.values) {
     testWidgets(
         'wide reader failure retries without exposing details $brightness',

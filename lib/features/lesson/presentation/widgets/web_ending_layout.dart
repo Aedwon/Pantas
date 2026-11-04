@@ -15,6 +15,7 @@ class WebEndingLayout extends StatelessWidget {
     this.nextTopic,
     this.nextDetail,
     this.onNext,
+    this.held = false,
     super.key,
   });
   final LessonEnding ending;
@@ -23,6 +24,9 @@ class WebEndingLayout extends StatelessWidget {
   final StudyTopic? nextTopic;
   final String? nextDetail;
   final VoidCallback? onNext;
+
+  /// Whether this is an inert preview: its reveals hold at their start.
+  final bool held;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -42,6 +46,7 @@ class WebEndingLayout extends StatelessWidget {
               children: [
                 // The phone reveals the line 200 ms in, over 600 ms.
                 EndingReveal(
+                  held: held,
                   delay: 200,
                   duration: 600,
                   child: Column(
@@ -113,6 +118,7 @@ class WebEndingLayout extends StatelessWidget {
               children: [
                 // The phone reveals the plate 160 ms in, over 500 ms.
                 EndingReveal(
+                  held: held,
                   delay: 160,
                   duration: 500,
                   child: Container(
@@ -188,6 +194,7 @@ class WebEndingLayout extends StatelessWidget {
                 Flexible(
                   // The phone reveals the unread list 500 ms in, over 450 ms.
                   child: EndingReveal(
+                    held: held,
                     delay: 500,
                     duration: 450,
                     child: ConstrainedBox(

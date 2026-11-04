@@ -23,7 +23,6 @@ import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
-import 'package:pantas/features/lesson/presentation/widgets/study_map_flip.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
@@ -312,24 +311,41 @@ class _WebStudyMapState extends State<WebStudyMap>
   final _entering = <String>{};
   final _keys = <String, GlobalKey>{};
 
-  /// One key for each subject's block, so the block keeps its rings and marks
-  /// when opening or closing a topic moves it to the other layout.
+  /// One key for each subject's block, so the block keeps its rings, marks and
+  /// focus when opening or closing a topic moves it to the other layout.
   final _blockKeys = <String, GlobalKey>{};
 
-  /// Topics already shown as done. A mark pops only for one that becomes done.
+  /// One key for the map's list, so its scroll position goes with it.
+  final _listKey = GlobalKey();
+
+  /// Topics already shown as done. A mark pops only for one that becomes done,
+  /// or arrives done with the map.
   final _doneTopics = <String>{};
   bool _settled = false;
 
-  /// The subjects sliding to their new places when a topic opens or closes:
-  /// 240 ms on the shared ease, as the topic card arriving beside them.
-  late final AnimationController _flip;
-  late final CurvedAnimation _flipCurve;
+  /// Opening or closing a topic changes the columns, and subjects must not
+  /// travel across each other to get there. The whole map fades out, takes its
+  /// new layout while unseen, and fades back in: the approved view swap, 240
+  /// ms in all (out over the first 100 ms, in over the rest).
+  late final AnimationController _swap;
+  bool _swapping = false;
+  bool _swapped = false;
+  bool _shownOpen = false;
+  ({StudyTopic topic, String subject})? _card;
+
+  static const double _swapOutMs = 100;
+  static final double _swapMs = PantasDurations.base.inMilliseconds.toDouble();
 
   @override
   void initState() {
     super.initState();
-    _flip = AnimationController(vsync: this, duration: PantasDurations.base);
-    _flipCurve = CurvedAnimation(parent: _flip, curve: PantasCurves.shared);
+    _swap = AnimationController(vsync: this, duration: PantasDurations.base)
+      ..addListener(_swapTick)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed && mounted) {
+          setState(() => _swapping = false);
+        }
+      });
     _doneTopics.addAll(_doneIn(widget.map));
     WidgetsBinding.instance.addPostFrameCallback((_) => _settled = true);
   }
@@ -345,20 +361,35 @@ class _WebStudyMapState extends State<WebStudyMap>
     super.didUpdateWidget(oldWidget);
     if ((oldWidget.openTopicId == null) != (widget.openTopicId == null) &&
         !MediaQuery.disableAnimationsOf(context)) {
-      // Opening or closing a topic changes the columns. Note where each
-      // subject stands now; the new layout then slides it into place.
-      for (final key in _blockKeys.values) {
-        (key.currentContext?.findRenderObject() as RenderStudyMapFlip?)
-            ?.capture();
-      }
-      unawaited(_flip.forward(from: 0));
+      // Until the map is unseen, it keeps the layout it had. A change that
+      // lands before that is picked up there.
+      if (_swapping && !_swapped) return;
+      _swapping = true;
+      _swapped = false;
+      unawaited(_swap.forward(from: 0));
     }
+  }
+
+  void _swapTick() {
+    if (_swapped || _swap.value * _swapMs < _swapOutMs) return;
+    _swapped = true;
+    setState(() => _shownOpen = widget.openTopicId != null);
+  }
+
+  double get _swapOpacity {
+    if (!_swapping) return 1;
+    final ms = _swap.value * _swapMs;
+    if (!_swapped) {
+      return 1 - PantasCurves.ease.transform((ms / _swapOutMs).clamp(0.0, 1.0));
+    }
+    return PantasCurves.shared.transform(
+      ((ms - _swapOutMs) / (_swapMs - _swapOutMs)).clamp(0.0, 1.0),
+    );
   }
 
   @override
   void dispose() {
-    _flipCurve.dispose();
-    _flip.dispose();
+    _swap.dispose();
     super.dispose();
   }
 
@@ -399,6 +430,11 @@ class _WebStudyMapState extends State<WebStudyMap>
       }
     }
     final hasCard = lastLessonId != null && lastTitle != null;
+    if (selected != null) _card = (topic: selected, subject: selectedSubject!);
+    if (!_swapping) _shownOpen = selected != null;
+    // The topic card in view. While the map fades out for a closing topic it
+    // is the one just left, drawn in its last layout.
+    final card = _shownOpen ? _card : null;
     // A mark pops once, when its topic becomes done. After this frame it is
     // simply there.
     WidgetsBinding.instance.addPostFrameCallback(
@@ -439,100 +475,111 @@ class _WebStudyMapState extends State<WebStudyMap>
         // The first subject sits flush under the card when Bookmarks is
         // hidden, and 18 px under Bookmarks when it shows.
         final firstGap = bookmarks.isEmpty ? 0.0 : 18.0;
-        if (selected == null) {
-          return ListView(
-            key: const ValueKey('web-study-map'),
-            children: [
-              if (head.isNotEmpty)
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: SizedBox(
-                    width: column,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: head,
-                    ),
-                  ),
-                ),
-              if (bookmarks.isNotEmpty) const SizedBox(height: 18),
-              _subjectColumns(context, map.subjects),
-            ],
-          );
-        }
-        return Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: column,
+        // The list is one widget in either layout, so it keeps its scroll
+        // position through the change.
+        Widget mapList(List<Widget> children) => KeyedSubtree(
+              key: _listKey,
               child: ListView(
                 key: const ValueKey('web-study-map'),
-                children: [
+                children: children,
+              ),
+            );
+        final Widget layout;
+        if (card == null) {
+          layout = mapList([
+            if (head.isNotEmpty)
+              Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: column,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: head,
+                  ),
+                ),
+              ),
+            if (bookmarks.isNotEmpty) const SizedBox(height: 18),
+            _subjectColumns(context, map.subjects),
+          ]);
+        } else {
+          layout = Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: column,
+                child: mapList([
                   ...head,
                   for (final (index, subject) in map.subjects.indexed) ...[
                     SizedBox(height: index == 0 ? firstGap : 18),
                     _subjectBlock(context, subject, index),
                   ],
-                ],
+                ]),
               ),
-            ),
-            const SizedBox(width: 24),
-            Expanded(
-              child: SingleChildScrollView(
-                key: const ValueKey('web-study-topic'),
-                child: _TopicEntrance(
-                  key: ValueKey(('web-study-topic-card', selected.id)),
-                  child: WebCard(
-                    padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                selectedSubject!.toUpperCase(),
-                                style: t.eb.copyWith(height: 1.45),
-                              ),
-                              Text(
-                                selected.name,
-                                style: t.style(
-                                  30,
-                                  weight: FontWeight.w700,
-                                  height: 1.2,
-                                  spacing: -.6,
+              const SizedBox(width: 24),
+              Expanded(
+                child: SingleChildScrollView(
+                  key: const ValueKey('web-study-topic'),
+                  child: _TopicEntrance(
+                    key: ValueKey(('web-study-topic-card', card.topic.id)),
+                    child: WebCard(
+                      padding: const EdgeInsets.fromLTRB(12, 30, 12, 18),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 18),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  card.subject.toUpperCase(),
+                                  style: t.eb.copyWith(height: 1.45),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        for (final lesson in selected.lessons)
-                          _WideStudyLessonRow(
-                            key: ValueKey(lesson.id),
-                            lesson: lesson,
-                            today: widget.today.contains(lesson.id),
-                            resume: lesson.id == lastLessonId,
-                            onPressed: () => widget.onLesson(
-                              lesson.id,
-                              resume: lesson.id == lastLessonId,
+                                Text(
+                                  card.topic.name,
+                                  style: t.style(
+                                    30,
+                                    weight: FontWeight.w700,
+                                    height: 1.2,
+                                    spacing: -.6,
+                                  ),
+                                ),
+                              ],
                             ),
-                            onBookmark: widget.onBookmark == null
-                                ? null
-                                : () => widget.onBookmark!(lesson.id),
                           ),
-                        if (widget.saveFailed)
-                          WebButton(
-                            label: 'Try Saving Again',
-                            onPressed: widget.onRetry,
-                          ),
-                      ],
+                          for (final lesson in card.topic.lessons)
+                            _WideStudyLessonRow(
+                              key: ValueKey(lesson.id),
+                              lesson: lesson,
+                              today: widget.today.contains(lesson.id),
+                              resume: lesson.id == lastLessonId,
+                              onPressed: () => widget.onLesson(
+                                lesson.id,
+                                resume: lesson.id == lastLessonId,
+                              ),
+                              onBookmark: widget.onBookmark == null
+                                  ? null
+                                  : () => widget.onBookmark!(lesson.id),
+                            ),
+                          if (widget.saveFailed)
+                            WebButton(
+                              label: 'Try Saving Again',
+                              onPressed: widget.onRetry,
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          );
+        }
+        return AnimatedBuilder(
+          animation: _swap,
+          child: layout,
+          builder: (context, child) =>
+              Opacity(opacity: _swapOpacity, child: child),
         );
       },
     );
@@ -628,9 +675,8 @@ class _WebStudyMapState extends State<WebStudyMap>
     return _enter(
       slot,
       520 + 120 * index,
-      StudyMapFlip(
+      KeyedSubtree(
         key: _blockKeys.putIfAbsent(slot, GlobalKey.new),
-        progress: _flipCurve,
         child: RepaintBoundary(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -648,7 +694,13 @@ class _WebStudyMapState extends State<WebStudyMap>
                             key: ValueKey('study-done-${topic.id}'),
                             size: 18,
                             color: t.colors.accent,
-                            animate: !_doneTopics.contains(topic.id),
+                            animate:
+                                arriving || !_doneTopics.contains(topic.id),
+                            // Under the subject's entrance, so the pop starts
+                            // once the row shows, with the ring beside it.
+                            delay: arriving && _doneTopics.contains(topic.id)
+                                ? Duration(milliseconds: 820 + 120 * index)
+                                : Duration.zero,
                           )
                         : ProgressRing.study(
                             key: ValueKey('study-ring-${topic.id}'),

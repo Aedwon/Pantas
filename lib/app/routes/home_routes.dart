@@ -6,7 +6,9 @@ import 'package:pantas/features/home/presentation/record_screen.dart';
 import 'package:pantas/features/home/presentation/tendencies_screen.dart';
 import 'package:pantas/features/home/presentation/performance_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -39,18 +41,30 @@ List<RouteBase> homeRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/plan/day/:date',
-        builder: (_, state) => PlanDayScreen(
-          date: state.pathParameters['date']!,
-          onReadEarly: openPlanLesson,
-          backLabel: state.extra is String ? state.extra! as String : 'Home',
+        pageBuilder: (_, state) => PaneTransitionPage<void>(
+          key: state.pageKey,
+          transition: _planPaneTransition,
+          child: PlanDayScreen(
+            date: state.pathParameters['date']!,
+            onReadEarly: openPlanLesson,
+            backLabel: state.extra is String ? state.extra! as String : 'Home',
+          ),
         ),
       ),
       GoRoute(
         path: '/plan/week/:start',
-        builder: (_, state) =>
-            PlanWeekScreen(start: state.pathParameters['start']!),
+        pageBuilder: (_, state) => PaneTransitionPage<void>(
+          key: state.pageKey,
+          transition: _planPaneTransition,
+          child: PlanWeekScreen(start: state.pathParameters['start']!),
+        ),
       ),
     ];
+
+/// On wide web a day or week opens in a pane beside the plan, which stays still
+/// (the Settings pane motion). A phone keeps the platform's transition.
+PaneTransition _planPaneTransition(BuildContext context) =>
+    context.wideWeb ? PaneTransition.instant : PaneTransition.platform;
 
 /// Opens a lesson from a plan day as a drawer over the page (wide web).
 Future<void> openPlanLesson(

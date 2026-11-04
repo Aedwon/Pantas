@@ -6,11 +6,16 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 /// the wide layout share it.
 ///
 /// With reduced motion the child is simply there.
+///
+/// A [held] reveal stays at its start, unseen, and never runs. The inert
+/// preview of an ending rising under a pull holds it, so the one real ending
+/// that replaces the preview is the only one that plays.
 class EndingReveal extends StatelessWidget {
   const EndingReveal({
     required this.delay,
     required this.duration,
     required this.child,
+    this.held = false,
     super.key,
   });
 
@@ -21,9 +26,13 @@ class EndingReveal extends StatelessWidget {
   final int duration;
   final Widget child;
 
+  /// True for a preview: the child keeps its place, drawn at its start.
+  final bool held;
+
   @override
   Widget build(BuildContext context) {
     if (MediaQuery.disableAnimationsOf(context)) return child;
+    if (held) return Opacity(opacity: 0, child: child);
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: Duration(milliseconds: delay + duration),

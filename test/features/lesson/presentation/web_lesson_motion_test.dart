@@ -443,7 +443,7 @@ void main() {
         expect(tester.getTopLeft(sheet).dx, 960);
         expect(
           tester.widget<ModalBarrier>(find.byType(ModalBarrier).last).color,
-          const Color(0x381D1D1F),
+          Colors.black.withValues(alpha: .28),
         );
         await tester.sendKeyEvent(LogicalKeyboardKey.escape);
         await tester.pump();

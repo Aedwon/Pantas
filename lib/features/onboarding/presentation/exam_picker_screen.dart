@@ -25,6 +25,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
+import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -512,18 +513,34 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  for (final group in _orderedGroups(visible))
-                    if (visible.any((entry) => entry.group == group.$1)) ...[
-                      Text(group.$3.toUpperCase(), style: t.eb),
-                      const SizedBox(height: 8),
-                      for (final (index, entry) in visible
-                          .where((entry) => entry.group == group.$1)
-                          .indexed) ...[
-                        if (index > 0) const SizedBox(height: 10),
-                        _webExamRow(t, entry, selected == entry.id, active),
+                  // Picking a chip swaps the list with the approved view
+                  // swap. Typing in the search changes the same view.
+                  ViewSwap(
+                    index: _groups.indexWhere((g) => g.$1 == _group) + 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        for (final group in _orderedGroups(visible))
+                          if (visible
+                              .any((entry) => entry.group == group.$1)) ...[
+                            Text(group.$3.toUpperCase(), style: t.eb),
+                            const SizedBox(height: 8),
+                            for (final (index, entry) in visible
+                                .where((entry) => entry.group == group.$1)
+                                .indexed) ...[
+                              if (index > 0) const SizedBox(height: 10),
+                              _webExamRow(
+                                t,
+                                entry,
+                                selected == entry.id,
+                                active,
+                              ),
+                            ],
+                            const SizedBox(height: 24),
+                          ],
                       ],
-                      const SizedBox(height: 24),
-                    ],
+                    ),
+                  ),
                 ],
               );
             },

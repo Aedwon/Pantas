@@ -482,6 +482,36 @@ void main() {
     });
   });
 
+  group('plan beside a pane', () {
+    testWidgets('the list does not rise again, the pane does', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: PlanEntryStill(
+            child: PlanEntry(
+              start: 0,
+              duration: 240,
+              y: 8,
+              child: Text('list row'),
+            ),
+          ),
+        ),
+      );
+      expect(find.byType(TweenAnimationBuilder<double>), findsNothing);
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: PlanEntry(
+            start: 0,
+            duration: 240,
+            y: 8,
+            child: Text('pane'),
+          ),
+        ),
+      );
+      expect(find.byType(TweenAnimationBuilder<double>), findsOneWidget);
+      await tester.pumpAndSettle();
+    });
+  });
+
   group('past-day popover', () {
     Future<void> openPopover(WidgetTester tester, {bool still = false}) async {
       debugWebPlatformOverride = true;
@@ -518,6 +548,8 @@ void main() {
         ),
       );
       await tester.tap(find.text('Open'));
+      // The day never loads here, so the popover opens after its wait.
+      await tester.pump(const Duration(milliseconds: 400));
       await tester.pump();
     }
 

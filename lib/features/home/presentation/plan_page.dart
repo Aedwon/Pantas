@@ -50,6 +50,15 @@ class PlanHistoryEntry {
 
 /// The plan's staggered entrance: the phone page and the wide columns share
 /// it so both rise, draw and pop on the same delays and curves.
+/// Stops every [PlanEntry] under it. The plan beside an open pane is the plan
+/// already on screen, so it does not rise again.
+class PlanEntryStill extends InheritedWidget {
+  const PlanEntryStill({required super.child, super.key});
+
+  @override
+  bool updateShouldNotify(PlanEntryStill oldWidget) => false;
+}
+
 class PlanEntry extends StatelessWidget {
   const PlanEntry({
     required this.start,
@@ -74,7 +83,10 @@ class PlanEntry extends StatelessWidget {
   final Key? effectKey;
   @override
   Widget build(BuildContext context) {
-    if (MediaQuery.disableAnimationsOf(context)) return child;
+    if (MediaQuery.disableAnimationsOf(context) ||
+        context.dependOnInheritedWidgetOfExactType<PlanEntryStill>() != null) {
+      return child;
+    }
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: Duration(milliseconds: start + duration),

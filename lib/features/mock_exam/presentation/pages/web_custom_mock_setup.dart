@@ -51,6 +51,78 @@ class WebCustomMockSetup extends StatelessWidget {
 
   String _duration(int value) =>
       '${value ~/ 60}h ${(value % 60).toString().padLeft(2, '0')}m';
+  Widget _breakdownContent(WebTokens t, TextStyle rowStyle) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (!breakdown)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: Text(
+                "You'll be timed, so exam day feels familiar.",
+                style: t.sm,
+              ),
+            ),
+          if (breakdown) ...[
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              child: Text('SECTION BREAKDOWN', style: t.eb),
+            ),
+            WebCard(
+              radius: 16,
+              child: Column(
+                children: [
+                  for (final section in sections)
+                    _WideSectionRow(
+                      name: section.name,
+                      questions: section.questions,
+                      minutes: section.minutes,
+                      questionValues: questionValues,
+                      minuteValues: minuteValues,
+                      onChanged: (value, {required minutes}) => onSection(
+                        section.id,
+                        value,
+                        minutes: minutes,
+                      ),
+                    ),
+                  RowTapTarget(
+                    onTap: () => onTiming(!timedSeparately),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 6,
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'Time each section separately',
+                              style: rowStyle,
+                            ),
+                          ),
+                          PantasSwitch(
+                            value: timedSeparately,
+                            label: 'Time each section separately',
+                            onChanged: onTiming,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: Text(
+                'The totals above now add these up.',
+                style: t.sm,
+              ),
+            ),
+          ],
+        ],
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -206,74 +278,12 @@ class WebCustomMockSetup extends StatelessWidget {
                               ),
                             ),
                           ),
-                          if (!breakdown)
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-                              child: Text(
-                                "You'll be timed, so exam day feels familiar.",
-                                style: t.sm,
-                              ),
-                            ),
-                          if (breakdown) ...[
-                            const SizedBox(height: 24),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                              child: Text('SECTION BREAKDOWN', style: t.eb),
-                            ),
-                            WebCard(
-                              radius: 16,
-                              child: Column(
-                                children: [
-                                  for (final section in sections)
-                                    _WideSectionRow(
-                                      name: section.name,
-                                      questions: section.questions,
-                                      minutes: section.minutes,
-                                      questionValues: questionValues,
-                                      minuteValues: minuteValues,
-                                      onChanged: (value, {required minutes}) =>
-                                          onSection(
-                                        section.id,
-                                        value,
-                                        minutes: minutes,
-                                      ),
-                                    ),
-                                  RowTapTarget(
-                                    onTap: () => onTiming(!timedSeparately),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 16,
-                                        vertical: 6,
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              'Time each section separately',
-                                              style: rowStyle,
-                                            ),
-                                          ),
-                                          PantasSwitch(
-                                            value: timedSeparately,
-                                            label:
-                                                'Time each section separately',
-                                            onChanged: onTiming,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-                              child: Text(
-                                'The totals above now add these up.',
-                                style: t.sm,
-                              ),
-                            ),
-                          ],
+                          // The hint and the breakdown trade places over
+                          // 300 ms, as the row editors do.
+                          _breakdownReveal(
+                            context,
+                            _breakdownContent(t, rowStyle),
+                          ),
                           const SizedBox(height: 24),
                           if (unset) ...[
                             Text(
@@ -466,6 +476,17 @@ class _WideSectionRowState extends State<_WideSectionRow> {
       ),
     );
   }
+}
+
+/// The breakdown block growing in under its switch and shrinking away, over
+/// the same 300 ms as the row editors. It grows from its top edge.
+Widget _breakdownReveal(BuildContext context, Widget child) {
+  if (MediaQuery.disableAnimationsOf(context)) return child;
+  return AnimatedSize(
+    duration: const Duration(milliseconds: 300),
+    alignment: Alignment.topCenter,
+    child: child,
+  );
 }
 
 /// The phone's row editor: the row grows and shrinks over 300 ms. A null

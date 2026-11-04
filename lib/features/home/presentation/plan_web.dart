@@ -49,8 +49,16 @@ class PlanWebFrame extends StatelessWidget {
 /// The board's two columns: flex 1.3 from 460 px and flex 1 from 380 px, with
 /// a 28 px gap. Free space is shared by the flex factors after the bases.
 class PlanSplit extends StatelessWidget {
-  const PlanSplit({required this.left, required this.right, super.key});
+  const PlanSplit({
+    required this.left,
+    required this.right,
+    this.stillLeft = false,
+    super.key,
+  });
   final Widget left;
+
+  /// The list beside an open pane does not rise again.
+  final bool stillLeft;
   final Widget right;
   @override
   Widget build(BuildContext context) => LayoutBuilder(
@@ -64,13 +72,14 @@ class PlanSplit extends StatelessWidget {
               : free < 0
                   ? (c.maxWidth - gap) * 13 / 23
                   : 460 + free * 1.3 / 2.3;
+          final shownLeft = stillLeft ? PlanEntryStill(child: left) : left;
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (leftWidth == null)
-                Expanded(flex: 13, child: left)
+                Expanded(flex: 13, child: shownLeft)
               else
-                SizedBox(width: leftWidth, child: left),
+                SizedBox(width: leftWidth, child: shownLeft),
               const SizedBox(width: gap),
               if (leftWidth == null)
                 Expanded(flex: 10, child: right)
@@ -168,11 +177,23 @@ class PlanWebColumns extends StatelessWidget {
         : marker;
     final historyStart =
         nodes.isEmpty ? 350 : 350 + (nodes.length - 1) * 260 + 270;
+    // The approved detail pane motion: it fades and rises 8 px beside the list.
+    final shownPane = pane;
+    final paneEntry = shownPane == null
+        ? null
+        : PlanEntry(
+            key: ValueKey(shownPane.runtimeType),
+            start: 0,
+            duration: 240,
+            y: 8,
+            child: shownPane,
+          );
     return PlanWebFrame(
       title: 'Your plan',
       onBack: page.onBack,
       subtitle: page.subtitle,
       child: PlanSplit(
+        stillLeft: pane != null,
         left: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -272,7 +293,7 @@ class PlanWebColumns extends StatelessWidget {
               ),
           ],
         ),
-        right: pane ??
+        right: paneEntry ??
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

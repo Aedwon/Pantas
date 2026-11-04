@@ -33,6 +33,30 @@ double _ph(double ms, double a, double b) =>
     ((ms - a) / (b - a)).clamp(0.0, 1.0);
 
 void main() {
+  testWidgets('an instant route opens and leaves in no time', (tester) async {
+    final route = PaneTransitionRoute<void>(
+      page: PaneTransitionPage<void>(
+        transition: (_) => PaneTransition.instant,
+        child: const Text('page'),
+      ),
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (context) => TextButton(
+            onPressed: () => Navigator.of(context).push(route),
+            child: const Text('Open'),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('Open'));
+    await tester.pump();
+    expect(route.transitionDuration, Duration.zero);
+    expect(route.reverseTransitionDuration, Duration.zero);
+    expect(find.text('page'), findsOneWidget);
+  });
+
   group('the approved numbers', () {
     test('the curves are the preview curves', () {
       for (final t in [.1, .25, .5, .75, .9]) {

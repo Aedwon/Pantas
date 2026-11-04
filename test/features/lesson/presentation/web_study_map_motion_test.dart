@@ -18,7 +18,8 @@ import 'fake_open_topic.dart';
 
 // The wide Study map moves where the phone does, on the phone's numbers:
 // the topic rings fill and the done mark pops, the lesson bookmark pops, the
-// subjects slide when a topic opens, and the page recedes behind Bookmarks.
+// map fades to its new columns when a topic opens, and the page recedes behind
+// Bookmarks.
 // Each surface: part-way differs from the end, it settles, and reduced motion
 // is instant.
 
@@ -131,6 +132,15 @@ void main() {
     return angle;
   }
 
+  double markOpacity(WidgetTester tester) => tester
+      .widget<Opacity>(
+        find.descendant(
+          of: find.byKey(const ValueKey('check-mark-scale')),
+          matching: find.byType(Opacity),
+        ),
+      )
+      .opacity;
+
   double markScale(WidgetTester tester) => tester
       .widget<Transform>(find.byKey(const ValueKey('check-mark-scale')))
       .transform
@@ -187,10 +197,39 @@ void main() {
       expect(markScale(tester), closeTo(1, .001));
     });
 
-    testWidgets('a topic already done shows its mark without a pop',
+    testWidgets('a topic done when the map arrives pops once its row shows',
         (tester) async {
       await pumpApp(tester, study(map: _map(mathDone: true)));
       await tester.pump();
+      // Under the subject's entrance, unseen and at its start.
+      expect(markScale(tester), closeTo(.4, .001));
+      expect(markOpacity(tester), 0);
+      // Subject two arrives at 640 ms; its ring would fill from 940 ms.
+      await after(tester, 900);
+      expect(markOpacity(tester), 0);
+      await after(tester, 150);
+      final mid = markScale(tester);
+      expect(mid, greaterThan(.4));
+      expect(markOpacity(tester), greaterThan(0));
+      // The entrance ends at 1090 ms. The pop carries on past it.
+      await after(tester, 80);
+      expect(markScale(tester), isNot(closeTo(1, .001)));
+      expect(markScale(tester), isNot(closeTo(.4, .001)));
+      await tester.pumpAndSettle();
+      expect(markScale(tester), closeTo(1, .001));
+      // Rebuilt later, it stands, and a topic opening leaves it alone.
+      await pumpApp(tester, study(map: _map(mathDone: true), open: 't1'));
+      await tester.pump();
+      expect(markScale(tester), closeTo(1, .001));
+    });
+
+    testWidgets('a mark that popped is not played again when it is rebuilt',
+        (tester) async {
+      await pumpApp(tester, study(map: _map(mathDone: true)));
+      await tester.pumpAndSettle();
+      await pumpApp(tester, study(map: _map(mathDone: true), open: 't1'));
+      await tester.pump();
+      await after(tester, 1);
       expect(markScale(tester), closeTo(1, .001));
     });
 
@@ -251,36 +290,64 @@ void main() {
     Offset mathematics(WidgetTester tester) =>
         tester.getTopLeft(find.text('MATHEMATICS'));
 
-    testWidgets('the subjects slide to their new places, 240 ms',
+    double mapFade(WidgetTester tester) => tester
+        .widget<Opacity>(
+          find
+              .ancestor(
+                of: find.byKey(const ValueKey('web-study-map')),
+                matching: find.byType(Opacity),
+              )
+              .first,
+        )
+        .opacity;
+
+    testWidgets('the map fades to its new columns and no subject crosses',
         (tester) async {
       await pumpApp(tester, study(map: _map()));
       await tester.pumpAndSettle();
       final closed = mathematics(tester);
       // Closed, Mathematics is the second column.
       expect(closed.dx, greaterThan(400));
+      expect(mapFade(tester), 1);
       await pumpApp(tester, study(map: _map(), open: 't1'));
       await tester.pump();
-      // The first frame is where it stood.
-      expect(mathematics(tester).dx, closeTo(closed.dx, .5));
-      await after(tester, 120);
-      final mid = mathematics(tester);
-      expect(mid.dx, lessThan(closed.dx));
-      await tester.pumpAndSettle();
-      final open = mathematics(tester);
-      expect(open.dx, lessThan(mid.dx));
-      expect(open.dx, lessThan(60));
-      expect(open.dy, greaterThan(closed.dy));
-      // And back again on close.
+      var seenFading = false;
+      var elapsed = 0;
+      Offset? open;
+      while (elapsed < 400) {
+        await after(tester, 16);
+        elapsed += 16;
+        final spot = mathematics(tester);
+        // Only ever at its old place or its new one, never between.
+        expect(
+          spot.dx == closed.dx || spot.dx < 60,
+          isTrue,
+          reason: 'at $elapsed ms it stood at ${spot.dx}',
+        );
+        final fade = mapFade(tester);
+        if (fade > 0 && fade < 1) seenFading = true;
+        if (spot.dx < 60) open ??= spot;
+        // The old columns are fading out, or the new ones in.
+        if (elapsed <= 80) expect(spot.dx, closed.dx);
+      }
+      expect(seenFading, isTrue);
+      expect(open, isNotNull);
+      expect(open!.dy, greaterThan(closed.dy));
+      expect(mapFade(tester), 1);
+      // The change lands at 100 ms into the 240: not before, not long after.
       await pumpApp(tester, study(map: _map()));
       await tester.pump();
-      expect(mathematics(tester).dx, closeTo(open.dx, .5));
-      await after(tester, 120);
-      expect(mathematics(tester).dx, greaterThan(open.dx));
+      await after(tester, 60);
+      expect(mathematics(tester).dx, lessThan(60));
+      expect(mapFade(tester), lessThan(1));
+      await after(tester, 60);
+      expect(mathematics(tester).dx, closed.dx);
       await tester.pumpAndSettle();
       expect(mathematics(tester), closed);
+      expect(mapFade(tester), 1);
     });
 
-    testWidgets('reduced motion moves them at once', (tester) async {
+    testWidgets('reduced motion changes the columns at once', (tester) async {
       await pumpApp(tester, study(map: _map()), reduced: true);
       await tester.pumpAndSettle();
       await pumpApp(
@@ -290,6 +357,63 @@ void main() {
       );
       await tester.pump();
       expect(mathematics(tester).dx, lessThan(60));
+      expect(mapFade(tester), 1);
+    });
+
+    testWidgets('focus on a topic row survives the change', (tester) async {
+      await pumpApp(tester, study(map: _map()));
+      await tester.pumpAndSettle();
+      final row = find.descendant(
+        of: find.byKey(const ValueKey('web-study-map')),
+        matching: find.text('Earth Science'),
+      );
+      Focus.of(tester.element(row)).requestFocus();
+      await tester.pump();
+      expect(Focus.of(tester.element(row)).hasPrimaryFocus, isTrue);
+      await pumpApp(tester, study(map: _map(), open: 't1'));
+      await tester.pumpAndSettle();
+      expect(Focus.of(tester.element(row)).hasPrimaryFocus, isTrue);
+      await pumpApp(tester, study(map: _map()));
+      await tester.pumpAndSettle();
+      expect(Focus.of(tester.element(row)).hasPrimaryFocus, isTrue);
+    });
+
+    testWidgets('the map keeps its scroll position through the change',
+        (tester) async {
+      final long = StudyMap(
+        examShortName: 'CSE',
+        subjects: [
+          for (var i = 0; i < 14; i++)
+            StudySubject(
+              id: 's$i',
+              name: 'Subject $i',
+              topics: [
+                for (var j = 0; j < 4; j++)
+                  StudyTopic(
+                    id: 't$i-$j',
+                    name: 'Topic $i-$j',
+                    lessons: [_lesson('l$i-$j')],
+                    readCount: 0,
+                    hasBookmark: false,
+                  ),
+              ],
+            ),
+        ],
+        readCount: 0,
+        totalCount: 56,
+        minutesLeftToRead: 560,
+      );
+      await pumpApp(tester, study(map: long));
+      await tester.pumpAndSettle();
+      final scrollable = find.descendant(
+        of: find.byKey(const ValueKey('web-study-map')),
+        matching: find.byType(Scrollable),
+      );
+      tester.state<ScrollableState>(scrollable).position.jumpTo(240);
+      await tester.pump();
+      await pumpApp(tester, study(map: long, open: 't0-0'));
+      await tester.pumpAndSettle();
+      expect(tester.state<ScrollableState>(scrollable).position.pixels, 240);
     });
 
     testWidgets('the selected chevron fades in over 160 ms', (tester) async {

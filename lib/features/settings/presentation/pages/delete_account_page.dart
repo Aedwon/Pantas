@@ -116,6 +116,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
       }
       return WebRootModal(
         exit: _exit,
+        onEscape: _close,
         // Opened by address, there is no page to go back to, so Back is left
         // to the browser.
         onBack: Navigator.of(context).canPop() ? _leave : null,

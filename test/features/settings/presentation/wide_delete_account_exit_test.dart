@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -89,6 +90,17 @@ void main() {
     expect(navigator.canPop(), isFalse);
     expect(find.byType(DeleteAccountPage), findsNothing);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('Esc closes the dialog the same way', (tester) async {
+    final navigator = await pumpDialog(tester);
+    await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 120));
+    expect(navigator.canPop(), isTrue);
+    expect(dialogFade(tester), inExclusiveRange(0, 1));
+    await tester.pumpAndSettle();
+    expect(navigator.canPop(), isFalse);
   });
 
   testWidgets('system Back plays the exit once and then pops', (tester) async {

@@ -56,7 +56,9 @@ List<RouteBase> settingsRoutes(Ref ref) => [
                     key: state.pageKey,
                     transition: path.startsWith('/legal/')
                         ? (context) => _legalTransition(ref, context)
-                        : _settingsTransition,
+                        : _modalPages.contains(path)
+                            ? _modalTransition
+                            : _settingsTransition,
                     child: _screen(ref, path, state),
                   ),
         ),
@@ -66,6 +68,14 @@ List<RouteBase> settingsRoutes(Ref ref) => [
 /// the detail (item 15). Everywhere else the platform's transition stays.
 PaneTransition _settingsTransition(BuildContext context) =>
     context.wideWeb ? PaneTransition.detail : PaneTransition.platform;
+
+/// These open as a dialog over a copy of the page behind on wide web. The
+/// dialog has its own entrance and exit, so the route must add nothing: a fade
+/// of its own would replay the page behind after the dialog has gone.
+const _modalPages = {'/settings/exam/change', '/settings/account/delete'};
+
+PaneTransition _modalTransition(BuildContext context) =>
+    context.wideWeb ? PaneTransition.instant : PaneTransition.platform;
 
 /// Legal pages (items 1 and 15). On wide web, opened during onboarding or
 /// from the guardian page, the page fades in with its logo and frame still.

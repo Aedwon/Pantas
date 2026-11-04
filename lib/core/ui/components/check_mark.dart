@@ -3,9 +3,15 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+const _popDuration = Duration(milliseconds: 420);
+
 class CheckMark extends StatelessWidget {
-  const CheckMark({this.progress, this.animate = true, super.key})
-      : glyphSize = null,
+  const CheckMark({
+    this.progress,
+    this.animate = true,
+    this.delay = Duration.zero,
+    super.key,
+  })  : glyphSize = null,
         glyphColor = null;
 
   /// Only the check, no disc, for a list that draws it bare (the wide Study
@@ -14,6 +20,7 @@ class CheckMark extends StatelessWidget {
     required double size,
     required Color color,
     this.animate = true,
+    this.delay = Duration.zero,
     super.key,
   })  : glyphSize = size,
         glyphColor = color,
@@ -23,6 +30,10 @@ class CheckMark extends StatelessWidget {
   /// False when the mark is drawn for something already done (a list laid out
   /// again): it stands in place at once.
   final bool animate;
+
+  /// How long the mark waits, unseen, before it pops. For a mark that mounts
+  /// under an entrance, so the pop starts once the row can be seen.
+  final Duration delay;
   final double? glyphSize;
   final Color? glyphColor;
 
@@ -63,9 +74,15 @@ class CheckMark extends StatelessWidget {
             )
           : TweenAnimationBuilder<double>(
               tween: Tween(begin: still ? 1 : 0, end: 1),
-              duration:
-                  still ? Duration.zero : const Duration(milliseconds: 420),
-              curve: PantasCurves.popC,
+              duration: still ? Duration.zero : delay + _popDuration,
+              curve: delay == Duration.zero
+                  ? PantasCurves.popC
+                  : Interval(
+                      delay.inMilliseconds /
+                          (delay + _popDuration).inMilliseconds,
+                      1,
+                      curve: PantasCurves.popC,
+                    ),
               builder: (context, value, child) => scale(value, child),
               child: circle,
             ),

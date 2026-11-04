@@ -207,6 +207,16 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
       if (widget.popover && !value.hasError) {
         return const WebPlanLoading(kind: PlanSkeletonKind.day);
       }
+      // The list stays while only the pane is loading.
+      if (context.wideWeb && !value.hasError) {
+        final day = DateTime.parse(date);
+        return PlanScreen(
+          webPane: const WebPlanLoading(kind: PlanSkeletonKind.day),
+          selectedWeek: dayKey(
+            DateTime(day.year, day.month, day.day - day.weekday % 7),
+          ),
+        );
+      }
       return _waiting(
         context,
         value,
@@ -362,6 +372,13 @@ class PlanWeekScreen extends ConsumerWidget {
     firstScreenReady(context, ref, ready: value.hasError);
     final days = value.unwrapPrevious().asData?.value;
     if (days == null) {
+      // The list stays while only the pane is loading.
+      if (context.wideWeb && !value.hasError) {
+        return PlanScreen(
+          webPane: const WebPlanLoading(kind: PlanSkeletonKind.week),
+          selectedWeek: start,
+        );
+      }
       return _waiting(
         context,
         value,
@@ -465,7 +482,32 @@ class _PlanHistoryScreenState extends ConsumerState<PlanHistoryScreen> {
   }
 }
 
-Future<void> showPlanPastDay(BuildContext context, DateTime date) =>
+/// Reads the day first, for at most [_popoverWait], so the popover's fade plays
+/// on the day and not on an empty card that pops full a moment later.
+Future<void> showPlanPastDay(BuildContext context, DateTime date) async {
+  final container = ProviderScope.containerOf(context);
+  final hold = container.listen(
+    planDayViewProvider(dayKey(date)),
+    (_, __) {},
+  );
+  try {
+    await container
+        .read(planDayViewProvider(dayKey(date)).future)
+        .timeout(_popoverWait);
+  } on Object catch (_) {
+    // A slow or failed read shows its own state inside the popover.
+  }
+  if (!context.mounted) {
+    hold.close();
+    return;
+  }
+  await _openPlanPastDay(context, date);
+  hold.close();
+}
+
+const _popoverWait = Duration(milliseconds: 400);
+
+Future<void> _openPlanPastDay(BuildContext context, DateTime date) =>
     showWebOverlay<void>(
       context: context,
       motion: WebOverlayMotion.popover,

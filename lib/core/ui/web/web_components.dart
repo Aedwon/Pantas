@@ -1592,6 +1592,7 @@ class WebRootModal extends StatefulWidget {
     this.onDismiss,
     this.exit,
     this.onBack,
+    this.onEscape,
     super.key,
   });
   final Widget child;
@@ -1609,6 +1610,9 @@ class WebRootModal extends StatefulWidget {
   /// What system Back does once the dialog has left. Null leaves Back to the
   /// route and to any PopScope inside the dialog.
   final VoidCallback? onBack;
+
+  /// What Esc does. Null leaves Esc to the dialog.
+  final VoidCallback? onEscape;
   @override
   State<WebRootModal> createState() => _WebRootModalState();
 }
@@ -1633,10 +1637,21 @@ class _WebRootModalState extends State<WebRootModal> {
       overlayChildBuilder: (context) => WebOverlayLayer(
         motion: WebOverlayMotion.dialog,
         alignment: Alignment.center,
-        barrierColor: const Color(0x521D1D1F),
+        // The board's gray would lighten a dark page.
+        barrierColor: context.webTokens.dark
+            ? Colors.black.withValues(alpha: .28)
+            : const Color(0x521D1D1F),
         onDismiss: widget.onDismiss,
         exit: _exit,
-        child: widget.modal(context),
+        child: widget.onEscape == null
+            ? widget.modal(context)
+            : CallbackShortcuts(
+                bindings: {
+                  const SingleActivator(LogicalKeyboardKey.escape):
+                      widget.onEscape!,
+                },
+                child: Focus(autofocus: true, child: widget.modal(context)),
+              ),
       ),
       child: widget.child,
     );
