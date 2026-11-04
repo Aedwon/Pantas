@@ -1,0 +1,23 @@
+{
+  "lesson": "lesson-physics-interference-diffraction-and-doppler",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {
+      "rule": "L22a",
+      "severity": "Minor",
+      "quote": "If two waves are **in phase** (at the same stage of the cycle at that point)",
+      "problem": "Round-1 Minor still open in part. The fix split only the 'Here is why a moving source changes the pitch.' paragraph. This paragraph still has five sentences. Others over the one-to-three limit: 'For two matching sources that are in phase' (four), 'Now take a source with frequency $f$ moving at speed $v_s$' (five), and the Speed Tricks paragraph 'For a Doppler question, first find who is moving.' (four). Edited content must fix every Minor.",
+      "source": "Checklist L22a; lesson-style-guide.md Formatting rules; round-1 read of this lesson"
+    },
+    {
+      "rule": "L21",
+      "severity": "Minor",
+      "quote": "\\dfrac{343}{343-20}(700)=\\dfrac{343}{323}(700)\\approx743",
+      "problem": "Example #4 step 1 chains the formula, the substitution, the simplified fraction and the answer in one display line (four fractions plus '(700)' twice and '743 Hz'). Rendered in display style this is about 21 em, wider than a phone screen, so it scrolls sideways. The step 2 line has the same shape. Moved word for word from the parent.",
+      "source": "Checklist L21; lesson-style-guide.md Examples section ('Keep each display equation narrow enough for a phone screen')"
+    }
+  ],
+  "goodQuotesChecked": 2
+}
