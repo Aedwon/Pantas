@@ -1,0 +1,11 @@
+{
+  "lesson": "lesson-chemistry-basic-organic-chemistry",
+  "round": 4,
+  "reader": "opus",
+  "verdict": "minor",
+  "findings": [
+    {"rule": "B08", "severity": "Minor", "quote": "This lesson follows IUPAC 2013, which chooses the longest chain first.", "problem": "The year 2013 is a number in prose and is not wrapped in inline math. The guide wraps every number in prose, and other lessons write years as $1808$ and $1859$. It is the only bare number left in the teaching text.", "source": "Checklist B08; lesson-style-guide, Math notation (every number in prose is wrapped in inline math)"},
+    {"rule": "L22a", "severity": "Minor", "quote": "Halogen groups such as $-Cl$ and $-Br$ appear only as a prefix, as in chloromethane.", "problem": "The Functional Groups paragraph that starts 'Names treat groups in different ways' has four sentences. The guide allows one to three short sentences in a paragraph. Earlier rounds did not flag it.", "source": "Checklist L22a; lesson-style-guide, Formatting rules"}
+  ],
+  "goodQuotesChecked": 2
+}

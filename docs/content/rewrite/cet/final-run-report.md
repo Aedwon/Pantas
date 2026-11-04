@@ -245,3 +245,7 @@ The full log, with reasons, is in `final-run-rulings.md`. The rulings that bind 
 - Decide the B10 question on the structural-stability title.
 - Decide whether to cover distribution functions and normal-curve areas in some lesson.
 - Decide the split candidates. None were split.
+
+## Update, November 4
+
+Aedwon chose IUPAC 2013 parent-chain naming. Basic organic chemistry was changed to teach it, with one sentence on the older school rule, and a verification read (round 4) found only Minors. It moves from open to minor, so the counts are now 7 clean, 42 minor and 20 open. It is 3,037 words, a borderline split candidate.

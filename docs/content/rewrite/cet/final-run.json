@@ -141,7 +141,7 @@
     "lessonPath": "content/lessons/science/chemistry/basic-organic-chemistry.md",
     "lessonId": "lesson-chemistry-basic-organic-chemistry",
     "group": "science",
-    "status": "open"
+    "status": "minor"
   },
   {
     "lessonPath": "content/lessons/science/chemistry/chemical-reactions.md",

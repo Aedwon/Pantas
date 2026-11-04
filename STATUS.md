@@ -259,3 +259,4 @@ Policy read from origin/main dc6c42fd. Status values in `final-run.json`: `round
 - Structural-stability open after 3 reads (1 Blocker from the lead's own wording, 1 Major). Speeches round 3 read running.
 - CET final run finished: 7 clean, 41 minor, 21 open. Final report written.
 - November 4: Aedwon chose IUPAC 2013 parent-chain naming. Basic-organic-chemistry updated (rule, step 1, Trap #4, a note on the older school rule); no example name changed. A verification read is next (reads/round-4).
+- Basic-organic-chemistry verification read (round 4): minor. Status open to minor. Counts: 7 clean, 42 minor, 20 open.
