@@ -1,0 +1,10 @@
+{
+  "lesson": "lesson-biology-cellular-metabolism",
+  "round": 2,
+  "reader": "opus",
+  "verdict": "blocker",
+  "findings": [
+    {"rule": "B01", "severity": "Blocker", "quote": "**Carbohydrates** are sugars and starches. Their small unit is a simple sugar such as glucose.", "problem": "A general definition with known exceptions, the same kind as the round-1 lipid Blocker that was fixed. Cellulose (plant cell walls and food fiber), glycogen (animal energy store) and chitin are carbohydrates but are neither sugars nor starches in the plain sense this lesson uses. A student given this definition would not class cellulose or glycogen as a carbohydrate, a standard item for biomolecules in cells and food (upcat-L160, curriculum class). Present before the split and missed in round 1; not caused by the fix. Round-1 check: both Blockers (lipids, 'every step' enzyme sentence) and the L27 Major (Calvin cycle and light-reaction locations limited to chloroplasts, cyanobacteria sentence added) are fixed, with no new error from the fixes; the L22a Minor is fixed in the paragraphs it named.", "source": "OpenStax Biology 2e, 3.2 Carbohydrates: carbohydrates are monosaccharides, disaccharides and polysaccharides; 'Starch, glycogen, cellulose, and chitin are primary examples of polysaccharides.' Checklist B01; reader-rules.md, Added after the Sol audit."}
+  ],
+  "goodQuotesChecked": 1
+}
