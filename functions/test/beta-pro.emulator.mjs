@@ -6,10 +6,11 @@ import {changeBetaPro} from '../lib/betaPro.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 assert.equal(process.env.GCLOUD_PROJECT,'demo-pantas-test');
 const db=getFirestore(), end=Date.parse('2026-11-16T00:00:00+08:00'), now=end-60000;
-const caller=uid=>({uid,token:{firebase:{sign_in_provider:'google.com'}}});
+const caller=uid=>({uid,token:{email:'tester@example.com',email_verified:true,firebase:{sign_in_provider:'google.com'}}});
 const request=(uid,enabled=true,extra={})=>({auth:caller(uid),app:{appId:'test'},data:{enabled,examId:'exam_cse_pro',...extra}});
 const deps=()=>({db,auth:fakeAuth(),allow:async()=>true,now:()=>now,until:()=>end});
 test('beta on and off are idempotent and copy exact-cutoff claims',async()=>{
+ await db.doc('betaApplications/beta-toggle-application').set({email:'tester@example.com',selected:true});
  const uid='beta-toggle'; await db.recursiveDelete(db.doc(`users/${uid}`)); const d=deps();
  for(const enabled of [true,true,false,false,true]) {
   const result=await changeBetaPro(request(uid,enabled),d);
@@ -20,6 +21,7 @@ test('beta on and off are idempotent and copy exact-cutoff claims',async()=>{
  }
 });
 test('beta refuses expired, disabled config, other account, signed out, no App Check, invalid exam and rate limit',async()=>{
+ await db.doc('betaApplications/beta-toggle-application').set({email:'tester@example.com',selected:true});
  const cases=[
   [request('beta-deny'),{now:()=>end},'failed-precondition'],
   [request('beta-deny'),{until:()=>null},'failed-precondition'],
@@ -32,4 +34,9 @@ test('beta refuses expired, disabled config, other account, signed out, no App C
   [request('beta-deny'),{allow:async()=>false},'resource-exhausted'],
  ];
  for(const [req,overrides,code] of cases) await assert.rejects(changeBetaPro(req,{...deps(),...overrides}),e=>e.code===code);
+});
+
+test('selection revocation stops both Beta Pro switch states',async()=>{
+ await db.doc('betaApplications/beta-toggle-application').set({email:'tester@example.com',selected:false});
+ for(const enabled of [true,false]) await assert.rejects(changeBetaPro(request('beta-toggle',enabled),deps()),{code:'permission-denied'});
 });

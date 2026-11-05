@@ -7,16 +7,19 @@ import {changeBetaPro, BETA_CUTOFF} from '../lib/betaPro.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 
 const NOW = BETA_CUTOFF - 86400000;
-const named = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com', identities: {'google.com': ['beta-tester']}}}});
+const named = uid => ({uid, token: {email: 'tester@example.com', email_verified: true, firebase: {sign_in_provider: 'google.com', identities: {'google.com': ['beta-tester']}}}});
 
 // Keep transaction reads and writes in memory so these tests need no emulator.
 function memoryDb() {
-  const rows = new Map();
+  const rows = new Map([['betaApplications/opaque', {email: 'tester@example.com', selected: true}]]);
   let nextId = 0;
   const snapshot = ref => ({ref, id: ref.path.split('/').at(-1), exists: rows.has(ref.path),
     get: key => rows.get(ref.path)?.[key], data: () => rows.get(ref.path)});
   const doc = path => ({path, get: async () => snapshot(doc(path))});
-  const collection = path => ({path, collection: true, doc: () => doc(`${path}/${++nextId}`)});
+  const collection = path => ({path, collection: true, doc: () => doc(`${path}/${++nextId}`),
+    where: (field, op, value) => ({get: async () => ({docs: [...rows.entries()]
+      .filter(([key, row]) => key.startsWith(`${path}/`) && row[field] === value)
+      .map(([key]) => snapshot(doc(key)))})})});
   const get = async ref => ref.collection
     ? {docs: [...rows.keys()].filter(path => path.startsWith(`${ref.path}/`) &&
         !path.slice(ref.path.length + 1).includes('/')).map(path => snapshot(doc(path)))}

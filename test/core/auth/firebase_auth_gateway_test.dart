@@ -15,8 +15,101 @@ class MockUserMetadata extends Mock implements firebase.UserMetadata {}
 void main() {
   setUpAll(() {
     registerFallbackValue(
+      firebase.ActionCodeSettings(
+        url: 'https://app.test',
+        handleCodeInApp: true,
+      ),
+    );
+    registerFallbackValue(firebase.GoogleAuthProvider());
+    registerFallbackValue(
       firebase.GoogleAuthProvider.credential(idToken: 'fallback-token'),
     );
+  });
+
+  test('web token changes reveal anonymous account linking', () async {
+    final auth = MockFirebaseAuth();
+    final anonymous = _user(uid: 'same', isAnonymous: true);
+    final named = _user(uid: 'same', isAnonymous: false);
+    when(auth.idTokenChanges).thenAnswer(
+      (_) => Stream.fromIterable([anonymous, named]),
+    );
+    final sessions = await FirebaseAuthGateway(auth: auth, web: true)
+        .authStateChanges
+        .toList();
+    expect(sessions.map((session) => session!.isAnonymous), [true, false]);
+  });
+
+  test('email links use in-app completion and preserve the UID', () async {
+    final auth = MockFirebaseAuth();
+    final user = _user(uid: 'anon', isAnonymous: true);
+    final credential = MockUserCredential();
+    when(() => auth.currentUser).thenReturn(user);
+    when(
+      () => auth.sendSignInLinkToEmail(
+        email: any(named: 'email'),
+        actionCodeSettings: any(named: 'actionCodeSettings'),
+      ),
+    ).thenAnswer((_) async {});
+    when(() => user.linkWithCredential(any()))
+        .thenAnswer((_) async => credential);
+    final gateway = FirebaseAuthGateway(auth: auth);
+    await gateway.sendLink(
+      'tester@example.com',
+      'https://app.test/auth/email-link',
+    );
+    final settings = verify(
+      () => auth.sendSignInLinkToEmail(
+        email: 'tester@example.com',
+        actionCodeSettings: captureAny(named: 'actionCodeSettings'),
+      ),
+    ).captured.single as firebase.ActionCodeSettings;
+    expect(settings.handleCodeInApp, isTrue);
+    expect(settings.url, 'https://app.test/auth/email-link');
+    await gateway.link('tester@example.com', 'https://app.test/?oobCode=test');
+    final linked = verify(() => user.linkWithCredential(captureAny()))
+        .captured
+        .single as firebase.EmailAuthCredential;
+    expect(linked.email, 'tester@example.com');
+    expect(linked.emailLink, 'https://app.test/?oobCode=test');
+    verifyNever(() => auth.signInWithCredential(any()));
+  });
+
+  test('Google collision reuses the credential without another popup',
+      () async {
+    final auth = MockFirebaseAuth();
+    final user = _user(uid: 'anon', isAnonymous: true);
+    final credential = firebase.GoogleAuthProvider.credential(
+      idToken: 'existing',
+    );
+    final result = MockUserCredential();
+    when(() => auth.currentUser).thenReturn(user);
+    when(() => user.linkWithPopup(any())).thenThrow(
+      firebase.FirebaseAuthException(
+        code: 'credential-already-in-use',
+        credential: credential,
+      ),
+    );
+    when(() => auth.signInWithCredential(credential))
+        .thenAnswer((_) async => result);
+    final gateway = FirebaseAuthGateway(auth: auth);
+    await expectLater(
+      gateway.googlePopup(link: true),
+      throwsA(isA<AuthGatewayException>()),
+    );
+    await gateway.googlePopup(link: false);
+    verify(() => auth.signInWithCredential(credential)).called(1);
+    verifyNever(() => auth.signInWithPopup(any()));
+  });
+
+  test('web Google uses Firebase popup linking', () async {
+    final auth = MockFirebaseAuth();
+    final user = _user(uid: 'anon', isAnonymous: true);
+    final credential = MockUserCredential();
+    when(() => auth.currentUser).thenReturn(user);
+    when(() => user.linkWithPopup(any())).thenAnswer((_) async => credential);
+    await FirebaseAuthGateway(auth: auth).googlePopup(link: true);
+    verify(() => user.linkWithPopup(any())).called(1);
+    verifyNever(() => auth.signInWithPopup(any()));
   });
 
   test('maps current Firebase user to AuthSession', () {

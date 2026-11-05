@@ -2,9 +2,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
+import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/start_location.dart';
+import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -58,12 +60,14 @@ void main() {
   Future<void> pumpApp(
     WidgetTester tester, {
     FakeGuardianGateway? guardian,
+    List<Override> extraOverrides = const [],
   }) async {
     final catalog = await tester
         .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          ...extraOverrides,
           appDatabaseProvider.overrideWithValue(db),
           examPickerCatalogProvider
               .overrideWith((ref) => Stream.value(catalog!)),
@@ -83,6 +87,65 @@ void main() {
       await tester.pumpAndSettle();
     });
   }
+
+  testWidgets('beta gate holds an unselected student before onboarding',
+      (tester) async {
+    await pumpApp(
+      tester,
+      extraOverrides: [
+        betaGateActiveProvider.overrideWithValue(true),
+        betaAccessProvider.overrideWith((ref) async => false),
+      ],
+    );
+    expect(find.text('Sign in with Google'), findsOneWidget);
+    expect(find.byType(AppShell), findsNothing);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    final router = container.read(routerProvider);
+    expect(router.routeInformationProvider.value.uri.path, '/beta');
+    router.go('/legal/privacy');
+    await tester.pumpAndSettle();
+    expect(router.routeInformationProvider.value.uri.path, '/legal/privacy');
+    router.go('/guardian');
+    await tester.pumpAndSettle();
+    expect(router.routeInformationProvider.value.uri.path, '/guardian');
+  });
+
+  testWidgets('selected beta student continues into normal onboarding',
+      (tester) async {
+    await pumpApp(
+      tester,
+      extraOverrides: [
+        betaGateActiveProvider.overrideWithValue(true),
+        betaAccessProvider.overrideWith((ref) async => true),
+      ],
+    );
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    expect(
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/onboarding',
+    );
+    expect(find.text('Sign in with Google'), findsNothing);
+  });
+
+  testWidgets('disabled beta gate leaves anonymous onboarding unchanged',
+      (tester) async {
+    await pumpApp(
+      tester,
+      extraOverrides: [
+        betaGateActiveProvider.overrideWithValue(false),
+        betaAccessProvider.overrideWith((ref) async => false),
+      ],
+    );
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    expect(
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/onboarding',
+    );
+    expect(find.text('Sign in with Google'), findsNothing);
+  });
 
   testWidgets('missing server and local settings opens the exam step',
       (tester) async {

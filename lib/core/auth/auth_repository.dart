@@ -1,5 +1,6 @@
 import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/email_link_auth.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 
 typedef Clock = DateTime Function();
@@ -41,6 +42,9 @@ class AuthRepository {
     AccountTransitionGateway? accountTransitionGateway,
     LocalStateWiper? localStateWiper,
     Clock? clock,
+    EmailLinkAuthGateway? emailLinkGateway,
+    EmailLinkStore? emailLinkStore,
+    GooglePopupAuthGateway? googlePopupGateway,
   })  : _gateway = gateway,
         _googleGateway =
             googleGateway ?? const UnconfiguredGoogleSignInGateway(),
@@ -49,7 +53,10 @@ class AuthRepository {
         _accountTransitionGateway =
             accountTransitionGateway ?? const NoopAccountTransitionGateway(),
         _localStateWiper = localStateWiper ?? const NoopLocalStateWiper(),
-        _clock = clock ?? DateTime.now;
+        _clock = clock ?? DateTime.now,
+        _emailLinkGateway = emailLinkGateway,
+        _emailLinkStore = emailLinkStore ?? const BrowserEmailLinkStore(),
+        _googlePopupGateway = googlePopupGateway;
 
   final AuthGateway _gateway;
   final GoogleSignInGateway _googleGateway;
@@ -57,6 +64,9 @@ class AuthRepository {
   final AccountTransitionGateway _accountTransitionGateway;
   final LocalStateWiper _localStateWiper;
   final Clock _clock;
+  final EmailLinkAuthGateway? _emailLinkGateway;
+  final EmailLinkStore _emailLinkStore;
+  final GooglePopupAuthGateway? _googlePopupGateway;
 
   /// Installed by the payment bootstrap without importing a feature into core.
   Future<void> Function()? beforeIdentityChange;
@@ -73,6 +83,13 @@ class AuthRepository {
   }
 
   Future<SignInResult> signInWithGoogle() async {
+    final popup = _googlePopupGateway;
+    if (popup != null) {
+      return _signInWithLink(
+        () => popup.googlePopup(link: true),
+        () => popup.googlePopup(link: false),
+      );
+    }
     final tokens = await _googleGateway.signIn();
     if (tokens == null) return const SignInResult.cancelled();
 
@@ -88,7 +105,85 @@ class AuthRepository {
     }
   }
 
+  String? get pendingEmailLinkEmail => _emailLinkStore.email;
+
+  bool isEmailSignInLink(String link) =>
+      _emailLinkGateway?.isSignInLink(link) ?? false;
+
+  void cancelEmailLink() => _emailLinkStore.email = null;
+
+  Future<void> sendEmailLink(String email, String continueUrl) async {
+    final gateway = _emailLinkGateway;
+    if (gateway == null) {
+      throw const AuthGatewayException('firebase-unavailable');
+    }
+    final normalized = email.trim().toLowerCase();
+    await gateway.sendLink(normalized, continueUrl);
+    _emailLinkStore.email = normalized;
+  }
+
+  Future<SignInResult> completeEmailLink(String link, {String? email}) async {
+    final gateway = _emailLinkGateway;
+    if (gateway == null) {
+      return const SignInResult.failed(reason: 'firebase-unavailable');
+    }
+    if (!gateway.isSignInLink(link)) {
+      cancelEmailLink();
+      return const SignInResult.failed(reason: 'invalid-action-code');
+    }
+    final address = (email ?? _emailLinkStore.email)?.trim().toLowerCase();
+    if (address == null || address.isEmpty) {
+      return const SignInResult.failed(reason: 'email-required');
+    }
+    try {
+      return await _signInWithLink(
+        () => gateway.link(address, link),
+        () => gateway.signIn(address, link),
+      );
+    } finally {
+      cancelEmailLink();
+    }
+  }
+
+  Future<SignInResult> _signInWithLink(
+    Future<void> Function() link,
+    Future<void> Function() signIn,
+  ) async {
+    if (_gateway.currentSession?.isAnonymous ?? false) {
+      try {
+        await link();
+        await _functionsGateway.recordSignInEvent();
+        return const SignInResult.linkedExisting();
+      } on AuthGatewayException catch (error) {
+        if (error.code == 'popup-closed-by-user' ||
+            error.code == 'cancelled-popup-request') {
+          return const SignInResult.cancelled();
+        }
+        if (error.code != 'credential-already-in-use' &&
+            error.code != 'email-already-in-use') {
+          return SignInResult.failed(reason: error.code);
+        }
+      }
+    }
+    await _accountTransitionGateway.prepareForAccountSwitch();
+    await beforeIdentityChange?.call();
+    try {
+      if (_gateway.currentSession != null) await _gateway.signOut();
+      await signIn();
+      await _functionsGateway.recordSignInEvent();
+      return const SignInResult.switchedToExisting();
+    } on AuthGatewayException catch (error) {
+      await ensureAnonymous();
+      if (error.code == 'popup-closed-by-user' ||
+          error.code == 'cancelled-popup-request') {
+        return const SignInResult.cancelled();
+      }
+      return SignInResult.failed(reason: error.code);
+    }
+  }
+
   Future<void> signOut() async {
+    cancelEmailLink();
     await _accountTransitionGateway.prepareForSignOut();
     await beforeIdentityChange?.call();
     await _localStateWiper.wipeAll();
@@ -139,6 +234,7 @@ class AuthRepository {
   }
 
   Future<void> _signOutGoogleBestEffort() async {
+    if (_googlePopupGateway != null) return;
     try {
       await _googleGateway.signOut();
     } catch (_) {

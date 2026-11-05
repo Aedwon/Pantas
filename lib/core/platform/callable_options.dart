@@ -9,6 +9,7 @@ const replayProtectedCallables = <String>{
   'createPaymongoCheckout',
   'startWebTrial',
   'setBetaPro',
+  'getBetaAccess',
   'deleteAccount',
   'exportData',
   'recomputePassEnds',

@@ -9,6 +9,7 @@ import {readEntitlementInputs, claimsFromInputs, entitlementWrite, nativeCoverag
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {reanchorQueued} from './paymongoGrants.js';
 import type {Grant} from './grants.js';
+import {selectedBetaApplication} from './betaAccess.js';
 
 export const BETA_CUTOFF = Date.parse('2026-11-16T00:00:00+08:00');
 /** Missing or invalid server config disables beta; config can never extend the approved window. */
@@ -32,6 +33,9 @@ export async function changeBetaPro(request: Pick<CallableRequest, 'auth' | 'app
   }
   if (!await (deps.allow ?? (id => allowAtMost(id, 'betaPro', 30, 10 * 60_000)))(uid)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
+  if (!await selectedBetaApplication(request.auth, deps.db)) {
+    throw new HttpsError('permission-denied', 'This account is not on the beta list.');
   }
   const result = await deps.db.runTransaction(async tx => {
     // Evaluate again on transaction retries, so a retry cannot grant after the cutoff.

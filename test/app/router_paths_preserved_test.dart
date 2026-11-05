@@ -64,6 +64,9 @@ void main() {
       '/settings/about',
       '/settings/_debug',
       '/legal/:doc',
+      // The beta gate and email link sign-in (Nov 6).
+      '/beta',
+      '/auth/email-link',
     ];
     expect(
       collectRoutePaths(includeDebugGallery: false),

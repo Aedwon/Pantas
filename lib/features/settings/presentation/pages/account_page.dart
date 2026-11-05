@@ -145,8 +145,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
               if (user != null)
                 SettingsRow(
-                  title: 'Signed in with',
-                  value: 'Google',
+                  title: web ? 'Email' : 'Signed in with',
+                  value: web ? user.email : 'Google',
                   variant: ListRowVariant.value,
                   divider: true,
                   dividerInset: context.wideWeb ? 0 : 16,
@@ -182,6 +182,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               busy: _signingIn,
               onPressed: _signingIn ? null : _signIn,
             ),
+            if (web) ...[
+              const SizedBox(height: 12),
+              WebButton(
+                label: 'Continue with email',
+                variant: WebButtonVariant.secondary,
+                onPressed: _signingIn ? null : () => push('/auth/email-link'),
+              ),
+            ],
             const SizedBox(height: 12),
             Text(
               _errorMessage ??
@@ -291,9 +299,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               onTap: () => push('/settings/account/name'),
             ),
             if (user != null)
-              const SettingsRow(
-                title: 'Signed in with',
-                value: 'Google',
+              SettingsRow(
+                title: web ? 'Email' : 'Signed in with',
+                value: web ? user.email : 'Google',
                 variant: ListRowVariant.value,
               ),
           ],
@@ -334,6 +342,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             busy: _signingIn,
             onPressed: _signingIn ? null : _signIn,
           ),
+          if (web) ...[
+            const SizedBox(height: 12),
+            PantasButton(
+              label: 'Continue with email',
+              variant: PantasButtonVariant.secondary,
+              onPressed: _signingIn ? null : () => push('/auth/email-link'),
+            ),
+          ],
           const SizedBox(height: 12),
           Text(
             // The web build keeps the progress in the browser, whatever the

@@ -43,7 +43,10 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
     if (!context.wideWeb) return child;
     // The guardian screens and onboarding are full screen: no sidebar and no
     // tabs, at every wide size (3M-10: the tabs showed at 1024 to 1279).
-    if (path.startsWith('/guardian') || path.startsWith('/onboarding')) {
+    if (path.startsWith('/guardian') ||
+        path.startsWith('/onboarding') ||
+        path == '/beta' ||
+        path == '/auth/email-link') {
       return child;
     }
     // A legal page opened during onboarding has no main navigation.

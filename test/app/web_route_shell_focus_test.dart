@@ -10,6 +10,26 @@ import 'package:pantas/features/shell/presentation/web_shell.dart';
 void main() {
   tearDown(() => debugWebPlatformOverride = null);
 
+  for (final path in ['/beta', '/auth/email-link']) {
+    testWidgets('$path has no app navigation at tablet width', (tester) async {
+      debugWebPlatformOverride = true;
+      tester.view
+        ..physicalSize = const Size(1100, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: WebRouteShell(path: path, child: const Placeholder()),
+          ),
+        ),
+      );
+      expect(find.byType(AppNavBar), findsNothing);
+    });
+  }
+
   test('the reader, quiz and mock sessions are focus pages; tab pages not', () {
     for (final path in [
       '/lesson/l1',

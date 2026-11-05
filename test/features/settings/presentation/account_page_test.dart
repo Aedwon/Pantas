@@ -41,6 +41,23 @@ void main() {
       findsOneWidget,
     );
     expect(find.textContaining('this phone'), findsNothing);
+    expect(find.text('Continue with email'), findsOneWidget);
+  });
+
+  testWidgets('email accounts show their email on web', (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: const AuthUser(
+        uid: 'email-user',
+        email: 'tester@example.com',
+        displayName: '',
+      ),
+      web: true,
+    );
+    // The account header and the Email row both show it.
+    expect(find.text('tester@example.com'), findsWidgets);
+    expect(find.text('Google'), findsNothing);
   });
 
   testWidgets('named Free account keeps local-only Pro-aware copy',

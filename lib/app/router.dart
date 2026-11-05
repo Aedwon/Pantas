@@ -1,6 +1,7 @@
 // ignore_for_file: directives_ordering
 
 import 'package:flutter/foundation.dart';
+import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -41,6 +42,8 @@ final routerProvider = Provider<GoRouter>((ref) {
     activeExamFocusProvider,
     entitlementProvider,
     guardianGateProvider,
+    betaGateActiveProvider,
+    betaGateStatusProvider,
   ]);
   // Every page's address shows, so a reload stays on it. The address of a page
   // that needs in-memory arguments is handled by `startLocationFor`.
@@ -69,7 +72,19 @@ final routerProvider = Provider<GoRouter>((ref) {
       // The guardian's link works signed out and before onboarding, and the
       // legal pages it links to must open for them too.
       final path = state.matchedLocation;
-      if (path == '/guardian') return null;
+      if (path == '/guardian' ||
+          path.startsWith('/legal/') ||
+          path == '/auth/email-link') {
+        return null;
+      }
+      final betaActive = ref.read(betaGateActiveProvider);
+      final betaRedirect = betaGateRedirect(
+        path: path,
+        active: betaActive,
+        access: ref.read(betaGateStatusProvider),
+      );
+      if (betaRedirect != null) return betaRedirect;
+      if (path == '/beta') return null;
       final guardian = ref.read(guardianGateProvider).valueOrNull;
       if (guardian == GuardianGate.waiting) {
         // A minor is held on Waiting, or on the form to change the email,
@@ -154,6 +169,15 @@ List<RouteBase> buildAppRoutes(
     ...mockRoutes(ref),
     ...settings.where((route) => route != settingsRoot),
     ...onboardingRoutes(ref),
+    GoRoute(path: '/beta', builder: (context, state) => const BetaGatePage()),
+    GoRoute(
+      path: '/auth/email-link',
+      builder: (context, state) => EmailSignInPage(
+        link: state.uri.hasQuery
+            ? Uri.base.resolve(state.uri.toString()).toString()
+            : null,
+      ),
+    ),
     ...guardianRoutes(ref),
     ...wrappedRoutes(ref),
     ...statesRoutes(ref),

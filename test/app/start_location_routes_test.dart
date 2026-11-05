@@ -10,6 +10,9 @@ import 'package:pantas/app/start_location.dart';
 /// Routes that open where they are. Each is checked against the start rules.
 const _honored = <String>{
   '/home',
+  // The beta gate and the email sign-in link land cold by design.
+  '/beta',
+  '/auth/email-link',
   '/study',
   '/quiz',
   '/settings',
