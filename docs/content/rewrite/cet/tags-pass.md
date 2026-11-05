@@ -44,3 +44,7 @@ Added among audit lessons matches the spec's B1 counts (ACET 13, USTET 4, UPCAT 
 1. A Sonnet subagent applies `tag-changes.json` with a script: replace each file's `meta.exams` list with `after`, keeping that file's list style (inline or block, quote style). No other line changes. It also makes the UPCAT blueprint change above.
 2. Lead checks: re-run the comparison (zero differences from the audit list plus the six resolved files), `git diff` touches only `meta.exams` lines and `upcat.yaml`, the import check and the content export pass, and the pool check shows no short UPCAT topic.
 3. Record in `STATUS.md` and the final report. Push to `content/cet-rewrite-r1`.
+
+## SSOT tab update
+
+November 5, 2026: the "Pantas Audited Corpus r1" tab now lists the 20 lessons added after the audit, under their topics and marked "Added after the audit", with their current app tags (split lessons name their parent). Angles and Radian Measure now shows its app tags (PUPCET, UPCAT) and Aedwon's UPCAT ruling. An update note follows the tab's introduction. Audit lines were not otherwise changed.
