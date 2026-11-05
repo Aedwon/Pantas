@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__chemical-reactions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-chemical-reactions-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the carbon-accounting argument; note now cites the taught hydrogen-to-water product."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "file": "science__biology__botany",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-botany-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distractors now carry qualifiers like the key (usually, mainly) with distinct reasoning, so hedging no longer marks the key."
+  }
+ ]
+}

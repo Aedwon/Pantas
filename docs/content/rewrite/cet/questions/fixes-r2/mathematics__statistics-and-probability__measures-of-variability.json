@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__statistics-and-probability__measures-of-variability",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0005",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Changed positive square root to nonnegative square root in the keyed choice."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says squared distances add up to no more, and usually less, from the sample mean, and that n-1 raises a positive result."
+  }
+ ]
+}

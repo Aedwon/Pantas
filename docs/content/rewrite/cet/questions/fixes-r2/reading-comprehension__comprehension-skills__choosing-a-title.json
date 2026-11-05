@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__comprehension-skills__choosing-a-title",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-comprehension-skills-choosing-a-title-0017",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says the writer recommends, not that the committee decided, and checks decision versus recommendation."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__earths-subsystems",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note no longer claims plants do not affect the movement; it contrasts ground entry with vapor leaving plants."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__periodic-table",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-periodic-table-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now gives the plain reason: more protons pull outer electrons tighter."
+  }
+ ]
+}
