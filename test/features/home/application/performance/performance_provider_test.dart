@@ -204,6 +204,48 @@ void main() {
     );
   }
 
+  test('CSE Data Interpretation counts under Analytical', () async {
+    for (final (id, name, subject) in [
+      ('data', 'Data Interpretation', 'math'),
+      ('logic', 'Verbal Logic', 'reasoning'),
+      ('algebra', 'Algebra', 'math'),
+    ]) {
+      await seedContentTopicWithQuestions(
+        contentDb,
+        examId: 'exam_cse_pro',
+        subjectId: subject,
+        topicId: id,
+        topicName: name,
+        questionIds: ['q_$id'],
+        lessonIds: ['l_$id'],
+      );
+    }
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    await seedAttempt(
+      'cse',
+      [('q_data', true), ('q_logic', false), ('q_algebra', false)],
+      attemptExam: 'exam_cse_pro',
+    );
+    final table = await read(TableLevel.subject);
+    expect(
+      table.rows.map((r) => r.title),
+      ['Analytical Ability', 'Numerical Ability'],
+    );
+    final analytical = table.rows.first;
+    expect(
+      (analytical.correct, analytical.answered, analytical.accuracy),
+      (1, 2, .5),
+    );
+    expect(table.rows.last.answered, 1);
+    expect(table.subjects.first.rowCount, 2);
+    container.dispose();
+    final topics = await read(TableLevel.topic);
+    expect(
+      topics.rows.firstWhere((r) => r.id == 'data').subtext,
+      'Analytical Ability',
+    );
+  });
+
   test('retired sample subjects stay hidden with saved answers', () async {
     await seedSyllabus();
     await seedAttempt('old_sample', [('q_c1', true)]);

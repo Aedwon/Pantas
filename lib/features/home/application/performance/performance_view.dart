@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/metrics/overall_accuracy.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
@@ -57,11 +58,23 @@ final performanceViewProvider =
         .future,
   );
   final subjectIds = [for (final row in subjects.rows) row.id];
+  final examId =
+      (await ref.watch(activeExamFocusProvider.future)).exam?.id ?? '';
+  final isCse = csePartsForExam(examId).isNotEmpty;
   final contentDb = ref.watch(contentDatabaseProvider);
   final topicRows = await (contentDb.select(contentDb.contentTopics)
-        ..where((t) => t.subjectId.isIn(subjectIds)))
+        ..where(
+          (t) => isCse
+              ? t.id.isIn(topics.rows.map((r) => r.id))
+              : t.subjectId.isIn(subjectIds),
+        ))
       .get();
-  final subjectOfTopic = {for (final t in topicRows) t.id: t.subjectId};
+  final subjectOfTopic = <String, String>{
+    for (final t in topicRows)
+      if (isCse ? csePartForTopicRow(examId, t.id, t.name)?.key : t.subjectId
+          case final subject?)
+        t.id: subject,
+  };
   final lessonRows = await (contentDb.select(contentDb.contentLessons)
         ..where((l) => l.topicId.isIn(subjectOfTopic.keys)))
       .get();

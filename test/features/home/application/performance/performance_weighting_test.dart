@@ -144,10 +144,12 @@ void main() {
     final view = await load('exam_cse_pro', answers);
     // Verbal 3/6, Analytical 3/4, Numerical 3/4, General Information 0/1.
     await expectGauge(tester, view, .6375);
+    // Rows are the CSC's parts. Geometry is outside them and has no row.
     expect(
-      view.subjects.firstWhere((r) => r.id == 'subject_geometry').accuracy,
-      1,
+      view.subjects.firstWhere((r) => r.title == 'Analytical Ability').accuracy,
+      .75,
     );
+    expect(view.subjects.map((r) => r.id), isNot(contains('subject_geometry')));
   });
 
   testWidgets('an unanswered area is left out of the weights', (tester) async {

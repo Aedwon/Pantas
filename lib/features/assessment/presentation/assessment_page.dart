@@ -9,6 +9,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
@@ -52,13 +53,15 @@ final _startAssessmentProvider = Provider<StartAssessment>(
 );
 
 /// AS_Question draws "SUBJECT · TOPIC". The card upper-cases it.
-final _questionHeaderProvider =
-    FutureProvider.autoDispose.family<String, String>((ref, topicId) async {
+final _questionHeaderProvider = FutureProvider.autoDispose
+    .family<String, (String, String)>((ref, key) async {
+  final (examId, topicId) = key;
   final content = ref.watch(contentRepositoryProvider);
   final topic = await content.topicById(topicId);
   if (topic == null) return '';
   final subject = await content.subjectById(topic.subjectId);
-  return subject == null ? topic.name : '${subject.name} · ${topic.name}';
+  final name = examSubjectName(examId, topic.name, subject?.name);
+  return name == null ? topic.name : '$name · ${topic.name}';
 });
 
 final _completeAssessmentProvider = Provider<CompleteAssessment>(
@@ -343,7 +346,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     final question = session?.questions[_index].question;
     final header = question == null
         ? null
-        : ref.watch(_questionHeaderProvider(question.topicId)).valueOrNull;
+        : ref
+            .watch(_questionHeaderProvider((widget.examId, question.topicId)))
+            .valueOrNull;
     final passageState = question?.passageId == null
         ? null
         : ref.watch(passageByIdProvider(question!.passageId!));

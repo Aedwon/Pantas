@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -32,7 +33,15 @@ final whatsIncludedDataProvider = FutureProvider.family<
   final excluded = await ref.watch(trackScopeProvider(examId).future);
   final exam = (await content.listExams()).firstWhere((e) => e.id == examId);
   final groups = <String, List<Topic>>{};
-  if (exam.isCustom) {
+  if (csePartsForExam(examId).isNotEmpty) {
+    final topics = await content.topicsByExam(examId);
+    for (final part in csePartsForExam(examId)) {
+      groups[part.name] = [
+        for (final name in part.topicNames)
+          ...topics.where((t) => t.name == name),
+      ];
+    }
+  } else if (exam.isCustom) {
     for (final topic in await corpusTopics(content)) {
       final subject = await content.subjectById(topic.subjectId);
       groups.putIfAbsent(subject?.name ?? topic.subjectId, () => []).add(topic);

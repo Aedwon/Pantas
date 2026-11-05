@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/content/exam_subject_groups.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
@@ -30,19 +32,48 @@ final customMockSetupDataProvider =
   if (exam == null) return null;
 
   final topics = await ref.watch(scopedTopicsProvider(exam.id).future);
-  final subjects = await ref.watch(scopedSubjectsProvider(exam.id).future);
+  final scopedSubjects =
+      await ref.watch(scopedSubjectsProvider(exam.id).future);
   final content = ref.watch(contentRepositoryProvider);
 
-  final topicsBySubject = <SubjectId, List<Topic>>{};
-  for (final topic in topics) {
-    (topicsBySubject[topic.subjectId] ??= []).add(topic);
-  }
+  final isCse = csePartsForExam(exam.id).isNotEmpty;
+  final eligible = isCse
+      ? await content.lessonMetaByTopics(
+          [for (final topic in topics) topic.id],
+          examId: exam.id,
+        )
+      : null;
+  final groups = examSubjectGroups(
+    examId: exam.id,
+    subjects: scopedSubjects,
+    topics: [
+      for (final topic in topics)
+        if (eligible == null || eligible[topic.id]!.isNotEmpty) topic,
+    ],
+  );
+  final subjects = isCse
+      ? [
+          for (final (index, group) in groups.indexed)
+            Subject(
+              id: group.id,
+              examId: exam.id,
+              name: group.name,
+              ordering: index,
+            ),
+        ]
+      : scopedSubjects;
+  final topicsBySubject = <SubjectId, List<Topic>>{
+    for (final group in groups) group.id: group.topics,
+  };
 
   // Counted from the scoped topics, so it follows the track rather than
   // the whole corpus.
   final available = await countAvailableQuestions(
     content,
-    [for (final topic in topics) topic.id],
+    [
+      for (final group in groups)
+        for (final topic in group.topics) topic.id,
+    ],
     examId: exam.id,
   );
 

@@ -16,8 +16,8 @@ const deps = () => ({db, now: () => NOW, allow: async () => true});
 const body = uid => ({expectedUid: uid, examId: PRO});
 const code = async p => { try { await p; return 'ok'; } catch (e) { return e.code ?? String(e); } };
 async function catalog(exam, questionIds) {
-  const numerical = {_id: 'topic_cse_pro_arithmetic_number_sense', name: 'Numerical', subject: 'subject-' + exam, ordering: 1};
-  const topic = {_id: 'topic_cse_pro_vocabulary', name: 'Topic ' + exam, subject: 'subject-' + exam, ordering: 0};
+  const numerical = {_id: 'topic_cse_pro_arithmetic_number_sense', name: 'Arithmetic & Number Sense', subject: 'subject-' + exam, ordering: 1};
+  const topic = {_id: 'topic_cse_pro_vocabulary', name: 'Vocabulary', subject: 'subject-' + exam, ordering: 0};
   await db.doc('content/catalog/items/' + exam).set({version: 'v1', payload: JSON.stringify({
     id: exam, subjects: [{_id: 'subject-' + exam, name: 'Subject ' + exam, exam, ordering: 0}], topics: [topic, numerical], lessons: [],
     sets: [{id: 'set-' + exam, topic: topic._id, lesson: null, exams: [exam], questions: questionIds.filter(id => id !== 'b1').map(id => ({id}))},
@@ -48,7 +48,7 @@ test('carry-over on counts Sub answers on questions Pro also has, and not Sub-on
   const r = await readStudyInsights(auth(uid), body(uid), deps());
   // s1 right, s2 wrong from the Sub quiz; b1 right under Pro. a1 is not in Pro's pool. The Sub mock is not carried.
   assert.deepEqual(overall(r), {correct: 2, answered: 3, accuracy: .75});
-  assert.deepEqual(r.performance.subjects.map(s => [s.id, s.correct, s.answered]), [['subject-' + PRO, 2, 3]]);
+  assert.deepEqual(r.performance.subjects.map(s => [s.id, s.correct, s.answered]), [['verbal_ability', 1, 2], ['numerical_ability', 1, 1]]);
 });
 
 test('carry-over off counts only what was answered under the current exam', async () => {

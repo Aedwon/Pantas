@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
@@ -43,7 +45,12 @@ final practiceReviewProvider =
         question: question,
         chosenChoiceId: item.chosenChoiceId,
         isFlagged: flagged.contains(question.id),
-        subjectName: subject?.name ?? topic?.name ?? '',
+        subjectName: examSubjectName(
+              attempt.examId,
+              topic?.name ?? '',
+              subject?.name ?? topic?.name,
+            ) ??
+            '',
         label: question.shortLabel ?? question.stem,
         labelIsStem: question.shortLabel == null,
         passage: passage,
@@ -55,6 +62,8 @@ final practiceReviewProvider =
 
 /// Every flagged question across subjects, grouped by subject on the page.
 final flaggedReviewProvider = FutureProvider<List<ReviewEntry>>((ref) async {
+  final examId =
+      (await ref.watch(activeExamFocusProvider.future)).exam?.id ?? '';
   final flagRows =
       await ref.watch(questionFlagsRepositoryProvider).flagsNewestFirst();
   final content = ref.watch(contentRepositoryProvider);
@@ -75,7 +84,12 @@ final flaggedReviewProvider = FutureProvider<List<ReviewEntry>>((ref) async {
         number: entries.length + 1,
         question: question,
         isFlagged: true,
-        subjectName: subject?.name ?? topic?.name ?? '',
+        subjectName: examSubjectName(
+              examId,
+              topic?.name ?? '',
+              subject?.name ?? topic?.name,
+            ) ??
+            '',
         label: question.shortLabel ?? question.stem,
         labelIsStem: question.shortLabel == null,
       ),
@@ -149,7 +163,7 @@ final flaggedExamReviewProvider = FutureProvider.autoDispose
         number: entries.length + 1,
         question: question,
         isFlagged: true,
-        subjectName: subject.name,
+        subjectName: examSubjectName(examId, topic.name, subject.name) ?? '',
         topicName: topic.name,
         label: question.shortLabel ?? question.stem,
         labelIsStem: question.shortLabel == null,

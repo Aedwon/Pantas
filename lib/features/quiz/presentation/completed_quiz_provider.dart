@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/completed_quiz.dart';
@@ -56,7 +57,8 @@ final completedQuizProvider = FutureProvider.autoDispose
     if (topic == null) continue;
     topicNames[id] = topic.name;
     final subject = await content.subjectById(topic.subjectId);
-    if (subject != null) subjectNames[id] = subject.name;
+    final name = examSubjectName(attempt.examId, topic.name, subject?.name);
+    if (name != null) subjectNames[id] = name;
   }
   String? source;
   switch (session.origin) {

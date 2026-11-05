@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/content/exam_subject_groups.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -15,18 +15,17 @@ final practiceIndexProvider =
   final scopedTopics = await ref.watch(scopedTopicsProvider(examId).future);
   final scopedSubjects = await ref.watch(scopedSubjectsProvider(examId).future);
 
-  final topicsBySubjectMap = <SubjectId, List<Topic>>{};
-  for (final t in scopedTopics) {
-    topicsBySubjectMap.putIfAbsent(t.subjectId, () => []).add(t);
-  }
-
   final readIds =
       await ref.watch(lessonProgressRepositoryProvider).readLessonIds();
 
   final subjects = <PracticeSubjectEntry>[];
-  for (final subject in scopedSubjects) {
+  for (final subject in examSubjectGroups(
+    examId: examId,
+    subjects: scopedSubjects,
+    topics: scopedTopics,
+  )) {
     final topicEntries = <PracticeTopicEntry>[];
-    final topics = topicsBySubjectMap[subject.id] ?? const [];
+    final topics = subject.topics;
     for (final topic in topics) {
       final questions =
           await content.questionsByTopic(topic.id, examId: examId);

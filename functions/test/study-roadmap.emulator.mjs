@@ -15,7 +15,7 @@ const body=uid=>({expectedUid:uid,examId:EXAM});
 const code=async p=>{try{await p;return 'ok';}catch(e){return e.code??String(e);}};
 async function seed(uid){
  await db.recursiveDelete(db.doc('users/'+uid));
- const topics=[{_id:'topic_cse_pro_vocabulary',name:'Authored Alpha',subject:'subject-cse',ordering:0},{_id:'topic_cse_pro_arithmetic_number_sense',name:'Authored Beta',subject:'subject-cse',ordering:1}];
+ const topics=[{_id:'topic_cse_pro_vocabulary',name:'Vocabulary',subject:'subject-cse',ordering:0},{_id:'topic_cse_pro_arithmetic_number_sense',name:'Arithmetic & Number Sense',subject:'subject-cse',ordering:1}];
  const lessons=Array.from({length:12},(_,i)=>({id:'lesson-cse-'+i,title:'Lesson '+i,topic:topics[i<6?0:1]._id,ordering:i}));
  const sets=topics.map((t,n)=>({id:'set-cse-'+n,topic:t._id,lesson:lessons[n*6].id,exams:[EXAM],questions:Array.from({length:12},(_,i)=>({id:'cse-'+n+'-'+i}))}));
  await db.doc('content/catalog/items/'+EXAM).set({version:'catalog-v1',payload:JSON.stringify({id:EXAM,subjects:[{_id:'subject-cse',name:'Authored Subject',exam:EXAM,ordering:0}],topics,lessons,sets})});
@@ -127,7 +127,7 @@ test('mixed finished origins count accuracy once and legacy metadata stays absen
  const result=await readStudyInsights(auth(uid),body(uid),deps());
  // Only verbal has answers: (30 * 2/4) / 30 = 0.5. Raw counts stay 2/4.
  assert.deepEqual(result.performance.overall,{correct:2,answered:4,accuracy:.5});
- assert.equal(result.performance.subjects[0].title,'Authored Subject');
+ assert.equal(result.performance.subjects[0].title,'Verbal Ability');
 });
 
 test('finished-session ingest refreshes stored authoritative remaining and insight cache',async()=>{
@@ -273,8 +273,8 @@ test('paid topic details include eligible lessons and actual read states, includ
  await writeLessonRead(auth(uid),{expectedUid:uid,lessonId:lessons[0].id,readAt:NOW-1000},deps());
  const result=await readStudyInsights(auth(uid),body(uid),deps());
  const topic=result.performance.topicDetails[0];
- assert.equal(topic.id,'topic_cse_pro_vocabulary');assert.equal(topic.title,'Authored Alpha');
- assert.equal(topic.subject,'Authored Subject');assert.equal(topic.answered,0);
+ assert.equal(topic.id,'topic_cse_pro_vocabulary');assert.equal(topic.title,'Vocabulary');
+ assert.equal(topic.subject,'Verbal Ability');assert.equal(topic.answered,0);
  assert.deepEqual(topic.lessons.map(l=>l.read),[true]);
  assert.deepEqual(topic.lessons.map(l=>l.id),[lessons[0].id]);
  assert.deepEqual((await readStudyInsights(auth(uid),body(uid),deps())).performance.topicDetails,result.performance.topicDetails);

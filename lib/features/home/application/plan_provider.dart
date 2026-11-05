@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -410,11 +411,17 @@ Future<List<HomeTodayLesson>> _planLessons(
     final rows = await (db.select(db.contentLessons)
           ..where((l) => l.id.isIn(plan.lessonIds)))
         .get();
+    final examId =
+        (await ref.read(activeExamFocusProvider.future)).exam?.id ?? '';
     final topics = await db.select(db.contentTopics).get();
     final subjects = await db.select(db.contentSubjects).get();
     final names = {
       for (final t in topics)
-        t.id: subjects.where((s) => s.id == t.subjectId).firstOrNull?.name,
+        t.id: examSubjectName(
+          examId,
+          t.name,
+          subjects.where((s) => s.id == t.subjectId).firstOrNull?.name,
+        ),
     };
     if (!ref.read(studyUsesServerProvider)) {
       final studentDb = ref.read(appDatabaseProvider);
@@ -423,7 +430,11 @@ Future<List<HomeTodayLesson>> _planLessons(
     }
     for (final id in plan.lessonIds) {
       final row = rows.where((l) => l.id == id).firstOrNull;
-      if (row == null || names[row.topicId] == null) {
+      if (row == null) {
+        throw StateError('Plan lesson unavailable');
+      }
+      if (names[row.topicId] == null) {
+        if (csePartsForExam(examId).isNotEmpty) continue;
         throw StateError('Plan lesson unavailable');
       }
       // Future web read flags must come from the authoritative endpoint.

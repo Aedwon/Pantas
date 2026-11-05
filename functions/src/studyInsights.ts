@@ -6,6 +6,7 @@ import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import type {Answer} from './_answers.js';
 import {loadStudyContent} from './_examContent.js';
+import {examSubjectGroups, examSubjectName, examPerformanceSubjects} from './_examSubjectGroups.js';
 import {phDay, phStamp} from './_phDate.js';
 import {mockCoverage} from './mockAccess.js';
 import {assertStudyOwner} from './studyObservations.js';
@@ -69,7 +70,7 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   // Absent means carry over. The choice filters the figures only; the plan and due dates never read it.
   const carry=settings.get('carryOverProgress')!==false;
   const pro=access.coversExam(examId),topicOf=new Map(content.topics.map(t=>[t.id,t]));
-  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v4-csc-accuracy']);
+  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),carry,'topic-details-v5-csc-parts']);
   const response=(derived:Insights,performance:Performance,revision:string)=>{
    const {topics,lessons,topicDetails,...visible}=performance;
    return{examId:examId,serverNow:now,accessRecheckAt:access.recheckAt,proCovered:pro,revision,trialEndsAt,
@@ -118,14 +119,17 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
    const c=counts.get(q.id)??{correct:0,answered:0};c.answered++;if(a.correct)c.correct++;counts.set(q.id,c);
   }
   const sum=(ids:string[])=>ids.reduce((total,id)=>{const c=counts.get(id);return{correct:total.correct+(c?.correct??0),answered:total.answered+(c?.answered??0)};},{correct:0,answered:0});
-  const topics=content.topics.map(t=>({id:t.id,title:t.name,parentId:t.subjectId,...sum(content.questions.filter(q=>q.topicId===t.id).map(q=>q.id))})).filter(t=>t.answered>0);
-  const lessons=content.lessons.map(l=>({id:l.id,title:l.title,parentId:l.topicId,...sum(content.questions.filter(q=>q.lessonId===l.id).map(q=>q.id))})).filter(l=>l.answered>0);
-  const subjects=content.subjects.map(s=>({id:s.id,title:s.name,...sum(content.questions.filter(q=>topicOf.get(q.topicId)?.subjectId===s.id).map(q=>q.id)),topicCount:topics.filter(t=>t.parentId===s.id).length})).filter(s=>s.answered>0);
+  const displayGroups=examSubjectGroups(examId,content);
+  const displayParent=new Map(displayGroups.flatMap(s=>s.topics.map(t=>[t.id,s.id] as const)));
+  const ratedTopics=content.topics.map(t=>({id:t.id,title:t.name,parentId:displayParent.get(t.id)??t.subjectId,...sum(content.questions.filter(q=>q.topicId===t.id).map(q=>q.id))})).filter(t=>t.answered>0);
+  const topics=ratedTopics.filter(t=>displayParent.has(t.id));
+  const lessons=content.lessons.filter(l=>displayParent.has(l.topicId)).map(l=>({id:l.id,title:l.title,parentId:l.topicId,...sum(content.questions.filter(q=>q.lessonId===l.id).map(q=>q.id))})).filter(l=>l.answered>0);
+  const subjects=examPerformanceSubjects(examId,content,ratedTopics);
   const readIds=new Set(reads.docs.filter(d=>Number.isFinite(Number(d.get('readAt')))&&Number(d.get('readAt'))<=now).map(d=>String(d.get('lessonId'))));
-  const topicDetails=content.topics.map(t=>({id:t.id,title:t.name,subject:subjectOf.get(t.subjectId)!.name,
+  const topicDetails=content.topics.filter(t=>displayParent.has(t.id)).map(t=>({id:t.id,title:t.name,subject:examSubjectName(examId,t,subjectOf.get(t.subjectId)!.name)!,
    ...sum(content.questions.filter(q=>q.topicId===t.id).map(q=>q.id)),
    lessons:content.lessons.filter(l=>l.topicId===t.id).map(l=>({id:l.id,title:l.title,read:readIds.has(l.id)}))}));
-  const accuracy=JSON.parse(core().overallAccuracy(JSON.stringify({examId,topics:topics.map(t=>({topicId:t.id,correct:t.correct,answered:t.answered}))}))) as number|null;
+  const accuracy=JSON.parse(core().overallAccuracy(JSON.stringify({examId,topics:ratedTopics.map(t=>({topicId:t.id,correct:t.correct,answered:t.answered}))}))) as number|null;
   const performance={topicDetails,overall:{...sum(content.questions.map(q=>q.id)),accuracy},subjects,lessonLevelAvailable:content.questions.some(q=>q.lessonId!==null),topics,lessons};
   // Cache authority never includes tier: every response rechecks current coverage.
   const nextDay=Date.parse(phDay(now)+'T00:00:00+08:00')+86400000;

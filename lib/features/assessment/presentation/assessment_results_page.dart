@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -86,10 +87,13 @@ final _resultDataProvider =
   for (final mastery in result.topicMasteries) {
     final subject = await content.subjectById(mastery.topic.subjectId);
     if (subject == null) continue;
-    names[mastery.topic.id] = subject.name;
-    final previous = subjects[subject.id];
-    subjects[subject.id] = (
-      name: subject.name,
+    final name = examSubjectName(id, mastery.topic.name, subject.name);
+    if (name == null) continue;
+    final key = csePartForTopic(id, mastery.topic.name)?.key ?? subject.id;
+    names[mastery.topic.id] = name;
+    final previous = subjects[key];
+    subjects[key] = (
+      name: name,
       correct: (previous?.correct ?? 0) + mastery.correct,
       total: (previous?.total ?? 0) + mastery.total
     );

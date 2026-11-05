@@ -59,6 +59,115 @@ void main() {
         bookmarkedLessonIds: bookmarked,
       );
 
+  for (final (examId, lastPart, lastTopic) in [
+    ('exam_cse_pro', 'Analytical Ability', 'Data Interpretation'),
+    ('exam_cse_sub', 'Clerical Ability', 'Clerical Ability'),
+  ]) {
+    test('$examId shows only its exam parts, with empty topics hidden', () {
+      final names = [
+        'Philippine Constitution',
+        'Vocabulary',
+        'Algebra',
+        lastTopic,
+        'Logical & Verbal Reasoning',
+        'Comprehension Skills',
+      ];
+      final topics = [
+        for (var i = 0; i < names.length; i++)
+          Topic(
+            id: 'topic_$i',
+            subjectId: 'shared',
+            name: names[i],
+            ordering: i,
+          ),
+      ];
+      final map = buildStudyMap(
+        exam: Exam(
+          id: examId,
+          code: 'CSE',
+          name: 'CSE',
+          shortName: 'CSE',
+          language: 'en',
+          isActive: true,
+          subjects: [
+            Subject(
+              id: 'shared',
+              examId: examId,
+              name: 'Mathematics',
+              ordering: 0,
+            ),
+          ],
+        ),
+        topicsBySubject: {'shared': topics},
+        lessonsByTopic: {
+          for (final topic in topics.take(5))
+            topic.id: [lesson('lesson_${topic.id}')],
+        },
+        readLessonIds: const {},
+        bookmarkedLessonIds: const {},
+      );
+      expect(
+        map.subjects.map((s) => s.name),
+        examId == 'exam_cse_pro'
+            ? [
+                'General Information',
+                'Verbal Ability',
+                'Analytical Ability',
+                'Numerical Ability',
+              ]
+            : [
+                'General Information',
+                'Verbal Ability',
+                'Numerical Ability',
+                'Clerical Ability',
+              ],
+      );
+      expect(
+        map.subjects
+            .firstWhere((s) => s.name == lastPart)
+            .topics
+            .map((t) => t.id),
+        contains('topic_3'),
+      );
+      expect(
+        map.subjects.expand((s) => s.topics).map((t) => t.name),
+        isNot(contains('Comprehension Skills')),
+      );
+      if (examId == 'exam_cse_sub') {
+        expect(map.totalCount, 4);
+        expect(
+          map.subjects.expand((s) => s.topics).map((t) => t.name),
+          isNot(contains('Logical & Verbal Reasoning')),
+        );
+      }
+      expect(topics.first.subjectId, 'shared');
+    });
+  }
+
+  test('a CET keeps its subject for a topic also used by CSE', () {
+    final map = buildStudyMap(
+      exam: exam,
+      topicsBySubject: const {
+        's1': [
+          Topic(
+            id: 'data',
+            subjectId: 's1',
+            name: 'Data Interpretation',
+            ordering: 0,
+          ),
+        ],
+      },
+      lessonsByTopic: {
+        'data': [lesson('tables')],
+      },
+      readLessonIds: const {},
+      bookmarkedLessonIds: const {},
+    );
+    expect(map.subjects.single.name, 'Mathematics');
+    expect(map.subjects.single.id, 's1');
+    expect(map.subjects.single.topics.single.id, 'data');
+  });
+
   test('an untouched exam is zero per cent covered', () {
     final map = build();
 

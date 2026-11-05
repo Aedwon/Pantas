@@ -4,8 +4,11 @@ import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/exam_subject_groups.dart';
 import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
@@ -189,7 +192,27 @@ final performanceProvider =
         ))
       .get();
 
-  final subjectNameById = {for (final s in subjectRows) s.id: s.name};
+  final displayGroups = examSubjectGroups(
+    examId: examId,
+    subjects: [
+      for (final s in subjectRows)
+        Subject(id: s.id, examId: examId, name: s.name, ordering: s.ordering),
+    ],
+    topics: [
+      for (final t in topicRows)
+        Topic(
+          id: t.id,
+          subjectId: t.subjectId,
+          name: t.name,
+          ordering: t.ordering,
+        ),
+    ],
+  );
+  final subjectNameById = {for (final s in displayGroups) s.id: s.name};
+  final displaySubjectOf = {
+    for (final s in displayGroups)
+      for (final t in s.topics) t.id: s.id,
+  };
   final topicById = {for (final t in topicRows) t.id: t};
   final subjectIdForQuestion = <String, String>{};
   final topicIdForQuestion = <String, String>{};
@@ -198,7 +221,8 @@ final performanceProvider =
     final topic = topicById[q.topicId];
     if (topic == null) continue;
     topicIdForQuestion[q.id] = topic.id;
-    subjectIdForQuestion[q.id] = topic.subjectId;
+    final subjectId = displaySubjectOf[topic.id];
+    if (subjectId != null) subjectIdForQuestion[q.id] = subjectId;
     final lessonId = q.lessonId;
     if (lessonId != null) lessonIdForQuestion[q.id] = lessonId;
   }
@@ -222,26 +246,29 @@ final performanceProvider =
   final buckets = <String, _Bucket>{};
   switch (level) {
     case TableLevel.subject:
-      for (final s in subjectRows) {
+      for (final s in displayGroups) {
         if (query.subjectId != null && s.id != query.subjectId) continue;
         buckets[s.id] = _Bucket(id: s.id, title: s.name, parent: null);
       }
     case TableLevel.topic:
       for (final t in topicRows) {
-        if (query.subjectId != null && t.subjectId != query.subjectId) {
+        if (!displaySubjectOf.containsKey(t.id)) continue;
+        if (query.subjectId != null &&
+            displaySubjectOf[t.id] != query.subjectId) {
           continue;
         }
         buckets[t.id] = _Bucket(
           id: t.id,
           title: t.name,
-          parent: subjectNameById[t.subjectId],
+          parent: subjectNameById[displaySubjectOf[t.id]],
         );
       }
     case TableLevel.lesson:
       for (final l in lessonRows) {
         final topic = topicById[l.topicId];
-        if (topic == null) continue;
-        if (query.subjectId != null && topic.subjectId != query.subjectId) {
+        if (topic == null || !displaySubjectOf.containsKey(topic.id)) continue;
+        if (query.subjectId != null &&
+            displaySubjectOf[topic.id] != query.subjectId) {
           continue;
         }
         buckets[l.id] = _Bucket(id: l.id, title: l.title, parent: topic.name);
@@ -317,7 +344,7 @@ final performanceProvider =
     final size = _publishedSizeForSubject(
       bucket.id,
       published: published,
-      topicById: topicById,
+      subjectOfTopic: displaySubjectOf,
     );
     if (size == null) return null;
     return '${bucket.answered} of $size questions';
@@ -336,12 +363,12 @@ final performanceProvider =
   ];
 
   final subjectsWithData = [
-    for (final s in subjectRows)
+    for (final s in displayGroups)
       if ((answeredPerSubject[s.id] ?? 0) > 0)
         (
           id: s.id,
           name: s.name,
-          rowCount: topicRows.where((t) => t.subjectId == s.id).length,
+          rowCount: s.topics.length,
         ),
   ];
 
@@ -413,14 +440,14 @@ Future<List<_PublishedSection>> _publishedSections(
 int? _publishedSizeForSubject(
   String subjectId, {
   required List<_PublishedSection> published,
-  required Map<String, ContentTopicRow> topicById,
+  required Map<String, String> subjectOfTopic,
 }) {
   var total = 0;
   var found = false;
   for (final section in published) {
     final subjects = {
       for (final topicId in section.topicIds)
-        if (topicById[topicId] != null) topicById[topicId]!.subjectId,
+        if (subjectOfTopic[topicId] != null) subjectOfTopic[topicId]!,
     };
     if (subjects.length != 1 || subjects.single != subjectId) continue;
     total += section.questionCount;

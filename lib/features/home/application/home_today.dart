@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
@@ -65,12 +66,19 @@ final homeTodayLoaderProvider = Provider<HomeTodayLoader>((ref) {
           ..where((s) => s.id.isIn(topics.map((t) => t.subjectId))))
         .get();
     final subjectNames = {for (final s in subjects) s.id: s.name};
-    final names = {for (final t in topics) t.id: subjectNames[t.subjectId]};
+    final names = {
+      for (final t in topics)
+        t.id: examSubjectName(examId, t.name, subjectNames[t.subjectId]),
+    };
     final positions = ref.read(readerPositionRepositoryProvider);
     final lessons = <HomeTodayLesson>[];
     for (final id in today.snapshot.plan.lessonIds) {
       final lesson = byId[id];
-      if (lesson == null || names[lesson.topicId] == null) {
+      if (lesson == null) {
+        throw StateError('Planned lesson content unavailable');
+      }
+      if (names[lesson.topicId] == null) {
+        if (csePartsForExam(examId).isNotEmpty) continue;
         throw StateError('Planned lesson content unavailable');
       }
       lessons.add(
