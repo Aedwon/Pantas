@@ -55,6 +55,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Founder evidence was treated as unofficial (Nov 5)
+
+- **His words:** "it is official because a lot of people are posting the same thing after they got their results. it should not wait for after beta"
+- **What was wrong:** the lead weighed its web search above what Aedwon sees from examinees, and pushed the work past the beta.
+- **Why the process let it through:** nothing says how to weigh his first-hand evidence against a search that finds nothing.
+- **Fix:** written rule, since no check can judge this: a source's silence does not contradict what Aedwon reports from users. State the uncertainty once, and follow his call.
+
 ### A bug was handed off instead of reproduced (Nov 5)
 
 - **His words:** "well why didn't you find it"
