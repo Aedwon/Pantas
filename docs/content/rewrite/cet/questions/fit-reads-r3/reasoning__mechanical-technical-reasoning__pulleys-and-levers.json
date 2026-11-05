@@ -1,0 +1,21 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "major",
+ "resolved": [
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0013"
+ ],
+ "findings": [
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Check that a speeding-up block needs more than its weight, so the effort is larger than $640/2$.",
+   "problem": "The choice says only that the block is speeding up; neither it nor the stem says the block is rising. A block descending and speeding up accelerates downward, so its total upward rope force is less than 640 N and its effort is less than 320 N. The note incorrectly gives the opposite rule for this allowed case.",
+   "fix": "Specify that the block is rising and speeding up in the choice, and say that upward acceleration requires total upward force greater than its weight in the note."
+  }
+ ]
+}

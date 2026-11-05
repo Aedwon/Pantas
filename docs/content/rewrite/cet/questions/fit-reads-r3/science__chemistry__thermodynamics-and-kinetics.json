@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "clean",
+ "resolved": [
+  "q-chemistry-thermodynamics-and-kinetics-0008",
+  "q-chemistry-thermodynamics-and-kinetics-0011"
+ ],
+ "findings": []
+}

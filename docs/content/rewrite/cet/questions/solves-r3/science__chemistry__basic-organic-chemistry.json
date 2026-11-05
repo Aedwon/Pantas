@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__basic-organic-chemistry",
+  "source": "content/questions/science/chemistry/basic-organic-chemistry.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-basic-organic-chemistry-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Acyclic saturated hydrocarbons are alkanes."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-basic-organic-chemistry-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A carbon-carbon double bond identifies an alkene."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-basic-organic-chemistry-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A carbon-carbon triple bond identifies an alkyne."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-basic-organic-chemistry-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Butane is the straight-chain four-carbon alkane."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-basic-organic-chemistry-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Propene has three carbons and one double bond."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-basic-organic-chemistry-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Ethyne has two carbons joined by a triple bond."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-basic-organic-chemistry-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Cyclohexane is saturated because it has no carbon-carbon multiple bonds."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-basic-organic-chemistry-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A hydroxyl group on a saturated carbon indicates an alcohol."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-basic-organic-chemistry-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The COOH group identifies a carboxylic acid."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-basic-organic-chemistry-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Different functional groups confer different chemical reactivities."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-basic-organic-chemistry-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Some carbon compounds, such as carbon dioxide, are classified as inorganic."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-basic-organic-chemistry-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The endings indicate double and triple bonds respectively."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-basic-organic-chemistry-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The parent of a simple branched alkane uses the longest continuous carbon chain."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-basic-organic-chemistry-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The parent chain must include the carbon bearing the principal hydroxyl group."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-basic-organic-chemistry-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Carbon tetravalency permits chains, rings, and branching."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-basic-organic-chemistry-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrocarbons contain only carbon and hydrogen."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-basic-organic-chemistry-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A nitrogen bonded to two carbon groups and one hydrogen can form a secondary amine."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-basic-organic-chemistry-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Both aldehydes and ketones contain a carbonyl group."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-basic-organic-chemistry-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The chain is numbered to give the required lowest substituent locants."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-basic-organic-chemistry-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Carbon skeleton size can affect properties even with the same functional group."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

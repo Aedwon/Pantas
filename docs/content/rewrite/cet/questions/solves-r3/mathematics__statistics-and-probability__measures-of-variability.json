@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__statistics-and-probability__measures-of-variability",
+  "source": "content/questions/mathematics/statistics-and-probability/measures-of-variability.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-statistics-and-probability-measures-of-variability-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The range is 94 − 55 = 39."
+    },
+    {
+      "n": 2,
+      "id": "q-statistics-and-probability-measures-of-variability-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The corrected range is 20 − 14 = 6°C."
+    },
+    {
+      "n": 3,
+      "id": "q-statistics-and-probability-measures-of-variability-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The mean is 6, so the population variance is 40/5 = 8."
+    },
+    {
+      "n": 4,
+      "id": "q-statistics-and-probability-measures-of-variability-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Range equals the maximum minus the minimum."
+    },
+    {
+      "n": 5,
+      "id": "q-statistics-and-probability-measures-of-variability-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Population standard deviation is the nonnegative square root of population variance."
+    },
+    {
+      "n": 6,
+      "id": "q-statistics-and-probability-measures-of-variability-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Sample standard deviation is the nonnegative square root of sample variance."
+    },
+    {
+      "n": 7,
+      "id": "q-statistics-and-probability-measures-of-variability-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The mean is 7 and the squared deviations total 46, giving 46/4 = 11.5."
+    },
+    {
+      "n": 8,
+      "id": "q-statistics-and-probability-measures-of-variability-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The original standard deviation is 5, which scales to 15."
+    },
+    {
+      "n": 9,
+      "id": "q-statistics-and-probability-measures-of-variability-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The squared deviations total 144, so the sample standard deviation is √(144/4) = 6."
+    },
+    {
+      "n": 10,
+      "id": "q-statistics-and-probability-measures-of-variability-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Squared deviations and their nonnegative square root cannot be negative."
+    },
+    {
+      "n": 11,
+      "id": "q-statistics-and-probability-measures-of-variability-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding a constant preserves all deviations from the mean, so the standard deviation remains 4."
+    },
+    {
+      "n": 12,
+      "id": "q-statistics-and-probability-measures-of-variability-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Route A has the smaller standard deviation and therefore more consistent travel times."
+    },
+    {
+      "n": 13,
+      "id": "q-statistics-and-probability-measures-of-variability-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Blue's deviations from 8 are twice Red's, making its variance four times as large."
+    },
+    {
+      "n": 14,
+      "id": "q-statistics-and-probability-measures-of-variability-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The range gives x = 14, and the sample variance is 90/4 = 22.5."
+    },
+    {
+      "n": 15,
+      "id": "q-statistics-and-probability-measures-of-variability-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Bessel's correction compensates for estimating the population mean and makes sample variance unbiased."
+    },
+    {
+      "n": 16,
+      "id": "q-statistics-and-probability-measures-of-variability-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The transformed mean is 2(50) + 5 = 105, and the standard deviation is 2(10) = 20."
+    },
+    {
+      "n": 17,
+      "id": "q-statistics-and-probability-measures-of-variability-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Standard deviation scales by the absolute multiplier, giving |−2|(3) = 6."
+    },
+    {
+      "n": 18,
+      "id": "q-statistics-and-probability-measures-of-variability-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The first population variance is 25, while the second is 12.5."
+    },
+    {
+      "n": 19,
+      "id": "q-statistics-and-probability-measures-of-variability-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Matching means and standard deviations do not determine the counts exactly at the mean."
+    },
+    {
+      "n": 20,
+      "id": "q-statistics-and-probability-measures-of-variability-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Squaring deviations prevents positive and negative deviations from canceling."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

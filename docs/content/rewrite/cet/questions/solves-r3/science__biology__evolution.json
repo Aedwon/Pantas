@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__evolution",
+  "source": "content/questions/science/biology/evolution.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-evolution-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Darwin published the book in 1859."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-evolution-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Descendants inherit from shared ancestors while changing over generations."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-evolution-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Existing inherited variation precedes differential survival, reproduction, and population change."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-evolution-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Resistant survivors pass their heritable resistance to more offspring."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-evolution-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Speciation is the formation of new species."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-evolution-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Reduced gene flow permits isolated populations to diverge."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-evolution-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Diversification into different ecological niches is adaptive radiation."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-evolution-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Exercise-induced muscle growth need not be inherited."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-evolution-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Fitness measures relative reproductive success."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-evolution-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Selection reflects reproductive success under current conditions."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-evolution-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The stored samples establish that the allele predated spraying."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-evolution-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Selection can contribute to reproductive isolation."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-evolution-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A response to selection requires heritable trait variation."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-evolution-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Separated populations can diverge and eventually become reproductively isolated."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-evolution-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mutation generates new DNA variants."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-evolution-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Transfer of existing alleles between populations is gene flow."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-evolution-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Chance changes in allele frequencies constitute genetic drift."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-evolution-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Selection reflects fitness differences whereas drift reflects chance."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-evolution-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The survival advantage of coat color depends on habitat."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-evolution-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Reproductive isolation arising without geographic separation fits sympatric speciation."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

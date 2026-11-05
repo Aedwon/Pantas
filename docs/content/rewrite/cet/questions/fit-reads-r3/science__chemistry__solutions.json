@@ -1,0 +1,19 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "minor",
+ "resolved": [
+  "q-chemistry-solutions-0008",
+  "q-chemistry-solutions-0019"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-solutions-0019",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Dissolved gases commonly become less soluble as the liquid warms at fixed gas partial pressure. The equilibrium concentration therefore commonly decreases.",
+   "problem": "The round-2 style issue remains: 'gas partial pressure' and 'equilibrium concentration' repeat technical terms without explaining them in Grade 5 plain English. A reader who does not know those terms is not told plainly that the warmer liquid usually holds less dissolved gas.",
+   "fix": "Say: 'When the pressure of the gas above the liquid stays the same, a warmer liquid usually holds less dissolved gas.'"
+  }
+ ]
+}

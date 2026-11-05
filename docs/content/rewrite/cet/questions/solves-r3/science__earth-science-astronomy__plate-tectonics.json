@@ -1,0 +1,187 @@
+{
+  "file_id": "science__earth-science-astronomy__plate-tectonics",
+  "source": "content/questions/science/earth-science-astronomy/plate-tectonics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-earth-science-astronomy-plate-tectonics-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Tectonic plates consist of rigid lithosphere."
+    },
+    {
+      "n": 2,
+      "id": "q-earth-science-astronomy-plate-tectonics-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Wegener assembled multiple lines of evidence for continental drift."
+    },
+    {
+      "n": 3,
+      "id": "q-earth-science-astronomy-plate-tectonics-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Harry Hess proposed seafloor spreading."
+    },
+    {
+      "n": 4,
+      "id": "q-earth-science-astronomy-plate-tectonics-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Matching land reptile fossils support a former connection between the continents."
+    },
+    {
+      "n": 5,
+      "id": "q-earth-science-astronomy-plate-tectonics-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Wegener lacked a convincing mechanism for moving continents."
+    },
+    {
+      "n": 6,
+      "id": "q-earth-science-astronomy-plate-tectonics-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Divergent boundaries separate plates and produce new crust."
+    },
+    {
+      "n": 7,
+      "id": "q-earth-science-astronomy-plate-tectonics-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Convergent boundaries bring plates together."
+    },
+    {
+      "n": 8,
+      "id": "q-earth-science-astronomy-plate-tectonics-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Transform boundaries accommodate sideways sliding."
+    },
+    {
+      "n": 9,
+      "id": "q-earth-science-astronomy-plate-tectonics-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Strike-slip faults have mainly horizontal displacement."
+    },
+    {
+      "n": 10,
+      "id": "q-earth-science-astronomy-plate-tectonics-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Oceanic lithosphere usually subducts beneath continental lithosphere."
+    },
+    {
+      "n": 11,
+      "id": "q-earth-science-astronomy-plate-tectonics-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A fault is a fracture along which rocks have moved."
+    },
+    {
+      "n": 12,
+      "id": "q-earth-science-astronomy-plate-tectonics-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "P waves arrive first and propagate through solids and liquids."
+    },
+    {
+      "n": 13,
+      "id": "q-earth-science-astronomy-plate-tectonics-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "S waves are slower shear waves that cannot propagate through liquids."
+    },
+    {
+      "n": 14,
+      "id": "q-earth-science-astronomy-plate-tectonics-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The claim incorrectly assigns P wave properties to S waves."
+    },
+    {
+      "n": 15,
+      "id": "q-earth-science-astronomy-plate-tectonics-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Different wave speeds produce a larger arrival gap over greater distances."
+    },
+    {
+      "n": 16,
+      "id": "q-earth-science-astronomy-plate-tectonics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Most volcanoes occur at convergent and divergent boundaries."
+    },
+    {
+      "n": 17,
+      "id": "q-earth-science-astronomy-plate-tectonics-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Hotspot volcanism can build islands within a plate."
+    },
+    {
+      "n": 18,
+      "id": "q-earth-science-astronomy-plate-tectonics-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The greater density of oceanic lithosphere favors its subduction."
+    },
+    {
+      "n": 19,
+      "id": "q-earth-science-astronomy-plate-tectonics-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Liquid outer core material prevents direct S waves from passing through it."
+    },
+    {
+      "n": 20,
+      "id": "q-earth-science-astronomy-plate-tectonics-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Continental collision builds mountains, the P-S gap indicates distance, and hotspots explain isolated volcanic chains."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

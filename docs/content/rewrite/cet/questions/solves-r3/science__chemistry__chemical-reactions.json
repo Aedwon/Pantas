@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__chemical-reactions",
+  "source": "content/questions/science/chemistry/chemical-reactions.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-chemical-reactions-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Two elements combine to form one compound."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-chemical-reactions-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrogen peroxide splits into simpler products."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-chemical-reactions-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Zinc replaces hydrogen in the acid."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-chemical-reactions-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The ions exchange partners and silver chloride precipitates."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-chemical-reactions-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Methane burns in oxygen to form carbon dioxide and water."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-chemical-reactions-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Three hydrogen molecules supply the six hydrogen atoms required."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-chemical-reactions-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Two oxygen molecules supply the four product oxygen atoms."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-chemical-reactions-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Two formula units of iron oxide contain four iron atoms."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-chemical-reactions-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Changing a subscript changes the chemical substance."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-chemical-reactions-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Every element must have matching atom totals."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-chemical-reactions-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Synthesis combines substances while decomposition splits a substance."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-chemical-reactions-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Single replacement involves an element while double replacement exchanges ions."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-chemical-reactions-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Chemical reactions conserve the atoms of each element."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-chemical-reactions-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing all coefficients by two gives four to three to two."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-chemical-reactions-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Gas formation can drive an aqueous double-displacement reaction."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-chemical-reactions-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Coefficients change quantities without changing chemical formulas."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-chemical-reactions-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Four water molecules balance the eight hydrogen atoms."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-chemical-reactions-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Incomplete hydrocarbon combustion can produce carbon monoxide."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-chemical-reactions-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Synthesis describes the reaction pattern while redox describes electron transfer."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-chemical-reactions-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "All unchanged dissolved ions cancel from the complete ionic equation."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__thermodynamics-and-kinetics",
+  "source": "content/questions/science/chemistry/thermodynamics-and-kinetics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Releasing heat to the surroundings is exothermic."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Absorbing heat from the surroundings is endothermic."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A catalyst offers a lower-barrier pathway and is regenerated overall."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Higher temperature generally increases the fraction of effective collisions."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The rate is independent of A because its exponent is zero."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Powder exposes more surface area for reaction with the acid."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The Arrhenius equation gives a larger rate constant for a lower activation energy at fixed A and temperature."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Net heat release does not determine the activation barrier or reaction rate."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A catalyst participates in steps but is regenerated overall."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Catalysis changes the pathway without changing the overall reaction enthalpy."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Activation energy measures a barrier while reaction enthalpy measures the net energy change."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Thermodynamics concerns states and equilibrium while kinetics concerns reaction rates."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An activation barrier can make an exothermic reaction negligibly slow at room temperature."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A catalyst accelerates approach to equilibrium without changing the equilibrium constant."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "An exothermic reaction releases heat and has negative reaction enthalpy."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Unsuitable orientation can prevent reaction despite sufficient collision energy."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The rate is directly proportional to B."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Temporary chemical changes are compatible with overall catalyst regeneration."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Spontaneity depends on free energy, which includes both enthalpy and entropy."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-thermodynamics-and-kinetics-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Unequal acceleration of competing pathways can change product distribution."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

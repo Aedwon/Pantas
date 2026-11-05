@@ -1,0 +1,18 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "major",
+ "resolved": [
+  "q-chemistry-nuclear-chemistry-0011"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-nuclear-chemistry-0011",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This reverses the role of density. Light shields are easy to handle, so they seem fine. Check which material of equal thickness takes in more photons, a dense one or a light one.",
+   "problem": "The note teaches that density alone decides which equal-thickness material attenuates more gamma radiation. Composition and photon energy also matter. For example, at about 75 keV, tungsten attenuates more strongly than denser platinum because this energy is above tungsten\u2019s K absorption edge but below platinum\u2019s. Fixing thickness resolves the earlier thickness objection, but does not make this density-only rule valid.",
+   "fix": "Restrict this distractor and its note to paper versus lead at equal thickness; explain that paper reduces the intensity less than lead under those conditions."
+  }
+ ]
+}

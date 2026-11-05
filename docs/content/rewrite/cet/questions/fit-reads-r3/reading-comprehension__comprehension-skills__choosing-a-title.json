@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 3,
+ "verdict": "clean",
+ "resolved": [
+  "q-comprehension-skills-choosing-a-title-0017"
+ ],
+ "findings": []
+}
