@@ -17,12 +17,11 @@ StreamSubscription<void> flushAfterWrites(
   Duration delay = const Duration(milliseconds: 50),
 }) {
   Timer? pending;
-  final subscription =
-      database.tableUpdates(TableUpdateQuery.any()).listen((_) {
+  return database.tableUpdates().listen((_) {
     pending ??= Timer(delay, () {
       pending = null;
       unawaited(flush().catchError((Object _) {}));
     });
   })
-        ..onDone(() => pending?.cancel());
+    ..onDone(() => pending?.cancel());
 }
