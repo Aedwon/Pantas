@@ -238,6 +238,21 @@ void main() {
   });
 
   group('pools keep only questions tagged for the exam', () {
+    Future<void> seedPracticeLessons() async {
+      for (final topic in [...shared.skip(1), 't_up_only', 't_own']) {
+        final lessonId = 'les_$topic';
+        await seedContentLesson(
+          contentDb,
+          lessonId: lessonId,
+          topicId: topic,
+        );
+        await contentDb.customStatement(
+          'UPDATE content_questions SET lesson_id = ? WHERE id = ?',
+          [lessonId, '${topic}_q1'],
+        );
+      }
+    }
+
     Future<void> expectOnlyCse(Iterable<String> ids) async {
       expect(ids, isNotEmpty);
       final tagged = (await (contentDb.select(contentDb.contentQuestionExams)
@@ -358,6 +373,7 @@ void main() {
     });
 
     test('practice counts shown in Study and Plan', () async {
+      await seedPracticeLessons();
       await select(cse);
 
       final index = await container.read(practiceIndexProvider(cse).future);
@@ -370,6 +386,7 @@ void main() {
     });
 
     test('UPCAT practice counts are unchanged', () async {
+      await seedPracticeLessons();
       final index = await container.read(practiceIndexProvider(upcat).future);
 
       final counts = [

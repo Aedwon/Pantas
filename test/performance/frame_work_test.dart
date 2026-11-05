@@ -160,6 +160,13 @@ void main() {
             topicId: 's${s}t$t',
             title: 'Lesson $s.$t',
           );
+          await seedContentQuestion(
+            contentDb,
+            questionId: 'l$s${t}_q',
+            topicId: 's${s}t$t',
+            examId: 'e1',
+            lessonId: 'l$s$t',
+          );
         }
       }
       // A long lesson: sixty paragraphs, about ten screens on a phone.
@@ -189,6 +196,13 @@ void main() {
               ],
             },
         ]),
+      );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'long_q',
+        topicId: 'long',
+        examId: 'e1',
+        lessonId: 'long',
       );
       await AppPreferencesRepository(db).setSelectedExamId('e1');
     });

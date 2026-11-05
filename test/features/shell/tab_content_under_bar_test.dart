@@ -60,6 +60,13 @@ void main() {
         title: 'Lesson $i',
         bodyJson: '[]',
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'l${i}_q',
+        topicId: 't$i',
+        examId: 'cse',
+        lessonId: 'l$i',
+      );
     }
     final preferences = AppPreferencesRepository(db);
     await preferences.setPassedAgeGate(value: true);

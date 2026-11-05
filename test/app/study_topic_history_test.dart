@@ -53,6 +53,13 @@ void main() {
         bodyJson: jsonEncode(<Map<String, Object?>>[]),
         estimatedMinutes: 10,
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'l${id}_q',
+        topicId: id,
+        examId: 'e1',
+        lessonId: 'l$id',
+      );
     }
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('e1');

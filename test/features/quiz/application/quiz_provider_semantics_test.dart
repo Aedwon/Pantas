@@ -49,7 +49,10 @@ void main() {
       topicId: 'topic_a',
       topicName: 'A',
       questionIds: [for (var i = 0; i < 8; i++) 'a_$i'],
+      lessonIds: ['lesson_topic_a'],
+      questionLessonMap: {'a_0': 'lesson_topic_a'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_a');
     final container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -61,6 +64,7 @@ void main() {
 
     final preparer = container.read(todayQuizPreparerProvider);
     final first = await preparer.prepare(request);
+    expect(first.orderedQuestionIds, isNotEmpty);
     await container.read(newCardIntroRepositoryProvider).incrementForDay(
           userId: quizLocalUserId,
           examId: examId,
@@ -99,14 +103,20 @@ void main() {
       topicId: 'topic_a',
       topicName: 'A',
       questionIds: [for (var i = 0; i < 4; i++) 'a_$i'],
+      lessonIds: ['lesson_topic_a'],
+      questionLessonMap: {'a_0': 'lesson_topic_a'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_a');
     await seedContentTopicWithQuestions(
       contentDb,
       examId: examId,
       topicId: 'topic_b',
       topicName: 'B',
       questionIds: [for (var i = 0; i < 4; i++) 'b_$i'],
+      lessonIds: ['lesson_topic_b'],
+      questionLessonMap: {'b_0': 'lesson_topic_b'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_b');
     final container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -345,7 +355,10 @@ void main() {
       topicId: 'topic_a',
       topicName: 'A',
       questionIds: [for (var i = 0; i < 5; i++) 'a_$i'],
+      lessonIds: ['lesson_topic_a'],
+      questionLessonMap: {'a_0': 'lesson_topic_a'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_a');
     var now = DateTime(2026, 9, 9, 9);
     final container = ProviderContainer(
       overrides: [
@@ -401,14 +414,20 @@ void main() {
       topicId: 'topic_a',
       topicName: 'A',
       questionIds: [for (var i = 0; i < 5; i++) 'a_$i'],
+      lessonIds: ['lesson_topic_a'],
+      questionLessonMap: {'a_0': 'lesson_topic_a'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_a');
     await seedContentTopicWithQuestions(
       contentDb,
       examId: examId,
       topicId: 'topic_b',
       topicName: 'B',
       questionIds: [for (var i = 0; i < 5; i++) 'b_$i'],
+      lessonIds: ['lesson_topic_b'],
+      questionLessonMap: {'b_0': 'lesson_topic_b'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_b');
     await db.into(db.accountPrefs).insertOnConflictUpdate(
           AccountPrefsCompanion.insert(
             key: SettingsPrefKeys.sessionOrdering,

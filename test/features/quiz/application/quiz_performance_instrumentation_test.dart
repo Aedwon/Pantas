@@ -31,7 +31,10 @@ void main() {
       topicId: 'topic_a',
       topicName: 'A',
       questionIds: [for (var i = 0; i < 8; i++) 'q_$i'],
+      lessonIds: ['lesson_topic_a'],
+      questionLessonMap: {'q_0': 'lesson_topic_a'},
     );
+    await LessonProgressRepository(db, contentDb).markRead('lesson_topic_a');
     final samples = <QuizPerformanceSample>[];
     final container = ProviderContainer(
       overrides: [

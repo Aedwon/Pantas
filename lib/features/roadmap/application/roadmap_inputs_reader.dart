@@ -106,8 +106,7 @@ class RoadmapInputsReader {
         .excludedLessonIds(examId);
     final selection =
         await content.selectionRowsByTopics(topicIds, examId: examId);
-    final lessonMeta =
-        await content.lessonMetaByTopics(topicIds, examId: examId);
+    final lessonMeta = scope.lessons;
     final db = _ref.read(appDatabaseProvider);
     final readAt = {
       for (final row in await db.select(db.lessonProgressLocal).get())
@@ -275,7 +274,12 @@ class RoadmapInputsReader {
     return '$revision:exam-lessons-v1';
   }
 
-  Future<({List<Topic> topics, Set<TopicId> excluded})> _scope(
+  Future<
+      ({
+        List<Topic> topics,
+        Set<TopicId> excluded,
+        Map<TopicId, List<LessonMeta>> lessons
+      })> _scope(
     ExamId examId,
   ) async {
     final scope = await readScopedTopics(
@@ -299,6 +303,7 @@ class RoadmapInputsReader {
             topic,
       ],
       excluded: scope.excluded,
+      lessons: lessons,
     );
   }
 }

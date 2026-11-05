@@ -58,6 +58,13 @@ void main() {
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
       estimatedMinutes: 10,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l1_q',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
 
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('e1');
@@ -109,6 +116,13 @@ void main() {
       title: 'Lesson l2',
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
       estimatedMinutes: 10,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l2_q',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
     );
     await pumpApp(tester);
     final container =
@@ -312,6 +326,13 @@ void main() {
       bodyJson: '[]',
       estimatedMinutes: 12,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l2_q',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l2',
+    );
     await pumpApp(tester);
     ProviderScope.containerOf(
       tester.element(find.byType(App)),
@@ -375,6 +396,13 @@ void main() {
       bodyJson: '[]',
       estimatedMinutes: 12,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l3_q',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l3',
+    );
     await pumpApp(tester);
     final container =
         ProviderScope.containerOf(tester.element(find.byType(App)));
@@ -410,6 +438,13 @@ void main() {
       bodyJson: '[]',
       estimatedMinutes: 7,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l2_q',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
+    );
     await seedContentTopic(
       contentDb,
       topicId: 't2',
@@ -423,6 +458,13 @@ void main() {
       title: 'Day next',
       bodyJson: '[]',
       estimatedMinutes: 12,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l3_q',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l3',
     );
     await pumpApp(tester);
     final container =
@@ -525,6 +567,13 @@ void main() {
       bodyJson: '[]',
       estimatedMinutes: 12,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l2_q',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l2',
+    );
     await pumpApp(tester);
     final container =
         ProviderScope.containerOf(tester.element(find.byType(App)));
@@ -570,6 +619,13 @@ void main() {
       topicId: 't2',
       title: 'Animals',
       bodyJson: '[]',
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l2_q',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l2',
     );
     await pumpApp(tester);
     final container =
@@ -655,6 +711,13 @@ void main() {
       topicId: 't2',
       title: 'Animals',
       bodyJson: '[]',
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l2_q',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l2',
     );
     await pumpApp(tester);
     final container =

@@ -47,6 +47,13 @@ void main() {
       bodyJson: '[]',
       estimatedMinutes: 10,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'l1_q',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
 
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('e1');

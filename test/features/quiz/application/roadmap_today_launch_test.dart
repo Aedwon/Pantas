@@ -71,7 +71,10 @@ void main() {
         topicId: topic,
         topicName: topic,
         questionIds: [for (var i = 0; i < 20; i++) '${topic}_q$i'],
+        lessonIds: ['scope_$topic'],
+        questionLessonMap: {'${topic}_q0': 'scope_$topic'},
       );
+      await LessonProgressRepository(db, contentDb).markRead('scope_$topic');
     }
     await AssessmentRepository(db).saveResult('e1', now, const []);
     await db.into(db.accountPrefs).insertOnConflictUpdate(
