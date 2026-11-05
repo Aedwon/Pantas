@@ -4,6 +4,7 @@ import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -47,9 +48,11 @@ class PerformanceTable {
     required this.timeIsMeasurable,
     required this.lessonLevelAvailable,
     required this.subjects,
+    this.overallAccuracy,
   });
 
   final List<PerformanceRow> rows;
+  final OverallAccuracy? overallAccuracy;
 
   /// False until a full length mock has been sat. The Time column and its
   /// head are then absent, not filled with placeholders.
@@ -270,6 +273,7 @@ final performanceProvider =
   );
 
   final answeredPerSubject = <String, int>{};
+  final topicCounts = <String, ({int correct, int answered})>{};
   for (final attempt in attemptRows) {
     for (final item in reader.read(attempt.row.itemsJson)) {
       if (!attempt.counts(item.questionId)) continue;
@@ -277,6 +281,14 @@ final performanceProvider =
       if (subjectId != null) {
         answeredPerSubject[subjectId] =
             (answeredPerSubject[subjectId] ?? 0) + 1;
+      }
+      final topicId = topicIdForQuestion[item.questionId];
+      if (topicId != null) {
+        final count = topicCounts[topicId] ?? (correct: 0, answered: 0);
+        topicCounts[topicId] = (
+          correct: count.correct + (item.isCorrect ? 1 : 0),
+          answered: count.answered + 1,
+        );
       }
       if (!inScope(item.questionId)) continue;
       final bucket = buckets[bucketIdFor(item.questionId)];
@@ -335,6 +347,17 @@ final performanceProvider =
 
   return PerformanceTable(
     rows: rows,
+    overallAccuracy: OverallAccuracy.fromTopics(
+      examId: examId,
+      topics: [
+        for (final entry in topicCounts.entries)
+          (
+            topicId: entry.key,
+            correct: entry.value.correct,
+            answered: entry.value.answered,
+          ),
+      ],
+    ),
     // The head renders only when a row in this table can carry a figure,
     // so the column is absent rather than empty.
     timeIsMeasurable: rows.any((r) => r.secondsPerQuestion != null),

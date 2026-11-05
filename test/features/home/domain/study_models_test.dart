@@ -12,7 +12,7 @@ void main() {
         'revision': 'v1',
         'profile': {'id': 'nightOwl'},
         'performance': {
-          'overall': {'correct': 2, 'answered': 3},
+          'overall': <String, Object?>{'correct': 2, 'answered': 3},
           'subjects': [
             {
               'id': 's',
@@ -25,6 +25,37 @@ void main() {
           'lessonLevelAvailable': true,
         },
       };
+  test('legacy CSE summaries wait for weighted server accuracy', () {
+    final r = reply()..['examId'] = 'exam_cse_pro';
+    expect(
+      StudyInsights.decode(r, examId: 'exam_cse_pro').overallAccuracy.value,
+      isNull,
+    );
+    expect(
+      StudyInsights.decode(reply(), examId: 'cse').overallAccuracy.value,
+      2 / 3,
+    );
+  });
+  test('no rated area stays absent instead of using the raw ratio', () {
+    final r = reply();
+    final performance = r['performance']! as Map<String, Object?>;
+    (performance['overall']! as Map<String, Object?>)['accuracy'] = null;
+    expect(
+      StudyInsights.decode(r, examId: 'cse').overallAccuracy.value,
+      isNull,
+    );
+  });
+  test('invalid weighted accuracy is rejected', () {
+    for (final value in [-.1, 1.1, double.nan, '60']) {
+      final r = reply();
+      final performance = r['performance']! as Map<String, Object?>;
+      (performance['overall']! as Map<String, Object?>)['accuracy'] = value;
+      expect(
+        () => StudyInsights.decode(r, examId: 'cse'),
+        throwsFormatException,
+      );
+    }
+  });
   test('Free retains measured subject summary and allowed profile only', () {
     final r = reply();
     r['tendencies'] = {

@@ -37,6 +37,7 @@ class HomePerformanceSection extends ConsumerWidget {
       rows: view.subjects,
       overallCorrect: view.overallCorrect,
       overallAnswered: view.overallAnswered,
+      overallAccuracy: view.overallAccuracy,
       pro: pro,
       onOpen: () => unawaited(context.push('/performance')),
     );

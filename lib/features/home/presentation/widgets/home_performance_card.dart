@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
@@ -17,10 +18,12 @@ class HomePerformanceCard extends StatelessWidget {
     required this.onOpen,
     this.overallCorrect,
     this.overallAnswered,
+    this.overallAccuracy,
     this.web = kIsWeb,
     super.key,
   });
   final bool web;
+  final OverallAccuracy? overallAccuracy;
   final int? overallCorrect;
   final int? overallAnswered;
   final List<PerformanceRow> rows;
@@ -34,6 +37,9 @@ class HomePerformanceCard extends StatelessWidget {
     if (answered == 0) return const SizedBox.shrink();
     final correct =
         overallCorrect ?? measured.fold<int>(0, (sum, r) => sum + r.correct);
+    final accuracy = (overallAccuracy ??
+            OverallAccuracy.ratio(correct: correct, answered: answered))
+        .value;
     if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -43,14 +49,15 @@ class HomePerformanceCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 26, 20, 14),
-                  child: HalfRingGauge(
-                    web: true,
-                    fraction: correct / answered,
-                    label: 'Overall accuracy',
+                if (accuracy != null)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 26, 20, 14),
+                    child: HalfRingGauge(
+                      web: true,
+                      fraction: accuracy,
+                      label: 'Overall accuracy',
+                    ),
                   ),
-                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 6, 20, 8),
                   child: Column(
@@ -119,13 +126,14 @@ class HomePerformanceCard extends StatelessWidget {
     return GroupedSection(
       header: 'Your performance',
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 18, 16, 20),
-          child: HalfRingGauge(
-            fraction: correct / answered,
-            label: 'Overall accuracy',
+        if (accuracy != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 18, 16, 20),
+            child: HalfRingGauge(
+              fraction: accuracy,
+              label: 'Overall accuracy',
+            ),
           ),
-        ),
         for (final row in measured)
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),

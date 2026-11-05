@@ -88,10 +88,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final subjects = widget.data.subjects.where((r) => r.answered > 0).toList();
-    final answered = widget.data.overallAnswered ??
-        subjects.fold<int>(0, (n, r) => n + r.answered);
-    final correct = widget.data.overallCorrect ??
-        subjects.fold<int>(0, (n, r) => n + r.correct);
+    final accuracy = widget.data.accuracy;
     final gated = !widget.pro && widget.level > 0;
     final subjectNames = {for (final s in subjects) s.id: s.title};
     final scope = subjectNames[widget.subject];
@@ -329,7 +326,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                           ],
                         ],
                       ),
-                      right: answered <= 0
+                      right: accuracy == null
                           ? const SizedBox.shrink()
                           : Padding(
                               padding: const EdgeInsets.only(top: 54),
@@ -358,7 +355,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                           ),
                                           child: HalfRingGauge(
                                             web: true,
-                                            fraction: correct / answered,
+                                            fraction: accuracy,
                                             label: 'Overall accuracy',
                                           ),
                                         ),

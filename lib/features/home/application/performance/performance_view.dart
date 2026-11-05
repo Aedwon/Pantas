@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
@@ -14,7 +15,18 @@ class PerformanceViewData {
     this.parentSubjectIds = const {},
     this.overallCorrect,
     this.overallAnswered,
+    this.overallAccuracy,
   });
+  final OverallAccuracy? overallAccuracy;
+  double? get accuracy => (overallAccuracy ??
+          OverallAccuracy.ratio(
+            correct: overallCorrect ??
+                subjects.fold<int>(0, (sum, row) => sum + row.correct),
+            answered: overallAnswered ??
+                subjects.fold<int>(0, (sum, row) => sum + row.answered),
+          ))
+      .value;
+
   final int? overallCorrect;
   final int? overallAnswered;
   final List<PerformanceRow> subjects;
@@ -65,6 +77,7 @@ final performanceViewProvider =
   }
   return PerformanceViewData(
     subjects: subjects.rows,
+    overallAccuracy: subjects.overallAccuracy,
     topics: topics.rows,
     lessons: lessons.lessonLevelAvailable ? lessons.rows : const [],
     subjectCounts: counts,

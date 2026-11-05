@@ -57,6 +57,7 @@ final webPerformanceViewProvider =
           secondsPerQuestion: null,
         );
     return PerformanceViewData(
+      overallAccuracy: value.overallAccuracy,
       overallCorrect: value.correct,
       overallAnswered: value.answered,
       subjects: [for (final item in value.subjects) row(item, null)],

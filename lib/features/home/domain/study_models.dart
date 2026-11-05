@@ -1,3 +1,4 @@
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 Map<String, Object?> studyMap(Object? value) {
@@ -121,6 +122,7 @@ class StudyInsights extends StudyEnvelope {
     super.map,
     super.examId, {
     required this.revision,
+    required this.overallAccuracy,
     required this.correct,
     required this.answered,
     required this.subjects,
@@ -142,6 +144,21 @@ class StudyInsights extends StudyEnvelope {
     if (correct > answered) {
       throw const FormatException('Invalid overall accuracy');
     }
+    final rawAccuracy = overall['accuracy'];
+    if (rawAccuracy != null &&
+        (rawAccuracy is! num ||
+            !rawAccuracy.isFinite ||
+            rawAccuracy < 0 ||
+            rawAccuracy > 1)) {
+      throw const FormatException('Invalid overall accuracy');
+    }
+    final accuracy = overall.containsKey('accuracy')
+        ? OverallAccuracy((rawAccuracy as num?)?.toDouble())
+        : OverallAccuracy.fromLegacySummary(
+            examId: examId,
+            correct: correct,
+            answered: answered,
+          );
     final pro = map['proCovered'] == true;
     List<StudyPerformanceRow> rows(String key) => performance[key] == null
         ? const []
@@ -154,6 +171,7 @@ class StudyInsights extends StudyEnvelope {
       map,
       examId,
       revision: studyString(map['revision']),
+      overallAccuracy: accuracy,
       correct: correct,
       answered: answered,
       subjects: rows('subjects'),
@@ -177,6 +195,7 @@ class StudyInsights extends StudyEnvelope {
   }
   final List<Map<String, Object?>> topicDetails;
   final String revision;
+  final OverallAccuracy overallAccuracy;
   final int correct;
   final int answered;
   final List<StudyPerformanceRow> subjects;

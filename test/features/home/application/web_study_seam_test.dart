@@ -17,7 +17,7 @@ Map<String, Object?> insights({bool pro = true}) => {
       'revision': 'r1',
       'trialEndsAt': 1790834400000,
       'performance': {
-        'overall': {'correct': 2, 'answered': 4},
+        'overall': <String, Object?>{'correct': 2, 'answered': 4},
         'subjects': [
           {
             'id': 's',
@@ -63,6 +63,30 @@ Map<String, Object?> insights({bool pro = true}) => {
     };
 
 void main() {
+  for (final pro in [false, true]) {
+    test('web performance keeps server weighted accuracy with pro=$pro',
+        () async {
+      final response = insights(pro: pro);
+      final performance = response['performance']! as Map<String, Object?>;
+      (performance['overall']! as Map<String, Object?>)['accuracy'] = .6375;
+      final scope = ProviderContainer(
+        overrides: [
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
+          serverStudyInsightsProvider('e').overrideWith(
+            (_) => Stream.value(StudyInsights.decode(response, examId: 'e')),
+          ),
+        ],
+      );
+      addTearDown(scope.dispose);
+      final view = await scope.read(webPerformanceViewProvider.future);
+      expect(view.accuracy, .6375);
+      expect(view.subjects.single.accuracy, .5);
+      if (!pro) expect(view.topics, isEmpty);
+    });
+  }
+
   test('fresh coverage replaces a restored public performance snapshot',
       () async {
     final events = StreamController<StudyInsights>();

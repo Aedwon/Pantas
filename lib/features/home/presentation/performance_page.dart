@@ -69,8 +69,7 @@ class _PerformancePageState extends State<PerformancePage> {
   @override
   Widget build(BuildContext context) {
     final subjects = widget.data.subjects.where((r) => r.answered > 0).toList();
-    final answered = subjects.fold(0, (sum, r) => sum + r.answered);
-    final correct = subjects.fold(0, (sum, r) => sum + r.correct);
+    final accuracy = widget.data.accuracy;
     final level = _level.clamp(0, widget.data.lessonLevelAvailable ? 2 : 1);
     // Free keeps the Subjects view. Topics and Lessons slide in but show one
     // invitation card instead of a list, and the sort button dims (DT_Free).
@@ -143,13 +142,13 @@ class _PerformancePageState extends State<PerformancePage> {
       onBack: widget.onBack,
       bottomInset: 104,
       children: [
-        if (answered > 0) ...[
+        if (accuracy != null) ...[
           // Boards (DT_Free, DT_TopicsA): the ring starts 4 px lower; the
           // switch is 6 px lower on the Pro Topics and Lessons views.
           Padding(
             padding: const EdgeInsets.only(top: 4),
             child: HalfRingGauge(
-              fraction: correct / answered,
+              fraction: accuracy,
               label: 'Overall accuracy',
             ),
           ),
