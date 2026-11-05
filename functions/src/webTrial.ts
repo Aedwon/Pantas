@@ -38,8 +38,11 @@ export type TrialDeps = {db: Firestore; auth: Pick<Auth, 'getUser' | 'setCustomU
 /** Both discovery and trial creation use the same complete purchase history. */
 function neverHadPro(inputs: EntitlementInputs): boolean {
   const facts = inputs.record.get('facts') as {sources?: unknown[]; purchases?: unknown[]} | undefined;
-  return inputs.grants.size === 0 && inputs.passes.length === 0 && inputs.record.get('pro') !== true &&
-    Number(inputs.record.get('proUntil') ?? 0) <= 0 &&
+  const grants = [...inputs.grants.values()];
+  const betaOnly = grants.length > 0 && grants.every(grant => grant.source === 'beta');
+  // Beta also writes pro and proUntil. Those derived claims do not consume a trial.
+  return grants.every(grant => grant.source === 'beta') && inputs.passes.length === 0 &&
+    (betaOnly || (inputs.record.get('pro') !== true && Number(inputs.record.get('proUntil') ?? 0) <= 0)) &&
     (facts?.sources?.length ?? 0) === 0 && (facts?.purchases?.length ?? 0) === 0;
 }
 

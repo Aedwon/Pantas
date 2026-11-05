@@ -188,6 +188,30 @@ class _TrialPreferences extends AppPreferencesRepository {
 }
 
 void main() {
+  testWidgets('expired beta history keeps the eligible web trial offer',
+      (tester) async {
+    var trials = 0;
+    await _pump(
+      tester,
+      web: true,
+      eligible: true,
+      trialSeen: () => trials++,
+      history: [
+        WebGrantHistory(
+          productId: 'beta_pro',
+          endsAt: DateTime.utc(2020),
+          state: 'active',
+          isTrial: false,
+        ),
+      ],
+    );
+    expect(find.text('Try 7 Days Free'), findsOneWidget);
+    expect(find.text('Get Pro Again'), findsNothing);
+    await tester.tap(find.text('Try 7 Days Free'));
+    await tester.pumpAndSettle();
+    expect(trials, 1);
+  });
+
   testWidgets('plain Pro trial writes no pending exam switch', (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
