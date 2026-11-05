@@ -22,6 +22,28 @@ final serverMockIdentityProvider = Provider<String?>((ref) {
   return ref.watch(serverMockActorProvider)();
 });
 
+/// Where a student stands on the web's server-backed mock. The server needs a
+/// named account, so an anonymous or signed-out student is asked to create
+/// one, instead of being shown a load failure. While the account is unknown
+/// nothing is shown yet. A real failure of a named account is never
+/// [needsAccount]; it stays on the normal error path.
+enum MockAccountGate { checking, needsAccount, ready }
+
+final mockAccountGateProvider = Provider<MockAccountGate>((ref) {
+  if (!ref.watch(mockUsesServerProvider)) return MockAccountGate.ready;
+  if (ref.watch(serverMockIdentityProvider) != null) {
+    return MockAccountGate.ready;
+  }
+  final state = ref.watch(authStateProvider);
+  // An auth error says nothing about a missing account, so the normal load
+  // runs and reports its own failure.
+  if (state.hasError) return MockAccountGate.ready;
+  if (!state.hasValue) return MockAccountGate.checking;
+  return state.requireValue is SignedInAuthState
+      ? MockAccountGate.ready
+      : MockAccountGate.needsAccount;
+});
+
 Future<T> guardedMockRead<T>(
   Ref ref,
   Future<T> Function(ServerMockApi, void Function()) read,

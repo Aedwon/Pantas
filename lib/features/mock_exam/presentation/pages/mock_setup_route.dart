@@ -153,8 +153,9 @@ class MockNotOpenView extends StatelessWidget {
       body: Center(
         child: StateView(
           // The server-backed mock is the web mock, which waits 30 days.
-          message:
-              opens == null ? 'Mock paper not ready' : freeMockIntervalLine(30),
+          message: opens == null
+              ? 'Mock paper not ready'
+              : freeMockIntervalLine(freeMockIntervalDaysWeb),
           detail: opens == null ? null : mockNextOpensLine(opens),
           actionLabel: 'Back',
           onRetry: onBack ??

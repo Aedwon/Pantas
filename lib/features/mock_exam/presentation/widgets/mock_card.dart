@@ -15,6 +15,10 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 String freeMockIntervalLine(int days) =>
     'Free includes one mock every $days days.';
 
+/// Days between Free mocks on the web, where the server owns the rule. The
+/// phone keeps its own 14, so [MockCardModel.freeIntervalDays] defaults to it.
+const freeMockIntervalDaysWeb = 30;
+
 /// A server date arrives in UTC. The student reads their own calendar, so the
 /// card converts before it prints (a mock taken at 01:50 on Nov 5 in Manila
 /// is Nov 4 in UTC).
@@ -329,36 +333,36 @@ class MockCard extends StatelessWidget {
     );
     return _rise(context, content);
   }
-
-  /// QZ_Tab/Free/Resume/First: hold to 190 ms, rise 12 px through 640 ms.
-  /// Phone and wide web share it.
-  Widget _rise(BuildContext context, Widget content) =>
-      TweenAnimationBuilder<double>(
-        tween: Tween(begin: 0, end: 1),
-        duration: MediaQuery.disableAnimationsOf(context)
-            ? Duration.zero
-            : const Duration(milliseconds: 640),
-        child: content,
-        builder: (context, value, child) {
-          final progress = MediaQuery.disableAnimationsOf(context)
-              ? 1.0
-              : PantasCurves.houseOut
-                  .transform(((value * 640 - 190) / 450).clamp(0.0, 1.0));
-          return ExcludeFocus(
-            excluding: progress == 0,
-            child: Transform.translate(
-              key: const ValueKey('mock-card-rise'),
-              offset: Offset(0, 12 * (1 - progress)),
-              child: Opacity(
-                key: const ValueKey('mock-card-opacity'),
-                opacity: progress,
-                child: child,
-              ),
-            ),
-          );
-        },
-      );
 }
+
+/// QZ_Tab/Free/Resume/First: hold to 190 ms, rise 12 px through 640 ms.
+/// Phone and wide web share it.
+Widget _rise(BuildContext context, Widget content) =>
+    TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 640),
+      child: content,
+      builder: (context, value, child) {
+        final progress = MediaQuery.disableAnimationsOf(context)
+            ? 1.0
+            : PantasCurves.houseOut
+                .transform(((value * 640 - 190) / 450).clamp(0.0, 1.0));
+        return ExcludeFocus(
+          excluding: progress == 0,
+          child: Transform.translate(
+            key: const ValueKey('mock-card-rise'),
+            offset: Offset(0, 12 * (1 - progress)),
+            child: Opacity(
+              key: const ValueKey('mock-card-opacity'),
+              opacity: progress,
+              child: child,
+            ),
+          ),
+        );
+      },
+    );
 
 /// Board `.btn2` / `.btnw` at card width: 48 px tall, radius 12, 17 px.
 class _MockActionButton extends StatelessWidget {
@@ -566,6 +570,156 @@ class _TitleRow extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+}
+
+/// Board QuizMock "New": what the web's mock card says to a student with no
+/// named account, since the server only runs mocks for a named account.
+class MockSignUpCard extends StatelessWidget {
+  const MockSignUpCard({required this.onCreateAccount, super.key});
+
+  final VoidCallback onCreateAccount;
+
+  static const _title = 'Take a timed mock';
+  static const _message =
+      'Create a free account to take a mock and keep your results.';
+
+  @override
+  Widget build(BuildContext context) {
+    final note = freeMockIntervalLine(freeMockIntervalDaysWeb);
+    final button = _CreateAccountButton(onPressed: onCreateAccount);
+    if (context.wideWeb) {
+      final t = context.webTokens;
+      return _rise(
+        context,
+        Semantics(
+          key: const ValueKey('mock-signup-card'),
+          container: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const WebText('Mock exam', kind: WebTextKind.eyebrow),
+              WebCard(
+                padding: const EdgeInsets.fromLTRB(24, 24, 24, 22),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      _title,
+                      style: t.style(
+                        24,
+                        weight: FontWeight.w700,
+                        height: 1.2,
+                        spacing: -.384,
+                      ),
+                    ),
+                    const SizedBox(height: 22),
+                    Text(_message, style: t.style(16, height: 1.45)),
+                    const SizedBox(height: 22),
+                    Text(note, style: t.sub),
+                    const SizedBox(height: 22),
+                    button,
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+    final type = context.type;
+    final secondary = context.colors.secondaryLabel;
+    final lines = <Widget>[
+      Text(
+        _title,
+        style: type.body.copyWith(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          letterSpacing: -.24,
+          height: 1.3,
+        ),
+      ),
+      Text(
+        _message,
+        style: type.subhead.copyWith(color: secondary, height: 1.4),
+      ),
+      Text(note, style: type.footnote.copyWith(height: 1.4)),
+      button,
+    ];
+    return _rise(
+      context,
+      Semantics(
+        key: const ValueKey('mock-signup-card'),
+        container: true,
+        child: GroupedSection(
+          header: 'MOCK EXAM',
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < lines.length; i++) ...[
+                    if (i > 0) const SizedBox(height: 12),
+                    lines[i],
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Board `.gb`: the sign-in chip, 50 px tall, radius 14, 16 px. Its fill is
+/// the label color and its text the page color, in light and dark.
+class _CreateAccountButton extends StatelessWidget {
+  const _CreateAccountButton({required this.onPressed});
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final c = t.colors;
+    final fill = c.label;
+    final text = t.dark ? c.background : c.surface;
+    return PressScale(
+      scale: .96,
+      child: TextButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          animationDuration: MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 150),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: VisualDensity.standard,
+          minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 50)),
+          padding: const WidgetStatePropertyAll(
+            EdgeInsets.symmetric(horizontal: 18),
+          ),
+          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          backgroundColor: WidgetStatePropertyAll(fill),
+          foregroundColor: WidgetStatePropertyAll(text),
+          side: WidgetStateProperty.resolveWith(
+            (s) => BorderSide(
+              color: s.contains(WidgetState.focused)
+                  ? c.accent
+                  : Colors.transparent,
+              width: s.contains(WidgetState.focused) ? 2 : 1,
+            ),
+          ),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          ),
+          textStyle: WidgetStatePropertyAll(
+            t.style(16, weight: FontWeight.w600, height: 1.2),
+          ),
+        ),
+        child: const Text('Create Free Account'),
+      ),
     );
   }
 }

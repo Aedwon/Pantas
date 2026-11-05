@@ -42,6 +42,24 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
             return const QuizTabScreen();
           }
 
+          // The web's mocks need a named account. Without one the card asks
+          // for it, and nothing is shown while the account is still unknown.
+          switch (ref.watch(mockAccountGateProvider)) {
+            case MockAccountGate.checking:
+              return const QuizTabScreen(
+                mockReady: false,
+                mockPanel: QuizMockPanelSkeleton(),
+              );
+            case MockAccountGate.needsAccount:
+              return QuizTabScreen(
+                mockPanel: MockSignUpCard(
+                  onCreateAccount: () => context.push('/settings/account'),
+                ),
+              );
+            case MockAccountGate.ready:
+              break;
+          }
+
           final examId = focus.exam!.id;
           final request = MockAvailabilityRequest(
             userId: mockAttemptLocalUserId,
@@ -151,7 +169,7 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
                         ?.blueprint
                         .durationMinutes,
                 pro: proIsActive,
-                freeIntervalDays: web ? 30 : 14,
+                freeIntervalDays: web ? freeMockIntervalDaysWeb : 14,
                 proPaused: ref.watch(entitlementProvider).valueOrNull?.state ==
                     EntitlementState.paused,
                 lastPercent: lastAttempt == null

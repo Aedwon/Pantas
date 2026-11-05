@@ -61,6 +61,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   var _disposed = false;
   var _identityLost = false;
   var _leaving = false;
+  var _awaitingAccount = false;
   String? _originalUid;
   MockLeaveGuard? _guard;
 
@@ -70,13 +71,21 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     WidgetsBinding.instance.addObserver(this);
     final guard = ref.read(mockLeaveGuardProvider)..running = _allowLeave;
     _guard = guard;
-    ref.listenManual(serverMockIdentityProvider, (previous, next) {
-      final original = _originalUid;
-      if (original != null && next != original) {
-        _identityLost = true;
-        unawaited(_close());
-      }
-    });
+    ref
+      ..listenManual(serverMockIdentityProvider, (previous, next) {
+        final original = _originalUid;
+        if (original != null && next != original) {
+          _identityLost = true;
+          unawaited(_close());
+        }
+      })
+      ..listenManual(mockAccountGateProvider, (previous, next) {
+        if (!mounted || _disposed) return;
+        if (next == MockAccountGate.needsAccount) _askForAccount();
+        if (next == MockAccountGate.ready && _awaitingAccount) {
+          unawaited(_load());
+        }
+      });
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
     unawaited(_loadPauseWarning());
   }
@@ -134,8 +143,28 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     if (mounted) setState(() => _pauseWarningSeen = seen);
   }
 
+  /// A student with no named account has no mock to open. The Quiz tab holds
+  /// the card that asks for one, so this address sends them there.
+  void _askForAccount() {
+    if (_leaving || _session != null) return;
+    _leaving = true;
+    context.go(mockExitLocation);
+  }
+
   Future<void> _load() async {
     setState(() => _loadError = null);
+    // While the account is unknown the skeleton shows, and the gate's change
+    // loads or leaves. Nothing here may fail as "unauthenticated" first.
+    switch (ref.read(mockAccountGateProvider)) {
+      case MockAccountGate.checking:
+        _awaitingAccount = true;
+        return;
+      case MockAccountGate.needsAccount:
+        _askForAccount();
+        return;
+      case MockAccountGate.ready:
+        _awaitingAccount = false;
+    }
     final actor = ref.read(serverMockActorProvider);
     final uid = actor();
     _originalUid ??= uid;
