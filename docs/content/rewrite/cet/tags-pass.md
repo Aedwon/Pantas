@@ -25,7 +25,7 @@ Added among audit lessons matches the spec's B1 counts (ACET 13, USTET 4, UPCAT 
 
 ## Files the audit did not tag
 
-- `angles-and-radian-measure`: keep UPCAT, because unit-circle keeps UPCAT and uses radians (Level 3 foundation note). Remove ACET, USTET and DCAT, which unit-circle also leaves.
+- `angles-and-radian-measure`: keep UPCAT, because unit-circle keeps UPCAT and uses radians (Level 3 foundation note). Remove ACET, USTET and DCAT, which unit-circle also leaves. Aedwon, November 5: "radian measure is used in upcat. keep it."
 - `quantum-numbers-electron-configuration`: remove UPCAT, USTET and DCAT. The audit gives it no CET tag, Level 3 names DOST-SEI only, and no CET map names it. Atomic structure stays in UPCAT and USTET.
 - `filipino-verb-aspect-and-focus`: keep UPCAT (UPCAT map: Language Proficiency is English and Filipino, official). Remove ACET (map: no separate Filipino section, weak report), USTET and DCAT (maps name no Filipino). CSE tags stay.
 - Split lessons take the parent's audit CET tags: human-body-control and meiosis lose DCAT; cellular-respiration gains ACET. The other five splits already match.
