@@ -2,6 +2,9 @@
 
 Draft of Nov 5, 2026. Not legal advice and not published. Needs review by a Philippine lawyer. File links are relative to the repository root.
 
+**Filled in Nov 5 from the pantas-web site (`privacy.html`, `contact.html`):** owner and DPO name, address, dpo@pantas.study, support@pantas.study and the 15 day reply. That site records that there is no NPC registration yet and the child privacy assessment is unsigned, so both remain open for the reviewer. Retention there covers beta signups, not the app, so the app's periods stay as placeholders.
+
+
 **1. TEEN NOTICE**
 
 **Notice for teens**
@@ -14,7 +17,7 @@ This notice is for teens ages 13 to 17 and their parents or guardians. Pantas cu
 
 **Who runs Pantas**
 
-Pantas is run by Pantas Online Tutorial Services, a sole proprietorship. Owner: [PLACEHOLDER: proprietor’s full legal name]. Business address: [PLACEHOLDER: address for legal notices]. For questions about your data, email [PLACEHOLDER: confirmed data protection officer email]. ([Launch log, November 2](docs/superpowers/decisions/2026-10-19-pwa-launch-log.md:2381), [legal contact launch requirements](docs/superpowers/specs/2026-05-23-legal-ra10173-implementation-notes.md))
+Pantas is run by Pantas Online Tutorial Services, a sole proprietorship. Owner: Aerol Dwayne Daños Balayon. Business address: Poblacion, Norala, South Cotabato. For questions about your data, email dpo@pantas.study. ([Launch log, November 2](docs/superpowers/decisions/2026-10-19-pwa-launch-log.md:2381), [legal contact launch requirements](docs/superpowers/specs/2026-05-23-legal-ra10173-implementation-notes.md))
 
 **What we collect**
 
@@ -52,11 +55,11 @@ Pantas uses Google Firebase for account and server services. Guardian emails go 
 
 You have the right to know how your data is used. You can ask for a copy, including an electronic copy where the law allows. You can ask us to fix wrong details. You can ask us to stop using or delete data when the law allows. You can also complain to the National Privacy Commission and seek compensation where the law provides it. ([Data Privacy Act, Sections 16–18](https://privacy.gov.ph/data-privacy-act/))
 
-Send these requests to [PLACEHOLDER: confirmed data protection officer email]. Data export is handled through the data protection officer. There is no working export button in the app. ([Export function](functions/src/exportData.ts))
+Send these requests to dpo@pantas.study. We reply within 15 calendar days. Data export is handled through the data protection officer. There is no working export button in the app. ([Export function](functions/src/exportData.ts))
 
 **Withdrawing permission or deleting data**
 
-You can withdraw permission for data uses that rely on your consent. To withdraw guardian permission, contact [PLACEHOLDER: confirmed data protection officer email]. The guardian link cannot undo a confirmation. There is no separate withdrawal button in the current app. [PLACEHOLDER: approved process and effect of withdrawing guardian permission]. ([NPC consent rules, Section 13](https://privacy.gov.ph/wp-content/uploads/2023/11/NPC-Circular-No.-2023-04_Guidelines-on-Consent_07Nov2023.pdf), [guardian actions](functions/src/guardianConsent.ts))
+You can withdraw permission for data uses that rely on your consent. To withdraw guardian permission, contact dpo@pantas.study. The guardian link cannot undo a confirmation. There is no separate withdrawal button in the current app. [PLACEHOLDER: approved process and effect of withdrawing guardian permission]. ([NPC consent rules, Section 13](https://privacy.gov.ph/wp-content/uploads/2023/11/NPC-Circular-No.-2023-04_Guidelines-on-Consent_07Nov2023.pdf), [guardian actions](functions/src/guardianConsent.ts))
 
 If you have finished setup, you can open Settings, Account, and choose the delete option. For a Google-linked account, deletion removes the account’s server data and data on the device making the request. You may need to sign in again first. Without a Google-linked account, the delete option clears local data only. If you are waiting for guardian confirmation, contact the data protection officer for help. ([Deletion flow](lib/app/routes/settings_account_deletion.dart), [account deletion](lib/core/auth/auth_repository.dart:104), [waiting-page restrictions](lib/app/router.dart:77))
 
@@ -98,13 +101,13 @@ Prices are shown in Philippine pesos on the Pro screen and at PayMongo checkout.
 
 Weekly access lasts seven days. Monthly access lasts one calendar month. Yearly access lasts one calendar year. Monthly and Yearly periods end on the same date and time in Philippine time. If that date does not exist, they end on the last day of that month. A new period starts at the recorded payment time or after existing qualifying Pro access ends. Season Passes end at the end of the last day of their recorded exam sitting. ([Period calculation](functions/src/paymongoPolicy.ts), [stacking rules](functions/src/paymongoGrants.ts:15), [Season Pass end](functions/src/revenuecatPasses.ts:33))
 
-Pro access is added after Pantas verifies the payment with PayMongo. Returning from checkout does not by itself confirm that access is ready. If you paid and Pro has not appeared, contact [PLACEHOLDER: confirmed payment-support email]. ([Payment verification](functions/src/paymongoWebhook.ts), [checkout return](lib/features/paywall/data/web_payment_gateway.dart))
+Pro access is added after Pantas verifies the payment with PayMongo. Returning from checkout does not by itself confirm that access is ready. If you paid and Pro has not appeared, contact support@pantas.study. ([Payment verification](functions/src/paymongoWebhook.ts), [checkout return](lib/features/paywall/data/web_payment_gateway.dart))
 
 Eligible signed-in accounts can start a seven-day web trial. No payment details are needed to start it. The trial does not charge you or turn into a paid plan. It is available once per account and verified sign-in identity, for accounts that have never had Pro. Deleting an account does not reset a used trial. ([Trial function](functions/src/webTrial.ts), [trial length](functions/src/grants.ts), [trial display](lib/features/settings/presentation/pages/pro_page.dart:1041))
 
 There is no automatic web renewal to cancel. To stop buying Pro, do not make another purchase. Leaving an unpaid checkout does not create Pro access. Deleting your account ends its access and does not itself request a refund. A web purchase does not cancel a separate app store subscription. Manage that subscription through the store. ([Checkout handling](lib/features/paywall/data/web_payment_gateway.dart), [account deletion](functions/src/deleteAccount.ts), [separate store-renewal checks](functions/src/webPlans.ts))
 
-Under our web refund policy, you may request a full refund for an extra payment whose access period has not started, such as an unused duplicate payment, or for a payment that never unlocked Pro. We do not offer partial refunds for unused time. Activated or used access is outside this policy. Season Pass refund requests after the exam date are also outside this policy. These limits do not remove any refund, price reduction, or other remedy required by Philippine law. Send payment problems to [PLACEHOLDER: confirmed payment-support email]. ([Refund decisions](docs/superpowers/decisions/2026-10-19-pwa-launch-log.md:675), [Consumer Act, Article 102](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302))
+Under our web refund policy, you may request a full refund for an extra payment whose access period has not started, such as an unused duplicate payment, or for a payment that never unlocked Pro. We do not offer partial refunds for unused time. Activated or used access is outside this policy. Season Pass refund requests after the exam date are also outside this policy. These limits do not remove any refund, price reduction, or other remedy required by Philippine law. Send payment problems to support@pantas.study. ([Refund decisions](docs/superpowers/decisions/2026-10-19-pwa-launch-log.md:675), [Consumer Act, Article 102](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302))
 
 When Pro access for an exam ends, its Pro-only features stop unless another active plan or pass covers it. You can keep using Free features. Ending Pro does not itself delete your progress. Pro backup and syncing stop while you do not have Pro. ([Access calculation](lib/features/paywall/domain/entitlement.dart), [expiry wording](lib/features/settings/presentation/pages/pro_page.dart:931), [sync controls](lib/core/sync/runtime/sync_runtime_controller.dart:117))
 

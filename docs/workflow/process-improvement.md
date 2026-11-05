@@ -55,6 +55,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### A bug was handed off instead of reproduced (Nov 5)
+
+- **His words:** "well why didn't you find it"
+- **What was wrong:** Study days came back empty after a reload. The lead gave the bug to Codex, which read the code, could not run a browser in its sandbox, and reported no cause. The lead passed that on as "not fixed" without reproducing it. The real cause was found within minutes of tracing it in a browser: Drift does not flush a commit on IndexedDB, so the last write before a reload or a closed tab was lost, and not only on this step.
+- **Why the process let it through:** nothing required a reproduction before reporting a cause as unknown.
+- **Fix:** browser journey "The last answer survives a reload" in `tool/journeys/journeys.mjs`. Written rule: do not report a browser bug as unexplained until it has been reproduced in a browser with its state logged. A sandboxed agent's "no cause found" is not a result.
+
 ### Fixes reintroduced a Pro failure (Nov 5)
 
 - Words: none recorded on this failure alone. He had said "i do not want this to be a
