@@ -142,7 +142,11 @@ const browser = await chromium.launch({
 });
 let failed = 0;
 for (const [name, journey] of Object.entries(journeys)) {
-  const context = await browser.newContext({viewport: {width: 1440, height: 900}});
+  const context = await browser.newContext({
+    viewport: {width: 1440, height: 900},
+    // A runner with no system language gives the app an empty locale, and it stops at startup.
+    locale: 'en-PH',
+  });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(String(error).slice(0, 400)));
