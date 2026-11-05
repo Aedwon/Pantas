@@ -323,6 +323,24 @@ void _export(List<String> arguments) {
     });
   }
 
+  final yamlPassages = <String, Map<String, Object?>>{};
+  for (final file in _filesUnder('$root/content/questions', '.yaml')) {
+    final doc =
+        loadYaml(file.readAsStringSync(), sourceUrl: Uri.file(file.path))
+            as YamlMap;
+    final updatedAt = _getFileHashTimestamp(file);
+    for (final raw in doc['passages'] as YamlList? ?? <Object?>[]) {
+      final passage = raw! as YamlMap;
+      final body = passage['body'] as String;
+      yamlPassages[passage['id'] as String] = {
+        '_updatedAt': updatedAt,
+        'title': passage['title'] as String? ?? '',
+        'body': body,
+        'wordCount': body.trim().split(RegExp(r'\s+')).length,
+      };
+    }
+  }
+
   final passagesOutput = <Map<String, Object?>>[];
   for (final p in keptPassages) {
     passagesOutput.add({
@@ -335,6 +353,7 @@ void _export(List<String> arguments) {
       'body': p['body'],
       'language': p['language'],
       'wordCount': p['wordCount'],
+      ...?yamlPassages[p['id']],
     });
   }
 

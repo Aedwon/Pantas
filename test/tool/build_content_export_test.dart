@@ -10,6 +10,92 @@ import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
 
 void main() {
+  test('YAML passage overrides historical text and keeps historical fallback',
+      () async {
+    final temp = Directory.systemTemp.createTempSync('passage_export');
+    addTearDown(() => temp.deleteSync(recursive: true));
+    void write(String path, String text) {
+      final file = File('${temp.path}/$path');
+      file.parent.createSync(recursive: true);
+      file.writeAsStringSync(text);
+    }
+
+    write(
+      'tools/build_content_export/historical_v1.json',
+      jsonEncode({
+        'exams': <Object?>[],
+        'topics': <Object?>[],
+        'questions': <Object?>[],
+        'lessons': <Object?>[],
+        'passages': [
+          for (final id in ['shared-passage', 'historical-only'])
+            {
+              'id': id,
+              'topicId': 'topic_upcat_algebra',
+              'title': 'Old title',
+              'body': 'Old body',
+              'language': 'en',
+              'wordCount': 2,
+            },
+        ],
+      }),
+    );
+    write(
+      'tools/lesson_author/outline.json',
+      jsonEncode({
+        'subjects': [
+          {
+            'slug': 'mathematics',
+            'name': 'Mathematics',
+            'topics': [
+              {'slug': 'algebra', 'name': 'Algebra'},
+            ],
+          },
+        ],
+      }),
+    );
+    write('content/illustrations/assets.json', '{}');
+    Directory('${temp.path}/content/lessons').createSync();
+    write('content/questions/mathematics/algebra/test.yaml', '''
+meta:
+  topic: algebra
+  subtopic: intro
+  exams: [upcat]
+passages:
+  - id: shared-passage
+    title: Updated heading
+    body: |
+      Updated passage with
+      four more words.
+questions: []
+''');
+    final path = '${temp.path}/export.json';
+    final result = await Process.run('dart', [
+      'run',
+      'tools/build_content_export/build_content_export.dart',
+      path,
+      temp.path,
+    ]);
+    expect(result.exitCode, 0, reason: result.stderr.toString());
+    final output =
+        jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
+    final passages = (output['passage'] as List).cast<Map<String, Object?>>();
+    expect(
+      passages.map((p) => p['_id']),
+      ['shared-passage', 'historical-only'],
+    );
+    final updated = passages.first;
+    expect(updated['title'], 'Updated heading');
+    expect(updated['body'], 'Updated passage with\nfour more words.\n');
+    expect(updated['wordCount'], 6);
+    expect(updated['_updatedAt'], isNot(passages.last['_updatedAt']));
+    expect(updated['topic'], {'_ref': 'topic_upcat_algebra'});
+    expect(updated['language'], 'en');
+    expect(passages.last['title'], 'Old title');
+    expect(passages.last['body'], 'Old body');
+    expect(passages.last['wordCount'], 2);
+  });
+
   test('historical CSE samples stay inactive through export parsing', () async {
     final temp = Directory.systemTemp.createTempSync('retired_cse');
     addTearDown(() => temp.deleteSync(recursive: true));
