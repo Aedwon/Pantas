@@ -366,7 +366,7 @@ No client change. `webPerformanceViewProvider`, `webTopicDetailProvider`, `how_y
 
 On native the call is fire-and-forget, as for other settings.
 
-**Fit on the client.** `CustomMockSetupData` gains `availableBySubject`. The Save rule becomes: total within `availableQuestions`, and each subject section within its subject's count. A new total limit of 300 applies. Each uses the existing CM_Ceiling treatment: the number stays in red, Tick More Subjects opens Settings, and Save waits. Copy for the 300 line and the per-section line goes in the preview.
+**Fit on the client.** `CustomMockSetupData` gains `availableBySubject`. The Save rule becomes: total within `availableQuestions`, and each subject section within its subject's count. A new total limit of 300 applies. Each uses the existing CM_Ceiling treatment: the number stays in red, Tick More Subjects opens Settings, and Save waits. Under the card, per pick 5 B, a red line states the limit. Wording comes from the board `Setup` mode limit v B.
 
 **Paper assembly on the server.** `assemblePaper` branches on `isCustomExamId` to a new `assembleCustomPaper(db, uid, examId, now, seed)` in `mock.ts`:
 
@@ -498,7 +498,7 @@ An answer that reaches the server after its part closed is lost. There is no gra
 
 *What the client can never do,* each with a test: extend a part by repeating `startPart`, by pausing in Strict, by sending a large or small `durationMs`, by sending `answeredAt`, by saving after the close, by starting again, or by a different `strict` flag on a second `startMock`. Leaving the between-parts screen unanswered in Strict does not stop the clock past the break. Non-Strict has unlimited pauses and a discard that clears answers, as listed exams do. Those two stay as they are: Strict is the simulation, and a student who pauses gives that up.
 
-*Setup.* `WebCustomMockSetup` keeps `onTiming` and the row on web. `MockSetupPage` shows the parts as it does on the phone.
+*Setup.* `WebCustomMockSetup` keeps `onTiming` and the row on web, with the rule line of pick 4 B, "This paper runs part by part. Once a part ends, you can't go back to it." `MockSetupPage` follows boards `MockSetup` and `MockSetupPh`.
 
 *Results.* The response shape does not change apart from `examName`.
 
@@ -506,15 +506,11 @@ An answer that reaches the server after its part closed is lost. There is no gra
 
 **Server.** No entitlement code changes.
 
-**Pro page, `pro_page.dart`.** When the active exam is custom and there is no `targetExam`, `activeProCatalogEntryProvider` is null, `packages` and `passes` are empty and no buy button draws (by reading). Replace the offers block with one state:
+**Pro page, `pro_page.dart`.** Aedwon's pick 2 B replaces the earlier draft: the sales card stays, each benefit row with its own icon, and a free card sits below it with the line "PUP CET is free to study." under which "Pro plans come with a listed exam.", and a Change Exam action to `/settings/exam/change`. The name is the track's. There are no offers and no buy button for a custom track. If the student holds coverage for another exam, the existing "what you own" rows stay. Board: `Settings` kind pro, v B, and `SettingsPh`.
 
-- Line drafted for the preview: "PUP CET is free, with no limits. Pro plans come with a listed exam."
-- A secondary action to `/settings/exam/change`.
-- If the student holds coverage for another exam, the existing "what you own" rows stay.
+Upsell rows on Plan and Home keep linking here (Aedwon's pick 3 A: keep them).
 
-Upsell rows on Plan and Home keep linking here. Whether to hide them on a custom track is a preview question.
-
-**Switching a paying student to a custom track.** `ChangeExamPage.onPicked` and the new custom Settings path compute `from` and `to` from the catalog, and `to` is null for a custom target, so the existing warning is skipped. Add: if `entitlement.proIsActive` and the target is custom, show the existing `CenteredDialog` pattern. Draft: "On PUP CET you'll be on Free. Your plan stays with your account. Switch back any time." Copy goes in the preview.
+**Switching a paying student to a custom track.** `ChangeExamPage.onPicked` and the new custom Settings path compute `from` and `to` from the catalog, and `to` is null for a custom target, so the existing warning is skipped. Add: if `entitlement.proIsActive` and the target is custom, show the existing `CenteredDialog` pattern with Aedwon's pick 6 A: "On PUP CET you'll be on Free. Switch back any time." Board: `Settings` kind warn, v A, and `SettingsPh`.
 
 **Beta.** `setBetaPro` stays CSE only. The beta Pro row hides for a custom exam, since the server refuses it. Confirm the row's condition in C5.
 
@@ -535,7 +531,7 @@ Upsell rows on Plan and Home keep linking here. Whether to hide them on a custom
 - The exam date and study days carry over, as in a listed switch. Settings holds both.
 - The picker's `_custom()` pushes the Settings route when `mode == settings`.
 - The onboarding routes keep their behavior.
-- Board: wide steps reuse `OB_CustomName` and `OB_CustomCover`. Whether the progress bar hides from Settings is in the preview.
+- Board: wide steps reuse `OB_CustomName` and `OB_CustomCover`. Per pick 7 the steps behave as they do now, with no new progress UI.
 
 **Custom to listed.** The existing path works. `from` is null, so no pass warning. `setExamSettings` replaces `settings`. The track document stays. `getCarryableCount(listed)` runs and the prompt appears if the count is above zero.
 
@@ -768,18 +764,18 @@ Pass: every step reached, no console error, no `Unknown exam.` in the function l
 6. Generated files stay uncommitted.
 7. Every worker reads `SUBAGENTS.md` and works in its own worktree. Workers do not merge.
 
-## 2.17 Previews required before the client window
+## 2.17 Preview picks, binding 1:1
 
-Per the visual companion rule. The lead builds them from the real code, wide and phone. Approved previews are then binding 1:1.
+Canvas: "Custom Exam Screens" (https://claude.ai/artifact/4yeMyQhdjB8AQYySw4wu6n). Log entry: "Preview picks: QA polish and custom exam screens".
 
-1. "Your exams" rows in the picker, onboarding and Settings.
-2. Pro page, custom state, with and without owned coverage.
-3. Whether Free upsell rows stay on a custom track.
-4. Setup on web with the timing row, and `MockSetupPage` for a by-part paper.
-5. Red line for 300 and for a section above its subject.
-6. Switch warning for a paying student.
-7. Custom steps opened from Settings: progress bar or none.
-8. By-part paper on web: part clock and part name in the header, grid limited to the running part, between-parts screen wide and phone, Strict between-parts screen when the break runs out, pause screen with the part clock.
+1. "Your exams" rows: B, Add row inside Your exams. Boards `PickOb` v B, `PickPh` v B, `Settings` and `SettingsPh` kind pick, v B.
+2. Pro page: B, sales card stays with each row's own icon, free card below, "PUP CET is free to study. Pro plans come with a listed exam."
+3. Free upsell rows: A, keep. No change.
+4. Setup: B, timing row with the rule line. Boards `Setup` and `SetupPh` mode timing, v B. Mock start: `MockSetup` v parts and strict, `MockSetupPh` v parts.
+5. Red lines: B, under the card. Boards `Setup` and `SetupPh` mode limit, v B, err 300 and section.
+6. Switch warning: A, "On PUP CET you'll be on Free. Switch back any time."
+7. Custom steps from Settings: as they are now. No new progress UI. Boards `Steps` and `StepsPh` v Now.
+8. By-part paper: wide paper A, later parts as faded grids (`Paper` kind paper v A). Phone paper B, part under the clock (`PaperPh` kind paper v B). Strict break B, clock in the header. Break ran out B, "Part 3 started". Between parts and pause as drawn.
 
 All new strings follow `AGENTS.md`, and the 2 August rule: no string leads with what Pantas cannot do.
 
@@ -928,7 +924,7 @@ The contract test builds the catalog from the real tree and asserts each offered
 **Files:** `exam_picker_screen.dart`, `settings_routes.dart`, `settings_routes_native.dart`, `settings_routes_web.dart` if needed, `custom_track_subjects_step.dart` (`fromSettings`). Tests: `exam_picker_screen_test.dart`, `web_onboarding_states_test.dart`, `router_settings_test.dart`, `deferred_settings_routes_test.dart`.
 
 1. Failing test first: Settings row while complete does not reach the name step.
-2. Build to the approved previews 1:1.
+2. Build to picks 1, 6 and 7, 1:1.
 3. `router.dart` is not touched. New routes are outside `/onboarding/`.
 4. Reuse the same save and carry sequence as `ChangeExamPage`. Do not write a second copy: extract one private helper in that file.
 
@@ -942,11 +938,11 @@ Panel table from 2.7 is the acceptance list. Repair publish runs at most once pe
 
 **Files:** `pro_page.dart`, the beta row's page. Test: new `pro_page_custom_test.dart`. Existing `pro_page_*` tests stay green.
 
-Follow preview 2.
+Follow pick 2 B.
 
 ## C6. By-part paper client (Sonnet, 12h)
 
-**Files:** `server_mock_paper.dart`, `server_mock_session.dart`, `server_mock_api.dart`, `server_mock_route.dart`. Tests in 2.15. No change to `mock_session_page.dart`, `part_transition_page.dart` or `pause_page.dart`, unless preview 8 needs one.
+**Files:** `server_mock_paper.dart`, `server_mock_session.dart`, `server_mock_api.dart`, `server_mock_route.dart`. Tests in 2.15. `mock_session_page.dart`, `part_transition_page.dart` and `pause_page.dart` change only where pick 8 needs it, with the phone's own mock route unchanged.
 
 1. Parse the optional `parts` block. A paper without it runs one block, as now.
 2. Add `startPart` and `endPart` to the session's ordered queue.
@@ -955,7 +951,7 @@ Follow preview 2.
 5. In a Strict break, read the server when `startsInMs` runs out.
 6. Send a pending save at once when under 3 seconds remain in the part.
 
-Follow preview 8 1:1.
+Follow pick 8 1:1.
 
 ## E1. Full checks and browser path (Sonnet, Haiku, 4h)
 
