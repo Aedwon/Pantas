@@ -59,6 +59,7 @@ void main() {
     double scale = 1,
     bool unanswered = false,
     bool reduced = true,
+    ValueChanged<int>? onIndexChanged,
   }) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -72,6 +73,9 @@ void main() {
         child: QuizQuestionViewer(
           questions: questions,
           items: unanswered ? const [] : items,
+          subjectNames: const {'t': 'General Information'},
+          topicNames: const {'t': 'Philippine Constitution'},
+          onIndexChanged: onIndexChanged,
           pro: pro,
           onBack: () {},
           onNote: onNote ?? (_, __, ___) async {},
@@ -99,6 +103,32 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Original question 1'), findsOneWidget);
   });
+  testWidgets('stepping reports the position so the address can follow',
+      (tester) async {
+    final moved = <int>[];
+    await pump(tester, pro: false, onIndexChanged: moved.add);
+    expect(moved, isEmpty);
+    await tester.tap(find.byTooltip('Next question'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Previous question'));
+    await tester.pumpAndSettle();
+    expect(moved, [1, 0]);
+  });
+
+  testWidgets('the line above the stem is the topic, as it was live',
+      (tester) async {
+    await pump(tester, pro: false);
+    bool shows(String text) => find
+        .byWidgetPredicate(
+          (w) =>
+              w is Text && (w.data ?? '').toLowerCase() == text.toLowerCase(),
+        )
+        .evaluate()
+        .isNotEmpty;
+    expect(shows('Philippine Constitution'), isTrue);
+    expect(shows('General Information'), isFalse);
+  });
+
   testWidgets('Pro note writes only the viewed original wrong question',
       (tester) async {
     final saved = <(String, MistakeTag?, String?)>[];

@@ -28,18 +28,19 @@ class WebProHero extends StatelessWidget {
         ],
       ],
     );
+    const perks = [
+      'Unlimited mock exams',
+      'Notes on why your answer was wrong',
+      'The figures behind your study habits',
+      "Progress that's always backed up",
+      'Results by topic and lesson',
+    ];
     final features = Padding(
       padding: const EdgeInsets.only(top: 4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          for (final (index, feature) in [
-            'Unlimited mock exams',
-            'Notes on why your answer was wrong',
-            'The figures behind your study habits',
-            "Progress that's always backed up",
-            'Results by topic and lesson',
-          ].indexed) ...[
+          for (final (index, feature) in perks.indexed) ...[
             if (index > 0) const SizedBox(height: 8),
             Row(
               children: [
@@ -60,7 +61,6 @@ class WebProHero extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(26, 26, 26, 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        border: t.dark ? Border.all(color: t.cardEdge) : null,
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -68,9 +68,35 @@ class WebProHero extends StatelessWidget {
           stops: const [0, .55, 1],
         ),
       ),
+      // The dark edge takes up no room: the card is the same size in both
+      // themes (6T-11).
+      foregroundDecoration: t.dark
+          ? BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: t.cardEdge),
+            )
+          : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          if (constraints.maxWidth < 544) {
+          // The perks take the width of the longest one, so none wraps while
+          // the heading column has room (5Q-15). Too little room left for the
+          // heading stacks the two.
+          final scaler = MediaQuery.textScalerOf(context);
+          var longest = 0.0;
+          for (final perk in perks) {
+            final painter = TextPainter(
+              text: TextSpan(text: perk, style: t.style(16, height: 1.3)),
+              textDirection: Directionality.of(context),
+              textScaler: scaler,
+              maxLines: 1,
+            )..layout();
+            if (painter.width > longest) longest = painter.width;
+            painter.dispose();
+          }
+          // Tick, its gap, and a hair for rounding.
+          final perksWidth = longest + 14 + 10 + 2;
+          final headingWidth = constraints.maxWidth - 24 - perksWidth;
+          if (constraints.maxWidth < 544 || headingWidth < 200) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [headingColumn, const SizedBox(height: 24), features],
@@ -81,7 +107,7 @@ class WebProHero extends StatelessWidget {
             children: [
               Expanded(child: headingColumn),
               const SizedBox(width: 24),
-              Expanded(child: features),
+              SizedBox(width: perksWidth, child: features),
             ],
           );
         },

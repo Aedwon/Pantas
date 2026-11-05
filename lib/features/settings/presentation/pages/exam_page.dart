@@ -159,7 +159,9 @@ class _ExamPageState extends ConsumerState<ExamPage>
               opacity: rise,
               child: SettingsPanePage(
                 section: 'Your exam',
-                title: '',
+                // Wide web keeps the pane's heading; the phone board is a bare
+                // page.
+                title: context.wideWeb ? 'Your exam' : '',
                 children: [
                   const SizedBox(height: 80),
                   Center(
@@ -185,7 +187,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   ),
                   const SizedBox(height: 28),
                   Text(
-                    'You’re now studying for '
+                    "You're now studying for "
                     '$_changedExam',
                     textAlign: TextAlign.center,
                     style: context.type.pageTitle,
@@ -193,9 +195,10 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   const SizedBox(height: 12),
                   Text(
                     _carried
-                        ? 'Everything you’ve done came with you, and your '
+                        ? "Everything you've done came with you, and your "
                             'plan is rebuilt for $_changedExam.'
                         : 'Your plan is rebuilt for $_changedExam.',
+                    textAlign: TextAlign.center,
                     style: context.type.body,
                   ),
                   const SizedBox(height: 24),
@@ -218,17 +221,21 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     ],
                   ),
                   const SizedBox(height: 24),
-                  PantasButton(
-                    label: 'Change Exam Date',
-                    onPressed: () => setState(() {
-                      _changedExam = null;
-                      _dateOpen = true;
-                    }),
+                  Center(
+                    child: PantasButton(
+                      label: 'Change Exam Date',
+                      onPressed: () => setState(() {
+                        _changedExam = null;
+                        _dateOpen = true;
+                      }),
+                    ),
                   ),
-                  PantasButton(
-                    label: 'Done',
-                    variant: PantasButtonVariant.tertiary,
-                    onPressed: () => setState(() => _changedExam = null),
+                  Center(
+                    child: PantasButton(
+                      label: 'Done',
+                      variant: PantasButtonVariant.tertiary,
+                      onPressed: () => setState(() => _changedExam = null),
+                    ),
                   ),
                 ],
               ),
@@ -335,14 +342,16 @@ class _ExamPageState extends ConsumerState<ExamPage>
           labels: const [
             'Exact day',
             'Month only',
-            'I don’t know',
+            "I don't know",
           ],
           selected: mode,
           onChanged: (index) {
             setState(() => _mode = index);
+            // With no date set, the pickers open on today but nothing is saved
+            // until the student picks one, so no date is made up.
             if (index == 2) {
               unawaited(_save(actions.clearExamDate));
-            } else {
+            } else if (date != null) {
               saveDate(
                 current.year,
                 current.month,
@@ -489,8 +498,8 @@ class _ExamPageState extends ConsumerState<ExamPage>
               ? 'At least one day stays on.'
               : past
                   ? 'This date has passed. Pick your next exam date, or choose '
-                      'I don’t know.'
-                  : mode == 2
+                      "I don't know."
+                  : mode == 2 || date == null
                       ? 'Your plan keeps a steady pace until you add a date.'
                       : mode == 1
                           ? 'Without a day, your plan defaults to '
@@ -561,7 +570,8 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     ),
               variant: ListRowVariant.inlineEditor,
               hideChevron: true,
-              divider: !_dateOpen || !context.wideWeb,
+              // ST_ExamDate: a line under the row while the picker is open too.
+              divider: true,
               dividerInset: context.wideWeb ? 0 : 16,
               expanded: _dateOpen,
               onTap: () => setState(() => _dateOpen = !_dateOpen),
@@ -668,7 +678,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
           footer: 'Topics you leave out drop out of your plan.',
           children: [
             SettingsRow(
-              title: 'What’s included',
+              title: "What's included",
               value: leftOut ? 'Some topics left out' : 'All subjects',
               onTap: () => push('/settings/exam/included'),
             ),

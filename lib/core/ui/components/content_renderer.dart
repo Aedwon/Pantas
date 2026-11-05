@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
@@ -5,17 +6,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/platform/figure_viewer_back.dart';
+import 'package:pantas/core/platform/figure_viewer_history.dart';
+import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 // Credits use secondaryLabel under the Task8b contrast ruling.
+
+/// Sent up the tree once a reader example has finished opening, so the page
+/// can measure its new length. See `_ExampleCard`.
+class ReaderResizedNotification extends Notification {
+  const ReaderResizedNotification();
+}
 
 class ContentRenderer extends StatelessWidget {
   const ContentRenderer({
@@ -79,6 +91,14 @@ class ContentRenderer extends StatelessWidget {
       {'_type': 'block', 'style': 'normal', 'children': children},
     ];
   }
+
+  /// [text] with its `**strong**` and `*emphasis*` markers removed and its
+  /// maths left as written, for a single-line label that cannot draw them.
+  static String plainText(String text) => [
+        for (final child
+            in _parseTextToBlocks(text).single['children']! as List<Object?>)
+          (child! as Map<String, Object?>)['text']! as String,
+      ].join();
 
   /// Splits question text into plain runs and Markdown pipe tables.
   ///
@@ -164,6 +184,12 @@ class ContentRenderer extends StatelessWidget {
   }
 
   String string(Object? value) => value is String ? value : '';
+
+  /// A credit that is only "Pantas" is our own work and needs no caption.
+  /// Third-party credits stay.
+  @visibleForTesting
+  static String shownCredit(String credit) =>
+      credit.trim().toLowerCase() == 'pantas' ? '' : credit;
   List<Map<String, Object?>> maps(Object? value) => value is List<Object?>
       ? value.whereType<Map<String, Object?>>().toList()
       : const [];
@@ -181,45 +207,63 @@ class ContentRenderer extends StatelessWidget {
           style: context.type.footnote.copyWith(color: context.colors.label),
         ),
       );
-  Widget paragraph(
+
+  /// The reader's body text: 18 px on wide web and 16 px on a phone, a step
+  /// dimmer than bold. Only the reader uses it; the rest of the app keeps its
+  /// own body color.
+  TextStyle readerBody(BuildContext context) {
+    final wide = context.wideWeb;
+    return (style ?? context.type.body).copyWith(
+      fontSize: wide ? 18 : 16,
+      height: wide ? 1.7 : 1.6,
+      letterSpacing: -.08,
+      fontWeight: FontWeight.w400,
+      color: context.colors.readerBody,
+    );
+  }
+
+  TextStyle _readerH2(BuildContext context) {
+    final wide = context.wideWeb;
+    return context.type.sectionHero.copyWith(
+      fontSize: wide ? 32 : 26,
+      height: 1.18,
+      letterSpacing: wide ? -.65 : -.42,
+      fontWeight: FontWeight.w700,
+      color: context.colors.label,
+    );
+  }
+
+  TextStyle _readerH3(BuildContext context, {double? size}) =>
+      context.type.emphasized.copyWith(
+        fontSize: size ?? (context.wideWeb ? 21 : 18),
+        height: 1.28,
+        letterSpacing: -.3,
+        fontWeight: FontWeight.w600,
+        color: context.colors.label,
+      );
+
+  /// The text runs of [runs] as spans, with the spoken form of any math.
+  ({List<InlineSpan> spans, String spoken, bool hasMath, bool validSpeech})
+      _inline(
     BuildContext context,
-    Map<String, Object?> block, {
-    String? marker,
-  }) {
-    final name = string(block['style']);
-    final base = style ?? context.type.body.copyWith(height: 1.55);
-    final phoneType = switch (name) {
-      'h1' => context.type.pageTitle.copyWith(height: 1.15),
-      'h2' => context.type.sectionHero
-          .copyWith(fontSize: 22, height: 1.25, letterSpacing: -.264),
-      'h3' || 'h4' || 'h5' || 'h6' => context.type.emphasized
-          .copyWith(fontSize: 18, height: 1.3, letterSpacing: -.216),
-      'blockquote' => base.copyWith(fontWeight: FontWeight.w500),
-      _ => base,
-    };
-    final wide = readerFigures && context.wideWeb;
-    // Every section label is the same 24 px heading on wide web, Core
-    // Concept included. It was a small gray label that read as less than the
-    // sections after it (Aedwon, Nov 3).
-    final type = wide && name == 'h2'
-        ? context.webTokens.style(
-            24,
-            weight: FontWeight.w700,
-            spacing: -.384,
-            height: 1.3,
-          )
-        : phoneType;
+    List<Map<String, Object?>> runs,
+    TextStyle type,
+  ) {
     final spans = <InlineSpan>[];
     final spoken = StringBuffer();
     var hasMath = false;
     var validSpeech = true;
-    for (final run in maps(block['children'])) {
+    for (final run in runs) {
       final source = string(run['text']);
       final marks = run['marks'] is List<Object?>
           ? (run['marks']! as List<Object?>).whereType<String>().toSet()
           : <String>{};
       final runStyle = type.copyWith(
         fontWeight: marks.contains('strong') ? FontWeight.w600 : null,
+        // Bold is a step brighter than body text in the reader.
+        color: readerFigures && marks.contains('strong')
+            ? context.colors.readerStrong
+            : null,
         fontStyle: marks.contains('em') ? FontStyle.italic : null,
         decoration:
             marks.contains('underline') ? TextDecoration.underline : null,
@@ -256,63 +300,171 @@ class ContentRenderer extends StatelessWidget {
         }
       }
     }
+    return (
+      // A formula and the mark that follows it, even across two runs, stay
+      // on one line.
+      spans: keepPunctuationWithMath(spans),
+      spoken: spoken.toString(),
+      hasMath: hasMath,
+      validSpeech: validSpeech,
+    );
+  }
+
+  /// Takes the leading `#3:` off a heading's runs, so the number can be drawn
+  /// apart from the title. Returns the runs unchanged when there is none.
+  ({String? number, List<Map<String, Object?>> runs}) _numbered(
+    List<Map<String, Object?>> runs,
+  ) {
+    final match = RegExp(r'^#(\d+):\s*').firstMatch(
+      runs.map((r) => string(r['text'])).join(),
+    );
+    if (match == null) return (number: null, runs: runs);
+    var cut = match.end;
+    final out = <Map<String, Object?>>[];
+    for (final run in runs) {
+      final text = string(run['text']);
+      if (cut <= 0) {
+        out.add(run);
+      } else if (text.length <= cut) {
+        cut -= text.length;
+      } else {
+        out.add({...run, 'text': text.substring(cut)});
+        cut = 0;
+      }
+    }
+    return (number: match.group(1), runs: out);
+  }
+
+  /// [body] with the spoken form of its math, when it has any.
+  Widget _spoken(
+    Widget body,
+    ({
+      List<InlineSpan> spans,
+      String spoken,
+      bool hasMath,
+      bool validSpeech
+    }) inline, {
+    String? marker,
+  }) =>
+      inline.hasMath && inline.validSpeech
+          ? Semantics(
+              label: '${marker == null ? '' : '$marker '}${inline.spoken}',
+              excludeSemantics: true,
+              child: body,
+            )
+          : body;
+
+  /// A small uppercase label that speaks as written, such as "Solution".
+  Widget caps(String label, TextStyle style) => Semantics(
+        label: label,
+        excludeSemantics: true,
+        child: Text(label.toUpperCase(), style: style),
+      );
+
+  Widget paragraph(
+    BuildContext context,
+    Map<String, Object?> block, {
+    String? marker,
+    ReaderSection section = ReaderSection.plain,
+    bool step = false,
+  }) {
+    final name = string(block['style']);
+    final base = readerFigures
+        ? readerBody(context)
+        : style ?? context.type.body.copyWith(height: 1.55);
+    final phoneType = switch (name) {
+      'h1' => context.type.pageTitle.copyWith(height: 1.15),
+      'h2' when readerFigures => _readerH2(context),
+      'h2' => context.type.sectionHero
+          .copyWith(fontSize: 22, height: 1.25, letterSpacing: -.264),
+      'h3' when readerFigures => _readerH3(context),
+      'h3' || 'h4' || 'h5' || 'h6' => context.type.emphasized
+          .copyWith(fontSize: 18, height: 1.3, letterSpacing: -.216),
+      // The design's paragraph rule beats its note rule, so a note keeps the
+      // body line height instead of a tighter one.
+      'blockquote' when readerFigures => base.copyWith(
+          fontWeight: FontWeight.w500,
+          color: section == ReaderSection.traps
+              ? context.colors.readerWarnText
+              : context.colors.readerNoteText,
+        ),
+      'blockquote' => base.copyWith(fontWeight: FontWeight.w500),
+      // A step is not a paragraph, so it has no tracking and a tighter line.
+      _ when step => base.copyWith(
+          height: context.wideWeb ? 1.67 : 1.6,
+          letterSpacing: 0,
+        ),
+      _ => base,
+    };
+    final type = phoneType;
+    final runs = maps(block['children']);
     final numbered = readerFigures && name.startsWith('h')
-        ? RegExp(r'^#(\d+):\s*(.*)$').firstMatch(
-            maps(block['children']).map((r) => string(r['text'])).join(),
-          )
-        : null;
-    if (numbered != null) {
+        ? _numbered(runs)
+        : (number: null, runs: runs);
+    final inline = _inline(context, numbered.runs, type);
+    if (numbered.number != null) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.alphabetic,
         children: [
           Text(
-            numbered.group(1)!,
+            numbered.number!,
             style: type.copyWith(
               color: context.colors.secondaryLabel,
+              fontWeight: FontWeight.w500,
               fontFeatures: const [FontFeature.tabularFigures()],
             ),
           ),
           const SizedBox(width: 8),
-          Expanded(child: MathText(numbered.group(2)!, style: type)),
+          Expanded(
+            child: _spoken(
+              Text.rich(TextSpan(children: inline.spans), style: type),
+              inline,
+            ),
+          ),
         ],
       );
     }
     Widget body = Text.rich(
-      TextSpan(children: spans),
+      TextSpan(children: inline.spans),
       style: type,
       maxLines: maxLines,
       overflow: maxLines == null ? TextOverflow.clip : TextOverflow.ellipsis,
     );
-    if (hasMath && validSpeech) {
-      body = Semantics(
-        label: '${marker == null ? '' : '$marker '}$spoken',
-        excludeSemantics: true,
-        child: body,
-      );
-    }
+    body = _spoken(body, inline, marker: marker);
     if (marker != null) {
       final level =
           block['level'] is num ? (block['level']! as num).toInt() : 1;
+      final markerStyle = base.copyWith(
+        fontWeight: FontWeight.w500,
+        color: readerFigures && marker == '•'
+            ? context.colors.tertiaryLabel
+            : context.colors.secondaryLabel,
+        fontFeatures: step ? const [FontFeature.tabularFigures()] : null,
+        height: step ? type.height : null,
+      );
       body = Padding(
         padding: EdgeInsets.only(left: ((level - 1).clamp(0, 4)) * 16.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              marker,
-              style: base.copyWith(
-                fontWeight: FontWeight.w500,
-                color: context.colors.secondaryLabel,
-              ),
-            ),
-            SizedBox(width: readerFigures ? 10 : 12),
+            // A solution step keeps its number in a 22 px column, so the text
+            // of step 9 and step 10 starts at the same place.
+            if (step)
+              ConstrainedBox(
+                constraints: const BoxConstraints(minWidth: 22),
+                child: Text(marker, style: markerStyle),
+              )
+            else
+              Text(marker, style: markerStyle),
+            SizedBox(width: readerFigures ? 9 : 12),
             Expanded(child: body),
           ],
         ),
       );
     }
     if (name == 'blockquote') {
+      if (readerFigures) return _note(context, body, section);
       body = DecoratedBox(
         decoration: BoxDecoration(
           border: Border(
@@ -326,6 +478,44 @@ class ContentRenderer extends StatelessWidget {
       );
     }
     return body;
+  }
+
+  /// A reader note: a tinted card. "Mnemonics" labels it Remember, "Traps"
+  /// swaps to the warn colors and Watch out, and any other section keeps the
+  /// accent tint with no label.
+  Widget _note(BuildContext context, Widget body, ReaderSection section) {
+    final c = context.colors;
+    final warn = section == ReaderSection.traps;
+    final label = switch (section) {
+      ReaderSection.mnemonics => 'Remember',
+      ReaderSection.traps => 'Watch out',
+      _ => null,
+    };
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+      decoration: BoxDecoration(
+        color: warn ? c.readerWarnTint : c.accentTint,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (label != null) ...[
+            caps(
+              label,
+              context.type.sectionHeader.copyWith(
+                fontSize: 12,
+                letterSpacing: .48,
+                color: warn ? c.readerWarn : c.accent,
+              ),
+            ),
+            const SizedBox(height: 6),
+          ],
+          body,
+        ],
+      ),
+    );
   }
 
   Widget table(BuildContext context, Map<String, Object?> block) {
@@ -479,11 +669,19 @@ class ContentRenderer extends StatelessWidget {
     BuildContext context,
     Map<String, Object?> block, {
     String? marker,
+    ReaderSection section = ReaderSection.plain,
+    bool step = false,
   }) {
     final type = string(block['_type']);
     switch (type) {
       case 'block':
-        return paragraph(context, block, marker: marker);
+        return paragraph(
+          context,
+          block,
+          marker: marker,
+          section: section,
+          step: step,
+        );
       case 'latex':
         return MathText(
           string(block['body']),
@@ -491,7 +689,13 @@ class ContentRenderer extends StatelessWidget {
           semanticsLabel: block['semanticsLabel'] is String
               ? block['semanticsLabel']! as String
               : null,
-          style: style,
+          // Display maths takes the bold color, one step above the text.
+          style: readerFigures
+              ? readerBody(context).copyWith(
+                  fontSize: 19,
+                  color: context.colors.readerStrong,
+                )
+              : style,
           onErrorFallback: readerFigures ? fallback : null,
         );
       case 'table':
@@ -501,7 +705,7 @@ class ContentRenderer extends StatelessWidget {
                 imageSemantics: false,
                 figure: Builder(builder: (context) => table(context, block)),
                 label: string(block['semanticsLabel']),
-                credit: string(block['credit']),
+                credit: shownCredit(string(block['credit'])),
               )
             : table(context, block);
       case 'example':
@@ -516,7 +720,7 @@ class ContentRenderer extends StatelessWidget {
           reader: readerFigures,
           figure: figure,
           label: string(block['semanticsLabel']),
-          credit: string(block['credit']),
+          credit: shownCredit(string(block['credit'])),
         );
       case 'image':
         final asset = block['asset'];
@@ -532,14 +736,319 @@ class ContentRenderer extends StatelessWidget {
           reader: readerFigures,
           url: url,
           label: string(block['alt']),
-          credit: asset is Map<String, Object?> &&
-                  string(asset['credit']).isNotEmpty
-              ? string(asset['credit'])
-              : string(block['credit']),
+          credit: shownCredit(
+            asset is Map<String, Object?> && string(asset['credit']).isNotEmpty
+                ? string(asset['credit'])
+                : string(block['credit']),
+          ),
         );
       default:
         return fallback(context);
     }
+  }
+
+  /// The space above a section heading in the reader. The first section of a
+  /// lesson has none, so the sections are told apart by space alone.
+  static double sectionGap(BuildContext context) => context.wideWeb ? 104 : 72;
+
+  /// The number a numbered list starts at once a paragraph has ended the list
+  /// before it. The source says it: a solution that goes "1.", a formula, a
+  /// sentence, then "2." keeps that 2. A block with no number starts at 1.
+  static int _listStart(Map<String, Object?> block) {
+    final written = block['listNumber'];
+    return written is num && written >= 1 ? written.toInt() : 1;
+  }
+
+  Widget _readerColumn(
+    BuildContext context,
+    List<Map<String, Object?>> blocks,
+  ) =>
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: _stack(
+          _readerSlots(context, planReaderBlocks(blocks)),
+        ).children,
+      );
+
+  /// The slots one under another, with the larger of the two margins between
+  /// neighbors, as the page collapses them. The tail is the last margin.
+  ({List<Widget> children, double tail}) _stack(List<_Slot> slots) {
+    final children = <Widget>[];
+    for (var i = 0; i < slots.length; i++) {
+      if (i > 0) {
+        final prev = slots[i - 1];
+        final gap = prev.list && slots[i].list
+            ? 8.0
+            : math.max(prev.below, slots[i].above);
+        if (gap > 0) children.add(SizedBox(height: gap));
+      }
+      children.add(slots[i].child);
+    }
+    return (children: children, tail: slots.isEmpty ? 0 : slots.last.below);
+  }
+
+  List<_Slot> _readerSlots(
+    BuildContext context,
+    List<ReaderItem> items, {
+    bool solution = false,
+    bool choices = false,
+  }) {
+    final wide = context.wideWeb;
+    final slots = <_Slot>[];
+    final counters = <int, int>{};
+    for (var index = 0; index < items.length; index++) {
+      final item = items[index];
+      if (item is ReaderExample) {
+        counters.clear();
+        slots.add(_Slot(_exampleCard(context, item)));
+        continue;
+      }
+      final plain = item as ReaderPlain;
+      final block = plain.block;
+      // A "Solution:" line outside any example card keeps its open panel.
+      if (!solution && isSolutionMarker(block)) {
+        var end = index + 1;
+        while (end < items.length &&
+            items[end] is ReaderPlain &&
+            !_endsSolution((items[end] as ReaderPlain).block)) {
+          end++;
+        }
+        counters.clear();
+        slots.add(
+          _Slot(
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                color: context.colors.readerDeep,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: _solutionBody(
+                context,
+                [
+                  for (final later in items.sublist(index + 1, end))
+                    (later as ReaderPlain).block,
+                ],
+                plain.section,
+              ),
+            ),
+          ),
+        );
+        index = end - 1;
+        continue;
+      }
+      if (choices) {
+        final split = splitReaderChoices(block);
+        if (split != null) {
+          if (split.stem.isNotEmpty) {
+            slots.add(
+              _Slot(
+                dispatch(
+                  context,
+                  {...block, 'children': split.stem},
+                  section: plain.section,
+                ),
+              ),
+            );
+          }
+          slots.add(
+            _Slot(_choiceRows(context, split.choices), above: 4),
+          );
+          counters.clear();
+          continue;
+        }
+        // Choices written one to a paragraph, as the language lessons do.
+        final run = splitReaderChoiceBlocks([
+          for (var next = index;
+              next < items.length && items[next] is ReaderPlain;
+              next++)
+            (items[next] as ReaderPlain).block,
+        ]);
+        if (run != null) {
+          slots.add(
+            _Slot(_choiceRows(context, run.choices.choices), above: 4),
+          );
+          counters.clear();
+          index += run.count - 1;
+          continue;
+        }
+      }
+      final isBlock = block['_type'] == 'block';
+      final list = isBlock ? string(block['listItem']) : '';
+      String? marker;
+      if (list.isNotEmpty) {
+        final level =
+            block['level'] is num ? (block['level']! as num).toInt() : 1;
+        counters.removeWhere((key, value) => key > level);
+        if (list == 'number') {
+          final open = counters[level];
+          counters[level] = open == null ? _listStart(block) : open + 1;
+          marker = '${counters[level]}.';
+        } else {
+          marker = '•';
+        }
+      } else if (isBlock) {
+        counters.clear();
+      }
+      final style = isBlock ? string(block['style']) : '';
+      final (above, below) = switch (style) {
+        'h2' => (sectionGap(context), wide ? 20.0 : 16.0),
+        'h3' => (wide ? 40.0 : 30.0, wide ? 12.0 : 10.0),
+        'blockquote' => (
+            0.0,
+            plain.section == ReaderSection.traps ? 16.0 : 18.0
+          ),
+        _ when block['_type'] == 'latex' => (6.0, 22.0),
+        _ when list.isNotEmpty && solution => (0.0, 8.0),
+        _ => (0.0, 18.0),
+      };
+      slots.add(
+        _Slot(
+          dispatch(
+            context,
+            block,
+            marker: marker,
+            section: plain.section,
+            step: solution && list == 'number',
+          ),
+          above: above,
+          below: below,
+          list: list.isNotEmpty,
+        ),
+      );
+    }
+    return slots;
+  }
+
+  /// Whether [block] ends an open solution: a heading or a figure.
+  bool _endsSolution(Map<String, Object?> block) =>
+      (block['_type'] == 'block' && string(block['style']).startsWith('h')) ||
+      block['_type'] == 'image' ||
+      block['_type'] == 'figureSpec';
+
+  /// The label and the steps of one solution.
+  Widget _solutionBody(
+    BuildContext context,
+    List<Map<String, Object?>> blocks,
+    ReaderSection section, {
+    bool inCard = false,
+  }) {
+    final stack = _stack(
+      _readerSlots(
+        context,
+        [for (final block in blocks) ReaderPlain(block, section)],
+        solution: true,
+      ),
+    );
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        caps(
+          'Solution',
+          context.type.sectionHeader.copyWith(fontSize: 12, letterSpacing: .48),
+        ),
+        const SizedBox(height: 10),
+        ...stack.children,
+        // The last margin stays inside the panel, so a solution ending in a
+        // paragraph has more room under it than one ending in a step.
+        if (inCard && stack.tail > 0) SizedBox(height: stack.tail),
+      ],
+    );
+  }
+
+  /// Answer choices as rows, a hairline above each, the letter in the accent.
+  Widget _choiceRows(BuildContext context, List<ReaderChoice> choices) {
+    final c = context.colors;
+    final wide = context.wideWeb;
+    final text = readerBody(context).copyWith(
+      height: wide ? 1.67 : 1.6,
+      letterSpacing: 0,
+    );
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final choice in choices)
+          Container(
+            key: ValueKey('reader-choice-${choice.letter}'),
+            padding: const EdgeInsets.symmetric(vertical: 9),
+            decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: c.separator)),
+            ),
+            child: _choiceRow(context, choice, text),
+          ),
+      ],
+    );
+  }
+
+  Widget _choiceRow(
+    BuildContext context,
+    ReaderChoice choice,
+    TextStyle text,
+  ) {
+    final inline = _inline(context, choice.runs, text);
+    final letter = text.copyWith(
+      fontWeight: FontWeight.w600,
+      color: context.colors.accent,
+    );
+    return _spoken(
+      Text.rich(
+        TextSpan(
+          children: [
+            WidgetSpan(
+              alignment: PlaceholderAlignment.baseline,
+              baseline: TextBaseline.alphabetic,
+              child: SizedBox(
+                width: 26,
+                child: Text('${choice.letter})', style: letter),
+              ),
+            ),
+            ...inline.spans,
+          ],
+        ),
+        style: text,
+      ),
+      inline,
+      marker: '${choice.letter}.',
+    );
+  }
+
+  Widget _exampleCard(BuildContext context, ReaderExample example) {
+    final title = _numbered(maps(example.title['children']));
+    final titleStyle = _readerH3(context, size: 19);
+    final inline = _inline(context, title.runs, titleStyle);
+    final stem = _stack(
+      _readerSlots(
+        context,
+        [
+          for (final block in example.stem)
+            ReaderPlain(block, ReaderSection.examples),
+        ],
+        choices: true,
+      ),
+    );
+    final wide = context.wideWeb;
+    final solution = example.solution.isEmpty
+        ? null
+        : _solutionBody(
+            context,
+            example.solution,
+            ReaderSection.examples,
+            inCard: true,
+          );
+    return _ExampleCard(
+      key: ValueKey('reader-example-${example.number}'),
+      wide: wide,
+      label: 'Example ${example.number}',
+      title: _spoken(
+        Text.rich(TextSpan(children: inline.spans), style: titleStyle),
+        inline,
+      ),
+      stem: stem.children,
+      stemTail: stem.tail,
+      solution: solution,
+    );
   }
 
   @override
@@ -570,8 +1079,6 @@ class ContentRenderer extends StatelessWidget {
         ],
       );
     }
-    final children = <Widget>[];
-    final counters = <int, int>{};
     final visible = blocks!.where((block) {
       if (!readerFigures || block['_type'] != 'image') return true;
       final asset = block['asset'];
@@ -580,51 +1087,11 @@ class ContentRenderer extends StatelessWidget {
               : string(block['url']))
           .isNotEmpty;
     }).toList();
+    if (readerFigures) return _readerColumn(context, visible);
+    final children = <Widget>[];
+    final counters = <int, int>{};
     for (var index = 0; index < visible.length; index++) {
       final block = visible[index];
-      final plain =
-          maps(block['children']).map((r) => string(r['text'])).join().trim();
-      if (readerFigures &&
-          block['_type'] == 'block' &&
-          RegExp(r'^Solution\s*:?$', caseSensitive: false).hasMatch(plain)) {
-        var end = index + 1;
-        while (end < visible.length &&
-            !(visible[end]['_type'] == 'block' &&
-                string(visible[end]['style']).startsWith('h')) &&
-            visible[end]['_type'] != 'image' &&
-            visible[end]['_type'] != 'figureSpec') {
-          end++;
-        }
-        if (children.isNotEmpty) children.add(const SizedBox(height: 18));
-        children.add(
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            decoration: BoxDecoration(
-              color: context.colors.background,
-              borderRadius: BorderRadius.circular(14),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'SOLUTION',
-                  style: context.type.sectionHeader
-                      .copyWith(fontSize: 12, letterSpacing: .48),
-                ),
-                const SizedBox(height: 10),
-                ContentRenderer(
-                  blocks: visible.sublist(index + 1, end),
-                  readerFigures: true,
-                  style: style,
-                ),
-              ],
-            ),
-          ),
-        );
-        index = end - 1;
-        counters.clear();
-        continue;
-      }
       final list = block['_type'] == 'block' ? string(block['listItem']) : '';
       String? marker;
       if (list.isNotEmpty) {
@@ -632,7 +1099,8 @@ class ContentRenderer extends StatelessWidget {
             block['level'] is num ? (block['level']! as num).toInt() : 1;
         counters.removeWhere((key, value) => key > level);
         if (list == 'number') {
-          counters[level] = (counters[level] ?? 0) + 1;
+          final open = counters[level];
+          counters[level] = open == null ? _listStart(block) : open + 1;
           marker = '${counters[level]}.';
         } else {
           marker = '•';
@@ -641,18 +1109,8 @@ class ContentRenderer extends StatelessWidget {
         counters.clear();
       }
       if (children.isNotEmpty) {
-        children.add(
-          SizedBox(
-            height: string(block['style']) == 'h2'
-                ? 32
-                : readerFigures &&
-                        list.isNotEmpty &&
-                        index > 0 &&
-                        string(visible[index - 1]['listItem']).isNotEmpty
-                    ? 8
-                    : 18,
-          ),
-        );
+        children
+            .add(SizedBox(height: string(block['style']) == 'h2' ? 32 : 18));
       }
       children.add(dispatch(context, block, marker: marker));
     }
@@ -660,6 +1118,201 @@ class ContentRenderer extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: children,
+    );
+  }
+}
+
+/// One reader block with the margins the page puts around it.
+class _Slot {
+  const _Slot(
+    this.child, {
+    this.above = 0,
+    this.below = 18,
+    this.list = false,
+  });
+  final Widget child;
+  final double above;
+  final double below;
+  final bool list;
+}
+
+/// An example in the reader: a card with its title, its question, and a
+/// solution kept behind a button until the student asks for it.
+///
+/// The card owns whether the solution is open. It starts closed each time the
+/// lesson is opened and stays open for the rest of that visit.
+class _ExampleCard extends StatefulWidget {
+  const _ExampleCard({
+    required this.wide,
+    required this.label,
+    required this.title,
+    required this.stem,
+    required this.stemTail,
+    required this.solution,
+    super.key,
+  });
+
+  final bool wide;
+  final String label;
+  final Widget title;
+  final List<Widget> stem;
+  final double stemTail;
+  final Widget? solution;
+
+  @override
+  State<_ExampleCard> createState() => _ExampleCardState();
+}
+
+class _ExampleCardState extends State<_ExampleCard> {
+  final _button = FocusNode(debugLabel: 'Show solution');
+  final _panel = FocusNode(debugLabel: 'Solution', skipTraversal: true);
+  bool _open = false;
+
+  @override
+  void dispose() {
+    _button.dispose();
+    _panel.dispose();
+    super.dispose();
+  }
+
+  void _reveal() {
+    // A keyboard student pressed the button, which is about to leave, so focus
+    // moves to the solution instead of being lost.
+    final moveFocus = _button.hasFocus;
+    setState(() => _open = true);
+    if (moveFocus) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _panel.requestFocus();
+      });
+    }
+    // Without the size animation the page already has its new length.
+    if (MediaQuery.disableAnimationsOf(context)) _resized();
+  }
+
+  /// Tells the page, once the frame is laid out, that its length changed.
+  void _resized() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) const ReaderResizedNotification().dispatch(context);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final wide = widget.wide;
+    final side = wide ? 24.0 : 16.0;
+    final still = MediaQuery.disableAnimationsOf(context);
+    final solution = widget.solution;
+    Widget? region;
+    if (solution != null) {
+      if (_open) {
+        final panel = Focus(
+          focusNode: _panel,
+          child: Container(
+            key: const ValueKey('reader-solution-panel'),
+            padding: EdgeInsets.fromLTRB(
+              side,
+              wide ? 18 : 16,
+              side,
+              wide ? 14 : 10,
+            ),
+            decoration: BoxDecoration(
+              color: c.readerDeep,
+              border: Border(top: BorderSide(color: c.separator)),
+            ),
+            child: solution,
+          ),
+        );
+        region = still
+            ? panel
+            : TweenAnimationBuilder<double>(
+                tween: Tween(begin: 0, end: 1),
+                duration: const Duration(milliseconds: 300),
+                builder: (context, value, child) =>
+                    Opacity(opacity: value, child: child),
+                child: panel,
+              );
+      } else {
+        region = Padding(
+          padding: EdgeInsets.fromLTRB(side, 0, side, 18),
+          child: TextButton(
+            key: const ValueKey('reader-solution-button'),
+            focusNode: _button,
+            onPressed: _reveal,
+            style: TextButton.styleFrom(
+              backgroundColor: c.accentTint,
+              foregroundColor: c.accent,
+              minimumSize: const Size.fromHeight(48),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              textStyle: context.type.emphasized.copyWith(
+                fontSize: 16,
+                letterSpacing: 0,
+              ),
+            ),
+            child: const Text('Show solution'),
+          ),
+        );
+      }
+      // A zero-length AnimatedSize re-enters its own layout, so reduced
+      // motion skips it and the panel appears at once.
+      if (!still) {
+        region = AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          alignment: Alignment.topCenter,
+          onEnd: _resized,
+          child: region,
+        );
+      }
+    }
+    return Container(
+      key: const ValueKey('reader-example-card'),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: c.surface,
+        border: Border.all(color: c.separator),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: EdgeInsets.fromLTRB(side, wide ? 22 : 18, side, 0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  widget.label,
+                  style: context.type.sectionHeader.copyWith(
+                    fontSize: 13,
+                    height: 1.28,
+                    letterSpacing: .26,
+                    color: c.accent,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                widget.title,
+                if (widget.stem.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  ...widget.stem,
+                ],
+              ],
+            ),
+          ),
+          SizedBox(
+            height: solution == null
+                ? widget.stemTail
+                : math.max(widget.stemTail, 18),
+          ),
+          if (region != null) region,
+          SizedBox(height: wide ? 8 : 4),
+        ],
+      ),
     );
   }
 }
@@ -724,11 +1377,20 @@ class _FigureFrame extends StatelessWidget {
     this.imageSemantics = true,
     this.expandable = true,
     this.followTheme = false,
+    this.labelViewer = false,
   });
+
+  /// Height of the strip above a phone figure that holds the expand button.
+  static const _expandStrip = 40.0;
+
   final bool reader;
   final bool imageSemantics;
   final bool expandable;
   final bool followTheme;
+
+  /// Whether the viewer names the figure itself, as an SVG's own label does
+  /// not reach it. A theme-following figure always does.
+  final bool labelViewer;
   final Widget figure;
   final String label;
   final String credit;
@@ -753,7 +1415,7 @@ class _FigureFrame extends StatelessWidget {
         reverseTransitionDuration:
             still ? Duration.zero : const Duration(milliseconds: 280),
         pageBuilder: (context, animation, secondary) => _FigureViewer(
-          figure: followTheme
+          figure: followTheme || labelViewer
               ? Semantics(
                   container: true,
                   label: label,
@@ -817,9 +1479,15 @@ class _FigureFrame extends StatelessWidget {
                 children: [
                   Container(
                     width: reader && context.wideWeb ? double.infinity : null,
+                    // The expand button sits in the frame's top-right corner.
+                    // Wide web keeps it in the 22 px padding; on a phone the
+                    // frame has none, so the button gets a strip of its own
+                    // and never lands on a label of the figure.
                     padding: reader && context.wideWeb
                         ? const EdgeInsets.all(22)
-                        : null,
+                        : expandable
+                            ? const EdgeInsets.only(top: _expandStrip)
+                            : null,
                     alignment:
                         reader && context.wideWeb ? Alignment.center : null,
                     color: followTheme
@@ -985,8 +1653,33 @@ class _FigureViewerState extends State<_FigureViewer> {
     );
   }
 
+  RouteLeaveGuard? _backGuard;
+
+  /// Browser Back while the viewer is open closes it, like Esc, and the page
+  /// stays where it is.
+  Future<bool> _closeForBack() async {
+    if (mounted) unawaited(Navigator.of(context).maybePop());
+    return false;
+  }
+
+  VoidCallback? _releaseHistory;
+
+  @override
+  void initState() {
+    super.initState();
+    _backGuard = figureViewerBackIn(context)?..running = _closeForBack;
+    // The viewer's own history entry, so Back closes it even when the page
+    // has no earlier page of the app behind it (6U-5).
+    _releaseHistory = openFigureViewerHistory(
+      context,
+      () => unawaited(_closeForBack()),
+    );
+  }
+
   @override
   void dispose() {
+    _releaseHistory?.call();
+    _backGuard?.detach(_closeForBack);
     _zoom.dispose();
     super.dispose();
   }
@@ -1347,7 +2040,14 @@ class _ContentImageState extends State<_ContentImage> {
       );
     }
     if (isLessonSvg(widget.url)) {
-      final loader = lessonSvgLoader(widget.url, context.colors);
+      // The reader keeps every figure on its pale card in both themes, so a
+      // reader SVG takes the light tokens, as the code-drawn figures take the
+      // light theme. Elsewhere it follows the theme.
+      final themed = !widget.reader;
+      final loader = lessonSvgLoader(
+        widget.url,
+        themed ? context.colors : PantasColors.light,
+      );
       final failure = _ImageFailure(
         reader: widget.reader,
         onRetry: () => setState(() => _retry++),
@@ -1381,7 +2081,8 @@ class _ContentImageState extends State<_ContentImage> {
         excludeFromSemantics: widget.label.isEmpty,
         placeholderBuilder: (context) => _FigureFrame(
           reader: true,
-          followTheme: true,
+          followTheme: themed,
+          labelViewer: true,
           label: widget.label,
           credit: widget.credit,
           expandable: false,
@@ -1391,7 +2092,8 @@ class _ContentImageState extends State<_ContentImage> {
         errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
           reader: true,
-          followTheme: true,
+          followTheme: themed,
+          labelViewer: true,
           label: widget.label,
           credit: widget.credit,
           imageSemantics: false,

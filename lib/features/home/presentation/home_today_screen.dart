@@ -22,6 +22,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
+import 'package:pantas/features/home/application/settling_retry.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/data/study_writes.dart';
@@ -38,13 +39,29 @@ import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:uuid/uuid.dart';
 
-String? homeDayNoteLabel(HomeTodayData data) => switch (data.extras.note) {
-      HomeDayNote.carried => 'Unfinished items are added to today.',
-      HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
-      HomeDayNote.mockMoved =>
-        'Your ${data.examShortName} simulation moved to today.',
-      null => null,
-    };
+/// The calm line above Today. The boards print it only above a plan that still
+/// has work: a day off, an exam day, a quiet day or a finished day has no line,
+/// because "Unfinished items are added to today" would contradict what it says.
+String? homeDayNoteLabel(HomeTodayData data) {
+  final snapshot = data.today.snapshot;
+  final view = homeTodayViewFor(
+    state: snapshot.state,
+    plan: snapshot.plan,
+    originalDone: data.today.originalDone,
+    canAdvance: data.canAdvance,
+    examDate: snapshot.digest.examDate,
+  );
+  if (view.kind != HomeTodayKind.checklist || data.today.originalDone) {
+    return null;
+  }
+  return switch (data.extras.note) {
+    HomeDayNote.carried => 'Unfinished items are added to today.',
+    HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
+    HomeDayNote.mockMoved =>
+      'Your ${data.examShortName} simulation moved to today.',
+    null => null,
+  };
+}
 
 /// Owns one Home request, including its retries and every asynchronous launch.
 /// Closing the page invalidates the original captured account/exam boundary.
@@ -53,9 +70,14 @@ class HomeTodayScreen extends ConsumerStatefulWidget {
     required this.examId,
     required this.pageBuilder,
     this.onSetDate,
+    this.noteTopGap = 6,
     super.key,
   });
   final String examId;
+
+  /// Space above the day's note on a phone. Home's boards put it 6 px under
+  /// the greeting. A page whose title already sits close above it sets 0.
+  final double noteTopGap;
 
   /// Draws the page around Today. The loaded data is null while loading or
   /// after a failure, so the page can react to it (for example the greeting).
@@ -76,6 +98,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   bool _failed = false;
   int _generation = 0;
   StudyAdvance? _pendingAdvance;
+
+  /// A first read that fails only because the app is still settling is retried
+  /// here, and the page keeps its skeleton meanwhile. An error shows only once
+  /// the failure is real: it is not a settling failure, or the retries ran out.
+  late final SettlingRetry _settling = SettlingRetry(retry: _retryQuietly);
+  bool _holding = false;
 
   bool _current() =>
       mounted &&
@@ -99,10 +127,24 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       .captureGuard(widget.examId, isAlive: _current);
 
   void _reload() {
-    _request = ref.read(homeTodayLoaderProvider)(widget.examId, _guard);
+    final request =
+        _request = ref.read(homeTodayLoaderProvider)(widget.examId, _guard);
+    _holding = false;
     unawaited(
-      _request.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+      request.then<void>(
+        (_) => _settling.reset(),
+        onError: (Object error, StackTrace __) {
+          if (!mounted || !identical(request, _request)) return;
+          setState(() => _holding = _settling.failed(error));
+        },
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _settling.dispose();
+    super.dispose();
   }
 
   /// A retry recaptures the current owner, so it recovers after a real
@@ -112,6 +154,19 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         _guard = _captureGuard();
         _reload();
       });
+
+  /// The automatic retry of a settling failure. It keeps the count, so a
+  /// failure that never clears still reaches the error.
+  void _retryQuietly() {
+    if (mounted) _retry();
+  }
+
+  /// The student's own Try Again starts the count anew.
+  void _retryNow() {
+    _settling.reset();
+    _retry();
+  }
+
   void _dismiss() => setState(() {
         _generation++;
         _sheet = null;
@@ -143,6 +198,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           date: data.today.snapshot.day,
           lessonIds: data.today.snapshot.plan.lessonIds,
           index: data.today.snapshot.plan.lessonIds.indexOf(lesson.id),
+          moreToDo: data.today.remaining.newQuestionIds.isNotEmpty ||
+              data.today.remaining.reviewQuestionIds.isNotEmpty,
         ),
       );
       if (_current()) _retry();
@@ -306,19 +363,18 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     return FutureBuilder<HomeTodayData>(
       future: _request,
       builder: (context, snapshot) {
-        firstScreenReady(
-          context,
-          ref,
-          ready: snapshot.connectionState == ConnectionState.done,
-        );
-        final data = snapshot.connectionState == ConnectionState.done
-            ? snapshot.data
-            : null;
+        final done = snapshot.connectionState == ConnectionState.done;
+        // A waiting snapshot still carries the error of the read before it, so
+        // only a finished read can be a failure to show.
+        final failed = done && snapshot.hasError;
+        final holding = failed && _holding;
+        firstScreenReady(context, ref, ready: done && !holding);
+        final data = done ? snapshot.data : null;
         final today = data == null
-            ? snapshot.hasError
+            ? failed && !holding
                 ? errorFor(
                     'plan',
-                    _retry,
+                    _retryNow,
                     error: snapshot.error,
                     boardLayout: context.wideWeb,
                   )
@@ -449,7 +505,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           // Boards (HE_BackAfterBreak, HE_MockMoved): the line sits 6 px lower
           // and the Today label 16 px nearer than the plain gap.
           Padding(
-            padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+            padding: EdgeInsets.fromLTRB(4, widget.noteTopGap, 4, 0),
             child: Text(
               note,
               style: context.type.subhead.copyWith(
@@ -491,7 +547,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           examShortName: data.examShortName,
           hasExamDate: data.today.snapshot.digest.examDate.isNotEmpty,
           examDateLabel: passed && examDay != null
-              ? DateFormat('d MMMM', 'en_US').format(examDay)
+              ? DateFormat('MMMM d', 'en_US').format(examDay)
               : null,
           onPrimary: switch (view.kind) {
             HomeTodayKind.dayOff =>
@@ -549,16 +605,23 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
-  Widget _lessonRow(HomeTodayData data, HomeTodayLesson lesson) =>
+  Widget _lessonRow(
+    HomeTodayData data,
+    HomeTodayLesson lesson, {
+    bool last = false,
+  }) =>
       context.wideWeb
           ? WebRow(
               title: lesson.title,
+              // A long title is read in full, as on Performance (3K-14).
+              wrapTitle: true,
               titleStyle: context.webTokens.style(
                 16,
                 color: lesson.read ? context.colors.secondaryLabel : null,
                 height: 1.3,
               ),
               boardMetrics: true,
+              divider: !last,
               value: lesson.read ? null : '${lesson.minutes} min',
               leading: _drawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
@@ -571,6 +634,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               title: lesson.title,
               value: lesson.read ? null : '${lesson.minutes} min',
               variant: ListRowVariant.value,
+              // The time keeps its own width and the title takes the rest
+              // of the row (3K-4, as 2G-21 did for search rows).
+              naturalValue: true,
+              // A long title is read in full, not cut with dots (Nov 3 rule).
+              wrapTitle: true,
               contentPadding: const EdgeInsets.symmetric(vertical: 9),
               minimumHeight: 0,
               titleColor: lesson.read ? context.colors.secondaryLabel : null,
@@ -614,7 +682,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                           child: Column(
                             children: [
                               for (final lesson in group.value)
-                                _lessonRow(data, lesson),
+                                _lessonRow(
+                                  data,
+                                  lesson,
+                                  last: lesson == group.value.last,
+                                ),
                             ],
                           ),
                         ),
@@ -640,7 +712,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                         ),
                       ),
                     ),
-                  for (final lesson in group.value) _lessonRow(data, lesson),
+                  for (final lesson in group.value)
+                    _lessonRow(data, lesson, last: lesson == shown.last),
                 ],
               ],
         startLabel: _sheet == 'lesson'
@@ -673,11 +746,17 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                   'Session ${i + 1}',
                   work.reviewProgress[i],
                   work.reviewSizes[i],
+                  last: i == work.reviewSizes.length - 1,
                 ),
             ]
           : [
               for (final row in work.newRows)
-                _questionRow(row.title, row.done, row.total),
+                _questionRow(
+                  row.title,
+                  row.done,
+                  row.total,
+                  last: row == work.newRows.last,
+                ),
             ],
       startLabel: reviews
           ? work.storedReviews == null
@@ -731,28 +810,37 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
       );
 
-  Widget _questionRow(String title, int done, int total) => context.wideWeb
-      ? WebRow(
-          title: title,
-          titleStyle: context.webTokens.style(16, height: 1.3),
-          boardMetrics: true,
-          value: '$total',
-          compact: true,
-          leading: _drawerRing(
-            total == 0 ? 0 : done / total,
-            done: done == total,
-          ),
-        )
-      : ListRow(
-          title: title,
-          value: '$total',
-          variant: ListRowVariant.value,
-          leading: done == total
-              ? const CheckMark()
-              : ProgressRing(fraction: total == 0 ? 0 : done / total),
-          contentPadding: const EdgeInsets.symmetric(vertical: 9),
-          minimumHeight: 0,
-          valueStyle: context.type.subhead
-              .copyWith(color: context.colors.secondaryLabel),
-        );
+  Widget _questionRow(
+    String title,
+    int done,
+    int total, {
+    bool last = false,
+  }) =>
+      context.wideWeb
+          ? WebRow(
+              title: title,
+              wrapTitle: true,
+              titleStyle: context.webTokens.style(16, height: 1.3),
+              boardMetrics: true,
+              divider: !last,
+              value: '$total',
+              compact: true,
+              leading: _drawerRing(
+                total == 0 ? 0 : done / total,
+                done: done == total,
+              ),
+            )
+          : ListRow(
+              title: title,
+              value: '$total',
+              variant: ListRowVariant.value,
+              naturalValue: true,
+              leading: done == total
+                  ? const CheckMark()
+                  : ProgressRing(fraction: total == 0 ? 0 : done / total),
+              contentPadding: const EdgeInsets.symmetric(vertical: 9),
+              minimumHeight: 0,
+              valueStyle: context.type.subhead
+                  .copyWith(color: context.colors.secondaryLabel),
+            );
 }

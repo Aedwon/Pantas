@@ -25,6 +25,7 @@ class OnboardingFrameSpec {
     this.progress,
     this.surfaceBackground = false,
     this.bare = false,
+    this.hideBack = false,
   });
 
   /// Step number from 1 to 6, or null when the step has no number.
@@ -35,15 +36,20 @@ class OnboardingFrameSpec {
   /// Wide web: show the top bar only, with no steps list and no scrolling.
   final bool bare;
 
+  /// Phone: keep the Back row's space but draw no Back, for a step with no way
+  /// back (the under-age block).
+  final bool hideBack;
+
   @override
   bool operator ==(Object other) =>
       other is OnboardingFrameSpec &&
       other.progress == progress &&
       other.surfaceBackground == surfaceBackground &&
-      other.bare == bare;
+      other.bare == bare &&
+      other.hideBack == hideBack;
 
   @override
-  int get hashCode => Object.hash(progress, surfaceBackground, bare);
+  int get hashCode => Object.hash(progress, surfaceBackground, bare, hideBack);
 }
 
 /// Carries the visible step's frame needs up to the frame that stays on screen.
@@ -227,9 +233,11 @@ class _OnboardingFrameState extends State<OnboardingFrame>
             children: [
               FadeTransition(
                 opacity: _fade,
-                child: OnboardingBackBar(
-                  onBack: () => widget.controller.onBack?.call(),
-                ),
+                child: spec.hideBack
+                    ? const SizedBox(height: 56)
+                    : OnboardingBackBar(
+                        onBack: () => widget.controller.onBack?.call(),
+                      ),
               ),
               if (spec.progress != null)
                 FadeTransition(
@@ -253,11 +261,16 @@ class _OnboardingFrameState extends State<OnboardingFrame>
         children: [
           FadeTransition(
             opacity: _fade,
-            child: const WebTopBar(
-              leading: PantasLogo(size: 28),
-              title: Text(
-                'Pantas',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            // The boards set the logo 28 px in from the edge; the bar's own
+            // 20 px inset leaves it 10 px short once the mark's margin counts.
+            child: const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: WebTopBar(
+                leading: PantasLogo(size: 28),
+                title: Text(
+                  'Pantas',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                ),
               ),
             ),
           ),

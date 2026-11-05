@@ -19,6 +19,8 @@ import 'package:pantas/features/settings/presentation/widgets/settings_section.d
 import 'package:pantas/features/settings/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const _helpImproveTitle = 'Help improve Pantas by sharing usage data';
+
 class AboutPage extends ConsumerWidget {
   const AboutPage({
     super.key,
@@ -97,9 +99,8 @@ class AboutPage extends ConsumerWidget {
                         ),
                 ),
                 Text(
-                  'Version $version '
-                  '(${context.wideWeb ? '' : 'build '}'
-                  '${buildNumber ?? kBuildNumber})',
+                  // One format on every width, as the boards draw it.
+                  'Version $version (${buildNumber ?? kBuildNumber})',
                   style: context.wideWeb
                       ? context.webTokens.sm
                       : context.type.subhead.copyWith(
@@ -154,12 +155,12 @@ class AboutPage extends ConsumerWidget {
           header: 'Legal',
           children: [
             SettingsRow(
-              title: 'Privacy policy',
+              title: 'Privacy Policy',
               divider: true,
               onTap: () => push('/legal/privacy'),
             ),
             SettingsRow(
-              title: 'Terms of service',
+              title: 'Terms of Service',
               onTap: () => push('/legal/terms'),
             ),
           ],
@@ -169,7 +170,17 @@ class AboutPage extends ConsumerWidget {
           header: 'Your data',
           children: [
             SettingsRow(
-              title: 'Help improve the app',
+              // The copy Aedwon approved on Nov 2, the same as the Terms step.
+              title: _helpImproveTitle,
+              // The phone row is narrower than the sentence, so it wraps.
+              titleWidget: context.wideWeb
+                  ? null
+                  : Text(
+                      _helpImproveTitle,
+                      style: context.type.body.copyWith(
+                        color: context.colors.label,
+                      ),
+                    ),
               variant: ListRowVariant.switchControl,
               selected: settings.helpImproveApp,
               divider: true,

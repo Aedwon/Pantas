@@ -63,7 +63,7 @@ void main() {
   const trial = HomeNotice(
     kind: HomeNoticeKind.trial,
     title: 'Pro trial ends in 2 days',
-    detail: 'Your free trial ends on Oct 2. You won’t be charged.',
+    detail: "Your free trial ends on Oct 2. You won't be charged.",
     dismissalToken: '2026-10-02',
     primaryLabel: 'See Pro',
     secondaryLabel: 'Got It',
@@ -99,7 +99,7 @@ void main() {
     await tester.tap(find.text('Pro trial ends in 2 days'));
     await tester.pumpAndSettle();
     expect(
-      find.text('Your free trial ends on Oct 2. You won’t be charged.'),
+      find.text("Your free trial ends on Oct 2. You won't be charged."),
       findsOneWidget,
     );
     await tester.tap(find.text('See Pro'));
@@ -235,6 +235,18 @@ void main() {
     await tester.pumpAndSettle();
     final save = find.widgetWithText(PantasButton, 'Save');
     expect(tester.widget<PantasButton>(save).onPressed, isNull);
+    // The row runs on to the card's own edge, not to the notice padding.
+    expect(
+      tester
+          .widget<SingleChildScrollView>(
+            find.ancestor(
+              of: find.byKey(const ValueKey('notice-day-11')),
+              matching: find.byType(SingleChildScrollView),
+            ),
+          )
+          .clipBehavior,
+      Clip.none,
+    );
     final day = find.byKey(const ValueKey('notice-day-11'));
     await tester.ensureVisible(day);
     await tester.tap(day);

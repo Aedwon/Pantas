@@ -113,6 +113,34 @@ void main() {
     expect(hits.first.bodySnippet, isNull);
   });
 
+  test('a title match keeps the whole title, however long', () async {
+    const title = 'Sets and Set Notation (Unions, Intersections, Subsets, '
+        'Venn Diagrams)';
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l3',
+      topicId: 't1',
+      title: title,
+      summary: 'Summary for Sets',
+      bodyJson: jsonEncode([]),
+      ordering: 3,
+    );
+    container.read(searchQueryProvider.notifier).state = 'venn';
+    final hits = await container.read(searchResultsProvider.future);
+
+    final match = hits.singleWhere((hit) => hit.lessonId == 'l3').titleMatch!;
+    // Not cut to a window around the match, so the lesson's name still opens
+    // the row.
+    expect(match.text, title);
+    expect(
+      match.text.substring(
+        match.matchStart,
+        match.matchStart + match.matchLength,
+      ),
+      'Venn',
+    );
+  });
+
   test('a body-only match sets bodySnippet and leaves titleMatch null',
       () async {
     container.read(searchQueryProvider.notifier).state = 'swap';
@@ -135,6 +163,50 @@ void main() {
     final hits = await container.read(searchResultsProvider.future);
 
     expect(hits.map((h) => h.lessonId).toList(), ['l1', 'l2']);
+  });
+
+  test('a title match comes before an earlier body match', () async {
+    // l2 holds "plan" in its body and is first in the corpus. l4 has it in
+    // its title and is last.
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l4',
+      topicId: 't1',
+      title: 'Plan your answer',
+      summary: 'Summary for Plan',
+      bodyJson: jsonEncode([]),
+      ordering: 4,
+    );
+    container.read(searchQueryProvider.notifier).state = 'plan';
+    final hits = await container.read(searchResultsProvider.future);
+
+    expect(hits.map((hit) => hit.lessonId), ['l4', 'l2']);
+  });
+
+  test('a whole-word title match comes before a match inside a word (3K-18)',
+      () async {
+    // "Order of Operations" holds "ratio" inside "Operations" and comes
+    // first in the corpus. "Ratio and Proportion" has the word itself.
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l5',
+      topicId: 't1',
+      title: 'Order of Operations',
+      bodyJson: jsonEncode([]),
+      ordering: 3,
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l6',
+      topicId: 't1',
+      title: 'Ratio and Proportion',
+      bodyJson: jsonEncode([]),
+      ordering: 4,
+    );
+    container.read(searchQueryProvider.notifier).state = 'ratio';
+    final hits = await container.read(searchResultsProvider.future);
+
+    expect(hits.map((hit) => hit.lessonId), ['l6', 'l5']);
   });
 
   test('an empty query gives an empty list', () async {

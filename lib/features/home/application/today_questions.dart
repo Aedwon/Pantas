@@ -1,6 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_guard.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -65,24 +67,36 @@ class TodayQuestionLauncher {
   final Ref ref;
   final bool Function() alive;
 
+  /// The guard compares the account and the exam as they are now. While
+  /// either is reloading (onboarding has just finished, a session is being
+  /// restored) it reads as missing and the capture fails or the guard answers
+  /// no at once, so wait until both have settled before capturing.
+  Future<void> _settled() async {
+    await ref.read(authStateProvider.future);
+    await ref.read(activeExamFocusProvider.future);
+  }
+
   Future<Future<bool> Function()> captureGuard(
     String examId, {
     required bool Function() isAlive,
-  }) =>
-      captureQuizLaunchGuard(
-        ref,
-        examId: examId,
-        isAlive: () => alive() && isAlive(),
-      );
+  }) async {
+    await _settled();
+    return captureQuizLaunchGuard(
+      ref,
+      examId: examId,
+      isAlive: () => alive() && isAlive(),
+    );
+  }
 
   Future<TodayQuestionWork> load(
     String examId, {
     Future<Future<bool> Function()>? originalGuard,
   }) async {
+    if (originalGuard == null) await _settled();
     final guard = await (originalGuard ??
         captureQuizLaunchGuard(ref, examId: examId, isAlive: alive));
     if (!await guard()) throw StateError('Quiz owner changed');
-    final today = await ref.read(roadmapTodayProvider(examId).future);
+    final today = await readRoadmapToday(ref, examId);
     if (!await guard()) throw StateError('Quiz owner changed');
     final content = ref.read(contentRepositoryProvider);
     final batches = ref.read(quizReviewBatchRepositoryProvider);
@@ -242,7 +256,7 @@ class TodayQuestionLauncher {
     if (kind == TodayQuestionKind.reviews) {
       if (work.storedReviews == null) {
         ref.invalidate(roadmapTodayProvider(work.examId));
-        final fresh = await ref.read(roadmapTodayProvider(work.examId).future);
+        final fresh = await readRoadmapToday(ref, work.examId);
         if (!const ListEquality<String>().equals(
           fresh.remaining.reviewQuestionIds,
           work.today.remaining.reviewQuestionIds,
@@ -283,7 +297,7 @@ class TodayQuestionLauncher {
       return resumed;
     }
     ref.invalidate(roadmapTodayProvider(work.examId));
-    final fresh = await ref.read(roadmapTodayProvider(work.examId).future);
+    final fresh = await readRoadmapToday(ref, work.examId);
     if (!const ListEquality<String>().equals(
       fresh.remaining.newQuestionIds,
       work.today.remaining.newQuestionIds,

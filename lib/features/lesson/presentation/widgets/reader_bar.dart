@@ -25,18 +25,22 @@ enum ReaderOrigin {
         _ => '/study',
       };
 
-  String backLabel(BuildContext context) => Navigator.of(context).canPop()
-      ? switch (this) {
-          study => 'Study',
-          home => 'Home',
-          bookmarks => 'Bookmarks',
-          search => 'Search',
-          plan => 'Your plan',
-          performance => 'Your performance',
-        }
-      : _fallback == '/home'
-          ? 'Home'
-          : 'Study';
+  /// What the back control names. It reads whether the reader has a page
+  /// beneath it from the route, not from `canPop`, which turns false in the
+  /// first frame of the exit and flipped the label while the page left.
+  String backLabel(BuildContext context) =>
+      !(ModalRoute.of(context)?.isFirst ?? !Navigator.of(context).canPop())
+          ? switch (this) {
+              study => 'Study',
+              home => 'Home',
+              bookmarks => 'Bookmarks',
+              search => 'Search',
+              plan => 'Your plan',
+              performance => 'Your performance',
+            }
+          : _fallback == '/home'
+              ? 'Home'
+              : 'Study';
 
   void leave(BuildContext context) {
     final navigator = Navigator.of(context);
@@ -188,14 +192,17 @@ class ReaderBar extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 10,
                                       ),
-                                      child: Text(
-                                        dayLabel,
-                                        style: context.type.subhead
-                                            .copyWith(
-                                              fontWeight: FontWeight.w500,
-                                              color: colors.secondaryLabel,
-                                            )
-                                            .tabular,
+                                      child: Center(
+                                        widthFactor: 1,
+                                        child: Text(
+                                          dayLabel,
+                                          style: context.type.subhead
+                                              .copyWith(
+                                                fontWeight: FontWeight.w500,
+                                                color: colors.secondaryLabel,
+                                              )
+                                              .tabular,
+                                        ),
                                       ),
                                     ),
                                   ),

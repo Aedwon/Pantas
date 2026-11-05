@@ -11,11 +11,13 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
   const classes = new Set();
   const timers = [];
   const links = [];
+  const loads = [];
   const frameListeners = [];
   let splashRemoved = false;
   const doc = {
     head: { appendChild: (link) => links.push(link) },
     createElement: () => ({}),
+    fonts: { load: (spec) => { loads.push(spec); return Promise.resolve([]); } },
     documentElement: {
       classList: {
         add: (...names) => names.forEach((n) => classes.add(n)),
@@ -40,6 +42,7 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     classes,
     timers,
     links,
+    loads,
     frameListeners,
     removed: () => splashRemoved,
   };
@@ -60,14 +63,13 @@ test('a first-time visitor never sees the splash and its markup is removed', () 
   assert.equal(t.removed(), true);
   assert.equal(t.frameListeners.length, 0);
   assert.equal(t.links.length, 0);
+  assert.equal(t.loads.length, 0);
 });
 
-test('Geist Bold is preloaded for a returning visitor only', () => {
+test('Geist Bold is requested through the font API, with no preload link', () => {
   const t = setup();
-  assert.equal(t.links.length, 1);
-  assert.equal(t.links[0].rel, 'preload');
-  assert.equal(t.links[0].as, 'font');
-  assert.equal(t.links[0].href, 'assets/assets/fonts/Geist-Bold.ttf');
+  assert.equal(t.links.length, 0);
+  assert.deepEqual(t.loads, ['700 42px Geist']);
 });
 
 test('ready data fades the splash out, then removes it', () => {
@@ -81,6 +83,33 @@ test('ready data fades the splash out, then removes it', () => {
   assert.equal(t.removed(), true);
   assert.ok(!t.classes.has('ps-on'));
   assert.ok(!t.classes.has('ps-out'));
+});
+
+test('a screen under the splash can wait until the splash is gone (4P-2)', () => {
+  const t = setup();
+  let ran = 0;
+  t.splash.afterGone(() => ran++);
+  t.splash.ready();
+  assert.equal(ran, 0, 'the splash is still fading');
+  t.timers.find((x) => x.ms === FADE_MS).fn();
+  assert.equal(ran, 1);
+  t.splash.afterGone(() => ran++);
+  assert.equal(ran, 2, 'asking after it left runs at once');
+});
+
+test('without a splash there is nothing to wait for', () => {
+  const t = setup({ welcomeShown: true });
+  let ran = 0;
+  t.splash.afterGone(() => ran++);
+  assert.equal(ran, 1);
+});
+
+test('a splash that gives up also releases the waiting screen', () => {
+  const t = setup({ reduced: true });
+  let ran = 0;
+  t.splash.afterGone(() => ran++);
+  t.timers.find((x) => x.ms === NEVER_STARTED_MS).fn();
+  assert.equal(ran, 1);
 });
 
 test('reduced motion removes the splash at once, with no fade', () => {

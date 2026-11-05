@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_guardian_step.dart';
@@ -160,7 +161,7 @@ void main() {
   testWidgets('a failed send keeps the typing and offers a retry',
       (tester) async {
     var sent = 0;
-    gateway.failure = const GuardianRateLimitedException();
+    gateway.failure = const GuardianGatewayException('unavailable');
     await pump(tester, sent: () => sent++);
     await fill(tester);
     await tester.tap(find.text('Send Link'));
@@ -176,6 +177,55 @@ void main() {
     expect(sent, 1);
   });
 
+  testWidgets('too many sends says so, not "could not save" (5S-7)',
+      (tester) async {
+    gateway.failure = const GuardianRateLimitedException();
+    await pump(tester);
+    await fill(tester);
+    await tester.tap(find.text('Send Link'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Too many tries. Wait a while, then try again.'),
+      findsOneWidget,
+    );
+    expect(find.text('Could not save your progress.'), findsNothing);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(find.text('Maria'), findsOneWidget);
+  });
+
+  testWidgets('the next send clears the too-many line', (tester) async {
+    gateway.failure = const GuardianRateLimitedException();
+    await pump(tester);
+    await fill(tester);
+    await tester.tap(find.text('Send Link'));
+    await tester.pumpAndSettle();
+    gateway.failure = const GuardianGatewayException('unavailable');
+    await tester.ensureVisible(find.text('Try Again'));
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(
+      find.text('Too many tries. Wait a while, then try again.'),
+      findsNothing,
+    );
+  });
+
+  testWidgets('wide: the first field takes the keys at once (5S-8)',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await pump(tester, size: const Size(1440, 900));
+    await tester.pumpAndSettle();
+    final name = tester.widget<TextField>(
+      find
+          .byWidgetPredicate((w) => w is TextField && w.focusNode != null)
+          .first,
+    );
+    expect(name.focusNode!.hasPrimaryFocus, isTrue);
+    await tester.enterText(find.byType(TextField).first, 'Maria');
+    expect(find.text('Maria'), findsOneWidget);
+  });
+
   testWidgets('the contact kept on this device is filled in again',
       (tester) async {
     await AppPreferencesRepository(db).setGuardianContact(
@@ -186,5 +236,25 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Maria'), findsOneWidget);
     expect(find.text('maria@gmail.com'), findsOneWidget);
+  });
+
+  testWidgets('wide: a placeholder never repeats the label drawn above it',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    await pump(tester, size: const Size(1440, 900));
+    expect(find.text("PARENT OR GUARDIAN'S NAME"), findsOneWidget);
+    final hints = [
+      for (final field in tester.widgetList<TextField>(find.byType(TextField)))
+        field.decoration?.hintText,
+    ];
+    expect(hints, ['Full name', 'name@example.com']);
+  });
+
+  testWidgets('phone: with no label drawn, the placeholder names the field',
+      (tester) async {
+    await pump(tester);
+    expect(field("Parent or guardian's name"), findsOneWidget);
+    expect(field("Parent or guardian's email"), findsOneWidget);
   });
 }

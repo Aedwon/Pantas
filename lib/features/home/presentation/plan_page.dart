@@ -134,6 +134,7 @@ class PlanPage extends StatefulWidget {
     required this.onWeek,
     required this.onPro,
     this.subtitle,
+    this.left,
     this.webPane,
     this.selectedWeek,
     this.onHistory,
@@ -154,6 +155,7 @@ class PlanPage extends StatefulWidget {
   final List<PlanNode> nodes;
   final List<PlanHistoryEntry> history;
   final String? subtitle;
+  final String? left;
   final int initialShown;
   final bool loadingMore;
   final Widget? paginationError;
@@ -260,12 +262,12 @@ class _PlanPageState extends State<PlanPage> {
                   style:
                       context.type.body.copyWith(fontWeight: FontWeight.w600),
                 ),
-                footer: widget.done == widget.total
+                footer: widget.done == widget.total || widget.left == null
                     ? null
                     : Padding(
                         padding: const EdgeInsets.only(top: 1),
                         child: Text(
-                          'Reviews and new questions left',
+                          widget.left!,
                           style: context.type.footnote,
                         ),
                       ),
@@ -326,54 +328,14 @@ class _PlanPageState extends State<PlanPage> {
                   ),
                   y: 8,
                 ),
-              if (_shown < widget.history.length || widget.hasMore)
-                // Board (DP_History): regular weight, 17 px, chevron after.
-                TextButton(
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size.fromHeight(49),
-                    foregroundColor: context.colors.accent,
-                  ),
-                  onPressed: widget.loadingMore
-                      ? null
-                      : () => setState(() {
-                            _shown += 10;
-                            if (_shown > widget.history.length) {
-                              widget.onMore?.call();
-                            }
-                          }),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'See more',
-                        style: context.type.body.copyWith(
-                          color: context.colors.accent,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      RotatedBox(
-                        quarterTurns: 1,
-                        child: Icon(
-                          PantasIcons.next,
-                          size: 13,
-                          color: context.colors.accent,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              else
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                    horizontal: 20,
-                  ),
-                  child: Text(
-                    "That's everything since you started.",
-                    textAlign: TextAlign.center,
-                    style: context.type.footnote,
-                  ),
-                ),
+              _HistoryFooter(
+                more: _shown < widget.history.length || widget.hasMore,
+                loading: widget.loadingMore,
+                onMore: () => setState(() {
+                  _shown += 10;
+                  if (_shown > widget.history.length) widget.onMore?.call();
+                }),
+              ),
             ],
           ),
           if (widget.paginationError != null) widget.paginationError!,
@@ -789,7 +751,11 @@ class _PlanDoneRing extends StatelessWidget {
           size: const Size.square(34),
           painter: _PlanDoneRingPainter(
             fraction: fraction,
-            track: context.colors.fill,
+            // Dark keeps the 3:1 gray the phone's other empty rings use; the
+            // pale fill disappears into the card (A-1, 2G-17).
+            track: Theme.of(context).brightness == Brightness.dark
+                ? context.colors.chevron
+                : context.colors.fill,
             fill: context.colors.label,
           ),
         ),
@@ -828,6 +794,127 @@ class _PlanDoneRingPainter extends CustomPainter {
   @override
   bool shouldRepaint(_PlanDoneRingPainter old) =>
       old.fraction != fraction || old.track != track || old.fill != fill;
+}
+
+/// The end of the History card: See more, or the closing line when every
+/// entry is shown. Board (DP_History): regular weight, 17 px, chevron after.
+class _HistoryFooter extends StatelessWidget {
+  const _HistoryFooter({
+    required this.more,
+    required this.loading,
+    required this.onMore,
+  });
+  final bool more;
+  final bool loading;
+  final VoidCallback onMore;
+  @override
+  Widget build(BuildContext context) => more
+      ? TextButton(
+          style: TextButton.styleFrom(
+            minimumSize: const Size.fromHeight(49),
+            foregroundColor: context.colors.accent,
+          ),
+          onPressed: loading ? null : onMore,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'See more',
+                style: context.type.body.copyWith(color: context.colors.accent),
+              ),
+              const SizedBox(width: 4),
+              RotatedBox(
+                quarterTurns: 1,
+                child: Icon(
+                  PantasIcons.next,
+                  size: 13,
+                  color: context.colors.accent,
+                ),
+              ),
+            ],
+          ),
+        )
+      : Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          child: Text(
+            "That's everything since you started.",
+            textAlign: TextAlign.center,
+            style: context.type.footnote,
+          ),
+        );
+}
+
+/// Phone: History on its own page (board DP_History), opened from
+/// `/plan/history`. The rows and the See more behavior match the plan's
+/// History section.
+class PlanHistoryPage extends StatefulWidget {
+  const PlanHistoryPage({
+    required this.history,
+    required this.onBack,
+    this.hasMore = false,
+    this.loadingMore = false,
+    this.onMore,
+    this.paginationError,
+    this.initialShown = 5,
+    super.key,
+  });
+  final List<PlanHistoryEntry> history;
+  final VoidCallback onBack;
+  final bool hasMore;
+  final bool loadingMore;
+  final VoidCallback? onMore;
+  final Widget? paginationError;
+  final int initialShown;
+  @override
+  State<PlanHistoryPage> createState() => _PlanHistoryPageState();
+}
+
+class _PlanHistoryPageState extends State<PlanHistoryPage> {
+  late int _shown = widget.initialShown;
+  final _expanded = <String>{};
+  @override
+  Widget build(BuildContext context) {
+    final visible = widget.history.take(_shown).toList();
+    return PantasPage(
+      title: 'History',
+      // The board has no large title, only the section label.
+      hero: const SizedBox.shrink(),
+      backLabel: 'Home',
+      onBack: widget.onBack,
+      bottomInset: 104,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 7),
+          child: Text('HISTORY', style: context.type.sectionHeader),
+        ),
+        GroupedSection(
+          children: [
+            for (var i = 0; i < visible.length; i++)
+              _HistoryRow(
+                date: visible[i].date,
+                text: visible[i].text,
+                expanded: _expanded.contains(visible[i].id),
+                divider: i < visible.length - 1,
+                onTap: () => setState(
+                  () => _expanded.contains(visible[i].id)
+                      ? _expanded.remove(visible[i].id)
+                      : _expanded.add(visible[i].id),
+                ),
+              ),
+            _HistoryFooter(
+              more: _shown < widget.history.length || widget.hasMore,
+              loading: widget.loadingMore,
+              onMore: () => setState(() {
+                _shown += 10;
+                if (_shown > widget.history.length) widget.onMore?.call();
+              }),
+            ),
+          ],
+        ),
+        if (widget.paginationError != null) widget.paginationError!,
+      ],
+    );
+  }
 }
 
 /// Board (DP_History): a 74 px date column, the text on one line and a small

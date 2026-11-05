@@ -79,6 +79,9 @@ class HomePerformanceCard extends StatelessWidget {
                                           .style(16, height: 1.3),
                                     ),
                                   ),
+                                  // A title that fills its line must still
+                                  // leave a gap before the figure.
+                                  const SizedBox(width: 12),
                                   Text(
                                     '${(row.accuracy! * 100).round()}%',
                                     style: context.webTokens.style(
@@ -202,10 +205,12 @@ class _SeeAllRow extends StatelessWidget {
         ),
         shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
         backgroundColor: WidgetStateProperty.resolveWith(
-          (s) =>
-              s.contains(WidgetState.hovered) || s.contains(WidgetState.focused)
-                  ? t.rowHover
-                  : Colors.transparent,
+          (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
+              ? t.rowHover
+              : Colors.transparent,
+        ),
+        side: WidgetStateProperty.resolveWith(
+          (s) => webFocusRing(s, t.colors.accent),
         ),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
       ),

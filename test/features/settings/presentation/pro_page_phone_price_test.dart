@@ -97,4 +97,26 @@ void main() {
     expect(texts.single.maxLines, 1);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('phone plan cards share one height, whatever each holds',
+      (tester) async {
+    await _pump(
+      tester,
+      weekly: '\u20b149.00',
+      monthly: '\u20b1149.00',
+      yearly: '\u20b11,199.00',
+    );
+    double height(String label) => tester
+        .getSize(
+          find
+              .ancestor(of: find.text(label), matching: find.byType(InkWell))
+              .first,
+        )
+        .height;
+    // Yearly states its monthly price on a second line; the others do not.
+    expect(find.textContaining(' a month'), findsOneWidget);
+    expect(height('Weekly'), height('Yearly'));
+    expect(height('Monthly'), height('Yearly'));
+    expect(tester.takeException(), isNull);
+  });
 }

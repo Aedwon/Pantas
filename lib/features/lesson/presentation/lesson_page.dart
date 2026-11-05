@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
@@ -259,6 +260,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       date: day.date,
       lessonIds: day.lessonIds,
       index: index,
+      moreToDo: day.moreToDo,
     );
   }
 
@@ -338,6 +340,11 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       _lessonId = next.lesson.id;
       _ending = null;
     });
+    // A reload stays on the lesson on screen.
+    replaceWebAddress(
+      context,
+      Uri.base.replace(path: '/lesson/${Uri.encodeComponent(next.lesson.id)}'),
+    );
     return true;
   }
 
@@ -468,7 +475,9 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final day = reader == null ? null : _dayContextFor(reader.lesson.id);
     final endingTarget = reader == null || _ending != null || nextId != null
         ? null
-        : day != null
+        // The day line says the day is done, so it waits until nothing else
+        // is on the list. Otherwise the lesson closes like any other (6U-7).
+        : day != null && !day.moreToDo
             ? const DayFinished()
             : reader.topicEnding;
     final title = endingTarget is DayFinished
@@ -580,19 +589,20 @@ class _ReaderFallback extends ConsumerWidget {
             autofocus: true,
             child: Column(
               children: [
-                WebTopBar(
-                  leading: Row(
-                    children: [
-                      WebBackLink(
+                // The same bar the lesson draws, in the same place.
+                SizedBox(
+                  height: 60,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: WebReaderBackControl(
                         label: onClose == null
                             ? origin.backLabel(context)
                             : 'Close',
-                        tightIcon: true,
                         onPressed: onClose ?? () => origin.leave(context),
                       ),
-                      const SizedBox(width: 2),
-                      const WebKeyHint('Esc'),
-                    ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -1089,8 +1099,30 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     }
   }
 
+  /// A solution opening or closing changes the page's length without a scroll
+  /// event, so the progress bar and the pull-to-advance end check would keep
+  /// the old measure. Only they refresh. The page also grows by itself when
+  /// the Read line draws at the end, and that must not count: a student who
+  /// reached the end keeps the pull handle. A save or a Read check from a
+  /// size change could also race the resume position.
+  bool _onResized(ReaderResizedNotification notification) {
+    if (!_scrollController.hasClients || widget.ending != null) return true;
+    final offset = _scrollController.offset;
+    final maxExtent = _scrollController.position.maxScrollExtent;
+    _progress.value =
+        maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
+    _isAtEnd.value = maxExtent <= 0 || offset >= maxExtent - 24;
+    return true;
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      NotificationListener<ReaderResizedNotification>(
+        onNotification: _onResized,
+        child: _content(context),
+      );
+
+  Widget _content(BuildContext context) {
     final reader = widget.reader;
     final activation = _activation;
     final failedPosition = _failedPosition;
@@ -1168,7 +1200,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                       ContentRenderer(
                         blocks: reader.lesson.bodyJson,
                         readerFigures: true,
-                        style: t.style(18, height: 1.65),
                       ),
                       if (_activityFailed)
                         saveFailureLine(
@@ -1556,17 +1587,24 @@ class _LessonContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    // The design's title block: the topic and the time in
+                    // one line of 15 px, then the title at 30 px.
                     Text(
-                      reader.topicName.toUpperCase(),
-                      style: context.type.sectionHeader
-                          .copyWith(letterSpacing: .52),
+                      '${reader.topicName} · '
+                      '${reader.lesson.estimatedMinutes} min',
+                      style: context.type.subhead.copyWith(
+                        color: context.colors.secondaryLabel,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       reader.lesson.title,
-                      style: context.type.pageTitle.copyWith(height: 1.15),
+                      style: context.type.pageTitle.copyWith(
+                        height: 1.08,
+                        letterSpacing: -.5,
+                      ),
                     ),
-                    const SizedBox(height: 33),
+                    const SizedBox(height: 24),
                     ContentRenderer(
                       blocks: reader.lesson.bodyJson,
                       readerFigures: true,

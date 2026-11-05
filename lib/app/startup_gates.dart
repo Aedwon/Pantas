@@ -6,20 +6,21 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 
 /// Lets the three state reads behind the router's onboarding redirect finish
-/// before a page other than Home mounts.
+/// before the first page mounts.
 ///
-/// The redirect lets everything through while those reads are loading. Home
-/// is harmless then, but a page opened directly (a lesson, a quiz) could mount
-/// and write progress before the redirect sent a new student to onboarding.
+/// The redirect lets everything through while those reads are loading. A page
+/// opened directly (a lesson, a quiz) could mount and write progress before
+/// the redirect sent a new student to onboarding. Home is no exception: it
+/// mounted, drew its "Choose your exam" card under the fading splash, and
+/// then the redirect slid onboarding over it (4P-2). With the reads settled
+/// the redirect runs first, so the first page is the right one.
 ///
 /// A read that fails or takes longer than [timeout] never blocks the start:
 /// the router already copes with a gate it cannot read.
 Future<void> settleGatesBeforeFirstPage(
   ProviderContainer container, {
-  required String startLocation,
   Duration timeout = const Duration(seconds: 3),
 }) async {
-  if (startLocation == '/home') return;
   Future<void> settled<T>(FutureProvider<T> provider) async {
     try {
       await container.read(provider.future);

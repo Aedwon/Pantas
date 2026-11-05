@@ -6,6 +6,7 @@ import 'package:pantas/core/sync/bootstrap/full_push.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
 import 'package:pantas/core/sync/engine/generation_repository.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
@@ -219,10 +220,6 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required int token,
   }) async {
     while (_isCurrent(token)) {
-      final localMeaningful =
-          await SyncMeaningfulProgress(_db).hasMeaningfulData();
-      if (!_isCurrent(token)) return;
-
       final generations = _generationRepositoryForUid(identity.uid);
       String? activeGenerationId;
       try {
@@ -246,6 +243,26 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         }
         continue;
       }
+
+      // Same student, same copy: a start or a reload is not a conflict. The
+      // choice this device made is stored with the generation it now holds,
+      // so only a generation it does not hold can need a choice.
+      if (await _holdsGeneration(activeGenerationId)) {
+        await LocalSyncMutationRecorder.forDatabase(_db).bindUnboundMutations(
+          uid: identity.uid,
+          generationId: activeGenerationId,
+        );
+        await _finalizeActive(
+          identity: identity,
+          generationId: activeGenerationId,
+          token: token,
+        );
+        return;
+      }
+
+      final localMeaningful =
+          await SyncMeaningfulProgress(_db).hasMeaningfulData();
+      if (!_isCurrent(token)) return;
 
       if (!localMeaningful) {
         final result = await _coordinator.keepMyAccount(
@@ -301,6 +318,25 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         return;
       }
     }
+  }
+
+  /// True when a finished push or pull left this device on [generationId]. An
+  /// unfinished one means local data may not be that generation's copy yet.
+  Future<bool> _holdsGeneration(String generationId) async {
+    final rows = await _db
+        .customSelect(
+          'select key, value from sync_meta where key in '
+          "('currentLocalGenerationId','pending_full_push',"
+          "'pending_full_pull')",
+        )
+        .get();
+    final meta = {
+      for (final row in rows)
+        row.read<String>('key'): row.read<String>('value'),
+    };
+    return meta['currentLocalGenerationId'] == generationId &&
+        !meta.containsKey('pending_full_push') &&
+        !meta.containsKey('pending_full_pull');
   }
 
   Future<bool> _pushThisDevice({

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
 
 /// What just happened, so the caller knows which toast to raise.
@@ -48,6 +49,7 @@ class QuestionFlagController extends Notifier<void> {
       ref
         ..invalidate(flaggedIdsProvider)
         ..invalidate(flaggedReviewProvider);
+      refreshFlagCounts(ref);
       return FlagToggle.unflagged;
     }
 
@@ -55,6 +57,7 @@ class QuestionFlagController extends Notifier<void> {
     ref
       ..invalidate(flaggedIdsProvider)
       ..invalidate(flaggedReviewProvider);
+    refreshFlagCounts(ref);
 
     final announced = await prefs.hasAnnouncedFirstFlag();
     if (announced) return FlagToggle.flagged;

@@ -40,6 +40,14 @@ class StudyWrites {
   final _retries = <String, ({String examId, Future<void> Function() send})>{};
   final _intents = <String, int>{};
 
+  /// Completes when the newest settings intent has been sent or has failed.
+  /// A screen that cannot read a plan before the server has the settings waits
+  /// on this. A failure is not thrown here: the queue retries it.
+  Future<void> get settingsSettled => _latestSettings.then<void>(
+        (_) {},
+        onError: (Object _, StackTrace __) {},
+      );
+
   StudySettingsIntent beginSettings({String? examId}) {
     if (examId == null) _intents.updateAll((_, __) => -1);
     final scope = examId ?? '';

@@ -20,6 +20,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -122,23 +123,13 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      TextButton.icon(
+                      WebBackLink(
+                        label:
+                            _viewerIndex == null ? 'Results' : 'All questions',
                         onPressed: back,
-                        style: TextButton.styleFrom(
-                          minimumSize: const Size(0, 40),
-                          padding: EdgeInsets.zero,
-                          foregroundColor: context.webTokens.colors.accent,
-                          overlayColor: Colors.transparent,
-                          visualDensity: VisualDensity.standard,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          textStyle: context.webTokens.style(17),
-                        ),
-                        icon: const Icon(Icons.chevron_left, size: 20),
-                        label: Text(
-                          _viewerIndex == null ? 'Results' : 'All questions',
-                        ),
+                        nudge: false,
                       ),
-                      const SizedBox(width: 10),
+                      // No gap: the link's own right padding is the room.
                       const WebKeyHint('Esc'),
                     ],
                   ),
@@ -345,7 +336,7 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           const SingleActivator(LogicalKeyboardKey.keyF): () =>
               _toggleFlag(viewed.question.id),
       },
-      child: Focus(autofocus: true, child: page),
+      child: KeyFocusKeeper(child: page),
     );
   }
 
@@ -1030,8 +1021,7 @@ class _QuestionViewer extends StatelessWidget {
           if (onNext != null)
             const SingleActivator(LogicalKeyboardKey.arrowRight): onNext!,
         },
-        child: Focus(
-          autofocus: true,
+        child: KeyFocusKeeper(
           child: Stack(
             fit: StackFit.expand,
             children: [

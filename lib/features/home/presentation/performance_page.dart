@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
@@ -32,12 +34,19 @@ class PerformancePage extends StatefulWidget {
     this.initialSort = SortCycleOrder.weakest,
     this.onOrderChanged,
     this.onLesson,
+    this.openTopicId,
     super.key,
   });
+
+  /// A topic whose panel is open from the start (wide web, opened by address).
+  final String? openTopicId;
   final PerformanceViewData data;
   final bool pro;
   final bool paused;
-  final ValueChanged<String> onTopic;
+
+  /// Opens a topic. On wide web the future it returns ends when the panel
+  /// closes, so the topic's row can stay tinted while it is open.
+  final FutureOr<void> Function(String) onTopic;
   final ValueChanged<String>? onLesson;
   final VoidCallback onPro;
   final VoidCallback onBack;
@@ -106,6 +115,7 @@ class _PerformancePageState extends State<PerformancePage> {
         paused: widget.paused,
         onBack: widget.onBack,
         onTopic: widget.onTopic,
+        openTopicId: widget.openTopicId,
         onLesson: widget.onLesson,
         onPro: widget.onPro,
         onLevel: (value) => setState(() {
@@ -199,37 +209,47 @@ class _PerformancePageState extends State<PerformancePage> {
                     style: context.type.sectionHeader,
                   )
                 else
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: widget.pro
-                        ? () => setState(() => _picker = true)
-                        : null,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          _subject == null
-                              ? 'ALL SUBJECTS'
-                              : subjects
-                                  .firstWhere((r) => r.id == _subject)
-                                  .title
-                                  .toUpperCase(),
-                          style: context.type.sectionHeader,
-                        ),
-                        const SizedBox(width: 3),
-                        ExcludeSemantics(
-                          child: SvgPicture.string(
-                            '<svg viewBox="0 0 24 24" fill="none" '
-                            'stroke="#6E6E73" stroke-width="2.4" '
-                            'stroke-linecap="round" stroke-linejoin="round"> '
-                            '<path d="M8 9.5 12 5.5l4 4M8 14.5l4 4 4-4"/></svg>',
-                            width: 13,
-                            height: 13,
+                  // The subject name gives way to the order label, which stays
+                  // whole, so a long name ends in dots instead of running off
+                  // the screen (2G-16).
+                  Flexible(
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: widget.pro
+                          ? () => setState(() => _picker = true)
+                          : null,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              _subject == null
+                                  ? 'ALL SUBJECTS'
+                                  : subjects
+                                      .firstWhere((r) => r.id == _subject)
+                                      .title
+                                      .toUpperCase(),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.type.sectionHeader,
+                            ),
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 3),
+                          ExcludeSemantics(
+                            child: SvgPicture.string(
+                              '<svg viewBox="0 0 24 24" fill="none" '
+                              'stroke="#6E6E73" stroke-width="2.4" '
+                              'stroke-linecap="round" stroke-linejoin="round"> '
+                              '<path d="M8 9.5 12 5.5l4 4M8 14.5l4 4 4-4"/></svg>',
+                              width: 13,
+                              height: 13,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                const SizedBox(width: 12),
                 Text(order, style: context.type.sectionHeader),
               ],
             ),

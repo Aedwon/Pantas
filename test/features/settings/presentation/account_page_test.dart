@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 
 void main() {
@@ -24,6 +25,24 @@ void main() {
     );
   });
 
+  testWidgets('on the web a phone-size window still says browser, not phone',
+      (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: null,
+      web: true,
+    );
+    expect(
+      find.text(
+        'Your progress stays in this browser. Signing in gives you an '
+        'account you can come back to.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.textContaining('this phone'), findsNothing);
+  });
+
   testWidgets('named Free account keeps local-only Pro-aware copy',
       (tester) async {
     await _pumpAccount(
@@ -39,7 +58,7 @@ void main() {
     expect(find.text('Add your name'), findsNWidgets(2));
     expect(
       find.text(
-        'Your progress stays on this phone only. With Pro, it’s '
+        "Your progress stays on this phone only. With Pro, it's "
         'backed up and syncs across your devices.',
       ),
       findsOneWidget,
@@ -107,12 +126,14 @@ Future<void> _pumpAccount(
   WidgetTester tester, {
   required AuthRepository repository,
   required AuthUser? user,
+  bool web = false,
 }) async {
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
         currentUserProvider.overrideWith((ref) => user),
         authRepositoryProvider.overrideWithValue(repository),
+        if (web) paymentsOnWebProvider.overrideWithValue(true),
       ],
       child: MaterialApp(
         theme: buildLightTheme().copyWith(

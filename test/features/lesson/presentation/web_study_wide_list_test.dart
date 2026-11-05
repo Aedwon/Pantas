@@ -38,7 +38,11 @@ StudyTopic _topic(String id, String name, {bool bookmarked = false}) =>
     );
 
 /// The preview's subjects: 5, 1, 4, 3 and 3 topics.
-StudyMap _previewMap({bool bookmarked = false}) => StudyMap(
+StudyMap _previewMap({
+  bool bookmarked = false,
+  Set<String> alsoBookmarked = const {},
+}) =>
+    StudyMap(
       examShortName: 'CSE',
       subjects: [
         StudySubject(
@@ -47,8 +51,16 @@ StudyMap _previewMap({bool bookmarked = false}) => StudyMap(
           topics: [
             _topic('t1', 'Logical & Verbal Reasoning', bookmarked: bookmarked),
             _topic('t2', _longTopic),
-            _topic('t3', 'Mechanical & Technical Reasoning'),
-            _topic('t4', 'Clerical Ability'),
+            _topic(
+              't3',
+              'Mechanical & Technical Reasoning',
+              bookmarked: alsoBookmarked.contains('t3'),
+            ),
+            _topic(
+              't4',
+              'Clerical Ability',
+              bookmarked: alsoBookmarked.contains('t4'),
+            ),
             _topic('t5', 'Verbal Logic'),
           ],
         ),
@@ -245,7 +257,8 @@ void main() {
         expect(tester.takeException(), isNull);
       });
 
-      testWidgets('the Last opened card keeps the column width above the list',
+      testWidgets(
+          'with nothing open the Last opened card is a full-width strip',
           (tester) async {
         await pumpMap(
           tester,
@@ -255,12 +268,173 @@ void main() {
           lastLessonId: 't2-l1',
           lastTitle: _longTitle,
         );
+        final card = tester.getRect(find.byType(WebCard).first);
+        expect(card.width, content);
+        // Padding 18 on both sides and 16 above and below.
+        final label = tester.getTopLeft(find.text('LAST OPENED'));
+        expect(label.dx, card.left + 18);
+        expect(label.dy, card.top + 16);
+        // Text on the left, Resume at the right edge, 24 px or more apart.
+        final button = tester.getRect(find.byType(WebButton));
+        final topic = find.descendant(
+          of: find.byType(WebLastOpenedCard),
+          matching: find.text(_longTopic),
+        );
+        expect(button.right, card.right - 18);
+        expect(button.height, 44);
+        expect(
+          button.left - tester.getTopRight(topic).dx,
+          greaterThanOrEqualTo(24),
+        );
+        // Resume is centered on the card's height.
+        expect(button.center.dy, closeTo(card.center.dy, 0.01));
+        // Title lines at 24 px, topic at 20 px, eyebrow at 17 px.
+        expect(tester.getSize(find.text('LAST OPENED')).height, 17);
+        expect(tester.getSize(find.text(_longTitle)).height, 24);
+        expect(tester.getSize(topic).height, 20);
+        // 22 px between the card and the first subject, 18 when Bookmarks
+        // is hidden is not added.
+        expect(
+          tester.getTopLeft(find.text('REASONING')).dy - card.bottom,
+          closeTo(22, 0.01),
+        );
+        expect(find.text('BOOKMARKS'), findsNothing);
+        expect(tester.takeException(), isNull);
+      });
+
+      for (final brightness in Brightness.values) {
+        testWidgets(
+            'the strip is 96 px tall with the board padding, '
+            '$brightness (4N-2)', (tester) async {
+          await pumpMap(
+            tester,
+            window: window,
+            content: content,
+            map: _previewMap(),
+            lastLessonId: 't2-l1',
+            lastTitle: _longTitle,
+            brightness: brightness,
+          );
+          final card = tester.getRect(find.byType(WebCard).first);
+          expect(card.width, content);
+          // The board's rule is an inset shadow, so the dark card's real 1 px
+          // edge comes out of the padding: 96 px tall and the text 18 px in,
+          // as in light.
+          expect(card.height, 96);
+          final label = tester.getTopLeft(find.text('LAST OPENED'));
+          expect(label.dx, card.left + 18);
+          expect(label.dy, card.top + 16);
+          expect(
+            tester.getRect(find.byType(WebButton)).right,
+            card.right - 18,
+          );
+          // The first subject label is the same distance under the card in
+          // both themes: 22 px.
+          expect(
+            tester.getTopLeft(find.text('REASONING')).dy - card.bottom,
+            closeTo(22, 0.01),
+          );
+        });
+      }
+
+      testWidgets('the strip holds Bookmarks in the two subject columns',
+          (tester) async {
+        await pumpMap(
+          tester,
+          window: window,
+          content: content,
+          map: _previewMap(bookmarked: true, alsoBookmarked: {'t3'}),
+          lastLessonId: 't2-l1',
+          lastTitle: _longTitle,
+        );
+        final card = tester.getRect(find.byType(WebCard).first);
+        final column = (content - 24) / 2;
+        final label = tester.getRect(find.text('BOOKMARKS'));
+        // The header is 30 px tall, 22 px under the card, with the 15 px
+        // label centered in it; the label inset is 12.
+        expect(label.top - card.bottom, closeTo(22 + 7.5, 0.01));
+        expect(label.left, card.left + 12);
+        expect(tester.getSize(find.text('BOOKMARKS')).height, 15);
+        // See all ends 12 px inside the right edge, on the label's line.
+        final seeAll = tester.getRect(find.text('See all'));
+        expect(seeAll.right, closeTo(card.right - 12, 0.01));
+        expect(tester.getSize(find.text('See all')).height, 30);
+        // Rows 4 px under the header, side by side, 24 px apart.
+        final left = find
+            .ancestor(
+              of: find.text('Lesson of Logical & Verbal Reasoning'),
+              matching: find.byType(TextButton),
+            )
+            .first;
+        final right = find
+            .ancestor(
+              of: find.text('Lesson of Mechanical & Technical Reasoning'),
+              matching: find.byType(TextButton),
+            )
+            .first;
+        expect(tester.getSize(left), Size(column, 36));
+        expect(tester.getSize(right), Size(column, 36));
+        expect(tester.getTopLeft(right).dx - tester.getTopRight(left).dx, 24);
+        expect(tester.getTopLeft(right).dy, tester.getTopLeft(left).dy);
+        final header = tester.getRect(find.text('See all'));
+        expect(
+          tester.getTopLeft(left).dy - header.bottom,
+          closeTo(4, 0.01),
+        );
+        // The columns of the bookmarks line up with the subjects below.
+        expect(
+          tester.getTopLeft(left).dx,
+          tester.getTopLeft(find.text('REASONING')).dx - 12,
+        );
+        expect(
+          tester.getTopLeft(right).dx,
+          tester.getTopLeft(find.text('MATHEMATICS')).dx - 12,
+        );
+        // 18 px between the last bookmark row and the first subject.
+        expect(
+          tester.getTopLeft(find.text('REASONING')).dy -
+              tester.getBottomLeft(left).dy,
+          closeTo(18, 0.01),
+        );
+        expect(tester.takeException(), isNull);
+      });
+
+      testWidgets('an odd bookmark leaves the second column empty',
+          (tester) async {
+        await pumpMap(
+          tester,
+          window: window,
+          content: content,
+          map: _previewMap(bookmarked: true),
+          lastLessonId: 't2-l1',
+          lastTitle: _longTitle,
+        );
+        final row = find
+            .ancestor(
+              of: find.text('Lesson of Logical & Verbal Reasoning'),
+              matching: find.byType(TextButton),
+            )
+            .first;
+        expect(tester.getSize(row).width, (content - 24) / 2);
+        expect(tester.takeException(), isNull);
+      });
+
+      testWidgets('a topic open keeps the Last opened card in the column',
+          (tester) async {
+        await pumpMap(
+          tester,
+          window: window,
+          content: content,
+          map: _previewMap(),
+          openTopicId: 't2',
+          lastLessonId: 't2-l1',
+          lastTitle: _longTitle,
+        );
         final card = find.byType(WebCard).first;
         final column = (300 + (content - 784) / 1000).clamp(300.0, 340.0);
         expect(tester.getSize(card).width, closeTo(column, 0.01));
-        // 22 px between the card and the first subject.
         expect(
-          tester.getTopLeft(find.text('REASONING')).dy -
+          tester.getTopLeft(find.text('REASONING').first).dy -
               tester.getBottomLeft(card).dy,
           closeTo(22, 0.01),
         );
@@ -292,18 +466,18 @@ void main() {
         expect(tester.getTopLeft(find.text('VERBAL ABILITY')).dx, x);
         // Detail card shows the topic.
         expect(find.text('Lesson of $_longTopic'), findsOneWidget);
-        // Rows still cut off at one line, as today.
-        expect(
-          tester
-              .widget<Text>(
-                find.descendant(
-                  of: find.byType(TextButton),
-                  matching: find.text(_longTopic),
-                ),
-              )
-              .overflow,
-          TextOverflow.ellipsis,
+        // 3K-24: a long topic name wraps in the map column instead of
+        // ending in dots.
+        final longRow = find.descendant(
+          of: find.byType(TextButton),
+          matching: find.text(_longTopic),
         );
+        expect(
+          tester.widget<Text>(longRow).overflow,
+          isNot(TextOverflow.ellipsis),
+        );
+        expect(exceeded(tester, longRow), isFalse);
+        expect(tester.getSize(longRow).height, greaterThan(24));
         // Bookmarks stay hidden while empty, selected or not.
         expect(find.text('BOOKMARKS'), findsNothing);
         expect(find.text(_bookmarkPrompt), findsNothing);
@@ -350,8 +524,9 @@ void main() {
             '($column, $brightness)', (tester) async {
           await pumpCard(tester, column: column, brightness: brightness);
           final card = tester.getRect(find.byType(WebCard));
-          // Dark cards carry a 1 px edge inside the padding box.
-          final edge = brightness == Brightness.dark ? 1.0 : 0.0;
+          // The dark card's 1 px edge comes out of the padding (4N-2), so the
+          // offsets are the board's in both themes.
+          const edge = 0.0;
           final title = find.text(_longTitle);
           final topic = find.text(_longTopic);
           final button = tester.getRect(find.byType(WebButton));
@@ -462,6 +637,36 @@ void main() {
     await tester.pump();
     expect(find.byType(WebStudyLoading), findsOneWidget);
     expect(find.text('REASONING'), findsNothing);
+  });
+  testWidgets(
+      'a topic row at a Tab stop shows the ring, not a green fill (3K-12)',
+      (tester) async {
+    resetWebKeyboardFocus();
+    await pumpMap(
+      tester,
+      window: 1440,
+      content: 1080,
+      map: _previewMap(),
+    );
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    final button = find.ancestor(
+      of: find.text('Logical & Verbal Reasoning'),
+      matching: find.byType(TextButton),
+    );
+    final material = tester.widget<Material>(
+      find.descendant(of: button, matching: find.byType(Material)).first,
+    );
+    final side = (material.shape! as OutlinedBorder).side;
+    expect(side.width, 2);
+    expect(side.color, const Color(0xFF0B7A68));
+    final ink = tester.firstWidget<InkWell>(
+      find.descendant(of: button, matching: find.byType(InkWell)),
+    );
+    expect(
+      ink.overlayColor?.resolve({WidgetState.focused}),
+      Colors.transparent,
+    );
   });
 }
 

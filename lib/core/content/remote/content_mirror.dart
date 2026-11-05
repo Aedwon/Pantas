@@ -41,6 +41,15 @@ class ContentMirror implements ContentFetchHook {
   final _passagesReady = <String>{};
   final _revalidated = <String>{};
   final _background = <Future<void>>{};
+
+  /// Question id to the catalog fields last written for it, and the
+  /// `question|exam` pairs already linked. The exam catalogs overlap heavily
+  /// (one set lists up to seven exams), so a later catalog skips every row an
+  /// earlier one wrote. Filling the in-memory database is the slow part of a
+  /// start in WebKit, where SQLite in WebAssembly runs far slower than in
+  /// Chromium, so repeating the rows was most of the wait.
+  final _catalogQuestions = <String, String>{};
+  final _catalogLinks = <String>{};
   Future<void> _queue = Future.value();
   StreamSubscription<ContentItem>? _subscription;
   Future<void>? _refreshing;
@@ -257,13 +266,14 @@ class ContentMirror implements ContentFetchHook {
     final key = '${item.kind.wire}/${item.id}';
     if (_applied[key] == item.version) return;
     try {
+      _CatalogWrites? written;
       await _db.transaction(() async {
         switch (item.kind) {
           case ContentKind.catalog:
             if (item.id == catalogIndexId) {
               await _applyIndex(parseCatalogIndex(item.data));
             } else {
-              await _applyExamCatalog(parseExamCatalog(item.data));
+              written = await _applyExamCatalog(parseExamCatalog(item.data));
             }
           case ContentKind.lessons:
             await _applyLesson(item.id, item.data);
@@ -271,6 +281,12 @@ class ContentMirror implements ContentFetchHook {
             await _applyQuestionSet(item.id, item.data);
         }
       });
+      // Remembered only once the transaction committed, so a rolled back
+      // catalog is written again in full.
+      if (written case final writes?) {
+        _catalogQuestions.addAll(writes.questions);
+        _catalogLinks.addAll(writes.links);
+      }
       _applied[key] = item.version;
     } on Object catch (error) {
       // One bad document must not stop the rest from loading. Forgetting its
@@ -290,7 +306,7 @@ class ContentMirror implements ContentFetchHook {
     });
   }
 
-  Future<void> _applyExamCatalog(ExamCatalog catalog) async {
+  Future<_CatalogWrites> _applyExamCatalog(ExamCatalog catalog) async {
     final now = DateTime.now().toUtc();
     final lessonRows = [
       for (final lesson in catalog.lessons)
@@ -311,35 +327,45 @@ class ContentMirror implements ContentFetchHook {
     ];
     final questionRows = <ContentQuestionsCompanion>[];
     final examLinks = <ContentQuestionExamsCompanion>[];
+    final writes = _CatalogWrites();
     for (final set in catalog.sets) {
       for (final question in set.questions) {
-        questionRows.add(
-          ContentQuestionsCompanion.insert(
-            id: question.id,
-            schemaVersion: 1,
-            updatedAt: now,
-            topicId: set.topicId,
-            subtopicId: Value(set.subtopicId),
-            language: set.language,
-            // Replaced when the set is fetched; an upsert here never touches
-            // them. Quiz planning only needs to know whether a figure exists.
-            stemJson: '[]',
-            explanationJson: '[]',
-            version: 1,
-            lessonId: Value(set.lessonId),
-            passageId: Value(question.passageId),
-            figureSpecJson: Value(question.hasFigure ? '{}' : null),
-          ),
-        );
+        final fields = '${set.topicId}|${set.subtopicId}|${set.language}|'
+            '${set.lessonId}|${question.passageId}|${question.hasFigure}';
+        final id = question.id;
+        if (_catalogQuestions[id] != fields && writes.questions[id] != fields) {
+          writes.questions[id] = fields;
+          questionRows.add(
+            ContentQuestionsCompanion.insert(
+              id: id,
+              schemaVersion: 1,
+              updatedAt: now,
+              topicId: set.topicId,
+              subtopicId: Value(set.subtopicId),
+              language: set.language,
+              // Replaced when the set is fetched; an upsert here never touches
+              // them. Quiz planning only needs to know whether a figure
+              // exists.
+              stemJson: '[]',
+              explanationJson: '[]',
+              version: 1,
+              lessonId: Value(set.lessonId),
+              passageId: Value(question.passageId),
+              figureSpecJson: Value(question.hasFigure ? '{}' : null),
+            ),
+          );
+        }
         for (final examId in set.examIds) {
+          final link = '$id|$examId';
+          if (_catalogLinks.contains(link) || !writes.links.add(link)) continue;
           examLinks.add(
             ContentQuestionExamsCompanion.insert(
-              questionId: question.id,
+              questionId: id,
               examId: examId,
             ),
           );
         }
-        _setOfQuestion[question.id] = set.id;
+        _setOfQuestion[id] = set.id;
         final passageId = question.passageId;
         if (passageId != null) _setOfPassage[passageId] = set.id;
       }
@@ -395,6 +421,7 @@ class ContentMirror implements ContentFetchHook {
         );
     });
     _lessonsInCatalog.addAll(catalog.lessons.map((l) => l.id));
+    return writes;
   }
 
   Future<void> _applyLesson(String id, Map<String, Object?> data) async {
@@ -547,6 +574,9 @@ class ContentMirror implements ContentFetchHook {
     for (final id in ids) {
       _questionsReady.add(id);
       _setOfQuestion[id] = setId;
+      // The set wrote its own topic and lesson, so the next catalog that lists
+      // this question writes the catalog's fields again, as it always has.
+      _catalogQuestions.remove(id);
     }
   }
 
@@ -576,4 +606,10 @@ class ContentMirror implements ContentFetchHook {
           ],
         },
       ]);
+}
+
+/// What one exam catalog wrote, kept apart until its transaction commits.
+class _CatalogWrites {
+  final questions = <String, String>{};
+  final links = <String>{};
 }

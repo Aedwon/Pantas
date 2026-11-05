@@ -229,12 +229,9 @@ class _OnboardingExamDateStepState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        DateFormat(
-                          context.wideWeb
-                              ? 'EEEE, MMMM d, y'
-                              : 'EEEE, d MMMM y',
-                          'en_US',
-                        ).format(known),
+                        // A no-break space keeps the year with the day.
+                        DateFormat('EEEE, MMMM d,\u00A0y', 'en_US')
+                            .format(known),
                         style: context.wideWeb
                             ? context.webTokens
                                 .style(21, weight: FontWeight.w600)
@@ -252,11 +249,16 @@ class _OnboardingExamDateStepState
             ),
           ),
           if (!context.wideWeb) const SizedBox(height: 22),
+          // The page pads the title and the subtitle 4 px inside the card's
+          // edge; the caption starts at their edge too.
           if (!context.wideWeb)
-            Text(
-              'Is this your exam day?',
-              style: context.type.footnote
-                  .copyWith(color: context.colors.secondaryLabel),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Text(
+                'Is this your exam day?',
+                style: context.type.footnote
+                    .copyWith(color: context.colors.secondaryLabel),
+              ),
             ),
         ] else ...[
           if (context.wideWeb)
@@ -270,7 +272,7 @@ class _OnboardingExamDateStepState
               value: value,
               today: _today,
               dayNote: (day) =>
-                  '${DateFormat('EEEE, d MMMM', 'en_US').format(day)}'
+                  '${DateFormat('EEEE, MMMM d', 'en_US').format(day)}'
                   ' · ${_daysFromToday(day.difference(_today).inDays)}',
               onChanged: (next) => setState(() => _value = next),
             ),

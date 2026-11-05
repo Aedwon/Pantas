@@ -26,7 +26,13 @@ class PaymentEntitlementState {
     _initialized = true;
     final epoch = _epoch;
     final snapshot = await _store.readConfirmed() ?? const Entitlement.free();
-    if (epoch == _epoch) _current = snapshot;
+    if (epoch != _epoch) return;
+    _current = snapshot;
+    // Anything that read the entitlement before this finished saw Free. Tell
+    // it what was loaded: when the server later confirms the same copy,
+    // nothing changes and nothing else would be sent, so a paying student
+    // would stay on Free after a reload.
+    if (!_controller.isClosed) _controller.add(snapshot);
   }
 
   Future<String?> readOwner() => _store.readOwner();

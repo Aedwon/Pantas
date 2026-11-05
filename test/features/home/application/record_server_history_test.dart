@@ -1,6 +1,8 @@
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
@@ -130,5 +132,34 @@ void main() {
       updated.accuracySeries.map((p) => p.accuracy).toList(),
       [80.0, 80.0],
     );
+  });
+
+  test('web record loads for a student who has not signed in', () async {
+    // The server answers "unauthenticated" to a student without a named
+    // account, and that used to become "Could not load your progress.".
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    var asked = false;
+    final scope = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        mockUsesServerProvider.overrideWithValue(true),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'guest')),
+        ),
+        serverMockHistoryProvider.overrideWith((_) {
+          asked = true;
+          throw StateError('the server must not be asked');
+        }),
+      ],
+    );
+    addTearDown(scope.dispose);
+    scope.listen(authStateProvider, (_, __) {});
+    await scope.read(authStateProvider.future);
+    expect(await scope.read(mockHistoryProvider.future), isEmpty);
+    final record = await scope.read(recordProvider.future);
+    expect(record.mocks, isEmpty);
+    expect(record.questionsAnswered, 0);
+    expect(asked, isFalse);
   });
 }

@@ -50,9 +50,9 @@ void main() {
     await tester.tap(find.text('Start My Numbers Fresh'));
     await tester.pumpAndSettle();
     expect(result, isFalse);
-    expect(find.text('You’re not starting from zero'), findsNothing);
+    expect(find.text("You're not starting from zero"), findsNothing);
     await tester.pump(const Duration(seconds: 2));
-    expect(find.text('You’re not starting from zero'), findsNothing);
+    expect(find.text("You're not starting from zero"), findsNothing);
   });
   test('the route finds the prompt when the web router has dropped its extra',
       () async {

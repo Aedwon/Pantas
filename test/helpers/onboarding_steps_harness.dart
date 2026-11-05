@@ -121,7 +121,11 @@ Future<void> pumpFramedStep(
   addTearDown(tester.view.resetDevicePixelRatio);
   final db = inMemoryDatabase();
   addTearDown(db.close);
-  await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+  // The picker opens with a saved pick shown chosen (Back from the date), so
+  // it starts from a device that has not picked yet.
+  if (step != 'picker') {
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+  }
   final catalog = onboardingTestCatalog();
   final widget = switch (step) {
     'age' => OnboardingAgeGateStep(

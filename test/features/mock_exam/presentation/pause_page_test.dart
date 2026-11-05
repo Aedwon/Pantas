@@ -98,6 +98,17 @@ void main() {
     expect(_opacityOf(tester, find.byKey(const ValueKey('pause-content'))), 1);
   });
 
+  testWidgets('one block has no parts, so the phone says only "left"',
+      (tester) async {
+    await tester.pumpWidget(
+      _paused(partNames: const ['CSE Professional'], current: 0, still: true),
+    );
+    await tester.pump();
+
+    expect(find.text('left'), findsOneWidget);
+    expect(find.text('left in this part'), findsNothing);
+  });
+
   testWidgets('the sand on top is the time left in the part', (tester) async {
     await tester.pumpWidget(_paused(still: true));
     await tester.pump();
@@ -264,6 +275,19 @@ void main() {
     await tester.tap(find.text('Discard'));
     await tester.pumpAndSettle();
     expect(discarded, 1);
+  });
+
+  testWidgets('no answers does not say "Your 0 answers"', (tester) async {
+    await tester.pumpWidget(_paused(still: true, answered: 0));
+    await tester.pump();
+    await tester.tap(find.text('Discard This Mock'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Your 0'), findsNothing);
+    expect(find.textContaining('Nothing is answered yet.'), findsOneWidget);
+    expect(
+      find.textContaining("doesn't use up a mock attempt"),
+      findsOneWidget,
+    );
   });
 
   testWidgets('one answer reads in the singular', (tester) async {

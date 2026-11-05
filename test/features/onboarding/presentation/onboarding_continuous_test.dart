@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
@@ -45,6 +47,60 @@ void main() {
         expect(rect.left, first.left, reason: '$step left edge');
       });
       expect(first.right - first.left, lessThanOrEqualTo(580));
+    });
+
+    testWidgets('every framed step puts its title in the same place',
+        (tester) async {
+      double? top;
+      double? logoLeft;
+      for (final step in framedOnboardingSteps) {
+        await pumpFramedStep(tester, step, wide: true);
+        final heading = find.byWidgetPredicate(
+          (w) => w is Text && w.style?.fontSize == 36,
+        );
+        expect(heading, findsOneWidget, reason: step);
+        final now = tester.getTopLeft(heading).dy;
+        top ??= now;
+        expect(now, top, reason: '$step moved the title');
+        // The boards set the logo mark 30 px in; the frame holds it there.
+        final logo = tester.getTopLeft(find.byType(PantasLogo)).dx;
+        logoLeft ??= logo;
+        expect(logo, logoLeft, reason: '$step moved the logo');
+        expect(logo, 30, reason: step);
+      }
+    });
+
+    testWidgets('Study days never leaves "Settings." alone on a line',
+        (tester) async {
+      await pumpFramedStep(tester, 'studyDays', wide: true);
+      final detail = find.text(
+        'Your plan only puts work on these days. '
+        'You can change them later in\u00A0Settings.',
+      );
+      expect(detail, findsOneWidget);
+      final paragraph = tester.renderObject<RenderParagraph>(detail);
+      final lines = paragraph
+          .getBoxesForSelection(
+            const TextSelection(baseOffset: 0, extentOffset: 200),
+          )
+          .map((box) => box.top.round())
+          .toSet();
+      expect(lines.length, 2);
+      final last = paragraph.getBoxesForSelection(
+        TextSelection(
+          baseOffset: paragraph.text.toPlainText().length - 12,
+          extentOffset: paragraph.text.toPlainText().length,
+        ),
+      );
+      expect(last.map((b) => b.top.round()).toSet().length, 1);
+      // "in Settings." share the second line, so "in" is not on the first.
+      final inBox = paragraph.getBoxesForSelection(
+        TextSelection(
+          baseOffset: paragraph.text.toPlainText().length - 12,
+          extentOffset: paragraph.text.toPlainText().length - 10,
+        ),
+      );
+      expect(inBox.single.top, last.first.top);
     });
 
     testWidgets('the picker is one column of rows, with no pinned bar',

@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
@@ -55,6 +56,31 @@ void main() {
                 ? const Color(0xFFC7C7CC)
                 : const Color(0xFF949494),
             strokeWidth: 1.5,
+          ),
+      );
+    });
+    testWidgets('phone Today rows keep the empty ring visible $brightness',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        TodayQuestionRow(
+          title: 'Reviews',
+          subtitle: 'Questions due today',
+          done: 0,
+          total: 4,
+          onTap: () {},
+        ),
+        brightness: brightness,
+        disableAnimations: true,
+      );
+      expect(
+        find.byKey(const ValueKey('progress-ring-paint')),
+        paints
+          ..circle(
+            color: brightness == Brightness.light
+                ? PantasColors.light.separator
+                : PantasColors.dark.chevron,
+            strokeWidth: 2,
           ),
       );
     });
@@ -142,9 +168,18 @@ void main() {
         tester.getCenter(find.byKey(const ValueKey('week-day-3'))).dx,
         closeTo(195, 1),
       );
+      // 6U-6: a past or future off-day is dimmed in both themes. The pale
+      // board gray does it in light; dark needs the dimmed gray, because
+      // #C7C7CC is nearly as bright as a study day on the dark page.
+      final off = brightness == Brightness.light
+          ? const Color(0xFFC7C7CC)
+          : PantasColors.dark.tertiaryLabel;
+      expect(tester.widget<Text>(find.text('Thu')).style!.color, off);
+      expect(tester.widget<Text>(find.text('8')).style!.color, off);
       expect(
-        tester.widget<Text>(find.text('Thu')).style!.color,
-        const Color(0xFFC7C7CC),
+        tester.widget<Text>(find.text('9')).style!.color,
+        isNot(off),
+        reason: 'a study day keeps its normal color',
       );
       expectContrast(
         tester.widget<Text>(find.text('Wed')).style!.color!,

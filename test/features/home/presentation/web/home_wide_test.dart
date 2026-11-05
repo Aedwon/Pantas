@@ -643,8 +643,44 @@ void additionalTests() {
       expect(primary, 1);
       expect(find.text('Your plan paces each day to it.'), findsOneWidget);
     });
+    testWidgets(
+        'open notice indents its text and sets buttons right, '
+        'dark=$dark', (tester) async {
+      await mountWide(
+        tester,
+        HomeWebNotice(
+          title: 'Add your exam date',
+          detail: 'Your plan paces each day to it. '
+              'Until then, today is reviews only.',
+          expanded: true,
+          onClose: () {},
+          onToggle: () {},
+          primaryLabel: 'Add Exam Date',
+          onPrimary: () {},
+          secondaryLabel: 'Later',
+          onSecondary: () {},
+        ),
+        dark: dark,
+      );
+      final notice = tester.getRect(find.byType(HomeWebNotice));
+      final title = tester.getTopLeft(find.text('Add your exam date'));
+      final text = find.textContaining('Your plan paces');
+      // Under the title: 18 px padding, 22 px icon and 12 px gap.
+      expect(title.dx, notice.left + 52);
+      expect(tester.getTopLeft(text).dx, notice.left + 18 + 34);
+      // The buttons end 18 px inside the right edge, Later before Add, 12 px
+      // apart, 12 px under the text.
+      final later = tester.getRect(find.widgetWithText(WebButton, 'Later'));
+      final add =
+          tester.getRect(find.widgetWithText(WebButton, 'Add Exam Date'));
+      expect(add.right, notice.right - 18);
+      expect(add.left - later.right, 12);
+      expect(later.top, add.top);
+      expect(add.top - tester.getBottomLeft(text).dy, 12);
+      expect(tester.takeException(), isNull);
+    });
     for (final notice in <(String, String?, String?)>[
-      ('Pro trial ends in 2 days', 'You won’t be charged.', 'See Pro'),
+      ('Pro trial ends in 2 days', "You won't be charged.", 'See Pro'),
       (
         "You're in. Welcome to Pro.",
         'Topics, lessons and your tendencies are open now.',

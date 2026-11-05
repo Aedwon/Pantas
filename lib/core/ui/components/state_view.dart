@@ -17,6 +17,7 @@ class StateView extends StatelessWidget {
     this.primaryAction = false,
     this.boardLayout = false,
     this.bookmarkLayout = false,
+    this.bookmarkTop = 70,
     this.plainMessage = false,
     super.key,
   })  : fullScreen = false,
@@ -27,6 +28,7 @@ class StateView extends StatelessWidget {
     required this.icon,
     super.key,
   })  : bookmarkLayout = false,
+        bookmarkTop = 70,
         fullScreen = false,
         onboardingBlocked = true,
         onRetry = null,
@@ -37,6 +39,7 @@ class StateView extends StatelessWidget {
         boardLayout = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
       : bookmarkLayout = false,
+        bookmarkTop = 70,
         onboardingBlocked = false,
         message = 'Something went wrong.',
         fullScreen = true,
@@ -58,6 +61,10 @@ class StateView extends StatelessWidget {
   final bool fullScreen;
   final bool onboardingBlocked;
   final bool bookmarkLayout;
+
+  /// Space above the bookmark block. The phone sets it 70 px down; a wide
+  /// panel centers the block itself, so it passes 0.
+  final double bookmarkTop;
   final String? detail;
   final String actionLabel;
   final bool primaryAction;
@@ -249,7 +256,7 @@ class StateView extends StatelessWidget {
       return Semantics(
         liveRegion: true,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(36, 70, 36, 0),
+          padding: EdgeInsets.fromLTRB(36, bookmarkTop, 36, 0),
           child: content,
         ),
       );

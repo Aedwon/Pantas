@@ -17,7 +17,11 @@ Future<void> showWebLessonSearch(BuildContext context) => showWebOverlay<void>(
       context: context,
       motion: WebOverlayMotion.popover,
       barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-      barrierColor: const Color(0x381D1D1F),
+      // The board's gray would lighten a dark page, so dark takes black, as
+      // the other wide dialogs do.
+      barrierColor: context.webTokens.dark
+          ? Colors.black.withValues(alpha: .28)
+          : const Color(0x381D1D1F),
       builder: (_) => const WebLessonSearch(),
     );
 
@@ -49,8 +53,14 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
 
   void _open(String id) {
     final router = GoRouter.of(context);
+    // The wide search is a dialog, so Esc from the lesson lands on the page it
+    // was opened over, never on the search. The back label names that page.
+    final from =
+        router.routerDelegate.currentConfiguration.uri.path.startsWith('/home')
+            ? 'home'
+            : 'study';
     Navigator.pop(context);
-    router.push('/lesson/$id?from=search');
+    router.push('/lesson/$id?from=$from');
   }
 
   void _move(int delta, int length) {
@@ -220,10 +230,11 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                         ],
                       ),
                     )
-                  else
+                  else if (results.isNotEmpty)
                     _resultList(t, results, selected, groupLabel),
-                  // The board's "nothing matched" panel has no key footer.
-                  if (_query.isEmpty || results.isNotEmpty)
+                  // The board's "nothing matched" panel has no key footer, and
+                  // neither has an empty list: nothing to move through (2G-5).
+                  if (results.isNotEmpty)
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 18,
@@ -326,6 +337,8 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                // Every title wraps to two lines, then ends
+                                // in an ellipsis, so rows behave alike.
                                 Text.rich(
                                   _highlight(
                                     results[i].titleMatch,
@@ -333,6 +346,8 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                     t.style(17, height: 22 / 17),
                                     context,
                                   ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
                                   results[i].topicName,

@@ -27,8 +27,11 @@ class WebRouteShell extends ConsumerWidget {
       );
     }
     if (!context.wideWeb) return child;
-    // The guardian screens are full screen: no sidebar and no tabs.
-    if (path.startsWith('/guardian')) return child;
+    // The guardian screens and onboarding are full screen: no sidebar and no
+    // tabs, at every wide size (3M-10: the tabs showed at 1024 to 1279).
+    if (path.startsWith('/guardian') || path.startsWith('/onboarding')) {
+      return child;
+    }
     // A legal page opened during onboarding has no main navigation.
     if (path.startsWith('/legal/') && ref.watch(legalInOnboardingProvider)) {
       return child;
@@ -37,6 +40,8 @@ class WebRouteShell extends ConsumerWidget {
       return CallbackShortcuts(
         bindings: {
           const SingleActivator(LogicalKeyboardKey.keyK, control: true): () =>
+              showWebLessonSearch(context),
+          const SingleActivator(LogicalKeyboardKey.keyK, meta: true): () =>
               showWebLessonSearch(context),
         },
         child: child,

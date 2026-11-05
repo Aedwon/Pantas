@@ -31,6 +31,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/assessment/application/assessment_leave_guard.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
@@ -96,6 +97,10 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Timer? _slowTimer;
   bool _advancing = false;
   bool _leaveOpen = false;
+  // Set just before this page itself navigates away (leave confirmed, results,
+  // already done), so the route's `onExit` lets that through without asking.
+  bool _exiting = false;
+  AssessmentLeaveGuard? _guard;
   int _generation = 0;
   Future<bool> Function()? _owner;
   final _questionClock = Stopwatch();
@@ -103,11 +108,26 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   @override
   void initState() {
     super.initState();
+    final guard = ref.read(assessmentLeaveGuardProvider)..running = _allowLeave;
+    _guard = guard;
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
+  }
+
+  /// Browser Back reaches the route's `onExit` instead of this page's pop
+  /// handling. It shows the same dialog as the X and keeps the answers. Leaving
+  /// the page itself is always allowed, and so is leaving before any question
+  /// is on screen.
+  Future<bool> _allowLeave() async {
+    if (!mounted || _exiting || _session == null) return true;
+    // Saving the answers: the X is off now, and so is Back.
+    if (_completing) return false;
+    unawaited(_leave());
+    return false;
   }
 
   @override
   void dispose() {
+    _guard?.detach(_allowLeave);
     _generation++;
     _slowTimer?.cancel();
     _questionClock.stop();
@@ -149,6 +169,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
           await ref.read(assessmentCompletedProvider(widget.examId).future);
       if (!await _owner!()) throw StateError('Assessment ownership changed');
       if (completed && mounted) {
+        _exiting = true;
         context.go('/home');
         return;
       }
@@ -217,6 +238,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
           _index = index + 1;
           _picked = null;
         });
+        // The ring on the answer just given must not carry to the same
+        // place on the next question (the quiz does the same).
+        releaseChoiceFocus(this);
         return;
       }
       setState(() => _session = updated);
@@ -263,10 +287,14 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       if (mounted) {
         // Stay in the saving state: this page is replaced, not shown again.
         done = true;
+        _exiting = true;
         context.pushReplacement('/assessment/${widget.examId}/results');
       }
     } on AssessmentAlreadyCompleted {
-      if (await _checkOwner() && mounted) context.go('/home');
+      if (await _checkOwner() && mounted) {
+        _exiting = true;
+        context.go('/home');
+      }
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
@@ -299,6 +327,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     _leaveOpen = false;
     if ((leave ?? false) && mounted) {
       _generation++;
+      _exiting = true;
       context.go('/home');
     }
   }
@@ -404,7 +433,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                     onPick: (id) => setState(() => _picked = id),
                     onNext: _next,
                     onLeave: _leave,
-                    report: IconButton(
+                    report: WebTopBarButton(
                       tooltip: 'Report',
                       icon: IconTheme(
                         data: IconThemeData(
@@ -544,7 +573,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                         ),
                         const Spacer(),
                         PantasButton(
-                          label: 'Next',
+                          label: _index + 1 == session.questions.length
+                              ? 'Finish'
+                              : 'Next',
                           height: 44,
                           radius: 99,
                           fontSize: 16,

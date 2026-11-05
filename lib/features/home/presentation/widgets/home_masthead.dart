@@ -139,11 +139,10 @@ class HomeMasthead extends ConsumerWidget {
               now,
             ),
             monthAbbreviation: _monthAbbreviation,
-            onDay: (date) => unawaited(
-              date.isBefore(DateTime(now.year, now.month, now.day))
-                  ? showPlanPastDay(context, date)
-                  : context.push<void>('/plan/day/${dayKey(date)}'),
-            ),
+            onDay: (date) =>
+                date.isBefore(DateTime(now.year, now.month, now.day))
+                    ? showPlanPastDay(context, date)
+                    : context.push<void>('/plan/day/${dayKey(date)}'),
           ),
         ],
       );
@@ -468,7 +467,7 @@ String greetingFor(DateTime now, [AppLocalizations? l10n]) {
 }
 
 /// Board `.week`: day cells 44 px wide with 4 px gaps, then the exam tile.
-class _WebWeekCard extends StatelessWidget {
+class _WebWeekCard extends StatefulWidget {
   const _WebWeekCard({
     required this.now,
     required this.start,
@@ -484,13 +483,38 @@ class _WebWeekCard extends StatelessWidget {
   final HomeMastheadData masthead;
   final String footer;
   final String Function(int month) monthAbbreviation;
-  final ValueChanged<DateTime> onDay;
+
+  /// Resolves when what the tap opened is closed again.
+  final Future<void> Function(DateTime) onDay;
+
+  @override
+  State<_WebWeekCard> createState() => _WebWeekCardState();
+}
+
+class _WebWeekCardState extends State<_WebWeekCard> {
+  /// The day whose popover is open: board PL_DayPast marks it in the strip.
+  DateTime? _open;
+
+  Future<void> _tap(DateTime date) async {
+    setState(() => _open = date);
+    try {
+      await widget.onDay(date);
+    } finally {
+      if (mounted) setState(() => _open = null);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    final start = widget.start;
+    final week = widget.week;
+    final masthead = widget.masthead;
+    final footer = widget.footer;
+    final monthAbbreviation = widget.monthAbbreviation;
     final off = t.dark ? t.colors.tertiaryLabel : const Color(0xFFC7C7CC);
     final date = masthead.examDate;
+    final examState = _stateFor(date, widget.now);
     return WebCard(
       padding: const EdgeInsets.fromLTRB(8, 8, 10, 8),
       child: Row(
@@ -505,7 +529,8 @@ class _WebWeekCard extends StatelessWidget {
               state: week.states[i],
               todayFraction: week.todayFraction,
               off: off,
-              onPressed: () => onDay(start.add(Duration(days: i))),
+              selected: _open == start.add(Duration(days: i)),
+              onPressed: () => unawaited(_tap(start.add(Duration(days: i)))),
             ),
           ],
           // `.exam`: margin-left 4 after the 4 px gap, 12 px padding.
@@ -523,38 +548,10 @@ class _WebWeekCard extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  width: 42,
-                  height: 36,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: t.colors.label, width: 1.5),
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        date == null
-                            ? '+'
-                            : date.day == null
-                                ? monthAbbreviation(date.month)
-                                : '${date.day!.day}',
-                        maxLines: 1,
-                        style: t.style(14, weight: FontWeight.w700, height: 1),
-                      ),
-                      if (date?.day != null)
-                        Text(
-                          monthAbbreviation(date!.month),
-                          style: t.style(
-                            9,
-                            weight: FontWeight.w700,
-                            height: 1.2,
-                            color: t.colors.secondaryLabel,
-                          ),
-                        ),
-                    ],
-                  ),
+                _WebExamTile(
+                  date: date,
+                  state: examState,
+                  monthAbbreviation: monthAbbreviation,
                 ),
                 const SizedBox(width: 10),
                 Column(
@@ -564,7 +561,13 @@ class _WebWeekCard extends StatelessWidget {
                       masthead.examShortName,
                       style: t.style(13, weight: FontWeight.w700, height: 1.3),
                     ),
-                    Text(footer, style: t.sm),
+                    Text(
+                      footer,
+                      style: examState == _ExamChipState.today ||
+                              examState == _ExamChipState.noDate
+                          ? t.sm.copyWith(color: t.colors.accent)
+                          : t.sm,
+                    ),
                   ],
                 ),
               ],
@@ -574,6 +577,112 @@ class _WebWeekCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Board `.exam` tile: 42 by 36. A day to come keeps the label color. Today
+/// is teal, a passed date is gray and no date is a dashed gray tile.
+class _WebExamTile extends StatelessWidget {
+  const _WebExamTile({
+    required this.date,
+    required this.state,
+    required this.monthAbbreviation,
+  });
+  final ExamDate? date;
+  final _ExamChipState state;
+  final String Function(int month) monthAbbreviation;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final noDate = state == _ExamChipState.noDate;
+    final passed = state == _ExamChipState.passed;
+    final today = state == _ExamChipState.today;
+    final muted = t.disabledText;
+    final text = noDate || passed ? muted : t.colors.label;
+    final outline = noDate || passed
+        ? muted
+        : today
+            ? t.colors.accent
+            : t.colors.label;
+    final day = date?.day;
+    final tile = Container(
+      width: 42,
+      height: 36,
+      alignment: Alignment.center,
+      decoration: noDate
+          ? null
+          : BoxDecoration(
+              border: Border.all(
+                color: outline,
+                width: passed ? 1 : 1.5,
+              ),
+              borderRadius: BorderRadius.circular(9),
+            ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            date == null
+                ? '+'
+                : day == null
+                    ? monthAbbreviation(date!.month)
+                    : '${day.day}',
+            maxLines: 1,
+            style: t.style(
+              14,
+              weight: FontWeight.w700,
+              height: 1,
+              color: text,
+            ),
+          ),
+          if (day != null)
+            Text(
+              monthAbbreviation(date!.month),
+              style: t.style(
+                9,
+                weight: FontWeight.w700,
+                height: 1.2,
+                color: t.colors.secondaryLabel,
+              ),
+            ),
+        ],
+      ),
+    );
+    if (!noDate) return tile;
+    return CustomPaint(
+      key: const ValueKey('web-exam-tile-dashed'),
+      foregroundPainter: _DashedTilePainter(color: outline),
+      child: tile,
+    );
+  }
+}
+
+class _DashedTilePainter extends CustomPainter {
+  const _DashedTilePainter({required this.color});
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2;
+    final outline = Path()
+      ..addRRect(
+        RRect.fromRectAndRadius(
+          (Offset.zero & size).deflate(.6),
+          const Radius.circular(9),
+        ),
+      );
+    for (final metric in outline.computeMetrics()) {
+      for (var at = 0.0; at < metric.length; at += 6) {
+        canvas.drawPath(metric.extractPath(at, at + 3), paint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_DashedTilePainter old) => old.color != color;
 }
 
 /// Board `.wd`: 44 px wide, 4 px padding, 2 px gaps: label, 30 px number
@@ -586,8 +695,10 @@ class _WebWeekDay extends StatefulWidget {
     required this.todayFraction,
     required this.off,
     required this.onPressed,
+    this.selected = false,
     super.key,
   });
+  final bool selected;
   final String label;
   final int day;
   final WeekDayState state;
@@ -637,74 +748,77 @@ class _WebWeekDayState extends State<_WebWeekDay> {
     return MouseRegion(
       onEnter: (_) => setState(() => _hover = true),
       onExit: (_) => setState(() => _hover = false),
-      child: InkWell(
-        onTap: widget.onPressed,
+      child: WebKeyboardRing(
         borderRadius: BorderRadius.circular(12),
-        hoverColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        child: Container(
-          width: 44,
-          padding: const EdgeInsets.symmetric(vertical: 4),
-          decoration: BoxDecoration(
-            color: _hover
-                ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
-                : null,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                widget.label,
-                style: t.style(
-                  11,
-                  weight: today ? FontWeight.w700 : FontWeight.w600,
-                  height: 1.27,
-                  color: dayOff
-                      ? widget.off
-                      : today
-                          ? t.colors.accent
-                          : t.colors.secondaryLabel,
+        child: InkWell(
+          onTap: widget.onPressed,
+          borderRadius: BorderRadius.circular(12),
+          hoverColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          child: Container(
+            width: 44,
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            decoration: BoxDecoration(
+              color: _hover || widget.selected
+                  ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
+                  : null,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  widget.label,
+                  style: t.style(
+                    11,
+                    weight: today ? FontWeight.w700 : FontWeight.w600,
+                    height: 1.27,
+                    color: dayOff
+                        ? widget.off
+                        : today
+                            ? t.colors.accent
+                            : t.colors.secondaryLabel,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 2),
-              SizedBox(
-                height: 30,
-                child: Stack(
-                  alignment: Alignment.center,
-                  clipBehavior: Clip.none,
-                  children: [
-                    // The ring stays through 100%. The check pops in over the
-                    // digit as the ring finishes (420 ms, popC).
-                    if (today && fraction > 0)
-                      ProgressRing(
-                        key: const ValueKey('web-today-progress'),
-                        size: 34,
-                        fraction: fraction,
-                        child: disc,
-                      )
-                    else
-                      disc,
-                  ],
-                ),
-              ),
-              const SizedBox(height: 2),
-              Container(
-                width: 5,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: dot,
-                  shape: BoxShape.circle,
-                  gradient: dot == null
-                      ? LinearGradient(
-                          stops: const [.5, .5],
-                          colors: [t.colors.accent, const Color(0xFFD1D1D6)],
+                const SizedBox(height: 2),
+                SizedBox(
+                  height: 30,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    clipBehavior: Clip.none,
+                    children: [
+                      // The ring stays through 100%. The check pops in over the
+                      // digit as the ring finishes (420 ms, popC).
+                      if (today && fraction > 0)
+                        ProgressRing(
+                          key: const ValueKey('web-today-progress'),
+                          size: 34,
+                          fraction: fraction,
+                          child: disc,
                         )
-                      : null,
+                      else
+                        disc,
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 2),
+                Container(
+                  width: 5,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: dot,
+                    shape: BoxShape.circle,
+                    gradient: dot == null
+                        ? LinearGradient(
+                            stops: const [.5, .5],
+                            colors: [t.colors.accent, const Color(0xFFD1D1D6)],
+                          )
+                        : null,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

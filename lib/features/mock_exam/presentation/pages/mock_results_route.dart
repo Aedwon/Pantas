@@ -159,15 +159,24 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
               proPaused: paused,
               fromRecord: fromRecord,
               forfeitedPart: endedPart,
-              onDone: () => leavePage(
-                context,
-                fallback: '/quiz',
-                respectPopScope: false,
-              ),
-              onFullRecord: fromRecord && context.wideWeb
-                  ? () =>
-                      context.canPop() ? context.pop() : context.go('/record')
-                  : null,
+              // A mock just submitted opens from its run, which sits above the
+              // setup page. Done goes to the Quiz tab, not back to that setup.
+              onDone: fresh
+                  ? () => context.go('/quiz')
+                  : () => leavePage(
+                        context,
+                        fallback: '/quiz',
+                        respectPopScope: false,
+                      ),
+              // MK_Results and MK_Results_m: the versus-past card ends with
+              // "See full record". From Record it goes back to the record.
+              onFullRecord: fromRecord
+                  ? (context.wideWeb
+                      ? () => context.canPop()
+                          ? context.pop()
+                          : context.go('/record')
+                      : null)
+                  : () => context.go('/record'),
               onSeePro: () => context.push('/settings/pro'),
               pastResults: [
                 for (final previous

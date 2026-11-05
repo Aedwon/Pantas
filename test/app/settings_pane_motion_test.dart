@@ -69,13 +69,17 @@ void main() {
           ...web.settingsRoutes(ref),
           GoRoute(
             path: '/onboarding',
-            // The onboarding page draws the same top bar the legal page does.
+            // The onboarding page draws the same top bar the legal page does,
+            // with the same 10 px logo inset.
             builder: (_, __) => const Material(
               child: Column(
                 children: [
-                  WebTopBar(
-                    leading: PantasLogo(size: 28),
-                    title: Text('Pantas'),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: WebTopBar(
+                      leading: PantasLogo(size: 28),
+                      title: Text('Pantas'),
+                    ),
                   ),
                   Text('Terms and Privacy'),
                 ],
@@ -242,7 +246,7 @@ void main() {
     await tapRow(tester, 'About');
     await tester.pumpAndSettle();
     expect(where(), '/settings/about');
-    await tester.tap(find.text('Privacy policy'));
+    await tester.tap(find.text('Privacy Policy'));
     await tester.pumpAndSettle();
     expect(where(), '/legal/privacy');
     // A student presses Tab once to reach the page, then Esc.

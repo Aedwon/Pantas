@@ -10,12 +10,14 @@ import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/assessment/domain/models/topic_mastery.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -72,6 +74,7 @@ class _MissingSubjectContent extends ContentRepository {
 }
 
 void main() {
+  weakestTopicTests();
   late AppDatabase db;
   late ContentDatabase contentDb;
 
@@ -142,7 +145,12 @@ void main() {
     expect(find.text('Verbal'), findsOneWidget);
     expect(find.text('50%'), findsOneWidget);
     expect(find.text('Vocabulary'), findsOneWidget);
-    expect(find.text('YOUR PLAN STARTS WITH'), findsOneWidget);
+    expect(find.text('WEAKEST TOPIC'), findsOneWidget);
+    expect(find.textContaining('lowest score in this check'), findsOneWidget);
+    expect(find.text('It changes as you study.'), findsOneWidget);
+    expect(find.textContaining('your weakest topic'), findsNothing);
+    // The plan does not start with this topic, so no "Today" tag claims it.
+    expect(find.text('Today'), findsNothing);
     expect(find.text('in 24 minutes'), findsNothing);
   });
   testWidgets('the ring counts only the subjects the rows show',
@@ -327,4 +335,78 @@ void main() {
       });
     }
   }
+}
+
+TopicMastery _mastery(String id, int correct, int total, int ordering) =>
+    TopicMastery(
+      topic: Topic(
+        id: id,
+        subjectId: 's',
+        name: id,
+        ordering: ordering,
+      ),
+      correct: correct,
+      total: total,
+    );
+
+void weakestTopicTests() {
+  // The plan card says "<subject> · lowest score in this check". With two
+  // questions a topic, many topics tie at zero, so it must not name one from
+  // the strongest subject when a weaker subject has a topic at the same score.
+  group('the topic the plan card names as weakest', () {
+    const subjects = [
+      (name: 'General Information', correct: 1, total: 8),
+      (name: 'Reasoning', correct: 3, total: 6),
+    ];
+    const subjectOf = {
+      'logic': 'Reasoning',
+      'spatial': 'Reasoning',
+      'civics': 'General Information',
+      'history': 'General Information',
+    };
+
+    test('a tie goes to the weakest subject, not to the first topic', () {
+      final weakest = weakestAssessedTopic(
+        [
+          // Sorted weakest first, as the result keeps them: logic first.
+          _mastery('logic', 0, 1, 1),
+          _mastery('civics', 0, 2, 7),
+          _mastery('spatial', 1, 1, 2),
+          _mastery('history', 1, 2, 8),
+        ],
+        subjectOf: subjectOf,
+        subjects: subjects,
+      );
+      expect(weakest!.topic.id, 'civics');
+    });
+
+    test('a lower topic score still wins over a weaker subject', () {
+      final weakest = weakestAssessedTopic(
+        [
+          _mastery('logic', 0, 2, 1),
+          _mastery('civics', 1, 2, 7),
+        ],
+        subjectOf: subjectOf,
+        subjects: subjects,
+      );
+      expect(weakest!.topic.id, 'logic');
+    });
+
+    test('a full tie goes to authored order, and no topics gives none', () {
+      final weakest = weakestAssessedTopic(
+        [_mastery('history', 0, 1, 8), _mastery('civics', 0, 1, 7)],
+        subjectOf: subjectOf,
+        subjects: subjects,
+      );
+      expect(weakest!.topic.id, 'civics');
+      expect(
+        weakestAssessedTopic(
+          const [],
+          subjectOf: subjectOf,
+          subjects: subjects,
+        ),
+        isNull,
+      );
+    });
+  });
 }

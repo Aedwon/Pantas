@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
@@ -21,6 +22,7 @@ class WebSessionResults extends StatelessWidget {
     required this.onAll,
     required this.onMistakes,
     required this.onNotes,
+    this.onMistake,
     this.source,
     this.debriefCards,
     this.proPaused = false,
@@ -39,6 +41,10 @@ class WebSessionResults extends StatelessWidget {
   final Widget? debriefCards;
   final VoidCallback onDone;
   final ValueChanged<int> onQuestion;
+
+  /// A mistake row opens that mistake, among the mistakes only. Without it
+  /// the row opens the question like any other.
+  final ValueChanged<int>? onMistake;
   final VoidCallback onAll;
   final VoidCallback onMistakes;
   final VoidCallback onNotes;
@@ -66,6 +72,14 @@ class WebSessionResults extends StatelessWidget {
     final unit = elapsed?.inMinutes == 1 ? 'minute' : 'minutes';
     final next = onNext != null && batch != null && batch.ordinal < batch.total;
     final mistakeRowTitle = t.style(16, height: 1.3);
+    // QS_EndLow: the mistakes link is teal and bold, the all-questions link
+    // plain. The phone's link is teal.
+    final mistakesLinkTitle = t.style(
+      16,
+      height: 1.3,
+      weight: FontWeight.w600,
+      color: t.colors.accent,
+    );
     Widget circle(int i) => SizedBox.square(
           dimension: 30,
           child: TextButton(
@@ -87,15 +101,13 @@ class WebSessionResults extends StatelessWidget {
           ),
         );
     return CallbackShortcuts(
-      bindings: {
-        const SingleActivator(LogicalKeyboardKey.escape): onDone,
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): next ? onNext! : onDone,
-      },
-      child: Focus(
-        autofocus: true,
+      bindings: {const SingleActivator(LogicalKeyboardKey.escape): onDone},
+      child: KeyFocusKeeper(
+        // The page's own node only holds its keys: Tab skips it, so the
+        // first stop is the Close button.
+        skipTraversal: true,
+        // Enter runs the control that holds focus; with none, it goes on.
+        onKeyEvent: enterKeyHandler(next ? onNext! : onDone),
         child: Column(
           children: [
             SizedBox(
@@ -254,7 +266,8 @@ class WebSessionResults extends StatelessWidget {
                                             boardMetrics: true,
                                             leading: _MissMark(color: t),
                                             chevron: WebRowChevron.always,
-                                            onPressed: () => onQuestion(i),
+                                            onPressed: () =>
+                                                (onMistake ?? onQuestion)(i),
                                           ),
                                           1700 + position * 90,
                                           380,
@@ -264,7 +277,7 @@ class WebSessionResults extends StatelessWidget {
                                         WebRow(
                                           title: 'See all '
                                               '${misses.length} mistakes',
-                                          titleStyle: mistakeRowTitle,
+                                          titleStyle: mistakesLinkTitle,
                                           boardMetrics: true,
                                           chevron: WebRowChevron.always,
                                           onPressed: onMistakes,
@@ -455,28 +468,19 @@ class WebQuizQuestionList extends StatelessWidget {
     ];
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
+        skipTraversal: true,
         child: Column(
           children: [
             WebTopBar(
               leading: Row(
                 children: [
-                  TextButton.icon(
+                  WebBackLink(
+                    label: 'Session',
                     onPressed: onBack,
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(0, 40),
-                      padding: EdgeInsets.zero,
-                      foregroundColor: t.colors.accent,
-                      overlayColor: Colors.transparent,
-                      visualDensity: VisualDensity.standard,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      textStyle: t.style(17),
-                    ),
-                    icon: const Icon(Icons.chevron_left, size: 20),
-                    label: const Text('Session'),
+                    nudge: false,
                   ),
-                  const SizedBox(width: 10),
+                  // No gap: the link's own right padding is the room.
                   const WebKeyHint('Esc'),
                 ],
               ),

@@ -99,6 +99,13 @@ void main() {
     await db.into(db.accountPrefs).insert(
           AccountPrefsCompanion.insert(key: 'old_pref', value: 'old'),
         );
+    // A Keep this device that failed earlier must not outlive this choice.
+    await db.into(db.syncMeta).insert(
+          SyncMetaCompanion.insert(
+            key: 'pending_full_push',
+            value: 'gen-failed',
+          ),
+        );
 
     final result = await FullPullBootstrap(
       db: db,
@@ -119,6 +126,7 @@ void main() {
     );
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-1');
     expect(await _marker(db, 'pending_full_pull'), isNull);
+    expect(await _marker(db, 'pending_full_push'), isNull);
   });
 
   test('successful replacement clears represented queue and journal state',

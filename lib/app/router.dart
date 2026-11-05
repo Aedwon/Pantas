@@ -23,8 +23,10 @@ import 'package:pantas/app/routes/quiz_routes.dart';
 import 'package:pantas/app/routes/mock_routes.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/app/routes/onboarding_routes.dart';
+import 'package:pantas/features/onboarding/application/onboarding_browser_back.dart';
 import 'package:pantas/app/routes/guardian_routes.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/domain/guardian_copy.dart';
 import 'package:pantas/app/routes/wrapped_routes.dart';
 import 'package:pantas/app/routes/states_routes.dart';
 import 'package:pantas/app/routes/dev_routes.dart';
@@ -41,6 +43,9 @@ final routerProvider = Provider<GoRouter>((ref) {
     entitlementProvider,
     guardianGateProvider,
   ]);
+  // Every page's address shows, so a reload stays on it. The address of a page
+  // that needs in-memory arguments is handled by `startLocationFor`.
+  GoRouter.optionURLReflectsImperativeAPIs = kIsWeb;
   final router = GoRouter(
     initialLocation: takeInitialRouterLocation(),
     refreshListenable: refreshListenable,
@@ -66,6 +71,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       // legal pages it links to must open for them too.
       final path = state.matchedLocation;
       if (path == '/guardian') return null;
+      // The notice for teens is not written yet, so its address opens the
+      // Privacy Policy, the nearest document, not a not-found page.
+      if (path == '/legal/teens' && !teenNoticeReady) return '/legal/privacy';
       final guardian = ref.read(guardianGateProvider).valueOrNull;
       if (guardian == GuardianGate.waiting) {
         // A minor is held on Waiting, or on the form to change the email,
@@ -92,15 +100,23 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (passed == null || focus == null || complete == null) return null;
       final atOnboarding = state.matchedLocation == '/onboarding' ||
           state.matchedLocation.startsWith('/onboarding/');
+      // An address outside onboarding that arrives while onboarding is open is
+      // the browser's Back or Forward: every step shares one address. The open
+      // page goes back a step, and the student stays in onboarding.
+      String toOnboarding() {
+        ref.read(onboardingBrowserBackProvider).requested();
+        return '/onboarding';
+      }
+
       if (ref.read(studyNeedsExamSettingsProvider)) {
-        return atOnboarding ? null : '/onboarding';
+        return atOnboarding ? null : toOnboarding();
       }
       if (passed && focus.needsSelection) {
-        if (!atOnboarding) return '/onboarding';
+        if (!atOnboarding) return toOnboarding();
         return null;
       }
-      if (!passed && !atOnboarding) return '/onboarding';
-      if (passed && !complete && !atOnboarding) return '/onboarding';
+      if (!passed && !atOnboarding) return toOnboarding();
+      if (passed && !complete && !atOnboarding) return toOnboarding();
       if (passed && complete && atOnboarding) return '/home';
       return null;
     },

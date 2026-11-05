@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -34,10 +35,15 @@ class PerformanceScreen extends ConsumerWidget {
   const PerformanceScreen({
     this.initialLevel,
     this.reportReady = true,
+    this.openTopicId,
     super.key,
   });
   final bool reportReady;
   final int? initialLevel;
+
+  /// The topic whose panel the page opened over it (an address opened on wide
+  /// web), so its row stays tinted behind the panel.
+  final String? openTopicId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -61,7 +67,7 @@ class PerformanceScreen extends ConsumerWidget {
       if (context.wideWeb) {
         return Scaffold(
           body: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(44, 28, 44, 44),
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -136,28 +142,27 @@ class PerformanceScreen extends ConsumerWidget {
           ? SortCycleOrder.strongest
           : SortCycleOrder.weakest,
       onBack: () => _back(context),
+      openTopicId: openTopicId,
       onTopic: (id) {
         if (context.wideWeb) {
-          unawaited(
-            showWebOverlay<void>(
-              context: context,
-              motion: WebOverlayMotion.drawerOf(480),
-              barrierLabel: 'Close topic',
-              barrierColor: Colors.black.withValues(alpha: .28),
-              builder: (context) => Align(
-                alignment: Alignment.centerRight,
-                child: SizedBox(
-                  width: 480,
-                  child: TopicScreen(topicId: id, inDrawer: true),
-                ),
+          return showWebOverlay<void>(
+            context: context,
+            motion: WebOverlayMotion.drawerOf(480),
+            barrierLabel: 'Close topic',
+            barrierColor: Colors.black.withValues(alpha: .28),
+            builder: (context) => Align(
+              alignment: Alignment.centerRight,
+              child: SizedBox(
+                width: 480,
+                child: TopicScreen(topicId: id, inDrawer: true),
               ),
             ),
           );
-        } else {
-          unawaited(
-            context.push('/performance/topic/${Uri.encodeComponent(id)}'),
-          );
         }
+        unawaited(
+          context.push('/performance/topic/${Uri.encodeComponent(id)}'),
+        );
+        return null;
       },
       onLesson: (id) =>
           unawaited(context.push('/lesson/${Uri.encodeComponent(id)}')),
@@ -224,7 +229,11 @@ class TopicScreen extends ConsumerWidget {
         backLabel: 'Your performance',
         onBack: leave,
         children: [
-          if (detail.hasError)
+          if (detail.error is TopicNotFound)
+            // A topic the exam does not have: Try Again cannot help, so the
+            // page says so and leaves the back link as the way out.
+            const StateView(message: 'We could not find that topic.')
+          else if (detail.hasError)
             errorFor(
               'topic',
               () => ref.invalidate(topicDetailProvider(topicId)),
@@ -274,8 +283,12 @@ class _TopicDrawerPageState extends State<_TopicDrawerPage> {
           children: [
             // The page behind is covered, so Esc and focus belong to the
             // drawer, which plays its exit before leaving.
-            const ExcludeFocus(
-              child: PerformanceScreen(initialLevel: 1, reportReady: false),
+            ExcludeFocus(
+              child: PerformanceScreen(
+                initialLevel: 1,
+                reportReady: false,
+                openTopicId: widget.topicId,
+              ),
             ),
             Positioned.fill(
               child: WebOverlayLayer(

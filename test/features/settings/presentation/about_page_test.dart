@@ -12,14 +12,14 @@ void main() {
   testWidgets('About uses the configured build number', (tester) async {
     await tester.pumpAppWithProviders(const AboutPage());
     await tester.pumpAndSettle();
-    expect(find.text('Version 0.1.0 (build $kBuildNumber)'), findsOneWidget);
+    expect(find.text('Version 0.1.0 ($kBuildNumber)'), findsOneWidget);
   });
 
   testWidgets('About preserves explicit build number overrides',
       (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(buildNumber: 'custom'));
     await tester.pumpAndSettle();
-    expect(find.text('Version 0.1.0 (build custom)'), findsOneWidget);
+    expect(find.text('Version 0.1.0 (custom)'), findsOneWidget);
   });
 
   testWidgets('about carries legal, analytics, the DPO and feedback',
@@ -27,9 +27,12 @@ void main() {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
     await tester.pumpAndSettle();
 
-    expect(find.text('Privacy policy'), findsOneWidget);
-    expect(find.text('Terms of service'), findsOneWidget);
-    expect(find.text('Help improve the app'), findsOneWidget);
+    expect(find.text('Privacy Policy'), findsOneWidget);
+    expect(find.text('Terms of Service'), findsOneWidget);
+    expect(
+      find.text('Help improve Pantas by sharing usage data'),
+      findsOneWidget,
+    );
     expect(find.text('Contact our data protection officer'), findsOneWidget);
     expect(find.text('Send feedback'), findsOneWidget);
   });

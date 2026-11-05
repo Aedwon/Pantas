@@ -347,6 +347,40 @@ void main() {
       expect(mapFade(tester), 1);
     });
 
+    testWidgets('a topic card is left fading while the next one arrives',
+        (tester) async {
+      await pumpApp(tester, study(map: _map(), open: 't1'));
+      await tester.pumpAndSettle();
+      expect(find.text('Lesson l1'), findsOneWidget);
+      await pumpApp(tester, study(map: _map(), open: 't2'));
+      await tester.pump();
+      await after(tester, 16);
+      // The card being left is still on screen, not gone in one frame.
+      final leaving = find.byKey(const ValueKey('web-study-topic-leaving'));
+      expect(leaving, findsOneWidget);
+      expect(tester.widget<Opacity>(leaving).opacity, greaterThan(.4));
+      expect(find.text('Lesson l1'), findsOneWidget);
+      await after(tester, 100);
+      // At 90 ms it is gone, and the new card is on its way in.
+      expect(leaving, findsNothing);
+      expect(find.text('Lesson l1'), findsNothing);
+      expect(find.text('Lesson l3'), findsOneWidget);
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('reduced motion swaps the topic card at once', (tester) async {
+      await pumpApp(tester, study(map: _map(), open: 't1'), reduced: true);
+      await tester.pumpAndSettle();
+      await pumpApp(tester, study(map: _map(), open: 't2'), reduced: true);
+      await tester.pump();
+      expect(
+        find.byKey(const ValueKey('web-study-topic-leaving')),
+        findsNothing,
+      );
+      expect(find.text('Lesson l1'), findsNothing);
+      expect(find.text('Lesson l3'), findsOneWidget);
+    });
+
     testWidgets('reduced motion changes the columns at once', (tester) async {
       await pumpApp(tester, study(map: _map()), reduced: true);
       await tester.pumpAndSettle();

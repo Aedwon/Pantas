@@ -144,8 +144,11 @@ class _PulleyPainter extends CustomPainter {
     // The load hangs below. Movable pulleys ride between the beam and it.
     final loadTop = size.height - 34;
     var hangerTop = beamY + 25 + radius;
+    // Beside a fixed pulley the movable one sits lower, so the two circles,
+    // which touch side by side, do not also crowd each other from above.
+    final drop = both ? radius * 1.6 : 0.0;
     for (var i = 0; i < movable; i++) {
-      final y = beamY + 46.0 + i * (radius * 2.4);
+      final y = beamY + 46.0 + drop + i * (radius * 2.4);
       hangerTop = y;
       // One supporting segment runs up to the beam. The other runs up to
       // the fixed pulley when there is one, and to the beam when not.

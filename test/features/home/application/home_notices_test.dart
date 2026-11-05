@@ -82,7 +82,7 @@ void main() {
       expect(result?.title, 'Pro trial ends in 2 days');
       expect(
         result?.detail,
-        'Your free trial ends on Oct 2. You won\u2019t be charged.',
+        "Your free trial ends on Oct 2. You won't be charged.",
       );
       expect(result?.primaryLabel, 'See Pro');
       expect(result?.secondaryLabel, 'Got It');

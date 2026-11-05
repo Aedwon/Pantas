@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_question.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
@@ -45,33 +46,43 @@ class WebAssessmentLayout extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): onLeave,
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): () {
-          if (chosenId != null) onNext();
-        },
         for (final (i, key) in const [
           LogicalKeyboardKey.keyA,
           LogicalKeyboardKey.keyB,
           LogicalKeyboardKey.keyC,
           LogicalKeyboardKey.keyD,
+          // Some questions have five choices, and the letter must work for
+          // each one the page shows.
+          LogicalKeyboardKey.keyE,
+          LogicalKeyboardKey.keyF,
         ].indexed)
           SingleActivator(key): () {
             if (i < question.choices.length) onPick(question.choices[i].id);
           },
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
+        // Enter runs the control that holds focus (Report, Leave, a choice).
+        // On the page, or on a choice that is already picked, it goes next.
+        onKeyEvent: enterKeyHandler(
+          () {
+            if (chosenId != null) onNext();
+          },
+          keepsEnter: (focused) =>
+              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
+              WebOptionState.selected,
+        ),
         child: Stack(
           children: [
             Column(
               children: [
-                WebTopBar(
+                // The title is centered on the page, as the quiz's is.
+                WebCenteredTopBar(
+                  titleKey: const ValueKey('assessment-top-title'),
+                  title: 'Assessment · $examName',
                   leading: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton(
+                      WebTopBarButton(
                         tooltip: 'Leave assessment',
                         onPressed: onLeave,
                         icon: Icon(
@@ -83,11 +94,6 @@ class WebAssessmentLayout extends StatelessWidget {
                       const SizedBox(width: 10),
                       const WebKeyHint('Esc'),
                     ],
-                  ),
-                  title: Text(
-                    'Assessment · $examName',
-                    textAlign: TextAlign.center,
-                    style: t.style(14, color: t.colors.tertiaryLabel),
                   ),
                   // The existing Report action remains available on web.
                   trailing: report ?? const SizedBox(width: 44),
@@ -115,7 +121,7 @@ class WebAssessmentLayout extends StatelessWidget {
                   compact: true,
                   counter: '${index + 1} of $total',
                   action: WebButton(
-                    label: 'Next',
+                    label: index + 1 == total ? 'Finish' : 'Next',
                     keyHint: 'Enter',
                     pill: true,
                     busy: saving,
@@ -147,6 +153,9 @@ class WebAssessmentLeaveDialog extends StatelessWidget {
         },
         child: Focus(
           autofocus: true,
+          // Enter is Keep Going, as in the quiz's Leave dialog, unless a
+          // button in it holds focus, which then runs itself.
+          onKeyEvent: enterKeyHandler(onKeepGoing),
           child: Dialog(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -207,8 +216,13 @@ class WebAssessmentResults extends StatelessWidget {
     this.saving = false,
     this.failure,
     this.sequence,
+    this.focusNode,
     super.key,
   });
+
+  /// The node that holds the page's keys, when the page puts focus back
+  /// by hand.
+  final FocusNode? focusNode;
 
   /// The entrance timeline. Without one, everything shows at once.
   final AssessmentResultsSequence? sequence;
@@ -246,8 +260,8 @@ class WebAssessmentResults extends StatelessWidget {
           if (!saving) onAcknowledge();
         },
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
+        focusNode: focusNode,
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 56),
           child: Center(
@@ -361,36 +375,16 @@ class WebAssessmentResults extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('YOUR PLAN STARTS WITH', style: t.eb),
+                                  Text('WEAKEST TOPIC', style: t.eb),
                                   const SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      Text(weakestTopic!, style: t.h3),
-                                      const SizedBox(width: 8),
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 8,
-                                          vertical: 2,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: t.colors.accentTint,
-                                          borderRadius:
-                                              BorderRadius.circular(99),
-                                        ),
-                                        child: Text(
-                                          'Today',
-                                          style: t.style(
-                                            12,
-                                            weight: FontWeight.w600,
-                                            color: t.tintText,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  // No "Today" tag: the plan does not start
+                                  // with this topic (it ranks by overall
+                                  // accuracy), so the tag would claim it.
+                                  Text(weakestTopic!, style: t.h3),
                                   Text(
-                                    '$weakestSubject · your weakest topic. '
-                                    'Weakest first. It changes as you study.',
+                                    '$weakestSubject · '
+                                    'lowest score in this check. '
+                                    'It changes as you study.',
                                     style: t.sub,
                                   ),
                                 ],

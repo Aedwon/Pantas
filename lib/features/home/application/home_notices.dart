@@ -52,7 +52,7 @@ HomeNotice? webTrialHomeNotice({
     kind: HomeNoticeKind.trial,
     title: _trialTitle(days),
     detail: 'Your free trial ends on ${PantasDates.short(endsAt, now: now)}. '
-        'You won\u2019t be charged.',
+        "You won't be charged.",
     dismissalToken:
         DateTime(endsAt.year, endsAt.month, endsAt.day).toIso8601String(),
     primaryLabel: 'See Pro',
@@ -160,8 +160,7 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
         kind: HomeNoticeKind.monthOnly,
         title:
             'Do you know the day of your ${focus.exam?.shortName ?? "exam"}?',
-        detail: "It's $month. Your plan is paced to the end of the month "
-            'until you pick the day.',
+        detail: 'Until then, your plan is paced to the end of $month.',
         dismissalToken: date.storageValue,
         primaryLabel: 'Save',
         secondaryLabel: 'Not Yet',

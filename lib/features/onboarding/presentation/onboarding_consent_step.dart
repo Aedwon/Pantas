@@ -33,6 +33,31 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
   bool _saving = false;
   bool _failed = false;
 
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_restore());
+  }
+
+  /// Back from a later step returns here with what the student already
+  /// accepted ticked, as the Year and Exam steps keep theirs (5S-9). A student
+  /// who never accepted sees both boxes empty: nothing is ticked for them.
+  Future<void> _restore() async {
+    try {
+      final settings =
+          await ref.read(settingsRepositoryProvider).readUserSettings();
+      if (!mounted || settings.acceptedTermsAt == null) return;
+      // A tick made while this read was running is the student's, not ours.
+      if (_acceptedTerms || _acceptedUsage) return;
+      setState(() {
+        _acceptedTerms = true;
+        _acceptedUsage = settings.helpImproveApp;
+      });
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    }
+  }
+
   Future<void> _continue() async {
     if (!_acceptedTerms || _saving) return;
     final telemetry = ref.read(telemetryProvider);

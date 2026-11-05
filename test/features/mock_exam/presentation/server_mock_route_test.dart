@@ -10,6 +10,8 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/mock_exam/application/mock_leave_guard.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
@@ -42,6 +44,9 @@ class _Server {
   bool resumed = false;
   bool completed = false;
   String availability = 'available';
+
+  /// What the server reports once a mock has been started.
+  String? availabilityAfterStart;
   int? nextEligibleAt;
   Exception? failAvailability;
   List<Map<String, Object?>> answers = [];
@@ -84,6 +89,7 @@ class _Server {
           failStart = null;
           throw failure;
         }
+        availability = availabilityAfterStart ?? availability;
         return {...view(), 'resumed': resumed};
       case 'getMockAvailability':
         final unreadable = failAvailability;
@@ -142,6 +148,7 @@ class _Server {
             paused = false;
           case 'discard':
             answers = [];
+            paused = false;
         }
         return view();
       case 'submitMock':
@@ -176,6 +183,7 @@ Future<_Fixture> _open(
   bool warningSeen = true,
   bool resume = false,
   bool stableEntitlement = false,
+  bool underQuiz = false,
 }) async {
   final db = inMemoryDatabase();
   addTearDown(db.close);
@@ -206,11 +214,25 @@ Future<_Fixture> _open(
       _Fixture(server, GoRouter(routes: const []), () => uid, clock);
   if (actor != null) fixture.actor = actor;
   final router = GoRouter(
-    initialLocation: '/mock',
+    initialLocation: underQuiz ? '/quiz' : '/mock',
     routes: [
       GoRoute(
         path: '/quiz',
-        builder: (_, __) => const Scaffold(body: Text('Quiz tab')),
+        // With [underQuiz] the tab reads the exam's open-mock status as the
+        // real Quiz tab does, so a stale status shows.
+        builder: (_, __) => Consumer(
+          builder: (_, ref, __) => Scaffold(
+            body: Column(
+              children: [
+                const Text('Quiz tab'),
+                if (underQuiz)
+                  Text(
+                    'status ${_status(ref)}',
+                  ),
+              ],
+            ),
+          ),
+        ),
       ),
       GoRoute(
         path: '/mock/results/:id',
@@ -220,6 +242,10 @@ Future<_Fixture> _open(
       ),
       GoRoute(
         path: '/mock',
+        // The same question the real web route asks (mock_routes_web.dart).
+        onExit: (context, _) => ProviderScope.containerOf(context)
+            .read(mockLeaveGuardProvider)
+            .allowLeave(),
         builder: (_, __) => ServerMockRoute(
           examId: examId,
           strictMode: strict,
@@ -252,6 +278,12 @@ Future<_Fixture> _open(
   );
   await tester.pump();
   await advance(tester, 50);
+  if (underQuiz) {
+    unawaited(router.push<void>('/mock'));
+    await tester.pump();
+    // The page slides in; wait for it to settle.
+    await advance(tester, 700);
+  }
   return _Fixture(server, router, fixture.actor, clock);
 }
 
@@ -261,6 +293,10 @@ Future<void> advance(WidgetTester tester, int milliseconds) async {
     await tester.pump(const Duration(milliseconds: 50));
   }
 }
+
+Object? _status(WidgetRef ref) => ref
+    .watch(serverMockAvailabilityProvider('exam_cse_pro'))
+    .valueOrNull?['status'];
 
 void main() {
   testWidgets(
@@ -423,6 +459,151 @@ void main() {
     expect(after['status'], 'in-progress');
     expect((after['open']! as Map<String, Object?>)['mockId'], _mockId);
   });
+
+  testWidgets(
+      'discarding keeps the server clock still, since the server restarts it '
+      'on the same paper', (tester) async {
+    final server = _Server();
+    await _open(tester, server: server);
+    await tester.tap(find.byKey(const ValueKey('mock-pause')));
+    await advance(tester, 3000);
+    await tester.ensureVisible(find.text('Discard This Mock'));
+    await tester.tap(find.text('Discard This Mock'));
+    await advance(tester, 300);
+    await tester.tap(find.text('Discard'));
+    await advance(tester, 500);
+    expect(
+      server.named('controlMock').map((c) => c.$2['action']),
+      ['pause', 'discard', 'pause'],
+    );
+    expect(server.paused, isTrue);
+  });
+  testWidgets(
+      'a mock opened from the Quiz card, with no exam in its address, '
+      "refreshes that exam's status when it is submitted", (tester) async {
+    final server = _Server()..availability = 'in-progress';
+    // The card pushes /quiz/mock/resume/<id> with no exam in the address.
+    final fixture = await _open(
+      tester,
+      server: server,
+      examId: '',
+      resume: true,
+      underQuiz: true,
+    );
+    server.availability = 'available';
+    await tester.tap(find.byKey(const ValueKey('mock-grid')));
+    await advance(tester, 500);
+    await tester.ensureVisible(find.text('Submit the Exam'));
+    await tester.pump();
+    await tester.tap(find.text('Submit the Exam'));
+    await advance(tester, 300);
+    await tester.tap(find.text('Submit'));
+    await advance(tester, 600);
+    expect(find.text('Server results $_mockId'), findsOneWidget);
+    fixture.router.go('/quiz');
+    await advance(tester, 300);
+    // The tab shows what the server says now, not what it said before.
+    expect(find.text('status available'), findsOneWidget);
+  });
+
+  testWidgets('starting a mock tells the Quiz tab that one is open',
+      (tester) async {
+    final server = _Server()..availabilityAfterStart = 'in-progress';
+    await _open(tester, server: server, underQuiz: true);
+    final c =
+        ProviderScope.containerOf(tester.element(find.byType(ServerMockRoute)));
+    final status =
+        await c.read(serverMockAvailabilityProvider('exam_cse_pro').future);
+    expect(status['status'], 'in-progress');
+  });
+
+  group('browser Back, which changes the page without a pop,', () {
+    testWidgets('pauses a running paper instead of leaving it', (tester) async {
+      final server = _Server();
+      final fixture = await _open(tester, server: server, underQuiz: true);
+      fixture.router.go('/quiz');
+      await advance(tester, 300);
+      expect(server.named('controlMock').single.$2['action'], 'pause');
+      expect(find.byType(PausePage), findsOneWidget);
+      expect(find.byType(ServerMockRoute), findsOneWidget);
+    });
+
+    testWidgets('asks first when the pause warning has not been seen',
+        (tester) async {
+      final server = _Server();
+      final fixture = await _open(
+        tester,
+        server: server,
+        warningSeen: false,
+        underQuiz: true,
+      );
+      fixture.router.go('/quiz');
+      await advance(tester, 300);
+      expect(find.text("Real exams don't pause."), findsOneWidget);
+      expect(server.named('controlMock'), isEmpty);
+      await tester.tap(find.text('Keep Going'));
+      await advance(tester, 300);
+      expect(find.text('Question q1?'), findsOneWidget);
+      expect(server.named('controlMock'), isEmpty);
+      expect(find.byType(ServerMockRoute), findsOneWidget);
+    });
+
+    testWidgets('asks first on wide web too', (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final server = _Server();
+      final fixture = await _open(
+        tester,
+        server: server,
+        warningSeen: false,
+        underQuiz: true,
+      );
+      fixture.router.go('/quiz');
+      await advance(tester, 300);
+      expect(find.text("Real exams don't pause."), findsOneWidget);
+      expect(server.named('controlMock'), isEmpty);
+      expect(find.byType(ServerMockRoute), findsOneWidget);
+    });
+
+    testWidgets('keeps a strict paper open and says why', (tester) async {
+      final server = _Server()..strict = true;
+      final fixture = await _open(
+        tester,
+        server: server,
+        strict: true,
+        underQuiz: true,
+      );
+      fixture.router.go('/quiz');
+      await advance(tester, 300);
+      expect(
+        find.text('Strict mode is on. Back is off until you submit.'),
+        findsWidgets,
+      );
+      expect(server.named('controlMock'), isEmpty);
+      expect(server.named('submitMock'), isEmpty);
+      expect(find.text('Question q1?'), findsOneWidget);
+    });
+
+    testWidgets('does nothing on the paused page, as in the app',
+        (tester) async {
+      final server = _Server();
+      final fixture = await _open(tester, server: server, underQuiz: true);
+      await tester.tap(find.byKey(const ValueKey('mock-pause')));
+      await advance(tester, 300);
+      final writes = server.named('controlMock').length;
+      fixture.router.go('/quiz');
+      await advance(tester, 300);
+      expect(find.byType(PausePage), findsOneWidget);
+      expect(server.named('controlMock').length, writes);
+      expect(server.named('submitMock'), isEmpty);
+    });
+  });
+
   testWidgets('pause follows the server and Resume plays back first',
       (tester) async {
     final server = _Server();
@@ -469,6 +650,8 @@ void main() {
     final input =
         GoRouterState.of(tester.element(find.text('Server results $_mockId')))
             .extra! as MockFinaleInput;
+    // The finale card prints this name, so it must not be the raw exam id.
+    expect(input.parts.single.name, 'CSE Professional');
     expect(input.parts.single.questions.map((q) => q.id), ['q1', 'q2', 'q3']);
     expect(
       input.parts.single.questions

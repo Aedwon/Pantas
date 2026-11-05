@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -31,11 +32,13 @@ import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/quiz/application/quiz_leave_guard.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -170,10 +173,15 @@ class _PreparedQuestionStageState
             enabled: questionShownAt != null,
             child: _plainQuestionPane(question, passage: passage),
           )
-        : _revealedQuestionPane(
-            session,
-            question,
-            passage: passage,
+        // The same wrappers as before the check, so the question keeps its
+        // state and the reveal plays instead of starting from its end.
+        : _interactionGate(
+            enabled: true,
+            child: _revealedQuestionPane(
+              session,
+              question,
+              passage: passage,
+            ),
           );
 
     final preparedIndex = widget.viewIndex == null ? _preparedIndex : null;
@@ -367,9 +375,15 @@ class _PreparedQuestionStageState
       );
 
   Widget _interactionGate({required bool enabled, required Widget child}) {
+    // A pane that cannot be used also stays out of the Tab order. The next
+    // question is built under a cover while this one is answered; without
+    // this, every choice took a second, invisible Tab stop.
     return ExcludeSemantics(
       excluding: !enabled,
-      child: IgnorePointer(ignoring: !enabled, child: child),
+      child: ExcludeFocus(
+        excluding: !enabled,
+        child: IgnorePointer(ignoring: !enabled, child: child),
+      ),
     );
   }
 }
@@ -500,15 +514,34 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   @override
   void initState() {
     super.initState();
+    final guard = ref.read(quizLeaveGuardProvider)..running = _allowLeave;
+    _guard = guard;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _startForMode(ref.read(quizControllerProvider.notifier));
     });
+  }
+
+  RouteLeaveGuard? _guard;
+
+  /// Browser Back reaches the route's `onExit` instead of this page's pop
+  /// handling. While a session runs it shows the same dialog as Esc and the
+  /// close button. Leaving after the student confirmed, or before a session
+  /// is on screen (loading, failed, finished), is always allowed.
+  Future<bool> _allowLeave() async {
+    if (!mounted ||
+        _allowPop ||
+        ref.read(quizControllerProvider) is! QuizRunning) {
+      return true;
+    }
+    unawaited(_confirmLeave());
+    return false;
   }
 
   String? _seenSessionId;
   int? _viewIndex;
   bool _gridOpen = false;
   bool _leaveOpen = false;
+  BuildContext? _leaveContext;
   bool _allowPop = false;
   Future<void> Function()? _retryWrite;
   int _writeVersion = 0;
@@ -528,6 +561,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
   @override
   void dispose() {
+    _guard?.detach(_allowLeave);
     _toastDelay?.cancel();
     _toastHide?.cancel();
     _toastRemove?.cancel();
@@ -893,28 +927,51 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       }
     }
 
+    // The question grid opens over the spot the toast sits on. The grid wins:
+    // the toast leaves, so the grid is whole and the flagged cell shows what
+    // the toast said.
+    if (_gridOpen && _toastVisible) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _gridOpen && _toastVisible) _dropToast();
+      });
+    }
+
+    // The Leave dialog owns the keys while it is open. Its own focus keeps
+    // them away from this page; this is the second guard, for a page that
+    // gets the focus back anyway.
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): () {
-          if (_gridOpen) {
+          if (_leaveOpen) {
+            _dismissLeave();
+          } else if (_gridOpen) {
             setState(() => _gridOpen = false);
           } else {
             unawaited(_confirmLeave());
           }
         },
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): action,
         const SingleActivator(LogicalKeyboardKey.keyF): () {
-          if (!_flagBusy) unawaited(_toggleFlag(question.id));
+          if (!_leaveOpen && !_flagBusy) unawaited(_toggleFlag(question.id));
         },
         const SingleActivator(LogicalKeyboardKey.keyG): () {
-          if (!state.checking) setState(() => _gridOpen = !_gridOpen);
+          if (!_leaveOpen && !state.checking) {
+            setState(() => _gridOpen = !_gridOpen);
+          }
         },
       },
-      child: Focus(
-        autofocus: true,
+      child: KeyFocusKeeper(
+        // The page's own node only holds its keys: Tab skips it.
+        skipTraversal: true,
+        // Enter runs the control that holds focus. An answer that is already
+        // picked is the exception: Enter on it checks it.
+        onKeyEvent: enterKeyHandler(
+          () {
+            if (!_leaveOpen) action();
+          },
+          keepsEnter: (focused) =>
+              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
+              WebOptionState.selected,
+        ),
         child: PopScope(
           canPop: _allowPop,
           onPopInvokedWithResult: (didPop, _) {
@@ -924,87 +981,65 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             backgroundColor: t.colors.background,
             body: Column(
               children: [
-                SizedBox(
-                  height: 64,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          tooltip: 'Leave session',
-                          onPressed: () => unawaited(_confirmLeave()),
-                          constraints: const BoxConstraints.tightFor(
-                            width: 44,
-                            height: 44,
-                          ),
-                          visualDensity: VisualDensity.standard,
-                          style: IconButton.styleFrom(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          icon: Icon(PantasIcons.close, size: 22),
+                WebCenteredTopBar(
+                  titleKey: const ValueKey('quiz-top-title'),
+                  title: source,
+                  leading: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      WebTopBarButton(
+                        tooltip: 'Leave session',
+                        onPressed: () => unawaited(_confirmLeave()),
+                        icon: Icon(PantasIcons.close, size: 22),
+                      ),
+                      const SizedBox(width: 10),
+                      const WebKeyHint('Esc'),
+                    ],
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (_reportStatus == question.id)
+                        Text(
+                          'Saved on this device.',
+                          style: t.sm,
                         ),
-                        const SizedBox(width: 10),
-                        const WebKeyHint('Esc'),
-                        Expanded(
-                          child: Text(
-                            source,
-                            textAlign: TextAlign.center,
-                            style: t.style(
-                              14,
-                              color: t.colors.tertiaryLabel,
+                      WebTopBarButton(
+                        tooltip: 'Report a question',
+                        onPressed: () async {
+                          final saved = await openQuestionReport(
+                            context,
+                            question.id,
+                            queue: ReportQueue(
+                              ref.read(appDatabaseProvider),
                             ),
-                          ),
-                        ),
-                        if (_reportStatus == question.id)
-                          Text(
-                            "Saved. It sends when you're back online.",
-                            style: t.sm,
-                          ),
-                        IconButton(
-                          tooltip: 'Report a question',
-                          constraints: const BoxConstraints.tightFor(
-                            width: 44,
-                            height: 44,
-                          ),
-                          visualDensity: VisualDensity.standard,
-                          style: IconButton.styleFrom(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          onPressed: () async {
-                            final saved = await openQuestionReport(
-                              context,
-                              question.id,
-                              queue: ReportQueue(
-                                ref.read(appDatabaseProvider),
-                              ),
+                          );
+                          if ((saved ?? false) && mounted) {
+                            _reportTimer?.cancel();
+                            setState(() {
+                              _reported.add(question.id);
+                              _reportStatus = question.id;
+                            });
+                            _reportTimer = Timer(
+                              const Duration(seconds: 4),
+                              () {
+                                if (mounted) {
+                                  setState(() => _reportStatus = null);
+                                }
+                              },
                             );
-                            if ((saved ?? false) && mounted) {
-                              _reportTimer?.cancel();
-                              setState(() {
-                                _reported.add(question.id);
-                                _reportStatus = question.id;
-                              });
-                              _reportTimer = Timer(
-                                const Duration(seconds: 4),
-                                () {
-                                  if (mounted) {
-                                    setState(() => _reportStatus = null);
-                                  }
-                                },
-                              );
-                            }
-                          },
-                          icon: IconTheme(
-                            data: IconThemeData(
-                              color: _reported.contains(question.id)
-                                  ? t.colors.accent
-                                  : t.colors.secondaryLabel,
-                            ),
-                            child: PantasIcons.report,
+                          }
+                        },
+                        icon: IconTheme(
+                          data: IconThemeData(
+                            color: _reported.contains(question.id)
+                                ? t.colors.accent
+                                : t.colors.secondaryLabel,
                           ),
+                          child: PantasIcons.report,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -1055,6 +1090,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 compact: true,
                                 counterChevron: true,
                                 counter: '${index + 1} of $total',
+                                counterLabel:
+                                    'Question ${index + 1} of $total. '
+                                    'Open question navigator',
                                 onCounterPressed: state.checking
                                     ? null
                                     : () => setState(
@@ -1084,31 +1122,55 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                         ),
                                       ),
                                     ],
-                                    IconButton(
-                                      tooltip: flagged.contains(question.id)
-                                          ? 'Remove flag'
-                                          : 'Flag question',
-                                      constraints:
-                                          const BoxConstraints.tightFor(
-                                        width: 46,
-                                        height: 46,
-                                      ),
-                                      padding: EdgeInsets.zero,
-                                      visualDensity: VisualDensity.standard,
-                                      style: IconButton.styleFrom(
-                                        tapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        shape: const CircleBorder(),
-                                      ),
-                                      onPressed: _flagBusy
+                                    // The same name and switch the phone
+                                    // gives its flag.
+                                    Semantics(
+                                      button: true,
+                                      enabled: !_flagBusy,
+                                      toggled: flagged.contains(question.id),
+                                      label: flagged.contains(question.id)
+                                          ? 'Remove flag from question '
+                                              '${index + 1}'
+                                          : 'Flag question ${index + 1}',
+                                      onTap: _flagBusy
                                           ? null
                                           : () => unawaited(
                                                 _toggleFlag(question.id),
                                               ),
-                                      icon: _flag(
-                                        question.id,
-                                        flagged.contains(question.id),
-                                        web: true,
+                                      child: ExcludeSemantics(
+                                        child: IconButton(
+                                          tooltip: flagged.contains(question.id)
+                                              ? 'Remove flag'
+                                              : 'Flag question',
+                                          constraints:
+                                              const BoxConstraints.tightFor(
+                                            width: 46,
+                                            height: 46,
+                                          ),
+                                          padding: EdgeInsets.zero,
+                                          visualDensity: VisualDensity.standard,
+                                          style: IconButton.styleFrom(
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            shape: const CircleBorder(),
+                                          ),
+                                          // Stays enabled while the write
+                                          // runs: a disabled button gives
+                                          // up its focus, and the ring
+                                          // jumped to the counter.
+                                          onPressed: () {
+                                            if (!_flagBusy) {
+                                              unawaited(
+                                                _toggleFlag(question.id),
+                                              );
+                                            }
+                                          },
+                                          icon: _flag(
+                                            question.id,
+                                            flagged.contains(question.id),
+                                            web: true,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: 6),
@@ -1135,8 +1197,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       Positioned(
                         left: 0,
                         top: 0,
-                        // The follower stays outside the fade: a box between
-                        // it and the Stack would refuse taps away from (0, 0).
+                        // The follower stays outside the fade: a box
+                        // between it and the Stack would refuse taps away
+                        // from (0, 0).
                         child: CompositedTransformFollower(
                           link: _barLink,
                           followerAnchor: Alignment.bottomLeft,
@@ -1147,6 +1210,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                               width: 376,
                               child: WebCard(
                                 radius: 14,
+                                floating: true,
                                 padding: const EdgeInsets.all(18),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -1176,83 +1240,41 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                       constraints: const BoxConstraints(
                                         maxHeight: 360,
                                       ),
-                                      child: SingleChildScrollView(
-                                        child: Wrap(
-                                          spacing: 8,
-                                          runSpacing: 8,
-                                          children: [
-                                            for (var n = 0;
-                                                n < session.questions.length;
-                                                n++)
-                                              SizedBox(
-                                                width: 61.6,
-                                                height: 44,
-                                                child: TextButton(
-                                                  key: ValueKey(
-                                                    'web-grid-question-$n',
-                                                  ),
-                                                  onPressed: n <=
-                                                          session
-                                                              .outcomes.length
-                                                      ? () {
-                                                          _lookAt(
-                                                            n == current
-                                                                ? null
-                                                                : n,
-                                                          );
-                                                          setState(
-                                                            () => _gridOpen =
-                                                                false,
-                                                          );
-                                                        }
-                                                      : null,
-                                                  style: TextButton.styleFrom(
-                                                    padding: EdgeInsets.zero,
-                                                    visualDensity:
-                                                        VisualDensity.standard,
-                                                    tapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    textStyle: t.style(
-                                                      15,
-                                                      weight: n == index
-                                                          ? FontWeight.w700
-                                                          : FontWeight.w600,
-                                                    ),
-                                                    backgroundColor: n <
-                                                            session
-                                                                .outcomes.length
-                                                        ? session.outcomes[n]
-                                                                .isCorrect
-                                                            ? t.colors
-                                                                .accentTint
-                                                            : t.colors.wrongTint
-                                                        : t.colors.surface,
-                                                    disabledBackgroundColor:
-                                                        t.colors.surface,
-                                                    foregroundColor: n <
-                                                            session
-                                                                .outcomes.length
-                                                        ? session.outcomes[n]
-                                                                .isCorrect
-                                                            ? t.colors.accent
-                                                            : t.colors.wrongText
-                                                        : t.disabledText,
-                                                    disabledForegroundColor:
-                                                        t.disabledText,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                        12,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  child: Text('${n + 1}'),
-                                                ),
+                                      // Board QS_Grid: five equal columns,
+                                      // 44 px cells 8 px apart. The dark edge
+                                      // marks the question on screen.
+                                      child: GridView.count(
+                                        crossAxisCount: 5,
+                                        mainAxisSpacing: 8,
+                                        crossAxisSpacing: 8,
+                                        childAspectRatio: 61.6 / 44,
+                                        shrinkWrap: true,
+                                        padding: EdgeInsets.zero,
+                                        children: [
+                                          for (var n = 0;
+                                              n < session.questions.length;
+                                              n++)
+                                            _WebGridCell(
+                                              key: ValueKey(
+                                                'web-grid-question-$n',
                                               ),
-                                          ],
-                                        ),
+                                              number: n + 1,
+                                              outcome:
+                                                  n < session.outcomes.length
+                                                      ? session.outcomes[n]
+                                                      : null,
+                                              onScreen: n == index,
+                                              flagged: flagged.contains(
+                                                session.questions[n].id,
+                                              ),
+                                              onPressed: n <=
+                                                      session.outcomes.length
+                                                  ? () => _lookAt(
+                                                        n == current ? null : n,
+                                                      )
+                                                  : null,
+                                            ),
+                                        ],
                                       ),
                                     ),
                                     const SizedBox(height: 14),
@@ -1362,11 +1384,13 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           _viewIndex = null;
           _poppingFlag = null;
         });
+        releaseChoiceFocus(this);
       });
 
   void _lookAt(int? index) {
     setState(() => _viewIndex = index);
     if (_questionScroll.hasClients) _questionScroll.jumpTo(0);
+    releaseChoiceFocus(this);
   }
 
   void _startForMode(QuizController controller) {
@@ -1432,63 +1456,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final leave = await showDialog<bool>(
       context: context,
       barrierColor: context.colors.shadow.withValues(alpha: .34),
-      builder: (dialogContext) => context.wideWeb
-          ? Dialog(
-              backgroundColor: Colors.transparent,
-              child: SizedBox(
-                width: 440,
-                child: WebCard(
-                  radius: 22,
-                  padding: const EdgeInsets.all(26),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const WebText(
-                        'Leave this session?',
-                        kind: WebTextKind.h3,
-                      ),
-                      const SizedBox(height: 18),
-                      const WebText(
-                          "Every answer you've given is already saved. "
-                          'You can pick this up from the Quiz tab '
-                          'whenever you like.'),
-                      const SizedBox(height: 18),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          WebButton(
-                            label: 'Leave',
-                            variant: WebButtonVariant.tertiary,
-                            onPressed: () =>
-                                Navigator.of(dialogContext).pop(true),
-                          ),
-                          const SizedBox(width: 8),
-                          WebButton(
-                            label: 'Keep Going',
-                            onPressed: () =>
-                                Navigator.of(dialogContext).pop(false),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
-          : CenteredDialog(
-              title: 'Leave this session?',
-              message: "Every answer you've given is already saved. "
-                  'You can pick this '
-                  'up from the Quiz tab whenever you like.',
-              primaryLabel: 'Keep Going',
-              secondaryLabel: 'Leave',
-              // Board (QV_Leave): the card starts at y 300, 9 px under center.
-              lift: -9,
-              onConfirm: () => Navigator.of(dialogContext).pop(false),
-              onCancel: () => Navigator.of(dialogContext).pop(true),
-            ),
+      builder: (dialogContext) {
+        _leaveContext = dialogContext;
+        return _leaveDialog(dialogContext);
+      },
     );
+    _leaveContext = null;
     _leaveOpen = false;
     if ((leave ?? false) && mounted) {
       setState(() => _allowPop = true);
@@ -1497,6 +1470,83 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       });
     }
   }
+
+  /// Esc, from a page that has the focus while the dialog is open: Keep Going.
+  void _dismissLeave() {
+    final dialog = _leaveContext;
+    if (dialog != null && dialog.mounted) Navigator.of(dialog).pop(false);
+  }
+
+  Widget _leaveDialog(BuildContext dialogContext) => context.wideWeb
+      // Focus starts inside the dialog, so the keys stay with it: Esc and
+      // Enter are Keep Going, the safe choice, and Tab reaches Leave.
+      ? CallbackShortcuts(
+          bindings: {
+            const SingleActivator(LogicalKeyboardKey.escape): () =>
+                Navigator.of(dialogContext).pop(false),
+          },
+          child: EnterShortcut(
+            onEnter: () => Navigator.of(dialogContext).pop(false),
+            child: Focus(
+              autofocus: true,
+              child: Dialog(
+                backgroundColor: Colors.transparent,
+                child: SizedBox(
+                  width: 440,
+                  child: WebCard(
+                    radius: 22,
+                    padding: const EdgeInsets.all(26),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const WebText(
+                          'Leave this session?',
+                          kind: WebTextKind.h3,
+                        ),
+                        const SizedBox(height: 18),
+                        const WebText(
+                            "Every answer you've given is already saved. "
+                            'You can pick this up from the Quiz tab '
+                            'whenever you like.'),
+                        const SizedBox(height: 18),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            WebButton(
+                              label: 'Leave',
+                              variant: WebButtonVariant.tertiary,
+                              onPressed: () =>
+                                  Navigator.of(dialogContext).pop(true),
+                            ),
+                            const SizedBox(width: 8),
+                            WebButton(
+                              label: 'Keep Going',
+                              onPressed: () =>
+                                  Navigator.of(dialogContext).pop(false),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        )
+      : CenteredDialog(
+          title: 'Leave this session?',
+          message: "Every answer you've given is already saved. "
+              'You can pick this '
+              'up from the Quiz tab whenever you like.',
+          primaryLabel: 'Keep Going',
+          secondaryLabel: 'Leave',
+          // Board (QV_Leave): the card starts at y 300, 9 px under center.
+          lift: -9,
+          onConfirm: () => Navigator.of(dialogContext).pop(false),
+          onCancel: () => Navigator.of(dialogContext).pop(true),
+        );
 
   Future<void> _toggleFlag(QuestionId questionId) {
     final ids = ref.read(flaggedIdsProvider).valueOrNull ?? const <String>{};
@@ -1524,7 +1574,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               MediaQuery.disableAnimationsOf(context)
                   ? Duration.zero
                   : const Duration(milliseconds: 200), () {
-            if (!mounted) return;
+            // A grid opened in the meantime keeps the spot to itself.
+            if (!mounted || _gridOpen) return;
             setState(() {
               _toastVisible = true;
               _toastMessage = result == FlagToggle.firstFlagged
@@ -1549,6 +1600,20 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       } finally {
         if (mounted) setState(() => _flagBusy = false);
       }
+    });
+  }
+
+  /// Takes the flag toast away now, with its usual fade, and for good.
+  void _dropToast() {
+    _toastDelay?.cancel();
+    _toastHide?.cancel();
+    _toastRemove?.cancel();
+    setState(() {
+      _toastVisible = false;
+      _undoFlag = null;
+    });
+    _toastRemove = Timer(const Duration(milliseconds: 300), () {
+      if (mounted) setState(() => _toastMessage = null);
     });
   }
 
@@ -1587,6 +1652,91 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     } else {
       context.go('/quiz');
     }
+  }
+}
+
+/// One number in the wide question navigator (board QS_Grid): tinted by how
+/// it was answered, a hairline outline while unanswered, and a dark edge on
+/// the question on screen. It is disabled until the question is answered.
+class _WebGridCell extends StatelessWidget {
+  const _WebGridCell({
+    required this.number,
+    required this.outcome,
+    required this.onScreen,
+    required this.onPressed,
+    this.flagged = false,
+    super.key,
+  });
+  final int number;
+  final AnswerOutcome? outcome;
+  final bool onScreen;
+  final bool flagged;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final answered = outcome != null;
+    final right = outcome?.isCorrect ?? false;
+    final cell = TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+        visualDensity: VisualDensity.standard,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        textStyle: t.style(
+          15,
+          weight: onScreen ? FontWeight.w700 : FontWeight.w600,
+        ),
+        backgroundColor: !answered
+            ? t.colors.surface
+            : right
+                ? t.colors.accentTint
+                : t.colors.wrongTint,
+        disabledBackgroundColor: t.colors.surface,
+        foregroundColor: !answered
+            ? t.colors.tertiaryLabel
+            : right
+                ? t.colors.accent
+                : t.colors.wrongText,
+        disabledForegroundColor: t.colors.tertiaryLabel,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: onScreen
+              ? BorderSide(color: t.colors.label, width: 2)
+              : answered
+                  ? BorderSide.none
+                  : BorderSide(color: t.colors.separator),
+        ),
+      ),
+      child: Text(
+        '$number',
+        semanticsLabel: flagged ? '$number, flagged' : null,
+      ),
+    );
+    if (!flagged) return cell;
+    // The phone sheet marks a flagged question with a small flag on its cell;
+    // the wide grid does the same, inside the cell so the grid does not
+    // clip it.
+    return Stack(
+      children: [
+        Positioned.fill(child: cell),
+        Positioned(
+          top: 5,
+          right: 7,
+          child: IgnorePointer(
+            child: ExcludeSemantics(
+              child: Icon(
+                PantasIcons.flag,
+                key: const ValueKey('web-grid-flag'),
+                size: 12,
+                color: t.colors.label,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 

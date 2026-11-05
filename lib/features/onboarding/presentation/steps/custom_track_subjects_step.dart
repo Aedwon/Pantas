@@ -265,14 +265,20 @@ class _SubjectTileState extends State<_SubjectTile> {
           decoration: BoxDecoration(
             color: t.colors.surface,
             borderRadius: BorderRadius.circular(14),
-            border: t.dark ? Border.all(color: t.cardEdge) : null,
           ),
+          // Both are drawn on top and take up no room, so a row is the same
+          // size in dark and light (6T-11).
           foregroundDecoration: _hovered && widget.onTap != null
               ? BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: t.strongDivider, width: 1.5),
                 )
-              : null,
+              : t.dark
+                  ? BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: t.cardEdge),
+                    )
+                  : null,
           child: Material(
             color: Colors.transparent,
             // Desktop's compact density would take 8 px off the 56 minimum.

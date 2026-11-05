@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:drift/drift.dart' show BooleanExpressionOperators;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -17,9 +18,42 @@ import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/assessment/domain/models/topic_mastery.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_motion.dart';
 import 'package:pantas/features/assessment/presentation/assessment_skeletons.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
+
+/// Waits until the student lets go of Enter, for at most [limit].
+///
+/// Go to Today answers the first press of Enter and opens Home. A key held a
+/// little longer keeps sending repeats, and the focused button on Home takes a
+/// repeat as a press, which opened the first lesson. The page stays until the
+/// key is up, so the press ends here.
+@visibleForTesting
+Future<void> waitForEnterRelease({
+  Duration limit = const Duration(seconds: 2),
+}) async {
+  final keyboard = HardwareKeyboard.instance;
+  if (!keyboard.isLogicalKeyPressed(LogicalKeyboardKey.enter)) return;
+  final released = Completer<void>();
+  bool handler(KeyEvent event) {
+    if (event is KeyUpEvent &&
+        event.logicalKey == LogicalKeyboardKey.enter &&
+        !released.isCompleted) {
+      released.complete();
+    }
+    return false;
+  }
+
+  keyboard.addHandler(handler);
+  try {
+    await released.future.timeout(limit);
+  } on TimeoutException {
+    // A key that never reports its release must not trap the student here.
+  } finally {
+    keyboard.removeHandler(handler);
+  }
+}
 
 String _seenKey(AssessmentResult result) =>
     'assessment.results_seen.${result.examId}.'
@@ -109,6 +143,47 @@ Future<void> holdAssessmentResults(WidgetRef ref, ExamId examId) async {
   }
 }
 
+/// The topic the plan card names as the weakest.
+///
+/// A topic holds only a few questions, so several often tie, most often at
+/// zero. A tie goes to the topic in the weakest subject, the one the list
+/// above ranks first, and then to authored order. Without that the card could
+/// name a topic from the strongest subject, which reads as a wrong claim next
+/// to the list.
+@visibleForTesting
+TopicMastery? weakestAssessedTopic(
+  List<TopicMastery> topics, {
+  required Map<String, String> subjectOf,
+  required List<({String name, int correct, int total})> subjects,
+}) {
+  double subjectAccuracy(TopicMastery mastery) {
+    for (final subject in subjects) {
+      if (subject.name == subjectOf[mastery.topic.id]) {
+        return subject.total == 0 ? 0 : subject.correct / subject.total;
+      }
+    }
+    return 1;
+  }
+
+  TopicMastery? weakest;
+  for (final candidate in topics) {
+    if (weakest == null) {
+      weakest = candidate;
+      continue;
+    }
+    final byTopic = candidate.accuracy.compareTo(weakest.accuracy);
+    final bySubject = subjectAccuracy(candidate).compareTo(
+      subjectAccuracy(weakest),
+    );
+    final byOrder = candidate.topic.ordering.compareTo(weakest.topic.ordering);
+    if (byTopic < 0 ||
+        (byTopic == 0 && (bySubject < 0 || (bySubject == 0 && byOrder < 0)))) {
+      weakest = candidate;
+    }
+  }
+  return weakest;
+}
+
 class AssessmentResultsPage extends ConsumerWidget {
   const AssessmentResultsPage({required this.examId, super.key});
   final ExamId examId;
@@ -153,6 +228,7 @@ class AssessmentResultsPage extends ConsumerWidget {
                     .setDeviceValue(_seenKey(value.result!), 'true');
                 // The provider is released when this page leaves. Resetting it
                 // here would swap the results for a skeleton on the way out.
+                await waitForEnterRelease();
                 if (context.mounted) context.go('/home');
               } catch (error, stack) {
                 unawaited(telemetry.recordError(error, stack));
@@ -187,6 +263,43 @@ class _ResultsBodyState extends State<_ResultsBody>
   );
   bool _saving = false;
   bool _failed = false;
+
+  /// Holds the page's keyboard focus (Enter is Go to Today). See [_reclaim].
+  final FocusNode _focus = FocusNode(debugLabel: 'assessment results');
+  bool _reclaimQueued = false;
+
+  @override
+  void initState() {
+    super.initState();
+    FocusManager.instance.addListener(_focusChanged);
+  }
+
+  void _focusChanged() {
+    // Settle after the frame, as focus is often mid-change when this is called.
+    if (_reclaimQueued) return;
+    _reclaimQueued = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _reclaimQueued = false;
+      _reclaim();
+    });
+  }
+
+  /// Takes focus back when a page underneath has taken it.
+  ///
+  /// The assessment opens above Home, which stays mounted. When the answers are
+  /// saved Home rebuilds, and its Today panel (autofocus, with its own Enter
+  /// shortcut) took the focus from this page. Enter on Go to Today then
+  /// reached Home instead, and opened the first lesson (3L-7).
+  void _reclaim() {
+    if (!mounted || ModalRoute.of(context)?.isCurrent == false) return;
+    if (_focus.context == null || !_focus.canRequestFocus) return;
+    final primary = FocusManager.instance.primaryFocus;
+    final inside = primary != null &&
+        (primary == _focus ||
+            primary.ancestors.contains(FocusScope.of(context)));
+    if (!inside) _focus.requestFocus();
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -201,6 +314,8 @@ class _ResultsBodyState extends State<_ResultsBody>
 
   @override
   void dispose() {
+    FocusManager.instance.removeListener(_focusChanged);
+    _focus.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -233,7 +348,11 @@ class _ResultsBodyState extends State<_ResultsBody>
     ];
     final total = shown.fold(0, (sum, m) => sum + m.total);
     final correct = shown.fold(0, (sum, m) => sum + m.correct);
-    final weakest = shown.firstOrNull;
+    final weakest = weakestAssessedTopic(
+      shown,
+      subjectOf: widget.data.topicSubjectNames,
+      subjects: widget.data.subjects,
+    );
     final weakestSubject =
         widget.data.topicSubjectNames[weakest?.topic.id] ?? '';
     final c = context.colors;
@@ -241,6 +360,7 @@ class _ResultsBodyState extends State<_ResultsBody>
     if (context.wideWeb) {
       return SafeArea(
         child: WebAssessmentResults(
+          focusNode: _focus,
           examName: widget.data.examName,
           correct: correct,
           total: total,
@@ -326,8 +446,8 @@ class _ResultsBodyState extends State<_ResultsBody>
                     ResultsReveal(
                       animation: _sequence.plan,
                       child: GroupedSection(
-                        header: 'YOUR PLAN STARTS WITH',
-                        footer: 'Weakest first. It changes as you study.',
+                        header: 'WEAKEST TOPIC',
+                        footer: 'It changes as you study.',
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -346,18 +466,13 @@ class _ResultsBodyState extends State<_ResultsBody>
                                         style: context.type.emphasized,
                                       ),
                                       Text(
-                                        '$weakestSubject · your weakest topic',
+                                        '$weakestSubject · '
+                                        'lowest score in this check',
                                         style: context.type.footnote
                                             .copyWith(color: c.secondaryLabel),
                                       ),
                                     ],
                                   ),
-                                ),
-                                const SizedBox(width: 12),
-                                Text(
-                                  'Today',
-                                  style: context.type.subheadStrong
-                                      .copyWith(color: c.accent),
                                 ),
                               ],
                             ),

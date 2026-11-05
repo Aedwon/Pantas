@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -22,6 +23,7 @@ import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
+import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
@@ -171,6 +173,9 @@ void main() {
     expect(context?.lessonIds, ['l1', 'l2']);
     expect(context?.index, 0);
     expect(context?.date, day);
+    // New questions and reviews are still on the list, so the reader must not
+    // close the day (6U-7).
+    expect(context?.moreToDo, isTrue);
   });
   testWidgets('Lessons sheet groups subjects and omits row subtitles',
       (tester) async {
@@ -246,8 +251,113 @@ void main() {
       ),
     );
   });
-  testWidgets('retry after a real context change recaptures and loads',
+  testWidgets('phone sheet titles use the row up to the time (3K-4)',
       (tester) async {
+    const title = 'Order of Operations with Grouping Symbols and Exponents';
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: today,
+        lessons: const [
+          HomeTodayLesson(
+            id: 'l1',
+            title: title,
+            subject: 'Mathematics',
+            minutes: 10,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l2',
+            title: 'Cells',
+            subject: 'Science',
+            minutes: 9,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l3',
+            title: 'Fractions',
+            subject: 'Mathematics',
+            minutes: 7,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l4',
+            title: 'Atoms',
+            subject: 'Science',
+            minutes: 6,
+            read: false,
+          ),
+        ],
+        questionWork: null,
+        canAdvance: false,
+      ),
+    );
+    await tester.tap(find.text('Lessons').first);
+    await tester.pumpAndSettle();
+    final sheet = find.byType(TodayQuestionsSheet);
+    final row = find.descendant(of: sheet, matching: find.text(title));
+    final time = find.descendant(of: sheet, matching: find.text('10 min'));
+    // The time keeps its own width, so the title runs to 10 px before it
+    // instead of stopping at half of the row.
+    expect(
+      tester.getTopLeft(time).dx - tester.getTopRight(row).dx,
+      lessThan(16),
+    );
+    // A title too long for the line is read in full, not cut with dots (the
+    // Nov 3 rule, 3K-4 again).
+    final text = tester.widget<Text>(row);
+    expect(text.maxLines, isNull);
+    expect(text.overflow, isNot(TextOverflow.ellipsis));
+    expect(tester.getSize(row).height, greaterThan(24));
+  });
+  testWidgets(
+      'wide drawer rows wrap a long title instead of ending in dots '
+      '(3K-14)', (tester) async {
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    const title =
+        'Article XI: Accountability of Public Officers and the Ombudsman '
+        'under the 1987 Philippine Constitution';
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: today,
+        lessons: [
+          const HomeTodayLesson(
+            id: 'l1',
+            title: title,
+            subject: 'Constitution',
+            minutes: 10,
+            read: false,
+          ),
+          for (var i = 2; i <= 5; i++)
+            HomeTodayLesson(
+              id: 'l$i',
+              title: 'Lesson $i',
+              subject: 'Science',
+              minutes: 9,
+              read: false,
+            ),
+        ],
+        questionWork: null,
+        canAdvance: false,
+      ),
+    );
+    await tester.tap(find.text('Lessons').first);
+    await tester.pumpAndSettle();
+    final drawer = find.byKey(const ValueKey('home-web-drawer'));
+    final row = find.descendant(of: drawer, matching: find.text(title));
+    expect(row, findsOneWidget);
+    // Two lines or more: a long title is read in full.
+    expect(tester.getSize(row).height, greaterThan(26));
+    expect(tester.widget<Text>(row).overflow, isNot(TextOverflow.ellipsis));
+  });
+  testWidgets(
+      'a first read that fails as the context settles retries by itself '
+      'with a recaptured owner', (tester) async {
     var token = 'a';
     final guards = <Future<Future<bool> Function()>>[];
     var staleWrites = 0;
@@ -304,10 +414,11 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle();
-    expect(find.text('Try Again'), findsOneWidget);
+    await tester.pump();
+    expect(find.text('Could not load your plan.'), findsNothing);
+    expect(find.byType(HomeTodaySkeleton), findsOneWidget);
     expect(staleWrites, 0);
-    await tester.tap(find.text('Try Again'));
+    await tester.pump(const Duration(milliseconds: 400));
     await tester.pumpAndSettle();
     expect(guards, hasLength(2));
     expect(identical(guards.first, guards.last), isFalse);
@@ -315,6 +426,7 @@ void main() {
     expect(find.text('Ratios'), findsOneWidget);
     expect(staleWrites, 1);
   });
+  settlingTests();
 }
 
 class _TokenLauncher extends TodayQuestionLauncher {
@@ -560,7 +672,7 @@ void quietDayTests() {
     );
     expect(find.text('Did you take UPCAT?'), findsOneWidget);
     expect(
-      find.text("Your UPCAT date was 11 November. Tell us what's next."),
+      find.text("Your UPCAT date was November 11. Tell us what's next."),
       findsOneWidget,
     );
     await tester.tap(find.text('Set a New Date'));
@@ -577,6 +689,21 @@ void quietDayTests() {
     );
     expect(find.text('Unfinished items are added to today.'), findsOneWidget);
     expect(find.text('View full plan'), findsOneWidget);
+  });
+  testWidgets('the calm line is dropped on a day off and on a finished day',
+      (tester) async {
+    const carried = HomeDayExtras(note: HomeDayNote.carried);
+    await pumpData(
+      tester,
+      dataFor(todayFor(dayPlan: emptyPlan(rest: true)), extras: carried),
+    );
+    expect(find.text('Day off'), findsOneWidget);
+    expect(find.text('Unfinished items are added to today.'), findsNothing);
+    await pumpData(
+      tester,
+      dataFor(todayFor(originalDone: true), extras: carried),
+    );
+    expect(find.text('Unfinished items are added to today.'), findsNothing);
   });
   testWidgets('a moved mock names the exam simulation', (tester) async {
     await pumpData(
@@ -734,5 +861,182 @@ void auditTests() {
     await tester.pumpAndSettle();
     expect(preparer.calls, hasLength(1));
     expect(preparer.calls.single.topicId, isNull);
+  });
+}
+
+/// Home must never show an error while the app is only settling. These pin the
+/// "Could not load your plan." flash after the Name step and under the splash.
+void settlingTests() {
+  const message = 'Could not load your plan.';
+  HomeTodayData loaded() => HomeTodayData(
+        today: today,
+        lessons: const [
+          HomeTodayLesson(
+            id: 'l1',
+            title: 'Ratios',
+            subject: 'Mathematics',
+            minutes: 8,
+            read: false,
+          ),
+        ],
+        questionWork: null,
+        canAdvance: false,
+      );
+
+  Future<int> pumpFailing(
+    WidgetTester tester, {
+    required Object? Function(int attempt)? failure,
+    List<Override> overrides = const [],
+  }) async {
+    var attempts = 0;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          activeExamFocusProvider.overrideWith(
+            (ref) async => const ActiveExamFocus.selected(
+              Exam(
+                id: 'e1',
+                code: 'CSE',
+                name: 'Civil Service',
+                shortName: 'CSE',
+                language: 'en',
+                isActive: true,
+                subjects: [],
+              ),
+            ),
+          ),
+          homeTodayLoaderProvider.overrideWith(
+            (ref) => (examId, guard) async {
+              attempts++;
+              final error = failure?.call(attempts);
+              if (error is Exception) throw error;
+              if (error is Error) throw error;
+              return loaded();
+            },
+          ),
+          todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+          ...overrides,
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: HomeTodayScreen(
+            examId: 'e1',
+            pageBuilder: (today, _) => Scaffold(body: today),
+          ),
+        ),
+      ),
+    );
+    return attempts;
+  }
+
+  for (final error in <Object>[
+    StateError('Quiz owner changed'),
+    StateError('Home owner changed'),
+    StateError('Quiz account is unavailable'),
+    StateError(
+      'The provider AutoDisposeFutureProvider<RoadmapToday>#1(e1) was '
+      'disposed during loading state, yet no value could be emitted.',
+    ),
+    FirebaseFunctionsException(
+      code: 'failed-precondition',
+      message: 'Set your exam first.',
+    ),
+  ]) {
+    testWidgets('a settling failure never shows the error: $error',
+        (tester) async {
+      var signals = 0;
+      await pumpFailing(
+        tester,
+        failure: (attempt) => attempt <= 2 ? error : null,
+        overrides: [
+          firstScreenSignalProvider
+              .overrideWithValue(FirstScreenSignal(() => signals++)),
+        ],
+      );
+      // Every frame from the first failure to the retry that succeeds.
+      for (var i = 0; i < 30; i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+        expect(find.text(message), findsNothing, reason: 'frame $i');
+        if (find.text('Ratios').evaluate().isNotEmpty) break;
+        expect(find.byType(HomeTodaySkeleton), findsOneWidget);
+        expect(signals, 0, reason: 'the splash holds while Home settles');
+      }
+      expect(find.text('Ratios'), findsOneWidget);
+      await tester.pumpAndSettle();
+      expect(signals, 1);
+    });
+  }
+
+  testWidgets('a real failure shows the error at once and retries nothing',
+      (tester) async {
+    var signals = 0;
+    final attempts = await pumpFailing(
+      tester,
+      failure: (_) => StateError('Planned lesson content unavailable'),
+      overrides: [
+        firstScreenSignalProvider
+            .overrideWithValue(FirstScreenSignal(() => signals++)),
+      ],
+    );
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 5));
+    expect(find.text(message), findsOneWidget);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(attempts, 1);
+    expect(signals, 1);
+  });
+
+  testWidgets(
+      'a settling failure that never clears shows the error after '
+      'its retries, and Try Again starts a fresh count', (tester) async {
+    var calls = 0;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          activeExamFocusProvider.overrideWith(
+            (ref) async => const ActiveExamFocus.selected(
+              Exam(
+                id: 'e1',
+                code: 'CSE',
+                name: 'Civil Service',
+                shortName: 'CSE',
+                language: 'en',
+                isActive: true,
+                subjects: [],
+              ),
+            ),
+          ),
+          homeTodayLoaderProvider.overrideWith(
+            (ref) => (examId, guard) async {
+              calls++;
+              throw StateError('Study owner changed');
+            },
+          ),
+          todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: HomeTodayScreen(
+            examId: 'e1',
+            pageBuilder: (today, _) => Scaffold(body: today),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 6));
+    expect(find.text(message), findsNothing);
+    await tester.pump(const Duration(seconds: 3));
+    await tester.pump();
+    expect(find.text(message), findsOneWidget);
+    expect(calls, 7);
+    await tester.tap(find.text('Try Again'));
+    await tester.pump();
+    expect(find.text(message), findsNothing);
+    expect(calls, 8);
+    await tester.pump(const Duration(seconds: 10));
+    await tester.pump();
+    expect(find.text(message), findsOneWidget);
+    expect(calls, 14);
   });
 }

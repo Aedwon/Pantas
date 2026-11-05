@@ -25,8 +25,10 @@ class _CustomTrackNameStepState extends State<CustomTrackNameStep> {
         }) ??
         widget.initialName,
   );
+  final _focus = FocusNode();
   @override
   void dispose() {
+    _focus.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -49,6 +51,7 @@ class _CustomTrackNameStepState extends State<CustomTrackNameStep> {
         detail: "Give it a name you'll recognize.",
         progress: 3,
         bodyGap: 24,
+        focusTarget: _focus,
         onBack: widget.onBack ?? () => Navigator.of(context).maybePop(),
         bottom: OnboardingButton(
           label: 'Continue',
@@ -57,6 +60,7 @@ class _CustomTrackNameStepState extends State<CustomTrackNameStep> {
         children: [
           OnboardingNameField(
             controller: _controller,
+            focusNode: _focus,
             label: 'Exam name',
             onChanged: (_) => setState(() {}),
             onSubmitted: (_) => _next(),

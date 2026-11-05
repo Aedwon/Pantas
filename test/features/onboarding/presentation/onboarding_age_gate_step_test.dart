@@ -4,8 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -88,6 +91,18 @@ void main() {
       });
     }
   }
+
+  testWidgets('the phone wheel names itself "Birth year" and reads its year',
+      (tester) async {
+    final handle = tester.ensureSemantics();
+    await pump(tester);
+    final node = tester.getSemantics(find.byType(ValueWheel));
+    expect(node.label, 'Birth year');
+    expect(node.value, '2012');
+    expect(node.increasedValue, '2013');
+    expect(node.decreasedValue, '2011');
+    handle.dispose();
+  });
 
   testWidgets('the block survives a reload', (tester) async {
     await AppPreferencesRepository(db).setBlockedMinimumAge(13);
@@ -221,6 +236,204 @@ void main() {
     expect(wheel.values[wheel.selectedIndex], '2013');
     expect(tester.takeException(), isNull);
   });
+  Future<void> pumpFramed(
+    WidgetTester tester, {
+    required bool wide,
+    int year = 2026,
+  }) async {
+    debugWebPlatformOverride = wide ? true : null;
+    addTearDown(() => debugWebPlatformOverride = null);
+    final size = wide ? const Size(1440, 900) : const Size(390, 844);
+    tester.view
+      ..physicalSize = size
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: MediaQuery(
+            data: MediaQueryData(size: size, disableAnimations: true),
+            child: Scaffold(
+              body: _FrameHost(
+                child: OnboardingAgeGateStep(
+                  currentYear: year,
+                  onAgeGatePassed: () {},
+                  onBack: () {},
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+  }
+
+  group('wide: the range hint under the year field', () {
+    Future<void> type(WidgetTester tester, String text) async {
+      await tester.enterText(find.byType(TextField), text);
+      await tester.pump();
+    }
+
+    testWidgets('shows for a complete year outside the range', (tester) async {
+      await pumpFramed(tester, wide: true);
+      await type(tester, '1925');
+      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
+      await type(tester, '2027');
+      expect(find.text('Enter a year from 1926 to 2026.'), findsOneWidget);
+    });
+
+    testWidgets('is quiet in range and while the year is incomplete',
+        (tester) async {
+      await pumpFramed(tester, wide: true);
+      for (final text in ['2012', '1926', '2026', '19', '', '2']) {
+        await type(tester, text);
+        expect(
+          find.textContaining('Enter a year from'),
+          findsNothing,
+          reason: text,
+        );
+      }
+    });
+
+    testWidgets('takes its range from the current year, not fixed numbers',
+        (tester) async {
+      await pumpFramed(tester, wide: true, year: 2027);
+      await type(tester, '1926');
+      expect(find.text('Enter a year from 1927 to 2027.'), findsOneWidget);
+      await type(tester, '2027');
+      expect(find.textContaining('Enter a year from'), findsNothing);
+    });
+
+    testWidgets('Continue keeps its place when the hint appears and goes',
+        (tester) async {
+      await pumpFramed(tester, wide: true);
+      final continueButton = find.text('Continue');
+      await type(tester, '1926');
+      final steady = tester.getTopLeft(continueButton).dy;
+      for (final text in ['1900', '2027', '0000', '19', '2026']) {
+        await type(tester, text);
+        expect(tester.getTopLeft(continueButton).dy, steady, reason: text);
+      }
+    });
+
+    testWidgets('the YEAR label sits 4 px in from the field, as NAME does',
+        (tester) async {
+      await pumpFramed(tester, wide: true);
+      expect(
+        tester.getTopLeft(find.text('YEAR')).dx,
+        tester.getTopLeft(find.byType(TextField)).dx + 4,
+      );
+    });
+
+    testWidgets('is not drawn on the phone, which has no typed field',
+        (tester) async {
+      await pumpFramed(tester, wide: false);
+      expect(find.textContaining('Enter a year from'), findsNothing);
+    });
+  });
+
+  testWidgets('wide: the year field has focus as the step opens',
+      (tester) async {
+    await pumpFramed(tester, wide: true);
+    final field = tester.widget<TextField>(find.byType(TextField));
+    expect(field.focusNode!.hasFocus, isTrue);
+    await tester.enterText(find.byType(TextField), '1999');
+    expect(find.text('1999'), findsOneWidget);
+  });
+
+  testWidgets('phone: the under-age block has no Back, as on wide web',
+      (tester) async {
+    await AppPreferencesRepository(db).setBlockedMinimumAge(13);
+    await pumpFramed(tester, wide: false);
+    expect(find.text("Pantas isn't available yet"), findsOneWidget);
+    expect(find.text('Back'), findsNothing);
+  });
+
+  testWidgets('phone: the year step keeps its Back', (tester) async {
+    await pumpFramed(tester, wide: false);
+    expect(find.text('When were you born?'), findsOneWidget);
+    expect(find.text('Back'), findsOneWidget);
+  });
+
+  // 6U-2: Back from Terms showed 2012 again, and Continue then sent an adult
+  // to the guardian screen.
+  testWidgets('phone: Back to the year step shows the year the student chose',
+      (tester) async {
+    final shown = ValueNotifier<bool>(true);
+    addTearDown(shown.dispose);
+    var passed = 0;
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: ValueListenableBuilder<bool>(
+          valueListenable: shown,
+          builder: (_, on, __) => on
+              ? OnboardingAgeGateStep(
+                  currentYear: 2026,
+                  onAgeGatePassed: () => passed++,
+                  onGuardianNeeded: () => fail('an adult needs no guardian'),
+                )
+              : const SizedBox(),
+        ),
+      ),
+      viewportSize: const Size(390, 844),
+    );
+    var wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2012');
+    wheel.onSelected(wheel.values.indexOf('2006'));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(passed, 1);
+
+    shown.value = false;
+    await tester.pump();
+    shown.value = true;
+    await tester.pump();
+    wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2006');
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(passed, 2);
+  });
+
+  testWidgets('a new visit starts on the default year', (tester) async {
+    await pump(tester);
+    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2012');
+  });
+}
+
+class _FrameHost extends StatefulWidget {
+  const _FrameHost({required this.child});
+  final Widget child;
+  @override
+  State<_FrameHost> createState() => _FrameHostState();
+}
+
+class _FrameHostState extends State<_FrameHost> {
+  final _controller = OnboardingFrameController();
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => OnboardingFrame(
+        controller: _controller,
+        enabled: true,
+        resetToken: 'age',
+        child: widget.child,
+      );
 }
 
 class _FailingAgePreferences extends AppPreferencesRepository {

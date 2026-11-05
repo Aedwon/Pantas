@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -28,6 +29,7 @@ class PlanView {
     required this.nodes,
     required this.history,
     this.subtitle,
+    this.left,
     this.next,
     this.state = RoadmapState.planning,
   });
@@ -37,6 +39,9 @@ class PlanView {
   final List<PlanNode> nodes;
   final List<PlanHistoryEntry> history;
   final String? subtitle;
+
+  /// What Today still holds, from the remaining plan (4P-10).
+  final String? left;
   final Map<String, Object?>? next;
 }
 
@@ -179,24 +184,24 @@ final planViewProvider =
     );
   }
   String date(DateTime d) => DateFormat('EEE, MMM d', 'en_US').format(d);
-  if (reviewDay != null) {
+  if (planMarkerComingUp(reviewDay, now)) {
     nodes.add(
       PlanNode(
         kind: PlanNodeKind.review,
         title: 'New material stops',
         subtitle: 'Reviews and the mock only from here.',
-        date: date(reviewDay),
+        date: date(reviewDay!),
         reviewOnly: true,
       ),
     );
   }
-  if (mockDay != null) {
+  if (planMarkerComingUp(mockDay, now)) {
     nodes.add(
       PlanNode(
         kind: PlanNodeKind.mock,
         title: 'Mock exam',
         subtitle: '${exam.shortName} simulation',
-        date: date(mockDay),
+        date: date(mockDay!),
         reviewOnly: true,
       ),
     );
@@ -240,9 +245,17 @@ final planViewProvider =
     nodes: nodes,
     history: history,
     subtitle: subtitle,
+    left: planLeftText(remaining),
     next: next,
   );
 });
+
+/// "Coming up" lists only days after today. A student already in the
+/// review-only weeks is not told that new material stopped on a past date
+/// (3K-17), and today's mock is in Today, not under Coming up (4N-12).
+@visibleForTesting
+bool planMarkerComingUp(DateTime? day, DateTime today) =>
+    day != null && day.isAfter(today);
 
 DateTime? _date(Object? value) => value == null ? null : studyDay(value);
 
@@ -371,11 +384,31 @@ final planDayViewProvider =
       kind = 'unknown';
     }
   }
+  final lessons = await _planLessons(ref, plan, remaining, readLessonIds);
+  if (!await guard()) throw StateError('Plan owner changed');
+  return PlanDayView(
+    date: date,
+    plan: plan,
+    remaining: remaining,
+    lessons: lessons,
+    readLessonIds: readLessonIds,
+    kind: kind,
+  );
+});
+
+/// The lessons a day's plan names, with the titles and subjects from the
+/// content database and each one's read flag.
+Future<List<HomeTodayLesson>> _planLessons(
+  Ref ref,
+  DayPlan? plan,
+  DayPlan? remaining,
+  Set<String> readLessonIds,
+) async {
   final lessons = <HomeTodayLesson>[];
   if (plan != null) {
     final db = ref.read(contentDatabaseProvider);
     final rows = await (db.select(db.contentLessons)
-          ..where((l) => l.id.isIn(plan!.lessonIds)))
+          ..where((l) => l.id.isIn(plan.lessonIds)))
         .get();
     final topics = await db.select(db.contentTopics).get();
     final subjects = await db.select(db.contentSubjects).get();
@@ -408,15 +441,78 @@ final planDayViewProvider =
       );
     }
   }
+  return lessons;
+}
+
+/// A Sunday-first week from one `getRoadmapWeek` read, not seven day reads that
+/// each rebuild the whole study state on the server. Free sees locked future
+/// days, as the single-day provider does.
+final planServerWeekProvider = FutureProvider.autoDispose
+    .family<List<PlanDayView>, String>((ref, start) async {
+  ref.watch(roadmapRevisionProvider);
+  await ref.watch(studyCoreEpochProvider.future);
+  await ref.watch(authStateProvider.future);
+  final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+  if (exam == null) throw StateError('Plan exam unavailable');
+  var alive = true;
+  ref.onDispose(() => alive = false);
+  final guard =
+      await captureQuizLaunchGuard(ref, examId: exam.id, isAlive: () => alive);
+  final now = localDay(ref.read(nowProvider)().toLocal());
+  // Watching this authoritative read also invalidates future data at expiry.
+  final access = await ref.watch(serverStudyRoadmapProvider(exam.id).future);
+  final reader = await ref.watch(studySnapshotReaderProvider(exam.id).future);
+  final raw =
+      await reader.request.read('getRoadmapWeek', payload: {'start': start});
+  StudyEnvelope(raw, exam.id);
+  final rows = studyRows(raw['days']);
+  final readLessonIds = <String>{};
+  final hasFuture = rows.any((r) => studyDay(r['date']).isAfter(now));
+  if (hasFuture && access.proCovered) {
+    final insights =
+        await ref.watch(serverStudyInsightsProvider(exam.id).future);
+    if (insights.proCovered) {
+      for (final topic in insights.topicDetails) {
+        for (final lesson in studyRows(topic['lessons'])) {
+          if (lesson['read'] == true) {
+            readLessonIds.add(studyString(lesson['id']));
+          }
+        }
+      }
+    }
+  }
+  final days = <PlanDayView>[];
+  for (final row in rows) {
+    final date = studyDay(row['date']);
+    final kind = studyString(row['kind']);
+    if (kind == 'locked' || (date.isAfter(now) && !access.proCovered)) {
+      days.add(
+        PlanDayView(
+          date: date,
+          plan: null,
+          remaining: null,
+          lessons: const [],
+          kind: 'locked',
+        ),
+      );
+      continue;
+    }
+    final plan = row['plan'] == null ? null : decodeStudyDayPlan(row['plan']);
+    final remaining =
+        row['remaining'] == null ? null : decodeStudyDayPlan(row['remaining']);
+    days.add(
+      PlanDayView(
+        date: date,
+        plan: plan,
+        remaining: remaining,
+        lessons: await _planLessons(ref, plan, remaining, readLessonIds),
+        readLessonIds: readLessonIds,
+        kind: kind,
+      ),
+    );
+  }
   if (!await guard()) throw StateError('Plan owner changed');
-  return PlanDayView(
-    date: date,
-    plan: plan,
-    remaining: remaining,
-    lessons: lessons,
-    readLessonIds: readLessonIds,
-    kind: kind,
-  );
+  return days;
 });
 
 /// Keep the visited day's actual membership while a read reshapes future plans.

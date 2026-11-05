@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 
@@ -32,11 +33,13 @@ Widget harness(
   bool mock = false,
   bool plan = true,
   HomeDoneNote? note,
+  bool web = false,
 }) =>
     MaterialApp(
-      theme: dark ? buildDarkTheme() : buildLightTheme(),
+      theme: dark ? buildDarkTheme(web: web) : buildLightTheme(web: web),
       home: MediaQuery(
         data: MediaQueryData(
+          size: web ? const Size(1440, 900) : Size.zero,
           textScaler: TextScaler.linear(large ? 2 : 1),
           disableAnimations: true,
         ),
@@ -50,6 +53,7 @@ Widget harness(
               newTotal: 4,
               canAdvance: advance,
               isMockDay: mock,
+              web: web,
               onLesson: (_) {},
               onLessons: () {},
               onReviews: () {},
@@ -156,6 +160,18 @@ void main() {
     expect(find.text('Mock exam'), findsOneWidget);
     expect(find.text('UPCAT simulation'), findsOneWidget);
     expect(find.text('2 hr 45 min'), findsOneWidget);
+  });
+  testWidgets('6T-7: the wide mock row shows the chevron the others show',
+      (tester) async {
+    await tester.pumpWidget(harness([lesson(0)], mock: true, web: true));
+    await tester.pumpAndSettle();
+    final row = tester.widget<WebRow>(
+      find.ancestor(
+        of: find.text('Mock exam'),
+        matching: find.byType(WebRow),
+      ),
+    );
+    expect(row.chevron, WebRowChevron.hover);
   });
   testWidgets('a finished review-only week closes without an advance offer',
       (tester) async {

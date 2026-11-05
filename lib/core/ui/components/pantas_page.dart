@@ -4,6 +4,10 @@ import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Below this window height an onboarding page puts its actions at the end of
+/// the content instead of pinning them (see [PantasPage.pinBottom]).
+const double _shortWindow = 520;
+
 class PantasPage extends StatelessWidget {
   const PantasPage({
     required this.title,
@@ -25,6 +29,7 @@ class PantasPage extends StatelessWidget {
   })  : contentBody = null,
         contentPadding = EdgeInsets.zero,
         settingsPicker = false,
+        pinBottom = false,
         topPadding = 4,
         onboarding = false,
         progress = null,
@@ -45,6 +50,7 @@ class PantasPage extends StatelessWidget {
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
     this.topPadding = 4,
+    this.pinBottom = false,
     super.key,
   })  : contentBody = null,
         hero = null,
@@ -78,6 +84,7 @@ class PantasPage extends StatelessWidget {
         backPadding = const EdgeInsets.symmetric(horizontal: 16),
         titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
         settingsPicker = true,
+        pinBottom = false,
         topPadding = 4,
         onboarding = true,
         title = 'Exam',
@@ -113,6 +120,7 @@ class PantasPage extends StatelessWidget {
         backPadding = const EdgeInsets.symmetric(horizontal: 16),
         titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
         settingsPicker = false,
+        pinBottom = false,
         topPadding = 4,
         onboarding = false,
         progress = null,
@@ -131,6 +139,13 @@ class PantasPage extends StatelessWidget {
 
   /// Onboarding only: space between the progress bar and the title.
   final double topPadding;
+
+  /// Onboarding only: keep the bottom actions fixed even on a short window. On
+  /// a short window (a phone on its side, a page at 200% zoom) the actions
+  /// otherwise move to the end of the scrolling content, so the content gets
+  /// the height they took. A long list that needs its button in reach keeps it
+  /// pinned.
+  final bool pinBottom;
   final bool onboarding;
   final int? progress;
   final String? detail;
@@ -164,6 +179,9 @@ class PantasPage extends StatelessWidget {
     // Inside the onboarding frame, Back and the progress bar already stay on
     // screen, so this builds only the part that changes with the step.
     final host = settingsPicker ? null : OnboardingFrameScope.hostOf(context);
+    final inlineBottom = bottom != null &&
+        !pinBottom &&
+        MediaQuery.sizeOf(context).height < _shortWindow;
     final body = [
       Expanded(
         child: LayoutBuilder(
@@ -220,13 +238,18 @@ class PantasPage extends StatelessWidget {
                   if (title.isNotEmpty || detail != null)
                     SizedBox(height: bodyGap),
                   ...children,
+                  if (inlineBottom)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 24, 4, 2),
+                      child: bottom,
+                    ),
                 ],
               ),
             ),
           ),
         ),
       ),
-      if (bottom != null)
+      if (bottom != null && !inlineBottom)
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
           child: bottom,

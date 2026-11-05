@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/onboarding/application/onboarding_browser_back.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
@@ -30,6 +31,9 @@ import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
 
 final onboardingWebProvider = Provider<bool>((ref) => kIsWeb);
+
+/// The longest Finish waits for the study settings to reach the server.
+const _settingsWait = Duration(seconds: 4);
 
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
@@ -46,6 +50,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   bool _finishing = false;
   bool _finished = false;
   bool _finishFailed = false;
+
+  /// Name was just saved in this visit, so the page keeps showing it while
+  /// onboarding closes instead of swapping to an empty loading page.
+  bool _afterName = false;
   Future<void> _finish() async {
     if (_finishing || _finished) return;
     final telemetry = ref.read(telemetryProvider);
@@ -60,9 +68,21 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             .read(appPreferencesRepositoryProvider)
             .setCompletedOnboarding(value: true),
       );
+      // On web, Home reads the plan from the server as soon as it opens. The
+      // settings are still on their way, so a read that beat them failed and
+      // showed "Could not load your plan" until they landed. Waiting here,
+      // bounded so a student who is offline is not held, lets Home open on a
+      // plan that can be built.
+      if (ref.read(studyUsesServerProvider)) {
+        await ref
+            .read(studyWritesProvider)
+            .settingsSettled
+            .timeout(_settingsWait, onTimeout: () {});
+      }
       if (!mounted) return;
       _finished = true;
       ref.read(studyNeedsExamSettingsProvider.notifier).state = false;
+      ref.read(onboardingBirthYearProvider.notifier).state = null;
       unawaited(
         ref.read(telemetryProvider).log(TelemetryEvent.onboardingCompleted),
       );
@@ -78,8 +98,29 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     }
   }
 
+  OnboardingBrowserBack? _browserBack;
+
+  @override
+  void initState() {
+    super.initState();
+    // The browser's Back and Forward cannot change the step, because every
+    // step shares one address. The router reports them here instead, and Back
+    // goes to the previous step like the page's own Back. Web only: the phone
+    // app has no browser history.
+    if (ref.read(onboardingWebProvider)) {
+      final guard = ref.read(onboardingBrowserBackProvider)
+        ..handler = _onBrowserBack;
+      _browserBack = guard;
+    }
+  }
+
+  void _onBrowserBack() {
+    if (mounted) _back();
+  }
+
   @override
   void dispose() {
+    _browserBack?.detach(_onBrowserBack);
     _frame.dispose();
     super.dispose();
   }
@@ -87,10 +128,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   /// Screens that draw their whole page, with no top bar, steps list, Back or
   /// progress around them: Welcome, Launch and the save-and-finish screen.
   /// Every other step keeps the frame on screen and changes only its content.
-  static bool _framed(OnboardingStep step) =>
-      step != OnboardingStep.welcome &&
-      step != OnboardingStep.launch &&
-      step != OnboardingStep.reminders;
+  bool _framed(OnboardingStep step) => step == OnboardingStep.reminders
+      ? _afterName && !_finishFailed
+      : step != OnboardingStep.welcome && step != OnboardingStep.launch;
 
   OnboardingStep? get _step => _flow?.step;
   final Set<OnboardingStep> _loggedSteps = {};
@@ -174,7 +214,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         );
       } else if (first == OnboardingStep.welcome &&
           !MediaQuery.disableAnimationsOf(context) &&
-          !context.wideWeb) {
+          !context.wideWeb &&
+          // The splash already played the logo. Launch would play it again
+          // under the splash as it fades (4P-2).
+          !pageBeganFromSplash()) {
         first = OnboardingStep.launch;
       }
       if (first.index >= OnboardingStep.examDate.index &&
@@ -297,6 +340,15 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (mounted && !_finishFailed) _finish();
         });
+        if (_afterName && !_finishFailed) {
+          return KeyedSubtree(
+            key: const ValueKey('name'),
+            child: OnboardingNameStep(
+              finishing: true,
+              onCompleted: () {},
+            ),
+          );
+        }
         return _finishFailed
             ? saveFailureLine(_finish)
             : loadingFor(const AsyncLoading<void>());
@@ -392,6 +444,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             onBack: _back,
             onCompleted: () {
               if (_step == OnboardingStep.name) {
+                _afterName = true;
                 _setStep(OnboardingStep.reminders);
               }
             },

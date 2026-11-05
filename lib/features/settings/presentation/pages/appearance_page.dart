@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
@@ -35,8 +36,7 @@ class AppearancePage extends ConsumerWidget {
         description: 'How Pantas looks.',
         children: [
           SettingsSection(
-            footer: 'Automatic follows your computer: '
-                'light by day, dark at night.',
+            footer: "Automatic follows your computer's light or dark setting.",
             children: [
               Padding(
                 padding:
@@ -61,7 +61,8 @@ class AppearancePage extends ConsumerWidget {
           SettingsSection(
             header: 'Text size',
             footer: 'Lessons and questions use this size. '
-                'Ctrl + and Ctrl − still zoom the whole page.',
+                '$commandKeyLabel + and $commandKeyLabel − still zoom the '
+                'whole page.',
             children: [
               Padding(
                 padding:
@@ -114,7 +115,7 @@ class AppearancePage extends ConsumerWidget {
             children: [
               SettingsRow(
                 title: 'Remember table order',
-                subtitle: 'Keeps how you sorted “See all topics and lessons” '
+                subtitle: 'Keeps how you sorted "See all topics and lessons" '
                     'for next time.',
                 variant: ListRowVariant.switchControl,
                 selected: retain,
@@ -141,7 +142,7 @@ class AppearancePage extends ConsumerWidget {
         // ST_Appearance: one card holds the two phone previews and the
         // Automatic switch.
         SettingsSection(
-          footer: 'Automatic follows your phone: light by day, dark at night.',
+          footer: "Automatic follows your phone's light or dark setting.",
           children: [
             Container(
               padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),

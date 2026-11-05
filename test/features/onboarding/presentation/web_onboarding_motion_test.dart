@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -74,6 +75,42 @@ void main() {
         expect(opacity(tester, key), 1);
         expect(scale(tester, key), 1);
       }
+    });
+
+    testWidgets(
+        'a page that began from the splash waits, then shows settled '
+        '(4P-2)', (tester) async {
+      final probe = splashProbe;
+      final gone = splashGoneProbe;
+      VoidCallback? splashLeft;
+      splashProbe = () => true;
+      splashGoneProbe = (action) => splashLeft = action;
+      addTearDown(() {
+        splashProbe = probe;
+        splashGoneProbe = gone;
+      });
+      await pumpWide(tester, OnboardingWelcomeStep(onAdvance: () {}));
+      await tester.pump();
+      const cover = ValueKey('welcome-after-splash');
+      double shown() => tester
+          .widget<FadeTransition>(
+            find.descendant(
+              of: find.byKey(cover),
+              matching: find.byType(FadeTransition),
+            ),
+          )
+          .opacity
+          .value;
+      expect(shown(), 0, reason: 'two logos must not show while it fades');
+      for (final key in [logo, title]) {
+        expect(opacity(tester, key), 1, reason: '$key settled, no second pop');
+        expect(scale(tester, key), 1, reason: '$key');
+      }
+
+      splashLeft!();
+      await tester.pumpAndSettle();
+      expect(shown(), 1);
+      expect(tester.hasRunningAnimations, isFalse);
     });
 
     testWidgets('reduced motion shows them at once with no timer left',

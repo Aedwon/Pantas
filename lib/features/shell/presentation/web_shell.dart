@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +7,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
@@ -63,36 +66,158 @@ class WebShellFrame extends StatelessWidget {
         activeIndex: activeIndex,
         onNavigate: onNavigate,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(44, 28, 44, 100),
+          // No bottom padding, as on desktop: the page scrolls under the
+          // floating navigation and carries `webPageBottomInset` itself.
+          padding: const EdgeInsets.fromLTRB(44, 28, 44, 0),
           child: child,
         ),
       );
     }
+    return _DesktopShell(
+      activeIndex: activeIndex,
+      person: person,
+      exam: exam,
+      plan: plan,
+      onNavigate: onNavigate,
+      onSearch: onSearch,
+      child: child,
+    );
+  }
+}
+
+/// The desktop shell: the sidebar beside the page.
+///
+/// Tab starts in the sidebar, as the screen reads left to right (5Q-12). A
+/// page holds focus on its own key node until something is focused, and Tab
+/// from that node went to the page's controls and reached the sidebar last.
+/// The first Tab from such a node now goes to the sidebar's first control.
+/// Tab on from the sidebar's last control goes straight to the page's first
+/// control: Flutter first lands on the node the page holds focus on, which
+/// shows nothing and does nothing, and from there the rule above sent Tab
+/// back to the sidebar, so page content was never reached (6T-2).
+class _DesktopShell extends StatefulWidget {
+  const _DesktopShell({
+    required this.child,
+    required this.activeIndex,
+    required this.person,
+    required this.exam,
+    required this.plan,
+    required this.onNavigate,
+    required this.onSearch,
+  });
+  final Widget child;
+  final int activeIndex;
+  final String person;
+  final String exam;
+  final String plan;
+  final ValueChanged<int> onNavigate;
+  final VoidCallback onSearch;
+
+  @override
+  State<_DesktopShell> createState() => _DesktopShellState();
+}
+
+class _DesktopShellState extends State<_DesktopShell> {
+  final _sidebarEntry = FocusNode(debugLabel: 'sidebar entry');
+  final _sidebar = FocusNode(debugLabel: 'sidebar');
+
+  @override
+  void dispose() {
+    _sidebarEntry.dispose();
+    _sidebar.dispose();
+    super.dispose();
+  }
+
+  /// The sidebar is one column, so its last stop is its lowest.
+  bool _isLastSidebarStop(FocusNode node) {
+    final stops = _sidebar.traversalDescendants;
+    return stops.contains(node) &&
+        stops.every((stop) => stop.rect.top <= node.rect.top);
+  }
+
+  void _enterPage(FocusNode from) {
+    from.nextFocus();
+    // Runs after the focus change above, and before anything is drawn.
+    scheduleMicrotask(() {
+      final landed = FocusManager.instance.primaryFocus;
+      if (landed == null || landed == from) return;
+      if (landed.skipTraversal || landed is FocusScopeNode) landed.nextFocus();
+    });
+  }
+
+  KeyEventResult _onKey(FocusNode node, KeyEvent event) {
+    if (event is! KeyDownEvent || event.logicalKey != LogicalKeyboardKey.tab) {
+      return KeyEventResult.ignored;
+    }
+    final keyboard = HardwareKeyboard.instance;
+    if (keyboard.isShiftPressed ||
+        keyboard.isControlPressed ||
+        keyboard.isAltPressed ||
+        keyboard.isMetaPressed) {
+      return KeyEventResult.ignored;
+    }
+    final primary = FocusManager.instance.primaryFocus;
+    if (primary == null) return KeyEventResult.ignored;
+    // A node that exists to hold keys: a page's own key node, or this one.
+    if (primary.skipTraversal) {
+      _sidebarEntry.requestFocus();
+      return KeyEventResult.handled;
+    }
+    if (_isLastSidebarStop(primary)) {
+      _enterPage(primary);
+      return KeyEventResult.handled;
+    }
+    // Any other real control keeps Flutter's own order.
+    return KeyEventResult.ignored;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final onSearch = widget.onSearch;
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.keyK, control: true): onSearch,
+        const SingleActivator(LogicalKeyboardKey.keyK, meta: true): onSearch,
       },
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
+        onKeyEvent: _onKey,
         child: Scaffold(
           body: Row(
             children: [
-              WebSidebar(
-                activeIndex: activeIndex,
-                person: person,
-                exam: exam,
-                plan: plan,
-                onNavigate: onNavigate,
-                onSearch: onSearch,
+              Focus(
+                focusNode: _sidebar,
+                canRequestFocus: false,
+                skipTraversal: true,
+                child: WebSidebar(
+                  activeIndex: widget.activeIndex,
+                  person: widget.person,
+                  exam: widget.exam,
+                  plan: widget.plan,
+                  onNavigate: widget.onNavigate,
+                  onSearch: onSearch,
+                  entryFocus: _sidebarEntry,
+                ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(44, 28, 44, 44),
+                  // No bottom padding: the page's scrolling content reaches
+                  // the window bottom and carries `webPageBottomInset` itself.
+                  padding: const EdgeInsets.fromLTRB(44, 28, 44, 0),
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1080),
-                      child: child,
+                      // The page's Navigator puts a modal barrier under its
+                      // page, and a barrier hides every earlier sibling from
+                      // the accessibility tree. The sidebar is such a
+                      // sibling, so the page is its own semantics boundary.
+                      child: Semantics(
+                        container: true,
+                        explicitChildNodes: true,
+                        child: widget.child,
+                      ),
                     ),
                   ),
                 ),
@@ -113,6 +238,7 @@ class WebSidebar extends StatelessWidget {
     required this.plan,
     required this.onNavigate,
     required this.onSearch,
+    this.entryFocus,
     super.key,
   });
   final int activeIndex;
@@ -121,6 +247,9 @@ class WebSidebar extends StatelessWidget {
   final String plan;
   final ValueChanged<int> onNavigate;
   final VoidCallback onSearch;
+
+  /// The search field's focus node, so the shell can send the first Tab here.
+  final FocusNode? entryFocus;
   static final _tabs = [
     (label: 'Home', glyph: PantasIcons.homeTab),
     (label: 'Study', glyph: PantasIcons.studyTab),
@@ -158,6 +287,7 @@ class WebSidebar extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               TextButton(
+                focusNode: entryFocus,
                 onPressed: onSearch,
                 style: ButtonStyle(
                   animationDuration: MediaQuery.disableAnimationsOf(context)
@@ -170,8 +300,12 @@ class WebSidebar extends StatelessWidget {
                     EdgeInsets.fromLTRB(12, 0, 10, 0),
                   ),
                   backgroundColor: WidgetStatePropertyAll(c.surface),
-                  side: WidgetStatePropertyAll(
-                    BorderSide(color: c.separator),
+                  // The field's own rule, with the keyboard ring over it while
+                  // the field has keyboard focus (4N-6).
+                  side: WidgetStateProperty.resolveWith(
+                    (s) =>
+                        webFocusRing(s, c.accent) ??
+                        BorderSide(color: c.separator),
                   ),
                   shape: WidgetStatePropertyAll(
                     RoundedRectangleBorder(
@@ -199,7 +333,15 @@ class WebSidebar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const WebKeyHint('Ctrl K'),
+                    // Board `.srch`: 8 px between the text and the key hint.
+                    const SizedBox(width: 8),
+                    WebKeyHint(
+                      '$commandKeyLabel K',
+                      // The board's "Ctrl K" is 42 px wide. "Cmd K" is wider,
+                      // so the width is fixed and the label centered: the gap
+                      // to the text stays the board's on every platform.
+                      width: 42,
+                    ),
                   ],
                 ),
               ),
@@ -268,13 +410,16 @@ class WebSidebar extends StatelessWidget {
                               backgroundColor: WidgetStateProperty.resolveWith(
                                 (s) => activeIndex != i &&
                                         (s.contains(WidgetState.hovered) ||
-                                            s.contains(WidgetState.focused))
+                                            webKeyboardFocus(s))
                                     ? t.dark
                                         ? c.fill
                                         : Colors.black.withValues(
                                             alpha: .045,
                                           )
                                     : Colors.transparent,
+                              ),
+                              side: WidgetStateProperty.resolveWith(
+                                (s) => webFocusRing(s, c.accent),
                               ),
                               shape: WidgetStatePropertyAll(
                                 RoundedRectangleBorder(

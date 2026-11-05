@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -28,6 +29,7 @@ class SessionEndBody extends StatefulWidget {
     required this.onAll,
     required this.onMistakes,
     required this.onNotes,
+    this.onMistake,
     this.sourceLine,
     this.debriefCards,
     this.proPaused = false,
@@ -43,6 +45,10 @@ class SessionEndBody extends StatefulWidget {
   final Widget? debriefCards;
   final VoidCallback onDone;
   final ValueChanged<int> onQuestion;
+
+  /// A mistake row opens that mistake, among the mistakes only. Without it
+  /// the row opens the question like any other.
+  final ValueChanged<int>? onMistake;
   final VoidCallback onAll;
   final VoidCallback onMistakes;
   final VoidCallback onNotes;
@@ -170,6 +176,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
         source: source,
         onDone: widget.onDone,
         onQuestion: widget.onQuestion,
+        onMistake: widget.onMistake,
         onAll: widget.onAll,
         onMistakes: widget.onMistakes,
         onNotes: widget.onNotes,
@@ -286,7 +293,9 @@ class _SessionEndBodyState extends State<SessionEndBody>
                               ListRow(
                                 title: widget
                                         .session.questions[index].shortLabel ??
-                                    widget.session.questions[index].stem,
+                                    ContentRenderer.plainText(
+                                      widget.session.questions[index].stem,
+                                    ),
                                 titleWidget: widget.session.questions[index]
                                             .shortLabel ==
                                         null
@@ -296,7 +305,12 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                         overflow: TextOverflow.ellipsis,
                                         softWrap: false,
                                         child: MathText(
-                                          widget.session.questions[index].stem,
+                                          ContentRenderer.plainText(
+                                            widget
+                                                .session.questions[index].stem,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       )
                                     : null,
@@ -309,7 +323,10 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 ),
                                 divider: position < misses.take(3).length - 1 ||
                                     misses.length > 3,
-                                onTap: () => widget.onQuestion(index),
+                                onTap: () =>
+                                    (widget.onMistake ?? widget.onQuestion)(
+                                  index,
+                                ),
                               ),
                               1700 + position * 90,
                               380,

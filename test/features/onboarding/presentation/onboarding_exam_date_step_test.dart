@@ -61,7 +61,7 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('date-day-3')));
         await tester.pumpAndSettle();
         // No board draws a calm line on the date step. It is in the Days card.
-        expect(find.text('Saturday, 3 October · today'), findsOneWidget);
+        expect(find.text('Saturday, October 3 · today'), findsOneWidget);
         expect(find.textContaining('what matters most'), findsNothing);
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
@@ -166,6 +166,49 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
   });
 
+  for (final wide in [false, true]) {
+    testWidgets(
+        'a published sitting names its day month first, wide web or phone, '
+        'wide=$wide', (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+      final entry = ExamCatalogEntry(
+        id: 'exam_cse_pro',
+        name: 'Civil Service Exam',
+        shortName: 'CSE Professional',
+        priceTier: 'Civil Service',
+        group: 'Civil service',
+        comingSoon: false,
+        hasContent: true,
+        publishedSittings: [
+          PublishedExamSitting(
+            firstDay: DateTime(2027, 3, 14),
+            lastDay: DateTime(2027, 3, 14),
+            sourceUrl: 'https://csc.gov.ph',
+          ),
+        ],
+      );
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            examPickerCatalogProvider
+                .overrideWith((ref) => Stream.value([entry])),
+          ],
+          child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+        ),
+        disableAnimations: true,
+        viewportSize: wide ? const Size(1440, 900) : const Size(390, 844),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Sunday, March 14,\u00A02027'), findsOneWidget);
+      expect(find.text('Sunday, 14 March 2027'), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  }
+
   testWidgets('the selected-day note counts days as the boards draw it',
       (tester) async {
     final db = inMemoryDatabase();
@@ -193,7 +236,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('date-day-11')));
     await tester.pumpAndSettle();
     expect(
-      find.text('Wednesday, 11 November · 39 days from today'),
+      find.text('Wednesday, November 11 · 39 days from today'),
       findsOneWidget,
     );
     await tester.tap(find.byKey(const ValueKey('date-month-10')));
@@ -201,7 +244,7 @@ void main() {
     await tester.ensureVisible(find.byKey(const ValueKey('date-day-4')));
     await tester.tap(find.byKey(const ValueKey('date-day-4')));
     await tester.pumpAndSettle();
-    expect(find.text('Sunday, 4 October · 1 day from today'), findsOneWidget);
+    expect(find.text('Sunday, October 4 · 1 day from today'), findsOneWidget);
     await tester.pumpWidget(const SizedBox.shrink());
   });
 
@@ -243,4 +286,45 @@ void main() {
     expect(find.text('0 days from today'), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
   });
+  for (final width in [393.0, 720.0]) {
+    testWidgets('the caption starts at the title edge at $width',
+        (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+      final entry = ExamCatalogEntry(
+        id: 'exam_cse_pro',
+        name: 'Civil Service Exam',
+        shortName: 'CSE Professional',
+        priceTier: 'Civil Service',
+        group: 'Civil service',
+        comingSoon: false,
+        hasContent: true,
+        publishedSittings: [
+          PublishedExamSitting(
+            firstDay: DateTime(2026, 11, 11),
+            lastDay: DateTime(2026, 11, 12),
+            sourceUrl: 'https://csc.gov.ph',
+          ),
+        ],
+      );
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            examPickerCatalogProvider
+                .overrideWith((ref) => Stream.value([entry])),
+          ],
+          child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+        ),
+        viewportSize: Size(width, 844),
+        disableAnimations: true,
+      );
+      await tester.pumpAndSettle();
+      final title = tester.getTopLeft(find.text('When is your exam?')).dx;
+      final caption = tester.getTopLeft(find.text('Is this your exam day?')).dx;
+      expect(caption, title);
+    });
+  }
 }

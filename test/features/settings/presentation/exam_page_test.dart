@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
@@ -120,7 +121,7 @@ void main() {
     await tester.tap(find.text('Count Them'));
     await tester.pumpAndSettle();
     expect((await repository.readUserSettings()).carryOverProgress, isTrue);
-    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+    expect(find.text("You're now studying for DOST"), findsOneWidget);
   });
 
   testWidgets('Start My Numbers Fresh never claims work carried over',
@@ -157,9 +158,9 @@ void main() {
     await tester.tap(find.text('Start My Numbers Fresh'));
     await tester.pumpAndSettle();
     expect((await repository.readUserSettings()).carryOverProgress, isFalse);
-    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+    expect(find.text("You're now studying for DOST"), findsOneWidget);
     expect(
-      find.textContaining('Everything you’ve done came with you'),
+      find.textContaining("Everything you've done came with you"),
       findsNothing,
     );
   });
@@ -191,7 +192,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('DOST'));
     await tester.pumpAndSettle();
-    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+    expect(find.text("You're now studying for DOST"), findsOneWidget);
     expect(
       find.byKey(const ValueKey('exam-confirmation-arrival')),
       findsOneWidget,
@@ -203,14 +204,14 @@ void main() {
       findsNothing,
     );
     expect(
-      find.textContaining('Everything you’ve done came with you'),
+      find.textContaining("Everything you've done came with you"),
       findsNothing,
     );
     expect(find.text('Count Them'), findsNothing);
     await tester.tap(find.text('Done'));
     await tester.pumpAndSettle();
     expect(find.text('Study days'), findsOneWidget);
-    expect(find.text('You’re now studying for DOST'), findsNothing);
+    expect(find.text("You're now studying for DOST"), findsNothing);
   });
 
   testWidgets('the exam page has the active exam and four setting rows',
@@ -235,7 +236,7 @@ void main() {
     expect(find.byType(ListRow), findsNWidgets(4));
     expect(find.text('Exam'), findsOneWidget);
     expect(find.text('Carry over progress'), findsOneWidget);
-    expect(find.text('What’s included'), findsOneWidget);
+    expect(find.text("What's included"), findsOneWidget);
   });
 
   testWidgets('carry over is a switch, on by default', (tester) async {
@@ -365,10 +366,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text('You’re not starting from zero'), findsOneWidget);
+    expect(find.text("You're not starting from zero"), findsOneWidget);
 
     await tester.pump(const Duration(seconds: 1));
-    expect(find.text('You’re not starting from zero'), findsOneWidget);
+    expect(find.text("You're not starting from zero"), findsOneWidget);
   });
 
   testWidgets(
@@ -416,12 +417,12 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.byType(ChangeExamPage), findsOneWidget);
-    expect(find.text('You’re not starting from zero'), findsNothing);
+    expect(find.text("You're not starting from zero"), findsNothing);
 
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text('You’re not starting from zero'), findsOneWidget);
+    expect(find.text("You're not starting from zero"), findsOneWidget);
   });
 
   testWidgets(
@@ -532,7 +533,7 @@ void main() {
           'UPCAT',
           reason: 'active exam changed while Change exam was still mounted',
         );
-        expect(find.text('You’re not starting from zero'), findsNothing);
+        expect(find.text("You're not starting from zero"), findsNothing);
         continue;
       }
 
@@ -552,7 +553,7 @@ void main() {
             .value,
         'UPCAT',
       );
-      expect(find.text('You’re not starting from zero'), findsNothing);
+      expect(find.text("You're not starting from zero"), findsNothing);
       break;
     }
 
@@ -573,7 +574,7 @@ void main() {
           .value,
       'DOST',
     );
-    expect(find.text('You’re not starting from zero'), findsOneWidget);
+    expect(find.text("You're not starting from zero"), findsOneWidget);
   });
 
   testWidgets(
@@ -622,7 +623,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text('You’re not starting from zero'), findsNothing);
+    expect(find.text("You're not starting from zero"), findsNothing);
     expect(changeResult, isNotNull);
   });
 
@@ -760,6 +761,78 @@ void main() {
       await tester.tapAt(const Offset(20, 20));
       await tester.pump();
       expect(onChangePage(router), isFalse);
+    });
+  });
+  group('the carry-over prompt on wide web', () {
+    Future<GoRouter> pumpTransfer(
+      WidgetTester tester, {
+      bool still = true,
+    }) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view.physicalSize = const Size(1440, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final router = GoRouter(
+        initialLocation: '/settings/exam',
+        routes: [
+          settingsCarryOverRoute(),
+          GoRoute(
+            path: '/settings/exam',
+            builder: (_, __) => const Scaffold(body: Text('Exam page')),
+          ),
+        ],
+      );
+      addTearDown(router.dispose);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: createOverrides(),
+          child: MaterialApp.router(
+            theme: buildLightTheme(web: true),
+            routerConfig: router,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(disableAnimations: still),
+              child: child!,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      unawaited(
+        router.push<bool>(
+          '/settings/exam/transfer',
+          extra: CarryOverRequest(
+            exam: 'DOST',
+            previous: 'UPCAT',
+            count: 3,
+            onCounted: () {},
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      return router;
+    }
+
+    testWidgets('the scrim and card cover the whole window', (tester) async {
+      await pumpTransfer(tester);
+      expect(find.text("You're not starting from zero"), findsOneWidget);
+      final barrier = tester.getRect(find.byType(WebOverlayLayer));
+      expect(barrier, const Rect.fromLTWH(0, 0, 1440, 900));
+      final card = tester.getRect(find.byType(Dialog));
+      expect(card.center.dx, closeTo(720, 1));
+    });
+
+    testWidgets('Start My Numbers Fresh fades the dialog, then leaves',
+        (tester) async {
+      final router = await pumpTransfer(tester, still: false);
+      await tester.tap(find.text('Start My Numbers Fresh'));
+      await tester.pump();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(router.canPop(), isTrue);
+      await tester.pumpAndSettle();
+      expect(router.canPop(), isFalse);
+      expect(find.text("You're not starting from zero"), findsNothing);
     });
   });
 }

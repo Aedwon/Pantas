@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
 
@@ -13,7 +17,7 @@ void main() {
         contact: defaultLegalContact,
       ),
     );
-    expect(find.text('Privacy policy'), findsOneWidget);
+    expect(find.text('Privacy Policy'), findsOneWidget);
     expect(find.text('Manage account data'), findsNothing);
     expect(find.text('Data Protection Officer'), findsNothing);
   });
@@ -30,6 +34,35 @@ void main() {
     expect(find.text('Use of the app'), findsOneWidget);
     expect(find.text('Subscriptions'), findsOneWidget);
     expect(find.text('Intellectual property'), findsOneWidget);
+  });
+
+  testWidgets('the onboarding legal page draws the same Back as the steps',
+      (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    tester.view
+      ..physicalSize = const Size(1440, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: const OnboardingLegalPage(documentId: 'terms'),
+      ),
+    );
+    await tester.pump();
+    final chevron = find.descendant(
+      of: find.widgetWithText(TextButton, 'Back'),
+      matching: find.byType(SvgPicture),
+    );
+    expect(chevron, findsOneWidget);
+    expect(tester.getSize(chevron), const Size(20, 20));
+    expect(find.byIcon(Icons.chevron_left), findsNothing);
+    expect(find.text('Terms of Service'), findsWidgets);
   });
 
   testWidgets('unknown legal doc renders not found state', (tester) async {

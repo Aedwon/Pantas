@@ -112,6 +112,12 @@ class LocalPanelTest(unittest.TestCase):
         reset = Path('tools/local/panel/local-reset.html').read_text()
         self.assertIn("get('next')", reset)
 
+    def test_reset_page_follows_a_dark_browser_so_it_does_not_flash_light(self):
+        # 5S-13: the reset page runs before every local load and was light in
+        # a dark browser, one light frame before the app's own dark first paint.
+        self.assertIn('@media (prefers-color-scheme: dark)', self.reset)
+        self.assertIn('#151515', self.reset)
+
     def test_runner_has_no_date_patch(self):
         for text in [self.runner, self.page, self.reset]:
             self.assertNotIn('pantas.local.today', text)

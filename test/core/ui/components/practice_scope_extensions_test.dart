@@ -56,4 +56,41 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('a topic with no questions has no chevron to open',
+      (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      ScopePicker(
+        atLeastOne: false,
+        selectedIds: const {},
+        subjects: const [
+          ScopeSubject(
+            title: 'Subject',
+            topics: [
+              ScopeTopic(
+                id: 'full',
+                title: 'Algebra',
+                lessons: [ScopeLesson(id: 'a', title: 'Linear')],
+              ),
+              ScopeTopic(
+                id: 'empty',
+                title: 'Mechanical',
+                hasQuestions: false,
+                lessons: [
+                  ScopeLesson(id: 'm', title: 'Gears', hasQuestions: false),
+                ],
+              ),
+            ],
+          ),
+        ],
+        onChanged: (_) {},
+      ),
+      viewportSize: const Size(390, 844),
+      disableAnimations: true,
+    );
+    expect(find.byKey(const ValueKey('scope-expand-full')), findsOneWidget);
+    expect(find.byKey(const ValueKey('scope-expand-empty')), findsNothing);
+    expect(find.text('No questions yet'), findsOneWidget);
+  });
 }

@@ -51,10 +51,21 @@ class TendenciesPage extends StatelessWidget {
     final pending = data.tendencies
         .where((t) => t.confidence != TendencyConfidence.clear)
         .toList();
+    // One card holds the findings. The card's edge is the group's own, so a
+    // finding is drawn without a surface of its own (4N-5).
     Widget group(String title, List<Tendency> cards) => GroupedSection(
           header: title,
+          radius: _findingRadius,
           children: [
-            for (final t in cards) _Finding(tendency: t, covered: pro),
+            for (final (index, t) in cards.indexed)
+              _Finding(
+                tendency: t,
+                covered: pro,
+                topInset: index == 0 ? 20 : 0,
+                bottomInset: index == cards.length - 1
+                    ? 20
+                    : _Finding.gapAfter(t, covered: pro),
+              ),
           ],
         );
     return PantasPage(
@@ -75,7 +86,7 @@ class TendenciesPage extends StatelessWidget {
             ),
           ),
           for (final t in data.tendencies) ...[
-            _Finding(tendency: t, covered: false),
+            _Finding(tendency: t, covered: false, standalone: true),
             const SizedBox(height: 12),
           ],
           if (paused)
@@ -140,6 +151,21 @@ class _Profile extends StatelessWidget {
       _ => null,
     };
     final reduce = MediaQuery.disableAnimationsOf(context);
+    // Until an archetype is earned the card says so, with a ghost question
+    // mark where the archetype's glyph would stand (QA polish board,
+    // option C).
+    final empty = data.archetype == null;
+    // The ghost slides in as the archetype glyph does.
+    Widget slide(Widget child) => TweenAnimationBuilder<double>(
+          tween: Tween(begin: reduce ? 1 : 0, end: 1),
+          duration: const Duration(milliseconds: 800),
+          curve: PantasCurves.houseOut,
+          builder: (_, value, child) => Transform.translate(
+            offset: Offset(20 * (1 - value), 0),
+            child: child,
+          ),
+          child: child,
+        );
     return LayoutBuilder(
       builder: (context, constraints) {
         double measure(String text, TextStyle style) {
@@ -161,10 +187,12 @@ class _Profile extends StatelessWidget {
                   measure(archetypeIdentityLine(a.id), line),
             )
             .reduce(math.max);
-        final height = 40 +
-            measure(data.name ?? 'Add your name', context.type.subhead) +
-            14 +
-            identityHeight;
+        final height = empty
+            ? 130.0
+            : 40 +
+                measure(data.name ?? 'Add your name', context.type.subhead) +
+                14 +
+                identityHeight;
         return Container(
           key: const ValueKey('tendencies-profile'),
           constraints: BoxConstraints(minHeight: height),
@@ -175,19 +203,32 @@ class _Profile extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              if (glyph != null)
+              if (empty)
+                Positioned(
+                  right: 2,
+                  top: -8,
+                  child: ExcludeSemantics(
+                    child: slide(
+                      Text(
+                        '?',
+                        key: const ValueKey('tendencies-ghost'),
+                        style: context.type.body.copyWith(
+                          fontSize: 150,
+                          fontWeight: FontWeight.w400,
+                          height: 1,
+                          leadingDistribution: TextLeadingDistribution.even,
+                          color: const Color(0xff3a3a3d),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              else if (glyph != null)
                 Positioned(
                   right: -24,
                   top: 12,
-                  child: TweenAnimationBuilder<double>(
-                    tween: Tween(begin: reduce ? 1 : 0, end: 1),
-                    duration: const Duration(milliseconds: 800),
-                    curve: PantasCurves.houseOut,
-                    builder: (_, value, child) => Transform.translate(
-                      offset: Offset(20 * (1 - value), 0),
-                      child: child,
-                    ),
-                    child: SizedBox(
+                  child: slide(
+                    SizedBox(
                       width: 150,
                       height: 150,
                       child: Stack(
@@ -223,9 +264,26 @@ class _Profile extends StatelessWidget {
                     else
                       Text(
                         data.name!,
-                        style: context.type.subhead
-                            .copyWith(color: const Color(0xffb6b6b7)),
+                        style: context.type.subhead.copyWith(
+                          color: const Color(0xffb6b6b7),
+                          height: empty ? 20 / 15 : null,
+                        ),
                       ),
+                    if (empty) ...[
+                      const SizedBox(height: 6),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 270),
+                        child: Text(
+                          'Needs more usage data',
+                          style: context.type.largeTitle.copyWith(
+                            fontSize: 30,
+                            letterSpacing: -.6,
+                            height: 1.14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                     if (data.archetype != null) ...[
                       const SizedBox(height: 6),
                       Text(
@@ -251,15 +309,52 @@ class _Profile extends StatelessWidget {
   }
 }
 
+/// Board `.fnd`: an 18 px card.
+const double _findingRadius = 18;
+
 class _Finding extends StatelessWidget {
-  const _Finding({required this.tendency, required this.covered});
+  const _Finding({
+    required this.tendency,
+    required this.covered,
+    this.topInset = 20,
+    this.bottomInset = 20,
+    this.standalone = false,
+  });
   final Tendency tendency;
   final bool covered;
+
+  /// Space above and below the finding inside its card. A finding that shares
+  /// a card sets the gap to the next one in its own bottom inset.
+  final double topInset;
+  final double bottomInset;
+
+  /// A locked finding is a card of its own, rounded like the Pro card.
+  final bool standalone;
+
+  /// Nothing measured yet: the heading and one line only, with a faint
+  /// placeholder where the chart will go (board Tend, option C).
+  static bool _empty(Tendency t, {required bool covered}) =>
+      covered &&
+      t.id != TendencyId.stamina &&
+      t.confidence != TendencyConfidence.clear &&
+      t.confidence != TendencyConfidence.forming &&
+      (t.leftFigure == null || t.rightFigure == null);
+
+  /// The board's two bars under "How long you answer".
+  static bool _bars(Tendency t) =>
+      t.id == TendencyId.howYouAnswer || t.id == TendencyId.howLongYouRemember;
+
+  /// Space between this finding and the next, inside one card. The board
+  /// leaves 40 px after the line placeholder and 30 after the two bars.
+  static double gapAfter(Tendency t, {required bool covered}) =>
+      _empty(t, covered: covered) && _bars(t) ? 30 : 40;
+
   @override
   Widget build(BuildContext context) {
     final t = tendency;
     final clear = covered && t.confidence == TendencyConfidence.clear;
     final missing = t.leftFigure == null || t.rightFigure == null;
+    final empty = _empty(t, covered: covered);
     final caption = !covered
         ? '${t.leftLabel} vs. ${t.rightLabel}'
         : t.confidence == TendencyConfidence.forming
@@ -267,35 +362,120 @@ class _Finding extends StatelessWidget {
             : missing
                 ? 'Not enough data yet'
                 : 'Too early to tell.';
-    return Container(
-      color: context.colors.surface,
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                switch (t.id) {
-                  TendencyId.underPressure => PantasIcons.timer,
-                  TendencyId.howYouAnswer => PantasIcons.timer,
-                  TendencyId.howYouStudy => PantasIcons.studyTab,
-                  TendencyId.howLongYouRemember =>
-                    const IconData(0xe036, fontFamily: 'Phosphor'),
-                  TendencyId.stamina => PantasIcons.answerStreak,
-                },
-                size: 17,
+    final header = Row(
+      children: [
+        Icon(
+          switch (t.id) {
+            TendencyId.underPressure => PantasIcons.timer,
+            TendencyId.howYouAnswer => PantasIcons.timer,
+            TendencyId.howYouStudy => PantasIcons.studyTab,
+            TendencyId.howLongYouRemember =>
+              const IconData(0xe036, fontFamily: 'Phosphor'),
+            TendencyId.stamina => PantasIcons.answerStreak,
+          },
+          size: 17,
+          color: context.colors.secondaryLabel,
+        ),
+        const SizedBox(width: 7),
+        Expanded(
+          child: Text(
+            t.heading.toUpperCase(),
+            style: context.type.sectionHeader.copyWith(height: 18 / 13),
+          ),
+        ),
+      ],
+    );
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    // A card of its own draws its real 1 px edge inside the padding, so the
+    // padding gives that pixel back and the content sits 20 px from the outer
+    // edge, as on the board (an inset rule there).
+    final edge = standalone && dark ? 1.0 : 0.0;
+    Widget frame(Widget child) => standalone
+        ? Container(
+            decoration: BoxDecoration(
+              color: context.colors.surface,
+              borderRadius: BorderRadius.circular(_findingRadius),
+              border: dark ? Border.all(color: context.colors.cardEdge) : null,
+            ),
+            padding: EdgeInsets.fromLTRB(
+              20 - edge,
+              topInset - edge,
+              20 - edge,
+              bottomInset - edge,
+            ),
+            child: child,
+          )
+        : Padding(
+            padding: EdgeInsets.fromLTRB(20, topInset, 20, bottomInset),
+            child: child,
+          );
+    if (empty) {
+      // Board Tend: the heading, the line, and a faint placeholder 44 px
+      // under the text for the line, 72 px for the two bars, nothing for
+      // "How you study". The page's measured rhythm is 168 px from one
+      // heading to the next after the line and 200 after the bars.
+      final faint = context.colors.fill;
+      Widget bar(double fraction, double height) => FractionallySizedBox(
+            widthFactor: fraction,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: faint,
+                borderRadius: BorderRadius.circular(height <= 4 ? 99 : 4),
+              ),
+              child: SizedBox(height: height, width: double.infinity),
+            ),
+          );
+      return frame(
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            header,
+            const SizedBox(height: 10),
+            Text(
+              caption,
+              style: context.type.emphasized.copyWith(
+                fontSize: 20,
+                height: 26 / 20,
                 color: context.colors.secondaryLabel,
               ),
-              const SizedBox(width: 7),
-              Expanded(
-                child: Text(
-                  t.heading.toUpperCase(),
-                  style: context.type.sectionHeader,
+            ),
+            if (t.unlockAction.isNotEmpty) ...[
+              const SizedBox(height: 6),
+              Text(
+                t.unlockAction,
+                style: context.type.subhead.copyWith(
+                  color: context.colors.secondaryLabel,
+                  height: 20 / 15,
                 ),
               ),
             ],
-          ),
+            if (t.id == TendencyId.underPressure) ...[
+              const SizedBox(height: 44),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: bar(1, 4),
+              ),
+            ] else if (_bars(t)) ...[
+              const SizedBox(height: 72),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: bar(.65, 14),
+              ),
+              const SizedBox(height: 16),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: bar(.85, 14),
+              ),
+            ],
+          ],
+        ),
+      );
+    }
+    return frame(
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          header,
           const SizedBox(height: 10),
           Text(
             clear ? t.sentence ?? caption : caption,
@@ -309,7 +489,8 @@ class _Finding extends StatelessWidget {
           if (covered &&
               !clear &&
               missing &&
-              t.confidence != TendencyConfidence.forming) ...[
+              t.confidence != TendencyConfidence.forming &&
+              t.unlockAction.isNotEmpty) ...[
             const SizedBox(height: 6),
             Text(
               t.unlockAction,

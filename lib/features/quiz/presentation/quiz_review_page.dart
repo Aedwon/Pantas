@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
-import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
@@ -18,6 +18,7 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
+import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
 import 'package:pantas/features/quiz/presentation/quiz_question_viewer.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
@@ -33,12 +34,17 @@ class QuizReviewPage extends ConsumerStatefulWidget {
     this.initialIndex = 0,
     this.openNotes = false,
     this.fromAll = false,
+    this.mistakesOnly = false,
     super.key,
   });
   final String attemptId;
   final int initialIndex;
   final bool openNotes;
   final bool fromAll;
+
+  /// Opened from the list of mistakes: step through the wrong answers only,
+  /// as the list does. [initialIndex] still counts every question.
+  final bool mistakesOnly;
   @override
   ConsumerState<QuizReviewPage> createState() => _QuizReviewPageState();
 }
@@ -171,7 +177,14 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
     if (widget.fromAll && context.canPop()) {
       context.pop();
     } else {
-      context.pushReplacement('/quiz/all/${widget.attemptId}');
+      // The label names the list the student came from, so Back goes there.
+      unawaited(
+        pushReplacementEntry<void>(
+          context,
+          '/quiz/all/${widget.attemptId}'
+          '${widget.mistakesOnly ? '?mistakes=true' : ''}',
+        ),
+      );
     }
   }
 
@@ -195,26 +208,51 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
           ready: snapshot.connectionState == ConnectionState.done,
         );
         if (snapshot.hasError || !_current()) {
-          return Scaffold(body: errorFor('questions', _retry));
+          return Scaffold(body: QuestionsUnavailable(onRetry: _retry));
         }
         final loaded = snapshot.data;
         if (loaded == null) {
           return const Scaffold(body: SafeArea(child: SkeletonQuestionPage()));
         }
+        final all = loaded.data.session.questions;
+        final answers = loaded.data.attempt.items;
+        // Positions in the whole session that the viewer steps through.
+        final shown = [
+          for (var i = 0; i < all.length; i++)
+            if (!widget.mistakesOnly ||
+                (i < answers.length && !answers[i].isCorrect))
+              i,
+        ];
+        if (shown.isEmpty) {
+          return Scaffold(body: QuestionsUnavailable(onRetry: _retry));
+        }
+        final start = shown.indexOf(widget.initialIndex);
         return PopScope(
           canPop: widget.fromAll,
           onPopInvokedWithResult: (didPop, _) {
             if (!didPop) _back();
           },
           child: QuizQuestionViewer(
-            questions: loaded.data.session.questions,
-            items: loaded.data.attempt.items,
+            questions: [for (final i in shown) all[i]],
+            items: widget.mistakesOnly
+                ? [for (final i in shown) answers[i]]
+                : answers,
             subjectNames: loaded.data.subjectNames,
+            topicNames: loaded.data.topicNames,
             passages: loaded.passages,
             pro: pro,
             proPaused: paused,
-            initialIndex: widget.initialIndex,
+            initialIndex: start < 0 ? 0 : start,
             openNotes: widget.openNotes,
+            backLabel: widget.mistakesOnly ? 'Your mistakes' : 'All questions',
+            onIndexChanged: (position) => replaceWebAddress(
+              context,
+              Uri.parse(
+                '/quiz/viewer/${widget.attemptId}?index=${shown[position]}'
+                '&notes=false&fromAll=${widget.fromAll}'
+                '${widget.mistakesOnly ? '&mistakes=true' : ''}',
+              ),
+            ),
             onReload: _retry,
             onBack: _back,
             onNote: _save,
@@ -243,10 +281,12 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
     return entries.when(
       loading: () =>
           const Scaffold(body: SafeArea(child: SkeletonQuestionPage())),
-      error: (_, __) => Scaffold(body: errorFor('questions', retry)),
+      error: (_, __) => Scaffold(body: QuestionsUnavailable(onRetry: retry)),
       data: (rows) {
         final index = rows.indexWhere((r) => r.question.id == questionId);
-        if (index < 0) return Scaffold(body: errorFor('questions', retry));
+        if (index < 0) {
+          return Scaffold(body: QuestionsUnavailable(onRetry: retry));
+        }
         return QuizQuestionViewer(
           key: ValueKey('$examId:$questionId'),
           questions: [for (final row in rows) row.question],
@@ -254,6 +294,17 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
           subjectNames: {
             for (final row in rows) row.question.topicId: row.subjectName,
           },
+          topicNames: {
+            for (final row in rows)
+              if (row.topicName.isNotEmpty) row.question.topicId: row.topicName,
+          },
+          onIndexChanged: (position) => replaceWebAddress(
+            context,
+            Uri.parse(
+              '/quiz/flagged/${Uri.encodeComponent(examId)}/view/'
+              '${Uri.encodeComponent(rows[position].question.id)}',
+            ),
+          ),
           passages: {
             for (final row in rows)
               if (row.passage != null) row.passage!.id: row.passage!,
@@ -266,7 +317,9 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
             if (context.canPop()) {
               context.pop();
             } else {
-              context.pushReplacement('/quiz/flagged/$examId');
+              unawaited(
+                pushReplacementEntry<void>(context, '/quiz/flagged/$examId'),
+              );
             }
           },
           onNote: (_, __, ___) async {

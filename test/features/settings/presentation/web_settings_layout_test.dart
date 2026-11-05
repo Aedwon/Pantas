@@ -101,13 +101,13 @@ void main() {
         ),
         SettingsPanePage(
           section: 'About',
-          title: 'Privacy policy',
+          title: 'Privacy Policy',
           description: LegalDocumentBody.updatedLine('privacy'),
           children: const [LegalDocumentBody(documentId: 'privacy')],
         ),
         SettingsPanePage(
           section: 'About',
-          title: 'Terms of service',
+          title: 'Terms of Service',
           description: LegalDocumentBody.updatedLine('terms'),
           children: const [LegalDocumentBody(documentId: 'terms')],
         ),
@@ -280,8 +280,9 @@ void main() {
           }
           if (page is AppearancePage) {
             expect(
-              find.text('Automatic follows your computer: '
-                  'light by day, dark at night.'),
+              find.text(
+                "Automatic follows your computer's light or dark setting.",
+              ),
               findsOneWidget,
             );
             expect(

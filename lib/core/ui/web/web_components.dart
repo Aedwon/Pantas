@@ -3,14 +3,19 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/web/web_back_link_ring.dart';
+import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+export 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 
 enum WebButtonVariant {
   primary,
@@ -38,9 +43,14 @@ class WebButton extends StatelessWidget {
     this.height,
     this.fontSize,
     this.radius,
+    this.sidePadding,
     super.key,
   });
   final String label;
+
+  /// Both side paddings, when the board's differ from the variant's usual
+  /// ones (board `.btn2` is 20 px and `.btn3` 16 px).
+  final double? sidePadding;
 
   /// Board overrides for a smaller button: its height, text size and radius.
   final double? height;
@@ -126,35 +136,37 @@ class WebButton extends StatelessWidget {
           Size(expand ? double.infinity : 0, height),
         ),
         padding: WidgetStatePropertyAll(
-          EdgeInsets.only(
-            left: tall
-                ? switch (variant) {
-                    WebButtonVariant.primary => 22,
-                    WebButtonVariant.tertiary => 16,
-                    WebButtonVariant.white => 18,
-                    _ => 18,
-                  }
-                : pill
-                    ? 22
-                    : variant == WebButtonVariant.tertiary
-                        ? 14
-                        : variant == WebButtonVariant.secondary ||
-                                variant == WebButtonVariant.white ||
-                                variant == WebButtonVariant.dangerOutline
-                            ? 18
-                            : 20,
-            right: tall && variant == WebButtonVariant.tertiary
-                ? 16
-                : pill || showKeyHint
-                    ? 14
-                    : variant == WebButtonVariant.tertiary
-                        ? 14
-                        : variant == WebButtonVariant.secondary ||
-                                variant == WebButtonVariant.white ||
-                                variant == WebButtonVariant.dangerOutline
-                            ? 18
-                            : 20,
-          ),
+          sidePadding != null
+              ? EdgeInsets.symmetric(horizontal: sidePadding!)
+              : EdgeInsets.only(
+                  left: tall
+                      ? switch (variant) {
+                          WebButtonVariant.primary => 22,
+                          WebButtonVariant.tertiary => 16,
+                          WebButtonVariant.white => 18,
+                          _ => 18,
+                        }
+                      : pill
+                          ? 22
+                          : variant == WebButtonVariant.tertiary
+                              ? 14
+                              : variant == WebButtonVariant.secondary ||
+                                      variant == WebButtonVariant.white ||
+                                      variant == WebButtonVariant.dangerOutline
+                                  ? 18
+                                  : 20,
+                  right: tall && variant == WebButtonVariant.tertiary
+                      ? 16
+                      : pill || showKeyHint
+                          ? 14
+                          : variant == WebButtonVariant.tertiary
+                              ? 14
+                              : variant == WebButtonVariant.secondary ||
+                                      variant == WebButtonVariant.white ||
+                                      variant == WebButtonVariant.dangerOutline
+                                  ? 18
+                                  : 20,
+                ),
         ),
         backgroundColor: WidgetStateProperty.resolveWith(background),
         foregroundColor: WidgetStateProperty.resolveWith(
@@ -165,7 +177,7 @@ class WebButton extends StatelessWidget {
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         side: WidgetStateProperty.resolveWith(
           (s) => BorderSide(
-            color: s.contains(WidgetState.focused)
+            color: webKeyboardFocus(s)
                 ? c.accent
                 : variant == WebButtonVariant.dangerOutline
                     ? c.destructive
@@ -176,7 +188,7 @@ class WebButton extends StatelessWidget {
                                 ? t.cardEdge
                                 : c.separator)
                         : Colors.transparent,
-            width: s.contains(WidgetState.focused) ? 2 : 1,
+            width: webKeyboardFocus(s) ? 2 : 1,
           ),
         ),
         shape: WidgetStatePropertyAll(
@@ -242,12 +254,18 @@ class WebKeyHint extends StatelessWidget {
     this.onButton = false,
     this.keyboard = true,
     this.enabled = true,
+    this.width,
     super.key,
   });
   final String label;
   final bool onButton;
   final bool keyboard;
   final bool enabled;
+
+  /// A fixed width, with the label centered, when the board gives the hint
+  /// one. The label's own width differs between platforms ("Cmd K" and
+  /// "Ctrl K"), and the room beside it must not.
+  final double? width;
   @override
   Widget build(BuildContext context) {
     if (keyboard && !WebKeyboardHints.visibleOf(context)) {
@@ -256,8 +274,12 @@ class WebKeyHint extends StatelessWidget {
     final t = context.webTokens;
     return ExcludeSemantics(
       child: Container(
-        padding:
-            EdgeInsets.symmetric(horizontal: onButton ? 7 : 6, vertical: 2),
+        width: width,
+        alignment: width == null ? null : Alignment.center,
+        padding: EdgeInsets.symmetric(
+          horizontal: width != null ? 0 : (onButton ? 7 : 6),
+          vertical: 2,
+        ),
         decoration: BoxDecoration(
           color:
               onButton && enabled ? Colors.white.withValues(alpha: .16) : null,
@@ -310,8 +332,13 @@ class _WebTextLinkState extends State<WebTextLink> {
       child: TextButton(
         onPressed: widget.onPressed,
         style: TextButton.styleFrom(
-          foregroundColor:
-              _hover && !t.dark ? const Color(0xFF075C4E) : t.colors.accent,
+          // Light darkens the accent, dark lightens it to the tint text, so
+          // a link answers the pointer in both themes (5Q-6, 5Q-8).
+          foregroundColor: !_hover
+              ? t.colors.accent
+              : t.dark
+                  ? t.tintText
+                  : const Color(0xFF075C4E),
           overlayColor: Colors.transparent,
           animationDuration: MediaQuery.disableAnimationsOf(context)
               ? Duration.zero
@@ -349,11 +376,17 @@ class WebCard extends StatelessWidget {
     this.radius = 18,
     this.selected = false,
     this.minHeight,
+    this.floating = false,
     super.key,
   });
   final Widget child;
   final EdgeInsetsGeometry padding;
   final double radius;
+
+  /// A card that floats over other content, such as a popover: it gets the
+  /// edge and the shadow of the floating question bar, so it reads as a
+  /// separate surface where it lies over a card of the same color.
+  final bool floating;
 
   /// Picked card (board OB_Picker): accent tint and a 2 px accent outline.
   final bool selected;
@@ -364,7 +397,9 @@ class WebCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     // Item 17, demo 4: the tint and the outline fade 160 ms on the ease. The
-    // dark edge goes at once, since it takes up room the outline would cover.
+    // dark edge is the board's inset outline: it is drawn over the card and
+    // takes up no room, so a card is the same size in dark and light (6T-11).
+    final edge = t.dark && !selected && !floating ? t.cardEdge : null;
     return FadingColor(
       color: selected
           ? (t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE))
@@ -379,11 +414,17 @@ class WebCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: fill,
             borderRadius: BorderRadius.circular(radius),
-            border: t.dark && !selected ? Border.all(color: t.cardEdge) : null,
+            border: floating ? Border.all(color: webFloatingEdge(t)) : null,
+            boxShadow: floating ? webFloatingShadow(t, blur: 24, dy: 4) : null,
           ),
           // Drawn on top like the board inset outline; content stays put.
           foregroundDecoration: outline.a == 0
-              ? null
+              ? edge == null
+                  ? null
+                  : BoxDecoration(
+                      borderRadius: BorderRadius.circular(radius),
+                      border: Border.all(color: edge),
+                    )
               : BoxDecoration(
                   borderRadius: BorderRadius.circular(radius),
                   border: Border.all(color: outline, width: 2),
@@ -395,6 +436,27 @@ class WebCard extends StatelessWidget {
     );
   }
 }
+
+/// The edge of a surface that floats over the page (the question bar, a
+/// popover).
+Color webFloatingEdge(WebTokens t) =>
+    t.dark ? t.colors.separator : Colors.black.withValues(alpha: .06);
+
+/// The shadow of a surface that floats over the page. A popover that sits
+/// just above another floating surface asks for a tighter one, so its shadow
+/// does not fall on the surface below.
+List<BoxShadow> webFloatingShadow(
+  WebTokens t, {
+  double blur = 30,
+  double dy = 10,
+}) =>
+    [
+      BoxShadow(
+        color: Colors.black.withValues(alpha: t.dark ? .4 : .10),
+        blurRadius: blur,
+        offset: Offset(0, dy),
+      ),
+    ];
 
 /// One hairline at device resolution: the board's `.5px` rule is a whole
 /// device pixel in the browser, not a half-covered pair.
@@ -456,6 +518,7 @@ class WebRow extends StatefulWidget {
     this.horizontalPadding = 20,
     this.titleColor,
     this.titleSuffix,
+    this.tooltipWhenCut = false,
     this.value,
     this.valueStyle,
     this.leading,
@@ -484,6 +547,10 @@ class WebRow extends StatefulWidget {
   final double horizontalPadding;
   final Color? titleColor;
   final Widget? titleSuffix;
+
+  /// Shows the full title in a tooltip, only when the row cuts it short
+  /// (5Q-16). A title that fits has nothing more to say.
+  final bool tooltipWhenCut;
   final String? value;
   final TextStyle? valueStyle;
   final Widget? leading;
@@ -528,9 +595,28 @@ class _WebRowState extends State<WebRow> {
         large || w.wrapTitle ? TextOverflow.visible : TextOverflow.ellipsis;
     final style =
         w.titleStyle ?? t.style(17, color: w.titleColor, height: lineHeight);
-    return w.mathTitle
-        ? MathText(w.title, style: style, maxLines: lines, overflow: overflow)
+    final text = w.mathTitle
+        ? MathText(
+            ContentRenderer.plainText(w.title),
+            style: style,
+            maxLines: lines,
+            overflow: overflow,
+          )
         : Text(w.title, maxLines: lines, overflow: overflow, style: style);
+    if (!w.tooltipWhenCut || lines == null || w.mathTitle) return text;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final painter = TextPainter(
+          text: TextSpan(text: w.title, style: style),
+          textDirection: Directionality.of(context),
+          textScaler: MediaQuery.textScalerOf(context),
+          maxLines: 1,
+        )..layout(maxWidth: constraints.maxWidth);
+        final cut = painter.didExceedMaxLines;
+        painter.dispose();
+        return cut ? Tooltip(message: w.title, child: text) : text;
+      },
+    );
   }
 
   final _states = WidgetStatesController();
@@ -604,13 +690,19 @@ class _WebRowState extends State<WebRow> {
         visualDensity: VisualDensity.standard,
         shape: const WidgetStatePropertyAll(RoundedRectangleBorder()),
         // A selected row's tint is the layer behind, which fades.
+        // Pressing keeps the tint hovering gave. The row has no ink, so
+        // without this the tint vanished on mouse down and the row looked idle.
         backgroundColor: WidgetStateProperty.resolveWith(
           (s) => !w.selected &&
                   (s.contains(WidgetState.hovered) ||
-                      s.contains(WidgetState.focused))
+                      s.contains(WidgetState.pressed) ||
+                      webKeyboardFocus(s))
               ? t.rowHover
               : Colors.transparent,
         ),
+        // The keyboard ring is its own layer below, inside the row, so a
+        // row at the end of a rounded card is not cut by the card's corner.
+        side: const WidgetStatePropertyAll(BorderSide.none),
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
       ),
       child: Row(
@@ -731,6 +823,28 @@ class _WebRowState extends State<WebRow> {
                   : const SizedBox.shrink(),
             ),
             button,
+            Positioned.fill(
+              child: IgnorePointer(
+                child: ListenableBuilder(
+                  listenable: Listenable.merge([_states, webKeyboardInput]),
+                  builder: (context, _) {
+                    final ring = webFocusRing(_states.value, t.colors.accent);
+                    if (ring == null) return const SizedBox.shrink();
+                    // Rounded and 3 px in from the row's edge: it clears the
+                    // 18 px corner of the card the row sits in.
+                    return Padding(
+                      padding: const EdgeInsets.all(3),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border.fromBorderSide(ring),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -774,7 +888,61 @@ class WebSegmentedControl extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final cell = constraints.maxWidth / labels.length;
+            // Cells are an equal share of the control, as on the board. When
+            // a label is too long for its share, the cells follow the labels'
+            // own widths instead, so every label keeps one size. Only when
+            // the labels cannot fit at all do they all shrink by one factor.
+            const labelSize = 14.0;
+            const padding = 16.0;
+            final scaler = MediaQuery.textScalerOf(context);
+            double natural(int i) {
+              if (suffixes?[i] != null) return 0;
+              final painter = TextPainter(
+                text: TextSpan(
+                  text: labels[i],
+                  style: t.style(
+                    labelSize,
+                    weight: FontWeight.w600,
+                    height: 1.2,
+                  ),
+                ),
+                textDirection: Directionality.of(context),
+                textScaler: scaler,
+                maxLines: 1,
+              )..layout();
+              final width = painter.width + padding;
+              painter.dispose();
+              return width;
+            }
+
+            final needs = [for (var i = 0; i < labels.length; i++) natural(i)];
+            final equal = constraints.maxWidth / labels.length;
+            final fits = needs.every((need) => need <= equal);
+            final total = needs.fold<double>(0, (sum, need) => sum + need);
+            final cells = fits || !constraints.hasBoundedWidth
+                ? List.filled(labels.length, equal)
+                : total <= constraints.maxWidth
+                    ? [
+                        for (final need in needs)
+                          need + (constraints.maxWidth - total) / labels.length,
+                      ]
+                    : [
+                        for (final need in needs)
+                          constraints.maxWidth * need / total,
+                      ];
+            // Past the point where the labels fit, all of them share one
+            // smaller size.
+            final scale = !fits && total > constraints.maxWidth
+                ? ((constraints.maxWidth - padding * labels.length) /
+                        (total - padding * labels.length))
+                    .clamp(.5, 1.0)
+                : 1.0;
+            final offsets = <double>[];
+            var at = 0.0;
+            for (final cell in cells) {
+              offsets.add(at);
+              at += cell;
+            }
             return Stack(
               children: [
                 // One thumb slides under the labels (item 17, demo 7): 240 ms
@@ -784,10 +952,8 @@ class WebSegmentedControl extends StatelessWidget {
                     child: IgnorePointer(
                       child: SlidingMarker(
                         key: const ValueKey('segmented-control-thumb'),
-                        offsets: [
-                          for (var i = 0; i < labels.length; i++) i * cell,
-                        ],
-                        lengths: List.filled(labels.length, cell),
+                        offsets: offsets,
+                        lengths: cells,
                         index: selected,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
@@ -810,7 +976,8 @@ class WebSegmentedControl extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     for (var i = 0; i < labels.length; i++)
-                      Expanded(
+                      SizedBox(
+                        width: cells[i],
                         child: Semantics(
                           selected: selected == i,
                           child: TextButton(
@@ -823,12 +990,18 @@ class WebSegmentedControl extends StatelessWidget {
                               minimumSize:
                                   const WidgetStatePropertyAll(Size(0, 34)),
                               visualDensity: VisualDensity.standard,
-                              overlayColor: const WidgetStatePropertyAll(
-                                Colors.transparent,
+                              // An unselected cell answers the pointer with
+                              // the same tint every web button gets; the
+                              // selected one already has the thumb (5Q-9).
+                              overlayColor: WidgetStateProperty.resolveWith(
+                                (states) => selected != i &&
+                                        states.contains(WidgetState.hovered)
+                                    ? t.colors.label.withValues(alpha: .08)
+                                    : Colors.transparent,
                               ),
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               padding: const WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(horizontal: 12),
+                                EdgeInsets.symmetric(horizontal: 8),
                               ),
                               foregroundColor: WidgetStatePropertyAll(
                                 accentLabels ? t.colors.accent : t.colors.label,
@@ -849,13 +1022,34 @@ class WebSegmentedControl extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            // A label never wraps, and every label has the
+                            // same size (4N-8). The box only guards a cell
+                            // that is a hair too narrow.
                             child: suffixes?[i] == null
-                                ? Text(labels[i])
+                                ? FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(
+                                      labels[i],
+                                      maxLines: 1,
+                                      softWrap: false,
+                                      style: scale == 1
+                                          ? null
+                                          : TextStyle(
+                                              fontSize: labelSize * scale,
+                                            ),
+                                    ),
+                                  )
                                 : Row(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Flexible(child: Text(labels[i])),
+                                      Flexible(
+                                        child: Text(
+                                          labels[i],
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
                                       if (suffixes?[i] != null) ...[
                                         const SizedBox(width: 6),
                                         suffixes![i]!,
@@ -877,6 +1071,27 @@ class WebSegmentedControl extends StatelessWidget {
 }
 
 enum WebOptionState { normal, selected, right, wrong, dimmed, readOnly }
+
+/// A new question starts with no choice focused.
+///
+/// The ring that sat on the answer just given must not carry to the same
+/// place on the next question, where it reads as a half-made pick. Call this
+/// when a page swaps to another question: after the frame, a focused choice
+/// lets go, and the page's own key node takes the focus back. A control that
+/// is not a choice (Report, Leave) keeps its focus.
+void releaseChoiceFocus(State state) {
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    if (!state.mounted) return;
+    final focused = FocusManager.instance.primaryFocus;
+    final onChoice =
+        focused?.context?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+            null;
+    if (onChoice) focused!.unfocus();
+  });
+  // A callback alone waits for the next frame, and nothing may have asked
+  // for one.
+  WidgetsBinding.instance.scheduleFrame();
+}
 
 class WebAnswerOption extends StatelessWidget {
   const WebAnswerOption({
@@ -958,16 +1173,16 @@ class WebAnswerOption extends StatelessWidget {
               ),
             ),
             side: WidgetStateProperty.resolveWith(
-              (s) => BorderSide(
-                color: filled
-                    ? border
-                    : active &&
-                            (s.contains(WidgetState.hovered) ||
-                                s.contains(WidgetState.focused))
-                        ? t.strongDivider
-                        : Colors.transparent,
-                width: filled ? 2 : 1.5,
-              ),
+              (s) => webKeyboardFocus(s) && !filled
+                  ? BorderSide(color: t.colors.accent, width: 2)
+                  : BorderSide(
+                      color: filled
+                          ? border
+                          : active && s.contains(WidgetState.hovered)
+                              ? t.strongDivider
+                              : Colors.transparent,
+                      width: filled ? 2 : 1.5,
+                    ),
             ),
           ),
           child: Row(
@@ -1073,10 +1288,15 @@ class WebBottomBar extends StatelessWidget {
     this.counterChevron = false,
     this.gap = 0,
     this.counterPadding,
+    this.counterLabel,
     super.key,
   });
   final String counter;
   final VoidCallback? onCounterPressed;
+
+  /// What a screen reader says for the counter button, when the visible text
+  /// ("3 of 10") is not enough on its own.
+  final String? counterLabel;
 
   /// Space between the bar's items (board `gap`).
   final double gap;
@@ -1117,19 +1337,12 @@ class WebBottomBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(32),
           border: Border.all(
             color: switch (state) {
-              WebBarState.neutral =>
-                t.dark ? c.separator : Colors.black.withValues(alpha: .06),
+              WebBarState.neutral => webFloatingEdge(t),
               WebBarState.right => c.accent.withValues(alpha: .26),
               WebBarState.wrong => c.destructive.withValues(alpha: .26)
             },
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: t.dark ? .4 : .10),
-              blurRadius: 30,
-              offset: const Offset(0, 10),
-            ),
-          ],
+          boxShadow: webFloatingShadow(t),
         ),
         child: Row(
           mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
@@ -1147,35 +1360,41 @@ class WebBottomBar extends StatelessWidget {
                 ),
               )
             else
-              TextButton(
-                onPressed: onCounterPressed,
-                style: TextButton.styleFrom(
-                  foregroundColor: c.label,
-                  minimumSize: const Size(0, 46),
-                  padding: counterChevron
-                      ? const EdgeInsets.fromLTRB(18, 0, 6, 0)
-                      : const EdgeInsets.fromLTRB(16, 0, 12, 0),
-                  textStyle: t.style(15, weight: FontWeight.w600).copyWith(
-                    fontFeatures: [const FontFeature.tabularFigures()],
+              Semantics(
+                button: counterLabel != null ? true : null,
+                label: counterLabel,
+                excludeSemantics: counterLabel != null,
+                onTap: counterLabel != null ? onCounterPressed : null,
+                child: TextButton(
+                  onPressed: onCounterPressed,
+                  style: TextButton.styleFrom(
+                    foregroundColor: c.label,
+                    minimumSize: const Size(0, 46),
+                    padding: counterChevron
+                        ? const EdgeInsets.fromLTRB(18, 0, 6, 0)
+                        : const EdgeInsets.fromLTRB(16, 0, 12, 0),
+                    textStyle: t.style(15, weight: FontWeight.w600).copyWith(
+                      fontFeatures: [const FontFeature.tabularFigures()],
+                    ),
                   ),
-                ),
-                child: counterChevron
-                    ? Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(counter),
-                          const SizedBox(width: 8),
-                          CustomPaint(
-                            size: const Size.square(14),
-                            painter: _DownChevronPainter(
-                              t.dark
-                                  ? c.secondaryLabel
-                                  : const Color(0xFF8E8E93),
+                  child: counterChevron
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(counter),
+                            const SizedBox(width: 8),
+                            CustomPaint(
+                              size: const Size.square(14),
+                              painter: _DownChevronPainter(
+                                t.dark
+                                    ? c.secondaryLabel
+                                    : const Color(0xFF8E8E93),
+                              ),
                             ),
-                          ),
-                        ],
-                      )
-                    : Text(counter),
+                          ],
+                        )
+                      : Text(counter),
+                ),
               ),
             if (!compact || hint != null)
               Expanded(
@@ -1307,6 +1526,84 @@ class WebTopBar extends StatelessWidget {
       );
 }
 
+/// The 44 px button a question page's top bar uses at its two ends. The
+/// quiz and the assessment share it, so the ends sit at the same x.
+class WebTopBarButton extends StatelessWidget {
+  const WebTopBarButton({
+    required this.tooltip,
+    required this.icon,
+    required this.onPressed,
+    super.key,
+  });
+  final String tooltip;
+  final Widget icon;
+  final VoidCallback? onPressed;
+  @override
+  Widget build(BuildContext context) => IconButton(
+        tooltip: tooltip,
+        onPressed: onPressed,
+        constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+        visualDensity: VisualDensity.standard,
+        style: IconButton.styleFrom(
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
+        icon: icon,
+      );
+}
+
+/// A question page's top bar: the title centered on the page, not between
+/// the two ends.
+///
+/// The ends differ in width (Leave and its Esc hint on the left, Report and
+/// a "Saved" line on the right), so a title set between them drifts off the
+/// center and moves when the right end changes. Here the title is laid out
+/// alone, in the middle of the bar, and the two ends sit over it. Used by the
+/// quiz and the assessment so their titles line up.
+class WebCenteredTopBar extends StatelessWidget {
+  const WebCenteredTopBar({
+    required this.leading,
+    required this.title,
+    this.trailing,
+    this.titleKey,
+    super.key,
+  });
+  final Widget leading;
+  final String title;
+  final Widget? trailing;
+  final Key? titleKey;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return SizedBox(
+      height: 64,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Padding(
+              key: titleKey,
+              // Room for the widest end on both sides, so the title never
+              // runs under a button.
+              padding: const EdgeInsets.symmetric(horizontal: 200),
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(14, color: t.colors.tertiaryLabel),
+              ),
+            ),
+            Align(alignment: Alignment.centerLeft, child: leading),
+            if (trailing != null)
+              Align(alignment: Alignment.centerRight, child: trailing),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 /// A 46 px round chevron button for a floating question bar (board `.ib`).
 class WebBarArrow extends StatelessWidget {
   const WebBarArrow({
@@ -1331,6 +1628,12 @@ class WebBarArrow extends StatelessWidget {
       );
 }
 
+/// Room after the label of a [WebBackLink], for its focus ring. The arrow
+/// glyph has blank space of its own on the left; the label's last letter
+/// has none, and the ring touched it. Top bars set the Esc hint right after
+/// the link, where a 10 px gap used to be.
+const double webBackLinkPadRight = 10;
+
 /// The board's `.back` link: 17 px accent text, 40 px tall, nudged 6 px left so
 /// the arrow lines up with the page edge.
 class WebBackLink extends StatelessWidget {
@@ -1339,10 +1642,16 @@ class WebBackLink extends StatelessWidget {
     required this.onPressed,
     this.fontSize = 17,
     this.tightIcon = false,
+    this.nudge = true,
     super.key,
   });
   final String label;
   final VoidCallback onPressed;
+
+  /// Moves the arrow 6 px left of the link's own box, as the board's `.back`
+  /// does. A link in a top bar that already sits on the bar's padding turns
+  /// this off.
+  final bool nudge;
 
   /// Settings pages set this link at 15 px (board `.back` with an override).
   final double fontSize;
@@ -1352,37 +1661,43 @@ class WebBackLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
+    // The nudge puts the link's left end outside the page's clip, so the ring
+    // is drawn in the overlay (5Q-11). Without one the theme's ring stays.
+    final overlayRing = nudge && WebBackLinkRing.supported(context);
     final style = TextButton.styleFrom(
       foregroundColor: t.colors.accent,
-      padding: EdgeInsets.zero,
+      padding: const EdgeInsets.only(right: webBackLinkPadRight),
       minimumSize: const Size(0, 40),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
       textStyle: t.style(fontSize),
+    ).copyWith(
+      side: overlayRing ? const WidgetStatePropertyAll(BorderSide.none) : null,
     );
+    final link = tightIcon
+        ? TextButton(
+            onPressed: onPressed,
+            style: style,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.chevron_left, size: 20),
+                const SizedBox(width: 2),
+                Text(label),
+              ],
+            ),
+          )
+        : TextButton.icon(
+            onPressed: onPressed,
+            icon: const Icon(Icons.chevron_left, size: 20),
+            label: Text(label),
+            style: style,
+          );
     return Align(
       alignment: Alignment.centerLeft,
       child: Transform.translate(
-        offset: const Offset(-6, 0),
-        child: tightIcon
-            ? TextButton(
-                onPressed: onPressed,
-                style: style,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.chevron_left, size: 20),
-                    const SizedBox(width: 2),
-                    Text(label),
-                  ],
-                ),
-              )
-            : TextButton.icon(
-                onPressed: onPressed,
-                icon: const Icon(Icons.chevron_left, size: 20),
-                label: Text(label),
-                style: style,
-              ),
+        offset: Offset(nudge ? -6 : 0, 0),
+        child: overlayRing ? WebBackLinkRing(child: link) : link,
       ),
     );
   }

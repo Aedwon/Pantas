@@ -5,7 +5,10 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 /// The wide exam picker before the catalog loads: the search field, the group
 /// chips, the "my exam isn't listed" card, then two groups of exam rows.
 class ExamPickerWebSkeleton extends StatelessWidget {
-  const ExamPickerWebSkeleton({super.key});
+  const ExamPickerWebSkeleton({this.customCard = true, super.key});
+
+  /// Whether the picker offers a student's own exam, so the card has a place.
+  final bool customCard;
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +47,10 @@ class ExamPickerWebSkeleton extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          const SkeletonCard(height: 70),
-          const SizedBox(height: 24),
+          if (customCard) ...[
+            const SkeletonCard(height: 70),
+            const SizedBox(height: 24),
+          ],
           group(3),
           const SizedBox(height: 24),
           group(6),

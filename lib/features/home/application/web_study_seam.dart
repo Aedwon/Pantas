@@ -90,6 +90,7 @@ final webTopicDetailProvider =
     final value = await ref.watch(serverStudyInsightsProvider(exam.id).future);
     if (!value.proCovered) throw StateError('Topic coverage required');
     final topics = value.topicDetails.where((t) => t['id'] == topicId);
+    if (topics.isEmpty) throw TopicNotFound(topicId);
     if (topics.length != 1) throw StateError('Topic unavailable');
     final topic = topics.single;
     final today = await ref.watch(todayLessonIdsProvider(exam.id).future);

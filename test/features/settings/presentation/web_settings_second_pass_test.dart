@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -16,7 +18,9 @@ import 'package:pantas/features/settings/presentation/pages/about_page.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
+import 'package:pantas/features/settings/presentation/pages/name_page.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -79,6 +83,72 @@ Future<void> _pump(
 void main() {
   setUp(() => debugWebPlatformOverride = true);
   tearDown(() => debugWebPlatformOverride = null);
+
+  testWidgets('picking Exact day with no date set saves no date',
+      (tester) async {
+    await _pump(tester, const ExamPage(), dark: false);
+    final repository = ProviderScope.containerOf(
+      tester.element(find.byType(ExamPage)),
+    ).read(settingsRepositoryProvider);
+    await tester.tap(find.text('Exam date'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Exact day'));
+    await tester.pumpAndSettle();
+    expect(find.byType(WebPickerColumn), findsNWidgets(3));
+    expect((await repository.readUserSettings()).examDate, isNull);
+    expect(find.text('Not set'), findsWidgets);
+    await tester.tap(find.text('Month only'));
+    await tester.pumpAndSettle();
+    expect((await repository.readUserSettings()).examDate, isNull);
+  });
+
+  testWidgets('the Name page saves as the student types', (tester) async {
+    await _pump(tester, const NamePage(), dark: false);
+    final repository = ProviderScope.containerOf(
+      tester.element(find.byType(NamePage)),
+    ).read(settingsRepositoryProvider);
+    await tester.enterText(find.byType(TextField), 'Zed');
+    await tester.pump(const Duration(milliseconds: 100));
+    expect((await repository.readUserSettings()).name, isNull);
+    await tester.pump(const Duration(milliseconds: 600));
+    expect((await repository.readUserSettings()).name, 'Zed');
+    expect(
+      find.textContaining('It saves as you type.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('a name typed just before leaving is still saved',
+      (tester) async {
+    await _pump(tester, const NamePage(), dark: false);
+    final repository = ProviderScope.containerOf(
+      tester.element(find.byType(NamePage)),
+    ).read(settingsRepositoryProvider);
+    await tester.enterText(find.byType(TextField), 'Quinn');
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 1));
+    expect((await repository.readUserSettings()).name, 'Quinn');
+  });
+
+  testWidgets('Esc leaves a Settings detail page that has an Esc hint',
+      (tester) async {
+    var left = 0;
+    await _pump(
+      tester,
+      SettingsPanePage(
+        section: 'About',
+        title: 'Privacy Policy',
+        backLabel: 'About',
+        onBack: () => left++,
+        children: const [Text('Body')],
+      ),
+      dark: false,
+    );
+    expect(find.text('Esc'), findsOneWidget);
+    await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+    await tester.pump();
+    expect(left, 1);
+  });
   for (final dark in [false, true]) {
     for (final signedIn in [false, true]) {
       testWidgets('Account identity signedIn=$signedIn dark=$dark',
@@ -160,7 +230,7 @@ void main() {
       await tester.tap(find.text('Month only'));
       await tester.pumpAndSettle();
       expect(find.byType(WebPickerColumn), findsNWidgets(2));
-      await tester.tap(find.text('I don’t know'));
+      await tester.tap(find.text("I don't know"));
       await tester.pumpAndSettle();
       expect(find.byType(WebPickerColumn), findsNothing);
       expect(
@@ -252,9 +322,12 @@ void main() {
         find.descendant(of: card, matching: find.text('P')),
         findsOneWidget,
       );
-      expect(find.text('Privacy policy'), findsOneWidget);
-      expect(find.text('Terms of service'), findsOneWidget);
-      expect(find.text('Help improve the app'), findsOneWidget);
+      expect(find.text('Privacy Policy'), findsOneWidget);
+      expect(find.text('Terms of Service'), findsOneWidget);
+      expect(
+        find.text('Help improve Pantas by sharing usage data'),
+        findsOneWidget,
+      );
       expect(find.text('Facebook group ↗'), findsOneWidget);
       expect(find.text('Shared links'), findsNothing);
       expect(tester.takeException(), isNull);
@@ -272,6 +345,19 @@ void main() {
       expect(find.text('Interleaved tail'), findsOneWidget);
       expect(find.text('Fully mixed'), findsOneWidget);
       expect(tester.takeException(), isNull);
+    });
+    testWidgets(
+        'the Practice header glyph is as big as the other headers '
+        'dark=$dark', (tester) async {
+      await _pump(tester, const SessionBuildingPage(), dark: dark);
+      // The list's row and the pane's header both draw the glyph.
+      final sizes = [
+        for (final icon
+            in tester.widgetList<Icon>(find.byIcon(PantasIcons.practice)))
+          icon.size,
+      ];
+      expect(sizes, hasLength(2));
+      expect(sizes, everyElement(22));
     });
     testWidgets('delete shows real pending operation then Close dark=$dark',
         (tester) async {

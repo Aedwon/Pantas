@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show RenderAbstractViewport;
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Home's two canvas columns. The shell already owns the sidebar.
@@ -37,7 +39,9 @@ class HomeWebLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
-        padding: EdgeInsets.zero,
+        // The shell ends at the window bottom, so rows scroll to the edge and
+        // the page's own margin sits after the last one.
+        padding: EdgeInsets.only(bottom: context.webPageBottomInset),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1080),
@@ -156,14 +160,16 @@ class _MoreRow extends StatelessWidget {
             EdgeInsets.fromLTRB(20, 18, 18, 18),
           ),
           backgroundColor: WidgetStateProperty.resolveWith(
-            (s) => s.contains(WidgetState.hovered) ||
-                    s.contains(WidgetState.focused)
+            (s) => s.contains(WidgetState.hovered) || webKeyboardFocus(s)
                 ? t.rowHover
                 : t.dark
                     ? t.colors.surface
                     : Colors.white,
           ),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          side: WidgetStateProperty.resolveWith(
+            (s) => webFocusRing(s, t.colors.accent),
+          ),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
@@ -207,7 +213,7 @@ class HomeWebOverlay extends StatefulWidget {
 }
 
 class _HomeWebOverlayState extends State<HomeWebOverlay>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, OverlayFocusReturn<HomeWebOverlay> {
   final _portal = OverlayPortalController();
   late final AnimationController _motion;
 
@@ -247,6 +253,12 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
     super.didUpdateWidget(oldWidget);
     if (widget.open) _held = widget;
     if (widget.open != oldWidget.open) {
+      // The page behind drops its focus while the overlay is open.
+      if (widget.open) {
+        rememberFocus();
+      } else {
+        returnFocus();
+      }
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         final still = MediaQuery.disableAnimationsOf(context);
@@ -319,6 +331,7 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
                         widget.onDismiss,
                   },
                   child: FocusScope(
+                    node: overlayScope,
                     autofocus: true,
                     child: Focus(
                       child: Semantics(
@@ -402,6 +415,29 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
   }
 }
 
+/// Scrolls so the whole box at [context] is in view, with the page's bottom
+/// margin under it. `Scrollable.ensureVisible` stops at the window edge, which
+/// leaves a card against it while the page end has room to spare.
+void _revealWithMargin(BuildContext context, Duration duration) {
+  final scrollable = Scrollable.maybeOf(context);
+  final box = context.findRenderObject();
+  if (scrollable == null || box is! RenderBox) return;
+  final viewport = RenderAbstractViewport.maybeOf(box);
+  if (viewport == null) return;
+  final position = scrollable.position;
+  final target =
+      (viewport.getOffsetToReveal(box, 1).offset + context.webPageBottomInset)
+          .clamp(position.minScrollExtent, position.maxScrollExtent);
+  if (target <= position.pixels) return;
+  unawaited(
+    position.animateTo(
+      target,
+      duration: duration,
+      curve: PantasCurves.houseOut,
+    ),
+  );
+}
+
 class HomeWebNotice extends StatelessWidget {
   const HomeWebNotice({
     required this.title,
@@ -456,47 +492,68 @@ class HomeWebNotice extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: TextButton(
-                    onPressed: onToggle,
-                    style: TextButton.styleFrom(
-                      alignment: Alignment.centerLeft,
-                      minimumSize: const Size(0, 52),
-                      padding: const EdgeInsets.only(left: 18),
-                      shape: const RoundedRectangleBorder(),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          icon ?? PantasIcons.addDate,
-                          size: 22,
-                          color: iconColor ?? t.colors.secondaryLabel,
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(
-                            title,
-                            style: t.style(16, weight: FontWeight.w600),
+                  // One pixel inside the card's own rule on its three sides, so
+                  // the keyboard ring is whole instead of half under it
+                  // (4N-7). The hover tint still reaches the rule, and runs to
+                  // the dismiss button.
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(1, 1, 0, 1),
+                    child: TextButton(
+                      onPressed: onToggle,
+                      style: TextButton.styleFrom(
+                        alignment: Alignment.centerLeft,
+                        // The web theme's compact density (desktop browsers)
+                        // would shave the 52 px minimum and leave a band of
+                        // card above the hover tint (3K-3).
+                        visualDensity: VisualDensity.standard,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        minimumSize: const Size(0, 50),
+                        padding: const EdgeInsets.only(left: 17, right: 12),
+                        // The left corners follow the card's own, and the
+                        // right ones are rounded like a row's, so the ring is
+                        // a closed shape beside the dismiss button.
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(15),
+                            bottomLeft: Radius.circular(expanded ? 0 : 15),
+                            topRight: const Radius.circular(10),
+                            bottomRight: const Radius.circular(10),
                           ),
                         ),
-                        if (detail != null) ...[
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            icon ?? PantasIcons.addDate,
+                            size: 22,
+                            color: iconColor ?? t.colors.secondaryLabel,
+                          ),
                           const SizedBox(width: 12),
-                          // One chevron turns, as the phone's does.
-                          AnimatedRotation(
-                            turns: expanded ? .5 : 0,
-                            duration: duration,
-                            curve: PantasCurves.houseOut,
-                            child: Icon(
-                              Icons.expand_more,
-                              size: 16,
-                              color: t.colors.secondaryLabel,
+                          Expanded(
+                            child: Text(
+                              title,
+                              style: t.style(16, weight: FontWeight.w600),
                             ),
                           ),
+                          if (detail != null) ...[
+                            const SizedBox(width: 12),
+                            // One chevron turns, as the phone's does.
+                            AnimatedRotation(
+                              turns: expanded ? .5 : 0,
+                              duration: duration,
+                              curve: PantasCurves.houseOut,
+                              child: Icon(
+                                Icons.expand_more,
+                                size: 16,
+                                color: t.colors.secondaryLabel,
+                              ),
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
                 Padding(
                   padding: const EdgeInsets.only(right: 6),
                   child: SizedBox.square(
@@ -522,6 +579,16 @@ class HomeWebNotice extends StatelessWidget {
             tween: Tween(begin: expanded ? 1 : 0, end: expanded ? 1 : 0),
             duration: duration,
             curve: PantasCurves.houseOut,
+            // The notice sits at the foot of Home. Once it has opened, scroll
+            // so its buttons are not left below the window, with the page's
+            // own bottom margin under the card (3K-2).
+            onEnd: expanded && Scrollable.maybeOf(context) != null
+                ? () => WidgetsBinding.instance.addPostFrameCallback((_) {
+                      // After the layout of the finished height.
+                      if (!context.mounted) return;
+                      _revealWithMargin(context, duration);
+                    })
+                : null,
             builder: (context, value, child) => !expanded && value == 0
                 ? const SizedBox.shrink()
                 : ClipRect(
@@ -544,25 +611,39 @@ class HomeWebNotice extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (detail != null) Text(detail!, style: t.sub),
+                  // The text lines up under the title: 18 px padding, 22 px
+                  // icon and 12 px gap leave 34 px to indent (QA polish board,
+                  // option D).
+                  if (detail != null)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 34),
+                      child: Text(detail!, style: t.sub),
+                    ),
                   if (editor != null) ...[
                     const SizedBox(height: 12),
                     editor!,
                   ],
                   const SizedBox(height: 12),
+                  // The buttons sit at the right edge, the quiet one first.
                   Wrap(
                     spacing: 12,
+                    alignment: WrapAlignment.end,
                     children: [
                       if (secondaryLabel != null)
+                        // Board `.btn3`: 16 px at the sides.
                         WebButton(
                           label: secondaryLabel!,
                           variant: WebButtonVariant.tertiary,
+                          sidePadding: 16,
                           onPressed: onSecondary,
                         ),
                       if (primaryLabel != null)
+                        // Board `.btn2`: 20 px at the sides, so "Add Exam
+                        // Date" is 156 px wide (4N-3).
                         WebButton(
                           label: primaryLabel!,
                           variant: WebButtonVariant.secondary,
+                          sidePadding: 20,
                           onPressed: onPrimary,
                         ),
                     ],
@@ -646,6 +727,7 @@ class HomeWebQuestionsSheet extends StatelessWidget {
         },
         child: Focus(
           autofocus: true,
+          skipTraversal: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

@@ -127,6 +127,7 @@ class TopicDetailPage extends StatelessWidget {
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Material(
           key: const ValueKey('web-performance-topic'),
           color: t.colors.background,

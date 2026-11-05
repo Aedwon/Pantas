@@ -79,15 +79,19 @@ class HomeStateCard extends StatelessWidget {
     final t = context.webTokens;
     final icon = switch (state) {
       HomeState.nothingDue || HomeState.reviewOnly => _wideIcon(
-          t.dark ? t.colors.surface : const Color(0xFFE4F1EE),
+          // The card is the surface color in dark, so the circle takes the
+          // accent tint there or it would not show.
+          t.dark ? t.colors.accentTint : const Color(0xFFE4F1EE),
           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" '
-          'stroke="#0B7A68" stroke-width="2.4" stroke-linecap="round" '
+          'stroke="${t.dark ? '#4CC3AC' : '#0B7A68'}" stroke-width="2.4" '
+          'stroke-linecap="round" '
           'stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg>',
         ),
       HomeState.dayOff => _wideIcon(
-          t.dark ? t.colors.surface : const Color(0xFFF5F5F7),
+          t.dark ? t.colors.fill : const Color(0xFFF5F5F7),
           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" '
-          'stroke="#8A8A8E" stroke-width="1.8" stroke-linecap="round" '
+          'stroke="${t.dark ? '#A3A3A3' : '#8A8A8E'}" stroke-width="1.8" '
+          'stroke-linecap="round" '
           'stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 '
           '6.5 0 0 0 10.5 10.5z"/></svg>',
         ),

@@ -41,12 +41,10 @@ class ScoreBreakdownRow extends StatelessWidget {
         ),
       ],
     );
-    final title = Text(
-      name,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-      style: context.type.body,
-    );
+    // The name wraps to a second line instead of being cut: a long subject
+    // such as "Language Proficiency (English & Filipino)" must read in full
+    // on a phone, where the count and the percent sit beside it.
+    final title = Text(name, style: context.type.body);
     return Container(
       padding: context.wideWeb
           ? const EdgeInsets.symmetric(vertical: 15)

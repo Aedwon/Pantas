@@ -54,56 +54,61 @@ class CenteredDialog extends StatelessWidget {
           if (allowEscape)
             const SingleActivator(LogicalKeyboardKey.escape): onCancel,
         },
-        child: Dialog(
-          backgroundColor: t.colors.transparent,
-          elevation: 0,
-          insetPadding: const EdgeInsets.all(24),
-          child: SizedBox(
-            width: content == null ? 440 : 560,
-            child: WebCard(
-              key: const ValueKey('centered-dialog-surface'),
-              radius: 22,
-              padding: const EdgeInsets.all(26),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(title, style: t.h3),
-                    const SizedBox(height: 18),
-                    Text(
-                      message,
-                      style: t.style(
-                        16,
-                        height: 1.45,
-                        color: t.colors.secondaryLabel,
-                      ),
-                    ),
-                    if (content != null) ...[
+        // Keys only reach the shortcut from a focused node inside it, and a
+        // dialog opens with focus on its route, not on anything in the card.
+        child: Focus(
+          autofocus: true,
+          child: Dialog(
+            backgroundColor: t.colors.transparent,
+            elevation: 0,
+            insetPadding: const EdgeInsets.all(24),
+            child: SizedBox(
+              width: content == null ? 440 : 560,
+              child: WebCard(
+                key: const ValueKey('centered-dialog-surface'),
+                radius: 22,
+                padding: const EdgeInsets.all(26),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(title, style: t.h3),
                       const SizedBox(height: 18),
-                      content!,
-                    ],
-                    const SizedBox(height: 18),
-                    Wrap(
-                      alignment: WrapAlignment.end,
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        WebButton(
-                          label: secondaryLabel,
-                          variant: WebButtonVariant.tertiary,
-                          onPressed: onCancel,
+                      Text(
+                        message,
+                        style: t.style(
+                          16,
+                          height: 1.45,
+                          color: t.colors.secondaryLabel,
                         ),
-                        WebButton(
-                          label: primaryLabel,
-                          variant: destructive
-                              ? WebButtonVariant.danger
-                              : WebButtonVariant.primary,
-                          onPressed: onConfirm,
-                        ),
+                      ),
+                      if (content != null) ...[
+                        const SizedBox(height: 18),
+                        content!,
                       ],
-                    ),
-                  ],
+                      const SizedBox(height: 18),
+                      Wrap(
+                        alignment: WrapAlignment.end,
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: [
+                          WebButton(
+                            label: secondaryLabel,
+                            variant: WebButtonVariant.tertiary,
+                            onPressed: onCancel,
+                          ),
+                          WebButton(
+                            label: primaryLabel,
+                            variant: destructive
+                                ? WebButtonVariant.danger
+                                : WebButtonVariant.primary,
+                            onPressed: onConfirm,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

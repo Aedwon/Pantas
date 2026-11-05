@@ -23,6 +23,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
@@ -430,7 +431,11 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                     onTap: topic.hasQuestions
                         ? () => selection(_selection.toggleTopic(topic))
                         : null,
-                    padding: const EdgeInsets.fromLTRB(20, 19, 8, 19),
+                    // Board CZ_None: a topic with a second line is 71 px, not
+                    // the one-line row's padding around two lines.
+                    padding: topic.hasQuestions
+                        ? const EdgeInsets.fromLTRB(20, 19, 8, 19)
+                        : const EdgeInsets.fromLTRB(20, 15.5, 8, 15.5),
                     gap: 16,
                     minHeight: 62,
                     standardDensity: true,
@@ -458,7 +463,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                             child: SizedBox.square(
                               dimension: 32,
                               child: IconButton(
-                                tooltip: 'Lessons in ${topic.name}',
+                                tooltip: _webOpenTopics.contains(topic.id)
+                                    ? 'Hide lessons in ${topic.name}'
+                                    : 'Show lessons in ${topic.name}',
                                 padding: EdgeInsets.zero,
                                 onPressed: () => setState(() {
                                   if (!_webOpenTopics.remove(topic.id)) {
@@ -603,9 +610,14 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       if (canStart) unawaited(_start(index, summary));
     }
 
+    final minutes = summary.estimatedMinutes ?? 0;
     final timeLabel = _underMinute(summary)
         ? 'under 1 min'
-        : _time(summary.estimatedMinutes ?? 0);
+        : _mode == PracticeUnitMode.minutes && minutes < 60
+            ? minutes == 1
+                ? '1 minute'
+                : '$minutes minutes'
+            : _time(minutes);
     final panel = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -667,7 +679,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                               style: t.big,
                             ),
                             const SizedBox(width: 8),
-                            Flexible(
+                            // Expanded, not a Flexible beside a Spacer: they
+                            // would share the room and leave the time short
+                            // of the card's edge.
+                            Expanded(
                               child: Text(
                                 'questions',
                                 overflow: TextOverflow.ellipsis,
@@ -678,7 +693,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                 ),
                               ),
                             ),
-                            const Spacer(),
                             Text(
                               _mode == PracticeUnitMode.questions
                                   ? '~$timeLabel'
@@ -694,10 +708,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                           color: t.colors.separator,
                         ),
                         const SizedBox(height: 16),
-                        Text(
-                          'How long?',
-                          style: t.sm.copyWith(fontWeight: FontWeight.w600),
-                        ),
+                        Text('HOW LONG?', style: t.eb),
                         const SizedBox(height: 16),
                         WebSegmentedControl(
                           labels: const ['Questions per lesson', 'Total time'],
@@ -912,6 +923,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                                             ],
                                           ),
                                         ),
+                                        const SizedBox(width: 12),
                                         if (_adjusting) ...[
                                           _webStep(
                                             summary,
@@ -982,14 +994,16 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     );
     return CallbackShortcuts(
       bindings: {
-        const SingleActivator(
-          LogicalKeyboardKey.enter,
-          includeRepeats: false,
-        ): start,
         const SingleActivator(LogicalKeyboardKey.escape): () =>
             unawaited(_back()),
       },
       child: Focus(
+        // Clicking a group's chevron leaves focus on it, and Enter must still
+        // press Start, as its label says. A control reached by Tab keeps Enter.
+        onKeyEvent: enterKeyHandler(
+          start,
+          keepsEnter: (_) => webFocusFromPointer,
+        ),
         autofocus: true,
         child: LayoutBuilder(
           builder: (context, constraints) => CustomScrollView(
@@ -1015,22 +1029,24 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   ],
                 ),
               ),
-              if (constraints.maxWidth < 850)
-                SliverToBoxAdapter(child: Column(children: [tree, panel]))
-              else
-                SliverCrossAxisGroup(
-                  slivers: [
-                    SliverToBoxAdapter(child: tree),
-                    const SliverConstrainedCrossAxis(
-                      maxExtent: 28,
-                      sliver: SliverToBoxAdapter(child: SizedBox()),
-                    ),
-                    SliverConstrainedCrossAxis(
-                      maxExtent: 400,
-                      sliver: PinnedHeaderSliver(child: panel),
-                    ),
-                  ],
-                ),
+              SliverPadding(
+                padding: EdgeInsets.only(bottom: context.webPageBottomInset),
+                sliver: constraints.maxWidth < 850
+                    ? SliverToBoxAdapter(child: Column(children: [tree, panel]))
+                    : SliverCrossAxisGroup(
+                        slivers: [
+                          SliverToBoxAdapter(child: tree),
+                          const SliverConstrainedCrossAxis(
+                            maxExtent: 28,
+                            sliver: SliverToBoxAdapter(child: SizedBox()),
+                          ),
+                          SliverConstrainedCrossAxis(
+                            maxExtent: 400,
+                            sliver: PinnedHeaderSliver(child: panel),
+                          ),
+                        ],
+                      ),
+              ),
             ],
           ),
         ),
@@ -1233,11 +1249,17 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       summary.totalQuestions > 0 &&
       summary.estimatedMinutes == 0;
 
+  /// Written as the Quiz tab and the mock write it: "1 hr 6 min".
   String _time(int minutes) {
     if (minutes < 60) return '$minutes min';
+    final hours = minutes ~/ 60;
+    return minutes % 60 == 0 ? '$hours hr' : '$hours hr ${minutes % 60} min';
+  }
+
+  /// The big figure over the word "hours": one decimal, as "1.1".
+  String _hours(int minutes) {
     final precision = minutes % 60 == 0 ? 0 : 1;
-    final hours = (minutes / 6).round() / 10;
-    return '${hours.toStringAsFixed(precision)} hr';
+    return ((minutes / 6).round() / 10).toStringAsFixed(precision);
   }
 
   Widget _length(PracticeIndex index, PracticeSummary summary, int? pace) {
@@ -1433,7 +1455,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   _underMinute(summary)
                       ? '<1'
                       : minutes >= 60
-                          ? _time(minutes).split(' ').first
+                          ? _hours(minutes)
                           : '$minutes',
                   _underMinute(summary)
                       ? 'minute'

@@ -42,7 +42,14 @@ final searchResultsProvider =
 
   final hits = <LessonSearchHit>[];
   for (final row in rows) {
-    final titleMatch = buildSearchSnippet(source: row.title, query: query);
+    // A title is shown whole. A cut window could hide the lesson's own name
+    // behind a tail such as "Venn Diagrams)".
+    final titleMatch = buildSearchSnippet(
+      source: row.title,
+      query: query,
+      lead: row.title.length,
+      trail: row.title.length,
+    );
     final summaryMatch = buildSearchSnippet(source: row.summary, query: query);
 
     SearchSnippet? bodySnippet;
@@ -96,10 +103,25 @@ final searchResultsProvider =
     }
   }
 
-  hits.sort(
-    (a, b) => (positionByLessonId[a.lessonId] ?? 0)
-        .compareTo(positionByLessonId[b.lessonId] ?? 0),
+  // A title that holds the query as a whole word comes first, then a title
+  // that holds it inside a word, then the rest. Within a group the lessons
+  // keep the study map's order (3K-18).
+  final word = RegExp(
+    '(^|[^\\p{L}\\p{N}])${RegExp.escape(query.trim())}([^\\p{L}\\p{N}]|\$)',
+    caseSensitive: false,
+    unicode: true,
   );
+  int tier(LessonSearchHit hit) => hit.titleMatch == null
+      ? 2
+      : word.hasMatch(hit.title)
+          ? 0
+          : 1;
+  hits.sort((a, b) {
+    final byTier = tier(a).compareTo(tier(b));
+    if (byTier != 0) return byTier;
+    return (positionByLessonId[a.lessonId] ?? 0)
+        .compareTo(positionByLessonId[b.lessonId] ?? 0);
+  });
   return hits;
 });
 

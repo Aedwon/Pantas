@@ -57,8 +57,8 @@ void main() {
   // Each sentence fits one line at phone width, so the line's baseline is the
   // paragraph's first baseline.
   const sentences = [
-    r'Next: $2,5,8$',
-    r'Add $3$ now',
+    r'Next: $2x,5,8$',
+    r'Add $x+3$ now',
     r'Half: $\frac{1}{2}$ ok',
     r'Solve $x^2+5$ ok',
     r'Is $\sqrt{x}$ ok',
@@ -124,7 +124,7 @@ void main() {
         theme: buildLightTheme(),
         home: const Scaffold(
           body: ContentRenderer(
-            text: r'Add $3$ now',
+            text: r'Add $x$ now',
             style: TextStyle(fontSize: 20),
           ),
         ),

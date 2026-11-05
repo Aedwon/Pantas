@@ -11,3 +11,8 @@ abstract final class GuardianCopy {
   static const declinedDetail =
       'The account was not confirmed. You can close this page.';
 }
+
+/// Whether the notice for teens has been written. The link to it on the
+/// guardian confirm page, and its address, stay hidden until this is true.
+/// Set it to true when the text is added to the legal documents.
+const teenNoticeReady = false;

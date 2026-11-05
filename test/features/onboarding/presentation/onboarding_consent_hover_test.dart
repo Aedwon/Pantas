@@ -86,8 +86,8 @@ void main() {
 
       final first = tester.getRect(rowButton(0));
       final second = tester.getRect(rowButton(1));
-      // The dark card draws a 1 px edge inside its bounds.
-      final edge = dark ? 1.0 : 0.0;
+      // The dark card's edge is drawn over it and takes up no room (6T-11).
+      const edge = 0.0;
       expect(first.left, closeTo(card.left + edge, .01));
       expect(first.right, closeTo(card.right - edge, .01));
       expect(first.top, closeTo(card.top + edge, .01));

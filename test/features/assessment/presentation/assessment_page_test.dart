@@ -157,7 +157,7 @@ void main() {
     await tester.tap(find.text('Option A'));
     await tester.pumpAndSettle();
     expect(find.text('Results'), findsNothing);
-    await tester.tap(find.text('Next'));
+    await tester.tap(find.text('Finish'));
     await tester.pumpAndSettle();
 
     expect(find.text('Results'), findsOneWidget);
@@ -183,7 +183,7 @@ void main() {
     await tester.tap(find.text('Option A'));
     await tester.pumpAndSettle();
     expect(find.text('Results'), findsNothing);
-    await tester.tap(find.text('Next'));
+    await tester.tap(find.text('Finish'));
     await tester.pumpAndSettle();
 
     expect(
@@ -210,7 +210,7 @@ void main() {
     await tester.tap(find.text('Option A'));
     await tester.pumpAndSettle();
     expect(find.text('Results'), findsNothing);
-    await tester.tap(find.text('Next'));
+    await tester.tap(find.text('Finish'));
     await tester.pumpAndSettle();
 
     expect(
@@ -379,7 +379,7 @@ void main() {
     await tester.tap(find.text('Option A'));
     await tester.pumpAndSettle();
     await contexts.publishStable(uid: 'new-owner', generationId: 'g2');
-    await tester.tap(find.text('Next'));
+    await tester.tap(find.text('Finish'));
     await tester.pumpAndSettle();
     expect(await AssessmentRepository(db).hasCompletedForExam('e1'), isFalse);
     expect(await db.select(db.attemptsLocal).get(), isEmpty);
@@ -418,7 +418,10 @@ void main() {
       'Stem of q3?': ('q3', 'Option B'),
     };
     final chosen = <String, String>{};
-    Future<void> answerCurrent({required bool doubleTap}) async {
+    Future<void> answerCurrent({
+      required bool doubleTap,
+      String button = 'Next',
+    }) async {
       final stem = wanted.keys.firstWhere(
         (s) => find.text(s).evaluate().isNotEmpty,
       );
@@ -427,21 +430,26 @@ void main() {
       await tester.tap(find.text(text));
       await tester.pump();
       if (doubleTap) prefs.gate = Completer<void>();
-      await tester.tap(find.text('Next'));
+      await tester.tap(find.text(button));
       if (doubleTap) {
         await tester.pump();
-        await tester.tap(find.text('Next'));
+        await tester.tap(find.text(button));
         prefs.gate!.complete();
         prefs.gate = null;
       }
       await tester.pumpAndSettle();
     }
 
+    expect(find.text('Next'), findsOneWidget);
+    expect(find.text('Finish'), findsNothing);
     await answerCurrent(doubleTap: true);
     expect(find.text('2 of 3'), findsOneWidget);
     await answerCurrent(doubleTap: false);
     expect(find.text('3 of 3'), findsOneWidget);
-    await answerCurrent(doubleTap: false);
+    // Only the last question's button reads Finish.
+    expect(find.text('Finish'), findsOneWidget);
+    expect(find.text('Next'), findsNothing);
+    await answerCurrent(doubleTap: false, button: 'Finish');
     expect(find.text('Results'), findsOneWidget);
 
     final rows = await db.select(db.attemptsLocal).get();
@@ -482,7 +490,7 @@ void main() {
     Future<void> answerAndFinish(WidgetTester tester) async {
       await tester.tap(find.text('Option A'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Next'));
+      await tester.tap(find.text('Finish'));
       await tester.pumpAndSettle();
       expect(find.text('Results'), findsOneWidget);
     }
@@ -538,7 +546,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Option A'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Next'));
+    await tester.tap(find.text('Finish'));
     await tester.pumpAndSettle();
     expect(find.text('Results'), findsNothing);
     expect(find.text('Try Again'), findsOneWidget);

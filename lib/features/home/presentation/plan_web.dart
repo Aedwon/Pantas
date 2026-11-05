@@ -5,6 +5,9 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/motion/pane_transition.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_hover.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_page_heading.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 import 'package:pantas/features/home/presentation/widgets/plan_skeletons.dart';
@@ -29,30 +32,36 @@ class PlanWebFrame extends StatelessWidget {
         bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
         child: Focus(
           autofocus: true,
+          skipTraversal: true,
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // The heading and list paint the page's background, so only
-                // the pane beside them shows the page behind while it fades.
-                ColoredBox(
-                  color: context.webTokens.colors.background,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      WebBackLink(label: backLabel, onPressed: onBack),
-                      const SizedBox(height: 6),
-                      WebText(title, kind: WebTextKind.h1),
-                      if (subtitle != null) ...[
-                        const SizedBox(height: 6),
-                        WebText(subtitle!, kind: WebTextKind.lead),
-                      ],
-                      const SizedBox(height: 26),
-                    ],
-                  ),
+            // The shell ends at the window bottom, so rows scroll to the edge
+            // and the page's own margin sits after the last one.
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
+            // The page is 1080 px at most and centered, as Home, Performance
+            // and Your record are, so every page shares one left edge when
+            // the window is wider than the page (3K-15).
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1080),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // The heading and list paint the page's background, so
+                    // only the pane beside them shows the page behind while it
+                    // fades.
+                    ColoredBox(
+                      color: context.webTokens.colors.background,
+                      child: WebPageHeading(
+                        title: title,
+                        backLabel: backLabel,
+                        subtitle: subtitle,
+                        onBack: onBack,
+                      ),
+                    ),
+                    child,
+                  ],
                 ),
-                child,
-              ],
+              ),
             ),
           ),
         ),
@@ -228,9 +237,7 @@ class PlanWebColumns extends StatelessWidget {
                     child: WebRow(
                       boardMetrics: true,
                       title: '${page.done} of ${page.total} done',
-                      subtitle: page.done == page.total
-                          ? null
-                          : 'Reviews and new questions left',
+                      subtitle: page.done == page.total ? null : page.left,
                       leading: ProgressRing(
                         fraction: page.total == 0 ? 0 : page.done / page.total,
                         size: 26,
@@ -338,6 +345,21 @@ class PlanWebColumns extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Board (PL_Free): a 44 px lock tile above the line.
+                        Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: t.colors.accentTint,
+                          ),
+                          child: Icon(
+                            Icons.lock_outline_rounded,
+                            size: 22,
+                            color: t.colors.accent,
+                          ),
+                        ),
+                        const SizedBox(height: 18),
                         Text(
                           'See every week up to your exam, '
                           'and every time your plan adjusts.',
@@ -438,33 +460,58 @@ class PlanWebHistory extends StatelessWidget {
                   ),
                 ),
               if (inside)
-                InkWell(
-                  onTap: loading ? null : onMore,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(
-                          color: t.colors.separator,
-                          width: hairline,
-                        ),
-                      ),
+                // Enters after the last row, so the card is never a bare link.
+                _historyEntry(
+                  entries.length,
+                  WebKeyboardRing(
+                    // The last row of the card, so the ring takes its corners.
+                    borderRadius: const BorderRadius.vertical(
+                      bottom: Radius.circular(18),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            loading ? 'Loading' : 'See more',
-                            style: t.style(
-                              16,
-                              weight: FontWeight.w600,
-                              color: t.colors.accent,
+                    child: InkWell(
+                      onTap: loading ? null : onMore,
+                      // The row's tint is its own fill: the card's fill is
+                      // opaque, so the InkWell's ink would paint under it and
+                      // the row showed no hover (5Q-8).
+                      child: WebHover(
+                        builder: (context, hovered) => DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: hovered && !loading
+                                ? t.rowHover
+                                : Colors.transparent,
+                            borderRadius: const BorderRadius.vertical(
+                              bottom: Radius.circular(18),
+                            ),
+                          ),
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                top: BorderSide(
+                                  color: t.colors.separator,
+                                  width: hairline,
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    loading ? 'Loading' : 'See more',
+                                    style: t.style(
+                                      16,
+                                      weight: FontWeight.w600,
+                                      color: t.colors.accent,
+                                    ),
+                                  ),
+                                ),
+                                const WebChevron(),
+                              ],
                             ),
                           ),
                         ),
-                        const WebChevron(),
-                      ],
+                      ),
                     ),
                   ),
                 ),

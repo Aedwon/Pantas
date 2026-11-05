@@ -36,9 +36,12 @@ class MathExpression extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final math = Math.tex(
-      latex,
+      groupedThousands(latex),
       mathStyle: mathStyle,
-      textStyle: textStyle,
+      // The package turns any weight other than normal into an upright serif
+      // override of every letter, so a bold line or a callout set its math
+      // upright. KaTeX math keeps the regular weight and its own italics.
+      textStyle: textStyle?.copyWith(fontWeight: FontWeight.normal),
       textScaleFactor: textScaleFactor,
       onErrorFallback: (_) =>
           onErrorFallback?.call(context) ?? Text(latex, style: textStyle),
@@ -364,7 +367,83 @@ List<InlineSpan> inlineMathSpans(
   if (lastEnd < text.length) {
     spans.add(TextSpan(text: text.substring(lastEnd), style: style));
   }
-  return spans;
+  return keepPunctuationWithMath(spans);
+}
+
+final _hugging = RegExp(r'^[.,;:!?)\]]+');
+
+/// Moves a period, comma or other closing mark that sits right after a
+/// formula into the formula's own box, so a line never breaks between them
+/// and leaves the mark alone at the start of the next line.
+///
+/// A formula is one box in the line, and the text after it is a separate run,
+/// so the line may break between the two. Only marks that follow the formula
+/// with no space move; "x^2 ." keeps its space.
+List<InlineSpan> keepPunctuationWithMath(List<InlineSpan> spans) {
+  final out = <InlineSpan>[];
+  for (var i = 0; i < spans.length; i++) {
+    final span = spans[i];
+    final next = i + 1 < spans.length ? spans[i + 1] : null;
+    final text = next is TextSpan && next.children == null ? next.text : null;
+    final mark =
+        span is WidgetSpan && text != null ? _hugging.firstMatch(text) : null;
+    if (span is! WidgetSpan || mark == null || next is! TextSpan) {
+      out.add(span);
+      continue;
+    }
+    out.add(
+      WidgetSpan(
+        alignment: span.alignment,
+        baseline: span.baseline,
+        style: span.style,
+        child: _MathWithMark(
+          mark: mark.group(0)!,
+          style: next.style,
+          child: span.child,
+        ),
+      ),
+    );
+    final rest = text!.substring(mark.end);
+    if (rest.isNotEmpty) {
+      out.add(
+        TextSpan(
+          text: rest,
+          style: next.style,
+          recognizer: next.recognizer,
+          semanticsLabel: next.semanticsLabel,
+        ),
+      );
+    }
+    i++;
+  }
+  return out;
+}
+
+/// A formula followed by the mark that closes its sentence or clause.
+class _MathWithMark extends StatelessWidget {
+  const _MathWithMark({
+    required this.mark,
+    required this.style,
+    required this.child,
+  });
+  final String mark;
+  final TextStyle? style;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
+        children: [
+          // The formula may still scale down to fit a narrow line, so it takes
+          // what the mark leaves.
+          Flexible(child: child),
+          // The paragraph that holds this box scales it once, so the mark must
+          // not scale itself a second time.
+          Text(mark, style: style, textScaler: TextScaler.noScaling),
+        ],
+      );
 }
 
 /// Inline maths is set this much larger than the sentence around it, to match
@@ -382,6 +461,28 @@ InlineSpan inlineMathSpan(
   TextStyle? style,
   WidgetBuilder? onErrorFallback,
 }) {
+  // A bare number such as 1987 or 22 has nothing to typeset. Set in KaTeX it
+  // switches to a serif face in the middle of a sans sentence, so it stays text
+  // in the body font. Any real expression keeps the math face.
+  final numeral = latex.trim();
+  if (_bareNumeral.hasMatch(numeral)) {
+    return TextSpan(text: numeral, style: style);
+  }
+  // A plain counting list reads with the numbers around it in the sentence.
+  if (_numberList.hasMatch(numeral)) {
+    return TextSpan(
+      text: numeral
+          .replaceAll(RegExp(r'\\[lc]?dots|\\ldots'), '...')
+          .replaceAll(RegExp(r'\s*,\s*'), ', '),
+      style: style,
+    );
+  }
+  // A section number such as 5(1) or 3(b) reads as words in the sentence
+  // around it, so it stays in the body font. One citation then does not mix
+  // two faces.
+  if (_citation.hasMatch(numeral)) {
+    return TextSpan(text: numeral, style: style);
+  }
   return WidgetSpan(
     alignment: PlaceholderAlignment.baseline,
     baseline: TextBaseline.alphabetic,
@@ -414,6 +515,34 @@ InlineSpan inlineMathSpan(
     ),
   );
 }
+
+/// A number with lettered or numbered parts in parentheses, as in a legal
+/// citation: `5(1)`, `261(a)`, `1(a)(2)`.
+final _citation = RegExp(r'^\d+(?:\([0-9]{1,2}\)|\([a-z]\))+$');
+
+/// Plain non-negative numbers separated by commas, which may end in dots:
+/// `1,2,3,\dots`.
+final _numberList = RegExp(
+  r'^\d+(?:\s*,\s*\d+)+(?:\s*,\s*\\[lc]?dots)?$',
+);
+
+final _bareNumeral = RegExp(
+  r'^(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$',
+);
+
+final _thousandsRun = RegExp(r'(?<![\d,])\d{1,3}(?:,\d{3})+(?!\d)');
+
+/// Binds the commas of a number written with thousands separators, so TeX does
+/// not add the space it puts after a punctuation comma ("27, 000").
+///
+/// Only a run of one to three digits followed by comma groups of exactly three
+/// counts, so a list such as `20,22,25,26,300` keeps its list spacing.
+String groupedThousands(String latex) => latex.contains(',')
+    ? latex.replaceAllMapped(
+        _thousandsRun,
+        (match) => match.group(0)!.replaceAll(',', '{,}'),
+      )
+    : latex;
 
 const _fracCommands = <String>[r'\dfrac', r'\tfrac', r'\frac'];
 

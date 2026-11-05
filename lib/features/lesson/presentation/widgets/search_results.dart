@@ -63,6 +63,9 @@ class SearchResults extends ConsumerWidget {
                   ),
                   value:
                       lesson.isRead ? null : '${lesson.estimatedMinutes} min',
+                  // The time keeps its own width and the title takes the rest
+                  // of the row, instead of stopping at half of it (2G-21).
+                  naturalValue: true,
                   verticalPadding: 12,
                   onTap: () => context.push('/lesson/${lesson.id}?from=search'),
                 ),
@@ -229,6 +232,7 @@ class _HitRow extends StatelessWidget {
           color: context.colors.secondaryLabel,
           fontFeatures: const [FontFeature.tabularFigures()],
         ),
+        naturalValue: true,
         verticalPadding: 12,
         footer: hit.titleMatch == null && hit.bodySnippet != null
             ? Text.rich(

@@ -28,12 +28,21 @@ import 'package:pantas/core/ui/motion/selection_motion.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_skeletons.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 enum ExamPickerMode { onboarding, settings }
+
+/// Custom exams do not run on web yet, so the picker hides "My exam isn't
+/// listed" and "Set Up My Own Exam" there until they ship (Aedwon, Nov 4,
+/// for the beta). Set this to true and every one of those places returns.
+const kCustomExamsOnWeb = false;
+
+/// Whether the picker offers a student's own exam on this platform.
+const kCustomExamsOffered = !kIsWeb || kCustomExamsOnWeb;
 
 final examPickerCatalogProvider = StreamProvider<List<ExamCatalogEntry>>(
   (ref) => ExamCatalogRepository(ref.watch(contentDatabaseProvider)).watchAll(),
@@ -78,6 +87,7 @@ class ExamPickerScreen extends ConsumerStatefulWidget {
     this.onBack,
     this.onCustom,
     this.cseOnly = kIsWeb,
+    this.customExams = kCustomExamsOffered,
     super.key,
   });
   final ExamPickerMode mode;
@@ -85,6 +95,9 @@ class ExamPickerScreen extends ConsumerStatefulWidget {
   final VoidCallback? onBack;
   final VoidCallback? onCustom;
   final bool cseOnly;
+
+  /// Whether to offer "My exam isn't listed" and "Set Up My Own Exam".
+  final bool customExams;
   bool selectable(ExamCatalogEntry entry) =>
       entry.isSelectable &&
       (!cseOnly || entry.id == 'exam_cse_pro' || entry.id == 'exam_cse_sub');
@@ -96,15 +109,78 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   String? _selectedId;
   String? _group;
   String _query = '';
+  String _typed = '';
   bool _saving = false;
   bool _failed = false;
   bool get _settings => widget.mode == ExamPickerMode.settings;
+
+  @override
+  void initState() {
+    super.initState();
+    if (!_settings) unawaited(_restorePick());
+  }
+
+  /// Back from the date step returns here. The pick was saved when the student
+  /// moved on, so show it chosen again instead of an empty list (4P-15). A
+  /// saved id that is not a selectable catalog exam (a custom track) is not
+  /// shown as picked.
+  Future<void> _restorePick() async {
+    try {
+      final saved =
+          await ref.read(appPreferencesRepositoryProvider).selectedExamId();
+      if (saved == null) return;
+      final entries = await ref.read(examPickerCatalogProvider.future);
+      if (!mounted || _selectedId != null) return;
+      if (entries.any((e) => e.id == saved && widget.selectable(e))) {
+        setState(() => _selectedId = saved);
+      }
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    }
+  }
 
   /// With no exam content on the device, the daily limit is why every exam
   /// reads "Coming soon", so say that instead.
   bool _limitBlocks(List<ExamCatalogEntry> entries) =>
       ref.watch(contentLimitReachedProvider) &&
       !entries.any((entry) => entry.hasContent);
+
+  void _search(String value) => setState(() {
+        _typed = value.trim();
+        _query = _typed.toLowerCase();
+      });
+
+  /// What a search that finds no exam says, worded as the Study search is.
+  Widget _noMatch(BuildContext context) {
+    final wide = context.wideWeb;
+    final t = context.webTokens;
+    return Semantics(
+      liveRegion: true,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 44),
+        child: Column(
+          children: [
+            Text(
+              'Nothing matched “$_typed”',
+              textAlign: TextAlign.center,
+              style: wide
+                  ? t.style(17, weight: FontWeight.w600, height: 22 / 17)
+                  : context.type.emphasized,
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'Try a shorter word, or part of one.',
+              textAlign: TextAlign.center,
+              style: wide
+                  ? t.sub
+                  : context.type.subhead
+                      .copyWith(color: context.colors.secondaryLabel),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   void _back() {
     if (widget.onBack != null) {
@@ -406,7 +482,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               ),
         children: [
           catalog.when(
-            loading: () => const ExamPickerWebSkeleton(),
+            loading: () =>
+                ExamPickerWebSkeleton(customCard: widget.customExams),
             error: (error, stack) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 80),
               child: Column(
@@ -440,14 +517,18 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Check back soon, or set up your own exam.',
+                        widget.customExams
+                            ? 'Check back soon, or set up your own exam.'
+                            : 'Check back soon.',
                         style: t.sub,
                       ),
-                      const SizedBox(height: 20),
-                      WebButton(
-                        label: 'Set Up My Own Exam',
-                        onPressed: _saving ? null : _custom,
-                      ),
+                      if (widget.customExams) ...[
+                        const SizedBox(height: 20),
+                        WebButton(
+                          label: 'Set Up My Own Exam',
+                          onPressed: _saving ? null : _custom,
+                        ),
+                      ],
                     ],
                   ),
                 );
@@ -468,9 +549,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                   SearchField(
                     outlined: true,
                     hint: 'Search exams',
-                    onChanged: (value) => setState(
-                      () => _query = value.trim().toLowerCase(),
-                    ),
+                    onChanged: _search,
                   ),
                   const SizedBox(height: 16),
                   Wrap(
@@ -479,7 +558,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     children: [
                       for (final group in [
                         (null, 'All'),
-                        ..._groups.map((g) => (g.$1, g.$2)),
+                        ..._orderedGroups(all).map((g) => (g.$1, g.$2)),
                       ])
                         _WideGroupChip(
                           label: group.$2,
@@ -489,30 +568,32 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  WebCard(
-                    child: WebRow(
-                      title: "My exam isn't listed",
-                      subtitle: 'Set up your own and pick what it covers',
-                      titleColor: t.colors.label,
-                      leading: SvgPicture.string(
-                        '<svg viewBox="0 0 24 24" fill="none" '
-                        'stroke="currentColor" stroke-width="1.9" '
-                        'stroke-linecap="round"> '
-                        '<circle cx="12" cy="12" r="8.5"/> '
-                        '<path d="M12 8.5v7M8.5 12h7"/></svg>',
-                        width: 22,
-                        height: 22,
-                        colorFilter: ColorFilter.mode(
-                          t.colors.accent,
-                          BlendMode.srcIn,
+                  if (widget.customExams) ...[
+                    WebCard(
+                      child: WebRow(
+                        title: "My exam isn't listed",
+                        subtitle: 'Set up your own and pick what it covers',
+                        titleColor: t.colors.label,
+                        leading: SvgPicture.string(
+                          '<svg viewBox="0 0 24 24" fill="none" '
+                          'stroke="currentColor" stroke-width="1.9" '
+                          'stroke-linecap="round"> '
+                          '<circle cx="12" cy="12" r="8.5"/> '
+                          '<path d="M12 8.5v7M8.5 12h7"/></svg>',
+                          width: 22,
+                          height: 22,
+                          colorFilter: ColorFilter.mode(
+                            t.colors.accent,
+                            BlendMode.srcIn,
+                          ),
                         ),
+                        onPressed: _saving ? null : _custom,
+                        trailing: const Icon(Icons.chevron_right),
+                        divider: false,
                       ),
-                      onPressed: _saving ? null : _custom,
-                      trailing: const Icon(Icons.chevron_right),
-                      divider: false,
                     ),
-                  ),
-                  const SizedBox(height: 24),
+                    const SizedBox(height: 24),
+                  ],
                   // Picking a chip swaps the list with the approved view
                   // swap. Typing in the search changes the same view.
                   ViewSwap(
@@ -520,6 +601,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        if (visible.isEmpty && _query.isNotEmpty)
+                          _noMatch(context),
                         for (final group in _orderedGroups(visible))
                           if (visible
                               .any((entry) => entry.group == group.$1)) ...[
@@ -554,8 +637,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         bindings: {
           const SingleActivator(LogicalKeyboardKey.escape): _back,
         },
-        child: Focus(
-          autofocus: true,
+        child: KeyFocusKeeper(
           child: Material(
             color: t.colors.surface,
             borderRadius: BorderRadius.circular(22),
@@ -584,8 +666,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                   child: SearchField(
                     outlined: true,
                     hint: 'Search exams',
-                    onChanged: (value) =>
-                        setState(() => _query = value.trim().toLowerCase()),
+                    onChanged: _search,
                   ),
                 ),
                 Expanded(
@@ -615,12 +696,21 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                             )
                             .toList();
                         if (all.isEmpty) {
-                          return StateView(
-                            message: 'No exams available right now.',
-                            detail: 'Check back soon, or set up your own exam.',
-                            actionLabel: 'Set Up My Own Exam',
-                            onRetry: _custom,
-                          );
+                          return widget.customExams
+                              ? StateView(
+                                  message: 'No exams available right now.',
+                                  detail: 'Check back soon, or set up '
+                                      'your own exam.',
+                                  actionLabel: 'Set Up My Own Exam',
+                                  onRetry: _custom,
+                                )
+                              : const StateView(
+                                  message: 'No exams available right now.',
+                                  detail: 'Check back soon.',
+                                );
+                        }
+                        if (visible.isEmpty && _query.isNotEmpty) {
+                          return _noMatch(context);
                         }
                         return LayoutBuilder(
                           builder: (context, constraints) => Wrap(
@@ -680,15 +770,18 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
                   child: Wrap(
-                    alignment: WrapAlignment.spaceBetween,
+                    alignment: widget.customExams
+                        ? WrapAlignment.spaceBetween
+                        : WrapAlignment.end,
                     spacing: 16,
                     runSpacing: 12,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      WebTextAction(
-                        label: "My exam isn't listed",
-                        onPressed: _saving ? () {} : _custom,
-                      ),
+                      if (widget.customExams)
+                        WebTextAction(
+                          label: "My exam isn't listed",
+                          onPressed: _saving ? () {} : _custom,
+                        ),
                       SizedBox(
                         width: 380,
                         child: Text(
@@ -720,8 +813,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     final children = <Widget>[
       SearchField(
         hint: 'Search exams',
-        onChanged: (value) =>
-            setState(() => _query = value.trim().toLowerCase()),
+        onChanged: _search,
       ),
       SizedBox(height: _settings ? 22 : 12),
       if (!_settings) ...[
@@ -734,7 +826,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                 selected: _group == null,
                 onPressed: () => setState(() => _group = null),
               ),
-              for (final group in _groups) ...[
+              for (final group
+                  in _orderedGroups(catalog.valueOrNull ?? const [])) ...[
                 const SizedBox(width: 8),
                 PantasButton.filterChip(
                   label: group.$2,
@@ -747,8 +840,10 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ),
         const SizedBox(height: 24),
       ],
-      custom,
-      const SizedBox(height: 24),
+      if (widget.customExams) ...[
+        custom,
+        const SizedBox(height: 24),
+      ],
       catalog.when(
         loading: () => const SkeletonGroups(
           rowHeight: 66,
@@ -765,13 +860,18 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           }
           final all = _orderedEntries(catalogEntries);
           if (all.isEmpty) {
-            return StateView(
-              message: 'No exams available right now.',
-              detail: 'Check back soon, or set up your own exam.',
-              actionLabel: 'Set Up My Own Exam',
-              primaryAction: true,
-              onRetry: _custom,
-            );
+            return widget.customExams
+                ? StateView(
+                    message: 'No exams available right now.',
+                    detail: 'Check back soon, or set up your own exam.',
+                    actionLabel: 'Set Up My Own Exam',
+                    primaryAction: true,
+                    onRetry: _custom,
+                  )
+                : const StateView(
+                    message: 'No exams available right now.',
+                    detail: 'Check back soon.',
+                  );
           }
           final visible = all
               .where(
@@ -789,6 +889,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                if (visible.isEmpty && _query.isNotEmpty) _noMatch(context),
                 for (final group in _orderedGroups(visible))
                   if (visible.any((entry) => entry.group == group.$1)) ...[
                     _section(
@@ -816,6 +917,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             progress: 3,
             bodyGap: 24,
             detailLineHeight: 1.35,
+            pinBottom: true,
             onBack: _back,
             bottom: Column(
               mainAxisSize: MainAxisSize.min,

@@ -84,4 +84,40 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
   });
+  testWidgets('a long subject title leaves a gap before its figure on wide web',
+      (tester) async {
+    tester.view.physicalSize = const Size(1024, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    const title = 'Language Proficiency (English and Filipino) and more words';
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(1024, 900),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: SizedBox(
+                width: 420,
+                child: HomePerformanceCard(
+                  web: true,
+                  rows: [row(title, 2, 3)],
+                  pro: true,
+                  onOpen: () {},
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final gap = tester.getTopLeft(find.text('67%')).dx -
+        tester.getTopRight(find.text(title)).dx;
+    expect(gap, greaterThanOrEqualTo(12));
+  });
 }

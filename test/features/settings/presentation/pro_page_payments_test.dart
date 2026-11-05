@@ -38,8 +38,8 @@ void main() {
     final gateway = SettingsGateway(initial: const Entitlement.free());
     await pumpProPage(tester, gateway: gateway);
 
-    await tester.ensureVisible(find.text('Restore purchases'));
-    await tester.tap(find.text('Restore purchases'));
+    await tester.ensureVisible(find.text('Restore Purchases'));
+    await tester.tap(find.text('Restore Purchases'));
     await tester.pumpAndSettle();
 
     expect(gateway.restoreCalls, 1);
@@ -65,9 +65,9 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
-    expect(find.text('See exactly what’s losing you points.'), findsOneWidget);
-    await tester.ensureVisible(find.text('Restore purchases'));
-    await tester.tap(find.text('Restore purchases'));
+    expect(find.text("See exactly what's losing you points."), findsOneWidget);
+    await tester.ensureVisible(find.text('Restore Purchases'));
+    await tester.tap(find.text('Restore Purchases'));
     await tester.pumpAndSettle();
 
     expect(find.text('Monthly'), findsWidgets);
@@ -83,14 +83,14 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
-    await tester.ensureVisible(find.text('Restore purchases'));
-    await tester.tap(find.text('Restore purchases'));
+    await tester.ensureVisible(find.text('Restore Purchases'));
+    await tester.tap(find.text('Restore Purchases'));
     await tester.pump();
 
     expect(gateway.restoreCalls, 1);
     final button = tester.widget<PantasButton>(
       find.byWidgetPredicate(
-        (w) => w is PantasButton && w.label == 'Restore purchases',
+        (w) => w is PantasButton && w.label == 'Restore Purchases',
       ),
     );
     expect(button.onPressed, isNull);
@@ -114,8 +114,8 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
-    await tester.ensureVisible(find.text('Restore purchases'));
-    await tester.tap(find.text('Restore purchases'));
+    await tester.ensureVisible(find.text('Restore Purchases'));
+    await tester.tap(find.text('Restore Purchases'));
     await tester.pumpAndSettle();
 
     expect(gateway.restoreCalls, 1);
@@ -166,7 +166,7 @@ void main() {
 
     expect(
       find.text(
-        'We couldn’t open Google Play. You can manage your '
+        "We couldn't open Google Play. You can manage your "
         'subscription in the Google Play app.',
       ),
       findsOneWidget,

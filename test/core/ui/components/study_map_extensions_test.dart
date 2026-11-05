@@ -73,8 +73,9 @@ void main() {
         final title = tester.widget<Text>(find.text('Circles'));
         expect(title.style!.fontSize, 17);
         expect(title.style!.height, 1.35);
-        expect(title.maxLines, scale == 1 ? 1 : isNull);
-        expect(title.overflow, scale == 1 ? TextOverflow.ellipsis : isNull);
+        // A long title is read in full at every size (Nov 3 rule).
+        expect(title.maxLines, isNull);
+        expect(title.overflow, isNull);
         expect(
           contrast(
             title.style!.color!,

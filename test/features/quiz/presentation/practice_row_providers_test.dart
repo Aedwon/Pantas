@@ -5,9 +5,16 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
+import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
+import 'package:pantas/features/quiz/presentation/quiz_controller.dart'
+    show nowProvider;
 
 import '../../../helpers/in_memory_database.dart';
+
+final _mistakeCount =
+    FutureProvider.autoDispose.family<int, String>(recentMistakeCount);
 
 void main() {
   late AppDatabase db;
@@ -39,7 +46,7 @@ void main() {
 
   test('no attempts means nothing to fix', () async {
     expect(
-      await container.read(recentMistakeCountProvider('exam_cse_pro').future),
+      await container.read(_mistakeCount('exam_cse_pro').future),
       0,
     );
   });
@@ -61,9 +68,96 @@ void main() {
     );
 
     expect(
-      await container.read(recentMistakeCountProvider('exam_cse_pro').future),
+      await container.read(_mistakeCount('exam_cse_pro').future),
       2,
     );
+  });
+
+  test('the Quiz tab count follows a session that finished after it was read',
+      () async {
+    final tab = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        scopedTopicsProvider.overrideWith((ref, examId) async => const []),
+      ],
+    );
+    addTearDown(tab.dispose);
+    // The tab keeps listening, as it does while it is on screen.
+    final subscription = tab.listen(
+      quizPracticeCountsProvider('exam_cse_pro'),
+      (_, __) {},
+    );
+    addTearDown(subscription.close);
+    expect(
+      (await tab.read(quizPracticeCountsProvider('exam_cse_pro').future))
+          .mistakes,
+      0,
+    );
+
+    await AttemptsRepository(db).save(
+      Attempt(
+        id: 'a_late',
+        examId: 'exam_cse_pro',
+        startedAt: DateTime.now().subtract(const Duration(minutes: 5)),
+        completedAt: DateTime.now(),
+        items: [
+          item('q_1', correct: false),
+          item('q_2', correct: false),
+        ],
+      ),
+    );
+    // What the tab does when a session it opened is closed.
+    tab.invalidate(quizPracticeCountsProvider('exam_cse_pro'));
+
+    expect(
+      (await tab.read(quizPracticeCountsProvider('exam_cse_pro').future))
+          .mistakes,
+      2,
+    );
+  });
+
+  test('a flag written during a run reaches the rows the tab keeps', () async {
+    var countReads = 0;
+    final tab = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        scopedTopicsProvider.overrideWith((ref, examId) async => const []),
+        // Read once each time the Quiz tab's counts are worked out.
+        nowProvider.overrideWithValue(() {
+          countReads++;
+          return DateTime.now();
+        }),
+      ],
+    );
+    addTearDown(tab.dispose);
+    // The tab keeps listening, as it does while a run is on top of it.
+    final subscriptions = [
+      tab.listen(flagSummaryProvider, (_, __) {}),
+      tab.listen(flagCountProvider, (_, __) {}),
+      tab.listen(quizPracticeCountsProvider('exam_cse_pro'), (_, __) {}),
+    ];
+    addTearDown(() {
+      for (final subscription in subscriptions) {
+        subscription.close();
+      }
+    });
+    expect((await tab.read(flagSummaryProvider.future)).count, 0);
+    expect(await tab.read(flagCountProvider.future), 0);
+    await tab.read(quizPracticeCountsProvider('exam_cse_pro').future);
+    final readsBefore = countReads;
+
+    await tab.read(questionFlagControllerProvider.notifier).toggle('q_1');
+
+    expect((await tab.read(flagSummaryProvider.future)).count, 1);
+    expect(await tab.read(flagCountProvider.future), 1);
+    await tab.read(quizPracticeCountsProvider('exam_cse_pro').future);
+    expect(countReads, greaterThan(readsBefore));
+
+    await tab.read(questionFlagControllerProvider.notifier).toggle('q_1');
+    expect((await tab.read(flagSummaryProvider.future)).count, 0);
+    expect(await tab.read(flagCountProvider.future), 0);
   });
 
   test('the flag count starts at zero', () async {

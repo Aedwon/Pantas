@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -104,6 +105,7 @@ void main() {
   });
   testWidgets('button hover and keyboard focus use the canvas states',
       (tester) async {
+    resetWebKeyboardFocus();
     await mount(tester, WebButton(label: 'Continue', onPressed: () {}));
     final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
     await mouse.addPointer(location: Offset.zero);
@@ -114,6 +116,9 @@ void main() {
       button.style!.backgroundColor!.resolve({WidgetState.hovered}),
       const Color(0xFF086A5A),
     );
+    // A click-focused control shows no ring; a key press brings it.
+    expect(button.style!.side!.resolve({WidgetState.focused})!.width, 1);
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     expect(button.style!.side!.resolve({WidgetState.focused})!.width, 2);
     await mouse.removePointer();
   });
@@ -170,7 +175,10 @@ void main() {
     );
     final decoration = card.decoration! as BoxDecoration;
     expect(decoration.color, const Color(0xFF1F1F1F));
-    expect((decoration.border! as Border).top.color, const Color(0xFF2C2C2C));
+    // The edge is drawn over the card and takes up no room (6T-11).
+    expect(decoration.border, isNull);
+    final edge = card.foregroundDecoration! as BoxDecoration;
+    expect((edge.border! as Border).top.color, const Color(0xFF2C2C2C));
     final buttons =
         tester.widgetList<TextButton>(find.byType(TextButton)).toList();
     // The selected segment's fill is the sliding thumb since item 17.

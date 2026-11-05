@@ -72,7 +72,11 @@ PaneTransition _settingsTransition(BuildContext context) =>
 /// These open as a dialog over a copy of the page behind on wide web. The
 /// dialog has its own entrance and exit, so the route must add nothing: a fade
 /// of its own would replay the page behind after the dialog has gone.
-const _modalPages = {'/settings/exam/change', '/settings/account/delete'};
+const _modalPages = {
+  '/settings/exam/change',
+  '/settings/exam/transfer',
+  '/settings/account/delete',
+};
 
 PaneTransition _modalTransition(BuildContext context) =>
     context.wideWeb ? PaneTransition.instant : PaneTransition.platform;

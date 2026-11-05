@@ -752,7 +752,7 @@ void main() {
       saved: {for (var i = 0; i < 8; i++) '$i'},
       value: 50,
     );
-    expect(find.text('400 questions · ~5.6 hr'), findsOneWidget);
+    expect(find.text('400 questions · ~5 hr 33 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     expect(find.text('hours'), findsOneWidget);

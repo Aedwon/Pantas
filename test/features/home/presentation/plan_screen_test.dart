@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -22,6 +23,7 @@ import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  weekFallbackTests();
   testWidgets('today deep link waits for Home data after its guard',
       (tester) async {
     final pending = Completer<HomeTodayData>();
@@ -178,6 +180,73 @@ void main() {
       hasLength(5),
     );
   });
+  testWidgets('week days without lessons say what they are, never blank',
+      (tester) async {
+    DayPlan plan(int day, {bool mock = false, bool rest = false}) => DayPlan(
+          day: DateTime(2026, 11, day),
+          lessonIds: const [],
+          reviewQuestionIds: const [],
+          newQuestionIds: const [],
+          isMockDay: mock,
+          advancedIds: const {},
+          isRestDay: rest,
+        );
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWith((_) => true),
+          planWeekViewProvider('2026-11-22').overrideWith(
+            (_) async => [
+              for (var i = 0; i < 7; i++)
+                PlanDayView(
+                  date: DateTime(2026, 11, 22 + i),
+                  plan: plan(22 + i, mock: i == 4, rest: i == 0),
+                  remaining: null,
+                  lessons: const [],
+                  kind: 'future',
+                ),
+            ],
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanWeekScreen(start: '2026-11-22'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Rest day'), findsOneWidget);
+    expect(find.text('Mock exam'), findsOneWidget);
+    expect(find.text('Reviews only'), findsNWidgets(5));
+  });
+  testWidgets('History opens as its own page on the phone', (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWith((_) => true),
+          planViewProvider(15).overrideWith(
+            (_) async => const PlanView(
+              done: 0,
+              total: 0,
+              nodes: [],
+              history: [
+                PlanHistoryEntry(id: 'h1', date: 'Today', text: 'A change'),
+              ],
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanHistoryScreen(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(PlanHistoryPage), findsOneWidget);
+    expect(find.text('HISTORY'), findsOneWidget);
+    expect(find.text('A change'), findsOneWidget);
+    expect(find.text('Your plan'), findsNothing);
+  });
   testWidgets('a week with unknown stored days shows a recoverable error',
       (tester) async {
     await tester.pumpWidget(
@@ -210,24 +279,25 @@ void main() {
       isTrue,
     );
   });
-  testWidgets('unknown day uses the approved plan error layout',
+  PlanDayView unknownDay(DateTime date) => PlanDayView(
+        date: date,
+        plan: null,
+        remaining: null,
+        lessons: const [],
+        kind: 'unknown',
+      );
+
+  testWidgets('an unknown day still to come uses the approved error layout',
       (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          planDayViewProvider('2026-10-18').overrideWith(
-            (_) async => PlanDayView(
-              date: DateTime(2026, 10, 18),
-              plan: null,
-              remaining: null,
-              lessons: const [],
-              kind: 'unknown',
-            ),
-          ),
+          planDayViewProvider('2099-01-02')
+              .overrideWith((_) async => unknownDay(DateTime(2099, 1, 2))),
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
-          home: const PlanDayScreen(date: '2026-10-18'),
+          home: const PlanDayScreen(date: '2099-01-02'),
         ),
       ),
     );
@@ -237,6 +307,87 @@ void main() {
       isTrue,
     );
     expect(find.text('Could not load your plan.'), findsOneWidget);
+  });
+
+  testWidgets('a day before the plan began says so, with no error',
+      (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18')
+              .overrideWith((_) async => unknownDay(DateTime(2026, 10, 18))),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanDayScreen(date: '2026-10-18'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(StateView), findsNothing);
+    expect(find.text('Could not load your plan.'), findsNothing);
+    expect(find.text('Try Again'), findsNothing);
+    expect(
+      find.text('Your plan had not started on this day.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('the week strip opens no card for a day before the plan began',
+      (tester) async {
+    late BuildContext inside;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18')
+              .overrideWith((_) async => unknownDay(DateTime(2026, 10, 18))),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: Builder(
+            builder: (context) {
+              inside = context;
+              return const Scaffold(body: Text('Home'));
+            },
+          ),
+        ),
+      ),
+    );
+    unawaited(showPlanPastDay(inside, DateTime(2026, 10, 18)));
+    await tester.pumpAndSettle();
+    expect(find.byType(PlanDayScreen), findsNothing);
+    expect(find.text('Could not load your plan.'), findsNothing);
+  });
+
+  testWidgets(
+      'a card opened while the day was slow closes itself when the '
+      'day turns out to be before the plan', (tester) async {
+    final slow = Completer<PlanDayView>();
+    late BuildContext inside;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18').overrideWith((_) => slow.future),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: Builder(
+            builder: (context) {
+              inside = context;
+              return const Scaffold(body: Text('Home'));
+            },
+          ),
+        ),
+      ),
+    );
+    unawaited(showPlanPastDay(inside, DateTime(2026, 10, 18)));
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byType(PlanDayScreen), findsOneWidget);
+    slow.complete(unknownDay(DateTime(2026, 10, 18)));
+    await tester.pumpAndSettle();
+    expect(find.byType(PlanDayScreen), findsNothing);
+    expect(find.text('Could not load your plan.'), findsNothing);
   });
   testWidgets(
       'history appends without replacing the visible plan while loading',
@@ -288,6 +439,58 @@ void main() {
     await tester.scrollUntilVisible(find.text('Actual change 14'), 150);
     expect(find.text('Actual change 14'), findsOneWidget);
   });
+  for (final settling in [true, false]) {
+    testWidgets(
+        settling
+            ? 'a plan read that fails as the app settles stays a skeleton and '
+                'retries'
+            : 'a plan read that really fails shows the error at once',
+        (tester) async {
+      var reads = 0;
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            currentStudyCoverageProvider.overrideWith((_) => true),
+            entitlementProvider
+                .overrideWith((_) => Stream.value(const Entitlement.free())),
+            planViewProvider(5).overrideWith((_) async {
+              reads++;
+              if (!settling) throw StateError('Plan content unavailable');
+              if (reads <= 2) throw StateError('Quiz account is unavailable');
+              return const PlanView(
+                done: 1,
+                total: 4,
+                nodes: [],
+                history: [],
+              );
+            }),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            home: const MediaQuery(
+              data: MediaQueryData(disableAnimations: true),
+              child: PlanScreen(),
+            ),
+          ),
+        ),
+      );
+      for (var i = 0; i < 20 && (!settling || reads < 3); i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+        if (settling) {
+          expect(find.text('Could not load your plan.'), findsNothing);
+          expect(find.text('Try Again'), findsNothing);
+        }
+      }
+      await tester.pump(const Duration(milliseconds: 100));
+      if (settling) {
+        expect(reads, 3);
+        expect(find.text('Could not load your plan.'), findsNothing);
+      } else {
+        expect(reads, 1);
+        expect(find.text('Could not load your plan.'), findsOneWidget);
+      }
+    });
+  }
   testWidgets('Free future date uses plan invitation without lesson payload',
       (tester) async {
     await tester.pumpWidget(
@@ -394,4 +597,66 @@ class _PlanLauncher extends TodayQuestionLauncher {
     required bool Function() isAlive,
   }) async =>
       () async => isAlive();
+}
+
+// QA 5Q-13: a week opened directly has no page behind it, and closing it goes
+// to the plan, not Home.
+void weekFallbackTests() {
+  testWidgets('a week opened directly goes back to the plan', (tester) async {
+    final days = [
+      for (var i = 0; i < 7; i++)
+        PlanDayView(
+          date: DateTime(2026, 10, 25 + i),
+          plan: DayPlan(
+            day: DateTime(2026, 10, 25 + i),
+            lessonIds: const ['l'],
+            reviewQuestionIds: const [],
+            newQuestionIds: const [],
+            isMockDay: false,
+            advancedIds: const {},
+          ),
+          remaining: null,
+          lessons: const [
+            HomeTodayLesson(
+              id: 'l',
+              title: 'Cells',
+              subject: 'Science',
+              minutes: 8,
+              read: false,
+            ),
+          ],
+          kind: 'future',
+        ),
+    ];
+    final router = GoRouter(
+      initialLocation: '/plan/week/2026-10-25',
+      routes: [
+        GoRoute(
+          path: '/plan/week/:start',
+          builder: (_, state) =>
+              PlanWeekScreen(start: state.pathParameters['start']!),
+        ),
+        GoRoute(path: '/plan', builder: (_, __) => const Text('PLAN PAGE')),
+        GoRoute(path: '/home', builder: (_, __) => const Text('HOME PAGE')),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          currentStudyCoverageProvider.overrideWithValue(true),
+          planWeekViewProvider('2026-10-25').overrideWith((_) async => days),
+        ],
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Your plan').first);
+    await tester.pumpAndSettle();
+    expect(find.text('PLAN PAGE'), findsOneWidget);
+    expect(find.text('HOME PAGE'), findsNothing);
+  });
 }

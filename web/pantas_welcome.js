@@ -19,7 +19,7 @@
   // A slow phone can take longer than 20 seconds to start, and uncovering then
   // shows a blank page.
   var GIVE_UP_MS = 60000;
-  var FONTS = ['Regular', 'SemiBold', 'Bold'];
+  var FONTS = ['400', '600', '700'];
 
   function create(env) {
     var doc = env.document;
@@ -42,17 +42,43 @@
       }
     }
 
-    function preloadFonts() {
-      if (!doc.head || !doc.createElement) return;
-      FONTS.forEach(function (name) {
-        var link = doc.createElement('link');
-        link.rel = 'preload';
-        link.as = 'font';
-        link.type = 'font/ttf';
-        link.crossOrigin = 'anonymous';
-        link.href = 'assets/assets/fonts/Geist-' + name + '.ttf';
-        doc.head.appendChild(link);
+    // Starts the three Geist weights downloading now, through the font loading
+    // API. A <link rel="preload"> did the same, but WebKit warned that it was
+    // "preloaded but not used"; a font the page asks for is always used.
+    function loadFonts() {
+      var fonts = doc.fonts;
+      if (!fonts || !fonts.load) return;
+      FONTS.forEach(function (weight) {
+        try {
+          var loading = fonts.load(weight + ' 16px Geist');
+          if (loading && loading.catch) loading.catch(function () {});
+        } catch (_) {}
       });
+    }
+
+    // The app's own element that held keyboard focus under the cover (its first
+    // step's text field). Removing the cover must not leave focus on the page,
+    // or the keys typed next go nowhere (WebKit).
+    var appFocus = null;
+
+    function onFocusIn(event) {
+      var target = event.target;
+      if (!target || (target.closest && target.closest('#pantas-welcome'))) return;
+      if (target === doc.body || target === doc.documentElement) return;
+      appFocus = target;
+    }
+
+    function focusOnPage() {
+      var active = doc.activeElement;
+      return !active || active === doc.body || active === doc.documentElement;
+    }
+
+    function restoreFocus() {
+      var target = appFocus;
+      if (!target || !target.isConnected || !target.focus || !focusOnPage()) return;
+      try {
+        target.focus({ preventScroll: true });
+      } catch (_) {}
     }
 
     function finish() {
@@ -62,6 +88,9 @@
       doc.documentElement.classList.remove('pw-on');
       var screen = doc.getElementById('pantas-welcome');
       if (screen && screen.remove) screen.remove();
+      restoreFocus();
+      // The engine may move its text field in the next frame; look again then.
+      env.afterPaint(restoreFocus);
     }
 
     function showStarting() {
@@ -92,28 +121,45 @@
       if (!holdForTap || state.started) env.afterPaint(finish);
     }
 
-    // A parent or guardian opening the emailed link is not a new student. The
-    // Welcome screen would hide the page they came for.
-    function guardianLink() {
+    // A parent or guardian opening the emailed link is not a new student, and
+    // the Terms and Privacy pages open for anyone, so a link to them never
+    // waits behind a Welcome screen. The screen would hide the page they came
+    // for.
+    function pageLink() {
       try {
-        return /^\/guardian(\/|$)/.test(env.pathname ? env.pathname() : '');
+        return /^\/(guardian|legal)(\/|$)/.test(env.pathname ? env.pathname() : '');
       } catch (_) {
         return false;
       }
     }
 
-    if (!seen() && !guardianLink()) {
+    if (!seen() && !pageLink()) {
       state.shown = true;
       doc.documentElement.classList.add('pw-on');
-      preloadFonts();
+      loadFonts();
+      doc.addEventListener('focusin', onFocusIn, true);
       doc.addEventListener('click', function (event) {
         var target = event.target;
         if (target && target.closest && target.closest('#pw-start')) start();
       });
-      // The Enter hint on the button only exists on wide screens.
-      doc.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' && env.wide()) start();
-      });
+      // The Enter hint on the button only exists on wide screens. Flutter's view
+      // holds keyboard focus under the cover (a hidden text input) and its own
+      // key handling stops the event before it reaches the document, so a
+      // document listener never hears Enter until a click moves focus. This
+      // listens on the window in the capture phase. This script runs before
+      // Flutter's, so it is first in line, and it keeps Enter from also
+      // reaching the app's own first step.
+      (env.keyTarget || doc).addEventListener(
+        'keydown',
+        function (event) {
+          if (event.key !== 'Enter' || state.done || !env.wide()) return;
+          if (event.preventDefault) event.preventDefault();
+          if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+          else if (event.stopPropagation) event.stopPropagation();
+          start();
+        },
+        true,
+      );
     }
 
     return {
@@ -137,6 +183,7 @@
   } catch (_) {}
   root.pantasWelcome = create({
     document: root.document,
+    keyTarget: root,
     storage: storage,
     setTimeout: function (fn, ms) {
       return root.setTimeout(fn, ms);

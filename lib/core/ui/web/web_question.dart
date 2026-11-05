@@ -103,10 +103,17 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
         .where((c) => c.id == widget.chosenId)
         .firstOrNull;
     final wrong = widget.checked && widget.chosenId != correct.id;
-    final column = SizedBox(
+    final move = _phase(240, 1200);
+    // RV_Reveal moves the column and nothing else: its width stays put, so the
+    // stem and the choices do not re-wrap while it slides. The checked width
+    // is taken at once and the column starts where the open one stood.
+    final slide = widget.checked && widget.passage == null;
+    final Widget column = SizedBox(
       key: const ValueKey('web-question-column'),
       width: widget.checked
-          ? 720 - 120 * _phase(240, 1200)
+          ? widget.passage == null
+              ? 600
+              : 720 - 120 * move
           : widget.passage != null
               ? 520
               : 720,
@@ -199,6 +206,12 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
         ],
       ),
     );
+    final stage = slide
+        ? Transform.translate(
+            offset: Offset(-60 * (1 - move), 0),
+            child: column,
+          )
+        : column;
     final explanation = Opacity(
       key: const ValueKey('web-answer-reveal'),
       opacity: widget.checked ? _phase(880, 1840) : 0,
@@ -283,7 +296,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
                   ),
                 ),
               )
-            : column;
+            : stage;
         final right = splitPassage
             ? SizedBox(
                 width: 520,

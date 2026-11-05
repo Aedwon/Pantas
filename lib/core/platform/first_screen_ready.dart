@@ -9,6 +9,22 @@ import 'package:pantas/core/platform/first_screen_ready_stub.dart'
 /// its limit. Before this nothing useful is drawn underneath it.
 void sendAppStarted() => platform.sendAppStarted();
 
+/// True when this page began from the HTML splash (a returning visit), so the
+/// app's first screen sits settled under the fading splash instead of playing
+/// its own entrance a second time (4P-2). Tests replace the probe.
+bool pageBeganFromSplash() => splashProbe();
+
+@visibleForTesting
+bool Function() splashProbe = platform.pageBeganFromSplash;
+
+/// Runs [action] once the HTML splash has left the page, at once when none
+/// covers it. A screen that must not show under the fading splash waits here
+/// (4P-2). Tests replace the probe.
+void afterSplashGone(VoidCallback action) => splashGoneProbe(action);
+
+@visibleForTesting
+void Function(VoidCallback) splashGoneProbe = platform.afterSplashGone;
+
 final firstScreenSignalProvider = Provider<FirstScreenSignal>(
   (ref) => FirstScreenSignal(platform.sendFirstScreenReady),
 );

@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -28,6 +30,13 @@ class MockHistoryEntry {
 final mockHistoryProvider =
     StreamProvider<List<MockHistoryEntry>>((ref) async* {
   if (ref.watch(mockUsesServerProvider)) {
+    // The server keeps mocks only for a named account, so a student who has
+    // not signed in has none. Asking would answer "unauthenticated" and turn
+    // Your record into "Could not load your progress.".
+    if (ref.watch(authStateProvider).valueOrNull is AnonymousAuthState) {
+      yield const <MockHistoryEntry>[];
+      return;
+    }
     final rows = await ref.watch(serverMockHistoryProvider.future);
     yield List.unmodifiable(
       rows.map(
@@ -225,6 +234,13 @@ final mockEarlierResultsProvider =
   return List.unmodifiable(entries);
 });
 
+/// The name a student reads for a server mock's exam, never its raw id.
+String serverMockExamName(String examId) => switch (examId) {
+      'exam_cse_pro' => 'CSE Professional',
+      'exam_cse_sub' => 'CSE Subprofessional',
+      _ => 'Mock exam',
+    };
+
 /// Adapts server-owned summary data to the existing presentation without a
 /// local database write. Review uses the pinned server paper separately.
 MockHistoryEntry serverMockHistoryEntry(ServerMockResult row, String uid) {
@@ -236,11 +252,7 @@ MockHistoryEntry serverMockHistoryEntry(ServerMockResult row, String uid) {
       userId: uid,
       examId: row.examId,
       blueprintId: row.examId,
-      blueprintName: row.examId == 'exam_cse_pro'
-          ? 'CSE Professional'
-          : row.examId == 'exam_cse_sub'
-              ? 'CSE Subprofessional'
-              : row.examId,
+      blueprintName: serverMockExamName(row.examId),
       durationMinutes: row.limitMs ~/ 60000,
       status: row.endedBy == 'strict-exit'
           ? MockAttemptStatus.forfeited

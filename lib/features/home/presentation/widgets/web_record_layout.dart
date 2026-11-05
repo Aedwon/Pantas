@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_page_heading.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
@@ -24,36 +26,23 @@ class WebMyPage extends StatelessWidget {
         bindings: {const SingleActivator(LogicalKeyboardKey.escape): onBack},
         child: Focus(
           autofocus: true,
+          skipTraversal: true,
           child: Scaffold(
             backgroundColor: context.webTokens.colors.background,
             body: SingleChildScrollView(
-              padding: EdgeInsets.zero,
+              // The shell ends at the window bottom, so rows scroll to the
+              // edge and the page's own margin sits after the last one.
+              padding: EdgeInsets.only(bottom: context.webPageBottomInset),
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1080),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: TextButton.icon(
-                            onPressed: onBack,
-                            icon: const Icon(Icons.chevron_left, size: 20),
-                            label: const Text('Home'),
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              minimumSize: const Size(0, 40),
-                              foregroundColor: context.webTokens.colors.accent,
-                              textStyle: context.webTokens.style(17),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      WebText(title, kind: WebTextKind.h1),
-                      const SizedBox(height: 24),
+                      // The same heading as Plan and Performance, so the back
+                      // link and the title stand at the same x and y on every
+                      // page (4N-11, 5Q-2).
+                      WebPageHeading(title: title, onBack: onBack),
                       child,
                     ],
                   ),
@@ -118,8 +107,14 @@ class WebRecordLayout extends StatelessWidget {
         label: 'questions answered'
       ),
       (value: time, label: 'time in sessions'),
-      (value: '${record.lessonsRead}', label: 'lessons read'),
-      (value: '${record.daysActive}', label: 'days active'),
+      (
+        value: '${record.lessonsRead}',
+        label: record.lessonsRead == 1 ? 'lesson read' : 'lessons read'
+      ),
+      (
+        value: '${record.daysActive}',
+        label: record.daysActive == 1 ? 'day active' : 'days active'
+      ),
       (value: '${record.longestStreak}', label: 'longest streak'),
       if (record.bestMockPercent != null)
         (value: '${record.bestMockPercent}%', label: 'best mock'),

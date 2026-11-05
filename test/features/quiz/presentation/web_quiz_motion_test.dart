@@ -165,8 +165,9 @@ void main() {
       );
       double turns() => tester.widget<RotationTransition>(caret).turns.value;
       expect(find.text('Linear equations'), findsNothing);
-      await tester.tap(find.byTooltip('Lessons in Algebra'));
+      await tester.tap(find.byTooltip('Show lessons in Algebra'));
       await tester.pump();
+      expect(find.byTooltip('Hide lessons in Algebra'), findsOneWidget);
       if (still) {
         expect(lessons, findsNothing);
         expect(find.text('Linear equations'), findsOneWidget);
@@ -181,8 +182,9 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.getSize(lessons).height, greaterThan(partial));
       expect(turns(), .5);
-      await tester.tap(find.byTooltip('Lessons in Algebra'));
+      await tester.tap(find.byTooltip('Hide lessons in Algebra'));
       await tester.pump(const Duration(milliseconds: 100));
+      expect(find.byTooltip('Show lessons in Algebra'), findsOneWidget);
       expect(find.text('Linear equations'), findsNothing);
       await tester.pumpAndSettle();
       expect(tester.getSize(lessons).height, 0);

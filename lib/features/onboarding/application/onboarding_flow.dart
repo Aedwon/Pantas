@@ -143,6 +143,11 @@ class OnboardingFlow {
   }
 }
 
+/// The birth year the student chose, kept only in memory so the age step shows
+/// it again on Back. It is never saved: the step promises not to keep it, and
+/// a reload forgets it.
+final onboardingBirthYearProvider = StateProvider<int?>((ref) => null);
+
 // Device-local because answering "I don't know" is a completed onboarding
 // answer even though it deliberately stores no exam date.
 const onboardingDateAnsweredKey = 'onboarding.date_answered';

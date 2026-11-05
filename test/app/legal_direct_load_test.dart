@@ -83,10 +83,7 @@ void main() {
       isWeb: true,
     );
     await tester.runAsync(
-      () => settleGatesBeforeFirstPage(
-        container,
-        startLocation: initialRouterLocation,
-      ),
+      () => settleGatesBeforeFirstPage(container),
     );
     await tester.pumpWidget(
       UncontrolledProviderScope(
@@ -155,6 +152,15 @@ void main() {
       await tester.tap(find.text('About').first);
       await tester.pumpAndSettle();
       expect(pathOf(container), '/settings/about');
+    });
+
+    testWidgets(
+        'the teen notice address opens the Privacy Policy, not not-found',
+        (tester) async {
+      final container = await openDirectly(tester, '/legal/teens', wide: false);
+      expect(pathOf(container), '/legal/privacy');
+      expect(find.text('Legal page not found'), findsNothing);
+      expect(find.text('What we collect'), findsOneWidget);
     });
 
     testWidgets('an unknown document says so and still leads out',

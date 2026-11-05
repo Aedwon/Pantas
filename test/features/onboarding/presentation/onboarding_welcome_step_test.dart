@@ -56,4 +56,18 @@ void main() {
     await tester.pumpAndSettle();
     expect(advanced, 1);
   });
+  for (final width in [600.0, 768.0, 900.0, 1023.0]) {
+    testWidgets('Get Started stays in the 640 column at $width px (2E-11)',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        OnboardingWelcomeStep(onAdvance: () {}),
+        viewportSize: Size(width, 900),
+        disableAnimations: true,
+      );
+      final start = find.byType(PantasButton);
+      expect(tester.getSize(start).width, width < 640 ? width - 40 : 600);
+      expect(tester.getCenter(start).dx, closeTo(width / 2, .01));
+    });
+  }
 }

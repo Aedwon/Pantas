@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -120,6 +121,14 @@ void main() {
             .first;
         expect(tester.getSize(panel).width, 400);
         expect(find.text('No questions yet'), findsOneWidget);
+        // CZ_None: a two-line topic row is 71 px.
+        final noneRow = find
+            .ancestor(
+              of: find.text('No questions yet'),
+              matching: find.byType(CheckboxRow),
+            )
+            .first;
+        expect(tester.getSize(noneRow).height, closeTo(71, 1));
         final start =
             tester.widget<WebButton>(find.widgetWithText(WebButton, 'Start'));
         final pageScroll = find

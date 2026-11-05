@@ -43,7 +43,7 @@ void main() {
       );
       expect(
         tester.getSize(find.byType(MockPastChart)).width,
-        dark ? 998 : 1000,
+        1000,
       );
       expect(
         tester.getTopLeft(find.text('Done')).dy,
@@ -52,6 +52,37 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(done, isTrue);
       expect(tester.takeException(), isNull);
+    });
+    testWidgets('Enter on "See all questions" opens them, not Done dark=$dark',
+        (tester) async {
+      debugWebPlatformOverride = true;
+      tester.view.physicalSize = const Size(1440, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      var done = 0;
+      var review = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+          home: MockResultsPage(
+            results: result,
+            proIsActive: true,
+            blueprintName: 'CSE simulation',
+            dateFormatted: 'Friday, October 30',
+            onDone: () => done++,
+            onReviewTap: () => review++,
+            pastResults: const [MockPastPoint(percent: 60, label: 'Oct 1')],
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      Focus.of(tester.element(find.text('See all questions'))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      expect(review, 1, reason: 'Enter pressed the control it was on');
+      expect(done, 0);
     });
     testWidgets('wide results from Your record vs after finishing dark=$dark',
         (tester) async {
@@ -82,6 +113,10 @@ void main() {
 
       await pump(fromRecord: true);
       expect(find.text('Your record'), findsOneWidget);
+      // 6T-10: the board's 64 px header, as other full-screen pages have, and
+      // the title stays where 64 + 16 puts it.
+      expect(tester.getCenter(find.text('Your record')).dy, 32);
+      expect(tester.getTopLeft(find.text('CSE simulation')).dy, 80);
       expect(find.text('Done'), findsNothing);
       expect(find.byTooltip('Close'), findsNothing);
       expect(find.text('See full record'), findsOneWidget);

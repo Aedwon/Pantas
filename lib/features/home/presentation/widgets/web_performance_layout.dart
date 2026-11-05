@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
@@ -9,6 +12,8 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/motion/pantas_durations.dart';
 import 'package:pantas/core/ui/motion/view_swap.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_hover.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
@@ -30,8 +35,13 @@ class WebPerformanceLayout extends StatefulWidget {
     required this.onLesson,
     required this.onPro,
     required this.onBack,
+    this.openTopicId,
     super.key,
   });
+
+  /// A topic whose panel is already open when the page is built, as when its
+  /// address is opened directly.
+  final String? openTopicId;
   final PerformanceViewData data;
   final List<PerformanceRow> rows;
   final int level;
@@ -42,7 +52,10 @@ class WebPerformanceLayout extends StatefulWidget {
   final ValueChanged<int> onLevel;
   final ValueChanged<SortCycleOrder> onSort;
   final ValueChanged<String?> onSubject;
-  final ValueChanged<String> onTopic;
+
+  /// Opens a topic's panel. A returned future ends when the panel closes, and
+  /// the topic's row stays tinted until then (board PF_Topic).
+  final FutureOr<void> Function(String) onTopic;
   final ValueChanged<String>? onLesson;
   final VoidCallback onPro;
   final VoidCallback onBack;
@@ -52,6 +65,20 @@ class WebPerformanceLayout extends StatefulWidget {
 
 class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
   final _expanded = <String>{};
+  late String? _openTopic = widget.openTopicId;
+
+  /// Opens the panel and tints the row while it is open.
+  void _open(String id) {
+    final panel = widget.onTopic(id);
+    if (panel is! Future<void>) return;
+    setState(() => _openTopic = id);
+    unawaited(
+      panel.whenComplete(() {
+        if (mounted && _openTopic == id) setState(() => _openTopic = null);
+      }),
+    );
+  }
+
   String get _sortLabel => switch (widget.sort) {
         SortCycleOrder.weakest => 'Weakest first',
         SortCycleOrder.strongest => 'Strongest first',
@@ -77,10 +104,13 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       },
       child: Focus(
         autofocus: true,
+        skipTraversal: true,
         child: Scaffold(
           backgroundColor: t.colors.background,
           body: SingleChildScrollView(
-            padding: const EdgeInsets.only(bottom: 44),
+            // The shell ends at the window bottom, so rows scroll to the edge
+            // and the page's own margin sits after the last one.
+            padding: EdgeInsets.only(bottom: context.webPageBottomInset),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1080),
@@ -199,6 +229,11 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                           _row(
                                             context,
                                             row,
+                                            // No hairline under the card's last
+                                            // row, unless its topics follow.
+                                            divider: row != widget.rows.last ||
+                                                (widget.level == 0 &&
+                                                    _expanded.contains(row.id)),
                                             subtitle: widget.level == 0
                                                 ? _topicCount(row.id)
                                                 : row.subtext,
@@ -216,14 +251,18 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                                               } else if (widget.level == 0) {
                                                 widget.onLevel(1);
                                               } else if (widget.level == 1) {
-                                                widget.onTopic(row.id);
+                                                _open(row.id);
                                               } else {
                                                 widget.onLesson?.call(row.id);
                                               }
                                             },
                                           ),
                                           if (widget.level == 0)
-                                            _topics(context, row),
+                                            _topics(
+                                              context,
+                                              row,
+                                              last: row == widget.rows.last,
+                                            ),
                                         ],
                                       ],
                                     ),
@@ -389,24 +428,31 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
   }
 
   /// A subject's topics, sliding open and shut in 240 ms.
-  Widget _topics(BuildContext context, PerformanceRow row) {
+  Widget _topics(
+    BuildContext context,
+    PerformanceRow row, {
+    required bool last,
+  }) {
     final t = context.webTokens;
+    final shown = _expanded.contains(row.id)
+        ? _topicsFor(row.id)
+        : const <PerformanceRow>[];
     // Full width, so only the height animates as topics come and go.
     final topics = SizedBox(
       width: double.infinity,
       child: Column(
         children: [
-          if (_expanded.contains(row.id))
-            for (final topic in _topicsFor(row.id))
-              ColoredBox(
-                color: t.dark ? t.rowHover : const Color(0xFFFBFBFC),
-                child: _row(
-                  context,
-                  topic,
-                  indent: true,
-                  onPressed: () => widget.onTopic(topic.id),
-                ),
+          for (final topic in shown)
+            ColoredBox(
+              color: t.dark ? t.rowHover : const Color(0xFFFBFBFC),
+              child: _row(
+                context,
+                topic,
+                indent: true,
+                divider: !(last && topic == shown.last),
+                onPressed: () => _open(topic.id),
               ),
+            ),
         ],
       ),
     );
@@ -432,6 +478,7 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     String? subtitle,
     bool indent = false,
     bool expanded = false,
+    bool divider = true,
   }) {
     final t = context.webTokens;
     // The board indents a topic row 40 px left and keeps 20 px right.
@@ -440,7 +487,13 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       child: LayoutBuilder(
         builder: (context, constraints) => WebRow(
           boardMetrics: !indent,
+          divider: divider,
           title: row.title,
+          // A long topic or lesson name wraps instead of ending in dots; the
+          // bar column keeps one width so the bars still line up (2G-12).
+          wrapTitle: true,
+          // The row whose panel is open keeps its tint under the scrim.
+          selected: row.id == _openTopic,
           compact: indent,
           subtitle: subtitle,
           titleStyle: t.style(
@@ -511,63 +564,193 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     required ValueChanged<T> onSelected,
     required double width,
   }) {
+    // The button names itself, so a tooltip would only repeat its text. The
+    // hover and focus tint follows the rounded pill, and the keyboard ring
+    // replaces the focus tint (3K-5).
+    return WebKeyboardRing(
+      borderRadius: BorderRadius.circular(12),
+      child: Theme(
+        data: Theme.of(context).copyWith(focusColor: Colors.transparent),
+        child: _popup<T>(
+          context,
+          label: label,
+          values: values,
+          selected: selected,
+          onSelected: onSelected,
+          width: width,
+        ),
+      ),
+    );
+  }
+
+  Widget _popup<T>(
+    BuildContext context, {
+    required String label,
+    required Map<T, String> values,
+    required T selected,
+    required ValueChanged<T> onSelected,
+    required double width,
+  }) {
     final t = context.webTokens;
-    // Wrap nullable values so All subjects is selectable.
     return PopupMenuButton<(T,)>(
-      tooltip: label,
+      tooltip: '',
+      borderRadius: BorderRadius.circular(12),
       color: t.colors.surface,
       position: PopupMenuPosition.under,
       offset: const Offset(0, 10),
       menuPadding: const EdgeInsets.all(6),
       constraints: BoxConstraints.tightFor(width: width),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      // Board (PF_Sort): a clear edge and a soft shadow, so the menu stands
+      // off the white list card in light mode too.
+      elevation: 12,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: BorderSide(color: t.colors.separator),
+      ),
       shadowColor: Colors.black.withValues(alpha: .16),
       surfaceTintColor: Colors.transparent,
       initialValue: (selected,),
       onSelected: (value) => onSelected(value.$1),
       itemBuilder: (_) => [
-        for (final e in values.entries)
-          PopupMenuItem(
-            value: (e.key,),
-            height: 41,
-            padding: EdgeInsets.zero,
-            child: Container(
-              height: 41,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              decoration: BoxDecoration(
-                color: e.key == selected
-                    ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
-                    : null,
-                borderRadius: BorderRadius.circular(9),
-              ),
-              child: Row(
-                children: [
-                  Expanded(child: Text(e.value, style: t.style(16))),
-                  if (e.key == selected)
-                    Icon(Icons.check, size: 18, color: t.colors.accent),
-                ],
-              ),
-            ),
-          ),
+        _KeyboardMenuList<T>(values: values, selected: selected),
       ],
-      child: Container(
-        height: 38,
-        padding: const EdgeInsets.only(left: 14, right: 12),
-        decoration: BoxDecoration(
-          color: t.colors.surface,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: t.colors.separator),
+      // The pill's own fill is opaque, so the popup's ink would paint under
+      // it. The fill takes the row hover tint itself (5Q-10).
+      child: WebHover(
+        builder: (context, hovered) => Container(
+          height: 38,
+          padding: const EdgeInsets.only(left: 14, right: 12),
+          decoration: BoxDecoration(
+            color: hovered ? t.rowHover : t.colors.surface,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: t.colors.separator),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(label, style: t.style(15, weight: FontWeight.w600)),
+              const SizedBox(width: 8),
+              Icon(
+                Icons.keyboard_arrow_down,
+                size: 16,
+                color: t.colors.label,
+              ),
+            ],
+          ),
         ),
-        child: Row(
+      ),
+    );
+  }
+}
+
+/// The rows of a sort or filter menu, with their own keyboard handling.
+///
+/// Flutter on the web maps the arrow keys to page scrolling, not to moving
+/// between menu items, and maps Enter to buttons only. A stock popup menu
+/// therefore ignores ArrowDown and Enter in a browser. This list keeps one
+/// highlighted row: Arrow keys, Home and End move it, Enter or Space picks it,
+/// and the mouse moves it as the pointer passes. Esc closes the menu as usual.
+class _KeyboardMenuList<T> extends PopupMenuEntry<(T,)> {
+  const _KeyboardMenuList({required this.values, required this.selected});
+  final Map<T, String> values;
+  final T selected;
+  static const double rowHeight = 41;
+
+  @override
+  double get height => values.length * rowHeight;
+
+  @override
+  bool represents((T,)? value) => value != null && value.$1 == selected;
+
+  @override
+  State<_KeyboardMenuList<T>> createState() => _KeyboardMenuListState<T>();
+}
+
+class _KeyboardMenuListState<T> extends State<_KeyboardMenuList<T>> {
+  late int _highlight = math.max(
+    0,
+    widget.values.keys.toList().indexOf(widget.selected),
+  );
+
+  void _move(int to) {
+    final last = widget.values.length - 1;
+    setState(() => _highlight = to.clamp(0, last));
+  }
+
+  void _pick(int index) =>
+      Navigator.pop(context, (widget.values.keys.elementAt(index),));
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final keys = widget.values.keys.toList();
+    final last = keys.length - 1;
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.arrowDown): () =>
+            _move(_highlight + 1),
+        const SingleActivator(LogicalKeyboardKey.arrowUp): () =>
+            _move(_highlight - 1),
+        const SingleActivator(LogicalKeyboardKey.home): () => _move(0),
+        const SingleActivator(LogicalKeyboardKey.end): () => _move(last),
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () => _pick(_highlight),
+        const SingleActivator(
+          LogicalKeyboardKey.numpadEnter,
+          includeRepeats: false,
+        ): () => _pick(_highlight),
+        const SingleActivator(LogicalKeyboardKey.space): () =>
+            _pick(_highlight),
+      },
+      child: Focus(
+        autofocus: true,
+        child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(label, style: t.style(15, weight: FontWeight.w600)),
-            const SizedBox(width: 8),
-            Icon(
-              Icons.keyboard_arrow_down,
-              size: 16,
-              color: t.colors.label,
-            ),
+            for (var i = 0; i < keys.length; i++)
+              Semantics(
+                button: true,
+                selected: keys[i] == widget.selected,
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  onEnter: (_) => setState(() => _highlight = i),
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => _pick(i),
+                    child: Container(
+                      height: _KeyboardMenuList.rowHeight,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        color: i == _highlight
+                            ? (t.dark ? t.colors.fill : const Color(0xFFF2F2F5))
+                            : null,
+                        borderRadius: BorderRadius.circular(9),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              widget.values[keys[i]]!,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: t.style(16),
+                            ),
+                          ),
+                          if (keys[i] == widget.selected)
+                            Icon(
+                              Icons.check,
+                              size: 18,
+                              color: t.colors.accent,
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),

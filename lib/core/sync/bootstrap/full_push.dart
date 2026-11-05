@@ -447,8 +447,12 @@ class FullPushBootstrap {
               value: generationId,
             ),
           );
+      // This choice finished, so any unfinished download is over too.
       await (_db.delete(_db.syncMeta)
-            ..where((row) => row.key.equals('pending_full_push')))
+            ..where(
+              (row) => row.key
+                  .isIn(const ['pending_full_push', 'pending_full_pull']),
+            ))
           .go();
     });
     return current;

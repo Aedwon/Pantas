@@ -116,6 +116,42 @@ void main() {
       plan([], ['r2'], ['n1', 'n2', 'n3']),
     );
     expect(summary, (done: 2, total: 4));
+    // 4P-10: the line under the ring names what the checklist still holds.
+    expect(
+      planLeftText(plan(['l1'], ['r2'], [])),
+      '1 lesson and reviews left',
+    );
+    expect(
+      planLeftText(plan(['l1', 'l2'], ['r2'], ['n1'])),
+      '2 lessons, reviews and new questions left',
+    );
+    expect(planLeftText(plan([], [], ['n1'])), 'new questions left');
+    expect(planLeftText(plan([], [], [])), isNull);
+  });
+
+  test('a mock day counts and names the mock, as Home lists it', () {
+    DayPlan day(List<String> lessons, {required bool mock}) => DayPlan(
+          day: DateTime(2026, 10, 25),
+          lessonIds: lessons,
+          reviewQuestionIds: const ['r1'],
+          newQuestionIds: const ['n1'],
+          isMockDay: mock,
+          advancedIds: const {},
+        );
+    final today = day(['l1', 'l2', 'l3', 'l4'], mock: true);
+    expect(planChecklistProgress(today, today), (done: 0, total: 7));
+    expect(
+      planLeftText(today),
+      'Mock exam, 4 lessons, reviews and new questions left',
+    );
+    expect(
+      planChecklistProgress(today, day(['l1'], mock: false)),
+      (done: 4, total: 7),
+    );
+    expect(
+      planLeftText(day(['l1'], mock: false)),
+      '1 lesson, reviews and new questions left',
+    );
   });
 
   RoadmapChange change(RoadmapChangeCause cause) => RoadmapChange(

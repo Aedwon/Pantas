@@ -15,8 +15,11 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 String freeMockIntervalLine(int days) =>
     'Free includes one mock every $days days.';
 
+/// A server date arrives in UTC. The student reads their own calendar, so the
+/// card converts before it prints (a mock taken at 01:50 on Nov 5 in Manila
+/// is Nov 4 in UTC).
 String mockNextOpensLine(DateTime opens) =>
-    'Your next one opens ${PantasDates.withWeekday(opens)}.';
+    'Your next one opens ${PantasDates.withWeekday(opens.toLocal())}.';
 
 enum MockCardState {
   neverTaken,
@@ -83,44 +86,22 @@ class MockCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = model.state;
     final type = context.type;
-    final title = Text(
-      model.name,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-      style: type.body.copyWith(
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-        letterSpacing: -.24,
-      ),
+    final titleStyle = type.body.copyWith(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      letterSpacing: -.24,
     );
     final duration = model.durationMinutes;
-    final durationLabel = duration == null
-        ? null
-        : Text(
-            _duration(duration),
-            style: type.subhead
-                .copyWith(color: context.colors.secondaryLabel)
-                .tabular,
-          );
-    final header = MediaQuery.textScalerOf(context).scale(20) > 26
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              title,
-              if (durationLabel != null) durationLabel,
-            ],
-          )
-        : Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Expanded(child: title),
-              if (durationLabel != null) ...[
-                const SizedBox(width: 8),
-                durationLabel,
-              ],
-            ],
-          );
+    final header = _TitleRow(
+      name: model.name,
+      duration: duration == null ? null : _duration(duration),
+      titleStyle: titleStyle,
+      durationStyle:
+          type.subhead.copyWith(color: context.colors.secondaryLabel).tabular,
+      gap: 8,
+      maxLines: 1,
+      forceStacked: MediaQuery.textScalerOf(context).scale(20) > 26,
+    );
     final nextOpens =
         state == MockCardState.waiting && model.nextOpensAt != null
             ? ' ${mockNextOpensLine(model.nextOpensAt!)}'
@@ -225,25 +206,16 @@ class MockCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          model.name,
-                          style: t.style(
-                            24,
-                            weight: FontWeight.w700,
-                            spacing: -.384,
-                          ),
-                        ),
-                      ),
-                      if (duration != null) ...[
-                        const SizedBox(width: 12),
-                        Text(_duration(duration), style: t.sub),
-                      ],
-                    ],
+                  _TitleRow(
+                    name: model.name,
+                    duration: duration == null ? null : _duration(duration),
+                    titleStyle: t.style(
+                      24,
+                      weight: FontWeight.w700,
+                      spacing: -.384,
+                    ),
+                    durationStyle: t.sub,
+                    gap: 12,
                   ),
                   if ((state == MockCardState.ready ||
                           state == MockCardState.waiting) &&
@@ -263,7 +235,7 @@ class MockCard extends StatelessWidget {
                           const SizedBox(width: 12),
                         if (model.lastAttemptAt != null)
                           history(
-                            PantasDates.short(model.lastAttemptAt!),
+                            PantasDates.short(model.lastAttemptAt!.toLocal()),
                             'Last attempt',
                           ),
                       ],
@@ -495,7 +467,10 @@ class _History extends StatelessWidget {
         ),
       if (model.lastAttemptAt != null)
         column(
-          Text(PantasDates.short(model.lastAttemptAt!), style: figure),
+          Text(
+            PantasDates.short(model.lastAttemptAt!.toLocal()),
+            style: figure,
+          ),
           'Last attempt',
         ),
     ];
@@ -525,3 +500,72 @@ String _customDuration(int minutes) => minutes < 60
     : minutes % 60 == 0
         ? '${minutes ~/ 60} ${minutes == 60 ? 'hour' : 'hours'}'
         : '${minutes ~/ 60}h ${minutes % 60}m';
+
+/// The mock's name with its length beside it. The length stays beside the name
+/// while both fit on one line. When they do not, the length goes under the name
+/// so the name keeps its single line instead of wrapping or being cut.
+class _TitleRow extends StatelessWidget {
+  const _TitleRow({
+    required this.name,
+    required this.duration,
+    required this.titleStyle,
+    required this.durationStyle,
+    required this.gap,
+    this.maxLines,
+    this.forceStacked = false,
+  });
+  final String name;
+  final String? duration;
+  final TextStyle titleStyle;
+  final TextStyle durationStyle;
+  final double gap;
+  final int? maxLines;
+  final bool forceStacked;
+
+  @override
+  Widget build(BuildContext context) {
+    final length = duration;
+    Widget title() => Text(
+          name,
+          maxLines: maxLines,
+          overflow: maxLines == null ? null : TextOverflow.ellipsis,
+          style: titleStyle,
+        );
+    if (length == null) return title();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final base = DefaultTextStyle.of(context).style;
+        double width(String text, TextStyle style) {
+          final painter = TextPainter(
+            text: TextSpan(text: text, style: base.merge(style)),
+            textDirection: Directionality.of(context),
+            textScaler: MediaQuery.textScalerOf(context),
+            maxLines: 1,
+          )..layout();
+          final measured = painter.width;
+          painter.dispose();
+          return measured;
+        }
+
+        final fits = !forceStacked &&
+            width(name, titleStyle) + gap + width(length, durationStyle) <=
+                constraints.maxWidth;
+        if (!fits) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [title(), Text(length, style: durationStyle)],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Expanded(child: title()),
+            SizedBox(width: gap),
+            Text(length, style: durationStyle),
+          ],
+        );
+      },
+    );
+  }
+}

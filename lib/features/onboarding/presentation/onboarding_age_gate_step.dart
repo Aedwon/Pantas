@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
@@ -49,10 +50,25 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           if (mounted) unawaited(_continue());
         },
       ) ??
+      _rememberedYear ??
       widget.currentYear - 14;
+
+  /// The year chosen earlier in this visit, when it is still a valid choice.
+  int? get _rememberedYear {
+    final year = ref.read(onboardingBirthYearProvider);
+    if (year == null ||
+        year < widget.currentYear - 100 ||
+        year > widget.currentYear) {
+      return null;
+    }
+    return year;
+  }
+
   late final _yearController = TextEditingController(text: '$_selectedYear');
+  final _yearFocus = FocusNode();
   @override
   void dispose() {
+    _yearFocus.dispose();
     _yearController.dispose();
     super.dispose();
   }
@@ -92,16 +108,26 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     }
   }
 
+  int get _earliestYear => widget.currentYear - 100;
+
   bool get _validYear {
     final year = int.tryParse(_yearController.text);
-    return year != null &&
-        year >= widget.currentYear - 100 &&
-        year <= widget.currentYear;
+    return year != null && year >= _earliestYear && year <= widget.currentYear;
+  }
+
+  /// Why Continue is off: shown only for a complete four-digit year outside
+  /// the range. A year still being typed, or in range, shows nothing.
+  String? get _rangeHint {
+    final text = _yearController.text;
+    if (text.length < 4 || _validYear) return null;
+    return 'Enter a year from $_earliestYear to ${widget.currentYear}.';
   }
 
   Future<void> _continue() async {
     if (_saving || (context.wideWeb && !_validYear)) return;
     final policy = AgePolicy.forExam(null);
+    // Memory only, so Back from the next step shows the same year.
+    ref.read(onboardingBirthYearProvider.notifier).state = _selectedYear;
     final outcome = policy.evaluate(
       birthYear: _selectedYear,
       currentYear: widget.currentYear,
@@ -248,27 +274,57 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       );
     }
     if (_blocked) {
-      final page = OnboardingWebPage(
-        title: '',
-        onBack: back,
-        centerBody: true,
-        surfaceBackground: true,
-        children: [
-          StateView.onboardingBlocked(
-            message: "Pantas isn't available yet",
-            detail: _blockedDetail,
-            icon: const OnboardingLogo(size: 72),
+      final blocked = [
+        StateView.onboardingBlocked(
+          message: "Pantas isn't available yet",
+          detail: _blockedDetail,
+          icon: const OnboardingLogo(size: 72),
+        ),
+        const SizedBox(height: 22),
+        Text(
+          _blockedHelp,
+          textAlign: TextAlign.center,
+          style: context.type.subhead.copyWith(
+            color: context.colors.secondaryLabel,
           ),
-          const SizedBox(height: 22),
-          Text(
-            _blockedHelp,
-            textAlign: TextAlign.center,
-            style: context.type.subhead.copyWith(
-              color: context.colors.secondaryLabel,
-            ),
-          ),
-        ],
-      );
+        ),
+      ];
+      final host = OnboardingFrameScope.hostOf(context);
+      // Wide web has no way back from the block (it replaced "Try a Different
+      // Year"), so the phone draws no Back either. Only support clears it.
+      final page = host != null
+          ? OnboardingFrameClaim(
+              host: host,
+              spec: const OnboardingFrameSpec(
+                surfaceBackground: true,
+                hideBack: true,
+              ),
+              onBack: null,
+              child: LayoutBuilder(
+                builder: (context, constraints) => SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: (constraints.maxHeight - 36)
+                          .clamp(0, double.infinity),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: blocked,
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : OnboardingWebPage(
+              title: '',
+              onBack: back,
+              centerBody: true,
+              surfaceBackground: true,
+              children: blocked,
+            );
       return PantasEffects.fade(
         duration: const Duration(milliseconds: 300),
         builder: (_, progress, child) => IgnorePointer(
@@ -278,10 +334,13 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
         child: page,
       );
     }
+    // The board draws the year field focused, so the step keeps focus on it
+    // and typing and Enter work as soon as the step opens, with no click.
     final page = OnboardingWebPage(
       title: 'When were you born?',
       detail: 'We only ask this once and never keep it.',
       progress: 1,
+      focusTarget: _yearFocus,
       onBack: back,
       bottom: OnboardingButton(
         label: 'Continue',
@@ -291,7 +350,11 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       ),
       children: [
         if (context.wideWeb) ...[
-          Text('YEAR', style: context.webTokens.eb),
+          // Board (OB_Age, OB_Name): the label sits 4 px in from the field.
+          Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Text('YEAR', style: context.webTokens.eb),
+          ),
           const SizedBox(height: 8),
           Align(
             alignment: Alignment.centerLeft,
@@ -307,6 +370,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                 },
                 child: TextField(
                   controller: _yearController,
+                  focusNode: _yearFocus,
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
@@ -386,6 +450,24 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           ),
           const SizedBox(height: 8),
           Text('Type it, or use ↑ and ↓.', style: context.webTokens.sm),
+          const SizedBox(height: 6),
+          // The hint always has its line, so Continue keeps its place when the
+          // hint appears and goes (Aedwon: a stable frame). The line is the
+          // hint's own height: 13 px type at 1.45, scaled with the text size.
+          SizedBox(
+            height: MediaQuery.textScalerOf(context).scale(13) * 1.45,
+            child: _rangeHint == null
+                ? null
+                : Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      _rangeHint!,
+                      style: context.webTokens.sm.copyWith(
+                        color: context.webTokens.colors.destructive,
+                      ),
+                    ),
+                  ),
+          ),
         ] else
           Container(
             padding: const EdgeInsets.all(10),

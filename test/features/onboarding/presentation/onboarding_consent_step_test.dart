@@ -123,6 +123,63 @@ void main() {
         .getSingle();
     expect(version.value, '1');
   });
+  testWidgets('Back to Terms shows what was accepted ticked (5S-9)',
+      (tester) async {
+    await pump(tester, completed: () {});
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    // The step is built again, as it is after Back from the exam step.
+    await tester.pumpWidget(const SizedBox.shrink());
+    await pump(tester, completed: () {});
+    await tester.pumpAndSettle();
+
+    final rows =
+        tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).toList();
+    expect(rows.first.selected, isFalse, reason: 'usage was left unticked');
+    expect(rows.last.selected, isTrue, reason: 'the terms were accepted');
+    expect(
+      tester
+          .widget<PantasButton>(find.widgetWithText(PantasButton, 'Continue'))
+          .onPressed,
+      isNotNull,
+    );
+  });
+
+  testWidgets('Back to Terms keeps a ticked usage choice too', (tester) async {
+    await pump(tester, completed: () {});
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).first);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await pump(tester, completed: () {});
+    await tester.pumpAndSettle();
+
+    expect(
+      tester
+          .widgetList<CheckboxRow>(find.byType(CheckboxRow))
+          .every((row) => row.selected),
+      isTrue,
+    );
+  });
+
+  testWidgets('a student who never accepted sees both boxes empty',
+      (tester) async {
+    await pump(tester, completed: () {});
+    await tester.pumpAndSettle();
+    expect(
+      tester
+          .widgetList<CheckboxRow>(find.byType(CheckboxRow))
+          .any((row) => row.selected),
+      isFalse,
+    );
+  });
+
   testWidgets(
       'consent save failure retains both choices and does not mark acceptance',
       (tester) async {

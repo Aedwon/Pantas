@@ -59,7 +59,10 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    // A picker with a saved pick shows it chosen; these start unpicked.
+    if (screen is! ExamPickerScreen) {
+      await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    }
     if (date != null) {
       await DriftSettingsRepository(db)
           .updateExamDate(date, today: DateTime(2026, 10, 3));
@@ -248,7 +251,7 @@ void main() {
         dark: dark,
         catalog: Stream.value([entry]),
       );
-      expect(find.text('Wednesday, November 11, 2026'), findsOneWidget);
+      expect(find.text('Wednesday, November 11,\u00A02026'), findsOneWidget);
       expect(find.text('Is this your exam day?'), findsOneWidget);
       expect(button(tester, "That's Right").onPressed, isNotNull);
       await tester.tap(find.text('Different Date'));

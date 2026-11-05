@@ -204,7 +204,7 @@ void main() {
         ],
       );
       await tester.pumpAndSettle();
-      expect(find.byType(WebTopBar), findsOneWidget);
+      expect(find.byType(WebReaderBackControl), findsOneWidget);
       expect(find.text('Could not load this lesson.'), findsOneWidget);
       expect(find.textContaining('private database'), findsNothing);
       final before = attempts;
@@ -503,11 +503,12 @@ void main() {
       expect(bookmarks, 2);
       await tester.tap(find.text('1 of 2'));
       await tester.pumpAndSettle();
-      expect(find.text('EARTH SCIENCE · 2 LESSONS'), findsOneWidget);
+      expect(find.text('EARTH SCIENCE'), findsOneWidget);
+      expect(find.text(' · 2 LESSONS'), findsOneWidget);
       expect(find.text('Reading'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
-      expect(find.text('EARTH SCIENCE · 2 LESSONS'), findsNothing);
+      expect(find.text('EARTH SCIENCE'), findsNothing);
       offset.value = 100;
       await tester.pump();
       expect(
@@ -696,6 +697,22 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('This illustration didn’t load.'), findsOneWidget);
       expect(find.text('Try Again'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('wide search with nothing opened yet draws no empty group',
+        (tester) async {
+      await pump(
+        tester,
+        const WebLessonSearch(),
+        brightness,
+        overrides: [
+          studyMapProvider.overrideWith((_) async => map),
+          recentlyOpenedLessonsProvider.overrideWith((_) async => []),
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('RECENTLY OPENED'), findsNothing);
+      expect(find.byType(TextField), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
     testWidgets('wide search recent, results and no match $brightness',

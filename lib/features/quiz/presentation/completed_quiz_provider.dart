@@ -19,10 +19,14 @@ class CompletedQuizData {
     required this.session,
     required this.subjectNames,
     required this.sourceLine,
+    this.topicNames = const {},
   });
   final Attempt attempt;
   final QuizSession session;
   final Map<String, String> subjectNames;
+
+  /// Topic names by topic id: what the live question showed above its stem.
+  final Map<String, String> topicNames;
   final String? sourceLine;
 }
 
@@ -83,6 +87,7 @@ final completedQuizProvider = FutureProvider.autoDispose
     attempt: attempt,
     session: session,
     subjectNames: subjectNames,
+    topicNames: topicNames,
     sourceLine: source,
   );
 });

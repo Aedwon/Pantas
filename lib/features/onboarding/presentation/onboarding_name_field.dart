@@ -9,6 +9,7 @@ class OnboardingNameField extends StatelessWidget {
     required this.controller,
     required this.label,
     required this.onChanged,
+    this.hint,
     this.onSubmitted,
     this.keyboardType,
     this.textCapitalization = TextCapitalization.words,
@@ -16,10 +17,16 @@ class OnboardingNameField extends StatelessWidget {
     this.maxLength = 40,
     this.autofillHints,
     this.restingBorder = false,
+    this.focusNode,
     super.key,
   });
   final TextEditingController controller;
   final String label;
+
+  /// The placeholder. It defaults to [label], which is right when the label is
+  /// not drawn (the phone). Where the label is drawn above the field, a
+  /// placeholder that repeats it says nothing, so the caller gives its own.
+  final String? hint;
   final ValueChanged<String> onChanged;
   final ValueChanged<String>? onSubmitted;
   final TextInputType? keyboardType;
@@ -32,10 +39,15 @@ class OnboardingNameField extends StatelessWidget {
   /// fields on a step that reads as all of them focused, so those steps rest
   /// in the neutral outline and show the accent only on focus.
   final bool restingBorder;
+
+  /// Lets the step keep this field focused. The field is drawn in the accent
+  /// color at rest, as the active input, so it must be the one holding focus.
+  final FocusNode? focusNode;
   @override
   Widget build(BuildContext context) {
     final field = TextField(
       controller: controller,
+      focusNode: focusNode,
       maxLength: maxLength,
       keyboardType: keyboardType,
       autofillHints: autofillHints,
@@ -50,7 +62,7 @@ class OnboardingNameField extends StatelessWidget {
         letterSpacing: -.228,
       ),
       decoration: InputDecoration(
-        hintText: label,
+        hintText: hint ?? label,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         counterText: '',
         // A TextField ignores a SizedBox height; the board field is 52 px.

@@ -231,11 +231,13 @@ void main() {
     );
   });
 
-  testWidgets('Pro uses curly apostrophes in student text', (tester) async {
+  // The Settings and Pro boards draw straight apostrophes throughout, so the
+  // page keeps one style with the Terms step and the rest of onboarding.
+  testWidgets('Pro uses straight apostrophes in student text', (tester) async {
     await _pump(tester, web: true, eligible: true);
     for (final text in tester.widgetList<Text>(find.byType(Text))) {
       expect(
-        RegExp("[A-Za-z]'[A-Za-z]").hasMatch(text.data ?? ''),
+        (text.data ?? '').contains('\u2019'),
         isFalse,
         reason: text.data,
       );
@@ -265,7 +267,7 @@ void main() {
       ),
     );
     expect(
-      find.text('Your free trial ends on Jan 1, 2030. You won’t be charged.'),
+      find.text("Your free trial ends on Jan 1, 2030. You won't be charged."),
       findsOneWidget,
     );
   });
@@ -479,7 +481,7 @@ void main() {
       findsOneWidget,
     );
     expect(
-      tester.getRect(find.text('Restore purchases')).bottom,
+      tester.getRect(find.text('Restore Purchases')).bottom,
       lessThanOrEqualTo(844),
     );
   });

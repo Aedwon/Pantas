@@ -131,6 +131,83 @@ class WebOverlayMotion {
       );
 }
 
+/// Gives focus back to where it was when an overlay opened.
+///
+/// A page under an overlay is wrapped in `ExcludeFocus`, which drops whatever
+/// held focus. A page that only autofocuses once, when it is built, then has
+/// no focus when the overlay closes, and its keys (Enter on Continue) do
+/// nothing until the page is reloaded. Call [rememberFocus] as the overlay
+/// opens and [returnFocus] as it closes, and give the overlay's own
+/// `FocusScope` [overlayScope].
+///
+/// Focus goes back only when nobody else holds it. A lesson pushed over the
+/// page as the overlay closes keeps its own focus. The page gets its focus
+/// back when it comes forward again.
+mixin OverlayFocusReturn<T extends StatefulWidget> on State<T> {
+  /// The overlay's own scope, so a close can tell it still holds focus.
+  final overlayScope = FocusScopeNode(debugLabel: 'overlay');
+  FocusNode? _opener;
+  bool _owed = false;
+
+  /// Call as the overlay opens, before the page is excluded from focus.
+  void rememberFocus() {
+    _release();
+    final focus = FocusManager.instance.primaryFocus;
+    if (focus != null &&
+        focus is! FocusScopeNode &&
+        focus.context != null &&
+        !focus.ancestors.contains(overlayScope)) {
+      _opener = focus;
+    }
+  }
+
+  /// Call as the overlay closes.
+  void returnFocus() {
+    if (_opener == null) return;
+    _owed = true;
+    FocusManager.instance
+      ..removeListener(_settleFocus)
+      ..addListener(_settleFocus);
+    // After the frame has shown the page again and any page pushed in the same
+    // frame has taken its own focus.
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => scheduleMicrotask(_settleFocus),
+    );
+  }
+
+  void _settleFocus() {
+    if (!_owed) return;
+    final node = _opener;
+    if (!mounted || node == null || node.context == null) {
+      _release();
+      _opener = null;
+      return;
+    }
+    if (!node.canRequestFocus) return;
+    final manager = FocusManager.instance;
+    final primary = manager.primaryFocus;
+    final free = primary == null ||
+        primary == manager.rootScope ||
+        overlayScope.hasFocus ||
+        (primary is FocusScopeNode && node.ancestors.contains(primary));
+    if (!free) return;
+    _release();
+    node.requestFocus();
+  }
+
+  void _release() {
+    _owed = false;
+    FocusManager.instance.removeListener(_settleFocus);
+  }
+
+  @override
+  void dispose() {
+    _release();
+    overlayScope.dispose();
+    super.dispose();
+  }
+}
+
 /// Lets a page play a [WebOverlayLayer]'s exit before it leaves. The page keeps
 /// one, passes it to the layer, and calls [close] with what leaving does. The
 /// layer runs that once its exit has ended. With no layer to play it, or with

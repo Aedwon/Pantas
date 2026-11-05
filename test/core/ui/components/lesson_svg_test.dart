@@ -161,6 +161,55 @@ void main() {
       });
     }
   }
+  for (final dark in [false, true]) {
+    testWidgets('a reader SVG keeps the pale figure card dark=$dark',
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme() : buildLightTheme(),
+          home: Scaffold(
+            body: ContentRenderer(
+              blocks: [image(svgUrl(drawing))],
+              readerFigures: true,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      // The card and the tokens are the code-drawn figures', in both themes,
+      // so every figure in a lesson sits on the same tint.
+      final card = find.descendant(
+        of: find.byKey(const ValueKey('reader-figure-frame')),
+        matching: find.byType(Container),
+      );
+      expect(
+        tester
+            .widgetList<Container>(card)
+            .map((box) => box.color)
+            .whereType<Color>(),
+        contains(PantasColors.light.readerFigureBackground),
+      );
+      expect(
+        tester.widget<SvgPicture>(find.byType(SvgPicture)).bytesLoader,
+        lessonSvgLoader(svgUrl(drawing), PantasColors.light),
+      );
+    });
+  }
+  testWidgets('a non-reader SVG still follows the dark theme', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildDarkTheme(),
+        home: Scaffold(
+          body: ContentRenderer(blocks: [image(svgUrl(drawing))]),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<SvgPicture>(find.byType(SvgPicture)).bytesLoader,
+      lessonSvgLoader(svgUrl(drawing), PantasColors.dark),
+    );
+  });
   testWidgets('legacy content expansion retains SVG alt text', (tester) async {
     await tester.pumpWidget(
       MaterialApp(

@@ -6,8 +6,12 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+/// Space between Back and the title on every wide step.
+const double titleTopGap = 28;
 
 /// The setup rail belongs to onboarding, outside the signed-in sidebar shell.
 class OnboardingWebPage extends StatelessWidget {
@@ -25,6 +29,7 @@ class OnboardingWebPage extends StatelessWidget {
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
     this.topPadding = 4,
+    this.focusTarget,
     super.key,
   });
   final String title;
@@ -35,7 +40,8 @@ class OnboardingWebPage extends StatelessWidget {
   final Widget? bottom;
   final double bodyGap;
 
-  /// Web only: section gap around the title block.
+  /// Web only: space between the title block and the body. The title keeps one
+  /// place on every step, so the frame stays still (Nov 2 decision).
   final double gap;
 
   /// Web only: space above the action row.
@@ -46,6 +52,10 @@ class OnboardingWebPage extends StatelessWidget {
 
   /// Phone only: space between the progress bar and the title.
   final double topPadding;
+
+  /// Web only: the step's text field. The field is drawn as the active input,
+  /// so it is the one that holds focus, and typing works with no click first.
+  final FocusNode? focusTarget;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +83,14 @@ class OnboardingWebPage extends StatelessWidget {
         .where((button) => button.variant == PantasButtonVariant.primary)
         .firstOrNull;
     final host = OnboardingFrameScope.hostOf(context);
-    final column = _column(context);
+    // The step's keys stand on one node that keeps focus (see KeyFocusKeeper):
+    // a step that slides in cannot take focus when it is built, and a mouse
+    // click never gives focus to a plain control.
+    final column = KeyFocusKeeper(
+      skipTraversal: true,
+      preferred: focusTarget,
+      child: _column(context),
+    );
     final shortcuts = <ShortcutActivator, VoidCallback>{
       if (primary?.onPressed != null && !primary!.busy)
         const SingleActivator(
@@ -173,7 +190,7 @@ class OnboardingWebPage extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: gap),
+        const SizedBox(height: titleTopGap),
         Text(
           title,
           style: t
@@ -239,20 +256,17 @@ class OnboardingButton extends StatelessWidget {
             includeRepeats: false,
           ): onPressed!,
       },
-      child: Focus(
-        autofocus: primary,
-        child: WebButton(
-          label: label,
-          onPressed: onPressed,
-          busy: busy,
-          tall: true,
-          keyHint: primary ? 'Enter' : null,
-          variant: primary
-              ? WebButtonVariant.primary
-              : variant == PantasButtonVariant.neutral
-                  ? WebButtonVariant.white
-                  : WebButtonVariant.tertiary,
-        ),
+      child: WebButton(
+        label: label,
+        onPressed: onPressed,
+        busy: busy,
+        tall: true,
+        keyHint: primary ? 'Enter' : null,
+        variant: primary
+            ? WebButtonVariant.primary
+            : variant == PantasButtonVariant.neutral
+                ? WebButtonVariant.white
+                : WebButtonVariant.tertiary,
       ),
     );
   }

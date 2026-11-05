@@ -9,6 +9,7 @@ class GroupedSection extends StatelessWidget {
     this.header,
     this.footer,
     this.headerStyle,
+    this.radius = PantasShape.groupRadius,
     super.key,
   });
 
@@ -16,6 +17,9 @@ class GroupedSection extends StatelessWidget {
   final String? header;
   final String? footer;
   final TextStyle? headerStyle;
+
+  /// Corner radius of the group, for a board that draws it at another size.
+  final double radius;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -36,10 +40,10 @@ class GroupedSection extends StatelessWidget {
               border: Theme.of(context).brightness == Brightness.dark
                   ? Border.all(color: context.colors.cardEdge)
                   : null,
-              borderRadius: BorderRadius.circular(PantasShape.groupRadius),
+              borderRadius: BorderRadius.circular(radius),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(PantasShape.groupRadius),
+              borderRadius: BorderRadius.circular(radius),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: children,

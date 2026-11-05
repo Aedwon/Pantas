@@ -342,6 +342,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     bool strong = false,
     double size = 15,
     bool wide = false,
+    bool compact = false,
   }) =>
       Semantics(
         label: label ?? text,
@@ -352,10 +353,18 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-            minimumSize: wide ? const Size(0, 36) : const Size(44, 44),
-            padding: wide
-                ? const EdgeInsets.symmetric(horizontal: 14)
-                : EdgeInsets.zero,
+            // Board BM_Custom: Reset order is a 32 px button, 14 px text and
+            // 8 px each side, beside the control.
+            minimumSize: compact
+                ? const Size(0, 32)
+                : wide
+                    ? const Size(0, 36)
+                    : const Size(44, 44),
+            padding: compact
+                ? const EdgeInsets.symmetric(horizontal: 8)
+                : wide
+                    ? const EdgeInsets.symmetric(horizontal: 14)
+                    : EdgeInsets.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           child: Text(
@@ -367,6 +376,34 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             ),
           ),
         ),
+      );
+
+  /// Puts the bookmarks back in the order they were added.
+  Widget _resetOrder({bool compact = false}) => _action(
+        'Reset order',
+        () => _save((boundary, current) async {
+          final exam = boundary.examId;
+          final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+          final order = ref.read(bookmarkOrderProvider.notifier);
+          final bookmarks = ref.read(lessonBookmarksRepositoryProvider);
+          final recent = await bookmarks.recentFirst();
+          await prefs.saveCustomOrder(
+            exam,
+            recent.map((r) => r.lessonId).toList(),
+            boundary: boundary,
+            isCurrent: current,
+          );
+          await order.choose(
+            BookmarkOrder.recent,
+            boundary: boundary,
+            isCurrent: current,
+          );
+          if (!current()) return;
+          ref.invalidate(bookmarkRowsProvider);
+        }),
+        label: 'Reset bookmark order',
+        size: compact ? 14 : 15,
+        compact: compact,
       );
 
   Widget _header(bool valid) {
@@ -560,17 +597,29 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                     _shown.length > 1
                                 ? ReorderableDragStartListener(
                                     index: index,
-                                    child: Tooltip(
-                                      message: 'Move bookmark: Alt ↑ or Alt ↓',
-                                      child: SizedBox.square(
-                                        dimension: 32,
-                                        child: IconTheme(
-                                          key: const ValueKey('bookmark-grip'),
-                                          data: IconThemeData(
-                                            size: 16,
-                                            color: context.colors.tertiaryLabel,
+                                    // A click on the grip focuses the row for
+                                    // Alt and arrow keys. It does not open it.
+                                    child: _GripFocus(
+                                      child: Tooltip(
+                                        message:
+                                            'Move bookmark: Alt ↑ or Alt ↓',
+                                        // Board BM_Custom: the six-dot grip,
+                                        // 16 px, as in Edit.
+                                        child: SizedBox.square(
+                                          dimension: 32,
+                                          child: Center(
+                                            child: SizedBox.square(
+                                              dimension: 16,
+                                              child: CustomPaint(
+                                                key: const ValueKey(
+                                                  'bookmark-grip',
+                                                ),
+                                                painter: _GripDots(
+                                                  context.colors.tertiaryLabel,
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                          child: PantasIcons.reorder,
                                         ),
                                       ),
                                     ),
@@ -650,47 +699,55 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
             ? Border(bottom: BorderSide(color: t.colors.separator))
             : null,
       ),
-      child: CheckboxRow(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        gap: 16,
-        minHeight: 70,
-        standardDensity: true,
-        title: row.title,
-        selected: checked,
-        onTap: activate,
-        content: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              row.title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: t.style(17, height: 22 / 17),
-            ),
-            Text(
-              row.topicName,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style:
-                  t.style(14, height: 18 / 14, color: t.colors.secondaryLabel),
-            ),
-          ],
-        ),
-        trailing: _shown.length > 1
-            ? ReorderableDragStartListener(
-                index: index,
-                child: Tooltip(
-                  message: 'Move bookmark: Alt ↑ or Alt ↓',
-                  child: SizedBox.square(
-                    dimension: 16,
-                    child: CustomPaint(
-                      key: const ValueKey('bookmark-grip'),
-                      painter: _GripDots(t.colors.tertiaryLabel),
+      // The grip sits outside the row's button, so the row's own hover fill
+      // would stop short of the edge. This one covers the whole row.
+      child: _RowHover(
+        child: CheckboxRow(
+          hoverFill: false,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          gap: 16,
+          minHeight: 70,
+          standardDensity: true,
+          title: row.title,
+          selected: checked,
+          onTap: activate,
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                row.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(17, height: 22 / 17),
+              ),
+              Text(
+                row.topicName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(
+                  14,
+                  height: 18 / 14,
+                  color: t.colors.secondaryLabel,
+                ),
+              ),
+            ],
+          ),
+          trailing: _shown.length > 1
+              ? ReorderableDragStartListener(
+                  index: index,
+                  child: Tooltip(
+                    message: 'Move bookmark: Alt ↑ or Alt ↓',
+                    child: SizedBox.square(
+                      dimension: 16,
+                      child: CustomPaint(
+                        key: const ValueKey('bookmark-grip'),
+                        painter: _GripDots(t.colors.tertiaryLabel),
+                      ),
                     ),
                   ),
-                ),
-              )
-            : null,
+                )
+              : null,
+        ),
       ),
     );
   }
@@ -950,28 +1007,44 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (widget.wide)
-                    IgnorePointer(
-                      ignoring: _editing || _busy,
-                      child: Opacity(
-                        opacity: _editing ? .45 : 1,
-                        child: WebSegmentedControl(
-                          labels: [
-                            for (final order in BookmarkOrder.values)
-                              order.label,
-                          ],
-                          selected: BookmarkOrder.values.indexOf(current),
-                          onChanged: (index) => _save(
-                            (boundary, current) =>
-                                ref.read(bookmarkOrderProvider.notifier).choose(
-                                      BookmarkOrder.values[index],
-                                      boundary: boundary,
-                                      isCurrent: current,
-                                    ),
+                    // Board BM_Custom: the button sits on the control's row.
+                    Row(
+                      children: [
+                        Expanded(
+                          child: IgnorePointer(
+                            ignoring: _editing || _busy,
+                            child: Opacity(
+                              opacity: _editing ? .45 : 1,
+                              child: WebSegmentedControl(
+                                labels: [
+                                  for (final order in BookmarkOrder.values)
+                                    order.label,
+                                ],
+                                selected: BookmarkOrder.values.indexOf(current),
+                                onChanged: (index) => _save(
+                                  (boundary, current) => ref
+                                      .read(bookmarkOrderProvider.notifier)
+                                      .choose(
+                                        BookmarkOrder.values[index],
+                                        boundary: boundary,
+                                        isCurrent: current,
+                                      ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        _EditReveal(
+                          open: current == BookmarkOrder.custom,
+                          horizontal: true,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8),
+                            child: _resetOrder(compact: true),
+                          ),
+                        ),
+                      ],
                     )
-                  else
+                  else ...[
                     SegmentedSwitch.bookmarks(
                       labels: [
                         for (final order in BookmarkOrder.values) order.label,
@@ -987,40 +1060,14 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                                 ),
                       ),
                     ),
-                  _EditReveal(
-                    open: (_editing || widget.wide) &&
-                        current == BookmarkOrder.custom,
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: _action(
-                        'Reset order',
-                        () => _save((boundary, current) async {
-                          final exam = boundary.examId;
-                          final prefs =
-                              ref.read(bookmarkPrefsRepositoryProvider);
-                          final order =
-                              ref.read(bookmarkOrderProvider.notifier);
-                          final bookmarks =
-                              ref.read(lessonBookmarksRepositoryProvider);
-                          final recent = await bookmarks.recentFirst();
-                          await prefs.saveCustomOrder(
-                            exam,
-                            recent.map((r) => r.lessonId).toList(),
-                            boundary: boundary,
-                            isCurrent: current,
-                          );
-                          await order.choose(
-                            BookmarkOrder.recent,
-                            boundary: boundary,
-                            isCurrent: current,
-                          );
-                          if (!current()) return;
-                          ref.invalidate(bookmarkRowsProvider);
-                        }),
-                        label: 'Reset bookmark order',
+                    _EditReveal(
+                      open: _editing && current == BookmarkOrder.custom,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: _resetOrder(),
                       ),
                     ),
-                  ),
+                  ],
                 ],
               ),
             ),
@@ -1048,13 +1095,30 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                         ),
                       )
                     : _shown.isEmpty
-                        ? SingleChildScrollView(
-                            padding: const EdgeInsets.only(top: 4),
-                            child: StateView(
-                              message: 'No bookmarks yet',
-                              detail: 'Bookmark a lesson to keep it here.',
-                              icon: Icon(PantasIcons.bookmark),
-                              bookmarkLayout: true,
+                        ? LayoutBuilder(
+                            // Board BM_Empty: the block is centered in the
+                            // panel on wide web. The phone keeps it near the
+                            // top (3K-7).
+                            builder: (context, constraints) =>
+                                SingleChildScrollView(
+                              padding: const EdgeInsets.only(top: 4),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: widget.wide
+                                      ? constraints.maxHeight - 4
+                                      : 0,
+                                ),
+                                child: Center(
+                                  child: StateView(
+                                    message: 'No bookmarks yet',
+                                    detail:
+                                        'Bookmark a lesson to keep it here.',
+                                    icon: Icon(PantasIcons.bookmark),
+                                    bookmarkLayout: true,
+                                    bookmarkTop: widget.wide ? 0 : 70,
+                                  ),
+                                ),
+                              ),
                             ),
                           )
                         : AnimatedSwitcher(
@@ -1206,9 +1270,16 @@ class _BookmarkDragProxyState extends State<_BookmarkDragProxy>
 }
 
 class _EditReveal extends StatelessWidget {
-  const _EditReveal({required this.open, required this.child});
+  const _EditReveal({
+    required this.open,
+    required this.child,
+    this.horizontal = false,
+  });
   final bool open;
   final Widget child;
+
+  /// Opens along the row instead of down the column.
+  final bool horizontal;
   @override
   Widget build(BuildContext context) => TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: open ? 1 : 0),
@@ -1227,8 +1298,10 @@ class _EditReveal extends StatelessWidget {
                 child: Opacity(
                   opacity: value,
                   child: Align(
-                    heightFactor: value,
-                    alignment: Alignment.topCenter,
+                    heightFactor: horizontal ? null : value,
+                    widthFactor: horizontal ? value : null,
+                    alignment:
+                        horizontal ? Alignment.centerLeft : Alignment.topCenter,
                     child: child,
                   ),
                 ),
@@ -1271,6 +1344,55 @@ class _FoldRow extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      );
+}
+
+/// Fills the whole row with the hover tint while the pointer is over it.
+class _RowHover extends StatefulWidget {
+  const _RowHover({required this.child});
+  final Widget child;
+  @override
+  State<_RowHover> createState() => _RowHoverState();
+}
+
+class _RowHoverState extends State<_RowHover> {
+  bool _hover = false;
+  @override
+  Widget build(BuildContext context) => MouseRegion(
+        onEnter: (_) => setState(() => _hover = true),
+        onExit: (_) => setState(() => _hover = false),
+        child: ColoredBox(
+          color: _hover ? context.webTokens.rowHover : Colors.transparent,
+          child: widget.child,
+        ),
+      );
+}
+
+/// Takes a click on a row's grip so it focuses the row, without Tab stopping
+/// on every grip, and keeps the click from reaching the row's button.
+class _GripFocus extends StatefulWidget {
+  const _GripFocus({required this.child});
+  final Widget child;
+  @override
+  State<_GripFocus> createState() => _GripFocusState();
+}
+
+class _GripFocusState extends State<_GripFocus> {
+  final _node = FocusNode(debugLabel: 'bookmark grip', skipTraversal: true);
+  @override
+  void dispose() {
+    _node.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Focus(
+        focusNode: _node,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: _node.requestFocus,
+          child: widget.child,
         ),
       );
 }
