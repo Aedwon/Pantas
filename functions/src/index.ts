@@ -40,4 +40,4 @@ export {getSessionDiagnosis} from './sessionDiagnosis.js';
 
 export {setBetaPro} from './betaPro.js';
 
-export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest} from './guardianConsent.js';
+export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest, purgeOldGuardianRecords} from './guardianConsent.js';

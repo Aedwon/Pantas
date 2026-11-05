@@ -34,8 +34,7 @@ void main() {
     expect(find.text('Last backed up'), findsNothing);
     expect(find.text('Waiting to back up'), findsNothing);
   });
-  testWidgets('web says progress stays in this browser unless Pro is signed in',
-      (tester) async {
+  testWidgets('web explains server study records on Free', (tester) async {
     await tester.pumpAppWithProviders(
       const BackupPage(),
       overrides: [
@@ -46,7 +45,12 @@ void main() {
       ],
     );
     await tester.pumpAndSettle();
-    expect(find.textContaining('stays in this browser only'), findsOneWidget);
+    expect(
+      find.text('Your browser saves data on this device. Pantas also keeps '
+          'answers and study activity on its servers, including on Free. '
+          'Pro adds backup and syncing across your devices.'),
+      findsOneWidget,
+    );
     expect(find.text('Your progress is saved to your account.'), findsNothing);
   });
   testWidgets('web says progress is saved to the account for signed-in Pro',

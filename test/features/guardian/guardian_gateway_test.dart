@@ -85,6 +85,12 @@ void main() {
       'token': 't',
       'decision': 'confirm',
       'agreed': true,
+      'documentVersions': {
+        'privacy': '2026-11-09',
+        'terms': '2026-11-09',
+        'teens': '2026-11-09',
+      },
+      'noticeWordingVersion': '2026-11-09',
     });
     client.reply = (_, __) => {'state': 'declined'};
     expect(

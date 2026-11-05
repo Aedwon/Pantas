@@ -60,8 +60,10 @@ class _BackupPageState extends ConsumerState<BackupPage> {
           Text(
             saved
                 ? 'Your progress is saved to your account.'
-                : 'Your progress stays in this browser only. With Pro, '
-                    "it's backed up and syncs across your devices.",
+                : 'Your browser saves data on this device. Pantas also keeps '
+                    'answers and study activity on its servers, '
+                    'including on Free. '
+                    'Pro adds backup and syncing across your devices.',
           ),
         ],
       );

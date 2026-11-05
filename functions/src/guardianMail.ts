@@ -47,7 +47,7 @@ export function guardianMessage(input: GuardianMailInput): GuardianMessage {
   const heading = "Confirm your child's Pantas account.";
   const greeting = `Hi ${input.guardianName},`;
   const lead = `Your child wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. ` +
-    'So far we have only their age group, and your name and email.';
+    'We process their account ID and age group, your name and email for this request, and confirmation records and send counters.';
   const notice = 'Opening the link alone does not confirm.';
   const label = 'Review and Confirm';
   const expiry = `The link expires on ${expiryLabel(input.expiresAt)}. Not their parent or guardian? Ignore this email.`;

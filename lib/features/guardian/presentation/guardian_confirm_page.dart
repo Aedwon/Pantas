@@ -159,8 +159,10 @@ class _GuardianConfirmPageState extends ConsumerState<GuardianConfirmPage> {
         children: [
           Text(
             "Pantas keeps your child's answers and study progress to run the "
-            "app. Your child can't buy Pro. Only you can, from your own "
-            'payment method.',
+            'app. If your child wants Pro, they should ask a parent or '
+            'guardian '
+            'to pay using their own payment method. Confirming here does not '
+            'authorize a charge. Checkout does not check who is paying.',
             style: textStyle,
           ),
           const SizedBox(height: 8),

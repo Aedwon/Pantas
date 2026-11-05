@@ -11,7 +11,7 @@ test('the email says exactly what the approved screen says', () => {
   assert.equal(m.subject, "Review your child's Pantas account");
   assert.equal(m.to, 'maria@gmail.com');
   for (const line of ["Confirm your child's Pantas account.", 'Hi Maria,',
-    'Your child wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. So far we have only their age group, and your name and email.',
+    'Your child wants to use Pantas, a study app for Philippine exams, and named you as their parent or guardian. We process their account ID and age group, your name and email for this request, and confirmation records and send counters.',
     'Opening the link alone does not confirm.', 'Review and Confirm',
     'The link expires on Nov 9, 2026. Not their parent or guardian? Ignore this email.']) {
     assert.ok(m.text.includes(line), line);

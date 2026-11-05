@@ -154,13 +154,13 @@ void main() {
       expect(pathOf(container), '/settings/about');
     });
 
-    testWidgets(
-        'the teen notice address opens the Privacy Policy, not not-found',
+    testWidgets('the teen notice address opens the published notice',
         (tester) async {
       final container = await openDirectly(tester, '/legal/teens', wide: false);
-      expect(pathOf(container), '/legal/privacy');
+      expect(pathOf(container), '/legal/teens');
       expect(find.text('Legal page not found'), findsNothing);
-      expect(find.text('What we collect'), findsOneWidget);
+      expect(find.text('Notice for teens'), findsOneWidget);
+      expect(find.text('Who this is for'), findsOneWidget);
     });
 
     testWidgets('an unknown document says so and still leads out',

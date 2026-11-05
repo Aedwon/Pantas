@@ -2,7 +2,7 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
-import {answerRequest, getStatus, readRequest, sendLink, GUARDIAN_WINDOW_MS, SEND_LIMIT, deleteGuardianRecords} from '../lib/guardianConsent.js';
+import {answerRequest, getStatus, readRequest, sendLink, GUARDIAN_WINDOW_MS, SEND_LIMIT, deleteGuardianRecords, purgeGuardianRecords} from '../lib/guardianConsent.js';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
@@ -11,7 +11,9 @@ const T0 = Date.parse('2026-11-02T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data, ...extra});
+const documentVersions = {privacy: '2026-11-09', terms: '2026-11-09', teens: '2026-11-09'};
+const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data: data?.decision
+  ? {documentVersions, noticeWordingVersion: '2026-11-09', ...data} : data, ...extra});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };
 
 function harness({now = T0} = {}) {
@@ -267,4 +269,24 @@ test('deleting the account removes the link record', async () => {
   await deleteGuardianRecords(db, uid);
   assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).exists, false);
   await deleteGuardianRecords(db, 'g-never');
+});
+
+
+test('cleanup deletes expired contact data and preserves server-only consent evidence', async () => {
+  const uid = 'g-cleanup'; await reset(uid);
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  const {tokenHash} = await stored(uid);
+  h.advance(DAY);
+  await answerRequest(req('v', {token: tokenOf(h.sent[0]), decision: 'confirm', agreed: true}), h.deps);
+  const evidence = db.doc(`guardianConsentEvidence/${uid}/responses/${tokenHash}`);
+  assert.deepEqual((await evidence.get()).data(), {documentVersions,
+    noticeWordingVersion: '2026-11-09', action: 'confirm', agreed: true, decidedAt: T0 + DAY});
+  await purgeGuardianRecords(db, T0 + 8 * DAY - 1);
+  assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).exists, true);
+  await purgeGuardianRecords(db, T0 + 8 * DAY);
+  assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).exists, false);
+  assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY});
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  assert.equal((await evidence.get()).exists, true, 'minimum evidence survives account deletion');
 });

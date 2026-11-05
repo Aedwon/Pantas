@@ -1,7 +1,8 @@
 import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineSecret, defineString} from 'firebase-functions/params';
-import {getFirestore, type Firestore} from 'firebase-admin/firestore';
+import {FieldPath, getFirestore, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
+import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
@@ -25,6 +26,12 @@ export const guardianDailyCap = defineInt('GUARDIAN_DAILY_SEND_CAP', {default: 5
 
 export const GUARDIAN_WINDOW_MS = 7 * 86_400_000;
 const DAY_MS = 86_400_000;
+
+// These identify the published documents and the confirmation page wording.
+export const GUARDIAN_DOCUMENT_VERSIONS = {
+  privacy: '2026-11-09', terms: '2026-11-09', teens: '2026-11-09',
+} as const;
+export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-09';
 
 // Engineering limits, not figures shown to a student.
 export const SEND_LIMIT = {perStudent: 5, perStudentWindowMs: DAY_MS, gapMs: 30_000,
@@ -166,15 +173,15 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     const resend = before?.emailHash === emailHash;
     const ceiling = resend ? cap : Math.floor(cap * 0.8);
     if (sentToday + 1 > ceiling) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
-    tx.set(globalLimit, {count: sentToday + 1});
+    tx.set(globalLimit, {count: sentToday + 1, cleanupAt: now + DAY_MS + GUARDIAN_WINDOW_MS});
     const threshold = Math.ceil(cap * 0.8);
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
         `Guardian emails reached 80% of the daily cap (${sentToday + 1} of ${cap}).`);
     }
-    tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1});
+    tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, cleanupAt: expiresAt});
     if (typeof before?.tokenHash === 'string') {
-      tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked'}, {merge: true});
+      tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked', revokedAt: now}, {merge: true});
     }
     tx.set(tokenRef(deps.db, tokenHash), {uid, state: 'open', createdAt: now, expiresAt});
     tx.set(consent, {
@@ -240,12 +247,22 @@ export type AnswerResult = {state: 'confirmed' | 'declined' | 'used' | 'expired'
 /** Confirms or declines. The link works once, and confirming needs the agreement box. */
 export async function answerRequest(request: AppRequest, deps: ConsentDeps): Promise<AnswerResult> {
   const visitor = requireVisitor(request);
-  const data = (request.data ?? {}) as {token?: unknown; decision?: unknown; agreed?: unknown};
+  const data = (request.data ?? {}) as {
+    token?: unknown; decision?: unknown; agreed?: unknown;
+    documentVersions?: unknown; noticeWordingVersion?: unknown;
+  };
   if (data.decision !== 'confirm' && data.decision !== 'decline') {
     throw new HttpsError('invalid-argument', 'Choose confirm or decline.');
   }
   if (data.decision === 'confirm' && data.agreed !== true) {
     throw new HttpsError('failed-precondition', 'Agreement is required.');
+  }
+  const versions = data.documentVersions;
+  if (!versions || typeof versions !== 'object' || Array.isArray(versions) ||
+      Object.entries(GUARDIAN_DOCUMENT_VERSIONS).some(([id, version]) =>
+        (versions as Record<string, unknown>)[id] !== version) ||
+      data.noticeWordingVersion !== GUARDIAN_NOTICE_WORDING_VERSION) {
+    throw new HttpsError('failed-precondition', 'Reload the page to review the current terms.');
   }
   const allow = deps.allow ?? allowAtMost;
   if (!await allow(visitor, 'guardianAnswer', ANSWER_LIMIT.max, ANSWER_LIMIT.windowMs)) {
@@ -267,15 +284,89 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     const status: ConsentStatus = decision === 'confirm' ? 'confirmed' : 'declined';
     tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now}, {merge: true});
     tx.set(consent, {status, decidedAt: now}, {merge: true});
+    // Separate from the user tree so deletion keeps only the response evidence.
+    // Never copy the contact, email hash, masked address, or study answers here.
+    tx.set(deps.db.doc(`guardianConsentEvidence/${row.uid}/responses/${hash}`), {
+      documentVersions: GUARDIAN_DOCUMENT_VERSIONS,
+      noticeWordingVersion: GUARDIAN_NOTICE_WORDING_VERSION,
+      action: decision, agreed: data.agreed === true, decidedAt: now,
+    });
     return {state: status};
   });
 }
 
-/** Removes the link record that points at a deleted account. The consent document goes with the user tree. */
+/** Removes every link pointing at a deleted account. Evidence has a separate lifetime. */
 export async function deleteGuardianRecords(db: Firestore, uid: string): Promise<void> {
-  const hash = (await consentRef(db, uid).get()).get('tokenHash');
-  if (typeof hash === 'string') await tokenRef(db, hash).delete();
+  const links = await db.collection('guardianTokens').where('uid', '==', uid).get();
+  for (const link of links.docs) await link.ref.delete();
 }
+
+/** Visits bounded pages, including records created before cleanup was introduced. */
+async function visitGuardianRows(query: Query, visit: (row: QueryDocumentSnapshot) => Promise<void>): Promise<void> {
+  let cursor: QueryDocumentSnapshot | undefined;
+  while (true) {
+    const page = await (cursor ? query.startAfter(cursor) : query).limit(200).get();
+    if (page.empty) return;
+    for (const row of page.docs) await visit(row);
+    if (page.size < 200) return;
+    cursor = page.docs[page.docs.length - 1];
+  }
+}
+
+/** Deletes due contacts and links. Transactions recheck sends and answers that raced the scan. */
+export async function purgeGuardianRecords(db: Firestore, now: number): Promise<void> {
+  await visitGuardianRows(db.collection('guardianTokens').orderBy(FieldPath.documentId()), async (row) => {
+    await db.runTransaction(async (tx) => {
+      const data = (await tx.get(row.ref)).data();
+      if (!data) return;
+      // A later resend must not extend the lifetime of an already used link.
+      const eventAt = data.usedAt ?? data.revokedAt;
+      if (data.state === 'revoked' && typeof eventAt !== 'number') {
+        // Legacy revoked links have no event date and no remaining use.
+        tx.delete(row.ref);
+        return;
+      }
+      const due = data.state === 'open' ? data.expiresAt
+        : typeof eventAt === 'number' ? eventAt + GUARDIAN_WINDOW_MS
+          : typeof data.expiresAt === 'number' ? data.expiresAt + GUARDIAN_WINDOW_MS : null;
+      if (typeof due === 'number' && now >= due) tx.delete(row.ref);
+    });
+  });
+  await visitGuardianRows(db.collectionGroup('server').orderBy(FieldPath.documentId()), async (row) => {
+    if (row.id !== 'guardianConsent') return;
+    await db.runTransaction(async (tx) => {
+      const data = (await tx.get(row.ref)).data();
+      if (!data) return;
+      const due = data.status === 'pending' ? data.expiresAt
+        : typeof data.decidedAt === 'number' ? data.decidedAt + GUARDIAN_WINDOW_MS : null;
+      if (typeof due !== 'number' || now < due) return;
+      if (data.status === 'confirmed') {
+        if (Object.keys(data).every((key) => ['status', 'ageGroup', 'decidedAt'].includes(key))) return;
+        // Keep the gate status and minimum confirmation fact, without contact data.
+        tx.set(row.ref, {status: 'confirmed', ageGroup: 'minor', decidedAt: data.decidedAt});
+      } else {
+        tx.delete(row.ref);
+      }
+    });
+  });
+  await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
+    await db.runTransaction(async (tx) => {
+      const data = (await tx.get(row.ref)).data();
+      if (!data) return;
+      // Legacy daily counters contain no date field, but their ID names the day.
+      const day = /^global-(\d{4}-\d{2}-\d{2})$/.exec(row.id)?.[1];
+      const start = data.windowStartedAt ?? (day ? Date.parse(`${day}T00:00:00+08:00`) : null);
+      const due = data.cleanupAt ?? (typeof start === 'number'
+        ? start + GUARDIAN_WINDOW_MS + (day ? DAY_MS : 0) : null);
+      if (typeof due === 'number' && now >= due) tx.delete(row.ref);
+    });
+  });
+}
+
+export const purgeOldGuardianRecords = onSchedule(
+  {schedule: 'every 60 minutes', timeZone: 'Asia/Manila', region: 'asia-southeast1'},
+  async () => purgeGuardianRecords(getFirestore(), Date.now()),
+);
 
 function runtimeDeps(): ConsentDeps {
   const linkOrigin = process.env.FUNCTIONS_EMULATOR === 'true'

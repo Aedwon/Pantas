@@ -106,16 +106,17 @@ void main() {
           expect(
             find.textContaining(
               "Pantas keeps your child's answers and study progress to run the "
-              "app. Your child can't buy Pro. Only you can, from your own "
-              'payment method.',
+              'app. If your child wants Pro, they should ask a parent or '
+              'guardian '
+              'to pay using their own payment method. Confirming here does not '
+              'authorize a charge. Checkout does not check who is paying.',
             ),
             findsOneWidget,
           );
           expect(find.text('Terms of Service'), findsOneWidget);
           expect(find.text('Privacy Policy'), findsOneWidget);
-          // The notice for teens is hidden until its text exists.
-          expect(teenNoticeReady, isFalse);
-          expect(find.text('Notice for teens'), findsNothing);
+          expect(teenNoticeReady, isTrue);
+          expect(find.text('Notice for teens'), findsOneWidget);
           expect(
             find.text(
               "I'm their parent or guardian, and I agree to these terms.",
@@ -137,15 +138,15 @@ void main() {
 
   testWidgets('Confirm waits for the agreement box', (tester) async {
     await pump(tester);
+    final agreement =
+        find.text("I'm their parent or guardian, and I agree to these terms.");
     expect(confirmButton(tester).onPressed, isNull);
-    await tester.tap(
-      find.text("I'm their parent or guardian, and I agree to these terms."),
-    );
+    await tester.ensureVisible(agreement);
+    expect(agreement.hitTestable(), findsOneWidget);
+    await tester.tap(agreement);
     await tester.pump();
     expect(confirmButton(tester).onPressed, isNotNull);
-    await tester.tap(
-      find.text("I'm their parent or guardian, and I agree to these terms."),
-    );
+    await tester.tap(agreement);
     await tester.pump();
     expect(confirmButton(tester).onPressed, isNull);
   });
@@ -153,11 +154,16 @@ void main() {
   testWidgets('confirming sends the token, the choice and the agreement',
       (tester) async {
     await pump(tester, token: 'tok');
-    await tester.tap(
-      find.text("I'm their parent or guardian, and I agree to these terms."),
-    );
+    final agreement =
+        find.text("I'm their parent or guardian, and I agree to these terms.");
+    await tester.ensureVisible(agreement);
+    expect(agreement.hitTestable(), findsOneWidget);
+    await tester.tap(agreement);
     await tester.pump();
-    await tester.tap(find.widgetWithText(PantasButton, 'Confirm'));
+    final confirm = find.widgetWithText(PantasButton, 'Confirm');
+    await tester.ensureVisible(confirm);
+    expect(confirm.hitTestable(), findsOneWidget);
+    await tester.tap(confirm);
     await tester.pumpAndSettle();
     expect(gateway.answers.single, (token: 'tok', confirm: true, agreed: true));
     expect(find.text('Thank you'), findsOneWidget);
@@ -220,8 +226,8 @@ void main() {
     await pump(tester);
     await tester.tap(find.text('Terms of Service'));
     await tester.tap(find.text('Privacy Policy'));
-    expect(find.text('Notice for teens'), findsNothing);
-    expect(opened, ['/legal/terms', '/legal/privacy']);
+    await tester.tap(find.text('Notice for teens'));
+    expect(opened, ['/legal/terms', '/legal/privacy', '/legal/teens']);
   });
 
   testWidgets('a failed answer keeps the form and offers a retry',

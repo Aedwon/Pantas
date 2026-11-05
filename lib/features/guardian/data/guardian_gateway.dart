@@ -1,6 +1,8 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:pantas/core/platform/callable_options.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/guardian/domain/guardian_copy.dart';
+import 'package:pantas/features/legal/domain/legal_document.dart';
 
 /// A guardian call failed. The message never carries personal details.
 class GuardianGatewayException implements Exception {
@@ -122,6 +124,8 @@ class CallableGuardianGateway implements GuardianGateway {
         'token': token,
         'decision': confirm ? 'confirm' : 'decline',
         'agreed': agreed,
+        'documentVersions': guardianDocumentVersions,
+        'noticeWordingVersion': guardianNoticeWordingVersion,
       }),
     );
     return switch (reply['state']) {

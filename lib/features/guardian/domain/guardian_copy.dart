@@ -12,7 +12,8 @@ abstract final class GuardianCopy {
       'The account was not confirmed. You can close this page.';
 }
 
-/// Whether the notice for teens has been written. The link to it on the
-/// guardian confirm page, and its address, stay hidden until this is true.
-/// Set it to true when the text is added to the legal documents.
-const teenNoticeReady = false;
+/// The notice for teens is published with the legal documents.
+const teenNoticeReady = true;
+
+/// Version of the confirmation page's explanation and agreement wording.
+const guardianNoticeWordingVersion = '2026-11-09';

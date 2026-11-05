@@ -14,6 +14,10 @@ before(async () => {
     await setDoc(doc(context.firestore(), 'users/gr-owner/server/guardianConsent'), {status: 'pending'});
     await setDoc(doc(context.firestore(), 'guardianTokens/abc'), {uid: 'gr-owner', state: 'open'});
     await setDoc(doc(context.firestore(), 'guardianLimits/abc'), {count: 1});
+    await setDoc(doc(context.firestore(), 'guardianConsentEvidence/gr-owner/responses/abc'), {
+      action: 'confirm', decidedAt: 1, documentVersions: {teens: '2026-11-09'},
+      noticeWordingVersion: '2026-11-09',
+    });
   });
 });
 after(async () => env?.cleanup());
@@ -23,7 +27,7 @@ for (const client of ['owner-named', 'owner-anonymous', 'other', 'signed-out']) 
       : env.authenticatedContext(client.startsWith('owner') ? 'gr-owner' : 'gr-other', {
         firebase: {sign_in_provider: client === 'owner-anonymous' ? 'anonymous' : 'google.com'},
       }).firestore();
-    for (const path of ['users/gr-owner/server/guardianConsent', 'guardianTokens/abc', 'guardianLimits/abc']) {
+    for (const path of ['users/gr-owner/server/guardianConsent', 'guardianTokens/abc', 'guardianLimits/abc', 'guardianConsentEvidence/gr-owner/responses/abc']) {
       const ref = doc(db, path);
       await assertFails(getDoc(ref));
       await assertFails(setDoc(ref, {status: 'confirmed'}));
@@ -33,6 +37,7 @@ for (const client of ['owner-named', 'owner-anonymous', 'other', 'signed-out']) 
     await assertFails(setDoc(doc(db, 'users/gr-owner/server/guardianConsent'), {status: 'confirmed'}, {merge: true}));
     await assertFails(setDoc(doc(db, `guardianTokens/new-${client}`), {state: 'open'}));
     await assertFails(getDocs(collection(db, 'guardianTokens')));
+    await assertFails(getDocs(collection(db, 'guardianConsentEvidence/gr-owner/responses')));
     await assertFails(getDocs(collection(db, 'users/gr-owner/server')));
   });
 }
