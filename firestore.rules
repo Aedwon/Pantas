@@ -361,6 +361,11 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Minimum guardian response evidence survives deletion of the user tree.
+    match /guardianConsentEvidence/{document=**} {
+      allow read, write: if false;
+    }
+
     match /guardianLimits/{hash} {
       allow read, write: if false;
     }

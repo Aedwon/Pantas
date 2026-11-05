@@ -40,7 +40,10 @@ void main() {
         .getSingleOrNull();
 
     expect(passageRow, isNotNull, reason: 'Passage $passageId must exist');
-    expect(passageRow!.body, contains('harbor juvenile bangus in shallow'));
+    expect(
+      passageRow!.body,
+      contains('harbor juvenile bangus in protected nursery pens'),
+    );
     expect(passageRow.title, equals('Aquaculture Strategies in Laguna de Bay'));
 
     const questionId = 'rc-cs-cc-0001';

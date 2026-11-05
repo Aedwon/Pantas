@@ -95,7 +95,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'account ineligible. Temporary beta Pro alone does not use up '
             'the later trial.\n\nDeleting an account does not entitle you to '
             'another trial or immediately remove its trial-use code. The '
-            'teen notice explains the code’s storage period.\n\nThere is no '
+            "teen notice explains the code's storage period.\n\nThere is no "
             'automatic web renewal to cancel. To stop buying Pro, do not '
             'make another purchase. Leaving an unpaid checkout does not '
             'create Pro access.\n\nDeleting your account ends its access and '
@@ -127,7 +127,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'paid plan.\n\nFor a student under 18, a parent or guardian '
             'should complete the payment using their own payment method. '
             'Guardian account confirmation does not authorize a charge. '
-            'Checkout does not verify the payer’s age or guardianship.',
+            "Checkout does not verify the payer's age or guardianship.",
       ),
       LegalSection(
         heading: 'Use of the app and limits of responsibility',
@@ -173,7 +173,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'keep the age group, not a saved birth-year record. If your '
             'birth year could mean you are still 17, we ask a guardian to '
             'confirm too. A birth-year check cannot establish your exact '
-            'birthday.\n\nThirteen is Pantas’s access rule. It is not a '
+            "birthday.\n\nThirteen is Pantas's access rule. It is not a "
             'Philippine rule that everyone aged 13 can independently '
             'consent to every use of personal data.',
       ),
@@ -195,7 +195,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'also keep lessons you bookmark and questions you flag. We use '
             'these records to run your study sessions, plan reviews, and '
             'show your progress.\n\nFor guardian confirmation, we ask for '
-            'your guardian’s name and email. We send them an email link. '
+            "your guardian's name and email. We send them an email link. "
             'Our server keeps the request status, dates, a partly hidden '
             'email address, and keyed codes for the email and link. These '
             'codes protect the original values, but they are not '
@@ -204,7 +204,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'cleared from that device when Pantas checks a successful '
             'confirmation.\n\nIf someone buys Pro for your account, we keep '
             'payment references, the amount paid, refund records, and '
-            'access dates. Web payment details are entered on PayMongo’s '
+            "access dates. Web payment details are entered on PayMongo's "
             'checkout page.',
       ),
       LegalSection(
@@ -227,11 +227,11 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'asks a parent or guardian to review the terms and confirm '
             'before you continue.\n\nOpening the email link does not confirm '
             'anything. The adult must check the agreement box and choose '
-            'Confirm. They can choose “I Don’t Agree” instead.\n\nThe link '
+            "Confirm. They can choose “I Don't Agree” instead.\n\nThe link "
             'works once and expires after seven days. Sending a new link '
             'closes the old one. Keep the link private because someone who '
             'has it can answer the request.\n\nThis is an email confirmation '
-            'process. It does not independently prove the responder’s age '
+            "process. It does not independently prove the responder's age "
             'or legal authority.',
       ),
       LegalSection(
@@ -240,7 +240,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'Confirmation does not create a guardian dashboard or give '
             'them a screen showing your results.\n\nYou or your guardian can '
             'contact our Data Protection Officer about your data. We check '
-            'a representative’s authority before disclosing private '
+            "a representative's authority before disclosing private "
             'information or acting on their instructions. Your privacy '
             'rights still belong to you.',
       ),
@@ -255,7 +255,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'Analytics, with Crashlytics error reporting on the phone '
             'app.\n\nThese providers may process information outside the '
             'Philippines. Pantas remains responsible for the information '
-            'it entrusts to service providers. A server’s location does '
+            "it entrusts to service providers. A server's location does "
             'not establish where every provider record or recovery copy is '
             'kept.',
       ),
@@ -278,12 +278,12 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Withdrawing permission or deleting data',
         body: 'You can withdraw permission for data uses that rely on '
-            'consent.\n\nA guardian can withdraw permission for the child’s '
+            "consent.\n\nA guardian can withdraw permission for the child's "
             'account by emailing dpo@pantas.study. A simple message is '
             'enough:\n\nI withdraw my permission for my child to use Pantas. '
-            'Please stop the account’s consent-based processing.\n\nIf '
+            "Please stop the account's consent-based processing.\n\nIf "
             'possible, send it from the email address used for '
-            'confirmation. Include the child’s sign-in email or account ID '
+            "confirmation. Include the child's sign-in email or account ID "
             'if you know it. If you do not know those details, tell us and '
             'we will help locate the request. You do not need the old '
             'confirmation link, a Pantas login, a paid plan, or a special '
@@ -294,7 +294,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'the request, we stop the processing that depends on the '
             'withdrawn permission without undue delay. Withdrawing '
             'permission for the core study service means we must close the '
-            'child’s account and remove its study data, unless a separate '
+            "child's account and remove its study data, unless a separate "
             'lawful reason requires specific records to remain. '
             'Withdrawing only optional usage sharing does not close the '
             'account.\n\nWithdrawal does not undo processing that was lawful '
@@ -308,7 +308,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'The email route requires manual action by the owner.\n\nIf you '
             'have finished setup, you can open Settings, Account, and '
             'choose the delete option. For a Google-linked account, the '
-            'deletion process removes the account’s server study data and '
+            "deletion process removes the account's server study data and "
             'clears local user data on the device making the request. You '
             'may need to sign in again first.\n\nWithout a Google-linked '
             'account, the delete option clears local data only. If you are '
@@ -326,7 +326,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'deletion. Earlier deletion applies when consent is withdrawn '
             'and no other lawful basis permits keeping them.\n\nExcept for '
             'the tax rule and identified provider rules, these are '
-            'Pantas’s chosen limits. They are not statutory minimums or '
+            "Pantas's chosen limits. They are not statutory minimums or "
             'permission to keep unnecessary information.',
       ),
       LegalSection(
@@ -433,7 +433,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
         body: 'Specific prior consent under Section 13(a) for age '
             'information, with Section 12(a) covering associated ordinary '
             'information. Obtain consent from a lawful representative '
-            'where required. Checking age is Pantas’s safeguard, not a '
+            "where required. Checking age is Pantas's safeguard, not a "
             'general legal obligation requiring this particular birth-year '
             'collection.',
       ),
@@ -454,7 +454,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       ),
       LegalSection(
         heading: 'Payments',
-        body: 'Contract under Section 12(b) for the adult purchaser’s '
+        body: "Contract under Section 12(b) for the adult purchaser's "
             'necessary transaction information. Legal obligation under '
             'Section 12(c) for required accounting records. Section 13(b) '
             'applies only to sensitive information whose processing is '
@@ -478,7 +478,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
         body: 'Legitimate interest under Section 12(f) for a minimal '
             'invitation to the adult contact supplied by the student, '
             'subject to necessity and balancing. Consent under Section '
-            '12(a) for the guardian’s confirmation response. The linked '
+            "12(a) for the guardian's confirmation response. The linked "
             'child age and study information requires Section 13(a) '
             'authorization; the adult-contact basis does not authorize all '
             'child processing.',
