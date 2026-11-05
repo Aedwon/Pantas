@@ -113,6 +113,13 @@ void main() {
         title: 'Lesson $id',
         bodyJson: jsonEncode([]),
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_$id',
+        topicId: topicId,
+        examId: topicId == 't1' ? 'e1' : 'e2',
+        lessonId: id,
+      );
     }
   });
 

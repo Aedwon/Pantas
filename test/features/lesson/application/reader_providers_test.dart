@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -60,6 +61,13 @@ void main() {
         estimatedMinutes: 10,
         ordering: order++,
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_$id',
+        topicId: 't1',
+        examId: 'e1',
+        lessonId: id,
+      );
     }
     await container
         .read(appPreferencesRepositoryProvider)
@@ -74,6 +82,41 @@ void main() {
     expect(context.positionInTopic, 2);
     expect(context.lessonsInTopic, 3);
     expect(context.next!.id, 'l3');
+  });
+
+  test('a direct address opens an unlisted lesson with its saved state',
+      () async {
+    await seedContentTopic(
+      contentDb,
+      topicId: 'unlisted',
+      subjectId: 's1',
+      name: 'Unlisted topic',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'unlisted',
+      topicId: 'unlisted',
+      title: 'Saved lesson',
+    );
+    await container.read(lessonProgressRepositoryProvider).markRead('unlisted');
+    await container.read(lessonBookmarksRepositoryProvider).mark('unlisted');
+
+    final context =
+        await container.read(readerContextProvider('unlisted').future);
+
+    expect(context, isNotNull);
+    expect(context!.lesson.title, 'Saved lesson');
+    expect(context.topicName, 'Unlisted topic');
+    expect(context.isRead, isTrue);
+    expect(context.isBookmarked, isTrue);
+    expect(context.boundary, isNotNull);
+    expect(context.next, isNull);
+    expect(context.topicLessons, isEmpty);
+    final map = (await container.read(studyMapProvider.future))!;
+    expect(
+      map.subjects.expand((s) => s.topics).map((t) => t.id),
+      isNot(contains('unlisted')),
+    );
   });
 
   test('the last lesson in a topic has no next', () async {

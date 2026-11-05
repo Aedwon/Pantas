@@ -72,6 +72,13 @@ void main() {
         bodyJson: jsonEncode(<Map<String, Object?>>[]),
         estimatedMinutes: 10,
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_l$i',
+        topicId: 't1',
+        examId: 'e1',
+        lessonId: 'l$i',
+      );
     }
   });
 
@@ -369,6 +376,13 @@ void main() {
       title: 'Math lesson',
       bodyJson: '[]',
       estimatedMinutes: 10,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_math',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'math',
     );
     await repo.mark('math');
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.bySubject);

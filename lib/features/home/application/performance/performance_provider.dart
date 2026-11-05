@@ -169,12 +169,13 @@ final performanceProvider =
           !ownedSubjectIds.contains(t.subjectId) &&
           !examTopicIds.contains(t.id),
     );
+  final groups = await ref.watch(contentRepositoryProvider).lessonMetaByTopics(
+    [for (final topic in topicRows) topic.id],
+    examId: examId,
+  );
+  final lessonRows = groups.values.expand((lessons) => lessons).toList();
   final questionRows = await (contentDb.select(contentDb.contentQuestions)
         ..where((q) => q.topicId.isIn([for (final t in topicRows) t.id])))
-      .get();
-  final lessonRows = await (contentDb.select(contentDb.contentLessons)
-        ..where((l) => l.topicId.isIn([for (final t in topicRows) t.id]))
-        ..orderBy([(l) => OrderingTerm.asc(l.ordering)]))
       .get();
 
   final subjectNameById = {for (final s in subjectRows) s.id: s.name};

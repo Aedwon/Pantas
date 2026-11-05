@@ -7,7 +7,7 @@ class GetTopicLessons {
 
   final ContentRepository _content;
 
-  Future<List<Lesson>> call(TopicId topicId) async {
-    return _content.lessonsByTopic(topicId);
+  Future<List<Lesson>> call(TopicId topicId, {required ExamId examId}) async {
+    return _content.lessonsByTopic(topicId, examId: examId);
   }
 }

@@ -56,6 +56,13 @@ void main() {
         bodyJson: jsonEncode(<Map<String, Object?>>[]),
         estimatedMinutes: 10,
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_$id',
+        topicId: 't1',
+        examId: 'e1',
+        lessonId: id,
+      );
     }
     await container
         .read(appPreferencesRepositoryProvider)

@@ -49,6 +49,13 @@ void main() {
         },
       ]),
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
   }
 
   setUp(() async {

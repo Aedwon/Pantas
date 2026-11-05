@@ -42,6 +42,7 @@ final searchResultsProvider =
 
   final hits = <LessonSearchHit>[];
   for (final row in rows) {
+    if (!positionByLessonId.containsKey(row.id)) continue;
     // A title is shown whole. A cut window could hide the lesson's own name
     // behind a tail such as "Venn Diagrams)".
     final titleMatch = buildSearchSnippet(
@@ -90,7 +91,10 @@ final searchResultsProvider =
         .lessonsByTopics(matchedTopicIds);
     for (final topicLessons in lessons.values) {
       for (final lesson in topicLessons) {
-        if (!included.add(lesson.id)) continue;
+        if (!positionByLessonId.containsKey(lesson.id) ||
+            !included.add(lesson.id)) {
+          continue;
+        }
         hits.add(
           LessonSearchHit(
             lessonId: lesson.id,

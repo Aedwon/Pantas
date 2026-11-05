@@ -1,7 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -79,20 +77,20 @@ final topicDetailProvider = FutureProvider.autoDispose
   );
   final row = table.rows.firstWhereOrNull((r) => r.id == topicId);
   if (row == null) throw TopicNotFound(topicId);
-  final contentDb = ref.watch(contentDatabaseProvider);
-  final lessonRows = await (contentDb.select(contentDb.contentLessons)
-        ..where((l) => l.topicId.equals(topicId))
-        ..orderBy([(l) => OrderingTerm.asc(l.ordering)]))
-      .get();
+  final examId = (await ref.watch(activeExamFocusProvider.future)).exam?.id;
+  if (examId == null) throw TopicNotFound(topicId);
+  final groups = await ref.watch(contentRepositoryProvider).lessonMetaByTopics(
+    [topicId],
+    examId: examId,
+  );
+  final lessonRows = groups[topicId]!;
+  if (lessonRows.isEmpty) throw TopicNotFound(topicId);
   final db = ref.watch(appDatabaseProvider);
   final readRows = await (db.select(db.lessonProgressLocal)
         ..where((p) => p.lessonId.isIn(lessonRows.map((l) => l.id))))
       .get();
   final read = {for (final r in readRows) r.lessonId};
-  final examId = (await ref.watch(activeExamFocusProvider.future)).exam?.id;
-  final planned = examId == null
-      ? const <String>{}
-      : await ref.watch(todayLessonIdsProvider(examId).future);
+  final planned = await ref.watch(todayLessonIdsProvider(examId).future);
   return TopicDetail(
     topicId: topicId,
     name: row.title,

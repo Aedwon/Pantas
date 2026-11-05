@@ -125,6 +125,13 @@ void main() {
       title: 'Circles',
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
     );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l',
+    );
   });
   tearDown(() => db.close());
 
@@ -283,6 +290,13 @@ void main() {
         title: id,
         bodyJson: '[]',
       );
+      await seedContentQuestion(
+        content,
+        questionId: 'question_$id',
+        topicId: 't',
+        examId: 'e',
+        lessonId: id,
+      );
     }
     final positions = _HeldBoundaryChecks(db);
     await pump(
@@ -334,6 +348,13 @@ void main() {
             ],
           },
       ]),
+    );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l2',
     );
     final positions = _HeldResume(db);
     await pump(
@@ -456,6 +477,13 @@ void main() {
       title: 'Mean',
       bodyJson: '[]',
     );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't2',
+      examId: 'e',
+      lessonId: 'l2',
+    );
     await pump(tester);
     final scroll = tester
         .widget<SingleChildScrollView>(
@@ -494,6 +522,13 @@ void main() {
       title: 'Next real lesson',
       bodyJson: '[]',
     );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l2',
+    );
     await pump(tester);
     final container =
         ProviderScope.containerOf(tester.element(find.byType(LessonPage)));
@@ -528,6 +563,13 @@ void main() {
       topicId: 't',
       title: 'Next real lesson',
       bodyJson: '[]',
+    );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l2',
     );
     await pump(tester);
     await tester.tap(find.byKey(const ValueKey('pull-handle')));
@@ -583,6 +625,13 @@ void main() {
       topicId: 't',
       title: 'Next',
       bodyJson: '[]',
+    );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l2',
     );
     await pump(tester);
     final scroll = tester
@@ -694,6 +743,13 @@ void main() {
       title: 'Next real lesson',
       bodyJson: '[]',
     );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l2',
+    );
     await pump(tester);
     final container =
         ProviderScope.containerOf(tester.element(find.byType(LessonPage)));
@@ -804,6 +860,13 @@ void main() {
           title: 'Next',
           bodyJson: '[]',
         );
+        await seedContentQuestion(
+          content,
+          questionId: 'question_l2',
+          topicId: 't',
+          examId: 'e',
+          lessonId: 'l2',
+        );
       }
       final positions = _FailingBoundary(db);
       await pump(
@@ -870,6 +933,13 @@ void main() {
           topicId: 't',
           title: id,
           bodyJson: '[]',
+        );
+        await seedContentQuestion(
+          content,
+          questionId: 'question_$id',
+          topicId: 't',
+          examId: 'e',
+          lessonId: id,
         );
       }
       final clean = ProviderContainer(
@@ -940,6 +1010,13 @@ void main() {
         title: id,
         bodyJson: '[]',
       );
+      await seedContentQuestion(
+        content,
+        questionId: 'question_$id',
+        topicId: 't',
+        examId: 'e',
+        lessonId: id,
+      );
     }
     final old = Completer<ReaderContext?>();
     await pump(
@@ -975,6 +1052,13 @@ void main() {
         topicId: 't',
         title: id,
         bodyJson: '[]',
+      );
+      await seedContentQuestion(
+        content,
+        questionId: 'question_$id',
+        topicId: 't',
+        examId: 'e',
+        lessonId: id,
       );
     }
     final old = Completer<ReaderContext?>();
@@ -1021,6 +1105,13 @@ void main() {
       title: 'Next',
       bodyJson: '[]',
     );
+    await seedContentQuestion(
+      content,
+      questionId: 'question_l2',
+      topicId: 't',
+      examId: 'e',
+      lessonId: 'l2',
+    );
     await pump(tester);
     await tester.tap(find.byKey(const ValueKey('pull-handle')));
     await tester.pump();
@@ -1042,6 +1133,13 @@ void main() {
         topicId: 't',
         title: id,
         bodyJson: '[]',
+      );
+      await seedContentQuestion(
+        content,
+        questionId: 'question_$id',
+        topicId: 't',
+        examId: 'e',
+        lessonId: id,
       );
     }
     final target = Completer<ReaderContext?>();

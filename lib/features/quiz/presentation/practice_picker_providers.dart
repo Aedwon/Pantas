@@ -37,13 +37,15 @@ final practiceIndexProvider =
         taggedCounts[lessonId] = (taggedCounts[lessonId] ?? 0) + 1;
       }
 
+      final lessons = await content.lessonsByTopic(topic.id, examId: examId);
+      if (lessons.isEmpty) continue;
       topicEntries.add(
         PracticeTopicEntry(
           id: topic.id,
           name: topic.name,
           questionCount: questions.length,
           lessons: [
-            for (final lesson in await content.lessonsByTopic(topic.id))
+            for (final lesson in lessons)
               PracticeLessonEntry(
                 id: lesson.id,
                 title: lesson.title,

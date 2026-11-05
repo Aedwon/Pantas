@@ -78,6 +78,13 @@ void main() {
       summary: 'Core vocab',
       bodyJson: jsonEncode(body),
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
   });
 
   tearDown(() => db.close());

@@ -66,6 +66,13 @@ void main() {
       ]),
       ordering: 1,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l1',
+    );
 
     // l2: Body-only match ("swap the plan")
     await seedContentLesson(
@@ -88,6 +95,13 @@ void main() {
         },
       ]),
       ordering: 2,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l2',
     );
 
     container = ProviderContainer(
@@ -124,6 +138,13 @@ void main() {
       summary: 'Summary for Sets',
       bodyJson: jsonEncode([]),
       ordering: 3,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l3',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l3',
     );
     container.read(searchQueryProvider.notifier).state = 'venn';
     final hits = await container.read(searchResultsProvider.future);
@@ -177,6 +198,13 @@ void main() {
       bodyJson: jsonEncode([]),
       ordering: 4,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l4',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l4',
+    );
     container.read(searchQueryProvider.notifier).state = 'plan';
     final hits = await container.read(searchResultsProvider.future);
 
@@ -195,6 +223,13 @@ void main() {
       bodyJson: jsonEncode([]),
       ordering: 3,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l5',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l5',
+    );
     await seedContentLesson(
       contentDb,
       lessonId: 'l6',
@@ -202,6 +237,13 @@ void main() {
       title: 'Ratio and Proportion',
       bodyJson: jsonEncode([]),
       ordering: 4,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l6',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l6',
     );
     container.read(searchQueryProvider.notifier).state = 'ratio';
     final hits = await container.read(searchResultsProvider.future);

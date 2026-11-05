@@ -59,6 +59,13 @@ void main() {
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
       estimatedMinutes: 13,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
     await seedContentLesson(
       contentDb,
       lessonId: 'l2',
@@ -66,6 +73,13 @@ void main() {
       title: 'Lesson l2',
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
       estimatedMinutes: 10,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
     );
 
     await seedContentSubject(
@@ -88,6 +102,13 @@ void main() {
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
       estimatedMinutes: 15,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l3',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l3',
+    );
     await seedContentLesson(
       contentDb,
       lessonId: 'l4',
@@ -95,6 +116,13 @@ void main() {
       title: 'Lesson l4',
       bodyJson: jsonEncode(<Map<String, Object?>>[]),
       estimatedMinutes: 12,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l4',
+      topicId: 't2',
+      examId: 'e1',
+      lessonId: 'l4',
     );
 
     await container

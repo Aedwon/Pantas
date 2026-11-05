@@ -111,7 +111,7 @@ void main() {
     expect(map.subjects.first.topics.last.isComplete, isFalse);
   });
 
-  test('a topic with no lessons is never complete', () {
+  test('topics and subjects with no lessons are omitted', () {
     final map = buildStudyMap(
       exam: exam,
       topicsBySubject: {
@@ -123,7 +123,7 @@ void main() {
       bookmarkedLessonIds: const {},
     );
 
-    expect(map.subjects.first.topics.single.isComplete, isFalse);
+    expect(map.subjects, isEmpty);
     expect(map.totalCount, 0);
     expect(map.coveredPercent, 0);
   });

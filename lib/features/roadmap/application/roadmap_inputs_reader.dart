@@ -106,7 +106,8 @@ class RoadmapInputsReader {
         .excludedLessonIds(examId);
     final selection =
         await content.selectionRowsByTopics(topicIds, examId: examId);
-    final lessonMeta = await content.lessonMetaByTopics(topicIds);
+    final lessonMeta =
+        await content.lessonMetaByTopics(topicIds, examId: examId);
     final db = _ref.read(appDatabaseProvider);
     final readAt = {
       for (final row in await db.select(db.lessonProgressLocal).get())
@@ -265,18 +266,39 @@ class RoadmapInputsReader {
     );
   }
 
-  Future<String> _contentRevision() async =>
-      await _ref
-          .read(appPreferencesRepositoryProvider)
-          .installedContentSeedVersion() ??
-      contentSeedVersion;
+  // Rebuild stored plans created before exam lesson eligibility was enforced.
+  Future<String> _contentRevision() async {
+    final revision = await _ref
+            .read(appPreferencesRepositoryProvider)
+            .installedContentSeedVersion() ??
+        contentSeedVersion;
+    return '$revision:exam-lessons-v1';
+  }
 
   Future<({List<Topic> topics, Set<TopicId> excluded})> _scope(
     ExamId examId,
-  ) =>
-      readScopedTopics(
-        _ref.read(contentRepositoryProvider),
-        _ref.read(customTrackRepositoryProvider),
-        examId,
-      );
+  ) async {
+    final scope = await readScopedTopics(
+      _ref.read(contentRepositoryProvider),
+      _ref.read(customTrackRepositoryProvider),
+      examId,
+    );
+    final excluded = await _ref
+        .read(customTrackRepositoryProvider)
+        .excludedLessonIds(examId);
+    final lessons =
+        await _ref.read(contentRepositoryProvider).lessonMetaByTopics(
+              scope.topics.map((topic) => topic.id),
+              examId: examId,
+            );
+    return (
+      topics: [
+        for (final topic in scope.topics)
+          if ((lessons[topic.id] ?? const <LessonMeta>[])
+              .any((lesson) => !excluded.contains(lesson.id)))
+            topic,
+      ],
+      excluded: scope.excluded,
+    );
+  }
 }

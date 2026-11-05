@@ -16,6 +16,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 
 export 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
@@ -101,13 +102,21 @@ final passageByIdProvider =
 
 final topicLessonsProvider =
     FutureProvider.family<List<Lesson>, TopicId>((ref, topicId) async {
-  return ref.watch(contentRepositoryProvider).lessonsByTopic(topicId);
+  final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+  if (exam == null) return const [];
+  return ref
+      .watch(contentRepositoryProvider)
+      .lessonsByTopic(topicId, examId: exam.id);
 });
 
 final lessonsByTopicsProvider =
     FutureProvider.family<Map<TopicId, List<Lesson>>, List<TopicId>>(
         (ref, topicIds) async {
-  return ref.watch(contentRepositoryProvider).lessonsByTopics(topicIds);
+  final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+  if (exam == null) return const {};
+  return ref
+      .watch(contentRepositoryProvider)
+      .lessonsByTopics(topicIds, examId: exam.id);
 });
 
 final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(

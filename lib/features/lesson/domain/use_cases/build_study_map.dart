@@ -31,6 +31,7 @@ StudyMap buildStudyMap({
 
     for (final topic in topicsBySubject[subject.id] ?? const <Topic>[]) {
       final lessons = lessonsByTopic[topic.id] ?? const <Lesson>[];
+      if (lessons.isEmpty) continue;
       var topicRead = 0;
       var hasBookmark = false;
       final rows = <StudyLesson>[];
@@ -70,6 +71,7 @@ StudyMap buildStudyMap({
       );
     }
 
+    if (topics.isEmpty) continue;
     studySubjects.add(
       StudySubject(id: subject.id, name: subject.name, topics: topics),
     );

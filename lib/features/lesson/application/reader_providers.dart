@@ -273,7 +273,32 @@ final readerContextProvider =
       topicName == null ||
       positionInTopic == null ||
       lessonsInTopic == null) {
-    return null;
+    // Direct addresses still open saved lessons outside the exam's lists.
+    final content = ref.watch(contentRepositoryProvider);
+    final progress = ref.watch(lessonProgressRepositoryProvider);
+    final bookmarks = ref.watch(lessonBookmarksRepositoryProvider);
+    final topic = await content.topicById(lesson.topicId);
+    final read = await progress.isRead(lessonId);
+    final bookmarked = await bookmarks.isMarked(lessonId);
+    if (!current || topic == null) return null;
+    final valid = await positions.isBoundaryCurrent(
+      boundary,
+      isCurrent: () => current,
+    );
+    if (!valid || !current) return null;
+    return ReaderContext(
+      lesson: lesson,
+      topicId: topic.id,
+      topicName: topic.name,
+      next: null,
+      positionInTopic: 1,
+      lessonsInTopic: 1,
+      topicLessons: const [],
+      isRead: read,
+      isBookmarked: bookmarked,
+      examId: examId,
+      boundary: boundary,
+    );
   }
 
   final subjects = map.subjects;

@@ -71,6 +71,13 @@ void main() {
         },
       ]),
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
   });
 
   tearDown(() => db.close());
@@ -237,6 +244,13 @@ void main() {
       title: 'Second lesson',
       bodyJson: '[]',
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
+    );
     final bookmarks = _FailOnceBookmarks(db);
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
@@ -288,6 +302,13 @@ void main() {
       topicId: 't1',
       title: 'Second lesson',
       bodyJson: '[]',
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
     );
     final positions =
         _HeldActionPositions(AppPreferencesRepository(db), database: db);
@@ -399,6 +420,13 @@ void main() {
       topicId: 't1',
       title: 'Second lesson',
       bodyJson: body,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
     );
   }
 
@@ -814,6 +842,13 @@ void main() {
       ]),
       estimatedMinutes: 4,
       ordering: 2,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l2',
     );
 
     await tester.pumpAppWithProviders(

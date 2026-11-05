@@ -31,6 +31,7 @@ void main() {
       topicName: 'Geometry',
       questionIds: ['q1', 'q2', 'q3'],
       lessonIds: const ['l1', 'l2', 'l3'],
+      questionLessonMap: const {'q1': 'l1', 'q2': 'l2', 'q3': 'l3'},
     );
     await seedContentSubject(
       contentDb,
@@ -83,6 +84,17 @@ void main() {
     expect(detail.subject, 'Mathematics');
     expect(detail.answered, 3);
     expect(detail.correct, 1);
+  });
+
+  test('topic lessons omit lessons without active questions for this exam',
+      () async {
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'empty',
+      topicId: 'geo',
+    );
+    final detail = await container.read(topicDetailProvider('geo').future);
+    expect(detail.lessons.map((lesson) => lesson.id), ['l1', 'l2', 'l3']);
   });
 
   test('lists the topic lessons in order with their stored read state',

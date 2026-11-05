@@ -34,7 +34,7 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
     exam: exam,
     subjects: scopedSubjects,
     topicsBySubject: topicsBySubject,
-    lessonsByTopic: await content.lessonsByTopics(topicIds),
+    lessonsByTopic: await content.lessonsByTopics(topicIds, examId: exam.id),
     readLessonIds:
         await ref.watch(lessonProgressRepositoryProvider).readLessonIds(),
     bookmarkedLessonIds:
@@ -118,5 +118,14 @@ final lastOpenedLessonProvider = FutureProvider<Lesson?>((ref) async {
       .lastOpenedLessonId(examId);
   if (lessonId == null) return null;
 
+  final map = await ref.watch(studyMapProvider.future);
+  if (map == null ||
+      !map.subjects.any(
+        (subject) => subject.topics.any(
+          (topic) => topic.lessons.any((lesson) => lesson.id == lessonId),
+        ),
+      )) {
+    return null;
+  }
   return ref.watch(contentRepositoryProvider).lessonById(lessonId);
 });

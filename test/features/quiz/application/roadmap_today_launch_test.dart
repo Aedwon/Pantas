@@ -39,9 +39,12 @@ class _ContentSpy extends ContentRepository {
   }
 
   @override
-  Future<Map<TopicId, List<Lesson>>> lessonsByTopics(List<TopicId> ids) {
+  Future<Map<TopicId, List<Lesson>>> lessonsByTopics(
+    List<TopicId> ids, {
+    ExamId? examId,
+  }) {
     fullLessons++;
-    return super.lessonsByTopics(ids);
+    return super.lessonsByTopics(ids, examId: examId);
   }
 }
 

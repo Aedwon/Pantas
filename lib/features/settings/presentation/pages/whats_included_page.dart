@@ -49,8 +49,10 @@ final whatsIncludedDataProvider = FutureProvider.family<
     }
   }
   final topics = [for (final group in groups.values) ...group];
-  final lessons =
-      await content.lessonMetaByTopics([for (final t in topics) t.id]);
+  final lessons = await content.lessonMetaByTopics(
+    [for (final t in topics) t.id],
+    examId: examId,
+  );
   final excludedLessons = await ref.watch(lessonScopeProvider(examId).future);
   return (
     excludedLessons: excludedLessons,
@@ -58,20 +60,22 @@ final whatsIncludedDataProvider = FutureProvider.family<
     excluded: excluded,
     subjects: [
       for (final group in groups.entries)
-        ScopeSubject(
-          title: group.key,
-          topics: [
-            for (final topic in group.value)
-              ScopeTopic(
-                id: topic.id,
-                title: topic.name,
-                lessons: [
-                  for (final l in lessons[topic.id] ?? const <LessonMeta>[])
-                    ScopeLesson(id: l.id, title: l.title),
-                ],
-              ),
-          ],
-        ),
+        if (group.value.any((topic) => lessons[topic.id]!.isNotEmpty))
+          ScopeSubject(
+            title: group.key,
+            topics: [
+              for (final topic in group.value)
+                if (lessons[topic.id]!.isNotEmpty)
+                  ScopeTopic(
+                    id: topic.id,
+                    title: topic.name,
+                    lessons: [
+                      for (final l in lessons[topic.id] ?? const <LessonMeta>[])
+                        ScopeLesson(id: l.id, title: l.title),
+                    ],
+                  ),
+            ],
+          ),
     ]
   );
 });

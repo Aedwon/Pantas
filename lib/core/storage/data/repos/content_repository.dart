@@ -166,6 +166,25 @@ class ContentRepository {
     );
   }
 
+  /// A listed lesson needs an active question tagged for the chosen exam.
+  /// Custom tracks use the active question bank across exams.
+  Future<Expression<bool>> _lessonEligibility(ExamId? examId) async {
+    if (examId == null) return const Constant(true);
+    final questions = _db.contentQuestions;
+    final lessons = _db.contentLessons;
+    final tagged = await _taggedForExam(questions, examId);
+    return existsQuery(
+      _db.selectOnly(questions)
+        ..addColumns([questions.id])
+        ..where(
+          questions.lessonId.equalsExp(lessons.id) &
+              questions.topicId.equalsExp(lessons.topicId) &
+              questions.isActive.equals(true) &
+              tagged,
+        ),
+    );
+  }
+
   Future<List<QuestionSelectionRow>> selectionRowsByTopic(
     TopicId topicId, {
     ExamId? examId,
@@ -214,13 +233,15 @@ class ContentRepository {
 
   /// Every requested topic's lesson metadata in authored order, without bodies.
   Future<Map<TopicId, List<LessonMeta>>> lessonMetaByTopics(
-    Iterable<TopicId> topicIds,
-  ) async {
+    Iterable<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
     final wanted = topicIds.toSet().toList();
     final grouped = {for (final topicId in wanted) topicId: <LessonMeta>[]};
     if (wanted.isEmpty) return grouped;
 
     final lessons = _db.contentLessons;
+    final eligible = await _lessonEligibility(examId);
     for (final batch in _batches(wanted)) {
       final query = _db.selectOnly(lessons)
         ..addColumns([
@@ -230,7 +251,7 @@ class ContentRepository {
           lessons.ordering,
           lessons.estimatedMinutes,
         ])
-        ..where(lessons.topicId.isIn(batch))
+        ..where(lessons.topicId.isIn(batch) & eligible)
         ..orderBy([
           OrderingTerm.asc(lessons.ordering),
           OrderingTerm.asc(lessons.id),
@@ -499,9 +520,10 @@ class ContentRepository {
     return tagged;
   }
 
-  Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
+  Future<List<Lesson>> lessonsByTopic(TopicId topicId, {ExamId? examId}) async {
+    final eligible = await _lessonEligibility(examId);
     final rows = await (_db.select(_db.contentLessons)
-          ..where((l) => l.topicId.equals(topicId))
+          ..where((l) => l.topicId.equals(topicId) & eligible)
           ..orderBy([
             (l) => OrderingTerm.asc(l.ordering),
             // Unplaced lessons all share ordering 0. Their ids embed the
@@ -516,13 +538,15 @@ class ContentRepository {
   /// A topic with no lessons still gets a key, so a caller never has to tell
   /// "no lessons" apart from "topic I did not ask about".
   Future<Map<TopicId, List<Lesson>>> lessonsByTopics(
-    List<TopicId> topicIds,
-  ) async {
+    List<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
     final grouped = {for (final id in topicIds) id: <Lesson>[]};
     if (topicIds.isEmpty) return grouped;
 
+    final eligible = await _lessonEligibility(examId);
     final rows = await (_db.select(_db.contentLessons)
-          ..where((l) => l.topicId.isIn(topicIds))
+          ..where((l) => l.topicId.isIn(topicIds) & eligible)
           ..orderBy([
             (l) => OrderingTerm.asc(l.ordering),
             (l) => OrderingTerm.asc(l.id),

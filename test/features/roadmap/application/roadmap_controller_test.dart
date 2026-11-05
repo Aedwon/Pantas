@@ -49,9 +49,12 @@ class _SpyContent extends ContentRepository {
   }
 
   @override
-  Future<Map<TopicId, List<Lesson>>> lessonsByTopics(List<TopicId> topicIds) {
+  Future<Map<TopicId, List<Lesson>>> lessonsByTopics(
+    List<TopicId> topicIds, {
+    ExamId? examId,
+  }) {
     fullLessons++;
-    return super.lessonsByTopics(topicIds);
+    return super.lessonsByTopics(topicIds, examId: examId);
   }
 }
 
@@ -217,6 +220,39 @@ void main() {
             .recent('e1'))
           change.cause,
       ];
+
+  test('planning omits lessons without active exam questions and empty topics',
+      () async {
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'no_questions',
+      topicId: 't1',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'empty_topic',
+      subjectId: 's1',
+      name: 'Empty',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'inactive',
+      topicId: 'empty_topic',
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'inactive_q',
+      topicId: 'empty_topic',
+      examId: 'e1',
+      lessonId: 'inactive',
+      isActive: false,
+    );
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(inputs.lessons.map((l) => l.id), isNot(contains('no_questions')));
+    expect(inputs.lessons.map((l) => l.id), isNot(contains('inactive')));
+    expect(inputs.topics.map((t) => t.id), ['t1', 't2']);
+  });
 
   test('lesson exclusion rebuilds a stored plan and removes linked questions',
       () async {

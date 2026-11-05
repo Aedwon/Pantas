@@ -56,6 +56,13 @@ void main() {
             bodyJson: '[]',
             estimatedMinutes: 10,
           );
+          await seedContentQuestion(
+            content,
+            questionId: 'question_l$i',
+            topicId: 't',
+            examId: 'e',
+            lessonId: 'l$i',
+          );
           await LessonBookmarksRepository(db).mark('l$i');
         }
         await AppPreferencesRepository(db).setSelectedExamId('e');

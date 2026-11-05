@@ -595,6 +595,13 @@ void main() {
         title: lesson.title,
         bodyJson: '[]',
       );
+      await seedContentQuestion(
+        content,
+        questionId: 'question_${lesson.id}',
+        topicId: 't1',
+        examId: 'e',
+        lessonId: lesson.id,
+      );
     }
     await AppPreferencesRepository(db).setSelectedExamId('e');
     tester.view
