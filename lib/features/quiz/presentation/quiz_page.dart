@@ -33,7 +33,6 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
-import 'package:pantas/core/ui/web/web_keyboard_hints.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -897,7 +896,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final t = context.webTokens;
     final session = state.session;
     final total = session.questions.length;
-    final flagHint = _toastVisible && WebKeyboardHints.visibleOf(context);
     final current = session.currentIndex;
     final question = session.questions[index];
     final outcome =
@@ -1117,22 +1115,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 action: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    if (flagHint) ...[
-                                      const SizedBox(width: 6),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 16,
-                                        ),
-                                        child: Text(
-                                          'F to flag',
-                                          style: t.sm.copyWith(
-                                            color: t.dark
-                                                ? t.colors.secondaryLabel
-                                                : t.colors.tertiaryLabel,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
                                     // The same name and switch the phone
                                     // gives its flag.
                                     Semantics(

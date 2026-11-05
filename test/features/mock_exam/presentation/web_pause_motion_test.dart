@@ -30,7 +30,7 @@ void main() {
               child: PausePage(
                 partNames: const ['General Information'],
                 currentPartIndex: 0,
-                remaining: const Duration(minutes: 30),
+                remaining: const Duration(minutes: 30, milliseconds: 500),
                 partLength: const Duration(minutes: 90),
                 answeredCount: 3,
                 onResume: () {},
@@ -78,7 +78,7 @@ void main() {
               paper: const Text('Frozen paper'),
               partNames: const ['General Information'],
               currentPartIndex: 0,
-              remaining: const Duration(minutes: 30),
+              remaining: const Duration(minutes: 30, milliseconds: 500),
               partLength: const Duration(minutes: 90),
               answeredCount: 3,
               onResume: () => resumed = true,
@@ -97,7 +97,7 @@ void main() {
             .widget<Transform>(find.byKey(const ValueKey('web-pause-drop')));
         expect(drop.transform.storage[1], isNegative);
         await tester.pump(const Duration(milliseconds: 1000));
-        expect(find.text('29:59'), findsOneWidget);
+        expect(find.text('30:00'), findsOneWidget);
         await tester.pump(const Duration(milliseconds: 500));
         expect(
           tester
@@ -109,11 +109,13 @@ void main() {
       await tester.pump(const Duration(milliseconds: 4100));
       expect(tester.widget<Opacity>(content).opacity, 1);
       expect(find.text('Paused'), findsOneWidget);
+      expect(find.text('30:00'), findsOneWidget);
       await tester.tap(find.text('Resume'));
       await tester.pump();
       expect(resumed, reduced);
       if (!reduced) {
         await tester.pump(const Duration(milliseconds: 900));
+        expect(find.text('30:00'), findsOneWidget);
         expect(
           tester
               .widget<MockHourglass>(find.byType(MockHourglass))

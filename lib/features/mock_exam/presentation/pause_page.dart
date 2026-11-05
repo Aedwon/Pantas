@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
 
@@ -246,16 +247,6 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
     return 0;
   }
 
-  String _clock([int elapsed = 0]) {
-    final seconds = (widget.remaining.inSeconds - elapsed).clamp(0, 1 << 31);
-    final hours = seconds ~/ 3600;
-    final minutes = (seconds ~/ 60) % 60;
-    final secs = seconds % 60;
-    return '${hours > 0 ? '$hours:' : ''}'
-        '${minutes.toString().padLeft(2, '0')}:'
-        '${secs.toString().padLeft(2, '0')}';
-  }
-
   Widget _wide(BuildContext context) {
     final t = context.webTokens;
     final currentPart = widget.currentPartIndex;
@@ -371,19 +362,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
               Opacity(
                 opacity: blink,
                 child: Text(
-                  _clock(
-                    (_still ?? false)
-                        ? 0
-                        : _leaving
-                            ? 1 +
-                                ((exit - 650).clamp(
-                                          0,
-                                          2050,
-                                        ) /
-                                        1000)
-                                    .floor()
-                            : (entry.clamp(0, 1450) / 1000).floor(),
-                  ),
+                  formatMockRemaining(widget.remaining),
                   // Board A: 30 px in a 38 px line.
                   style: t.style(
                     30,
@@ -585,7 +564,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
               textBaseline: TextBaseline.alphabetic,
               children: [
                 Text(
-                  _clock(),
+                  formatMockRemaining(widget.remaining),
                   style: context.type.emphasized.copyWith(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,

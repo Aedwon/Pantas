@@ -591,6 +591,16 @@ void main() {
       expect(find.text('Flagged. Find it in the Quiz tab.'), findsOneWidget);
     });
 
+    testWidgets('F still flags after Check without adding a key hint',
+        (tester) async {
+      await pumpLive(tester);
+      await pickAndCheck(tester, key: true);
+      await tester.sendKeyEvent(LogicalKeyboardKey.keyF);
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(find.text('Flagged. Find it in the Quiz tab.'), findsOneWidget);
+      expect(find.text('F to flag'), findsNothing);
+    });
+
     testWidgets('the letters pick nothing once the question is checked',
         (tester) async {
       await pumpLive(tester);

@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/material.dart' show ValueKey;
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_panel_providers.dart';
@@ -77,8 +79,8 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
           }
           if (availabilityState.hasError || availability == null) {
             return QuizTabScreen(
-              mockPanel: errorFor(
-                'mock',
+              mockPanel: _mockErrorFor(
+                context,
                 () {
                   if (ref.read(mockUsesServerProvider)) {
                     ref.invalidate(serverMockAvailabilityProvider(examId));
@@ -100,8 +102,8 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
           }
           if (web && lastAttemptState.hasError) {
             return QuizTabScreen(
-              mockPanel: errorFor(
-                'mock',
+              mockPanel: _mockErrorFor(
+                context,
                 () {
                   final reply = ref
                       .read(serverMockAvailabilityProvider(examId))
@@ -332,4 +334,20 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
       ),
     ),
   ];
+}
+
+Widget _mockErrorFor(
+  BuildContext context,
+  VoidCallback onRetry, {
+  Object? error,
+}) {
+  final panel = errorFor('mock', onRetry, error: error);
+  if (!context.wideWeb) return panel;
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      const WebText('Mock exam', kind: WebTextKind.eyebrow),
+      panel,
+    ],
+  );
 }

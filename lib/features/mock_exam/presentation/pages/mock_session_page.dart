@@ -26,6 +26,7 @@ import 'package:pantas/features/mock_exam/application/mock_start_providers.dart'
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
+import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
@@ -367,7 +368,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  _formatRemaining(widget.remainingInPart),
+                  formatMockRemaining(widget.remainingInPart),
                   style: context.type.subheadStrong.copyWith(
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
@@ -886,7 +887,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                _formatRemaining(widget.remainingInPart),
+                                formatMockRemaining(widget.remainingInPart),
                                 style: t.style(
                                   30,
                                   weight: FontWeight.w700,
@@ -1192,16 +1193,6 @@ class _MockSessionPageState extends State<MockSessionPage> {
     final target = _firstIndexInPart + number - 1;
     if (target != widget.state.currentIndex) setState(() => _gridJump++);
     widget.onGoTo?.call(target);
-  }
-
-  String _formatRemaining(Duration remaining) {
-    final seconds = remaining.inSeconds.clamp(0, 1 << 31);
-    final hours = seconds ~/ 3600;
-    final minutes = (seconds ~/ 60) % 60;
-    final secs = seconds % 60;
-    return '${hours > 0 ? '$hours:' : ''}'
-        '${minutes.toString().padLeft(2, '0')}:'
-        '${secs.toString().padLeft(2, '0')}';
   }
 }
 

@@ -11,6 +11,7 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
@@ -18,6 +19,7 @@ import 'package:pantas/features/mock_exam/application/server_mock_results_provid
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -81,6 +83,7 @@ void main() {
     ServerMockApi? api,
     String? openedAt,
     bool settle = true,
+    bool todayFails = false,
   }) async {
     // A page opened at an address starts the router there, as a reload does.
     forgetStartLocation();
@@ -101,6 +104,10 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          if (todayFails)
+            sessionPanelProvider('upcat').overrideWith(
+              (_) async => throw StateError('Server blocked'),
+            ),
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider
@@ -346,9 +353,26 @@ void main() {
         size: const Size(1440, 900),
         auth: Stream.value(namedState),
         api: failing(),
+        todayFails: true,
+      );
+      expect(find.text('MOCK EXAM'), findsOneWidget);
+      expect(
+        tester.getTopLeft(find.text(_failure)).dy,
+        closeTo(
+          tester
+              .getTopLeft(find.text('Could not load your practice.').first)
+              .dy,
+          1,
+        ),
       );
       expect(find.text(_failure), findsOneWidget);
-      expect(find.text('Try Again'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.widgetWithText(StateView, _failure),
+          matching: find.text('Try Again'),
+        ),
+        findsOneWidget,
+      );
       expect(find.byType(MockSignUpCard), findsNothing);
       expect(find.text(_button), findsNothing);
     });
