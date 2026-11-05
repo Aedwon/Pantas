@@ -2,6 +2,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_writes.dart';
 
@@ -69,9 +70,14 @@ class StudyObservations {
           }.contains(attempt.origin)) {
         continue;
       }
+      // A custom session had its own receipt before the server accepted these.
+      // Those marked rejected were refused for that reason, so the new id sends
+      // each of them once more. The server dedupes by session id.
       await deliver(
         'ingestSession',
-        'session_${attempt.id}',
+        isCustomExamId(request.examId)
+            ? 'custom_session_${attempt.id}'
+            : 'session_${attempt.id}',
         () => studySessionPayload(attempt),
       );
     }

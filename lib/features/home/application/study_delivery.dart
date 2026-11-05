@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -100,7 +101,7 @@ Future<(StudyRequest, String)?> _request(Ref ref, {String? examId}) async {
   final original = await SyncActiveContextStore(db).readSnapshot();
   if (original?.context != null && original!.context!.uid != uid) return null;
   final target = examId ?? await prefs.selectedExamId();
-  if (target == null || target.startsWith('exam_custom_')) return null;
+  if (target == null) return null;
   Future<bool> current() async {
     if (!alive ||
         !identical(ref.read(appDatabaseProvider), db) ||
@@ -168,10 +169,9 @@ Future<Map<String, Object?>> readStudySettingsPayload(
 ) async {
   final settings =
       await ref.read(settingsRepositoryProvider).readUserSettings();
-  final scope =
-      await ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
-  final lessons =
-      await ref.read(customTrackRepositoryProvider).excludedLessonIds(examId);
+  final tracks = ref.read(customTrackRepositoryProvider);
+  final scope = await tracks.excludedTopicIds(examId);
+  final lessons = await tracks.excludedLessonIds(examId);
   final assessed =
       await ref.read(assessmentRepositoryProvider).hasCompletedForExam(examId);
   final date = settings.examDate;
@@ -191,5 +191,15 @@ Future<Map<String, Object?>> readStudySettingsPayload(
     'assessmentCompleted': assessed,
     'carryOverProgress': settings.carryOverProgress,
   };
+  if (isCustomExamId(examId)) {
+    // The name and paper are the student's own. A paper the server would
+    // refuse stays on this device and is left out, so it cannot fail the save.
+    final name = await tracks.name(examId);
+    final blueprint = await tracks.blueprintPayload(examId);
+    payload['customTrack'] = {
+      if (name != null) 'name': name,
+      if (blueprint != null) 'blueprint': blueprint,
+    };
+  }
   return payload;
 }

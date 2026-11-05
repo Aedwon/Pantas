@@ -7,11 +7,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/bootstrap.dart';
+import 'package:pantas/app/content_access_bridge.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/remote/content_mirror.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/sync/custom_track/custom_track_projection.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+
+import '../helpers/in_memory_database.dart';
 
 void main() {
   for (final stage in ['storage', 'content install']) {
@@ -194,6 +205,116 @@ void main() {
       ErrorWidget.builder = originalBuilder;
     }
   });
+  group('web start puts stored custom exams back', () {
+    const examId = 'exam_custom_6f1d0a52-3c1b-4c0e-8a52-0f6a3d2c9b11';
+
+    // A reload empties the in-memory content database. The study database
+    // keeps the track, and no retry marker is left to bring it back.
+    Future<
+        ({
+          AppDatabase db,
+          ContentDatabase content,
+          _Mirror mirror,
+          ProviderContainer container,
+        })> start({
+      Future<void> Function(ContentDatabase content)? onMirrorStart,
+      CustomTrackProjection? projection,
+    }) async {
+      final db = inMemoryDatabase();
+      final content = inMemoryContentDatabase();
+      addTearDown(db.close);
+      addTearDown(content.close);
+      await db.into(db.customTrackMetaLocal).insert(
+            CustomTrackMetaLocalCompanion.insert(
+              examId: examId,
+              name: 'Barangay exam',
+            ),
+          );
+      final mirror = _Mirror(content, onMirrorStart);
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(content),
+          contentMirrorProvider.overrideWithValue(mirror),
+          contentAccessBridgeProvider.overrideWith((ref) {}),
+          if (projection != null)
+            customTrackRepositoryProvider.overrideWithValue(
+              CustomTrackRepository(db, content, projection: projection),
+            ),
+        ],
+      );
+      addTearDown(container.dispose);
+      return (db: db, content: content, mirror: mirror, container: container);
+    }
+
+    test('after the content mirror starts, before the first page', () async {
+      final setup = await start();
+
+      final failure = await startWebContent(setup.container);
+
+      expect(failure, isNull);
+      expect(setup.mirror.listedAtStart, isEmpty);
+      final exams = await ContentRepository(setup.content).listExams();
+      expect(exams.map((e) => e.id), [examId]);
+      expect(exams.single.name, 'Barangay exam');
+      expect(exams.single.isCustom, isTrue);
+    });
+
+    test('a content mirror that fails does not keep the track away', () async {
+      final setup = await start(
+        onMirrorStart: (_) async => throw StateError('offline'),
+      );
+
+      final failure = await startWebContent(setup.container);
+
+      expect(failure, isNull);
+      expect(
+        (await ContentRepository(setup.content).listExams()).map((e) => e.id),
+        [examId],
+      );
+    });
+
+    test('a projection that fails does not stop startup and is handed back',
+        () async {
+      final setup = await start(projection: _FailingProjection());
+
+      final failure = await startWebContent(setup.container);
+
+      expect(failure, isNotNull);
+      expect(failure!.$1, isA<StateError>());
+      expect(setup.mirror.started, isTrue);
+      expect(await ContentRepository(setup.content).listExams(), isEmpty);
+    });
+  });
+}
+
+class _Mirror implements ContentMirror {
+  _Mirror(this._content, this._onStart);
+  final ContentDatabase _content;
+  final Future<void> Function(ContentDatabase content)? _onStart;
+  bool started = false;
+  List<String> listedAtStart = const [];
+
+  @override
+  Future<void> start() async {
+    started = true;
+    listedAtStart = [
+      for (final exam in await ContentRepository(_content).listExams()) exam.id,
+    ];
+    await _onStart?.call(_content);
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
+class _FailingProjection implements CustomTrackProjection {
+  @override
+  Future<void> upsert({required String examId, required String name}) =>
+      Future.error(StateError('projection failed'));
+
+  @override
+  Future<void> delete(String examId) => Future.error(StateError('x'));
 }
 
 class _FirebaseAdapter implements FirebaseBootAdapter {

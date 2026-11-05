@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -202,6 +203,7 @@ Future<void> _deleteAccount(WidgetRef ref, {required bool isAnonymous}) async {
     deleteNamedAccount: ref.read(authRepositoryProvider).deleteAccount,
     wipeAnonymousData: SyncLocalStateWiper(
       ref.read(appDatabaseProvider),
+      contentDatabase: ref.read(contentDatabaseProvider),
     ).wipeAll,
   );
 }
