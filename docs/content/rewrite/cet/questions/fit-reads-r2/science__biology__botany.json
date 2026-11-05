@@ -1,0 +1,18 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-biology-botany-0006"
+ ],
+ "findings": [
+  {
+   "question": "q-biology-botany-0012",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "No; root responses to light vary with the plant and conditions.",
+   "problem": "The round-1 answer-giving clue remains unresolved. Only the key allows variation; the distractors still assert fixed rules: roots and shoots respond the same way, roots grow opposite to shoots, or roots respond to gravity but not light. Removing words such as \"every\" and \"always\" did not make these alternatives qualified. A student can still select the sole cautious statement without knowing how roots respond to light.",
+   "fix": "Use similarly qualified alternatives with distinct, plausible reasoning so that allowing variation alone does not identify the key."
+  }
+ ]
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__chemical-bonding",
+  "source": "content/questions/science/chemistry/chemical-bonding.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-chemical-bonding-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Crystalline NaCl consists of oppositely charged ions in an extended lattice."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-chemical-bonding-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Carbon and oxygen share electrons in covalent bonds."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-chemical-bonding-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Copper atoms are held together by metallic bonding involving delocalized electrons."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-chemical-bonding-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A small electronegativity difference suggests nearly equal or weakly polar sharing."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-chemical-bonding-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "HF demonstrates that electronegativity cutoffs are approximate and have exceptions."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-chemical-bonding-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Unequal attraction of shared electron density produces a polar covalent bond."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-chemical-bonding-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Two electron groups without lone pairs arrange opposite each other."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-chemical-bonding-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The double bond counts as one group, giving three groups and trigonal planar geometry."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-chemical-bonding-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Tetrahedral directions have ideal angles of approximately 109.5 degrees."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-chemical-bonding-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Four electron groups give tetrahedral electron geometry while the two bonded atoms form a bent shape."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-chemical-bonding-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Polar covalent bonds share electron density unequally."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-chemical-bonding-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "An ionic solid forms an extended lattice rather than discrete molecules."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-chemical-bonding-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A triple bond occupies one bonding direction and counts as one electron group."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-chemical-bonding-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Bonding can stabilize atoms by forming a lower-energy arrangement."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-chemical-bonding-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Three bonding groups and one lone pair produce a trigonal pyramidal molecular shape."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-chemical-bonding-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Lewis structures account for valence electrons in bonds and lone pairs."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-chemical-bonding-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrogen fills its first electron shell with two electrons."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-chemical-bonding-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Mobile delocalized electrons can carry electrical current through a solid metal."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-chemical-bonding-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Lone pairs usually exert stronger repulsion and compress nearby bond angles."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-chemical-bonding-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Resonance structures collectively represent delocalized electron density."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

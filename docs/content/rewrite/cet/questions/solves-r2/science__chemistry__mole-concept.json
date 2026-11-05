@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__mole-concept",
+  "source": "content/questions/science/chemistry/mole-concept.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-mole-concept-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "2(1) + 16 = 18 g/mol."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-mole-concept-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "CO2 contains two oxygen atoms per molecule."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-mole-concept-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "54/18 = 3 mol."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-mole-concept-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "3 times 6.022 × 10^23 = 1.8066 × 10^24 molecules."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-mole-concept-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "45/18 = 2.5 mol, containing 1.5055 × 10^24 molecules."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-mole-concept-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying grams by NA/M cancels grams and yields the entity count."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-mole-concept-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Molar mass is mass in grams per mole."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-mole-concept-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Relative atomic mass is a dimensionless mass ratio, while molar mass is mass per mole."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-mole-concept-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The SI fixes NA at exactly 6.02214076 × 10^23 per mole."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-mole-concept-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "117/2 = 58.5 g/mol."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-mole-concept-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Each mole contains the same entity count, but their masses are 18 g and 58.5 g."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-mole-concept-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Each NaCl formula unit represents one sodium ion and one chloride ion."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-mole-concept-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "6(12) + 12(1) + 6(16) = 180 g/mol."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-mole-concept-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "For the same substance, a smaller mass than one mole means an amount below one mole."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-mole-concept-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Crystalline NaCl is counted using formula units."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-mole-concept-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The specified entity count is exactly half of NA."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-mole-concept-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "0.25 times 18 = 4.5 g."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-mole-concept-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Each O2 molecule contains two oxygen atoms."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-mole-concept-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An exact conversion factor does not increase the precision of a measured amount."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-mole-concept-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The 2019 definition fixes the number of specified entities in one mole."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

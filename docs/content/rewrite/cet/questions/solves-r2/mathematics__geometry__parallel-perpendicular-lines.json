@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__parallel-perpendicular-lines",
+  "source": "content/questions/mathematics/geometry/parallel-perpendicular-lines.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-parallel-perpendicular-lines-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Alternate interior angles are equal, so the other angle is 68°."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-parallel-perpendicular-lines-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Same-side interior angles sum to 180°, giving 65°."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-parallel-perpendicular-lines-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Corresponding angles are equal, so 4x + 10 = 70 gives x = 15."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-parallel-perpendicular-lines-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A line perpendicular to one of two parallel lines is perpendicular to the other."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-parallel-perpendicular-lines-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal alternate exterior angles give 5x - 20 = 3x + 16, so x = 18."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-parallel-perpendicular-lines-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The angle sum gives x = 17, making the larger angle 104°."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-parallel-perpendicular-lines-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The two acute inclinations sum to 80°, so the lower angle is 45°."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-parallel-perpendicular-lines-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal corresponding angles require 3x + 25 = 5x - 15, so x = 20."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-parallel-perpendicular-lines-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The alternate interior angle is 110°, and its bisector gives 55°."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-parallel-perpendicular-lines-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The exterior angles sum to 180°, giving x = 16 and a smaller angle of 50°."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-parallel-perpendicular-lines-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Consecutive angles sum to 180°, giving x = 20 and an acute angle of 70°."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-parallel-perpendicular-lines-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The acute angle is 75° - 40° = 35°, so the obtuse angle is 145°."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-parallel-perpendicular-lines-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The acute angle with either parallel line is 90° - 32° = 58°."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-parallel-perpendicular-lines-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The corresponding acute angles are 75°, so half the adjacent obtuse angle is 52.5°."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-parallel-perpendicular-lines-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The left-facing angle is the sum of the two inclinations, 50° + 65° = 115°."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-parallel-perpendicular-lines-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Corresponding angles occupy the same corner at the two crossings."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-parallel-perpendicular-lines-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equality of corresponding angles requires a parallel-line condition."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-parallel-perpendicular-lines-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Two equal supplementary angles each measure 90°."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-parallel-perpendicular-lines-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Same-side interior angles are supplementary, so their expressions must sum to 180°."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-parallel-perpendicular-lines-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Both alternate interior angles are 70°, so their equality implies parallel lines."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

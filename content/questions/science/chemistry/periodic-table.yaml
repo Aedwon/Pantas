@@ -190,7 +190,7 @@ questions:
         rationale: |
           This ranks ionization energy by molar mass. Mass often rises across the table, so it looks like a pattern. Check how tightly the outer electron is held, not how heavy the atom is.
     explanation: |
-      Nitrogen has a higher first ionization energy than carbon. In this comparison, the increased effective nuclear attraction across period 2 supports the observed ordering.
+      Nitrogen has a higher first ionization energy than carbon. Nitrogen has more protons pulling on electrons in the same outer layer. So it holds its outer electrons more tightly. It takes more energy to remove one.
     approved: true
 
   - id: q-chemistry-periodic-table-0010

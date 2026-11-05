@@ -1,0 +1,11 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-chemistry-stoichiometry-0006",
+  "q-chemistry-stoichiometry-0012",
+  "q-chemistry-stoichiometry-0015"
+ ],
+ "findings": []
+}

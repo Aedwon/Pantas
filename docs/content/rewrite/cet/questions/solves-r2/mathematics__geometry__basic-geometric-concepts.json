@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__basic-geometric-concepts",
+  "source": "content/questions/mathematics/geometry/basic-geometric-concepts.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-basic-geometric-concepts-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Complementary angles sum to 90°, so B = 55°."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-basic-geometric-concepts-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A linear pair sums to 180°, so Y = 68°."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-basic-geometric-concepts-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Vertical angles are equal, so angle BPD is 48°."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-basic-geometric-concepts-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A ray has one endpoint and a segment has two."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-basic-geometric-concepts-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The bisector makes two equal 28° angles, totaling 56°."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-basic-geometric-concepts-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equating the halves gives x = 6 and AB = 22 + 22 = 44."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-basic-geometric-concepts-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The smaller angle is 35° and the larger is 55°."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-basic-geometric-concepts-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The angle ranges strictly between 80° and 170°, including 90°."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-basic-geometric-concepts-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equality gives x = 16 and vertical angles of 82°, whose adjacent angles are 98°."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-basic-geometric-concepts-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The sum gives 6x + 30 = 180, so x = 25 and angle BOC = 85°."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-basic-geometric-concepts-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The bisected angles sum to half of 180°, which is 90°."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-basic-geometric-concepts-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 180 − a = 4(90 − a) gives a = 60°."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-basic-geometric-concepts-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Both midpoint conditions give AB = BC = CD, so BC = 12 cm."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-basic-geometric-concepts-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The sectors sum to 360°, giving x = 22.5 and angle AOB = 85°."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-basic-geometric-concepts-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 3Q − 20 + Q = 180 gives Q = 50°, so R = 40°."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-basic-geometric-concepts-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The rays have different endpoints, A and B."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-basic-geometric-concepts-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The full segment is twice AM, so AB = 14 cm."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-basic-geometric-concepts-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Adjacent angles need not have opposite noncommon sides."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-basic-geometric-concepts-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equating the parts gives x = 5, so each part is 17° and the full angle is 34°."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-basic-geometric-concepts-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting an obtuse angle from 180° gives an acute angle."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

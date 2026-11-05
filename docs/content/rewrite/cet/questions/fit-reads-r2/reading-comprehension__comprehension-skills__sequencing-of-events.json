@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-comprehension-skills-sequencing-of-events-0018"
+ ],
+ "findings": []
+}

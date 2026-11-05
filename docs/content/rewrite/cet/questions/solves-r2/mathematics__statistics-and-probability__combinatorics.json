@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__statistics-and-probability__combinatorics",
+  "source": "content/questions/mathematics/statistics-and-probability/combinatorics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-statistics-and-probability-combinatorics-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "4 × 3 × 2 = 24."
+    },
+    {
+      "n": 2,
+      "id": "q-statistics-and-probability-combinatorics-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "5! = 120."
+    },
+    {
+      "n": 3,
+      "id": "q-statistics-and-probability-combinatorics-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Choosing 3 of 8 gives 56 delegations."
+    },
+    {
+      "n": 4,
+      "id": "q-statistics-and-probability-combinatorics-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "7 × 6 × 5 = 210."
+    },
+    {
+      "n": 5,
+      "id": "q-statistics-and-probability-combinatorics-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Each of four positions has 10 choices, giving 10,000 passcodes."
+    },
+    {
+      "n": 6,
+      "id": "q-statistics-and-probability-combinatorics-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Eight letters with three identical As give 8!/3! = 6,720."
+    },
+    {
+      "n": 7,
+      "id": "q-statistics-and-probability-combinatorics-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Fixing one member leaves 5! = 120 circular arrangements."
+    },
+    {
+      "n": 8,
+      "id": "q-statistics-and-probability-combinatorics-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "9 × 8 = 72 assignments."
+    },
+    {
+      "n": 9,
+      "id": "q-statistics-and-probability-combinatorics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Choosing 3 of 6 teachers and 2 of 5 students gives 20 × 10 = 200."
+    },
+    {
+      "n": 10,
+      "id": "q-statistics-and-probability-combinatorics-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Each unordered pair shakes hands once, giving 12 × 11 / 2 = 66."
+    },
+    {
+      "n": 11,
+      "id": "q-statistics-and-probability-combinatorics-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Treating the girls as one block gives 5! × 3! = 720."
+    },
+    {
+      "n": 12,
+      "id": "q-statistics-and-probability-combinatorics-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Three seniors and one junior give 40 teams, and four seniors give 5 more."
+    },
+    {
+      "n": 13,
+      "id": "q-statistics-and-probability-combinatorics-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The adjacent pair forms a block, giving 6! × 2 = 1,440 circular arrangements."
+    },
+    {
+      "n": 14,
+      "id": "q-statistics-and-probability-combinatorics-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "56 singer selections × 15 dancer selections × 5! orders = 100,800."
+    },
+    {
+      "n": 15,
+      "id": "q-statistics-and-probability-combinatorics-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting adjacent arrangements gives 6! − 2 × 5! = 480."
+    },
+    {
+      "n": 16,
+      "id": "q-statistics-and-probability-combinatorics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Three even final digits and 5 × 4 × 3 preceding choices give 180."
+    },
+    {
+      "n": 17,
+      "id": "q-statistics-and-probability-combinatorics-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Including all six members produces exactly one unordered team."
+    },
+    {
+      "n": 18,
+      "id": "q-statistics-and-probability-combinatorics-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "5 + 3 = 8 single-item purchases."
+    },
+    {
+      "n": 19,
+      "id": "q-statistics-and-probability-combinatorics-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "With Lia included, choosing 3 of the other 6 gives 20 teams."
+    },
+    {
+      "n": 20,
+      "id": "q-statistics-and-probability-combinatorics-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Choosing the three excluded members without order gives 8 × 7 × 6 / 3! = 56."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

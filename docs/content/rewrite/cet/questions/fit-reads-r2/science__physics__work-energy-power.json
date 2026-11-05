@@ -1,0 +1,12 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-physics-work-energy-power-0006",
+  "q-physics-work-energy-power-0009",
+  "q-physics-work-energy-power-0014",
+  "q-physics-work-energy-power-0019"
+ ],
+ "findings": []
+}

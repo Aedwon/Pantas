@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__triangles",
+  "source": "content/questions/mathematics/geometry/triangles.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-triangles-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The third angle is 180 minus 55 minus 65, or 60 degrees."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-triangles-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 6 plus 8 equals 14, the strict triangle inequality fails."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-triangles-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The other remote angle is 125 minus 55, or 70 degrees."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-triangles-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "SSA can describe two distinct triangles and does not generally establish congruence."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-triangles-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The hypotenuse is the square root of 81 plus 144, or 15 cm."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-triangles-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Each leg is 10 cm, so the perimeter is 20 plus 10 square root of 2 cm."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-triangles-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The longer leg is half the hypotenuse times the square root of 3."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-triangles-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The scale factor is 9 divided by 6, giving a perimeter of 24 times 1.5 equals 36 cm."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-triangles-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Each ratio unit is 15 degrees, so the largest angle is 105 degrees."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-triangles-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The Pythagorean equation gives x equals 8 as the valid solution, so the hypotenuse is 10."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-triangles-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The exterior angle equation gives x equals 15, making the interior angle 80 degrees."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-triangles-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The third side must exceed the difference 4 and be less than the sum 18."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-triangles-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The altitude squared equals 4 times 9, so its length is 6 cm."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-triangles-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The hypotenuse ratio is 12 divided by 6 square root of 2, which equals the square root of 2."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-triangles-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The side scale factor is the square root of 72 divided by 32, or 1.5, giving 12 cm."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-triangles-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 3 should take the positive square root of 169 to obtain 13 cm."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-triangles-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Similar triangles give a height of 12 times 2 divided by 3 equals 8 m."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-triangles-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Side AC is opposite the largest angle, B at 85 degrees."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-triangles-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal hypotenuses and corresponding legs in right triangles satisfy HL congruence."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-triangles-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The remaining side is 12 cm, and lengths 8, 10, and 12 satisfy the triangle inequality."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

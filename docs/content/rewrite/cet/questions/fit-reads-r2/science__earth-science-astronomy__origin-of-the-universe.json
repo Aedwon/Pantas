@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-earth-science-astronomy-origin-of-the-universe-0002",
+  "q-earth-science-astronomy-origin-of-the-universe-0007"
+ ],
+ "findings": []
+}

@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "rc-tt-vm-0005",
+  "q-text-types-visual-media-0019"
+ ],
+ "findings": []
+}

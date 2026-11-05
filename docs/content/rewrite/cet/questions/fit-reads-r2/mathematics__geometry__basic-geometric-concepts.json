@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-geometry-basic-geometric-concepts-0014"
+ ],
+ "findings": []
+}

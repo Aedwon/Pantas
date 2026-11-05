@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__two-dimensional-motion",
+  "source": "content/questions/science/physics/two-dimensional-motion.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-two-dimensional-motion-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Horizontal distance is 4 × 0.6 = 2.4 m."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-two-dimensional-motion-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Flight time is 3/6 = 0.5 s, so height is 5 × 0.5² = 1.25 m."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-two-dimensional-motion-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The initial speed is √(12² + 5²) = 13 m/s."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-two-dimensional-motion-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Time to the peak is 20/9.8 ≈ 2.04 s."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-two-dimensional-motion-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Changing velocity direction constitutes acceleration."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-two-dimensional-motion-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Uniform circular motion has inward centripetal acceleration."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-two-dimensional-motion-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Zero horizontal acceleration gives Δx = vx0t."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-two-dimensional-motion-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Gravity itself supplies the required centripetal force."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-two-dimensional-motion-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The equations use 25 cos 40° horizontally and 25 sin 40° vertically."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-two-dimensional-motion-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Flight time is proportional to the initial upward component, which is larger at 60°."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-two-dimensional-motion-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Both balls have identical vertical initial conditions and acceleration."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-two-dimensional-motion-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Uniform downward gravity and negligible drag produce the parabolic trajectory."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-two-dimensional-motion-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Vertical velocity is zero at the peak while horizontal velocity remains unchanged."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-two-dimensional-motion-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Flight time is 2 × 14.7/9.8 = 3 s."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-two-dimensional-motion-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Centripetal acceleration is 6²/3 = 12 m/s²."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-two-dimensional-motion-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Static tire-road friction provides the inward horizontal force without slipping."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-two-dimensional-motion-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Centripetal acceleration scales with speed squared at fixed radius."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-two-dimensional-motion-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The inward force is mv²/r = 2 × 25/10 = 5 N."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-two-dimensional-motion-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Vertical motion determines the shared flight time used to find horizontal distance."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-two-dimensional-motion-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Instantaneous velocity is tangent to the orbit and acceleration points inward."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

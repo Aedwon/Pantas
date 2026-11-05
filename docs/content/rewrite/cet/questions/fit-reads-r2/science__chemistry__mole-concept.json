@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-chemistry-mole-concept-0003",
+  "q-chemistry-mole-concept-0006"
+ ],
+ "findings": []
+}

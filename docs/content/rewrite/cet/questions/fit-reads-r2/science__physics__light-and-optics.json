@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-physics-light-and-optics-0011",
+  "q-physics-light-and-optics-0015"
+ ],
+ "findings": []
+}

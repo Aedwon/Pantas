@@ -1,0 +1,187 @@
+{
+  "file_id": "science__earth-science-astronomy__minerals-and-rocks",
+  "source": "content/questions/science/earth-science-astronomy/minerals-and-rocks.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A mineral is a naturally occurring inorganic crystalline solid with characteristic composition."
+    },
+    {
+      "n": 2,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A rock is an aggregate of one or more minerals."
+    },
+    {
+      "n": 3,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mohs hardness increases from 1 for talc to 10 for diamond."
+    },
+    {
+      "n": 4,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Scratching shows that B is softer than A and A is softer than C."
+    },
+    {
+      "n": 5,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Streak is the color of a mineral in powdered form."
+    },
+    {
+      "n": 6,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The dark powder records the streak of pyrite."
+    },
+    {
+      "n": 7,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Luster describes how a mineral surface reflects light."
+    },
+    {
+      "n": 8,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Cleavage produces flat planes along directions of weaker bonding."
+    },
+    {
+      "n": 9,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Igneous rocks form by solidification of magma or lava."
+    },
+    {
+      "n": 10,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Slow cooling generally gives crystals more time to grow."
+    },
+    {
+      "n": 11,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Compaction and cementation of accumulated debris produce sedimentary rock."
+    },
+    {
+      "n": 12,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Heat and pressure can transform existing rock into metamorphic rock without melting."
+    },
+    {
+      "n": 13,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Quartzite forms through metamorphism of sandstone."
+    },
+    {
+      "n": 14,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Mineral precipitation from water can produce chemical sedimentary rock."
+    },
+    {
+      "n": 15,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Metamorphism of limestone produces marble."
+    },
+    {
+      "n": 16,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The rock cycle permits multiple pathways depending on the processes involved."
+    },
+    {
+      "n": 17,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Weathered granite can supply quartz sand that becomes sandstone and then quartzite."
+    },
+    {
+      "n": 18,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Hardness and streak are diagnostic here, although scratch comparisons near 5.5 are approximate."
+    },
+    {
+      "n": 19,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Obsidian is rapidly cooled volcanic glass and does not require a crystalline structure to be a rock."
+    },
+    {
+      "n": 20,
+      "id": "q-earth-science-astronomy-minerals-and-rocks-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Solidification after complete melting produces a new igneous rock."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

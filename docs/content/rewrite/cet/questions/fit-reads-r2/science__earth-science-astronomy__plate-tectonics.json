@@ -1,0 +1,29 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-earth-science-astronomy-plate-tectonics-0003",
+  "q-earth-science-astronomy-plate-tectonics-0009",
+  "q-earth-science-astronomy-plate-tectonics-0010",
+  "q-earth-science-astronomy-plate-tectonics-0014"
+ ],
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0010",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Continental plates are light and thick, so when two meet they crumple and form mountains.",
+   "problem": "This explains continental collision, the outcome used in the wrong choice about both plates crumpling upward. The keyed answer concerns an oceanic plate sinking beneath a continental plate. The explanation must explain only the correct answer.",
+   "fix": "Remove the continental-collision sentence. Explain that oceanic rock is heavier for its size than continental rock, so the oceanic plate sinks beneath the continental plate."
+  },
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0014",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "S waves propagate through solids, which can resist shear.",
+   "problem": "The unexplained terms \"propagate\" and \"resist shear\" do not explain the wave behavior in Grade 5 plain English. A reader unfamiliar with shear still cannot tell why solids carry S waves and liquids do not.",
+   "fix": "Say that S waves shake material sideways; solids are stiff enough to carry this shaking, but liquids are not."
+  }
+ ]
+}

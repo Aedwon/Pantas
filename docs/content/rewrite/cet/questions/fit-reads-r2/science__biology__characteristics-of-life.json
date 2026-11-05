@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-characteristics-of-life-0007",
+  "q-biology-characteristics-of-life-0013"
+ ],
+ "findings": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "reasoning__mechanical-technical-reasoning__fluid-pressure",
+  "source": "content/questions/reasoning/mechanical-technical-reasoning/fluid-pressure.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrostatic pressure increases with depth."
+    },
+    {
+      "n": 2,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrostatic balance requires equal surface elevations under equal surface pressures."
+    },
+    {
+      "n": 3,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Constant volume flow requires higher speed through a smaller area."
+    },
+    {
+      "n": 4,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Bernoulli's equation gives lower static pressure where the flow is faster."
+    },
+    {
+      "n": 5,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Connected water at rest has equal pressure at equal elevations."
+    },
+    {
+      "n": 6,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Pressure increases successively with the depths of X, Y, and Z."
+    },
+    {
+      "n": 7,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Continuity gives lower mean speed in the wider section."
+    },
+    {
+      "n": 8,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The slower flow in the wide section has higher static pressure."
+    },
+    {
+      "n": 9,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal liquid levels require equal pressures above the surfaces."
+    },
+    {
+      "n": 10,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Continuity gives a narrow-section speed of 12 times 5 divided by 3, or 20 cm/s."
+    },
+    {
+      "n": 11,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The kinetic term increases as speed increases in the narrow section."
+    },
+    {
+      "n": 12,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Added water raises the common equilibrium level in all connected vessels."
+    },
+    {
+      "n": 13,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The smallest area has the highest speed and lowest static pressure."
+    },
+    {
+      "n": 14,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "At constant elevation, Bernoulli's conserved sum is static pressure plus one-half density times speed squared."
+    },
+    {
+      "n": 15,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal vertical depth increments give equal hydrostatic pressure increments."
+    },
+    {
+      "n": 16,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Once connected water is at rest, pressure is equal at the same elevation."
+    },
+    {
+      "n": 17,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The pressure difference is 1000 times 10 times 0.60, or 6000 Pa."
+    },
+    {
+      "n": 18,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Gauge pressure equals density times gravity times depth and therefore doubles."
+    },
+    {
+      "n": 19,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The direct ideal Bernoulli comparison requires no added energy or frictional energy loss."
+    },
+    {
+      "n": 20,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding the same positive surface pressure to depth contributions in a seven-to-one ratio makes the absolute-pressure ratio lie between one and seven."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

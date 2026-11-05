@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__algebra__radicals-and-rationalization",
+  "source": "content/questions/mathematics/algebra/radicals-and-rationalization.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-algebra-radicals-and-rationalization-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Factoring 72 as 36 times 2 gives 6√2."
+    },
+    {
+      "n": 2,
+      "id": "q-algebra-radicals-and-rationalization-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 49 < 50 < 64, its square root lies between 7 and 8."
+    },
+    {
+      "n": 3,
+      "id": "q-algebra-radicals-and-rationalization-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The expression becomes 6√5 − 3√5 = 3√5."
+    },
+    {
+      "n": 4,
+      "id": "q-algebra-radicals-and-rationalization-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding radicands incorrectly replaces the actual sum 3 + 4 = 7 with 5."
+    },
+    {
+      "n": 5,
+      "id": "q-algebra-radicals-and-rationalization-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying numerator and denominator by √5 gives 5√5/5 = √5."
+    },
+    {
+      "n": 6,
+      "id": "q-algebra-radicals-and-rationalization-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The nonzero denominator defines the expression, and rationalization gives 10√5/5 = 2√5."
+    },
+    {
+      "n": 7,
+      "id": "q-algebra-radicals-and-rationalization-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying by the conjugate gives 4(3 + √5)/(9 − 5) = 3 + √5."
+    },
+    {
+      "n": 8,
+      "id": "q-algebra-radicals-and-rationalization-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Extracting the square factor 36x²y⁴ gives 6xy²√(2x) because x is nonnegative."
+    },
+    {
+      "n": 9,
+      "id": "q-algebra-radicals-and-rationalization-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The principal square root of 25 is 5."
+    },
+    {
+      "n": 10,
+      "id": "q-algebra-radicals-and-rationalization-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The sum becomes 3√2 + 2√2 = 5√2."
+    },
+    {
+      "n": 11,
+      "id": "q-algebra-radicals-and-rationalization-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The difference of squares is 3 − 4 = −1."
+    },
+    {
+      "n": 12,
+      "id": "q-algebra-radicals-and-rationalization-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying two cube roots of x gives the cube root of x² in the denominator."
+    },
+    {
+      "n": 13,
+      "id": "q-algebra-radicals-and-rationalization-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Combining 4√3 − 3√3 + √3 gives 2√3."
+    },
+    {
+      "n": 14,
+      "id": "q-algebra-radicals-and-rationalization-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The principal root is 10, while both 10 and −10 solve the equation."
+    },
+    {
+      "n": 15,
+      "id": "q-algebra-radicals-and-rationalization-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplication by √x makes the denominator x, which is rational and positive."
+    },
+    {
+      "n": 16,
+      "id": "q-algebra-radicals-and-rationalization-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Extracting 100x² gives 10|x|√2 for every real x."
+    },
+    {
+      "n": 17,
+      "id": "q-algebra-radicals-and-rationalization-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The product of √y and −√y is −y, giving x² − y."
+    },
+    {
+      "n": 18,
+      "id": "q-algebra-radicals-and-rationalization-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying by the conjugate gives 2(2 − √2)/(4 − 2) = 2 − √2."
+    },
+    {
+      "n": 19,
+      "id": "q-algebra-radicals-and-rationalization-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The nonnegative limit satisfies L² − L − 20 = 0, so L = 5."
+    },
+    {
+      "n": 20,
+      "id": "q-algebra-radicals-and-rationalization-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying by the cube root of 2x² gives denominator 2x and simplifies to the cube root of 2x² divided by x."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

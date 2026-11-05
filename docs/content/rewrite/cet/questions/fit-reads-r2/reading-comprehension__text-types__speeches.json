@@ -1,0 +1,18 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "minor",
+ "resolved": [
+  "q-text-types-speeches-0015"
+ ],
+ "findings": [
+  {
+   "question": "q-text-types-speeches-0015",
+   "severity": "Minor",
+   "field": "meta",
+   "quote": "stem: 'Which statement best describes the purpose of this speech?\n\n    '",
+   "problem": "The stem and explanation still use single-quoted YAML scalars. The guide requires literal block scalars (|) for both fields; for example, this stem begins with a quote instead of |.",
+   "fix": "Convert this question's stem and explanation to indented literal block scalars using |."
+  }
+ ]
+}

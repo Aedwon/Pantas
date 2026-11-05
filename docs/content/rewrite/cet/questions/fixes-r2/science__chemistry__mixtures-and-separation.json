@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__mixtures-and-separation",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-mixtures-and-separation-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why the reversed-balance choice looks right."
+  }
+ ]
+}

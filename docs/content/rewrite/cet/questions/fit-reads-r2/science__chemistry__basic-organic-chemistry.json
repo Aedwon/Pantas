@@ -1,0 +1,19 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-chemistry-basic-organic-chemistry-0012",
+  "q-chemistry-basic-organic-chemistry-0014"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-basic-organic-chemistry-0014",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "The five-carbon chain does not include that carbon.",
+   "problem": "This sentence explains why the five-carbon distractor is wrong. The explanation must explain only the correct answer; discussion of that rejected chain belongs in its own note.",
+   "fix": "Explain that the four-carbon parent includes the carbon bonded to OH and gives the root but-. Remove the sentence about the five-carbon chain."
+  }
+ ]
+}

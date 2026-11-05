@@ -1,0 +1,11 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-earth-science-astronomy-eclipses-and-moon-phases-0013",
+  "q-earth-science-astronomy-eclipses-and-moon-phases-0015",
+  "q-earth-science-astronomy-eclipses-and-moon-phases-0016"
+ ],
+ "findings": []
+}

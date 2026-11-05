@@ -377,7 +377,7 @@ questions:
           This is a known product of burning in oxygen, so it seems to fit. It needs magnesium, which a hydrocarbon does not contain. Check the elements in the fuel.
       - text: 'Hydrogen peroxide'
         rationale: |
-          This contains only hydrogen and oxygen, so it seems possible. Burning hydrogen gives water, not hydrogen peroxide, and the carbon in the fuel is still unaccounted for. Check where the carbon goes.
+          This contains only hydrogen and oxygen, so it seems possible. In the combustion model taught here, the hydrogen in the fuel forms water, not hydrogen peroxide. Check the products the lesson teaches for burning a hydrocarbon.
     explanation: |
       Insufficient oxygen can cause incomplete combustion. Some carbon can form carbon monoxide during this partial reaction.
     approved: false

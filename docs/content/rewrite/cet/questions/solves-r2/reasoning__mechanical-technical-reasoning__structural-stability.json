@@ -1,0 +1,187 @@
+{
+  "file_id": "reasoning__mechanical-technical-reasoning__structural-stability",
+  "source": "content/questions/reasoning/mechanical-technical-reasoning/structural-stability.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The resultant gravitational force acts through the center of gravity."
+    },
+    {
+      "n": 2,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The supporting contact points bound the base of support."
+    },
+    {
+      "n": 3,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "An interior weight line produces a restoring moment about the tipping edge."
+    },
+    {
+      "n": 4,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The wider base and lower center require a greater tilt to align gravity with the pivot."
+    },
+    {
+      "n": 5,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "At the tipping threshold the gravitational moment about the pivot is zero."
+    },
+    {
+      "n": 6,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Lower cargo reduces the center height and the overturning moment during a turn."
+    },
+    {
+      "n": 7,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Wider foot spacing allows a greater sideways shift within the support boundary."
+    },
+    {
+      "n": 8,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The critical tilt depends on both center height and distance to the support edge."
+    },
+    {
+      "n": 9,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Scaling mass without moving the center of gravity leaves the critical angle unchanged."
+    },
+    {
+      "n": 10,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Reorientation changes both the center height and the support dimensions."
+    },
+    {
+      "n": 11,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Tilting raises the toy's center of gravity so gravity supplies a restoring torque."
+    },
+    {
+      "n": 12,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Turning introduces lateral acceleration and transfers load toward the outside wheels."
+    },
+    {
+      "n": 13,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Leaning shifts the center-of-gravity projection while the feet remain fixed."
+    },
+    {
+      "n": 14,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Weight acting left of the right pivot produces a moment back toward the flat base."
+    },
+    {
+      "n": 15,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "With equal base widths the taller box has the smaller critical tipping angle."
+    },
+    {
+      "n": 16,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Uniform density and uniform gravity place the symmetric box's center of gravity at its geometric center."
+    },
+    {
+      "n": 17,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Symmetric equal-thickness walls balance about the center of the empty interior."
+    },
+    {
+      "n": 18,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "An applied horizontal force can supply enough overturning torque to overcome gravity's restoring torque."
+    },
+    {
+      "n": 19,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A more distant support edge requires greater tilt before the weight line reaches it."
+    },
+    {
+      "n": 20,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "For equal base widths the critical angle increases as the center height decreases."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

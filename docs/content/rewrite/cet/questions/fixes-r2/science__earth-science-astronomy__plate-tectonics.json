@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__plate-tectonics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-plate-tectonics-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the continental-collision sentence; the explanation now covers only why the oceanic plate sinks."
+  }
+ ]
+}

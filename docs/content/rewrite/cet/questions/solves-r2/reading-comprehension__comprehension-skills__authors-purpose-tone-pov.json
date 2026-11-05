@@ -1,0 +1,187 @@
+{
+  "file_id": "reading-comprehension__comprehension-skills__authors-purpose-tone-pov",
+  "source": "content/questions/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "rc-cs-ap-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The author urges immediate protection of ancestral houses."
+    },
+    {
+      "n": 2,
+      "id": "rc-cs-ap-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The author condemns commercial greed and calls for immediate action."
+    },
+    {
+      "n": 3,
+      "id": "rc-cs-ap-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Words such as our and we include the writer in the community."
+    },
+    {
+      "n": 4,
+      "id": "rc-cs-ap-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The passage explicitly links heritage to long-term tourism vitality."
+    },
+    {
+      "n": 5,
+      "id": "rc-cs-ap-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Admiring descriptions of craftsmanship contrast with negative descriptions of modern storefronts."
+    },
+    {
+      "n": 6,
+      "id": "rc-cs-ap-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The narrator recounts personal experiences using I and my."
+    },
+    {
+      "n": 7,
+      "id": "rc-cs-ap-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Childhood memories and awareness of passing time create a nostalgic, reflective tone."
+    },
+    {
+      "n": 8,
+      "id": "rc-cs-ap-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The journey centers on renewed connection with home and identity."
+    },
+    {
+      "n": 9,
+      "id": "rc-cs-ap-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Solitary city routines contrast with family warmth and neighbors' greetings."
+    },
+    {
+      "n": 10,
+      "id": "rc-cs-ap-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Her silvered hair marks aging during the narrator's absence."
+    },
+    {
+      "n": 11,
+      "id": "rc-cs-ap-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The passage explains bioluminescence and the importance of careful observation."
+    },
+    {
+      "n": 12,
+      "id": "rc-cs-ap-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The passage presents facts and evidence limits in measured language."
+    },
+    {
+      "n": 13,
+      "id": "rc-cs-ap-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An external narrator reports the club's activities without revealing private thoughts."
+    },
+    {
+      "n": 14,
+      "id": "rc-cs-ap-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Visitor appeal does not establish conclusions that require further testing."
+    },
+    {
+      "n": 15,
+      "id": "rc-cs-ap-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Bioluminescence names the production of light by living organisms."
+    },
+    {
+      "n": 16,
+      "id": "q-comprehension-skills-authors-purpose-tone-pov-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The narration accesses Lina's thoughts but not other characters' thoughts."
+    },
+    {
+      "n": 17,
+      "id": "q-comprehension-skills-authors-purpose-tone-pov-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Lina begins explaining her idea despite lingering nerves and an imperfect model."
+    },
+    {
+      "n": 18,
+      "id": "q-comprehension-skills-authors-purpose-tone-pov-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Uncertainty about Ben's smile keeps the narration within Lina's perspective."
+    },
+    {
+      "n": 19,
+      "id": "q-comprehension-skills-authors-purpose-tone-pov-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The story portrays Lina managing anxiety and presenting an imperfect project."
+    },
+    {
+      "n": 20,
+      "id": "q-comprehension-skills-authors-purpose-tone-pov-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Her thoughts reveal the worries behind her nervous behavior."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

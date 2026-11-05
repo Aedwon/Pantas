@@ -155,21 +155,21 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      Which statement about temperature and solubility is accurate?
+      Which statement describes the usual trend for solids dissolved in water as the temperature rises?
     choices:
-      - text: 'Many solids become more soluble when heated, with exceptions.'
+      - text: 'Solids usually become more soluble.'
         correct: true
-      - text: 'Many solids become less soluble when heated, with exceptions.'
+      - text: 'Solids usually become less soluble.'
         rationale: |
-          This reverses the common solid trend. Heating often lets water hold more dissolved solid. Check an example such as sugar in hot water.
-      - text: 'Many solids keep the same solubility when heated, with exceptions.'
+          This reverses the common solid trend. A few solids do act this way, so it can look right. Check an example such as sugar in hot water.
+      - text: 'Solids usually stay equally soluble.'
         rationale: |
           This treats solubility as independent of temperature. Substance identity matters, but so does temperature. Check whether a hot drink dissolves more sugar than a cold one.
-      - text: 'Many gases become more soluble when heated, with exceptions.'
+      - text: 'Solids usually become more soluble at first, then less soluble.'
         rationale: |
-          This applies the common solid trend to gases. Heating affects solids and gases differently. Check whether the solute is a solid or a gas.
+          This invents a turning point in the trend. A few solids do change direction, so it can look right. Check the usual behavior of sugar in water.
     explanation: |
-      Many solids become more soluble as temperature rises, but some change little or become less soluble. The behavior depends on the particular solute and solvent.
+      Most solids become more soluble as the water gets warmer. A few change little or become less soluble. The behavior depends on the particular solute and solvent.
     approved: true
 
   - id: q-chemistry-solutions-0009
@@ -398,7 +398,7 @@ questions:
           This treats fixed pressure as fixing solubility. Temperature also changes how much gas the liquid holds. Check the temperature change.
       - text: 'Gas solubility rises at first, then falls as warming continues.'
         rationale: |
-          This invents a turning point in the trend. Warmer liquids hold less gas at each step. Check the lesson's gas-solubility behavior.
+          This describes a rise followed by a fall, which is not the common trend. Liquids usually hold less dissolved gas as they warm at fixed gas pressure. Check the lesson's gas-solubility behavior.
     explanation: |
       Dissolved gases commonly become less soluble as the liquid warms at fixed gas partial pressure. The equilibrium concentration therefore commonly decreases.
     approved: false

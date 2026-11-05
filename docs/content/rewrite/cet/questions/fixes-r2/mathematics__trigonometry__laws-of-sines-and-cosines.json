@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__trigonometry__laws-of-sines-and-cosines",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0020",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the Zero note to name dividing by sine instead of multiplying, with a cross-multiply check."
+  }
+ ]
+}

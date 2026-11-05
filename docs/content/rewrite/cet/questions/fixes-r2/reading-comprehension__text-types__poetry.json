@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__text-types__poetry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-tt-po-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the rain-washing claim with the second-stanza evidence that cooling rain brings relief."
+  }
+ ]
+}

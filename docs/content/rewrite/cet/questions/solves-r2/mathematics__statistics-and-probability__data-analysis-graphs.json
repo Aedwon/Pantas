@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__statistics-and-probability__data-analysis-graphs",
+  "source": "content/questions/mathematics/statistics-and-probability/data-analysis-graphs.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "140 + 165 + 150 = 455 passengers."
+    },
+    {
+      "n": 2,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "STEM has 250 students, the highest total."
+    },
+    {
+      "n": 3,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "45 of 120 beverages is 37.5%."
+    },
+    {
+      "n": 4,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "600 minus 480 is 120 metric tons."
+    },
+    {
+      "n": 5,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "950 + 600 + 400 = 1,950 residents."
+    },
+    {
+      "n": 6,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The total of 1,320 kWh divided by six is 220 kWh."
+    },
+    {
+      "n": 7,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "26 of 40 students scored above 70, giving 65%."
+    },
+    {
+      "n": 8,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "220 of 500 female workers gives 11/25."
+    },
+    {
+      "n": 9,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Annual totals of 240 and 220 simplify to 12:11."
+    },
+    {
+      "n": 10,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Tuesday's pork sales were 54 of 180 meals, exactly 30%."
+    },
+    {
+      "n": 11,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The increase from 350 to 525 is 175/350, or 50%."
+    },
+    {
+      "n": 12,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The weighted total of 1,305,000 pesos divided by 60 is 21,750 pesos."
+    },
+    {
+      "n": 13,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 290 + 15k = 18.25(15 + k) gives k = 5."
+    },
+    {
+      "n": 14,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Region I grew 21%, exceeding Region II's 15.5% and Region III's 10.25%."
+    },
+    {
+      "n": 15,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Center Y has 75 passing students versus Center X's 65, a difference of 10."
+    },
+    {
+      "n": 16,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "90/190 times 100 rounds to 47.4%."
+    },
+    {
+      "n": 17,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "72/360 of 25,000 is 5,000."
+    },
+    {
+      "n": 18,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A U-shaped pattern shows a curved relationship."
+    },
+    {
+      "n": 19,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The actual second-to-first ratio is 110/100 = 1.1."
+    },
+    {
+      "n": 20,
+      "id": "q-statistics-and-probability-data-analysis-graphs-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The increase is 10 percentage points and 10/20 = 50% relative to the original share."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

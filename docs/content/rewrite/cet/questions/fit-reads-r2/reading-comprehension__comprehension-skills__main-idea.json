@@ -1,0 +1,13 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "rc-cs-mi-0001",
+  "rc-cs-mi-0002",
+  "rc-cs-mi-0006",
+  "rc-cs-mi-0014",
+  "rc-cs-mi-0015"
+ ],
+ "findings": []
+}

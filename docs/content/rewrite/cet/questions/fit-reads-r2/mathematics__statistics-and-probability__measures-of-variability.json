@@ -1,0 +1,29 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "blocker",
+ "resolved": [
+  "q-statistics-and-probability-measures-of-variability-0004",
+  "q-statistics-and-probability-measures-of-variability-0005",
+  "q-statistics-and-probability-measures-of-variability-0012",
+  "q-statistics-and-probability-measures-of-variability-0015"
+ ],
+ "findings": [
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0005",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "It is the positive square root of the average squared distance of the values from the mean.",
+   "problem": "The keyed definition excludes zero, so none of the choices correctly defines population standard deviation for every dataset. For the population 6,6,6,6, the average squared distance is 0 and the standard deviation is 0. Zero has no positive square root. The other choices define range, mode, and median.",
+   "fix": "Replace \u201cpositive square root\u201d with \u201cnonnegative square root\u201d."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0015",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "So the values sit closer to it than to the true population average, and the calculated spread tends to come out too small. Dividing by $n-1$ instead of $n$ makes the result a little bigger.",
+   "problem": "The comparison and increase are stated without allowing equality. A random sample 0,2 from the population 0,1,2 has the same mean as the population, so its distances to the two means are equal. Also, a sample 1,1 has zero squared deviations, so dividing by n-1 instead of n leaves the result at 0. Only the total squared distance is minimized at the sample mean; individual values need not be closer to it.",
+   "fix": "Say that the squared distances add up to no more, and usually less, when measured from the sample average. Say dividing by n-1 raises a positive result and corrects the tendency to underestimate variance over many random samples."
+  }
+ ]
+}

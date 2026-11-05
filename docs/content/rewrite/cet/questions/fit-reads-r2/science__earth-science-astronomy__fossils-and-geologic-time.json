@@ -1,0 +1,12 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-earth-science-astronomy-fossils-and-geologic-time-0002",
+  "q-earth-science-astronomy-fossils-and-geologic-time-0005",
+  "q-earth-science-astronomy-fossils-and-geologic-time-0006",
+  "q-earth-science-astronomy-fossils-and-geologic-time-0021"
+ ],
+ "findings": []
+}

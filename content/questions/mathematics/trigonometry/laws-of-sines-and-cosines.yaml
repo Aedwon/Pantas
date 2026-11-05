@@ -381,7 +381,7 @@ questions:
           This keeps only the principal arcsine angle. A calculator returns just that one. Check the supplementary angle and whether it also leaves a positive third angle.
       - text: 'Zero'
         rationale: |
-          This swaps the two sides, giving $\sin R=\dfrac{10}{7\sin30^\circ}$, which is greater than $1$. The swap looks fine because both lengths appear. Check that each side is paired with its opposite angle.
+          This divides by $\sin30^\circ$ instead of multiplying by it, giving $\sin R=\dfrac{10}{7\sin30^\circ}$, which is greater than $1$. Moving the sine to the denominator looks fine because it seems to "undo" the angle. Cross-multiply the matched proportion $\dfrac{\sin R}{10}=\dfrac{\sin30^\circ}{7}$ instead.
       - text: 'Three'
         rationale: |
           This counts the remaining third angle as another solution. A triangle has three angle labels. Check that a solution needs a whole set of three angles, not a single angle.

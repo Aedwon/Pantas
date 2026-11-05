@@ -1,0 +1,28 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-chemistry-thermodynamics-and-kinetics-0008",
+  "q-chemistry-thermodynamics-and-kinetics-0011",
+  "q-chemistry-thermodynamics-and-kinetics-0016"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0008",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Check that the barrier is the climb to the peak, which comes before any heat is released.",
+   "problem": "The claim that the barrier comes before any heat release is a false absolute for the unrestricted reaction in the stem. In a multistep reaction, an early exothermic step can release heat before a later step crosses its activation barrier. Heat release still does not itself lower that barrier.",
+   "fix": "Say: Check that activation energy measures the climb from reactants to the peak, while net heat compares reactants with products."
+  },
+  {
+   "question": "q-chemistry-thermodynamics-and-kinetics-0011",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Overall enthalpy describes the reactant-to-product state difference.",
+   "problem": "State difference is unexplained technical shorthand rather than Grade 5 plain English. For example, a reader is not told that this means the difference between the starting and ending energy levels.",
+   "fix": "Say: The heat released depends on how much lower the products are than the reactants on the energy diagram."
+  }
+ ]
+}

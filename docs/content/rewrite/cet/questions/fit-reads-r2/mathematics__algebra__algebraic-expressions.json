@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-algebra-algebraic-expressions-0010"
+ ],
+ "findings": []
+}

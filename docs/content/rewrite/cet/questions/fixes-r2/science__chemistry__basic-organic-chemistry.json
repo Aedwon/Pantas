@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__basic-organic-chemistry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-basic-organic-chemistry-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now only says the four-carbon chain includes the OH carbon and gives but-."
+  }
+ ]
+}

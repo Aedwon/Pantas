@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__mixtures-and-separation",
+  "source": "content/questions/science/chemistry/mixtures-and-separation.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-mixtures-and-separation-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Uniform composition makes the solution homogeneous."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-mixtures-and-separation-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The visible separate ingredients make the mixture nonuniform and heterogeneous."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-mixtures-and-separation-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A uniform blend of gases is homogeneous."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-mixtures-and-separation-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A porous barrier retaining dust performs filtration."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-mixtures-and-separation-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Filtration retains suspended sand while water passes through."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-mixtures-and-separation-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Water escaping as uncollected vapor leaves salt by evaporation."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-mixtures-and-separation-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Distillation collects vapor after condensation."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-mixtures-and-separation-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Chromatography can separate the different dyes in ink."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-mixtures-and-separation-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Evaporation without vapor collection cannot retain both liquids."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-mixtures-and-separation-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Dissolved salt ions pass through ordinary filter paper."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-mixtures-and-separation-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Differences in physical properties permit separation of homogeneous mixtures."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-mixtures-and-separation-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The vapor and its condensate are enriched in the more volatile liquid A."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-mixtures-and-separation-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The farther dye favors transport by the solvent relative to retention by the paper."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-mixtures-and-separation-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Recovering the same salt supports interactions without permanent chemical conversion."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-mixtures-and-separation-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Filtration removes grit before distillation recovers condensed water."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-mixtures-and-separation-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The mobile phase moves through the stationary phase."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-mixtures-and-separation-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Distillate collection requires vaporization followed by condensation and collection."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-mixtures-and-separation-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Fractional distillation provides repeated vaporization and condensation steps."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-mixtures-and-separation-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Matching vapor and liquid compositions prevent enrichment at an azeotrope."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-mixtures-and-separation-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Recrystallization can leave impurities dissolved while the desired solid crystallizes."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

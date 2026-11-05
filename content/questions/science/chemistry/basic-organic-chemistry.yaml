@@ -295,7 +295,7 @@ questions:
         rationale: |
           This ignores the functional group when choosing the parent. The carbon skeleton is easy to notice first. Check that the -ol suffix needs the carbon bonded to OH in the parent chain.
     explanation: |
-      In an alcohol, the parent chain must include the carbon bonded to the OH group, because the name ends in -ol. The five-carbon chain does not include that carbon. The four-carbon chain does, so the compound is named as a butanol.
+      In an alcohol, the parent chain must include the carbon bonded to the OH group, because the name ends in -ol. The four-carbon chain includes the carbon bonded to OH, so it is the parent chain. Its root is but-, so the compound is named as a butanol.
     approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0015

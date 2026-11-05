@@ -1,0 +1,52 @@
+{
+  "file_id": "science__physics__interference-diffraction-and-doppler",
+  "source": "content/questions/science/physics/interference-diffraction-and-doppler.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-waves-and-sound-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Approach shortens the interval between arriving wavefronts."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-waves-and-sound-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Recession lengthens the interval between arriving wavefronts."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-waves-and-sound-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Source motion changes wavelength while sound speed relative to the air stays fixed."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-waves-and-sound-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The approaching listener encounters the unchanged wavefront spacing more frequently."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-waves-and-sound-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Approach raises observed pitch and recession lowers it."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

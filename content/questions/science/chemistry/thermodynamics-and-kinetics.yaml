@@ -161,7 +161,7 @@ questions:
         correct: true
       - text: 'Yes; the energy released lowers the activation barrier.'
         rationale: |
-          This assumes released energy helps the reaction start. Heat release sounds like extra energy that should speed things up. Check that the barrier is the climb to the peak, which comes before any heat is released.
+          This assumes released energy helps the reaction start. Heat release sounds like extra energy that should speed things up. Check that activation energy measures the climb from reactants to the peak, while net heat compares reactants with products.
       - text: 'No; exothermic reactions are slower because they give off energy.'
         rationale: |
           This reasons that giving off energy means losing drive. Losing energy sounds like slowing down. Check whether heat released says anything about the barrier.
@@ -232,7 +232,7 @@ questions:
         rationale: |
           This assumes a taller peak pulls the products downward. A tall peak stands out on the diagram. Check that the product level is read separately from the peak.
     explanation: |
-      Activation energy describes the barrier along a pathway. Overall enthalpy describes the reactant-to-product state difference. A high barrier does not determine the net heat released.
+      Activation energy describes the barrier along a pathway. The heat released depends on how much lower the products are than the reactants on the energy diagram. A high barrier does not determine the net heat released.
     approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0012

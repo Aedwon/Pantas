@@ -1,0 +1,46 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "blocker",
+ "resolved": [
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0004",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+  "q-mechanical-technical-reasoning-pulleys-and-levers-0013"
+ ],
+ "findings": [
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+   "severity": "Blocker",
+   "field": "meta",
+   "quote": "      loadDistance: 3\n      effortDistance: 5",
+   "problem": "The original 8 m answer label is removed, but the replacement figure gives false distances. Its 3 m load arm contradicts the stem's 4 m, and its 5 m effort arm cannot balance the stated load with at most 500 N. With a 4 m load arm, a 5 m effort arm requires 800 N. Saying the drawing is not to scale does not override numerical distance labels.",
+   "fix": "Label the load arm 4 m and the effort arm as unknown; use separate drawing proportions if needed."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+   "severity": "Blocker",
+   "field": "meta",
+   "quote": "      loadDistance: 3\n      effortDistance: 5",
+   "problem": "The original 2 m answer label is removed, but the replacement figure labels the requested load distance as 3 m and the given effort distance as 5 m, contradicting the stem's 8 m. These figure values also fail balance: 1000 times 3 is 3000 N m, while 250 times 5 is 1250 N m. A drawing being not to scale does not make its numerical labels optional.",
+   "fix": "Label the effort arm 8 m and the load arm as unknown."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+   "severity": "Blocker",
+   "field": "meta",
+   "quote": "      loadDistance: 3\n      effortDistance: 5",
+   "problem": "The original 18 m answer label is removed and the 2,700 m distractor note is corrected, but the figure now supplies a false 5 m effort-arm label. A 150 N effort at 5 m gives only 750 N m, whereas the load gives 2700 N m. The claimed balance requires 18 m. Saying not drawn to scale does not correct a numerical label.",
+   "fix": "Keep the 3 m load-arm label and show the effort arm as unknown."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The block is at rest or moves at constant speed",
+   "problem": "The motion-condition correction resolves the original missing condition, but creates an answer-giving clue. The stem explicitly asks for a motion condition, and only the keyed choice describes whether the block is moving steadily. The other choices describe wheel counts, mass, and rope travel. A student can select the only matching kind of answer without knowing when forces balance.",
+   "fix": "Give all four choices as competing motion conditions, with only rest or constant speed producing the stated effort."
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "rc-cs-ic-0011"
+ ],
+ "findings": []
+}

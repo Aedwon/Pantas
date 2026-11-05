@@ -321,15 +321,15 @@ questions:
     choices:
       - text: "The block is at rest or moves at constant speed"
         correct: true
-      - text: "An equal number of fixed and moving wheels"
+      - text: "The block is speeding up steadily"
         rationale: |
-          This uses wheel counts to justify the force ratio. One of each is shown. Check the forces directly supporting the block.
-      - text: "Twice as much mass in the moving wheel"
+          This treats a lifting motion as if any upward movement gives the same rope force. Rising looks like pulling harder. Check that a speeding-up block needs more than its weight, so the effort is larger than $640/2$.
+      - text: "The block is slowing down as it rises"
         rationale: |
-          This treats added machine weight as extra advantage. The wheel moves with the load. Check that all moving weight adds to the force needing support.
-      - text: "A free end that moves half as far as the load"
+          This treats a block that is still moving upward as if its weight alone sets the rope force. The block is still moving up. Check that a slowing block needs less than its weight, so the effort is smaller than $640/2$.
+      - text: "The block is moving, whatever its speed"
         rationale: |
-          This reverses the distance trade-off. The force is being reduced. Check how both supporting rope lengths change as the block rises.
+          This treats any motion as balanced motion. Movement looks like proof of a steady lift. Check that only constant speed, not any speed, makes the forces equal.
     explanation: |
       In an ideal single rope, the tension $T$ is the same in both supports, so the total upward force is $2T$. If the block is at rest or moves at constant speed, the forces balance: $2T=640$, so $T=320$ N. The free-end effort equals that rope tension.
     approved: true

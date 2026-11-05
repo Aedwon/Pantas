@@ -243,13 +243,13 @@ questions:
     choices:
       - text: "No; root responses to light vary with the plant and conditions."
         correct: true
-      - text: "Yes; roots and shoots of one plant respond to light in the same way."
+      - text: "Yes; roots and shoots of one plant usually respond to light in the same way."
         rationale: |
           This assumes roots and shoots respond to light in the same way. They share one plant body, so a shared response seems likely. Check whether observations of shoots also establish the root response.
-      - text: "No; roots grow away from light, the opposite of shoots."
+      - text: "No; roots usually bend toward light even more strongly than shoots do."
         rationale: |
-          This turns a common shoot response into a set opposite root response. Roots and shoots often grow in different directions, so that rule seems useful. Check whether root light responses can differ between plants.
-      - text: "No; roots respond to gravity, not to light."
+          This turns a shoot response into a fixed root rule. Roots and shoots are both plant organs that sense light, so a stronger root response seems possible. Check whether root light responses can differ between plants.
+      - text: "No; roots mainly respond to gravity, so light usually has no effect on them."
         rationale: |
           This mixes up the main cue for roots with the only cue. Roots respond strongly to gravity, so light can seem irrelevant to them. Check whether roots can also respond to light under some conditions.
     explanation: |

@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-earth-science-astronomy-minerals-and-rocks-0006",
+  "q-earth-science-astronomy-minerals-and-rocks-0018"
+ ],
+ "findings": []
+}

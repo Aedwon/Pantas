@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-physics-waves-and-sound-0009",
+  "q-physics-waves-and-sound-0010"
+ ],
+ "findings": []
+}

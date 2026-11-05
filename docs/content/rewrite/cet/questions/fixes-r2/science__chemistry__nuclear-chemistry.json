@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__nuclear-chemistry",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-nuclear-chemistry-0011",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem fixes same radiation and equal thickness; choices and explanation compare materials under those conditions."
+  }
+ ]
+}

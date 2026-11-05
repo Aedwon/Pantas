@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-trigonometry-unit-circle-0011"
+ ],
+ "findings": []
+}

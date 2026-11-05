@@ -1,0 +1,23 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-chemistry-periodic-table-0004",
+  "q-chemistry-periodic-table-0007",
+  "q-chemistry-periodic-table-0009",
+  "q-chemistry-periodic-table-0011",
+  "q-chemistry-periodic-table-0017",
+  "q-chemistry-periodic-table-0019"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-periodic-table-0009",
+   "severity": "Major",
+   "field": "explanation",
+   "quote": "Nitrogen has a higher first ionization energy than carbon. In this comparison, the increased effective nuclear attraction across period 2 supports the observed ordering.",
+   "problem": "The central reason is left in technical language rather than Grade 5 plain English. A learner who does not understand \u201ceffective nuclear attraction\u201d is told the ranking but cannot follow why nitrogen needs more energy to lose an electron.",
+   "fix": "Say that nitrogen has more protons pulling on electrons in the same outer layer, so it holds its outer electrons more tightly and takes more energy to remove one."
+  }
+ ]
+}

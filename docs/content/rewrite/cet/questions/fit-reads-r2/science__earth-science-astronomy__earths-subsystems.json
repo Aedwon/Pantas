@@ -1,0 +1,29 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-earth-science-astronomy-earths-subsystems-0006",
+  "q-earth-science-astronomy-earths-subsystems-0007",
+  "q-earth-science-astronomy-earths-subsystems-0009",
+  "q-earth-science-astronomy-earths-subsystems-0011",
+  "q-earth-science-astronomy-earths-subsystems-0012",
+  "q-earth-science-astronomy-earths-subsystems-0013",
+  "q-earth-science-astronomy-earths-subsystems-0014",
+  "q-earth-science-astronomy-earths-subsystems-0015",
+  "q-earth-science-astronomy-earths-subsystems-0016",
+  "q-earth-science-astronomy-earths-subsystems-0018",
+  "q-earth-science-astronomy-earths-subsystems-0019",
+  "q-earth-science-astronomy-earths-subsystems-0020"
+ ],
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0018",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This picks a water movement that does not depend on the plants. Vegetation affects water systems. Check the specific direct transfer described.",
+   "problem": "The note falsely says this water movement does not depend on plants. For example, root channels can help rainwater enter soil, so removing vegetation can change water movement into the ground. The distractor should be rejected because it does not track the stated release of water vapor by plants, not because plants cannot affect it.",
+   "fix": "Say this selects water entering the ground rather than vapor leaving plants. Explain that plant removal can affect several water movements, then ask the reader to trace the specific transfer in the stem."
+  }
+ ]
+}

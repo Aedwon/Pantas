@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-genetics-and-heredity-0012",
+  "q-biology-genetics-and-heredity-0013"
+ ],
+ "findings": []
+}

@@ -1,0 +1,142 @@
+{
+  "file_id": "science__physics__light-and-optics",
+  "source": "content/questions/science/physics/light-and-optics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-light-and-optics-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "id": "q-physics-light-and-optics-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "id": "q-physics-light-and-optics-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "id": "q-physics-light-and-optics-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "id": "q-physics-light-and-optics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "id": "q-physics-light-and-optics-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "id": "q-physics-light-and-optics-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "id": "q-physics-light-and-optics-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "id": "q-physics-light-and-optics-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "id": "q-physics-light-and-optics-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 11,
+      "id": "q-physics-light-and-optics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 12,
+      "id": "q-physics-light-and-optics-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 13,
+      "id": "q-physics-light-and-optics-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 14,
+      "id": "q-physics-light-and-optics-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 15,
+      "id": "q-physics-light-and-optics-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -218,21 +218,21 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      Which statement about gamma shielding is accurate?
+      Gamma radiation of the same energy meets shields of equal thickness. Which statement about gamma shielding is accurate?
     choices:
-      - text: 'Dense shielding reduces intensity.'
+      - text: 'A dense shield such as lead reduces gamma intensity more than paper does.'
         correct: true
-      - text: 'A sheet of paper reduces gamma intensity as much as lead does.'
+      - text: 'A sheet of paper reduces gamma intensity as much as a lead sheet of the same thickness.'
         rationale: |
           This applies thin alpha shielding to gamma photons. Paper blocks external alpha particles. Check the radiation type and the density of the shield.
-      - text: 'A lighter shield reduces gamma intensity more than a denser one.'
+      - text: 'At equal thickness, a lighter shield reduces gamma intensity more than a denser one.'
         rationale: |
-          This reverses the role of density. Light shields are easy to handle, so they seem fine. Check which material attenuates photons better, lead or paper.
+          This reverses the role of density. Light shields are easy to handle, so they seem fine. Check which material of equal thickness takes in more photons, a dense one or a light one.
       - text: 'Making a shield thicker does not change the gamma intensity behind it.'
         rationale: |
           This treats thickness as irrelevant. A thin shield may seem to do the same job. Check how intensity changes as photons pass through more material.
     explanation: |
-      Gamma photons can penetrate deeply. Dense or thick shielding reduces their intensity by attenuating the radiation. Ordinary shielding does not guarantee that every photon is stopped.
+      Gamma photons can penetrate deeply. For the same thickness, a dense shield such as lead reduces their intensity more than a light one such as paper. Ordinary shielding does not guarantee that every photon is stopped.
     approved: true
 
   - id: q-chemistry-nuclear-chemistry-0012

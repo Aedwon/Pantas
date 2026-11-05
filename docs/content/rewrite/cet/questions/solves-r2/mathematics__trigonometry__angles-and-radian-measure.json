@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__trigonometry__angles-and-radian-measure",
+  "source": "content/questions/mathematics/trigonometry/angles-and-radian-measure.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-trigonometry-angles-and-radian-measure-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "90π/180 = π/2 radians."
+    },
+    {
+      "n": 2,
+      "id": "q-trigonometry-angles-and-radian-measure-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "(π/3)(180/π) = 60 degrees."
+    },
+    {
+      "n": 3,
+      "id": "q-trigonometry-angles-and-radian-measure-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The net turn is −45 + 90 = 45 degrees, or π/4 radians."
+    },
+    {
+      "n": 4,
+      "id": "q-trigonometry-angles-and-radian-measure-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "π/6 radians is 30 degrees, whose supplement is 150 degrees."
+    },
+    {
+      "n": 5,
+      "id": "q-trigonometry-angles-and-radian-measure-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The correct conversion is 150π/180 = 5π/6 radians."
+    },
+    {
+      "n": 6,
+      "id": "q-trigonometry-angles-and-radian-measure-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "(3π/4)(180/π) = 135 degrees."
+    },
+    {
+      "n": 7,
+      "id": "q-trigonometry-angles-and-radian-measure-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting 360 degrees from 370 degrees gives 10 degrees."
+    },
+    {
+      "n": 8,
+      "id": "q-trigonometry-angles-and-radian-measure-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "One radian equals 180/π degrees, approximately 57.3 degrees."
+    },
+    {
+      "n": 9,
+      "id": "q-trigonometry-angles-and-radian-measure-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The arc length is rθ = 5π/3 centimeters."
+    },
+    {
+      "n": 10,
+      "id": "q-trigonometry-angles-and-radian-measure-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A clockwise turn of 30 degrees is −π/6 radians."
+    },
+    {
+      "n": 11,
+      "id": "q-trigonometry-angles-and-radian-measure-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding 360 degrees to −150 degrees gives 210 degrees."
+    },
+    {
+      "n": 12,
+      "id": "q-trigonometry-angles-and-radian-measure-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "430 degrees differs from 70 degrees by one full rotation."
+    },
+    {
+      "n": 13,
+      "id": "q-trigonometry-angles-and-radian-measure-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The angle is s/r = π/3 radians, or 60 degrees."
+    },
+    {
+      "n": 14,
+      "id": "q-trigonometry-angles-and-radian-measure-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Seven-eighths of 2π radians is 7π/4 radians."
+    },
+    {
+      "n": 15,
+      "id": "q-trigonometry-angles-and-radian-measure-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "−2 radians equals −360/π degrees, approximately −114.6 degrees."
+    },
+    {
+      "n": 16,
+      "id": "q-trigonometry-angles-and-radian-measure-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "2π radians equals 360 degrees, which exceeds 350 degrees."
+    },
+    {
+      "n": 17,
+      "id": "q-trigonometry-angles-and-radian-measure-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "0.5 radians is approximately 28.6 degrees, placing it in Quadrant I."
+    },
+    {
+      "n": 18,
+      "id": "q-trigonometry-angles-and-radian-measure-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The central angle is s/r = r/r = 1 radian."
+    },
+    {
+      "n": 19,
+      "id": "q-trigonometry-angles-and-radian-measure-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "5π radians comprises two complete revolutions followed by a half-turn."
+    },
+    {
+      "n": 20,
+      "id": "q-trigonometry-angles-and-radian-measure-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding 2π gives −π/2 radians, whose terminal side is the negative y-axis."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

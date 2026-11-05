@@ -283,15 +283,15 @@ questions:
     stem: |
       A river stops gene flow between two lizard populations. Their habitats differ. Which prediction is best supported over many generations?
     choices:
-      - text: 'The populations will probably diverge and may eventually stop interbreeding.'
+      - text: 'The populations will probably diverge, and reproductive isolation may eventually develop.'
         correct: true
-      - text: 'The populations will keep sharing alleles and stay genetically identical.'
+      - text: 'The populations will probably keep exchanging alleles and remain one gene pool.'
         rationale: |
-          This ignores the river. Habitats on both banks look alike in many ways, so mixing seems likely. Check what the stem says the river stops.
-      - text: 'The populations will stay alike because they share a common ancestor.'
+          This ignores the river. Shared ancestry can make continued sharing of alleles seem plausible. Check whether any alleles can cross the barrier the stem describes.
+      - text: 'The populations will probably stay alike because they share a common ancestor.'
         rationale: |
           This treats shared ancestry as a limit on change. The groups initially share many variants. Check whether their environments and chance events can differ.
-      - text: 'The populations will stop evolving until they interbreed again.'
+      - text: 'The populations will probably stop evolving until they interbreed again.'
         rationale: |
           This assumes gene exchange is required for all evolution. Isolation stops incoming alleles, which may seem to stop change. Check whether local mutation, drift, and selection still occur.
     explanation: |

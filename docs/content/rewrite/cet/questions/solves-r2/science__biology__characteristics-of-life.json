@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__characteristics-of-life",
+  "source": "content/questions/science/biology/characteristics-of-life.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-characteristics-of-life-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Cells are the basic structural and functional units of life."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-characteristics-of-life-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Homeostasis maintains suitable internal conditions despite external changes."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-characteristics-of-life-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Reproduction produces new individuals of the same kind."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-characteristics-of-life-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Adaptation results as advantageous inherited traits spread across generations."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-characteristics-of-life-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Nutrients supply the materials and energy used in metabolism."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-characteristics-of-life-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Spores developing into new mushrooms demonstrate reproduction."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-characteristics-of-life-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A viral particle lacks cellular organization."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-characteristics-of-life-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Viruses lack cells and depend on hosts for metabolic functions."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-characteristics-of-life-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Fuel consumption alone does not establish that an object is alive."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-characteristics-of-life-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Crystal enlargement occurs without living cells."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-characteristics-of-life-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Fire spreading does not involve inherited changes in biological populations."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-characteristics-of-life-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Rolling after a push is passive motion caused by physical forces."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-characteristics-of-life-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Sexual reproduction involves gamete fusion whereas asexual reproduction does not."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-characteristics-of-life-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The combined observations support a living biological system."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-characteristics-of-life-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A bacterium demonstrates cellular organization as a functioning single cell."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-characteristics-of-life-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Sweating helps maintain body temperature within a suitable range."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-characteristics-of-life-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An individual can be alive without being able to reproduce."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-characteristics-of-life-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An inherited protective trait spreading across generations represents evolutionary adaptation."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-characteristics-of-life-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Dormant seeds remain alive while their life functions are less apparent."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-characteristics-of-life-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Changed growth after an environmental change demonstrates response to stimuli."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

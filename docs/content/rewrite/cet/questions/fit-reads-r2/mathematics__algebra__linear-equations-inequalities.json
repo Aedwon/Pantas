@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-algebra-linear-equations-inequalities-0003"
+ ],
+ "findings": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__genetics-and-heredity",
+  "source": "content/questions/science/biology/genetics-and-heredity.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-genetics-and-heredity-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Genotype is an organism’s genetic makeup."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-genetics-and-heredity-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Phenotype is the expressed trait."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-genetics-and-heredity-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "TT, Tt, and Tt are tall among four equally likely outcomes."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-genetics-and-heredity-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Probabilities do not require fixed counts in four offspring."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-genetics-and-heredity-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "An intermediate heterozygous phenotype indicates incomplete dominance."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-genetics-and-heredity-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Both A and B traits are fully expressed in type AB."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-genetics-and-heredity-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Adenine pairs with thymine in DNA."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-genetics-and-heredity-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "RNA uses uracil in place of thymine."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-genetics-and-heredity-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "DNA is transcribed, then the RNA is translated into protein."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-genetics-and-heredity-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Two unaffected carriers can have an affected recessive child."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-genetics-and-heredity-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Different growing conditions can influence height."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-genetics-and-heredity-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Codominance expresses both allele effects separately and fully."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-genetics-and-heredity-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Standard mRNA notation uses U instead of T."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-genetics-and-heredity-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Closely linked alleles tend to be inherited together."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-genetics-and-heredity-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Half the offspring are Aa and half are aa."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-genetics-and-heredity-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Ribosomes read mRNA codons during translation."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-genetics-and-heredity-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Segregation separates a gene’s alleles into gametes."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-genetics-and-heredity-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A diploid individual normally carries two copies of an ordinary locus."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-genetics-and-heredity-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Genes on different chromosomes assort independently in the simple model."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-genetics-and-heredity-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Nuclear transcription precedes mRNA export and ribosome translation."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,19 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-chemistry-chemical-reactions-0017",
+  "q-chemistry-chemical-reactions-0018"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-chemical-reactions-0018",
+   "severity": "Major",
+   "field": "note",
+   "quote": "Burning hydrogen gives water, not hydrogen peroxide, and the carbon in the fuel is still unaccounted for. Check where the carbon goes.",
+   "problem": "The carbon-accounting check does not explain why this additional product is wrong. The stem does not say that the chosen substance and water are the only products. Carbon could appear separately as carbon monoxide or soot. Water itself contains no carbon, yet the stem explicitly includes it. A coproduct need not contain every element in the fuel.",
+   "fix": "Remove the carbon-accounting argument. Explain that the hydrogen in the fuel forms water in the incomplete-combustion model taught here; ask the student to check the taught products."
+  }
+ ]
+}

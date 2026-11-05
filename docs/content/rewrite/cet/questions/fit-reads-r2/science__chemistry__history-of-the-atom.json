@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-chemistry-history-of-the-atom-0018"
+ ],
+ "findings": []
+}

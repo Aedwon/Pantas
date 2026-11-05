@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-algebra-polynomials-0013"
+ ],
+ "findings": []
+}

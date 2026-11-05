@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__trigonometry__trigonometric-identities",
+  "source": "content/questions/mathematics/trigonometry/trigonometric-identities.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-trigonometry-trigonometric-identities-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Cosecant is the reciprocal of sine."
+    },
+    {
+      "n": 2,
+      "id": "q-trigonometry-trigonometric-identities-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The squared sine and cosine of the same angle sum to one."
+    },
+    {
+      "n": 3,
+      "id": "q-trigonometry-trigonometric-identities-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Cosine is the positive square root of 1 minus 9/25."
+    },
+    {
+      "n": 4,
+      "id": "q-trigonometry-trigonometric-identities-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Tangent equals sine divided by cosine."
+    },
+    {
+      "n": 5,
+      "id": "q-trigonometry-trigonometric-identities-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 2 should cancel the cosine factors to give sine."
+    },
+    {
+      "n": 6,
+      "id": "q-trigonometry-trigonometric-identities-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Both squared terms equal 1/4, giving 1/2."
+    },
+    {
+      "n": 7,
+      "id": "q-trigonometry-trigonometric-identities-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The numerator equals sine squared, giving tangent squared."
+    },
+    {
+      "n": 8,
+      "id": "q-trigonometry-trigonometric-identities-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 4 overlooks the possible negative value of cosine."
+    },
+    {
+      "n": 9,
+      "id": "q-trigonometry-trigonometric-identities-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Factoring secant leaves cosine squared, yielding cosine."
+    },
+    {
+      "n": 10,
+      "id": "q-trigonometry-trigonometric-identities-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing the fundamental Pythagorean identity by cosine squared gives this identity."
+    },
+    {
+      "n": 11,
+      "id": "q-trigonometry-trigonometric-identities-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The expression becomes sine squared plus cosine squared, which equals one."
+    },
+    {
+      "n": 12,
+      "id": "q-trigonometry-trigonometric-identities-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Secant squared equals five and secant is positive for an acute angle."
+    },
+    {
+      "n": 13,
+      "id": "q-trigonometry-trigonometric-identities-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Sine squared equals 1 minus 4/9, giving 5/9."
+    },
+    {
+      "n": 14,
+      "id": "q-trigonometry-trigonometric-identities-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The numerator equals one and its quotient is cosecant squared."
+    },
+    {
+      "n": 15,
+      "id": "q-trigonometry-trigonometric-identities-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The exponent squares the value of sine."
+    },
+    {
+      "n": 16,
+      "id": "q-trigonometry-trigonometric-identities-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing cotangent squared by cosecant squared gives cosine squared."
+    },
+    {
+      "n": 17,
+      "id": "q-trigonometry-trigonometric-identities-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Squaring 0.3 gives 0.09."
+    },
+    {
+      "n": 18,
+      "id": "q-trigonometry-trigonometric-identities-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Tangent is undefined at 90 degrees, so the original product is undefined."
+    },
+    {
+      "n": 19,
+      "id": "q-trigonometry-trigonometric-identities-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Factoring cosine squared allows cancellation of 1 minus sine."
+    },
+    {
+      "n": 20,
+      "id": "q-trigonometry-trigonometric-identities-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "In the third quadrant sine equals -3/5, so cosecant equals -5/3."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

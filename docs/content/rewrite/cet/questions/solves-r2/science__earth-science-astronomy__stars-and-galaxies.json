@@ -1,0 +1,43 @@
+{
+  "file_id": "science__earth-science-astronomy__stars-and-galaxies",
+  "source": "content/questions/science/earth-science-astronomy/stars-and-galaxies.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "id": "q-earth-science-astronomy-heavenly-bodies-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}

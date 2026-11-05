@@ -1,0 +1,20 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "blocker",
+ "resolved": [
+  "q-trigonometry-solving-right-triangles-0011",
+  "q-trigonometry-solving-right-triangles-0013",
+  "q-trigonometry-solving-right-triangles-0016"
+ ],
+ "findings": [
+  {
+   "question": "q-trigonometry-solving-right-triangles-0011",
+   "severity": "Blocker",
+   "field": "stem",
+   "quote": "A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has moved horizontally toward the observer, the angle of elevation is $50$ degrees. The observer's eyes are at ground level, and the plane flies at a constant altitude of $5000$ meters above that level. How far horizontally did the plane travel?",
+   "problem": "The ground-level clarification resolves the round-1 issue, but the stem still does not say whether the plane passes overhead between observations. It can start 13737.4 m horizontally from the observer and end 4195.5 m away on the opposite side after flying toward and past the observer. The endpoint elevation angles are still 20 and 50 degrees, but the travel is 17932.9 m, the sum choice, rather than the keyed difference of 9541.9 m. The explanation assumes the plane stays on the same side without stating this in the stem.",
+   "fix": "State that the plane flies directly toward the observer and remains on the same side of the observer at both observations."
+  }
+ ]
+}

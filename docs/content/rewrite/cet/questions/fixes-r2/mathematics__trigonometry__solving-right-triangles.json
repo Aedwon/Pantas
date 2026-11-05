@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__trigonometry__solving-right-triangles",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-solving-right-triangles-0011",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says the plane flies straight toward the observer and stays on the same side."
+  }
+ ]
+}

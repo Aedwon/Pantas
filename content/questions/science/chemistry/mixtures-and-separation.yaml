@@ -266,7 +266,7 @@ questions:
         correct: true
       - text: 'The paper holds it back strongly compared with how well the solvent carries it.'
         rationale: |
-          This reverses the balance. Strong holding by the paper shortens travel. Check which is stronger, the solvent's carrying or the paper's holding.
+          This reverses the balance. The dye travels along the paper, so stronger attraction may seem to help it climb, but strong holding by the paper shortens travel. Check which is stronger, the solvent's carrying or the paper's holding.
       - text: 'The solvent carries it, and the paper has no effect on where it stops.'
         rationale: |
           This treats the solvent as the only cause. Better carriage can increase travel. Check whether the paper also holds the dye back.

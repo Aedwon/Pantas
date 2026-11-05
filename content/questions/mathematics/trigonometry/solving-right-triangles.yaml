@@ -198,7 +198,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has moved horizontally toward the observer, the angle of elevation is $50$ degrees. The observer's eyes are at ground level, and the plane flies at a constant altitude of $5000$ meters above that level. How far horizontally did the plane travel?
+      A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has flown horizontally straight toward the observer, staying on the same side of the observer, the angle of elevation is $50$ degrees. The observer's eyes are at ground level, and the plane flies at a constant altitude of $5000$ meters above that level. How far horizontally did the plane travel?
     choices:
       - text: '$5000 \left(\cot 20^\circ - \cot 50^\circ\right)$ meters'
         correct: true

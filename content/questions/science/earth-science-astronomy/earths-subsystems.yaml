@@ -377,7 +377,7 @@ questions:
           This reverses the direction of the transfer. Plants and air exchange gases. Check which way the water vapor moves.
       - text: 'Hydrosphere to geosphere water transfer at the plot'
         rationale: |
-          This picks a water movement that does not depend on the plants. Vegetation affects water systems. Check the specific direct transfer described.
+          This picks water entering the ground, not vapor leaving plants. Removing plants can affect several water movements. Trace the specific transfer in the stem.
     explanation: |
       The removed plants supplied water vapor to air. With fewer of those plants, their direct contribution to this transfer is reduced.
     approved: false

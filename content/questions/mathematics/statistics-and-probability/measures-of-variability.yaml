@@ -86,7 +86,7 @@ questions:
   stem: |
     Which of the following best defines the population standard deviation of a dataset?
   choices:
-  - text: 'It is the positive square root of the average squared distance of the values from the mean.'
+  - text: 'It is the nonnegative square root of the average squared distance of the values from the mean.'
     correct: true
   - text: 'It is the numerical difference between the highest score and the lowest score.'
     rationale: |
@@ -293,7 +293,7 @@ questions:
     rationale: |
       This confuses estimation bias with measurement error. Both affect accuracy. The denominator cannot repair recorded measurements.
   explanation: |
-    The sample average comes from the same values we are measuring. So the values sit closer to it than to the true population average, and the calculated spread tends to come out too small. Dividing by $n-1$ instead of $n$ makes the result a little bigger. Over many random samples, this fixes the tendency and gives a fair estimate of the population variance.
+    The sample average comes from the same values we are measuring. So the squared distances add up to no more, and usually less, when measured from the sample average than from the true population average. The calculated spread then tends to come out too small. Dividing by $n-1$ instead of $n$ raises a positive result. Over many random samples, this fixes the tendency and gives a fair estimate of the population variance.
 - id: 'q-statistics-and-probability-measures-of-variability-0016'
   type: 'which-is-true'
   difficulty: 'hard'

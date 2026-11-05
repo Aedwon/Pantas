@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-chemistry-gas-laws-0009"
+ ],
+ "findings": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "reading-comprehension__comprehension-skills__choosing-a-title",
+  "source": "content/questions/reading-comprehension/comprehension-skills/choosing-a-title.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "rc-cs-ct-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The passage covers the terraces, preservation challenges, and restoration proposals."
+    },
+    {
+      "n": 2,
+      "id": "rc-cs-ct-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Water channels are one feature within the broader preservation discussion."
+    },
+    {
+      "n": 3,
+      "id": "rc-cs-ct-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The title omits the passage's call for preservation."
+    },
+    {
+      "n": 4,
+      "id": "rc-cs-ct-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Restoration is proposed, but reversal of decline is not reported."
+    },
+    {
+      "n": 5,
+      "id": "rc-cs-ct-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Preserving the terraces unifies the passage's details."
+    },
+    {
+      "n": 6,
+      "id": "rc-cs-ct-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The passage argues that parks merit investment for several public benefits."
+    },
+    {
+      "n": 7,
+      "id": "rc-cs-ct-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Exercise is only one benefit alongside cooling and community life."
+    },
+    {
+      "n": 8,
+      "id": "rc-cs-ct-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Buildings provide context while parks are the central subject."
+    },
+    {
+      "n": 9,
+      "id": "rc-cs-ct-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The final paragraph explicitly argues for investment in public parks."
+    },
+    {
+      "n": 10,
+      "id": "rc-cs-ct-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The title includes the three benefits emphasized in the text."
+    },
+    {
+      "n": 11,
+      "id": "q-comprehension-skills-choosing-a-title-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The project improves readership by bringing books closer to residents."
+    },
+    {
+      "n": 12,
+      "id": "q-comprehension-skills-choosing-a-title-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The collection's use increases through access without much growth in size."
+    },
+    {
+      "n": 13,
+      "id": "q-comprehension-skills-choosing-a-title-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Counting books omits the project's shift toward reaching readers."
+    },
+    {
+      "n": 14,
+      "id": "q-comprehension-skills-choosing-a-title-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The moving shelf represents reading access beyond the barangay hall."
+    },
+    {
+      "n": 15,
+      "id": "q-comprehension-skills-choosing-a-title-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The passage does not establish regular reading by every resident."
+    },
+    {
+      "n": 16,
+      "id": "q-comprehension-skills-choosing-a-title-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The writer prioritizes roof repairs to protect daily learning."
+    },
+    {
+      "n": 17,
+      "id": "q-comprehension-skills-choosing-a-title-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The gate is the lower priority in an argument favoring roof repair."
+    },
+    {
+      "n": 18,
+      "id": "q-comprehension-skills-choosing-a-title-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The writer acknowledges that a welcoming entrance has value."
+    },
+    {
+      "n": 19,
+      "id": "q-comprehension-skills-choosing-a-title-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The limited funds should address essential repairs before appearance."
+    },
+    {
+      "n": 20,
+      "id": "q-comprehension-skills-choosing-a-title-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "This title describes the priority decision without inventing completed outcomes."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

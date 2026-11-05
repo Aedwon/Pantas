@@ -1,0 +1,23 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "blocker",
+ "resolved": [
+  "q-chemistry-nuclear-chemistry-0007",
+  "q-chemistry-nuclear-chemistry-0009",
+  "q-chemistry-nuclear-chemistry-0011",
+  "q-chemistry-nuclear-chemistry-0014",
+  "q-chemistry-nuclear-chemistry-0018",
+  "q-chemistry-nuclear-chemistry-0019"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-nuclear-chemistry-0011",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "A lighter shield reduces gamma intensity more than a denser one.",
+   "problem": "The comparison does not hold shield thickness fixed. A sufficiently thick concrete shield can reduce the same gamma beam more than a thin lead sheet, even though concrete is less dense. Thus this intended wrong choice can also be true alongside the key; density alone does not determine which shield reduces intensity more.",
+   "fix": "Specify the same gamma radiation and equal shield thicknesses when comparing materials, and make the paper-versus-lead comparison use those same conditions."
+  }
+ ]
+}

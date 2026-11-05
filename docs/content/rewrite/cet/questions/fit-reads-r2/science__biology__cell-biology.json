@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-cell-biology-0019"
+ ],
+ "findings": []
+}

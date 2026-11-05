@@ -1,0 +1,20 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-earth-science-astronomy-water-cycle-oceanography-0003",
+  "q-earth-science-astronomy-water-cycle-oceanography-0016",
+  "q-earth-science-astronomy-water-cycle-oceanography-0019"
+ ],
+ "findings": [
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0016",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This names tides as the driver and reverses the heat direction. The Moon affects ocean motion. Check what drives currents and where warm water starts.",
+   "problem": "The note assumes a warm current and a required heat-transport direction, but the stem specifies neither. The lesson explicitly includes the Humboldt Current bringing cool water toward the tropics. Cold water also carries thermal energy, so pole-to-equator water movement alone does not establish a reversed direction. The note should distinguish the net transport of heat from the paths of individual currents.",
+   "fix": "Specify net heat transport from the tropics toward higher latitudes in the stem and revise this note to explain that net pattern, while allowing cold currents to flow toward the equator."
+  }
+ ]
+}

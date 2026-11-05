@@ -1,0 +1,187 @@
+{
+  "file_id": "science__earth-science-astronomy__eclipses-and-moon-phases",
+  "source": "content/questions/science/earth-science-astronomy/eclipses-and-moon-phases.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A new-to-new lunar cycle takes about 29.5 days."
+    },
+    {
+      "n": 2,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "At new moon, the sunlit hemisphere faces away from Earth."
+    },
+    {
+      "n": 3,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "At full moon, the sunlit hemisphere faces Earth."
+    },
+    {
+      "n": 4,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Illumination increases from crescent through first quarter and gibbous to full."
+    },
+    {
+      "n": 5,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A half-lit Moon with increasing illumination is at first quarter."
+    },
+    {
+      "n": 6,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Last quarter follows waning gibbous."
+    },
+    {
+      "n": 7,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "More than half illuminated and shrinking describes waning gibbous."
+    },
+    {
+      "n": 8,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The Moon blocking sunlight from reaching Earth causes a solar eclipse."
+    },
+    {
+      "n": 9,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Earth casting its shadow on the Moon causes a lunar eclipse."
+    },
+    {
+      "n": 10,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Lunar eclipses require the full-moon alignment."
+    },
+    {
+      "n": 11,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Complete solar coverage within the umbra is a total solar eclipse."
+    },
+    {
+      "n": 12,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A reddish Moon entirely within Earth’s umbra is a total lunar eclipse."
+    },
+    {
+      "n": 13,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The penumbra produces partial coverage of the Sun."
+    },
+    {
+      "n": 14,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The Moon’s orbital tilt usually prevents eclipse alignment."
+    },
+    {
+      "n": 15,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A bright solar ring around the Moon identifies an annular solar eclipse."
+    },
+    {
+      "n": 16,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Only part of the Moon remaining in the umbra makes this the partial stage."
+    },
+    {
+      "n": 17,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Moon phases reflect our changing view of the sunlit hemisphere."
+    },
+    {
+      "n": 18,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Crescent means less than half illuminated and gibbous means more than half."
+    },
+    {
+      "n": 19,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Waning crescent, new moon, and waxing crescent precede first quarter."
+    },
+    {
+      "n": 20,
+      "id": "q-earth-science-astronomy-eclipses-and-moon-phases-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A new moon far from alignment cannot cause a solar eclipse."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,38 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "blocker",
+ "resolved": [
+  "q-chemistry-solutions-0006",
+  "q-chemistry-solutions-0007",
+  "q-chemistry-solutions-0008",
+  "q-chemistry-solutions-0015",
+  "q-chemistry-solutions-0019"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-solutions-0008",
+   "severity": "Blocker",
+   "field": "choices",
+   "quote": "Many solids become less soluble when heated, with exceptions.",
+   "problem": "The stem asks for an accurate statement, but \u201cmany\u201d does not mean \u201cmost\u201d or \u201cthe usual trend.\u201d Many solids can become more soluble while many others become less soluble. The lesson explicitly gives cerium(III) sulfate as a solid that becomes less soluble when heated. The revised distractor describes a real class of solids rather than denying the common trend, so it is defensible alongside the key.",
+   "fix": "Ask for the usual trend for solids in water, and make all choices parallel statements of competing usual trends."
+  },
+  {
+   "question": "q-chemistry-solutions-0019",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This invents a turning point in the trend. Warmer liquids hold less gas at each step. Check the lesson's gas-solubility behavior.",
+   "problem": "\u201cWarmer liquids hold less gas at each step\u201d turns the common trend into an absolute. For example, helium solubility in water can increase with warming above its solubility minimum. The lesson correctly says gas solubility usually falls. The note must explain why this is not the common trend without denying real exceptions.",
+   "fix": "Say that a rise followed by a fall is not the common trend; liquids usually hold less dissolved gas as they warm at fixed gas pressure."
+  },
+  {
+   "question": "q-chemistry-solutions-0019",
+   "severity": "Minor",
+   "field": "explanation",
+   "quote": "Dissolved gases commonly become less soluble as the liquid warms at fixed gas partial pressure. The equilibrium concentration therefore commonly decreases.",
+   "problem": "\u201cGas partial pressure\u201d and \u201cequilibrium concentration\u201d repeat the stem in technical language without explaining it for a Grade 5 reader. A learner who does not know those terms gets no plain account of what decreases.",
+   "fix": "Say: \u201cWhen the pressure of the gas above the liquid stays the same, a warmer liquid usually holds less dissolved gas.\u201d"
+  }
+ ]
+}

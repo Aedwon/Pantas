@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-geometry-parallel-perpendicular-lines-0007",
+  "q-geometry-parallel-perpendicular-lines-0020"
+ ],
+ "findings": []
+}

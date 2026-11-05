@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-trigonometry-angles-and-radian-measure-0013",
+  "q-trigonometry-angles-and-radian-measure-0017"
+ ],
+ "findings": []
+}

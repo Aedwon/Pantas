@@ -1,0 +1,24 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "rc-cs-ct-0002",
+  "rc-cs-ct-0003",
+  "rc-cs-ct-0005",
+  "rc-cs-ct-0006",
+  "rc-cs-ct-0007",
+  "q-comprehension-skills-choosing-a-title-0013",
+  "q-comprehension-skills-choosing-a-title-0017"
+ ],
+ "findings": [
+  {
+   "question": "q-comprehension-skills-choosing-a-title-0017",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats a proposal as a decision. The painting is kept for a later budget. Check what the committee decides this term.",
+   "problem": "The note treats the writer's recommendation as a reported committee decision. The passage says the committee should keep the painting proposal for a later budget and the roof should receive attention first; it never reports a vote or final decision. A student following the check cannot find what the committee actually decides this term.",
+   "fix": "Say that the writer recommends repairing the roof first and postponing painting. Ask students to check whether the passage reports a decision or gives a recommendation."
+  }
+ ]
+}

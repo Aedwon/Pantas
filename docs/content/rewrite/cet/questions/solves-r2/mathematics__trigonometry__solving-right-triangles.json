@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__trigonometry__solving-right-triangles",
+  "source": "content/questions/mathematics/trigonometry/solving-right-triangles.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-trigonometry-solving-right-triangles-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The height is 20 tan 45° = 20 m."
+    },
+    {
+      "n": 2,
+      "id": "q-trigonometry-solving-right-triangles-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The acute angles sum to 90°, so the other angle is 55°."
+    },
+    {
+      "n": 3,
+      "id": "q-trigonometry-solving-right-triangles-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The ground angle has cosine 5/10, so it is 60°."
+    },
+    {
+      "n": 4,
+      "id": "q-trigonometry-solving-right-triangles-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The tree height is the eye height plus 30 tan 60°."
+    },
+    {
+      "n": 5,
+      "id": "q-trigonometry-solving-right-triangles-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The horizontal distance is 50/tan 30° = 50√3 m."
+    },
+    {
+      "n": 6,
+      "id": "q-trigonometry-solving-right-triangles-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The rise divided by the horizontal run is 3/9 = 1/3."
+    },
+    {
+      "n": 7,
+      "id": "q-trigonometry-solving-right-triangles-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The horizontal distances are h√3 and h/√3, whose difference is 100 m."
+    },
+    {
+      "n": 8,
+      "id": "q-trigonometry-solving-right-triangles-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Sine relates the opposite side to the hypotenuse."
+    },
+    {
+      "n": 9,
+      "id": "q-trigonometry-solving-right-triangles-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "For the angle with the vertical, tan 50° = d/25."
+    },
+    {
+      "n": 10,
+      "id": "q-trigonometry-solving-right-triangles-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtract the roof height from the height of the pole top using the common horizontal distance."
+    },
+    {
+      "n": 11,
+      "id": "q-trigonometry-solving-right-triangles-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The horizontal distances are 5000 cot 20° and 5000 cot 50°."
+    },
+    {
+      "n": 12,
+      "id": "q-trigonometry-solving-right-triangles-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The sine is opposite over hypotenuse, or 30/50 = 3/5."
+    },
+    {
+      "n": 13,
+      "id": "q-trigonometry-solving-right-triangles-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The slope distance is not the horizontal distance, and the worker may be at a different elevation."
+    },
+    {
+      "n": 14,
+      "id": "q-trigonometry-solving-right-triangles-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The depression and elevation angles are equal because the horizontal reference lines are parallel."
+    },
+    {
+      "n": 15,
+      "id": "q-trigonometry-solving-right-triangles-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 3 should give a = 60 sin 50°."
+    },
+    {
+      "n": 16,
+      "id": "q-trigonometry-solving-right-triangles-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The difference between h cot 20° and h cot 35° is 200 m."
+    },
+    {
+      "n": 17,
+      "id": "q-trigonometry-solving-right-triangles-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Elevation is measured upward from a horizontal line through the observer."
+    },
+    {
+      "n": 18,
+      "id": "q-trigonometry-solving-right-triangles-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The foot moves 10 cos 30° − 10 cos 60° = 5(√3 − 1) m."
+    },
+    {
+      "n": 19,
+      "id": "q-trigonometry-solving-right-triangles-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The distances sum to h cot 30° + h cot 60° = 80 m, giving h = 20√3 m."
+    },
+    {
+      "n": 20,
+      "id": "q-trigonometry-solving-right-triangles-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Writing x = h − 5 and √3h = x + 20 gives h = 15/(√3 − 1) m."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

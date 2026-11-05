@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-trigonometry-basic-trigonometric-ratios-0006",
+  "q-trigonometry-basic-trigonometric-ratios-0009"
+ ],
+ "findings": []
+}

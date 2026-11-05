@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__solutions",
+  "source": "content/questions/science/chemistry/solutions.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-solutions-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "3 mol divided by 6 L gives 0.5 M."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-solutions-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "2 mol divided by 4 kg of solvent gives 0.5 m."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-solutions-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "15 g divided by 150 g of solution gives 10%."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-solutions-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A saturated solution is at its solubility limit."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-solutions-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "More dissolved sugar at equilibrium means higher solubility."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-solutions-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Molarity uses liters of final solution."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-solutions-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Mass percent uses total solution mass as the denominator."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-solutions-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Heating increases the solubility of many solids, with exceptions."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-solutions-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A substance with low solubility can saturate a solution at low concentration."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-solutions-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Temperature can change solution volume without changing solvent mass."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-solutions-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "25 mL divided by 100 mL of solution gives 25%."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-solutions-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "58.5 g is 1 mol, giving 0.5 M in 2 L."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-solutions-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal solute moles per equal solvent mass give equal molalities."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-solutions-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Expansion lowers moles per liter while moles per kilogram remain fixed."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-solutions-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The solvent determines the physical state of the solution."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-solutions-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A solution below its solubility limit is unsaturated."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-solutions-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A metastable solution above its equilibrium solubility is supersaturated."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-solutions-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Higher gas partial pressure commonly increases equilibrium gas solubility."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-solutions-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Warming commonly decreases gas solubility at fixed gas partial pressure."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-solutions-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "10% of 200 g is 20 g."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

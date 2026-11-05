@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-physics-kinematics-0009",
+  "q-physics-kinematics-0012"
+ ],
+ "findings": []
+}

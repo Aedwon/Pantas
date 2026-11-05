@@ -1,0 +1,20 @@
+{
+ "file": "science__biology__evolution",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-evolution-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Gave all four choices matching 'probably' hedging and made the competing predictions plausible."
+  },
+  {
+   "question": "q-biology-evolution-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the continued-mixing note around shared ancestry and the stated barrier, removing invented habitat similarity."
+  }
+ ]
+}

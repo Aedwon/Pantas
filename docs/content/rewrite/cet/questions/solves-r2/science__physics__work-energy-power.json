@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__work-energy-power",
+  "source": "content/questions/science/physics/work-energy-power.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-work-energy-power-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Work is 20 × 5 = 100 J."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-work-energy-power-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Kinetic energy is ½ × 4 × 5² = 50 J."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-work-energy-power-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Potential energy is 3 × 9.8 × 4 = 117.6 J."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-work-energy-power-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Energy conservation gives speed √(2 × 9.8 × 2) ≈ 6.26 m/s."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-work-energy-power-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Average power is 300/5 = 60 W."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-work-energy-power-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Doubling speed multiplies kinetic energy by four."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-work-energy-power-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Zero displacement means zero mechanical work on the box."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-work-energy-power-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Negative frictional work decreases mechanical energy."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-work-energy-power-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The powers are 500 W and 100 W, giving a ratio of five."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-work-energy-power-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Final kinetic energy is 50 + 200 = 250 J."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-work-energy-power-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Speed is √(2 × 72/4) = 6 m/s."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-work-energy-power-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "At equal speed, kinetic energy is proportional to mass."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-work-energy-power-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Work is 200 × 10 = 2000 J."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-work-energy-power-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Between these points the pendulum is moving and above the potential-energy zero."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-work-energy-power-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The fallen height is 14²/(2 × 9.8) = 10 m."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-work-energy-power-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A perpendicular force does zero work because cos 90° = 0."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-work-energy-power-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Work is 40 × 3 × ½ = 60 J."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-work-energy-power-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Final kinetic energy is 100 − 30 = 70 J."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-work-energy-power-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Shifting the reference adds a constant and leaves potential-energy differences unchanged."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-work-energy-power-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A very large altitude change requires accounting for gravity varying with distance."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

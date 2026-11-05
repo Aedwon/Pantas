@@ -1,0 +1,20 @@
+{
+ "file": "science__chemistry__solutions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-solutions-0008",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Restated the stem as the usual solid trend with parallel choices; replaced the gas choice with a turning-point trend; key still 'more soluble'."
+  },
+  {
+   "question": "q-chemistry-solutions-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Reworded the note to say a rise then fall is not the common trend, without an absolute."
+  }
+ ]
+}

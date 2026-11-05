@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-earth-science-astronomy-weather-and-climate-0022"
+ ],
+ "findings": []
+}

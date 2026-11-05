@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-algebra-types-of-functions-0015"
+ ],
+ "findings": []
+}

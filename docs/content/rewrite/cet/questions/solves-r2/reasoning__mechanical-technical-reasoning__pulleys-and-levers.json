@@ -1,0 +1,187 @@
+{
+  "file_id": "reasoning__mechanical-technical-reasoning__pulleys-and-levers",
+  "source": "content/questions/reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A fixed pulley requires the full weight, 50 × 9.8 = 490 N."
+    },
+    {
+      "n": 2,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Two supporting segments require 600/2 = 300 N and 2 × 2 = 4 m of rope travel."
+    },
+    {
+      "n": 3,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Both ideal systems require work equal to 800 × 3 = 2,400 J."
+    },
+    {
+      "n": 4,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Torque balance gives 980 × 2/5 = 392 N."
+    },
+    {
+      "n": 5,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The left torque of 2,700 N m exceeds the right torque of 1,800 N m."
+    },
+    {
+      "n": 6,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The new balancing effort is 1,000 × 1/5 = 200 N."
+    },
+    {
+      "n": 7,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "medium",
+      "note": "The stated 4 m load arm requires 8 m, but the figure data inconsistently lists a 3 m load arm."
+    },
+    {
+      "n": 8,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A fixed pulley changes the direction of the applied effort."
+    },
+    {
+      "n": 9,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The free end travels twice the load displacement, or 1.6 m."
+    },
+    {
+      "n": 10,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal opposing torques require 5F = 2W."
+    },
+    {
+      "n": 11,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "medium",
+      "note": "The stated forces and 8 m effort arm give a 2 m load arm, conflicting with the figure data."
+    },
+    {
+      "n": 12,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "medium",
+      "note": "Torque balance requires 900 × 3/150 = 18 m, conflicting with the figure's 5 m effort arm."
+    },
+    {
+      "n": 13,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Zero acceleration allows two equal rope tensions to balance the 640 N weight."
+    },
+    {
+      "n": 14,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A motionless effort point has zero displacement and therefore zero work."
+    },
+    {
+      "n": 15,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The lever requires 1,000 × 2/8 = 250 N and the pulley requires 1,000/2 = 500 N."
+    },
+    {
+      "n": 16,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The lower movable pulley travels with the attached load."
+    },
+    {
+      "n": 17,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Doubling both arms preserves their ratio and the balancing effort."
+    },
+    {
+      "n": 18,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Friction adds resistance, increasing the steady pull above the ideal 300 N."
+    },
+    {
+      "n": 19,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Doubling the load and halving its arm preserves its torque."
+    },
+    {
+      "n": 20,
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The additional load force is (250 × 6 − 600 × 2)/2 = 150 N."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

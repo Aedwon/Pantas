@@ -1,0 +1,21 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "rc-tt-po-0004",
+  "rc-tt-po-0015",
+  "q-text-types-poetry-0017",
+  "q-text-types-poetry-0018"
+ ],
+ "findings": [
+  {
+   "question": "rc-tt-po-0015",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This treats the sunlight as proof that the rain was a harm. The rain washes the avenues clean. Check whether the poem blames the rain or welcomes it.",
+   "problem": "The note assigns an action to the wrong subject. In the final stanza, sunlight \"breaks through parting skies\" and \"washes clean the avenues of gray.\" The poem assigns that washing to sunlight, so the note misstates the textual evidence used to reject this choice.",
+   "fix": "Replace the rain-washing claim with evidence from the second stanza: the cooling rain brings relief from worry."
+  }
+ ]
+}

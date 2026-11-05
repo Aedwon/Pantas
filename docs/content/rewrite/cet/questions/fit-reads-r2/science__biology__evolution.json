@@ -1,0 +1,26 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-biology-evolution-0004"
+ ],
+ "findings": [
+  {
+   "question": "q-biology-evolution-0014",
+   "severity": "Major",
+   "field": "choices",
+   "quote": "The populations will probably diverge and may eventually stop interbreeding.",
+   "problem": "The round-1 wording clue remains unresolved. Only the key uses qualified predictions (\"probably\" and \"may\"); every distractor states a categorical outcome (\"will keep,\" \"will stay,\" or \"will stop\"). For example, a student can select the only cautious prediction without understanding how isolation affects speciation.",
+   "fix": "Give all four choices comparable certainty and use plausible competing predictions about divergence and reproductive isolation."
+  },
+  {
+   "question": "q-biology-evolution-0014",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This ignores the river. Habitats on both banks look alike in many ways, so mixing seems likely. Check what the stem says the river stops.",
+   "problem": "The note invents habitat similarities to explain why continued gene flow looks plausible. The stem says the habitats differ and supplies no similarities. Even similar habitats would not make mixing likely across a river that stops gene flow; for example, matching vegetation on both banks does not let lizards cross an impassable river.",
+   "fix": "Explain that shared ancestry can make continued allele sharing seem plausible, then ask whether any alleles can cross the stated barrier."
+  }
+ ]
+}

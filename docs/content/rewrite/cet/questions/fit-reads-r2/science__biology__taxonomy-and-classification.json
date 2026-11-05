@@ -1,0 +1,11 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-biology-taxonomy-and-classification-0009",
+  "q-biology-taxonomy-and-classification-0015",
+  "q-biology-taxonomy-and-classification-0016"
+ ],
+ "findings": []
+}

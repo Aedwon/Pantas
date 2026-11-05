@@ -1,0 +1,9 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-geometry-logic-and-reasoning-0015"
+ ],
+ "findings": []
+}

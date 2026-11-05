@@ -1,0 +1,11 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-mechanical-technical-reasoning-structural-stability-0005",
+  "q-mechanical-technical-reasoning-structural-stability-0011",
+  "q-mechanical-technical-reasoning-structural-stability-0017"
+ ],
+ "findings": []
+}

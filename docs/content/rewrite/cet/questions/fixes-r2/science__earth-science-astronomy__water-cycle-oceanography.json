@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__water-cycle-oceanography",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-water-cycle-oceanography-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now specifies net heat from the tropics toward higher latitudes; note explains the net pattern and allows cold currents toward the equator."
+  }
+ ]
+}

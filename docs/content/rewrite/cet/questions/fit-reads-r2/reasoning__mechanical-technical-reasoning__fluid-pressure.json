@@ -1,0 +1,12 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-mechanical-technical-reasoning-fluid-pressure-0001",
+  "q-mechanical-technical-reasoning-fluid-pressure-0006",
+  "q-mechanical-technical-reasoning-fluid-pressure-0018",
+  "q-mechanical-technical-reasoning-fluid-pressure-0019"
+ ],
+ "findings": []
+}

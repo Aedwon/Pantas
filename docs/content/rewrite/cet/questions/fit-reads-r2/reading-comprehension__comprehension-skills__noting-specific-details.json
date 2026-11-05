@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "rc-cs-nsd-0013",
+  "q-comprehension-skills-noting-specific-details-0016"
+ ],
+ "findings": []
+}

@@ -1,0 +1,19 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-chemistry-mixtures-and-separation-0013",
+  "q-chemistry-mixtures-and-separation-0014"
+ ],
+ "findings": [
+  {
+   "question": "q-chemistry-mixtures-and-separation-0013",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This reverses the balance. Strong holding by the paper shortens travel. Check which is stronger, the solvent's carrying or the paper's holding.",
+   "problem": "The note identifies the reversed balance and gives a check, but does not explain why this choice looks right. For example, a student may think stronger attraction to the paper helps pull the dye upward; saying that strong holding shortens travel corrects that idea without identifying its appeal.",
+   "fix": "Add why it looks right: 'The dye travels along the paper, so stronger attraction may seem to help it climb.' Keep the mistake and check."
+  }
+ ]
+}

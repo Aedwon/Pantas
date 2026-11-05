@@ -1,0 +1,37 @@
+{
+ "file": "reasoning__mechanical-technical-reasoning__pulleys-and-levers",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+   "severity": "Blocker",
+   "action": "declined",
+   "key_changed": false,
+   "summary": "Figure unchanged.",
+   "reason": "The lever figure only uses the two numbers as drawing proportions; the renderer never prints them (lever_balance_figure.dart says so), and the stem says not to scale. Any proportion consistent with the stem would show the unknown arm and reveal the answer."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+   "severity": "Blocker",
+   "action": "declined",
+   "key_changed": false,
+   "summary": "Figure unchanged.",
+   "reason": "The lever figure only uses the two numbers as drawing proportions; the renderer never prints them (lever_balance_figure.dart says so), and the stem says not to scale. Any proportion consistent with the stem would show the unknown arm and reveal the answer."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+   "severity": "Blocker",
+   "action": "declined",
+   "key_changed": false,
+   "summary": "Figure unchanged.",
+   "reason": "The lever figure only uses the two numbers as drawing proportions; the renderer never prints them (lever_balance_figure.dart says so), and the stem says not to scale. Any proportion consistent with the stem would show the unknown arm and reveal the answer."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Wrong choices are now competing motion conditions (speeding up, slowing down, any motion)."
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "major",
+ "resolved": [
+  "q-trigonometry-laws-of-sines-and-cosines-0018",
+  "q-trigonometry-laws-of-sines-and-cosines-0019"
+ ],
+ "findings": [
+  {
+   "question": "q-trigonometry-laws-of-sines-and-cosines-0020",
+   "severity": "Major",
+   "field": "note",
+   "quote": "This swaps the two sides, giving $\\sin R=\\dfrac{10}{7\\sin30^\\circ}$, which is greater than $1$. The swap looks fine because both lengths appear. Check that each side is paired with its opposite angle.",
+   "problem": "The round-1 wrong-note finding is not fully resolved. Swapping the side-angle pairs gives sin R = 7 sin 30 degrees / 10 = 0.35, which does not support choosing Zero. The displayed expression instead comes from dividing by sin 30 degrees rather than multiplying by it, so the note names the wrong mistake.",
+   "fix": "Describe dividing by sine instead of multiplying, explain why moving the sine factor to the denominator looks tempting, and advise cross-multiplying the matched proportion."
+  }
+ ]
+}

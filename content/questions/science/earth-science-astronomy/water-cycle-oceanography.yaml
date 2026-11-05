@@ -323,7 +323,7 @@ questions:
     type: cause-effect
     difficulty: medium
     stem: |
-      What drives ocean currents, and why are they important for redistributing heat around the planet?
+      What drives ocean currents, and why are they important for moving heat from the tropics toward higher latitudes around the planet?
     choices:
       - text: 'Wind, density differences, and Earth''s rotation help move water, so currents carry heat between regions.'
         correct: true
@@ -332,7 +332,7 @@ questions:
           This gets the drivers right but denies the heat transport. Moving water seems separate from its heat. Check whether warm water carries energy when it moves.
       - text: 'Lunar gravity and tides help move water, so currents carry heat from the poles toward the equator.'
         rationale: |
-          This names tides as the driver and reverses the heat direction. The Moon affects ocean motion. Check what drives currents and where warm water starts.
+          This names tides as the driver and reverses the net heat direction. The Moon affects ocean motion. Check what drives currents and that the net heat flow runs from the tropics toward higher latitudes, even though some cold currents flow toward the equator.
       - text: 'Earthquakes and underwater eruptions help move water, so currents carry heat between regions.'
         rationale: |
           This names sudden events as the driver. They can move water, so they seem possible. Check which steady forces drive currents.

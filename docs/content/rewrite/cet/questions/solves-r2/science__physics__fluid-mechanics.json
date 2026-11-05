@@ -1,0 +1,151 @@
+{
+  "file_id": "science__physics__fluid-mechanics",
+  "source": "content/questions/science/physics/fluid-mechanics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-fluid-mechanics-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Density is 300/150 = 2 g/cm³."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-fluid-mechanics-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Its lower density makes buoyancy exceed its weight."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-fluid-mechanics-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Its density exceeds the new liquid's density."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-fluid-mechanics-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The displaced water weighs 0.250 × 9.8 = 2.45 N."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-fluid-mechanics-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Pressure is perpendicular force divided by area."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-fluid-mechanics-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Buoyant force uses the displaced fluid's density."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-fluid-mechanics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Average density relative to fluid density determines floating."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-fluid-mechanics-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrostatic pressure increases with depth."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-fluid-mechanics-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Density is 450/500 = 0.9 g/cm³, below water's density."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-fluid-mechanics-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Fluid density, displaced volume, and gravity remain constant."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-fluid-mechanics-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Floodwater adds mass and can exceed the ship's flotation capacity."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-fluid-mechanics-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Both liquid water and gaseous air are fluids."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-fluid-mechanics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Pressure is 600/0.20 = 3000 Pa."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-fluid-mechanics-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The pressure difference is 1000 × 10 × (5 − 2) = 30000 Pa."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-fluid-mechanics-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal displaced volumes in the same liquid produce equal buoyant forces."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-fluid-mechanics-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Greater pressure lower down produces a net upward force."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

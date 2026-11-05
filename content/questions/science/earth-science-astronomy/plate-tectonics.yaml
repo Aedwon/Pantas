@@ -211,7 +211,7 @@ questions:
         rationale: |
           This gives the motion of a transform boundary. Both boundaries have faults. Check whether the plates move toward each other or along each other.
     explanation: |
-      Convergent boundaries bring plates together. Ocean crust is heavier, so it sinks under a continental plate. Continental plates are light and thick, so when two meet they crumple and form mountains.
+      Convergent boundaries bring plates together. Oceanic rock is heavier for its size than continental rock, so the oceanic plate sinks beneath the continental plate.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0011

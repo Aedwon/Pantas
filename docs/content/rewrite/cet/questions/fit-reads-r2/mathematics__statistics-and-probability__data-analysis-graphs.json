@@ -1,0 +1,10 @@
+{
+ "reader": "sol",
+ "round": 2,
+ "verdict": "clean",
+ "resolved": [
+  "q-statistics-and-probability-data-analysis-graphs-0001",
+  "q-statistics-and-probability-data-analysis-graphs-0011"
+ ],
+ "findings": []
+}
