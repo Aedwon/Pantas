@@ -1,0 +1,20 @@
+{
+ "file": "science__biology__evolution",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-evolution-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the stem to describe resistance becoming common and made the key about inherited resistance and survival."
+  },
+  {
+   "question": "q-biology-evolution-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Made all four choices parallel predictions and replaced the first distractor and its note."
+  }
+ ]
+}

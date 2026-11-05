@@ -41,7 +41,7 @@ passages:
 
     The third panel shows other students adding posters. The timetable disappears under overlapping sheets. Mara's original request remains visible at the edge, though a new poster partly covers the words official notices.
 
-    In the final panel, Gio asks Mara where to find the timetable. She points at the pile of posters without speaking. His expression changes from confidence to embarrassment. The comic uses the sequence to connect a small exception with a shared problem. No caption blames one club alone; the crowded board reflects the combined actions of several students.
+    In the final panel, Gio asks Mara where to find the timetable. She points at the pile of posters without speaking. His expression changes from confidence to embarrassment.
 questions:
 - id: rc-tt-vm-0001
   passage: rc-tt-vm-p1
@@ -151,21 +151,21 @@ questions:
 
     '
   choices:
-  - text: The footer naming the school health desk
+  - text: The banner along the bottom of the poster
     correct: true
-  - text: The yellow warning box beside the enlarged mosquito drawing
+  - text: The yellow warning box beside the mosquito drawing
     rationale: 'This treats warning emphasis as contact information. The bright box seems important. Check which element actually names a contact.
 
       '
-  - text: The slice showing flower vase water as five percent of the example
-    rationale: 'This treats a data label as a source of help. The label gives specific information. Check whether it names a person or office.
+  - text: The pie chart in the center of the poster
+    rationale: 'This treats a data display as a source of help. The chart shows how the sample entries are shared. Check whether it names a person or office.
 
       '
-  - text: The bold headline placed above the three visual sections
+  - text: The red headline above the three sections
     rationale: 'This treats the most visible words as a contact resource. Headlines attract attention. Check whether those words identify whom to contact.
 
       '
-  explanation: 'The footer names the school health desk as the contact. That is the element a reader would use to identify whom to approach.
+  explanation: 'The banner along the bottom names the school health desk as the contact. That is the element a reader would use to identify whom to approach.
 
     '
 - id: rc-tt-vm-0006

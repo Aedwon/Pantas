@@ -1,0 +1,27 @@
+{
+ "file": "science__chemistry__mixtures-and-separation",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-mixtures-and-separation-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Asked for the explanation and gave four parallel phase-balance choices, with a plain explanation."
+  },
+  {
+   "question": "q-chemistry-mixtures-and-separation-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Gave a salt-dissolving observation in the stem instead of the conclusion."
+  },
+  {
+   "question": "q-chemistry-mixtures-and-separation-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the sentence refuting a wrong choice from the explanation."
+  }
+ ]
+}

@@ -65,17 +65,17 @@ questions:
     stem: |
       Why is "How Gravity-Fed Water Channels Function" too narrow for this passage?
     choices:
-      - text: "It leaves out the conservation problem."
+      - text: "It names one feature but leaves out the effort to preserve the terraces."
         correct: true
-      - text: "It gives a general overview of all kinds of farming."
+      - text: "It names the channels but leaves out the stone walls, which are the passage's central subject."
         rationale: |
-          This confuses a single feature with a broad overview. Irrigation supports farming. Check how much of the passage the proposed title actually names.
-      - text: "It denies that water moves through mountain channels."
+          This treats a supporting feature as the main subject. The walls matter, but they serve the larger point. Check what the whole passage asks readers to do about the terraces.
+      - text: "It names the water system but leaves out the rice harvest the terraces produce."
         rationale: |
-          This treats missing coverage as a contradiction. The title refers to a real feature. Check whether it denies any statement in the text.
-      - text: "It promises a complete history of Ifugao migration."
+          This adds a topic the passage barely develops. Farming is the setting of the terraces. Check whether the passage spends its time on harvests or on protecting the terraces.
+      - text: "It names the water source but leaves out the young residents' move to cities, the passage's main point."
         rationale: |
-          This imports another paragraph's topic into the title. Migration is mentioned later. Check the words the proposed title actually contains.
+          This treats one cause of the problem as the main point. Migration explains why repairs are hard. Check what the passage says the community should do about the problem.
     explanation: |
       The channels are one feature in the opening. The passage goes on to discuss maintenance threats and preservation, which the title leaves out.
   - id: "rc-cs-ct-0003"
@@ -85,17 +85,17 @@ questions:
     stem: |
       What main weakness does the title "Terraces" have for this passage?
     choices:
-      - text: "It omits the specific preservation focus."
+      - text: "It names the subject but not the call to preserve it."
         correct: true
-      - text: "It restricts the passage to one named repair workshop."
+      - text: "It names the subject but not the stone walls that hold the terraces."
         rationale: |
-          This mistakes a general label for a specific event. Workshops are part of the passage. Check whether the title names them at all.
-      - text: "It claims that terrace farming has already ended."
+          This picks one supporting detail as the missing idea. Walls are described in the passage. Check whether a detail or the passage's main point is missing.
+      - text: "It names the subject but not the monsoon rains that damaged the walls."
         rationale: |
-          This supplies an outcome that the title does not state. The text discusses deterioration. Check whether the single word announces an end to farming.
-      - text: "It says that migration is the only cause of damage."
+          This picks a cause of damage as the missing idea. The rains help explain the problem. Check what the passage argues in response to the damage.
+      - text: "It names the subject but not the cities where young residents work."
         rationale: |
-          This supplies a causal claim that is absent from the title. Migration is a threat in the passage. Check the title's actual wording.
+          This picks a side detail as the missing idea. Migration is one threat the passage names. Check which idea ties the whole passage together.
     explanation: |
       "Terraces" names a broad subject. Adding the preservation focus would show what this passage says about that subject.
   - id: "rc-cs-ct-0004"
@@ -127,15 +127,15 @@ questions:
     choices:
       - text: "The need to preserve the terraces"
         correct: true
-      - text: "The exact height of every retaining wall"
+      - text: "The irrigation design of the terraces"
         rationale: |
-          This substitutes a technical measurement for the main point. Walls are important to the terraces. Check whether measurements organize the whole text.
-      - text: "The complete list of jobs available in cities"
+          This picks one engineering feature as the main point. Irrigation is described early. Check whether the whole passage is about how the terraces work or how to protect them.
+      - text: "The migration of young residents to cities"
         rationale: |
-          This substitutes a supporting cause for the main point. Better urban jobs help explain migration. Check what the passage seeks to protect.
-      - text: "The specifications of soil repair equipment"
+          This picks one cause of the problem as the main point. Migration makes repairs harder. Check what the passage proposes after describing it.
+      - text: "The traditional methods of stone construction"
         rationale: |
-          This substitutes one repair method for the main point. Soil stabilization is mentioned. Check whether the title covers the reason for restoration.
+          This picks one skill as the main point. Stonemasonry is part of the proposed workshops. Check whether the passage ends on a method or on the reason to act.
     explanation: |
       The passage centers on keeping a valuable terrace system in use despite maintenance challenges. A title should retain that preservation focus.
   - id: "rc-cs-ct-0006"
@@ -143,21 +143,21 @@ questions:
     type: "choosing-a-title"
     difficulty: "easy"
     stem: |
-      Which title best fits all three dimensions of the park passage?
+      Which title best captures the main idea of the park passage?
     choices:
-      - text: "Parks for Cooling, Activity, and Community"
+      - text: "Public Parks as a Worthwhile Investment for the City"
         correct: true
       - text: "Why Trees Reduce Heat on Concrete Streets"
         rationale: |
-          This covers only the environmental benefit. Trees appear in the opening. Check the later sections on activity and social life.
+          This covers only the cooling benefit. Trees appear in the opening. Check the later paragraphs on activity and social life.
       - text: "Free Exercise Facilities in Metro Manila"
         rationale: |
-          This covers only exercise. Free access is a useful benefit. Check whether the title also includes cooling and community use.
+          This covers only exercise. Free access is a useful benefit. Check whether the title also reflects cooling and community use.
       - text: "The Complete Guide to Urban Planning Decisions"
         rationale: |
           This extends one planning issue to the entire field. City planning frames the appeal. Check how many planning topics the text actually covers.
     explanation: |
-      The passage discusses cooling, healthy activity, and places for neighbors to meet. The title names all three parts of its focus.
+      The passage argues that parks give cooling, healthy activity, and places for neighbors to meet. For these reasons, it says they deserve public investment. The title names that main idea.
   - id: "rc-cs-ct-0007"
     passage: "rc-cs-ct-p2"
     type: "choosing-a-title"
@@ -165,17 +165,17 @@ questions:
     stem: |
       Why is "Places to Exercise" incomplete as a title for the park passage?
     choices:
-      - text: "It covers only one park benefit."
+      - text: "It names one benefit but leaves out cooling and community life."
         correct: true
-      - text: "It promises details on every city service."
+      - text: "It names one benefit but leaves out how much parks cost to build."
         rationale: |
-          This treats a narrow benefit as a broad survey. Exercise is a public activity. Check whether the title promises anything about other services.
-      - text: "It contradicts the claim that parks are free."
+          This asks for a topic the passage never covers. Cost is a common planning concern. Check whether the passage gives any building costs.
+      - text: "It names one benefit but leaves out the history of Metro Manila's growth."
         rationale: |
-          This treats missing coverage as false information. Free spaces can support exercise. Check whether the title actually says access has a cost.
-      - text: "It focuses on the cost of commercial development."
+          This asks for background the passage only hints at. The city's growth opens the text. Check whether the passage tells that history or uses it as a starting point.
+      - text: "It names one benefit but leaves out the plans of commercial developers."
         rationale: |
-          This supplies a financial focus from the wider planning debate. Development appears near the end. Check whether it appears in the proposed title.
+          This treats a passing comparison as a main topic. Development appears near the end. Check whether the passage is about developers or about parks.
     explanation: |
       Exercise is one use of a park. The text also discusses cooling and community gatherings, so the title covers only part of the passage.
   - id: "rc-cs-ct-0008"
@@ -287,17 +287,17 @@ questions:
     stem: |
       Why is "Counting the Donated Books" an incomplete title?
     choices:
-      - text: "It misses the move toward better access."
+      - text: "It names the first step but leaves out the move to bring books closer to readers."
         correct: true
-      - text: "It claims the project had no books available."
+      - text: "It names the count but leaves out the books damaged when readers returned them."
         rationale: |
-          This reads absence into a title about quantity. Counting can emphasize resources. Check whether the title denies that books exist.
-      - text: "It promises a survey of all school subjects."
+          This picks a small detail as the missing idea. Bent corners are mentioned once. Check whether that detail drives the passage.
+      - text: "It names the count but leaves out the vendor who read at the waiting shed."
         rationale: |
-          This expands the title beyond its stated subject. Books can cover many subjects. Check whether any survey is promised.
-      - text: "It describes a competition between two libraries."
+          This picks one scene as the missing idea. The vendor shows the new approach working. Check which idea the scene supports.
+      - text: "It names the count but leaves out the council's plan to buy more books."
         rationale: |
-          This turns a collection count into a contest. Numbers can be compared. Check whether two libraries appear.
+          This adds a plan the passage does not state. The collection stayed about the same size. Check what the passage says changed.
     explanation: |
       Counting describes the council's initial attention. The passage then shows why reaching readers matters more, which the title omits.
     approved: false
@@ -371,17 +371,17 @@ questions:
     stem: |
       Why would "A Faded Gate" fail to represent the whole passage?
     choices:
-      - text: "It focuses on the lower-priority proposal."
+      - text: "It names the proposal the writer ranks second, not the roof repair the passage supports."
         correct: true
-      - text: "It wrongly says the school has an entrance."
+      - text: "It names the gate, which the writer says has no value."
         rationale: |
-          This treats a real setting detail as a factual error. A gate is mentioned. Check whether its existence is disputed.
-      - text: "It claims repairs have already been completed."
+          This misreads the writer's view. The passage says the gate can matter. Check whether the writer rejects the gate or only ranks it second.
+      - text: "It names the gate, which the committee has already decided to repaint."
         rationale: |
-          This supplies a completed result from a descriptive title. The gate needs paint. Check whether the title announces any finished work.
-      - text: "It lists too many different school improvements."
+          This treats a proposal as a decision. The painting is kept for a later budget. Check what the committee decides this term.
+      - text: "It names the gate, which the passage mentions only in the first paragraph."
         rationale: |
-          This mistakes one feature for an overloaded list. Many school needs are possible. Count the improvements actually named in the title.
+          This misjudges how often the gate appears. The gate returns when the writer weighs the two needs. Check where else the gate appears.
     explanation: |
       The gate supplies one side of the debate. The passage's main argument is that the leaking roof should receive attention first.
     approved: false

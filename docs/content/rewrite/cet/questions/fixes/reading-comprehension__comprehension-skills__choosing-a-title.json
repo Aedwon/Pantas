@@ -1,0 +1,55 @@
+{
+ "file": "reading-comprehension__comprehension-skills__choosing-a-title",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-cs-ct-0002",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote distractors as plausible competing omissions in the same \"names X but leaves out Y\" form."
+  },
+  {
+   "question": "rc-cs-ct-0003",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote distractors as plausible competing omissions from the passage."
+  },
+  {
+   "question": "rc-cs-ct-0005",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced technical inventories with plausible passage themes (irrigation, migration, stone construction)."
+  },
+  {
+   "question": "rc-cs-ct-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed \"all three dimensions\" from the stem and changed the key to a title without a list of three items."
+  },
+  {
+   "question": "rc-cs-ct-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote distractors as plausible omissions in the same form as the key."
+  },
+  {
+   "question": "q-comprehension-skills-choosing-a-title-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote distractors as plausible competing omissions from the passage."
+  },
+  {
+   "question": "q-comprehension-skills-choosing-a-title-0017",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote distractors as plausible misreadings of the gate's role in the argument."
+  }
+ ]
+}

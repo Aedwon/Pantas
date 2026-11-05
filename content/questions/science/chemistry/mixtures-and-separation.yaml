@@ -260,30 +260,30 @@ questions:
     type: 'predict-outcome'
     difficulty: 'hard'
     stem: |
-      During paper chromatography, one dye in a black ink sample travels much farther up the paper than another dye. What does this tell us about the faster-traveling dye?
+      During paper chromatography, one dye in a black ink sample travels much farther up the paper than another dye. Which explanation best accounts for the farther-traveling dye?
     choices:
-      - text: 'It moves more readily relative to retention.'
+      - text: 'The solvent carries it easily compared with how strongly the paper holds it.'
         correct: true
-      - text: 'It must have weaker paper attraction regardless of solvent.'
+      - text: 'The paper holds it back strongly compared with how well the solvent carries it.'
         rationale: |
-          This infers one stationary-phase attraction without considering solvent interaction. Weak retention can increase travel. Check both phases together.
-      - text: 'Its solvent interaction alone determines every movement.'
+          This reverses the balance. Strong holding by the paper shortens travel. Check which is stronger, the solvent's carrying or the paper's holding.
+      - text: 'The solvent carries it, and the paper has no effect on where it stops.'
         rationale: |
-          This treats the solvent interaction as the only cause. Better carriage can increase travel. Check retention by the stationary phase too.
-      - text: 'It necessarily has a higher boiling point than the other dye.'
+          This treats the solvent as the only cause. Better carriage can increase travel. Check whether the paper also holds the dye back.
+      - text: 'It has a higher boiling point than the other dye, so it rises farther.'
         rationale: |
           This assigns distance solely to boiling point. Boiling point matters in distillation. Check the phase distribution governing chromatography.
     explanation: |
-      The farther-traveling dye is carried more effectively by the mobile phase relative to its retention in the stationary phase. The result depends on interactions with both phases.
+      The solvent carries the dye up the paper, while the paper holds it back. This dye travels farther because the solvent carries it more easily compared with how strongly the paper holds it.
     approved: true
 
   - id: q-chemistry-mixtures-and-separation-0014
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
-      Dissolved components interact with the solvent while retaining their identities. Which conclusion is justified?
+      A student stirs salt into water until it disappears. Boiling off the water leaves the same salt behind. Which conclusion about interactions in mixtures is justified?
     choices:
-      - text: 'Interactions can occur in a mixture.'
+      - text: 'Components can interact in a mixture yet stay unchanged.'
         correct: true
       - text: 'Every interaction creates a single new compound.'
         rationale: |
@@ -295,7 +295,7 @@ questions:
         rationale: |
           This treats uniformity as fixed chemical composition. A solution looks consistent. Check whether its component proportions can vary.
     explanation: |
-      Mixture components can interact through solvation or intermolecular forces while retaining their chemical identities. Interaction alone does not turn the mixture into one compound.
+      Water can attract the dissolved salt particles while the salt and water keep their identities. The salt comes back unchanged. This shows that substances in a mixture can interact.
     approved: true
 
   - id: q-chemistry-mixtures-and-separation-0015

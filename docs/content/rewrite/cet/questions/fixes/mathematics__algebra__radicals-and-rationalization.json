@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__algebra__radicals-and-rationalization",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-algebra-radicals-and-rationalization-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note to say the choice drops the cube-root symbol, with an x=8 check."
+  },
+  {
+   "question": "q-algebra-radicals-and-rationalization-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the false absolute in the note with an x=2 check showing an irrational denominator."
+  }
+ ]
+}

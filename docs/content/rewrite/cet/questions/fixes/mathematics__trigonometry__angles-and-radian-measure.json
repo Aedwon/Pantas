@@ -1,0 +1,20 @@
+{
+ "file": "mathematics__trigonometry__angles-and-radian-measure",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-trigonometry-angles-and-radian-measure-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now names the 360 degrees per pi radians mistake that yields 120 degrees."
+  },
+  {
+   "question": "q-trigonometry-angles-and-radian-measure-0017",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now describes overestimating the size of 0.5 radians, which produces Quadrant II."
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "file": "science__physics__work-energy-power",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-work-energy-power-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added a because clause to the key."
+  },
+  {
+   "question": "q-physics-work-energy-power-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added a because clause to the key."
+  },
+  {
+   "question": "q-physics-work-energy-power-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added a because clause to the key."
+  },
+  {
+   "question": "q-physics-work-energy-power-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added a because clause to the key."
+  }
+ ]
+}

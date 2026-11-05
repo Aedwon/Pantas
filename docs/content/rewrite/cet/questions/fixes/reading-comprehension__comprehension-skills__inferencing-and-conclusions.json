@@ -1,0 +1,13 @@
+{
+ "file": "reading-comprehension__comprehension-skills__inferencing-and-conclusions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-cs-ic-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note now says the choice invents badges and reverses the rest rule, with a check on the named device."
+  }
+ ]
+}

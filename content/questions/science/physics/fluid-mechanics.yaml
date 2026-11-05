@@ -136,15 +136,15 @@ questions:
     stem: |
       A student argues that object size alone decides whether it floats. Which property is needed for the simple free-immersion comparison?
     choices:
-      - text: "Average density relative to the fluid"
+      - text: "Average density"
         correct: true
-      - text: "Total mass with no volume information"
+      - text: "Total mass"
         rationale: |
           This uses heaviness alone. Heavy objects often sink in everyday experience. Check how mass is spread over the whole volume.
-      - text: "Surface area with no mass information"
+      - text: "Surface area"
         rationale: |
           This uses visible contact area alone. Wide objects can seem easier to support. Check the weight and displaced-fluid volume.
-      - text: "The object’s longest dimension alone"
+      - text: "Longest dimension"
         rationale: |
           This turns size into a floating rule. Large objects look heavy. Check a mass-to-volume ratio rather than one length.
     explanation: |
@@ -334,7 +334,7 @@ questions:
           This confuses all-direction action at a point with uniform pressure everywhere. Fluids press in all directions. Check pressure at different depths.
       - text: "A downward pull exerted by the free surface"
         rationale: |
-          This treats the surface as the source of an upward contact force. The surface is a visible boundary. Check force directions from surrounding pressure.
+          This imagines the visible surface pulling the object downward. Water above the object may suggest a downward action. Check that buoyancy is upward and comes from pressure increasing with depth.
       - text: "Gravity acting upward on the submerged object"
         rationale: |
           This reverses the direction of weight. Buoyancy acts upward. Check which force comes from gravity and which from the fluid.

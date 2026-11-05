@@ -1,0 +1,34 @@
+{
+ "file": "mathematics__statistics-and-probability__measures-of-variability",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Made the keyed choice a full sentence parallel to the distractors."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0005",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Made the keyed choice an 'It is' definition of similar length."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added a reason to the keyed choice so all four match in form and length."
+  },
+  {
+   "question": "q-statistics-and-probability-measures-of-variability-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the explanation in plain words without 'fitted' or 'bias'."
+  }
+ ]
+}

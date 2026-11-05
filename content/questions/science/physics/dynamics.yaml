@@ -218,7 +218,7 @@ questions:
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
-      A 10 kg object is pushed with an applied force of 50 N, while friction opposes its motion with a force of 20 N. Find the object's acceleration.
+      A 10 kg object slides on a horizontal surface. A horizontal 50 N push acts in the direction of its motion, while friction opposes the motion with a force of 20 N. Find the object's acceleration.
     choices:
       - text: "3 m/s^2"
         correct: true
@@ -288,7 +288,7 @@ questions:
         correct: true
       - text: "The swimmer exerts no force while moving at steady speed."
         rationale: |
-          This confuses zero net force with no interaction. Constant speed means no acceleration. Check individual forces separately from their total.
+          This confuses zero net force with no interaction. Steady speed can make it seem that no forces are acting. Check individual forces separately from their total.
       - text: "The force on the water is smaller than the force on the swimmer."
         rationale: |
           This assumes the moving object receives the stronger partner. Motion can seem to require an unequal pair. Check Newton’s third law.

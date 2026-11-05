@@ -98,7 +98,7 @@ questions:
         correct: true
       - text: "196 N"
         rationale: |
-          This divides by the effort arm twice as if it were 10 m. A longer arm does reduce effort. Use the actual 5 m distance.
+          This doubles the effort arm to 10 m and calculates $1960/10$. A longer arm does reduce effort, so a larger arm looks helpful. Use the actual 5 m distance.
       - text: "490 N"
         rationale: |
           This divides by the 2 m load arm instead of using both arms. Two appears beside the load. Pair each force with its own distance.
@@ -164,10 +164,10 @@ questions:
     figure: "pulleys-and-levers-07"
     figureSpec:
       kind: "lever-balance"
-      loadDistance: 4
-      effortDistance: 8
+      loadDistance: 3
+      effortDistance: 5
     stem: |
-      The shown weightless lever has a 1,000 N load 4 m left of the pivot. The greatest available downward effort is 500 N, applied on the right. What minimum effort-arm length allows balance?
+      The shown weightless lever (not drawn to scale) has a 1,000 N load 4 m left of the pivot. The greatest available downward effort is 500 N, applied on the right. What minimum effort-arm length allows balance?
     choices:
       - text: "8 m"
         correct: true
@@ -264,10 +264,10 @@ questions:
     figure: "pulleys-and-levers-11"
     figureSpec:
       kind: "lever-balance"
-      loadDistance: 2
-      effortDistance: 8
+      loadDistance: 3
+      effortDistance: 5
     stem: |
-      The weightless lever shown balances a 1,000 N load with 250 N of downward effort 8 m from the pivot. How far from the pivot is the load?
+      The weightless lever shown (not drawn to scale) balances a 1,000 N load with 250 N of downward effort 8 m from the pivot. How far from the pivot is the load?
     choices:
       - text: "2 m"
         correct: true
@@ -290,18 +290,18 @@ questions:
     figureSpec:
       kind: "lever-balance"
       loadDistance: 3
-      effortDistance: 18
+      effortDistance: 5
     stem: |
-      A weightless lever balances a 900 N load at 3 m with a downward effort of 150 N on the other side. What effort-arm length is required?
+      A weightless lever (not drawn to scale) balances a 900 N load at 3 m with a downward effort of 150 N on the other side. What effort-arm length is required?
     choices:
       - text: "18 m"
         correct: true
       - text: "6 m"
         rationale: |
           This gives the force ratio $900/150$ as a distance. Six is a useful intermediate number. Multiply that ratio by the load arm.
-      - text: "270 m"
+      - text: "2,700 m"
         rationale: |
-          This divides by the numerical load arm instead of effort force. The torque is 2,700 N m. Check that dividing torque by force yields meters.
+          This gives the load torque, 2,700 N m, as the arm length without dividing by the 150 N effort. The torque is the large number found first. Check that dividing torque by force yields meters.
       - text: "0.5 m"
         rationale: |
           This reverses the force ratio and uses $3(150/900)$. Both force values belong in the calculation. Check that the much smaller effort needs a longer arm.
@@ -317,9 +317,9 @@ questions:
       fixed: 1
       movable: 1
     stem: |
-      The shown movable block has two rope segments sharing its 640 N total weight. In an ideal single-rope system, what additional fact is needed to use $640/2$ as the effort?
+      The shown movable block has two rope segments sharing its 640 N total weight. In an ideal single-rope system, what motion condition is needed to use $640/2$ as the effort?
     choices:
-      - text: "Equal tension in both supports"
+      - text: "The block is at rest or moves at constant speed"
         correct: true
       - text: "An equal number of fixed and moving wheels"
         rationale: |
@@ -331,7 +331,7 @@ questions:
         rationale: |
           This reverses the distance trade-off. The force is being reduced. Check how both supporting rope lengths change as the block rises.
     explanation: |
-      With equal tension $T$ in two supports, the total upward force is $2T$. At constant speed, $2T=640$, so $T=320$ N. The free-end effort equals that rope tension.
+      In an ideal single rope, the tension $T$ is the same in both supports, so the total upward force is $2T$. If the block is at rest or moves at constant speed, the forces balance: $2T=640$, so $T=320$ N. The free-end effort equals that rope tension.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0014"
     type: "pulley-lever"

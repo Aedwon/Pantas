@@ -242,7 +242,7 @@ questions:
     correct: true
   - text: '$120^\circ$'
     rationale: |
-      This doubles the computed angle. Using diameter instead of radius can change ratios. Divide arc length by the stated radius.
+      This uses $360^\circ$ for $\pi$ radians, which doubles the angle. A full turn is easy to mix up with the half turn. Check that $\pi$ radians equals $180^\circ$.
   - text: '$30^\circ$'
     rationale: |
       This halves the computed angle. Half-turn and full-turn conversions are familiar. Use 180 degrees per pi radian.
@@ -318,7 +318,7 @@ questions:
     correct: true
   - text: 'Quadrant II.'
     rationale: |
-      This treats half a radian as half a turn. Both contain a half. Compare it with pi over two.
+      This overestimates the size of 0.5 radians, as if it passed $90^\circ$. Radians are less familiar than degrees, so their size is easy to misjudge. Check that 0.5 is less than $\dfrac\pi2$, the edge of Quadrant I.
   - text: 'Quadrant III.'
     rationale: |
       This assumes the decimal means multiple turns. Small radian numerals can seem unfamiliar. Compare it with pi.

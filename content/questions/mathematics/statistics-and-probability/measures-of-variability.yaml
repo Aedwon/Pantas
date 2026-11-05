@@ -67,7 +67,7 @@ questions:
   stem: |
     Which of the following statements regarding the range of a dataset is true?
   choices:
-  - text: 'Maximum minus minimum.'
+  - text: 'The range is found by subtracting the minimum value from the maximum value in the dataset.'
     correct: true
   - text: 'The range incorporates all data points and their respective frequencies.'
     rationale: |
@@ -86,7 +86,7 @@ questions:
   stem: |
     Which of the following best defines the population standard deviation of a dataset?
   choices:
-  - text: 'The square root of population variance.'
+  - text: 'It is the positive square root of the average squared distance of the values from the mean.'
     correct: true
   - text: 'It is the numerical difference between the highest score and the lowest score.'
     rationale: |
@@ -219,7 +219,7 @@ questions:
   stem: |
     Two jeepney routes in Manila have the same mean travel time of $30$ minutes. Route A has a travel time standard deviation of $3$ minutes, while Route B has a travel time standard deviation of $12$ minutes. Which statement accurately compares these two routes?
   choices:
-  - text: 'Route A has more consistent times.'
+  - text: 'Route A has more consistent travel times because its travel times have the smaller spread.'
     correct: true
   - text: 'Route B is more predictable and consistent than Route A because its travel times have greater spread.'
     rationale: |
@@ -293,7 +293,7 @@ questions:
     rationale: |
       This confuses estimation bias with measurement error. Both affect accuracy. The denominator cannot repair recorded measurements.
   explanation: |
-    The sample mean is fitted to the sample itself, which makes deviations smaller on average than deviations from the unknown population mean. Dividing their squared sum by $n$ would underestimate population variance on average. Dividing by $n-1$ corrects this bias under the stated random-sample assumptions.
+    The sample average comes from the same values we are measuring. So the values sit closer to it than to the true population average, and the calculated spread tends to come out too small. Dividing by $n-1$ instead of $n$ makes the result a little bigger. Over many random samples, this fixes the tendency and gives a fair estimate of the population variance.
 - id: 'q-statistics-and-probability-measures-of-variability-0016'
   type: 'which-is-true'
   difficulty: 'hard'

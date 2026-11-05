@@ -234,7 +234,7 @@ questions:
         correct: true
       - text: 'The denominator is $x^2$ after this step.'
         rationale: |
-          This treats two cube-root factors as three. The exponent two appears after multiplication. Check that a cube root needs three copies of each factor.
+          This keeps the radicand $x^2$ but drops the cube-root symbol. Multiplying the two cube roots gives $x^2$ inside the root. Check by substituting $x=8$: the denominator is $\sqrt[3]{64}=4$, not $64$.
       - text: 'Cube roots of negative inputs are not real.'
         rationale: |
           This applies an even-root restriction to an odd root. Negative radicands do fail for real square roots. Check the root index.
@@ -297,7 +297,7 @@ questions:
           This uses a rational factor that leaves a square-root factor in the denominator. Multiplying by the radicand looks related to removing the root. Check whether the new denominator is rational for every allowed $x$.
       - text: '$\sqrt[3]{x}$'
         rationale: |
-          This uses a cube root to complete a square-root denominator. Both factors are roots of $x$. Check that their indices must match.
+          This uses a cube root to complete a square-root denominator. Both factors are roots of $x$. Check with $x=2$: the denominator becomes $2^{5/6}$, which is irrational.
       - text: '$\sqrt{x+3}$'
         rationale: |
           This combines the numerator three with the radicand by addition. Both quantities appear in the original fraction. Check that the needed factor makes the denominator’s product a perfect square.

@@ -54,9 +54,9 @@ questions:
     choices:
       - text: '3 mol'
         correct: true
-      - text: '2.0 mol'
+      - text: '972 mol'
         rationale: |
-          This treats each mole as 27 g instead of the given 18 g. The sample mass is 54 g. Check the supplied mass per mole.
+          This multiplies 54 by 18 instead of dividing. Using both given numbers can look complete. Check that grams divided by grams per mole leaves moles.
       - text: '36 mol'
         rationale: |
           This subtracts 18 from 54. Both numbers describe mass-related quantities. Check that division cancels the gram units.
@@ -127,7 +127,7 @@ questions:
         rationale: |
           This restricts the conversion to gases. Gas calculations often use moles. Check whether the mole definition depends on state.
     explanation: |
-      The combined conversion is $N=m\dfrac{N_A}{M}$. Mass in grams cancels the grams in molar mass, and the mole units cancel too. A separately written intermediate mole amount is not required.
+      The combined conversion is $N=m\dfrac{N_A}{M}$. Mass in grams cancels the grams in molar mass, and the mole units cancel too.
     approved: true
 
   - id: q-chemistry-mole-concept-0007

@@ -31,7 +31,7 @@ questions:
     stem: |
       Why are fossils usually found inside sedimentary rock rather than igneous or metamorphic rock?
     choices:
-      - text: 'Sedimentary rock forms in layers over time, which can trap and preserve remains before they decay, unlike igneous rock (formed from melting) or metamorphic rock (formed under intense heat and pressure that would destroy remains).'
+      - text: 'Sedimentary rock forms in layers that bury remains before they decay, while strong heat often destroys remains in the other rocks.'
         correct: true
       - text: 'Sedimentary rock is the only rock type that contains any minerals at all.'
         rationale: |
@@ -43,7 +43,7 @@ questions:
         rationale: |
           This ignores how formation conditions affect preservation. All rocks can be examined. Check whether intense heat commonly destroys biological evidence.
     explanation: |
-      Sediment can bury biological remains and traces under conditions that preserve them. High temperatures during rock formation can alter or destroy this evidence. Some fossils can survive mild metamorphism, so preservation is not an absolute rock-type rule.
+      Sediment can bury biological remains and traces under conditions that preserve them. Igneous rock forms when melted rock cools. Metamorphic rock forms when heat and pressure change rock. High temperatures during rock formation can alter or destroy this evidence. Some fossils can survive mild metamorphism, so preservation is not an absolute rock-type rule.
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0003
@@ -102,7 +102,7 @@ questions:
       - text: 'All four formed at exactly the same time'
         rationale: |
           This assumes all deposition happened at once. The layers form one cliff. Check their separate stacked sequence.
-      - text: 'X oldest; Y youngest despite the stated stack'
+      - text: 'X oldest; Y youngest'
         rationale: |
           This selects the middle layers as the extremes. They are visible in the stack. Check its bottom and top.
     explanation: |
@@ -119,7 +119,7 @@ questions:
         correct: true
       - text: 'The mammal in Z because it is nearer the surface'
         rationale: |
-          This makes proximity to the present surface mean older deposition. The upper bed is exposed more recently. Check superposition for undisturbed layers.
+          This mixes up position with age. Being nearer today's surface may make the bed seem older, but surface position does not measure how long ago it formed. Check the original bottom-to-top order.
       - text: 'Both must have lived at exactly the same time'
         rationale: |
           This treats two different beds as one time horizon. Both are in the same cliff. Check their separate depositional order.
@@ -428,19 +428,19 @@ questions:
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
-      A geologist studies an undisturbed rock cliff with three layers, bottom to top: Layer 1, Layer 2, and Layer 3. Layer 1 contains a fossil of an early fish, Layer 2 contains a fossil of an early dinosaur, and Layer 3 contains a radioactive element with a half-life of 2 million years, of which only one-quarter of the original amount remains. Determine: (a) the relative order in which the three layers formed, (b) which era Layer 1's fossil most likely belongs to, and (c) the actual age of Layer 3.
+      A geologist studies an undisturbed rock cliff with three layers, bottom to top: Layer 1, Layer 2, and Layer 3. Layer 1 contains a fossil of an early fish, Layer 2 contains a fossil of an early dinosaur, and Layer 3 is volcanic ash. Its minerals formed when the ash was deposited and have stayed closed to any gain or loss of a radioactive element with a half-life of 2 million years. Only one-quarter of the original amount of that element remains. Determine: (a) the relative order in which the three layers formed, (b) which era Layer 1's fossil most likely belongs to, and (c) the age of Layer 3.
     choices:
-      - text: '(a) Layer 1 formed first (oldest), then Layer 2, then Layer 3 (youngest); (b) Layer 1''s early fish fossil belongs to the Paleozoic era; (c) Layer 3 is 4 million years old, since one-quarter remaining means two half-lives have passed (2 × 2 million years).'
+      - text: '(a) Layer 1 formed first, then Layer 2, then Layer 3; (b) Layer 1''s fossil belongs to the Paleozoic era; (c) Layer 3 is 4 million years old.'
         correct: true
       - text: '(a) Layer 3 formed first, then Layer 2, then Layer 1; (b) Layer 1''s fossil belongs to the Cenozoic era; (c) Layer 3 is 2 million years old.'
         rationale: |
           This reverses undisturbed layer order and counts only one half-life. The top layer can look most prominent. Check bottom-to-top order and repeated halving.
-      - text: '(a) The layers cannot be ordered without radiometric dating on all three; (b) Layer 1''s fossil belongs to the Mesozoic era; (c) Layer 3 is 8 million years old.'
+      - text: '(a) The layers cannot be ordered without radiometric dating; (b) Layer 1''s fossil belongs to the Mesozoic era; (c) Layer 3 is 8 million years old.'
         rationale: |
           This rejects relative ordering and uses four half-lives for a quarter remaining. Numerical dates sound necessary for all comparisons. Check what superposition can establish and how many halvings give a quarter.
       - text: '(a) Layer 1 formed first, then Layer 2, then Layer 3; (b) Layer 1''s fossil belongs to the Mesozoic era; (c) Layer 3 is 1 million years old.'
         rationale: |
           This assigns the early-fish clue to the later dinosaur-associated era and halves the time incorrectly. Both involve old life and fractions. Check the fossil context and elapsed half-life count.
     explanation: |
-      Superposition gives Layer 1, then Layer 2, then Layer 3 in depositional order. The intended early-fish association is Paleozoic. One-quarter parent remaining gives two half-lives, or $2\times2=4$ million years since the isotope clock began. Equating that clock with Layer 3 deposition also requires suitable minerals and dating assumptions.
+      Superposition gives Layer 1, then Layer 2, then Layer 3 in depositional order. The intended early-fish association is Paleozoic. One-quarter parent remaining gives two half-lives, or $2\times2=4$ million years. The ash minerals formed at deposition and stayed closed, so the isotope clock gives the age of Layer 3.
     approved: true

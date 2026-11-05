@@ -367,17 +367,17 @@ questions:
     stem: |
       Which statement distinguishes crystalline and amorphous solids?
     choices:
-      - text: 'Crystals have long-range order.'
+      - text: 'Crystalline solids have particles in a long-range repeating pattern; amorphous solids do not.'
         correct: true
-      - text: 'Only crystals have a definite volume.'
+      - text: 'Crystalline solids have a definite volume; amorphous solids do not.'
         rationale: |
-          This equates definite volume with crystalline order. Both are solid properties in familiar examples. Check whether an amorphous solid can retain volume.
-      - text: 'Amorphous solids always fill any vessel like gases.'
+          This ties definite volume to crystalline order. Both are solid properties in familiar examples. Check whether an amorphous solid such as glass keeps its volume.
+      - text: 'Amorphous solids have particles that move freely through the container; crystalline solids do not.'
         rationale: |
           This confuses lack of a repeating lattice with the gas state. Disorder may sound like gas motion. Check whether the material is still solid.
-      - text: 'Every solid has exactly the same repeating lattice.'
+      - text: 'Amorphous solids have a more regular particle arrangement than crystalline solids.'
         rationale: |
-          This generalizes a crystal drawing to every solid. Textbooks often show fixed grids. Check the amorphous category.
+          This reverses the two categories. The word crystal can sound irregular, and glass looks smooth. Check which kind of solid shows a repeating lattice.
     explanation: |
       Crystalline solids have an ordered pattern extending through the material. Amorphous solids such as glass lack that long-range repeating pattern.
     approved: false

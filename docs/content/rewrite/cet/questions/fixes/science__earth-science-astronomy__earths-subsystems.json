@@ -1,0 +1,97 @@
+{
+ "file": "science__earth-science-astronomy__earths-subsystems",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says the model has no separate cryosphere instead of stating ice is in the hydrosphere."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says no separate cryosphere; choices rewritten in parallel form."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now ends with the positive reason that ice is frozen water in the hydrosphere."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0009",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the sentence about lithosphere from the explanation."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Four parallel source-to-destination pairs with a reversed pair and substituted spheres."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Four parallel lists of sphere names differing by one included or omitted sphere."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Parallel explanations for dual classification with plausible wrong reasons."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0014",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Four plain pairs of sphere names with no clauses announcing an omitted input."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0015",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Now asks which mapping of events to subsystems is correct, with four complete mappings and plausible role swaps."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Four parallel three-stage sequences with order and source errors."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Four local water or ash transfers with consistent scope and no worldwide claims."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Plausible comparison methods: definitions, number of spheres, diagram size, example locations."
+  },
+  {
+   "question": "q-earth-science-astronomy-earths-subsystems-0020",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Now asks which assignment of soil parts to spheres is correct, with parallel mappings and plausible swaps."
+  }
+ ]
+}

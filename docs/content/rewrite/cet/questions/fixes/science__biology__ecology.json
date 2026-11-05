@@ -1,0 +1,34 @@
+{
+ "file": "science__biology__ecology",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-ecology-0010",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now describes photosynthesis, respiration and burning fossil fuels without naming carbon; explanation names the gas."
+  },
+  {
+   "question": "q-biology-ecology-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Key now reads \"It converts nitrogen gas into ammonia\", parallel with the distractors."
+  },
+  {
+   "question": "q-biology-ecology-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed effect symbols from all choices and used Commensalism, Mutualism, Parasitism, Competition."
+  },
+  {
+   "question": "q-biology-ecology-0017",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed effect symbols from all choices and used relationship names."
+  }
+ ]
+}

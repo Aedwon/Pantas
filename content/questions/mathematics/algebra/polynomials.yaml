@@ -260,7 +260,7 @@ questions:
           This adds the squared terms when multiplying conjugates. Both $x^2$ and 9 are being squared. Check the sign of the constant product.
       - text: '$x^4-18x^2+81$'
         rationale: |
-          This treats the last factor as $x^2-9$. The first two factors do combine to that expression. Check the sign of the separate third factor.
+          This squares the remaining area instead of multiplying by the stated expression. Both expressions contain $x^2$ and $9$, so they can look alike. Check that the multiplier is $x^2+9$.
       - text: '$x^4-9$'
         rationale: |
           This leaves nine unsquared in the second difference-of-squares step. The first difference of squares is correctly formed. Check both squares in the second step.

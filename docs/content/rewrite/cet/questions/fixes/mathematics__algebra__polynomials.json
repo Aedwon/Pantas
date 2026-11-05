@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__algebra__polynomials",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-algebra-polynomials-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote the note to say the choice squares the remaining area instead of multiplying by x^2+9."
+  }
+ ]
+}

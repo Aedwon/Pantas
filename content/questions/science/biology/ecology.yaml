@@ -197,7 +197,7 @@ questions:
     type: 'identify'
     difficulty: 'medium'
     stem: |
-      Which biogeochemical cycle involves carbon moving between the atmosphere (as carbon dioxide), living things (through photosynthesis and respiration), and long-term storage like fossil fuels?
+      Plants take a gas from the air during photosynthesis, living things release it during respiration, and burning fossil fuels adds more of it to the air. Which biogeochemical cycle does this describe?
     choices:
       - text: 'The carbon cycle'
         correct: true
@@ -211,7 +211,7 @@ questions:
         rationale: |
           This substitutes water movement for carbon movement. Water is involved in photosynthesis, so the processes seem connected. Check which substance the question follows.
     explanation: |
-      The carbon cycle moves carbon between the atmosphere, living things, and long-term storage such as fossil fuels.
+      The gas is carbon dioxide. The carbon cycle moves carbon between the atmosphere, living things, and long-term storage such as fossil fuels.
     approved: true
 
   - id: q-biology-ecology-0011
@@ -241,7 +241,7 @@ questions:
     stem: |
       Why does biological nitrogen fixation help most plants obtain nitrogen?
     choices:
-      - text: 'It fixes nitrogen gas as ammonia.'
+      - text: 'It converts nitrogen gas into ammonia.'
         correct: true
       - text: 'It converts nitrate into nitrogen gas.'
         rationale: |
@@ -304,15 +304,15 @@ questions:
     stem: |
       A bird builds its nest in a tree, gaining shelter, while the tree is neither helped nor harmed by the bird's presence. What type of symbiotic relationship is this?
     choices:
-      - text: 'Commensal (+,0)'
+      - text: 'Commensalism'
         correct: true
-      - text: 'Mutualism (+,+)'
+      - text: 'Mutualism'
         rationale: |
           This assumes shelter for the bird also benefits the tree. A close relationship can look like a shared gain. Check for a stated benefit to each partner.
-      - text: 'Parasitism (+,-)'
+      - text: 'Parasitism'
         rationale: |
           This assumes the nest harms the tree. An organism living on another can suggest parasitism. Check the stated effect on the tree.
-      - text: 'Competition (-,-)'
+      - text: 'Competition'
         rationale: |
           This assumes sharing space means competing. The bird and tree occur in the same place. Check whether both seek the same limited resource.
     explanation: |
@@ -346,15 +346,15 @@ questions:
     stem: |
       A remora gains transport and food scraps from a shark. Measurements show no detectable net effect on the shark. How should this relationship be classified under that evidence?
     choices:
-      - text: 'Commensal (+,0)'
+      - text: 'Commensalism'
         correct: true
-      - text: 'Mutualism (+,+)'
+      - text: 'Mutualism'
         rationale: |
           This counts one benefit as a benefit to both partners. The remora clearly gains, which can make the whole relationship seem beneficial. Check the measured effect on the shark.
-      - text: 'Parasitism (+,-)'
+      - text: 'Parasitism'
         rationale: |
           This assumes taking scraps harms the shark. Getting food from another animal can look parasitic. Check whether harm was actually found.
-      - text: 'Competition (-,-)'
+      - text: 'Competition'
         rationale: |
           This assumes the species compete for the same food. Food scraps can suggest a shared resource. Check whether the evidence shows a cost from competition.
     explanation: |

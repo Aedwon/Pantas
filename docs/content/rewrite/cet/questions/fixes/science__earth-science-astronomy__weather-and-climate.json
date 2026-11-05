@@ -1,0 +1,13 @@
+{
+ "file": "science__earth-science-astronomy__weather-and-climate",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-weather-and-climate-0022",
+   "severity": "Major",
+   "action": "rewritten",
+   "key_changed": false,
+   "summary": "Stem no longer states an off-peak cyclone; choices are parallel statements about when Philippine cyclones occur."
+  }
+ ]
+}

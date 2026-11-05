@@ -294,13 +294,13 @@ questions:
         correct: true
       - text: No, because their coefficients of $x$ are not equal.
         rationale: |
-          This assumes linear functions must have the same coefficient of $x$. The coefficient can be any fixed number. Check whether each formula has the form $y=mx+b$.
+          This assumes linear functions must have the same coefficient of $x$. Parallel lines do need equal slopes, so the two ideas get mixed up. The coefficient can be any fixed number. Check whether each formula has the form $y=mx+b$.
       - text: No, because one coefficient of $x$ is positive and the other is negative.
         rationale: |
-          This assumes a negative coefficient prevents a function from being linear. In $y=mx+b$, $m$ can be negative. Check the form of each formula.
+          This assumes a negative coefficient prevents a function from being linear. Familiar upward-sloping lines can make a falling line seem to belong to another family. In $y=mx+b$, $m$ can be negative. Check the form of each formula.
       - text: Yes, because their constant terms sum to zero.
         rationale: |
-          This uses the sum of the constants to classify the functions. The constants are $-6$ and $4$, whose sum is $-2$. Check whether each formula has the form $y=mx+b$.
+          This uses the sum of the constants to classify the functions. The constants have opposite signs, which can suggest they cancel. Their sum is $-2$, and the sum does not decide linearity. Check whether each formula has the form $y=mx+b$.
     explanation: |
       Both functions have the form $y=mx+b$ with fixed numbers $m$ and $b$. The first has $m=3$ and $b=-6$. The second has $m=-\dfrac{1}{3}$ and $b=4$. Both are linear functions with straight nonvertical graphs.
 

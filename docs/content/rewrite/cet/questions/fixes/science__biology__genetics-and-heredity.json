@@ -1,0 +1,20 @@
+{
+ "file": "science__biology__genetics-and-heredity",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-biology-genetics-and-heredity-0012",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem asks which observation indicates codominance; key now says both effects are fully and separately expressed in the heterozygote."
+  },
+  {
+   "question": "q-biology-genetics-and-heredity-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem specifies standard notation; key reworded to \"standard mRNA sequence notation uses U rather than T\"."
+  }
+ ]
+}

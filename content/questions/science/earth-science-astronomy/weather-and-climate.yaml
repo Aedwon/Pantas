@@ -449,19 +449,19 @@ questions:
     type: predict-outcome
     difficulty: exam
     stem: |
-      A tropical cyclone occurs outside the usual peak season. Which conclusion follows from Philippine cyclone climatology?
+      Which statement correctly describes when tropical cyclones occur in Philippine climatology?
     choices:
-      - text: 'Cyclones can occur outside the July-to-October peak.'
+      - text: 'They are most frequent from July to October but can occur in other months.'
         correct: true
-      - text: 'The reported storm cannot be a tropical cyclone.'
+      - text: 'They are most frequent from July to October and do not form in other months.'
         rationale: |
-          This treats a peak as an exclusive time window. Most events cluster seasonally. Check can occur versus most common.
-      - text: 'The peak season must last every month of the year.'
+          This treats a peak as the only time window. Most events cluster in one season. Check the difference between most common and the only time.
+      - text: 'They are most frequent from December to March, the cooler dry season.'
         rationale: |
-          This removes seasonality because one off-peak event occurs. Exceptions are noticeable. Check frequency distribution across the year.
-      - text: 'Every off-peak cyclone proves a long-term climate shift.'
+          This links cyclones to the cool months. Dry-season weather also affects the country. Check which months have the warm ocean and moist air that feed cyclones.
+      - text: 'They are about equally frequent in every month of the year.'
         rationale: |
-          This uses one event to prove a lasting trend. Timing can matter in climate data. Check a many-year pattern rather than one occurrence.
+          This removes seasonality because cyclones can occur in any month. Off-peak events are noticeable. Check how events are spread across the year.
     explanation: |
       The western North Pacific can produce tropical cyclones throughout the year. July through October is the peak, when many occur. A peak does not limit all occurrences to those months.
     approved: true

@@ -263,7 +263,7 @@ questions:
       This treats the target GWA as the missing grade. The target is given directly. Account for the other course grades.
   - text: '$1.83$'
     rationale: |
-      This gives too large a Chemistry grade. It makes the weighted total $27.15$, above the required $26.25$.
+      This is the plain mean of the three known grades, which can seem like a fair guess for the missing grade. The courses have different units, so a plain mean is wrong here. Use the units and the target weighted total to solve for the missing grade.
   explanation: |
     The total units are $15$, so the target weighted total is $15(1.75)=26.25$. Known courses contribute $3(2)+4(1.5)+3(2)=18$. Thus $5x=26.25-18=8.25$, giving $x=1.65$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0014'

@@ -243,13 +243,13 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      Which observation distinguishes codominance from incomplete dominance?
+      Which observation specifically indicates codominance rather than incomplete dominance?
     choices:
-      - text: 'Both allele effects are detectable.'
+      - text: 'Both allele effects are fully and separately expressed in the heterozygote.'
         correct: true
       - text: 'The heterozygote has an intermediate trait.'
         rationale: |
-          This describes incomplete dominance instead. Both patterns differ from complete dominance. Check whether the trait is intermediate or both effects are detectable.
+          This describes incomplete dominance instead. Both patterns differ from complete dominance. Check whether the trait is intermediate or both effects are fully and separately expressed.
       - text: 'One allele fully masks the other allele.'
         rationale: |
           This describes complete dominance. An allele can mask another in some inheritance models. Check whether both effects are visible in the pattern asked about.
@@ -257,16 +257,16 @@ questions:
         rationale: |
           This confuses allele expression with the number inherited. One visible effect may seem to mean one allele. Check the two alleles present at a diploid locus.
     explanation: |
-      In codominance, both alleles contribute detectable effects in the heterozygote. Blood type AB shows this through the presence of both A and B markers.
+      In codominance, both alleles show their full effects at the same time in the heterozygote. Blood type AB shows this through the presence of both A and B markers.
     approved: true
 
   - id: q-biology-genetics-and-heredity-0013
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      A student writes an mRNA sequence that includes thymine (T) instead of uracil (U). Is this correct?
+      A student writes an mRNA sequence in standard notation that includes thymine (T) instead of uracil (U). Is this correct?
     choices:
-      - text: 'No: mRNA uses uracil in place of thymine; a correct mRNA sequence should never include thymine.'
+      - text: 'No: standard mRNA sequence notation uses U rather than T.'
         correct: true
       - text: 'Yes: mRNA and DNA both use thymine identically.'
         rationale: |

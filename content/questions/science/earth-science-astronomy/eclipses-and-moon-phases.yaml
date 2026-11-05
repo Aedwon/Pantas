@@ -264,15 +264,15 @@ questions:
     choices:
       - text: 'The penumbra'
         correct: true
-      - text: 'The umbra, with complete coverage'
+      - text: 'The umbra'
         rationale: |
           This uses the fully dark shadow for partial coverage. Both shadows can lie on Earth. Check the amount of sunlight blocked at that instant.
-      - text: 'Both shadow regions give identical partial coverage'
+      - text: 'Both the umbra and the penumbra'
         rationale: |
-          This treats the two shadows as having the same coverage. Both belong to one eclipse. Check their different definitions.
-      - text: 'Neither shadow region can contain partial coverage'
+          This treats the two shadows as giving the same coverage. Both belong to one eclipse. Check their different definitions.
+      - text: 'Neither the umbra nor the penumbra'
         rationale: |
-          This places partial coverage outside the Moon’s shadow. The viewer still sees some sunlight. Check whether some of the Sun must be blocked.
+          This places the viewer outside the Moon’s shadow. The viewer still sees some sunlight. Check that part of the Sun is blocked, so a shadow must cover the viewer.
     explanation: |
       The penumbra is the partial-shadow region. At the described partial phase, the Moon blocks only part of the Sun for those viewers.
     approved: true
@@ -306,13 +306,13 @@ questions:
     choices:
       - text: 'An annular solar eclipse'
         correct: true
-      - text: 'A total solar eclipse with no Sun remaining visible'
+      - text: 'A total solar eclipse'
         rationale: |
           This treats the ring as complete covering. Both are central solar eclipses. Check whether the Sun’s outer edge remains visible.
-      - text: 'A total lunar eclipse inside Earth’s umbra'
+      - text: 'A total lunar eclipse'
         rationale: |
           This treats a solar ring as Earth’s shadow on the Moon. Both involve alignment. Check which object is seen covered.
-      - text: 'A partial eclipse with the Moon covering only one edge'
+      - text: 'A partial solar eclipse'
         rationale: |
           This treats any incomplete Sun covering as the same partial shape. Partial eclipses cover only a portion. Check the ring around the centered Moon.
     explanation: |
@@ -327,15 +327,15 @@ questions:
     choices:
       - text: 'Partial lunar eclipse'
         correct: true
-      - text: 'Total lunar eclipse with the entire Moon still in umbra'
+      - text: 'Total lunar eclipse'
         rationale: |
-          This keeps the total label after the whole Moon is no longer inside the umbra. Totality was the preceding stage. Check how much remains covered.
-      - text: 'Annular solar eclipse at full moon'
+          This keeps the total label after the whole Moon is no longer inside the umbra. Totality was the preceding stage. Check whether the whole Moon is still in the umbra.
+      - text: 'Penumbral lunar eclipse'
         rationale: |
-          This changes a lunar shadow event into a solar ring event. Both are eclipses. Check which body receives Earth’s shadow.
-      - text: 'New moon because the Moon has left part of the shadow'
+          This names the lighter outer shadow only. Both shadows fall on the Moon during an eclipse. Check whether any part of the Moon is still in the dark umbra.
+      - text: 'Beginning of totality'
         rationale: |
-          This treats leaving the shadow as an immediate new phase cycle. Illumination returns during an eclipse. Check that the event is still at full moon.
+          This mixes up the order of the stages. The Moon is partly in the umbra both before and after totality. Check that the stem says the Moon is leaving after totality.
     explanation: |
       As the Moon begins leaving Earth’s umbra, part remains in the dark shadow and part moves outside it. That stage is a partial lunar eclipse.
     approved: true

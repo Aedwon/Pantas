@@ -1,0 +1,20 @@
+{
+ "file": "science__physics__dynamics",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-dynamics-0013",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stated the surface is horizontal and the push acts along the motion."
+  },
+  {
+   "question": "q-physics-dynamics-0019",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the false constant-speed claim in the note."
+  }
+ ]
+}

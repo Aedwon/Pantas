@@ -1,0 +1,41 @@
+{
+ "file": "science__physics__waves-and-sound",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-physics-waves-and-sound-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All choices now use category plus reason."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0005",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All choices now use category plus reason."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Explanation now says wavelength is the distance from one crest to the next."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distinct parallel category-plus-reason choices; no repeated category."
+  },
+  {
+   "question": "q-physics-waves-and-sound-0008",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Distinct parallel category-plus-reason choices; no repeated category."
+  }
+ ]
+}

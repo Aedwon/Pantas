@@ -12,8 +12,9 @@ questions:
       kind: fluid-vessel
       vessel: column
       points: ["A", "B"]
+      depths: [1, 2]
     stem: |
-      The shown container holds uniform-density water at rest under ordinary gravity. Which marked point has greater pressure?
+      The shown container holds uniform-density water at rest under ordinary gravity. Point B is deeper below the water surface than point A. Which marked point has greater pressure?
     choices:
       - text: "Point B"
         correct: true
@@ -142,8 +143,9 @@ questions:
       kind: fluid-vessel
       vessel: column
       points: ["X", "Y", "Z"]
+      depths: [1, 2, 3]
     stem: |
-      The shown container holds uniform-density water at rest. Rank its marked points from lowest to highest pressure.
+      The shown container holds uniform-density water at rest. Point X is the shallowest below the surface, Y is at middle depth, and Z is the deepest. Rank its marked points from lowest to highest pressure.
     choices:
       - text: "X, then Y, then Z"
         correct: true
@@ -455,7 +457,7 @@ questions:
       vessel: column
       points: ["A", "B"]
     stem: |
-      The figure shows the initial liquid at rest. It is replaced by a liquid of twice its density, at the same surface height and positive surface pressure. At marked point B, which quantity doubles?
+      The figure shows the initial liquid at rest in a container open to the atmosphere. It is replaced by a liquid of twice its density, at the same surface height and under the same atmospheric pressure. At marked point B, which quantity doubles?
     choices:
       - text: "Gauge pressure"
         correct: true
@@ -469,7 +471,7 @@ questions:
         rationale: |
           This treats a density change as a depth change. Both can increase pressure. Check which quantity the question actually changes.
     explanation: |
-      Gauge pressure is the fluid-pressure increase above the surface pressure. At fixed depth it equals density times gravity times depth. Doubling density doubles that part of the pressure.
+      Gauge pressure is the pressure above atmospheric pressure. The container is open, so at B it equals density times gravity times depth. Doubling the density doubles this pressure.
     approved: false
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0019
@@ -483,17 +485,17 @@ questions:
     stem: |
       The shown pipe has steady incompressible flow at one elevation. Which additional assumption permits the ideal Bernoulli pressure-speed comparison to be used directly between sections?
     choices:
-      - text: "No pumps or energy losses"
+      - text: "No pumps add energy and no friction removes it between the sections"
         correct: true
-      - text: "The direction of the flow arrow"
+      - text: "The flow runs from the wide section to the narrow section"
         rationale: |
-          This uses flow direction as the condition for energy conservation. The arrow helps read the path. Check whether direction itself rules out energy input or losses.
-      - text: "The total volume of water in the pipe"
+          This uses flow direction as the condition for energy conservation. Direction helps read the path. Check whether direction itself rules out energy input or losses.
+      - text: "The pipe holds the same total volume of water at all times"
         rationale: |
-          This uses total amount of water instead of changes in flow energy. A wide section can contain more water. Check the assumptions behind the local pressure-speed equation.
-      - text: "The thickness of the pipe walls"
+          This uses a fixed amount of water instead of energy conditions. A steady flow can hold a fixed volume. Check whether volume says anything about energy input or losses.
+      - text: "The pipe walls are equally thick at both sections"
         rationale: |
-          This uses structural thickness as a substitute for fluid-energy conditions. Thick walls can hold pressure safely. Check whether the walls' thickness establishes lossless flow.
+          This uses wall thickness as a substitute for fluid-energy conditions. Equal walls look like a fair comparison. Check whether wall thickness establishes lossless flow.
     explanation: |
       The direct ideal Bernoulli comparison needs no energy added or lost between the sections. With equal height, the pressure and motion-energy terms then balance each other.
     approved: false

@@ -1,0 +1,48 @@
+{
+ "file": "science__earth-science-astronomy__fossils-and-geologic-time",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0002",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the false absolute about metamorphic rock; key now says strong heat often destroys remains."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0002",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Shortened the key to match other choices; rock definitions moved to the explanation."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0005",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the cue phrase \"despite the stated stack\"."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0006",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the exposure-history claim with the position-versus-age note."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0021",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stem now says Layer 3 is volcanic ash with closed-system minerals; explanation updated."
+  },
+  {
+   "question": "q-earth-science-astronomy-fossils-and-geologic-time-0021",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "All choices now use the same concise three-part format."
+  }
+ ]
+}

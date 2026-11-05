@@ -1,0 +1,13 @@
+{
+ "file": "science__chemistry__matter",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-matter-0018",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Rewrote all choices as parallel \"crystalline; amorphous\" statements without concentrated absolutes."
+  }
+ ]
+}

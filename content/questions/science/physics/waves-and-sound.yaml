@@ -73,17 +73,17 @@ questions:
     stem: |
       A sound pressure disturbance propagates through air. Which wave category describes it?
     choices:
-      - text: "Mechanical"
+      - text: "Mechanical, because it travels by vibrations of particles in a medium"
         correct: true
-      - text: "Electromagnetic because air has charged particles"
+      - text: "Electromagnetic, because air contains charged particles"
         rationale: |
           This uses microscopic charge to classify the wave. Matter contains charges. Check that the disturbance is pressure in a medium.
-      - text: "Nonmechanical because sound carries no visible object"
+      - text: "Nonmechanical, because sound carries no visible object"
         rationale: |
           This assumes mechanical waves must visibly carry matter along. Sound is invisible. Check oscillating air pressure.
-      - text: "Electromagnetic whenever sound is loud"
+      - text: "Electromagnetic, because loud sound carries a lot of energy"
         rationale: |
-          This makes classification depend on amplitude. Loudness changes perception. Check whether a medium is still required.
+          This makes classification depend on loudness. Loudness changes perception. Check whether a medium is still required.
     explanation: |
       The pressure disturbance propagates through matter. Air is its medium. That makes sound a mechanical wave.
     approved: true
@@ -94,15 +94,15 @@ questions:
     stem: |
       Sunlight propagates across interplanetary vacuum. Which wave category permits that?
     choices:
-      - text: "Electromagnetic"
+      - text: "Electromagnetic, because it consists of electric and magnetic fields"
         correct: true
-      - text: "Mechanical because the Sun contains matter"
+      - text: "Mechanical, because the Sun is made of matter"
         rationale: |
           This classifies the traveling wave by its source material. The source is physical. Check the medium needed along the path.
-      - text: "Mechanical because sunlight has energy"
+      - text: "Mechanical, because sunlight carries energy"
         rationale: |
           This treats energy transport as exclusive to mechanical waves. Both wave categories transfer energy. Check the vacuum condition.
-      - text: "Mechanical whenever the source is very hot"
+      - text: "Mechanical, because the source is very hot"
         rationale: |
           This makes propagation type depend on source temperature. The Sun is hot. Check whether material particles are needed along the path.
     explanation: |
@@ -127,7 +127,7 @@ questions:
         rationale: |
           This uses distance traveled per time. A wave crest moves. Check whether the question includes a time interval.
     explanation: |
-      Wavelength is the distance over which a periodic wave repeats its phase. Adjacent crests are one wavelength apart.
+      Wavelength is the distance from one crest to the next crest. It measures the length of one complete wave.
     approved: true
 
   - id: q-physics-waves-and-sound-0007
@@ -136,17 +136,17 @@ questions:
     stem: |
       In a string wave, the string’s disturbance is perpendicular to propagation. How is the disturbance orientation classified?
     choices:
-      - text: "Transverse"
+      - text: "Transverse, because the string moves at right angles to the wave’s direction"
         correct: true
-      - text: "Longitudinal"
+      - text: "Longitudinal, because the string moves along the wave’s direction"
         rationale: |
           This selects a parallel disturbance. Both are mechanical-wave orientations. Check perpendicular versus parallel.
-      - text: "Neither because mechanical waves have no orientation"
+      - text: "Both, because the string returns to its rest position"
+        rationale: |
+          This uses oscillation alone to infer both motions. Both types oscillate locally. Check the relation to propagation direction.
+      - text: "Neither, because mechanical waves have no orientation"
         rationale: |
           This confuses wave category with disturbance direction. The wave is mechanical. Check the string’s actual oscillation direction.
-      - text: "Longitudinal because particles return to equilibrium"
-        rationale: |
-          This uses oscillation alone to infer parallel motion. Both types oscillate locally. Check the relation to propagation direction.
     explanation: |
       Transverse means the disturbance is perpendicular to the direction the wave travels. The string motion meets that definition.
     approved: true
@@ -157,17 +157,17 @@ questions:
     stem: |
       In a spring wave, coils oscillate parallel to propagation and form compressions. Which orientation classification applies?
     choices:
-      - text: "Longitudinal"
+      - text: "Longitudinal, because the coils move parallel to the wave’s direction"
         correct: true
-      - text: "Transverse"
+      - text: "Transverse, because the coils move at right angles to the wave’s direction"
         rationale: |
           This selects perpendicular motion. Both types can use springs. Check the stated parallel oscillation.
-      - text: "Neither because compressions are not disturbances"
+      - text: "Both, because compressions have a height like crests"
+        rationale: |
+          This treats compressions as crests. Crests are easier to picture. Check the direction of the coil motion.
+      - text: "Neither, because compressions are not disturbances"
         rationale: |
           This rejects pressure or spacing changes as waves. Crests are easier to picture. Check the repeating compression pattern.
-      - text: "Transverse whenever the compression amplitude is small"
-        rationale: |
-          This makes orientation depend on size. Amplitude does describe the disturbance. Check direction independently of amplitude.
     explanation: |
       The spring coils move parallel to propagation. That is a longitudinal disturbance, producing compressions and expansions.
     approved: true

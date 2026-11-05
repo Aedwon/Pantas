@@ -1,0 +1,20 @@
+{
+ "file": "science__chemistry__mole-concept",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-chemistry-mole-concept-0003",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the 2.0 mol distractor with 972 mol (54 times 18) and wrote a matching note."
+  },
+  {
+   "question": "q-chemistry-mole-concept-0006",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Deleted the sentence that rebutted a wrong choice."
+  }
+ ]
+}

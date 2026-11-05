@@ -115,7 +115,7 @@ questions:
     stem: |
       An object’s speed doubles while its mass stays fixed. How does its kinetic energy change?
     choices:
-      - text: "It quadruples."
+      - text: "It quadruples because kinetic energy depends on the square of the speed."
         correct: true
       - text: "It doubles because speed doubles."
         rationale: |
@@ -178,7 +178,7 @@ questions:
     stem: |
       Two machines do $1000\,\mathrm J$ each. A takes $2\,\mathrm s$ and B takes $10\,\mathrm s$. How do their average powers compare?
     choices:
-      - text: "A has five times B’s power."
+      - text: "A has five times B’s power because A does the same work in one-fifth the time."
         correct: true
       - text: "Their powers are equal because work is equal."
         rationale: |
@@ -283,7 +283,7 @@ questions:
     stem: |
       A frictionless pendulum is partway between a turning point and its lowest point. Choose the lowest point as zero gravitational potential energy. Which description applies?
     choices:
-      - text: "Both kinetic and potential energy are positive."
+      - text: "Both kinetic and potential energy are positive because it is moving and above the lowest point."
         correct: true
       - text: "All energy is kinetic because the pendulum is moving."
         rationale: |
@@ -389,7 +389,7 @@ questions:
     stem: |
       The zero reference for gravitational potential energy is shifted downward by a fixed distance. What happens to predictions of kinetic-energy changes for the same motion?
     choices:
-      - text: "They stay the same."
+      - text: "They stay the same because only differences in potential energy matter."
         correct: true
       - text: "They increase because every potential-energy value increases."
         rationale: |

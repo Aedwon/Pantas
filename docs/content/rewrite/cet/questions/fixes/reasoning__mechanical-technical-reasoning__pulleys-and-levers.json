@@ -1,0 +1,48 @@
+{
+ "file": "reasoning__mechanical-technical-reasoning__pulleys-and-levers",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0004",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "196 N note now names doubling the effort arm to 10 m."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Figure ratio changed to a non-revealing 3:5 and stem says not drawn to scale."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Figure ratio changed to a non-revealing 3:5 and stem says not drawn to scale."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Figure ratio changed to a non-revealing 3:5 and stem says not drawn to scale."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Replaced the 270 m distractor with 2,700 m (torque given as a length) and rewrote its note to match."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": true,
+   "summary": "Stem now asks for the motion condition; key is rest or constant speed; explanation updated."
+  }
+ ]
+}

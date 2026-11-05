@@ -71,13 +71,13 @@ questions:
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
-      Some insects already carry a heritable pesticide-resistance variant. Spraying leaves these insects with more surviving offspring on average. Why does resistance become common?
+      A few insects in a population already carry a heritable variant that lets them survive a pesticide. After many generations of spraying, most insects in the population are resistant. Which statement best explains this change?
     choices:
-      - text: 'Resistant insects leave more descendants.'
+      - text: 'Resistant insects survive spraying more often, so they pass the inherited variant to more offspring.'
         correct: true
       - text: 'Spraying gives every survivor the needed allele.'
         rationale: |
-          This makes the pesticide create a needed allele in every survivor. Resistance is useful after spraying, so a direct change seems convenient. Check whether the stem says the variant already existed.
+          This makes the pesticide create a needed allele in every survivor. Resistance is useful after spraying, so a direct change seems convenient. Check whether the stem says the variant was already present.
       - text: 'Exposure trains each insect to resist the spray.'
         rationale: |
           This treats inherited resistance as training during one lifetime. Repeated exposure can suggest practice. Check whether the change is in individual behavior or inherited population traits.
@@ -85,7 +85,7 @@ questions:
         rationale: |
           This leaves out inheritance. Survivors can be easy to count without following their offspring. Check how the variant reaches the next generation.
     explanation: |
-      Resistant insects leave more surviving offspring. Their offspring can inherit the resistance variant. Over generations, that variant becomes more common.
+      Resistant insects survive spraying more often than the others. They live to have more offspring, and the offspring inherit the resistance variant. Over generations, that variant becomes more common.
     approved: true
 
   - id: q-biology-evolution-0005
@@ -281,17 +281,17 @@ questions:
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
-      A river stops gene flow between two lizard populations. Their habitats differ. Which outcome is possible over many generations?
+      A river stops gene flow between two lizard populations. Their habitats differ. Which prediction is best supported over many generations?
     choices:
-      - text: 'Divergence may lead to reproductive isolation.'
+      - text: 'The populations will probably diverge and may eventually stop interbreeding.'
         correct: true
-      - text: 'The barrier guarantees immediate speciation.'
+      - text: 'The populations will keep sharing alleles and stay genetically identical.'
         rationale: |
-          This confuses a geographic barrier with a completed species boundary. The lizards cannot meet now, which looks like reproductive isolation. Check whether they would still interbreed if contact resumed.
-      - text: 'Common ancestry prevents any future divergence.'
+          This ignores the river. Habitats on both banks look alike in many ways, so mixing seems likely. Check what the stem says the river stops.
+      - text: 'The populations will stay alike because they share a common ancestor.'
         rationale: |
           This treats shared ancestry as a limit on change. The groups initially share many variants. Check whether their environments and chance events can differ.
-      - text: 'Evolution stops until the populations reunite.'
+      - text: 'The populations will stop evolving until they interbreed again.'
         rationale: |
           This assumes gene exchange is required for all evolution. Isolation stops incoming alleles, which may seem to stop change. Check whether local mutation, drift, and selection still occur.
     explanation: |

@@ -1,0 +1,34 @@
+{
+ "file": "reasoning__mechanical-technical-reasoning__fluid-pressure",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0001",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added depths to the figureSpec and stated in the stem that B is deeper."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0006",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added depths to the figureSpec and stated the depth order of X, Y, Z in the stem."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0018",
+   "severity": "Blocker",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Stated the container is open to the atmosphere and defined gauge pressure above atmospheric pressure."
+  },
+  {
+   "question": "q-mechanical-technical-reasoning-fluid-pressure-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Made all four choices explicit conditions and updated the three wrong-choice notes."
+  }
+ ]
+}

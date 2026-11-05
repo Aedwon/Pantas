@@ -1,0 +1,20 @@
+{
+ "file": "reading-comprehension__text-types__visual-media",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "rc-tt-vm-0005",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Choices now all name poster elements only; the banner is the key without naming the office."
+  },
+  {
+   "question": "q-text-types-visual-media-0019",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Removed the two sentences in the passage that stated the interpretation of responsibility."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "file": "mathematics__statistics-and-probability__measures-of-central-tendency",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-statistics-and-probability-measures-of-central-tendency-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Note for 1.83 now names the plain mean of the known grades and points to units and the target weighted total."
+  }
+ ]
+}

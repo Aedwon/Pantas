@@ -1,0 +1,27 @@
+{
+ "file": "science__earth-science-astronomy__eclipses-and-moon-phases",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-earth-science-astronomy-eclipses-and-moon-phases-0013",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Used parallel shadow-region names without coverage descriptions."
+  },
+  {
+   "question": "q-earth-science-astronomy-eclipses-and-moon-phases-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Used parallel eclipse names without visibility descriptions."
+  },
+  {
+   "question": "q-earth-science-astronomy-eclipses-and-moon-phases-0016",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Used parallel lunar-eclipse stage names and replaced the two off-topic distractors and notes."
+  }
+ ]
+}

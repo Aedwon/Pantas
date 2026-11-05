@@ -1,0 +1,27 @@
+{
+ "file": "mathematics__algebra__types-of-functions",
+ "fixer": "sonnet",
+ "actions": [
+  {
+   "question": "q-algebra-types-of-functions-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why the equal-slope choice looks right (parallel lines)."
+  },
+  {
+   "question": "q-algebra-types-of-functions-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why the negative-slope choice looks right (upward-sloping examples)."
+  },
+  {
+   "question": "q-algebra-types-of-functions-0015",
+   "severity": "Major",
+   "action": "fixed",
+   "key_changed": false,
+   "summary": "Added why the constants-sum choice looks right (opposite signs suggest cancelling)."
+  }
+ ]
+}
