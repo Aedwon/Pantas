@@ -130,8 +130,12 @@ class SyncActiveContextStore {
   Future<void> clearStable() async {
     final current = await readSnapshot();
     if (current != null && current.rememberedContext == null) return;
-    await _writeEnvelope(<String, Object?>{'token': _nextToken()});
+    await renewToken();
   }
+
+  /// Expires guards and forgets the owner when a full snapshot replaces data.
+  Future<void> renewToken() =>
+      _writeEnvelope(<String, Object?>{'token': _nextToken()});
 
   Future<void> _writeEnvelope(Map<String, Object?> envelope) =>
       _db.customStatement(

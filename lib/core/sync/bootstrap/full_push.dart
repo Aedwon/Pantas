@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart' show Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/generation_repository.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
@@ -464,6 +465,7 @@ class FullPushBootstrap {
               value: _uid,
             ),
           );
+      await SyncActiveContextStore(_db).renewToken();
     });
     return current;
   }

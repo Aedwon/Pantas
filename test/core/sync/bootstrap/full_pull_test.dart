@@ -1,14 +1,82 @@
 import 'package:drift/drift.dart' show Value, Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
+import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:pantas/core/sync/bootstrap/full_pull.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/mapping/track_scope_mapper.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  for (final oldGeneration in ['gen-old', 'gen-1', null]) {
+    test('replacement expires the $oldGeneration reader before projection',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final contexts = SyncActiveContextStore(db);
+      if (oldGeneration != null) {
+        await contexts.publishStable(
+          uid: 'user-1',
+          generationId: oldGeneration,
+        );
+        await contexts.suspendStable();
+      }
+      final positions = ReaderPositionRepository(
+        AppPreferencesRepository(db),
+        database: db,
+      );
+      final boundary =
+          (await positions.captureBoundary('cse', isCurrent: () => true))!;
+      final bookmarks = LessonBookmarksRepository(db);
+      final gateway = _cloudGateway(includeCustomTrack: true);
+      gateway.collections[
+          'users/user-1/sync_generations/gen-1/lesson_bookmarks'] = [
+        {
+          'id': 'cloud-lesson',
+          'lessonId': 'cloud-lesson',
+          'markedAt': '2026-08-30T00:00:00.000Z',
+          'updatedAt': DateTime.utc(2026, 8, 30, 1),
+          'originDeviceId': 'device-cloud',
+          'mutationId': 'm-cloud-bookmark',
+          'deleted': false,
+          'schemaVersion': 1,
+        },
+      ];
+      late SyncActiveContextSnapshot replacement;
+      late bool removed;
+
+      final result = await FullPullBootstrap(
+        db: db,
+        gateway: gateway,
+        uid: 'user-1',
+        rebuildCustomTrackProjection: (_) async {
+          replacement = (await contexts.readSnapshot())!;
+          removed = await positions.runGuarded(
+            boundary,
+            () => bookmarks.unmark('cloud-lesson'),
+            isCurrent: () => true,
+          );
+        },
+      ).run(generationId: 'gen-1');
+
+      expect(result.outcome, FullPullOutcome.applied);
+      expect(removed, isFalse);
+      expect(await bookmarks.isMarked('cloud-lesson'), isTrue);
+      expect(
+        await db.customSelect('select * from sync_local_mutations').get(),
+        isEmpty,
+      );
+      expect(replacement.token, isNot(boundary.token));
+      expect(replacement.context, isNull);
+      expect(replacement.rememberedContext, isNull);
+    });
+  }
+
   test('keep-account downloads and validates before destructive replacement',
       () async {
     final db = inMemoryDatabase();

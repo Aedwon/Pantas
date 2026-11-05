@@ -1,5 +1,6 @@
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_collection_adapter.dart';
 import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
@@ -126,6 +127,7 @@ class FullPullBootstrap {
                 value: _uid,
               ),
             );
+        await SyncActiveContextStore(_db).renewToken();
       });
     } on _SyncCancelled {
       return const FullPullResult(FullPullOutcome.cancelled);
