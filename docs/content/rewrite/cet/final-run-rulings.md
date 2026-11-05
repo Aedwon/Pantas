@@ -123,3 +123,8 @@ Round-5 reads (Sonnet rework, then fresh Opus read, one lesson at a time). Every
 - lesson-statistics-and-probability-measures-of-variability clean after round 5. Round-4 findings fixed.
 - lesson-mechanical-technical-reasoning-structural-stability open after round 5: B3 M2 m2 (rework's 'only when the weight is spread evenly' fails for the lesson's own dumbbell; 'heavier needs a bigger push' lacks the mass-placement condition; added lever-arm sentence reads as if a lever arm is in newton-meters; newton undefined; Example 9 figure shows two truck widths) upheld. Round-4 findings fixed. 3,126 words, split candidate.
 - lesson-text-types-speeches minor after round 5. Round-4 Blocker fixed.
+
+## Question check rulings (November 5, 2026)
+
+- Rejected, all files: "the correct answer is always the first choice". The app reorders each question's choices by its id before display (`lib/core/storage/domain/choice_order.dart`), so YAML order is not what students see. The question style guide's "choice order in the YAML is the display order" line is stale; flagged for the review package, not changed in this pass. The fit-read prompt now tells the reader to skip choice order.
+- Solver low-confidence flags (5 questions, all matching the key) were routed to the fit read rather than a second solve, because none was a key disagreement.
