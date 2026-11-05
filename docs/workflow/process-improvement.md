@@ -55,6 +55,13 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### CSE showed the app's subjects, not the exam's parts (Nov 6)
+
+- **His words:** "is this the actual subjects of CSE Professional?"
+- **What was wrong:** Study grouped CSE topics under shared headings that are not the exam's parts. The sweeps never compared them with the CSC's scope, and agents had the announcement open.
+- **Why the process let it through:** sweeps check screens against boards, and no check compares exam content with its official scope.
+- **Fix:** a test that fails if a CSE heading is not one of the CSC's parts.
+
 ### Founder evidence was treated as unofficial (Nov 5)
 
 - **His words:** "it is official because a lot of people are posting the same thing after they got their results. it should not wait for after beta"
