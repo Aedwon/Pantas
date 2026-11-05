@@ -21,13 +21,14 @@ void main() {
     expect(holdsLesson(shell), isFalse);
   });
 
-  test('on web the lesson is the only route lifted out of the shell', () {
+  test('on web only the lesson and what it pushes are out of the shell', () {
     final flat = buildAppRoutes(_RouteRef());
     final routes = buildAppRoutes(_RouteRef(), web: true);
     final shell = routes.whereType<ShellRoute>().single;
+    final lifted = 1 + webRoutesAboveLesson.length;
 
-    expect(shell.routes.length, flat.length - 1);
-    expect(routes.length, 2);
+    expect(shell.routes.length, flat.length - lifted);
+    expect(routes.length, 1 + lifted);
   });
 
   test('the web shell still holds the study tab', () {

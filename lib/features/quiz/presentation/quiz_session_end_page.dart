@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -387,7 +388,17 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
       onDismiss: () => setState(() => _diagnosisDismissed = true),
       onPaywall: () {
         if (_current()) {
-          unawaited(context.push<void>('/settings/pro?benefit=diagnosis'));
+          const paywall = '/settings/pro?benefit=diagnosis';
+          final router = GoRouter.of(context);
+          // Above the web shell, as over a lesson, a shell page cannot be
+          // pushed (see buildAppRoutes).
+          if (kIsWeb &&
+              router.routerDelegate.currentConfiguration.matches.last
+                  is! ShellRouteMatch) {
+            router.go(paywall);
+          } else {
+            unawaited(router.push<void>(paywall));
+          }
         }
       },
       onLesson: (id) {

@@ -172,15 +172,43 @@ List<RouteBase> buildAppRoutes(
   final lesson = routes
       .whereType<GoRoute>()
       .singleWhere((route) => route.path == '/lesson/:lessonId');
+  // A page pushed over a lesson must sit above the shell too. Pushed from up
+  // here, a page inside the shell asks for a second shell with the same
+  // navigator: the one in use moves under the lesson and the new page is blank.
+  final aboveLesson = routes
+      .whereType<GoRoute>()
+      .where((route) => webRoutesAboveLesson.contains(route.path))
+      .toList();
   return [
     ShellRoute(
       builder: (context, state, child) =>
           WebRouteShell(path: state.uri.path, child: child),
-      routes: routes.where((route) => route != lesson).toList(),
+      routes: routes
+          .where((route) => route != lesson && !aboveLesson.contains(route))
+          .toList(),
     ),
     lesson,
+    for (final route in aboveLesson) _inWebRouteShell(route),
   ];
 }
+
+/// The quiz a lesson opens, and the pages its end screen pushes.
+@visibleForTesting
+const webRoutesAboveLesson = {
+  '/quiz/inline/:examId/:lessonId',
+  '/quiz/viewer/:attemptId',
+  '/quiz/all/:attemptId',
+  '/quiz/debrief/:attemptId',
+};
+
+GoRoute _inWebRouteShell(GoRoute route) => GoRoute(
+      path: route.path,
+      onExit: route.onExit,
+      builder: (context, state) => WebRouteShell(
+        path: state.uri.path,
+        child: route.builder!(context, state),
+      ),
+    );
 
 GoRoute _tabRoot(List<RouteBase> routes, String path) =>
     routes.whereType<GoRoute>().singleWhere((route) => route.path == path);
