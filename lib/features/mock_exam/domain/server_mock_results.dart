@@ -57,6 +57,7 @@ class ServerMockResult {
   ServerMockResult._({
     required this.mockId,
     required this.examId,
+    required this.examName,
     required this.startedAt,
     required this.submittedAt,
     required this.durationMs,
@@ -184,6 +185,7 @@ class ServerMockResult {
     return ServerMockResult._(
       mockId: mockId,
       examId: examId,
+      examName: ServerMockPaper.optionalExamName(map),
       startedAt: startedAt,
       submittedAt: submittedAt,
       durationMs: durationMs,
@@ -213,6 +215,9 @@ class ServerMockResult {
 
   final String mockId;
   final String examId;
+
+  /// Set for a custom exam only. Record and results print this, never the id.
+  final String? examName;
   final int startedAt;
   final int submittedAt;
   final int durationMs;

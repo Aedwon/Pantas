@@ -63,6 +63,7 @@ class ServerMockPaper {
   const ServerMockPaper._({
     required this.mockId,
     required this.examId,
+    required this.examName,
     required this.startedAt,
     required this.strict,
     required this.limit,
@@ -155,6 +156,7 @@ class ServerMockPaper {
     return ServerMockPaper._(
       mockId: mockId,
       examId: _string(map, 'examId'),
+      examName: optionalExamName(map),
       startedAt: _wholeNumber(map, 'startedAt'),
       strict: strict,
       limit: Duration(milliseconds: limitMs),
@@ -175,8 +177,23 @@ class ServerMockPaper {
 
   static final _mockIdPattern = RegExp(r'^[A-Za-z0-9]{10,40}$');
 
+  /// The server sends the name of a custom exam, which the student gave it.
+  /// A listed exam has none: its name is fixed in the app. Anything the server
+  /// sends that is not text is refused, and a blank name is no name.
+  static String? optionalExamName(Map<String, Object?> map) {
+    final value = map['examName'];
+    if (value == null) return null;
+    if (value is! String) {
+      throw const ServerMockFormatException('examName must be text');
+    }
+    return value.isEmpty ? null : value;
+  }
+
   final String mockId;
   final String examId;
+
+  /// Set for a custom exam only.
+  final String? examName;
 
   /// Milliseconds since the epoch, on the server's clock.
   final int startedAt;

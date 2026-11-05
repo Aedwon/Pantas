@@ -313,7 +313,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       currentQuestionIndex: session.cursor,
       parts: [
         MockFinalePart(
-          name: serverMockExamName(paper.examId),
+          name: serverMockExamName(paper.examId, examName: paper.examName),
           questions: [
             for (final id in paper.questionIds)
               MockFinaleQuestion(
@@ -453,11 +453,15 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     );
     return MockSessionPage(
       state: state,
-      examTitle: switch (paper.examId) {
-        'exam_cse_pro' => 'CSE Professional simulation',
-        'exam_cse_sub' => 'CSE Subprofessional simulation',
-        _ => 'Mock exam',
-      },
+      // A custom exam is named as the Quiz card names it. A listed one keeps
+      // its own title.
+      examTitle: paper.examName != null
+          ? '${paper.examName} simulation'
+          : switch (paper.examId) {
+              'exam_cse_pro' => 'CSE Professional simulation',
+              'exam_cse_sub' => 'CSE Subprofessional simulation',
+              _ => 'Mock exam',
+            },
       remainingInPart: session.remaining,
       partLength: paper.limit,
       partPosition: session.cursor + 1,

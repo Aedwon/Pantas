@@ -21,10 +21,20 @@ typedef StudySettingsCapture = Future<StudySettingsPublication> Function({
 });
 
 class StudySettingsPublication {
-  StudySettingsPublication(this._publish, {void Function()? cancel})
-      : _cancel = cancel;
+  StudySettingsPublication(
+    this._publish, {
+    void Function()? cancel,
+    Future<void>? settled,
+  })  : _cancel = cancel,
+        settled = settled ?? Future<void>.value();
   final Future<void> Function() _publish;
   final void Function()? _cancel;
+
+  /// Completes when the server has the settings, or fails with what stopped
+  /// it. Calling the publication sends in the background and callers that do
+  /// not read this stay fire-and-forget. The one caller that needs the answer
+  /// reads it after [call] or [apply], never before.
+  final Future<void> settled;
   Future<void> call() => _publish();
   Future<T> apply<T>(Future<T> Function() mutation) async {
     try {
@@ -57,28 +67,44 @@ final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
       return StudySettingsPublication(() async {});
     }
     final (request, _) = captured;
+    final settled = Completer<void>();
+    // A caller that never reads `settled` must not trigger an unhandled error.
+    unawaited(settled.future.then<void>((_) {}, onError: (Object _) {}));
+    void settle() {
+      if (!settled.isCompleted) settled.complete();
+    }
+
     return StudySettingsPublication(
       () async {
         if (!await request.isCurrent()) {
           intent.cancel();
+          settle();
           return;
         }
         final payload = await readStudySettingsPayload(ref, request.examId);
         if (!await request.isCurrent()) {
           intent.cancel();
+          settle();
           return;
         }
         unawaited(
           intent.publish(request, payload).then<void>(
             (_) {
+              settle();
               ref.read(roadmapRevisionProvider.notifier).bump();
             },
-            onError: (Object error, StackTrace stack) =>
-                unawaited(telemetry.recordError(error, stack)),
+            onError: (Object error, StackTrace stack) {
+              if (!settled.isCompleted) settled.completeError(error, stack);
+              unawaited(telemetry.recordError(error, stack));
+            },
           ),
         );
       },
-      cancel: intent.cancel,
+      cancel: () {
+        intent.cancel();
+        settle();
+      },
+      settled: settled.future,
     );
   };
 });

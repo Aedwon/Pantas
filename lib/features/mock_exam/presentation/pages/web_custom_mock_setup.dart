@@ -15,6 +15,8 @@ class WebCustomMockSetup extends StatelessWidget {
     required this.minutes,
     required this.available,
     required this.fits,
+    required this.overLimit,
+    required this.failed,
     required this.breakdown,
     required this.timedSeparately,
     required this.unset,
@@ -34,11 +36,31 @@ class WebCustomMockSetup extends StatelessWidget {
   final int questions;
   final int minutes;
   final int available;
+
+  /// False while the total passes what the subjects hold and no section is
+  /// over to explain it. Then the card shows the ceiling line.
   final bool fits;
+
+  /// The total is past what one mock can hold.
+  final bool overLimit;
+
+  /// The last save did not go through.
+  final bool failed;
   final bool breakdown;
   final bool timedSeparately;
   final bool unset;
-  final List<({String id, String name, int? questions, int? minutes})> sections;
+
+  /// `held` is what the subject's topics hold. `over` is a section that asks
+  /// for more than that.
+  final List<
+      ({
+        String id,
+        String name,
+        int? questions,
+        int? minutes,
+        int held,
+        bool over,
+      })> sections;
   final List<int> questionValues;
   final List<int> minuteValues;
   final ValueChanged<int> onQuestions;
@@ -78,6 +100,7 @@ class WebCustomMockSetup extends StatelessWidget {
                       name: section.name,
                       questions: section.questions,
                       minutes: section.minutes,
+                      over: section.over,
                       questionValues: questionValues,
                       minuteValues: minuteValues,
                       onChanged: (value, {required minutes}) => onSection(
@@ -120,8 +143,48 @@ class WebCustomMockSetup extends StatelessWidget {
                 style: t.sm,
               ),
             ),
+            if (timedSeparately && sections.length >= 2)
+              _note(t, customPartByPartRule),
+            if (overLimit)
+              _note(
+                t,
+                'Mocks go up to 300 questions. This one adds up to '
+                '$questions.',
+                color: t.colors.wrongText,
+              ),
+            for (final section in sections)
+              if (section.over)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Your ${section.name} topics have ${section.held} '
+                          'questions. A ${section.questions}-question '
+                          'section needs more.',
+                          style: t.sm.copyWith(color: t.colors.wrongText),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        onPressed: onTickMoreSubjects,
+                        style: TextButton.styleFrom(
+                          foregroundColor: t.colors.accent,
+                          textStyle: t.style(15, weight: FontWeight.w600),
+                        ),
+                        child: const Text('Tick More Subjects'),
+                      ),
+                    ],
+                  ),
+                ),
           ],
         ],
+      );
+
+  Widget _note(WebTokens t, String text, {Color? color}) => Padding(
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+        child: Text(text, style: t.sm.copyWith(color: color)),
       );
 
   @override
@@ -191,7 +254,7 @@ class WebCustomMockSetup extends StatelessWidget {
                                 display: '$questions',
                                 values: questionValues,
                                 editable: !breakdown,
-                                refused: !fits,
+                                refused: !fits || overLimit,
                                 onChanged: onQuestions,
                                 format: (v) => '$v',
                                 helper: questionHint,
@@ -286,6 +349,16 @@ class WebCustomMockSetup extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                         ],
+                        if (failed) ...[
+                          Semantics(
+                            liveRegion: true,
+                            child: Text(
+                              'Could not save. Please try again.',
+                              style: t.sm,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                        ],
                         Align(
                           alignment: Alignment.centerRight,
                           child: WebButton(
@@ -355,7 +428,7 @@ class _WideNumberRowState extends State<_WideNumberRow> {
             color:
                 widget.refused ? t.colors.wrongText : t.colors.secondaryLabel,
           ),
-          dimmed: !widget.editable,
+          dimmed: !widget.editable && !widget.refused,
           onPressed:
               widget.editable ? () => setState(() => _open = !_open) : null,
         ),
@@ -391,6 +464,7 @@ class _WideSectionRow extends StatefulWidget {
     required this.name,
     required this.questions,
     required this.minutes,
+    required this.over,
     required this.questionValues,
     required this.minuteValues,
     required this.onChanged,
@@ -398,6 +472,9 @@ class _WideSectionRow extends StatefulWidget {
   final String name;
   final int? questions;
   final int? minutes;
+
+  /// The items value passes what the subject holds.
+  final bool over;
   final List<int> questionValues;
   final List<int> minuteValues;
   final void Function(int value, {required bool minutes}) onChanged;
@@ -410,22 +487,36 @@ class _WideSectionRowState extends State<_WideSectionRow> {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    Widget field(int? value, {required bool minutes}) => SizedBox(
-          width: 64,
-          height: 36,
-          child: OutlinedButton(
-            onPressed: () =>
-                setState(() => _minutes = _minutes == minutes ? null : minutes),
-            style: OutlinedButton.styleFrom(
-              padding: EdgeInsets.zero,
-              side: BorderSide(color: t.colors.separator),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+    Widget field(int? value, {required bool minutes}) {
+      // The board's bad field: red number and a 1.5 px red edge.
+      final bad = widget.over && !minutes;
+      return SizedBox(
+        width: 64,
+        height: 36,
+        child: OutlinedButton(
+          onPressed: () =>
+              setState(() => _minutes = _minutes == minutes ? null : minutes),
+          style: OutlinedButton.styleFrom(
+            padding: EdgeInsets.zero,
+            side: BorderSide(
+              color: bad ? t.colors.wrongText : t.colors.separator,
+              width: bad ? 1.5 : 1,
             ),
-            child: Text(value == null ? 'Set' : '$value', style: t.style(16)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
-        );
+          child: Text(
+            value == null ? 'Set' : '$value',
+            style: t.style(
+              16,
+              color: bad ? t.colors.wrongText : null,
+            ),
+          ),
+        ),
+      );
+    }
+
     return Container(
       decoration: BoxDecoration(
         border:
@@ -606,3 +697,7 @@ class _InlineStepperState extends State<_InlineStepper> {
     );
   }
 }
+
+/// What the boards say under the breakdown while parts are timed apart.
+const String customPartByPartRule =
+    "This paper runs part by part. Once a part ends, you can't go back to it.";

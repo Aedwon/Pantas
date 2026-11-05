@@ -38,6 +38,9 @@ class _ErrorSink extends DisabledTelemetry {
 class _Server {
   final telemetry = _ErrorSink();
   String examId = 'exam_cse_pro';
+
+  /// Sent for a custom exam only, as the server does.
+  String? examName;
   bool strict = false;
   int remainingMs = 8000000;
   bool paused = false;
@@ -57,6 +60,7 @@ class _Server {
   Map<String, Object?> view() => {
         'mockId': _mockId,
         'examId': examId,
+        if (examName != null) 'examName': examName,
         'startedAt': 1790000000000,
         'strict': strict,
         'limitMs': 9000000,
@@ -852,6 +856,51 @@ void main() {
 
     expect(server.named('controlMock'), isEmpty);
     expect(find.text('Quiz tab'), findsOneWidget);
+  });
+
+  group('the title of the paper', () {
+    const custom = 'exam_custom_6f1d0a52-3c1b-4c0e-8a52-0f6a3d2c9b11';
+
+    Future<void> wide(WidgetTester tester, _Server server) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await _open(tester, server: server, examId: server.examId);
+    }
+
+    testWidgets('a custom paper is named after the exam, like the Quiz card',
+        (tester) async {
+      await wide(
+        tester,
+        _Server()
+          ..examId = custom
+          ..examName = 'PUP CET',
+      );
+      expect(find.text('PUP CET simulation'), findsOneWidget);
+      expect(find.textContaining('exam_custom'), findsNothing);
+    });
+
+    testWidgets('a custom paper with no name sent says Mock exam',
+        (tester) async {
+      await wide(tester, _Server()..examId = custom);
+      expect(find.text('Mock exam'), findsOneWidget);
+      expect(find.textContaining('exam_custom'), findsNothing);
+    });
+
+    for (final (id, title) in [
+      ('exam_cse_pro', 'CSE Professional simulation'),
+      ('exam_cse_sub', 'CSE Subprofessional simulation'),
+      ('exam_upcat', 'Mock exam'),
+    ]) {
+      testWidgets('a listed paper keeps its title: $id', (tester) async {
+        await wide(tester, _Server()..examId = id);
+        expect(find.text(title), findsOneWidget);
+      });
+    }
   });
 
   test('web opens the server screen and the phone keeps its own', () {

@@ -217,4 +217,36 @@ void main() {
     expect(paper.questionIds, ['q1', 'q2', 'q3']);
     expect(paper.sections.first.questions.first.setId, 's1');
   });
+
+  group('examName', () {
+    test('a custom paper carries its exam name', () {
+      final paper = ServerMockPaper.decode({
+        ..._view(examId: 'exam_custom_6f1d0a52'),
+        'examName': 'PUP CET',
+      });
+      expect(paper.examName, 'PUP CET');
+    });
+
+    test('a listed paper has none', () {
+      expect(ServerMockPaper.decode(_view()).examName, isNull);
+    });
+
+    test('a null or empty name is no name', () {
+      expect(
+        ServerMockPaper.decode({..._view(), 'examName': null}).examName,
+        isNull,
+      );
+      expect(
+        ServerMockPaper.decode({..._view(), 'examName': ''}).examName,
+        isNull,
+      );
+    });
+
+    test('a name that is not text is refused', () {
+      expect(
+        () => ServerMockPaper.decode({..._view(), 'examName': 5}),
+        throwsA(isA<ServerMockFormatException>()),
+      );
+    });
+  });
 }

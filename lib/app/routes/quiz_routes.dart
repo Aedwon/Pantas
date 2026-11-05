@@ -117,6 +117,13 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
           final customTrack = focus.exam!.isCustom
               ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
               : null;
+          // The server has no paper for a custom exam this browser holds one
+          // for. Its settings go up again once, and until they land the saved
+          // paper stays on screen.
+          final repairing = web &&
+              customTrack != null &&
+              availability.state == MockAvailabilityState.noBlueprint;
+          if (repairing) ref.watch(customMockRepairProvider(examId));
 
           return QuizTabScreen(
             mockPanel: MockCard(
@@ -130,7 +137,9 @@ List<RouteBase> quizRoutes(Ref ref, {bool isWeb = kIsWeb}) {
                         MockAvailabilityState.cooldown => MockCardState.waiting,
                         MockAvailabilityState.noBlueprint =>
                           focus.exam!.isCustom
-                              ? MockCardState.customUnset
+                              ? repairing
+                                  ? MockCardState.customReady
+                                  : MockCardState.customUnset
                               : MockCardState.unavailable,
                         MockAvailabilityState.available => focus.exam!.isCustom
                             ? customTrack == null

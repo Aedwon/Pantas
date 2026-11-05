@@ -39,7 +39,10 @@ class _Setup {
   final List<(String, Map<String, Object?>)> calls;
 }
 
-Future<_Setup> _setup(String examId) async {
+Future<_Setup> _setup(
+  String examId, {
+  Future<Map<String, Object?>> Function(String name)? onCall,
+}) async {
   final db = inMemoryDatabase();
   final content = inMemoryContentDatabase();
   addTearDown(db.close);
@@ -60,7 +63,7 @@ Future<_Setup> _setup(String examId) async {
       studyApiProvider.overrideWithValue(
         StudyApi((name, data) async {
           calls.add((name, data));
-          return <String, Object?>{};
+          return await onCall?.call(name) ?? <String, Object?>{};
         }),
       ),
     ],
@@ -196,5 +199,67 @@ void main() {
     expect(sessions.single.$2['examId'], _customId);
     expect(sessions.single.$2['expectedUid'], 'original');
     expect(sessions.single.$2['sessionId'], 'att');
+  });
+
+  group('settled', () {
+    test('completes once the server has the settings', () async {
+      final gate = Completer<void>();
+      final setup = await _setup(
+        _customId,
+        onCall: (name) async {
+          if (name == 'setExamSettings') await gate.future;
+          return <String, Object?>{};
+        },
+      );
+      await _storeTrack(setup);
+
+      final publication =
+          await setup.container.read(studySettingsCaptureProvider)(
+        examId: _customId,
+      );
+      var local = 0;
+      await publication.apply(() async => local++);
+      var settled = false;
+      unawaited(publication.settled.then((_) => settled = true));
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+
+      expect(local, 1);
+      expect(settled, isFalse, reason: 'the server has not answered yet');
+      gate.complete();
+      await publication.settled;
+      expect(settled, isTrue);
+      expect(
+        setup.calls.where((c) => c.$1 == 'setExamSettings'),
+        hasLength(1),
+      );
+    });
+
+    test('fails when the server cannot be reached, and the local save stays',
+        () async {
+      final setup = await _setup(
+        _customId,
+        onCall: (name) async {
+          if (name == 'setExamSettings') throw StateError('offline');
+          return <String, Object?>{};
+        },
+      );
+      await _storeTrack(setup);
+
+      final publication =
+          await setup.container.read(studySettingsCaptureProvider)(
+        examId: _customId,
+      );
+      var local = 0;
+      await publication.apply(() async => local++);
+
+      await expectLater(publication.settled, throwsA(isA<StateError>()));
+      expect(local, 1);
+    });
+
+    test('is already complete when there is no account to publish to',
+        () async {
+      final publication = StudySettingsPublication(() async {});
+      await publication.settled;
+    });
   });
 }

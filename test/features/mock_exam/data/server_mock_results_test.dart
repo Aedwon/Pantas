@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/domain/server_mock_paper.dart';
+import 'package:pantas/features/mock_exam/domain/server_mock_results.dart';
 
 Map<String, Object?> result({bool open = true, bool pro = false}) => {
       'mockId': 'MockResult000001',
@@ -160,5 +161,31 @@ void main() {
       blankReason: 'didNotKnow',
       reasonNote: 'Review this',
     );
+  });
+
+  group('examName', () {
+    Future<ServerMockResult> read(Map<String, Object?> body) =>
+        ServerMockApi((_, __) async => body).results('MockResult000001');
+
+    test('a custom result carries its exam name, on the paper too', () async {
+      final out = await read({
+        ...result(),
+        'examId': 'exam_custom_6f1d0a52',
+        'examName': 'PUP CET',
+      });
+      expect(out.examName, 'PUP CET');
+      expect(out.paper!.examName, 'PUP CET');
+    });
+
+    test('a listed result has none', () async {
+      expect((await read(result())).examName, isNull);
+    });
+
+    test('a name that is not text is refused', () async {
+      await expectLater(
+        read({...result(), 'examName': 5}),
+        throwsA(isA<ServerMockFormatException>()),
+      );
+    });
   });
 }
