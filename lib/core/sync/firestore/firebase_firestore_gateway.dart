@@ -79,9 +79,18 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Future<List<FirebaseFirestoreRawDocument>> readCollection(String path) async {
-    final snapshot = await refreshOnceAfterPermissionDenied(
-      () => _firestore.collection(path).get(),
-    );
+    // From the server only: a full pull replaces local data with this and then
+    // counts the collection as seen, so a partial cached copy must not pass.
+    final QuerySnapshot<Map<String, dynamic>> snapshot;
+    try {
+      snapshot = await refreshOnceAfterPermissionDenied(
+        () => _firestore
+            .collection(path)
+            .get(const GetOptions(source: Source.server)),
+      );
+    } on FirebaseException catch (error) {
+      throw SyncGatewayException(error.code);
+    }
     return [
       for (final document in snapshot.docs) _raw(document),
     ];
@@ -106,7 +115,15 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Stream<List<FirebaseFirestoreRawDocument>> watchCollection(String path) {
-    return _firestore.collection(path).snapshots().map(
+    // Only what the server confirmed. A copy from the device's cache can lack
+    // rows, and the engine reads a missing row as a deleted one. Without
+    // metadata changes the server's confirmation of an unchanged cached copy
+    // would never arrive.
+    return _firestore
+        .collection(path)
+        .snapshots(includeMetadataChanges: true)
+        .where((snapshot) => !snapshot.metadata.isFromCache)
+        .map(
           (snapshot) => [
             for (final document in snapshot.docs) _raw(document),
           ],
@@ -264,10 +281,22 @@ class FirebaseFirestoreGateway implements FirestoreGateway {
       id: raw.id,
       data: {
         for (final entry in raw.data.entries)
-          entry.key: _normalizeValue(entry.value),
+          entry.key: entry.key == 'updatedAt'
+              ? _rowVersion(_normalizeValue(entry.value))
+              : _normalizeValue(entry.value),
       },
     );
   }
+
+  /// A server time has microseconds; row states, the journal and the outbox
+  /// keep milliseconds. Read at that one precision, an unchanged row compares
+  /// equal to the version stored for it, so an edit is not taken as stale.
+  static Object? _rowVersion(Object? value) => value is DateTime
+      ? DateTime.fromMillisecondsSinceEpoch(
+          value.millisecondsSinceEpoch,
+          isUtc: true,
+        )
+      : value;
 
   static Object? _normalizeValue(Object? value) {
     if (value is Timestamp) {

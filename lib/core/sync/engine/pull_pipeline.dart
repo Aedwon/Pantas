@@ -1,7 +1,8 @@
-import 'package:drift/drift.dart' show Variable;
+import 'package:drift/drift.dart' show TableUpdate, Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
 import 'package:pantas/core/sync/model/sync_causal_base.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
@@ -58,6 +59,30 @@ class PullPipeline {
     );
 
     final ownDocument = document.originDeviceId == _deviceId;
+    if (accepted == null &&
+        pending == null &&
+        await _isWaitingForSnapshot(collection, document.id)) {
+      // Never overwrite a change made before the first snapshot. This device's
+      // own copy is what the change was made against. Any other copy is a real
+      // conflict: the change stays unbound and the full choice settles it.
+      if (ownDocument) {
+        await _db.transaction(() async {
+          await _rowMeta.acceptKnownVersion(
+            collection: collection,
+            rowId: document.id,
+            updatedAt: updatedAt,
+            originDeviceId: document.originDeviceId,
+          );
+          await _bindWaiting(
+            collection,
+            document.id,
+            SyncCausalBase.knownVersion(updatedAt),
+          );
+        });
+      }
+      return PullApplyResult.ignored;
+    }
+
     if (ownDocument &&
         pending != null &&
         document.mutationId == pending.mutationId) {
@@ -183,9 +208,99 @@ class PullPipeline {
           pending.baseState == SyncCausalBaseState.knownAbsent.storageValue) {
         continue;
       }
+      // The same create, still in the journal before the outbox.
+      if (await _isJournaledCreate(collection, rowId)) continue;
 
       await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
     }
+
+    await _db.transaction(() async {
+      for (final rowId in await _waitingRowIds(collection)) {
+        if (!presentIds.contains(rowId)) {
+          await _bindWaiting(
+            collection,
+            rowId,
+            const SyncCausalBase.knownAbsent(),
+          );
+        }
+      }
+      await SyncHeldGeneration(_db).markSnapshotComplete(
+        generationId: _generationId,
+        collection: collection,
+      );
+    });
+  }
+
+  /// Rows changed in this generation before its first snapshot, whose base
+  /// could not be known then. Rows from another account or generation are not
+  /// here: they are never rebound.
+  Future<List<String>> _waitingRowIds(String collection) async {
+    final rows = await _db.customSelect(
+      'select row_id from sync_local_mutations '
+      "where collection = ? and causal_base_state = 'unbound' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      variables: [
+        Variable<String>(collection),
+        Variable<String>(_uid),
+        Variable<String>(_generationId),
+      ],
+    ).get();
+    return [for (final row in rows) row.read<String>('row_id')];
+  }
+
+  Future<bool> _isWaitingForSnapshot(String collection, String rowId) async {
+    final rows = await _db.customSelect(
+      'select 1 as waiting from sync_local_mutations '
+      'where collection = ? and row_id = ? '
+      "and causal_base_state = 'unbound' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      variables: [
+        Variable<String>(collection),
+        Variable<String>(rowId),
+        Variable<String>(_uid),
+        Variable<String>(_generationId),
+      ],
+    ).get();
+    return rows.isNotEmpty;
+  }
+
+  Future<bool> _isJournaledCreate(String collection, String rowId) async {
+    final rows = await _db.customSelect(
+      'select 1 as journaled from sync_local_mutations '
+      "where collection = ? and row_id = ? and op = 'upsert' "
+      "and causal_base_state = 'knownAbsent' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      variables: [
+        Variable<String>(collection),
+        Variable<String>(rowId),
+        Variable<String>(_uid),
+        Variable<String>(_generationId),
+      ],
+    ).get();
+    return rows.isNotEmpty;
+  }
+
+  Future<void> _bindWaiting(
+    String collection,
+    String rowId,
+    SyncCausalBase base,
+  ) async {
+    await _db.customStatement(
+      'update sync_local_mutations set causal_base_state = ?, '
+      'base_updated_at = ? where collection = ? and row_id = ? '
+      "and causal_base_state = 'unbound' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      <Object?>[
+        base.state.storageValue,
+        base.updatedAt?.toUtc().millisecondsSinceEpoch,
+        collection,
+        rowId,
+        _uid,
+        _generationId,
+      ],
+    );
+    // A raw statement does not wake the engine's watch on the journal.
+    _db.notifyUpdates({TableUpdate.onTable(_db.syncLocalMutations)});
   }
 
   Future<void> handlePushResult(

@@ -1,7 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
 import 'package:pantas/core/sync/runtime/production_sync_runtime_engine.dart';
@@ -48,6 +50,48 @@ void main() {
     );
     expect(engine.activeUid, 'user-1');
     expect(engine.activeGenerationId, 'gen-1');
+  });
+
+  test('a change waiting in the journal survives the first download', () async {
+    // The student recreated a bookmark the cloud had deleted, and the page
+    // reloaded inside the upload debounce. The snapshot still lacks the row.
+    final gateway = _EmptySnapshotGateway();
+    final context = SyncActiveContextStore(db);
+    await context.publishStable(uid: 'user-1', generationId: 'gen-1');
+    await SyncRowMetaRepository(db).acceptKnownAbsent(
+      collection: 'lesson_bookmarks',
+      rowId: 'lesson-1',
+    );
+    await LocalSyncMutationRecorder.forDatabase(db).runRecorded<void>(
+      collection: 'lesson_bookmarks',
+      rowId: 'lesson-1',
+      op: SyncLocalMutationOp.upsert,
+      mutate: () => db.into(db.lessonBookmarksLocal).insert(
+            LessonBookmarksLocalCompanion.insert(
+              lessonId: 'lesson-1',
+              markedAt: DateTime.utc(2026, 11, 5),
+            ),
+          ),
+    );
+    final engine = ProductionSyncRuntimeEngine(
+      db: db,
+      gateway: gateway,
+      activeContextStore: context,
+      deviceId: 'device-1',
+      localMutationDebounce: const Duration(hours: 1),
+    );
+
+    await engine.start(uid: 'user-1', generationId: 'gen-1');
+    addTearDown(engine.stop);
+    await Future<void>.delayed(const Duration(milliseconds: 50));
+
+    expect(await db.select(db.lessonBookmarksLocal).get(), hasLength(1));
+    expect(
+      gateway.documents.keys,
+      contains(
+        'users/user-1/sync_generations/gen-1/lesson_bookmarks/lesson-1',
+      ),
+    );
   });
 
   test('ordinary flush publishes activity then settled event', () async {
@@ -97,6 +141,12 @@ void main() {
 
     expect((await failure).message, contains('projection failed'));
   });
+}
+
+class _EmptySnapshotGateway extends FakeFirestoreGateway {
+  @override
+  Stream<List<SyncDocument>> watchCollection(String path) =>
+      Stream.value(const <SyncDocument>[]);
 }
 
 class _TrackingFirestoreGateway extends FakeFirestoreGateway {

@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:drift/drift.dart' show Variable;
+import 'package:drift/drift.dart' show TableUpdate, Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
 import 'package:pantas/core/sync/model/sync_causal_base.dart';
 
@@ -78,12 +79,29 @@ class LocalSyncMutationRecorder {
           currentContext.token == candidateContext!.token &&
           currentContext.context == candidate;
 
+      // The live generation, or while Sync is stopped the one this device's
+      // data is still a copy of. The accepted state is frozen here, at the
+      // moment of the change, whichever it is.
+      final held = SyncHeldGeneration(_db);
+      final context = stillStable ? candidate : await held.read();
+
       for (final target in targets) {
         var causalBase = const SyncCausalBase.unbound();
         String? causalUid;
         String? causalGenerationId;
 
-        if (stillStable) {
+        final kept =
+            context == null ? null : await _unresolvedEntry(target, context);
+        if (kept != null) {
+          // The entry's question is still open, whatever this edit is. Taking
+          // the accepted state now would hide it: a row that lost to another
+          // device's copy would read as absent, and a tie elsewhere would move.
+          causalBase = kept.base;
+          causalUid = kept.uid;
+          causalGenerationId = kept.generationId;
+        } else if (context != null) {
+          causalUid = context.uid;
+          causalGenerationId = context.generationId;
           final acceptedBase = await _rowMetaRepository.readAcceptedBase(
             collection: target.collection,
             rowId: target.rowId,
@@ -91,9 +109,15 @@ class LocalSyncMutationRecorder {
           if (acceptedBase != null &&
               acceptedBase.state != SyncCausalBaseState.unbound) {
             causalBase = acceptedBase;
-            causalUid = candidate.uid;
-            causalGenerationId = candidate.generationId;
+          } else if (await held.isSnapshotComplete(
+            generationId: context.generationId,
+            collection: target.collection,
+          )) {
+            // The whole collection has been seen, so the cloud lacks this row.
+            causalBase = const SyncCausalBase.knownAbsent();
           }
+          // Otherwise unknown until the first snapshot: it stays unbound, with
+          // its account and generation, and that snapshot settles it.
         }
 
         final mutationEpoch = await _advanceEpoch();
@@ -131,55 +155,49 @@ class LocalSyncMutationRecorder {
         );
       }
 
+      // A raw statement does not wake the engine's watch on the journal.
+      _db.notifyUpdates({TableUpdate.onTable(_db.syncLocalMutations)});
       return result;
     });
   }
 
-  /// Gives changes made while Sync was stopped their causal base, so a device
-  /// that already holds [generationId] uploads them row by row.
-  ///
-  /// Call only with the engine stopped and before the context is published.
-  /// Nothing moves `sync_row_meta` while the engine is stopped, so the accepted
-  /// state read here is the one the change was made against, and a newer cloud
-  /// row still wins through the usual stale-base check. No accepted state means
-  /// the cloud has not seen the row. Work from another generation stays
-  /// blocked.
-  Future<void> bindUnboundMutations({
-    required String uid,
-    required String generationId,
-  }) {
-    return _db.transaction(() async {
-      final rows = await _db
-          .customSelect(
-            'select collection,row_id,revision from sync_local_mutations '
-            "where causal_base_state = 'unbound'",
-          )
-          .get();
-      for (final row in rows) {
-        final collection = row.read<String>('collection');
-        final rowId = row.read<String>('row_id');
-        final base = await _rowMetaRepository.readAcceptedBase(
-              collection: collection,
-              rowId: rowId,
-            ) ??
-            const SyncCausalBase.knownAbsent();
-        await _db.customStatement(
-          'update sync_local_mutations set causal_uid = ?, '
-          'causal_generation_id = ?, causal_base_state = ?, '
-          'base_updated_at = ? '
-          'where collection = ? and row_id = ? and revision = ?',
-          <Object?>[
-            uid,
-            generationId,
-            base.state.storageValue,
-            base.updatedAt?.toUtc().millisecondsSinceEpoch,
-            collection,
-            rowId,
-            row.read<int>('revision'),
-          ],
-        );
-      }
-    });
+  /// The journal entry for [target] if it is unbound or tied elsewhere than
+  /// [context]. Only the full choice settles those.
+  Future<_UnresolvedEntry?> _unresolvedEntry(
+    SyncMutationTarget target,
+    SyncActiveContext context,
+  ) async {
+    final row = await _db.customSelect(
+      'select causal_uid,causal_generation_id,causal_base_state, '
+      'cast(base_updated_at as integer) as base_updated_at '
+      'from sync_local_mutations where collection = ? and row_id = ?',
+      variables: [
+        Variable<String>(target.collection),
+        Variable<String>(target.rowId),
+      ],
+    ).getSingleOrNull();
+    if (row == null) return null;
+    final uid = row.readNullable<String>('causal_uid');
+    final generationId = row.readNullable<String>('causal_generation_id');
+    final state = row.read<String>('causal_base_state');
+    if (state != SyncCausalBaseState.unbound.storageValue &&
+        uid == context.uid &&
+        generationId == context.generationId) {
+      return null;
+    }
+    final millis = row.readNullable<int>('base_updated_at');
+    return _UnresolvedEntry(
+      uid: uid,
+      generationId: generationId,
+      base: state == SyncCausalBaseState.knownAbsent.storageValue
+          ? const SyncCausalBase.knownAbsent()
+          : state == SyncCausalBaseState.knownVersion.storageValue &&
+                  millis != null
+              ? SyncCausalBase.knownVersion(
+                  DateTime.fromMillisecondsSinceEpoch(millis, isUtc: true),
+                )
+              : const SyncCausalBase.unbound(),
+    );
   }
 
   Future<int> readMutationEpoch() async {
@@ -222,4 +240,16 @@ class LocalSyncMutationRecorder {
     if (rows.isEmpty) return 1;
     return rows.single.read<int>('revision') + 1;
   }
+}
+
+class _UnresolvedEntry {
+  const _UnresolvedEntry({
+    required this.uid,
+    required this.generationId,
+    required this.base,
+  });
+
+  final String? uid;
+  final String? generationId;
+  final SyncCausalBase base;
 }

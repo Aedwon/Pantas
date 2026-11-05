@@ -265,6 +265,7 @@ void main() {
     expect(await _marker(db, 'pending_full_push'), isNull);
     expect(await _marker(db, 'pending_full_pull'), isNull);
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-new');
+    expect(await _marker(db, 'currentLocalGenerationUid'), 'user-1');
   });
   test(
       'eligibility loss during staging stops before next upload batch and '

@@ -1,13 +1,14 @@
 import 'dart:async';
 
+import 'package:drift/drift.dart' show Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/bootstrap/full_pull.dart';
 import 'package:pantas/core/sync/bootstrap/full_push.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
 import 'package:pantas/core/sync/engine/generation_repository.dart';
-import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
@@ -100,12 +101,16 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     final token = ++_transitionToken;
     _cancelBootstrapRetry();
     _pendingReconciliation = null;
+    // At once, so the new account's first changes are not tied to the old one.
+    // Again in the queue, after a push or pull already running has finished.
+    await _forgetOtherAccountsGeneration(identity);
 
     if (identity.isAnonymous || entitlement != SyncEntitlement.pro) {
       _emit(const SyncOff());
       await _activeContextStore.clearStable();
       return _enqueue(() async {
         await _engine.stop();
+        await _forgetOtherAccountsGeneration(identity);
         if (_isCurrent(token)) {
           _activeSync = false;
         }
@@ -114,7 +119,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
     _emit(const SyncActivating());
     await _activeContextStore.clearStable();
-    return _enqueue(() => _activate(identity: identity, token: token));
+    return _enqueue(() async {
+      await _forgetOtherAccountsGeneration(identity);
+      await _activate(identity: identity, token: token);
+    });
   }
 
   Future<void> chooseReconciliation(SyncReconciliationChoice choice) {
@@ -244,14 +252,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         continue;
       }
 
-      // Same student, same copy: a start or a reload is not a conflict. The
-      // choice this device made is stored with the generation it now holds,
-      // so only a generation it does not hold can need a choice.
-      if (await _holdsGeneration(activeGenerationId)) {
-        await LocalSyncMutationRecorder.forDatabase(_db).bindUnboundMutations(
-          uid: identity.uid,
-          generationId: activeGenerationId,
-        );
+      // Same account, same copy, nothing outside it: a start or a reload is
+      // not a conflict. Anything else takes the rules below, unchanged.
+      if (await _holdsGeneration(identity.uid, activeGenerationId)) {
         await _finalizeActive(
           identity: identity,
           generationId: activeGenerationId,
@@ -320,23 +323,47 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     }
   }
 
-  /// True when a finished push or pull left this device on [generationId]. An
-  /// unfinished one means local data may not be that generation's copy yet.
-  Future<bool> _holdsGeneration(String generationId) async {
-    final rows = await _db
+  /// True when this device holds [generationId] for [uid] and every local
+  /// change is tied to it. A change with no tie, or a tie elsewhere, is never
+  /// rebound, so only the full choice resolves it. So is one the first
+  /// snapshot of its collection could not settle: another device wrote that
+  /// row. One whose first snapshot has yet to come resumes and waits for it.
+  Future<bool> _holdsGeneration(String uid, String generationId) async {
+    final held = SyncHeldGeneration(_db);
+    final context = await held.read();
+    if (context == null ||
+        context.uid != uid ||
+        context.generationId != generationId) {
+      return false;
+    }
+    final outside = await _db.customSelect(
+      'select 1 as outside from sync_local_mutations '
+      'where causal_uid is not ? or causal_generation_id is not ? limit 1',
+      variables: [Variable<String>(uid), Variable<String>(generationId)],
+    ).get();
+    if (outside.isNotEmpty) return false;
+    final waiting = await _db
         .customSelect(
-          'select key, value from sync_meta where key in '
-          "('currentLocalGenerationId','pending_full_push',"
-          "'pending_full_pull')",
+          'select distinct collection from sync_local_mutations '
+          "where causal_base_state = 'unbound'",
         )
         .get();
-    final meta = {
-      for (final row in rows)
-        row.read<String>('key'): row.read<String>('value'),
-    };
-    return meta['currentLocalGenerationId'] == generationId &&
-        !meta.containsKey('pending_full_push') &&
-        !meta.containsKey('pending_full_pull');
+    for (final row in waiting) {
+      if (await held.isSnapshotComplete(
+        generationId: generationId,
+        collection: row.read<String>('collection'),
+      )) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /// Any real account other than the one holding a generation ends that hold,
+  /// so coming back to the first account never resumes.
+  Future<void> _forgetOtherAccountsGeneration(SyncIdentity identity) async {
+    if (identity.uid == SyncIdentity.signedOutUid) return;
+    await SyncHeldGeneration(_db).forgetUnlessOwnedBy(identity.uid);
   }
 
   Future<bool> _pushThisDevice({
@@ -431,6 +458,13 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         );
         return true;
       case FullPushOutcome.staleLocalEpoch:
+        // The student kept studying during the upload. That is no reason to
+        // ask again: upload again once the rules allow a new generation.
+        if (retryB3) {
+          _scheduleBootstrapRetry(identity, token, expectedActiveGenerationId);
+          return true;
+        }
+        return false;
       case FullPushOutcome.generationConflict:
         if (retryB3) {
           await _runB3(identity: identity, token: token);

@@ -99,10 +99,38 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       pendingQueue: queue,
     );
 
+    // Before the first download: a snapshot treats a row missing from the cloud
+    // as deleted unless the outbox holds it, and a change waiting from before
+    // this start is only in the journal.
+    await promoter.promoteAvailableForContext(
+      uid: uid,
+      generationId: generationId,
+    );
+
     _push = push;
     _promoter = promoter;
     _running = true;
     final token = ++_runToken;
+
+    // Work promoted above reached the outbox before the journal watch below
+    // exists, so nothing else would send it. It goes once every first snapshot
+    // has settled: an upload ahead of a snapshot taken before it would leave
+    // an accepted row that the snapshot lacks, which reads as a deletion.
+    final awaitingFirstSnapshot = {
+      for (final entry in activeSyncCollections)
+        'users/$uid/sync_generations/$generationId/${entry.firestorePath}',
+    };
+    void firstSnapshotSettled(String path) {
+      if (awaitingFirstSnapshot.remove(path) && awaitingFirstSnapshot.isEmpty) {
+        _flushWaitingOutbox(
+          token: token,
+          uid: uid,
+          generationId: generationId,
+          promoter: promoter,
+          push: push,
+        );
+      }
+    }
 
     for (final entry in activeSyncCollections) {
       final path =
@@ -140,6 +168,8 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
                   _emit(SyncRuntimeFailure('$error'));
                 }
                 Error.throwWithStackTrace(error, stackTrace);
+              } finally {
+                firstSnapshotSettled(path);
               }
             }).catchError((Object _, StackTrace __) {}),
           );
@@ -148,34 +178,43 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
           if (!_isCurrent(token, uid, generationId)) return;
           _offlinePaths.add(path);
           _emit(const SyncRuntimeOffline());
+          firstSnapshotSettled(path);
         },
       );
       _remoteSubscriptions.add(subscription);
     }
 
-    _localMutationSubscription =
-        _db.select(_db.syncLocalMutations).watch().listen(
-      (rows) {
-        if (!_isCurrent(token, uid, generationId)) return;
-        if (rows.isEmpty) {
-          _localMutationTimer?.cancel();
-          _localMutationTimer = null;
-          _emitCurrentOutcome();
-          return;
-        }
-        _emit(const SyncRuntimeActivity());
-        _localMutationTimer?.cancel();
-        _localMutationTimer = Timer(_localMutationDebounce, () {
-          if (!_isCurrent(token, uid, generationId)) return;
-          unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
-        });
-      },
-      onError: (Object error, StackTrace __) {
-        if (_isCurrent(token, uid, generationId)) {
-          _emit(SyncRuntimeFailure('$error'));
-        }
-      },
-    );
+    // Raw rows: the recorder stores times as integers, which the table's typed
+    // read cannot map, so a typed watch fails on the first real row.
+    _localMutationSubscription = _db
+        .customSelect(
+          'select collection,row_id,revision,causal_base_state '
+          'from sync_local_mutations',
+          readsFrom: {_db.syncLocalMutations},
+        )
+        .watch()
+        .listen(
+          (rows) {
+            if (!_isCurrent(token, uid, generationId)) return;
+            if (rows.isEmpty) {
+              _localMutationTimer?.cancel();
+              _localMutationTimer = null;
+              _emitCurrentOutcome();
+              return;
+            }
+            _emit(const SyncRuntimeActivity());
+            _localMutationTimer?.cancel();
+            _localMutationTimer = Timer(_localMutationDebounce, () {
+              if (!_isCurrent(token, uid, generationId)) return;
+              unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
+            });
+          },
+          onError: (Object error, StackTrace __) {
+            if (_isCurrent(token, uid, generationId)) {
+              _emit(SyncRuntimeFailure('$error'));
+            }
+          },
+        );
   }
 
   @override
@@ -233,6 +272,40 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
         Error.throwWithStackTrace(error, stackTrace);
       }
     });
+  }
+
+  void _flushWaitingOutbox({
+    required int token,
+    required String uid,
+    required String generationId,
+    required SyncOutboxPromoter promoter,
+    required PushPipeline push,
+  }) {
+    unawaited(
+      _enqueue(() async {
+        if (!_isCurrent(token, uid, generationId)) return;
+        final waiting = await PendingQueue(_db).drainGeneration(
+          uid: uid,
+          generationId: generationId,
+          limit: 1,
+        );
+        if (waiting.isEmpty || !_isCurrent(token, uid, generationId)) return;
+        _emit(const SyncRuntimeActivity());
+        try {
+          await _flushComponents(
+            uid: uid,
+            generationId: generationId,
+            promoter: promoter,
+            push: push,
+          );
+          if (_isCurrent(token, uid, generationId)) _emitCurrentOutcome();
+        } on Object catch (error) {
+          if (_isCurrent(token, uid, generationId)) {
+            _emit(SyncRuntimeFailure('$error'));
+          }
+        }
+      }),
+    );
   }
 
   Future<void> _flushComponents({

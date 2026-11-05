@@ -58,6 +58,38 @@ void main() {
     });
   }
 
+  test('a change during Keep this device keeps the choice, not a new prompt',
+      () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    h.seedGeneration(
+      uid: 'user-1',
+      generationId: 'gen-cloud',
+      meaningful: true,
+    );
+    await h.seedLocalLesson();
+    final clock = _BootstrapClock();
+    await clock.run(() async {
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      h.coordinator.staleRemaining = 1;
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepThisDevice,
+      );
+    });
+
+    expect(h.runtime.status, isNot(isA<SyncReconciliationRequired>()));
+    expect(h.coordinator.pushCalls, 1);
+    expect(clock.timers, hasLength(1));
+
+    clock.timers.single.fire();
+    await _waitFor(() => h.runtime.status is SyncUpToDate);
+    expect(h.coordinator.pushCalls, 2);
+    expect(h.coordinator.operations.last, 'push:user-1:gen-cloud');
+  });
+
   test('bootstrap retry preserves an explicit keep-device choice', () async {
     final h = _Harness();
     addTearDown(h.close);
@@ -440,31 +472,110 @@ void main() {
       expect(h.coordinator.operations, ['pull:user-1:gen-cloud']);
     });
 
-    test('changes made while Sync was off upload after a reload', () async {
+    Future<_Harness> holding() async {
       final h = await promptOnce();
       await h.runtime.chooseReconciliation(
         SyncReconciliationChoice.keepMyAccount,
       );
-      final rowMeta = SyncRowMetaRepository(h.db);
-      await rowMeta.acceptKnownVersion(
+      await h.activeContext.clearStable();
+      return h;
+    }
+
+    Future<SyncRuntimeController> reloadAs(_Harness h, String uid) async {
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: SyncIdentity(uid: uid),
+        entitlement: SyncEntitlement.pro,
+      );
+      return reloaded;
+    }
+
+    /// A change with no tie: made before this device held anything.
+    Future<void> journalWithNoTie(_Harness h, String rowId) =>
+        h.db.customStatement(
+          'insert into sync_local_mutations '
+          '(collection,row_id,op,revision,mutation_epoch,'
+          'causal_base_state,recorded_at) values (?,?,?,?,?,?,?)',
+          [
+            'lesson_progress',
+            rowId,
+            'upsert',
+            1,
+            1,
+            'unbound',
+            DateTime.utc(2026, 8, 30).millisecondsSinceEpoch,
+          ],
+        );
+
+    test('a change with no tie takes the existing path', () async {
+      final h = await holding();
+      final starts = h.engine.starts.length;
+      await journalWithNoTie(h, 'offline-row');
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+      expect(h.engine.starts, hasLength(starts));
+      // It is never rebound and never enters the outbox.
+      final row = await h.db
+          .customSelect(
+            'select causal_base_state s, causal_uid u '
+            'from sync_local_mutations',
+          )
+          .getSingle();
+      expect(row.read<String>('s'), 'unbound');
+      expect(row.data['u'], isNull);
+      expect(await h.db.select(h.db.pendingSync).get(), isEmpty);
+    });
+
+    for (final choice in SyncReconciliationChoice.values) {
+      test('that prompt stays answered after ${choice.name}', () async {
+        final h = await holding();
+        h.coordinator.acknowledgesJournal = true;
+        await journalWithNoTie(h, 'offline-row');
+        final reloaded = await reloadAs(h, 'user-1');
+        await reloaded.chooseReconciliation(choice);
+        if (choice == SyncReconciliationChoice.keepThisDevice) {
+          h.seedGeneration(
+            uid: 'user-1',
+            generationId: 'gen-user-1-1',
+            meaningful: true,
+          );
+        }
+
+        final again = await reloadAs(h, 'user-1');
+
+        expect(again.status, isNot(isA<SyncReconciliationRequired>()));
+      });
+    }
+
+    test('a change already tied to this generation resumes silently', () async {
+      final h = await holding();
+      await SyncActiveContextStore(h.db).publishStable(
+        uid: 'user-1',
+        generationId: 'gen-cloud',
+      );
+      await SyncRowMetaRepository(h.db).acceptKnownVersion(
         collection: 'lesson_progress',
         rowId: 'known-row',
         updatedAt: DateTime.utc(2026, 8, 30, 1),
       );
-      await rowMeta.acceptKnownAbsent(
+      await LocalSyncMutationRecorder.forDatabase(h.db).runRecorded<void>(
         collection: 'lesson_progress',
-        rowId: 'tombstoned-row',
+        rowId: 'known-row',
+        op: SyncLocalMutationOp.upsert,
+        mutate: () {},
       );
-      await h.activeContext.clearStable();
-      final recorder = LocalSyncMutationRecorder.forDatabase(h.db);
-      for (final rowId in ['known-row', 'tombstoned-row', 'new-row']) {
-        await recorder.runRecorded<void>(
-          collection: 'lesson_progress',
-          rowId: rowId,
-          op: SyncLocalMutationOp.upsert,
-          mutate: () {},
-        );
-      }
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.engine.starts.last, 'user-1:gen-cloud');
+    });
+
+    test('a change tied to another generation takes the existing path',
+        () async {
+      final h = await holding();
       await h.db.customStatement(
         'insert into sync_local_mutations '
         '(collection,row_id,op,revision,mutation_epoch,causal_uid,'
@@ -483,46 +594,79 @@ void main() {
         ],
       );
 
-      await h.reload().update(
-            identity: identity,
-            entitlement: SyncEntitlement.pro,
-          );
+      final reloaded = await reloadAs(h, 'user-1');
 
-      final promoted = await SyncOutboxPromoter(
-        h.db,
-        activeContextStore: h.activeContext,
-        pendingQueue: PendingQueue(h.db),
-      ).promoteAvailable();
-      expect(promoted, 3);
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
 
-      final pending = {
-        for (final row in await h.db.select(h.db.pendingSync).get())
-          row.rowId: row,
-      };
-      expect(pending.keys, {'known-row', 'tombstoned-row', 'new-row'});
-      expect(pending['known-row']!.baseState, 'knownVersion');
-      expect(
-        pending['known-row']!.baseUpdatedAt!.toUtc(),
-        DateTime.utc(2026, 8, 30, 1),
+    test('a marker with another account does not count as held', () async {
+      final h = await holding();
+      await h.db.customStatement(
+        'update sync_meta set value = ? where key = ?',
+        ['someone-else', 'currentLocalGenerationUid'],
       );
-      expect(pending['tombstoned-row']!.baseState, 'knownAbsent');
-      expect(pending['new-row']!.baseState, 'knownAbsent');
-      expect(pending['new-row']!.generationId, 'gen-cloud');
-      expect(pending['new-row']!.uid, 'user-1');
 
-      final left = await h.db
-          .customSelect('select row_id from sync_local_mutations')
-          .get();
-      expect(
-        left.map((row) => row.read<String>('row_id')),
-        ['older-generation-row'],
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    test('a marker naming no account does not count as held', () async {
+      final h = await holding();
+      await h.db.customStatement(
+        'delete from sync_meta where key = ?',
+        ['currentLocalGenerationUid'],
       );
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    for (final other in [SyncEntitlement.free, SyncEntitlement.pro]) {
+      test('switching to a ${other.name} account and back does not resume',
+          () async {
+        final h = await holding();
+        final reloaded = h.reload();
+        h.seedGeneration(uid: 'user-2', generationId: 'gen-two');
+        await reloaded.update(
+          identity: const SyncIdentity(uid: 'user-2'),
+          entitlement: other,
+        );
+        await reloaded.update(
+          identity: identity,
+          entitlement: SyncEntitlement.pro,
+        );
+
+        expect(reloaded.status, isA<SyncReconciliationRequired>());
+      });
+    }
+
+    test('the placeholder identity at startup keeps the marker', () async {
+      final h = await holding();
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: const SyncIdentity(uid: 'signed-out', isAnonymous: true),
+        entitlement: SyncEntitlement.free,
+      );
+
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
     });
   });
 
   test('all local-only runtime states keep mutations unbound and out of outbox',
       () async {
-    Future<void> expectLocalOnlyMutation(_Harness h, String label) async {
+    Future<void> expectLocalOnlyMutation(
+      _Harness h,
+      String label, {
+      String? heldBy,
+      String? heldGeneration,
+    }) async {
       expect(await h.activeContext.readStable(), isNull);
       final recorder = LocalSyncMutationRecorder(
         h.db,
@@ -552,8 +696,10 @@ void main() {
         ],
       ).getSingle();
       expect(row.read<String>('causal_base_state'), 'unbound');
-      expect(row.data['causal_uid'], isNull);
-      expect(row.data['causal_generation_id'], isNull);
+      // Stopped Sync on a device holding a generation records which copy the
+      // change was made against. It still stays out of the outbox.
+      expect(row.data['causal_uid'], heldBy);
+      expect(row.data['causal_generation_id'], heldGeneration);
       expect(row.data['base_updated_at'], isNull);
 
       final queue = PendingQueue(h.db);
@@ -616,7 +762,12 @@ void main() {
     expect(await quiesced.activeContext.readStable(), isNotNull);
     await quiesced.runtime.quiesce(flush: false);
     expect(quiesced.runtime.status, isA<SyncOff>());
-    await expectLocalOnlyMutation(quiesced, 'quiesced');
+    await expectLocalOnlyMutation(
+      quiesced,
+      'quiesced',
+      heldBy: 'user-quiesced',
+      heldGeneration: 'gen-user-quiesced-1',
+    );
     await quiesced.close();
   });
 
@@ -906,9 +1057,13 @@ class _FakeCoordinator implements SyncCoordinator {
   /// Set by the harness. The real push and pull record the generation this
   /// device now holds (full_push_test, full_pull_test), so the fake does too.
   late AppDatabase db;
+
+  /// The real push and pull remove the journal rows they represent.
+  bool acknowledgesJournal = false;
   final operations = <String>[];
   final _pushPerUid = <String, int>{};
   int failuresRemaining = 0;
+  int staleRemaining = 0;
   bool nativeDenial = false;
 
   int get pushCalls => operations.where((op) => op.startsWith('push:')).length;
@@ -935,20 +1090,35 @@ class _FakeCoordinator implements SyncCoordinator {
         generationId: 'gen-$uid-$count',
       );
     }
-    await _hold('gen-$uid-$count');
+    if (staleRemaining > 0) {
+      staleRemaining -= 1;
+      return FullPushResult(
+        outcome: FullPushOutcome.staleLocalEpoch,
+        generationId: 'gen-$uid-$count',
+      );
+    }
+    await _hold(uid, 'gen-$uid-$count');
     return FullPushResult(
       outcome: FullPushOutcome.activated,
       generationId: 'gen-$uid-$count',
     );
   }
 
-  Future<void> _hold(String generationId) =>
-      db.into(db.syncMeta).insertOnConflictUpdate(
-            SyncMetaCompanion.insert(
-              key: 'currentLocalGenerationId',
-              value: generationId,
-            ),
+  /// What a finished push or pull stores: full_push_test and full_pull_test
+  /// check the real ones.
+  Future<void> _hold(String uid, String generationId) async {
+    for (final entry in {
+      'currentLocalGenerationId': generationId,
+      'currentLocalGenerationUid': uid,
+    }.entries) {
+      await db.into(db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(key: entry.key, value: entry.value),
           );
+    }
+    if (acknowledgesJournal) {
+      await db.customStatement('delete from sync_local_mutations');
+    }
+  }
 
   @override
   Future<FullPullResult> keepMyAccount({
@@ -957,7 +1127,7 @@ class _FakeCoordinator implements SyncCoordinator {
     SyncContinuation? shouldContinue,
   }) async {
     operations.add('pull:$uid:$generationId');
-    await _hold(generationId);
+    await _hold(uid, generationId);
     return const FullPullResult(FullPullOutcome.applied);
   }
 }

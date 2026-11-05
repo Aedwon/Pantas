@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart' show Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/generation_repository.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 import 'package:pantas/core/sync/mapping/assessment_mapper.dart';
@@ -443,10 +444,13 @@ class FullPushBootstrap {
       await _db.delete(_db.syncRowMeta).go();
       await _db.into(_db.syncMeta).insertOnConflictUpdate(
             SyncMetaCompanion.insert(
-              key: 'currentLocalGenerationId',
+              key: SyncHeldGeneration.generationKey,
               value: generationId,
             ),
           );
+      // Row states were just cleared, so this device has seen nothing of the
+      // new generation until its first snapshot.
+      await SyncHeldGeneration(_db).clearSnapshotMarks();
       // This choice finished, so any unfinished download is over too.
       await (_db.delete(_db.syncMeta)
             ..where(
@@ -454,6 +458,12 @@ class FullPushBootstrap {
                   .isIn(const ['pending_full_push', 'pending_full_pull']),
             ))
           .go();
+      await _db.into(_db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(
+              key: SyncHeldGeneration.uidKey,
+              value: _uid,
+            ),
+          );
     });
     return current;
   }

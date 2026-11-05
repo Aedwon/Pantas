@@ -125,6 +125,7 @@ void main() {
       ['reminder_time=07:30'],
     );
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-1');
+    expect(await _marker(db, 'currentLocalGenerationUid'), 'user-1');
     expect(await _marker(db, 'pending_full_pull'), isNull);
     expect(await _marker(db, 'pending_full_push'), isNull);
   });
