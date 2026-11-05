@@ -120,8 +120,13 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       for (final entry in activeSyncCollections)
         'users/$uid/sync_generations/$generationId/${entry.firestorePath}',
     };
+    var flushWhenSettled = false;
     void firstSnapshotSettled(String path) {
       if (awaitingFirstSnapshot.remove(path) && awaitingFirstSnapshot.isEmpty) {
+        if (flushWhenSettled && _isCurrent(token, uid, generationId)) {
+          unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
+          return;
+        }
         _flushWaitingOutbox(
           token: token,
           uid: uid,
@@ -206,6 +211,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
             _localMutationTimer?.cancel();
             _localMutationTimer = Timer(_localMutationDebounce, () {
               if (!_isCurrent(token, uid, generationId)) return;
+              if (awaitingFirstSnapshot.isNotEmpty) {
+                flushWhenSettled = true;
+                return;
+              }
               unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
             });
           },

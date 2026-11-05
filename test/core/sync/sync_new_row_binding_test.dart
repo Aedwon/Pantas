@@ -267,6 +267,18 @@ void main() {
         (await cloud.readDocument(_path('lesson_bookmarks', 'lesson-1')))!,
       ]);
       await device.settled();
+      expect(
+        (await device.journal('lesson-1'))!['causal_base_state'],
+        'knownVersion',
+        reason: 'bound at once, and sent when every first snapshot has come',
+      );
+
+      for (final entry in activeSyncCollections) {
+        if (entry.tableType != 'lesson_bookmarks') {
+          cloud.deliver(_path(entry.firestorePath));
+        }
+      }
+      await device.settled();
 
       expect(await device.journal('lesson-1'), isNull);
       final after =
@@ -369,6 +381,32 @@ void main() {
         await LessonBookmarksRepository(device.db).isMarked('lesson-1'),
         isTrue,
       );
+    });
+
+    test('the journal timer waits for the first snapshots too', () async {
+      await leaveBoundEdit();
+      await SyncHeldGeneration(device.db).clearSnapshotMarks();
+      await bookmark(device, 'lesson-2');
+      expect(
+        (await device.journal('lesson-2'))!['causal_base_state'],
+        'unbound',
+      );
+      await device.run();
+      await device.settled();
+      expect(await uploaded(), isNull, reason: 'before the first snapshots');
+
+      cloud.deliverEmptyEverywhere();
+      await device.settled();
+
+      expect(await uploaded(), isNotNull);
+      expect(
+        await cloud.readDocument(_path('lesson_bookmarks', 'lesson-2')),
+        isNotNull,
+        reason: 'what the journal held went with it',
+      );
+      final bookmarks = LessonBookmarksRepository(device.db);
+      expect(await bookmarks.isMarked('lesson-1'), isTrue);
+      expect(await bookmarks.isMarked('lesson-2'), isTrue);
     });
 
     test('waits for every collection, not just the first', () async {
