@@ -34,6 +34,13 @@ void main() {
     );
     for (final id in ['l1', 'l2']) {
       await seedContentLesson(content, lessonId: id, topicId: 't', title: id);
+      await seedContentQuestion(
+        content,
+        questionId: 'q_$id',
+        topicId: 't',
+        examId: 'e',
+        lessonId: id,
+      );
     }
     await tester.pumpAppWithProviders(
       const WhatsIncludedPage(),

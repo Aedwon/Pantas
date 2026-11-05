@@ -50,7 +50,12 @@ final settingsRepositoryProvider = Provider<DriftSettingsRepository>((ref) {
 });
 
 final userSettingsProvider = FutureProvider<UserSettings>((ref) async {
-  return ref.watch(settingsRepositoryProvider).readUserSettings();
+  final repository = ref.watch(settingsRepositoryProvider);
+  final subscription = repository.watchUserSettingsChanges().listen((_) {
+    ref.invalidateSelf();
+  });
+  ref.onDispose(subscription.cancel);
+  return repository.readUserSettings();
 });
 
 final themePreferenceProvider = FutureProvider<ThemePreference>((ref) async {

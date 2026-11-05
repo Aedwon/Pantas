@@ -1,18 +1,87 @@
 import 'package:drift/drift.dart' show Value, Variable;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
+import 'package:pantas/core/storage/storage.dart' show appDatabaseProvider;
 import 'package:pantas/core/sync/bootstrap/full_pull.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/mapping/track_scope_mapper.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
+import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  for (final otherName in [null, 'Bella']) {
+    test('settings name follows restore and account switch to $otherName',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final container = ProviderContainer(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+      );
+      addTearDown(container.dispose);
+      final subscription = container.listen(userSettingsProvider, (_, __) {});
+      addTearDown(subscription.close);
+      final repository = DriftSettingsRepository(db);
+      Future<String?> currentName() async =>
+          (await container.read(userSettingsProvider.future)).name;
+
+      expect(await currentName(), isNull);
+
+      final gateway = _cloudGateway();
+      gateway.documents['users/user-1/sync_generations/gen-1']!['preferences'] =
+          {'settings.name': 'Aedwon'};
+      final restored = await FullPullBootstrap(
+        db: db,
+        gateway: gateway,
+        uid: 'user-1',
+      ).run(generationId: 'gen-1');
+      expect(restored.outcome, FullPullOutcome.applied);
+      expect((await repository.readUserSettings()).name, 'Aedwon');
+      await pumpEventQueue();
+      expect(await currentName(), 'Aedwon');
+
+      await SyncLocalStateWiper(db).wipeAll();
+      await pumpEventQueue();
+      expect(await currentName(), isNull);
+      final signedInAgain = await FullPullBootstrap(
+        db: db,
+        gateway: gateway,
+        uid: 'user-1',
+      ).run(generationId: 'gen-1');
+      expect(signedInAgain.outcome, FullPullOutcome.applied);
+      await pumpEventQueue();
+      expect(await currentName(), 'Aedwon');
+
+      await SyncLocalStateWiper(db).wipeAll();
+      await pumpEventQueue();
+      expect(await currentName(), isNull);
+      gateway.documents['users/user-2/sync_generations/gen-2'] = {
+        'status': 'active',
+        'schemaVersion': 1,
+        'createdAt': DateTime.utc(2026, 8, 29),
+        'createdByDeviceId': 'device-cloud',
+        'preferences': {
+          if (otherName != null) 'settings.name': otherName,
+        },
+      };
+      final switched = await FullPullBootstrap(
+        db: db,
+        gateway: gateway,
+        uid: 'user-2',
+      ).run(generationId: 'gen-2');
+      expect(switched.outcome, FullPullOutcome.applied);
+      await pumpEventQueue();
+      expect(await currentName(), otherName);
+    });
+  }
+
   for (final oldGeneration in ['gen-old', 'gen-1', null]) {
     test('replacement expires the $oldGeneration reader before projection',
         () async {

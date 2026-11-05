@@ -57,6 +57,24 @@ void main() {
       bodyJson: '[]',
       ordering: 1,
     );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'les_2',
+      topicId: 'top_2',
+      title: 'Angles',
+    );
+    for (final (topicId, lessonId) in [
+      ('top_1', 'les_1'),
+      ('top_2', 'les_2'),
+    ]) {
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_$lessonId',
+        topicId: topicId,
+        examId: 'exam_1',
+        lessonId: lessonId,
+      );
+    }
 
     await AppPreferencesRepository(db).setSelectedExamId('exam_1');
   });
@@ -127,7 +145,7 @@ void main() {
     await pumpPage(tester);
 
     final picker = tester.widget<ScopePicker>(find.byType(ScopePicker));
-    expect(picker.selectedIds, {'les_1', 'top_2'});
+    expect(picker.selectedIds, {'les_1', 'les_2'});
   });
 
   testWidgets('unticking a topic writes an exclusion', (tester) async {
@@ -150,7 +168,7 @@ void main() {
     await tester.pumpAndSettle();
 
     final picker = tester.widget<ScopePicker>(find.byType(ScopePicker));
-    expect(picker.selectedIds, {'top_2'});
+    expect(picker.selectedIds, {'les_2'});
   });
 
   testWidgets('re-ticking removes the exclusion', (tester) async {

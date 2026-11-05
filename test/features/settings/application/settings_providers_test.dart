@@ -107,6 +107,8 @@ void main() {
         topicId: 't1',
         topicName: 'Algebra',
         questionIds: ['q1', 'q2', 'q3'],
+        lessonIds: ['l1'],
+        questionLessonMap: {'q1': 'l1', 'q2': 'l1', 'q3': 'l1'},
       );
       await AssessmentRepository(db).saveResult('e1', now, const []);
       final container = ProviderContainer(
@@ -166,6 +168,8 @@ void main() {
       topicId: 't1',
       topicName: 'Algebra',
       questionIds: ['q1', 'q2', 'q3'],
+      lessonIds: ['l1'],
+      questionLessonMap: {'q1': 'l1', 'q2': 'l1', 'q3': 'l1'},
     );
     await AssessmentRepository(db).saveResult('e1', now, const []);
     final container = ProviderContainer(

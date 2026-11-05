@@ -58,6 +58,9 @@ class DriftSettingsRepository {
   final AnalyticsConsentGateway _analytics;
   final SettingsClock _clock;
 
+  Stream<void> watchUserSettingsChanges() =>
+      _db.tableUpdates(TableUpdateQuery.onTable(_db.accountPrefs)).map((_) {});
+
   Future<UserSettings> readUserSettings() async {
     final rows = await _db.select(_db.accountPrefs).get();
     final values = {for (final row in rows) row.key: row.value};
