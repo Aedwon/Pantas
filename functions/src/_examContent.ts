@@ -96,6 +96,20 @@ const contentUnavailable = (message: string) => new HttpsError('unavailable', me
  * UPCAT-named ids remain identities, never an inferred exam/subject assignment. */
 export async function loadStudyContent(db: Firestore, examId: string,
   tx?: FirebaseFirestore.Transaction): Promise<StudyContent> {
+  const content = scopeLessonContent(await readStudyContent(db, examId, tx));
+  const keptSubjects = new Set(content.topics.map(t => t.subjectId));
+  return {...content, subjects: content.subjects.filter(s => keptSubjects.has(s.id))};
+}
+
+/** Compatibility exclusions need every authored lesson relationship. */
+export async function loadStudyContentLinks(db: Firestore, examId: string):
+  Promise<Pick<StudyContent, 'lessons' | 'questions'>> {
+  const {lessons, questions} = await readStudyContent(db, examId);
+  return {lessons, questions};
+}
+
+async function readStudyContent(db: Firestore, examId: string,
+  tx?: FirebaseFirestore.Transaction): Promise<StudyContent> {
   const versions: string[] = [], loaded = new Map<string, CatalogDocument>();
   const read = async (id: string, required = true): Promise<CatalogDocument | null> => {
     if (loaded.has(id)) return loaded.get(id)!;
@@ -167,9 +181,7 @@ export async function loadStudyContent(db: Firestore, examId: string,
   const questions=sets.flatMap(s=>s.questions.filter(q=>q.isActive!==false).map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
     lessonId:s.lesson==null?null:refId(s.lesson),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');
-  const content = scopeLessonContent({revision:versions.sort().join('|') + ':exam-lessons-v1',subjects,topics,lessons,questions});
-  const keptSubjects = new Set(content.topics.map(t => t.subjectId));
-  return {...content, subjects: content.subjects.filter(s => keptSubjects.has(s.id))};
+  return {revision:versions.sort().join('|') + ':exam-lessons-v2',subjects,topics,lessons,questions};
 }
 
 /** One listing and planning rule: an active exam question must link to the lesson. */
@@ -189,6 +201,10 @@ export function scopeLessonContent<T extends {
   const lessons = content.lessons.filter(l => !excludedTopics.includes(l.topicId) &&
     !excludedLessons.includes(l.id) && linked.get(l.topicId)?.has(l.id));
   const topics = new Set(lessons.map(l => l.topicId));
+  const lessonTopics = new Set(content.lessons.map(l => l.topicId));
+  for (const q of questions) {
+    if (!lessonTopics.has(q.topicId)) topics.add(q.topicId);
+  }
   return {...content, lessons, topics: content.topics.filter(t => topics.has(t.id)),
     questions};
 }

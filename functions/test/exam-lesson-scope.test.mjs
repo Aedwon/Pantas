@@ -37,3 +37,31 @@ test('the same scope rule removes excluded lessons and empty parent topics', asy
   assert.deepEqual(scoped.questions.map(q => q.id), ['q4']);
   assert.deepEqual(content.lessons.map(l => l.id), ['kept']);
 });
+
+test('lessonless exam questions keep their topic and subject', async () => {
+  const lessonless = {...catalog, lessons: [], sets: [
+    {id: 'practice', topic: 'algebra', lesson: null, exams: [exam], questions: [{id: 'practice-q'}]},
+  ]};
+  const db = {doc: path => ({get: async () => ({exists: path.endsWith('/' + exam),
+    get: key => key === 'payload' ? JSON.stringify(lessonless) : 'lessonless-v1'})})};
+  const content = await loadStudyContent(db, exam);
+  assert.deepEqual(content.lessons, []);
+  assert.deepEqual(content.topics.map(t => t.id), ['algebra']);
+  assert.deepEqual(content.subjects.map(s => s.id), ['math']);
+  assert.deepEqual(content.questions.map(q => q.id), ['practice-q']);
+});
+
+test('excluding every eligible lesson preserves a separate lessonless topic', async () => {
+  const {scopeLessonContent} = await import('../src/_examContent.ts');
+  const content = {
+    topics: [{id: 'algebra'}, {id: 'filing'}, {id: 'empty'}],
+    lessons: [{id: 'kept', topicId: 'algebra'}],
+    questions: [{id: 'q1', topicId: 'algebra', lessonId: 'kept'},
+      {id: 'q2', topicId: 'filing', lessonId: null}],
+  };
+  const scoped = scopeLessonContent(content, [], ['kept']);
+  assert.deepEqual(scoped.lessons, []);
+  assert.deepEqual(scoped.topics.map(t => t.id), ['filing']);
+  assert.deepEqual(scoped.questions.map(q => q.id), ['q2']);
+  assert.deepEqual(scopeLessonContent(content, ['filing'], ['kept']).topics, []);
+});

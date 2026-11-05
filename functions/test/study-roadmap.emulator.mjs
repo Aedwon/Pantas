@@ -405,7 +405,10 @@ test('all lessons can be excluded while a lessonless topic remains',async()=>{
  const uid='w4f-lessonless-scope';const {topics,lessons}=await seed(uid);
  const ref=db.doc('content/catalog/items/'+EXAM),catalog=JSON.parse((await ref.get()).get('payload'));
  catalog.lessons=lessons.filter(l=>l.topic===topics[0]._id);
- catalog.sets=catalog.sets.map(s=>s.topic===topics[1]._id?{...s,lesson:null}:s);
+ // Link every excluded lesson to active exam questions so each is eligible.
+ catalog.sets=catalog.sets.flatMap(s=>s.topic===topics[1]._id?[{...s,lesson:null}]:
+  catalog.lessons.map((l,i)=>({...s,id:s.id+'-'+i,lesson:l.id,
+   questions:s.questions.filter((_,j)=>j%catalog.lessons.length===i)})));
  await ref.update({version:'lessonless-v1',payload:JSON.stringify(catalog)});
  const settings={...body(uid),examDate:null,studyDays:[1],excludedTopicIds:[topics[0]._id],excludedLessonIds:catalog.lessons.map(l=>l.id)};
  assert.equal(await code(saveExamSettings(auth(uid),settings,deps())),'ok');
