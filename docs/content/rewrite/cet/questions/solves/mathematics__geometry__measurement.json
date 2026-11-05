@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__measurement",
+  "source": "content/questions/mathematics/geometry/measurement.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-measurement-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The perimeter is 2(15 + 8) = 46 m."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-measurement-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The surface area is 6(5 squared) = 150 square centimeters."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-measurement-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The volume is pi times 3 squared times 10 = 90 pi cubic meters."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-measurement-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The volume is one third times pi times 6 squared times 7 = 84 pi cubic centimeters."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-measurement-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The surface area is 4 pi times 6 squared = 144 pi square centimeters."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-measurement-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The area is (10 + 18) times 4 divided by 2 = 56 square centimeters."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-measurement-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The semicircle has radius 4 cm, giving total area 96 + 8 pi square centimeters."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-measurement-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The hole has radius 5 cm, leaving 100 - 25 pi square centimeters."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-measurement-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The surface area is 2(40 + 24 + 15) = 158 square centimeters."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-measurement-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The volume is one third times 36 times 9 = 108 cubic meters."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-measurement-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The slant height is 13 cm, so the total surface area is 65 pi + 25 pi = 90 pi square centimeters."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-measurement-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Equating volumes gives 9 pi times the height = 36 pi, so the height is 4 cm."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-measurement-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The cylinder and hemisphere volumes sum to 72 pi + 18 pi = 90 pi cubic meters."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-measurement-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The midpoint square has half the outer area, leaving 144 divided by 2 = 72 square centimeters."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-measurement-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Surface area scales by 3 squared = 9 and volume by 3 cubed = 27."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-measurement-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Using the perpendicular height gives area one half times 10 times 4 = 20 square centimeters."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-measurement-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The surface area gives radius 3 cm, so the volume is 36 pi cubic centimeters."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-measurement-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The estimated area is 3 times 5 squared = 75 square meters."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-measurement-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Converting 2 meters to 200 centimeters gives area 200 times 30 = 6000 square centimeters."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-measurement-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The bottom and four walls have total area 20 + 30 + 24 = 74 square centimeters."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

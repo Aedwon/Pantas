@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__algebra__types-of-functions",
+  "source": "content/questions/mathematics/algebra/types-of-functions.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-algebra-types-of-functions-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Substituting gives 3(4)-5=7."
+    },
+    {
+      "n": 2,
+      "id": "q-algebra-types-of-functions-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The variable is in the exponent of 4^x."
+    },
+    {
+      "n": 3,
+      "id": "q-algebra-types-of-functions-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Vertex form gives the vertex (3,4)."
+    },
+    {
+      "n": 4,
+      "id": "q-algebra-types-of-functions-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The denominator is zero only at x=5."
+    },
+    {
+      "n": 5,
+      "id": "q-algebra-types-of-functions-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 3^3=27, the logarithm is 3."
+    },
+    {
+      "n": 6,
+      "id": "q-algebra-types-of-functions-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The denominator vanishes at x=3 while the numerator does not."
+    },
+    {
+      "n": 7,
+      "id": "q-algebra-types-of-functions-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The vertex coordinate is -b/(2a)=8/4=2."
+    },
+    {
+      "n": 8,
+      "id": "q-algebra-types-of-functions-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "At x=3 the second branch gives 2(3)+5=11."
+    },
+    {
+      "n": 9,
+      "id": "q-algebra-types-of-functions-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A variable exponent defines f, while g is a fifth-degree polynomial."
+    },
+    {
+      "n": 10,
+      "id": "q-algebra-types-of-functions-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The absolute value has minimum zero, so the minimum output is 3."
+    },
+    {
+      "n": 11,
+      "id": "q-algebra-types-of-functions-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal degrees give the leading-coefficient ratio 4/2=2."
+    },
+    {
+      "n": 12,
+      "id": "q-algebra-types-of-functions-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Exponentiating gives x+3=16, hence x=13."
+    },
+    {
+      "n": 13,
+      "id": "q-algebra-types-of-functions-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Cancellation gives x+3 only for x unequal to 3, leaving a hole."
+    },
+    {
+      "n": 14,
+      "id": "q-algebra-types-of-functions-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The equation becomes 2^x=32, so x=5."
+    },
+    {
+      "n": 15,
+      "id": "q-algebra-types-of-functions-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Both equations have the slope-intercept form y=mx+b."
+    },
+    {
+      "n": 16,
+      "id": "q-algebra-types-of-functions-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "An exponential with base strictly between zero and one decreases everywhere."
+    },
+    {
+      "n": 17,
+      "id": "q-algebra-types-of-functions-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The negative case also yields the solution x=-1."
+    },
+    {
+      "n": 18,
+      "id": "q-algebra-types-of-functions-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The logarithm requires x-4>0, which holds for x=5."
+    },
+    {
+      "n": 19,
+      "id": "q-algebra-types-of-functions-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The charge is 40+15(5-2)=85 pesos."
+    },
+    {
+      "n": 20,
+      "id": "q-algebra-types-of-functions-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A horizontal asymptote describes end behavior and can be crossed."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

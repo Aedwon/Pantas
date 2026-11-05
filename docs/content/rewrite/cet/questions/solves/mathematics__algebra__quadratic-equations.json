@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__algebra__quadratic-equations",
+  "source": "content/questions/mathematics/algebra/quadratic-equations.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-algebra-quadratic-equations-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "id": "q-algebra-quadratic-equations-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "id": "q-algebra-quadratic-equations-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "id": "q-algebra-quadratic-equations-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "id": "q-algebra-quadratic-equations-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "id": "q-algebra-quadratic-equations-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "id": "q-algebra-quadratic-equations-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "id": "q-algebra-quadratic-equations-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "id": "q-algebra-quadratic-equations-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "id": "q-algebra-quadratic-equations-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 11,
+      "id": "q-algebra-quadratic-equations-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 12,
+      "id": "q-algebra-quadratic-equations-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 13,
+      "id": "q-algebra-quadratic-equations-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 14,
+      "id": "q-algebra-quadratic-equations-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 15,
+      "id": "q-algebra-quadratic-equations-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 16,
+      "id": "q-algebra-quadratic-equations-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 17,
+      "id": "q-algebra-quadratic-equations-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 18,
+      "id": "q-algebra-quadratic-equations-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 19,
+      "id": "q-algebra-quadratic-equations-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 20,
+      "id": "q-algebra-quadratic-equations-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}

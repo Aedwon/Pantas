@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__algebra__linear-equations-inequalities",
+  "source": "content/questions/mathematics/algebra/linear-equations-inequalities.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-algebra-linear-equations-inequalities-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting 3 and dividing by 2 gives x = 2."
+    },
+    {
+      "n": 2,
+      "id": "q-algebra-linear-equations-inequalities-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The equation 3x - 5 = 10 gives x = 5."
+    },
+    {
+      "n": 3,
+      "id": "q-algebra-linear-equations-inequalities-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting 4 gives x < 5."
+    },
+    {
+      "n": 4,
+      "id": "q-algebra-linear-equations-inequalities-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 2 must reverse the inequality to x < -5."
+    },
+    {
+      "n": 5,
+      "id": "q-algebra-linear-equations-inequalities-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Cross multiplication gives 9x - 3 = 2x + 8, so x = 11/7."
+    },
+    {
+      "n": 6,
+      "id": "q-algebra-linear-equations-inequalities-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Expanding and collecting terms gives -5x > 5, hence x < -1."
+    },
+    {
+      "n": 7,
+      "id": "q-algebra-linear-equations-inequalities-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Writing y = (-2/3)x + 2 reveals slope -2/3."
+    },
+    {
+      "n": 8,
+      "id": "q-algebra-linear-equations-inequalities-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The perpendicular slope is -1/3, giving a slope product of -1."
+    },
+    {
+      "n": 9,
+      "id": "q-algebra-linear-equations-inequalities-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing the target profit of 800 by 80 gives 10 shirts."
+    },
+    {
+      "n": 10,
+      "id": "q-algebra-linear-equations-inequalities-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing by 2 gives x + 3 = 5, hence x = 2."
+    },
+    {
+      "n": 11,
+      "id": "q-algebra-linear-equations-inequalities-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 3 must reverse the inequality to x < 3."
+    },
+    {
+      "n": 12,
+      "id": "q-algebra-linear-equations-inequalities-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The slope is (6 - 2)/(3 - 1) = 2."
+    },
+    {
+      "n": 13,
+      "id": "q-algebra-linear-equations-inequalities-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Using 3 = 2(1) + b gives b = 1."
+    },
+    {
+      "n": 14,
+      "id": "q-algebra-linear-equations-inequalities-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Setting x = 0 gives y = 4."
+    },
+    {
+      "n": 15,
+      "id": "q-algebra-linear-equations-inequalities-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The point (3, 2) satisfies 2(3) + 3(2) = 12."
+    },
+    {
+      "n": 16,
+      "id": "q-algebra-linear-equations-inequalities-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The strict inequality x < 5 has the dashed vertical boundary x = 5."
+    },
+    {
+      "n": 17,
+      "id": "q-algebra-linear-equations-inequalities-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting the booking fee leaves 900, which pays for 6 hours."
+    },
+    {
+      "n": 18,
+      "id": "q-algebra-linear-equations-inequalities-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding 3 gives x/2 = 8, hence x = 16."
+    },
+    {
+      "n": 19,
+      "id": "q-algebra-linear-equations-inequalities-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The horizontal line y = -2 is perpendicular to the vertical line x = 4."
+    },
+    {
+      "n": 20,
+      "id": "q-algebra-linear-equations-inequalities-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The boundary is 2x + y = 4, and including the origin and boundary requires <=."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,16 @@
+{
+  "file_id": "mathematics__data-interpretation__rates-ratios-and-percentages-in-context",
+  "source": "content/questions/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-data-interpretation-rates-ratios-and-percentages-in-context-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Education's female share is 75% and Engineering's is 40%, a difference of 35 percentage points."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

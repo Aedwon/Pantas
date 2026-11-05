@@ -1,0 +1,34 @@
+{
+  "file_id": "language-proficiency__grammar-and-structure__sentence-structure",
+  "source": "content/questions/language-proficiency/grammar-and-structure/sentence-structure.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-grammar-and-structure-sentence-structure-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Two independent clauses are joined by the coordinating conjunction but."
+    },
+    {
+      "n": 2,
+      "id": "q-grammar-and-structure-sentence-structure-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Two independent clauses are joined by the coordinating conjunction so."
+    },
+    {
+      "n": 3,
+      "id": "q-grammar-and-structure-sentence-structure-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The independent clause contains the dependent clause while she checked the records."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

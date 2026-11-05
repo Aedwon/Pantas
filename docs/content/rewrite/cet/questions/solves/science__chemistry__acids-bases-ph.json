@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__acids-bases-ph",
+  "source": "content/questions/science/chemistry/acids-bases-ph.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-acids-bases-ph-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "At 25 °C, pH below 7 is acidic."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-acids-bases-ph-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "At 25 °C, pH 7 is neutral."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-acids-bases-ph-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "At 25 °C, pH above 7 is basic."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-acids-bases-ph-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The two-unit pH difference corresponds to a hydronium ratio of 100."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-acids-bases-ph-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The negative base-10 logarithm of 10^-7 is 7."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-acids-bases-ph-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Essentially complete ionization indicates a strong acid, while partial ionization indicates a weak acid."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-acids-bases-ph-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "An Arrhenius acid increases hydronium concentration in water."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-acids-bases-ph-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "An Arrhenius base increases hydroxide concentration in water."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-acids-bases-ph-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A Brønsted-Lowry acid donates a proton."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-acids-bases-ph-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrogen-ion activity above unity can produce a negative pH."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-acids-bases-ph-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal hydronium and hydroxide levels indicate neutrality even when neutral pH differs from 7."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-acids-bases-ph-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Strength describes ionization behavior, while concentration describes amount per volume."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-acids-bases-ph-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Brønsted-Lowry neutralization involves proton transfer and need not yield pH 7."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-acids-bases-ph-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydronium donates a proton to hydroxide to form water."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-acids-bases-ph-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A hydronium increase by 10^6 lowers pH by 6 units."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-acids-bases-ph-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A Brønsted-Lowry base accepts a proton."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-acids-bases-ph-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Ammonia accepts a proton from HCl to become ammonium."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-acids-bases-ph-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Lower pH directly indicates greater hydrogen-ion activity."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-acids-bases-ph-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Excess acid can leave the mixture acidic after neutralization."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-acids-bases-ph-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A tenfold increase in hydronium lowers dilute-solution pH by one unit."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,97 @@
+{
+  "file_id": "science__biology__human-anatomy-physiology",
+  "source": "content/questions/science/biology/human-anatomy-physiology.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-human-anatomy-physiology-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Food passes from mouth through esophagus, stomach, small intestine, and large intestine."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-human-anatomy-physiology-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Pulmonary circulation carries blood between the heart and lungs."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-human-anatomy-physiology-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Nephrons filter plasma and modify the filtrate through reabsorption and secretion."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-human-anatomy-physiology-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Urea is the principal nitrogenous waste formed from protein breakdown."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-human-anatomy-physiology-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Arteries carry blood away from the heart regardless of oxygen content."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-human-anatomy-physiology-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The atria receive blood returning to the heart."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-human-anatomy-physiology-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Most nutrient absorption occurs in the small intestine."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-human-anatomy-physiology-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Bile emulsifies fat into smaller droplets, increasing the surface area available to enzymes."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-human-anatomy-physiology-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Alveoli exchange gases with adjacent pulmonary capillaries."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-human-anatomy-physiology-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Urine travels from the kidneys through the ureters to the bladder and then the urethra."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

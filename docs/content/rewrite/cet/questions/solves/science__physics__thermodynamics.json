@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__thermodynamics",
+  "source": "content/questions/science/physics/thermodynamics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-thermodynamics-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "id": "q-physics-thermodynamics-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "id": "q-physics-thermodynamics-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "id": "q-physics-thermodynamics-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "id": "q-physics-thermodynamics-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "id": "q-physics-thermodynamics-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "id": "q-physics-thermodynamics-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "id": "q-physics-thermodynamics-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Q = 3 × 4186 × 5 = 62790 J."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-thermodynamics-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The increase is 41860 / (2 × 4186) = 5°C."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-thermodynamics-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 11,
+      "id": "q-physics-thermodynamics-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 12,
+      "id": "q-physics-thermodynamics-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 13,
+      "id": "q-physics-thermodynamics-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Kilograms must be converted to grams, multiplying the entered mass by 1000."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-thermodynamics-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 15,
+      "id": "q-physics-thermodynamics-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 16,
+      "id": "q-physics-thermodynamics-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 17,
+      "id": "q-physics-thermodynamics-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The internal-energy change is Q − W = 500 − 200 = +300 J."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-thermodynamics-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 19,
+      "id": "q-physics-thermodynamics-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "At equal heat and specific heat, temperature increase is inversely proportional to mass."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-thermodynamics-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}

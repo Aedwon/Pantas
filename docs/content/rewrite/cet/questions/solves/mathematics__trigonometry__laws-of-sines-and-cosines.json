@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__trigonometry__laws-of-sines-and-cosines",
+  "source": "content/questions/mathematics/trigonometry/laws-of-sines-and-cosines.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The Law of Sines gives b = 10 sin 45° / sin 30° = 10√2."
+    },
+    {
+      "n": 2,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The remaining angle is 180° − 30° − 45° = 105°."
+    },
+    {
+      "n": 3,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The third side squared is 25 + 64 − 80 cos 60° = 49."
+    },
+    {
+      "n": 4,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The required cosine is (9 + 25 − 49) / 30 = −1/2."
+    },
+    {
+      "n": 5,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 1 incorrectly pairs each side with the other side's opposite angle."
+    },
+    {
+      "n": 6,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The separation squared is 9 + 64 − 48 cos 60° = 49."
+    },
+    {
+      "n": 7,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The Law of Sines gives sin B = 15 sin 50° / 20."
+    },
+    {
+      "n": 8,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 2 uses 1/2 instead of −1/2 for cos 120°."
+    },
+    {
+      "n": 9,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The known opposite side and angle allow direct application of the Law of Sines."
+    },
+    {
+      "n": 10,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The longest side is opposite the largest angle."
+    },
+    {
+      "n": 11,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 3 should give cos C = −11/80."
+    },
+    {
+      "n": 12,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The triangle's interior angle at the turn is 70°, giving distance squared 202 − 198 cos 70°."
+    },
+    {
+      "n": 13,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The side squares satisfy 64 + 225 = 289."
+    },
+    {
+      "n": 14,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Angle C is 75°, so its opposite side c is longest."
+    },
+    {
+      "n": 15,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A triangle exists and 21² exceeds 12² + 16², so its largest angle is obtuse."
+    },
+    {
+      "n": 16,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The equality is the Law of Sines."
+    },
+    {
+      "n": 17,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The correction term vanishes because cos 90° = 0."
+    },
+    {
+      "n": 18,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The third sides squared are 49 and 129 respectively."
+    },
+    {
+      "n": 19,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Steps 1 and 2 correctly reveal that no such triangle exists, so Step 3 is incorrect."
+    },
+    {
+      "n": 20,
+      "id": "q-trigonometry-laws-of-sines-and-cosines-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The two possible angles at R are about 45.6° and 134.4°, and both leave a positive angle at Q."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

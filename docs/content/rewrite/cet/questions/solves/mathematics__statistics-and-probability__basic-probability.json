@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__statistics-and-probability__basic-probability",
+  "source": "content/questions/mathematics/statistics-and-probability/basic-probability.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-statistics-and-probability-basic-probability-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "There are 7 blue marbles among 20 marbles."
+    },
+    {
+      "n": 2,
+      "id": "q-statistics-and-probability-basic-probability-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The primes are 2, 3, and 5, giving 3/6 = 1/2."
+    },
+    {
+      "n": 3,
+      "id": "q-statistics-and-probability-basic-probability-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "There are 12 face cards, so the probability is 12/52 = 3/13."
+    },
+    {
+      "n": 4,
+      "id": "q-statistics-and-probability-basic-probability-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Juan loses on 475 of 500 tickets, giving 19/20."
+    },
+    {
+      "n": 5,
+      "id": "q-statistics-and-probability-basic-probability-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The qualifying sectors are 2, 4, 6, 7, and 8, giving 5/8."
+    },
+    {
+      "n": 6,
+      "id": "q-statistics-and-probability-basic-probability-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Five ordered dice outcomes sum to 8 among 36 equally likely outcomes."
+    },
+    {
+      "n": 7,
+      "id": "q-statistics-and-probability-basic-probability-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Replacement gives (6/10)(6/10) = 9/25."
+    },
+    {
+      "n": 8,
+      "id": "q-statistics-and-probability-basic-probability-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Independence gives 0.60 times 0.40 = 0.24."
+    },
+    {
+      "n": 9,
+      "id": "q-statistics-and-probability-basic-probability-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Without replacement, (4/52)(3/51) = 1/221."
+    },
+    {
+      "n": 10,
+      "id": "q-statistics-and-probability-basic-probability-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Counting the Ace of Hearts once gives (4 + 13 - 1)/52 = 4/13."
+    },
+    {
+      "n": 11,
+      "id": "q-statistics-and-probability-basic-probability-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The complement of three tails has probability 1 - 1/8 = 7/8."
+    },
+    {
+      "n": 12,
+      "id": "q-statistics-and-probability-basic-probability-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Among 50 students who took review, 35 are STEM, giving 7/10."
+    },
+    {
+      "n": 13,
+      "id": "q-statistics-and-probability-basic-probability-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The weighted defect probability is 0.60(0.05) + 0.40(0.02) = 3.8%."
+    },
+    {
+      "n": 14,
+      "id": "q-statistics-and-probability-basic-probability-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Bayes' rule gives 0.030/0.038 = 15/19."
+    },
+    {
+      "n": 15,
+      "id": "q-statistics-and-probability-basic-probability-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The specified order has probability (5/12)(4/11)(3/10) = 1/22."
+    },
+    {
+      "n": 16,
+      "id": "q-statistics-and-probability-basic-probability-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The winning sequences WW, WLW, and LWW total 0.36 + 0.144 + 0.144 = 0.648."
+    },
+    {
+      "n": 17,
+      "id": "q-statistics-and-probability-basic-probability-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Independence leaves the next toss's heads probability at 1/2."
+    },
+    {
+      "n": 18,
+      "id": "q-statistics-and-probability-basic-probability-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting the double-counted overlap gives 18 + 12 - 6 = 24."
+    },
+    {
+      "n": 19,
+      "id": "q-statistics-and-probability-basic-probability-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Their intersection has probability zero while their probability product is positive."
+    },
+    {
+      "n": 20,
+      "id": "q-statistics-and-probability-basic-probability-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The independent officer and day probabilities give (2/4)(1/3) = 1/6."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

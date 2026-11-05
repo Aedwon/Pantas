@@ -1,0 +1,52 @@
+{
+  "file_id": "science__physics__mirrors-and-lenses",
+  "source": "content/questions/science/physics/mirrors-and-lenses.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-light-and-optics-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Near-axis parallel rays reflect toward the concave mirror's focus."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-light-and-optics-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An ordinary glass lens thicker at its center converges parallel rays in air."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-light-and-optics-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A convex mirror forms an upright, reduced, virtual image of a real object."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-light-and-optics-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A diverging concave lens corrects myopia."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-light-and-optics-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A concave mirror converges parallel rays, while a concave glass lens in air diverges them."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

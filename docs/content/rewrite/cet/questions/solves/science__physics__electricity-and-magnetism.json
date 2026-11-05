@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__electricity-and-magnetism",
+  "source": "content/questions/science/physics/electricity-and-magnetism.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-electricity-and-magnetism-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Coulomb force scales as inverse separation squared."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-electricity-and-magnetism-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The force scales by 2/4, giving one half."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-electricity-and-magnetism-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "V = IR = 2 × 10 = 20 V."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-electricity-and-magnetism-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "R = V/I = 24/3 = 8 ohms."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-electricity-and-magnetism-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "I = V/R = 15/5 = 3 A."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-electricity-and-magnetism-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "An open circuit breaks the only current path."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-electricity-and-magnetism-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The intact branch still receives the fixed source voltage."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-electricity-and-magnetism-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Like electric charges repel."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-electricity-and-magnetism-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Opposite electric charges attract."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-electricity-and-magnetism-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Electric field is force per unit positive test charge."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-electricity-and-magnetism-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Parallel branches connect across the same potential difference."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-electricity-and-magnetism-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The induced magnetic effect opposes the change in flux."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-electricity-and-magnetism-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Reversing current reverses the magnetic field circulation."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-electricity-and-magnetism-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A right thumb toward the viewer gives counterclockwise finger curl."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-electricity-and-magnetism-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The series current is 24/(4 + 8) = 2 A."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-electricity-and-magnetism-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Two equal parallel resistors have half the individual resistance."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-electricity-and-magnetism-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A curved voltage-current relationship is non-ohmic over that range."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-electricity-and-magnetism-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Changing magnetic flux can induce an emf despite the open current path."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-electricity-and-magnetism-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Ordinary magnets retain both north and south poles."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-electricity-and-magnetism-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Point the right thumb along conventional current and follow the finger curl."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

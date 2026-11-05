@@ -1,0 +1,151 @@
+{
+  "file_id": "language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus",
+  "source": "content/questions/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang naglinis ay nagsasaad ng natapos na kilos kahapon."
+    },
+    {
+      "n": 2,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang kadarating ay nagpapahiwatig ng katatapos lamang na pagdating."
+    },
+    {
+      "n": 3,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Si Rosa ang paksa at tagaganap ng pagluluto."
+    },
+    {
+      "n": 4,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang tuwing Sabado ay nagpapakita ng paulit-ulit na gawain."
+    },
+    {
+      "n": 5,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Nananatili ang kontemplatibong magsusumite at ang panahong bukas."
+    },
+    {
+      "n": 6,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang mga bata ang paksang nakikinabang sa pagluluto."
+    },
+    {
+      "n": 7,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang lapis ang paksa at kagamitang ginamit sa pagsulat."
+    },
+    {
+      "n": 8,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang balita ang paksang sanhi ng tuwa ng mga kawani."
+    },
+    {
+      "n": 9,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Kakain ang kontemplatibong anyo ng kumain."
+    },
+    {
+      "n": 10,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Nagpapatuloy pa ang pagsulat nang dumating ang pinuno."
+    },
+    {
+      "n": 11,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Naglinis ang perpektibo at kalilinis lang ang perpektibong katatapos."
+    },
+    {
+      "n": 12,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Ang bakuran ay ganapan ng pagtatanim at direksiyon ng pagpunta."
+    },
+    {
+      "n": 13,
+      "id": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Paksa ang sopas at perpektibo ang niluto."
+    },
+    {
+      "n": 14,
+      "id": "q-grammar-and-structure-tenses-and-voice-0025",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Kakakain lang ang katatapos na kilos at maglilinis ang hindi pa nasisimulan."
+    },
+    {
+      "n": 15,
+      "id": "q-grammar-and-structure-tenses-and-voice-0026",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Tagatanggap ang mga bisita at kagamitan ang lapis."
+    },
+    {
+      "n": 16,
+      "id": "q-grammar-and-structure-tenses-and-voice-0027",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Nagpapatuloy ang paglilinis at sina Liza at Omar ang paksang tagaganap."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__coordinate-geometry",
+  "source": "content/questions/mathematics/geometry/coordinate-geometry.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-coordinate-geometry-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The distance is sqrt(6² + 8²) = 10."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-coordinate-geometry-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Averaging corresponding coordinates gives (-2, 2)."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-coordinate-geometry-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The slope is (11 - 3)/(5 - 1) = 2."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-coordinate-geometry-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Parallel lines have the same slope, 3."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-coordinate-geometry-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The negative reciprocal of -4/5 is 5/4."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-coordinate-geometry-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Substituting the point gives -2 = -12 + b, so b = 10."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-coordinate-geometry-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The segment has slope 6/8, so its perpendicular bisector has slope -4/3."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-coordinate-geometry-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The area is half the base 6 times the height 4, giving 12."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-coordinate-geometry-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Expanding gives y = -2x/3, hence 2x + 3y = 0."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-coordinate-geometry-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The common slope is 2, giving k = 5 - 2(3) = -1."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-coordinate-geometry-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The perpendicular slope is -4/3, and 4(6) + 3(-1) = 21."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-coordinate-geometry-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The parallelogram has base 6 and height 5, giving area 30."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-coordinate-geometry-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Completing the squares gives (x - 3)² + (y + 4)² = 36."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-coordinate-geometry-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Eliminating y gives 19x = 38, then y = 3."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-coordinate-geometry-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The distance is 20/sqrt(3² + 4²) = 4."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-coordinate-geometry-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A constant x-coordinate describes a vertical line with undefined slope."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-coordinate-geometry-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Both coordinate differences must use the same point order."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-coordinate-geometry-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The other endpoint is 2M - A = (-4, -8)."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-coordinate-geometry-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A vertical line and a horizontal line are perpendicular despite the undefined vertical slope."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-coordinate-geometry-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The parallel line has form 2x + 3y = c, with c = 2(3) + 3(2) = 12."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__statistics-and-probability__combinatorics",
+  "source": "content/questions/mathematics/statistics-and-probability/combinatorics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-statistics-and-probability-combinatorics-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "There are 4 × 3 × 2 = 24 combos."
+    },
+    {
+      "n": 2,
+      "id": "q-statistics-and-probability-combinatorics-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The five distinct books have 5! = 120 arrangements."
+    },
+    {
+      "n": 3,
+      "id": "q-statistics-and-probability-combinatorics-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Choosing three of eight gives C(8,3) = 56 delegations."
+    },
+    {
+      "n": 4,
+      "id": "q-statistics-and-probability-combinatorics-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The three ordered places have 7 × 6 × 5 = 210 outcomes."
+    },
+    {
+      "n": 5,
+      "id": "q-statistics-and-probability-combinatorics-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Each of four positions has ten choices, giving 10⁴ = 10,000 passcodes."
+    },
+    {
+      "n": 6,
+      "id": "q-statistics-and-probability-combinatorics-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Eight letters with three identical As give 8!/3! = 6,720 arrangements."
+    },
+    {
+      "n": 7,
+      "id": "q-statistics-and-probability-combinatorics-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Identifying rotations leaves (6 − 1)! = 120 arrangements."
+    },
+    {
+      "n": 8,
+      "id": "q-statistics-and-probability-combinatorics-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Nine eligible members for Vice-President and eight for Secretary give 72 assignments."
+    },
+    {
+      "n": 9,
+      "id": "q-statistics-and-probability-combinatorics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Independent selections give C(6,3) × C(5,2) = 200 committees."
+    },
+    {
+      "n": 10,
+      "id": "q-statistics-and-probability-combinatorics-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Each unordered pair shakes hands once, giving C(12,2) = 66 handshakes."
+    },
+    {
+      "n": 11,
+      "id": "q-statistics-and-probability-combinatorics-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Treating the girls as one block gives 5! × 3! = 720 seatings."
+    },
+    {
+      "n": 12,
+      "id": "q-statistics-and-probability-combinatorics-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Three seniors and one junior or four seniors give C(5,3) × 4 + C(5,4) = 45 teams."
+    },
+    {
+      "n": 13,
+      "id": "q-statistics-and-probability-combinatorics-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The adjacent pair forms one circular block, giving 2 × 6! = 1,440 arrangements."
+    },
+    {
+      "n": 14,
+      "id": "q-statistics-and-probability-combinatorics-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Selecting and ordering gives C(8,3) × C(6,2) × 5! = 100,800 sequences."
+    },
+    {
+      "n": 15,
+      "id": "q-statistics-and-probability-combinatorics-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting adjacent arrangements gives 6! − 2 × 5! = 480 valid arrangements."
+    },
+    {
+      "n": 16,
+      "id": "q-statistics-and-probability-combinatorics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Three even final digits and 5 × 4 × 3 preceding choices give 180 numbers."
+    },
+    {
+      "n": 17,
+      "id": "q-statistics-and-probability-combinatorics-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Selecting all six members gives C(6,6) = 1 team."
+    },
+    {
+      "n": 18,
+      "id": "q-statistics-and-probability-combinatorics-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The mutually exclusive item choices total 5 + 3 = 8 purchases."
+    },
+    {
+      "n": 19,
+      "id": "q-statistics-and-probability-combinatorics-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "With Lia included, choose three of the other six for C(6,3) = 20 teams."
+    },
+    {
+      "n": 20,
+      "id": "q-statistics-and-probability-combinatorics-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The excluded triple is unordered, so the count is 8 × 7 × 6 / 3! = 56 teams."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__momentum-and-impulse",
+  "source": "content/questions/science/physics/momentum-and-impulse.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-momentum-and-impulse-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Momentum is 1000 × 20 = 20,000 kg m/s."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-momentum-and-impulse-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Average force magnitude is 0.5 × 10 / 0.2 = 25 N."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-momentum-and-impulse-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The final velocity is (3 × 4) / (3 + 1) = 3 m/s."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-momentum-and-impulse-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Conservation of kinetic energy identifies an elastic collision."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-momentum-and-impulse-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The loss of kinetic energy makes the collision inelastic."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-momentum-and-impulse-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Negligible external impulse conserves momentum while crumpling reduces kinetic energy."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-momentum-and-impulse-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Both carts contribute mass to the combined object."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-momentum-and-impulse-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Impulse is the integral of force over the contact time."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-momentum-and-impulse-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Momenta in opposite directions have opposite signs along the chosen axis."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-momentum-and-impulse-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Both momentum magnitudes equal 6000 kg m/s."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-momentum-and-impulse-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Impulse is 2 × (−2 − 3) = −10 N s."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-momentum-and-impulse-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Impulse is 15 × 3 = 45 N s, equivalent to 45 kg m/s."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-momentum-and-impulse-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The final velocity is (2 × 5 − 3 × 4) / 5 = −0.4 m/s."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-momentum-and-impulse-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Increasing the stopping time reduces average force for the same momentum change."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-momentum-and-impulse-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The impulse equals the change in momentum."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-momentum-and-impulse-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The signed force-time area is impulse."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-momentum-and-impulse-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Average force magnitude is momentum-change magnitude divided by stopping time."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-momentum-and-impulse-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The wall exerts an external impulse on the ball alone."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-momentum-and-impulse-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Perfectly inelastic collisions leave the bodies stuck together."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-momentum-and-impulse-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The triangular pulse area is 0.5 × 0.20 × 40 = 4 N s."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__mixtures-and-separation",
+  "source": "content/questions/science/chemistry/mixtures-and-separation.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-mixtures-and-separation-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-mixtures-and-separation-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-mixtures-and-separation-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-mixtures-and-separation-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-mixtures-and-separation-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-mixtures-and-separation-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-mixtures-and-separation-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-mixtures-and-separation-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-mixtures-and-separation-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-mixtures-and-separation-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-mixtures-and-separation-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-mixtures-and-separation-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-mixtures-and-separation-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-mixtures-and-separation-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-mixtures-and-separation-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-mixtures-and-separation-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-mixtures-and-separation-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-mixtures-and-separation-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-mixtures-and-separation-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-mixtures-and-separation-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}

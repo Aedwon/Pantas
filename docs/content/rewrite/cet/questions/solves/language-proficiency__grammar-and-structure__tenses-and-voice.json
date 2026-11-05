@@ -1,0 +1,43 @@
+{
+  "file_id": "language-proficiency__grammar-and-structure__tenses-and-voice",
+  "source": "content/questions/language-proficiency/grammar-and-structure/tenses-and-voice.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-grammar-and-structure-tenses-and-voice-0021",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The modal can takes the base form prepare."
+    },
+    {
+      "n": 2,
+      "id": "q-grammar-and-structure-tenses-and-voice-0022",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The simple present know expresses a current state of knowledge."
+    },
+    {
+      "n": 3,
+      "id": "q-grammar-and-structure-tenses-and-voice-0023",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Have been changed is present perfect passive with no stated agent."
+    },
+    {
+      "n": 4,
+      "id": "q-grammar-and-structure-tenses-and-voice-0024",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Could requests permission politely, while must expresses a conclusion from evidence."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

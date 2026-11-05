@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__basic-geometric-concepts",
+  "source": "content/questions/mathematics/geometry/basic-geometric-concepts.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-basic-geometric-concepts-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Complementary angles sum to 90°, so B is 55°."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-basic-geometric-concepts-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A linear pair sums to 180°, so Y is 68°."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-basic-geometric-concepts-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Vertical angles have equal measures."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-basic-geometric-concepts-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A ray has one endpoint, and a segment has two."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-basic-geometric-concepts-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "An angle bisector makes equal halves, so the full angle is 56°."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-basic-geometric-concepts-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equating the halves gives x = 6, so AB = 22 + 22 = 44."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-basic-geometric-concepts-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The smaller angle is 35°, making the larger angle 55°."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-basic-geometric-concepts-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The measure ranges between 80° and 170° and equals 90° when x = 100/3."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-basic-geometric-concepts-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equality gives x = 16 and vertical angles of 82°, so adjacent angles measure 98°."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-basic-geometric-concepts-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The angle sum gives x = 25, so BOC measures 85°."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-basic-geometric-concepts-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The bisectors form an angle of half of 180°, or 90°."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-basic-geometric-concepts-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 180 − x = 4(90 − x) gives x = 60°."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-basic-geometric-concepts-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The midpoint conditions make AB, BC, and CD equal, so each measures 12 cm."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-basic-geometric-concepts-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The angles sum to 360°, giving x = 22.5 and AOB = 85°."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-basic-geometric-concepts-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 3Q − 20 + Q = 180 gives Q = 50°, so R = 40°."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-basic-geometric-concepts-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The rays have distinct endpoints A and B."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-basic-geometric-concepts-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "AB is twice AM, so AB measures 14 cm."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-basic-geometric-concepts-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Adjacent angles need not have opposite noncommon sides."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-basic-geometric-concepts-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equating the halves gives x = 5, so the full angle measures 34°."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-basic-geometric-concepts-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting an obtuse angle from 180° produces an acute angle."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__logic-and-reasoning",
+  "source": "content/questions/mathematics/geometry/logic-and-reasoning.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-logic-and-reasoning-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The hypothesis is the clause following if."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-logic-and-reasoning-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The converse swaps the hypothesis and conclusion."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-logic-and-reasoning-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A conditional and its contrapositive are logically equivalent."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-logic-and-reasoning-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A counterexample must satisfy the hypothesis and violate the conclusion."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-logic-and-reasoning-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Chaining the premises gives regular hexagon implies six sides."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-logic-and-reasoning-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The inverse negates both parts without swapping them."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-logic-and-reasoning-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A biconditional requires both conditional directions to hold."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-logic-and-reasoning-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Two right angles are supplementary but neither is obtuse."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-logic-and-reasoning-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The converse is the contrapositive of the inverse."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-logic-and-reasoning-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Chaining all three implications gives the stated conclusion."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-logic-and-reasoning-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A conditional is false exactly when its hypothesis is true and its conclusion is false."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-logic-and-reasoning-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A nonsquare rhombus has perpendicular diagonals without being a rectangle."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-logic-and-reasoning-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The negation of an implication is its hypothesis together with the negation of its conclusion."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-logic-and-reasoning-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The argument affirms the consequent, since congruent diagonals do not establish a square."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-logic-and-reasoning-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The inverse matches the false converse, while the contrapositive matches the true conditional."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-logic-and-reasoning-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The contrapositive swaps and negates both divisibility statements."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-logic-and-reasoning-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The converse reverses the original parts without negating either."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-logic-and-reasoning-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Two is prime and even."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-logic-and-reasoning-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A false R forces Q false and consequently P false."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-logic-and-reasoning-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The biconditional includes the implication that an illuminated lamp requires an up switch."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

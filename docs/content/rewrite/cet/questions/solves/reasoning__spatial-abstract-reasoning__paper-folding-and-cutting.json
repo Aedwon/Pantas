@@ -1,0 +1,34 @@
+{
+  "file_id": "reasoning__spatial-abstract-reasoning__paper-folding-and-cutting",
+  "source": "content/questions/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The triangular cut and its reflection join across the vertical crease into one symmetric opening."
+    },
+    {
+      "n": 2,
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The cut joins across the vertical crease, while reflection across the horizontal crease produces two separate openings."
+    },
+    {
+      "n": 3,
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The eight layers join in pairs across the latest crease, leaving four connected openings."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

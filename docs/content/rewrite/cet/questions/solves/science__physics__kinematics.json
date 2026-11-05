@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__kinematics",
+  "source": "content/questions/science/physics/kinematics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-kinematics-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Acceleration is the rate of change of velocity."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-kinematics-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Velocity is the rate of change of displacement."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-kinematics-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Final velocity is 0 + 5(4) = 20 m/s."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-kinematics-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Velocity stays positive, so distance is 3(5) + (1/2)(2)(25) = 40 m."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-kinematics-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The fall distance is (1/2)(9.8)(16) = 78.4 m."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-kinematics-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Velocity is momentarily zero while gravity still accelerates the ball downward."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-kinematics-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Final velocity is the positive square root of 25 + 2(3)(40), about 16.3 m/s."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-kinematics-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "This equation relates the given quantities to final velocity without time."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-kinematics-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Release from rest means zero initial velocity."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-kinematics-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Gravity points downward and therefore has negative acceleration when up is positive."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-kinematics-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Both balls have the same gravitational acceleration and initial conditions."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-kinematics-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Final velocity is 30 - 5(4) = 10 m/s."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-kinematics-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Velocity after one second is 15 - 9.8 = 5.2 m/s."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-kinematics-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The stated displacement formula assumes constant acceleration throughout the interval."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-kinematics-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Displacement is final minus initial position, -2 - 7 = -9 m."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-kinematics-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Distance is 60 + 20 = 80 m and displacement is 60 - 20 = 40 m east."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-kinematics-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Returning to the starting point gives zero displacement and zero average velocity."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-kinematics-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The slope of position versus time is velocity."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-kinematics-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Net displacement is 4(3) - 2(2) = 8 m."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-kinematics-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The cart travels 9 m before reversing at 3 s and 1 m afterward, totaling 10 m."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

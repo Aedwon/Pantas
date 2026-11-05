@@ -1,0 +1,43 @@
+{
+  "file_id": "mathematics__arithmetic-number-sense__business-math",
+  "source": "content/questions/mathematics/arithmetic-number-sense/business-math.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-arithmetic-number-sense-business-math-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Basic pay of ₱2,400 plus 4% of ₱10,000 profit totals ₱2,800."
+    },
+    {
+      "n": 2,
+      "id": "q-arithmetic-number-sense-business-math-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The ₱5 markup is 20% of the ₱25 selling price."
+    },
+    {
+      "n": 3,
+      "id": "q-arithmetic-number-sense-business-math-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Cost is 80% of selling price, so markup on cost is 20/80 = 25%."
+    },
+    {
+      "n": 4,
+      "id": "q-arithmetic-number-sense-business-math-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The quarterly growth factor is 1 + 0.08/4 = 1.02."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

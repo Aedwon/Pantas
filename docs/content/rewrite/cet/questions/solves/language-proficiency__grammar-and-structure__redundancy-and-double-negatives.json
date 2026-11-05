@@ -1,0 +1,25 @@
+{
+  "file_id": "language-proficiency__grammar-and-structure__redundancy-and-double-negatives",
+  "source": "content/questions/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-grammar-and-structure-redundancy-and-double-negatives-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "id": "q-grammar-and-structure-redundancy-and-double-negatives-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}

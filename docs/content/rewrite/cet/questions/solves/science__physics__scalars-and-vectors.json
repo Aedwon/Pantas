@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__scalars-and-vectors",
+  "source": "content/questions/science/physics/scalars-and-vectors.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-scalars-and-vectors-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Path length has magnitude only."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-scalars-and-vectors-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Displacement includes magnitude and direction."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-scalars-and-vectors-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Temperature is a scalar quantity."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-scalars-and-vectors-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The lap covers a positive distance but ends at the initial position."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-scalars-and-vectors-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The magnitude is sqrt(6² + 8²) = 10 km."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-scalars-and-vectors-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Positive east and north components point northeast."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-scalars-and-vectors-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The opposing forces leave 500 − 350 = 150 N left."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-scalars-and-vectors-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The components are 20 cos 30° and 20 sin 30°."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-scalars-and-vectors-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The components are −8 cos 60° and 8 sin 60°."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-scalars-and-vectors-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "For positive magnitudes, sqrt(a² + b²) is less than a + b."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-scalars-and-vectors-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The vertical component is adjacent to the stated angle."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-scalars-and-vectors-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Vectors require direction as well as magnitude."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-scalars-and-vectors-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal opposite forces cancel."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-scalars-and-vectors-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Scaling all components by three scales the magnitude by three."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-scalars-and-vectors-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Force is a vector regardless of which property is requested."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-scalars-and-vectors-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Magnitudes add for vectors pointing in the same direction."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-scalars-and-vectors-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Resolve components, add corresponding axes, then reconstruct the resultant."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-scalars-and-vectors-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The east component is 4 − 2 = 2 m and the north component is 3 m."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-scalars-and-vectors-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Negative x and positive y locate Quadrant II."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-scalars-and-vectors-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The magnitude is sqrt(9 + 9) = 3√2 m and both components point southwest."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

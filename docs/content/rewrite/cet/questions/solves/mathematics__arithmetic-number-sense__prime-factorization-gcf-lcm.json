@@ -1,0 +1,34 @@
+{
+  "file_id": "mathematics__arithmetic-number-sense__prime-factorization-gcf-lcm",
+  "source": "content/questions/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The integer is 36 × 216 ÷ 108 = 72, which has the required GCF and LCM."
+    },
+    {
+      "n": 2,
+      "id": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The largest prime powers are 2, 3, and 5, giving an LCM of 30."
+    },
+    {
+      "n": 3,
+      "id": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "For positive integers, GCF times LCM equals their product."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

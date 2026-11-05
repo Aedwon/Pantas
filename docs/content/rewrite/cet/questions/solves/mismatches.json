@@ -1,0 +1,73 @@
+{
+  "totals": {
+    "files": 123,
+    "questions": 1928,
+    "match": 1928,
+    "mismatch": 0,
+    "low": 5,
+    "problem": 0
+  },
+  "files_without_answers": [],
+  "flagged": [
+    {
+      "file_id": "reasoning__mechanical-technical-reasoning__fluid-pressure",
+      "n": 1,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0001",
+      "key": "A",
+      "answer": "A",
+      "confidence": "low",
+      "reasons": [
+        "low-confidence"
+      ],
+      "note": "Point depths are missing, so B has greater pressure only if it is deeper than A."
+    },
+    {
+      "file_id": "reasoning__mechanical-technical-reasoning__fluid-pressure",
+      "n": 6,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0006",
+      "key": "A",
+      "answer": "A",
+      "confidence": "low",
+      "reasons": [
+        "low-confidence"
+      ],
+      "note": "Point elevations are missing, so this ranking assumes X, Y, and Z are successively deeper."
+    },
+    {
+      "file_id": "reasoning__mechanical-technical-reasoning__structural-stability",
+      "n": 11,
+      "id": "q-mechanical-technical-reasoning-structural-stability-0011",
+      "key": "C",
+      "answer": "C",
+      "confidence": "low",
+      "reasons": [
+        "low-confidence"
+      ],
+      "note": "C is closest, but self-righting comes from restoring gravitational torque about the rounded contact, not the weight line returning inside the support."
+    },
+    {
+      "file_id": "science__biology__characteristics-of-life",
+      "n": 13,
+      "id": "q-biology-characteristics-of-life-0013",
+      "key": "B",
+      "answer": "B",
+      "confidence": "low",
+      "reasons": [
+        "low-confidence"
+      ],
+      "note": "B is intended, but sexual reproduction can involve one self-fertilizing parent, so no choice is fully accurate."
+    },
+    {
+      "file_id": "science__biology__taxonomy-and-classification",
+      "n": 16,
+      "id": "q-biology-taxonomy-and-classification-0016",
+      "key": "D",
+      "answer": "D",
+      "confidence": "low",
+      "reasons": [
+        "low-confidence"
+      ],
+      "note": "D is intended, but enucleated eukaryotic cells such as mature mammalian red blood cells make this observation alone insufficient."
+    }
+  ]
+}

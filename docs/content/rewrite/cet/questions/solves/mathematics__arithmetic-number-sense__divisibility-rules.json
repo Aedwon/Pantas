@@ -1,0 +1,16 @@
+{
+  "file_id": "mathematics__arithmetic-number-sense__divisibility-rules",
+  "source": "content/questions/mathematics/arithmetic-number-sense/divisibility-rules.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-arithmetic-number-sense-divisibility-rules-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The digit sum is 25, which is not a multiple of 9."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

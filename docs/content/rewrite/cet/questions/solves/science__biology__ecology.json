@@ -1,0 +1,187 @@
+{
+  "file_id": "science__biology__ecology",
+  "source": "content/questions/science/biology/ecology.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-ecology-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A pond includes interacting living organisms and nonliving surroundings."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-ecology-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A biome groups ecosystems with similar climates and characteristic organisms."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-ecology-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Energy flows from grass to grasshopper to frog to hawk."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-ecology-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Grass is a producer at the first trophic level."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-ecology-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The fish eats primary consumers and is therefore a secondary consumer."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-ecology-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Eating plants and herbivores places the bird at different trophic levels."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-ecology-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Ten percent of 10,000 kilocalories is 1,000 kilocalories."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-ecology-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing 100 by 0.1 twice gives 10,000 kilocalories."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-ecology-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A food web connects multiple feeding paths."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-ecology-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "These transfers and reservoirs describe the carbon cycle."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-ecology-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Nitrogen fixation converts nitrogen gas into ammonia."
+    },
+    {
+      "n": 12,
+      "id": "q-biology-ecology-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Fixation supplies ammonia from otherwise inaccessible atmospheric nitrogen."
+    },
+    {
+      "n": 13,
+      "id": "q-biology-ecology-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Phosphorus is stored mainly in rocks, soils, and aquatic reservoirs."
+    },
+    {
+      "n": 14,
+      "id": "q-biology-ecology-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Both organisms benefit, making the interaction mutualism."
+    },
+    {
+      "n": 15,
+      "id": "q-biology-ecology-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The bird benefits while the tree is unaffected."
+    },
+    {
+      "n": 16,
+      "id": "q-biology-ecology-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The mosquito benefits by feeding while harming its host."
+    },
+    {
+      "n": 17,
+      "id": "q-biology-ecology-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The remora benefits while the measured net effect on the shark is neutral."
+    },
+    {
+      "n": 18,
+      "id": "q-biology-ecology-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Three successive ten-percent transfers reduce 100,000 to 100 kilocalories."
+    },
+    {
+      "n": 19,
+      "id": "q-biology-ecology-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Decomposers release nutrients from dead organic matter."
+    },
+    {
+      "n": 20,
+      "id": "q-biology-ecology-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Fixation produces ammonia, which nitrification converts through nitrite into nitrate."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

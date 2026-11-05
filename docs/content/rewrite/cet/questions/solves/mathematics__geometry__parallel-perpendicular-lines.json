@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__parallel-perpendicular-lines",
+  "source": "content/questions/mathematics/geometry/parallel-perpendicular-lines.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-parallel-perpendicular-lines-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Alternate interior angles are equal, so the other angle is 68 degrees."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-parallel-perpendicular-lines-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Same-side interior angles sum to 180 degrees, giving 65 degrees."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-parallel-perpendicular-lines-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Corresponding angles are equal, so 4x + 10 = 70 gives x = 15."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-parallel-perpendicular-lines-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A line perpendicular to one of two parallel lines is perpendicular to the other."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-parallel-perpendicular-lines-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Equating alternate exterior angles gives 2x = 36, so x = 18."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-parallel-perpendicular-lines-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The supplementary angles give x = 17 and angle measures of 104 and 76 degrees."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-parallel-perpendicular-lines-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The left-facing angle is the sum of the segment inclinations, so the lower inclination is 80 - 35 = 45 degrees."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-parallel-perpendicular-lines-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal corresponding angles require 3x + 25 = 5x - 15, giving x = 20."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-parallel-perpendicular-lines-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The alternate interior angle is 110 degrees, and its bisector gives 55 degrees."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-parallel-perpendicular-lines-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The supplementary angles give x = 16, yielding 130 and 50 degrees."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-parallel-perpendicular-lines-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Consecutive angles sum to 180 degrees, giving x = 20 and an acute angle of 70 degrees."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-parallel-perpendicular-lines-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The acute intersection angle is 75 - 40 = 35 degrees, so the obtuse angle is 145 degrees."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-parallel-perpendicular-lines-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The ray makes an angle of 90 - 32 = 58 degrees with either parallel line."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-parallel-perpendicular-lines-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Corresponding angles give x = 20 and an acute angle of 75 degrees, so half the adjacent obtuse angle is 52.5 degrees."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-parallel-perpendicular-lines-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The two leftward rays lie on opposite sides of the horizontal through P, giving 50 + 65 = 115 degrees."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-parallel-perpendicular-lines-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Corresponding angles occupy the same corner at the two crossings."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-parallel-perpendicular-lines-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The appearance of a sketch does not establish the parallelism needed for equal corresponding angles."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-parallel-perpendicular-lines-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal supplementary angles each measure 90 degrees."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-parallel-perpendicular-lines-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Same-side interior angles across parallel lines must sum to 180 degrees."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-parallel-perpendicular-lines-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Both alternate interior angles equal 70 degrees, so their equality implies parallel lines."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

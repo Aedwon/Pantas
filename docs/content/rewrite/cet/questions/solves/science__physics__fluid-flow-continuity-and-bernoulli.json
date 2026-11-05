@@ -1,0 +1,43 @@
+{
+  "file_id": "science__physics__fluid-flow-continuity-and-bernoulli",
+  "source": "content/questions/science/physics/fluid-flow-continuity-and-bernoulli.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-fluid-mechanics-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Bernoulli’s equation gives lower static pressure at higher speed along the same horizontal streamline."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-fluid-mechanics-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Greater pressure below the wing produces a net upward pressure force."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-fluid-mechanics-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Pressure also depends on height and the conditions under which Bernoulli’s equation applies."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-fluid-mechanics-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The pressure drop is one-half times 1000 times (16 minus 4), or 6000 Pa."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

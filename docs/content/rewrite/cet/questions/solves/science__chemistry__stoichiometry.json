@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__stoichiometry",
+  "source": "content/questions/science/chemistry/stoichiometry.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-stoichiometry-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Hydrogen permits four reaction equivalents, while nitrogen permits five."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-stoichiometry-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Percent yield is 68 divided by 80 times 100, or 85%."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-stoichiometry-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing all mole amounts by three gives CH2O."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-stoichiometry-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The molecular mass is six times the empirical formula mass."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-stoichiometry-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Limiting amounts depend on the balanced equation coefficients."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-stoichiometry-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Percent yield is actual yield divided by theoretical yield times 100."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-stoichiometry-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The empirical and molecular formulas can represent the same compound."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-stoichiometry-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing every amount by two gives the correct ratio 2:4:1."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-stoichiometry-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Eight moles of chlorine consume 16/3 moles of aluminum, leaving 2/3 mole."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-stoichiometry-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The theoretical yield is 20 divided by 0.80, or 25 grams."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-stoichiometry-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Both formulas reduce to the carbon-to-hydrogen ratio 1:2."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-stoichiometry-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A molecular formula must be an integer multiple of its empirical formula."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-stoichiometry-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Nine moles of hydrogen produce six moles of ammonia."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-stoichiometry-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The stoichiometric maximum is the theoretical yield."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-stoichiometry-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Convert masses to moles and compare the product amounts each reactant permits."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-stoichiometry-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Retained solvent or impurities can inflate the measured product mass."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-stoichiometry-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying every ratio term by two gives 2:3:2."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-stoichiometry-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Crystalline sodium chloride forms an extended ionic lattice."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-stoichiometry-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The excess reactant remains after the limiting reactant is consumed."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-stoichiometry-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "C4H8 contains four CH2 units, giving 4 times 14 or 56 g/mol."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

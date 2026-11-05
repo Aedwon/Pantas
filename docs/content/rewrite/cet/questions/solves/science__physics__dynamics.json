@@ -1,0 +1,133 @@
+{
+  "file_id": "science__physics__dynamics",
+  "source": "content/questions/science/physics/dynamics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-dynamics-0001",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Acceleration is 20/5 = 4 m/s²."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-dynamics-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Net force is 8 × 3 = 24 N."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-dynamics-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mass is 50/2 = 25 kg."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-dynamics-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Newton’s First Law states that zero net external force preserves constant velocity."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-dynamics-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Newton’s Third Law describes equal and opposite interaction forces."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-dynamics-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The book and table exert equal and opposite contact forces on each other."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-dynamics-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Third-law partners act on different objects, whereas both listed forces act on the book."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-dynamics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Since a = F/m, doubling mass at fixed net force halves acceleration."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-dynamics-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Upward acceleration requires N − mg = ma > 0."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-dynamics-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Weight equals mass times gravitational acceleration."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-dynamics-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Acceleration is (50 − 20)/10 = 3 m/s²."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-dynamics-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Gravity acts downward and the table’s normal force acts upward, with no friction required."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-dynamics-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Balanced forces act on one object, while third-law partners act on different objects."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-dynamics-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A swimmer’s free-body diagram includes only forces acting on the swimmer."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__atomic-structure",
+  "source": "content/questions/science/chemistry/atomic-structure.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-atomic-structure-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The neutron count is 35 minus 17, or 18."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-atomic-structure-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The mass number is 11 plus 12, or 23."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-atomic-structure-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Equal proton counts and different neutron counts identify isotopes of one element."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-atomic-structure-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Gaining three electrons gives the initially neutral atom a charge of 3−."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-atomic-structure-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Twelve protons and a charge of 2+ imply ten electrons."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-atomic-structure-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "One more electron than proton gives a charge of 1−."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-atomic-structure-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Losing electrons produces a positively charged cation."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-atomic-structure-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ammonium contains multiple atoms and has a positive charge."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-atomic-structure-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Standard atomic weight reflects the masses and relative abundances of isotopes."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-atomic-structure-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Losing a proton changes atomic number and therefore changes the element."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-atomic-structure-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "An ion has unequal proton and electron counts, but its unspecified charge leaves the electron count undetermined."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-atomic-structure-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The first nuclide has 18 minus 8, or ten neutrons, and is a different isotope of the same element."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-atomic-structure-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A charge of 3+ with 26 protons implies 23 electrons."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-atomic-structure-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Each neutral hydrogen isotope has one electron to balance its one proton."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-atomic-structure-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Electron loss changes neither proton count nor total nucleon count."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-atomic-structure-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A neutron has zero electric charge."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-atomic-structure-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Nuclear protons and neutrons each have much greater mass than electrons."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-atomic-structure-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "An orbital describes a quantum state rather than a fixed electron trajectory."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-atomic-structure-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Electron count equals atomic number minus the signed ionic charge."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-atomic-structure-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding a neutron increases mass number without changing net charge."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

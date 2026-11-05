@@ -1,0 +1,187 @@
+{
+  "file_id": "science__physics__units-and-measurements",
+  "source": "content/questions/science/physics/units-and-measurements.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-units-and-measurements-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The meter is the SI base unit of length."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-units-and-measurements-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The kilogram is the SI base unit of mass."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-units-and-measurements-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The second is the SI base unit of time."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-units-and-measurements-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The mole is the SI base unit of amount of substance."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-units-and-measurements-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing 350 by 100 gives 3.5 meters."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-units-and-measurements-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing 5000 by 1000 gives 5 kilometers."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-units-and-measurements-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying 90 by 1000/3600 gives 25 meters per second."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-units-and-measurements-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying 15 by 3.6 gives 54 kilometers per hour."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-units-and-measurements-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Mass times acceleration has units kg m/s^2."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-units-and-measurements-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplication requires the reciprocal factor, with centimeters in the denominator."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-units-and-measurements-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The quotient is 0.5 kilometers per second, or 500 meters per second."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-units-and-measurements-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying 2 by 100 squared gives 20000 square centimeters."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-units-and-measurements-0013",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying 3 by 100 cubed gives 3000000 cubic centimeters."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-units-and-measurements-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Reciprocal units suggest an inverted ratio or conversion factor."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-units-and-measurements-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The ampere measures electric current."
+    },
+    {
+      "n": 16,
+      "id": "q-physics-units-and-measurements-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The candela, symbol cd, is the unit of luminous intensity."
+    },
+    {
+      "n": 17,
+      "id": "q-physics-units-and-measurements-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The kelvin is the SI base unit of thermodynamic temperature."
+    },
+    {
+      "n": 18,
+      "id": "q-physics-units-and-measurements-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A ratio of equal physical lengths equals one and preserves the length."
+    },
+    {
+      "n": 19,
+      "id": "q-physics-units-and-measurements-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying 0.025 by 1000 gives 25 millimeters."
+    },
+    {
+      "n": 20,
+      "id": "q-physics-units-and-measurements-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying 2 by 100 cubed and dividing by 1000 gives 2000 kg/m^3."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

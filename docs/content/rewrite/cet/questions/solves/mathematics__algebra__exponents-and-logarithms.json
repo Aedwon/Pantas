@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__algebra__exponents-and-logarithms",
+  "source": "content/questions/mathematics/algebra/exponents-and-logarithms.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-algebra-exponents-and-logarithms-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Adding the exponents gives x^8."
+    },
+    {
+      "n": 2,
+      "id": "q-algebra-exponents-and-logarithms-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting the exponents gives x^4."
+    },
+    {
+      "n": 3,
+      "id": "q-algebra-exponents-and-logarithms-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Multiplying the exponents gives x^6."
+    },
+    {
+      "n": 4,
+      "id": "q-algebra-exponents-and-logarithms-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The cube root of 8 is 2, whose reciprocal square is 1/4."
+    },
+    {
+      "n": 5,
+      "id": "q-algebra-exponents-and-logarithms-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The negative exponent gives the reciprocal of 2^3, or 1/8."
+    },
+    {
+      "n": 6,
+      "id": "q-algebra-exponents-and-logarithms-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 2^3 equals 8, log base 2 of 8 equals 3."
+    },
+    {
+      "n": 7,
+      "id": "q-algebra-exponents-and-logarithms-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 3^4 equals 81, the logarithm equals 4."
+    },
+    {
+      "n": 8,
+      "id": "q-algebra-exponents-and-logarithms-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The student multiplied exponents instead of adding them to obtain 7."
+    },
+    {
+      "n": 9,
+      "id": "q-algebra-exponents-and-logarithms-0009",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The student added exponents instead of multiplying them to obtain 6."
+    },
+    {
+      "n": 10,
+      "id": "q-algebra-exponents-and-logarithms-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Combining exponents gives x^(3+4-2)y^(2-1-3), or x^5/y^2."
+    },
+    {
+      "n": 11,
+      "id": "q-algebra-exponents-and-logarithms-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The power and product rules combine the expression into log(x^2y)."
+    },
+    {
+      "n": 12,
+      "id": "q-algebra-exponents-and-logarithms-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Expressing both sides as powers of 2 gives 4x-2=3x+3, so x=5."
+    },
+    {
+      "n": 13,
+      "id": "q-algebra-exponents-and-logarithms-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 12 equals 2^2 times 3, its logarithm equals 2a+b."
+    },
+    {
+      "n": 14,
+      "id": "q-algebra-exponents-and-logarithms-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The negative exponent denotes a reciprocal, giving 1/9 rather than -9."
+    },
+    {
+      "n": 15,
+      "id": "q-algebra-exponents-and-logarithms-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The fourth root of 16 is 2, and 2^3 equals 8."
+    },
+    {
+      "n": 16,
+      "id": "q-algebra-exponents-and-logarithms-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A real logarithm requires a positive base other than 1, which 0.5 satisfies."
+    },
+    {
+      "n": 17,
+      "id": "q-algebra-exponents-and-logarithms-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The product rule splits the logarithm of a product, not a sum."
+    },
+    {
+      "n": 18,
+      "id": "q-algebra-exponents-and-logarithms-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Each hour multiplies the initial population by another factor of 2."
+    },
+    {
+      "n": 19,
+      "id": "q-algebra-exponents-and-logarithms-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Since 3^3=27 and 4^3=64, the cube root of 50 lies between 3 and 4."
+    },
+    {
+      "n": 20,
+      "id": "q-algebra-exponents-and-logarithms-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Exponentiating gives x/5=100, so x=500."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

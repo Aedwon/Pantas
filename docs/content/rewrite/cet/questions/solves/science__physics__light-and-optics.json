@@ -1,0 +1,142 @@
+{
+  "file_id": "science__physics__light-and-optics",
+  "source": "content/questions/science/physics/light-and-optics.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-light-and-optics-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The reflection angle equals the incidence angle of 40 degrees."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-light-and-optics-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The angle from the normal is 90 minus 55, or 35 degrees."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-light-and-optics-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Incidence and reflection angles measured from the normal are equal."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-light-and-optics-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Bending as light crosses between air and water is refraction."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-light-and-optics-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Wavelength decreases from radio to visible light to X-rays to gamma rays."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-light-and-optics-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Red has the longest wavelength among visible colors."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-light-and-optics-0011",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Violet has a shorter wavelength and thus a higher frequency in vacuum."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-light-and-optics-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Reflection returns light to the incident medium while transmission crosses the boundary."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-light-and-optics-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Visible light occupies a narrow band of the electromagnetic spectrum."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-light-and-optics-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "All electromagnetic waves propagate at the same speed in vacuum."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-light-and-optics-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Normal incidence gives zero transmitted angle from the normal."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-light-and-optics-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Transmission from water into lower-index air bends light away from the normal."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-light-and-optics-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Frequency remains unchanged when light crosses a stationary boundary."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-light-and-optics-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Total internal reflection requires higher-to-lower index propagation above the critical angle."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-light-and-optics-0020",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Dividing speed by frequency gives a wavelength of 6.0 times 10 to the minus 7 meters."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

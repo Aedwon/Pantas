@@ -1,0 +1,142 @@
+{
+  "file_id": "science__physics__waves-and-sound",
+  "source": "content/questions/science/physics/waves-and-sound.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-physics-waves-and-sound-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Speed is frequency times wavelength: 5 × 2 = 10 m/s."
+    },
+    {
+      "n": 2,
+      "id": "q-physics-waves-and-sound-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Wavelength is speed divided by frequency: 340 / 170 = 2 m."
+    },
+    {
+      "n": 3,
+      "id": "q-physics-waves-and-sound-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Frequency is speed divided by wavelength: 300 / 5 = 60 Hz."
+    },
+    {
+      "n": 4,
+      "id": "q-physics-waves-and-sound-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Sound is a mechanical disturbance of a material medium."
+    },
+    {
+      "n": 5,
+      "id": "q-physics-waves-and-sound-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Electromagnetic waves can propagate through vacuum."
+    },
+    {
+      "n": 6,
+      "id": "q-physics-waves-and-sound-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Adjacent corresponding points in phase are separated by one wavelength."
+    },
+    {
+      "n": 7,
+      "id": "q-physics-waves-and-sound-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "A disturbance perpendicular to propagation is transverse."
+    },
+    {
+      "n": 8,
+      "id": "q-physics-waves-and-sound-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Oscillations parallel to propagation define a longitudinal wave."
+    },
+    {
+      "n": 9,
+      "id": "q-physics-waves-and-sound-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Ordinary sound requires a material medium and cannot cross a vacuum directly."
+    },
+    {
+      "n": 10,
+      "id": "q-physics-waves-and-sound-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Air oscillates parallel to sound propagation while the string oscillates perpendicular to propagation."
+    },
+    {
+      "n": 11,
+      "id": "q-physics-waves-and-sound-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Hertz measures frequency in cycles per second."
+    },
+    {
+      "n": 12,
+      "id": "q-physics-waves-and-sound-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Doubling amplitude multiplies power by 2 squared, or four."
+    },
+    {
+      "n": 13,
+      "id": "q-physics-waves-and-sound-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Sound speed depends on the medium and conditions such as temperature."
+    },
+    {
+      "n": 14,
+      "id": "q-physics-waves-and-sound-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "At fixed frequency, wavelength is proportional to speed and therefore halves."
+    },
+    {
+      "n": 15,
+      "id": "q-physics-waves-and-sound-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Light consists of oscillating fields while a string wave consists of oscillating matter."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

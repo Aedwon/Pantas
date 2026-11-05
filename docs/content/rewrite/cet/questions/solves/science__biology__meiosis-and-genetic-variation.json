@@ -1,0 +1,106 @@
+{
+  "file_id": "science__biology__meiosis-and-genetic-variation",
+  "source": "content/questions/science/biology/meiosis-and-genetic-variation.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-biology-cellular-reproduction-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Mitosis preserves chromosome-set number during skin repair."
+    },
+    {
+      "n": 2,
+      "id": "q-biology-cellular-reproduction-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Meiosis reduces diploid germ cells to haploid products."
+    },
+    {
+      "n": 3,
+      "id": "q-biology-cellular-reproduction-0003",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Two meiotic divisions produce four haploid nuclei with 23 chromosomes each."
+    },
+    {
+      "n": 4,
+      "id": "q-biology-cellular-reproduction-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Crossing over and independent assortment generate different genetic combinations."
+    },
+    {
+      "n": 5,
+      "id": "q-biology-cellular-reproduction-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Homologous chromosomes exchange segments during prophase I."
+    },
+    {
+      "n": 6,
+      "id": "q-biology-cellular-reproduction-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Haploid gametes allow fertilization to restore the diploid chromosome number."
+    },
+    {
+      "n": 7,
+      "id": "q-biology-cellular-reproduction-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The two gametes contribute 23 chromosomes each, totaling 46."
+    },
+    {
+      "n": 8,
+      "id": "q-biology-cellular-reproduction-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Meiosis I separates homologs and meiosis II separates sister chromatids."
+    },
+    {
+      "n": 9,
+      "id": "q-biology-cellular-reproduction-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Unequal cytokinesis concentrates cytoplasm in the ovum and leaves small polar bodies."
+    },
+    {
+      "n": 10,
+      "id": "q-biology-cellular-reproduction-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Independent orientation produces new combinations of maternal and paternal chromosomes."
+    },
+    {
+      "n": 11,
+      "id": "q-biology-cellular-reproduction-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Meiosis II separates sister chromatids without an intervening round of DNA replication."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

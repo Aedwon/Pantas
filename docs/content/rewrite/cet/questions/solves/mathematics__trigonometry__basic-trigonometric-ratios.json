@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__trigonometry__basic-trigonometric-ratios",
+  "source": "content/questions/mathematics/trigonometry/basic-trigonometric-ratios.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0001",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Sine is opposite over hypotenuse: 3/5."
+    },
+    {
+      "n": 2,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The opposite side is 10 sin 30° = 5."
+    },
+    {
+      "n": 3,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0003",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Cosecant is the reciprocal of sine: 5/3."
+    },
+    {
+      "n": 4,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The other leg is √(13² − 5²) = 12."
+    },
+    {
+      "n": 5,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The 3:4:5 side ratio scales by 4, giving an opposite leg of 12."
+    },
+    {
+      "n": 6,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Secant is the reciprocal of cosine: 13/5."
+    },
+    {
+      "n": 7,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Sine and cosine agree for complementary angles: sin 30° = cos 60°."
+    },
+    {
+      "n": 8,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Cosecant is 1/(√3/2) = 2√3/3."
+    },
+    {
+      "n": 9,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The adjacent leg ratio is √(13² − 5²)/13 = 12/13."
+    },
+    {
+      "n": 10,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Cosine of 60° is 1/2."
+    },
+    {
+      "n": 11,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The hypotenuse is 7/sin 45° = 7√2."
+    },
+    {
+      "n": 12,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Tangent is the reciprocal of cotangent: 3/4."
+    },
+    {
+      "n": 13,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The other leg is √(26² − 10²) = 24 and sine is 10/26 = 5/13."
+    },
+    {
+      "n": 14,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Choosing the other acute angle changes which leg is opposite."
+    },
+    {
+      "n": 15,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The adjacent leg is 20/(5/3) = 12."
+    },
+    {
+      "n": 16,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Tangent is opposite over adjacent: 5/12."
+    },
+    {
+      "n": 17,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Scaling both sides equally leaves their ratio unchanged."
+    },
+    {
+      "n": 18,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "An acute angle has sine between 0 and 1, so its cosecant exceeds 1."
+    },
+    {
+      "n": 19,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0019",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The adjacent leg touches the angle and is the side other than the hypotenuse."
+    },
+    {
+      "n": 20,
+      "id": "q-trigonometry-basic-trigonometric-ratios-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The hypotenuse is 9/0.6 = 15."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

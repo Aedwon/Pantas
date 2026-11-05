@@ -1,0 +1,16 @@
+{
+  "file_id": "reasoning__spatial-abstract-reasoning__figure-series",
+  "source": "content/questions/reasoning/spatial-abstract-reasoning/figure-series.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-spatial-abstract-reasoning-figure-series-0013",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Form and size alternate, edge lines increase by one, and the line rotates 90 degrees each step."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

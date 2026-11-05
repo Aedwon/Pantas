@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__algebra__functions-and-relations",
+  "source": "content/questions/mathematics/algebra/functions-and-relations.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-algebra-functions-and-relations-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Each input appears with exactly one output."
+    },
+    {
+      "n": 2,
+      "id": "q-algebra-functions-and-relations-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting 3x+2 from 3x+8 gives 6."
+    },
+    {
+      "n": 3,
+      "id": "q-algebra-functions-and-relations-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Substitution gives 8+6+1=15."
+    },
+    {
+      "n": 4,
+      "id": "q-algebra-functions-and-relations-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The denominator is zero when x=3."
+    },
+    {
+      "n": 5,
+      "id": "q-algebra-functions-and-relations-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The radicand requires x-2 to be nonnegative."
+    },
+    {
+      "n": 6,
+      "id": "q-algebra-functions-and-relations-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The inverse reverses the original function."
+    },
+    {
+      "n": 7,
+      "id": "q-algebra-functions-and-relations-0007",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Since g(2)=1, f(g(2))=3."
+    },
+    {
+      "n": 8,
+      "id": "q-algebra-functions-and-relations-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The output is twice the square of 2+3, which is 50."
+    },
+    {
+      "n": 9,
+      "id": "q-algebra-functions-and-relations-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving y=(2x-3)/5 for x gives (5y+3)/2."
+    },
+    {
+      "n": 10,
+      "id": "q-algebra-functions-and-relations-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A real square cannot be negative."
+    },
+    {
+      "n": 11,
+      "id": "q-algebra-functions-and-relations-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "A function assigns exactly one output to each input."
+    },
+    {
+      "n": 12,
+      "id": "q-algebra-functions-and-relations-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 3x-2=7 gives x=3."
+    },
+    {
+      "n": 13,
+      "id": "q-algebra-functions-and-relations-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The square root requires x>=-1 and the denominator excludes 2."
+    },
+    {
+      "n": 14,
+      "id": "q-algebra-functions-and-relations-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Input 3 would have the distinct outputs 1 and 2."
+    },
+    {
+      "n": 15,
+      "id": "q-algebra-functions-and-relations-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Substitution gives 9-6=3."
+    },
+    {
+      "n": 16,
+      "id": "q-algebra-functions-and-relations-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The distinct output values are 4 and 9."
+    },
+    {
+      "n": 17,
+      "id": "q-algebra-functions-and-relations-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Distinct inputs must have distinct outputs for the inverse to be a function."
+    },
+    {
+      "n": 18,
+      "id": "q-algebra-functions-and-relations-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The composition is sqrt(x-4), requiring x>=4."
+    },
+    {
+      "n": 19,
+      "id": "q-algebra-functions-and-relations-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Inverse identities must hold for every allowed input."
+    },
+    {
+      "n": 20,
+      "id": "q-algebra-functions-and-relations-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Applying the discount before the fee gives c(d(p))."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

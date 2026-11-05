@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__circles",
+  "source": "content/questions/mathematics/geometry/circles.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-circles-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An inscribed angle is half the intercepted arc: 84/2 = 42 degrees."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-circles-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The radius is 7 cm, so the area is 49π square centimeters."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-circles-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The angle opposite the diameter is 90 degrees, leaving 55 degrees at B."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-circles-0004",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The area gives radius 6 cm, so the circumference is 12π cm."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-circles-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The tangent is perpendicular to the radius, so PT = √(13² − 5²) = 12 cm."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-circles-0006",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The arc length is (60/360)(2π)(12) = 4π cm."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-circles-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The sector area is (90/360)π(8²) = 16π square centimeters."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-circles-0008",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Opposite angles sum to 180 degrees, giving x = 20 and angle C = 80 degrees."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-circles-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The interior angle is half the sum of its intercepted arcs: (70 + 50)/2 = 60 degrees."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-circles-0010",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The exterior angle is half the arc difference: (110 − 40)/2 = 35 degrees."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-circles-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The chord lies 5 cm from the center, so its length is 2√(13² − 5²) = 24 cm."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-circles-0012",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The tangent length satisfies PT² = PA × PB = 4 × 9 = 36."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-circles-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The square has diagonal 12 cm and area 72 square centimeters, leaving 36π − 72."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-circles-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Solving 5x − 10 = 2(2x + 10) gives x = 30 and a central angle of 140 degrees."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-circles-0015",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "OP bisects the tangent angle, so sin 30 degrees = 9/OP and OP = 18 cm."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-circles-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A chord cannot exceed the diameter, so 12 ≤ 2r and r ≥ 6 cm."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-circles-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "A diameter of 10 cm gives radius 5 cm and area 25π square centimeters."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-circles-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Area scales with the square of the radius, so doubling the radius multiplies area by four."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-circles-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The central angle is 3π/9 = π/3 radians, or 60 degrees."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-circles-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The arc is (72/360)(20π) = 4π cm, and the two radii add 20 cm."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

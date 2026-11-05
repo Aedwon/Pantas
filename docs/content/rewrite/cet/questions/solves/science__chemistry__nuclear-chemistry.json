@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__nuclear-chemistry",
+  "source": "content/questions/science/chemistry/nuclear-chemistry.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-nuclear-chemistry-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "An alpha particle contains two protons and two neutrons."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-nuclear-chemistry-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Beta-minus decay converts a neutron into a proton while emitting an electron and an antineutrino."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-nuclear-chemistry-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Gamma decay releases nuclear excitation energy as a photon without changing A or Z."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-nuclear-chemistry-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Alpha emission gives Z = 88 − 2 = 86 and A = 226 − 4 = 222."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-nuclear-chemistry-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Beta-minus emission raises Z to 16 while A remains 32."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-nuclear-chemistry-0006",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Splitting a heavy nucleus into smaller nuclei is fission."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-nuclear-chemistry-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The net combination of hydrogen nuclei into helium is fusion."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-nuclear-chemistry-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "An emitted alpha particle removes four nucleons as well as two protons."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-nuclear-chemistry-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Neutrons released by fission can initiate additional fissions."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-nuclear-chemistry-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Unchanged proton count means the element remains the same."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-nuclear-chemistry-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Dense shielding attenuates gamma radiation without guaranteeing complete absorption."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-nuclear-chemistry-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The usual introductory penetration order is alpha, then beta, then gamma."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-nuclear-chemistry-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Two alpha emissions give Z = 90 − 4 = 86 and A = 230 − 8 = 222."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-nuclear-chemistry-0014",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The energy comparison depends on the particular reactions and whether energy is measured per event or per mass."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-nuclear-chemistry-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Atomic number is the proton count that defines an element."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-nuclear-chemistry-0016",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Positron emission converts a proton into a neutron, preserving A and lowering Z by one."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-nuclear-chemistry-0017",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Electron capture consumes an electron, whereas positron emission releases a positron."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-nuclear-chemistry-0018",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Alpha emitters inside the body can deposit ionizing energy directly in tissue."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-nuclear-chemistry-0019",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Alpha decay changes A by −4 and Z by −2, then beta-minus decay raises Z by one."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-nuclear-chemistry-0020",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Ordinary chemical reactions rearrange electrons while preserving nuclear proton and neutron counts."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

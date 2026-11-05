@@ -1,0 +1,187 @@
+{
+  "file_id": "science__chemistry__periodic-table",
+  "source": "content/questions/science/chemistry/periodic-table.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-chemistry-periodic-table-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The properties and position characterize a metal."
+    },
+    {
+      "n": 2,
+      "id": "q-chemistry-periodic-table-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Poor conductivity and electron gain characterize a nonmetal."
+    },
+    {
+      "n": 3,
+      "id": "q-chemistry-periodic-table-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Semiconducting elements along the staircase are metalloids."
+    },
+    {
+      "n": 4,
+      "id": "q-chemistry-periodic-table-0004",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Main-group elements in a group have similar valence configurations."
+    },
+    {
+      "n": 5,
+      "id": "q-chemistry-periodic-table-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Covalent radius decreases across period 3 from sodium to chlorine."
+    },
+    {
+      "n": 6,
+      "id": "q-chemistry-periodic-table-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Lithium holds its outer electron more strongly than potassium."
+    },
+    {
+      "n": 7,
+      "id": "q-chemistry-periodic-table-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Covalent radius increases down group 17."
+    },
+    {
+      "n": 8,
+      "id": "q-chemistry-periodic-table-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Oxygen is more electronegative than sulfur."
+    },
+    {
+      "n": 9,
+      "id": "q-chemistry-periodic-table-0009",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Nitrogen has a higher first ionization energy than carbon."
+    },
+    {
+      "n": 10,
+      "id": "q-chemistry-periodic-table-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Atomic radius generally increases down groups and toward the left."
+    },
+    {
+      "n": 11,
+      "id": "q-chemistry-periodic-table-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Ionization energy and electronegativity generally increase upward and rightward."
+    },
+    {
+      "n": 12,
+      "id": "q-chemistry-periodic-table-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Moving down generally increases radius while moving right generally decreases it."
+    },
+    {
+      "n": 13,
+      "id": "q-chemistry-periodic-table-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Metalloids share some characteristics but differ in individual properties."
+    },
+    {
+      "n": 14,
+      "id": "q-chemistry-periodic-table-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A more negative electron affinity denotes greater energy release under the stated convention."
+    },
+    {
+      "n": 15,
+      "id": "q-chemistry-periodic-table-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Chlorine is smaller than magnesium and calcium is larger than magnesium."
+    },
+    {
+      "n": 16,
+      "id": "q-chemistry-periodic-table-0016",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The modern periodic table orders elements by atomic number."
+    },
+    {
+      "n": 17,
+      "id": "q-chemistry-periodic-table-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Electron affinity describes electron addition to an isolated gaseous atom."
+    },
+    {
+      "n": 18,
+      "id": "q-chemistry-periodic-table-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Helium has two valence electrons in its filled first shell."
+    },
+    {
+      "n": 19,
+      "id": "q-chemistry-periodic-table-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Measured values and subshell structure determine rankings when broad trends have exceptions."
+    },
+    {
+      "n": 20,
+      "id": "q-chemistry-periodic-table-0020",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The supplied classification establishes the convention for the exam."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

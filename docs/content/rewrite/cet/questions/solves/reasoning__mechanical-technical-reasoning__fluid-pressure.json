@@ -1,0 +1,187 @@
+{
+  "file_id": "reasoning__mechanical-technical-reasoning__fluid-pressure",
+  "source": "content/questions/reasoning/mechanical-technical-reasoning/fluid-pressure.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0001",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "low",
+      "note": "Point depths are missing, so B has greater pressure only if it is deeper than A."
+    },
+    {
+      "n": 2,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0002",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0005",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0006",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "low",
+      "note": "Point elevations are missing, so this ranking assumes X, Y, and Z are successively deeper."
+    },
+    {
+      "n": 7,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0007",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0010",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 11,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0011",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 12,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0012",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 13,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 14,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0014",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 15,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0015",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 16,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 17,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0017",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 18,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0018",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 19,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "n": 20,
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "unknown_answer_numbers": []
+}
