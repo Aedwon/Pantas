@@ -1,7 +1,7 @@
 import type {Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
 
-export type QuestionRef = {id: string; setId: string; topicId: string; passageId: string | null};
+export type QuestionRef = {id: string; setId: string; topicId: string; lessonId: string | null; passageId: string | null};
 export type LessonRef = {id: string; topicId: string; ordering: number};
 export type ExamContent = {
   topics: {id: string; name: string}[];
@@ -33,7 +33,7 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
   const questions: QuestionRef[] = [];
   const topicSlugs = new Set<string>();
   for (const doc of (await db.collection('content/questions/items').get()).docs) {
-    let set: {meta?: {topic?: string; exams?: string[]}; questions?: {id: string; passage?: unknown}[]};
+    let set: {meta?: {topic?: string; subtopic?: string; exams?: string[]}; questions?: {id: string; passage?: unknown; isActive?: boolean; figure?: unknown; figureSpec?: unknown}[]};
     try {
       set = JSON.parse(String(doc.get('payload')));
     } catch {
@@ -43,7 +43,9 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
     if (typeof topic !== 'string' || !set.meta?.exams?.includes(slug)) continue;
     topicSlugs.add(topic);
     for (const question of set.questions ?? []) {
+      if (question.isActive === false || question.figure != null && String(question.figure).trim() !== '' && question.figureSpec == null) continue;
       questions.push({id: question.id, setId: doc.id, topicId: topicIdFor(examId, topic),
+        lessonId: typeof set.meta.subtopic === 'string' ? `lesson-${topic}-${set.meta.subtopic}` : null,
         passageId: typeof question.passage === 'string' ? question.passage : null});
     }
   }
@@ -81,7 +83,7 @@ type CatalogSubject = {_id: string; name: string; ordering?: number; exam?: Cata
 type CatalogTopic = {_id: string; name: string; subject: CatalogReference; ordering?: number};
 type CatalogLesson = {id: string; topic: CatalogReference; title: string; ordering?: number; prerequisites?: {lesson: string; strength: 'required' | 'helpful'}[]};
 type CatalogSet = {id: string; topic: CatalogReference; lesson?: CatalogReference | null; exams: string[];
-  questions: {id: string; passage?: CatalogReference | null}[]};
+  questions: {id: string; passage?: CatalogReference | null; isActive?: boolean}[]};
 type CatalogDocument = {subjects?: CatalogSubject[]; topics?: CatalogTopic[]; lessons?: CatalogLesson[];
   sets?: CatalogSet[]; parts?: string[]; catalogs?: string[]};
 /**
@@ -134,8 +136,7 @@ export async function loadStudyContent(db: Firestore, examId: string,
     for(const doc of docs)for(const lesson of doc.lessons ?? [])if(requestedTopics.has(refId(lesson.topic)))allLessons.set(lesson.id,lesson);
   };
   collect(selected);
-  // The authored subject names the owning catalog. Question-linked lessons
-  // alone are not the topic inventory: lessons without questions still count.
+  // Load owning catalogs before validating authored lesson relationships.
   const owners = new Set([...requestedTopics].map(id => {
     const topic = allTopics.get(id);
     return topic ? refId(allSubjects.get(refId(topic.subject))?.exam) : '';
@@ -163,10 +164,33 @@ export async function loadStudyContent(db: Firestore, examId: string,
   const topics=[...requestedTopics].map(id=>allTopics.get(id)!).map(t=>({id:t._id,name:t.name,subjectId:refId(t.subject),ordering:t.ordering??0}))
     .sort((a,b)=>(subjectOrder.get(a.subjectId)!-subjectOrder.get(b.subjectId)!)||a.ordering-b.ordering||a.id.localeCompare(b.id));
   const lessons=[...allLessons.values()].map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0,prerequisites:l.prerequisites??[]})).sort((a,b)=>a.ordering-b.ordering||a.id.localeCompare(b.id));
-  const questions=sets.flatMap(s=>s.questions.map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
+  const questions=sets.flatMap(s=>s.questions.filter(q=>q.isActive!==false).map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
     lessonId:s.lesson==null?null:refId(s.lesson),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');
-  return {revision:versions.sort().join('|'),subjects,topics,lessons,questions};
+  const content = scopeLessonContent({revision:versions.sort().join('|') + ':exam-lessons-v1',subjects,topics,lessons,questions});
+  const keptSubjects = new Set(content.topics.map(t => t.subjectId));
+  return {...content, subjects: content.subjects.filter(s => keptSubjects.has(s.id))};
+}
+
+/** One listing and planning rule: an active exam question must link to the lesson. */
+export function scopeLessonContent<T extends {
+  topics: {id: string}[];
+  lessons: {id: string; topicId: string}[];
+  questions: {topicId: string; lessonId: string | null}[];
+}>(content: T, excludedTopics: string[] = [], excludedLessons: string[] = []): T {
+  const questions = content.questions.filter(q => !excludedTopics.includes(q.topicId) &&
+    (q.lessonId === null || !excludedLessons.includes(q.lessonId)));
+  const linked = new Map<string, Set<string>>();
+  for (const q of questions) {
+    if (q.lessonId === null) continue;
+    if (!linked.has(q.topicId)) linked.set(q.topicId, new Set());
+    linked.get(q.topicId)!.add(q.lessonId);
+  }
+  const lessons = content.lessons.filter(l => !excludedTopics.includes(l.topicId) &&
+    !excludedLessons.includes(l.id) && linked.get(l.topicId)?.has(l.id));
+  const topics = new Set(lessons.map(l => l.topicId));
+  return {...content, lessons, topics: content.topics.filter(t => topics.has(t.id)),
+    questions};
 }
 
 let gapCache: {at: number; value: Record<string, string>} | undefined;

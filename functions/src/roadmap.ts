@@ -4,7 +4,7 @@ import {FieldPath, getFirestore, type Firestore} from 'firebase-admin/firestore'
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
-import {loadExamContent, loadStudyContent, loadGapTags} from './_examContent.js';
+import {loadExamContent, loadStudyContent, loadGapTags, scopeLessonContent} from './_examContent.js';
 import {phDay, phStamp} from './_phDate.js';
 import {hasLiveProClaim} from './_pro.js';
 import {examCatalog} from './revenuecatPasses.js';
@@ -94,27 +94,11 @@ const examKey = (settings: ExamSettings) => `${settings.examId}|${JSON.stringify
  */
 export async function build(db: Firestore, uid: string, settings: ExamSettings, pro: boolean, now: number,
   view?: (topicOf: Map<string, string>) => Promise<AnswerView>) {
-  const legacy = await loadExamContent(db, settings.examId, now);
-  // Keep the compatibility reader. Authored links only identify excluded work.
-  const needsAuthoredLinks = settings.excludedLessonIds?.length ||
-    settings.excludedTopicIds?.some(id => !legacy.topics.some(t => t.id === id));
-  const scope = needsAuthoredLinks ? await loadStudyContent(db, settings.examId) : null;
-  const links = new Map(scope?.questions.map(q => [q.id, q]) ?? []);
-  const lessonLinks = new Map(scope?.lessons.map(l => [l.id, l]) ?? []);
-  const lessons = legacy.lessons.filter(l =>
-    !settings.excludedTopicIds?.includes(l.topicId) &&
-    !settings.excludedTopicIds?.includes(lessonLinks.get(l.id)?.topicId ?? l.topicId) &&
-    !settings.excludedLessonIds?.includes(l.id));
-  const questions = legacy.questions.filter(q =>
-    !settings.excludedTopicIds?.includes(q.topicId) &&
-    !settings.excludedTopicIds?.includes(links.get(q.id)?.topicId ?? q.topicId) &&
-    !settings.excludedLessonIds?.includes(links.get(q.id)?.lessonId ?? ''))
-    .map(q => ({...q, lessonId: links.get(q.id)?.lessonId ?? null}));
-  const content = {topics: legacy.topics.filter(t =>
-    !settings.excludedTopicIds?.includes(t.id) &&
-    (questions.some(q => q.topicId === t.id) || lessons.some(l => l.topicId === t.id) ||
-      !legacy.questions.some(q => q.topicId === t.id) && !legacy.lessons.some(l => l.topicId === t.id))),
-    lessons, questions};
+  const catalog = await db.doc('content/catalog/items/' + settings.examId).get();
+  const source = catalog.exists
+    ? await loadStudyContent(db, settings.examId)
+    : await loadExamContent(db, settings.examId, now);
+  const content = scopeLessonContent(source, settings.excludedTopicIds, settings.excludedLessonIds);
   const topicOf = new Map(content.questions.map(question => [question.id, question.topicId]));
   // One read of the running totals. `view` lets a test supply the old full scan to compare against.
   const answers = await (view ? view(topicOf) : loadTotals(db, uid).then(totals => viewOf(totals, topicOf)));
@@ -282,12 +266,8 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     tx.get(db.doc('content/mocks/items/' + examId)),
     tx.get(studyHistory(db, uid).where('examId', '==', examId).where('occurredAt', '>=', dayStart(phDay(now))).where('occurredAt', '<', dayStart(phDay(now)) + DAY_MS)),
   ]);
-  const excluded = new Set(config.excludedTopicIds ?? []);
   const excludedLessons = new Set(config.excludedLessonIds ?? []);
-  const includedTopics = new Set(allContent.topics.filter(t => !excluded.has(t.id)).map(t => t.id));
-  const content = {...allContent,topics:allContent.topics.filter(t => includedTopics.has(t.id)),
-    lessons:allContent.lessons.filter(l => includedTopics.has(l.topicId) && !excludedLessons.has(l.id)),
-    questions:allContent.questions.filter(q => includedTopics.has(q.topicId) && (q.lessonId === null || !excludedLessons.has(q.lessonId)))};
+  const content = scopeLessonContent(allContent, config.excludedTopicIds, config.excludedLessonIds);
   const totals = await totalsIn(tx, db, uid, totalDoc), topicOf = new Map(content.questions.map(q => [q.id, q.topicId]));
   const answerView = viewOf(totals, topicOf), today = phDay(now);
   const sameDay = previousDays.docs.find(d => d.get('day') === today);

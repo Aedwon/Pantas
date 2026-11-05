@@ -262,20 +262,20 @@ test('Free can advance completed Today without paid future payloads',async()=>{
 });
 
 
-test('paid topic details include every authored lesson and actual read states, including cached and expired reads',async()=>{
+test('paid topic details include eligible lessons and actual read states, including cached and expired reads',async()=>{
  const uid='w4b-topic-reads';const {lessons}=await seed(uid);await trial(uid);
  const {writeLessonRead}=await import('../lib/studyObservations.js');
  const first=await readStudyInsights(auth(uid),body(uid),deps());
  assert.equal(first.performance.topicDetails.length,2);
- assert.equal(first.performance.topicDetails[0].lessons.length,6);
+ assert.equal(first.performance.topicDetails[0].lessons.length,1);
  assert.equal(first.performance.topicDetails[0].lessons.every(l=>l.read===false),true);
  await writeLessonRead(auth(uid),{expectedUid:uid,lessonId:lessons[0].id,readAt:NOW-1000},deps());
  const result=await readStudyInsights(auth(uid),body(uid),deps());
  const topic=result.performance.topicDetails[0];
  assert.equal(topic.id,'topic-cse-alpha');assert.equal(topic.title,'Authored Alpha');
  assert.equal(topic.subject,'Authored Subject');assert.equal(topic.answered,0);
- assert.deepEqual(topic.lessons.map(l=>l.read),[true,false,false,false,false,false]);
- assert.deepEqual(topic.lessons.map(l=>l.id),lessons.slice(0,6).map(l=>l.id));
+ assert.deepEqual(topic.lessons.map(l=>l.read),[true]);
+ assert.deepEqual(topic.lessons.map(l=>l.id),[lessons[0].id]);
  assert.deepEqual((await readStudyInsights(auth(uid),body(uid),deps())).performance.topicDetails,result.performance.topicDetails);
  await db.doc('users/'+uid+'/grants/trial').update({endsAt:NOW});
  const free=await readStudyInsights(auth(uid),body(uid),deps());
@@ -283,7 +283,7 @@ test('paid topic details include every authored lesson and actual read states, i
 });
 
 
-test('topic detail resolves all shared-topic lessons even when selected sets already resolve their lesson',async()=>{
+test('topic detail keeps only eligible shared-topic lessons',async()=>{
  const uid='w4b-shared-topic-reads';await seed(uid);await trial(uid);
  const ref=db.doc('content/catalog/items/'+EXAM),catalog=JSON.parse((await ref.get()).get('payload'));
  const allLessons=catalog.lessons;
@@ -294,8 +294,8 @@ test('topic detail resolves all shared-topic lessons even when selected sets alr
  await db.doc('content/catalog/items/exam_upcat').set({version:'shared-owner-v1',payload:JSON.stringify({lessons:allLessons})});
  try {
   const result=await readStudyInsights(auth(uid),body(uid),deps());
-  assert.equal(result.performance.topicDetails[0].lessons.length,6);
-  assert.equal(result.performance.topicDetails[1].lessons.length,6);
+  assert.equal(result.performance.topicDetails[0].lessons.length,1);
+  assert.equal(result.performance.topicDetails[1].lessons.length,1);
  } finally {
   await db.doc('content/catalog/items/index').delete();
   await db.doc('content/catalog/items/exam_upcat').delete();
