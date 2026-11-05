@@ -434,6 +434,30 @@ void main() {
       expect(await uploaded(), isNotNull);
     });
 
+    test('a final listener error releases a deferred flush', () async {
+      await leaveBoundEdit();
+      await device.run();
+      await device.engine.forceFlush();
+
+      for (final entry in activeSyncCollections) {
+        if (entry.tableType != 'question_flags') {
+          cloud.deliver(_path(entry.firestorePath));
+        }
+      }
+      await device.settled();
+      expect(await uploaded(), isNull);
+
+      cloud.fail(_path('question_flags'));
+      await device.settled();
+
+      expect(await uploaded(), isNotNull);
+      expect(await device.db.select(device.db.pendingSync).get(), isEmpty);
+      expect(
+        await LessonBookmarksRepository(device.db).isMarked('lesson-1'),
+        isTrue,
+      );
+    });
+
     test('a stopped engine does not upload', () async {
       await leaveBoundEdit();
       await device.run();

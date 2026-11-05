@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:drift/drift.dart' show Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
@@ -10,6 +11,9 @@ import 'package:pantas/core/sync/engine/sync_outbox_promoter.dart';
 import 'package:pantas/core/sync/engine/sync_payload_loader.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
+import 'package:pantas/core/sync/runtime/sync_online_stub.dart'
+    if (dart.library.js_interop) 'package:pantas/core/sync/runtime/sync_online_web.dart'
+    as browser;
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 
 class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
@@ -19,13 +23,15 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     required SyncActiveContextStore activeContextStore,
     required String deviceId,
     Future<bool> Function()? recoverCustomTrackProjection,
+    Stream<void> Function()? onlineEvents,
     Duration localMutationDebounce = const Duration(seconds: 5),
   })  : _db = db,
         _gateway = gateway,
         _activeContextStore = activeContextStore,
         _deviceId = deviceId,
         _recoverCustomTrackProjection = recoverCustomTrackProjection,
-        _localMutationDebounce = localMutationDebounce;
+        _localMutationDebounce = localMutationDebounce,
+        _onlineEvents = onlineEvents ?? browser.onlineEvents;
 
   final AppDatabase _db;
   final FirestoreGateway _gateway;
@@ -33,6 +39,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   final String _deviceId;
   final Future<bool> Function()? _recoverCustomTrackProjection;
   final Duration _localMutationDebounce;
+  final Stream<void> Function() _onlineEvents;
 
   final _events = StreamController<SyncRuntimeEvent>.broadcast();
   final _remoteSubscriptions = <StreamSubscription<List<SyncDocument>>>[];
@@ -41,7 +48,14 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   // runtime-lived.
   // ignore: cancel_subscriptions
   StreamSubscription<Object?>? _localMutationSubscription;
+  // Canceled explicitly by stop(), just like the remote subscriptions.
+  // ignore: cancel_subscriptions
+  StreamSubscription<void>? _onlineSubscription;
   Timer? _localMutationTimer;
+  Timer? _retryTimer;
+  Duration _retryDelay = const Duration(seconds: 1);
+  bool _awaitingFirstSnapshots = false;
+  bool _flushWhenSettled = false;
   Future<void> _serialTail = Future<void>.value();
 
   PushPipeline? _push;
@@ -111,6 +125,8 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     _promoter = promoter;
     _running = true;
     final token = ++_runToken;
+    _awaitingFirstSnapshots = true;
+    _flushWhenSettled = false;
 
     // Work promoted above reached the outbox before the journal watch below
     // exists, so nothing else would send it. It goes once every first snapshot
@@ -120,10 +136,11 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       for (final entry in activeSyncCollections)
         'users/$uid/sync_generations/$generationId/${entry.firestorePath}',
     };
-    var flushWhenSettled = false;
     void firstSnapshotSettled(String path) {
+      if (!_isCurrent(token, uid, generationId)) return;
       if (awaitingFirstSnapshot.remove(path) && awaitingFirstSnapshot.isEmpty) {
-        if (flushWhenSettled && _isCurrent(token, uid, generationId)) {
+        _awaitingFirstSnapshots = false;
+        if (_flushWhenSettled && _isCurrent(token, uid, generationId)) {
           unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
           return;
         }
@@ -158,12 +175,16 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
                   await _recoverCustomTrackProjection?.call();
                 }
                 if (reconnecting && _isCurrent(token, uid, generationId)) {
-                  await _flushComponents(
-                    uid: uid,
-                    generationId: generationId,
-                    promoter: promoter,
-                    push: push,
-                  );
+                  if (_awaitingFirstSnapshots) {
+                    _flushWhenSettled = true;
+                  } else {
+                    await _flushComponents(
+                      uid: uid,
+                      generationId: generationId,
+                      promoter: promoter,
+                      push: push,
+                    );
+                  }
                 }
                 if (_isCurrent(token, uid, generationId)) {
                   _emitCurrentOutcome();
@@ -189,6 +210,11 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       _remoteSubscriptions.add(subscription);
     }
 
+    _onlineSubscription = _onlineEvents().listen((_) {
+      if (!_isCurrent(token, uid, generationId)) return;
+      unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
+    });
+
     // Raw rows: the recorder stores times as integers, which the table's typed
     // read cannot map, so a typed watch fails on the first real row.
     _localMutationSubscription = _db
@@ -212,7 +238,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
             _localMutationTimer = Timer(_localMutationDebounce, () {
               if (!_isCurrent(token, uid, generationId)) return;
               if (awaitingFirstSnapshot.isNotEmpty) {
-                flushWhenSettled = true;
+                _flushWhenSettled = true;
                 return;
               }
               unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
@@ -231,6 +257,16 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     _running = false;
     ++_runToken;
     _offlinePaths.clear();
+    _retryTimer?.cancel();
+    _retryTimer = null;
+    _retryDelay = const Duration(seconds: 1);
+    _awaitingFirstSnapshots = false;
+    _flushWhenSettled = false;
+    final onlineSubscription = _onlineSubscription;
+    _onlineSubscription = null;
+    if (onlineSubscription != null) {
+      await onlineSubscription.cancel();
+    }
     _localMutationTimer?.cancel();
     _localMutationTimer = null;
     final localSubscription = _localMutationSubscription;
@@ -259,11 +295,17 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       return Future<void>.value();
     }
 
+    if (_running && _awaitingFirstSnapshots) {
+      _flushWhenSettled = true;
+      return Future<void>.value();
+    }
+    final token = _runToken;
     final publishStatus = _running;
     if (publishStatus) {
       _emit(const SyncRuntimeActivity());
     }
     return _enqueue(() async {
+      if (publishStatus && !_isCurrent(token, uid, generationId)) return;
       try {
         await _flushComponents(
           uid: uid,
@@ -323,16 +365,59 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     required SyncOutboxPromoter promoter,
     required PushPipeline push,
   }) async {
-    if (_running) {
-      await promoter.promoteAvailable();
-    } else {
-      await promoter.promoteAvailableForContext(
-        uid: uid,
-        generationId: generationId,
-      );
+    final token = _runToken;
+    try {
+      if (_running) {
+        await promoter.promoteAvailable();
+      } else {
+        await promoter.promoteAvailableForContext(
+          uid: uid,
+          generationId: generationId,
+        );
+      }
+      await push.flush();
+      await _recoverCustomTrackProjection?.call();
+    } finally {
+      // Push records gateway failures on the outbox and may return normally.
+      // Retry only while this run still has work, never as an idle poller.
+      if (_isCurrent(token, uid, generationId)) {
+        final waiting = await PendingQueue(_db).drainGeneration(
+          uid: uid,
+          generationId: generationId,
+          limit: 1,
+        );
+        final journal = await _db.customSelect(
+          'select 1 from sync_local_mutations '
+          'where causal_uid = ? and causal_generation_id = ? '
+          "and causal_base_state in ('knownAbsent', 'knownVersion') limit 1",
+          variables: [Variable<String>(uid), Variable<String>(generationId)],
+        ).get();
+        if (_isCurrent(token, uid, generationId)) {
+          if (waiting.isNotEmpty || journal.isNotEmpty) {
+            _scheduleRetry(token: token, uid: uid, generationId: generationId);
+          } else {
+            _retryTimer?.cancel();
+            _retryTimer = null;
+            _retryDelay = const Duration(seconds: 1);
+          }
+        }
+      }
     }
-    await push.flush();
-    await _recoverCustomTrackProjection?.call();
+  }
+
+  void _scheduleRetry({
+    required int token,
+    required String uid,
+    required String generationId,
+  }) {
+    if (_retryTimer != null || _awaitingFirstSnapshots) return;
+    _retryTimer = Timer(_retryDelay, () {
+      _retryTimer = null;
+      if (!_isCurrent(token, uid, generationId)) return;
+      unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
+    });
+    final seconds = _retryDelay.inSeconds * 2;
+    _retryDelay = Duration(seconds: seconds > 30 ? 30 : seconds);
   }
 
   void _emitCurrentOutcome() {
